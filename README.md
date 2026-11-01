@@ -31,7 +31,7 @@ A **base route** holds a full protocol; each **branch** is a variant tested by t
 
 <!-- SITE:visual:end -->
 
-> **Data.** The `synthese.db` SQLite database is attached to the [v1.0](https://github.com/TerryChauvin/synthgraph-db/releases/tag/v1.0) release. This repository holds the JSON extractions, critiques, decision logs, audit reports, article texts (`corpus/`, under each article's own licence) and the code.
+> **Data.** The `synthese.db` SQLite database is attached to the [v1.0](https://github.com/TerryChauvin/synthgraph-db/releases/tag/V1.0) release. This repository holds the JSON extractions, critiques, decision logs, audit reports, article texts (`corpus/`, under each article's own licence) and the code.
 
 
 `synthese.db` (SQLite) gathers materials synthesis routes extracted from open access articles. **Every value carries the verbatim quotation from the article** that supports it and its position in the text, and what the article does not say is recorded. This document describes **version 1** of the database in the manner of a "Materials and Methods" section: where the articles come from, how they are turned into data, how the agent pipeline works, when an extraction is judged good, what the database contains, what it lacks, and the planned next step (v2).

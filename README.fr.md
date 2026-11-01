@@ -31,7 +31,7 @@ Une **voie de base** décrit un protocole complet ; chaque **branche** est une v
 
 <!-- SITE:visual:end -->
 
-> **Données.** La base `synthese.db` (SQLite) est jointe à la version publiée [v1.0](https://github.com/TerryChauvin/synthgraph-db/releases/tag/v1.0). Ce dépôt contient les extractions JSON, les critiques, les journaux de décision, les rapports d'audit, le texte des articles (`corpus/`, sous la licence de chaque article) et le code.
+> **Données.** La base `synthese.db` (SQLite) est jointe à la version publiée [v1.0](https://github.com/TerryChauvin/synthgraph-db/releases/tag/V1.0). Ce dépôt contient les extractions JSON, les critiques, les journaux de décision, les rapports d'audit, le texte des articles (`corpus/`, sous la licence de chaque article) et le code.
 
 
 `synthese.db` (SQLite) rassemble des voies de synthèse de matériaux extraites d'articles en accès libre. **Chaque valeur porte la citation mot pour mot de l'article** qui la fonde, sa position dans le texte, et ce que l'article ne dit pas est noté. Ce document décrit la **version 1** de la base, à la manière d'une section « Matériel et méthodes » : d'où viennent les articles, comment ils sont transformés en données, comment fonctionne le pipeline d'agents, quand une extraction est jugée bonne, ce que contient la base, ce qui lui manque, et la suite prévue (v2).
