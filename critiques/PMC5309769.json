@@ -1,0 +1,103 @@
+{
+  "pmcid": "PMC5309769",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "NC_small / NC_medium / NC_large outcomes (tableau supplémentaire 1, colonne « low pump fluence »)",
+      "extracted": "Seuls les temps à forte fluence (10, 18, 32 ps) sont repris ; le doute de l'extraction dit « aucun temps à faible fluence n'est lisible »",
+      "article_says": "~ 0.6 (m)",
+      "fix": "Lecture des colonnes du tableau supplémentaire 1 (une cellule par ligne) : pour « MAPbBr3 NCs (solution) », les quatre cellules d'une taille sont, dans l'ordre, temps pour atteindre 600 K à faible fluence (ps), densité de porteurs à faible fluence (×10^17 cm-3), temps à forte fluence (ps), densité à forte fluence (×10^18 cm-3) ; la cellule d'énergie d'excès (~0.7 eV, commune) n'apparaît pas dans l'extraction du PDF. Ajouter : NC_small 0.7 ps à 15×10^17 cm-3 ; NC_medium 0.6 ps à 2.6×10^17 cm-3 ; NC_large 0.5 ps à 1.4×10^17 cm-3 (citation = la rangée du tableau, une seule cellule ne suffit pas à porter la valeur : citer la cellule « ~ 0.7 (s) » etc.). Même chose pour les trois rangées « thin film » : 0.8 (s), 0.6 (m), 0.5 (l) ps à 15, 2.6, 1.4 ×10^17 cm-3. Preuves de la lecture : (i) les densités 2.6×10^17 et 6.5×10^18 sont celles de la légende de la Fig. 1 pour les NCs moyens ; (ii) 2,5/V_NC redonne 37.5, 6.5 et 3.5 ×10^18 pour des diamètres de 4,9, 8,9 et 11,6 nm ; (iii) le texte dit que Tc décroît plus vite quand la taille augmente à faible fluence, ce que donnent 0.7 > 0.6 > 0.5 ps ; (iv) une énergie d'excès de 0.5 eV pour les grands NCs est impossible avec la pompe à 3.1 eV (excès ≈ 0.7 eV, Fig. 4f).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "faux",
+      "where": "doubts : « NC_medium outcomes (hot_carrier_cooling_time_to_600K_high_fluence_solution) » et « NC_small, NC_medium, NC_large, NC_film (tableau supplémentaire 1) »",
+      "extracted": "« le tableau supplémentaire 1 donne ~0.6 eV pour les NCs moyens (~0.7 eV pour les petits) » ; « Pour les NCs, aucun temps à faible fluence n'est lisible »",
+      "article_says": "Our MAPbBr3 NCs compares very favourably with much longer lifetimes of 18 ps, excited with much lower excess energies of around 0.7 eV at comparable carrier densities of 6.5 × 1018 cm−3.",
+      "fix": "Le doute prend la première cellule « ~ 0.6 (m) » pour une énergie d'excès. Cette cellule est le temps à faible fluence (voir constat précédent) ; il n'y a donc pas de contradiction texte/tableau (0.7 eV d'excès dans le texte, cellule d'excès commune non extraite du PDF). Réécrire ou supprimer ces deux doutes, et les remplacer par : colonnes reconstituées d'après l'en-tête et les cohérences ci-dessus, lecture probable mais non garantie.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "attribution",
+      "where": "NC_film outcomes (hot_carrier_cooling_time_to_600K_high_fluence_film_small/medium/large_NCs)",
+      "extracted": "Trois échantillons (films de petits, moyens et grands NCs : 9, 16, 28 ps) rangés sur la seule voie NC_film, la taille étant mise dans le nom de propriété",
+      "article_says": "(s) = small; (m) = medium; (l) =large.",
+      "fix": "Les rangées « NCs (thin film) » désignent trois films distincts. Les légendes de Supp. Fig. 9e, 15a et 16a donnent « medium » pour le film de NCs non traité : garder la rangée (m) (16 ps, 6.5×10^18 cm-3 ; 0.6 ps à 2.6×10^17 cm-3) sur NC_film ; créer deux branches NC_film_small et NC_film_large (parent NC_film, variation sur le réactif « MAPbBr3 NCs in toluene » : NCs petits / grands) portant les rangées (s) et (l). Le tableau ne dit pas si ces films sont traités à l'EDT (la Note 11 dit que la dynamique est la même avec ou sans EDT) : à signaler dans un doute, ne pas les rattacher aux voies EDT.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "NC_film missing_fields « NC_size_used »",
+      "extracted": "taille des NCs du film non citée",
+      "article_says": "Supplementary Fig. 16 | Pseudocolor TA spectra for (a) medium MAPbBr3 NCs film,",
+      "fix": "Taille citée : « medium » (Supp. Fig. 16a ; aussi Supp. Fig. 15a « un-treated medium MAPbBr3 NCs film » et Supp. Fig. 9e). Retirer « NC_size_used » de missing_fields de NC_film et ajouter la valeur (réactif ou variation) avec cette citation.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "EDT-NC_film_annealed : taille des NCs (aucune mention) ; EDT-NC_film missing_fields « NC_size_used »",
+      "extracted": "taille non citée pour la voie EDT (et rien pour la branche recuite)",
+      "article_says": "Supplementary Fig. 20 | (a) Normalized TA spectra for annealed EDT-treated medium",
+      "fix": "La légende de Supp. Fig. 20a nomme le film EDT recuit comme fait de NCs « medium » (la ηhot de 83 % porte sur ce film). Pour EDT-NC_film non recuit, la légende de Supp. Fig. 16 range « medium NCs film » puis « EDT-treated NCs film » dans la même série, sans le dire explicitement : laisser non cité ou noter la lecture probable dans un doute.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "EDT-NC_film missing_fields « substrate_nature » (et annotation limite_reproductibilite)",
+      "extracted": "substrat du film EDT non cité ; le doute dit que « Bphen/perovskite/glass substrate » n'est pas repris",
+      "article_says": "based on the sample structure of Bphen/perovskite/glass substrate",
+      "fix": "La structure des échantillons d'extraction est écrite : Bphen / pérovskite / substrat de verre. C'est une citation de l'article pour les bilayers NC-EDT/Bphen mesurés ; la reprendre comme substrat « glass » avec cette citation (en gardant un doute : phrase placée dans la méthode TA, pas dans la fabrication du film), et corriger l'annotation limite_reproductibilite. Le substrat des films EDT spin-coatés pour les mesures sans Bphen reste non cité.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "NC_film outcomes (contrôles de la Supplementary Note 11)",
+      "extracted": "aucun résultat qualitatif sur le film non traité avec/sans Bphen",
+      "article_says": "Without the EDT-treatment, the NCs demonstrate similar hot-carrier cooling dynamics with/without the Bphen extraction layer.",
+      "fix": "Ajouter sur NC_film : pas d'extraction mesurable de porteurs chauds par Bphen sans traitement EDT (dynamique de refroidissement similaire avec ou sans Bphen), et « similar hot-carrier cooling dynamics with/without the EDT-treatment » ; contrôle du même passage à l'évaporateur sans Bphen sur EDT-NC_film.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "branche manquante : film EDT d'environ 50 nm (Supplementary Note 12)",
+      "extracted": "aucune branche ; seules les épaisseurs ∼35 et ∼140 nm existent",
+      "article_says": "For the EDT-NCs/Bphen sample (with NCs-film thickness ~ 50 nm), the NCs are",
+      "fix": "Échantillon distinct (pompe à 400 nm, absorption photoinduite faible à 15 µJ cm-2) : branche EDT-NC_film_50nm facultative, variation film_thickness = 50 nm. Les films intermédiaires de Supp. Fig. 21 (a)-(d) ne sont pas chiffrés dans le texte : rien à ajouter.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "method_sources : renvoi b37 absent (EDT treatment)",
+      "extracted": "une seule entrée (b42)",
+      "article_says": "EDT treatment is used to substitute the long and highly insulating oleic acid and oleylamine ligands that is present on the as-prepared NC surfaces with thiolate",
+      "fix": "Renvoi b37 (Luther et al., PbSe traité à l'EDT) : la phrase énonce l'effet de l'EDT, ce n'est pas une phrase « prepared according to ». Le protocole EDT est écrit en entier dans Methods sans renvoi. À mon avis contexte, pas méthode : entrée facultative, au plus role « autre », route EDT-NC_film. Renvoi b23 (modèle de phonons LO) : modèle d'analyse, pas une préparation, aucune entrée. Renvoi b40 (couplage électronique après recuit) : contexte, aucune entrée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "outcomes manquants sur NC_small / NC_medium / NC_large et Bulk_film",
+      "extracted": "absents",
+      "article_says": "Moreover, the comparable acoustic phonon temperature (Ta) of ∼310 K for all three NC samples",
+      "fix": "À ajouter si le périmètre le permet : Ta ≈ 310 K pour les trois tailles (≈ 305 K pour le film massif à faible fluence, 350 K à forte fluence, Supp. Note 5 et Supp. Fig. 12) ; énergie de confinement 15–60 meV ; décalage d'émission de 525 à 517 nm quand la taille diminue (Supp. Note 1 : « from 525 to 517 nm », extrêmes seulement, donc grands NCs 525 nm et petits NCs 517 nm si l'on suit le sens écrit) ; Tc du film massif 450 → 380 K avec Bphen.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 13,
+    "branches_extracted": 10,
+    "not_stated_checked": 93,
+    "not_stated_wrong": 2
+  },
+  "reproducibility_gaps": [
+    "durée et température de centrifugation absentes ; on ne sait pas si les trois tailles viennent d'un seul lot fractionné ou de trois synthèses, ni si le précipité ou le surnageant est gardé",
+    "pureté et fournisseur de MABr, PbBr2, DMF, oleylamine, acide oléique, toluène, EDT, 2-propanol, Bphen non cités ; MABr acheté ou synthétisé non dit",
+    "film massif : volume déposé, nettoyage du substrat de quartz, volume des gouttes de toluène non cités ; la préparation de la solution 0.6 M MAPbBr3 (rapport MABr/PbBr2) n'est pas écrite ; la fabrication du film de 40 nm n'est pas décrite",
+    "films de NCs : concentration de la solution traitée à l'EDT, nombre de couches correspondant à ∼35, ∼50 et ∼140 nm, substrat des films mesurés sans Bphen, volumes d'EDT et de toluène non cités",
+    "épaisseur de la couche de Bphen, pureté de Bphen, et ordre exact recuit / évaporation non cités (Bphen déposé « on non-annealed or annealed » films)",
+    "tailles de NC utilisées pour les films : seule la taille moyenne est nommée par les légendes du SI pour certains films ; les films EDT non recuits restent ambigus",
+    "valeurs lisibles seulement sur figures (Fig. 3b, 4f, 4g ; Supp. Fig. 21) non transcrites ; les cellules du tableau supplémentaire 1 reconstituées du PDF devraient être contrôlées sur le PDF"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs (échange de ligands par l'EDT, dopage au soufre « possibly ») est bien appuyé par les citations ; mecanisme_analyse est rédigé en hypothèse ; securite_analyse couvre Pb, DMF, toluène, EDT, vide",
+  "notes": "Lecture du tableau supplémentaire 1 : c'est la partie la plus fragile de mon propre travail. Le PDF donne une cellule par ligne et les rangées NC n'ont que quatre cellules au lieu de cinq ; ma lecture (délai faible fluence, densité faible fluence, délai forte fluence, densité forte fluence, avec cellule d'énergie d'excès commune perdue) est la seule cohérente avec la légende de la Fig. 1, avec le volume des NCs, avec le sens de la tendance en taille et avec l'excès de 0.7 eV pour une pompe à 3.1 eV ; elle devrait être confirmée sur le PDF original. Toutes les valeurs à forte fluence extraites (10/18/32 ps solution, 9/16/28 ps film, bulk < 0.1 et 0.8 ps) sont correctement attribuées. Autres valeurs vérifiées sans erreur : centrifugation 12 000/8 000/4 000 r.p.m. pour petits/moyens/grands, diamètres 4,9/8,9/11,6 nm, sections efficaces et τLO par taille, rangées UPS (1,9 EDT ; 2,3 EDT recuit ; 2,9 Bphen), rapports XPS 1,04 et 1,47, ηhot 72/58/20/83/16 %. Le renvoi b42 est étiqueté protocole_adapte alors que l'article dit seulement « as reported by Zhang et al. » puis donne ses propres quantités : protocole_complet serait aussi défendable, désaccord d'interprétation sans texte décisif. Les NCs de CdSe (achetés chez Sigma-Aldrich) ne sont pas une synthèse : pas de branche à créer. Aucune instruction suspecte dans l'article."
+}

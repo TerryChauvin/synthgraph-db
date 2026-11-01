@@ -1,0 +1,72 @@
+{
+ "pmcid": "PMC4726093",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "Pd/LSM-4 variations[0] (parameter « PdCl2 aqueous solution (1% mass concentration) »)",
+   "extracted": "value_text « 5.1% Pd amount », parent_value « 4.2% Pd content », rattachés au réactif PdCl2 (solution à 1 %)",
+   "article_says": "Compared with the Pd/LSM-3 with 4.2% Pd content, it can be seen that the methane conversion was not significantly increased with the increase in the Pd content from 4.2% to 5.1%.",
+   "fix": "5.1 % est une teneur en Pd de l'échantillon (comme les 4.2 % ICP de Pd/LSM-3), pas une quantité ou une concentration de solution de PdCl2 (valeur parent réelle : 9.9978 g de solution). Renommer le paramètre en teneur en Pd de l'échantillon, ou supprimer la variation et noter que la masse de PdCl2 de Pd/LSM-4 n'est pas donnée ; ne pas laisser croire que la quantité de PdCl2 vaut 5.1 %.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Pd/LSM-4 : héritage du protocole de Pd/LSM-3 (parent) ; pas de not_stated sur le protocole",
+   "extracted": "branche de Pd/LSM-3 qui reprend ses étapes et réactifs (LSM 0.94 g, PdCl2 9.9978 g, éthylène glycol 360 mL, 40 °C 24 h, micro-ondes 2 min, etc.)",
+   "article_says": "The activities were also measured over the Pd/LSM with 5.1% Pd amount (denoted Pd/LSM-4) displayed in Figure S4.",
+   "fix": "L'article ne décrit aucune préparation de Pd/LSM-4 : ajouter not_stated ['synthesis_protocol'] comme pour les branches (40mL) et (50mL), et signaler (annotation ou doute) que les valeurs héritées de Pd/LSM-3 ne sont pas confirmées par l'article pour cet échantillon.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Pd/LSM-3(40mL) et Pd/LSM-3(50mL) : parent Pd/LSM-3, variation « unspecified_volume », parent_value « none »",
+   "extracted": "branches héritant du protocole de Pd/LSM-3 (dont éthylène glycol 360 mL) avec une variation de volume 40 / 50 mL de nature inconnue",
+   "article_says": "Table S2 The temperature of catalysts at T10% , T50% and T90%",
+   "fix": "Le tableau S2 ne contient que les étiquettes « Pd/LSM‐3(40mL) » et « Pd/LSM‐3(50mL) » et leurs T10/T50/T90 ; ni le texte ni les Méthodes ne les définissent. Si le volume est celui de l'éthylène glycol (hypothèse plausible, la série des Méthodes en donne 60/120/360 mL), l'héritage de 360 mL du parent est contradictoire avec la variation. Ne pas laisser l'héritage implicite : le noter explicitement comme non confirmé (doute / annotation limite_reproductibilite), et nommer la variation par l'étiquette telle qu'écrite plutôt que par un paramètre « unspecified_volume » avec parent_value « none ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Pd/LSM-1 et Pd/LSM-2 characterizations : O2-TPD absent",
+   "extracted": "O2-TPD renseigné pour LSM et pour Pd/LSM-3 (déplacement du pic de l'oxygène de réseau à 659 °C) seulement",
+   "article_says": "The Pd/LSM-x catalysts show a broad O2 desorption peak in the temperature range of 50–500 °C",
+   "fix": "Ajouter à Pd/LSM-1, -2 (et -3) une entrée O2-TPD : large pic de désorption de 100 à 800 °C, pic basse température 50–450 °C (oxygène adsorbé en surface), pic large 50–500 °C ; la figure 4 contient les profils des trois échantillons.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "XPS (Table 2) : énergies de liaison Mn 2p3/2 et O 1s non extraites pour LSM et Pd/LSM-1, -2, -3",
+   "extracted": "seulement Pd0, Pd2+ (énergies) et les trois rapports Pd2+/Pd0, Mn4+/Mn3+, Oads/Olat",
+   "article_says": "The binding energies in the range of 641.5–642.5 and 640.2–641.3 eV are attributed to the surface Mn4+ and Mn3+ species, respectively",
+   "fix": "Ajouter au moins en caractérisation XPS les énergies Mn3+, Mn4+, Olat, Oads par échantillon (Table 2) ; la valeur « 460.9 » de Pd/LSM-2 pour Mn3+ est une faute de frappe manifeste (640.9) à ne pas extraire telle quelle, ou à extraire en value_text avec doute.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "TEM : taille moyenne des particules de Pd non rangée en résultat",
+   "extracted": "taille 12 ± 2 nm présente seulement dans une annotation tendance_observee ; Pd/LSM-1 et Pd/LSM-3 sans entrée TEM",
+   "article_says": "The particle size Pd species was evaluated in range of 8–20 nm and the mean particle size is about 12 ± 2 nm based the TEM images.",
+   "fix": "Ajouter en résultat (ou caractérisation) de Pd/LSM-2 (ou de l'ensemble Pd/LSM-x) : 12 ± 2 nm, plage 8–20 nm ; mentionner la Fig. S1 pour Pd/LSM-1 et Pd/LSM-3 « similar to that of Pd/LSM-2 ».",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 7,
+  "branches_extracted": 7,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Le volume d'éthylène glycol de Pd/LSM-3 (360 mL) rompt la proportion 60/120 mL de Pd/LSM-1 et -2 (180 mL attendu) : possible faute de frappe de l'article, non vérifiable",
+  "Définition des échantillons Pd/LSM-3(40mL), Pd/LSM-3(50mL) du tableau S2 : absente de l'article et de l'annexe lue",
+  "Préparation et teneur mesurée de Pd/LSM-4 (5.1 % Pd) : non décrites ; figure S4 absente du dépôt",
+  "Forme et concentration du nitrate de manganèse (« Mn(NO3)2 » 1.5296 g ; l'équivalent molaire de La+Sr impose environ 50 % en masse en solution)",
+  "Quantité et ordre d'ajout de l'ammoniaque, pH, moment d'ajout de l'éthylène glycol par rapport à l'imprégnation",
+  "Appareil, récipient, volume et température des deux passages micro-ondes (la phrase du second est incomplète : « in a operating with »)",
+  "Solvant et nombre de lavages, durée de séchage à 100 °C, absence ou présence de calcination",
+  "Définition des vitesses spatiales 212, 339, 424 h−1 (25 mL/min et 0.100 g ne permettent pas de les retrouver)"
+ ],
+ "mechanism_check": "ok : les deux mecanisme_auteurs citent des phrases de l'article (réduction partielle par l'éthylène glycol) ; ils sont rattachés à Pd/LSM-1 alors qu'ils valent pour tous les Pd/LSM-x (non grave) ; mecanisme_analyse bien marqué comme hypothèse ; sécurité signalée (four micro-ondes avec éthylène glycol, NOx, méthane/O2, H2).",
+ "notes": "Attributions des listes parallèles vérifiées : LSM 0.9800/0.9600/0.9400 g, PdCl2 solution 3.3326/6.6652/9.9978 g (1 %), éthylène glycol 60/120/360 mL attribués par rang à x = 1, 2, 3 ; confirmé par stœchiométrie (Pd 18.8/37.6/56.4 mg pour 0.98/0.96/0.94 g de LSM = 1.9/3.9/6.0 %, soit les 2/4/6 % théoriques) ; seule la liste EG ne peut être contrôlée. Toutes les valeurs des tableaux 1, 2, S1, S2 et des Résultats contrôlées ligne par ligne : aucune valeur fausse. Huit valeurs from_figure (et non dix) : Fig. 6 (LSM 84, Pd/LSM-1 92, -2 93, -3 96 %), Fig. 7 (96, 83, 78 %), Fig. 8 (96 % initial) lues à ±1 point sur les images, aucun écart > 10 %. Le texte dit « over 80% » à 424 h−1 et la courbe donne 78 % : écart d'article déjà consigné en doute, non constat. method_sources vide : correct (aucun renvoi dans les Méthodes ; [[b37]] est un renvoi de contexte et d'interprétation)."
+}

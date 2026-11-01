@@ -1,0 +1,70 @@
+{
+ "pmcid": "PMC8140147",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "CsPbBr3-NC characterizations: steady-state absorption (conditions et citation)",
+   "extracted": "conditions « NCs dispersed in hexane, room temperature » ; citation « Figure 1b shows the steady-state absorption spectrum of CsPbBr3 NCs and its second derivative. »",
+   "article_says": "the fit of the second derivative results in a band-edge exciton transition energy E0 of 2.519 eV and a linewidth Γ of 0.079 eV (full width at half maximum)",
+   "fix": "remplacer la citation par la phrase qui porte E0 et Γ ; l'article ne dit pas dans quel solvant ni à quelle température le spectre d'absorption a été mesuré (hexane et température ambiante ne sont écrits que pour la mesure pompe-sonde) : retirer ces conditions ou les déclarer non citées",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CsPbBr3-NC characterizations: pump-probe, instrument et conditions",
+   "extracted": "citation = phrase sur l'amplificateur régénératif (1028 nm, 10 kHz, 300 fs) ; instrument et conditions mentionnent aussi l'OPA, la sonde en lumière blanche, la cellule de quartz de 1 mm et l'agitation magnétique",
+   "article_says": "The CsPbBr3 NCs were dispersed in hexane contained in a 1-mm-thick quartz cell and the solution was stirred with a magnetic stirrer during the measurements to avoid the photo-charging of the NCs.",
+   "fix": "la citation unique ne soutient pas la cellule, l'agitation ni l'intensité de pompe ; compléter les conditions avec « Ipump of 0.56 GW/cm2 » (intensité fixée de la série en Δ), la polarisation σ+ de la pompe et σ+/σ− de la sonde, et rattacher chaque élément à sa phrase (ou scinder en deux caractérisations)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CsPbBr3-NC, étape finale de dispersion dans l'hexane et concentration de l'échantillon",
+   "extracted": "aucune étape de dispersion ; `missing_fields` ne mentionne pas la concentration ni la densité optique de la dispersion",
+   "article_says": "The CsPbBr3 NCs were dispersed in hexane contained in a 1-mm-thick quartz cell",
+   "fix": "ajouter une étape `disperse` (solvant hexane, concentration/densité optique non citées ; S4 dit seulement que les échantillons dilués avaient « about half of the optical density of the samples used in the main manuscript ») ou, à défaut, ajouter la concentration à `missing_fields` et à `limite_reproductibilite`",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CsPbBr3-NC outcome crystal_structure = cubic (et material.phase)",
+   "extracted": "cubic, citation « The band-edge optical responses of CsPbBr3 NCs, which have a cubic crystal structure »",
+   "article_says": "The band-edge optical responses of CsPbBr3 NCs, which have a cubic crystal structure",
+   "fix": "la structure n'est mesurée nulle part dans l'article (pas de DRX ; TEM seulement pour la taille) : la phrase reprend la littérature (renvoi CR22 dans refs). Garder avec une note « d'après la littérature, non mesuré par les auteurs » ou le déclasser en annotation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CsPbBr3-NC outcomes : résultats chiffrés de la série en désaccord Δ",
+   "extracted": "seuls E0, Γ, μ, Δso et μ' sont repris ; aucun résultat de la série en Δ (le résultat principal de l'article)",
+   "article_says": "exhibiting ~5-fold enhancement compared with the estimated δEStark at Δ = 1.58 eV",
+   "fix": "si l'orchestrateur veut garder les propriétés mesurées sur l'échantillon, ajouter l'amplification ~5 fois à Δ = 1,58 eV et ħΩR = 14,2 meV à 0,56 GW/cm2 (« ℏΩR = 14.2 meV at Ipump = 0.56 GW/cm2 ») ; sinon rejeter : ce n'est pas une variation de synthèse (jugement de périmètre)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation securite_analyse CsPbBr3-NC",
+   "extracted": "dangers du PbBr2, du CO2, du vide/injection à chaud, de l'oléylamine ; rien sur le n-hexane",
+   "article_says": "Purification and size selection of the obtained polydisperse CsPbBr3 NCs were performed by precipitation fractionation with centrifugation in dried n-hexane.",
+   "fix": "ajouter que le n-hexane (purification, dispersion de l'échantillon) est très inflammable et neurotoxique, et que les dispersions de nanocristaux de plomb en hexane doivent être traitées comme déchets de plomb",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 1,
+  "branches_extracted": 1,
+  "not_stated_checked": 33,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "pureté et fournisseur de Cs2CO3, acide oléique, oléylamine, 1-octadécène, PbBr2 et n-hexane absents de l'article et de l'annexe",
+  "antisolvant, vitesse et durée de centrifugation, nombre de fractions et critère de sélection en taille de la « precipitation fractionation » absents (la figure S1 n'est qu'une légende, sans histogramme)",
+  "« slightly modified » : les modifications par rapport à Protesescu 2015 et Yarita 2017 ne sont pas décrites",
+  "vitesse de montée en température, durée du chauffage à 150 °C avant injection, vitesse d'agitation, niveau de vide et température de la solution d'oléate de Cs au moment de l'injection absents",
+  "volume d'hexane et concentration (ou densité optique) de la dispersion de nanocristaux mesurée ; rendement absent",
+  "volume total de la solution d'oléate de Cs non écrit (6,5 mL est une somme déduite dans l'annotation d'analyse)"
+ ],
+ "mechanism_check": "ok : mecanisme_analyse est rédigé comme hypothèse ; bilan Cs/Pb recalculé (0,49 mmol Cs2CO3 soit 0,98 mmol Cs dans 6,5 mL, 0,8 mL = 0,12 mmol Cs ; PbBr2 138 mg = 0,38 mmol) cohérent, seul le volume additif 6,5 mL est une hypothèse.",
+ "notes": "Extraction globalement fidèle : 32 valeurs relues contre le texte, aucune valeur fausse ni mal attribuée, une seule voie correcte (aucun paramètre de synthèse n'est varié, la seule série est le désaccord Δ de la mesure). Valeurs from_figure : aucune dans l'extraction ; Fig. 1 et Fig. 3 ouvertes, rien de synthétique à y lire (Fig. 1b pic d'absorption vers 2,5 eV cohérent avec E0 = 2,519 eV). Points laissés hors constats car relevant du jugement : (a) l'oléate de Cs gardé comme réactif intermediate sans voie propre, défendable puisqu'il n'est ni isolé ni caractérisé ; (b) rôle `wash` du n-hexane alors qu'il sert aussi de solvant de dispersion ; (c) l'atmosphère azote n'est portée que par les étapes 1 et 4 alors que la phrase vaut pour toutes les opérations de synthèse (hors dégazage sous vide) ; (d) les cases `speed`/`duration` de l'étape centrifuge sont déclarées sous ces noms et non `centrifuge_speed` ; (e) ± 0,7 nm de l'arête n'est conservé que dans la citation. method_sources (CR22, CR39) conforme ; renvois d'analyse (SWT, correction de champ local, CR31 profil gaussien) correctement exclus."
+}

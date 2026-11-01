@@ -1,0 +1,113 @@
+{
+  "pmcid": "PMC6702676",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "ZnSe@N-C step 5 (calcine) : temperature 650 °C, duration 2 h, heating_rate 10 °C min−1, atmosphere vacuum, equipment tube furnace",
+      "extracted": "650 °C / 2 h / 10 °C min−1 / vacuum / tube furnace, avec pour citations les mots de la voie de base (« calcined at 650°C for 2 h … », « in a tube furnace under vacuum »)",
+      "article_says": "The ZnSe@N-C was synthesized by precursor solution directly dried at 80°C overnight and calcined at the same way with Se powder.",
+      "fix": "L'article ne donne aucune valeur propre à cette étape : « at the same way » est un renvoi implicite. Selon RUNBOOK (« dans les mêmes conditions » = non cité), déplacer temperature, duration, heating_rate, atmosphere vers `not_stated` de l'étape 5 de ZnSe@N-C (garder `pressure`, `cooling_rate`, etc.), supprimer les paramètres et l'équipement dont la citation vient d'une autre phrase, et garder la lecture « mêmes conditions que ZnSe@N-CNFs » dans la description et dans les doutes (déjà présent).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "ZnSe@N-C steps 1-3 et réactifs (acétate de zinc 0,5268 g, PAN 0,4534 g, DMF 3 ml x 2)",
+      "extracted": "Étapes 1 à 3 et quantités de réactifs recopiées de la voie de base, avec leurs citations",
+      "article_says": "The ZnSe@N-C was synthesized by precursor solution directly dried at 80°C overnight and calcined at the same way with Se powder.",
+      "fix": "L'article ne dit jamais que la « precursor solution » de ZnSe@N-C est la solution acétate de zinc/PAN/DMF de la voie de base, ni les quantités utilisées. C'est la lecture la plus plausible (le carbone dopé N vient du PAN), mais elle est déduite. Soit garder en signalant dans le doute existant que les quantités sont héritées, soit déclarer `amount` non cité pour les réactifs de ZnSe@N-C. Le volume ou la masse de solution séchée est de toute façon absent (ajouter `amount_of_solution_dried` dans les not_stated de l'étape 4).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "CNFs : héritage du sélénium (1,3 g, 99.9 %, Aladdin) et de la calcination à 650 °C sous vide",
+      "extracted": "Branche CNFs avec une seule variation (acétate de zinc absent) : elle hérite donc de la poudre de sélénium, de l'étape 5 (650 °C, 2 h, vide) et des 3 ml de DMF de la solution d'acétate",
+      "article_says": "The carbon nanofibers (CNFs) were synthesized in the same steps without adding Zinc acetate dihydrate.",
+      "fix": "Deux phrases se contredisent : « same steps » (sélénium inclus, lecture littérale retenue) contre « Because of the simple carbonization and without any additional processing, the CNFs exhibits worse Li+ storage performance especially at high current density. » (carbonisation simple, donc sans sélénium ?). Le sélénium dans CNFs n'est donc ni établi ni exclu. Ne pas ajouter de variation `absent` pour le sélénium (pas de phrase claire), mais ajouter une annotation `limite_reproductibilite` pour la route CNFs disant explicitement que l'usage du sélénium et la température de carbonisation des CNFs sont incertains, et préciser dans le doute que l'héritage du réactif sélénium (1,3 g) est une hypothèse.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "SIB_cell_ZnSe@N-CNFs : étape d'assemblage héritée de LIB_cell (pile bouton 2,032, boîte à gants sous argon)",
+      "extracted": "La branche SIB hérite de l'étape 1 de la cellule Li-ion, donc du format « 2,032 coin-type » et de l'atmosphère « Argon-filled glove box »",
+      "article_says": "The SIBs were assembled with sodium metal as the reference electrode, NaCF3SO3 (1M) in diethyleneglycol dimethylether (DEGDME) used as electrolyte and glass microfiber (Whatman GF/D) as separator.",
+      "fix": "La phrase Na-ion ne cite ni le format de pile ni la boîte à gants (seule la phrase Li-ion les cite). Ajouter `cell_format` et `assembly_atmosphere` aux `not_stated` de la voie SIB, ou une variation explicite, au lieu de laisser l'héritage silencieux. Le doute existant et l'annotation securite_auteurs sont corrects, mais les données héritées apparaissent comme citées dans la fiche.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "ZnSe@N-CNFs, DMF de la solution de PAN : purity AR et supplier Sinopharm",
+      "extracted": "purity « AR », supplier « Sinopharm », supplier_quote prise dans la phrase de la solution d'acétate",
+      "article_says": "0.4534 g polyacrylonitrile (PAN, Mw 150000, Macklin) was dissolved in 3 ml DMF under magnetic stirring for 30 min at 60°C.",
+      "fix": "Le premier DMF (3 ml, solution d'acétate) a bien « AR, Sinopharm » dans « N, N-dimethylformamide (DMF, AR, Sinopharm) » : correct. Pour le second, la phrase ne répète pas la pureté ni le fournisseur ; l'héritage passe par l'abréviation « DMF » définie avec « AR, Sinopharm ». Lecture raisonnable, à garder avec le doute déjà écrit (la quote du réactif est bien la phrase du PAN, la supplier_quote celle de l'abréviation). Note : « AR » est un grade, pas un pourcentage de pureté ; PAN : pureté non citée, déclarée à juste titre.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "method_sources B42 et B40 (route ZnSe@N-CNFs)",
+      "extracted": "Deux entrées `autre` : équations i = a·v^b et séparation capacitif/diffusif",
+      "article_says": "The relation between peak current (i) and scan rate (v) can describe by following two equations",
+      "fix": "Ces renvois portent sur des équations d'analyse des CV, pas sur une préparation. Dans le texte, aucun renvoi `[[id]]` ne figure dans les sections Experimental (ni la préparation des fibres, ni l'électrode, ni les piles) : il n'y a donc aucun renvoi de préparation manquant. Retirer B42 et B40 de `method_sources` (ou les garder en `autre` si l'orchestrateur veut les conserver, mais ils sont hors périmètre de la synthèse).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "method_sources B5 (route SIB_cell_ZnSe@N-CNFs)",
+      "extracted": "Entrée `autre` pour la fenêtre de potentiel Na-ion",
+      "article_says": "According to previous reports, by increasing the cut-off voltage can reduce the irreversible reactions with carbon and decomposition of electrolytes",
+      "fix": "Justification bibliographique du choix d'une tension de coupure, pas une méthode de préparation ni un protocole repris d'une source. Retirer l'entrée (ou la laisser en `autre` si on veut garder la trace).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "SIB_cell_ZnSe@N-CNFs outcome cycling_with_0.005-3V_window",
+      "extracted": "value_text « reversible capacity declined rapidly after 30 cycles », sans densité de courant",
+      "article_says": "The cycling performances of ZnSe@N-CNFs at 2 Ag−1 with voltage window of 0.005–3 V (vs. Na/Na+) were shown in Figure S7.",
+      "fix": "Renommer le résultat « SIB_cycling_2Ag-1_0.005-3V_window » (le courant de 2 A g−1 est dans la phrase précédente de la citation, pas dans le nom ni la valeur). Même remarque : la comparaison 0,005–3 V contre 0,1–3 V est une condition d'essai comparée par les auteurs ; ne pas en faire une branche est défendable, mais le résultat doit alors porter le courant.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "Annotations comparaison_branches / pourquoi_ces_donnees : « à composition chimique identique »",
+      "extracted": "ZnSe@N-C montre l'effet de la structure fibreuse 1D « à composition chimique identique »",
+      "article_says": "The ZnSe@N-C was synthesized by precursor solution directly dried at 80°C overnight and calcined at the same way with Se powder.",
+      "fix": "Ni la quantité de sélénium de ZnSe@N-C ni la teneur en ZnSe (mesurée en TGA seulement pour ZnSe@N-CNFs, 49,45 %) ne sont données pour ZnSe@N-C : l'identité de composition est une hypothèse. Reformuler (« composition nominale identique », « probablement »).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "ZnSe@N-CNFs et ZnSe@N-C, caractérisation Raman : modes 2LO de ZnSe",
+      "extracted": "Absent (seules les bandes D/G et ID/IG de ZnSe@N-CNFs sont extraites)",
+      "article_says": "The peaks observed at around 500 cm−1 in ZnSe@N-CNFs and ZnSe@N-C spectra correspond to 2LO modes of ZnSe",
+      "fix": "Ajouter un résultat Raman_2LO_ZnSe « around 500 cm−1 » aux deux routes ZnSe@N-CNFs et ZnSe@N-C. Optionnel : énergies XPS (Zn 2p 1,021.5 et 1,044.6 eV ; Se 3d 54.2 et 56.1 eV, SeOx 59.0 eV ; N 1s 398.3, 400.1, 400.9 eV) données seulement en qualitatif.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "Annotation limite_reproductibilite : incohérences de valeurs entre résumé, conclusion et résultats",
+      "extracted": "Incohérences notées seulement dans `doubts` (368,9 / 1 214,0 / 447,5 contre 365,6 / 1 226,1 / 455,0)",
+      "article_says": "368.9 mA h g−1 after 200 cycles in sodium-ion batteries, respectively",
+      "fix": "Selon CLAUDE.md, une incohérence venant de l'article doit aussi devenir une annotation `limite_reproductibilite` : la capacité Na-ion à 2 A g−1 après 200 cycles vaut 368,9 (résumé, conclusion) ou 365,6 (résultats, introduction). Valeurs de la section Résultats correctement retenues dans les données.",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 6,
+    "branches_extracted": 6,
+    "not_stated_checked": 86,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "électrofilage : débit, aiguille, collecteur, durée, température et humidité absents ; aucune stabilisation oxydante du PAN avant la sélénisation n'est décrite (mais la carbonisation a lieu en même temps que la sélénisation)",
+    "sélénisation : pression du vide, disposition du sélénium par rapport aux fibres (mélange ou boîte séparée), vitesse de refroidissement, élimination du sélénium en excès (rapport Se:Zn voisin de 7) non cités",
+    "CNFs : le sélénium est-il utilisé et à quelle température la carbonisation est-elle faite ? Contradiction « same steps » / « simple carbonization »",
+    "ZnSe@N-C : quantité de sélénium absente, masse ou volume de solution séchée absent, conditions de calcination seulement par renvoi « at the same way »",
+    "électrodes de ZnSe@N-C et de CNFs (testées figures 4 et 5) : aucune préparation donnée, charge en matière active et surface d'électrode absentes, même pour l'électrode de ZnSe@N-CNFs ; méthode d'enduction et épaisseur absentes",
+    "piles : volume d'électrolyte, dimensions du séparateur, temps de repos avant essai non cités ; pour les piles Na-ion, ni le format de pile ni la boîte à gants ne sont écrits",
+    "calcul de la fraction massique de ZnSe (49,45 %, TGA sous air jusqu'à 800 °C) non détaillé ; mesures BET/XRD sans conditions (dégazage, pas, plage)",
+    "résumé et conclusion donnent des capacités différentes de celles des résultats (368,9 / 365,6 ; 1 214,0 / 1 226,1 ; 447,5 / 455,0 mA h g−1)",
+    "Supporting Information sans protocole : seulement des légendes de figures et le tableau S1 (Re, Rf, Rct), déjà repris dans le texte principal"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs (croissance cristalline pendant la calcination ; azote venant du PAN) est appuyé par les citations. mecanisme_analyse reste présenté comme hypothèse, calculs vérifiés (1,3 g Se = environ 16 mmol, 0,5268 g Zn(OAc)2·2H2O = environ 2,4 mmol, rapport voisin de 7). Seule réserve : « à composition chimique identique » pour ZnSe@N-C, non établi.",
+  "notes": "Valeurs électrochimiques : toutes les valeurs numériques des résultats de ZnSe@N-CNFs ont été comparées au texte (Li-ion : 984,7 / 81,3 % / 97,6 % / 99,1 % à 0,1 A g−1 ; série 743,0 à 570,9 de 0,1 à 5 A g−1 ; 822,7 à 0,2 A g−1 ; 1 226,1 après 200 cycles à 0,1 A g−1 ; 701,7 après 600 cycles à 2 A g−1 ; Na-ion : 441,5 / 362,3 / 82,1 % à 0,1 A g−1 ; série 358,2 à 323,3 de 0,1 à 2 A g−1 ; 455,0 à 0,1 A g−1 ; 446,2 / 72,9 % puis 365,6 après 200 cycles à 2 A g−1 ; contributions capacitives 74 / 67 % à 0,5 mV s−1, 80 / 71 % à 2 mV s−1 ; EIS LIB 4,74 / 1,86 / 8,82 Ω, SIB 9,55 / 1,95 / 10,37 Ω). Aucune confusion Li-ion / Na-ion, aucune confusion d'échantillon, bonne densité de courant dans chaque nom de propriété ; pour CNFs et ZnSe@N-C l'ordre « ZnSe@N-C and CNFs » du texte est bien respecté (43,0 / 26,4 ; 379,8 / 228,9 ; 155,5 / 99,4). Réserves : le tableau S1 intitule la colonne « Rs(Ω) » alors que le texte écrit Re (même grandeur, propriété nommée Re : sans conséquence). Les trois voies `device` (électrode, cellule Li-ion, cellule Na-ion) reprennent fidèlement les quantités et références (80/10/10 wt.%, eau/éthanol 3:2, Cu, 80 °C 12 h ; LiPF6 1 M EC/DMC 1:1, Celgard 2400 ; NaCF3SO3 1 M DEGDME, Whatman GF/D) ; le rôle counter_electrode pour ce que l'article appelle « reference electrode » est une interprétation raisonnable. Celgard et Whatman sont des marques de fabricants : `supplier` déclaré non cité, lecture stricte acceptable. Le choix de ne pas créer de voies de cellule pour ZnSe@N-C et CNFs est justifié (aucune préparation décrite). Les résultats électrochimiques du matériau sont rangés dans la route matériau (préfixes LIB_/SIB_) et non dans les voies device : cohérent avec les extractions de référence. Aucune instruction dans l'article visant l'agent n'a été rencontrée."
+}

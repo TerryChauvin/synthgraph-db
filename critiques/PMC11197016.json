@@ -1,0 +1,94 @@
+{
+ "pmcid": "PMC11197016",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "faux",
+   "where": "electrode_NiFe2O4@SDS result R2_peak_current_vs_sqrt_scan_rate = 0.99",
+   "extracted": "R2 = 0.99 (quote: (h) linear regression coefficient of NiFe2O4@SDS)",
+   "article_says": "(h) linear regression coefficient of NiFe2O4@SDS",
+   "fix": "Fig. 4h (corpus/fig/PMC11197016/d4ra02135e-f4.jpg) n'affiche aucun R2 (légende « Peak current » et « Linear fit of peak current » seulement) ; les R2 = 0,99 sont visibles uniquement en 4b (natif) et 4e (CTAB). Supprimer ce résultat ou le passer en non lisible.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "electrode_* power_density_at_2_A_g-1 (1200 / 1420 / 1350 W kg-1)",
+   "extracted": "Puissance volumique 1200, 1420, 1350 W kg-1 rattachée à 2 A g-1 (le tableau 2 est écarté en doute)",
+   "article_says": "Power density (W h kg−1) at 6 A g−1",
+   "fix": "Le texte dit 2 A g-1 mais l'en-tête du Tableau 2 dit 6 A g-1. À 2 A g-1, P = I x V impose V = 0,6 V (natif), 0,71 V (CTAB), 0,68 V (SDS), alors que la fenêtre est 0-0,6 V et que les plateaux de la Fig. 5 s'arrêtent vers 0,42-0,44 V ; à 6 A g-1 on obtient 0,20-0,24 V, cohérent avec les courbes. Ne pas trancher en faveur du texte : garder la propriété avec la condition « 2 A g-1 (texte) / 6 A g-1 (en-tête du tableau 2) » et ajouter une annotation limite_reproductibilite sur cette contradiction des auteurs.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "NiFe2O4 step 2 adjust_ph, not_stated temperature",
+   "extracted": "temperature déclarée not_stated",
+   "article_says": "To initiate the chemical reaction, 3 M NaOH (as precipitant) was added dropwise in the mixed solution with constant stirring to achieve a pH close to 11.",
+   "fix": "Les trois équations de la section de synthèse, présentes en images dans l'article mais absentes de corpus/text (d4ra02135e-t1.jpg, -t2.jpg, -t3.jpg), portent sur la flèche : Ni(NO3)2 + 2NaOH -> Ni(OH)2 + 2NaNO3 « pH=11, 25 °C » ; Fe(NO3)3 + 2NaOH -> Fe(OH)3 + 3NaNO3 « pH=11, 25 °C » ; Ni(OH)2 + 2Fe(OH)3 -> NiFe2O4 + 4H2O « pH=11, 85 °C ». La précipitation est donc donnée à 25 °C : renseigner temperature = 25 °C à l'étape 2 (citation à prendre dans l'équation, à décrire comme lue sur image) et retirer 'temperature' de not_stated.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "NiFe2O4 reagents ferric nitrate / nickel nitrate, formula",
+   "extracted": "formula null pour les deux",
+   "article_says": "0.4 M ferric nitrates and 0.2 M nickel nitrate solutions in equal volume ratio were mixed in a three-neck round bottom flask",
+   "fix": "Les équations en images donnent Fe(NO3)3 et Ni(NO3)2 (sans eau de cristallisation) ; renseigner les formules. Le degré d'hydratation reste non cité.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "annotation mecanisme_auteurs absente pour la voie de base NiFe2O4 (seule NiFe2O4@CTAB en porte une) ; mecanisme_analyse présenté comme « Hypothèse »",
+   "extracted": "mecanisme_analyse : Ni2+ + 2 Fe3+ + 8 OH- -> NiFe2O4 + 4 H2O (hypothèse)",
+   "article_says": "To initiate the chemical reaction, 3 M NaOH (as precipitant) was added dropwise in the mixed solution with constant stirring to achieve a pH close to 11.",
+   "fix": "Les auteurs donnent eux-mêmes un schéma réactionnel (images -t1 à -t3) : précipitation des hydroxydes Ni(OH)2 et Fe(OH)3 à pH 11 et 25 °C, puis Ni(OH)2 + 2Fe(OH)3 -> NiFe2O4 + 4H2O à pH 11 et 85 °C. Ajouter un mecanisme_auteurs sur la voie de base avec cette citation (l'image écrit « Ni(OH2) », faute de frappe ; l'équation du fer est non équilibrée : 2 NaOH au lieu de 3) et réserver mecanisme_analyse à ce que les auteurs ne disent pas.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "electrode_* résultats Fig. 5E/5F, densités de courant 3, 4 et 5 A g-1",
+   "extracted": "seules les valeurs à 2 A g-1 (texte) et 6 A g-1 (figure) sont extraites",
+   "article_says": "showing maximum specific capacities of 99.8, 267.1 and 203.7 C g−1, respectively, at a current density of 2 A g−1, which decreased with increasing current density (Fig. 5E).",
+   "fix": "Optionnel : ajouter les valeurs lues en 5E/5F à 3, 4, 5 A g-1 (from_figure, précision ±5 %). Lecture à 6 A g-1 vérifiée : natif ≈ 58/115, CTAB ≈ 155/343, SDS ≈ 125/280 C g-1 / F g-1, écart de 3 à 4 % avec 160/340/130, dans la tolérance.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "NiFe2O4@CTAB et @SDS step 5 dry (durée héritée 48 hours)",
+   "extracted": "héritage de 65 °C / 48 hours",
+   "article_says": "the product was dried in an oven at 65 °C for two days",
+   "fix": "L'article écrit « two days » pour les branches avec tensioactif, « 48 hours » pour le natif. Équivalent mais pas identique à la lettre : poser une variation duration = 2 days (parent 48 hours) avec cette citation, plutôt qu'un héritage silencieux.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "NiFe2O4 step 1 mix, paramètre molar_ratio",
+   "extracted": "molar_ratio = equal volume ratio of 0.4 M ferric nitrate and 0.2 M nickel nitrate solutions",
+   "article_says": "0.4 M ferric nitrates and 0.2 M nickel nitrate solutions in equal volume ratio were mixed in a three-neck round bottom flask",
+   "fix": "Le paramètre est un rapport de volumes, pas un rapport molaire : le renommer (volume_ratio). Le rapport molaire Fe:Ni = 2:1 est un calcul, à garder en annotation.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "NiFe2O4 characterization XRD conditions",
+   "extracted": "CuKα radiation",
+   "article_says": "λ is the wavelength of CuKα X-ray",
+   "fix": "La Fig. 1A porte l'axe « 2θ° (λ=1.506) » (sans unité, valeur différente de 1,5406 Å de Cu Kα1) : la noter dans les conditions du XRD comme lue sur figure. L'instrument XRD n'est pas cité (instrument null correct).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 27,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "solvant des solutions de nitrates, volumes des solutions de nitrates et de NaOH, vitesse d'agitation et vitesse d'addition (« dropwise »), pureté et fournisseur des réactifs, degré d'hydratation des nitrates",
+  "mode de séparation du solide avant lavage, nombre de lavages (« many times »), rendement",
+  "volume de goutte et moment de l'ajout du tensioactif (« 8–10 drops » de solution 0,04 M « during co-precipitation »), solvant de cette solution",
+  "masses de matière active, PVDF et carbone activé (80 : 10 : 10 sans unité), volume de NMP, quantité de suspension déposée, charge massique et surface de l'électrode",
+  "température de séchage de l'électrode donnée (40 °C), mais pas la taille de la mousse de nickel ni la durée du traitement HCl/acétone/éthanol",
+  "contradiction des auteurs sur la condition de la puissance volumique (2 ou 6 A g-1)"
+ ],
+ "mechanism_check": "à revoir : les auteurs donnent un schéma (hydroxydes Ni(OH)2 et Fe(OH)3 à pH 11 et 25 °C, puis NiFe2O4 + 4H2O à 85 °C) en images absentes du texte ; il n'est pas repris comme mecanisme_auteurs de la voie de base et mecanisme_analyse est présenté comme hypothèse.",
+ "notes": "Les images -t1 à -t3 sont des équations de synthèse (pas des tableaux) ; -t4 à -t7 sont les équations (3)-(6) de Qs, Cs, Es, Ps. Tableaux 1 et 2 lus dans le texte : attribution des colonnes TEM/DLS/PDI/XRD/AFM correcte (DLS 48/24/28, PDI 0,28/0,11/0,19, XRD 45/22/27, AFM 50/20/30) ; la Fig. 2C montre un maximum DLS vers 22 nm pour CTAB, contre 24 dans le Tableau 1 (valeur du tableau conservée, écart non signalé comme constat). Fig. 4 : exposants b (0,60/0,54 ; 0,61/0,53 ; 0,61/0,54) vérifiés. ESR/Rct de la Fig. 5H trop petits pour être lus avec certitude ; valeurs du texte nommées par échantillon, retenues. Les pics XRD du texte (30,10°, 34,94°...) ne correspondent pas aux positions de la Fig. 1A (311 vers 32-33°) : incohérence des auteurs, non extraite à tort. Électrolyte KOH, Pt et Ag/AgCl figurent en conditions de caractérisation et non en réactifs : acceptable. Aucune source de méthode dans corpus/refs (les renvois sont des équations ou du contexte) : method_sources vide correct. Le nom du tensioactif SDS varie (résumé : sodium dodecyl sulphate ; méthodes : dodecylbenzene sulphonate) : formule C18H29NaO3S cohérente avec les méthodes, doute déjà signalé."
+}

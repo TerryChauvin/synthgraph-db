@@ -1,0 +1,89 @@
+{
+ "pmcid": "PMC7178313",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "BMW_5Eu reagents 'Li+ co-dopant' amount_text, et héritage dans BMW_0.1Eu, BMW_0.5Eu, BMW_1Eu, BMW_3Eu, BMW_4Eu, BMW_7Eu",
+   "extracted": "5% Li+ (equal to the Eu3+ content) ; les six branches ne varient que 'europium acetate' et héritent donc 5 % de Li+ du parent",
+   "article_says": "We must not forget either that with 5% Eu3+, we introduce 5% Li+.",
+   "fix": "La phrase ne vaut que pour l'échantillon à 5 % (c'est une phrase de discussion sur Judd–Ofelt, sans Li+ dans la liste des produits de départ de 2.1). Remplacer amount_text par '5% Li+ (pour l'échantillon à 5% Eu3+)', retirer le commentaire '(equal to the Eu3+ content)' présenté comme cité, et pour chaque branche ajouter une variation Li+ en value_text 'non cité ; l'équation 2Mg2+ → Eu3+ + Li+ suggère une teneur égale à Eu mais l'article ne l'écrit pas pour cet échantillon' (ou au minimum une annotation limite_reproductibilite). Ne pas laisser 5 % de Li+ sur l'échantillon à 0,1 % Eu.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMW_5Eu step 1 (dissolve) et missing_fields",
+   "extracted": "Dissolution de l'acétate de Ba, de l'acétate de Mg et de l'APT seulement ; aucune étape ni lacune pour l'acétate d'europium ; missing_fields = quantities of precursors, volume of water, atmosphere of heat treatments, source of Li+",
+   "article_says": "Firstly, the stoichiometric quantities of barium acetate Ba(CH3COO)2, magnesium acetate Mg(CH3COO)2∙4H2O and ammonium paratungstate (NH4)10H2(W2O7)6 (APT) were dissolved separately in distilled water.",
+   "fix": "Eu(CH3COO)3 figure parmi les produits de départ mais n'est dissous ni ajouté nulle part (la Fig. 1 ne montre que Ba et Mg acétates dans le bécher). Ajouter à missing_fields 'étape et solvant d'introduction de Eu(CH3COO)3 et du Li+' et 'ajustement de Mg pour 2Mg2+ → Eu3+ + Li+', et ajouter 'Eu acetate' dans les not_stated de l'étape 1 ou 2.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMW_0.1Eu à BMW_7Eu unit_cell_volume (Fig. 2c)",
+   "extracted": "532, 531, 532, 533, 534, 534, 535 Å3 (0,1 / 0,5 / 1 / 3 / 4 / 5 / 7 %)",
+   "article_says": "(c) The changing of unit cell volume as a function of Eu3+ concentration.",
+   "fix": "Aucune valeur n'est fausse (écart de lecture < 0,1 % : lu 531,85 / 531,3 / 532,15 / 533,3 / 534,05 / 534,35 / 535,45). Mais l'arrondi à l'entier est plus grossier que la lecture annoncée (± 0,3 Å3 dans le doute) et que le signal (pas de 0,3 à 1 Å3) : 4 % et 5 % deviennent identiques (534), 0,1 % et 1 % aussi (532). Passer à une décimale (531,9 ; 531,3 ; 532,1 ; 533,3 ; 534,1 ; 534,4 ; 535,5) en gardant from_figure et le doute de précision. Remarque : la consigne RUNBOOK '2 chiffres significatifs au plus' donnerait 530 pour tous, ce qui n'a aucun sens ici.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMW_5Eu outcomes tau_exp_5D0, tau_rad_5D0, quantum_efficiency, A_rad, A_nonrad, transition_rates, branching_ratios (Tableaux 1 et 2)",
+   "extracted": "citation = rangée 'Co-precipitation | ...' sans mention de la concentration",
+   "article_says": "The Judd–Ofelt (J-O) intensity parameters (Ωλ, where λ = 2, 4, 6) were calculated on the basis of the BMW: Eu3+ (5%) emission spectrum excited at 266 nm and recorded at 300 K.",
+   "fix": "Le rattachement au 5 % est correct (Tableau 1 et 2 sont calculés 'Using the Ωλ parameters', Tableau 3 écrit '5% Eu3+ (co-precipitation)', et τexp 4,48 ms = point à 5 % de l'inset de la Fig. 9, lu ≈ 4,45 ms). Mais la rangée citée ne porte pas l'échantillon : ajouter cette phrase en seconde citation (ou dans le champ de note) pour que la valeur soit vérifiable seule. Noter aussi que τexp est mesuré à 77 K alors que le calcul J-O est à 300 K.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "sample_inventory 'Ba2MgWO6: 2% Eu3+ (solid-state)' (route null) et absence d'annotation de comparaison",
+   "extracted": "why : 'échantillon préparé par réaction à l'état solide, décrit dans un travail antérieur et non synthétisé ici'",
+   "article_says": "For sample prepared by co-precipitation and solid-state, the calculated radiative decay times are 4.96 and 5.31 ms and the quantum efficiencies are 90.2% and 85 %, respectively.",
+   "fix": "L'article ne dit pas que l'échantillon solide n'a pas été synthétisé ici : il l'a re-mesuré (Tableau 3 : 'This work', excitation à 266 nm 'both for the solid-state and co-precipitation samples'). Reformuler le why en 'synthèse non décrite dans cet article (renvoi à l'étude antérieure [B3] pour l'analyse à 395 nm)'. Garder la route à null, mais ajouter une annotation comparaison de voie : A0-J 96,35 / 70,33 / 14,42 / 7,13 s−1, τrad 5,31 ms, τexp 4,5 ms, η 85 %, Ω 1,07 / 0,39 / 1,83 face à 90,2 % et 4,96 ms pour la co-précipitation (conclusion des auteurs : 'very little difference').",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMW_3Eu characterization SEM et outcomes taille de cristallites",
+   "extracted": "SEM sans conditions ; average_crystallite_size 209 nm et crystallite_size_range 70–500 nm",
+   "article_says": "The average crystallite size was estimated to be around 209 nm.",
+   "fix": "La Fig. 3 donne aussi 'Mode = 196 nm' (histogramme, non extrait) et le bandeau du MEB 'HV 5.00 kV, mag 100 000 x, det TLD' pour les conditions d'observation (from_figure, Fig. 3). À ajouter si l'on veut des conditions de caractérisation complètes ; non bloquant.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs (BMW_5Eu), quote",
+   "extracted": "quote = 'The charge compensation strategy could be described in this way:2Mg2+ → Eu3+ + Li+'",
+   "article_says": "Since it is growing (see Figure 2c), we conclude that larger Eu3+ ions (CR = 108.7 pm) replace smaller Mg2+ ions (CR = 86 pm) in the sites with CN = 6.",
+   "fix": "Le texte de l'annotation dit aussi que les auteurs excluent Ba2+ et W6+ d'après les rayons et le volume de maille ; la citation ne soutient que la compensation de charge. Ajouter cette phrase (et 'The replacement of W6+ with Eu3+ was excluded because of the large difference between the charge of these ions') comme citation d'appui.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMW_3Eu et BMW_5Eu : spectre d'excitation (Fig. 6)",
+   "extracted": "seule la ligne 'f-f_transitions_excitation = virtually not shown' pour 1 % ; rien pour 3 % et 5 %",
+   "article_says": "There is also a small band at about 395 nm assigned to intra-configurational f-f transitions of Eu3+ ions, weak due to the Laporte selection rule []. They become partially allowed because of the lowering of the symmetry site when introducing a higher amount of Eu3+ and Li+ ions.",
+   "fix": "La Fig. 6 compare 1, 3 et 5 % : ajouter pour 3 % et 5 % un résultat 'petite bande f-f vers 395 nm' (et la large bande de transfert de charge 250–350 nm pour les trois), pour que le contraste avec 1 % ('The sample with 1% Eu3+ virtually does not show the f-f transitions.') soit lisible par branche.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 7,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0,
+  "from_figure_checked": "Fig. 1, 2a, 2c, 4 inset, 9 inset, 7, 3 : 0 écart > 10 %"
+ },
+ "reproducibility_gaps": [
+  "quantités de précurseurs (seulement 'stoichiometric quantities') et volume d'eau absents de l'article et de l'annexe",
+  "étape, solvant et ordre d'introduction de Eu(CH3COO)3 non décrits ; Fig. 1 ne montre que Ba et Mg acétates dans le bécher",
+  "source, quantité et étape d'ajout de Li+ non décrites ; teneur en Li+ des échantillons autres que 5 % non écrite",
+  "nominal x% non défini (par rapport à Mg ? Mg est-il diminué de 2x ?) et excès de 20 % de Mg dont la base de calcul n'est pas donnée",
+  "atmosphère des traitements thermiques, refroidissement, creuset du pré-frittage, équipement de broyage non cités",
+  "durée d'évaporation 20 h (texte) contre 24 h (Fig. 1)",
+  "quantité de Si ajoutée comme étalon DRX non donnée",
+  "rendement et masse produite non donnés"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs correct mais sa citation ne soutient que la compensation de charge (constat mineur) ; mecanisme_analyse présenté comme hypothèse, plausible",
+ "notes": "Points demandés : (1) Li+ à 5 % : la citation existe mais ne vaut que pour l'échantillon 5 % ; l'héritage par les branches est la vraie faute. (2) Tableaux 1 et 2 sur 5 % : correct, trois appuis indépendants (texte J-O sur 5 %, Tableau 3, τexp 4,48 ms = inset Fig. 9 à 5 %) ; arithmétique des tableaux vérifiée (Arad = somme des A, Atot = Arad + Anrad, τrad = 1/Arad, η = τexp/τrad, β = A/Arad). (3) Volume de maille : lecture fidèle à 0,1 %, mais arrondi à l'entier trop grossier. Valeurs de Fig. 4 (intensités ±3 %, R ±0,01), Fig. 9 (4,1 ; 5,0 ; 4,5 ; 4,45 ; 2,9 ms) et marqueurs de phases de Fig. 2a conformes. Le texte dit que plus d'Eu fait apparaître des pics, la figure montre l'inverse (BaWO4/Ba2WO5 seulement à 0,1–1 %) : contradiction de l'article, bien notée en doute. Fig. 8 et 10 non lues en détail (valeurs données dans le texte)."
+}

@@ -1,0 +1,587 @@
+{
+ "pmcid": "PMC9057918",
+ "routes": [
+  {
+   "label": "MoS2(1-x)Se2x",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pression de vapeur du soufre à 250 °C",
+     "inputs": "CRC : p(S) = 1 kPa à 235 °C (508 K), 10 kPa à 318 °C (591 K)",
+     "formula": "interpolation linéaire de log p en 1/T",
+     "result": "≈ 1,6 kPa ≈ 12 torr",
+     "compared_to": "pression totale annoncée 9 torr = 1,2 kPa : p(S) > p(totale)",
+     "source": "Wikipedia « Vapor pressures of the elements » (colonne CRC)"
+    },
+    {
+     "what": "pression de vapeur du sélénium à 350 °C",
+     "inputs": "CRC : p(Se) = 100 Pa à 344 °C (617 K), 1 kPa à 431 °C (704 K)",
+     "formula": "interpolation linéaire de log p en 1/T",
+     "result": "≈ 0,12 kPa ≈ 0,9 torr",
+     "compared_to": "p(S, 250 °C)/p(Se, 350 °C) ≈ 13",
+     "source": "Wikipedia « Vapor pressures of the elements » (colonne CRC)"
+    },
+    {
+     "what": "vitesse du gaz dans le tube",
+     "inputs": "200 sccm Ar ; 9 torr ; tube de 2,5 pouces pris comme diamètre intérieur 6,35 cm (section 31,7 cm²) ; 298 K et 1123 K",
+     "formula": "Q = 200 × (760/9) × (T/273,15) ; v = Q / section",
+     "result": "≈ 18 400 cm³/min soit 9,7 cm/s à 298 K ; ≈ 69 400 cm³/min soit 36 cm/s à 850 °C",
+     "compared_to": "ordre de grandeur usuel en LPCVD de TMD (quelques cm/s à quelques dizaines de cm/s)",
+     "source": "arithmétique (gaz parfait) ; diamètre intérieur réel non donné"
+    },
+    {
+     "what": "durée de la rampe jusqu'à 650 °C",
+     "inputs": "de ≈ 25 °C à 650 °C à 10 °C/min",
+     "formula": "ΔT / vitesse",
+     "result": "≈ 62 min ; la rampe de 650 à 850 °C et le palier de croissance ne sont pas chiffrés",
+     "compared_to": "soufre et sélénium chauffés « in the meantime » : sources actives pendant au moins une heure avant 850 °C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "conversion longueur d'onde → énergie des bornes d'émission",
+     "inputs": "680 nm ; 810 nm ; hc = 1239,84 eV·nm",
+     "formula": "E = 1239,84 / λ",
+     "result": "1,823 eV ; 1,531 eV",
+     "compared_to": "1,82 et 1,53 eV annoncés : cohérent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "écart Raman A1g − E1 2g à x = 0",
+     "inputs": "lecture Fig. 2c : E2g(S-Mo) ≈ 383 cm-1 ; A1g(S-Mo) ≈ 404 cm-1 (±1 cm-1)",
+     "formula": "Δ = ω(A1g) − ω(E2g)",
+     "result": "≈ 21 cm-1",
+     "compared_to": "monocouche ≈ 3 cm-1 en dessous de la bicouche (Lee 2010) ; monocouche CVD de la base PMC3659320 : 20,4 cm-1",
+     "source": "lecture de figure + Lee et al. 2010 (10.1021/nn1003937)"
+    },
+    {
+     "what": "rapport Se:S contre x (XPS)",
+     "inputs": "x = 0,20 ; 0,23 ; 0,37 ; 0,55",
+     "formula": "Se:S = 2x : 2(1−x)",
+     "result": "0,40:1,60 ; 0,46:1,54 ; 0,74:1,26 ; 1,10:0,90",
+     "compared_to": "rapports annoncés identiques : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "compositions dans la supercellule DFT 4×4×2",
+     "inputs": "64 sites de chalcogène (32 Mo, 64 S, 96 atomes)",
+     "formula": "n(Se) = 64 x",
+     "result": "x = 0,20 → 12,8 ; 0,37 → 23,7 ; 0,55 → 35,2 (non entiers ; 13/64 = 0,203, 24/64 = 0,375, 35/64 = 0,547)",
+     "compared_to": "x DFT nominaux arrondis, écart < 0,01",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Ordre des sources : le texte principal (« placed from downstream to upstream ») mettrait le soufre (250 °C) en aval de la zone MoO3/substrat à 850 °C ; le gaz l'emporterait alors loin du substrat, ce qui rend la croissance impossible. Seul l'ordre de la Fig. 1a et de l'annexe (S en amont à 0 cm, Se à 25 cm, MoO3 à 47 cm, substrat à 70 cm, Ar d'amont vers aval) est physiquement possible. L'annexe dit aussi que le substrat est « directly above the MoO3 vessel » alors que 23 cm séparent MoO3 (47 cm) et Si (70 cm) : la position réelle du substrat, paramètre clé de la sursaturation en Mo, est indéterminée.",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Soufre à 250 °C : pression de vapeur ≈ 1,6 kPa (12 torr), supérieure à la pression totale de 9 torr (voir calcul « pression de vapeur du soufre à 250 °C ») : le soufre bout pratiquement et s'épuise vite ; le sélénium à 350 °C n'a que ≈ 0,9 torr, soit un flux ≈ 13 fois plus faible. Les ceintures chauffent S et Se pendant toute la rampe (≈ 62 min avant 650 °C) : sans les masses ni le moment de mise en chauffe, on ne sait pas s'il reste du soufre quand le four atteint 850 °C. Le réglage de x « en ajustant les quantités » n'est donc pas transposable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Vapor pressures of the elements (valeurs du CRC Handbook of Chemistry and Physics, colonne CRC)",
+      "authors_or_publisher": "Wikipedia, compilation du CRC Handbook (CRC Press) et de Kaye & Laby (NPL)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Vapor_pressures_of_the_elements"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "MoO3 fond à 795 °C (manuel de chimie, CRC) : à 850 °C il est liquide et se volatilise fortement ; la position de la nacelle dans la troisième zone et la durée de croissance (non données) fixent la quantité de Mo apportée. Durée de croissance, vitesse de 650 à 850 °C et masses absentes : protocole incomplet.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune masse de S, Se ou MoO3 : bilan de matière impossible. Les éléments du produit sont bien apportés (Mo par MoO3, S et Se élémentaires). Le rapport des pressions de vapeur S/Se ≈ 13 (calculs) impose un très large excès de Se en masse, ou une température de Se plus haute, pour atteindre x = 0,55 ; l'article ne dit rien de cet ajustement.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "redox",
+     "finding": "Mo(VI) → Mo(IV) : le soufre réduit MoO3 (sous-produit SO2) ; aucun H2 n'est utilisé. Le signal Mo6+ en XPS (235,7 eV) est cohérent avec une sulfuration ou une sélénisation incomplète d'oxysulfures MoO3−xSx. Les auteurs écrivent « incomplete vulcanization (or selenization) of metal Mo » : il n'y a pas de Mo métallique dans ce procédé, le mot juste est sulfuration incomplète de MoO3/MoO3−x.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les points brillants au centre des flocons sont attribués à du PTAS « seeding promoter » ; or aucun PTAS n'est déposé selon les méthodes et l'annexe. Le PTAS est un sel organique que l'on applique volontairement en solution aqueuse sur le substrat (Ling 2014) : il ne peut pas apparaître de lui-même. L'explication la plus simple est une particule d'oxysulfure MoOxSy (ou un petit noyau multicouche) qui sert de germe auto-ensemencé, observée couramment au-dessus de 750 °C.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Role of the seeding promoter in MoS2 growth by chemical vapor deposition",
+      "authors_or_publisher": "Ling X., Lee Y.-H., Lin Y., Fang W., Yu L., Dresselhaus M.S., Kong J. (Nano Letters)",
+      "year": "2014",
+      "url_or_doi": "10.1021/nl4033704"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bicouche affirmée sur la seule hauteur AFM (≈ 1,4 nm). L'écart Raman A1g − E2g ≈ 21 cm-1 à x = 0 (calcul « écart Raman ») est à la limite monocouche/bicouche (la monocouche CVD de PMC3659320 donne 20,4 cm-1 ; Lee 2010 : la monocouche est ≈ 3 cm-1 sous la bicouche). Le spectre PL de x = 0 (Fig. 2b, jusqu'à 850 nm = 1,46 eV) ne montre pas le pic indirect I attendu vers 1,5–1,6 eV pour MoS2 bicouche (Mak 2010), et la PL intense de type monocouche n'est pas comparée à une référence. Preuve non discriminante : il faudrait l'écart Raman chiffré par échantillon, les modes basse fréquence (cisaillement, respiration) ou le pic I.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Atomically thin MoS2: a new direct-gap semiconductor",
+      "authors_or_publisher": "Mak K.F., Lee C., Hone J., Shan J., Heinz T.F. (Phys. Rev. Lett. 105, 136805)",
+      "year": "2010",
+      "url_or_doi": "https://arxiv.org/abs/1004.0546"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le pic Raman vers 300 cm-1 indépendant de la composition est bien le mode de second ordre du silicium (≈ 303 cm-1) : attribution correcte.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Multiwavelength Raman investigation of mono- and few-layer MoS2 grown by Pulsed Laser Deposition on SiO2 (Table 1 : mode de second ordre du Si à 303 cm-1)",
+      "authors_or_publisher": "arXiv, prépublication",
+      "year": "2026",
+      "url_or_doi": "https://arxiv.org/html/2607.13211v1"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire physique : (1) l'intensité A1g > E2g est expliquée par « intralayer covalent / interlayer van der Waals », ce qui ne détermine pas un rapport d'intensité Raman (il dépend surtout de l'excitation, résonante ou non, et du nombre de couches) ; (2) le ramollissement des modes avec Se est attribué à une « tensile stress », alors que l'effet principal est l'effet de masse et de liaison de Se (plus lourd) ; (3) « bilayer alloy still shows direct band gap luminescence » : MoS2 et MoSe2 bicouches sont à gap indirect, les excitons A et B sont des transitions directes au point K (luminescence « chaude »), pas la preuve d'un gap direct.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Substrat « SiO2 thickness of 275 microns » : impossible pour un oxyde thermique ; 275 µm (≈ 275–280 µm) correspond à l'épaisseur habituelle d'une plaquette de silicium de 2 pouces, ce qui laisse penser que c'est l'épaisseur de la plaquette qui est donnée et que l'épaisseur d'oxyde (typiquement 285–300 nm, qui fixe le contraste optique et la lecture du nombre de couches) n'est pas connue.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : sélénium et ses vapeurs toxiques (CLP : toxicité aiguë par ingestion et inhalation, effets sur les organes en exposition répétée) ; vapeurs de soufre et de sélénium qui se condensent en aval et dans la pompe (piège froid ou filtre nécessaire avant la pompe) ; MoO3 classé cancérogène suspecté (Carc. 2) et irritant en poudre ; SO2 produit par la réduction de MoO3 par S ; tube de quartz sous vide partiel à 850 °C. Ouvrir le tube froid, sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte des Méthodes donne des gaps optiques de 1,53 eV pour MoS2 et 1,82 eV pour MoSe2 : inversé (MoS2 a le gap le plus grand ; les Résultats et la Fig. 2d donnent 1,82 eV pour MoS2 et 1,53 eV pour MoSe2, en accord avec la littérature, monocouche MoSe2 ≈ 1,5 eV, Wang 2014). La conclusion appelle « B exciton energy … ranging from 1.82 eV to 1.53 eV » une plage qui est celle de l'exciton A (Fig. 2d : B va de ≈ 1,94 à 1,75 eV). Prendre B comme gap est physiquement discutable : le gap optique est la transition de plus basse énergie, l'exciton A ; B est son partenaire spin-orbite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical vapor deposition growth of crystalline monolayer MoSe2",
+      "authors_or_publisher": "Wang X. et al. (ACS Nano)",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn501175k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'annexe affirme que les énergies de liaison S 2p et Se 3d augmentent avec le dopage « in accordance with the law that the band gap energy value increases from MoS2 to MoSe2 » : le gap diminue de MoS2 à MoSe2 (Fig. 2d de l'article). Raisonnement à écarter.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DFT : MoSe2 bicouche décrit avec un gap « direct » de 1,42 eV, alors que les bicouches de MoS2 et MoSe2 sont à gap indirect (ou quasi dégénéré pour MoSe2) ; et des gaps PBE (fondamentaux, sans exciton) comparés directement aux énergies d'excitons PL : la phrase « slightly lower than the experimental values » ne valide rien. La phrase « 1.42 eV, which is lower than the 0.28 eV of bilayer MoS2 » veut sans doute dire 0,28 eV plus bas que 1,70 eV (1,70 − 1,42 = 0,28).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "MoO3 (fondu au-dessus de 795 °C) se volatilise et est partiellement réduit par la vapeur de soufre en MoO3−x et en oxysulfures volatils ; sur le substrat, des particules MoOxSy(Sey) se déposent et servent de germes (points brillants au centre des triangles, pas du PTAS, qui n'est pas utilisé) ; les domaines triangulaires Mo(S,Se)2 croissent latéralement par fixation en bord, régime vapeur-solide ; S et Se se substituent statistiquement sur les sites de chalcogène (solution solide continue, Kang 2013), avec x fixé par le rapport des flux S/Se, très défavorable au Se (pression de vapeur ≈ 13 fois plus faible, Se moins réducteur que S). Le Mo6+ résiduel signe une chalcogénation incomplète.",
+    "sources": [
+     {
+      "title": "Revealing the MoS2 growth mechanism in chemical vapor deposition: real-time imaging and statistical analysis",
+      "authors_or_publisher": "Arifurrahman F., Zhai T. et al. (arXiv, prépublication)",
+      "year": "2026",
+      "url_or_doi": "https://arxiv.org/pdf/2607.13893"
+     },
+     {
+      "title": "Role of the seeding promoter in MoS2 growth by chemical vapor deposition",
+      "authors_or_publisher": "Ling X., Lee Y.-H., Lin Y., Fang W., Yu L., Dresselhaus M.S., Kong J. (Nano Letters)",
+      "year": "2014",
+      "url_or_doi": "10.1021/nl4033704"
+     },
+     {
+      "title": "Monolayer semiconducting transition metal dichalcogenide alloys: stability and band bowing",
+      "authors_or_publisher": "Kang J., Tongay S., Li J., Wu J. (J. Appl. Phys. 113, 143703)",
+      "year": "2013",
+      "url_or_doi": "10.1063/1.4799126"
+     },
+     {
+      "title": "Vapor pressures of the elements (valeurs du CRC Handbook of Chemistry and Physics, colonne CRC)",
+      "authors_or_publisher": "Wikipedia, compilation du CRC Handbook (CRC Press) et de Kaye & Laby (NPL)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Vapor_pressures_of_the_elements"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ordre réel des sources (S en amont, puis Se, MoO3, substrat, comme Fig. 1a) et distance réelle MoO3-substrat (47 contre 70 cm, ou « directly above »)",
+    "masses de S, Se et MoO3, moment de mise en chauffe des ceintures, vitesse de 650 à 850 °C et durée de croissance (aucune n'est donnée)",
+    "épuisement du soufre : à 250 °C sa pression de vapeur (≈ 12 torr) dépasse la pression totale de 9 torr",
+    "épaisseur réelle de l'oxyde (275 µm est sans doute l'épaisseur de la plaquette)",
+    "nombre de couches par une preuve discriminante (écart Raman chiffré, modes basse fréquence, pic indirect en PL) et non par la seule hauteur AFM",
+    "piège à chalcogènes avant la pompe ; manipulation du sélénium et de MoO3 sous hotte"
+   ]
+  },
+  {
+   "label": "x=0",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "écart Raman A1g − E1 2g à x = 0",
+     "inputs": "Fig. 2c : ≈ 383 et ≈ 404 cm-1",
+     "formula": "Δ = ω(A1g) − ω(E2g)",
+     "result": "≈ 21 cm-1",
+     "compared_to": "monocouche CVD PMC3659320 : 20,4 cm-1 ; bicouche ≈ 3 cm-1 au-dessus de la monocouche (Lee 2010)",
+     "source": "lecture de figure + Lee 2010"
+    },
+    {
+     "what": "énergie A et B à x = 0",
+     "inputs": "Fig. 2d : A ≈ 1,82 eV ; B ≈ 1,94 eV",
+     "formula": "E_B − E_A",
+     "result": "≈ 0,12 eV",
+     "compared_to": "écart A–B de MoS2 ≈ 0,15 eV (couplage spin-orbite de la bande de valence) : ordre de grandeur cohérent",
+     "source": "lecture de figure ; Mak 2010"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "MoS2 dit bicouche : écart Raman ≈ 21 cm-1 à la limite monocouche/bicouche et pas de pic indirect visible vers 1,5–1,6 eV dans le spectre PL (Fig. 2b), alors qu'il est attendu pour une bicouche (Mak 2010). Le nombre de couches n'est pas établi de façon discriminante.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Anomalous lattice vibrations of single- and few-layer MoS2",
+      "authors_or_publisher": "Lee C., Yan H., Brus L.E., Heinz T.F., Hone J., Ryu S. (ACS Nano)",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1003937"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le protocole de MoS2 seul (sans Se) n'est pas décrit ; avec la voie de base sans sélénium, c'est une sulfuration classique de MoO3 (Lee 2012, fondateurs.md) : chimiquement sans difficulté.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que la voie de base ; seule change la proportion des flux de S et de Se.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "nombre de couches réel",
+    "masses de S et MoO3 et durée de croissance"
+   ]
+  },
+  {
+   "label": "x=0.20",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "x depuis l'exciton B",
+     "inputs": "E_B lu sur Fig. 2d = 1.92 eV (±0,01) ; Eg(MoS2) = 1,94 eV et Eg(MoSe2) = 1,75 eV (B lus sur Fig. 2d) ; b = 0,05 eV (article)",
+     "formula": "Eg(x) = (1−x)·1,94 + x·1,75 − 0,05·x(1−x), résolu en x",
+     "result": "x ≈ 0,08",
+     "compared_to": "x annoncé par les auteurs pour cet échantillon : 0,2 ; b nécessaire pour retrouver cette valeur : -0,11 eV",
+     "source": "lecture de figure + équation des auteurs"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "x déduit de l'exciton B non reproductible : avec la loi quadratique Eg(x) = (1−x)Eg(MoS2) + x Eg(MoSe2) − b x(1−x), b = 0,05 eV et les énergies B lues sur la Fig. 2d (1,94 eV à x = 0, 1,75 eV à x = 1 ; 1,92 / 1,91 / 1,84 / 1,78 eV pour les quatre alliages), on obtient x ≈ 0,08 / 0,13 / 0,46 / 0,80 et non 0,20 / 0,22 / 0,41 / 0,50 (voir calculs « x depuis l'exciton B »). Pour retrouver les x annoncés il faudrait b ≈ −0,11 ; −0,07 ; +0,09 ; +0,26 eV, donc pas un paramètre unique. La « bonne concordance » avec l'XPS (Fig. 4) n'est pas vérifiable et l'équation (1) n'est pas imprimée dans le texte. De plus b = 0,05 eV est la valeur faible attendue pour les alliages à cation commun comme MoS2(1−x)Se2x, ce qui contredit l'affirmation d'une courbure « plus marquée » que pour la monocouche et les courbes ajustées très incurvées de la Fig. 2d.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Origins of bandgap bowing character in the common-anion transition-metal-dichalcogenide ternary alloyed monolayer: ab initio investigation",
+      "authors_or_publisher": "New Journal of Physics (IOP Publishing)",
+      "year": "2021",
+      "url_or_doi": "10.1088/1367-2630/ac2d73"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "x XPS et rapport Se:S cohérents entre eux (Se:S = 2x : 2(1−x)). Les XPS des alliages autres que x = 0,37 ne sont pas montrés (Fig. SI.2 absente du dépôt).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que la voie de base ; seule change la proportion des flux de S et de Se.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "réglage des sources donnant cette composition (non écrit)",
+    "x par une méthode indépendante (EDS, XPS avec Se 3p soustrait)"
+   ]
+  },
+  {
+   "label": "x=0.23",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "x depuis l'exciton B",
+     "inputs": "E_B lu sur Fig. 2d = 1.91 eV (±0,01) ; Eg(MoS2) = 1,94 eV et Eg(MoSe2) = 1,75 eV (B lus sur Fig. 2d) ; b = 0,05 eV (article)",
+     "formula": "Eg(x) = (1−x)·1,94 + x·1,75 − 0,05·x(1−x), résolu en x",
+     "result": "x ≈ 0,13",
+     "compared_to": "x annoncé par les auteurs pour cet échantillon : 0,22 ; b nécessaire pour retrouver cette valeur : -0,07 eV",
+     "source": "lecture de figure + équation des auteurs"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "x déduit de l'exciton B non reproductible : avec la loi quadratique Eg(x) = (1−x)Eg(MoS2) + x Eg(MoSe2) − b x(1−x), b = 0,05 eV et les énergies B lues sur la Fig. 2d (1,94 eV à x = 0, 1,75 eV à x = 1 ; 1,92 / 1,91 / 1,84 / 1,78 eV pour les quatre alliages), on obtient x ≈ 0,08 / 0,13 / 0,46 / 0,80 et non 0,20 / 0,22 / 0,41 / 0,50 (voir calculs « x depuis l'exciton B »). Pour retrouver les x annoncés il faudrait b ≈ −0,11 ; −0,07 ; +0,09 ; +0,26 eV, donc pas un paramètre unique. La « bonne concordance » avec l'XPS (Fig. 4) n'est pas vérifiable et l'équation (1) n'est pas imprimée dans le texte. De plus b = 0,05 eV est la valeur faible attendue pour les alliages à cation commun comme MoS2(1−x)Se2x, ce qui contredit l'affirmation d'une courbure « plus marquée » que pour la monocouche et les courbes ajustées très incurvées de la Fig. 2d.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Origins of bandgap bowing character in the common-anion transition-metal-dichalcogenide ternary alloyed monolayer: ab initio investigation",
+      "authors_or_publisher": "New Journal of Physics (IOP Publishing)",
+      "year": "2021",
+      "url_or_doi": "10.1088/1367-2630/ac2d73"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "x XPS et rapport Se:S cohérents entre eux (Se:S = 2x : 2(1−x)). Les XPS des alliages autres que x = 0,37 ne sont pas montrés (Fig. SI.2 absente du dépôt).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que la voie de base ; seule change la proportion des flux de S et de Se.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "réglage des sources donnant cette composition (non écrit)",
+    "x par une méthode indépendante (EDS, XPS avec Se 3p soustrait)"
+   ]
+  },
+  {
+   "label": "x=0.37",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "x depuis l'exciton B",
+     "inputs": "E_B lu sur Fig. 2d = 1.84 eV (±0,01) ; Eg(MoS2) = 1,94 eV et Eg(MoSe2) = 1,75 eV (B lus sur Fig. 2d) ; b = 0,05 eV (article)",
+     "formula": "Eg(x) = (1−x)·1,94 + x·1,75 − 0,05·x(1−x), résolu en x",
+     "result": "x ≈ 0,46",
+     "compared_to": "x annoncé par les auteurs pour cet échantillon : 0,41 ; b nécessaire pour retrouver cette valeur : 0,09 eV",
+     "source": "lecture de figure + équation des auteurs"
+    },
+    {
+     "what": "écarts spin-orbite XPS",
+     "inputs": "Mo 3d : 229,5 et 232,6 eV ; S 2p : 162,4 et 163,6 eV ; Se 3d : 54,9 et 55,7 eV",
+     "formula": "différences",
+     "result": "Mo 3d 3,1 eV ; S 2p 1,2 eV ; Se 3d 0,8 eV",
+     "compared_to": "Mo 3d ≈ 3,1 eV ; S 2p ≈ 1,2 eV ; Se 3d 0,86 eV (Thermo Fisher) : cohérent",
+     "source": "Thermo Fisher XPS Selenium ; valeurs de l'article"
+    },
+    {
+     "what": "rapport des facteurs de sensibilité",
+     "inputs": "F(S 2p3/2) = 0,4453 ; F(Se 3d3/2) = 0,8493",
+     "formula": "F(Se)/F(S)",
+     "result": "1,91",
+     "compared_to": "aucune table source citée par les auteurs ; valeurs invérifiables ici",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "x déduit de l'exciton B non reproductible : avec la loi quadratique Eg(x) = (1−x)Eg(MoS2) + x Eg(MoSe2) − b x(1−x), b = 0,05 eV et les énergies B lues sur la Fig. 2d (1,94 eV à x = 0, 1,75 eV à x = 1 ; 1,92 / 1,91 / 1,84 / 1,78 eV pour les quatre alliages), on obtient x ≈ 0,08 / 0,13 / 0,46 / 0,80 et non 0,20 / 0,22 / 0,41 / 0,50 (voir calculs « x depuis l'exciton B »). Pour retrouver les x annoncés il faudrait b ≈ −0,11 ; −0,07 ; +0,09 ; +0,26 eV, donc pas un paramètre unique. La « bonne concordance » avec l'XPS (Fig. 4) n'est pas vérifiable et l'équation (1) n'est pas imprimée dans le texte. De plus b = 0,05 eV est la valeur faible attendue pour les alliages à cation commun comme MoS2(1−x)Se2x, ce qui contredit l'affirmation d'une courbure « plus marquée » que pour la monocouche et les courbes ajustées très incurvées de la Fig. 2d.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Origins of bandgap bowing character in the common-anion transition-metal-dichalcogenide ternary alloyed monolayer: ab initio investigation",
+      "authors_or_publisher": "New Journal of Physics (IOP Publishing)",
+      "year": "2021",
+      "url_or_doi": "10.1088/1367-2630/ac2d73"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Attribution Se 3d inversée dans le texte : la composante 3d5/2 est toujours à plus basse énergie (54,9 eV) et 3d3/2 à 55,7 eV ; écart 0,8 eV cohérent avec 0,86 eV (Thermo Fisher). Comme l'équation (2) utilise la seule composante « Se 3d3/2 », on ne sait pas quelle aire est entrée dans le calcul de x. Mo 3d (229,5 / 232,6 eV, écart 3,1 eV), S 2s (226,8 eV) et S 2p (162,4 / 163,6 eV, écart 1,2 eV) sont dans les plages usuelles de MoS2.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Selenium | XPS Periodic Table",
+      "authors_or_publisher": "Thermo Fisher Scientific",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.thermofisher.com/us/en/home/materials-science/learning-center/periodic-table/non-metal/selenium.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Quantification Se/S : le doublet Se 3p3/2 (≈ 160,6–161,9 eV, NIST) recouvre la région S 2p (162,4 eV) ; sans soustraction de Se 3p, l'aire S 2p3/2 est surestimée et x sous-estimé, d'autant plus que x est grand. Les facteurs de sensibilité 0,4453 et 0,8493 sont donnés sans source. Le x XPS a donc une incertitude non chiffrée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "NIST X-ray Photoelectron Spectroscopy Database, sélénium (Se 3d5/2, Se 3p3/2)",
+      "authors_or_publisher": "NIST (SRD 20)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://srdata.nist.gov/xps/SpectralByCompdDd/3338"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que la voie de base ; seule change la proportion des flux de S et de Se.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "déconvolution S 2p avec soustraction du doublet Se 3p",
+    "source des facteurs de sensibilité",
+    "quelle composante Se 3d a servi au calcul"
+   ]
+  },
+  {
+   "label": "x=0.55",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "x depuis l'exciton B",
+     "inputs": "E_B lu sur Fig. 2d = 1.78 eV (±0,01) ; Eg(MoS2) = 1,94 eV et Eg(MoSe2) = 1,75 eV (B lus sur Fig. 2d) ; b = 0,05 eV (article)",
+     "formula": "Eg(x) = (1−x)·1,94 + x·1,75 − 0,05·x(1−x), résolu en x",
+     "result": "x ≈ 0,8",
+     "compared_to": "x annoncé par les auteurs pour cet échantillon : 0,5 ; b nécessaire pour retrouver cette valeur : 0,26 eV",
+     "source": "lecture de figure + équation des auteurs"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "x déduit de l'exciton B non reproductible : avec la loi quadratique Eg(x) = (1−x)Eg(MoS2) + x Eg(MoSe2) − b x(1−x), b = 0,05 eV et les énergies B lues sur la Fig. 2d (1,94 eV à x = 0, 1,75 eV à x = 1 ; 1,92 / 1,91 / 1,84 / 1,78 eV pour les quatre alliages), on obtient x ≈ 0,08 / 0,13 / 0,46 / 0,80 et non 0,20 / 0,22 / 0,41 / 0,50 (voir calculs « x depuis l'exciton B »). Pour retrouver les x annoncés il faudrait b ≈ −0,11 ; −0,07 ; +0,09 ; +0,26 eV, donc pas un paramètre unique. La « bonne concordance » avec l'XPS (Fig. 4) n'est pas vérifiable et l'équation (1) n'est pas imprimée dans le texte. De plus b = 0,05 eV est la valeur faible attendue pour les alliages à cation commun comme MoS2(1−x)Se2x, ce qui contredit l'affirmation d'une courbure « plus marquée » que pour la monocouche et les courbes ajustées très incurvées de la Fig. 2d.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Origins of bandgap bowing character in the common-anion transition-metal-dichalcogenide ternary alloyed monolayer: ab initio investigation",
+      "authors_or_publisher": "New Journal of Physics (IOP Publishing)",
+      "year": "2021",
+      "url_or_doi": "10.1088/1367-2630/ac2d73"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'introduction dit que la bicouche s'obtient facilement « when x is smaller than 50% » ; x = 0,55 et x = 1 sont pourtant présentés comme bicouches, sans hauteur AFM propre (seul x = 0,37 a une mesure AFM).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que la voie de base ; seule change la proportion des flux de S et de Se.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "épaisseur AFM et nombre de couches de cet échantillon",
+    "réglage des sources pour cette composition"
+   ]
+  },
+  {
+   "label": "x=1",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "énergies A et B à x = 1",
+     "inputs": "Fig. 2d : A ≈ 1,54 eV ; B ≈ 1,75 eV",
+     "formula": "E_B − E_A",
+     "result": "≈ 0,21 eV",
+     "compared_to": "MoSe2 : A ≈ 1,5–1,55 eV (Wang 2014), écart A–B ≈ 0,2 eV : cohérent",
+     "source": "lecture de figure ; Wang et al. 2014"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "MoSe2 pur par sélénisation de MoO3 sans hydrogène : le sélénium réduit mal MoO3 et la plupart des croissances CVD de MoSe2 à partir de MoO3 + Se utilisent Ar/H2 (H2 décrit comme indispensable ou « catalyseur »). L'article ne dit pas comment MoSe2 a été obtenu sans H2 ni si le soufre a été retiré : la voie x = 1 n'est pas décrite et pourrait demander H2.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Highly Crystalline CVD-grown Multilayer MoSe2 Thin Film Transistor for Fast Photodetector",
+      "authors_or_publisher": "Scientific Reports (Nature), article PMC4609947",
+      "year": "2015",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4609947"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "A ≈ 1,54 eV et B ≈ 1,75 eV : valeurs typiques de MoSe2 mince ; Fig. 2a ne montre que le mode A1g à ≈ 240 cm-1, cohérent avec MoSe2.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical vapor deposition growth of crystalline monolayer MoSe2",
+      "authors_or_publisher": "Wang X. et al. (ACS Nano)",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn501175k"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le mélange Ar/H2 éventuellement nécessaire pour MoSe2 forme H2Se, très toxique : à prévoir dans l'évaluation des risques si l'on ajoute H2.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical Vapor Deposition of 4 Inch Wafer-Scale Monolayer MoSe2",
+      "authors_or_publisher": "Li J. et al. (Wiley ; copie déposée à la DNB)",
+      "year": "2022",
+      "url_or_doi": "https://d-nb.info/1268569240/34"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que la voie de base ; seule change la proportion des flux de S et de Se.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "présence ou absence de S et de H2 pour la croissance de MoSe2",
+    "température et masse de Se nécessaires"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "CVD basse pression de flocons triangulaires MoS2(1−x)Se2x sur Si/SiO2 à partir de S, Se et MoO3 sous Ar, sans H2. La chimie de base (sulfuration et sélénisation de MoO3 à 850 °C) est plausible, mais le protocole n'est pas refaisable tel quel : masses, durée, réglage de chaque x absents ; ordre des sources contradictoire (seul l'ordre de la Fig. 1a est physiquement possible) ; soufre à 250 °C au-dessus de la pression totale. Les conclusions optiques reposent sur un calcul de x par l'exciton B que l'on ne retrouve pas avec b = 0,05 eV, sur l'inversion des gaps de MoS2 et MoSe2 dans les Méthodes, et sur une identification bicouche non discriminante. Les points brillants sont attribués à du PTAS qui n'est pas utilisé.",
+  "author_errors_suspected": [
+   "ordre des sources « from downstream to upstream » contraire à la Fig. 1a et à l'annexe ; substrat « directly above » MoO3 mais 23 cm plus loin",
+   "gaps de MoS2 (1,53 eV) et MoSe2 (1,82 eV) inversés dans les Méthodes",
+   "x déduit de l'exciton B avec b = 0,05 eV non retrouvable à partir de la Fig. 2d ; plage 1,82–1,53 eV attribuée à B alors qu'elle est celle de A",
+   "PTAS invoqué comme germe alors qu'il n'est pas utilisé",
+   "Se 3d5/2 et 3d3/2 inversés dans le texte",
+   "épaisseur d'oxyde « 275 microns » (sans doute l'épaisseur de la plaquette)",
+   "annexe : gap « croissant » de MoS2 à MoSe2",
+   "Mo métallique invoqué pour l'oxysulfure alors que le précurseur est MoO3"
+  ],
+  "comparison_with_database": "Une seule autre croissance CVD de MoS2 dans la base : PMC3659320 (MoCl5 + S, 850 °C, 10 min, S à 300 °C) ; même température de croissance ; sa monocouche a un écart Raman de 20,4 cm-1, proche des ≈ 21 cm-1 lus ici pour la « bicouche » x = 0. Aucun autre alliage MoS2(1−x)Se2x dans la base."
+ },
+ "sources_not_found": [
+  "Wang et al. 2014 (10.1021/nn501175k) : l'usage de H2 dans leur protocole n'a pas pu être lu (résumé seul) ; l'argument H2 s'appuie sur PMC4609947 et sur la croissance sur plaquette de 4 pouces (Ar + 7 % H2)",
+  "table d'origine des facteurs de sensibilité 0,4453 (S 2p3/2) et 0,8493 (Se 3d3/2) non trouvée",
+  "classification CLP de MoO3 et du sélénium citée de mémoire, non vérifiée sur ECHA"
+ ]
+}

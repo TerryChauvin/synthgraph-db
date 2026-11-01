@@ -1,0 +1,585 @@
+{
+ "pmcid": "PMC13057244",
+ "routes": [
+  {
+   "label": "Spent_CAM",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire Li/(Ni+Mn+Co) de la poudre usagée",
+     "inputs": "Tableau 1 : Li 6,210 ; Ni 36,928 ; Mn 10,600 ; Co 8,379 % en masse",
+     "formula": "n = w/M pour 100 g ; Li/(Ni+Mn+Co)",
+     "result": "Li 0,8947 ; Ni 0,6292 ; Mn 0,1929 ; Co 0,1422 mol ; Li/TM = 0,928",
+     "compared_to": "0,928 annoncé (déficit apparent 7,2 %) : recalcul exact",
+     "source": "masses atomiques IUPAC (Li 6,941 ; Ni 58,693 ; Mn 54,938 ; Co 58,933 ; O 15,999)"
+    },
+    {
+     "what": "incertitude sur Li/TM",
+     "inputs": "Li = 6,210 ± 0,966 % en masse ; TM = 0,9643 mol/100 g",
+     "formula": "(6,210 ± 0,966)/6,941/0,9643",
+     "result": "Li/TM entre 0,78 et 1,07",
+     "compared_to": "déficit annoncé de 7,2 % (Li/TM = 0,928) : l'intervalle contient 1,000",
+     "source": "masses atomiques IUPAC (Li 6,941 ; Ni 58,693 ; Mn 54,938 ; Co 58,933 ; O 15,999) ; incertitude du Tableau 1"
+    },
+    {
+     "what": "rapport Ni:Mn:Co de la poudre usagée",
+     "inputs": "n(Ni), n(Mn), n(Co) ci-dessus",
+     "formula": "n(M)/n(TM)",
+     "result": "Ni 0,653 : Mn 0,200 : Co 0,147",
+     "compared_to": "NMC622 : 0,6 : 0,2 : 0,2",
+     "source": "masses atomiques IUPAC (Li 6,941 ; Ni 58,693 ; Mn 54,938 ; Co 58,933 ; O 15,999)"
+    },
+    {
+     "what": "teneurs massiques attendues pour LiNi0,6Mn0,2Co0,2O2",
+     "inputs": "M = 6,941 + 0,6×58,693 + 0,2×54,938 + 0,2×58,933 + 2×15,999 = 96,93 g/mol",
+     "formula": "w(M) = x·M(M)/96,93",
+     "result": "Li 7,16 ; Ni 36,33 ; Mn 11,34 ; Co 12,16 % en masse",
+     "compared_to": "mesuré : Co 8,38 ± 1,20 % (écart de 3,8 points, plus de trois fois l'incertitude)",
+     "source": "masses atomiques IUPAC (Li 6,941 ; Ni 58,693 ; Mn 54,938 ; Co 58,933 ; O 15,999)"
+    },
+    {
+     "what": "fraction de la poudre qui est de l'oxyde lamellaire",
+     "inputs": "composition mesurée ramenée à Li0,928Ni0,653Mn0,200Co0,147O2 : 96,41 g par mole de TM, dont 64,41 g de métaux",
+     "formula": "somme des métaux mesurés (62,12 %) / somme attendue pour l'oxyde (66,81 %)",
+     "result": "≈ 0,93 : environ 7 % de la masse n'est pas l'oxyde (liant PVDF, noir de carbone, Al, résidus d'électrolyte ou oxygène en excès)",
+     "compared_to": "« high purity spent CAM » (Introduction)",
+     "source": "masses atomiques IUPAC (Li 6,941 ; Ni 58,693 ; Mn 54,938 ; Co 58,933 ; O 15,999)"
+    },
+    {
+     "what": "position de la raie (003) de la poudre usagée",
+     "inputs": "c = 14,25 Å ; λ = 1,5406 Å",
+     "formula": "d003 = c/3 ; 2θ = 2 arcsin(λ/2d)",
+     "result": "d003 = 4,750 Å ; 2θ = 18,67°",
+     "compared_to": "M1 : c = 14,19 Å → 18,75° ; déplacement de 0,08° seulement",
+     "source": "loi de Bragg, λ de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le déficit en Li de 7,2 % (Li/TM 0,928) est dans l'incertitude analytique : avec Li = 6,210 ± 0,966 % en masse, Li/TM va de 0,78 à 1,07 (calcul « incertitude sur Li/TM »). Le Tableau 1 ne prouve donc pas que la poudre est déficitaire en Li ; c'est pourtant la référence de toute l'efficacité de relithiation et du plan factoriel.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La poudre dite NMC622 a un rapport Ni:Mn:Co de 0,65 : 0,20 : 0,15 (calcul « rapport Ni:Mn:Co ») ; le Co mesuré (8,38 ± 1,20 %) est à plus de trois incertitudes des 12,16 % attendus pour LiNi0,6Mn0,2Co0,2O2. Soit le dosage du Co est faux (et alors Li/TM aussi est douteux), soit la cathode n'est pas strictement du 622. La chimie NMC 622 des cellules LG de la Kona est confirmée par une source secondaire ; la formule visée LiNi0,6Mn0,2Co0,2O2 des régénérés n'est pas démontrée par les auteurs (Figure S4 absente).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Exclusive details on Hyundai's new battery thermal management design",
+      "authors_or_publisher": "Electric Revs",
+      "year": "2018",
+      "url_or_doi": "https://electricrevs.com/2018/12/20/exclusive-details-on-hyundais-new-battery-thermal-management-design/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La poudre usagée « did not deliver electrochemical capacity » alors qu'elle n'aurait perdu que ~7 % de son Li et qu'elle a un I003/I104 de 2,05, aussi élevé que le NMC commercial (2,09). Un NMC avec 93 % de son Li et un bon ordre cationique délivre normalement plus de 100 mAh/g. La capacité nulle vient donc d'autre chose que du déficit en Li (couche de surface amorphe vue au MEB, résidus de liant, de carbone et de CEI, électrode mal préparée). L'amélioration de 0 à 156 mAh/g ne peut pas être attribuée à la seule relithiation.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le milieu du délaminage aux ultrasons n'est pas donné ; si c'est de l'eau, un NMC riche en Ni subit un échange Li+/H+ près de la surface qui diminue l'inventaire en Li et fait monter l'impédance (Oswald et al. 2024). Une partie du déficit mesuré peut donc venir du prétraitement et non du vieillissement.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of washing on nickel-rich NCMs: methodology to quantify the lithium/proton-exchange kinetics, the inserted protons, and the structural changes",
+      "authors_or_publisher": "Oswald S., Wilhelm R., Kratky T., Szentmiklósi L., Maróti B., Harsányi I., Hallweger S. A., Kieslich G., Günther S., Gasteiger H. A. (J. Mater. Chem. A 12:25140-25164)",
+      "year": "2024",
+      "url_or_doi": "10.1039/D4TA03319A"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage des feuilles sous vide pour éliminer l'électrolyte puis séchage de la poudre à 90 °C, 24 h : compatible avec l'évaporation du DEC/EMC ; l'EC (Téb ≈ 248 °C) et le LiPF6 ne partent pas à 90 °C et peuvent rester sur la poudre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres de maille (a = 2,85 Å, c = 14,25 Å, c/a = 5,00) : c plus grand et a plus petit que le NMC commercial, sens attendu pour un oxyde partiellement délithié (oxydation de Ni, contraction de a). Cohérent avec un état délithié, mais le volume de 100,53 Å3 est le plus petit de la série, ce qui contredit l'explication des auteurs pour M8 (voir M8).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Démontage manuel de cellules de véhicule : seule précaution écrite = décharge du pack. LiPF6 résiduel + humidité → HF ; poudres de Ni et Co (CMR) inhalables ; feuilles de graphite lithié possiblement réactives.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Perte d'inventaire en Li au cyclage (SEI à l'anode) laissant la cathode partiellement délithiée en fin de vie, avec une phase de surface de type spinelle/rocksalt ; le délaminage aqueux aux ultrasons peut ajouter un échange Li+/H+ de surface. La capacité nulle de la poudre telle quelle s'explique plus probablement par la couche de surface et les résidus que par un déficit de 7 % en Li, qui n'est d'ailleurs pas significatif.",
+    "sources": [
+     {
+      "title": "Effect of washing on nickel-rich NCMs: methodology to quantify the lithium/proton-exchange kinetics, the inserted protons, and the structural changes",
+      "authors_or_publisher": "Oswald S., Wilhelm R., Kratky T., Szentmiklósi L., Maróti B., Harsányi I., Hallweger S. A., Kieslich G., Günther S., Gasteiger H. A. (J. Mater. Chem. A 12:25140-25164)",
+      "year": "2024",
+      "url_or_doi": "10.1039/D4TA03319A"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "doser Li et Co avec répétitions (Li/TM avec une incertitude < 2 %) avant de calculer un déficit",
+    "milieu et durée du délaminage aux ultrasons (eau ou solvant) et teneur résiduelle en Al, F, C",
+    "tester la poudre usagée recuite seule à 850 °C pour séparer l'effet du recuit de celui de la relithiation",
+    "composition Ni:Mn:Co réelle (le Co mesuré ne correspond pas à 622)"
+   ]
+  },
+  {
+   "label": "M1",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de métaux de transition dans la suspension",
+     "inputs": "50 g/L de poudre ; 96,41 g par mole de TM (composition du Tableau 1)",
+     "formula": "50/96,41",
+     "result": "0,519 mol TM par litre ; déficit en Li 0,072 × 0,519 = 0,037 mol/L",
+     "compared_to": "—",
+     "source": "masses atomiques IUPAC (Li 6,941 ; Ni 58,693 ; Mn 54,938 ; Co 58,933 ; O 15,999)"
+    },
+    {
+     "what": "excès de Li apporté par la solution",
+     "inputs": "LiOH 0,5 ; 2,0 ; 4,0 M ; déficit 0,037 mol/L ; TM 0,519 mol/L",
+     "formula": "C/0,037 et C/0,519",
+     "result": "excès × 13, × 54, × 107 sur le déficit ; Li/TM apporté 0,96 ; 3,9 ; 7,7",
+     "compared_to": "« excess lithium source » (Introduction) : vrai pour les trois niveaux",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de LiOH contre solubilité",
+     "inputs": "4 M × 23,95 g/mol ; solubilité de LiOH anhydre 12,8 g/100 mL à 20 °C",
+     "formula": "95,8 g/L contre ≈ 128 g/L (≈ 5,3 mol/L)",
+     "result": "4 M ≈ 75 % de la saturation à 20 °C ; soluble, plus encore à chaud (17,5 g/100 mL à 100 °C)",
+     "compared_to": "—",
+     "source": "Wikipedia « Lithium hydroxide » (source secondaire)"
+    },
+    {
+     "what": "pression de vapeur d'eau dans le réacteur",
+     "inputs": "eau saturée à 160 et 220 °C ; activité de l'eau abaissée par LiOH 4 M",
+     "formula": "table de vapeur IAPWS",
+     "result": "0,618 MPa (6,2 bar) à 160 °C ; 2,320 MPa (23,2 bar) à 220 °C, un peu moins avec LiOH",
+     "compared_to": "Parr 4520 : réacteur sous pression de paillasse",
+     "source": "table de vapeur IAPWS (Pressbooks, secondaire)"
+    },
+    {
+     "what": "O2 dégagé par la relithiation",
+     "inputs": "déficit 0,037 mol Li/L ; 4 OH− → O2 + 2 H2O + 4 e− ; 1 e− par Li inséré",
+     "formula": "0,037/4",
+     "result": "≈ 0,009 mol O2 par litre de suspension (≈ 0,2 L de gaz à TPN)",
+     "compared_to": "pression ajoutée faible devant la vapeur d'eau, volume du ciel gazeux non donné",
+     "source": "stœchiométrie"
+    },
+    {
+     "what": "volume de maille recalculé",
+     "inputs": "a = 2,86 Å ; c = 14,19 Å",
+     "formula": "V = (√3/2)·a²·c",
+     "result": "100,52 Å3 (a non arrondi nécessaire pour 100,80 : 2,864 Å)",
+     "compared_to": "100,80 Å3 annoncé : compatible avec l'arrondi de a",
+     "source": "géométrie hexagonale"
+    },
+    {
+     "what": "I003/I104 avant et après régénération",
+     "inputs": "Tableau 2 : usagé 2,05 ; M1 1,18 ; M2 0,82 ; M8 1,29 ; commercial 2,09",
+     "formula": "rapport M1/usagé ; M1/commercial",
+     "result": "M1 = 0,58 × usagé ; 0,56 × commercial",
+     "compared_to": "« approaching the commercial reference » (Discussion)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "ddl de l'ANOVA",
+     "inputs": "12 essais sans répétition ; effets C (2 ddl), T (1), t (1), C×T (2), C×t (2), T×t (1)",
+     "formula": "11 − 9",
+     "result": "2 ddl pour l'erreur (= interaction d'ordre 3 confondue)",
+     "compared_to": "p = 0,002 à 0,03 annoncés",
+     "source": "plan factoriel 3×2×2"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le Tableau 2 contredit la conclusion de « recovery of layered crystalline structure » : le I003/I104 tombe de 2,05 (poudre usagée) à 1,18 (M1), 0,82 (M2) et 1,29 (M8), contre 2,09 pour le commercial (calcul « I003/I104 avant et après régénération »). Selon le descripteur que les auteurs choisissent eux-mêmes (Ohzuku 1993), la régénération a donc augmenté le mélange Li/Ni par rapport au matériau de départ ; 1,18 n'« approche » pas 2,09. M2 (< 1) indique un fort désordre cationique.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemistry and structural chemistry of LiNiO2 (R-3m) for 4 volt secondary lithium cells",
+      "authors_or_publisher": "Ohzuku T., Ueda A., Nagayama M. (J. Electrochem. Soc. 140, 1862)",
+      "year": "1993",
+      "url_or_doi": "DOI non trouvé (citation J. Electrochem. Soc. 140 (1993) 1862 confirmée par des listes de références citantes)"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« the reduction of the OH- ions produces water and oxygen gas » : faux. Le passage de OH− à O2 est une oxydation (4 OH− → O2 + 2 H2O + 4 e−) ; ce sont les métaux de transition qui sont réduits quand le Li+ s'insère. Le mécanisme de la Figure S1 et des équations 1–2 (non reproduites) est donc mal nommé ; l'annotation mecanisme_analyse de l'extraction dit juste.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Aucun témoin ne sépare la relithiation hydrothermale du recuit : pas d'essai « recuit seul à 850 °C » ni « hydrothermal sans recuit », ni recuit avec Li2CO3. Comme la poudre usagée ne délivrait aucune capacité pour une raison qui n'est probablement pas le Li (voir Spent_CAM), le recuit seul (combustion du liant et du carbone, recristallisation de surface) pourrait expliquer l'essentiel du gain. La conclusion « re-lithiation restores performance » n'est pas démontrée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les compositions en Li des 12 essais (Figure S4) ne sont pas dans le texte : la « full NMC lithiation » de M1 n'est pas vérifiable, et l'ANOVA porte sur une variable mal définie (« composition of cathode material »). Avec 2 ddl d'erreur (calcul « ddl de l'ANOVA ») et une incertitude du dosage de Li de ± 15 % sur la poudre usagée, les p-values annoncées sont fragiles.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Excès de Li très large pour 2 et 4 M (× 54 et × 107 sur le déficit) ; à 0,5 M l'apport reste × 13, donc l'effet de la concentration n'est pas un effet de quantité mais d'activité/pH de la solution.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "LiOH 4 M = 95,8 g/L, en dessous de la solubilité (≈ 128 g/L à 20 °C, plus à chaud) ; préparable à froid. LiOH anhydre absorbe le CO2 (Li2CO3) : solution à préparer fraîche.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Lithium hydroxide (infobox : solubilité 12,8 g/100 mL à 20 °C, 17,5 g/100 mL à 100 °C ; PubChem CID 3939)",
+      "authors_or_publisher": "Wikipedia (source secondaire)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Lithium_hydroxide"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "160–220 °C en réacteur Parr fermé : pression de vapeur 6,2 à 23,2 bar (calcul « pression de vapeur »), dans la plage d'un réacteur de paillasse ; O2 dégagé faible (≈ 0,009 mol/L). Volume de solution, taux de remplissage, matériau de la cuve et du revêtement non donnés : LiOH 4 M à 220 °C attaque le verre (Si) et peut corroder l'acier (Fe, Cr) ; un revêtement PTFE est préférable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Steam Saturation Properties – Temperature Table (0.01 °C – 373.95 °C)",
+      "authors_or_publisher": "Pressbooks « Thermodynamics » (table IAPWS ; source secondaire, NIST WebBook injoignable depuis la session)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pressbooks.pub/thermo/chapter/saturation-properties-temperature-table"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Durées de 1 et 2 h : un réacteur Parr de 1–2 L met typiquement 30 à 60 min à monter à 160–220 °C. L'article ne dit pas si la durée inclut la montée ; l'effet « temps » (1 contre 2 h) est donc mal défini, ce qui fragilise la conclusion sur M1 contre M2.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le Tableau S1 donne l'essai 1 à 2 h et l'essai 2 à 1 h, l'inverse du texte (M1 = 1 h, M2 = 2 h) ; les échantillons sont nommés « M + numéro d'essai ». La condition optimale annoncée (1 h) dépend de cette attribution : si le Tableau S1 est juste, l'optimum est 2 h. À faire confirmer par les auteurs.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Recuit 4 h à 850 °C en four à moufle, atmosphère non dite (air probable) et sans apport de Li : pour un NMC riche en Ni (Ni 0,6–0,65), un recuit sous air sans Li2CO3 peut faire perdre du Li (volatilisation de Li2O) et favoriser Ni2+ dans la couche de Li, ce qui irait dans le sens de la baisse de I003/I104 observée. La voie de référence (Shi et al. 2018) associe hydrothermal LiOH et recuit court, mais sur NCM111 et NCM523, moins sensibles.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Resolving the compositional and structural defects of degraded LiNixCoyMnzO2 particles to directly regenerate high-performance lithium-ion battery cathodes",
+      "authors_or_publisher": "Shi Y., Chen G., Liu F., Yue X., Chen Z. (ACS Energy Letters 3(7):1683-1692)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsenergylett.8b00833 (DOI non vérifié, Crossref bloqué ; référence confirmée par une revue citante trouvée en recherche web)"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Lavage final à l'eau déionisée d'un NMC riche en Ni : échange Li+/H+ de surface et perte de Li avant le recuit (Oswald et al. 2024) ; nombre de lavages et volume non dits. Une exposition plus longue au milieu aqueux chaud (M2) peut augmenter les protons insérés, dont la décomposition au recuit laisse une surface pauvre en O et riche en Ni2+, explication alternative à la « surface reconstruction » des auteurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of washing on nickel-rich NCMs: methodology to quantify the lithium/proton-exchange kinetics, the inserted protons, and the structural changes",
+      "authors_or_publisher": "Oswald S., Wilhelm R., Kratky T., Szentmiklósi L., Maróti B., Harsányi I., Hallweger S. A., Kieslich G., Günther S., Gasteiger H. A. (J. Mater. Chem. A 12:25140-25164)",
+      "year": "2024",
+      "url_or_doi": "10.1039/D4TA03319A"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Volumes de maille : M1 et le commercial ont les mêmes a et c arrondis (2,86 ; 14,19 Å) mais des volumes différents (100,80 et 100,67 Å3), explicable par l'arrondi de a ; les volumes ~100,5–100,8 Å3 sont environ 1,4 % plus petits que ceux d'un NMC622 synthétisé dans la base (PMC7601971 : 102,2 Å3), écart qui peut venir de l'indexation sur maxima de pics sans affinement.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Capacités de M1 (156 mAh/g au 1er cycle à 0,1 C, 124/104/78 mAh/g à 0,5/1/2 C) : ordre de grandeur normal pour NMC622 en 3,0–4,3 V, mais le texte donne aussi 75 mAh/g à 2 C et affirme que c'est plus que le commercial ; un NMC622 commercial à ~3,5 mg/cm2 sous 75 mAh/g à 2 C serait anormalement faible (chute ohmique M1 à 2 C : 1,17 mA × 100 Ω ≈ 0,12 V seulement), ce qui interroge la qualité des piles de référence.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "LiOH 4 M : corrosif sévère (yeux, peau) ; réagit avec l'aluminium en dégageant H2 (CAMEO). Si la poudre délaminée contient des fragments d'Al du collecteur, du H2 se forme dans le réacteur fermé avec l'O2 de la relithiation : mélange potentiellement inflammable à l'ouverture. Non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Lithium hydroxide solution — Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/3771"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Insertion de Li+ de la solution concentrée dans les sites Li vacants de la poudre partiellement délithiée, la compensation de charge se faisant par réduction des métaux de transition (Ni4+/Ni3+ → Ni3+/Ni2+) et oxydation (non réduction) des OH− en O2 + H2O ; en parallèle, échange Li+/H+ de surface en milieu aqueux, surtout au lavage. Le recuit à 850 °C recristallise la surface et élimine liant et carbone ; sans apport de Li et probablement sous air, il peut aussi laisser plus de Ni2+ dans la couche de Li, ce que montre la baisse de I003/I104 de 2,05 à 1,18. Le rôle respectif de la relithiation et du recuit n'est pas établi faute de témoin.",
+    "sources": [
+     {
+      "title": "Resolving the compositional and structural defects of degraded LiNixCoyMnzO2 particles to directly regenerate high-performance lithium-ion battery cathodes",
+      "authors_or_publisher": "Shi Y., Chen G., Liu F., Yue X., Chen Z. (ACS Energy Letters 3(7):1683-1692)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsenergylett.8b00833 (DOI non vérifié, Crossref bloqué ; référence confirmée par une revue citante trouvée en recherche web)"
+     },
+     {
+      "title": "Effect of washing on nickel-rich NCMs: methodology to quantify the lithium/proton-exchange kinetics, the inserted protons, and the structural changes",
+      "authors_or_publisher": "Oswald S., Wilhelm R., Kratky T., Szentmiklósi L., Maróti B., Harsányi I., Hallweger S. A., Kieslich G., Günther S., Gasteiger H. A. (J. Mater. Chem. A 12:25140-25164)",
+      "year": "2024",
+      "url_or_doi": "10.1039/D4TA03319A"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée réelle de M1 (texte 1 h contre Tableau S1 2 h) et si elle inclut la montée en température",
+    "volume de solution, taux de remplissage, matériau du réacteur et de son revêtement",
+    "atmosphère du recuit (O2 conseillé pour un NMC riche en Ni) et éventuel ajout de Li2CO3",
+    "composition en Li après régénération (Figure S4) avec répétitions",
+    "témoin recuit seul de la poudre usagée",
+    "teneur en Al de la poudre avant traitement par LiOH (dégagement de H2)"
+   ]
+  },
+  {
+   "label": "M2",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume de maille recalculé",
+     "inputs": "a = 2,86 Å ; c = 14,16 Å",
+     "formula": "V = (√3/2)·a²·c",
+     "result": "100,31 Å3 ; a nécessaire pour 100,81 Å3 : 2,867 Å (arrondi 2,87)",
+     "compared_to": "100,81 Å3 annoncé, et a = 2,86 Å",
+     "source": "géométrie hexagonale"
+    },
+    {
+     "what": "chute ohmique à 1 C et 2 C",
+     "inputs": "3,86 mg/cm2 × 1,131 cm2 (disque 12 mm) × 0,90 = 3,93 mg ; 1 C = 160 mAh/g ; Rct apparent ≈ 1600 Ω (lecture Fig. 6B)",
+     "formula": "I = C·160·m ; ΔU = I·R",
+     "result": "1 C : 0,63 mA, ≈ 1,0 V ; 2 C : 1,26 mA, ≈ 2,0 V",
+     "compared_to": "capacité ≈ 0 à 1 C et 2 C (Fig. 8A)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diffusivité recalculée à partir de σ",
+     "inputs": "D ∝ 1/σ² à A, C, T égaux ; σ(M1) = 116, σ(M2) = 431 ; D(M1) = 4,8e-12 cm2/s",
+     "formula": "4,8e-12 × (116/431)²",
+     "result": "3,5e-13 cm2/s",
+     "compared_to": "≈ 3e-13 annoncé : cohérent",
+     "source": "équation 2 de l'annexe"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Volume de maille 100,81 Å3 avec a = 2,86 Å et c = 14,16 Å : impossible à l'arrondi près (100,31 Å3 recalculé ; il faudrait a = 2,867 Å). M2 a un c plus petit que M1 et le même a, mais un volume plus grand. Une des trois valeurs est fausse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Capacité nulle à 1 C et 2 C cohérente avec la résistance apparente de ~1600 Ω : la chute ohmique (≈ 1 V à 1 C) sort la cellule de la fenêtre 3,0–4,3 V (calcul « chute ohmique »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "I003/I104 = 0,82 (< 1) : désordre cationique fort, voire phase de type rocksalt en surface ; l'explication des auteurs (reconstruction de surface en milieu alcalin) est plausible mais non prouvée (ni affinement Rietveld du taux de Ni sur sites Li, ni MET de surface). L'échange Li+/H+ prolongé suivi du recuit est une alternative (Oswald et al. 2024). Attribution M1/M2 incertaine (Tableau S1 inversé).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of washing on nickel-rich NCMs: methodology to quantify the lithium/proton-exchange kinetics, the inserted protons, and the structural changes",
+      "authors_or_publisher": "Oswald S., Wilhelm R., Kratky T., Szentmiklósi L., Maróti B., Harsányi I., Hallweger S. A., Kieslich G., Günther S., Gasteiger H. A. (J. Mater. Chem. A 12:25140-25164)",
+      "year": "2024",
+      "url_or_doi": "10.1039/D4TA03319A"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Plus long séjour en milieu aqueux chaud → plus de protons insérés et de reconstruction de surface ; au recuit, décomposition des phases protonées et migration de Ni2+ vers la couche de Li, d'où I003/I104 < 1 et forte impédance.",
+    "sources": [
+     {
+      "title": "Effect of washing on nickel-rich NCMs: methodology to quantify the lithium/proton-exchange kinetics, the inserted protons, and the structural changes",
+      "authors_or_publisher": "Oswald S., Wilhelm R., Kratky T., Szentmiklósi L., Maróti B., Harsányi I., Hallweger S. A., Kieslich G., Günther S., Gasteiger H. A. (J. Mater. Chem. A 12:25140-25164)",
+      "year": "2024",
+      "url_or_doi": "10.1039/D4TA03319A"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "attribution 1 h / 2 h des essais 1 et 2 (Tableau S1 contre texte)",
+    "valeur correcte de a, c ou V"
+   ]
+  },
+  {
+   "label": "M8",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume de maille recalculé",
+     "inputs": "a = 2,875 Å ; c = 14,22 Å",
+     "formula": "V = (√3/2)·a²·c",
+     "result": "101,79 Å3",
+     "compared_to": "101,83 Å3 annoncé : cohérent",
+     "source": "géométrie hexagonale"
+    },
+    {
+     "what": "diffusivité recalculée à partir de σ",
+     "inputs": "D ∝ 1/σ² ; σ(M8) = 449 ; référence M1 σ = 116, D = 4,8e-12",
+     "formula": "4,8e-12 × (116/449)² ; corrigé de la charge massique (A ∝ 3,08/3,60) : × 1,37",
+     "result": "3,2e-13 (4,4e-13 avec la correction)",
+     "compared_to": "6,9e-13 cm2/s lu sur la Fig. 6C : écart d'un facteur 1,6 à 2",
+     "source": "équation 2 de l'annexe"
+    },
+    {
+     "what": "chute ohmique à 1 C",
+     "inputs": "3,08 mg/cm2 × 1,131 cm2 × 0,90 = 3,14 mg ; 0,50 mA ; Rct ≈ 900 Ω",
+     "formula": "I·R",
+     "result": "≈ 0,45 V",
+     "compared_to": "33 mAh/g à 1 C : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs choisissent M8 parmi « the tests with the highest lithium composition » puis attribuent son volume plus grand à « a small but significant Li deficiency » : contradiction interne. De plus, leur propre poudre usagée, supposée déficitaire en Li, a le plus petit volume (100,53 Å3) : un déficit en Li par délithiation contracte a et le volume ; seul un excès de Ni2+ (Li1−zNi1+zO2) dilaterait la maille, mais M8 a alors un I003/I104 (1,29) meilleur que M1, ce qui va contre. L'explication n'est pas soutenue par les données montrées.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Diffusivité de M8 (6,9e-13) incohérente d'un facteur ~2 avec son coefficient de Warburg (449) si M1 (116 → 4,8e-12) sert de référence (calcul « diffusivité recalculée ») ; A et CLi utilisés ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "220 °C, 2 M LiOH : pression de vapeur ≈ 23 bar, admissible pour un réacteur Parr ; attaque du verre et de l'acier plus forte qu'à 160 °C.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Steam Saturation Properties – Temperature Table (0.01 °C – 373.95 °C)",
+      "authors_or_publisher": "Pressbooks « Thermodynamics » (table IAPWS ; source secondaire, NIST WebBook injoignable depuis la session)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pressbooks.pub/thermo/chapter/saturation-properties-temperature-table"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 220 °C l'échange et la dissolution-recristallisation de surface sont plus rapides (cristaux plus allongés au MEB) ; la plus grande maille et la capacité initiale élevée mais moins stable suggèrent une composition ou un état d'oxydation différents, non établis faute de dosage publié.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "composition en Li de M8 (Figure S4)",
+    "affinement Rietveld (Ni sur sites Li) plutôt que I003/I104 seul"
+   ]
+  },
+  {
+   "label": "Electrode_coin_cell_NMC",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de matériau actif par disque",
+     "inputs": "disque 12 mm : A = π × 0,6² = 1,131 cm2 ; charges 3,60 / 3,86 / 3,08 / 3,5 mg/cm2 ; 90 % de matériau actif",
+     "formula": "m = charge × A × 0,9",
+     "result": "M1 3,66 mg ; M2 3,93 mg ; M8 3,14 mg ; commercial 3,56 mg",
+     "compared_to": "charges faibles, électrodes fines : la cinétique en régime ne devrait pas être limitée par l'épaisseur",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diffusivité de M1 avec l'aire géométrique",
+     "inputs": "R = 8,314 ; T = 298,15 K ; A = 1,131 cm2 ; n = 1 ; F = 96 485 ; CLi = 4,7/96,9 = 0,0485 mol/cm3 (masse volumique de NMC ≈ 4,7 g/cm3, valeur usuelle non sourcée) ; σ = 116",
+     "formula": "D = R²T²/(2A²n⁴F⁴C²σ²)",
+     "result": "≈ 8,8e-16 cm2/s",
+     "compared_to": "4,8e-12 annoncé : facteur ≈ 5 500 ; A et CLi des auteurs non donnés",
+     "source": "équation 2 de l'annexe"
+    },
+    {
+     "what": "teneur de la boîte à gants",
+     "inputs": "0,01 mg/L d'O2 et d'H2O ; volume molaire du gaz 24,5 L/mol à 25 °C",
+     "formula": "(1e-5 g / M) / (1/24,5)",
+     "result": "O2 ≈ 7,6 ppm ; H2O ≈ 13,6 ppm",
+     "compared_to": "boîtes à gants usuelles < 1 ppm",
+     "source": "gaz parfait"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les diffusivités ne sont pas recalculables : l'équation 2 dépend de A (« active surface area ») et de CLi, non donnés, et le coefficient de Warburg n'a pas d'unité. Avec l'aire géométrique du disque on obtient ~9e-16 cm2/s, 5 500 fois moins que 4,8e-12 (calcul « diffusivité de M1 »). Les valeurs absolues de D sont à prendre comme indicatives ; seuls les rapports entre échantillons ont un sens.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« oxygen and water levels lower than 0.01 mg/L » : si l'unité est littérale, 7,6 ppm d'O2 et 13,6 ppm d'H2O (calcul « teneur de la boîte à gants »), acceptable pour des piles bouton mais au-dessus des < 1 ppm usuels ; probablement 0,01 ppm voulu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage sous vide à 110 °C, 24 h : compatible avec l'élimination de la NMP (Téb ≈ 202 °C, sous vide) et avec la stabilité du PVDF.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rodage à 0,05 C puis essais en régime « 0.02 C, 0.1 C, 0.2 C… » : le 0,02 C diffère du rodage à 0,05 C, probable coquille. Vitesse de balayage de la CV et volume d'électrolyte non donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NMP reprotoxique ; Li métal ; LiPF6 → HF avec l'humidité ; carbonates inflammables. Seule la boîte à gants est mentionnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Sans objet (mise en forme d'électrode et assemblage).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "vitesse de balayage CV, volume d'électrolyte",
+    "A et CLi utilisés pour D",
+    "unité de la teneur O2/H2O"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le protocole (prétraitement, LiOH 0,5–4 M à 160–220 °C en réacteur Parr, lavage, recuit 850 °C 4 h) est chimiquement faisable et suit le schéma hydrothermal + recuit court de Shi et al. 2018. Mais les données de l'article ne soutiennent pas ses conclusions principales : le déficit en Li de départ (7,2 %) est dans l'incertitude du dosage, la poudre usagée a un I003/I104 (2,05) égal au commercial alors que les régénérés tombent à 0,82–1,29, la capacité nulle de la poudre usagée n'est pas due au Li, aucun témoin ne sépare relithiation et recuit, et l'attribution 1 h / 2 h de M1/M2 est contredite par le Tableau S1.",
+  "author_errors_suspected": [
+   "« reduction of the OH- ions » au lieu d'oxydation",
+   "Tableau S1 : durées des essais 1 et 2 inversées par rapport au texte",
+   "volume de maille de M2 incompatible avec a et c",
+   "M1 à 2 C : 78 et 75 mAh/g dans deux phrases",
+   "M8 décrit à la fois comme parmi les plus lithiés et comme déficitaire en Li",
+   "rapport Ni:Mn:Co mesuré 0,65:0,20:0,15, pas 622",
+   "diffusivités non recalculables (A, CLi non donnés)"
+  ],
+  "comparison_with_database": "PMC7601971 (NMC622 synthétisé, 900 °C) : a = 2,879 Å, c = 14,243 Å, V = 102,2 Å3, I003/I104 = 1,21, 186 mAh/g à 0,05 C ; les volumes de cet article (100,3–101,8 Å3) sont ~1,4 % plus petits, y compris pour le commercial, ce qui suggère une indexation sur maxima sans étalon. I003/I104 de M1 (1,18) comparable à NMC-750/800 de PMC7601971 (1,09–1,13), donc ordre cationique moyen. PMC10754887 (NMC811 par combustion) : I003/I104 = 0,59."
+ },
+ "sources_not_found": [
+  "DOI de Ohzuku, Ueda, Nagayama, J. Electrochem. Soc. 140 (1993) 1862 non trouvé",
+  "DOI de Shi et al., ACS Energy Lett. 2018 non vérifié (Crossref bloqué)",
+  "conditions exactes (concentration LiOH, température, atmosphère du recuit, ajout de Li2CO3) de Shi et al. 2018 non lues : page de l'éditeur et OSTI injoignables",
+  "NIST WebBook injoignable : pression de vapeur prise sur une table IAPWS secondaire",
+  "pas de source primaire trouvée pour la chimie des cellules LG E63 (source secondaire Electric Revs)"
+ ]
+}

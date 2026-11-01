@@ -1,0 +1,14 @@
+# Journal de la critique de fidélité, PMC9929317
+
+- Ma liste avant lecture de l'extraction : extrait d'E. alata ; Bio CuO-NP ; Chem CuO-NP ; série MB 10/20/50 mg/L (Fig. 9) ; série pH 4-10 (Fig. 10) ; série en temps (Fig. 11) ; disques témoins. Identique à `sample_inventory` : aucun échantillon manquant.
+- Deux voies indépendantes (et non une branche) : conforme à l'article, car séchage 40 °C/24 h contre 80 °C/18 h et volumes d'eau différents (10 ml contre 40 ml). Pas de constat.
+- Constat `non_cite_a_tort` (probable) : la provenance du végétal (récolté à Mednine en été, identifié par Prof. Neffati) est dans Materials, mais le réactif déclare `supplier` non cité. Probable et non sûr, car la grille attend un fournisseur commercial et non une origine.
+- Constat `mineur` sûr sur l'annotation `pourquoi_ces_donnees` : elle dit que les autres réglages sont identiques, ce que le séchage et les volumes contredisent, et que l'extracteur reconnaît dans ses propres doutes.
+- Valeurs lues sur figures ouvertes : Fig. 9 identique (93,4 ; 80,5 ; 77,4). Fig. 10 : mes lectures 43 ; 83,5 ; 93,4 ; 90 ; 80 contre 43 ; 84 ; 93 ; 90 ; 80, écart inférieur à 1 point, pas de constat. Fig. 11 : 8 pourcentages identiques. Fig. 5 : les six valeurs EDX de chaque échantillon sont identiques et bien attribuées (haut = chimique, bas = vert).
+- Fig. 8 : l'ordonnée à l'origine de ln(C0/Ct) est ≈ 0,70 et 0,76 (équations lues sur l'image). Cela implique ≈ 50 % de colorant déjà parti à t = 0, donc une référence C0 prise avant l'obscurité ou une adsorption comptée dans les 93,4 %. Classé `mineur`/probable : le texte ne le dit pas, c'est une lecture de figure ; la citation retenue est celle de la pente.
+- Résultats XRD : le décalage de pic de Fig. 2b et la liste 2θ sont dans le texte mais absents ; `manquant` probable, non sûr car la liste 2θ n'est attribuée à aucun échantillon en particulier.
+- « Gram-negative bacteria: S. aureus and B. subtilis » est une erreur des auteurs ; l'extraction l'ignore. `mineur`, à noter en annotation et non à corriger dans une valeur.
+- `not_stated` vérifiés (≈ 44 cases) : une seule contestée (l'origine du végétal). Écartés : `duration` de l'étape de chauffage de l'extrait, `wash repetitions` (« three times » vise la centrifugation, doute de l'extracteur légitime), `temperature` de dissolution de CuSO4 (chimique), atmosphère et four de calcination.
+- `method_sources` vide : confirmé, aucun renvoi de méthode dans `corpus/refs` ; [[bib67]] (Tauc), [[bib79]] (cinétique), [[bib77]] (« previous work » sur le mécanisme) sont des équations ou du contexte, exclus par la règle du 2026-10-13.
+- Mécanisme : `mecanisme_auteurs` appuyé par la phrase « it was supposed that the phenol and flavonoides ... » ; `mecanisme_analyse` est marqué « Probablement ». Pas de constat.
+- Sécurité : CuSO4, KOH, nanopoudres, DMSO, bleu de méthylène couverts ; pas de danger omis.

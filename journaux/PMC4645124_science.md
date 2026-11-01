@@ -1,0 +1,14 @@
+# PMC4645124 — critique scientifique (journal de décisions)
+
+- Teneurs en Cu (10,0 à 30,7 %) : avec 3 g de B2O3 convertis en totalité en BN (2,139 g) et Cu(NO3)2·3H2O, 0,9 g donne 9,96 % et 3,6 g donne 30,69 %, soit exactement les deux bornes. La forme anhydre donnerait 12,5 et 36,3 %. Les masses intermédiaires recalculées tombent sur 0,9 × (1 ; 1,5 ; 2 ; 3 ; 4) g. Conclusion : teneurs nominales, pas mesurées. Classé `reserve` et non `probleme`, parce que c'est une déduction : l'article ne prétend pas avoir dosé le Cu.
+- Raman : les Méthodes donnent une plage « 500 to 2500 cm-1 », alors que le texte invoque l'absence de pics à 220 et 295 cm-1. Classé `probleme` (contrôle 7, preuve hors plage mesurée).
+- XPS : 933,9 eV est exactement la valeur NIST de CuO (McIntyre 1981) ; l'écart 952,5 − 933,9 = 18,6 eV contredit l'écart spin-orbite de 19,75–19,9 eV (Thermo Fisher, NIST/Schoen). Un effet de charge ne change pas l'écart, d'où `probleme`. Le paramètre Auger (1851,9 eV) n'aide pas, car Cu(0) et CuO sont à moins de 0,3 eV l'un de l'autre (Biesinger 2017, PDF lu).
+- Activité sur AP : je n'ai pas classé « Cu métallique actif » en `probleme`. La Fig. S7 (citée dans le texte) montre du CuO après le test, et CuO est le catalyseur classique de AP (Elbasuney 2019) : en `reserve`, avec les témoins à ajouter.
+- 1250 °C au-dessus de la fusion du Cu (1084,6 °C, chimie générale) : il faut que les coques de BN existent avant la fusion pour garder des sphères de 40 à 70 nm. Ce point est retenu dans le mécanisme proposé, mais l'article ne le démontre pas.
+- Sécurité : le rapport urée/nitrate (6,7 à 27, contre 1,67 à la stœchiométrie de combustion) a été calculé avec les valences propulsives (Cu(NO3)2 = −10, urée = +6). Le risque d'inflammation est signalé en `reserve`, avec Varma 2016 comme source.
+- La raie à 27,8° attribuée à B2O3 est proche de la raie principale de H3BO3 : je l'ai signalée sans source, à vérifier, sans en faire un problème.
+- Témoin h-BN pur : il retire aussi le nitrate, comburant qui dégage de l'eau. Cela n'est pas suffisant pour un `probleme` : comme les conditions ne sont pas écrites, le verdict de la voie est `invérifiable`.
+- Branches : j'ai donné pour chacune le calcul de la masse probable de trihydrate, puisque les Méthodes ne donnent que la plage.
+- Recherches web : 7 recherches et 1 lecture de PDF (Biesinger). La recherche sur les synthèses de Cu@BN par B2O3 et urée n'a rien donné d'autre que l'article lui-même.
+- Sources écartées : la prépublication arXiv 1512.03546 est gardée pour les bandes Raman de Cu2O, faute de mieux, mais ce n'est pas une revue à comité de lecture. Je n'ai pas utilisé Jacobs et Whitehead (Chem. Rev. 1969) : les auteurs n'apparaissaient pas sur la page lue.
+- DOI non vérifiés (Crossref bloqué) : 10.1002/sia.6239, 10.1021/acs.chemrev.6b00279, 10.1088/2515-7639/ac2b87. Rien n'a été ajouté à fondateurs.md ni à constantes.md.

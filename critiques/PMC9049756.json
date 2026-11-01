@@ -1,0 +1,86 @@
+{
+ "pmcid": "PMC9049756",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "T170_t15min, T170_t30min, T170_t90min, T170_t120min : étapes héritées 4 à 7 (refroidissement, dilution toluène, centrifugations 3000 rpm 15 s puis 8000 rpm 3 min)",
+   "extracted": "les quatre branches héritent du protocole de T170/Cs3BiBr6_NC jusqu'à la centrifugation, dont l'élimination par centrifugation à 3000 rpm du précipité BiOBr et CsBr",
+   "article_says": "aliquots are taken at different time intervals at a fixed temperature and crystal structure is investigated",
+   "fix": "les aliquotes sont des prélèvements d'une même réaction ; l'article ne décrit ni refroidissement ni purification avant la DRX, et la purification standard jette précisément le BiOBr que Fig. 3 observe. Donner aux branches de la série en durée leurs propres étapes (chauffage à 170 °C, prélèvement à t) ou déclarer refroidissement et purification dans not_stated avec doute ; ne pas leur faire hériter les étapes 4 à 7",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "T170, T170_t90min, T170_t120min material.morphology = « nanoplaquettes hexagonales de 200–400 nm »",
+   "extracted": "nanoplaquettes hexagonales de 200–400 nm (morphologie copiée de la voie Cs3Bi2Br9_NP à 15 mL d'OA)",
+   "article_says": "As the amount of OA increases from 1.5 mL to 15 mL, two-dimensional Cs3Bi2Br9 NPs are synthesized.",
+   "fix": "la taille 200–400 nm (et la forme hexagonale de Fig. 2) est mesurée sur l'échantillon à 15 mL d'OA ; pour les échantillons à 1.5 mL d'OA et 170 °C (Fig. S4, Fig. 3) l'article ne donne que la phase DRX. Mettre morphology à null (ou « nanoplaquettes » sans taille) sur T170, T170_t90min, T170_t120min",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "T170_t15min, T170_t30min, Stoich_CsBr material.morphology = « nanoplaquettes rectangulaires », phase « tétragonal »",
+   "extracted": "morphologie rectangulaire et phase tétragonale recopiées de la voie BiOBr_NP",
+   "article_says": "Fig. S3a–c (ESI†) show TEM and HRTEM images of the BiOBr NPs, which exhibit a rectangular nanoplate morphology.",
+   "fix": "la morphologie et la taille sont celles de l'échantillon pur de Fig. S3 (135 °C) ; les aliquotes de Fig. 3 et l'essai stœchiométrique ne sont décrits que par une phase DRX (« BiOBr predominantly », « relatively large amount of BiOBr remains »). Retirer la morphologie sur ces branches ; pour T170_t30min, le diffractogramme montre aussi des raies faibles hors BiOBr, l'appellation « BiOBr » du matériau est une lecture de figure",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "T200 material = metallic Bi (bismuth métallique), outcome phase_XRD",
+   "extracted": "matériau : bismuth métallique ; phase : bismuth métallique",
+   "article_says": "Even in the presence of CsBr, the Bi phase can appear at a higher temperature and a lower amount of OA in the reaction mixture",
+   "fix": "l'article dit seulement que la phase Bi « peut apparaître » à 200 °C (Fig. S5, non disponible) et dit ailleurs que Cs3Bi2Br9 reste majoritaire jusqu'à 300 °C « without the formation of other phases of Bi-based materials » : contradiction interne (à ajouter aux doutes, avec annotation limite_reproductibilite). Le matériau de T200 ne peut pas être affirmé Bi pur ; mettre material.name/phase en « mélange incertain : Cs3Bi2Br9 et Bi possible » ou value_text prudente, et ne pas écrire « bismuth métallique » comme phase obtenue",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cs3BiBr6_NC et Cs3Bi2Br9_NP outcomes, Table S1 (durées de vie de PL)",
+   "extracted": "seuls τave, τ1 et τ2 sont extraits ; α1, α2 et χ² absents des résultats",
+   "article_says": "All decay curves were fitted according to bi-exponential functions, and the fitting results are listed in Table S1.",
+   "fix": "ajouter en résultats PL_amplitude_alpha1 (46.62 % / 40.19 %), PL_amplitude_alpha2 (24.14 % / 26.35 %) et fit_chi_squared (1.18 / 0.94), rangées de Table S1 : Cs3BiBr6 NCs 46.62 4.24 24.14 12.63 2.63 1.18 ; Cs3Bi2Br9 NPs 40.19 2.77 26.35 12.16 1.52 0.94 (colonnes α1, τ1, α2, τ2, τave, χ2)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cs3BiBr6_NC outcomes : évolution de couleur au chauffage avec 1.5 mL d'OA",
+   "extracted": "seule « bright yellow at 160 °C » est extraite (solution_color_at_160C)",
+   "article_says": "the color of the solution is transparent up to 105 °C",
+   "fix": "ajouter les observations de couleur : transparente jusqu'à 105 °C, blanche vers 135 °C (« white at approximately 135 °C »), jaune vif à 160 °C ; elles indiquent à quelle température chaque phase apparaît",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "NP_100C_30min et Bi_noCsBr_above180C : variations step_order 3 alors que l'unique étape propre porte l'ordre 1",
+   "extracted": "variation temperature (étape 3) ; la fiche affiche « Identique à la voie Cs3Bi2Br9_NP / BiOBr_NP, sauf : température (étape 3) » alors que la voie n'a qu'une étape propre (étape 1) et n'a ni le dégazage à 105 °C ni la purification",
+   "article_says": "Fig. S6 TEM images of small Cs3Bi2Br9 NCs synthesized at 100 oC for 30 min with 15 mL of OA.",
+   "fix": "la fiche laisse croire que le protocole entier est repris (dégazage 105 °C puis 160 °C remplacé par 100 °C), ce que l'article ne dit pas et qui est incompatible (105 °C > 100 °C). Retirer step_order des variations de ces deux voies (le step_order 3 vise une étape qui n'existe pas dans leurs étapes propres) et ajouter à la voie un doute « autres étapes non décrites » dans la fiche (le doute existe déjà dans la liste, mais la section « sauf » reste trompeuse)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Stoich_CsBr succeeded = false",
+   "extracted": "succeeded: false, matériau BiOBr",
+   "article_says": "If Cs and Bi are used at a stoichiometric ratio, the phase transformation of BiOBr to Cs3Bi2Br9 is delayed and a relatively large amount of BiOBr remains as a final product.",
+   "fix": "l'article décrit un retard de transformation et un produit riche en BiOBr, pas un échec de synthèse ; succeeded devrait être laissé vide (null) ou le doute indiquer que « échec » est une lecture de l'extracteur (produit visé : Cs3Bi2Br9 non obtenu seul)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 13,
+  "branches_extracted": 13,
+  "not_stated_checked": 26,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "vitesse d'agitation, rampe de chauffage, atmosphère après dégazage et niveau de vide absents (Methods)",
+  "volume de toluène de dilution, volumes de toluène/méthanol/hexane de la purification de BiOBr, solvant de redispersion des NCs non donnés",
+  "pour Cs3Bi2Br9 NPs : masses de CsBr et BiBr3 non redonnées, volumes d'OA/OM/ODE ambigus (« were added to the reaction mixtures ») entre totaux et ajouts",
+  "série en durée à 170 °C : protocole de prélèvement des aliquotes (refroidissement, lavage) non décrit ; série en température 135–300 °C : durées et pas intermédiaires non donnés ; échantillon à 100 °C (Fig. S6) : dégazage et purification non décrits",
+  "essai « stoichiometric » : rapport Cs:Bi, température et durée non chiffrés ; rendement jamais donné",
+  "Fig. S1–S6 de l'annexe absentes du dépôt : résultats de T170, T200, NP_100C_30min non vérifiables sur image"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs rend la séquence BiOBr, Cs3BiBr6, Cs3Bi2Br9 et le rôle de l'OA (« may be attributed to the interaction between OA surfactants and CsBr salts ») ; mecanisme_analyse est marqué comme analyse (Claude) et ne prétend pas venir des auteurs",
+ "notes": "Contradictions internes de l'article déjà signalées dans doubts par l'extracteur et que je confirme (160 °C : BiOBr seul jusqu'à 160 °C contre Cs3BiBr6 prédominant à 160 °C ; 170 °C : Cs3Bi2Br9 prédominant, Fig. S4, contre mélange à 60 min, Fig. 3 ; fiche JCPDS 73-0348 du texte contre PDF 78-0348 sur Fig. 3). Ambiguïté de 135 °C : les Résultats écrivent « When the reaction is performed at 135 °C in the presence of 1.5 mL of OA, BiOBr NPs are formed » (série en température, probablement avec CsBr) alors que les Méthodes décrivent BiOBr sans CsBr ; l'extracteur a rattaché Fig. S3 à la préparation sans CsBr, lecture défendable mais non certaine (aucun constat). Valeurs lues sur Fig. 3 : stars CsBr à ≈ 29,3° et 41° 2θ (extrait 29° et 41°), raies à ≈ 11°, 13°, 22°, 28,7°, 30°, 32° au 30 min : écart < 10 %, pas de constat ; les étoiles et traits pointillés encadrent les traces 90 et 120 min, ils marquent des positions de référence CsBr et non une preuve de CsBr résiduel. Non-constat : volumes d'OA/ODE de Cs3Bi2Br9_NP lus comme totaux (15/1.5/7.5 mL = 24 mL, proche des 23 mL de la voie de base, cohérent avec « from 1.5 mL to 15 mL ») : lecture défendable et déjà en doute. Aucun renvoi de méthode dans corpus/refs pour les Méthodes expérimentales : method_sources vide correct."
+}

@@ -1,0 +1,357 @@
+{
+ "pmcid": "PMC6720160",
+ "routes": [
+  {
+   "label": "CuInS_core",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rapport molaire Cu:In contre la formule CuInS2",
+     "inputs": "Cu:In = 1:4 (article) ; CuInS2 stœchiométrique : 1:1",
+     "formula": "n(Cu)/n(In)",
+     "result": "0,25 au lieu de 1 : composition très déficitaire en cuivre (ou In en excès restant en solution / formant In2S3)",
+     "compared_to": "CuInS2 : Cu/In = 1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie d'émission du cœur",
+     "inputs": "λ = 721 nm (cœur), 709 nm (cœur/coque) ; hc = 1239,84 eV·nm",
+     "formula": "E = 1239,84/λ",
+     "result": "1,72 eV (721 nm) ; 1,75 eV (709 nm)",
+     "compared_to": "bande interdite de CuInS2 massif ≈ 1,5 eV (valeur de manuel) : émission au-dessus du gap massif, compatible avec un confinement de QDs de ~3 nm et une émission par états liés au cuivre",
+     "source": "calcul ; constante hc (CODATA)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Le texte et le résumé disent « hydrothermal », mais le schéma d'annexe IJN_A_211959_O_SF0001g.jpg (dans corpus/fig, sans légende dans le texte) montre un ballon à trois cols avec réfrigérant à reflux, thermomètre et chauffe-ballon, injection de Na2S, à 90 °C pendant 45 min : c'est une synthèse aqueuse à pression atmosphérique sous le point d'ébullition de l'eau (100 °C), pas une synthèse hydrothermale en autoclave. Le mot « hydrothermal » est impropre ; l'annotation de sécurité de l'extraction (« autoclave sous pression ») ne correspond pas au montage montré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Cu:In = 1:4 (calcul « rapport molaire Cu:In contre la formule CuInS2 ») : le produit ne peut pas être CuInS2 stœchiométrique ; il s'agit au mieux d'un Cu–In–S très pauvre en cuivre (pratique courante pour exalter la PL par les défauts liés au cuivre), l'indium en excès pouvant rester complexé ou former In2S3. Aucune quantité de Cu, In, GSH, citrate ni de la source de soufre (Na2S d'après le schéma) n'est dans le texte : la composition réelle et le rapport S/(Cu+In) sont invérifiables. La formule « CuInS2 » de l'extraction est nominale.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "« Copper chloride » n'est pas précisé (CuCl ou CuCl2). Si CuCl2 est employé, le Cu(II) doit être réduit en Cu(I) pour former CuInS2 : le glutathion (thiol) réduit Cu2+ en Cu+ en s'oxydant en disulfure GSSG, il faut donc un excès de GSH par rapport au Cu ; à vérifier dans l'annexe.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Émission à 721 nm, soit 1,72 eV (calcul « énergie d'émission du cœur »), au-dessus du gap massif ≈ 1,5 eV : ordre de grandeur cohérent avec des QDs Cu–In–S aqueux de ~3 nm. Aucune diffraction X ni rapport élémentaire chiffré par EDS : la phase (chalcopyrite ou autre) et la stœchiométrie ne sont pas démontrées ; l'EDS montre seulement la présence de Cu, In, S.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Na2S (schéma d'annexe) libère H2S en milieu acide (HCl figure dans la liste des réactifs) : ne jamais acidifier le milieu de synthèse, hotte obligatoire. Sels d'indium et de cuivre et nanoparticules : gants, éviter l'inhalation de poudres séchées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "En solution aqueuse à 90 °C sous reflux (schéma d'annexe, pas d'autoclave) : complexation de Cu et In3+ par le glutathion et le citrate ; réduction de Cu(II) en Cu(I) par le thiol du GSH (formation de GSSG) si CuCl2 est employé ; l'injection de Na2S fournit S2− et provoque la nucléation rapide de nanocristaux Cu–In–S très pauvres en cuivre (Cu:In 1:4) ; la croissance est limitée par la coiffe GSH liée par le thiolate ; l'émission rouge large vient de recombinaisons donneur–accepteur liées aux défauts du cuivre.",
+    "sources": [
+     {
+      "title": "Synthesis, structural and fluorescence optimization of ternary Cu–In–S quantum dots passivated with ZnS (titre lu dans l'adresse de la page ; page non ouverte, résumé lu dans l'extrait de recherche : reflux aqueux à 95 °C, glutathion, effet de Cu:In, pH et GSH ; ZnS augmente la PL et décale absorption et émission vers le bleu)",
+      "authors_or_publisher": "Tsolekile et al. (même groupe, University of Johannesburg / CPUT)",
+      "year": "2020",
+      "url_or_doi": "https://pure.uj.ac.za/en/publications/synthesis-structural-and-fluorescence-optimization-of-ternary-cui/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "protocole S1 de l'annexe : quantités de CuCl/CuCl2, InCl3, GSH, citrate de sodium, Na2S, pH, volume",
+    "nature du sel de cuivre (Cu(I) ou Cu(II)) et excès de GSH nécessaire à la réduction",
+    "montage réel : reflux à 90 °C (schéma) et non autoclave",
+    "composition réelle par ICP ou EDS chiffré, et phase par DRX"
+   ]
+  },
+  {
+   "label": "CuInS-ZnS_Zn0.435",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "masses d'acétate de zinc dihydraté correspondant aux quantités de la série",
+     "inputs": "M(Zn(CH3COO)2·2H2O) = 65,38 + 2×59,04 + 2×18,015 = 219,50 g/mol (masses atomiques IUPAC) ; 0,435 / 0,218 / 0,109 / 0,200 mmol",
+     "formula": "m = n × M",
+     "result": "95,5 mg ; 47,9 mg ; 23,9 mg ; 43,9 mg",
+     "compared_to": "série divisée par deux à chaque pas (0,435 → 0,218 → 0,109) ; 0,200 mmol (échantillon TEM) hors série",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "rapport Zn:(Cu+In) annoncé comme variable étudiée",
+     "inputs": "n(Zn) donné (0,435 à 0,109 mmol) ; n(Cu) et n(In) non donnés dans le texte",
+     "formula": "n(Zn)/[n(Cu)+n(In)]",
+     "result": "incalculable : le rapport que les auteurs disent faire varier n'est pas chiffré",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "décalages d'émission de la série Zn",
+     "inputs": "713, 716, 721 nm pour 0,435, 0,218, 0,109 mmol ; hc = 1239,84 eV·nm",
+     "formula": "E = 1239,84/λ",
+     "result": "1,739 ; 1,732 ; 1,720 eV : écart total 19 meV",
+     "compared_to": "largeur à mi-hauteur typique de la PL de QDs Cu–In–S : plusieurs centaines de meV (émission large par défauts) ; un décalage de 8 nm est faible devant la largeur de raie",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Coque ZnS formée in situ à partir d'acétate de zinc et de thiourée dans le même montage à reflux (schéma d'annexe : 90 °C, 45 min pour l'ensemble, durée propre de la coque non dite). La thiourée ne libère S2−/HS− que lentement par hydrolyse sous 100 °C en milieu neutre ; la croissance d'une vraie coque ZnS en si peu de temps à 90 °C est incertaine, une alliance de surface Zn–Cu–In–S (échange cationique) est plus probable. Durée et pH de la passivation à vérifier dans l'annexe S1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction interne sur le rendement quantique : le texte dit « improved QY at lower Zn content », alors que les valeurs de la figure 1C (7,54 % ; 5,98 % ; 8,36 % pour 0,435 ; 0,218 ; 0,109 mmol) ne sont pas monotones. La méthode de mesure du rendement (référence, absorbance, solvant) n'est pas décrite. Les valeurs de 6 à 8 % sont faibles pour un cœur/coque Cu–In–S/ZnS aqueux « highly fluorescent ».",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction entre émission et absorption : moins de Zn décale l'émission vers le rouge (713 → 721 nm), mais le texte dit que plus de Zn décale le bord d'absorption vers le rouge (gap plus petit). Si le Zn diffuse dans le cœur (explication des auteurs pour le décalage vers le bleu de 721 à 709 nm), absorption et émission devraient se décaler vers le bleu ensemble quand Zn augmente, comme le rapporte le même groupe en 2020 (Tsolekile et al.). Les deux tendances opposées ne sont pas expliquées ; de plus le décalage d'émission est de 19 meV seulement (calcul « décalages d'émission de la série Zn »), petit devant la largeur de la PL.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis, structural and fluorescence optimization of ternary Cu–In–S quantum dots passivated with ZnS (titre lu dans l'adresse de la page ; page non ouverte, résumé lu dans l'extrait de recherche : reflux aqueux à 95 °C, glutathion, effet de Cu:In, pH et GSH ; ZnS augmente la PL et décale absorption et émission vers le bleu)",
+      "authors_or_publisher": "Tsolekile et al. (même groupe, University of Johannesburg / CPUT)",
+      "year": "2020",
+      "url_or_doi": "https://pure.uj.ac.za/en/publications/synthesis-structural-and-fluorescence-optimization-of-ternary-cui/"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La variable annoncée (« Zn:Cu + In ratio ») n'est pas chiffrable sans les quantités de Cu et In (calcul « rapport Zn:(Cu+In) ») ; la quantité de thiourée, donc le rapport Zn:S de la coque, n'est pas donnée. L'échantillon TEM est à 0,200 mmol, hors de la série 0,435/0,218/0,109 : la taille de 3–3,5 nm ne peut pas être attribuée aux échantillons dont la PL est mesurée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire : « hyper-chromic » désigne une hausse d'absorbance, pas d'intensité d'émission ; une « type 1 band alignment » ne « réduit » pas le désaccord de maille (CuInS2/ZnS ≈ 7 % de désaccord, réduit par alliage, pas par l'alignement des bandes). Le décalage vers le bleu avec la coque est attribué à l'interdiffusion du Zn, explication standard et plausible (échange cationique Zn2+ en surface).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Thiourée : cancérogène suspecté (Carc. 2, H351) et reprotoxique suspecté (Repr. 2, H361) ; peser sous hotte, gants. Sa décomposition à chaud peut libérer H2S et NH3.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thiourea, fiche de données de sécurité (Carc. 2 H351, Repr. 2 H361d ou H361fd selon les fiches)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consultée 2026",
+      "url_or_doi": "https://sigmaaldrich.com/CA/en/sds/sial/t8656"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Après formation du cœur, l'acétate de zinc et la thiourée injectés à 90 °C donnent Zn2+ et, par hydrolyse lente de la thiourée, HS−/S2− ; Zn2+ s'échange en partie avec Cu+/In3+ de surface (alliage Zn–Cu–In–S) et forme une fine couche ZnS qui passive les liaisons pendantes : la PL augmente et se décale vers le bleu par élargissement du gap de l'alliage. Une plus grande quantité de Zn devrait accentuer le décalage vers le bleu en absorption comme en émission.",
+    "sources": [
+     {
+      "title": "Synthesis, structural and fluorescence optimization of ternary Cu–In–S quantum dots passivated with ZnS (titre lu dans l'adresse de la page ; page non ouverte, résumé lu dans l'extrait de recherche : reflux aqueux à 95 °C, glutathion, effet de Cu:In, pH et GSH ; ZnS augmente la PL et décale absorption et émission vers le bleu)",
+      "authors_or_publisher": "Tsolekile et al. (même groupe, University of Johannesburg / CPUT)",
+      "year": "2020",
+      "url_or_doi": "https://pure.uj.ac.za/en/publications/synthesis-structural-and-fluorescence-optimization-of-ternary-cui/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de Cu, In, GSH et thiourée, et rapport Zn:(Cu+In) réellement utilisé",
+    "durée et pH de la passivation",
+    "méthode de mesure du rendement quantique (référence, absorbance < 0,1)",
+    "lot de Zn de l'échantillon TEM (0,200 mmol) et taille des échantillons de la série",
+    "sens du décalage d'absorption en fonction de Zn (contradiction avec la PL)"
+   ]
+  },
+  {
+   "label": "Conj_29C_1to1",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité de TPPS4 dans la conjugaison",
+     "inputs": "2 mL à 1 mg/10 mL = 0,2 mg ; M(TPPS4, forme acide C44H30N4O12S4) = 934,98 g/mol ; forme sel tétrasodique 1022,9 g/mol (masses atomiques IUPAC ; forme non précisée par l'article)",
+     "formula": "n = m/M ; c = n/V(4 mL)",
+     "result": "0,214 µmol (0,196 µmol pour le sel Na4) ; solution mère 107 µM ; 53 µM dans le mélange de 4 mL",
+     "compared_to": "—",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "nombre de QDs dans la conjugaison et rapport molaire TPPS4/QD",
+     "inputs": "2 mL à 1 mg/10 mL = 0,2 mg de QDs (masse de ligand comprise) ; sphère de 3,25 nm (milieu de 3–3,5 nm, TEM) ; masse volumique de CuInS2 ≈ 4,75 g/cm3 (valeur de manuel, non vérifiée ici, ordre de grandeur) ; ligand négligé",
+     "formula": "m(QD) = ρ·(4/3)π r³ ; N = 0,2 mg/m(QD) ; n(TPPS4)/n(QD)",
+     "result": "m(QD) = 8,5×10−20 g ; ≈ 3,9 nmol de QDs (3,1 à 4,9 nmol pour 3,5 à 3,0 nm) ; TPPS4/QD ≈ 55 (43 à 69), davantage si l'on retire la masse de GSH",
+     "compared_to": "« 1:1 » des auteurs : c'est un rapport de masses (volumes égaux de solutions à 0,1 mg/mL), pas un rapport molaire ; surface d'un QD de 3,25 nm ≈ 33 nm², place pour quelques dizaines de porphyrines à plat au plus",
+     "source": "calcul ; valeurs de l'article"
+    },
+    {
+     "what": "cohérence SOQY / pente / absorbance (équation 1 de l'article)",
+     "inputs": "SOQY : 0,19 (TPPS4) et 0,69 (conjugué) ; pentes « k » : −0,825 et −0,69 ; même référence (bleu de méthylène)",
+     "formula": "SOQY_conj/SOQY_TPPS4 = (m_conj/m_TPPS4) × (A_TPPS4/A_conj)",
+     "result": "3,63 = 0,836 × (A_TPPS4/A_conj) ⇒ A_TPPS4/A_conj = 4,34 : le conjugué devrait absorber 4,3 fois MOINS que TPPS4 seule à 535 nm",
+     "compared_to": "solutions déclarées : TPPS4 0,20 mg/20 mL = 10,7 µM ; conjugué 1 mg/10 mL, dont ≈ 0,05 mg/mL de TPPS4 si le rapport massique est 1:1, soit ≈ 53 µM de TPPS4 plus des QDs qui absorbent à 535 nm ⇒ A_conj attendu > 5 × A_TPPS4",
+     "source": "calcul ; valeurs de l'article"
+    },
+    {
+     "what": "constante de vitesse « k (s−1) » comme constante du premier ordre",
+     "inputs": "k = 0,825 et 0,69 s−1 ; irradiation suivie pendant 500 s",
+     "formula": "t1/2 = ln2/k ; fraction restante = exp(−k·500)",
+     "result": "t1/2 = 0,84 s et 1,0 s ; fraction de DPBF restante après 500 s ≈ 10−150",
+     "compared_to": "un suivi sur 500 s n'a de sens que si k ≪ 0,01 s−1 : la grandeur rapportée est une pente d'intensité par seconde, pas une constante en s−1",
+     "source": "calcul"
+    },
+    {
+     "what": "recouvrement spectral pour le FRET QD → TPPS4",
+     "inputs": "émission des QDs 709–721 nm (1,72–1,75 eV) ; absorption de TPPS4 à pH 8,5 : Soret 412 nm, Q 515, 552, 579, 633 nm (tableau 1 et texte)",
+     "formula": "J = ∫ F_D(λ) ε_A(λ) λ⁴ dλ : il faut que l'accepteur absorbe là où le donneur émet",
+     "result": "la dernière bande Q de TPPS4 est à 633 nm (1,96 eV), à ~80–90 nm sous le maximum d'émission des QDs : recouvrement quasi nul",
+     "compared_to": "transfert inverse TPPS4 (émission 643/703 nm) → QDs (absorption large jusqu'au bord ~700 nm) énergétiquement possible",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentrations des solutions de mesure de l'oxygène singulet",
+     "inputs": "DPBF 0,8 mg/25 mL DMSO, M = 270,33 g/mol ; bleu de méthylène 0,5 mg/25 mL, M = 319,85 g/mol (chlorure anhydre) ; mélanges 1:1",
+     "formula": "c = m/(M·V)",
+     "result": "DPBF 118 µM ; bleu de méthylène 62,5 µM ; TPPS4 10,7 µM",
+     "compared_to": "concentrations usuelles de 10–100 µM : ordre de grandeur correct",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Liaison sulfonamide annoncée : un sulfonate aryle (Ar–SO3−) ne se condense pas avec une amine dans l'eau à 29 °C sans activation. Les sulfonamides se font à partir de chlorures de sulfonyle, ou d'acides sulfoniques activés (chlorure cyanurique + triéthylamine, sous micro-ondes, dans l'acétone : De Luca et Giacomelli 2008). Le protocole (mélange de deux solutions aqueuses, 1 h d'agitation, aucun agent de couplage) ne peut pas former de sulfonamide ; l'argument des auteurs (« oxygène négatif du sulfonate et charge positive de l'amine ») décrit au mieux une paire d'ions, pas une liaison covalente S–N.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "An Easy Microwave-Assisted Synthesis of Sulfonamides Directly from Sulfonic Acids",
+      "authors_or_publisher": "L. De Luca, G. Giacomelli, J. Org. Chem. 73, 3967-3969",
+      "year": "2008",
+      "url_or_doi": "10.1021/jo800424g"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve non discriminante : la bande à 1401 cm−1 attribuée à S=O n'est pas une bande caractéristique de S=O (sulfonamides : SO2 asymétrique ≈ 1370–1330 et symétrique ≈ 1180–1150 cm−1 ; sulfonates ≈ 1250–1150 et 1070–1030 cm−1, valeurs de tables IR usuelles) ; et sa présence dans un mélange séché qui contient TPPS4 prouve seulement que TPPS4 est là. Aucune purification du conjugué (dialyse, ultrafiltration, centrifugation) n'est décrite : le « conjugué » est un mélange de QDs et de porphyrine libre. Il faudrait comparer avec un simple mélange physique séché et montrer la fraction de porphyrine liée après séparation.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Potentiels zêta tous deux négatifs (−36,4 et −74,8 mV, article) : pas d'attraction électrostatique ; l'association plausible est la coordination de sulfonates ou des azotes pyrroliques sur des sites Zn2+/Cu+ de surface, ou une adsorption π, réversible et sensible à la température — ce qui expliquerait mieux la différence 29/50 °C (désorption à chaud) qu'une « formation de sulfonamide dépendante de la température ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport « 1:1 » est un rapport de masses de solutions à 0,1 mg/mL, pas un rapport molaire : il correspond à ≈ 55 porphyrines par QD (calcul « nombre de QDs dans la conjugaison et rapport molaire TPPS4/QD »), plus que ce que la surface d'un QD de 3 nm peut porter à plat ; la série 1:1 à 1:5 n'est donc pas une titration de sites. Le lot de QDs (quantité de Zn) et le pH de la conjugaison ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique d'oxygène singulet incohérent avec les données déclarées : avec une pente plus faible pour le conjugué (|k| 0,69 contre 0,825), l'équation 1 n'aboutit à 0,69 contre 0,19 que si le conjugué absorbe 4,3 fois moins à 535 nm que TPPS4 seule (calcul « cohérence SOQY / pente / absorbance »), alors que la solution de conjugué est plus concentrée en TPPS4 et contient des QDs absorbants. Le texte conclut aussi que le conjugué réagit « much faster » alors que |k| est plus petit et que les intervalles (0,825 ± 0,068 et 0,69 ± 0,08) se recouvrent. La « constante » en s−1 est incompatible avec un suivi de 500 s (calcul « constante de vitesse ... ») : c'est une pente d'intensité. Le DPBF est suivi à 471 nm (Méthodes) ou 421 nm (Résultats). Le chiffre de 0,19 pour TPPS4 seule est en outre très en dessous de la valeur de référence ≈ 0,6 (0,64 dans D2O à pH 7,4 citée comme standard) : l'augmentation « ×3,6 » peut venir d'une sous-estimation de la référence interne plutôt que d'un effet du conjugué.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Derivatives of porphyrin, particularly chlorins and/or bacteriochlorins, and uses thereof in photodynamic therapy (brevet US 8 592 404 ; TPPS : ΦΔ = 0,64 dans D2O à pH 7,4, lu dans l'extrait de recherche seulement)",
+      "authors_or_publisher": "USPTO (brevet ; source secondaire)",
+      "year": "non lue",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8592404"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "FRET QD → TPPS4 invoqué pour expliquer la hausse d'oxygène singulet : les QDs émettent à 709–721 nm, TPPS4 n'absorbe plus au-delà de sa bande Q à 633 nm (calcul « recouvrement spectral pour le FRET ») ; le recouvrement est quasi nul et le schéma S1 annoncé n'est pas disponible. Le seul transfert énergétiquement permis va de TPPS4 (émission 643/703 nm) vers les QDs, ce qui diminuerait l'oxygène singulet de la porphyrine. Le mécanisme des auteurs est contraire aux données spectrales qu'ils donnent.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mesure de l'oxygène singulet : la sonde est le 1,3-diphénylisobenzofurane (l'article écrit « 1,3-diphenylbenzofuran » et l'appelle « sensitizer » alors que c'est un piège) ; le DPBF n'est pas sélectif de 1O2 (il réagit aussi avec le superoxyde, le peroxynitrite, l'hypochlorite et NO2, en donnant le même produit), alors que l'article affirme le contraire. Avec des QDs semi-conducteurs, qui peuvent produire du superoxyde par transfert d'électron, une partie du blanchiment du DPBF peut ne pas venir de 1O2 ; il faudrait un témoin au piégeur (azide) ou la phosphorescence à 1270 nm.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Development of 1,3-Diphenylisobenzofuran as a Highly Selective Probe for the Detection and Quantitative Determination of Hydrogen Peroxide (DPBF réagit aussi avec superoxyde, peroxynitrite, hypochlorite, NO2)",
+      "authors_or_publisher": "K. Żamojć et coll. (copie auteur sur ResearchGate ; DOI non relevé)",
+      "year": "non vérifiée (vers 2016-2017)",
+      "url_or_doi": "https://www.researchgate.net/profile/Krzysztof-Zamojc-2/publication/310602513_The_Development_of_13-Diphenylisobenzofuran_as_a_Highly_Selective_Probe_for_the_Detection_and_Quantitative_Determination_of_Hydrogen_Peroxide/links/5899ce914585158bf6f85ca5/The-Development-of-1-3-Diphenylisobenzofuran-as-a-Highly-Selective-Probe-for-the-Detection-and-Quantitative-Determination-of-Hydrogen-Peroxide.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Spectro-fluorophotometry laser light at 535 nm » : le RF-6000 cité dans la caractérisation éclaire avec une lampe xénon de 150 W à travers un monochromateur, pas un laser ; la puissance d'irradiation, la largeur de fente et la géométrie ne sont pas données, ce qui rend la comparaison des pentes dépendante de réglages non écrits. Le mélange 1:1 DPBF (DMSO) : conjugué (milieu non précisé, aqueux d'après la conjugaison) change le solvant entre échantillon et référence, alors que la valeur de 0,52 du bleu de méthylène est une valeur de solution aqueuse ; sa valeur dans le DMSO est mesurée ailleurs (Lutkus et al. 2019) mais non reprise par l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "RF-6000 Spectrofluorophotometer - Specs (source lumineuse : lampe xénon 150 W)",
+      "authors_or_publisher": "Shimadzu (fiche fabricant)",
+      "year": "consultée 2026",
+      "url_or_doi": "https://shimadzu.com/an/products/molecular-spectroscopy/fluorescence/fluorescence-spectroscopy/rf-6000/spec.html"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Conjugaison à 29 °C (« room temperature » dans les Méthodes) et 50 °C dans l'eau, agitation 1 h : bien sous 100 °C, aucun problème de récipient. Le choix de 29 °C repose sur un diagramme radar de « signatures » spectrales, qui n'est pas une mesure de la quantité de conjugué formé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Mesures dans le DMSO : le DMSO traverse la peau et entraîne les solutés (porphyrine, nanoparticules) ; gants nitrile adaptés. Pas de danger particulier dans la conjugaison elle-même (solutions diluées à 0,1 mg/mL).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Pas de liaison sulfonamide possible sans activation du sulfonate. L'association la plus probable est une adsorption réversible de TPPS4 sur la surface des QDs : coordination de groupes sulfonate (ou des azotes pyrroliques) sur des sites Zn2+ de la coque, et interactions π/hydrophobes, malgré la répulsion entre deux partenaires chargés négativement ; une part importante de la porphyrine reste libre en l'absence de purification. Une liaison covalente exigerait de passer par le chlorure de sulfonyle (ou une activation par chlorure cyanurique) puis un couplage à l'amine du GSH en milieu organique anhydre.",
+    "sources": [
+     {
+      "title": "An Easy Microwave-Assisted Synthesis of Sulfonamides Directly from Sulfonic Acids",
+      "authors_or_publisher": "L. De Luca, G. Giacomelli, J. Org. Chem. 73, 3967-3969",
+      "year": "2008",
+      "url_or_doi": "10.1021/jo800424g"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "séparer le conjugué de la porphyrine libre (ultrafiltration, dialyse) et doser la porphyrine liée",
+    "témoin : simple mélange physique séché analysé en FTIR",
+    "lot de QDs utilisé (quantité de Zn) et pH de la conjugaison",
+    "exprimer le rapport en moles (≈ 55 TPPS4 par QD pour « 1:1 » en masse)",
+    "mesure de l'oxygène singulet : absorbances à 535 nm égalisées, même solvant pour échantillon et référence, témoin à l'azide ou phosphorescence à 1270 nm, puissance d'irradiation"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les deux synthèses de matériaux (cœur Cu–In–S et cœur/coque ZnS) sont renvoyées à une annexe absente : seules la proportion Cu:In 1:4 et les quantités de Zn sont dans le texte, et le schéma d'annexe montre un reflux aqueux à 90 °C, 45 min, et non une synthèse hydrothermale. La conjugaison est un mélange de deux solutions aqueuses, facile à refaire, mais la liaison sulfonamide annoncée est chimiquement impossible sans activation, la preuve FTIR n'est pas discriminante et le conjugué n'est pas purifié. Les résultats d'oxygène singulet sont incohérents entre eux (pentes, absorbances, rendements, « constante » en s−1) et le FRET invoqué contredit les spectres donnés.",
+  "author_errors_suspected": [
+   "liaison sulfonamide entre un sulfonate et une amine sans activation, dans l'eau à 29 °C",
+   "SOQY 0,69 contre 0,19 incompatible avec des pentes plus faibles pour le conjugué et une solution de conjugué plus absorbante",
+   "conjugué dit « much faster » alors que |k| est plus petit (0,69 contre 0,825 s−1) ; « k » en s−1 incompatible avec 500 s de suivi",
+   "FRET QD → TPPS4 alors que les QDs émettent à 709–721 nm et que TPPS4 n'absorbe plus au-delà de 633 nm",
+   "QY « amélioré à faible Zn » contredit par les valeurs non monotones de la figure 1C ; tendances d'absorption et d'émission opposées avec Zn",
+   "« hydrothermal » pour un reflux aqueux à 90 °C ; DPBF nommé « 1,3-diphenylbenzofuran » et « sensitizer » ; « laser » pour la lampe xénon du RF-6000 ; « mono-protonated » pour un spectre à quatre bandes Q de base libre ; DPBF suivi à 471 nm puis 421 nm",
+   "SOQY de TPPS4 seule (0,19) très inférieur aux valeurs de référence (≈ 0,6)"
+  ],
+  "comparison_with_database": "Aucune autre synthèse de Cu–In–S, CuInS2/ZnS ou de conjugué porphyrine–QD dans la base (compare.py « CuInS » ne renvoie que PMC6720160)."
+ },
+ "sources_not_found": [
+  "valeur de rendement quantique d'oxygène singulet de TPPS4 dans une revue à comité de lecture (compilation Redmond et Gamlin 1999 non retrouvée par la recherche ; seule une valeur de brevet, 0,64 dans D2O, a été trouvée)",
+  "valeur 0,52 du bleu de méthylène dans le DMSO (Lutkus et al. 2019 mesure le MB dans le DMSO mais la valeur n'a pas été lue)",
+  "DOI de l'article de Tsolekile et al. 2020 et de l'article de Żamojć et coll. sur le DPBF (pages non ouvertes, DNS refusé par le proxy)",
+  "masse volumique de CuInS2 (4,75 g/cm3 utilisée de mémoire, non vérifiée ; ordre de grandeur seulement)"
+ ]
+}

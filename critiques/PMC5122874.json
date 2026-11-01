@@ -1,0 +1,132 @@
+{
+  "pmcid": "PMC5122874",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "toutes les branches qui changent OA/OLA (NC12_toluene, NC34_toluene_1h, NR_toluene_1h, NC18_toluene_1min, Toluene_*, Hexane_1min, OA_only, OA_absent, OLA_excess, EtOAc_noligand) : étape 2 de QD_EtOAc, paramètres oleylamine_volume et oleic_acid_volume",
+      "extracted": "La voie de base porte à l'étape 2 oleylamine_volume = 40 µL et oleic_acid_volume = 0,5 mL (tableau S1, série acétate d'éthyle). Les variations des branches visent les réactifs « oleic acid » / « oleylamine » (sans step_order, parent_value « 0.2–0.5 mL » ou « 20–70 µL »), jamais ces paramètres : les branches héritent donc d'OA 0,5 mL et OLA 40 µL alors qu'elles déclarent OA 200 µl (toluène), OLA 70/20/60 µL, ou 0 mL.",
+      "article_says": "By changing the anti-solvent to toluene and keeping OLA (20–70 μl) and OA (200 μl) as capping ligand",
+      "fix": "Faire porter les variations de quantité de ligand sur les paramètres de l'étape 2 (step_order 2, oleylamine_volume / oleic_acid_volume, parent_value « 40 µL » / « 0.5 mL »), ou retirer ces deux paramètres de l'étape 2 de la voie de base et ne garder que la plage en amount_text. Sinon un lecteur de la fiche d'une branche toluène voit OA 0,5 mL et OLA 40 µL à l'étape 2 et OA 200 µl dans les variations. Pour NC12_toluene, OLA reste 20–70 µL : le paramètre hérité de 40 µL est faux pour cette branche.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "faux",
+      "where": "annotation conclusion_auteurs (Nanobar_EtOAc_40h)",
+      "extracted": "« elles ont le rendement quantique de PL le plus élevé (61 %) »",
+      "article_says": "High PL QY of ~77% and good crystalline quality suggest that the nanocubes are largely free from charge trapping mid band gap trap states",
+      "fix": "Les nanocubes de 12 nm dans le toluène (77 %) ont un rendement quantique supérieur aux nanobarres (61 %), comme le confirme le tableau S4. L'auteur écrit « Unlike the other morphologies, the PL QY of the nanobars is much higher (61%) » : c'est vrai seulement face aux autres morphologies de la série acétate d'éthyle. Écrire « le plus élevé de la série dans l'acétate d'éthyle (61 %, contre 27 % et 19 %) » ; seule la durée de vie (14,2 ns) est la plus longue de tous les échantillons (13,5 ns pour les nanocubes de 34 nm).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "QD_EtOAc step 3 (add) not_stated: temperature",
+      "extracted": "temperature déclarée « non citée » pour l'ajout goutte à goutte",
+      "article_says": "then adding this solution (200 μL) drop wise to a vigorously stirred reaction media containing definite quantities of OLA (20–70 μL) and OA (0.2–0.5 mL) in a larger amount (4 mL) of a less polar solvent (anti-solvent) at room temperature",
+      "fix": "L'ajout se fait « at room temperature » (même phrase que celle citée à l'étape 4). Soit extraire temperature = « room temperature » à l'étape 3, soit retirer la case, qui n'est pas dans la grille minimale. Les 20 autres cases « non cité » sont justes (vérifiées une à une).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "OLA_excess variation oleylamine",
+      "extracted": "oleylamine = « excess » (value_text), quote = phrase de discussion ; la quantité n'apparaît que dans la citation du résultat",
+      "article_says": "0.5 mL 100 L 24 hours No reaction",
+      "fix": "La rangée du tableau S1 donne l'essai : OA 0,5 mL, OLA 100 µL, 24 h, aucune réaction. La variation doit porter value_num = 100, unit « µL » (quote = cette rangée), « excess » restant la lecture des auteurs. Sans cela la branche ne dit pas quelle quantité est « excessive ».",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "OA_only variation oleic acid",
+      "extracted": "oleic acid = « 100% OA » (value_text, quote de discussion)",
+      "article_says": "1 mL 0 mL 1 min Nonfluorescent yellow precipitate. 50-500 nm sized nanocubes and nanobars of sharp edges.",
+      "fix": "La rangée S1 retenue par l'extracteur donne OA = 1 mL (OLA 0 mL, 1 min) : la variation doit porter value_num = 1 mL. L'équivalence « 100% OA » = cette rangée reste une lecture (la rangée toluène OA 0,5 mL / OLA 0 mL est aussi un essai d'OA seul, déjà en branche Toluene_OA05_OLA0).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "NC12_toluene variation oleic acid = 200 µl (et héritage par NC34_toluene_1h, NC_toluene_50h, NR_toluene_1h/5h/15h, NW_toluene_25h/40h)",
+      "extracted": "OA = 200 µl (texte) ; doute signalé, valeur du tableau S2 non conservée dans la donnée",
+      "article_says": "0.25 mL 20-70 L 1 min Nanocubes of 12 nm edge length",
+      "fix": "Discordance réelle : texte 200 µl, tableau S2 0,25 mL pour exactement cet échantillon (12 nm, OLA 20–70 µL, 1 min). Le tableau est la rangée expérimentale ; le texte dit aussi « OA (0.2–0.5 mL) » en plage. Ne pas trancher en silence : ajouter les deux valeurs (annotation limite_reproductibilite déjà présente, ajouter un résultat ou une note de variation avec la valeur du tableau). Pour les rangées 70 µL (1 h, 50 h) et 20 µL (1 h à 40 h) du tableau S2, la cellule OA est fusionnée avec celle de 0,25 mL (rien d'écrit sur ces rangées) : l'OA des branches NC34, NR, NW est héritée, pas citée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "NC12_toluene et CHCl3_early step 4 duration",
+      "extracted": "« initial stage of the reaction » / « early stages of the reaction » (value_text) ; les branches filles (NC34, NR, CHCl3_15min…) prennent ces textes comme parent_value",
+      "article_says": "Figure S5. CsPbBr3 nanocubes (12 nm) formed in toluene after 1 min of the reaction.",
+      "fix": "La durée est chiffrée dans l'annexe : 1 min pour les nanocubes de 12 nm (légende S5 et tableau S2) et 1 min pour le chloroforme (tableau S3, « Chloroform … 1 min »). Utiliser value_num = 1 min, comme déjà fait pour les branches hexane/butanol/acétone.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "NC_toluene_50h variation duration",
+      "extracted": "« up to 50 hours or more » (value_text)",
+      "article_says": "nanorods of larger dimension formed in toluene after 50 hours of the reaction",
+      "fix": "La légende S7 et le tableau S2 donnent un échantillon à 50 h : value_num = 50, unit h (quote = légende S7). La borne « up to 50 hours or more » est celle du texte, pas la condition de l'échantillon.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "résultats de toutes les morphologies : tableau S4, composantes de la décroissance de PL",
+      "extracted": "Seuls la position d'absorption, le pic de PL, le rendement quantique et la durée de vie moyenne sont repris",
+      "article_says": "Time resolved PL decay parameters",
+      "fix": "Le tableau S4 donne pour chaque morphologie les amplitudes et temps de vie (τ1, τ2, τ3) ; par exemple points quantiques 0.41/1.27 ns, 0.55/4.92 ns, 0.04/17.07 ns. À ajouter en résultats par branche si l'on veut la comparaison complète (faible priorité : donnée de caractérisation, pas de synthèse).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "nBuOH_1min reagent n-butanol (purity GR, supplier Merck)",
+      "extracted": "n-butanol, GR, Merck, rattaché à « 1-butanol (GR, Merck) »",
+      "article_says": "and 1-butanol (GR, Merck) were used as received",
+      "fix": "Le tableau S3 écrit « n-butanol » (et la légende S12 « n- butanol »), la liste des produits « 1-butanol » : identité probable mais non écrite. Garder la pureté et le fournisseur, mais mentionner l'équivalence dans les doutes (déjà fait) et nommer le réactif 1-butanol / n-butanol.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "voies CsPbCl3_exchange / CsPbI3_exchange : formule du matériau et résultat 405–700 nm",
+      "extracted": "formule CsPbCl3 et CsPbI3 ; fenêtre 405–700 nm placée seulement sur la voie CsPbCl3",
+      "article_says": "Figure 3 illustrates that the entire visible spectral window (405–700 nm) can be covered by the anion exchange process on ~34 nm sized nanocubes in toluene.",
+      "fix": "L'article écrit CsPbX3 (X = Cl, I) et règle la composition par la quantité de PbX2 ajoutée : le produit visé est un halogénure mixte, pas CsPbCl3 pur. Noter la formule comme nominale (ou « CsPbBr3-nXn »). Le résultat 405–700 nm couvre Cl et I ensemble (substrat : nanocubes de ~34 nm dans le toluène, qui n'est lié à aucun réactif de la voie).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation securite_analyse (Nanobar_EtOAc_40h)",
+      "extracted": "« Les essais de 25 à 50 h sont faits à l'air libre, donc dans un flacon ouvert ou mal fermé »",
+      "article_says": "room temperature, open atmosphere anti-solvent precipitation method",
+      "fix": "« Open atmosphere » signifie sans atmosphère inerte ; l'article ne dit pas que le flacon reste ouvert pendant 40–50 h (la synthèse se fait dans un ballon de 50 mL, sans indication de bouchon). Reformuler en hypothèse (« si le ballon n'est pas bouché… »).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "QD_EtOAc characterizations XPS",
+      "extracted": "XPS rattaché seulement à la voie QD_EtOAc",
+      "article_says": "X-ray photoelectron spectroscopy (XPS) measurements have been performed on different CsPbBr3 morphologies to further investigate the quality and composition.",
+      "fix": "Le XPS est fait sur plusieurs morphologies (légende S10 : nanocubes, nanofils, points quantiques, nanoplaquettes, nanobarres). Le rattacher aussi aux voies correspondantes ou préciser dans le résultat qu'il s'agit de l'ensemble des morphologies ; la légende S10 précise que les spectres haute résolution (b à d) sont ceux des points quantiques.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 31,
+    "branches_extracted": 31,
+    "not_stated_checked": 21,
+    "not_stated_wrong": 1
+  },
+  "reproducibility_gaps": [
+    "Quantité d'OA : 200 µl dans le texte contre 0,25 mL dans le tableau S2 pour les nanocubes de 12 nm ; cellule OA fusionnée (illisible) pour les séries OLA 70 µL (1 h, 50 h) et OLA 20 µL (1 h à 40 h), qui sont pourtant celles des nanocubes de 34 nm, nanobâtonnets et nanofils",
+    "Aucune durée, vitesse ni forme d'agitation chiffrée (seulement « vigorously stirring ») ; pas de vitesse d'addition goutte à goutte, de diamètre d'aiguille ni de hauteur d'ajout",
+    "Conditions de dissolution de CsBr/PbBr2 dans le DMF (durée, chauffage, ultrasons) et âge de la solution mère avant usage non donnés ; solubilité de 0,15 mmol de chaque sel dans 4 mL de DMF non vérifiable",
+    "Prélèvement des échantillons « aux différents stades » : volume prélevé, délai avant centrifugation, arrêt ou non de la réaction ; or les formes évoluent pendant 40 à 50 h, donc l'état de l'échantillon dépend de ce délai",
+    "Fermeture du ballon pendant les réactions de 25 à 50 h, évaporation de l'anti-solvant, humidité de l'air (la réaction est à l'air libre)",
+    "Température exacte (« room temperature » seulement) et lumière ; aucun suivi de température",
+    "Lavage : « washed with ethyl acetate » sans volume ni nombre de lavages ; volume de redispersion dans le toluène ou l'hexane ; durée et température de centrifugation ; critère du passage à 7500 rpm « for a longer period » non chiffré",
+    "Précipitation sélective en taille (« size-selective precipitation ») : solvants, rapports et nombre de cycles absents ; nécessaire pour isoler les populations des mélanges (4 h, 10 h, 25 h acétate d'éthyle ; 1 h à 40 h toluène)",
+    "Échange d'anions : volume de solution PbX2 (0,15 mmol dans 5 mL de DMF) ajouté pour chaque émission de la figure 3, temps d'équilibre (« for some time »), conditions de centrifugation après échange, concentration et solvant de la solution de CsPbBr3 de départ non donnés",
+    "Rendement, masse de produit, concentration des nanocristaux et échelle absents de l'article et de l'annexe",
+    "Chloroforme : pureté et fournisseur non indiqués (absent de la liste des produits) ; DMSO listé sans usage décrit ; oléylamine à 70 % (qualité technique) sans nature des 30 % restants, ce qui peut changer les morphologies",
+    "Pas de références numérotées dans le corps du texte : les protocoles comparés (réprécipitation à température ambiante, injection à chaud) ne sont pas rattachés à une référence précise, donc aucune méthode externe à compléter"
+  ],
+  "mechanism_check": "ok : les quatre annotations mecanisme_auteurs reprennent fidèlement les phrases de la section Formation Mechanism (micelles, liaison préférentielle de l'OLA, rôle nucléophile de l'acétate d'éthyle, croissance dirigée avec peu d'OLA, nanocubes protégés avec beaucoup d'OLA). Les mecanisme_analyse sont rédigées en hypothèses. À noter : l'article n'a pas de preuve expérimentale du mécanisme (micelles, rôle de l'acétate d'éthyle), seulement des observations par tableaux et par TEM.",
+  "notes": "Fragile dans ma propre lecture : (1) les tableaux S1 à S3 sont aplatis une cellule par ligne, l'ordre des colonnes (acide oléique, oléylamine, temps, morphologie) vient de l'en-tête et colle aux valeurs (OA 1 mL / OLA 0 ; OA 0,5 mL / OLA 100 µL ; unités µL pour OLA, mL pour OA ; toutes les rangées de S1, S2 et S3 ont leur branche, soit 10 + 12 + 7 + 2 d'échange = 31 branches). (2) La cellule S1 « 20 µL-1 mL » (OA 0 mL) est lue comme une plage d'OLA ; elle pourrait aussi être un artefact d'extraction du PDF : lecture non vérifiable, cohérente avec le toluène (0 mL / 20 µL, aucune réaction). (3) Les caractères perdus de l'aplatissement (µ, ~, ≥) sont dans le texte brut en police Symbol : « aspect ratio ≥200 » pour 40 h est correct (aspect_ratio_min) et « ~70 », « ~130 », « ~200 » pour 5, 15 et 25 h sont approximatifs, ce qui est fidèle. (4) La légende de la figure 2 (panneaux h, i, j à 5, 25 et 40 h, 'nanorods') contredit le tableau S2 (nanofils déjà à 25 h) : l'extracteur a suivi le tableau, c'est cohérent. (5) La centrifugation après échange d'anions est déclarée non citée ; on pourrait soutenir que « 5000 rpm for 6 minutes » (crude solutions) s'applique aussi, mais l'article ne le dit pas. (6) Autres points secondaires non retenus comme constats : stirring_speed est à la fois extrait (« vigorously stirring ») et listé dans missing_fields de QD_EtOAc ; les roles/formules, puretés et fournisseurs de tous les réactifs vérifiés contre la liste des produits sont justes ; les valeurs numériques de résultats (taille, longueurs d'onde, rendement quantique, durées de vie) sont toutes attribuées à la bonne morphologie, y compris vis-à-vis du tableau S4."
+}

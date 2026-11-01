@@ -1,0 +1,96 @@
+{
+  "pmcid": "PMC7022538",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "gCQDs_4mL_180C_12h outcomes white_LED_colour_coordinates / white_LED_colour_rendering_index / white_LED_correlated_colour_temperature (doublon avec LED_white_gCQDs)",
+      "extracted": "Les trois résultats de la LED blanche (0.45, 0.37 ; IRC 87 ; 2520 K) figurent à la fois sur la voie de base du matériau et sur la voie device LED_white_gCQDs, avec la même citation.",
+      "article_says": "The colour coordinates of white LEDs are (0.45, 0.37), the colour rendering index (CRI) is 87, and the CCT is 2520 K",
+      "fix": "retirer ces trois résultats de la voie de base (ce sont des propriétés du dispositif, pas du matériau) et les garder seulement sur LED_white_gCQDs, où ils sont déjà",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "gCQDs_4mL_180C_12h, étape manquante entre le refroidissement et la centrifugation (évaporation rotative)",
+      "extracted": "Aucune étape d'évaporation rotative ; elle n'apparaît que dans not_stated de l'étape 4 (rotary_evaporation_conditions), dans un doute et dans limite_reproductibilite.",
+      "article_says": "The g-CQD solid was obtained after rotary evaporation and centrifugation, and then was weighed on a tray balance.",
+      "fix": "ajouter une étape rotary evaporation (ordre exact inconnu : avant ou après la centrifugation, garder le doute) avec temperature, duration, pressure déclarées not_stated ; éventuellement une étape de pesée (tray balance) pour la mesure du PY",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "gCQDs_4mL_180C_12h réactif ethyl acetate (role wash) et étape 4 paramètre wash_solvent",
+      "extracted": "role: wash ; paramètre wash_solvent = ethyl acetate ; l'annotation mecanisme_analyse dit au contraire que l'acétate d'éthyle sert « probablement d'anti-solvant »",
+      "article_says": "It was then centrifuged with ethyl acetate for 5 min at the rotation speed of 8000 rpm, and repeated three times.",
+      "fix": "l'article ne parle ni de lavage ni d'anti-solvant : garder le doute existant, mais retirer le paramètre wash_solvent (ou le renommer solvent) et rendre cohérents le rôle du réactif et la formulation du mecanisme_analyse ; « repeated three times » ne dit pas si cela fait 3 ou 4 cycles au total",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "LED_white_gCQDs reagents (composants du dispositif)",
+      "extracted": "Quatre réactifs : solution de g-CQDs, puce LED bleue, lentille optique, base de LED ; ni le fil d'or ni l'électrode.",
+      "article_says": "LEDs mainly consisted of a blue chip, gold wire, optical lens, and electrode, as shown in Figure 9a.",
+      "fix": "ajouter gold wire et electrode (role electrode) avec not_stated amount/material/supplier",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "gCQDs_4mL_180C_12h étape 1 (ajout) fusionnée avec les observations de 3.1",
+      "extracted": "Une seule étape add pour les quatre ajouts ; la réaction violente de 3.1 n'est pas rattachée à une étape.",
+      "article_says": "2,7-dihydroxynaphthalene, EDA, and H2O2 were added in turn.",
+      "fix": "soit scinder en ajouts successifs (précurseur, EDA, H2O2, éthanol) avec, pour H2O2, l'observation de 3.1 dans la description, soit garder une seule étape en précisant l'ordre d'ajout dans la description ; le doute existant sur le moment du changement de couleur reste valable",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotations : securite_auteurs absente pour gCQDs_4mL_180C_12h",
+      "extracted": "L'observation de la réaction violente n'est citée que dans securite_analyse, sans citation.",
+      "article_says": "With the introduction of H2O2 into the solution, a violent reaction occurred and a large amount of heat was released while bubbling.",
+      "fix": "ajouter une annotation securite_auteurs (route gCQDs_4mL_180C_12h) avec cette citation, en précisant que c'est une observation et non une précaution",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "gCQDs_4mL_180C_12h material.phase",
+      "extracted": "some degree of crystallinity",
+      "article_says": "which indicates that the g-CQDs have a degree of crystallinity",
+      "fix": "écrire « a degree of crystallinity » (le « some » n'est pas dans l'article) ou mettre null",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "pureté des réactifs 2,7-dihydroxylnaphthalene, ethylenediamine, anhydrous ethanol (« analytically pure »)",
+      "extracted": "purity: analytically pure, avec supplier_quote = toute la phrase 2.1",
+      "article_says": "The materials and reagents used were analytically pure in grade.",
+      "fix": "pas de correction obligatoire : la phrase vise explicitement tous les réactifs de la section 2.1 et c'est un grade, non un titre ; ne pas l'étendre à l'acétate d'éthyle, qui n'est pas dans la liste de 2.1 (déjà le cas) ; signaler dans limite_reproductibilite qu'aucun titre en pourcentage n'est donné sauf H2O2 à 30 wt%",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "gCQDs_2mL_EDA et gCQDs_8mL_EDA, température et durée héritées",
+      "extracted": "Seule la quantité d'EDA est une variation ; 180 °C et 12 h viennent du parent.",
+      "article_says": "0 | 180 | 12 | 0.60 | 5.29",
+      "fix": "aucune valeur à changer : les rangées 2, 4 et 8 mL n'ont que 3 cellules, ce qui indique des cellules fusionnées sous 180 et 12 (même lecture pour 200 °C sous 12 h et pour 14 h sous 180 °C) ; le texte n'écrit ces conditions pour aucune série. Le doute déjà enregistré suffit",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 7,
+    "branches_extracted": 7,
+    "not_stated_checked": 41,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "agitation, vitesses de chauffe et de refroidissement, atmosphère et taux de remplissage de l'autoclave non donnés",
+    "volume d'acétate d'éthyle, nombre exact de cycles (3 ou 4), devenir du culot ou du surnageant, température de centrifugation non donnés",
+    "évaporation rotative citée seulement en 2.6 : ordre, température, pression et durée absents",
+    "la réaction violente à l'ajout de H2O2 : dans l'autoclave ouvert ou fermé, et moment du changement de couleur (2.2 le place après le refroidissement, 3.1 à l'ajout de l'éthanol)",
+    "solvant, concentration et volume de la solution de g-CQDs déposée sur la lentille (la poudre est produite « for later characterisation », la LED utilise une solution) ; mode de fixation de la puce et de la lentille ; courant et tension",
+    "mesure du QY : valeur de Qst de la rhodamine B, concentrations des solutions et solvant des g-CQDs (η = 1.36) non donnés",
+    "références du modèle de puce LED, de la lentille et de la base ; titres en pourcentage des réactifs (hors H2O2) absents",
+    "incohérence des auteurs : le résumé et la conclusion présentent 70,90 % comme PY maximal alors que le tableau 1 donne 88,58 % à 2 mL"
+  ],
+  "mechanism_check": "ok : les deux mecanisme_auteurs sont de vraies citations. À harmoniser seulement le rôle de l'acétate d'éthyle (wash dans la voie, anti-solvant dans mecanisme_analyse).",
+  "notes": "Toutes les valeurs du tableau 1 (PY, QY) sont rattachées à la bonne branche : 0 mL 0.60/5.29, 2 mL 88.58/41.07, 8 mL 51.60/36.22, 160 °C 21.15/15.07, 200 °C 50.50/43.05, 10 h 34.90/25.42, 14 h 37.10/24.02, et la rangée 4 mL / 180 °C / 12 h (70.90/62.98) répétée trois fois correspond bien à la voie de base. Les tableaux 3 (analyse élémentaire N, C, H, O) et 4 (α1, τ1, α2, τ2, χ2, moyenne) sont bien lus et le temps de vie moyen recalculé donne 7.13 ns. Aucune branche manquante ni inventée : les séries d'EDA (0, 2, 8 mL), de température (160, 200 °C) et de durée (10, 14 h) sont toutes là ; les tableaux 2 et 5 et le contrôle sans NaOH de Yuan et al. sont de la littérature, pas des branches. method_sources vide : les renvois [[B22]], [[B23]], [[B10]], [[B12]] portent sur le contexte ou l'interprétation, aucun sur une préparation à refaire. Fragile : la lecture des cellules fusionnées du tableau 1 pour T et Dr des séries d'EDA, et le lien entre la « g-CQD solution » de la LED et la voie de base (appuyé seulement par la légende de la figure 9)."
+}

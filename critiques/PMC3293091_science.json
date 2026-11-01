@@ -1,0 +1,546 @@
+{
+ "pmcid": "PMC3293091",
+ "routes": [
+  {
+   "label": "LiFePO4_pristine",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan Li:Fe:P et sous-produits",
+     "inputs": "CH3COOLi·2H2O + Fe(CH3COO)2 + H3PO4, rapport 1:1:1",
+     "formula": "LiOAc·2H2O + Fe(OAc)2 + H3PO4 → LiFePO4 + 3 CH3COOH + 2 H2O",
+     "result": "équation équilibrée ; 3 mol d'acide acétique et 2 mol d'eau libérées par mole de LiFePO4, plus l'eau de H3PO4 à 85 %",
+     "compared_to": "LiFePO4 : Li:Fe:P = 1:1:1",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "eau apportée par H3PO4 à 85 %",
+     "inputs": "1 mol H3PO4 = 98,0 g ; solution à 85 % en masse",
+     "formula": "(98,0/0,85 − 98,0) / 18,015",
+     "result": "17,3 g soit 0,96 mol H2O par mole de P ; au total ≈ 3 mol H2O + 3 mol CH3COOH par mole de LiFePO4 visée",
+     "compared_to": "milieu présenté comme polyol (DEG) : il contient en fait de l'eau et de l'acide acétique en quantités stœchiométriques",
+     "source": "arithmétique"
+    },
+    {
+     "what": "complémentarité des impuretés",
+     "inputs": "Li3PO4 et Fe3(PO4)2 observées à 150 et 170 °C",
+     "formula": "Li3PO4 + Fe3(PO4)2 = 3 LiFePO4 (Li3Fe3P3O12)",
+     "result": "les deux impuretés ensemble ont exactement la composition 1:1:1",
+     "compared_to": "rapport de charge 1:1:1",
+     "source": "arithmétique"
+    },
+    {
+     "what": "pression de vapeur du DEG à 150, 170 et 200 °C",
+     "inputs": "Téb = 406,2 K sous 0,019 bar (NIST) ; Téb = 245 °C (518,15 K) sous 1,013 bar (CAMEO, 473 °F)",
+     "formula": "Clausius-Clapeyron à deux points : ln(P/1,013) = −(ΔH/R)(1/T − 1/518,15), ΔH/R = 7475 K (ΔH ≈ 62 kJ/mol)",
+     "result": "≈ 0,04 bar à 150 °C ; ≈ 0,09 bar à 170 °C ; ≈ 0,26 bar à 200 °C",
+     "compared_to": "« high pressure at a moderate temperature » invoqué par les auteurs",
+     "source": "NIST WebBook (C111466) ; NOAA CAMEO Chemicals (8537)"
+    },
+    {
+     "what": "oxygène de l'espace de tête contre Fe(II)",
+     "inputs": "espace de tête ≤ 40 − 25 = 15 mL d'air à 25 °C ; 21 % O2 ; volume molaire 24,47 L/mol ; 4 Fe2+ par O2",
+     "formula": "n(O2) = 0,015 × 0,21 / 24,47 ; n(Fe oxydable) = 4 n(O2)",
+     "result": "0,13 mmol O2, capable d'oxyder ≈ 0,51 mmol de Fe(II)",
+     "compared_to": "quantité de fer du lot non donnée ; pour un lot de quelques mmol, cela représente jusqu'à 10–20 % du fer, sans compter l'air dissous et l'agitation à l'air (30 min)",
+     "source": "arithmétique (gaz parfait)"
+    },
+    {
+     "what": "capacité théorique de LiFePO4",
+     "inputs": "M(LiFePO4) = 6,94 + 55,845 + 30,974 + 4 × 15,999 = 157,76 g/mol ; F = 96 485 C/mol ; 1 Li+ échangé par formule",
+     "formula": "Q = F / (3,6 × M)",
+     "result": "169,9 mAh/g",
+     "compared_to": "170 mAh g-1 annoncé par l'article ; 169 mAh/g chez Chen & Whittingham 2006",
+     "source": "masses atomiques standard (chimie générale) ; Padhi 1997 (10.1149/1.1837571)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport 1:1:1 (Li:Fe:P) apporte exactement les éléments de LiFePO4 (voir calculs « bilan Li:Fe:P et sous-produits »). Les impuretés observées, Li3PO4 et Fe3(PO4)2, ont ensemble la même composition (« complémentarité des impuretés ») : elles sont la trace d'une conversion incomplète et non d'un défaut de stœchiométrie de la charge. Mais aucune quantité absolue n'est donnée (ni masses, ni volume de DEG pour l'échantillon sans carbone) : la concentration, qui gouverne la taille et souvent la pureté, est inconnue.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le milieu n'est pas un polyol anhydre : chaque mole de LiFePO4 visée libère 3 mol d'acide acétique (protonation des acétates par H3PO4) et apporte ≈ 3 mol d'eau (2 H2O du sel de lithium dihydraté, ≈ 0,96 mol de l'acide à 85 %) (calcul « eau apportée par H3PO4 à 85 % »). Ce mélange DEG–eau–acide acétique est le vrai solvant ; l'article ne le dit pas, et la part d'eau change avec la concentration non donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "150–200 °C restent sous le point d'ébullition du DEG (245 °C, CAMEO ; l'article écrit 240 °C). La pression de vapeur du DEG lui-même n'est que ≈ 0,04 à 0,26 bar entre 150 et 200 °C (calcul « pression de vapeur du DEG ») : la « high pressure » invoquée par les auteurs ne peut venir que de l'eau et de l'acide acétique (Téb 118 °C) libérés, et de l'air de l'espace de tête. L'argument « DEG le plus adapté grâce à son point d'ébullition » n'explique donc pas une pression élevée ; c'est la fraction d'eau et d'acide qui fixe la pression.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ethanol, 2,2'-oxybis- (diethylene glycol) — Phase change data",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C111466&Mask=4"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le Fe(II) doit rester Fe(II). L'acétate de fer(II) est mélangé 30 min à l'air libre (aucune atmosphère inerte écrite), puis la bombe garde jusqu'à 15 mL d'air : l'O2 de cet espace suffit à oxyder ≈ 0,5 mmol de Fe(II) (calcul « oxygène de l'espace de tête contre Fe(II) »), ce qui n'est pas négligeable pour un lot de quelques mmol. Le DEG est un réducteur doux, mais à 150–170 °C sa capacité à réduire Fe(III) n'est pas démontrée. Chen & Whittingham notent qu'un réducteur soluble (sucre, acide ascorbique) est nécessaire en hydrothermal pour éviter le fer ferrique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "16 h à 150–200 °C est une durée habituelle. En milieu aqueux, LiFePO4 se forme dès ≈ 105 °C par dissolution-reprécipitation, mais les défauts d'antisite (Fe sur les sites Li) ne s'éliminent qu'au-dessus de ≈ 175 °C (3,6 % de Fe sur sites Li à 150 °C, 0,6 % à 190 °C). La série 150/170/200 °C de l'article tombe exactement sur ce seuil ; l'article ne mesure ni les paramètres de maille ni le volume de maille, seul indicateur simple de ces défauts.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Bombe téflon chauffée en étuve à 200 °C : le DEG a un point d'éclair de 143 °C (290 °F) et une température d'auto-inflammation de 229 °C (444 °F) ; une fuite de la bombe dans l'étuve à 200 °C libère des vapeurs au-dessus du point d'éclair, près de l'auto-inflammation. H3PO4 à 85 % est corrosif ; l'acide acétique formé se dégage à l'ouverture. Le DEG est toxique par ingestion (néphrotoxique). Rien de cela n'est écrit.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "DIETHYLENE GLYCOL — Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/8537"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À température ambiante, H3PO4 protone les acétates (formation de CH3COOH) et les ions Li+, Fe2+ et phosphate précipitent en phosphates peu solubles, Li3PO4 et un phosphate de fer(II) de type Fe3(PO4)2 (hydraté, apparenté à la vivianite). Au chauffage en bombe, la phase olivine LiFePO4 se forme par dissolution-reprécipitation de ces intermédiaires dans le mélange DEG–eau–acide acétique ; la vitesse de conversion croît avec la température. À 150 et 170 °C, en 16 h, la conversion reste incomplète : il reste Li3PO4 + Fe3(PO4)2, dont la somme a exactement la composition de LiFePO4, ce qui colle aux phases observées. En dessous de ≈ 175 °C, l'olivine formée garde probablement des défauts d'antisite Fe/Li qui baissent la capacité. Le rôle du DEG est surtout de limiter la croissance (plaquettes nanométriques) et de ralentir l'oxydation ; la « haute pression » n'est pas due au DEG mais à l'eau et à l'acide acétique libérés.",
+    "sources": [
+     {
+      "title": "In Situ Hydrothermal Synthesis of LiFePO4 Studied by Synchrotron X-ray Diffraction",
+      "authors_or_publisher": "The Journal of Physical Chemistry Letters (ACS) ; PDF Brookhaven National Laboratory BSA11-25j (auteurs non relevés)",
+      "year": "2011",
+      "url_or_doi": "10.1021/jz2008209"
+     },
+     {
+      "title": "Mechanism for Hydrothermal Synthesis of LiFePO4 Platelets as Cathode Material for Lithium-Ion Batteries",
+      "authors_or_publisher": "Qin X. et al. (J. Phys. Chem. C 114, 16806–16812)",
+      "year": "2010",
+      "url_or_doi": "10.1021/jp104466e"
+     },
+     {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer la concentration (mmol de Fe par mL de DEG) : l'article ne la donne pas ; la reprendre dans les travaux antérieurs du groupe (réf. 23 et 24 de l'article) ou la choisir et la noter",
+    "manipuler l'acétate de fer(II) et remplir la bombe sous argon ou azote, et purger l'espace de tête",
+    "taux de remplissage réel de la bombe (liquide + solides) ≤ 70–80 %",
+    "contrôler le volume de maille de l'olivine (Rietveld) pour estimer les défauts d'antisite à 170 °C",
+    "laver et sécher l'échantillon sans carbone comme celui avec carbone (non écrit pour lui)"
+   ]
+  },
+  {
+   "label": "LiFePO4_150",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "complémentarité des impuretés",
+     "inputs": "Li3PO4 et Fe3(PO4)2 observées à 150 et 170 °C",
+     "formula": "Li3PO4 + Fe3(PO4)2 = 3 LiFePO4 (Li3Fe3P3O12)",
+     "result": "les deux impuretés ensemble ont exactement la composition 1:1:1",
+     "compared_to": "rapport de charge 1:1:1",
+     "source": "arithmétique"
+    },
+    {
+     "what": "pression de vapeur du DEG à 150, 170 et 200 °C",
+     "inputs": "Téb = 406,2 K sous 0,019 bar (NIST) ; Téb = 245 °C (518,15 K) sous 1,013 bar (CAMEO, 473 °F)",
+     "formula": "Clausius-Clapeyron à deux points : ln(P/1,013) = −(ΔH/R)(1/T − 1/518,15), ΔH/R = 7475 K (ΔH ≈ 62 kJ/mol)",
+     "result": "≈ 0,04 bar à 150 °C ; ≈ 0,09 bar à 170 °C ; ≈ 0,26 bar à 200 °C",
+     "compared_to": "« high pressure at a moderate temperature » invoqué par les auteurs",
+     "source": "NIST WebBook (C111466) ; NOAA CAMEO Chemicals (8537)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Une conversion incomplète à 150 °C en 16 h, avec Li3PO4 et Fe3(PO4)2 résiduels, est cohérente avec une formation par dissolution-reprécipitation lente en milieu peu aqueux ; les deux impuretés ont ensemble la composition de LiFePO4 (calcul « complémentarité des impuretés »). Échantillon non testé en pile : rien d'autre à vérifier.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "In Situ Hydrothermal Synthesis of LiFePO4 Studied by Synchrotron X-ray Diffraction",
+      "authors_or_publisher": "The Journal of Physical Chemistry Letters (ACS) ; PDF Brookhaven National Laboratory BSA11-25j (auteurs non relevés)",
+      "year": "2011",
+      "url_or_doi": "10.1021/jz2008209"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Conversion incomplète des intermédiaires Li3PO4 + phosphate de fer(II) en olivine, faute d'activation thermique suffisante (le texte dit « deficiency of heat energy »).",
+    "sources": [
+     {
+      "title": "In Situ Hydrothermal Synthesis of LiFePO4 Studied by Synchrotron X-ray Diffraction",
+      "authors_or_publisher": "The Journal of Physical Chemistry Letters (ACS) ; PDF Brookhaven National Laboratory BSA11-25j (auteurs non relevés)",
+      "year": "2011",
+      "url_or_doi": "10.1021/jz2008209"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantifier la fraction d'impuretés (Rietveld) plutôt que comparer des intensités relatives"
+   ]
+  },
+  {
+   "label": "LiFePO4_170",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rendement coulombique du premier cycle, échantillon 170 °C sans carbone",
+     "inputs": "Fig. 2a : charge ≈ 118–120 mAh/g, décharge ≈ 147 mAh/g (texte : 149) ; Qth = 169,9 mAh/g",
+     "formula": "Q_déch / Q_ch ; (Q_déch − Q_ch)/Qth",
+     "result": "≈ 125 % ; ≈ 0,17 Li par formule insérés en plus de ce qui a été extrait",
+     "compared_to": "≤ 100 % attendu pour une demi-pile partant d'un LiFePO4 entièrement lithié (premier pas = charge)",
+     "source": "lecture de la Figure 2a (corpus/fig/PMC3293091/1556-276X-7-3-2.jpg) ; arithmétique"
+    },
+    {
+     "what": "écart de capacité 170 °C contre 200 °C",
+     "inputs": "149 et 168 mAh g-1",
+     "formula": "1 − 149/168",
+     "result": "11 % de capacité en moins",
+     "compared_to": "si seules les impuretés inertes en sont la cause, il faudrait ≈ 11 % en masse de Li3PO4 + Fe3(PO4)2, alors que le texte parle de « little impurity peaks »",
+     "source": "arithmétique"
+    },
+    {
+     "what": "capacité théorique de LiFePO4",
+     "inputs": "M(LiFePO4) = 6,94 + 55,845 + 30,974 + 4 × 15,999 = 157,76 g/mol ; F = 96 485 C/mol ; 1 Li+ échangé par formule",
+     "formula": "Q = F / (3,6 × M)",
+     "result": "169,9 mAh/g",
+     "compared_to": "170 mAh g-1 annoncé par l'article ; 169 mAh/g chez Chen & Whittingham 2006",
+     "source": "masses atomiques standard (chimie générale) ; Padhi 1997 (10.1149/1.1837571)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Premier cycle physiquement anormal : sur la Figure 2a, la première charge vaut ≈ 118–120 mAh/g et la première décharge ≈ 147 mAh/g (texte : 149), soit un rendement coulombique de ≈ 125 % (calcul « rendement coulombique du premier cycle »). Dans une demi-pile Li/LiFePO4, le premier pas est une charge qui extrait le lithium présent ; la décharge ne peut réinsérer ≈ 0,17 Li par formule de plus que si le matériau contenait au départ des sites vides de lithium, c'est-à-dire du Fe(III) (oxydation partielle, phase amorphe ou phosphate ferrique non vu en DRX), ou si une réaction parasite consomme de la charge. L'article ne le commente pas. La valeur de 149 mAh g-1 n'est donc pas la capacité réversible de l'olivine de cet échantillon, et la présence de Fe(III) contredirait l'attribution aux seules impuretés Li3PO4 et Fe3(PO4)2.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La capacité inférieure de 11 % à celle de l'échantillon à 200 °C (calcul « écart de capacité ») est attribuée aux impuretés. Si elles étaient la seule cause, il en faudrait ≈ 11 % en masse, ce qui cadre mal avec des pics d'impureté qualifiés de faibles (« little impurity peaks »). Deux autres causes plausibles, non testées : défauts d'antisite Fe/Li, attendus sous ≈ 175 °C (3,6 % de Fe sur les sites Li à 150 °C chez Chen & Whittingham), et Fe(III) (point précédent).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Olivine majoritaire, formée près du seuil d'ordre cationique (≈ 175 °C), probablement avec des défauts d'antisite et une petite fraction de Fe(III), plus des intermédiaires non convertis (Li3PO4, Fe3(PO4)2).",
+    "sources": [
+     {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     },
+     {
+      "title": "In Situ Hydrothermal Synthesis of LiFePO4 Studied by Synchrotron X-ray Diffraction",
+      "authors_or_publisher": "The Journal of Physical Chemistry Letters (ACS) ; PDF Brookhaven National Laboratory BSA11-25j (auteurs non relevés)",
+      "year": "2011",
+      "url_or_doi": "10.1021/jz2008209"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dosage Fe(II)/Fe(III) (Mössbauer ou titrage) du produit à 170 °C",
+    "affinement Rietveld (occupation des sites Li, volume de maille)",
+    "premier cycle : vérifier l'état de charge initial de la pile (tension en circuit ouvert)"
+   ]
+  },
+  {
+   "label": "LiFePO4_200",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fractions de la capacité théorique",
+     "inputs": "168 et 160 mAh g-1 ; Qth = 169,9 mAh/g",
+     "formula": "Q / Qth",
+     "result": "98,9 % et 94,2 %",
+     "compared_to": "« close to 99% » et « close to 94% » de l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "capacité théorique de LiFePO4",
+     "inputs": "M(LiFePO4) = 6,94 + 55,845 + 30,974 + 4 × 15,999 = 157,76 g/mol ; F = 96 485 C/mol ; 1 Li+ échangé par formule",
+     "formula": "Q = F / (3,6 × M)",
+     "result": "169,9 mAh/g",
+     "compared_to": "170 mAh g-1 annoncé par l'article ; 169 mAh/g chez Chen & Whittingham 2006",
+     "source": "masses atomiques standard (chimie générale) ; Padhi 1997 (10.1149/1.1837571)"
+    },
+    {
+     "what": "pression de vapeur du DEG à 150, 170 et 200 °C",
+     "inputs": "Téb = 406,2 K sous 0,019 bar (NIST) ; Téb = 245 °C (518,15 K) sous 1,013 bar (CAMEO, 473 °F)",
+     "formula": "Clausius-Clapeyron à deux points : ln(P/1,013) = −(ΔH/R)(1/T − 1/518,15), ΔH/R = 7475 K (ΔH ≈ 62 kJ/mol)",
+     "result": "≈ 0,04 bar à 150 °C ; ≈ 0,09 bar à 170 °C ; ≈ 0,26 bar à 200 °C",
+     "compared_to": "« high pressure at a moderate temperature » invoqué par les auteurs",
+     "source": "NIST WebBook (C111466) ; NOAA CAMEO Chemicals (8537)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "168 mAh g-1 = 98,9 % de la capacité théorique de 169,9 mAh/g (calcul « fractions de la capacité théorique ») : le « close to 99% » est juste. Une capacité proche de la théorie à faible courant pour des nanoplaquettes d'olivine sans enrobage, mélangées au Ketjen Black dans l'électrode, est plausible ; Chen & Whittingham obtiennent ≈ 160 mAh/g en charge pour une olivine hydrothermale faite au-dessus de 175 °C. La première charge lue sur la Figure 2a (≈ 166–170 mAh/g) est cohérente avec la décharge.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Phase pure à 200 °C, au-dessus du seuil de ≈ 175 °C où le désordre Fe/Li disparaît en hydrothermal : cohérent. Mais la phase n'est jugée que sur l'absence de pics secondaires entre 15 et 60° (2θ) ; aucun paramètre de maille n'est donné.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Conversion complète des intermédiaires phosphatés en olivine ordonnée au-dessus du seuil d'ordre cationique.",
+    "sources": [
+     {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration et volume de DEG (non donnés)",
+    "atmosphère de remplissage de la bombe"
+   ]
+  },
+  {
+   "label": "LiFePO4_C10_170",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "taux de remplissage de la bombe (voie avec carbone)",
+     "inputs": "25 mL de DEG ; bombe de 40 mL ; densité DEG 1,118 (CAMEO)",
+     "formula": "25/40 ; 25 × 1,118",
+     "result": "≥ 62,5 % (sans le volume des précurseurs) ; 27,95 g de DEG",
+     "compared_to": "règle usuelle ≤ 70–80 % de remplissage",
+     "source": "valeurs de l'article ; CAMEO Chemicals"
+    },
+    {
+     "what": "base des 10 wt% de Ketjen Black",
+     "inputs": "25 mL DEG = 27,95 g",
+     "formula": "0,10 × 27,95 g si rapporté au solvant",
+     "result": "2,8 g de noir de carbone dans 25 mL : suspension très épaisse, peu vraisemblable ; la base est sans doute la masse de LiFePO4 attendue, non dite",
+     "compared_to": "« 10 wt% Ketjen Black was added in a 25-ml DEG solvent »",
+     "source": "arithmétique ; densité CAMEO"
+    },
+    {
+     "what": "capacité de l'échantillon avec carbone selon la masse de référence",
+     "inputs": "160 mAh g-1 annoncés ; 10 wt% de carbone dans le produit (hypothèse) ; Qth = 169,9 mAh/g",
+     "formula": "160 / 0,90 ; 1 − 160/169,9",
+     "result": "177,8 mAh/g de LiFePO4 si 160 est rapporté au composite (> capacité théorique, impossible) ; au plus 5,8 % de matière inactive tolérée pour 160 mAh/g rapportés au composite",
+     "compared_to": "« 160 mAh g-1 which was close to 94% of its theoretical capacity »",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fractions de la capacité théorique",
+     "inputs": "168 et 160 mAh g-1 ; Qth = 169,9 mAh/g",
+     "formula": "Q / Qth",
+     "result": "98,9 % et 94,2 %",
+     "compared_to": "« close to 99% » et « close to 94% » de l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "oxygène de l'espace de tête contre Fe(II)",
+     "inputs": "espace de tête ≤ 40 − 25 = 15 mL d'air à 25 °C ; 21 % O2 ; volume molaire 24,47 L/mol ; 4 Fe2+ par O2",
+     "formula": "n(O2) = 0,015 × 0,21 / 24,47 ; n(Fe oxydable) = 4 n(O2)",
+     "result": "0,13 mmol O2, capable d'oxyder ≈ 0,51 mmol de Fe(II)",
+     "compared_to": "quantité de fer du lot non donnée ; pour un lot de quelques mmol, cela représente jusqu'à 10–20 % du fer, sans compter l'air dissous et l'agitation à l'air (30 min)",
+     "source": "arithmétique (gaz parfait)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La base des « 10 wt% » de Ketjen Black n'est pas dite. Rapportée aux 25 mL de DEG (27,95 g), elle ferait 2,8 g de noir de carbone, une pâte peu vraisemblable dans 25 mL (calcul « base des 10 wt% de Ketjen Black ») ; elle se rapporte donc sans doute à la masse de LiFePO4 attendue, elle-même inconnue faute de quantités de précurseurs. La quantité de carbone est donc irreproductible telle qu'écrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "25 mL dans une bombe de 40 mL : remplissage ≥ 62,5 % avant ajout des solides et de H3PO4 (calcul « taux de remplissage »), acceptable. 170 °C reste sous le point d'ébullition du DEG (245 °C) ; la pression vient de l'eau et de l'acide acétique libérés. Ultrasons 1 h sans température indiquée, mais le DEG est peu volatil : sans conséquence.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "DIETHYLENE GLYCOL — Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/8537"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Avec 10 wt% de carbone dans le produit, 160 mAh g-1 rapportés au composite correspondraient à 177,8 mAh/g de LiFePO4, au-dessus de la capacité théorique de 169,9 mAh/g (calcul « capacité de l'échantillon avec carbone selon la masse de référence »). Les 160 mAh g-1 (« 94 % of theoretical ») ne sont donc possibles que rapportés à la seule masse de LiFePO4, ou bien la teneur réelle en carbone du produit est inférieure à 6 %. L'article ne dit ni la masse de référence ni la teneur en carbone mesurée (pas d'analyse C ni d'ATG).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change plusieurs variables : l'échantillon « avec carbone » diffère du « sans carbone » à 170 °C par le carbone, mais aussi par l'ultrasonication de 1 h, un volume de DEG écrit (25 mL) contre un volume non donné, et un lavage-séchage décrit seulement pour lui. Surtout, le carbone de synthèse reste dans la poudre et s'ajoute au Ketjen Black de l'électrode : le gain en capacité (149 → 160 mAh g-1) peut venir d'une meilleure conduction électronique de l'électrode et non d'une meilleure « réactivité » de la synthèse. Le témoin discriminant manque : poudre sans carbone à 170 °C mélangée après synthèse à 10 wt% de Ketjen Black, testée dans la même électrode. La conclusion « effect of carbon in improving the reactivity and synthesis » n'est pas démontrée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La disparition des impuretés et la hausse des intensités sont lues sur deux diffractogrammes en unités arbitraires, décalés verticalement et non normalisés (Figure 3) ; une intensité absolue plus forte ne prouve pas une meilleure cristallinité (elle dépend de la masse et de la préparation de l'échantillon), et 10 % de carbone amorphe devraient plutôt diluer le signal. Seul un affinement (fractions de phase, largeur de raie) trancherait.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La capacité de l'échantillon avec carbone fluctue de ≈ 149 à ≈ 161 mAh/g d'un cycle à l'autre (Figure 5b), soit ±4 % sans tendance, signe d'une pile peu stable ou d'une mesure bruitée ; l'écart de 160 contre 149 au premier cycle est du même ordre que deux fois cette dispersion. Le texte n'en tient pas compte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Ketjen Black est une nanopoudre de carbone très légère, facilement inhalable lors de la pesée et de la dispersion ; le produit final est une nanopoudre. À manipuler sous hotte avec protection respiratoire. Mêmes risques de bombe et de DEG que pour la voie de base (point d'éclair 143 °C).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "DIETHYLENE GLYCOL — Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/8537"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hypothèse la plus simple compatible avec les données : les particules de Ketjen Black, de très grande surface, servent de sites de nucléation hétérogène pour les intermédiaires phosphatés puis pour l'olivine, ce qui multiplie les germes, limite la croissance (plaquettes de 50 nm d'épaisseur) et peut accélérer la conversion à 170 °C ; le carbone peut aussi consommer une partie de l'oxygène ou des espèces oxydantes. Aucune de ces hypothèses, ni la « réactivité accrue » des auteurs, n'est testée ; le gain électrochimique s'explique déjà par la conduction électronique apportée par le carbone.",
+    "sources": [
+     {
+      "title": "In Situ Hydrothermal Synthesis of LiFePO4 Studied by Synchrotron X-ray Diffraction",
+      "authors_or_publisher": "The Journal of Physical Chemistry Letters (ACS) ; PDF Brookhaven National Laboratory BSA11-25j (auteurs non relevés)",
+      "year": "2011",
+      "url_or_doi": "10.1021/jz2008209"
+     },
+     {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S. (Electrochemistry Communications 8, 855–858)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer la masse de Ketjen Black (base des 10 wt% non dite) et la teneur en carbone du produit (ATG ou analyse C)",
+    "préciser la masse de référence des capacités (LiFePO4 seul ou composite)",
+    "faire le témoin : poudre sans carbone à 170 °C mélangée à 10 wt% de Ketjen Black après synthèse",
+    "atmosphère inerte pour le remplissage de la bombe"
+   ]
+  },
+  {
+   "label": "Cathode_pile_bouton_LiFePO4",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "régime de courant",
+     "inputs": "0,1 mA cm-2 ; masse active par cm² non donnée ; Qth = 169,9 mAh/g",
+     "formula": "masse surfacique pour C/10 = 0,1 mA cm-2 / 17 mA g-1",
+     "result": "≈ 5,9 mg cm-2 pour C/10 ; le régime réel (C/x) est inconnu",
+     "compared_to": "l'article ne donne ni la charge en matière active ni la composition de l'électrode",
+     "source": "arithmétique"
+    },
+    {
+     "what": "capacité théorique de LiFePO4",
+     "inputs": "M(LiFePO4) = 6,94 + 55,845 + 30,974 + 4 × 15,999 = 157,76 g/mol ; F = 96 485 C/mol ; 1 Li+ échangé par formule",
+     "formula": "Q = F / (3,6 × M)",
+     "result": "169,9 mAh/g",
+     "compared_to": "170 mAh g-1 annoncé par l'article ; 169 mAh/g chez Chen & Whittingham 2006",
+     "source": "masses atomiques standard (chimie générale) ; Padhi 1997 (10.1149/1.1837571)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le courant est donné en densité surfacique (0,1 mA cm-2) sans charge en matière active ni composition de l'électrode : le régime réel est inconnu (≈ 5,9 mg cm-2 seraient nécessaires pour C/10 ; calcul « régime de courant »). Les capacités des différents échantillons ne sont donc comparables que si leurs électrodes ont la même masse surfacique, ce qui n'est pas dit. La plage 2,5–4,2 V est usuelle pour LiFePO4 (plateau ≈ 3,45 V).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Phospho-olivines as Positive-Electrode Materials for Rechargeable Lithium Batteries",
+      "authors_or_publisher": "Padhi A.K., Nanjundaswamy K.S., Goodenough J.B. (J. Electrochem. Soc.)",
+      "year": "1997",
+      "url_or_doi": "10.1149/1.1837571"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "LiPF6 dans EC/DMC s'hydrolyse au contact de l'humidité en libérant HF ; le lithium métal réagit avec l'eau en dégageant H2. L'assemblage en boîte à gants sous argon est indiqué ; le démontage des piles et l'élimination de l'électrolyte doivent l'être aussi.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme d'électrode et assemblage de pile).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "rapport massique matière active / Ketjen Black / liant",
+    "masse active par cm²",
+    "rapport EC:DMC en volume ou en masse"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse solvothermale de LiFePO4 dans le DEG, chimiquement cohérente dans son principe (charge 1:1:1, impuretés Li3PO4 + Fe3(PO4)2 complémentaires, seuil de pureté entre 170 et 200 °C conforme au seuil d'ordre cationique de ≈ 175 °C connu en hydrothermal). Trois faiblesses : aucune quantité absolue (concentration et base des 10 wt% de carbone inconnues), un premier cycle à ≈ 125 % de rendement coulombique pour l'échantillon à 170 °C qui suggère du Fe(III) non signalé, et une conclusion sur la « réactivité » apportée par le carbone qui n'est pas séparée de l'effet conducteur du carbone dans l'électrode (témoin manquant).",
+  "author_errors_suspected": [
+   "Point d'ébullition du DEG donné à 240 °C (245 °C selon CAMEO/NTP) ; la « haute pression » attribuée au DEG ne peut venir que de l'eau et de l'acide acétique libérés (DEG ≈ 0,26 bar à 200 °C)",
+   "Première décharge (149 mAh g-1) supérieure à la première charge (≈ 118–120 mAh g-1) pour l'échantillon à 170 °C, non commentée",
+   "Amélioration électrochimique attribuée à la « réactivité » de synthèse alors que le carbone reste dans l'électrode"
+  ],
+  "comparison_with_database": "compare.py « LiFePO4 » ne trouve que cette publication : aucune comparaison possible dans la base."
+ },
+ "sources_not_found": [
+  "valeur publiée de la pression de vapeur du DEG à 170–200 °C (estimée par Clausius-Clapeyron à partir de deux points NIST/CAMEO)",
+  "concentrations utilisées dans les travaux antérieurs du groupe (réf. 23 et 24 de l'article) : texte intégral non consulté",
+  "fiche PubChem du DEG (serveur saturé lors de la consultation) ; CAMEO utilisé à la place"
+ ]
+}

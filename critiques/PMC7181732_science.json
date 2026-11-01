@@ -1,0 +1,710 @@
+{
+ "pmcid": "PMC7181732",
+ "routes": [
+  {
+   "label": "GO",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carbone apporté par le graphite",
+     "inputs": "4 g de graphite ; M(C) = 12,011 g/mol",
+     "formula": "n = m / M",
+     "result": "0,333 mol C",
+     "compared_to": "aucune quantité de H2SO4, KMnO4 ni H2O2 n'est donnée : rapport oxydant/carbone impossible à calculer",
+     "source": "valeurs de l'article ; masse atomique IUPAC"
+    },
+    {
+     "what": "KMnO4 attendu selon la recette de Hummers",
+     "inputs": "recette de 1958 : 300 g KMnO4, 50 g NaNO3, 2,3 L H2SO4 pour 100 g de graphite ; M(KMnO4) = 158,03 g/mol",
+     "formula": "4 g × 3 g/g ; n = m / M",
+     "result": "≈ 12 g KMnO4 (≈ 76 mmol, soit 0,23 KMnO4 par C) et ≈ 92 mL H2SO4 si la recette d'origine est suivie",
+     "compared_to": "Marcano 2010 : 6 g KMnO4 par g de graphite (méthode améliorée) ; l'article ne dit pas lequel des deux rapports il applique",
+     "source": "Hummers & Offeman 1958 ; Marcano et al. 2010 (references/fondateurs.md)"
+    },
+    {
+     "what": "C/O du GO recalculé depuis le tableau 1",
+     "inputs": "fractions C1s : C-OH&C-O-C 0,466 ; C=O 0,040 ; O=C-OH 0,007",
+     "formula": "1 / (somme des fractions de carbone oxygéné), COOH compté 1 ou 2 fois",
+     "result": "1,95 (COOH compté une fois) ; 1,92 (COOH compté deux fois)",
+     "compared_to": "C/O annoncé 1,95 : le « C/O » du tableau est le rapport carbone total / carbone lié à O, pas le rapport atomique C/O",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "somme des fractions C1s du GO",
+     "inputs": "0,039 + 0,407 + 0,041 + 0,466 + 0,040 + 0,007 + <0,001",
+     "formula": "somme",
+     "result": "1,001",
+     "compared_to": "1,000 attendu : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "bande interdite déduite de la bande de valence",
+     "inputs": "densité d'états quasi nulle entre EF et ≈ 2,2 eV",
+     "formula": "Eg ≈ 2 × 2,2 eV si EF est au milieu de la bande interdite",
+     "result": "≈ 4,4 eV",
+     "compared_to": "4,5 eV annoncé : la valeur suppose EF au milieu de la bande interdite, non mesurée",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le carbone est apporté (0,333 mol, voir « carbone apporté par le graphite »), mais ni la quantité d'oxydant ni la durée ou la température d'oxydation ne sont données ; l'article renvoie à un travail antérieur. Le rapport KMnO4/graphite de la recette d'origine (3 g/g) ou de Marcano (6 g/g) fixe pourtant le degré d'oxydation (C/O 1,95 ici, très oxydé) : on ne peut pas vérifier que le GO obtenu correspond aux quantités employées.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation of Graphitic Oxide",
+      "authors_or_publisher": "Hummers W. S., Offeman R. E. (J. Am. Chem. Soc.)",
+      "year": "1958",
+      "url_or_doi": "10.1021/ja01539a017"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "H2SO4 concentré + KMnO4 forme Mn2O7, oxydant qui détone au contact de matières organiques ou au-dessus d'environ 55 °C ; l'ajout de KMnO4 se fait par petites portions sous refroidissement. L'ajout d'eau puis de H2O2 30 % est fortement exothermique (dégagement d'O2). Rien de cela n'est écrit dans l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "C/O 1,95 : le tableau 1 donne exactement 1/(0,466 + 0,040 + 0,007) = 1,95, donc un rapport carbone total / carbone oxygéné tiré du spectre C1s, pas un rapport atomique (un époxyde porte un O pour deux C, un COOH deux O pour un C ; voir « C/O du GO recalculé depuis le tableau 1 »). La comparaison avec des C/O de la littérature, souvent atomiques, n'est donc qu'approximative.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Feuillets « jusqu'à 100 µm » (Méthodes) contre distribution de 10–40 µm (Résultats, fig. S7) : la première valeur est un maximum, la seconde la plage de la distribution ; pas de contradiction physique, mais la taille obtenue dépend des centrifugations (3500 tr/min 1 h puis 1500 tr/min 10 min) dont le rayon du rotor n'est pas donné (g inconnu).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande interdite de ≈ 4,5 eV tirée de la seule bande de valence (densité d'états nulle jusqu'à ≈ 2,2 eV sous EF) : la photoémission ne voit que les états occupés ; 4,5 eV suppose EF au milieu de la bande interdite (2 × 2,2 = 4,4 eV, voir « bande interdite déduite de la bande de valence »). Sans mesure des états vides (XAS au seuil C K, absorption optique), la valeur est une estimation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Bande G du GO « déplacée » à 1605 cm−1 par l'oxydation : l'interprétation courante est la superposition de G et de D′ (≈ 1620 cm−1) ou des liaisons simples-doubles alternées en bordure de domaines sp3 (Kudin 2008), ce qui est compatible avec l'explication des auteurs.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Raman Spectra of Graphite Oxide and Functionalized Graphene Sheets",
+      "authors_or_publisher": "Kudin K. N., Ozbas B., Schniepp H. C., Prud'homme R. K., Aksay I. A., Car R. (Nano Lett. 8, 36–41)",
+      "year": "2008",
+      "url_or_doi": "https://collaborate.princeton.edu/en/publications/raman-spectra-of-graphite-oxide-and-functionalized-graphene-sheet/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Méthode de Hummers sans nitrate : intercalation de H2SO4 dans le graphite, oxydation par l'espèce active Mn2O7/MnO3+ formée dans H2SO4 concentré (époxydes et hydroxyles sur le plan basal, carbonyles et carboxyles en bordure), puis hydrolyse à l'eau et réduction de l'excès de permanganate et de MnO2 par H2O2. Sans NaNO3, le graphite s'oxyde moins vite, d'où l'intérêt de connaître la durée et la quantité de KMnO4 (Marcano 2010). L'exfoliation en monocouches se fait par lavage et centrifugation, sans ultrasons, ce qui conserve les grands feuillets.",
+    "sources": [
+     {
+      "title": "Preparation of Graphitic Oxide",
+      "authors_or_publisher": "Hummers W. S., Offeman R. E. (J. Am. Chem. Soc.)",
+      "year": "1958",
+      "url_or_doi": "10.1021/ja01539a017"
+     },
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     },
+     {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D. C. et al. (ACS Nano)",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "prendre les quantités, températures et durées dans la publication antérieure des auteurs (Hummers sans NaNO3) : elles fixent le degré d'oxydation",
+    "ajout de KMnO4 par portions sous bain de glace (Mn2O7)",
+    "rayon du rotor pour convertir 3500 et 1500 tr/min en g",
+    "milieu de redispersion entre les deux centrifugations"
+   ]
+  },
+  {
+   "label": "rGO-Br",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur en C-Br",
+     "inputs": "Br total 5,3 % at. ; part du doublet C-Br 74,9 %",
+     "formula": "5,3 × 0,749",
+     "result": "3,97 % at.",
+     "compared_to": "3,96 % at. annoncé : cohérent ; la valeur de 3,4 % at. utilisée ensuite pour recalculer C/O ne correspond à aucune des deux",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "C/O de rGO-Br recalculé depuis le tableau 1",
+     "inputs": "C-OH&C-O-C 0,173 ; C=O 0,040 ; O=C-OH 0,026",
+     "formula": "1 / (somme des fractions oxygénées)",
+     "result": "4,18 (COOH compté une fois) ; 3,77 (COOH compté deux fois)",
+     "compared_to": "4,18 annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "C/O corrigé de la part C-Br",
+     "inputs": "C/O 4,18 ; C/O corrigé 5,02",
+     "formula": "1/(0,239 − x) = 5,02",
+     "result": "x = 0,040 carbone C-Br par carbone ; avec Br = 3,96 % at. et C ≈ 76 % at. on trouve x ≈ 0,052 et C/O ≈ 5,3",
+     "compared_to": "5,02 annoncé avec « 3,4 % at. » : la valeur corrigée dépend du Br retenu (3,4, 3,96 ou 5,3 % at.) et n'est pas reproductible avec les chiffres publiés",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "somme des fractions C1s de rGO-Br",
+     "inputs": "<0,001 + 0,709 + 0,021 + 0,173 + 0,040 + 0,026 + 0,031",
+     "formula": "somme",
+     "result": "1,001",
+     "compared_to": "1,000 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de HBr 46 %",
+     "inputs": "46 % en masse ; densité ≈ 1,46 (valeur de manuel non revérifiée) ; M(HBr) = 80,91 g/mol",
+     "formula": "0,46 × 1460 / 80,91",
+     "result": "≈ 8,3 mol/L",
+     "compared_to": "GO à 0,05 % en masse : quelques mg de GO par dizaine de mL ; HBr en très large excès quel que soit le volume non donné",
+     "source": "valeurs de l'article ; densité de manuel (approximative)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "HBr réduit le GO (ouverture des époxydes par Br−, puis élimination avec oxydation de Br− en Br2), mais moins fortement que HI (E°(Br2/Br−) = +1,09 V contre E°(I2/I−) = +0,54 V) ; la réduction partielle observée (C/O 1,95 → 4,18) et le brome resté lié (≈ 4 % at.) sont cohérents avec une réduction incomplète par HBr à température ambiante, rapportée par Pei et al. pour les acides halohydriques.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Direct reduction of graphene oxide films into highly conductive and flexible graphene films by hydrohalic acids",
+      "authors_or_publisher": "Pei S., Zhao J., Du J., Ren W., Cheng H.-M. (Carbon 48, 4466–4474)",
+      "year": "2010",
+      "url_or_doi": "https://www.rsc.org/suppdata/jm/c1/c1jm10768b/c1jm10768b.pdf (référence relevée dans une liste de références ; DOI non vérifié)"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Ni la température ni le volume de HBr ne sont donnés ; agitation 20 h en flacon fermé, donc vraisemblablement à température ambiante. HBr 46 % (≈ 8,3 mol/L, voir « concentration de HBr 46 % ») a une pression partielle de HBr notable : le flacon fermé doit résister à l'acide et être ouvert sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le culot, encore imbibé de HBr aqueux, est lavé deux fois au chloroforme, non miscible à l'eau : ce lavage enlève le Br2 formé (soluble dans CHCl3) mais mal l'acide et les ions Br−. Les 23,8 % de Br− libre (XPS) sont cohérents avec un HBr ou un bromure resté piégé ; ils pèsent ensuite sur l'amination (formation de NH4Br).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Trois teneurs en brome coexistent : 5,3 % at. (total), 3,96 % at. (C-Br) et 3,4 % at. (utilisée pour le C/O corrigé de 5,02) ; la dernière n'est mesurée nulle part et 5,02 n'est pas reproductible avec 3,96 % at. (≈ 5,3, voir « C/O corrigé de la part C-Br »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : ID/IG passe de ≈ 1 à 1,12 ; les auteurs l'attribuent à la distorsion par greffage. Dans le régime des carbones nanocristallins (stade 2 de Ferrari et Robertson), ID/IG augmente aussi quand de nouveaux petits domaines sp2 se forment à la réduction : la hausse n'est donc pas une preuve de greffage covalent.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A. C., Robertson J. (Phys. Rev. B)",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "HBr 46 % corrosif (vapeurs), Br2 possible dans le surnageant (la solution peut jaunir), chloroforme toxique : hotte, gants adaptés, déchets halogénés.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Ouverture acide des époxydes du plan basal par Br− (bromhydrines C-Br / C-OH voisines), protonation et départ des hydroxyles, puis élimination de HBr ou de Br2 qui restaure des liaisons C=C ; HBr étant un réducteur plus faible que HI, une partie des C-Br reste en place (≈ 4 % at.) au lieu d'être éliminée, d'où un rGO bromé moyennement réduit (C/O 4,18).",
+    "sources": [
+     {
+      "title": "Direct reduction of graphene oxide films into highly conductive and flexible graphene films by hydrohalic acids",
+      "authors_or_publisher": "Pei S., Zhao J., Du J., Ren W., Cheng H.-M. (Carbon 48, 4466–4474)",
+      "year": "2010",
+      "url_or_doi": "https://www.rsc.org/suppdata/jm/c1/c1jm10768b/c1jm10768b.pdf (référence relevée dans une liste de références ; DOI non vérifié)"
+     },
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de HBr par masse de GO et température",
+    "rincer d'abord à l'eau ou à l'isopropanol avant le chloroforme pour enlever HBr et Br−",
+    "nombre total de cycles d'ajout de HBr (trois ou quatre)",
+    "teneur en brome de référence (5,3, 3,96 ou 3,4 % at.)"
+   ]
+  },
+  {
+   "label": "rGO-Am",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur en amines",
+     "inputs": "N 5,5 % at. ; part amine du N1s 72 %",
+     "formula": "5,5 × 0,72",
+     "result": "3,96 % at.",
+     "compared_to": "« ≈ 4 % at. » annoncé : cohérent ; égal, par coïncidence ou non, aux 3,96 % at. de C-Br",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "C/O de rGO-Am recalculé et somme du tableau 1",
+     "inputs": "C-OH&C-O-C 0,062 ; C=O 0,039 ; O=C-OH 0,012 ; somme des sept composantes",
+     "formula": "1 / (somme oxygénée) ; somme",
+     "result": "8,85 (COOH une fois) ; 8,0 (COOH deux fois) ; somme des composantes 0,982",
+     "compared_to": "8,85 annoncé ; 1,8 % de l'aire C1s manque, probablement la composante C-N à 285,8 eV citée dans le texte mais absente du tableau",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "carbone lié à N attendu",
+     "inputs": "N 5,5 % at. ; C ≈ 84,9 % at. (C/O 8,85 sur les 94,5 % restants)",
+     "formula": "N / C (au moins un C par N)",
+     "result": "≥ 0,065 de l'aire C1s",
+     "compared_to": "écart de 0,018 au tableau : les carbones C-N sont comptés dans d'autres composantes (C-C ou C-OH), ce qui fausse le C/O tiré du C1s",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "amines dans 50 mg de rGO-Am",
+     "inputs": "composition C 84,9 / O 9,6 / N 5,5 % at. ; H des NH2 et OH ajoutés ; masse moyenne ≈ 12,64 g/mol par atome lourd",
+     "formula": "n(atomes) = 50 mg / 12,64 ; n(NH2) = 0,0396 × n(atomes)",
+     "result": "3,96 mmol d'atomes ; ≈ 0,16 mmol de NH2",
+     "compared_to": "sert aux tests CuCl/HCl et d'amidation",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "chlorure dans la moitié de la solution CuCl/HCl",
+     "inputs": "200 mg CuCl (98,999 g/mol) dans 20 mL HCl 1 M, divisé en deux",
+     "formula": "n(CuCl)/2 ; 0,010 L × 1 mol/L",
+     "result": "1,01 mmol CuCl et 10 mmol HCl, soit ≈ 11 mmol Cl− par moitié",
+     "compared_to": "≈ 0,16 mmol d'amines dans 50 mg de rGO-Am : au plus 1,4 % du chlorure peut être fixé comme contre-ion R-NH3+ Cl−",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "ammoniac disponible",
+     "inputs": "solution saturée de NH3 dans l'isopropanol ; solution commerciale 2,0 M (fiche Sigma-Aldrich)",
+     "formula": "ordre de grandeur",
+     "result": "≈ 2 mol/L à 20 °C",
+     "compared_to": "brome lié : ≈ 4 % at. de quelques mg de rGO-Br, soit des µmol : NH3 en très large excès",
+     "source": "fiche Sigma-Aldrich 392693"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Le brome est lié à un carbone sp3 du plan basal : une substitution SN2 y est impossible (l'attaque par l'arrière est bloquée par le feuillet) ; seules restent une SN1 via un carbocation stabilisé par le système π voisin, ou une élimination de HBr par NH3 (base) qui restaure C=C. Une autre voie simple donne aussi des amines : l'ouverture par NH3 des époxydes restants (l'ammonolyse du GO par NH3 à température ambiante est connue). Le taux d'amines (3,96 % at.) égal au taux de C-Br (3,96 % at.) ne prouve donc pas la substitution ; il faudrait le témoin GO ou rGO-HT traité par NH3/isopropanol dans les mêmes conditions.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ammonolyse de l'oxyde de graphène par NH3 gazeux à température ambiante, 3,6 % en masse de N en 5 min (titre exact non relevé, page injoignable)",
+      "authors_or_publisher": "Royal Society of Chemistry, Chem. Commun.",
+      "year": "2019",
+      "url_or_doi": "10.1039/c9cc05693a"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Attribution N1s : la composante à 399,8 eV (« amines », 72 %) coïncide avec la position souvent donnée à l'azote pyrrolique (399,8 eV imposé dans plusieurs ajustements ; 400,7 eV en base de données) et les largeurs à mi-hauteur sont de 1,2–1,5 eV. Le N1s seul ne sépare pas amines et pyrroles ; le doublet IR à 3422/3306 cm−1 (élongations N-H d'une amine primaire) est l'appui le plus solide. La bande à 1560 cm−1 attribuée à la déformation N-H recouvre la vibration C=C des domaines sp2 du rGO.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Density functional theory calculations of XPS binding energy shift for nitrogen-containing graphene-like structures",
+      "authors_or_publisher": "Artyushkova K., Kiefer B., Halevi B., Knop-Gericke A., Schlögl R., Atanassov P. (Chem. Commun. 49, 2539)",
+      "year": "2013",
+      "url_or_doi": "10.1039/C3CC40324F"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Test CuCl/HCl : 50 mg de rGO-Am portent ≈ 0,16 mmol d'amines contre ≈ 11 mmol de Cl− dans la moitié de solution (voir « chlorure dans la moitié de la solution CuCl/HCl ») ; une amine protonée fixe au plus un Cl− comme contre-ion, soit 1,4 % du chlorure : la teneur en Cl− ne peut pas changer assez pour faire virer le cuivre(II) du vert (complexes chlorés) au bleu (ion aqua). La seconde explication (tétraammine de cuivre par « hydrolyse » des amines) est impossible dans HCl 1 M : NH3 libéré y est entièrement protoné (pKa NH4+ = 9,25) et le complexe bleu [Cu(NH3)4]2+ n'existe qu'en milieu ammoniacal basique. Enfin le témoin change aussi l'agitation (moitié « laissée sous agitation » contre moitié « vigoureusement agitée » 2 h), donc l'aération et l'oxydation de Cu(I) en Cu(II). Le test ne prouve pas la présence d'amines réactives ; une hypothèse plus simple est une différence d'oxydation de Cu(I) ou une adsorption du cuivre sur le carbone.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "22.11: Transitional Metal Ions in Aqueous Solutions (ChemPRIME)",
+      "authors_or_publisher": "Moore et al., Chemistry LibreTexts",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://chem.libretexts.org/Bookshelves/General_Chemistry/ChemPRIME_(Moore_et_al.)/22%3A_Metals/22.11%3A_Transitional_Metal_Ions_in_Aqueous_Solutions"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire contradictoire : l'introduction dit l'amine « électro-attractrice » (« electron-withdrawing ») et la discussion du travail de sortie en fait un groupe « électro-donneur » qui n-dope le graphène. Le groupe NH2 est donneur par résonance (σp de Hammett = −0,66) ; c'est le sens donneur qui explique la baisse du travail de sortie (≈ 4,2 contre 4,7 eV) et le dopage n invoqué.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A survey of Hammett substituent constants and resonance and field parameters",
+      "authors_or_publisher": "Hansch C., Leo A., Taft R. W. (Chem. Rev. 91, 165–195)",
+      "year": "1991",
+      "url_or_doi": "https://zipse.cup.uni-muenchen.de/site/assets/files/1480/hammett_19_06_02.pdf (table secondaire citant Hansch 1991 ; DOI non vérifié)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hauteur des « bosses » : les auteurs comparent C-Br et C-NH2 avec des « tailles moléculaires » de 0,194 et 0,197 nm ; 0,194 nm est bien la longueur d'une liaison C-Br, mais une liaison C-N d'amine mesure ≈ 0,147 nm. La comparaison des tailles, qui fonde l'hypothèse d'une répulsion électrostatique, repose donc sur un chiffre erroné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Solution saturée de NH3 dans l'isopropanol ≈ 2 mol/L à 20 °C (une solution commerciale 2,0 M existe) : NH3 en très large excès devant le brome lié (voir « ammoniac disponible »). Le résidu de HBr dans le culot donne NH4Br, peu soluble dans l'isopropanol, que le lavage au chloroforme n'enlève pas ; les lavages à l'isopropanol doivent le faire (aucun Br dans le spectre général, cohérent).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Ammonia solution, 2.0 M in isopropanol (produit 392693)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://perfqws.sigmaaldrich.com/US/en/product/sigald/392693"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Aucune durée de contact avec NH3 n'est donnée (trois rinçages successifs) : pour une SN1 ou une élimination à température ambiante, des temps de quelques minutes paraissent courts ; la conversion complète du brome (Br absent du spectre) suggère plutôt une élimination ou une hydrolyse rapides qu'une substitution lente.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NH3 dans l'isopropanol : liquide très inflammable (point d'éclair ≈ 4 °C pour la solution 2 M, fiche Sigma-Aldrich), NH3 gazeux toxique ; une centrifugation en tube fermé d'une solution saturée qui se réchauffe met le tube sous pression. Hotte, tubes adaptés aux solvants, pas de flamme.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Ammonia solution, 2.0 M in isopropanol (produit 392693)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://perfqws.sigmaaldrich.com/US/en/product/sigald/392693"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le plus probable est un mélange de trois voies : (1) déplacement des C-Br par NH3 via un carbocation stabilisé par le système π (SN1), l'SN2 étant impossible sur un carbone du plan basal ; (2) élimination de HBr par NH3 qui restaure des C=C et contribue à la hausse de C/O ; (3) ouverture par NH3 des époxydes restants (amines vicinales d'un OH) et amination réductrice de carbonyles, qui expliquerait que N (5,5 % at.) dépasse le brome lié (3,96 % at.). Seul un témoin GO ou rGO-HT traité par NH3/isopropanol dans les mêmes conditions séparerait la part due à la bromation.",
+    "sources": [
+     {
+      "title": "Ammonolyse de l'oxyde de graphène par NH3 gazeux à température ambiante, 3,6 % en masse de N en 5 min (titre exact non relevé, page injoignable)",
+      "authors_or_publisher": "Royal Society of Chemistry, Chem. Commun.",
+      "year": "2019",
+      "url_or_doi": "10.1039/c9cc05693a"
+     },
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée de contact, volume et température de la solution NH3/isopropanol (2 M commerciale possible)",
+    "témoin : GO et rGO-HT traités de même pour mesurer l'azote apporté sans brome",
+    "ne pas interpréter le test CuCl/HCl comme preuve d'amines ; utiliser plutôt un dosage (ninhydrine, Kaiser) ou un marquage fluorescent",
+    "inclure la composante C-N dans le bilan C1s avant de calculer C/O"
+   ]
+  },
+  {
+   "label": "rGO-HT",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport de conductivité rGO-Am / rGO-HT",
+     "inputs": "271 et 134 S/m ; 2,1×10^3 et 4,3×10^3 Ω/sq",
+     "formula": "σ(Am)/σ(HT) ; Rs(HT)/Rs(Am)",
+     "result": "2,02 ; 2,05",
+     "compared_to": "« 2 fois » dans le texte : cohérent si les films ont la même épaisseur (≈ 1,7 µm calculés, voir Film_conductivity)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Recuit à 600 °C pendant 2 h sans atmosphère indiquée : sous air, le rGO brûle dans cette zone de température (combustion du carbone graphitique désordonné à partir de ≈ 450–550 °C en ATG sous air) ; le recuit ne peut avoir donné un rGO conducteur que sous gaz inerte, sous vide ou sous H2/Ar. L'atmosphère est donc indispensable pour refaire l'échantillon de référence.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le rGO-HT sert de référence « au même taux de réduction » que rGO-Am, mais son C/O n'est donné nulle part (seulement les spectres C1s/O1s de la figure S3) ; la bande de valence montre même un système π plus restauré que dans rGO-Am. L'affirmation que rGO-Am conduit 2 fois mieux « à réduction égale » ne peut donc pas être vérifiée ; elle peut aussi venir de la morphologie des films.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le GO sec chauffé rapidement se décompose de façon exothermique (CO, CO2, H2O) avec expansion brutale : montée lente en température, four ventilé.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réduction thermique : départ des hydroxyles et époxydes entre 150 et 300 °C sous forme de H2O, CO et CO2, puis des carbonyles au-delà ; à 600 °C sous atmosphère inerte, on attend un rGO à C/O de l'ordre de 7–10 avec des lacunes (perte de carbone) et des phénols résiduels stables.",
+    "sources": [
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère (Ar, N2, vide), vitesse de chauffe et forme (poudre ou film) du GO recuit",
+    "C/O mesuré du rGO-HT pour comparer réellement à rGO-Am"
+   ]
+  },
+  {
+   "label": "rGO-Am-Benz",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de chlorure de 3-chlorobenzoyle",
+     "inputs": "50 µL ; densité 1,367 g/mL à 20 °C ; M = 175,01 g/mol (C7H4Cl2O)",
+     "formula": "n = V × d / M",
+     "result": "68,4 mg ; 0,391 mmol",
+     "compared_to": "≈ 0,16 mmol de NH2 dans 50 mg de rGO-Am : 2,5 équivalents",
+     "source": "valeurs de l'article ; fiche Sigma-Aldrich C26801"
+    },
+    {
+     "what": "moles de triéthanolamine et de ses OH",
+     "inputs": "100 µL ; densité 1,124 g/mL à 25 °C ; M = 149,19 g/mol",
+     "formula": "n = V × d / M ; 3 OH par molécule",
+     "result": "0,753 mmol TEOA (1,93 éq. par chlorure d'acyle) ; 2,26 mmol de OH (5,8 éq. par chlorure d'acyle, 14 par amine du rGO-Am)",
+     "compared_to": "une base auxiliaire d'amidation doit être non nucléophile (triéthylamine, DIPEA) ; les OH de la TEOA sont acylés par le chlorure d'acyle",
+     "source": "valeurs de l'article ; fiche Sigma-Aldrich 16303 et PubChem CID 7618"
+    },
+    {
+     "what": "rendement de couplage recalculé",
+     "inputs": "Cl 2,8 % at. ; amines 3,96 % at. ; chaque couplage ajoute C7H4ClO, soit 9 atomes vus en XPS (7 C, 1 O, 1 Cl)",
+     "formula": "brut : 2,8/3,96 ; avec dilution : n = 2,8/(1 − 9 × 0,028) puis n/3,96",
+     "result": "70,7 % (brut ; 70 % avec 4 % at.) ; ≈ 94 % en tenant compte des atomes ajoutés",
+     "compared_to": "74 % annoncé : ni le calcul brut ni le calcul corrigé ne donnent 74 %",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La « triéthanolamine » (0,753 mmol, trois OH par molécule) apporte 2,26 mmol de groupes OH pour 0,391 mmol de chlorure de 3-chlorobenzoyle (voir « moles de triéthanolamine et de ses OH ») ; en présence d'une amine tertiaire, un chlorure d'acyle estérifie les alcools en quelques minutes. Les OH dissous (5,8 éq.) entrent donc en concurrence avec les ≈ 0,16 mmol d'amines fixées sur le solide, et une part importante du réactif est probablement consommée en esters de TEOA. Le choix habituel est la triéthylamine : il faut vérifier auprès des auteurs s'il ne s'agit pas d'une confusion triethanolamine / triethylamine.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Triethanolamine (16303) ; PubChem CID 7618",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur) ; PubChem (NIH)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/product/sial/16303 ; https://pubchem.ncbi.nlm.nih.gov/compound/Triethanolamine"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement de couplage « ≈ 74 % » défini comme Cl/amines : 2,8/3,96 = 70,7 % ; et la grandeur est biaisée, car chaque groupe greffé ajoute 9 atomes vus en XPS (le Cl est dilué) ; corrigé, on trouve ≈ 94 % (voir « rendement de couplage recalculé »). La valeur publiée n'est pas reproductible avec les chiffres donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve non discriminante : le signal Cl2p à 200,4 eV (C-Cl aromatique) apparaît aussi si l'acide 3-chlorobenzoïque (formé au lavage à l'eau) reste fixé en sel d'ammonium R-NH3+ −OOC-Ar, ou si des esters de TEOA restent adsorbés ; les bandes IR à 1660 et 1565 cm−1 (amide I et II) recouvrent la vibration C=C du rGO et l'élongation du carboxylate (≈ 1550–1610 cm−1). Aucun témoin (rGO-HT ou GO soumis au même traitement) n'est montré. Le N1s ne change pas (72 % « amines ») alors qu'un couplage de 74 % convertirait la plupart des amines en amides : les deux composantes sont confondues à ≈ 400 eV.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Chauffage 3 h à 150 °C pendant la purification, atmosphère et moment non précisés : le chlorure de 3-chlorobenzoyle bout à 225 °C et l'acide 3-chlorobenzoïque fond vers 158 °C ; 150 °C sous vide les éliminerait en partie, sous air sans pompage beaucoup moins. Le seuil de stabilité des amines (150 °C, 3 h) est cohérent avec le dégazage BET à 180 °C pendant 1 h, sans le garantir.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "3-Chlorobenzoyl chloride 97 % (C26801)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://perfqws.sigmaaldrich.com/CA/en/product/aldrich/c26801"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Chlorure de 3-chlorobenzoyle corrosif, lacrymogène, hydrolysé par l'eau en HCl : le lavage à l'eau désionisée qui suit le filtrage doit se faire sous hotte, une fois l'excès de chlorure d'acyle éliminé par l'acétonitrile.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "3-Chlorobenzoyl chloride 97 % (C26801)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://perfqws.sigmaaldrich.com/CA/en/product/aldrich/c26801"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Acylation nucléophile (addition-élimination) des NH2 de surface par le chlorure d'acyle, la base captant HCl ; en parallèle, O-acylation des OH de la triéthanolamine et des phénols du rGO (esters), et hydrolyse du chlorure d'acyle en acide 3-chlorobenzoïque au lavage aqueux, qui peut rester en sel d'ammonium sur les amines. La part réellement covalente (amide) ne peut être tirée du seul Cl XPS sans témoin non aminé.",
+    "sources": [
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base employée : triéthanolamine ou triéthylamine (ou DIPEA)",
+    "témoin rGO-HT ou GO traité de même pour mesurer le Cl adsorbé",
+    "atmosphère et moment du chauffage à 150 °C",
+    "calcul du rendement de couplage avec correction de dilution"
+   ]
+  },
+  {
+   "label": "rGO-Am_aerogel",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface BET contre surface théorique du graphène",
+     "inputs": "265 m²/g mesurés ; surface d'un feuillet de graphène isolé ≈ 2630 m²/g (valeur de manuel)",
+     "formula": "265 / 2630",
+     "result": "≈ 10 % de la surface théorique, soit un empilement moyen d'environ 10 feuillets accessibles",
+     "compared_to": "aérogels de GO ou rGO lyophilisés : de l'ordre de 10^2 à 10^3 m²/g ; valeur plausible et cohérente avec « plus bas que les aérogels de GO et rGO » écrit par les auteurs",
+     "source": "valeurs de l'article ; surface théorique du graphène : valeur de manuel non revérifiée"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "La lyophilisation d'une suspension dans le dioxane est faisable (fusion du 1,4-dioxane ≈ 11,8 °C, il gèle facilement ; il se sublime sous vide), mais la concentration et le cycle (congélation, pression, durée) manquent ; ils fixent la porosité.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "BET ≈ 265 m²/g après dégazage 1 h à 180 °C sous vide : ordre de grandeur plausible pour un aérogel de rGO (voir « surface BET contre surface théorique du graphène ») ; le dégazage à 180 °C dépasse les 150 °C où les auteurs ont vérifié la stabilité des amines. Sans isotherme ni plage de P/P0, on ne peut pas juger du choix de la plage BET.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al. (Pure Appl. Chem.)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "1,4-dioxane : inflammable, formateur de peroxydes, cancérogène possible (CIRC groupe 2B) ; les vapeurs passent dans la pompe du lyophilisateur : piège froid indispensable, dioxane testé pour les peroxydes.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Les feuillets plissés de rGO-Am se figent en réseau pendant la congélation du dioxane (les cristaux de solvant repoussent les feuillets entre eux) ; la sublimation laisse un réseau poreux. Les plis limitent le restacking π-π, d'où une surface d'environ 10 % de la valeur théorique.",
+    "sources": [
+     {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al. (Pure Appl. Chem.)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration de rGO-Am dans le dioxane",
+    "température de congélation et cycle de lyophilisation",
+    "isotherme N2 et plage de P/P0 retenue pour le BET"
+   ]
+  },
+  {
+   "label": "Film_conductivity",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "épaisseur de film implicite",
+     "inputs": "rGO-HT 4,3×10^3 Ω/sq et 134 S/m ; rGO-Br 1,1×10^4 Ω/sq et 73 S/m ; rGO-Am 2,1×10^3 Ω/sq et 271 S/m",
+     "formula": "t = 1 / (σ × Rs)",
+     "result": "1,74 µm (rGO-HT) ; 1,25 µm (rGO-Br) ; 1,76 µm (rGO-Am)",
+     "compared_to": "l'épaisseur n'est pas donnée dans l'article ; elle a pourtant servi à calculer σ",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapports de conductivité",
+     "inputs": "271, 134 et 73 S/m",
+     "formula": "271/134 ; 271/73 ; 134/73",
+     "result": "2,02 ; 3,71 ; 1,84",
+     "compared_to": "texte : rGO-Am « 2 fois » rGO-HT ; rGO-Br « presque 4 fois plus faible » (vrai face à rGO-Am, 1,8 fois face à rGO-HT)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Conductivités de 73 à 271 S/m (0,7 à 2,7 S/cm) : plausibles pour des films de rGO déposés en goutte, mesurés à deux électrodes ; la mesure à deux pointes inclut la résistance de contact (une I-V linéaire ne l'exclut pas), et les épaisseurs implicites (≈ 1,2–1,8 µm, voir « épaisseur de film implicite ») ne sont pas données. La comparaison entre un film poreux (rGO-Am) et des films plus denses se fait à épaisseur géométrique : elle sous-estime plutôt la conductivité intrinsèque de rGO-Am.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rs du GO « >1012 Ω/sq » est sans doute >10^12 Ω/sq (exposant perdu) : ordre de grandeur attendu pour un GO isolant.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Volume de goutte, solvant (eau, isopropanol), séchage et nombre de mesures non donnés : la résistance d'un film déposé en goutte dépend fortement de l'anneau de séchage (« coffee ring ») sur un peigne à 8 paires d'électrodes espacées de 500 µm.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet pour un dépôt : le film se forme par évaporation de la goutte ; la conduction se fait par sauts entre domaines sp2 et entre feuillets, d'où une forte dépendance au taux de réduction et aux contacts entre plaquettes.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "épaisseur des films (profilomètre ou AFM)",
+    "mesure à quatre pointes pour écarter la résistance de contact",
+    "solvant, volume et séchage de la goutte"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La séquence GO (Hummers sans nitrate) → rGO-Br (HBr 46 %, 20 h) → rGO-Am (NH3 saturé dans l'isopropanol) est chimiquement plausible et faisable avec un matériel courant, mais aucune quantité de réactif (sauf le graphite et le test d'amidation), aucune température et aucune durée d'amination ne sont données. Les calculs à partir des chiffres publiés montrent : un « C/O » qui est en fait le rapport carbone total / carbone oxygéné du C1s ; une teneur en brome de 3,4 % at. sans origine pour le C/O corrigé ; un rendement de couplage de 74 % non reproductible (70,7 % brut, ≈ 94 % corrigé) ; un test CuCl/HCl quantitativement impossible (0,16 mmol d'amines contre 11 mmol de Cl−) et sans témoin propre ; une base d'amidation (triéthanolamine, 2,26 mmol d'OH) qui consomme le chlorure d'acyle. Le mécanisme de substitution du brome n'est pas démontré faute de témoin GO ou rGO-HT traité par NH3.",
+  "author_errors_suspected": [
+   "test CuCl/HCl : explication par appauvrissement en Cl− quantitativement impossible et tétraammine de cuivre impossible dans HCl 1 M",
+   "triéthanolamine employée comme base d'amidation (alcool acylable) : confusion possible avec la triéthylamine",
+   "rendement de couplage 74 % non reproductible à partir de Cl 2,8 % at. et amines 4 % at.",
+   "teneur en brome de 3,4 % at. (C/O corrigé 5,02) incompatible avec 5,3 et 3,96 % at. donnés plus haut",
+   "amine qualifiée d'« electron-withdrawing » dans l'introduction puis d'électro-donneuse dans la discussion",
+   "« taille moléculaire » de C-NH2 de 0,197 nm (une liaison C-N mesure ≈ 0,147 nm)",
+   "tableau 1 : composantes de rGO-Am sommant à 0,982 (composante C-N omise) et C/O défini comme C/(C oxygéné)"
+  ],
+  "comparison_with_database": "compare.py « graphene oxide » donne 35 voies (PMC10386591, PMC4164668, PMC12093138, PMC11269599…) : toutes utilisent Hummers modifié avec NaNO3 ou renvoi bibliographique, souvent avec ultrasons ; aucune n'est un graphène aminé ou bromé et aucune ne donne de C/O XPS, de conductivité ou de travail de sortie comparables. PMC4164668 donne ID/IG = 0,78 pour un GO, contre ≈ 1 ici : écart habituel selon le degré d'oxydation et le laser. Aucune voie « amin » dans la base."
+ },
+ "sources_not_found": [
+  "page de Chem. Commun. 2019 (10.1039/c9cc05693a, ammonolyse du GO par NH3) : pubs.rsc.org injoignable depuis cet environnement, titre et auteurs non relevés",
+  "DOI de Pei et al. 2010 (Carbon 48, 4466), de Kudin et al. 2008 (Nano Lett. 8, 36) et de Hansch, Leo & Taft 1991 (Chem. Rev. 91, 165) non vérifiés (Crossref bloqué) ; cités par une page de dépôt ou une liste de références",
+  "aucune source trouvée donnant séparément l'énergie N1s d'une amine primaire C-NH2 sur graphène ; seule la superposition avec l'azote pyrrolique est appuyée (Artyushkova 2013)",
+  "densité de HBr 46 % et surface théorique du graphène (2630 m²/g) : valeurs de manuel non revérifiées"
+ ]
+}

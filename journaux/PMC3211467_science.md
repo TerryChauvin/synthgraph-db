@@ -1,0 +1,13 @@
+# PMC3211467 — critique scientifique
+
+- Seul `probleme` retenu : le témoin CTAOH (« we replaced CTAC with other cationic surfactants »). La fiche Sigma-Aldrich (produit 52387) montre que l'Aldrich vend le CTAOH en solution ≈ 25 % dans le méthanol (et 10 % en masse dans l'eau, produit 439231) : 0,5 mmol = 0,60 g de solution, soit ≈ 14 mmol de méthanol (ou 75 mmol d'eau). S'y ajoute la neutralisation de 0,5 mmol d'acide oléique par OH⁻. Le témoin change donc trois choses à la fois ; l'article ne dit pas quelle forme a servi, d'où un `probleme` de logique de preuve, pas une erreur de valeur.
+- HSAB : « Cl- is a soft base » est faux (Cl⁻ est dur ou intermédiaire, ordre de liaison aux acides mous I⁻ > Br⁻ > Cl⁻). Classé `reserve` et pas `probleme` : la conclusion qualitative (chlorocomplexes du Cd qui freinent la réactivité) tient, et le même ordre explique l'effet du CTAB. Source retenue : cours de Texas A&M (ordre des halogénures), plus Pearson 1963 pour la référence d'origine ; le tableau de Pearson lui-même n'a pas pu être relu.
+- Désalkylation du CTA⁺ à 240 °C (CH3Cl/CH3Br + amine tertiaire) : aucune source trouvée par la recherche web ; gardée en `reserve`, base `chimie_generale`. Conséquence : l'argument des auteurs « CTAOH donne des amines » vaut aussi pour CTAC et CTAB, et une partie du Cl⁻ peut partir en gaz.
+- Activation du soufre : mécanisme de Li, Ji, Xie, Grisham, Peng (JACS 2011, seuil ≈ 180 °C, 2 H2S par ODE oxydé) préféré au « polysulfures/ODE-S » vague de l'extraction ; il explique la formation des multipodes dès 200 °C (atteint vers 8,5 min avec la rampe de 20 °C/min).
+- Taille contre exciton : courbe de Yu et al. 2003 (coefficients cités de mémoire, article non lisible ici) → 4,3 nm pour 425 nm contre 3,6 nm au TEM ; écart jugé normal, `ok`.
+- DRX : largeur Scherrer ≈ 2,3° à 3,6 nm contre 1,7° d'écart entre ZB (111) et WZ (100)/(101) : « pure zinc-blende » n'est prouvé que par l'absence de (102)/(103). `reserve`. Longueur d'onde non donnée, Cu Kα supposé.
+- Bohr : à 7 nm, D/2a_B ≈ 1,17 → « far beyond » exagéré pour l'échantillon à 0,5 mmol ; vrai à 13 nm.
+- Polytype : Mahler et al. 2010 (polytypisme contrôlé par les ligands) cité pour nuancer l'explication par la taille seule ; DOI relevé dans une liste de références, non vérifié.
+- Branche 0,25 mmol jugée `invérifiable` : aucune valeur hors figures.
+- Comparaison base : aucune autre synthèse colloïdale CdS dans l'ODE ; PMC10523092 (CdCl2, zinc-blende à température ambiante) noté seulement comme contre-exemple faible.
+- Recherche web : 9 recherches ; 3 lectures de pages échouées (tcd.ie, libretexts, pmc.ncbi : DNS bloqué). Rien ajouté à fondateurs.md ni constantes.md (Crossref bloqué).

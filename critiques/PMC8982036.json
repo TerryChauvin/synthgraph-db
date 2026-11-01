@@ -1,0 +1,88 @@
+{
+ "pmcid": "PMC8982036",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "faux",
+   "where": "CuQD_ZnSe, caractérisation PL, conditions",
+   "extracted": "excitation wavelength 375 nm; spectral resolution 0.5 nm",
+   "article_says": "For the ZnSe/ZnS:Mn/ZnS and ZnSe/ZnS:Cu/ZnS core/shell/shell QDs, the excitation wavelength was 355 nm.",
+   "fix": "pour la voie CuQD_ZnSe (ZnSe/ZnS:Cu/ZnS) mettre excitation 355 nm ; 375 nm ne vaut que pour les voies à cœur CdSe",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MnQD_1.6nm_x4 steps 2-3 (ajout et chauffage de ZnS:Mn)",
+   "extracted": "un seul ajout (number_of_additions = two steps) suivi d'un seul chauffage 15 min à 80 °C",
+   "article_says": "(1) The addition and heating of the ZnS:Mn precursor solution were divided into two steps",
+   "fix": "scinder en deux cycles ajout + chauffage (Fig. S3 de l'annexe montre deux fois « Microwave irradiation 80 ℃ 15 min », une par ajout de ZnS:Mn) ; la répartition de x entre les deux ajouts reste non citée. Le chauffage 15 min à 80 °C de la section Méthodes décrit alors chaque cycle ou le total, à trancher par l'orchestrateur",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MnQD_1.6nm_x4 step 4, quantité du précurseur ZnS",
+   "extracted": "number_of_portions = five portions ; aucune contrainte sur la quantité totale",
+   "article_says": "Here, the total amount of added ZnS:Mn and ZnS precursors was fixed, and the ZnS precursor was added gradually in five portions",
+   "fix": "ajouter un paramètre ou une note : la quantité totale (ZnS:Mn + ZnS) est fixe, donc la quantité de ZnS = total moins ZnS:Mn varie avec x ; valeur du total non citée (à mettre en missing_fields)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "CuQD_CdSe_1.6nm et CuQD_CdSe_2.7nm (héritée), caractérisation PL decay",
+   "extracted": "decay time on the order of microseconds (ZnSe case)",
+   "article_says": "Fig. S8b† shows a PL decay profile for CdSe/ZnS:Cu/ZnS QDs. The PL decay time of ZnSe/ZnS:Cu/ZnS QDs is in the order of microseconds",
+   "fix": "le texte nomme ZnSe dans le paragraphe CdSe/ZnS:Cu/ZnS (faute probable des auteurs) ; la légende de Fig. S8 donne bien un profil pour CdSe/ZnS:Cu/ZnS. Ne pas écrire un résultat « (ZnSe case) » sur une voie CdSe : retirer le résultat de ces voies ou le garder avec une annotation limite_reproductibilite expliquant l'ambiguïté (le doute de l'extracteur dit « non extrait pour les voies CdSe », ce qui contredit la fiche)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MnQD_1.6nm_x4, Mn_PL_average_decay_time (2.0 ms) contre Mn_PL_decay_time_vs_x_1.6nm_core (1.2 ms, Fig. 3b)",
+   "extracted": "deux valeurs pour le même échantillon, sans annotation",
+   "article_says": "The obtained average decay time for x = 4 was 〈τx=4〉 = 2.0 ms.",
+   "fix": "la Fig. 3b (vérifiée à l'image) donne ≈ 1,2 ms pour x = 4 ; l'incohérence vient de l'article : ajouter une annotation limite_reproductibilite (le DOUTE existe mais aucune annotation ne le porte)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "MnQD_1.6nm_x3, x6, x7 (et x5, x8) variation molar_ratio, citation",
+   "extracted": "quote = légende « Fig. 2 (a and b) PL spectra ... different amounts of ZnS:Mn shell precursor solution. » (x5 : « decrease ... at x ≥ 5 »)",
+   "article_says": "Molar ration of [ZnS:Mn]/ [CdSe] = x (x = 1 ～8 )",
+   "fix": "la citation ne contient pas la valeur de x (3, 6, 7) ; utiliser la phrase de l'annexe Fig. S3 « x = 1 ～8 » ou la légende de Fig. 2c, ou signaler que la valeur vient de la légende de figure (from_figure)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MnQD_1.6nm_x2_ZnSe-conditions, variation number_of_additions = « not divided into two steps »",
+   "extracted": "not divided into two steps",
+   "article_says": "(1) The addition and heating of the ZnS:Mn precursor solution were divided into two steps",
+   "fix": "valeur déduite par contraste avec la phrase des auteurs, non écrite telle quelle ; la garder uniquement avec la mention « déduit » ou la retirer (la Fig. S2 ne dit que x = 2, 120 °C, 2 min)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MnQD_1.7nm_x5 à MnQD_2.7nm_x5, variation de température de chauffage du cœur",
+   "extracted": "seule la variation core_diameter ; la température du cœur n'est pas portée par les branches",
+   "article_says": "CdSe core QDs of various sizes (1.6–2.7 nm) were prepared by heating for 5 min at different temperatures (100–180 °C).",
+   "fix": "la taille du cœur est obtenue en changeant la température (100–180 °C) : ajouter à chaque branche une variation « température du cœur : non citée » ou une annotation, pour qu'un chimiste ne croie pas que seul le diamètre change",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 24,
+  "branches_extracted": 24,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "température de chauffage du cœur CdSe pour chaque taille (seule la plage 100–180 °C est donnée, 5 min) ; non reliable au protocole 200 °C 3 min de l'essai de dopage direct, qui donne aussi 1,6 nm",
+  "volumes (ou quantités de cœur) des précurseurs ZnS:Mn et ZnS ajoutés ; quantité totale « fixée » jamais chiffrée ; répartition de x entre les deux ajouts de ZnS:Mn",
+  "préparation de NaHSe (« freshly prepared »), base du pH 8.5, concentrations des NaOH et HCl",
+  "puissance et montée en température des micro-ondes, cuve, agitation, atmosphère",
+  "préparation des cœurs CdSe (1,6 et 2,7 nm) et ZnSe de la série Cu ; volumes ; conditions de la dernière irradiation (coque ZnS) de la série Cu",
+  "isolement et purification des QDs, rendement, pureté des réactifs",
+  "courbes x ≠ optimum pour d = 1,7–2,7 nm (Fig. S5, S6) et Fig. S7 : annexe sans images dans le dépôt",
+  "préparation des témoins CdSe/ZnS, ZnSe/ZnS et ZnSe/ZnS:Mn/ZnS non décrite (renvoi à la réf. 21)"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Valeurs lues sur figure vérifiées à l'image : Fig. 2c (0,17 ; 0,42 ; 0,87 ; 1,0 ; 0,87 ; 0,61 ; 0,60 ; 0,65), Fig. 3b (1,0 ; 1,2 ; 1,3 ; 1,2 ; 1,2 ; 0,88 ; 0,78 ; 0,74 ms), Fig. 6 (bord de bande 2,7 ; 2,6 ; 2,5 ; 2,4 ; 2,35 ; 2,35 ; 2,25 eV ; pic Mn ≈ 2,07 eV pour 1,6 nm) : aucun écart supérieur à 10 %. Non retenu comme constat faute de passage textuel : sur la Fig. 6 un épaulement Mn vers 2,03 eV est visible pour 2,2 et 2,4 nm et une bande large vers 1,7 eV pour 2,7 nm, non extraits ; succeeded=False pour la branche aux conditions ZnSe est un jugement de l'extracteur (les auteurs écrivent que Mn PL est clairement présent mais avec un fort bord de bande) ; stabilité à un an rattachée à x = 4 alors que le texte dit « the synthesized QDs ». Le paragraphe XPS écrit CdSe/ZnSe:Mn/ZnS (faute probable) et la section Cu décrit CdSe/ZnS:Mn/ZnS dans la phrase de la Fig. S8b : fautes de frappe des auteurs, traitées en doutes par l'extracteur. method_sources conforme : cit63, cit21 (x3) présents ; cit64 (équation de taille) et cit67 (manuel XPS) correctement exclus ; aucun renvoi de méthode manquant dans refs. Recettes des cinq précurseurs vérifiées une à une (quantités, volumes, pH, ordre d'ajout) : conformes, et [Mn]/[Zn] = 0,18/1,2 = 0,15 cohérent avec le texte."
+}

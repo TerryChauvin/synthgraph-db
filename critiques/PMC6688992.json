@@ -1,0 +1,61 @@
+{
+ "pmcid": "PMC6688992",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "Ta3N5_WOx (branche de CdS_WOx) : étapes séchage 80 °C overnight, refroidissement naturel, 24 h, héritées du parent",
+   "extracted": "La branche n'a aucune étape propre : elle hérite de CdS_WOx toutes les étapes, y compris le séchage à 80 °C pendant la nuit et le refroidissement naturel ; l'annotation comparaison_branches dit « tout le reste étant identique d'après l'article ».",
+   "article_says": "All other reaction conditions, including the heating parameters, the composition and volume of the solvent, and the centrifugation steps used to clean the final precipitate, remained the same as in the CdS/WOx case.",
+   "fix": "Le texte nomme chauffage (heating parameters), solvant (composition et volume) et centrifugation ; il ne nomme ni le séchage ni le refroidissement. Le séchage à 80 °C est cité explicitement pour CdS/WOx et pour WOx, pas pour Ta3N5/WOx. Garder l'héritage du chauffage, du solvant et des lavages (nommés), mais donner à la branche ses propres steps ou déclarer séchage et refroidissement dans not_stated avec le doute déjà écrit ; le broyage, lui, est cité (« All reference materials were ground… »). Nuancer l'annotation comparaison_branches (« tout le reste identique » est plus fort que le texte).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Ta3N5 : étape de broyage absente (la voie s'arrête à l'étape anneal)",
+   "extracted": "Voie Ta3N5 : une seule étape (anneal, 800 °C, 10 h, NH3) ; aucun broyage.",
+   "article_says": "All reference materials were ground into a fine powder using a pestle and mortar.",
+   "fix": "Ajouter une étape grind à Ta3N5 avec cette citation (déjà utilisée pour la voie WOx). Le travail de récupération après recuit (retrait de NaCl/KCl) reste non cité.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "WOx step 2 (heat), toutes les citations des paramètres temperature, heating_rate, duration",
+   "extracted": "Citation de ~1 500 caractères qui commence par la phrase de CdS/WOx (« heated at a rate of 10 °C min−1 to 180 °C, and this temperature was held constant for a period of 24 hours. The vessel was subsequently cooled… ») puis traverse le titre « ## Ta3N5, WOx and Ta3N5/WOx reference samples » et ne rejoint la phrase de WOx qu'à la fin.",
+   "article_says": "heated at a rate of 10 °C min−1 in the 125 ml stainless steel Parr acid digestion bomb to a temperature of 180 °C, which was maintained for 24 hours.",
+   "fix": "Remplacer la citation de l'étape et des trois paramètres par la seule phrase de WOx ci-contre ; la citation actuelle fait croire que « dark-green precipitate », le séchage de CdS/WOx et le résumé Ta3N5 appartiennent à l'étape de WOx. Valeurs (180 °C, 10 °C min−1, 24 h) exactes.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS steps 5 (centrifuge) et 6 (wash) ; CdS_WOx steps 5 et 6",
+   "extracted": "Deux étapes portent la même citation (« cleaned through repeated centrifugation into deionised water and then absolute ethanol » ; « obtained by centrifuging repeatedly into deionised water and then absolute ethanol »).",
+   "article_says": "the resulting orange precipitate was cleaned through repeated centrifugation into deionised water and then absolute ethanol",
+   "fix": "L'article décrit une seule opération (centrifuger dans l'eau puis l'éthanol) : fusionner en une étape wash, ou ne garder qu'une des deux. Aucun paramètre propre à la « centrifugation » n'est cité (vitesse, durée).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS et CdS_WOx outcomes : photocourant en irradiation prolongée et potentiel en circuit ouvert (Fig. 8c,d, 9a,b) non extraits",
+   "extracted": "Seuls les premiers pics (10 et 120 µA, Fig. 8a,b) et les paramètres d'ajustement de CdS/WOx sont dans les résultats ; rien pour CdS en Fig. 9a ni pour le potentiel en circuit ouvert, ni pour la dégradation comparée.",
+   "article_says": "It is additionally apparent, however, that photocurrent from the CdS/WOx sample deteriorated more rapidly than in the case of CdS, exhibiting an exponential decay over the course of the experiment.",
+   "fix": "Ajouter au moins un résultat qualitatif par échantillon (décroissance plus rapide pour CdS/WOx ; potentiel en circuit ouvert établi et retiré plus lentement avec CdS/WOx, citation « equilibrium potential was established and removed more slowly in the case of CdS/WOx »). Lecture de figure possible : crête de la Fig. 9a ≈ 7,7 µA (CdS), crête de la Fig. 9b ≈ 12,3 µA (CdS/WOx) ; je ne l'impose pas, le texte ne les chiffre pas.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 1,
+  "branches_extracted": 1,
+  "not_stated_checked": 19,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "CdS/WOx : volume du mélange éthanol/éthylène glycol et masse de CdS absents (seulement 20 mM de CdS et de WCl6) ; même lacune pour Ta3N5/WOx (volume « identique », non chiffré)",
+  "Vitesse et durée de centrifugation, nombre de lavages, pureté et fournisseurs des réactifs, rendement : absents pour toutes les voies",
+  "Ta3N5 : rampe de chauffe, débit de NH3, refroidissement, mélange des sels, élimination de NaCl/KCl, tout renvoyé à une publication antérieure (« In brief »)",
+  "Ta3N5/WOx : séchage et refroidissement non cités (seulement « all other reaction conditions… »)",
+  "Électrode : volume par goutte, nombre de couches, charge massique, durée de polymérisation UV de la résine, durée d'ultrasons non donnés ; volume d'électrolyte et géométrie de cellule absents"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs est appuyé par la citation de l'introduction (croissance hétérogène, jonction intime) et par le texte sur le piégeage des électrons dans WOx ; les mecanisme_analyse sont étiquetés comme hypothèses de chimiste.",
+ "notes": "Valeurs numériques recoupées avec le texte et Table S1 : Cd/S EDX 30,53/29,28 = 1,04 et 5,16/4,87 = 1,06 ; Fig. 8a/8b relues à ≈ 10 µA et ≈ 120 µA, écart < 10 % avec l'extraction. Aucune branche manquante : inventaire de 5 échantillons identique au mien (CdS, CdS/WOx, Ta3N5, Ta3N5/WOx, WOx). method_sources : CR147 et CR59 présents, aucun renvoi de méthode manquant ; CR89 (valeur 284,8 eV du C 1s) est une valeur de référence et non une méthode. Mon constat sur l'héritage du séchage est une lecture de « reaction conditions » : un relecteur peut juger que le séchage fait partie de la « technique analogue » ; d'où probable."
+}

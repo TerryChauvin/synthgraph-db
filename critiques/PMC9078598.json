@@ -1,0 +1,112 @@
+{
+ "pmcid": "PMC9078598",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "InCZTS_as_grown and CZTS_as_grown, step 9 temperature and duration",
+   "extracted": "value_text 'as-grown' (variation of temperature and duration at step 9 relative to 580 °C / 60 min)",
+   "article_says": "Cu2InxZn1−xSnS4 | 300 | 5 | 8.99 × 101 | 9.46 × 1013 | 0.91 | p",
+   "fix": "Table 2 gives 300 °C / 5 min for the as-grown In-CZTS and CZTS films; the extraction replaces these values by 'as-grown', which is not a temperature or a duration, and the branch inherits the sulfurization step it should not have. Model the as-grown films as precursor films without step 9 (or with the Table 2 values 300 °C / 5 min, which match the preheating of step 7) and keep the 'not explicitly sulfurized' reading in a doubt",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "T580t60 (and T500t60, T540t60) Raman 325 nm, ZnS peaks",
+   "extracted": "only the 325 nm excitation mentioned in the conditions; no ZnS peak position",
+   "article_says": "The peaks at 343, 695 and 1040 cm−1 could be assigned to R1LO, R2LO and R3LO vibrational modes of ZnS, respectively.",
+   "fix": "add a Raman characterization (325 nm) with ZnS R1LO/R2LO/R3LO at 343, 695, 1040 cm−1, and the trend 'ZnS intensity decreases with increasing temperature and time' for the series",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "T580t60 XPS Zn 2p, Sn 3d, S 2p (and SI Fig. S1 values)",
+   "extracted": "only Cu 2p and In 3d extracted",
+   "article_says": "The Sn 3d5/2 and Sn 3d3/2 peaks are revealed at 485.4 eV and 493.5 eV",
+   "fix": "add Zn 2p 1020.8 / 1043.9 eV (splitting 23.1 eV, Zn2+), Sn 3d 485.4 / 493.5 eV (Sn4+), S 2p 160.2 / 162.8 eV; SI Fig. S1 gives Zn 2p at 1020.7 and 1043.8 eV and Cu 2p at 932.2 and 934.2 eV for CZTS and In-CZTS",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "CZTS (x = 0) route, band gap",
+   "extracted": "no band gap for pure CZTS",
+   "article_says": "which are smaller than that (1.5 eV) of pure CZTS thin film due to the In doping",
+   "fix": "add a band_gap = 1.5 eV result for pure CZTS (route CZTS_580_60 or CZTS_as_grown; the article does not say which film), or note the ambiguity",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "T500t60 and T540t60 grain size and morphology",
+   "extracted": "only 'voids on the surface'",
+   "article_says": "With the sulfurization temperature increasing from 500 to 580 °C, the grain size of Cu2InxZn1−xSnS4 thin films increased and the surface of the thin films became smooth and dense, as shown in Fig. 6(a–c).",
+   "fix": "add a grain-size/morphology result for T500t60 and T540t60 (smaller grains than 580 °C, Fig. 6a-b)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "T580t60 band-gap fits (Fig. 7 insets)",
+   "extracted": "not extracted",
+   "article_says": "Eg(x) = 1.52 − 0.15x + 0.17x2 (eV)",
+   "fix": "optional: record the quadratic fits of Eg versus temperature (1.52 − 0.15x + 0.17x2) and versus time (1.46 − 0.13x + 0.01x2) as text results of the two series",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources: [[cit15]] (Superlattices Microstruct. 2017)",
+   "extracted": "method_sources empty",
+   "article_says": "In our previous work, we have successfully fabricated the Cu2InxZn1−xSnS4 alloy thin films with different In content by a simple sol–gel method.",
+   "fix": "[[cit15]] is the authors' earlier sol–gel preparation of the same alloy films, cited in the Introduction only (the Experimental section has no renvoi); borderline source of method, to be arbitrated by the orchestrator (the extraction already notes it in limite_reproductibilite)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Device_InCZTS step 3 atmosphere",
+   "extracted": "not_stated: atmosphere",
+   "article_says": "annealed using the aforementioned method",
+   "fix": "the device absorber is annealed with the method of the film preparation, which is 'in the sulfur atmosphere' (same sentence block of the Experimental section); the atmosphere (and step 2 film thickness 1 μm by the same renvoi) can be given as cited by renvoi rather than not_stated, with the quote kept",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "T580t60 step 8 repeat",
+   "extracted": "Repeat the spinning and preheating cycle a few times",
+   "article_says": "The spinning and drying process was repeated for a few times to acquire 1μm thick film.",
+   "fix": "the article says 'spinning and drying process'; 'preheating' is the extractor's reading of 'drying' (300 °C / 5 min); keep the author's wording in the step description",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "T600t60 and T580t75 succeeded=False",
+   "extracted": "succeeded false",
+   "article_says": "This also indicates that the higher sulfurization temperature and the presence of secondary phases seems to cause deterioration of the crystalline quality of the Cu2InxZn1−xSnS4 (x = 0.4) thin films.",
+   "fix": "the authors do not call these samples failures (they are characterized, with a CuS/Cu2−xS secondary phase); the flag is an interpretation already noted in a doubt, to be kept only if the RUNBOOK rule on 'succeeded' covers degraded films",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MEA role",
+   "extracted": "role ligand",
+   "article_says": "The MEA and 2-methoxyethanol were employed as the stabilizer and the solvent, respectively.",
+   "fix": "the article calls MEA a stabilizer; 'ligand' is an interpretation (use the stabilizer role if the vocabulary allows)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 13,
+  "branches_extracted": 13,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 1,
+  "figure_values_checked": "Fig. 2a and 2b (FWHM and intensity of 9 points, all within 10 %)",
+  "table_values_checked": "Table 1 (9 rows), Table 2 (9 rows), Table 3, Tables S1 and S2: all values match"
+ },
+ "reproducibility_gaps": [
+  "sulfur source, amount, container, furnace, ramp rate, pressure, cooling of the sulfurization (rapid annealing) are not given",
+  "absolute masses, concentrations and volume of the sol–gel solution are not given, only the element mole ratio 2.125 : 0.9 : 0.6 : 1 : 8 (Zn 0.9 and In 0.6 do not match x = 0.4)",
+  "number of spin-coating layers ('a few times'), stirring time, ultrasonic power, drying temperature and time",
+  "composition of the pure CZTS precursor solution ('same experimental conditions' only)",
+  "CBD CdS bath, sputtering parameters of Mo, i-ZnO and ITO, Al grid geometry",
+  "no purity, supplier or grade of any chemical; Hall resistivity of Table 2 inconsistent with n and mu (e.g. T580t60, 6.81 × 10 2 Ω cm), SI Table S1 row for T580t60 identical to the 540 °C row of Table 1"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Fidelity is high: all Table 1, Table 2, Table 3, S1 and S2 values and the FWHM and intensity points of Fig. 2 (read on the image; the intensity points are not aligned with the temperature ticks in Fig. 2a, order 500, 540, 580, 600 assumed as in the extraction) agree with the article. Fig. 1 and Fig. 7 images were not needed for any from_figure value. Not reported as findings: the doubts already cover the Table 1 header (Sn read as S), the duplicated 580/60 rows, the text/table resistivity contradiction (8.99 × 102 vs 8.99 × 101) and the Table S1 copy issue; the extraction keeps both values. Scientific point for the other critic: the precursor ratio Zn 0.9 and In 0.6 (sum 1.5 for Sn 1) does not correspond to Cu2In0.4Zn0.6SnS4 (Zn 0.6, In 0.4); the EDS (Zn+In)/Sn of 1.7 to 1.9 is likewise above 1."
+}

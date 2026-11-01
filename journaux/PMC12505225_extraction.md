@@ -1,0 +1,16 @@
+# Journal d'extraction PMC12505225
+
+- Découpage : trois matériaux préparés indépendamment (SiO2, ZnO, ZnO–SiO2 10 : 90) donnent trois voies de base ; seule la température de recuit varie. SiO2-700 et ZnO-SiO2-700 sont les bases de leurs séries (700 °C est la première température citée), avec branches à 800 et 900 °C. ZnO-450 n'a pas de branche (un seul recuit, 450 °C).
+- Le composite n'est pas une branche de SiO2 : autre catalyseur (HCl au lieu de l'acide acétique), autre ordre d'ajout, agitation 500 rpm 30 min au lieu de 300 rpm 3 h, et gélification/séchage non cités. Voie de base propre, sans héritage.
+- Température de recuit attribuée à SiO2 par les légendes explicites (« SiO2 sample annealed at 700oC », Fig. S2 pour 800 °C, « SiO2 annealed 900 °C » Fig. 6) plutôt que par la phrase générale « annealing in the 700–900 °C range ». Pour le composite, la légende de la Fig. 8 (700, 800, 900 °C).
+- La phrase d'ouverture des résultats DRX applique 700/800/900 °C à ZnO aussi, ce qui contredit les Méthodes (450 °C) et la Fig. 2 : 450 °C retenu, doute écrit.
+- « layered annealing protocol » : lu comme trois échantillons séparés (les courbes DRX, FTIR et MEB sont présentées par température), pas comme un recuit successif ; doute écrit.
+- Étapes SiO2 : l'ordre vieillissement 18 h / séchage 120 °C n'est pas donné ; ordre du paragraphe suivi (gélification, vieillissement, séchage, recuit). Durées de gélification, séchage, recuit et température de vieillissement déclarées non citées.
+- Quantités SiO2 : seulement des rapports molaires (TEOS : EtOH : H2O = 1 : 10 : 4 ; acide acétique 0,05 mol/mol de TEOS). Les trois premiers sont en `amount_text`, l'acide acétique en nombre avec unité « mol per mol TEOS ».
+- NaOH du ZnO : seule la concentration (1 M) est donnée ; en `amount_text` et en paramètre `concentration`, volume déclaré non cité. Pas de séparation ni lavage ni séchage du précipité avant le recuit : listé dans `missing_fields`, non inventé.
+- Composite : HCl 0,03 M en `amount_text` ; zinc acétate en « 10 % en masse de ZnO ». Étapes d'ajout en trois étapes selon la phrase « beginning with TEOS, followed by HCl/water and then the Zn precursor ».
+- Résultats de groupe (bandes FTIR de SiO2 aux trois températures, hausse de 46,71 % de l'absorption, tendance du pic à 579 cm-1) : annotations `tendance_observee`, non recopiés sur chaque voie. Les bandes FTIR sont en revanche citées en caractérisation sur chaque voie.
+- Pic du carbone en EDS : texte principal « ~0.28 keV », annexe S1 « around 0.2 keV » ; valeur de l'annexe retenue pour SiO2-700, 800 °C cite « same 0.2keV peak » sans nombre propre (en `value_text`).
+- Figures : Fig. 1 et 3 ouvertes pour vérifier le texte (aucune valeur quantitative nouvelle) ; aucune valeur lue sur figure, donc aucun `from_figure`. Fig. 5 non reprise (le 46,71 % est dans le texte). `t1` est une équation de Scherrer, sans donnée.
+- Échantillons « as-synthesized » (SiO2, ZnO, composite) : cités une fois, aucune courbe ni résultat ; inventaire avec `route: null`.
+- `method_sources` : Mocioiu et al. (cit31, méthode G4 du composite) et Fardad (cit30, conditions de la silice) ; Hasnidawani (cit39) en « autre » ; les renvois de justification (cit36–38, 40–47) ne sont pas des sources de méthode.

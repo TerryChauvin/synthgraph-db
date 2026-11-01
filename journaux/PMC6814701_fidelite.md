@@ -1,0 +1,17 @@
+# Journal de la critique de fidélité PMC6814701
+
+- Ma liste d'échantillons avant l'extraction : extrait de Mt, AuMt1 (3,2 / 1,6 / 1,2 mL), AuMt2 (1,6 / 1,6 / 2,8 mL), plus les témoins du DPPH (vitamine C, catéchines) et les cellules HUVEC non traitées. Identique à `sample_inventory` (trois voies, trois témoins en `route: null`) : aucun échantillon manquant.
+- Quantités du tableau S1 (virgules décimales) recoupées : 3,2 + 1,6 + 1,2 = 6 mL et 1,6 + 1,6 + 2,8 = 6 mL ; 0,01 M × 3,2/6 = 5,3 mM et × 1,6/6 = 2,7 mM (2,6 dans le texte). L'extracteur a bien lu le tableau, aucun constat.
+- Valeurs lues sur Fig. 7a/7b (16 barres) : écart maximal ≈ 1 point avec l'extraction, donc bien sous 10 %. Fig. 12b (≈ 94 % à 360 s) et 12e (≈ 91 % à 720 s) confirmées. Pas de constat sur les `from_figure`.
+- Fig. 5c/5f (modes ≈ 40 et ≈ 150 nm), Fig. 2a (plateau ≈ 60 s pour AuMt1, ≈ 120–150 s pour AuMt2) et Fig. 1b (vitamine C ≈ 46 %, catéchines ≈ 58 %, extrait à 12,5 µg/mL ≈ 52 %) concordent avec le texte.
+- Constat « manquant » Table S2 : la discussion du texte (C–O 16,6 contre 27,8 %, « C=O higher in AuMt1 ») s'appuie sur ces aires ; l'extraction n'a gardé que C–O. `sure` car les valeurs sont en toutes lettres dans l'annexe lue.
+- Constat « manquant » PdI à 37 °C : quatre valeurs de Table 1 absentes alors que la même rangée est déjà citée pour la taille ; `sure`.
+- Constat DPPH (Fig. 1b) classé `probable` : les valeurs ne se lisent que sur la figure, et celle-ci écrit 6.75 et 3.375 contre 6.25 et 3.125 dans les Méthodes.
+- Constat « manquant » biologie : conditions du MTT, localisation cytoplasme/périphérie nucléaire, fluorescence à 640 nm, agrégation de AuMt2 à 100 µg/mL en s-DMEM. Il s'agit de résultats comparant AuMt1 et AuMt2, donc au cœur du but de la base ; `sure`.
+- Constat concentration d'extrait : l'extracteur a écarté 121,8 mg/mL (annexe) au profit de 32,5 (Méthodes) et l'a dit en doute. Je le garde en `probable` : la règle du RUNBOOK dit de prendre la section la plus détaillée, et l'en-tête du tableau S1 est attaché à la synthèse même ; c'est à l'orchestrateur de trancher.
+- Eau ultrapure de AuMt1 déclarée sans pureté ni fournisseur : `probable`, car la phrase « 18 MΩ, Millipore » est dans le paragraphe d'extraction, et l'article ne dit pas explicitement que l'eau de la synthèse est la même.
+- `method_sources` CR46/CR47 : la phrase qui les porte définit les termes de l'équation (4) ; règle du 2026-10-13, donc `faux`, `probable` (les deux références sont des articles de cytotoxicité de nanoparticules d'or, qui pourraient aussi décrire le MTT). CR42/43 (« expressed as gallic acid equivalents ») laissés à l'orchestrateur, dans le `fix`.
+- Écarté : CR48 (ImageJ, outil d'analyse d'images), CR44/45 (Henry, Smoluchowski), CR52 (Boltzmann) : formules ou logiciels, exclus par la règle.
+- Écarté : XRD/HRTEM/EDS attribués à « AuMt » sans numéro, rattachés à AuMt1 par défaut. L'extracteur l'a déjà mis en doute et ne donne aucune valeur propre à un échantillon ; pas un constat.
+- Écarté comme non-constat : « almost 30% » contre ≈ 36 % lus à 48 h pour AuMt1 à 50 µg/mL (déjà en doute, les deux valeurs sont extraites) ; la phrase du texte sur AuMt2 à 48 h (« only on 100 and 200 μg/mL ») contredit en partie Fig. 7b mais compare en réalité 24 h et 48 h : mise en `notes`.
+- Étape manquante (rotoévaporation puis lyophilisation d'une aliquote) classée `mineur` : elle ne sert pas au matériau mais aux dosages.

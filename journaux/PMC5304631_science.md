@@ -1,0 +1,15 @@
+# PMC5304631 — critique scientifique (journal de décisions)
+
+- cNP = 11,1 nM classé `probleme` : 50 µmol d'or / (2,8 × 10^5 atomes par particule de 20,9 nm) / 0,152 L = 1,17 nM au plus. L'absorbance 0,23 après dilution 26 suppose une solution mère à A450 ≈ 6, contre ≈ 0,63 attendu. Un facteur 2,5 (20 µL portés à 50 µL) rendrait tout cohérent ; je le signale comme hypothèse, sans trancher.
+- L'arithmétique des auteurs (0,23/5,41e8 × 26 = 11,05 nM) suppose « 20 µL + 500 µL » et non « portés à 500 µL » : pas d'erreur de calcul, l'incohérence vient de la mesure ou de la dilution déclarée.
+- Tableau 1 : CP et cP se recalculent exactement à partir de la Fig. 5, mais RP/NP ≠ cP/cNP pour les quatre colonnes (3,0 / 2,9 / 8,3 / 14,9 contre 2,7 / 2,4 / 6,2 / 6,3). Classé `probleme` sur la voie de base et sur les deux voies marquées (*).
+- Filtre interne : à 2 nM de particules, A450 = 1,08 (ε450 de l'article) et l'absorbance est plus forte à 494–519 nm ; je n'ai pas relu ε à ces longueurs d'onde (Haiss), j'ai donc pris la borne basse. Les auteurs ne discutent que l'extinction à courte distance. Classé `probleme`, source Lakowicz (DOI non vérifié).
+- Figure 16 : à concentration d'anticorps égale, le témoin anti-HRP (RP/NP ≈ 2,55) reçoit 2,4 fois plus de particules que l'anti-VEGF (≈ 6,25). Comme la conclusion repose sur « même tendance, donc toxicité », je l'ai classé `probleme` (témoin qui change deux variables).
+- EDC sans NHS et dessalage avant l'anticorps : mis en `reserve` et non en `probleme`, car le protocole marche en partie (des anticorps sont fixés) ; la fiche Thermo dit « instable » sans chiffre, et les demi-vies de quelques secondes trouvées dans des brevets n'ont pas été retenues.
+- Covalence « prouvée » par le zêta : `reserve` ; le témoin sans anticorps montre que l'EDC décale ζ de +10 mV à lui seul. La preuve qui trancherait serait un dosage FITC des échantillons sans EDC.
+- Croissance sur germes : la recette est mot pour mot celle de Bastús 2011, mais une seule injection ne multiplie le diamètre que par 1,26. Je n'ai pas pu relire la taille des germes de Bastús (texte intégral inaccessible) : `reserve`, avec la taille notée dans `sources_not_found`.
+- Les rapports molaires du couplage se recalculent exactement (EDC 7,5e6, anticorps 50, TAMRA ≈ 970, PEG-amine 2,5e4) ; le dernier confirme 750 Da (« 750 kDa » donnerait 25 par particule).
+- Masse molaire du TAMRA cadavérine prise à ≈ 515 g/mol sans fiche relue : je le dis dans le calcul et dans `sources_not_found`.
+- La FITC à 750 équivalents (30–50 fois l'excès recommandé par Thermo) n'est qu'une `reserve` : le protocole marche, mais le surmarquage change la charge des conjugués (*) ; d'où la réserve sur le transfert du RP/NP aux conjugués non marqués.
+- Toxicité HUVEC forte pour de l'or pégylé : `reserve` sans source, faute de recherche dédiée (budget de recherches).
+- Recherches web : 8 (2 accès refusés : nanopartz.com, core.ac.uk). DOI non vérifiés (Crossref bloqué) : 10.1021/ac0702084, 10.1021/la201938u, 10.1039/c3ra22739a, 10.1007/978-0-387-46312-4.

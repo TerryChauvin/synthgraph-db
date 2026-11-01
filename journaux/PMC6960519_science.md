@@ -1,0 +1,17 @@
+# PMC6960519 — critique scientifique (journal de décisions)
+
+- Point demandé par l'orchestrateur (acidité de zeo3) : SAR 50 donne Si/Al = 25, soit 1562 g par mole d'Al et ≈ 640 μmol Al/g. 3131 μmol/g fait 4,9 NH3 par Al de départ. Avec un site par Al, il faudrait Si/Al ≈ 4,3 et 80 % de la masse dissoute, ce que contredisent la cristallinité de 50 % et Vmicro 0,11 cm3/g. Jugé `probleme`, voie zeo3 `incoherente`.
+- zeo2 (1674 μmol/g, 2,6 NH3/Al, Si/Al ≈ 8,9, 62 % de masse dissoute) : aussi `probleme`, mais la voie reste `douteuse` et non `incoherente`. Une partie du NH3 peut venir de l'Al hors réseau ; l'écart reste moins extrême que pour zeo3.
+- Bilan soude/silice (30 mmol OH−, 32 mmol SiO2 dans 2 g) : la soude suffirait en principe à dissoudre presque toute la silice. L'impossibilité ne vient donc pas de la soude mais des propriétés texturales conservées. Je l'ai écrit pour qu'on ne m'oppose pas « il y avait assez de base ».
+- Rapport mésopores/micropores de zeo3 : 0,40/0,11 = 3,64, contre 5,00 au tableau 1 et au tableau 3 ; les trois autres lignes sont justes. Jugé `probleme` (erreur des auteurs, déjà signalée en doute par l'extracteur), car l'argument d'« accessibilité similaire » de zeo2 et zeo3 en dépend.
+- TPAOH : 12,917 g correspond exactement à une solution à 20,00 % en masse (TPAOH/Si = 0,36, H2O/Si = 31,5 recalculés). Le doute de l'extracteur est levé par le calcul ; à mettre en annotation, pas en valeur.
+- Flacon PTFE de 40 mL : rempli à ≈ 76 % (30,4 mL), environ 10 bar à 170 °C avec l'éthanol. `reserve` sécurité (chemise PTFE dans un autoclave d'acier sans doute), pas `probleme`.
+- UL-94 : « ANSI/ASTM D 635-77 » est l'essai horizontal (vérifié sur les pages ASTM D635 et D3801). Classé `reserve` : le texte décrit bien un essai vertical, c'est la norme citée qui est fausse.
+- « maximum GWFI 850 °C, minimum 775 °C » : contresens probable (exigences minimales GWFI ≥ 850 et GWIT ≥ 775). L'IEC 60335-1 n'a pas été relue en ligne, d'où `reserve` en chimie_generale, sans source.
+- Calcul clé contre la catalyse acide : 3 % de zeo3 apportent 94 μmol de sites par gramme contre 2,32 mmol de P de l'APP. La zéolithe pèse au plus 4 % de l'acidité du système. Mécanisme « aluminosilicophosphates » (Bourbigot 1996, référence de l'article) préféré à celui des auteurs ; la silicalite (sans Al) donne le plus faible gain de résidu.
+- PP+IF+zeo3 : `probleme` sur le classement du LOI qui ne suit pas l'acidité (zeo2 < zeo1), avec des écarts de l'ordre de la précision et des témoins qui changent cristallinité et calcination.
+- Hystérésis de la silicalite : attribuée par les auteurs à la durée de cristallisation. Source trouvée sur la boucle de N2 à p/p0 0,1–0,2 des MFI (transition de phase de l'adsorbat) : PDF de Hammond et al., J. Membr. Sci. 2008. Titre exact non relevé, donc cité comme « titre non relevé » plutôt qu'inventé.
+- Watanabe 2011 (recette de la silicalite) : seul le résumé PubMed a été lu ; il mentionne un pré-vieillissement de 24 h à 80 °C absent de l'article. Gardé en `reserve` (taille de grains non contrôlée).
+- Sources écartées : Niwa/Katada (pas d'article primaire trouvé, seulement des fiches KAKEN). Groen 2004 Colloids Surf. A : conditions non relues (pages de l'éditeur injoignables), d'où Groen 2005 Chem. Eur. J. (abstract PubMed lu) comme appui principal.
+- WebFetch bloqué (DNS) sur iciq.org et pubs.rsc.org ; 9 recherches web au total (3 WebSearch, 6 Parallel Search).
+- Rien n'a été ajouté à fondateurs.md ni à constantes.md (Crossref bloqué, consigne).

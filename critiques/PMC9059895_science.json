@@ -1,0 +1,499 @@
+{
+ "pmcid": "PMC9059895",
+ "routes": [
+  {
+   "label": "CdS-3",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de Cd(NO3)2·4H2O",
+     "inputs": "0,2314 g ; M = 308,48 g/mol",
+     "formula": "m / M",
+     "result": "0,750 mmol",
+     "compared_to": "thiourée",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques standard (chimie générale)"
+    },
+    {
+     "what": "moles de thiourée",
+     "inputs": "0,0571 g ; M(CH4N2S) = 76,12 g/mol",
+     "formula": "m / M",
+     "result": "0,750 mmol",
+     "compared_to": "Cd : 0,750 mmol",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques standard (chimie générale)"
+    },
+    {
+     "what": "rapport molaire Cd:S des précurseurs",
+     "inputs": "0,750 mmol Cd ; 0,750 mmol S (1 S par thiourée)",
+     "formula": "n(Cd)/n(S)",
+     "result": "1,000:1",
+     "compared_to": "CdS : 1:1 (rapport stœchiométrique exact, aucun excès de soufre) ; EDS du produit « proche de 1:1 »",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration du CTAB",
+     "inputs": "0,1 g ; M(C19H42BrN) = 364,45 g/mol ; 9 + 15 = 24 mL de solvant",
+     "formula": "m / M / V",
+     "result": "0,274 mmol, soit 11,4 mmol/L ; CTAB/Cd = 0,37",
+     "compared_to": "les auteurs invoquent des micelles lamellaires « au-dessus de la seconde CMC » ; milieu sans eau (éthylène glycol + éthylènediamine)",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques standard (chimie générale)"
+    },
+    {
+     "what": "rapport éthylènediamine/Cd",
+     "inputs": "15 mL × 0,899 g/mL / 60,10 g/mol ; 0,750 mmol Cd",
+     "formula": "n(en)/n(Cd)",
+     "result": "224 mmol d'en, en/Cd ≈ 300",
+     "compared_to": "complexe Cd(en)3 2+ : 3 en par Cd ; l'amine est le solvant majoritaire (fraction molaire en/(en+EG) ≈ 0,58 avec 9 mL × 1,113 g/mL / 62,07 g/mol = 161 mmol d'EG)",
+     "source": "valeurs de l'article ; densités usuelles de manuel (en 0,899 g/mL, EG 1,113 g/mL), non revérifiées ici (NIST injoignable)"
+    },
+    {
+     "what": "taux de remplissage de l'autoclave",
+     "inputs": "9 mL EG + 15 mL en ; autoclave de 30 mL",
+     "formula": "V(liquide)/V(cuve)",
+     "result": "80 %",
+     "compared_to": "limite usuelle ≈ 80 % pour l'eau, moins pour un solvant volatil ; la dilatation thermique des deux liquides entre 25 et 160 °C (de l'ordre de 10 %) réduit l'espace libre à 2–3 mL",
+     "source": "valeurs de l'article ; chimie générale (ordre de grandeur des coefficients de dilatation des liquides organiques ≈ 1×10−3 K−1)"
+    },
+    {
+     "what": "pression de vapeur estimée à 160 °C",
+     "inputs": "point d'ébullition de l'en ≈ 116–117 °C, ΔvapH ≈ 46 kJ/mol (valeurs de manuel, non revérifiées : NIST injoignable) ; EG : éb. 197 °C ; x(en) ≈ 0,58",
+     "formula": "Clausius–Clapeyron p(433 K) = exp[−ΔH/R (1/433 − 1/390)] ; Raoult",
+     "result": "en pur ≈ 4 bar ; mélange ≈ 2–3 bar (déviation négative probable, en et EG liés par liaisons H)",
+     "compared_to": "autoclave PTFE/acier : quelques bar, acceptable ; le risque tient au remplissage, pas à la pression",
+     "source": "chimie générale ; estimation à confirmer sur NIST WebBook (ethylenediamine, CAS 107-15-3)"
+    },
+    {
+     "what": "Bragg sur les raies de CdS (Cu Kα, λ = 1,5406 Å)",
+     "inputs": "2θ = 25,0 (100) ; 26,6 (002) ; 43,68 (110) ; 28,4 (101) ; 36,65 (102)",
+     "formula": "d = λ/(2 sin θ) ; a = 2d(100)/√3 ; c = 2d(002) ; a = 2d(110)",
+     "result": "d = 3,559 ; 3,348 ; 2,071 ; 3,140 ; 2,450 Å → a = 4,110 Å (100) ou 4,141 Å (110), c = 6,697 Å, c/a = 1,63",
+     "compared_to": "wurtzite idéale c/a = 1,633 ; écart de 0,75 % entre les deux valeurs de a (précision de lecture des pics) : indexation hexagonale cohérente",
+     "source": "valeurs de l'article ; λ Cu Kα1 : NIST X-ray Transition Energies (references/constantes.md)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Cd et S apportés en quantité exactement stœchiométrique (calcul « rapport molaire Cd:S des précurseurs ») ; produit CdS pur annoncé, EDS ≈ 1:1. Aucun excès de thiourée : la totalité du soufre doit se libérer en 4 h à 160 °C pour un rendement complet ; le rendement n'est pas donné.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "160 °C en autoclave fermé : au-dessus du point d'ébullition de l'éthylènediamine (≈ 116 °C), en dessous de celui de l'éthylène glycol (197 °C) ; pression estimée 2–3 bar (calcul « pression de vapeur estimée à 160 °C »), compatible avec une cuve PTFE. Le remplissage de 80 % avec un solvant volatil est en revanche à la limite haute (calcul « taux de remplissage de l'autoclave »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Agitation de 8 h à température ambiante avant le chauffage pour CdS, contre 0,5 h pour le Cu1.97S préparé « par la même méthode » (annexe) : écart non expliqué. Pendant ces 8 h, Cd(en)3 2+ et la thiourée peuvent déjà réagir ; et la série en temps (40 min, 100 min, 4 h) ne dit pas si le temps compté inclut ces 8 h.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le gabarit « micelles lamellaires de CTAB au-dessus de la seconde CMC » n'est pas plausible tel qu'écrit : 11,4 mmol/L de CTAB (calcul « concentration du CTAB ») dans un milieu sans eau, majoritairement éthylènediamine, où la micellisation est fortement défavorisée (la CMC du CTAB augmente avec la fraction d'éthylène glycol dans l'eau ; aucune donnée trouvée en EG ou en pur) ; les phases lamellaires du CTAB demandent dans l'eau des concentrations bien plus élevées. Aucun essai sans CTAB n'est montré : le rôle du CTAB n'est pas démontré.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "En éthylènediamine pure à 160 °C, Jang et al. observent comme stade initial des nanofeuillets émergeant de microsphères avant la croissance de bâtonnets puis de fils (72 h) : la morphologie en fleur de feuillets à 4 h est cohérente avec ce stade précoce d'une croissance dirigée par l'amine, sans recours au CTAB.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Solvothermal Synthesis of CdS Nanowires for Photocatalytic Hydrogen and Electricity Production",
+      "authors_or_publisher": "J. S. Jang, U. A. Joshi, J. S. Lee (J. Phys. Chem. C 111, 13280)",
+      "year": "2007",
+      "url_or_doi": "10.1021/jp072683b"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Indexation DRX hexagonale cohérente (calcul « Bragg sur les raies de CdS ») ; bande interdite directe 2,44 eV dans la plage connue du CdS massif (≈ 2,4 eV).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Activité du CdS sous UV + H2O2 : k = 0,008 min−1, plus faible que le témoin sans catalyseur (UV + H2O2 seul, k = 0,0101 min−1, 95,5 % décoloré à 280 min). À 280 min le modèle du premier ordre donne 89 % pour CdS contre 94 % sans catalyseur. Le CdS n'apporte donc aucune activité mesurable : la « photocatalyse insuffisante » des auteurs est en réalité nulle dans ces conditions, et le gain « environ dix fois » de CdS/Cu7S4-5 est mesuré contre une référence équivalente au blanc.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nitrate de cadmium et CdS cancérogènes (manipulation sous hotte, déchets de métaux lourds) ; thiourée suspectée cancérogène ; éthylènediamine corrosive, sensibilisante et volatile (vapeurs à l'ouverture de l'autoclave) ; nitrate et solvants organiques chauffés en cuve fermée (quantités faibles). Rien de cela n'est écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Cd2+ est complexé par l'éthylènediamine en large excès (Cd(en)3 2+) ; à 160 °C l'amine décompose la thiourée et libère S2−/HS− lentement, ce qui limite la sursaturation. CdS wurtzite germe en petites particules (40 min), puis croît en feuillets, morphologie connue des synthèses de CdS dans l'éthylènediamine où l'amine se lie aux faces et peut former des intermédiaires lamellaires CdS–amine ; l'assemblage en fleurs à 4 h correspond au stade précoce décrit par Jang et al. 2007 en en pure à 160 °C. Le rôle du CTAB (adsorption de surface, éventuellement apport de Br− coordinant) n'est pas établi faute d'essai sans CTAB.",
+    "sources": [
+     {
+      "title": "Solvothermal Synthesis of CdS Nanowires for Photocatalytic Hydrogen and Electricity Production",
+      "authors_or_publisher": "J. S. Jang, U. A. Joshi, J. S. Lee (J. Phys. Chem. C 111, 13280)",
+      "year": "2007",
+      "url_or_doi": "10.1021/jp072683b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "taux de remplissage (80 %) avec un solvant volatil : réduire à 60–70 % ou vérifier la tolérance de la cuve",
+    "durée réelle de l'agitation préalable (8 h ici, 0,5 h pour Cu1.97S) et ce que recouvre le « temps de réaction » de la série",
+    "faire un essai sans CTAB pour savoir si la morphologie en fleur lui est due",
+    "témoin sans catalyseur à mettre en regard du CdS : ici le CdS ne fait pas mieux que UV + H2O2 seul"
+   ]
+  },
+  {
+   "label": "CdS/Cu7S4-1",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de CdS engagée",
+     "inputs": "0,5 mmol ; M(CdS) = 144,48 g/mol",
+     "formula": "n × M",
+     "result": "72,2 mg",
+     "compared_to": "un lot de CdS-3 contient au plus 0,750 mmol (108 mg) : un lot suffit pour un échange",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques standard (chimie générale)"
+    },
+    {
+     "what": "Cu(NO3)2·3H2O à peser pour chaque rapport",
+     "inputs": "0,5 mmol CdS ; rapports 0,05 / 0,2 / 0,5 / 1 / 2 ; M = 241,60 g/mol",
+     "formula": "0,5 × r × M",
+     "result": "0,025 / 0,10 / 0,25 / 0,50 / 1,00 mmol, soit 6,0 / 24,2 / 60,4 / 120,8 / 241,6 mg",
+     "compared_to": "masses non écrites par les auteurs",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques standard (chimie générale)"
+    },
+    {
+     "what": "composition attendue si tout le Cu entre en Cu7S4 (4 Cd sortent pour 7 Cu)",
+     "inputs": "S = 0,5 mmol conservé ; Cd sorti = 4/7 × n(Cu)",
+     "formula": "% at. = n(X) / [n(Cu) + n(Cd) + n(S)]",
+     "result": "r = 0,05 : Cu 2,5 %, Cd 48,1 % ; r = 0,2 : Cu 9,6 %, Cd 42,5 % ; r = 0,5 : Cu 22,6 %, Cd 32,3 % ; r = 1 : Cu 41,2 %, Cd 17,6 %",
+     "compared_to": "EDX lu sur Fig. 2f : Cu 2 / 9 / 20 / 36 %, Cd 49 / 44 / 37 / 24 % : accord à r ≤ 0,5 ; à r = 1 l'échange n'est pas complet (≈ 85 % du Cu incorporé)",
+     "source": "valeurs de l'article (valeurs lues sur figure par l'extracteur)"
+    },
+    {
+     "what": "bilan électronique de l'échange",
+     "inputs": "Cu7S4 : degré d'oxydation moyen du Cu = 8/7 = +1,14 ; Cu apporté en Cu2+",
+     "formula": "électrons à fournir = 7 × (2 − 8/7) par motif Cu7S4",
+     "result": "6 e− par Cu7S4, soit ≈ 0,86 e− par Cu introduit",
+     "compared_to": "aucun réducteur n'est nommé ; le soufre du réseau (S2− → S0), un reste de thiourée ou le solvant doivent le fournir",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Les teneurs EDX des échantillons -1 à -3 suivent la composition attendue pour un échange Cd2+ → Cu (calcul « composition attendue si tout le Cu entre en Cu7S4 ») : le Cu introduit est presque entièrement incorporé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le Cu2+ apporté doit être réduit à Cu+ (calcul « bilan électronique de l'échange ») sans réducteur déclaré. Le réducteur le plus probable est le sulfure du réseau (oxydé en S0, que l'éthylènediamine dissout en polysulfures) ou un reste de thiourée de la « solution réactionnelle » non définie : la composition de cette solution conditionne donc le produit, et elle n'est pas écrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Échange à 25 °C pendant une nuit dans un autoclave fermé non chauffé : faisable (l'échange Cu → Cd est rapide à température ambiante dans les nanocristaux) ; l'autoclave n'apporte rien sinon de limiter l'oxydation à l'air.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Cation exchange on the nanoscale: an emerging technique for new material synthesis, device fabrication, and chemical sensing",
+      "authors_or_publisher": "J. B. Rivest, P. K. Jain (Chem. Soc. Rev. 42, 89)",
+      "year": "2013",
+      "url_or_doi": "10.1039/C2CS35241A"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Moteur de l'échange : sulfures de cuivre beaucoup moins solubles que CdS (Ksp de manuel ≈ 10−27 pour CdS contre ≈ 10−36 pour CuS et ≈ 10−48 pour Cu2S, ordres de grandeur) ; l'éthylènediamine en excès complexe aussi Cd2+ libéré et Cu2+, ce qui module la vitesse mais ne renverse pas le sens. Conservation du sous-réseau de soufre et donc de la morphologie : comportement général de l'échange cationique.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Cation exchange on the nanoscale: an emerging technique for new material synthesis, device fabrication, and chemical sensing",
+      "authors_or_publisher": "J. B. Rivest, P. K. Jain (Chem. Soc. Rev. 42, 89)",
+      "year": "2013",
+      "url_or_doi": "10.1039/C2CS35241A"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mott–Schottky : la partie Méthodes donne une électrode de référence Ag/AgCl, les Résultats donnent des potentiels « vs SCE », et la conversion utilise +0,197 V, valeur de Ag/AgCl en KCl saturé (SCE ≈ +0,241 V vs ENH). Si la mesure est bien contre Ag/AgCl, les valeurs « vs SCE » sont mal étiquetées ; si elle est contre SCE, les valeurs ENH sont fausses de 0,044 V. Les potentiels sont aussi exprimés en eV au lieu de V, et la mention « à pH 7 » ne change rien à la conversion entre références.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Reference Electrodes (Analytical Electrochemistry: Potentiometry, Analytical Sciences Digital Library)",
+      "authors_or_publisher": "LibreTexts Chemistry",
+      "year": "s.d.",
+      "url_or_doi": "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Analytical_Sciences_Digital_Library/Courseware/Analytical_Electrochemistry%3A_Potentiometry/03_Potentiometric_Theory/04_Reference_Electrodes"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les potentiels de bande de conduction varient peu (−0,363 à −0,423 V vs ENH) alors que le texte dit qu'ils « changent significativement » ; c'est la bande de valence (CB + Eg) qui se déplace, de ≈ +2,03 V (CdS) à ≈ +1,21 V (-5).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pas de mesure du cuivre passé en solution pendant la dégradation, ni d'essai de filtration à chaud : les équations Fenton (2)–(4) sont écrites pour du Cu2+ dissous, la part homogène de l'activité est inconnue. Le cadmium relargué par photocorrosion n'est pas mesuré non plus, alors que l'application visée est le traitement d'eaux usées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "H2O2 de concentration non écrite (10 mL dans 30 mL de solution) au contact d'un catalyseur au cuivre à 30 °C : dégagement d'O2 possible, moussage ; si H2O2 est à 30 %, ≈ 98 mmol, soit ≈ 2,4 mol/L dans le réacteur (calcul de la voie CdS/Cu7S4-5). Déchets contenant Cd et Cu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Échange cationique topotactique : Cu2+ en solution (complexé par l'éthylènediamine) diffuse dans le réseau de CdS, est réduit en Cu+ (probablement par le sulfure de surface ou un reste de thiourée) et remplace Cd2+ (2 Cu+ ou 7 Cu pour 4 Cd), le sous-réseau S2− restant en place, ce qui conserve la forme des feuillets ; le moteur est l'écart de solubilité CuxS ≪ CdS. Les domaines de Cu7S4 se réorganisent en maille monoclinique (roxbyite), la différence de maille crée les défauts et les trous observés.",
+    "sources": [
+     {
+      "title": "Cation exchange on the nanoscale: an emerging technique for new material synthesis, device fabrication, and chemical sensing",
+      "authors_or_publisher": "J. B. Rivest, P. K. Jain (Chem. Soc. Rev. 42, 89)",
+      "year": "2013",
+      "url_or_doi": "10.1039/C2CS35241A"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "composition et volume de la « solution réactionnelle » (solvant neuf ou solution usée de la synthèse de CdS, avec ou sans thiourée résiduelle) : elle fixe le réducteur du Cu2+",
+    "masses de Cu(NO3)2·3H2O : 6,0 à 241,6 mg pour 0,5 mmol de CdS (calcul « Cu(NO3)2·3H2O à peser pour chaque rapport »)",
+    "électrode de référence réelle (Ag/AgCl ou SCE) avant d'utiliser les potentiels de bande",
+    "concentration du H2O2 et dosage du Cu et du Cd passés en solution après catalyse"
+   ]
+  },
+  {
+   "label": "CdS/Cu7S4-5",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Cu disponible contre Cu nécessaire pour Cu7S4",
+     "inputs": "0,5 mmol CdS (0,5 mmol S) ; rapport 1:2 → 1,00 mmol Cu",
+     "formula": "n(Cu) requis = 7/4 × n(S)",
+     "result": "0,875 mmol requis ; 1,00 mmol apporté (excès de 14 %) ; si tout le Cu entre et aucun S ne part : Cu/S = 2,0 (Cu 66,7 % at.)",
+     "compared_to": "EDX : Cu 70,15 %, S 29,66 %, Cd 0,19 % → Cu/S = 2,37",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport Cu/S mesuré",
+     "inputs": "70,15 / 29,66",
+     "formula": "Cu/S",
+     "result": "2,37",
+     "compared_to": "Cu7S4 : 1,75 ; Cu2S (le plus riche en cuivre des sulfures) : 2,0 ; maximum permis par le bilan de matière : 2,0",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de H2O2 dans le test (hypothèse : H2O2 à 30 % ou à 3 %)",
+     "inputs": "10 mL ; 30 % : 1,11 g/mL ; 3 % : ≈ 1,0 g/mL ; M = 34,01 g/mol ; volume total 40 mL",
+     "formula": "V × ρ × w / M / V(total)",
+     "result": "30 % : 98 mmol, 2,4 mol/L ; 3 % : 8,8 mmol, 0,22 mol/L",
+     "compared_to": "bleu de méthylène : 30 mg/L × 30 mL = 0,9 mg = 2,8 µmol (M = 319,85 g/mol) → H2O2/MB ≈ 3 000 à 35 000",
+     "source": "valeurs de l'article ; concentration du H2O2 non écrite"
+    },
+    {
+     "what": "piégeage de ·OH par 1 mM d'IPA face à H2O2",
+     "inputs": "k(·OH + 2-propanol) ≈ 1,9×10^9 L/(mol·s) ; k(·OH + H2O2) ≈ 2,7×10^7 L/(mol·s) ; [IPA] = 1 mmol/L ; [H2O2] = 0,22 à 2,4 mol/L",
+     "formula": "k[S] pour chaque puits",
+     "result": "IPA : 1,9×10^6 s−1 ; H2O2 : 5,9×10^6 à 6,6×10^7 s−1 → l'IPA capte 3 à 25 % des ·OH au plus",
+     "compared_to": "un piège doit capter l'essentiel des radicaux pour conclure",
+     "source": "constantes de vitesse : Buxton et al. 1988 (valeurs citées de mémoire, à relire dans les tables)"
+    },
+    {
+     "what": "constantes de premier ordre recalculées à 20 min (MB, UV)",
+     "inputs": "décoloration à 20 min : 15 / 44 / 63 / 74 / 76 / 98 % (CdS, -1 à -5)",
+     "formula": "k = −ln(1 − X)/t",
+     "result": "0,0081 / 0,029 / 0,050 / 0,067 / 0,071 / 0,196 min−1",
+     "compared_to": "valeurs des auteurs (ajustement sur toute la courbe) : 0,008 / 0,039 / 0,058 / 0,076 / 0,086 / 0,168 min−1 → même ordre et même classement",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "plage spectrale de la réflectance diffuse en énergie",
+     "inputs": "350–800 nm",
+     "formula": "E (eV) = 1240 / λ (nm)",
+     "result": "1,55–3,54 eV",
+     "compared_to": "Eg annoncé pour -5 : 1,61 eV, à 0,06 eV du bord de la plage mesurée, sur une courbe décrite comme « presque plate »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport Cu/S de 2,37 par EDX (calcul « rapport Cu/S mesuré ») : impossible pour Cu7S4 (1,75) et au-delà même du maximum de 2,0 que permet le bilan de matière (calcul « Cu disponible contre Cu nécessaire pour Cu7S4 ») si aucun soufre n'est perdu. Soit l'EDX (sans étalon, raies Cu L et S K) surestime le cuivre, soit du soufre a quitté le solide (oxydation de S2− par Cu2+ en S0 dissous par l'éthylènediamine), soit une phase oxygénée de cuivre est présente (O vu en XPS, non compté en EDX). La formule Cu7S4 n'est pas démontrée par la composition.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Points quantiques » de CdS et « hétérojonction » : aucune microscopie en transmission, aucune taille de cristallite (Scherrer) ni distribution de taille ; seul un MEB conventionnel est utilisé. Le CdS n'est plus visible en DRX et l'EDX donne 0,19 % at. de Cd, au voisinage de la limite de détection de l'EDS. Rien ne montre des domaines de CdS de quelques nanomètres ni une interface CdS/Cu7S4 : l'appellation QDs et l'hétérojonction sont des affirmations sans preuve discriminante.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande interdite de 1,61 eV tirée d'un tracé de Kubelka–Munk sur une réflectance « presque plate » entre 350 et 750 nm, à 0,06 eV du bord de la plage mesurée (calcul « plage spectrale de la réflectance diffuse en énergie ») ; Cu7S4 est un semi-conducteur auto-dopé de type p à résonance plasmon dans le proche infrarouge, pour lequel l'extrapolation de Tauc est mal définie. Valeur indicative seulement.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Dual-plasmonic Au@Cu7S4 yolk@shell nanocrystals for photocatalytic hydrogen production across visible to near infrared spectral region",
+      "authors_or_publisher": "C.-W. Tsao et al. (Y.-J. Hsu, T.-F. M. Chang) (Nat. Commun. 15)",
+      "year": "2024",
+      "url_or_doi": "10.1038/s41467-023-44664-3"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Transfert d'électrons « de la BC de CdS vers la BC de Cu7S4 » : les potentiels de bande des auteurs donnent −0,413 V (CdS) et −0,403 V (-5) vs ENH, soit aucune force motrice mesurable ; et pour un matériau de type p (Cu7S4) la pente de Mott–Schottky et le sens de la bande mesurée ne sont pas discutés. Le schéma de bandes n'est pas soutenu par les mesures.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Dual-plasmonic Au@Cu7S4 yolk@shell nanocrystals for photocatalytic hydrogen production across visible to near infrared spectral region",
+      "authors_or_publisher": "C.-W. Tsao et al. (Y.-J. Hsu, T.-F. M. Chang) (Nat. Commun. 15)",
+      "year": "2024",
+      "url_or_doi": "10.1038/s41467-023-44664-3"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Pièges de radicaux : 1 mM d'IPA ne peut pas capter les ·OH en présence de 0,2 à 2,4 mol/L de H2O2 (calcul « piégeage de ·OH par 1 mM d'IPA face à H2O2 ») : l'absence d'effet de l'IPA n'exclut pas ·OH. Le Na2-EDTA (1 mM) chélate fortement Cu2+ (log K(CuY2−) ≈ 18,8, valeur de manuel) et bloque le cycle Fenton Cu2+/Cu+ : le ralentissement observé ne prouve pas que les trous dominent. La conclusion « les trous sont l'espèce principale » contredit aussi l'activité à l'obscurité (k = 0,0547 min−1, un tiers de l'activité sous UV).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Critical Review of rate constants for reactions of hydrated electrons, hydrogen atoms and hydroxyl radicals (·OH/·O−) in aqueous solution",
+      "authors_or_publisher": "G. V. Buxton, C. L. Greenstock, W. P. Helman, A. B. Ross (J. Phys. Chem. Ref. Data 17, 513)",
+      "year": "1988",
+      "url_or_doi": "10.1063/1.555805"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison au Cu1.97S direct (k = 0,1159 contre 0,168 min−1 pour MB) faite à masse égale (30 mg) sans surface BET chiffrée ni morphologie décrite : l'effet de la « structure » ne peut pas être séparé de celui de la quantité de cuivre accessible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Les constantes de premier ordre recalculées à 20 min encadrent celles des auteurs et gardent le même classement (calcul « constantes de premier ordre recalculées à 20 min (MB, UV) ») : pas d'erreur de calcul visible.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À fort rapport Cu/Cd, l'échange est presque total : Cu2+ est réduit en Cu+ aux dépens d'une partie du sulfure (ce qui peut expliquer Cu/S > 1,75 et les signaux S–O), le sous-réseau soufré se réorganise en Cu7S4 monoclinique et la contraction de volume crée des trous et des grains dans les feuillets. L'activité catalytique s'explique d'abord par la décomposition de H2O2 de type Fenton par le couple Cu+/Cu2+ (en surface et peut-être en solution), accélérée par l'UV (photo-Fenton et photolyse de H2O2) ; la part de photocatalyse par séparation de charges à une hétérojonction CdS/Cu7S4 n'est pas démontrée.",
+    "sources": [
+     {
+      "title": "Cation exchange on the nanoscale: an emerging technique for new material synthesis, device fabrication, and chemical sensing",
+      "authors_or_publisher": "J. B. Rivest, P. K. Jain (Chem. Soc. Rev. 42, 89)",
+      "year": "2013",
+      "url_or_doi": "10.1039/C2CS35241A"
+     },
+     {
+      "title": "Dual-plasmonic Au@Cu7S4 yolk@shell nanocrystals for photocatalytic hydrogen production across visible to near infrared spectral region",
+      "authors_or_publisher": "C.-W. Tsao et al. (Y.-J. Hsu, T.-F. M. Chang) (Nat. Commun. 15)",
+      "year": "2024",
+      "url_or_doi": "10.1038/s41467-023-44664-3"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "composition par une méthode quantitative (ICP après dissolution) plutôt que l'EDX sans étalon : Cu/S = 2,37 est impossible pour Cu7S4",
+    "MET/METHR pour établir l'existence de domaines de CdS nanométriques",
+    "dosage du Cu et du Cd en solution après le test et essai de filtration à chaud",
+    "pièges de radicaux à des concentrations comparables à celle de H2O2, et témoin EDTA à l'obscurité"
+   ]
+  },
+  {
+   "label": "Cu1.97S",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de Cu(NO3)2·3H2O",
+     "inputs": "0,1812 g ; M = 241,60 g/mol",
+     "formula": "m / M",
+     "result": "0,750 mmol",
+     "compared_to": "thiourée 0,750 mmol (même quantité que pour CdS)",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques standard (chimie générale)"
+    },
+    {
+     "what": "rapport Cu:S des précurseurs contre le produit",
+     "inputs": "0,750 mmol Cu ; 0,750 mmol S",
+     "formula": "n(Cu)/n(S)",
+     "result": "1:1",
+     "compared_to": "Cu1.97S : 1,97:1 → au plus 0,381 mmol de produit, la moitié du soufre reste en solution ; le cuivre est le réactif limitant",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "bilan redox",
+     "inputs": "Cu2+ apporté ; Cu+ dans Cu1.97S",
+     "formula": "1 e− par Cu",
+     "result": "0,75 mmol d'électrons à fournir",
+     "compared_to": "thiourée, éthylènediamine et éthylène glycol à 160 °C sont des réducteurs suffisants pour Cu2+ → Cu+",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport Cu:S 1:1 des précurseurs pour un produit Cu1.97S (calcul « rapport Cu:S des précurseurs contre le produit ») : le soufre est en excès d'un facteur 2, ce qui est compatible ; le cuivre est limitant. La phase est seulement montrée en DRX (Fig. S9), sans indexation écrite.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Cu2+ → Cu+ en milieu amine/polyol à 160 °C avec thiourée : réduction attendue (calcul « bilan redox »), cohérente avec une phase riche en Cu+.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Mêmes solvants, même remplissage (80 %) et même température que CdS-3 : mêmes réserves sur le taux de remplissage ; seule l'agitation préalable diffère (0,5 h contre 8 h).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Référence de catalyse sans surface BET chiffrée ni description de taille et de forme écrites (Fig. S2 et S4 seulement) : comparaison avec CdS/Cu7S4-5 seulement qualitative.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Complexation de Cu2+ par l'éthylènediamine, réduction en Cu+ par la thiourée ou le milieu à 160 °C, puis précipitation d'un sulfure de cuivre(I) déficitaire (djurléite Cu1.97S) par le sulfure libéré de la thiourée.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "indexation de la phase (Fig. S9) et rendement : le cuivre est limitant, la moitié du soufre ne réagit pas",
+    "taux de remplissage de l'autoclave (80 %)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse du CdS (stœchiométrie exacte Cd:S = 1:1, 160 °C en autoclave) et l'échange cationique à température ambiante sont chimiquement plausibles et faciles à refaire, sous réserve de la « solution réactionnelle » non définie et d'un autoclave rempli à 80 %. Les interprétations sont plus fragiles : le gabarit de micelles lamellaires de CTAB n'est pas crédible à 11 mmol/L en milieu amine/glycol et n'est testé par aucun essai sans CTAB ; la composition EDX de CdS/Cu7S4-5 (Cu/S = 2,37) dépasse ce que permet le bilan de matière ; les « points quantiques » et l'hétérojonction ne sont soutenus par aucune mesure de taille ; les pièges de radicaux sont sous-dosés face au H2O2 ; et le CdS de référence n'est pas plus actif que le blanc UV + H2O2.",
+  "author_errors_suspected": [
+   "Électrode de référence : Ag/AgCl dans les Méthodes, « vs SCE » dans les Résultats, conversion avec +0,197 V (valeur Ag/AgCl saturé) ; potentiels exprimés en eV.",
+   "Cu/S = 70,15/29,66 = 2,37 pour CdS/Cu7S4-5, incompatible avec Cu7S4 et avec le cuivre apporté (Cu/S ≤ 2,0).",
+   "Le texte dit que le potentiel de la bande de conduction change « significativement » alors qu'il reste entre −0,36 et −0,42 V vs ENH.",
+   "CdS (k = 0,008 min−1) moins actif que le témoin sans catalyseur (k = 0,0101 min−1) : la comparaison « dix fois plus rapide que CdS » est faite contre un équivalent du blanc.",
+   "Agitation préalable de 8 h (CdS) contre 0,5 h (Cu1.97S) pour une méthode présentée comme identique."
+  ],
+  "comparison_with_database": "Une seule autre synthèse de CdS dans la base (PMC9060541, voie sonochimique en micro-émulsion, cœurs de ≈ 9 nm) : méthode et échelle trop différentes pour comparer les conditions. Aucune autre voie Cu7S4 ou Cu1.97S dans la base."
+ },
+ "sources_not_found": [
+  "CMC du CTAB dans l'éthylène glycol pur ou dans l'éthylènediamine (seule la tendance à la hausse avec la fraction d'EG dans l'eau a été trouvée, sans valeur)",
+  "constantes d'Antoine et enthalpie de vaporisation de l'éthylènediamine (NIST WebBook injoignable depuis l'environnement) : estimation de pression faite avec des valeurs de manuel non revérifiées",
+  "source primaire des Ksp de CdS, CuS et Cu2S (ordres de grandeur de manuel, non revérifiés ici)",
+  "étude dédiée des intermédiaires lamellaires CdS–éthylènediamine (seul l'analogue CdSe(en)0,5 a été vu)"
+ ]
+}

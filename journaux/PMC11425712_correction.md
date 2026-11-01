@@ -1,0 +1,17 @@
+# PMC11425712 — correction (journal de décisions)
+
+- **XPS Co 2p3/2 (constat 7)** : chaque voie reçoit sa rangée de la Table S1 (annexe présente dans le texte), citée en continu (« Bare-LCP 781.2 18.2 782.5 31.0 786.2 50.8 », etc.). Les valeurs à deux décimales du texte (781.18 / 782.49 / 786.22) sortent du résultat et sont expliquées dans un nouveau doute : l'article les donne pour « all three samples » avec renvoi à la Table S1.
+- **P 2p (10)** : plage 133.5–134.4 eV ajoutée en outcome (`value_text`) aux trois voies matériau ; le texte la donne pour les trois échantillons ensemble, pas par échantillon.
+- **tendance_observee (1, 2)** : « pour toutes les grandeurs » retiré. Le texte réécrit sépare ce qui suit l'ordre bare < CA < DHC (BET, capacité, rétention, fwhm) de ce qui n'est comparé qu'entre bare et DHC (antisites, Rs, RSEI, RCT) et note que Rs va à contre-sens. La citation de cette annotation (« highest level of crystallinity ») est conservée.
+- **fwhm** : aucune valeur modifiée (0.154 / 0.185 / 0.190 sont justes). Le sens inversé est une annotation `limite_reproductibilite` sur bare-LCP et sur DHC-LCP (décision science) ; le calcul de Scherrer est attribué au critique, non à l'article.
+- **Rietveld bare-LCP (8)** : entrée ajoutée avec la phrase de l'article ; aucune valeur numérique (Fig. S2 est une image absente). PDXL2 et FullProf Suite ajoutés aux conditions XRD des trois voies, d'après la partie expérimentale.
+- **Fig. 2c (9)** : outcome `inner_wall_structure` aux trois voies (phrase « similar patterned and rough inner wall structure in all three samples ») ; outcome `internal_channels` sur DHC-LCP seul, avec la phrase des auteurs (mécanisme, pas une mesure).
+- **Plateaux (11)** : `plateau_length_increase_fluorinated_vs_conventional` = 5 % sur DHC-LCP, `value_text` « approximately 5% » pour garder le caractère approché.
+- **Doute rétention (3)** : « Fig. 4d » remplacé par « Fig. 4c » dans le doute ; la mention de la Fig. 4d pour les capacités à 1 C (doute « Valeurs lues sur figure ») est correcte et laissée.
+- **conclusion_auteurs (4)** : reformulé, une seule concentration testée, meilleur que CA et que l'absence d'additif, pas d'optimisation.
+- **FT-IR bare-LCP (5)** : « absence de décalage » remplacé par « référence pour le décalage observé avec les additifs ».
+- **TG-DTA (6 du message / constat 6)** : gardée dans la voie DHC-LCP mais l'intitulé de technique et le résultat disent qu'il s'agit du réactif DHC seul ; doute ajouté. Pas de nouvelle voie (règle 3 : échantillon non synthétisé).
+- **Valeurs approchées (12)** : `amount_text` « about 100 μL » sur les deux électrolytes (amount 100 conservé) ; `value_text` « 1.0 ± 0.1 mg cm–2 » sur la charge d'électrode.
+- **Eau distillée (13)** : fournisseur Wako renseigné par la phrase générale « All chemicals mentioned above… » (règle 4, lecture littérale), `supplier` retiré de `not_stated` ; le doute dit que l'eau est peut-être produite sur place, ce que l'article ne dit pas.
+- **Science** : aucune valeur modifiée. `mecanisme_analyse` de bare-LCP réécrit en hypothèse (H3PO4 déplace HNO3, phosphates acides condensés à 500–600 °C, Co2+ conservé) ; un `mecanisme_analyse` DHC-LCP ajouté (NH4NO3, pas de témoin sans citrate). Les 0,12 M « total » ne sont qu'en annotation (hypothèse 0,04 M par ion, réf. 24), jamais en paramètre. Paramètres de maille de β-Li3PO4 et DOI non importés.
+- **Non appliqué** : Fig. 6a (≈ 105 contre 100) et Fig. 7c (63 % contre « about 10% ») : discordances déjà jugées sous le seuil ou propres à l'article, aucune correction.

@@ -1,0 +1,595 @@
+{
+ "pmcid": "PMC9063869",
+ "routes": [
+  {
+   "label": "HAP_160C_40min_0.06M",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles et rapport Ca/P de la voie de base",
+     "inputs": "100 mL CaCl2·2H2O 0,1 mol/L ; 100 mL Na2HPO4·12H2O 0,06 mol/L",
+     "formula": "n = C × V ; Ca/P = n(Ca)/n(P)",
+     "result": "Ca 10,0 mmol (1,470 g de sel) ; P 6,0 mmol (2,149 g de sel) ; Ca/P = 1,667",
+     "compared_to": "Ca10(PO4)6(OH)2 : Ca/P = 10/6 = 1,667",
+     "source": "valeurs de l'article ; masses molaires calculées (masses atomiques IUPAC) : Ca10(PO4)6(OH)2 1004,6 g/mol ; CaCl2·2H2O 147,0 g/mol ; Na2HPO4·12H2O 358,1 g/mol ; Na2HPO4 141,96 g/mol"
+    },
+    {
+     "what": "masse théorique d'HAP (voie de base)",
+     "inputs": "6,0 mmol P ; M(HAP) = 1004,6 g/mol ; volume mélangé 200 mL (sans l'ammoniaque)",
+     "formula": "m = n(P)/6 × M ; m/V",
+     "result": "1,005 g d'HAP, soit 5,0 g/L au plus",
+     "compared_to": "aucune masse obtenue n'est donnée pour cette voie",
+     "source": "masses molaires calculées (masses atomiques IUPAC) : Ca10(PO4)6(OH)2 1004,6 g/mol ; CaCl2·2H2O 147,0 g/mol ; Na2HPO4·12H2O 358,1 g/mol ; Na2HPO4 141,96 g/mol"
+    },
+    {
+     "what": "base consommée par la précipitation",
+     "inputs": "10 Ca2+ + 6 HPO4 2− + 2 H2O → Ca10(PO4)6(OH)2 + 8 H+ ; 6,0 mmol P",
+     "formula": "n(H+) libérés = 8/6 × n(P)",
+     "result": "8,0 mmol H+ à neutraliser (1,33 OH− par P)",
+     "compared_to": "quantité d'NH3·H2O non donnée par l'article",
+     "source": "équation équilibrée (arithmétique)"
+    },
+    {
+     "what": "ammoniaque nécessaire pour tenir pH 10 (voie de base)",
+     "inputs": "8,0 mmol NH4+ formés ; pKa(NH4+/NH3) = 9,25 à 25 °C ; ammoniaque à 25 % ≈ 13,3 mol/L (densité 0,907)",
+     "formula": "[NH3]/[NH4+] = 10^(10 − 9,25) = 5,6 ; n(NH3 total) = 8,0 × (1 + 5,6)",
+     "result": "≈ 53 mmol NH3, soit ≈ 4 mL d'ammoniaque à 25 %",
+     "compared_to": "volume réactionnel 200 mL : dilution ≈ 2 %",
+     "source": "pKa de NH4+ (valeur de manuel, 9,25 à 25 °C) ; arithmétique"
+    },
+    {
+     "what": "durée de montée en température avant le palier",
+     "inputs": "7 °C/min jusqu'à 120 °C puis 10 °C/min ; départ 25 °C",
+     "formula": "(120 − 25)/7 + (160 − 120)/10",
+     "result": "13,6 + 4,0 = 17,6 min de rampe avant le palier de 160 °C (19,6 min pour 180 °C ; 5,0 min pour 60 °C)",
+     "compared_to": "palier de 40 min : la rampe représente ~30 % du temps chaud total",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "distance (002) mesurée en HRTEM contre maille HAP",
+     "inputs": "d = 0,342 nm ; paramètre c de l'HAP ≈ 0,688 nm",
+     "formula": "d(002) = c/2 ; 2θ = 2 arcsin(λ/2d), λ = 0,154184 nm",
+     "result": "c/2 ≈ 0,344 nm (écart 0,6 %) ; 2θ(002) ≈ 26,05°",
+     "compared_to": "raie (002) de l'HAP à 2θ ≈ 25,9° (Cu Kα)",
+     "source": "paramètre de maille de l'HAP (P63/m, a ≈ 0,942 nm, c ≈ 0,688 nm, valeur de manuel) ; arithmétique"
+    },
+    {
+     "what": "pression dans le réacteur téflon",
+     "inputs": "eau à 160 °C et 180 °C ; NH3 dissous en plus",
+     "formula": "pression de vapeur saturante de l'eau à T",
+     "result": "≈ 0,62 MPa à 160 °C ; ≈ 1,00 MPa à 180 °C, plus la pression partielle de NH3",
+     "compared_to": "limite de pression du réacteur Master-14 non donnée par l'article",
+     "source": "tables de vapeur IAPWS (valeurs de manuel ; NIST WebBook injoignable depuis ce poste)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ca/P = 1,667 dans toutes les solutions (calcul « moles et rapport Ca/P »), conforme à Ca10(PO4)6(OH)2 ; le pH 10 maintenu par NH3 apporte les OH− et favorise l'apatite stœchiométrique plutôt que la brushite ou la monétite (phases acides).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La précipitation libère 8 H+ par HAP (calcul « base consommée ») : il faut ≈ 53 mmol NH3 pour tenir pH 10 à 0,06 mol/L, et ≈ 350 mmol (≈ 26 mL d'ammoniaque à 25 %) à 0,4 mol/L. L'article ne donne ni la concentration ni le volume d'ammoniaque ; à forte concentration ce volume dilue le milieu de ~13 % et fixe la force ionique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "160–180 °C en réacteur téflon fermé : pression de vapeur de l'eau ≈ 0,62–1,00 MPa (calcul « pression dans le réacteur »), à laquelle s'ajoute NH3 volatil ; acceptable pour un réacteur micro-ondes fermé, mais le taux de remplissage (200 mL répartis sur combien de réacteurs ?) et la mesure de température (sonde ou IR) ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La rampe dure 17,6 min avant le palier de 160 °C (calcul « durée de montée ») : la série en durée (1 à 50 min) mesure le temps de palier, pas le temps de réaction ; la cristallinité de 0,61 « en 1 min » est obtenue après ~19 min de chauffe dont ~8 min au-dessus de 100 °C. Les auteurs concluent pourtant que l'HAP bien cristallisée se forme « within 1 min ».",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le mécanisme des auteurs (chauffage par rotation dipolaire de l'eau) omet la conduction ionique, dominante dans un milieu à 0,1–0,8 mol/L de NaCl et NH4Cl ; et la comparaison avec l'hydrothermal classique se fait à une vitesse de chauffe presque égale (7 °C/min contre 7 puis 10 °C/min), si bien que « le chauffage rapide » n'explique pas la différence observée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Use of Microwave Irradiation in Organic Synthesis. From Laboratory Curiosity to Standard Practice in Twenty Years",
+      "authors_or_publisher": "Kappe C. O., Chimia 60, 308",
+      "year": "2006",
+      "url_or_doi": "https://www.chimia.ch/chimia/article/view/2006_308"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bâtonnets de 55–65 nm × 20–29 nm et cristallinité qui sature vers 160 °C : ordre de grandeur habituel pour une HAP hydrothermale à pH basique (PMC9036687 : bâtonnets 50–100 nm × 40–50 nm à 160 °C, 8 h, pH 9–10). Distance HRTEM 0,342 nm compatible avec (002) (calcul « distance (002) »).",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence interne : le texte donne le même diamètre 19,6 ± 4,29 nm à 1 min et à 20 min, tout en écrivant que le diamètre croît avec la durée ; une des deux valeurs est probablement une copie (la figure 4d se lit autrement selon l'extracteur).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : réacteurs fermés chauffés à 160–180 °C (≈ 0,6–1,0 MPa d'eau plus NH3) ; ammoniaque concentrée irritante et volatile (hotte) ; nanopoudre sèche lyophilisée inhalable ; mélange à pH 10 à l'air qui capte le CO2 (carbonatation de l'apatite, voir bandes 874 et 1420–1446 cm−1).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Les gouttelettes de CaCl2 nébulisées tombent dans la solution de HPO4 2− à pH 10 : précipitation immédiate d'un phosphate de calcium amorphe ou d'une apatite déficiente en calcium faiblement cristallisée (la phase « en paillettes » vue à 60 °C en est probablement un reste). Pendant la rampe et le palier hydrothermal, ce précurseur se dissout et reprécipite en HAP, avec croissance préférentielle selon l'axe c (franges (002) à 0,342 nm, bâtonnets) et mûrissement qui épaissit les bâtonnets quand la température monte. Le micro-ondes agit d'abord par effet thermique (conduction ionique et rotation dipolaire) ; aucun effet non thermique n'est démontré par l'article. La nébulisation agit sur la sursaturation locale au mélange (taille et agrégation du précurseur), pas sur le chauffage.",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     },
+     {
+      "title": "The Use of Microwave Irradiation in Organic Synthesis. From Laboratory Curiosity to Standard Practice in Twenty Years",
+      "authors_or_publisher": "Kappe C. O., Chimia 60, 308",
+      "year": "2006",
+      "url_or_doi": "https://www.chimia.ch/chimia/article/view/2006_308"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration et volume d'ammoniaque nécessaires (≈ 4 mL à 25 % pour la voie de base, ≈ 26 mL à 0,4 mol/L) et pH mesuré après mélange",
+    "nombre et volume des réacteurs, taux de remplissage, pression maximale admise",
+    "temps total de chauffe (rampe de 17,6 min) à reporter avec la durée de palier",
+    "travailler sous N2 ou avec de l'eau décarbonatée si une apatite non carbonatée est voulue",
+    "mode de séparation avant lavage (centrifugation ou filtration)"
+   ]
+  },
+  {
+   "label": "HAP_60C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "À 60 °C (rampe de 5 min), cristallinité 0,208 et paillettes résiduelles : cohérent avec un précurseur amorphe ou une apatite déficiente pas encore recristallisée ; la nature des paillettes (phosphate octocalcique ou amorphe) n'est pas identifiée par l'article.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "recristallisation incomplète du précurseur amorphe à basse température",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase en paillettes (DRX lente, IR)"
+   ]
+  },
+  {
+   "label": "HAP_1min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "temps passé au-dessus de 100 °C pour l'échantillon « 1 min »",
+     "inputs": "7 °C/min jusqu'à 120 °C, 10 °C/min au-delà, palier 1 min",
+     "formula": "(120 − 100)/7 + (160 − 120)/10 + 1",
+     "result": "2,9 + 4,0 + 1 = 7,9 min au-dessus de 100 °C ; 18,6 min de chauffe totale depuis 25 °C",
+     "compared_to": "libellé « 1 min » et conclusion « within 1 min »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Le libellé « 1 min » désigne le palier ; l'échantillon a chauffé 18,6 min dont 7,9 min au-dessus de 100 °C (calcul « temps passé au-dessus de 100 °C »). La phrase « HAP with good crystallinity can be synthesized by M-H method within 1 min » est fausse telle qu'écrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "cristallisation pendant la rampe",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "prélever un témoin à t = 0 de palier pour séparer rampe et palier"
+   ]
+  },
+  {
+   "label": "HAP_180C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "180 °C en réacteur fermé : ≈ 1,00 MPa de vapeur d'eau plus NH3 (voir calcul « pression dans le réacteur » de la voie de base) ; vérifier la limite du réacteur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "saturation de la cristallinité au-delà de 160 °C",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "pression maximale du réacteur"
+   ]
+  },
+  {
+   "label": "HAP_0.5M",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Na2HPO4 à 0,5 mol/L contre solubilité",
+     "inputs": "0,5 mol/L = 17,9 g de Na2HPO4·12H2O dans 100 mL ; solubilité de Na2HPO4 anhydre 77 g/L à 20 °C (Fisher) ; ≥ 100 g/L à 20 °C (PubChem, NTP)",
+     "formula": "C(sat) = 77/141,96",
+     "result": "C(sat) ≈ 0,54 mol/L (≥ 0,70 mol/L selon PubChem) ; 0,5 mol/L = 92 % de 0,54 ; 0,4 mol/L = 74 %",
+     "compared_to": "phrase des auteurs « close to the saturated concentration »",
+     "source": "fiche Fisher / Merck ; PubChem"
+    },
+    {
+     "what": "rapport Ca/P à 0,5 mol/L",
+     "inputs": "0,835 mol/L CaCl2 ; 0,5 mol/L Na2HPO4",
+     "formula": "0,835/0,5",
+     "result": "1,67",
+     "compared_to": "1,667",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "0,5 mol/L est proche de la saturation à 20 °C (calcul « Na2HPO4 à 0,5 mol/L ») : l'explication des auteurs est plausible, mais les sources divergent (0,54 contre ≥ 0,70 mol/L) et une solution préparée un jour froid peut cristalliser ; l'agglomération peut aussi venir de la sursaturation locale plus forte au mélange, que les auteurs n'isolent pas.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "di-Sodium hydrogen phosphate anhydrous for analysis EMSURE (fiche produit : solubilité 77 g/L à 20 °C)",
+      "authors_or_publisher": "Fisher Scientific / Merck, fiche fournisseur",
+      "year": "consultée 2026",
+      "url_or_doi": "https://www.fishersci.com/shop/products/di-sodium-hydrogen-phosphate-anhydrous-for-analysis-emsure-acs-emd-millipore-2/M1065862500"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Valeur PubChem de comparaison (≥ 100 mg/mL à 20 °C) : la limite exacte dépend de la source et de l'hydrate.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Disodium hydrogen phosphate (section Solubility : ≥ 100 mg/mL à 20 °C, NTP 1992)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "consultée 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Disodium_hydrogen_phosphate"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "sursaturation trop forte au point de mélange → nucléation massive et agrégation",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "préparer la solution à 25 °C au moins et vérifier qu'elle reste limpide"
+   ]
+  },
+  {
+   "label": "HAP_0.4M",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rendement théorique maximal à 0,4 mol/L",
+     "inputs": "100 mL Na2HPO4 0,4 mol/L (40 mmol P) ; 100 mL CaCl2 0,668 mol/L (66,8 mmol Ca) ; M(HAP) = 1004,6 g/mol",
+     "formula": "m = 40/6 mmol × 1004,6 ; m/V",
+     "result": "6,697 g ; 33,5 g/L sur 200 mL ; 32,8 g/L avec 4 mL d'ammoniaque ; 29,6 g/L avec ≈ 26 mL",
+     "compared_to": "rendement annoncé 0,033 kg/L = 98,5 % du maximum sur 200 mL",
+     "source": "masses molaires calculées (masses atomiques IUPAC) : Ca10(PO4)6(OH)2 1004,6 g/mol ; CaCl2·2H2O 147,0 g/mol ; Na2HPO4·12H2O 358,1 g/mol ; Na2HPO4 141,96 g/mol"
+    },
+    {
+     "what": "ammoniaque nécessaire à 0,4 mol/L",
+     "inputs": "53,3 mmol H+ libérés ; [NH3]/[NH4+] = 5,6 à pH 10 ; ammoniaque 25 % ≈ 13,3 mol/L",
+     "formula": "53,3 × 6,6 / 13,3",
+     "result": "≈ 353 mmol NH3 ≈ 26 mL",
+     "compared_to": "non donné par l'article",
+     "source": "pKa NH4+ 9,25 (manuel) ; arithmétique"
+    },
+    {
+     "what": "raie β-TCP à d = 2,8809 Å",
+     "inputs": "λ = 0,154184 nm",
+     "formula": "2θ = 2 arcsin(λ/2d)",
+     "result": "2θ = 31,04°",
+     "compared_to": "raie la plus intense de β-Ca3(PO4)2 (0 2 10) à d ≈ 2,88 Å ; HAP (211) à d ≈ 2,81 Å, donc raie discriminante",
+     "source": "fiche de diffraction β-TCP (JCPDS 09-0169, valeur de manuel) ; arithmétique"
+    },
+    {
+     "what": "équations écrites par les auteurs",
+     "inputs": "« 2Ca5(PO4)2OH → Ca10(PO4)6Ox(OH)2(1−x) + xH2O » ; « 5Ca9HPO4(PO4)5OH + 4H2O → 9Ca5(PO4)3OH + 3H3PO4 » ; « Ca10(PO4)6Ox(OH)2(1−x) → 3Ca3(PO4)2 + CaO + (1−x)H2O »",
+     "formula": "bilan par élément",
+     "result": "1re : P 4 à gauche, 6 à droite (non équilibrée ; Ca5(PO4)3OH voulu) ; 2e : équilibrée (Ca 45, P 30, O 129, H 18) ; 3e : équilibrée",
+     "compared_to": "—",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le rendement de 0,033 kg/L est le maximum stœchiométrique (33,5 g/L sur 200 mL, calcul « rendement théorique maximal ») : il suppose ~100 % de récupération après cinq lavages et lyophilisation, et dépasse le maximum si l'ammoniaque ajoutée fait plus de ~3 mL. Aucune masse pesée n'est donnée : la valeur semble calculée, pas mesurée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : les bandes à 2925 et 2856 cm−1 sont les élongations C–H asymétrique et symétrique de CH2 (contamination organique, par ex. polyacrylate, graisse ou KBr souillé), pas HCO3− ni H2PO4− ; en déduire une cristallisation incomplète est sans fondement. De plus 962 cm−1 est ν1 (élongation symétrique) et 603/564 cm−1 sont ν4 (déformation O–P–O), non des élongations asymétriques ; 633 cm−1 est la libration de OH, pas une élongation ; 874 cm−1 est ν2 (déformation hors plan) de CO3 2−.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bandes de carbonate (874, 1420–1446 cm−1) attribuées par les auteurs à la capture de CO2 en milieu basique : la poudre est donc une apatite carbonatée (type B probable), ce qui nuance « pure HAP » et « accurate stoichiometry ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Ca/P = 1,67 déduit seulement de l'absence de β-TCP après 990 °C : test sensible aux apatites déficientes (Ca/P < 1,67 donne du β-TCP dès ~700–800 °C), mais qui ne détecte pas un excès de Ca (CaO) ni une substitution carbonate ; pas d'analyse élémentaire. Par ailleurs l'équation de décomposition écrite pour expliquer le β-TCP est celle d'une HAP stœchiométrique (HAP → 3 TCP + CaO), qui n'a lieu qu'à beaucoup plus haute température ; et l'équation « CDHA + H2O → HAP + H3PO4 » contredit le β-TCP observé (une apatite déficiente donne β-TCP + HAP, pas H3PO4).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Calcium phosphate apatites with variable Ca/P atomic ratio I. Synthesis, characterisation and thermal stability of powders",
+      "authors_or_publisher": "Raynaud S., Champion E., Bernache-Assollant D., Thomas P., Biomaterials 23, 1065–1072",
+      "year": "2002",
+      "url_or_doi": "DOI non vérifié (Crossref bloqué) ; référence relevée dans la bibliographie de « A Study of Thermal Stability of Hydroxyapatite », Minerals 2021, https://www.doi.org/10.3390/MIN11121310"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin qui change plusieurs variables : TG, DRX après 990 °C et FTIR comparent la poudre M-H à une poudre commerciale (Nanjing Epry) de procédé, Ca/P, lavage et âge inconnus ; conclure que « la méthode hydrothermale » donne Ca/P < 1,67 et moins de stabilité thermique n'est pas permis. Le témoin utile est le premier groupe témoin de l'article (même solution, chauffage conventionnel), non caractérisé ainsi.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TG : l'oxyapatite (déshydroxylation) se forme surtout au-delà de ~800–900 °C, pas dès 250 °C comme écrit ; la perte de 2,05 % est cohérente avec de l'eau adsorbée et de réseau plus un peu de carbonate.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "MTT : la formule du Methods, [(Acontrol − Atreated)/Acontrol] × 100 %, donne le taux d'inhibition ; des viabilités de 87–110 % ne peuvent venir que de Atreated/Acontrol × 100 %. Erreur de formule des auteurs ; les valeurs restent plausibles pour une HAP (biocompatible).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "même mécanisme que la voie de base ; à forte concentration la nébulisation limite la sursaturation locale ; le traitement thermique des poudres suit Raynaud 2002 (apatite déficiente → β-TCP + HAP vers 700–800 °C, HAP stœchiométrique stable jusqu'à > 1200 °C)",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     },
+     {
+      "title": "Calcium phosphate apatites with variable Ca/P atomic ratio I. Synthesis, characterisation and thermal stability of powders",
+      "authors_or_publisher": "Raynaud S., Champion E., Bernache-Assollant D., Thomas P., Biomaterials 23, 1065–1072",
+      "year": "2002",
+      "url_or_doi": "DOI non vérifié (Crossref bloqué) ; référence relevée dans la bibliographie de « A Study of Thermal Stability of Hydroxyapatite », Minerals 2021, https://www.doi.org/10.3390/MIN11121310"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "peser la poudre sèche et donner le rendement en % du théorique",
+    "dosage Ca/P (ICP ou XRF) au lieu du seul test de calcination",
+    "FTIR sans KBr ni dispersant organique pour lever le doute sur 2925/2856 cm−1",
+    "calculer la viabilité MTT comme Atreated/Acontrol"
+   ]
+  },
+  {
+   "label": "HAP_hydrothermal_direct",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport Ca/P du témoin",
+     "inputs": "CaCl2 0,668 mol/L ; Na2HPO4 0,4 mol/L ; volumes égaux supposés",
+     "formula": "0,668/0,4",
+     "result": "1,67",
+     "compared_to": "1,667",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Témoin non entièrement décrit : rien ne dit qu'NH3 a été ajouté. Sans base, le mélange direct de 0,668 mol/L Ca2+ et 0,4 mol/L HPO4 2− s'acidifie (8 H+ par HAP) et peut donner brushite ou monétite : le témoin changerait alors le pH en plus du mode de mélange et de chauffage. La vitesse de chauffe (7 °C/min) est presque celle du micro-ondes, donc la différence ne vient pas d'un chauffage plus lent.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "identique à la voie M-H si pH et lavage identiques",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "pH (ammoniaque) et lavage appliqués au témoin",
+    "appareil et récipient du chauffage conventionnel, mesure de température"
+   ]
+  },
+  {
+   "label": "HAP_hydrothermal_US",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport Ca/P du témoin",
+     "inputs": "CaCl2 0,668 mol/L ; Na2HPO4 0,4 mol/L ; volumes égaux supposés",
+     "formula": "0,668/0,4",
+     "result": "1,67",
+     "compared_to": "1,667",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Nébulisation appliquée au mélange déjà fait (« the mixed two reactants … were further treated by ultrasonic nebulizer ») : ce n'est pas la même opération que la nébulisation d'une solution dans l'autre ; le témoin ne sépare donc pas proprement l'effet du mode de mélange. pH et appareil non décrits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "identique à la voie M-H si pH et lavage identiques",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "pH (ammoniaque) et lavage appliqués au témoin",
+    "appareil et récipient du chauffage conventionnel, mesure de température"
+   ]
+  },
+  {
+   "label": "HAP_MH_direct",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport Ca/P du témoin",
+     "inputs": "CaCl2 0,668 mol/L ; Na2HPO4 0,4 mol/L ; volumes égaux supposés",
+     "formula": "0,668/0,4",
+     "result": "1,67",
+     "compared_to": "1,667",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Seul témoin qui ne change qu'une variable (mélange direct contre nébulisation, même chauffage M-H) s'il a reçu la même ammoniaque : DLS 133 nm contre 94,9 nm, effet de la nébulisation plausible ; mais une seule mesure, sans répétition.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "identique à la voie M-H si pH et lavage identiques",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "pH (ammoniaque) et lavage appliqués au témoin",
+    "appareil et récipient du chauffage conventionnel, mesure de température"
+   ]
+  },
+  {
+   "label": "HAP_ceramic_MH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "densité apparente et porosité de la céramique",
+     "inputs": "densité relative 94,5 % ; densité théorique de l'HAP 3,156 g/cm3",
+     "formula": "ρ = 0,945 × 3,156 ; porosité = 1 − 0,945",
+     "result": "ρ ≈ 2,98 g/cm3 ; porosité ≈ 5,5 %",
+     "compared_to": "méthode de mesure de densité non donnée (Archimède ?)",
+     "source": "densité théorique de l'HAP (valeur de manuel, 3,156 g/cm3) ; arithmétique"
+    },
+    {
+     "what": "formule de flexion trois points",
+     "inputs": "R = 3FL/(2bh²), L = 30 mm",
+     "formula": "comparaison avec la formule standard",
+     "result": "formule correcte",
+     "compared_to": "ISO/ASTM flexion trois points",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Frittage à 1200 °C, 30 min, sous air : sous la décomposition de l'HAP stœchiométrique (≥ 1300 °C) ; une poudre déficiente en Ca formerait du β-TCP, que l'article ne cherche pas sur la céramique.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Calcium phosphate apatites with variable Ca/P atomic ratio I. Synthesis, characterisation and thermal stability of powders",
+      "authors_or_publisher": "Raynaud S., Champion E., Bernache-Assollant D., Thomas P., Biomaterials 23, 1065–1072",
+      "year": "2002",
+      "url_or_doi": "DOI non vérifié (Crossref bloqué) ; référence relevée dans la bibliographie de « A Study of Thermal Stability of Hydroxyapatite », Minerals 2021, https://www.doi.org/10.3390/MIN11121310"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "94,5 % de densité relative et 95 ± 8,6 MPa en flexion : ordre de grandeur habituel pour une HAP dense frittée sans charge (quelques dizaines à ~150 MPa). La comparaison avec la céramique de poudre commerciale change à la fois la poudre, son Ca/P et sa granulométrie : le gain ne peut être attribué au seul procédé M-H.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "densification favorisée par une poudre fine et peu agglomérée",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masse de poudre et dimensions des barreaux",
+    "méthode de mesure de la densité",
+    "DRX de la céramique frittée (β-TCP éventuel)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse chimiquement cohérente (Ca/P 1,667 dans toutes les solutions, pH 10, 160 °C en réacteur fermé) et reproductible avec réserves : quantité d'ammoniaque absente alors qu'elle est importante à forte concentration (≈ 26 mL à 25 % à 0,4 mol/L), rampe de 17,6 min ignorée dans la série en durée, rendement de 0,033 kg/L égal au maximum stœchiométrique, attributions FTIR fausses, formule MTT qui donne l'inhibition, et comparaisons TG/DRX/FTIR faites contre une poudre commerciale et non contre le témoin hydrothermal.",
+  "author_errors_suspected": [
+   "« within 1 min » : 18,6 min de chauffe totale",
+   "rendement 0,033 kg/L = 98,5 % du théorique, probablement calculé",
+   "2925/2856 cm−1 attribuées à HCO3−/H2PO4− au lieu de C–H",
+   "962 cm−1 (ν1) et 603/564 cm−1 (ν4) appelées élongations asymétriques ; 633 cm−1 (libration) appelée élongation",
+   "formule MTT = inhibition",
+   "équation « 2Ca5(PO4)2OH » non équilibrée (P 4 contre 6)",
+   "oxyapatite dès 250 °C",
+   "diamètre 19,6 ± 4,29 nm identique à 1 et 20 min",
+   "conclusions sur « la méthode hydrothermale » tirées d'une poudre commerciale"
+  ],
+  "comparison_with_database": "PMC9036687 (HAP d'huître, hydrothermal 160 °C, 8 h, pH 9–10) : bâtonnets 50–100 nm × 40–50 nm, cohérent avec 65–88 nm × 25–29 nm ici en 40 min ; PMC8136633 (130 °C, 7 h, pH 7) donne HAP + OCP, ce qui rappelle l'intérêt du pH 10 ici."
+ },
+ "sources_not_found": [
+  "DOI de Raynaud et al. 2002 (Biomaterials 23, 1065) non vérifié, Crossref bloqué",
+  "pression de vapeur de l'eau : NIST WebBook injoignable, valeurs de tables de vapeur (≈ 0,62 MPa à 160 °C, ≈ 1,00 MPa à 180 °C) données de manuel",
+  "aucune source en ligne lue pour l'attribution 2925/2856 cm−1 (élongations C–H, valeur de manuel de spectroscopie IR)",
+  "limite de pression du réacteur SINEO Master-14 non recherchée"
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "pmcid": "PMC6447565",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "CuFe2O4@HNTs outcome saturation_magnetization = 30 emu g−1 (Fig. 3b)",
+   "extracted": "30 emu g−1 (valeur du texte) ; l'écart avec la figure n'est que dans `doubts`, aucune annotation limite_reproductibilite ; la caractérisation VSM n'a ni champ appliqué ni mention de l'écart",
+   "article_says": "As displayed by VSM analysis (Fig. 3b), the saturation magnetization values of CuFe2O4@HNTs nanocomposite was around 30 emu g−1.",
+   "fix": "Lecture de Fig. 3b (corpus/fig/PMC6447565/41598_2019_42126_Fig3_HTML.jpg) : la courbe monte jusqu'à ≈ 23–24 emu/g vers ±14 000 Oe (axe ±20 000 Oe) et ne montre pas de plateau net ; l'écart avec 30 est d'environ 21 à 26 %. Garder 30 (valeur citée, jamais corrigée par la figure) mais ajouter une annotation limite_reproductibilite « texte : ≈ 30 emu/g ; figure : ≈ 23–24 emu/g à 14 000 Oe, non saturée » et, si on veut la valeur de la figure, un second résultat from_figure distinct.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CuFe2O4@HNTs characterization TGA, result « perte de masse de HNTs d'environ 20 % entre 50 et 800 °C »",
+   "extracted": "20 % (texte) ; écart avec la Fig. 2b seulement dans `doubts`",
+   "article_says": "As can be seen in HNTs TGA curve, the losing weight of HNTs was about 20% between 50 to 800 °C",
+   "fix": "Fig. 2b (…_Fig2_HTML.jpg) : la courbe HNTs part de ≈ 100 % (≈ 60 °C) et finit vers 86–87 % à 800 °C, soit ≈ 13–14 % de perte, et non 20 % ; le composite finit vers 94–95 %, ce qui confirme la valeur from_figure de 94 % (écart < 1 point). Ajouter l'incohérence texte/figure en annotation limite_reproductibilite ; ne pas remplacer la valeur du texte. Noter aussi que cette perte concerne HNTs seul et non le matériau synthétisé.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Test catalytique : conditions des 11 rendements (5a–k) et quantité de catalyseur 50 mg contre 5 mg",
+   "extracted": "rendements 90–96 % extraits sans aucune condition de réaction attachée ; les quantités du protocole (2/2/1/3 mmol, EtOH, ta, 20 min) et la contradiction 50/5 mg ne figurent que dans une annotation et un doute ; aucune valeur de masse de catalyseur dans les résultats",
+   "article_says": "A mixture of hydrazine hydrate 1 (2 mmol), ethyl acetoacetate 2 (2 mmol), aromatic aldehydes 3 (1 mmol), and ammonium acetate 4 (3 mmol), in the presence of CuFe2O4@HNTs nanocatalyst (5 mg) was reacted in ethanol at room temperature.",
+   "fix": "Les deux phrases sont dans l'article : « A considerable yield was obtained in the presence of 50 mg of the catalyst » (Results) et « (5 mg) » (Experimental). Fig. 1 confirme EtOH et r.t. mais n'indique pas la masse. Ajouter un résultat catalyst_loading en value_text avec les deux citations (« 50 mg » optimisation, « 5 mg » procédure générale, contradiction de l'article) et un résultat texte « conditions du test » (réactifs en mmol, éthanol, température ambiante, 20 min, séparation à l'aimant, précipitation à l'eau) pour que les rendements ne soient pas orphelins ; le volume d'éthanol reste non cité. Ne pas choisir entre 5 et 50 mg.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Valeurs de comparaison de la littérature absentes : CuFe2O4 seul 45 emu/g, HNTs BET 47,8 m2/g",
+   "extracted": "45 emu g−1 non extrait ; 47,8 m2 g−1 seulement dans la citation du résultat BET (ligne du composite) ; aucun résultat marqué « valeur de la littérature »",
+   "article_says": "In the previously reported study, the magnetization of neat CuFe2O4 NPs was around 45 electromagnetic units per gram (emu g−1).",
+   "fix": "Ces deux chiffres servent de comparaison aux auteurs (« causes the saturation magnetization level to decrease and confirms the synthesis », « As stated in reported articles, BET surface area of HNTs is around 47.8 m2g−1 »). Les ajouter comme résultats rattachés à CuFe2O4 seul (renvoi [CR33]) et à HNTs, avec la mention que la valeur vient de la littérature et non de mesures des auteurs. Le pore_volume de HNTs « reported pore volume » n'a pas de valeur dans l'article.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "XRD : positions des pics non extraites",
+   "extracted": "résultat phase tétragonale JCPDS 00-034-0425 ; caractérisation « pic faible à 25,61 » ; aucune liste de 2θ",
+   "article_says": "The diffraction angles (2θ) 18.59, 30.14, 36.12, 38.99, 44.00, 54.18 and 62.37 are fully complied with the characteristic data of (JCPDS card no. 00-034-0425).",
+   "fix": "Ajouter en résultat (value_text) les 7 angles de CuFe2O4 et, pour HNTs seul, « 12.62° and 20.26° » (Fig. 6a). Fig. 6b montre bien des pics vers 18, 30, 36, 44, 58 et 62°, cohérents avec le texte ; le pic à 25,61 n'est pas visible à l'œil sur 6b (courbe très bruitée), à signaler en note, pas à corriger.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "pore_volume = 0.126 et pore_size = 9.87 sans unité",
+   "extracted": "valeurs sans unité (citées sans unité) ; doute disant « unité probable cm3/g et nm » et pic de Fig. 5b vers 6 nm sans lien avec 9,87",
+   "article_says": "In addition, owing to the calcination process, the pore size of CuFe2O4@HNTs increased to 9.87 (Fig. 5b).",
+   "fix": "Ne pas inventer l'unité, mais le doute peut être levé : Fig. 5a plafonne à ≈ 85 cm3/g STP, soit ≈ 0,13 cm3 liquide/g, cohérent avec 0,126 cm3/g ; et 4V/A = 4 × 0,126 cm3/g / 51,13 m2/g ≈ 9,9 nm, donc 9,87 est le diamètre moyen de pore BET (4V/A), pas le pic BJH de la Fig. 5b (≈ 6 nm sur l'axe nm). Il n'y a donc pas d'incohérence ; l'ajouter en annotation (interprétation, marquée comme telle) et corriger la formulation du doute.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources vide : renvois [CR29] et [CR30] de la phrase de conception du catalyseur",
+   "extracted": "method_sources = []",
+   "article_says": "From the above-mentioned viewpoints and according to previous scientific reports,, in this research, CuFe2O4@HNTs as a novel, eco-friendly and mesoporous magnetic nanocatalyst was designed, synthesized, characterized and applied in a one-pot multicomponent reaction as a heterogeneous catalyst.",
+   "fix": "refs : CR29 (Maleki, magnetic halloysite nanotube fonctionnalisé SO3H) et CR30 (Hajizadeh, HNTs magnétiques modifiés PEI) sont des préparations de HNTs magnétiques des mêmes auteurs ; la phrase « according to previous scientific reports » les place comme base de la préparation. Ils ne sont cependant pas désignés comme protocole à suivre (« as described in ») : ajouter en method_sources seulement si l'orchestrateur juge que la règle du 2026-10-13 s'applique ; sinon note. [CR36] (mécanisme et points de fusion) et [CR33] (aimantation de CuFe2O4) ne sont pas des méthodes.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 1,
+  "branches_extracted": 1,
+  "not_stated_checked": 21,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "solvant et concentration de la solution de NaOH (« 5 mL solution of NaOH (0.50 g, 12 mmol) »)",
+  "atmosphère, montée en température et refroidissement de la calcination à 500 °C (« kept in a furnace »)",
+  "vitesse d'agitation, récipient, volume et durée de chaque lavage, refroidissement avant séparation magnétique",
+  "origine, qualité et prétraitement des HNTs ; pureté des sels ; fournisseur de chaque réactif (« Sigma-Aldrich and Merck »)",
+  "rendement ou masse de composite obtenue",
+  "masse de catalyseur du test : 50 mg (optimisation) contre 5 mg (procédure générale), volume d'éthanol non donné ; Table S1 et Figs S5–S7 absentes du dépôt"
+ ],
+ "mechanism_check": "ok : pas de mécanisme de formation du catalyseur dans l'article ; mecanisme_auteurs porte sur la réaction catalysée (Fig. 7), ce que l'annotation dit elle-même ; mecanisme_analyse est étiqueté hypothèse et sa stœchiométrie est juste (Cu:Fe 1:2, 22 % de charge)",
+ "notes": "Lecture de l'article complète (corps, légendes, expérimental) ; aucune section Supporting Information dans le fichier texte. Stœchiométrie vérifiée : Fe(NO3)3·9H2O 0,477 g / 404 = 1,18 mmol (1,17 cité), Cu(NO3)2·3H2O 0,14 g / 241,6 = 0,58 mmol, NaOH 0,50 g / 40 = 12,5 mmol (12 cité), rapport Cu:Fe 1:2 ; toutes les quantités, durées et températures des 9 étapes (20 mL, 1 h, 5 mL, 10 min, 90 °C, 2 h, 4 lavages, 80 °C 4 h, 500 °C 5 h) sont exactes et à la bonne étape. EDX Fig. 3a : O 59,73, Al 10,42, Si 10,37, Fe 13,98, Cu 5,50 recopiés exactement (somme 100,00). TGA 94 % lu sur Fig. 2b : ≈ 94–95 %, dans la précision. Les 11 rendements du Tableau 1 concordent rangée par rangée (5a 96, 5b 95, 5c 93, 5d 93, 5e 90, 5f 94, 5g 96, 5h 90, 5i 93, 5j 91, 5k 90). Pas de branche manquante : les seuls échantillons comparés (HNTs, CuFe2O4 seul, catalyseur recyclé) n'ont pas de préparation décrite ; inventaire conforme. Désaccord d'interprétation laissé ici : l'extracteur range le test catalytique en résultats, comme le veut la règle des tests du matériau fini ; le constat 3 ne demande pas d'en faire une voie."
+}

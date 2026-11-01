@@ -1,0 +1,16 @@
+# Journal de la critique de fidélité PMC7747735
+
+- Ma liste d'échantillons (faite avant l'extraction) : supports 600MA, 700MA, 800MA, 900MA ; catalyseurs 15Co/600MA, 15Co/700MA, 15Co/800MA, 15Co/900MA, 10Co/800MA, 20Co/800MA ; références CA (Co3O4/γ-Al2O3) et CM (Co3O4/MgO) ; catalyseurs régénérés 15Co/800MA et 15Co/900MA (Fig. 8) ; ligne « 15Co/800MA (spent) » du Tableau 1. Identique à `sample_inventory` : aucun échantillon manquant.
+- Tableaux 1, 2 et 3 : j'ai comparé toutes les rangées à leur échantillon par le nom (42 rangées-valeurs contrôlées, 0 erreur). Tiret du Tableau 2 pour la fraction faible des Co/MA correctement ignoré.
+- Fig. 6 (ouverte) : 15 valeurs lues par l'extracteur (N2 à 600 et 650 °C, CO2 à 650 °C) toutes dans ±2 points. Pas de 15Co/600MA sur la figure, donc rien de manquant.
+- Fig. 6b à 600 °C contre Tableau 3 : écart pour 15Co/900MA (figure ≈ 63, tableau 56) et 10Co/800MA (figure ≈ 55, tableau 63), 20Co/800MA (70 contre 74). Non signalé en constat : le tableau est la source écrite et l'extracteur a déjà un doute. Placé dans notes.
+- Fig. 7 : 15Co/800MA 60 → 37 (N2) et 82 → 59 (CO2) conformes ; 15Co/900MA ≈ 22 (texte 23) et ≈ 56 → 36 (texte 58 → 37) : écart inférieur à 10 %, pas de constat.
+- Fig. 8 : 78 → 48 et 54 → 32 conformes à la lecture, SST 98 et 95. La contradiction avec « no observable change » est déjà un doute de l'extracteur.
+- Constat « sure » : annotation comparaison_branches dit que le cobalt « réduit » la surface à 63 m2/g pour 900MA, alors que 52 → 63 est une hausse (Tableau 1) ; le texte parle d'une hausse pour les catalyseurs par rapport au support nu.
+- Constat « sure » : « SST stayed constant at 90% in both the samples » (Fig. 7a) n'est rangé que sur 15Co/800MA ; 15Co/900MA n'a pas la valeur.
+- Constat « probable » sur `method_sources` : CR19 (TPR) et CR30 (NH3-TPD) sont accolés à des protocoles de mesure sans « according to » ; l'extracteur les a jugés contexte. Je les range en `probable` car la règle du 2026-10-13 couvre les protocoles de mesure. CR17, CR28, CR32, CR33 écartés (contexte, interprétation, fiches).
+- Rendement en styrène ≥ 81 % (résumé) : absent de l'extraction ; probable car la valeur est un renvoi au résumé et se contredit presque avec 82 % × 98 % = 80,4 %.
+- Caractérisations par échantillon (TPR de CM, CA, 15Co/700MA, etc. ; FT-IR et UV–Vis des supports) : absentes ; `probable` parce que l'extracteur ne les a mises que sur 15Co/800MA et que les résultats ne portent pas de chiffre exploitable en dehors de plages de température.
+- `not_stated` : 26 cases vérifiées par recherche de mots-clés dans le texte et l'annexe (précurseurs Mg/Al, température et durée de co-précipitation, atmosphère de calcination, solvant d'imprégnation, températures d'activation à l'air) ; aucune n'est contredite par l'article.
+- Écarté comme non-constat : `succeeded: false` de 600MA est classé `mineur`, non `faux`, car l'extracteur l'a déclaré en doute ; héritage CA/CM classé `deduit` probable parce que « under similar conditions » est écrit mais vague.
+- Mécanisme : MgO + Al(OH)3 → MgAl2O4 et stabilité d'Al(OH)3 jusqu'à 600 °C bien appuyés par la citation ; l'équation 3 Co(NO3)2 → Co3O4 + 6 NO2 + O2 est équilibrée.

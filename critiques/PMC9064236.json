@@ -1,0 +1,159 @@
+{
+ "pmcid": "PMC9064236",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "alpha-SnS_Mo / alpha-SnS_FTO / alpha-SnS_amTiOx, XRD (caractérisation et résultat)",
+   "extracted": "XRD : phase pure α-SnS (JCPDS 00-039-0354), pas d'orientation préférentielle ; aucun paramètre de maille pour α-SnS (celui de π, a = 11.6 Å, est présent)",
+   "article_says": "The unit cell parameters, a = 4.33 Å, b = 11.20 Å, c = 3.98 Å, determined for these samples match that of the known orthorhombic SnS crystal structure.",
+   "fix": "ajouter a = 4.33 Å, b = 11.20 Å, c = 3.98 Å au résultat XRD des trois voies de films α-SnS (Mo, FTO, am-TiOx) avec cette citation",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "alpha-SnS_glass et pi-SnS_glass, XRD et résultat « phase »",
+   "extracted": "XRD phase pure orthorhombique / cubique et RESULTAT phase = phase pure film of the targeted polymorph, rattachés aux films sur verre",
+   "article_says": "Fig. 2 Comparison of XRD patterns, with assigned reference peaks, for selectively deposited α- and π-SnS thin films deposited onto Mo, FTO or am-TiOx/FTO substrates by AA-CVD using the Sn(ii) thio-ureide complex as a single source precursor.",
+   "fix": "la Fig. 2 (vue : six diffractogrammes, Mo, FTO, FTO/TiOx, aucun sur verre) ne couvre pas les films sur verre ; retirer le résultat XRD des deux voies sur verre ou le noter comme hérité de la phrase « on all substrates » (le verre n'y est pas nommé). Le type de verre (borosilicaté) est aussi déduit de la liste des substrats des Méthodes, la phrase UV-Vis dit seulement « glass ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "alpha-SnS_FTO et pi-SnS_FTO, Raman (positions des pics)",
+   "extracted": "« 8 peaks resolved ; peak at 96 cm−1 » (α) et « 15 peaks ; 111 cm−1 » (π), sans liste de positions",
+   "article_says": "In the present study in the Raman spectra of the α-SnS and π-SnS thin films allowed for the resolution of 8 and 15 peaks, respectively (Fig. 3).",
+   "fix": "lire la Fig. 3 (étiquettes numériques) : α-SnS 41, 50, 68, 96, 163, 192, 220, 277 cm−1 ; π-SnS 40, 46, 59, 71, 85, 90, 111, 122, 173, 204, 230, 263 cm−1 (plus 50 et 192 en lignes pointillées communes) ; les noter en valeurs `from_figure` ou dans le résultat Raman",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "recuits A et B à 200 °C pendant 1 h (non branchés)",
+   "extracted": "aucune branche ; seulement une phrase d'annotation tendance_observee",
+   "article_says": "Eventually, the devices became completely shunted after 1 hour of annealing at 200 °C.",
+   "fix": "créer Anneal_A_200C_60min et Anneal_B_200C_60min (succeeded: false, device_status = shunted), comme Anneal_C_200C_20min/40min qui portent déjà « Shunted » ; durée 60 min lue dans « 1 hour »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "recuits α-SnS A, B, C à 150 °C (20, 40, 60, 240 min) : « aucun effet significatif »",
+   "extracted": "aucune branche ; décrits seulement en annotation",
+   "article_says": "For devices containing the α-SnS polymorph (A, B, and C) hot plate treatment at 150 °C for 20 min, 40 min, 1 hour and 4 hours had no significant effect on the device performance.",
+   "fix": "condition testée avec résultat qualitatif : créer au moins une branche par dispositif à 150 °C (durées 20 min à 4 h) avec la valeur texte « no significant effect on the device performance », sans chiffre inventé ; ou la laisser en annotation en assumant l'écart avec l'inventaire",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "recuits π-SnS D, E, F à 200 °C (20 min à 4 h) : détériorés, court-circuités après 40 min",
+   "extracted": "aucune branche ; annotation seulement",
+   "article_says": "For devices containing the π-SnS polymorph, hot plate treatment at 200 °C was significantly detrimental to the device performance at any annealing time from 20 min to 4 h and all devices decreased in efficiency and were completely shunted after 40 minutes.",
+   "fix": "condition testée par les auteurs sur trois dispositifs, avec résultat qualitatif net : branche(s) à 200 °C avec succeeded: false et device_status = completely shunted after 40 minutes ; l'inventaire la range pourtant en route: null « sans valeurs par cellule »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Device_F, EQE après 1 h à 150 °C (Fig. 8b)",
+   "extracted": "seules les EQE as-deposited (4,84) et 4 h (6,88 mA cm−2) sont extraites ; la valeur de la courbe intermédiaire est écartée dans un doute",
+   "article_says": "The EQE measurements after consecutive hot plate annealing treatments are presented.",
+   "fix": "Fig. 8b (vue) : courbe « 1hr @ 150 °C, Jsc = 5.35 mA cm−2 » ; la Fig. 7f et la table S2 parlent de 2 hr (120 min) : soit créer une valeur EQE rangée à 60 min avec la mention du conflit, soit la rattacher à Anneal_F_150C_120min avec une annotation limite_reproductibilite ; ne pas la laisser tomber alors que les deux autres courbes sont extraites",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Device_D as completed, Jsc",
+   "extracted": "Jsc = 5.93 mA cm−2 (table S2)",
+   "article_says": "D: Mo/π-SnS/CdS/i-ZnO/ITO | AA-CVD | 133 | 5.96 | 27 | 0.1 | 0.21 | This work",
+   "fix": "la table 1 et la Fig. 7d (courbe « As-completed* », Jsc = 5.96) donnent 5,96 ; seule la table S2 donne 5,93. Le choix est documenté en doute, mais ajouter la valeur 5,96 avec sa citation (ou une annotation limite_reproductibilite) puisque deux sources sur trois la portent",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (recuit à 150 °C des cellules α-SnS)",
+   "extracted": "« Pour les cellules α-SnS A et B, un recuit à 150 °C (20 min, 40 min, 1 h, 4 h) n'a pas d'effet notable »",
+   "article_says": "For devices containing the α-SnS polymorph (A, B, and C) hot plate treatment at 150 °C for 20 min, 40 min, 1 hour and 4 hours had no significant effect on the device performance.",
+   "fix": "écrire « A, B et C » pour la phrase du 150 °C (la suite sur 200 °C ne concerne bien que A et B)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation limite_reproductibilite (précurseur, TiOx)",
+   "extracted": "« ni ... la durée du plasma d'oxygène (30 min seulement) » listée comme manque",
+   "article_says": "Cleaning was done by washing the TEC 7 FTO (NSG Ltd) substrates sequentially with a Hellmanex® solution (2 wt% in deionized water), acetone, ethanol and deionized water, and finally oxygen plasma treatment for 30 min.",
+   "fix": "la durée du plasma (30 min) est donnée : retirer cette fausse lacune. Vrais manques à ajouter : durée de chaque recuit à 150 °C de la couche TiOx, puissance du plasma, volume de solution déposé par spin-coating, nettoyage de Mo-glass et du FTO nu avant l'AA-CVD (la phrase de lavage ne vise que le FTO destiné au TiOx), masse ou volume de précurseur nébulisé par dépôt",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "reagent single source precursor (1), formule",
+   "extracted": "formule : None",
+   "article_says": "[Sn({C6H5}NCSN{Me2})(NMe2)], the Sn(II) thio-ureide single source precursor (1).",
+   "fix": "formule donnée dans le schéma S1 de l'annexe (dimère) ; la renseigner, avec le nom complet « (dimethylamido)(N-phenyl-N′,N′-dimethylthiouriate)tin(ii) dimer » déjà présent dans le texte principal",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Device_A à Device_F, couches de la Fig. 4 : FTO 400 nm absent",
+   "extracted": "épaisseurs extraites : absorbeur (1, 1,3, 1,8, 800 nm, 1,8, 1,8), Mo 800 nm, TiOx 20 nm ; épaisseur du FTO non extraite",
+   "article_says": "Fig. 4 Illustration of the six devices investigated in this study. Layer thicknesses are indicated and same across all devices unless specified.",
+   "fix": "Fig. 4 (vue) indique FTO 400 nm sous le TiOx ; l'ajouter comme valeur `from_figure` sur la voie FTO (ou le substrat) ; les autres valeurs lues (1 μm, 1,3 μm, 1,8 μm, ~10 nm, ~50 nm, 200 nm, 20 nm) concordent avec la figure",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Device_A étape 7 (ITO), résistance carrée",
+   "extracted": "Rsq = 10 Ω sq−1 présent seulement dans la citation d'étape",
+   "article_says": "The deposition of the i-ZnO (10 nm) layer and 200 nm ITO top contact was achieved by DC-sputtering techniques a RT (Rsq = 10 Ω sq−1) using a CT100, Alliance Concepts.",
+   "fix": "ajouter sheet_resistance = 10 Ω sq−1 en résultat (ou paramètre) de l'étape ITO, comme pour le Mo (0,16 Ω sq−1) ; la phrase ne dit pas explicitement que Rsq vise l'ITO : le noter",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "alpha-SnS_Mo / pi-SnS_Mo étape 4, pression = 5 bar",
+   "extracted": "pressure = 5 bar sur l'étape de dépôt AA-CVD",
+   "article_says": "The argon gas flow was monitored via a bubbler and gas pressure fixed at 5 bar until it reached the atomizer.",
+   "fix": "il s'agit de la pression du gaz porteur à l'entrée de l'atomiseur, pas de la pression du réacteur (non donnée) : renommer le paramètre (gas_pressure_atomizer) ou ajouter une note, pour qu'un chimiste ne lise pas 5 bar dans la chambre",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "valeurs E_PV_g (Device_A à F)",
+   "extracted": "gap photovoltaïque seulement en annotation tendance_observee",
+   "article_says": "From Fig. S6,† an EPVg of 1.3 eV is determined for devices using α-SnS as the absorber layer (devices A, B, and C).",
+   "fix": "ajouter E_PV_g = 1.3 eV aux résultats des cellules A, B, C et 1.75–1.79 eV (D, E, F ; « varies between 1.75–1.79 eV (Fig. S7†) ») en valeur texte ou plage, avec ces citations",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Etapes : cool/store, purify, chargement des substrats (voies de films)",
+   "extracted": "étape 6 « cool » fusionne refroidissement sous argon et stockage à l'air ; étape 1 « purify » fusionne séchage du toluène et dégazage sous argon ; aucune étape de mise en place des substrats dans le réacteur (seulement un réactif « intermediate »)",
+   "article_says": "After deposition the samples were cooled to room temperature under argon atmosphere and stored in air.",
+   "fix": "séparer refroidissement et stockage ; séparer séchage et dégazage ; ajouter une étape « placer les substrats dans le tube de quartz avant la purge à l'argon »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations mecanisme_auteurs : explications des auteurs sur les cellules absentes",
+   "extracted": "seuls les mécanismes de croissance des films (anisotropie, symétrie cubique, accord de maille) sont portés",
+   "article_says": "These larger grains do not allow for a uniform deposition of the buffer layers and top contact and thus promotes the formation of pinholes.",
+   "fix": "ajouter, pour Device_C et les recuits, l'explication des auteurs du court-circuit (gros grains rugueux, pinholes), de la hausse de Jsc au recuit (extension de la zone de charge d'espace, baisse de Voc, « Both these changes in the J–V parameters are also witnessed after post annealing the SnS devices within this study ») et de la supériorité de F (grains plus gros induits par la couche TiOx)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 28,
+  "branches_extracted": 27,
+  "not_stated_checked": 4,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "synthèse du précurseur Sn(II) thiouréide (1) renvoyée à la réf. 4 et au schéma S1 ; quantité de précurseur nébulisée, volume de solution, débit d'argon et taux de nébulisation de l'atomiseur TSI 3076 non donnés",
+  "pression et température réelles de la zone de dépôt, position des substrats dans le tube, vitesse de montée en température et de refroidissement non donnés",
+  "nettoyage du Mo-glass et du FTO nu avant AA-CVD non décrit (le lavage Hellmanex ne vise que le FTO destiné au TiOx)",
+  "durée de chaque recuit à 150 °C de la couche TiOx, ordre des 3 répétitions (recuit seul ou dépôt + recuit), puissance du plasma d'oxygène, volume de solution déposée",
+  "puissances, pressions et gaz de pulvérisation de i-ZnO et ITO (DC dans les Méthodes, RF dans les Résultats), volume du bain CdS, vitesse d'agitation, fournisseur et pureté de CdSO4, thiourée, (NH4)2S, NH4OH",
+  "recuits sur plaque chauffante : durées successives cumulatives ou indépendantes non précisées ; rampes non données ; conditions à 150 °C (A–C) et 200 °C (D–F) seulement qualitatives",
+  "annexe : images des figures S1 à S7 absentes du dépôt (seules légendes et tables S1/S2 lisibles) ; ordre des colonnes de la table S1 aplatie à confirmer"
+ ],
+ "mechanism_check": "à revoir : mecanisme_auteurs ne porte que la croissance des films ; les explications des auteurs pour le court-circuit de C, l'effet du recuit (zone de charge d'espace, Jsc up / Voc down) et la supériorité de F manquent (constat mineur). mecanisme_analyse et securite_analyse sans objection de fidélité.",
+ "notes": "Valeurs numériques des tables 1 et S2 toutes recomptées contre le texte (Voc, Jsc, FF, η de A à F, as completed et recuits) : aucune erreur de recopie ; seule discordance, Jsc de D (5,93 table S2 contre 5,96 table 1 et Fig. 7d). Valeurs lues sur Fig. 4, 7 et 8 vérifiées à l'image (écart nul). Incohérences de l'article déjà notées en doute par l'extracteur et conservées telles quelles : résumé Voc 0,135 V pour F (table 217 mV), conclusion 0,47 % pour F (tables 0,41 %), DC contre RF, 1 hr (Fig. 8b) contre 2 hr (Fig. 7f/S2), +2 V contre −2 V. Les morphologies et tailles de grains (Fig. 5 et 6) sont celles des cellules après recuit, rattachées par l'extracteur aux voies de films : choix défendable, à garder en tête. La source de l'étape CdS (cit43) est López-Marino et al. alors que le texte écrit « M. Neuschitzer et al. » : l'extraction suit correctement la liste de références (renvoi, pas le nom)."
+}

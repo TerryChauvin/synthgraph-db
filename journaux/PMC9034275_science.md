@@ -1,0 +1,17 @@
+# PMC9034275 — critique scientifique (journal de décisions)
+
+- **Seul `probleme`** (Tube_Na015_30min) : le gel des séries en réacteur tubulaire est à 0,013 Al2O3, soit Si/Al = 1/(2 × 0,013) = 38,5, alors que l'AcT-FAU décrit, seule source de Si et d'Al, est à 27,7. Aucune silice ajoutée n'est mentionnée. Toute la série cinétique repose donc sur une matière première non décrite. Classé `probleme` et non `reserve`, parce qu'un chimiste ne peut pas refaire ce gel avec les Méthodes.
+- **Masses de l'autoclave contrôlées par l'eau** : avec AcT-FAU sec (62,25 g par mol de Si), 3,0 g donnent 0,0482 mol de SiO2. Pour obtenir 0,20 R et 0,15 Na2O, il faut un DMDMPOH à ≈ 35 % et une soude à ≈ 29 %. L'eau restante (4,29 g) donne H2O/SiO2 = 4,94 pour 5,0 annoncé. Ce recoupement à trois inconnues montre que les masses des Méthodes appartiennent bien au gel à 0,018 Al2O3, ce qui tranche le doute de l'extracteur. Mis en `reserve` : la concentration n'est pas écrite.
+- La teneur de 20–35 % des solutions commerciales de DMDMPOH (Cui et al. 2025, RSC Adv., 10.1039/D4RA08620A) confirme les ≈ 35 % implicites. La source est lue dans l'extrait de recherche, mais elle n'est pas portée dans le JSON, faute de lecture complète.
+- **Bilan Si/Al** : un FAU à 6,1 obtenu d'un gel à 27,7 contient au plus 22 % du Si. Il s'agit donc d'une dissolution massive, en accord avec les vides internes. Jugé `ok`, car les auteurs le disent aussi.
+- **DMDMP+ par cage** : je retrouve ≈ 1,97 par supercage et ≈ 0,96 par cage aei avec 16 % d'organique. Le rapport R/T vaut ≈ 0,08 dans les deux phases. L'argument des auteurs (« plus d'OSDA dans le FAU à cause des silanols ») n'est donc pas nécessaire : dans le FAU, R/Al vaut 0,58 et reste sous 1. Mis en `reserve` : c'est une interprétation, pas la synthèse.
+- **Rendement** : deux définitions sont possibles (rapporté au gel ou à l'AcT-FAU). Toutes deux sont compatibles avec le bilan : 72 % ou 23 % de l'Al dans le FAU à 30 min. La Table S2 est absente, donc je ne tranche pas (`reserve`).
+- **Désalumination** : les H+ nécessaires représentent 70–88 % de l'acide apporté (parent sec ou à 20 % d'eau). Le Si/Al de 27,7 est donc sensible à l'humidité du parent. Le rendement de 75 % est cohérent avec un parent à ≈ 15–20 % d'eau (calcul 72–91 %).
+- **Témoins sans OSDA** : à x = 0,15, l'OSDA et 0,20 OH/Si sont retirés en même temps (témoin à deux variables). À x = 0,25, OH/Si revient à 0,50 : c'est le bon témoin. Verdicts respectifs : douteuse et cohérente.
+- Pour l'autoclave contre le réacteur tubulaire, trois variables changent (récipient, échelle, Si/Al du gel). L'accélération ne peut donc pas être attribuée au seul transfert de chaleur.
+- **Volume microporeux de 0,23 contre ≈ 0,30 cm3/g** : référence prise dans Awala et al. 2015 (Nat. Mater.), cité par son URL PubMed. Le DOI 10.1038/nmat4173 vient de ma mémoire et n'a pas été vérifié, donc il n'est pas mis dans le JSON.
+- **Pression** : 1,0028 MPa à 180 °C, tirée de NIST Steam Tables (pub_id 906704). Le tableau a été lu dans l'extrait de recherche.
+- Boucle H4 / cavitation : Thommes 2015, pris dans fondateurs.md, sans recherche web.
+- Non trouvé : la stabilité du DMDMP+ (Hofmann) à 180 °C n'a pas été cherchée, pour rester dans la limite de recherches. La RMN 13C montre le cation intact à 2 h, ce qui suffit pour la voie de base.
+- Comparaison avec la base : aucune autre voie AEI ; la seule autre voie FAU (PMC11989644, NaX sans OSDA) n'est pas comparable.
+- Recherches web : 5. Crossref bloqué : rien n'a été ajouté à fondateurs.md ni à constantes.md.

@@ -1,0 +1,64 @@
+{
+  "pmcid": "PMC9048217",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "annotations, 2e mecanisme_auteurs (route Ag/AgCl(5)@ZIF-8)",
+      "extracted": "route = Ag/AgCl(5)@ZIF-8 ; texte : « À propos de l'échantillon Ag/AgCl seul (Fig. 1a) »",
+      "article_says": "This indicates that Ag0 nanospecies are formed with AgCl. This can be attributed to the decomposition of AgCl under UV light irradiation.",
+      "fix": "rattacher cette annotation à la voie témoin « Ag/AgCl » (phrase sur le XRD de la Fig. 1a, échantillon Ag/AgCl seul), pas à Ag/AgCl(5)@ZIF-8",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "ZIF-8 (voie témoin) step 1 : action react, duration 24 h",
+      "extracted": "étape « react » de 24 h dont la citation est une phrase de résultat MEB (« After 24 h of reaction, the ZIF-8 nanoparticles show… »)",
+      "article_says": "All samples were obtained after 24 h of reaction and the results are shown in Fig. 2.",
+      "fix": "l'article ne décrit aucune préparation du ZIF-8 témoin (il dit seulement « as-synthesized ZIF-8 » et « pure ZIF-8 ») ; la durée de 24 h vaut pour « all samples » de la Fig. 2, y compris Ag/AgCl (Fig. 2f), donc ce n'est pas une étape propre au ZIF-8. Garder la voie (échantillon réellement comparé et dit synthétisé par les auteurs) mais avec une étape qui ne fait que renvoyer à « préparation non décrite » sans paramètre duration, ou sans étape si load.py l'accepte ; déclarer duration, temperature, reagents, solvent non cités. Le doute et l'annotation limite_reproductibilite existent déjà et sont corrects.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ag/AgCl (voie témoin) step 1 : action prepare",
+      "extracted": "étape « prepare » sans paramètre, avec not_stated reagents, solvent, temperature, duration, method",
+      "article_says": "Fig. 1a is the XRD pattern of the as-synthesized Ag/AgCl.",
+      "fix": "l'étape est un espace réservé (« prepare » n'est pas dans le vocabulaire) ; l'article ne dit ni comment ni avec quoi Ag/AgCl est fait, seulement qu'il est « as-synthesized » ; aucun lien écrit avec la voie à deux étapes (précipitation de AgCl puis photoréduction UV), même si l'article attribue la présence d'Ag0 à la décomposition de AgCl sous UV. Ne rien en déduire.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ag/AgCl(5)@ZIF-8 steps 2 et 3 (opérations fusionnées)",
+      "extracted": "étape 3 : action add portant la durée d'agitation de 24 h et la condition « dark conditions » ; étape 2 : add portant l'agitation de 30 min",
+      "article_says": "was injected slowly into the above milky solution and kept stirring for 24 h under dark conditions.",
+      "fix": "l'article décrit deux opérations par phrase (addition, puis agitation) ; les séparer en add puis stir (24 h, obscurité) et add puis stir (30 min) pour que la grille « stir : duration » s'applique et que la durée de 24 h ne soit pas attachée à une addition",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ag/AgCl(10), (15), (20) : caractérisation UV-vis absente",
+      "extracted": "bandes UV-vis (280 à 335 nm, 442 à 700 nm) seulement dans la caractérisation de Ag/AgCl(5)@ZIF-8",
+      "article_says": "In contrast to ZIF-8, Ag/AgCl(x)@ZIF-8 has two new strong adsorption peaks in the ultraviolet and visible regions.",
+      "fix": "le texte vaut pour la série Ag/AgCl(x)@ZIF-8 ; ajouter la caractérisation UV-vis (mêmes bandes, même citation) aux trois autres branches, ou la signaler dans l'annotation comparaison_branches",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 6,
+    "branches_extracted": 6,
+    "not_stated_checked": 36,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "température de toutes les étapes de synthèse (dissolution, addition, agitation de 24 h, photoréduction) non citée ; aucun « room temperature » pour la synthèse (seulement pour le test photocatalytique)",
+    "vitesses d'agitation, vitesse d'addition (« dropwise », « slowly ») et vitesse et durée de centrifugation de la synthèse non données (10 000 rpm / 2 min ne concerne que le test)",
+    "nombre et volume des lavages éthanol / eau, durée de séchage à 60 °C, rendement, échelle du lot non donnés",
+    "photoréduction : distance lampe-échantillon, irradiance, récipient, atmosphère et refroidissement non précisés ; la lampe est dite à mercure 500 W, λ ≤ 400 nm",
+    "préparation des témoins ZIF-8 et Ag/AgCl absente de l'article, sans Supporting Information (savoir si ZIF-8 a subi l'étape UV et le même séchage)",
+    "écarts entre le protocole et les deux publications dont il est « modifié » (cit27, cit28) non précisés",
+    "teneur réelle en Ag, AgCl et Ag0 non mesurée (pas d'ICP ni de dosage) : « x » est la quantité de AgNO3 introduite, pas la teneur dans le solide ; la proportion AgCl/Ag0 après 30 min d'UV n'est pas donnée",
+    "la conclusion donne kapp = 0,236 min−1 et « Ag/AgCl(30)@ZIF-8 », en contradiction avec les résultats (0,049 min−1, Ag/AgCl(15)) ; l'échantillon observé au MEB (avant ou après UV) n'est pas précisé"
+  ],
+  "mechanism_check": "ok sauf la route du 2e mecanisme_auteurs (phrase sur l'échantillon Ag/AgCl seul, rattachée à tort à Ag/AgCl(5)@ZIF-8). Le mecanisme_analyse (bilan des chlorures de ZnCl2, 20 mmol de Cl− pour 10 mmol de Zn) est présenté comme hypothèse et reste cohérent avec la série 5 à 20 mmol.",
+  "notes": "Tableau 1 (S BET, S tma, V total, D HK) : les six rangées sont correctement attribuées (ZIF-8, 5, 10, 15, 20, Ag/AgCl). Adsorption à l'obscurité (65,77 / 48,96 / 39,18 / 31,84 / 24,36 / 7,36 %), dégradation à 60 min (80,18 / 91,26 / 99,12 / 96,57 / 94,24 %) et kapp (0,011 / 0,021 / 0,049 / 0,030 / 0,032 min−1) : toutes les attributions sont correctes, les phrases « respectively » ont été lues dans le bon ordre. Série AgNO3 : l'attribution 5, 10, 15, 20 mmol aux échantillons est solide, et pas seulement vraisemblable : les phrases MEB « With 5 mmol AgNO3 … (Fig. 2b) », « Adding 10 mmol AgNO3 … (Fig. 2c) », « With 15 mmol AgNO3 … (Fig. 2d) », « Adding 20 mmol AgNO3 … (Fig. 2e) » correspondent aux légendes de la Fig. 2 (b = Ag/AgCl(5)@ZIF-8, c = (10), d = (15), e = (20)) ; le doute de l'extraction est donc plus prudent qu'il n'est nécessaire. Témoins : les deux sont dits « as-synthesized » (« Fig. 1b is the XRD pattern of the as-synthesized ZIF-8 », « all of the as-synthesized samples ») donc préparés par les auteurs, mais sans aucun protocole ni annexe ; les deux voies sont justifiées comme échantillons comparés, pas comme protocoles. Les légendes des Fig. 8 et 9 ne citent pas Ag/AgCl alors que le texte donne ses valeurs : valeurs retenues du texte, bien. method_sources : l'extraction a raison de garder cit27 et cit28. Le fichier corpus/refs ne marque que [[cit27]], mais le XML de l'article porte un renvoi groupé « 27,28 » (xref rid=cit27, texte « 27,28 ») après « Schejns et al. and McEvoy et al. » ; cit28 (McEvoy) est donc bien cité dans la phrase, et le doute de l'extraction qui dit qu'il est « sans renvoi dans le texte » est inexact (à corriger dans le doute, sans effet sur la donnée). Aucun autre renvoi de méthode n'est absent : cit29 à cit33, cit35 à cit38 portent sur des fiches JCPDS, l'indexation XRD, l'interprétation, la formule de la bande interdite (cit36) ou le mécanisme, et cit24 / cit25 décrivent des travaux antérieurs de contexte. Fragile dans ma lecture : l'extraction fixe la voie de base à 5 mmol et traite les trois autres comme branches, ce qui est cohérent mais arbitraire ; le choix des témoins sans étape réelle (ZIF-8 : étape react de 24 h) est le point que je ne tranche pas avec certitude."
+}

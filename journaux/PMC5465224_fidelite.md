@@ -1,0 +1,15 @@
+# Journal de la critique de fidélité PMC5465224
+
+- Ma liste d'échantillons : NZZN-2, 3, 4, 5 mmol ; Ni3S2/Ni(OH)2 (intermédiaire nommé) ; Ni(OH)2-6h, -12h, -24h ; ZnS/ZnO ; plus un « ZnS/ZnO/Ni foam » annoncé (Methods, deux fois) sans protocole propre. L'inventaire de l'extracteur couvre tout sauf ce dernier : constat mineur `probable`, pas une branche manquante, car aucune condition n'est décrite.
+- Aucune valeur fausse trouvée : tous les chiffres des Résultats, de Characterizations et des 27 lectures de figures ont été recontrôlés. Fig. 3d : 12 chiffres EDS imprimés, tous exacts. Fig. 6d : 750/440 et 510/240 retrouvés par les rétentions imprimées (58,64 % et 46,94 %). Fig. 6f : 670 → 480, cohérent avec les 72 % du texte. Fig. 7d : 99/84/72/69/67, écart ≤ 1 point.
+- Fig. 7c mesurée par pixels sur un agrandissement : 2 mmol 0,306 (extrait 0,31), 3 mmol 0,10 (0,1), 4 mmol 0,049, 5 mmol ≈ 0,085 (extrait 0,095). Écart de 12 % relatif sur 5 mmol mais 0,01 en absolu : noté dans `notes`, pas en constat.
+- `active_mass_loading` : « containing about 18 mg ZnS/ZnO/Ni(OH)2 catalyst » (photocatalyse, pièce 2 × 1 cm) est donné ; l'extraction le met dans les conditions mais déclare la case non citée et l'annotation dit qu'aucun chargement n'est chiffré. `probable` seulement : l'article ne dit pas que l'électrode de 1 cm2 a le même chargement.
+- Étape 1 de NZZN-4 mmol : « for 20 minutes, respectively » = 20 min par liquide ; l'étape unique avec duration = 20 min induit en erreur. `sure` car le mot « respectively » est dans le texte.
+- Rétentions imprimées dans la Fig. 6d (44,69 / 58,64 / 46,94 %) : l'extracteur les a utilisées pour recouper mais ne les a pas extraites : `manquant`, `sure`.
+- Fig. 7a : absorbance comparée des quatre échantillons, phrase explicite dans le texte (« stronger absorption ») : le journal d'extraction la dit non extraite ; `manquant` mineur.
+- Citation des valeurs C/C0 : la légende de la Fig. 7 est inversée (b/c) ; la citation retenue correspond donc au panneau (b). Je propose la phrase du corps du texte qui nomme la Fig. 7c. `sure`.
+- Propriétés non comparables (95,1 % pour 4 mmol, C/C0 pour 2/3/5 mmol) : constat de forme, car `compare.py` ne les mettra pas en regard.
+- Écarté : héritage de toutes les étapes par les branches 2/3/5 mmol (l'article n'écrit pas « same procedure », mais le doute est déjà consigné et la lecture est raisonnable) ; mise en `notes`. Écarté aussi : la valeur « 70 % » après trois cycles et les contradictions Fig. 7d / texte, déjà traitées en doutes avec les deux sources.
+- `method_sources` : relu `corpus/refs`, les [CR] de Methods sont absents ; ceux du texte portent sur l'XPS, l'EIS, le mécanisme (contexte). Vide = correct.
+- `not_stated` vérifiés : 24 ; un seul faux (active_mass_loading). Les autres (concentration HCl, puissance des ultrasons, durée du séchage sous vide, vitesse d'agitation, taux de remplissage) sont réellement absents du texte.
+- Ni(OH)2-X : le rattachement de la durée à la seconde hydrothermie est une lecture ; constat `deduit`, `probable`, avec demande d'annotation limite_reproductibilite.

@@ -1,0 +1,15 @@
+# Journal d'extraction PMC6614408
+
+- Découpage : voie de base ZnO_0 (ZnO pur, section « Synthesis of pure ZnO NPs ») et trois branches ZnO_Pd0.5 / 0.75 / 1 héritant de ZnO_0, car le texte dit « the above experimental procedure was followed, but with a few modifications ». Seule différence chiffrée : la teneur en Pd (variation « dopant », parent_value « none »).
+- Agitation des échantillons chargés : « prior to starring at room temperature for 24 h » contre « Stirring was continued for 30 min and the suspension was maintained for 24 h » chez le pur. Lecture littérale : étapes héritées, plus une variation « temperature » = room temperature sur l'étape de maintien (étape 5) ; ambiguïté consignée en doute avec l'autre lecture.
+- « PdCl » : formule recopiée telle qu'écrite (probablement PdCl2) ; aucune masse, donc amount_text « x mol% Pd-loaded ZnO » et mention dans missing_fields et limite_reproductibilite.
+- Pureté et fournisseur : la phrase « All reagents employed were of analytical grade and were used as received from Sigma-Aldrich, South Africa. » couvre explicitement tous les réactifs de la synthèse ; appliquée à Zn(OAc)2, EtOH, NaOH, PdCl. Non appliquée aux réactifs du capteur (section distincte, renvoi à une autre publication).
+- Séchage : « After drying, the obtained white precipitate at 90 °C was annealed… » lu comme séchage à 90 °C (confirmé par « dried at 90 °C » dans la synthèse des échantillons chargés). Durée de séchage non citée.
+- Tableaux 1, 2, 3 : une rangée par échantillon, attribuée par la première colonne (mol %), rangée entière en citation. Aucune lecture par position.
+- Tableau 3 : Pd2+/Pd0 = 0,56 pour 0,75 mol % alors que 37,46/62,53 = 0,60 ; valeur du tableau gardée, doute écrit. Tailles de cristallite en Å (26 Å) peu compatibles avec 40 nm TEM : unité gardée, doute écrit.
+- Figures lues : Fig. 13 (inset, valeurs imprimées de la réponse à 40 ppm NH3 à 0, 10, 90 % HR), Fig. 9a (temps de réponse et de récupération imprimés), Fig. 12 (barres H2S, CO, CH4, NO2 lues à vue, ±3), Fig. 8b (R² imprimés). Fig. 14b non reprise (un seul échantillon, courbe sans valeurs).
+- Incohérence interne : Fig. 8a/9a/8b donnent environ 35 pour 0,5 mol % à 40 ppm alors que Fig. 12/13 donnent 123,8. Les valeurs imprimées de Fig. 13 sont gardées, doute écrit sans correction.
+- Dispositif : une seule voie « Sensor_fabrication » (kind device) pour les quatre échantillons, car la fabrication est décrite une fois pour « pure or Pd-loaded ZnO NPs » ; les réponses de capteur restent en outcomes des voies matériau (comme le modèle PMC6199062). Renvoi à CR14 consigné dans method_sources (protocole_adapte).
+- Série en température de fonctionnement (250–400 °C, Fig. S2) : condition de test, pas de synthèse, donc pas de branches ; seule la valeur de l'optimum (350 °C) est reprise. Les images des Fig. S1–S3 ne sont pas dans le dépôt (seule la légende est lue).
+- Équations de Debye–Scherrer, Bragg, réponse empirique : formules d'analyse, pas de method_sources.
+- Stabilité à long terme (65 %) rattachée à ZnO_Pd0.75 car la phrase concerne le capteur à 0,75 mol % ; incohérence « 30 days »/« 10 months » en doute.

@@ -1,0 +1,12 @@
+# Journal du test de complétude — PMC6297187
+
+- Extraction d'origine très complète : les 30 nombres de tableaux et les 15 de l'expérimental étaient couverts. Les 12 manques de la liste A sont presque tous des conditions d'essai biologique (inoculum, sang) et des valeurs de la littérature citées pour comparer.
+- Les valeurs de la littérature vont dans `comparisons` (route AgNP_Ar), avec le `ref_id` lu dans `corpus/refs/PMC6297187.txt` (marqueurs [[bibXXXX]] en regard de la phrase). Les plages (633.26 à 8595.89 ; 6 à 92 %) sont séparées en une entrée par borne, avec la mention dans `conditions`.
+- Anil Kumar et al. : « LC50 = 4.65 and 6.10 mg/L ... respectively » après « third instar » et « 3rd and 4th instar » ; lecture 3e stade = 4.65, 4e stade = 6.10 par l'ordre des stades, notée dans un doute (l'article peut aussi se lire autrement).
+- Patil et al. : l'article écrit « Spergularia rubra » alors que la référence bib0185 traite de Pergularia daemia ; nom recopié tel quel, doute ajouté, ref_id gardé.
+- Conditions de mesure ajoutées comme nouvelles entrées de `characterizations` (technique suffixée) plutôt que par modification des `conditions` des entrées existantes, pour respecter « ajouter seulement ». La vérification par comparaison avec la version d'origine n'a trouvé aucun élément modifié ou retiré.
+- Entrée « XRD - reference pattern » pour la fiche JCPDS 89-3722 : le rayonnement et le pas ne sont pas donnés par l'article, je l'écris dans `conditions`.
+- Positions de pics XRD et FTIR ajoutées en `outcomes` : l'article les attribue à l'échantillon Ag. Les attributions FTIR suivent l'ordre de « respectively » (six pics, six groupes), comme dans les caractérisations existantes ; le pic 2845 reste sans attribution. La citation FTIR s'arrête avant le fragment SVG de l'article (liaison C=O) pour rester une sous-chaîne propre ; les valeurs 2925 et 3430 sont bien dans la citation.
+- Concentration de 15 μg/mL « minimum pour la mortalité maximale » : affirmation des auteurs contredite par le Tableau 1 (98 % à 15, 100 % à 20) ; enregistrée telle quelle avec un doute, sans correction.
+- Non retenus : épidémiologie de l'introduction, bandes de Khan et al. (aucune valeur chiffrée), 0,23 nm de la légende (déjà en doute).
+- Cases `not_stated` ajoutées : `vessel`, `repetitions` (voies Extrait_Ar et AgNP_Ar, relues dans le texte : aucun récipient de synthèse ni nombre de lots), `wash_volume` (lavage de AgNP_Ar). Aucune figure ouverte.

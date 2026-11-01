@@ -1,0 +1,625 @@
+{
+ "pmcid": "PMC3212207",
+ "routes": [
+  {
+   "label": "GO",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pré-oxydation : rapports graphite / H2SO4",
+     "inputs": "3 g graphite (C, 12,011 g/mol) ; 12 mL H2SO4 98 % (ρ 1,84 g/mL)",
+     "formula": "n = m/M ; n(H2SO4) = V·ρ·0,98/98,08",
+     "result": "C 249,8 mmol ; H2SO4 220,6 mmol ; 4 mL/g",
+     "compared_to": "Kovtyukhova 1999 : 3 g graphite, 12 mL H2SO4, 2,5 g K2S2O8, 2,5 g P2O5, 80 °C, 4,5 h (mêmes nombres, oxydants absents ici) ; SI 10.1038/nnano.2008.329 : 12 g / 50 mL / 10 g / 10 g, 80 °C, 4,5 h",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "KMnO4 par rapport au carbone",
+     "inputs": "15 g KMnO4 (158,03 g/mol) ; 2 g de poudre pré-oxydée comptée comme C pur",
+     "formula": "n(KMnO4)/n(C) ; m(KMnO4)/m(C)",
+     "result": "94,9 mmol KMnO4 ; Mn/C = 0,57 mol/mol ; 7,5 g/g",
+     "compared_to": "Hummers 1958 : 300 g KMnO4 / 100 g graphite = 3 g/g (Mn/C 0,23) ; Marcano 2010 : 6 g/g (Mn/C 0,46) ; Kovtyukhova : 15 g pour le produit de 3 g de graphite = 5 g/g",
+     "source": "valeurs de l'article ; fondateurs.md"
+    },
+    {
+     "what": "concentration du permanganate dans l'acide",
+     "inputs": "94,9 mmol KMnO4 ; 120 mL H2SO4 98 % = 2,206 mol",
+     "formula": "c = n/V",
+     "result": "0,79 mol/L de Mn(VII) ; H2SO4/KMnO4 = 23 mol/mol",
+     "compared_to": "milieu habituel de formation de Mn2O7 (Hummers)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "H2O2 disponible pour réduire le Mn(VII) restant",
+     "inputs": "20 mL H2O2 30 % (ρ ≈ 1,11 g/mL, 34,01 g/mol) ; 2 MnO4− + 5 H2O2 + 6 H+ → 2 Mn2+ + 5 O2 + 8 H2O",
+     "formula": "n(H2O2) = 20·1,11·0,30/34,01 ; n(MnO4− réductible) = 2/5·n(H2O2)",
+     "result": "195,8 mmol H2O2 → 78,3 mmol MnO4− au plus, soit 82 % des 94,9 mmol introduites ; ≈ 78 mmol d'O2 dégagés (≈ 1,9 L à 25 °C)",
+     "compared_to": "si le graphite consomme ≈ 33 mmol de MnO4− (hypothèse GO de C/O ≈ 2 : 166 mmol e−), il reste ≈ 62 mmol, qui demandent ≈ 154 mmol H2O2 : suffisant de justesse ; insuffisant si l'oxydation à < 10 °C est incomplète",
+     "source": "chimie générale (bilan redox) ; hypothèse C/O = 2 pour le GO"
+    },
+    {
+     "what": "échauffement à la dilution de l'acide",
+     "inputs": "120 mL H2SO4 98 % (220,8 g, 2,206 mol) + 250 mL eau + 20 mL H2O2 30 % ; enthalpie intégrale de dilution de H2SO4 jusqu'à ≈ 7 H2O/H2SO4 prise à ≈ −60 kJ/mol (ordre de grandeur des tables, non relu ici) ; cp du mélange ≈ 2,8 J/(g·K) (hypothèse)",
+     "formula": "Q = n·ΔH ; ΔT = Q/(m·cp)",
+     "result": "mélange 493 g à 44 % en masse ; Q ≈ 130 kJ ; ΔT adiabatique ≈ 95 K",
+     "compared_to": "ébullition du mélange vers 110–120 °C ; Mn2O7 instable au-dessus de 55 °C",
+     "source": "chimie générale ; valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "L'étape « pré-oxydation » ne contient que graphite + H2SO4 98 % à 80 °C, 4,5 h. Les quantités (3 g, 12 mL, 80 °C, 4,5 h, puis 120 mL H2SO4 et 15 g KMnO4, 250 mL d'eau, 20 mL H2O2) sont exactement celles du protocole de Kovtyukhova, dont la pré-oxydation comporte aussi 2,5 g de K2S2O8 et 2,5 g de P2O5. H2SO4 seul, sans oxydant, ne pré-oxyde pas le graphite (il faut un oxydant pour former le composé d'intercalation). Les deux oxydants ont très probablement été omis par les auteurs, qui ne citent d'ailleurs que Hummers. Refait tel qu'écrit, le pas 1 ne sert presque à rien ; l'oxydation par KMnO4 donne quand même du GO, mais moins oxydé et avec moins de rendement (voir « pré-oxydation : rapports graphite / H2SO4 »). Deux sources secondaires lues confirment la présence de K2S2O8 et de P2O5 dans cette pré-oxydation (brevet US8778538 ; SI de 10.1038/nnano.2008.329, voir ce document : 12 g de graphite, 50 mL d'H2SO4, 10 g de K2S2O8, 10 g de P2O5, soit les mêmes proportions pour 3 g).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Layer-by-Layer Assembly of Ultrathin Composite Films from Micron-Sized Graphite Oxide Sheets and Polycations",
+      "authors_or_publisher": "Kovtyukhova N.I., Ollivier P.J., Martin B.R., Mallouk T.E., Chizhik S.A., Buzaneva E.V., Gorchinskiy A.D. (Chem. Mater. 11, 771–778)",
+      "year": "1999",
+      "url_or_doi": "10.1021/cm981085u"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Oxydation par KMnO4 conduite seulement 2 h à < 10 °C, sans le palier à 35 °C de Hummers (30 min) ni celui de Kovtyukhova (2 h). Selon Dimiev et Tour, la conversion du composé d'intercalation en oxyde de graphite est limitée par la diffusion de l'oxydant ; à < 10 °C elle est lente. L'oxydation est probablement partielle ; le prélèvement du seul surnageant après 12 h de décantation écarte le graphite peu oxydé, au prix du rendement (non donné). La charge de KMnO4 (7,5 g/g, voir « KMnO4 par rapport au carbone ») est plus forte que chez Hummers (3 g/g) et Marcano (6 g/g).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Mechanism of Graphene Oxide Formation",
+      "authors_or_publisher": "Dimiev A.M., Tour J.M. (ACS Nano 8, 3060–3068)",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn500606a"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "« About 250 ml distilled water and 20 ml H2O2 (30%) were added ... at room temperature » : ajoutée d'un coup, l'eau échauffe le mélange d'environ 95 K en conditions adiabatiques (voir « échauffement à la dilution de l'acide »), avec ébullition et projection d'acide, alors que le Mn2O7 formé dans KMnO4/H2SO4 est explosif au-dessus de 55 °C. Les protocoles de référence ajoutent l'eau lentement, sous refroidissement (Kovtyukhova : T < 50 °C). L'H2O2 dégage ensuite ≈ 1,9 L d'O2 (moussage). Aucune de ces précautions n'est écrite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Mass Production of Graphene Oxide Beyond the Laboratory: Bridging the Gap Between Academic Research and Industry (Mn2O7 explosif au-dessus de 55 °C ; exothermes à l'ajout de KMnO4 et de l'eau)",
+      "authors_or_publisher": "revue en accès libre, PMC11636258 (auteurs non relus)",
+      "year": "non relue",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11636258"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "« After sonication ... the solution was filtered using 200-nm porous filter » : filtrer directement 12 mL d'H2SO4 98 % chaud exige une membrane résistante à l'acide concentré (PTFE) ; les protocoles de référence diluent d'abord dans l'eau, lavent jusqu'à neutralité et sèchent la poudre. La dilution, le lavage et le séchage ne sont pas écrits.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Layer-by-Layer Assembly of Ultrathin Composite Films from Micron-Sized Graphite Oxide Sheets and Polycations",
+      "authors_or_publisher": "Kovtyukhova N.I., Ollivier P.J., Martin B.R., Mallouk T.E., Chizhik S.A., Buzaneva E.V., Gorchinskiy A.D. (Chem. Mater. 11, 771–778)",
+      "year": "1999",
+      "url_or_doi": "10.1021/cm981085u"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Dispersion brune stable de GO à 0,5 mg/mL : conforme à un GO hydrophile ; le mot « exfoliate ... into monolayer graphene sheets » appliqué à l'étape KMnO4 est impropre (l'oxydation produit de l'oxyde de graphite ; l'exfoliation vient de la dispersion dans l'eau).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Pré-oxydation (si K2S2O8/P2O5 sont présents) : oxydation des bords et expansion du graphite. Puis, dans KMnO4/H2SO4, formation d'un composé d'intercalation H2SO4–graphite, diffusion de Mn2O7/MnO3+ entre les feuillets et conversion en oxyde de graphite « vierge » ; l'ajout d'eau hydrolyse les sulfates covalents et achève l'exfoliation en GO (époxy, hydroxyle, carboxyle de bord) ; H2O2 réduit Mn(VII)/MnO2 en Mn2+, éliminé par HCl.",
+    "sources": [
+     {
+      "title": "Mechanism of Graphene Oxide Formation",
+      "authors_or_publisher": "Dimiev A.M., Tour J.M. (ACS Nano 8, 3060–3068)",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn500606a"
+     },
+     {
+      "title": "Layer-by-Layer Assembly of Ultrathin Composite Films from Micron-Sized Graphite Oxide Sheets and Polycations",
+      "authors_or_publisher": "Kovtyukhova N.I., Ollivier P.J., Martin B.R., Mallouk T.E., Chizhik S.A., Buzaneva E.V., Gorchinskiy A.D. (Chem. Mater. 11, 771–778)",
+      "year": "1999",
+      "url_or_doi": "10.1021/cm981085u"
+     },
+     {
+      "title": "Preparation of Graphitic Oxide",
+      "authors_or_publisher": "Hummers W.S., Offeman R.E. (JACS)",
+      "year": "1958",
+      "url_or_doi": "10.1021/ja01539a017"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ajouter 2,5 g de K2S2O8 et 2,5 g de P2O5 à la pré-oxydation (protocole de Kovtyukhova) ou justifier leur absence",
+    "diluer, laver et sécher le graphite pré-oxydé avant le filtre de 200 nm",
+    "ajouter l'eau lentement sous bain froid (T < 50 °C) puis H2O2 goutte à goutte jusqu'à couleur jaune",
+    "décider d'un palier à 35 °C si l'oxydation à < 10 °C est incomplète",
+    "noter le rendement en GO et la vitesse de centrifugation"
+   ]
+  },
+  {
+   "label": "rGO",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de GO traitée",
+     "inputs": "20 mL à 0,5 mg/mL",
+     "formula": "m = c·V",
+     "result": "10 mg de GO",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "quantité d'hydrazine selon sa forme",
+     "inputs": "3 µL ; N2H4 anhydre ρ 1,021 g/mL, 32,05 g/mol ; N2H4·H2O ρ 1,032 g/mL, 50,06 g/mol ; solution à 35 % ρ ≈ 1,0",
+     "formula": "n = V·ρ·w/M",
+     "result": "anhydre 95,6 µmol (4,8 mM ; 9,6 µmol/mg GO) ; hydrate 61,8 µmol (3,1 mM ; 6,2 µmol/mg) ; solution 35 % 32,8 µmol (1,6 mM)",
+     "compared_to": "« hydrate residue » dans le texte : la forme hydrate est probable mais non écrite ; écart d'un facteur 3 selon la lecture",
+     "source": "valeurs de l'article ; masses volumiques usuelles (PubChem)"
+    },
+    {
+     "what": "électrons fournis par l'hydrazine contre électrons pour désoxygéner le GO",
+     "inputs": "N2H4 → N2 + 4 H+ + 4 e− ; GO supposé à 35 % massique d'O, 2 e− par O retiré",
+     "formula": "4·n(N2H4) contre 2·m(GO)·0,35/16",
+     "result": "anhydre 382 µmol e− ; hydrate 247 µmol e− contre ≈ 438 µmol e− pour une désoxygénation totale",
+     "compared_to": "hydrazine en défaut ou à peine stœchiométrique, alors que les protocoles usuels l'emploient en large excès : réduction partielle attendue, cohérente avec le pic résiduel à 306 nm",
+     "source": "chimie générale ; hypothèse 35 % d'O dans le GO"
+    },
+    {
+     "what": "concentration de SDS",
+     "inputs": "0,1 g SDS (288,38 g/mol) dans 20 mL",
+     "formula": "c = m/(M·V)",
+     "result": "17,3 mM, soit ≈ 2,1 × la CMC (8 mM) ; SDS/GO = 10 g/g",
+     "compared_to": "CMC de SDS ≈ 0,008 mol/L à 25 °C",
+     "source": "PMC4487321 (J. Res. NIST 2013)"
+    },
+    {
+     "what": "énergie micro-ondes contre chauffage de 20 mL d'eau",
+     "inputs": "900 W × 30 s = 27 kJ nominaux ; cp(eau) 4,184 J/(g·K) ; ΔvapH 2 257 J/g",
+     "formula": "Q = m·cp·ΔT ; t = Q/P",
+     "result": "6,7 kJ pour 20 → 100 °C, soit 7,4 s à absorption totale ; le reste pourrait vaporiser jusqu'à 9 g",
+     "compared_to": "l'absorption réelle d'une petite charge dans un four domestique est bien inférieure et non connue : ébullition probable, durée à chaud de quelques secondes à quelques dizaines de secondes",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Avec 3 µL, l'hydrazine n'est pas en excès (voir « électrons fournis par l'hydrazine ... ») et sa forme (anhydre, hydrate, solution) change la quantité d'un facteur 3. Avec 30 s de micro-ondes, la réduction ne peut être que partielle, ce que montrent le pic à 306 nm et la mobilité très faible de l'rGO. Ce n'est pas une incohérence, mais un chimiste doit savoir que le degré de réduction dépend de paramètres non écrits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Récipient et volume chauffés non donnés. À 900 W nominaux, 20 mL d'eau atteignent l'ébullition en quelques secondes (voir « énergie micro-ondes ... ») : risque de surchauffe et de projection, surtout en flacon fermé. La méthode micro-ondes avec hydrazine est établie (El-Shall et al.), avec des durées de 30 s à quelques minutes.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Microwave synthesis of graphene sheets supporting metal nanocrystals in aqueous and organic media",
+      "authors_or_publisher": "Hassan H.M.A., Abdelsayed V., Khder A.S., AbouZeid K.M., Terner J., El-Shall M.S., Al-Resayes S.I., El-Azhary A.A. (J. Mater. Chem. 19, 3832)",
+      "year": "2009",
+      "url_or_doi": "10.1039/b906253j"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "SDS à 17 mM, au-dessus de la CMC (voir « concentration de SDS ») : stabilisation de l'rGO plausible. En revanche les trois lavages à l'eau éliminent en grande partie le SDS ; la concentration de la solution de SDS de redispersion et la concentration d'rGO obtenue ne sont pas données, ce qui empêche de calculer le rapport Au/rGO de l'étape suivante.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Temperature Effect on the Nanostructure of SDS Micelles in Water (CMC de SDS ≈ 0,008 mol/L)",
+      "authors_or_publisher": "J. Res. NIST, PMC4487321",
+      "year": "2013",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4487321"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pic UV à ≈ 271 nm : décalage du pic π→π* du GO (≈ 230 nm) vers ≈ 270 nm, signe classique de restauration de la conjugaison après réduction par l'hydrazine ; épaisseur AFM de 1,1 nm : habituelle pour une monocouche d'rGO sur SiO2 (groupes résiduels, SDS adsorbé, eau).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Processable aqueous dispersions of graphene nanosheets",
+      "authors_or_publisher": "Li D., Müller M.B., Gilje S., Kaner R.B., Wallace G.G. (Nat. Nanotechnol. 3, 101)",
+      "year": "2008",
+      "url_or_doi": "10.1038/nnano.2007.451"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Hydrazine : toxique, corrosive, cancérogène suspectée, réducteur puissant incompatible avec les oxydants. Le chauffage micro-ondes d'une solution qui en contient doit se faire sous hotte, en récipient ouvert ou prévu pour la pression ; les eaux de lavage contiennent de l'hydrazine.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "HYDRAZINE, ANHYDROUS – Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/5019"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'hydrazine ouvre les époxydes (et réduit une partie des hydroxyles) du GO, avec restauration partielle des domaines sp² ; le chauffage micro-ondes, volumique et rapide, accélère la réaction ; le SDS s'adsorbe par sa chaîne sur les domaines hydrophobes et apporte une répulsion électrostatique (sulfate) qui limite le réempilement π–π. Réduction incomplète vu la faible dose et la courte durée.",
+    "sources": [
+     {
+      "title": "Synthesis of graphene-based nanosheets via chemical reduction of exfoliated graphite oxide",
+      "authors_or_publisher": "Stankovich S. et al. (Carbon 45, 1558) — réf. 35 de l'article, non ouverte",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.carbon.2007.02.034"
+     },
+     {
+      "title": "Microwave synthesis of graphene sheets supporting metal nanocrystals in aqueous and organic media",
+      "authors_or_publisher": "Hassan H.M.A., Abdelsayed V., Khder A.S., AbouZeid K.M., Terner J., El-Shall M.S., Al-Resayes S.I., El-Azhary A.A. (J. Mater. Chem. 19, 3832)",
+      "year": "2009",
+      "url_or_doi": "10.1039/b906253j"
+     },
+     {
+      "title": "Processable aqueous dispersions of graphene nanosheets",
+      "authors_or_publisher": "Li D., Müller M.B., Gilje S., Kaner R.B., Wallace G.G. (Nat. Nanotechnol. 3, 101)",
+      "year": "2008",
+      "url_or_doi": "10.1038/nnano.2007.451"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "forme et titre de l'hydrazine (hydrate à 64 % de N2H4 ? solution à 35 % ?)",
+    "récipient (ouvert ou fermé) et puissance réellement absorbée, température atteinte",
+    "vitesse et durée de centrifugation, concentration de la solution de SDS de redispersion",
+    "concentration finale d'rGO (pesée après séchage d'un aliquote)"
+   ]
+  },
+  {
+   "label": "rGO-Au",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité d'or et concentration",
+     "inputs": "0,1 mL de HAuCl4 0,05 M ; 5 mL de dispersion ; Au 196,97 g/mol",
+     "formula": "n = c·V ; c' = n/(5,1 mL)",
+     "result": "5,0 µmol Au(III) = 0,985 mg d'Au ; 0,98 mM dans le flacon",
+     "compared_to": "masse d'rGO dans les 5 mL inconnue (concentration de la dispersion non donnée) : rapport Au/rGO incalculable ; par exemple avec 0,35 mg/mL d'rGO (1,75 mg), Au ≈ 36 % en masse",
+     "source": "valeurs de l'article ; hypothèse de concentration d'rGO"
+    },
+    {
+     "what": "électrons nécessaires à la réduction de l'or",
+     "inputs": "AuCl4− + 3 e− → Au + 4 Cl− ; 5,0 µmol",
+     "formula": "3·n(Au)",
+     "result": "15 µmol e−, soit l'équivalent de 3,75 µmol de N2H4 (4 % de l'hydrazine introduite à l'étape rGO, si anhydre)",
+     "compared_to": "un résidu d'hydrazine adsorbée après trois lavages suffirait à réduire tout l'or : l'rGO n'est pas forcément le réducteur",
+     "source": "chimie générale"
+    },
+    {
+     "what": "force motrice de la réduction spontanée",
+     "inputs": "E°(AuCl4−/Au) ≈ +1,00 V/ESH ; travail de sortie du graphène ≈ 4,5 eV, soit ≈ +0,06 V/ESH avec 4,44 eV pour l'ESH",
+     "formula": "ΔE = E°(Au) − E(graphène)",
+     "result": "≈ 0,9 V : réduction thermodynamiquement favorable",
+     "compared_to": "mécanisme « différence de potentiel chimique » des auteurs",
+     "source": "chimie générale (valeurs de manuel, non relues ici)"
+    },
+    {
+     "what": "nombre de NP de 10 nm possibles contre densité vue en AFM",
+     "inputs": "sphère de 10 nm : 5,24·10⁻¹⁹ cm³ × 19,32 g/cm³ → 30 900 atomes ; 5 µmol d'Au ; densité AFM lue sur la Fig. 2a (champ ≈ 250 nm × 250 nm, ≈ 80 particules) ≈ 1 000–1 300 /µm² ; aire d'une face d'rGO ≈ 1 315 m²/g",
+     "formula": "N = n·NA/atomes ; densité = N/aire",
+     "result": "9,7·10¹³ NP au plus ; pour 1,75 mg d'rGO (2,3 m² par face) ≈ 40 NP/µm² ; la densité observée correspondrait à ≈ 75 µg d'rGO dans les 5 mL (≈ 15 µg/mL)",
+     "compared_to": "soit la dispersion d'rGO est très diluée (pertes à la centrifugation), soit la densité vue sur un feuillet n'est pas représentative ; calcul d'ordre de grandeur seulement",
+     "source": "valeurs de l'article et de la Fig. 2a ; masse volumique de l'or (manuel)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Aucun réducteur n'est ajouté ; « by a chemical reduction of HAuCl4 » sans agent nommé. La réduction spontanée d'AuCl4− par le graphène ou l'rGO est documentée (≈ 0,9 V de force motrice, voir « force motrice de la réduction spontanée »), mais l'hydrazine résiduelle adsorbée (sous forme d'hydrazinium) suffirait aussi (voir « électrons nécessaires ... »). Le réducteur réel n'est pas établi, et le taux de conversion de l'Au(III) n'est pas mesuré (ni ICP, ni ATG, ni XPS).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Layer-by-layer assembly of graphene and gold nanoparticles by vacuum filtration and spontaneous reduction of gold ions",
+      "authors_or_publisher": "Kong B.-S., Geng J., Jung H.-T. (Chem. Commun. 2174)",
+      "year": "2009",
+      "url_or_doi": "10.1039/b821920f"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Température de la réduction non donnée (ambiante probable) ; la vitesse de réduction spontanée en dépend.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune purification après réaction : la dispersion « rGO-Au » utilisée pour l'UV, l'AFM, le Raman et les transistors contient aussi l'Au(III) non réduit éventuel, le HCl libéré (≈ 4 Cl− par Au réduit ; pH ≈ 3 attendu pour 1 mM de HAuCl4) et le SDS. Le rapport Au/rGO est incalculable (voir « quantité d'or et concentration »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plasmon à ≈ 570 nm : des sphères d'or isolées de ≈ 10 nm absorbent vers 515–520 nm ; 570 nm indique un couplage entre particules ou des agrégats (que l'AFM montre) et l'effet diélectrique de l'rGO. Le spectre prouve la présence d'or métallique, pas que les NP sont « firmly attached ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of Size and Concentration of Gold Nanoparticles from UV−Vis Spectra",
+      "authors_or_publisher": "Haiss W., Thanh N.T.K., Aveyard J., Fernig D.G. (Anal. Chem. 79, 4215)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ac0702084"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« without significant defects » est contredit par le spectre de la Fig. 3a, où la bande D (≈ 1 350 cm⁻¹) est aussi intense que la bande G (rapport des hauteurs ≈ 1 sur les deux spectres, lu sur la figure), comme pour tout rGO chimique. Une carte d'intensité de la bande G renseigne sur l'uniformité et le nombre de couches, pas sur les défauts : il faut le rapport I(D)/I(G). Le décalage de G de 1 602 à 1 606 cm⁻¹ (4 cm⁻¹) est de l'ordre de la variabilité d'un point à l'autre pour l'rGO ; il reste compatible avec un dopage p.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A.C., Robertson J. (Phys. Rev. B)",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« laser spot size about 0.5 mm » : impossible pour un microscope Raman confocal (limite de diffraction ≈ 1,22 λ/ON ≈ 0,66 µm à 488 nm avec ON 0,9) et incompatible avec une carte qui localise des particules. Lire ≈ 0,5 µm : les cartes des Fig. 3b et 3c ont une barre d'échelle de 0,6 µm et des pixels plus petits. Même à 0,5 µm, une carte ne résout pas des NP de 10 nm, seulement des amas. L'or n'a pas de bande Raman entre 1 100 et 1 200 cm⁻¹ : le signal des « points brillants » vient de l'exaltation (SERS) de bandes d'adsorbats (SDS, résidus organiques) ou du fond de photoluminescence de l'or. « this wavelength range » désigne en fait un domaine de nombres d'onde.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Densité de NP plus forte aux bords : cohérente avec la nucléation sur les défauts et les fonctions oxygénées des bords (Zhou et al. 2009, cité par les auteurs).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "In situ synthesis of metal nanoparticles on single-layer graphene oxide and reduced graphene oxide surfaces",
+      "authors_or_publisher": "Zhou X. et al. (J. Phys. Chem. C 113, 10842) — réf. 36 de l'article, non ouverte",
+      "year": "2009",
+      "url_or_doi": "10.1021/jp903821n"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Réduction de type galvanique : AuCl4− (E° ≈ +1,00 V) accepte des électrons des domaines sp² de l'rGO, dont le niveau de Fermi est vers 0 V/ESH, et l'rGO se réoxyde localement ; nucléation préférentielle aux défauts et aux bords, puis croissance jusqu'à ≈ 10 nm et coalescence en quelques amas. Contribution probable de l'hydrazine résiduelle adsorbée, qui suffit stœchiométriquement. Les NP servent ensuite d'espaceurs contre le réempilement. L'explication « chemical potential difference » des auteurs, reprise des nanotubes (Choi et al. 2002), revient à ce mécanisme galvanique, mais sans preuve du rôle respectif de l'rGO et de l'hydrazine.",
+    "sources": [
+     {
+      "title": "Layer-by-layer assembly of graphene and gold nanoparticles by vacuum filtration and spontaneous reduction of gold ions",
+      "authors_or_publisher": "Kong B.-S., Geng J., Jung H.-T. (Chem. Commun. 2174)",
+      "year": "2009",
+      "url_or_doi": "10.1039/b821920f"
+     },
+     {
+      "title": "Spontaneous Reduction of Metal Ions on the Sidewalls of Carbon Nanotubes",
+      "authors_or_publisher": "Choi H.C., Shim M., Bangsaruntip S., Dai H. (JACS 124, 9058) — réf. 34 de l'article, non ouverte",
+      "year": "2002",
+      "url_or_doi": "10.1021/ja026824t"
+     },
+     {
+      "title": "Work function engineering of graphene electrode via chemical doping (AuCl3 : réduction spontanée en Au et dopage p)",
+      "authors_or_publisher": "Shi Y., Kim K.K., Reina A., Hofmann M., Li L.-J., Kong J. (ACS Nano 4, 2689)",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1005478"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration d'rGO dans la dispersion de SDS (pesée)",
+    "température de réaction",
+    "taux de réduction de l'Au(III) (UV de AuCl4− vers 300 nm, ICP du surnageant après centrifugation)",
+    "purifier (centrifugation, dialyse) avant les mesures électriques pour retirer Au(III), Cl− et SDS libres",
+    "rapport I(D)/I(G) avant et après décoration"
+   ]
+  },
+  {
+   "label": "FET_rGO-Au",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "capacité de grille",
+     "inputs": "SiO2 300 nm, εr = 3,9, ε0 = 8,854·10⁻¹² F/m",
+     "formula": "Cox = ε0·εr/d",
+     "result": "1,151·10⁻⁴ F/m² = 11,5 nF/cm²",
+     "compared_to": "valeur usuelle pour 300 nm de SiO2",
+     "source": "chimie générale (constante diélectrique de SiO2 de manuel)"
+    },
+    {
+     "what": "largeur de canal impliquée par la mobilité annoncée",
+     "inputs": "Fig. 4b lue : Id ≈ 2,19·10⁻⁷ A à Vg = 0 V et ≈ 1,93·10⁻⁷ A à 40 V, pente ≈ 6,5·10⁻¹⁰ A/V (lecture ± 30 %) ; Vd = 0,5 V ; L = 20 µm ; μ = 9,0 cm²/Vs",
+     "formula": "W = L·(ΔId/ΔVg)/(Cox·Vd·μ)",
+     "result": "W ≈ 0,25 µm ; avec W = 5 µm, μ ≈ 0,45 cm²/Vs",
+     "compared_to": "un feuillet qui relie deux électrodes distantes de 20 µm doit mesurer au moins 20 µm ; les feuillets de la Fig. 2a font quelques µm de large ; W n'est pas donné",
+     "source": "valeurs de l'article et de la Fig. 4"
+    },
+    {
+     "what": "densité de trous à Vg = 0 d'après le point de Dirac",
+     "inputs": "point de Dirac ≈ 120 V (Fig. 4b, lu) ; Cox 1,151·10⁻⁴ F/m²",
+     "formula": "p = Cox·V_Dirac/e",
+     "result": "≈ 8,6·10¹² cm⁻² (rGO : ≈ 100 V → 7,2·10¹² cm⁻²)",
+     "compared_to": "dopage p fort dans les deux cas, un peu plus fort avec l'or",
+     "source": "valeurs de la Fig. 4"
+    },
+    {
+     "what": "rapports rGO-Au / rGO",
+     "inputs": "courants à Vg = 0 : 2,2·10⁻⁷ / 1,7·10⁻¹⁰ A ; mobilités moyennes 8,62 / 0,03 cm²/Vs",
+     "formula": "rapport ; log10",
+     "result": "courant × 1 300 ; mobilité × 287 (2,5 ordres de grandeur)",
+     "compared_to": "« several orders higher » : exagéré, environ deux ordres et demi",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les mobilités annoncées ne sont compatibles avec les pentes de la Fig. 4 que si le canal mesure ≈ 0,25 µm (rGO-Au) et ≈ 0,37 µm (rGO) de large (voir « largeur de canal impliquée ... »). C'est peu plausible pour un feuillet unique qui relie deux électrodes séparées de 20 µm. Avec une largeur de quelques µm, les mobilités seraient ≈ 10 à 20 fois plus faibles (≈ 0,5 et 0,001 cm²/Vs). W n'est pas donné et la lecture de la figure est approximative, mais l'écart dépasse l'incertitude. Le rapport rGO-Au/rGO, à géométrie égale, reste interprétable ; les valeurs absolues sont à vérifier.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Valeurs « typiques » contre moyennes : pour l'rGO-Au, 9,0 contre 8,62 ± 2,54 ; pour l'rGO, 0,015 contre 0,03 ± 0,015. Les deux phrases citent les matériaux dans des ordres inverses, mais l'attribution est sans ambiguïté (« rGO-Au ... several orders higher than ... rGO (8.62 ± 2.54 vs. 0.03 ± 0.015) »). Le dispositif rGO « typique » est à la borne basse (moyenne − 1 écart) ; rien d'incohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin à plusieurs variables (contrôle n° 5) : le canal rGO-Au diffère du canal rGO par les NP d'or, mais aussi par 1 h dans une solution acide d'HAuCl4 non purifiée (Au(III), Cl−, H+ adsorbés), réputée doper fortement le graphène en p. L'attribution de la hausse de mobilité à la « guérison des défauts » par les NP n'est pas démontrée. Il faudrait un rGO traité 1 h par HCl/NaCl au même pH, et un rGO-Au purifié. En général, des NP métalliques sur du graphène diminuent la mobilité (diffusion) plutôt qu'elles ne la multiplient par 300.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Work function engineering of graphene electrode via chemical doping (AuCl3 : réduction spontanée en Au et dopage p)",
+      "authors_or_publisher": "Shi Y., Kim K.K., Reina A., Hofmann M., Li L.-J., Kong J. (ACS Nano 4, 2689)",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1005478"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Électrodes d'or de 50 nm évaporées directement sur SiO2 sans couche d'accroche (Cr ou Ti) : adhérence faible, décollement possible au lavage PBS de l'étape ADN. Mesures à l'air ambiant : l'humidité dope l'rGO en p ; les conditions (humidité, recuit) ne sont pas données.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Pas de chimie de synthèse dans cette étape. La hausse de conductance et de mobilité apparente peut venir d'un dopage p (Au(III)/Cl− résiduels, humidité) et d'une meilleure continuité de percolation à travers des îlots d'or, autant que d'une passivation des défauts ; l'article ne permet pas de trancher.",
+    "sources": [
+     {
+      "title": "Work function engineering of graphene electrode via chemical doping (AuCl3 : réduction spontanée en Au et dopage p)",
+      "authors_or_publisher": "Shi Y., Kim K.K., Reina A., Hofmann M., Li L.-J., Kong J. (ACS Nano 4, 2689)",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1005478"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "largeur W de chaque canal (image optique ou AFM) et recalcul de μ",
+    "couche d'accroche Cr/Ti sous l'or",
+    "purification de l'rGO-Au avant dépôt",
+    "témoin rGO traité dans HCl/NaCl sans or"
+   ]
+  },
+  {
+   "label": "FET_rGO",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "largeur de canal impliquée par la mobilité annoncée",
+     "inputs": "Fig. 4a lue : Id ≈ 1,68·10⁻¹⁰ A à Vg = 0 et ≈ 1,05·10⁻¹⁰ A à 40 V, pente ≈ 1,6·10⁻¹² A/V ; Vd = 0,5 V ; L = 20 µm ; μ = 0,015 cm²/Vs ; Cox 1,151·10⁻⁴ F/m²",
+     "formula": "W = L·(ΔId/ΔVg)/(Cox·Vd·μ)",
+     "result": "W ≈ 0,37 µm ; avec W = 5 µm, μ ≈ 0,001 cm²/Vs",
+     "compared_to": "même écart que pour l'rGO-Au",
+     "source": "valeurs de l'article et de la Fig. 4"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Mobilité de trous 0,015–0,03 cm²/Vs : basse mais dans la gamme d'un rGO peu réduit (30 s, hydrazine en défaut, pic à 306 nm). Même réserve que pour FET_rGO-Au sur la largeur de canal implicite (voir « largeur de canal impliquée ... »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Conduction par sauts entre domaines sp² séparés par des régions oxydées ; mobilité faible, dopage p par l'oxygène et l'humidité.",
+    "sources": [
+     {
+      "title": "Synthesis of graphene-based nanosheets via chemical reduction of exfoliated graphite oxide",
+      "authors_or_publisher": "Stankovich S. et al. (Carbon 45, 1558) — réf. 35 de l'article, non ouverte",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.carbon.2007.02.034"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "largeur W du canal",
+    "degré de réduction de l'rGO (XPS C/O)"
+   ]
+  },
+  {
+   "label": "FET_rGO-Au_DNA_target",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "complémentarité des séquences",
+     "inputs": "sonde 5'-AGG-TCG-CCG-CCC-SH-3' ; cible 3'-TCC-AGC-GGC-GGG-5' ; mésappariée 3'-TCC-AGC-GGC-GTG-5'",
+     "formula": "appariement base à base",
+     "result": "cible : 12/12 paires Watson–Crick ; mésappariée : une paire C·T en 11e position depuis l'extrémité 5' de la sonde, à deux bases de l'ancrage thiol",
+     "compared_to": "« single-base mismatched » : exact",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "température de fusion approchée du duplex de 12 paires",
+     "inputs": "G+C = 10, A+T = 2",
+     "formula": "règle de Wallace Tm ≈ 2(A+T) + 4(G+C)",
+     "result": "≈ 44 °C (estimation grossière, validité limitée aux oligonucléotides courts en sel élevé)",
+     "compared_to": "hybridation à l'ambiante (non écrite) : les deux brins s'hybrident thermodynamiquement ; la discrimination repose sur la rigueur des lavages, non décrits",
+     "source": "chimie générale"
+    },
+    {
+     "what": "quantité d'ADN cible déposée",
+     "inputs": "10 µL à 200 nM",
+     "formula": "n = c·V·NA",
+     "result": "2 pmol = 1,2·10¹² brins",
+     "compared_to": "nombre de sites Au sur un canal de ≈ 20 µm × quelques µm : ≈ 10⁵ NP ; cible en très large excès",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Sonde « thiolée » à 1 µM, 16 h : ni tampon, ni force ionique, ni réduction préalable du disulfure protecteur (les oligonucléotides thiolés commerciaux sont livrés sous forme disulfure et se réduisent par TCEP ou DTT avant usage), ni blocage des sites libres (mercaptohexanol). Sans sel, la densité de greffage sur l'or est faible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'ADN simple brin s'adsorbe aussi directement sur l'rGO par empilement π et sur SiO2 ; avec une cible en très large excès (voir « quantité d'ADN cible déposée ») et sans blocage, une partie de la réponse peut être non spécifique. L'écart 14 % contre 6 % (n = 4) est plausible, mais le témoin « goutte de tampon seul, séchage, mesure » manque pour séparer l'effet du cycle mouillage-séchage (humidité, ions résiduels) de celui de l'hybridation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Une goutte de 10 µL laissée 1 h à l'air s'évapore en grande partie (quelques dizaines de minutes) : il faut une chambre humide, non mentionnée ; sinon la concentration et la force ionique varient pendant l'hybridation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Baisse du courant de trous après greffage et hybridation, mesurée à Vg = 40 V, bien en deçà du point de Dirac (≈ 120 V) : un apport de charge négative ou d'électrons (squelette phosphate) réduit la densité de trous ; c'est cohérent avec le « n-doping » invoqué.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Chimisorption Au–S de la sonde sur les NP, puis hybridation ; le squelette polyanionique ajouté près du canal compense des trous (effet de grille électrostatique ou transfert de charge), d'où la baisse de courant, plus forte pour le duplex parfait que pour le mésapparié, moins stable au lavage.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "tampon, sel et réduction TCEP/DTT de la sonde",
+    "blocage au mercaptohexanol ou équivalent",
+    "chambre humide et température d'hybridation",
+    "nombre et nature des lavages",
+    "témoin tampon seul sur le même dispositif"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse en trois temps (GO de Hummers modifié, rGO par hydrazine et SDS sous micro-ondes, réduction d'HAuCl4 sur l'rGO sans réducteur ajouté) chimiquement plausible, mais écrite de façon incomplète. La pré-oxydation reprend exactement les quantités de Kovtyukhova (3 g, 12 mL, 80 °C, 4,5 h) sans ses deux oxydants K2S2O8 et P2O5 : omission quasi certaine. La dilution de l'acide se fait « at room temperature » sans précaution, avec un échauffement potentiel d'environ 95 K. La forme de l'hydrazine, le récipient du chauffage micro-ondes, la concentration d'rGO, la température de réduction de l'or et toute purification de l'rGO-Au manquent ; le rapport Au/rGO est incalculable. Côté résultats : le Raman « sans défauts significatifs » est contredit par la bande D ; le spot laser de 0,5 mm est une coquille pour 0,5 µm. Les mobilités annoncées impliquent une largeur de canal de ≈ 0,3 µm d'après la Fig. 4, peu plausible. Le témoin rGO change plusieurs variables (pas d'exposition à HAuCl4, HCl, Cl−). Les mobilités typiques (0,015 et 9,0) et moyennes (0,03 et 8,62) sont citées dans des ordres inverses mais attribuées sans ambiguïté.",
+  "author_errors_suspected": [
+   "pré-oxydation sans K2S2O8 ni P2O5 alors que les quantités sont celles de Kovtyukhova (oxydants omis)",
+   "« laser spot size about 0.5 mm » pour un Raman confocal : 0,5 µm",
+   "« uniformly single-layered without significant defects » contredit par la bande D intense de la Fig. 3a",
+   "mobilités de 9,0 et 0,015 cm²/Vs incompatibles avec les pentes de la Fig. 4 sauf canal de ≈ 0,3 µm de large (W non donné)",
+   "« several orders higher » pour un rapport de 287 (2,5 ordres)",
+   "« Au enhances Raman signal in this wavelength range » : domaine de nombres d'onde, et l'or n'a pas de bande propre à 1 100–1 200 cm⁻¹"
+  ],
+  "comparison_with_database": "compare.py « graphene oxide » : 66 voies de base. Les GO de Hummers de la base (PMC10386591, PMC12093138) emploient NaNO3 ou un palier de 2–3 h à température ambiante ou plus haute ; aucun n'oxyde seulement à < 10 °C. Une seule voie rGO-Au dans la base (celle-ci) : pas de comparaison possible."
+ },
+ "sources_not_found": [
+  "enthalpie intégrale de dilution de H2SO4 à ≈ 7 H2O/H2SO4 : valeur d'ordre de grandeur (≈ −60 kJ/mol), non relue dans une table",
+  "texte intégral de Kovtyukhova 1999 non ouvert (payant) : protocole confirmé par deux sources secondaires (brevet US8778538, SI de 10.1038/nnano.2008.329)",
+  "rapport hydrazine/GO de Stankovich 2007 et de Li 2008 : non relus (articles non ouverts), d'où l'absence de comparaison chiffrée",
+  "source sur l'adsorption de l'ADN simple brin sur l'rGO et sur la forme disulfure des oligonucléotides thiolés : non recherchée (limite de recherches), donnée en chimie générale"
+ ]
+}

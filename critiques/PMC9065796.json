@@ -1,0 +1,88 @@
+{
+ "pmcid": "PMC9065796",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "Cat-1 (ou résultat commun) : propriétés de la charge VGO (Table 1)",
+   "extracted": "aucune propriété de la charge ; seules les conditions de réaction figurent dans la caractérisation « VGO hydrocracking test »",
+   "article_says": "Density (20 °C) (g cm−3) | 0.91",
+   "fix": "ajouter à la caractérisation de Cat-1 (ou en annotation) la densité 0,91 g cm-3, S 25 µg g-1, N 335 µg g-1 et la courbe de distillation (IBP 206 °C, FBP 573 °C) : la conversion dépend de la charge",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "NaY_silica_sol / Table 2 : isothermes N2 (Fig. 9)",
+   "extracted": "aucun résultat sur la forme des isothermes ; le mot isotherme est absent du JSON",
+   "article_says": "NaY zeolite with crystal size of 100 nm showed a hysteresis loop starting at P/P0 ≈ 0.2",
+   "fix": "ajouter un résultat (value_text) à NaY_silica_sol : isotherme à boucle d'hystérésis dès P/P0 ≈ 0,2 et montée à 0,9–1,0 (attribuée par les auteurs à des vides interparticulaires) ; les isothermes de type I de NaY-300 et NaY-500 vont en annotation tendance_observee",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "NaY_sodium_silicon outcomes/characterizations : phase (XRD, FT-IR)",
+   "extracted": "seulement crystal_size, particle_size_range et SiO2_Al2O3_ratio",
+   "article_says": "Both samples exhibited the typical pattern of Y zeolite diffraction peaks",
+   "fix": "ajouter un résultat phase = Y zeolite (XRD, FT-IR, Fig. 1 et 2) à NaY_sodium_silicon, comme pour la voie de base",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Na2O_12, Na2O_14, Na2O_16, Na2O_18 : crystal_size",
+   "extracted": "seul SiO2_Al2O3_ratio est enregistré pour ces quatre branches",
+   "article_says": "When the Na2O/Al2O3 molar ratio of seeding increased from 12 to 16, the crystal size of NaY zeolite exhibited a decrease trend, but the crystal size had no reduction as the Na2O/Al2O3 molar ratio of seeding further increased.",
+   "fix": "ajouter un résultat qualitatif crystal_size en value_text (diminution de 12 à 16, sans réduction supplémentaire à 18), citation ci-contre, sur Na2O_16 et Na2O_18 au moins ; idem Aging_12h (taille intermédiaire seulement visible sur la Fig. 5b, non chiffrée)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Aging_36h crystal_size",
+   "extracted": "little change relative to the 24 h sample (about 100 nm)",
+   "article_says": "but the crystal sizes had little change with the aging time further prolonging to 36 h",
+   "fix": "l'article ne donne pas de valeur à 36 h ; « about 100 nm » est une déduction : garder « little change with the aging time further prolonging to 36 h » sans valeur ajoutée, ou noter que la valeur est déduite de celle de 24 h",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Aging_* et Na2O_* : héritage de la source de silice, de la durée de vieillissement et de la teneur en Na2O de la voie de base",
+   "extracted": "branches filles de NaY_silica_sol, sans que l'article le dise (déjà signalé dans doubts)",
+   "article_says": "The SEM images of synthesized NaY zeolite with seeding prepared at different aging time are shown in Fig. 5.",
+   "fix": "garder les branches ; ajouter à l'annotation limite_reproductibilite que les micrographies de la Fig. 3a, de la Fig. 5c (24 h) et de la Fig. 7c (x = 16) semblent être la même image et que les rapports 5,42 de la Fig. 6 (24 h) et de la Fig. 8 (x = 16) sont identiques, ce qui rend probable (sans que l'article l'écrive) que l'échantillon de 100 nm soit celui de 24 h et de Na2O/Al2O3 = 16",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Cat-2 et Cat-3, variations (value_text)",
+   "extracted": "Y zeolite crystal size of 300 / Y zeolite crystal size of 500",
+   "article_says": "The catalysts with Y zeolite crystal size of 100, 300 and 500 nm were designated as Cat-1, Cat-2, Cat-3.",
+   "fix": "écrire « Y zeolite crystal size of 300 nm » et « 500 nm » (unité omise) ; parent_value « 100 nm » de même",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation limite_reproductibilite (route null) : barres d'échelle des Fig. 3, 5 et 7",
+   "extracted": "leurs barres d'échelle sont illisibles dans les fichiers du dépôt",
+   "article_says": "The SEM images of NaY zeolite with seeding prepared at the different molar ratios of Na2O/Al2O3 (12, 14, 16 and 18) are shown in Fig. 7.",
+   "fix": "nuancer : plusieurs barres sont lisibles (Fig. 5a : 2 µm, 5b : 1 µm, 7a : 1 µm) ; les autres sont tronquées ou en partie masquées, sans autre échelle donnée dans les légendes",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 14,
+  "branches_extracted": 14,
+  "not_stated_checked": 30,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantités des réactifs en masse ou en moles absentes de l'article (seules les compositions molaires de gel sont données) et pas d'annexe",
+  "durée du vieillissement et teneur en Na2O du gel de germes de l'échantillon de 100 nm (« different time », « 12–18Na2O »)",
+  "composition du gel de germes contradictoire : 18 SiO2 / 320 H2O dans les Méthodes, 15 SiO2 / 300 H2O dans la légende de la Fig. 7",
+  "quantité de germes ajoutée au gel final, durée du vieillissement à 30 °C et durée de cristallisation à 95 °C",
+  "source de silice, durée et Na2O des germes pour les séries de vieillissement et de Na2O non écrits",
+  "conditions de synthèse de NaY-300 et NaY-500 (donc Cat-2 et Cat-3) non données ; teneur en NiO et WO3 donnée mais pas les quantités de précurseurs",
+  "température et durée de séchage et de calcination du catalyseur ; préparation de l'ASA renvoyée à un article précédent (cit5)",
+  "nombre de lavages et solvant, atmosphère de calcination, vitesse d'agitation chiffrée"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Valeurs sur figure vérifiées : Fig. 6 (12 h : 5,27 ; 36 h : 5,34), Fig. 8 (x = 14 : 5,51 ; x = 16 : 5,42), Fig. 10 (Cat-2 : 65,1 %), Fig. 11 (Cat-2 : 34,6 et 53,2 % ; Cat-3 : 30,1 et 49,6 %) concordent avec les valeurs enregistrées (écart inférieur à 1 % de la valeur). Aucune valeur fausse, aucune mauvaise attribution trouvée : tableau 2, valeurs du texte, quotes et inventaire concordent avec l'article. Points d'interprétation laissés hors constats : HY_100 est rattaché à NaY_silica_sol et nommé 100 nm alors que l'article dit seulement « the synthesized NaY zeolite » (déjà en doubts) ; Cat-2 et Cat-3 héritent des étapes de Cat-1, ce que les Méthodes (« the catalysts ») autorisent ; la pré-sulfuration (CS2, 320 °C, 5 h) est rangée dans les conditions d'essai, ce qui est acceptable. method_sources : seul cit5 (ASA) est un renvoi de méthode ; cit40 (Breck–Flanigen) est une équation d'analyse, exclue par la règle du 2026-10-13. Les valeurs du texte (5,54 ; 5,27 ; 72,0 ; 61,0 ; 41,0) diffèrent légèrement de la lecture des figures : le texte fait foi, choix correct."
+}

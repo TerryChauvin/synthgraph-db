@@ -1,0 +1,832 @@
+{
+ "pmcid": "PMC8307816",
+ "routes": [
+  {
+   "label": "Imide_mixed",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'amides et rapport Ga/Ti",
+     "inputs": "5,06 g {Ga[N(CH3)2]3}2 (M = 403,91 g/mol) ; 5,61 g Ti[N(CH3)2]4 (M = 224,18 g/mol)",
+     "formula": "n = m/M ; n(Ga) = 2·n(dimère)",
+     "result": "12,53 mmol de dimère → 25,06 mmol Ga ; 25,03 mmol Ti ; Ga/Ti = 1,001",
+     "compared_to": "12,5 mmol de dimère et 25,0 mmol de monomère annoncés ; Ga/Ti = 1/1 visé",
+     "source": "valeurs de l'article ; masses molaires calculées (masses atomiques IUPAC : Ga 69,723 ; Ti 47,867 ; N 14,007 ; C 12,011 ; H 1,008)"
+    },
+    {
+     "what": "concentration dans l'hexane",
+     "inputs": "25,06 mmol Ga et 25,03 mmol Ti dans 60 mL",
+     "formula": "C = n/V",
+     "result": "0,42 mol/L en Ga et 0,42 mol/L en Ti (≈ 18 % m/v d'amides)",
+     "compared_to": "Ti(NMe2)4 est un liquide miscible aux hydrocarbures ; le dimère de Ga est soluble dans l'hexane (il y est recristallisé)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "excès d'ammoniac liquide",
+     "inputs": "60 mL NH3(l), ρ ≈ 0,682 g/mL à −33 °C, M = 17,03 g/mol ; groupes NMe2 : 6 × 12,53 + 4 × 25,03 mmol",
+     "formula": "n(NH3)/n(NMe2)",
+     "result": "2,40 mol NH3 pour 0,175 mol NMe2 : rapport ≈ 14",
+     "compared_to": "transamination totale : 1 NH3 par NMe2 au minimum ; « excess » justifié",
+     "source": "valeurs de l'article ; masse volumique de NH3 liquide au point d'ébullition (chimie générale, NIST WebBook)"
+    },
+    {
+     "what": "rendement maximal en nitrures",
+     "inputs": "25,06 mmol GaN (83,73 g/mol) ; 25,03 mmol TiN (61,87 g/mol) ; produits « ca. 1.5 g »",
+     "formula": "m = Σ n·M",
+     "result": "2,10 g GaN + 1,55 g TiN = 3,65 g ; 1,5 g = 41 % ; deux nitrurations (800 et 950 °C) de 1,5 g chacune = 3,0 g = 82 %",
+     "compared_to": "« ca. 1.5 g » par produit : cohérent si le lot d'imide a été partagé entre les deux températures",
+     "source": "valeurs de l'article ; masses molaires calculées (masses atomiques IUPAC : Ga 69,723 ; Ti 47,867 ; N 14,007 ; C 12,011 ; H 1,008)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Reflux de l'hexane (éb. ≈ 69 °C) sous N2 pendant 3 h : montage standard. Ammoniac liquide à reflux à « ca. −33 °C » : c'est son point d'ébullition (−33,3 °C) ; il faut un condenseur à carboglace (−78 °C) ou à froid équivalent, non écrit.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Rapport Ga/Ti = 1,001 et excès de NH3 ≈ 14 fois les groupes NMe2 (voir « moles d'amides et rapport Ga/Ti » et « excès d'ammoniac liquide ») : le bilan de matière est juste.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "0,42 mol/L de chaque amide dans l'hexane (voir « concentration dans l'hexane ») : plausible, Ti(NMe2)4 étant liquide et le dimère de Ga soluble dans les hydrocarbures. Ti(NMe2)4 est volatil (distillable sous vide vers 50 °C) : l'évaporation de l'hexane, si elle est faite sous vide poussé ou longtemps, peut emporter une partie du titane et déplacer Ga/Ti. Les auteurs ne donnent ni la méthode d'évaporation ni d'analyse élémentaire de l'imide ; les « (50) mol.% » de DRX ne mesurent pas ce rapport (voir Composite_800).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Transamination M–NMe2 + NH3 → M–NH2 + HNMe2 dans NH3 liquide, puis condensation (perte de NH3) en amide-imide polymère, chimie établie pour le gallium (Janik et Wells 1996) et pour les dialkylamides de titane (Brown et Maya 1988).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Gallium Imide, {Ga(NH)3/2}n, a New Polymeric Precursor for Gallium Nitride Powders",
+      "authors_or_publisher": "Janik J.F., Wells R.L. (Chem. Mater. 8, 2708)",
+      "year": "1996",
+      "url_or_doi": "10.1021/cm960419h"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contrôle RMN : spectres du mélange = superposition des amides purs. Ce contrôle est probant pour le 1H (signaux séparés), mais en 13C le Ti (44,38 ppm) et le Ga (44,40 ppm) ne sont séparés que de 0,02 ppm, donc le 13C seul ne discrimine pas une espèce mixte. La RMN est faite à 300 K après refroidissement : c'est bien l'état de la solution au moment de l'évaporation, ce qui suffit pour le raisonnement des auteurs.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : Ti(NMe2)4 et {Ga(NMe2)3}2 réagissent vivement avec l'eau et l'air en libérant de la diméthylamine (gaz inflammable, toxique, éb. 7 °C) ; la transamination en libère 0,175 mol (≈ 4 L de gaz) au réchauffement de l'ammoniac. Ammoniac liquide : brûlures par le froid, toxique ; travail sous hotte et en boîte à gants / rampe Schlenk.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Les deux amides restent séparés en solution (RMN). Dans NH3 liquide, chaque M–NMe2 est remplacé par M–NH2 avec départ de HNMe2 ; la perte de NH3 à température ambiante condense les amides en ponts imide –NH– (polymères approchant {Ga(NH)3/2} et {Ti(NH)2}). Le mélange est donc un mélange intime de deux polymères monométalliques plutôt qu'un réseau –Ga–N–Ti–, ce qui explique la ségrégation des deux nitrures à la nitruration.",
+    "sources": [
+     {
+      "title": "Gallium Imide, {Ga(NH)3/2}n, a New Polymeric Precursor for Gallium Nitride Powders",
+      "authors_or_publisher": "Janik J.F., Wells R.L. (Chem. Mater. 8, 2708)",
+      "year": "1996",
+      "url_or_doi": "10.1021/cm960419h"
+     },
+     {
+      "title": "Ammonolysis Products of the Dialkylamides of Titanium, Zirconium, and Niobium as Precursors to Metal Nitrides",
+      "authors_or_publisher": "Brown G.M., Maya L. (J. Am. Ceram. Soc. 71, 78-82)",
+      "year": "1988",
+      "url_or_doi": "10.1111/j.1151-2916.1988.tb05763.x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "méthode d'évaporation de l'hexane (pression, durée) pour ne pas perdre Ti(NMe2)4 volatil",
+    "analyse élémentaire Ga/Ti et C/H de l'imide",
+    "condenseur froid pour le reflux d'ammoniac",
+    "préparation et pureté des deux amides (citées, non décrites)"
+   ]
+  },
+  {
+   "label": "Imide_Ga",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan de désamination de l'imide de gallium",
+     "inputs": "{Ga(NH)3/2} → GaN + 1/2 NH3 (équation des auteurs)",
+     "formula": "conservation de Ga, N, H",
+     "result": "gauche : Ga1 N1,5 H1,5 ; droite : Ga1 N1 + N0,5 H1,5 : équilibré, sans changement d'état d'oxydation (Ga +III)",
+     "compared_to": "équation de la section 3.1",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité ni condition (« comparable conditions ») : impossible de recalculer l'excès d'ammoniac. L'équation de désamination est équilibrée (voir « bilan de désamination de l'imide de gallium »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'imide de gallium obtenu à partir de [Ga(NMe2)3]2 et NH3 est décrit par Janik et Wells, avec le même résultat que plus loin : GaN nanocristallin mixte cubique/hexagonal.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "New Precursor Routes to Nanocrystalline Cubic/Hexagonal Gallium Nitride, GaN",
+      "authors_or_publisher": "Wells R.L., Janik J.F., Gladfelter W.L., Coffer J.L., Johnson M.A., Steffey B.D. (rapport technique ONR, DTIC ADA325156)",
+      "year": "1997",
+      "url_or_doi": "https://apps.dtic.mil/sti/tr/pdf/ADA325156.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Transamination puis condensation en {Ga(NH)3/2}n polymère, comme pour Imide_mixed.",
+    "sources": [
+     {
+      "title": "Gallium Imide, {Ga(NH)3/2}n, a New Polymeric Precursor for Gallium Nitride Powders",
+      "authors_or_publisher": "Janik J.F., Wells R.L. (Chem. Mater. 8, 2708)",
+      "year": "1996",
+      "url_or_doi": "10.1021/cm960419h"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité d'amide et volume de NH3 (reprendre ceux de Janik et Wells 1996)"
+   ]
+  },
+  {
+   "label": "Imide_Ti",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan redox de la nitruration de l'imide de titane",
+     "inputs": "{Ti(NH)2} → TiN + 1/2 NH3 + 1/4 H2 + 1/4 N2 (équation des auteurs)",
+     "formula": "conservation des atomes ; électrons échangés",
+     "result": "Ti1 N2 H2 = Ti1 N1 + N0,5 H1,5 + H0,5 + N0,5 : équilibré ; Ti(IV) → Ti(III) gagne 1 e− et 1/2 H(+I) → H(0) gagne 0,5 e− ; 1/2 N(−III) → N2(0) perd 1,5 e− : bilan redox équilibré",
+     "compared_to": "équation de la section 3.1",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "La réduction Ti(IV) → Ti(III) est assurée par l'oxydation d'azote imide en N2 (et de H en H2) : bilan juste (voir « bilan redox de la nitruration de l'imide de titane »). L'atmosphère NH3 est compatible.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité ni condition pour cet imide (« comparable conditions ») : non recalculable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Ammonolyse des dialkylamides de titane en solides amide-imide, précurseurs de TiN par pyrolyse sous NH3 : chimie décrite par Brown et Maya.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Ammonolysis Products of the Dialkylamides of Titanium, Zirconium, and Niobium as Precursors to Metal Nitrides",
+      "authors_or_publisher": "Brown G.M., Maya L. (J. Am. Ceram. Soc. 71, 78-82)",
+      "year": "1988",
+      "url_or_doi": "10.1111/j.1151-2916.1988.tb05763.x"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Transamination de Ti(NMe2)4 en Ti(NH2)x(NMe2)4−x puis condensation en imide polymère ; une part de carbone peut rester (groupes NMe2 non échangés), éliminée sous NH3 chaud.",
+    "sources": [
+     {
+      "title": "Ammonolysis Products of the Dialkylamides of Titanium, Zirconium, and Niobium as Precursors to Metal Nitrides",
+      "authors_or_publisher": "Brown G.M., Maya L. (J. Am. Ceram. Soc. 71, 78-82)",
+      "year": "1988",
+      "url_or_doi": "10.1111/j.1151-2916.1988.tb05763.x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité d'amide et volume de NH3",
+    "teneur en carbone de l'imide"
+   ]
+  },
+  {
+   "label": "Composite_800",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "ammoniac apporté par le flux de nitruration",
+     "inputs": "0,2 L/min pendant 4 h ; volume molaire ≈ 24,45 L/mol (25 °C, 1 bar)",
+     "formula": "n = Q·t/Vm",
+     "result": "48 L ≈ 2,0 mol NH3",
+     "compared_to": "≈ 0,05 mol de métal par lot (calcul « moles d'amides ») : large excès",
+     "source": "arithmétique"
+    },
+    {
+     "what": "positions de Bragg h-GaN, c-GaN et c-TiN (Cu Kα1)",
+     "inputs": "λ = 1,5406 Å ; h-GaN a = 3,19, c = 5,19 Å ; c-GaN a = 4,505 Å ; c-TiN a = 4,24 Å (tableaux 1 et 2)",
+     "formula": "1/d² = 4/3·(h²+hk+k²)/a² + l²/c² (hexagonal), d = a/√(h²+k²+l²) (cubique) ; 2θ = 2·asin(λ/2d)",
+     "result": "h-GaN (100) 32,38°, (002) 34,54°, (101) 36,83°, (102) 48,07°, (110) 57,76°, (112) 69,07° ; c-GaN (111) 34,45°, (200) 39,99°, (220) 57,85°, (311) 69,10° ; c-TiN (111) 36,68°, (200) 42,61°, (220) 61,84°",
+     "compared_to": "seule la raie c-GaN (200) à ≈ 40,0° ne recouvre aucune raie de h-GaN ; c-TiN (111) recouvre h-GaN (101)",
+     "source": "arithmétique ; Cu Kα1 = 1,540 56 Å (NIST X-ray Transition Energies, references/constantes.md)"
+    },
+    {
+     "what": "largeur Scherrer attendue selon la taille",
+     "inputs": "K = 0,9 ; λ = 1,5406 Å ; 2θ = 36,8°",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "D = 5 nm → 1,67° ; 10 nm → 0,84° ; 27 nm → 0,31° ; 55 nm → 0,15° ; 100 nm → 0,084° ; 160 nm → 0,052°",
+     "compared_to": "largeur instrumentale typique d'un diffractomètre de laboratoire en Bragg-Brentano : ≈ 0,05–0,1° ; au-delà de ≈ 100 nm l'élargissement de taille n'est plus séparable",
+     "source": "arithmétique ; ordre de grandeur instrumental de chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Nitruration à 800 °C (et 950 °C) sous NH3 : au-dessus de la température de décomposition de GaN sous 1 bar de N2 (≈ 1050–1110 K, soit ≈ 780–840 °C), mais sous NH3 la forte activité d'azote stabilise GaN ; 950 °C est bien la limite haute raisonnable, comme le disent les auteurs.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermodynamics and phase stability in the Ga–N system",
+      "authors_or_publisher": "Unland J., Onderka B., Davydov A., Schmid-Fetzer R. (J. Cryst. Growth), copie NIST",
+      "year": "2003",
+      "url_or_doi": "https://www.ctcms.nist.gov/~davydov/03Unland_Ga-N%20JCRG.pdf"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Flux de 0,2 L/min pendant 4 h ≈ 2 mol NH3 (voir « ammoniac apporté par le flux de nitruration ») : très large excès pour finir la désamination ; masse d'imide chargée non donnée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres : h-GaN a = 3,19–3,20 Å, c = 5,18–5,21 Å, c-TiN a = 4,24–4,25 Å, c-GaN a = 4,50–4,51 Å : conformes aux valeurs de référence (GaN wurtzite a ≈ 3,189, c ≈ 5,185 Å ; TiN a ≈ 4,24 Å ; GaN zinc-blende a ≈ 4,50 Å). Les « (50) mol.% » identiques partout, entre parenthèses, ressemblent à une proportion fixée (nominale) plutôt qu'affinée : ils ne prouvent pas Ga/Ti = 1/1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Absence de c-GaN dans les composites : seule la raie c-GaN (200) à ≈ 40,0° est discriminante, les autres recouvrent des raies de h-GaN ((111)/(002), (220)/(110), (311)/(112)) ; elle est à 2,6° de c-TiN (200) à 42,6°, et une raie de cristallites de 5–10 nm est large de 0,8–1,7° (voir « positions de Bragg » et « largeur Scherrer »). Une fraction mineure de c-GaN (ou des fautes d'empilement) peut donc échapper à la détection ; l'affirmation « exclusively h-GaN » repose sur une seule raie partiellement chevauchée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La voie imide donne habituellement un GaN nanocristallin mixte cubique/hexagonal (fautes d'empilement), comme le GaN pur de cet article : résultat attendu pour GaN_800 ; sa disparition dans le composite n'est pas expliquée par les auteurs.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "New Precursor Routes to Nanocrystalline Cubic/Hexagonal Gallium Nitride, GaN",
+      "authors_or_publisher": "Wells R.L., Janik J.F., Gladfelter W.L., Coffer J.L., Johnson M.A., Steffey B.D. (rapport technique ONR, DTIC ADA325156)",
+      "year": "1997",
+      "url_or_doi": "https://apps.dtic.mil/sti/tr/pdf/ADA325156.pdf"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : NH3 à 800–1000 °C se décompose partiellement en H2 + N2 (mélange inflammable en sortie) ; évacuer vers une hotte ou un brûleur ; nanopoudres de nitrures à manipuler en boîte à gants (déjà le cas) et à ne pas inhaler.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Fin de la désamination des deux imides sous NH3 : {Ga(NH)3/2} → GaN + 1/2 NH3 et {Ti(NH)2} → TiN avec réduction Ti(IV) → Ti(III) par l'azote imide. Les deux réseaux étant monométalliques, ils cristallisent séparément en h-GaN et c-TiN ; TiN, réfractaire, grossit peu (10–14 nm), GaN beaucoup plus (27–55 nm). L'absence de c-GaN dans le composite est compatible avec une dilution des domaines de Ga par le Ti, mais n'est pas démontrée.",
+    "sources": [
+     {
+      "title": "Gallium Imide, {Ga(NH)3/2}n, a New Polymeric Precursor for Gallium Nitride Powders",
+      "authors_or_publisher": "Janik J.F., Wells R.L. (Chem. Mater. 8, 2708)",
+      "year": "1996",
+      "url_or_doi": "10.1021/cm960419h"
+     },
+     {
+      "title": "Ammonolysis Products of the Dialkylamides of Titanium, Zirconium, and Niobium as Precursors to Metal Nitrides",
+      "authors_or_publisher": "Brown G.M., Maya L. (J. Am. Ceram. Soc. 71, 78-82)",
+      "year": "1988",
+      "url_or_doi": "10.1111/j.1151-2916.1988.tb05763.x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse d'imide chargée et rendement par température",
+    "vitesses de chauffe et de refroidissement",
+    "affinement libre des fractions de phase (ne pas fixer 50/50)",
+    "analyse élémentaire O et C des poudres"
+   ]
+  },
+  {
+   "label": "GaN_800",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "ammoniac apporté par le flux de nitruration",
+     "inputs": "0,2 L/min pendant 4 h ; volume molaire ≈ 24,45 L/mol (25 °C, 1 bar)",
+     "formula": "n = Q·t/Vm",
+     "result": "48 L ≈ 2,0 mol NH3",
+     "compared_to": "≈ 0,05 mol de métal par lot (calcul « moles d'amides ») : large excès",
+     "source": "arithmétique"
+    },
+    {
+     "what": "positions de Bragg h-GaN, c-GaN et c-TiN (Cu Kα1)",
+     "inputs": "λ = 1,5406 Å ; h-GaN a = 3,19, c = 5,19 Å ; c-GaN a = 4,505 Å ; c-TiN a = 4,24 Å (tableaux 1 et 2)",
+     "formula": "1/d² = 4/3·(h²+hk+k²)/a² + l²/c² (hexagonal), d = a/√(h²+k²+l²) (cubique) ; 2θ = 2·asin(λ/2d)",
+     "result": "h-GaN (100) 32,38°, (002) 34,54°, (101) 36,83°, (102) 48,07°, (110) 57,76°, (112) 69,07° ; c-GaN (111) 34,45°, (200) 39,99°, (220) 57,85°, (311) 69,10° ; c-TiN (111) 36,68°, (200) 42,61°, (220) 61,84°",
+     "compared_to": "seule la raie c-GaN (200) à ≈ 40,0° ne recouvre aucune raie de h-GaN ; c-TiN (111) recouvre h-GaN (101)",
+     "source": "arithmétique ; Cu Kα1 = 1,540 56 Å (NIST X-ray Transition Energies, references/constantes.md)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Mélange h-GaN/c-GaN ≈ 1/1 à 800 °C et 2/1 à 950 °C : conforme aux travaux antérieurs sur la même voie imide (GaN cubique/hexagonal). La quantification des deux polytypes par DRX sur des cristallites de 5–17 nm reste approximative, la plupart des raies se recouvrant (voir « positions de Bragg »).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "New Precursor Routes to Nanocrystalline Cubic/Hexagonal Gallium Nitride, GaN",
+      "authors_or_publisher": "Wells R.L., Janik J.F., Gladfelter W.L., Coffer J.L., Johnson M.A., Steffey B.D. (rapport technique ONR, DTIC ADA325156)",
+      "year": "1997",
+      "url_or_doi": "https://apps.dtic.mil/sti/tr/pdf/ADA325156.pdf"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "800 et 950 °C sous NH3 : 950 °C est près de la limite de stabilité de GaN nanocristallin, comme l'écrivent les auteurs.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Désamination de {Ga(NH)3/2} ; la cristallisation à basse température donne des empilements cubiques et hexagonaux mêlés, la température plus haute convertit c-GaN en h-GaN stable.",
+    "sources": [
+     {
+      "title": "Gallium Imide, {Ga(NH)3/2}n, a New Polymeric Precursor for Gallium Nitride Powders",
+      "authors_or_publisher": "Janik J.F., Wells R.L. (Chem. Mater. 8, 2708)",
+      "year": "1996",
+      "url_or_doi": "10.1021/cm960419h"
+     },
+     {
+      "title": "New Precursor Routes to Nanocrystalline Cubic/Hexagonal Gallium Nitride, GaN",
+      "authors_or_publisher": "Wells R.L., Janik J.F., Gladfelter W.L., Coffer J.L., Johnson M.A., Steffey B.D. (rapport technique ONR, DTIC ADA325156)",
+      "year": "1997",
+      "url_or_doi": "https://apps.dtic.mil/sti/tr/pdf/ADA325156.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse d'imide chargée",
+    "vitesse de chauffe"
+   ]
+  },
+  {
+   "label": "TiN_800",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "ammoniac apporté par le flux de nitruration",
+     "inputs": "0,2 L/min pendant 4 h ; volume molaire ≈ 24,45 L/mol (25 °C, 1 bar)",
+     "formula": "n = Q·t/Vm",
+     "result": "48 L ≈ 2,0 mol NH3",
+     "compared_to": "≈ 0,05 mol de métal par lot (calcul « moles d'amides ») : large excès",
+     "source": "arithmétique"
+    },
+    {
+     "what": "position c-TiN (200) et densité cristallographique",
+     "inputs": "a = 4,24 Å ; λ = 1,5406 Å ; Z = 4 ; M = 61,87 g/mol",
+     "formula": "d = a/2 ; 2θ = 2·asin(λ/2d) ; ρ = Z·M/(NA·a³)",
+     "result": "2θ(200) = 42,61° ; ρ = 5,39 g/cm3",
+     "compared_to": "TiN a ≈ 4,24 Å (réf. citées par les auteurs) ; 5,24 g/cm3 pris par les auteurs",
+     "source": "arithmétique ; masses molaires calculées (masses atomiques IUPAC : Ga 69,723 ; Ti 47,867 ; N 14,007 ; C 12,011 ; H 1,008)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre sections : Méthodes, tableau 1 et légende de la figure 3 donnent la seconde nitruration de TiN à 1000 °C, la section 3.1 écrit « TiN, prepared at 800 and 1100 °C » (1100 °C est la température de l'article TiN–AlN des mêmes auteurs). La valeur de 1000 °C est la plus probable pour cet article, mais le lecteur doit le savoir.",
+     "status": "reserve",
+     "basis": "comparaison_base",
+     "source": {
+      "title": "Composite Nitride Nanoceramics in the System Titanium Nitride (TiN)-Aluminum Nitride (AlN) through High Pressure and High Temperature Sintering of Synthesis-Mixed Nanocrystalline Powders",
+      "authors_or_publisher": "mêmes auteurs (Materials, MDPI), PMC7865222",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7865222"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "a = 4,24 Å pour TiN_800 et TiN_1000 : conforme à TiN quasi stœchiométrique ; poudre brun foncé plutôt que dorée, attendu pour des cristallites de 8 nm.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Désamination et réduction Ti(IV) → Ti(III) de l'imide sous NH3 (voir Imide_Ti).",
+    "sources": [
+     {
+      "title": "Ammonolysis Products of the Dialkylamides of Titanium, Zirconium, and Niobium as Precursors to Metal Nitrides",
+      "authors_or_publisher": "Brown G.M., Maya L. (J. Am. Ceram. Soc. 71, 78-82)",
+      "year": "1988",
+      "url_or_doi": "10.1111/j.1151-2916.1988.tb05763.x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température réelle de la seconde nitruration (1000 ou 1100 °C)"
+   ]
+  },
+  {
+   "label": "Composite_800_sint_650",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "densité théorique du composite h-GaN:c-TiN = 1:1 (molaire)",
+     "inputs": "M(GaN) = 83,73 g/mol, ρ = 6,15 g/cm3 ; M(TiN) = 61,87 g/mol, ρ = 5,24 g/cm3 (valeurs de l'article)",
+     "formula": "ρ = (M1+M2)/(M1/ρ1 + M2/ρ2)",
+     "result": "5,727 g/cm3 (moyenne simple : 5,695)",
+     "compared_to": "5,73 g/cm3 donné par les auteurs : correct",
+     "source": "valeurs de l'article ; masses molaires calculées (masses atomiques IUPAC : Ga 69,723 ; Ti 47,867 ; N 14,007 ; C 12,011 ; H 1,008)"
+    },
+    {
+     "what": "densités cristallographiques (rayons X) de c-TiN et h-GaN",
+     "inputs": "c-TiN : Z = 4, a = 4,24 Å ; h-GaN : Z = 2, a = 3,19 Å, c = 5,19 Å ; NA = 6,022·10^23",
+     "formula": "ρ = Z·M/(NA·V) ; V(cubique) = a³ ; V(hexagonal) = (√3/2)a²c",
+     "result": "c-TiN 5,39 g/cm3 ; h-GaN 6,08 g/cm3 ; mélange 1:1 avec TiN à 5,39 : 5,80 g/cm3",
+     "compared_to": "5,24 (TiN) et 6,15 (GaN) pris par les auteurs ; 5,73 pour le mélange",
+     "source": "arithmétique ; masses molaires calculées (masses atomiques IUPAC : Ga 69,723 ; Ti 47,867 ; N 14,007 ; C 12,011 ; H 1,008)"
+    },
+    {
+     "what": "pourcentages de la densité théorique",
+     "inputs": "dHe = 4,43 ; 4,47 ; 4,48 ; 4,66 ; 4,25 ; 4,46 g/cm3 (tableau 3)",
+     "formula": "100·dHe/5,73 et 100·dHe/5,80",
+     "result": "77,3 ; 78,0 ; 78,2 ; 81,3 ; 74,2 ; 77,8 % (réf. 5,73) — 76,3 ; 77,0 ; 77,2 ; 80,3 ; 73,2 ; 76,9 % (réf. 5,80)",
+     "compared_to": "77 ; 78 ; 78 ; 81 ; 74 ; 78 % du tableau 3 : recalcul exact ; avec la densité cristallographique de TiN, environ 1 point de moins",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "largeur Scherrer attendue selon la taille",
+     "inputs": "K = 0,9 ; λ = 1,5406 Å ; 2θ = 36,8°",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "D = 5 nm → 1,67° ; 10 nm → 0,84° ; 27 nm → 0,31° ; 55 nm → 0,15° ; 100 nm → 0,084° ; 160 nm → 0,052°",
+     "compared_to": "largeur instrumentale typique d'un diffractomètre de laboratoire en Bragg-Brentano : ≈ 0,05–0,1° ; au-delà de ≈ 100 nm l'élargissement de taille n'est plus séparable",
+     "source": "arithmétique ; ordre de grandeur instrumental de chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Densité théorique 5,73 g/cm3 et pourcentages 74–81 % recalculés exactement (voir « densité théorique du composite » et « pourcentages de la densité théorique »). La densité de TiN prise (5,24 g/cm3) est plus basse que sa densité cristallographique à a = 4,24 Å (5,39 g/cm3, voir « densités cristallographiques ») ; avec celle-ci les pourcentages baissent d'environ 1 point : effet mineur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Densité hélium de 74–81 % de la théorie, attribuée à une porosité fermée. La pycnométrie est faite sur des pastilles broyées au mortier (« For other measurements, the pellets were ground ») : le broyage ouvre une bonne partie des pores fermés, et 20–26 % de porosité fermée restante est beaucoup. Une explication concurrente n'est pas écartée : contamination de surface de nanopoudres de 10–30 nm manipulées à l'air (« briefly handled in air ») — oxydes, hydroxydes —, carbone et hydrogène résiduels des imides, sous-stœchiométrie de TiNx. Aucune analyse O/C/H n'est donnée, la preuve ne discrimine pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La baisse de taille à 650 °C (h-GaN 27 → 19 nm) est attribuée à un « écrasement » des cristallites. Une taille de Scherrer ne sépare pas taille et microdéformation : 7,7 GPa introduit des contraintes et défauts qui élargissent aussi les raies. Sans analyse Williamson–Hall ou affinement taille/contrainte explicite, l'« écrasement » n'est pas démontré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "650 °C, 7,7 GPa, 3 min : sous la température de nitruration, pas de recristallisation attendue ; conditions de cellule toroïdale standard dans ce groupe.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Dureté 11,1 GPa (300 gf) : du même ordre que GaN fritté (≈ 11 GPa cité) et inférieure à TiN massif ; plausible pour une céramique poreuse à 77 % de densité.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : presse haute pression (7,7 GPa) avec protections de cellule ; nanopoudres manipulées à l'air (inhalation).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Compaction sous 7,7 GPa par réarrangement et déformation des particules, sans diffusion notable à 650 °C ; les particules de même nature s'agglomèrent (ségrégation en domaines de quelques µm, comme dans TiN–AlN). La baisse des tailles de Scherrer peut venir de la fragmentation ou de microdéformations.",
+    "sources": [
+     {
+      "title": "Composite Nitride Nanoceramics in the System Titanium Nitride (TiN)-Aluminum Nitride (AlN) through High Pressure and High Temperature Sintering of Synthesis-Mixed Nanocrystalline Powders",
+      "authors_or_publisher": "mêmes auteurs (Materials, MDPI), PMC7865222",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7865222"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère et durée de l'exposition à l'air avant frittage",
+    "masse de poudre et vitesse de chauffe de la cellule",
+    "analyse O/C/H des céramiques",
+    "séparation taille/microdéformation (Williamson–Hall)"
+   ]
+  },
+  {
+   "label": "Composite_800_sint_1000",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport c/a de h-GaN de Composite_800_sint_1000",
+     "inputs": "a = 3,20 Å ; c = 4,20 Å (tableau 2) ; autres échantillons c = 5,17–5,21 Å",
+     "formula": "c/a ; idéal wurtzite √(8/3)",
+     "result": "c/a = 1,31 ; avec c = 5,20 : 1,625",
+     "compared_to": "wurtzite idéale 1,633 ; GaN réel ≈ 1,626",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Tableau 2 : c = 4,20 Å pour h-GaN de ce composite, soit c/a = 1,31 (voir « rapport c/a ») : impossible pour une wurtzite (c/a ≈ 1,63) et incompatible avec les autres valeurs (5,17–5,21 Å). Coquille des auteurs (5,20 probablement) ; la valeur ne doit pas être utilisée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : attribution GaN (A1(LO) ≈ 720–730 cm−1, E2(high) ≈ 570 cm−1) et TiN (modes acoustiques et TO activés par les lacunes, Raman du premier ordre interdit en Oh) correcte.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Recristallisation limitée de h-GaN (20 nm) freinée par la dilution dans TiN, en compétition avec l'effet de pression.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "paramètre c réel de h-GaN (refaire l'affinement)"
+   ]
+  },
+  {
+   "label": "Composite_800_sint_1200",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "taille de c-TiN comparée au TiN pur fritté à 1200 °C",
+     "inputs": "tableau 2 : c-TiN de Composite_800_sint_1200 = 13 nm ; texte 3.2 : « the relevant Dav of 10 nm » ; TiN_800_sint_1200 = 13 nm ; à 650 °C : composite 10 nm, TiN pur 8 nm",
+     "formula": "comparaison directe",
+     "result": "1200 °C : 13 nm contre 13 nm (égaux) ; 650 °C : 10 nm contre 8 nm (le composite est plus gros)",
+     "compared_to": "conclusion des auteurs : « the growth of TiN was somewhat restrained in the composites »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : le texte compare 10 nm (composite) à 13 nm (TiN pur) pour conclure que la croissance de TiN est freinée dans le composite, mais le tableau 2 donne 13 nm pour ce composite. Avec les valeurs du tableau, TiN du composite est égal au TiN pur à 1200 °C et plus gros à 650 °C (voir « taille de c-TiN comparée ») : la conclusion « restrained » n'est pas soutenue par les données de l'article.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Ga métallique observé après 3 min à 1200 °C sous 7,7 GPa. Si la pression s'exerçait sur l'azote libéré, GaN serait stable : sous pression de N2, GaN reste stable jusqu'à ≈ 1500 °C vers 1,5–2 GPa et fond de façon congruente vers 2200 °C au-delà de 6 GPa. La décomposition observée suppose donc soit un départ local de N2 (pores ouverts, montée en température avant la pleine pression, ou fin de cycle), soit une autre réaction (point suivant). Les auteurs ne discutent pas ce point.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Congruent melting of gallium nitride at 6 GPa and its application to single-crystal growth",
+      "authors_or_publisher": "Utsumi W., Saitoh H., Kaneko H., Watanuki T., Aoki K., Shimomura O. (Nature Materials)",
+      "year": "2003",
+      "url_or_doi": "10.1038/nmat1003"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Hypothèse non envisagée par les auteurs : TiNx sous-stœchiométrique (Raman : TiNx, x < 1) est un puits d'azote. Ti réagit avec GaN dès 700 °C pour donner TiN, Ti2GaN et libérer du Ga (séquence GaN/TiN/Ti2GaN/Ti3Ga/Ti dans les contacts Ti/GaN). Au contact intime GaN/TiNx à 1200 °C, le transfert d'azote de GaN vers TiNx libère du Ga sans dégagement de N2, donc sans que la pression l'empêche. Le Ga observé près des domaines TiN (EDX) est compatible ; la phase MAX Ti2GaN n'est pas cherchée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interfacial Reactions of Ti/n-GaN Contacts at Elevated Temperature",
+      "authors_or_publisher": "Lu C.J., Davydov A., Josell D., Bendersky L.A. (J. Appl. Phys. 94(1)), notice NIST",
+      "year": "2003",
+      "url_or_doi": "https://www.nist.gov/publications/interfacial-reactions-tin-gan-contacts-elevated-temperature"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La dureté augmente (10,0 → 13,2 GPa à 300 gf) de 1000 à 1200 °C alors que c'est dans cet échantillon que le Ga métallique est vu : à rapprocher de l'explication inverse donnée pour Composite_950_sint_1200 (voir cette voie).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Gallium liquide dès 29,8 °C formé dans la céramique ; il mouille et fragilise l'aluminium et de nombreux métaux (outils, montages).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 1200 °C, h-GaN recristallise vite (26 nm, gros cristaux de quelques µm) ; une partie de GaN au contact de TiNx déficitaire cède son azote (GaN + TiNx → Ga(l) + TiNx+δ, ΔfG de TiN bien plus négatif que celui de GaN), d'où des gouttelettes de Ga et des coques fondues sur des cœurs de GaN ; la décomposition simple GaN → Ga + 1/2 N2 sous 7,7 GPa n'est possible que là où l'azote peut s'échapper.",
+    "sources": [
+     {
+      "title": "Interfacial Reactions of Ti/n-GaN Contacts at Elevated Temperature",
+      "authors_or_publisher": "Lu C.J., Davydov A., Josell D., Bendersky L.A. (J. Appl. Phys. 94(1)), notice NIST",
+      "year": "2003",
+      "url_or_doi": "https://www.nist.gov/publications/interfacial-reactions-tin-gan-contacts-elevated-temperature"
+     },
+     {
+      "title": "Congruent melting of gallium nitride at 6 GPa and its application to single-crystal growth",
+      "authors_or_publisher": "Utsumi W., Saitoh H., Kaneko H., Watanuki T., Aoki K., Shimomura O. (Nature Materials)",
+      "year": "2003",
+      "url_or_doi": "10.1038/nmat1003"
+     },
+     {
+      "title": "Equilibrium pressure of N2 over GaN and high pressure solution growth of GaN",
+      "authors_or_publisher": "Karpinski J., Jun J., Porowski S. (J. Cryst. Growth 66, 1-10)",
+      "year": "1984",
+      "url_or_doi": "10.1016/0022-0248(84)90070-8"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "profil de montée en pression et en température de la cellule",
+    "recherche de Ti2GaN (DRX lente sur 35–45°)",
+    "stœchiométrie N/Ti du TiN de départ",
+    "ne pas attribuer la croissance freinée de TiN sans relire le tableau 2"
+   ]
+  },
+  {
+   "label": "Composite_950_sint_1200",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "dureté et Ga métallique dans les deux séries frittées à 1200 °C",
+     "inputs": "Hv (300 gf) : Composite_800 1000 → 1200 °C : 10,0 → 13,2 GPa ; Composite_950 1000 → 1200 °C : 13,2 → 8,6 GPa ; Ga métallique : vu au MEB dans Composite_800_sint_1200 (fig. 5), « no metallic Ga was observed in any of the ceramics examined in Figure 4 » (série Composite_950)",
+     "formula": "comparaison directe",
+     "result": "le Ga est vu dans l'échantillon dont la dureté monte, pas dans celui dont la dureté baisse",
+     "compared_to": "explication des auteurs : baisse de Hv de Composite_950_sint_1200 « coincided with SEM-detected GaN decomposition with metallic Ga formation »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'explication de la baisse de dureté (8,6 GPa) par une décomposition de GaN avec Ga métallique vu au MEB contredit l'article lui-même : aucun Ga n'est vu dans la série Composite_950 (fig. 4), et le Ga est vu dans Composite_800_sint_1200, dont la dureté augmente (voir « dureté et Ga métallique »). La cause de la baisse reste ouverte (gros cristaux de GaN de quelques µm, porosité, dispersion de mesure : 8,6 ± 0,9 contre 13,2 ± 1,1 GPa).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Gros cristaux réguliers de quelques µm attribués à h-GaN : compatible avec une recristallisation rapide à 1200 °C ; leur nature n'est appuyée que par l'aspect et l'EDX.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "La baisse de dureté est plus probablement liée à la croissance anormale de h-GaN en cristaux micrométriques (joints faibles, porosité) qu'à du Ga métallique, que l'article ne montre pas dans cet échantillon.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "MEB/EDX de Composite_950_sint_1200 à la recherche de Ga",
+    "nombre d'indentations et dispersion"
+   ]
+  },
+  {
+   "label": "GaN_800_sint_650",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "écart entre température de nitruration et de frittage",
+     "inputs": "GaN_800 et GaN_950 frittés à 1000 °C",
+     "formula": "ΔT = Tfrittage − Tnitruration",
+     "result": "200 °C et 50 °C",
+     "compared_to": "« 200 vs. 50 °C » écrit par les auteurs : juste",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Duretés des GaN purs : « 13.6/15.0 and 10.0 GPa » pour deux échantillons, trois valeurs : la paire 13,6/15,0 correspond probablement aux deux charges (100/300 gf) ou à deux pastilles, non dit ; valeurs tirées d'un article antérieur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Conversion partielle c-GaN → h-GaN à 650 °C sous pression (70/30 puis 80/20) et totale à 1000 °C : sens attendu, h-GaN étant le polytype stable.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "La pression et la température favorisent la conversion du polytype métastable cubique vers la wurtzite stable.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "charge d'indentation des duretés de GaN pur"
+   ]
+  },
+  {
+   "label": "GaN_800_sint_1000",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "largeur Scherrer attendue selon la taille",
+     "inputs": "K = 0,9 ; λ = 1,5406 Å ; 2θ = 36,8°",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "D = 5 nm → 1,67° ; 10 nm → 0,84° ; 27 nm → 0,31° ; 55 nm → 0,15° ; 100 nm → 0,084° ; 160 nm → 0,052°",
+     "compared_to": "largeur instrumentale typique d'un diffractomètre de laboratoire en Bragg-Brentano : ≈ 0,05–0,1° ; au-delà de ≈ 100 nm l'élargissement de taille n'est plus séparable",
+     "source": "arithmétique ; ordre de grandeur instrumental de chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Dav = 160 nm par Scherrer : à cette taille l'élargissement attendu (≈ 0,05°, voir « largeur Scherrer attendue ») est du même ordre que la largeur instrumentale ; la valeur n'est qu'une borne inférieure (« > 100 nm »), pas une mesure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Recristallisation rapide de GaN pur quand le frittage dépasse de 200 °C la nitruration.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "taille par MEB ou par correction instrumentale (étalon LaB6)"
+   ]
+  },
+  {
+   "label": "TiN_800_sint_650",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "densités cristallographiques (rayons X) de c-TiN et h-GaN",
+     "inputs": "c-TiN : Z = 4, a = 4,24 Å ; h-GaN : Z = 2, a = 3,19 Å, c = 5,19 Å ; NA = 6,022·10^23",
+     "formula": "ρ = Z·M/(NA·V) ; V(cubique) = a³ ; V(hexagonal) = (√3/2)a²c",
+     "result": "c-TiN 5,39 g/cm3 ; h-GaN 6,08 g/cm3 ; mélange 1:1 avec TiN à 5,39 : 5,80 g/cm3",
+     "compared_to": "5,24 (TiN) et 6,15 (GaN) pris par les auteurs ; 5,73 pour le mélange",
+     "source": "arithmétique ; masses molaires calculées (masses atomiques IUPAC : Ga 69,723 ; Ti 47,867 ; N 14,007 ; C 12,011 ; H 1,008)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Données reprises de l'article TiN–AlN des mêmes auteurs (TiN_800 fritté à 650 et 1200 °C ; densités 84–90 %, Hv 15,5 et 19,7 GPa) : cohérentes avec cette source et avec la dureté de TiN massif (≈ 18–21 GPa).",
+     "status": "ok",
+     "basis": "comparaison_base",
+     "source": {
+      "title": "Composite Nitride Nanoceramics in the System Titanium Nitride (TiN)-Aluminum Nitride (AlN) through High Pressure and High Temperature Sintering of Synthesis-Mixed Nanocrystalline Powders",
+      "authors_or_publisher": "mêmes auteurs (Materials, MDPI), PMC7865222",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7865222"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "TiN réfractaire : pas de croissance à 650 °C, croissance modérée à 1200 °C.",
+    "sources": [
+     {
+      "title": "Composite Nitride Nanoceramics in the System Titanium Nitride (TiN)-Aluminum Nitride (AlN) through High Pressure and High Temperature Sintering of Synthesis-Mixed Nanocrystalline Powders",
+      "authors_or_publisher": "mêmes auteurs (Materials, MDPI), PMC7865222",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7865222"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "protocole exact de frittage de TiN dans l'article TiN–AlN"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie des précurseurs (transamination des diméthylamides de Ga et Ti dans NH3 liquide, puis nitruration sous NH3) est cohérente, les quantités sont justes (Ga/Ti = 1,001, NH3 en excès ≈ 14 fois) et les équations de désamination sont équilibrées, redox compris. Les paramètres de maille et la densité théorique 5,73 g/cm3 se recalculent. Les faiblesses sont dans l'interprétation : coquille c = 4,20 Å, conclusion sur la croissance freinée de TiN tirée d'une valeur (10 nm) que le tableau contredit (13 nm), baisse de dureté de Composite_950_sint_1200 attribuée à un Ga métallique que l'article ne voit que dans l'autre série, absence de c-GaN dans les composites reposant sur une seule raie discriminante, densités hélium basses attribuées à la porosité fermée sans analyse O/C/H, « écrasement » des cristallites non séparé des microdéformations. La décomposition de GaN sous 7,7 GPa demande une explication (départ local de N2 ou transfert d'azote vers TiNx sous-stœchiométrique).",
+  "author_errors_suspected": [
+   "Tableau 2 : c = 4,20 Å pour h-GaN de Composite_800_sint_1000 (c/a = 1,31, impossible pour une wurtzite ; probablement 5,20).",
+   "Section 3.2 : c-TiN de Composite_800_sint_1200 donné à 10 nm dans le texte contre 13 nm au tableau 2 ; la conclusion « growth of TiN was somewhat restrained in the composites » en dépend.",
+   "Section 3.2 (dureté) : baisse de Hv de Composite_950_sint_1200 attribuée à du Ga métallique « SEM-detected », alors que le Ga n'est vu que dans Composite_800_sint_1200 et que la fig. 4 dit qu'aucun Ga n'est vu dans la série Composite_950.",
+   "Section 3.1 : TiN « prepared at 800 and 1100 °C » contre 1000 °C dans les Méthodes, le tableau 1 et la figure 3."
+  ],
+  "comparison_with_database": "Aucune autre synthèse de poudre GaN ou TiN par voie imide dans la base (compare.py « GaN », « TiN », « nitride » : couches minces TiN de PMC10342551 et PMC4214824, sans rapport). Comparaison faite avec l'article TiN–AlN des mêmes auteurs (PMC7865222, hors base) : même protocole (60 mL d'hexane, 3 h de reflux, 2 h à −33 °C, NH3 0,2 L/min, 4 h), même densité théorique de TiN (5,24 g/cm3) et densités de composites voisines (70–82 %)."
+ },
+ "sources_not_found": [
+  "Attribution des signaux 1H de {Ga(NMe2)3}2 (pontants contre terminaux) dans C6D6 : non trouvée en ligne (Waggoner, Olmstead, Power, Polyhedron 1990 identifié mais non lu).",
+  "Couleur attendue de l'imide de titane (l'article dit « white solid » pour un mélange à 50 % de Ti) : pas de source trouvée, point non retenu."
+ ]
+}

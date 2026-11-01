@@ -1,0 +1,87 @@
+{
+  "pmcid": "PMC6369825",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "OLE-AgNPs / RLE-AgNPs : protocole des essais antibactériens (aucune entrée de caractérisation ni étape pour la CMI/CMB et Kirby–Bauer)",
+      "extracted": "Les CMI, CMB et zones d'inhibition sont en résultats, mais aucune condition d'essai n'est enregistrée (grep : pas de CFU, McFarland, Mueller, 37 °C, 96 puits ; concentrations testées 50/45 mg/l de l'en-tête du Tableau 4 absentes des résultats).",
+      "article_says": "Each well was inoculated with 50 μl of the respective bacterial suspension (of Mueller–Hinton broth) and the concentration was matched against a 0.5 McFarland Standard to obtain a concentration of 1 × 106 CFU/ml",
+      "fix": "ajouter à OLE-AgNPs et RLE-AgNPs une caractérisation « broth microdilution (CMI/CMB) » (plaque 96 puits, bouillon Mueller–Hinton, dilutions de moitié 100 à 3,125 μg/ml, 50 μl d'inoculum à 1 × 10^6 UFC/ml, 37 °C, 24 h, témoin négatif = bouillon MH) et une caractérisation « Kirby–Bauer / diffusion en puits » (100 μl à 1 × 10^5 UFC/ml étalés sur gélose MH, puits de 50 μl, 37 °C, 24 h, témoin positif AgNO3 170 mg/l, concentrations testées 50 et 45 mg/l), chacune avec sa citation (« A triplicate of 100 μl … », « Each well was filled with 50 μl … incubated at 37 °C for 24 h »)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "OLE_extract, réactif « olive leaves (dried powder) » : not_stated ['supplier'] et missing_fields ['leaf_origin_supplier']",
+      "extracted": "origine des feuilles déclarée non citée",
+      "article_says": "Leaves of olive and rosemary were collected in June 2014 from the campus of the JUST in Irbid, Jordan.",
+      "fix": "renseigner l'origine (récolte en juin 2014, campus de JUST, Irbid, Jordanie) pour les feuilles d'olivier et de romarin, avec cette citation, et retirer leaf_origin_supplier de missing_fields ; ne rester non cités que cultivar/espèce précise (Olea europaea et Rosmarinus officinalis sont donnés dans l'introduction)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Témoin positif AgNO3 du Kirby–Bauer (sample_inventory, route null) : zones d'inhibition 18 ± 0,6 / 20 ± 0,9 / 21 ± 1,1 mm",
+      "extracted": "aucune valeur nulle part (les résultats Kirby–Bauer des deux voies ne portent que les colonnes OLE et RLE)",
+      "article_says": "S. aureus | 18 ± 0.6 mm | 13 ± 0.9 mm | 12 ± 0.4 mm",
+      "fix": "conserver ces trois valeurs (S. aureus 18, S. enterica 20, E. coli 21 mm, AgNO3 à 170 mg/l), par exemple en annotation ou comme valeur de comparaison dans la caractérisation Kirby–Bauer, puisque la conclusion des auteurs est « comparable to the control solution of AgNO3 »",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Préparation de la verrerie (Materials) : lavage à l'acide nitrique dilué et séchage, réactif acide nitrique absent",
+      "extracted": "ni étape ni réactif",
+      "article_says": "all glassware was periodically washed with diluted nitric acid (25%) and then dried in a hot-air oven overnight at 40 °C",
+      "fix": "ajouter une étape de préparation (lavage de la verrerie à l'acide nitrique dilué 25 %, séchage étuve 40 °C une nuit) ou au moins une annotation ; acide nitrique Merck 69 % dans les réactifs ; pertinent pour la reproductibilité d'une synthèse de nanoparticules d'argent (traces de chlorures ou d'organiques)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "OLE_extract et RLE_extract, caractérisation FTIR (Tableau 2)",
+      "extracted": "« amide C=O 1,688 » (OLE) et « amide C=O 1,685 » (RLE) sans la rangée C=C",
+      "article_says": "C=C | 1,688 | 1,685",
+      "fix": "ajouter « C=C 1,688 » (OLE) et « C=C 1,685 » (RLE) : le tableau attribue le même pic aux deux groupes",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "OLE-AgNPs étape 5, pH = 7 ± 0,2 (cité de la légende de la Fig. 5)",
+      "extracted": "pH 7 ± 0,2 pour la synthèse de la voie de base, étape 6 pH 7 ± 0,3 à l'ultrafiltration",
+      "article_says": "it was decided that reducing the pH during the ultrafiltration process to 7 ± 0.3 is important",
+      "fix": "ne pas changer la valeur (la légende dit pH 7 ± 0,2, texte et légende se contredisent) mais ajouter au bloc limite_reproductibilite que le texte (« pH 11 ± 0.2 produced the highest yields » puis « reducing the pH … to 7 ± 0.3 ») laisse penser que la synthèse caractérisée a été faite à pH élevé puis ramenée à 7 à l'ultrafiltration ; le DOUTE existe mais l'annotation de limite ne le reprend pas",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "RLE-AgNPs : rendement (champ yield) absent, conversion 48 % seulement en résultat Ag_conversion_AAS ; OLE-AgNPs : 53 % dans yield mais pas en résultat",
+      "extracted": "asymétrie entre les deux voies",
+      "article_says": "The percentages of Ag+ conversion into AgNP (Ag0) for OLE-AgNPs and RLE-AgNPs were 53% and 48%, respectively.",
+      "fix": "harmoniser (yield 48 % pour RLE-AgNPs, ou résultat Ag_conversion_AAS = 53 % pour OLE)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Annotation mecanisme_analyse (RLE-AgNPs)",
+      "extracted": "« diterpènes phénoliques comme le carnosol »",
+      "article_says": "RLE is mainly composed of isocarnosol (diterpene) dihydronormorphinone (alkaloid) and camphor (terpenoid)",
+      "fix": "écrire « isocarnosol (diterpène) » comme l'article, et ne pas qualifier de « phénolique » ce que l'article ne dit pas ; l'annotation reste une hypothèse",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 36,
+    "branches_extracted": 34,
+    "not_stated_checked": 19,
+    "not_stated_wrong": 1
+  },
+  "reproducibility_gaps": [
+    "durée de réaction de la voie de base (seulement « approximately completed within 3 h » et la série en temps)",
+    "mode de chauffage à 80 °C et moment où la température est atteinte (avant ou après l'ajout de l'argent) ; agitation après l'étape 1",
+    "volumes exacts de PLE et de NaOH dans le mélange 1:1 (12,5 ml chacun seulement par déduction), durée du prémélange, et dilution de l'extrait à 0,1 wt % pour obtenir 20, 100 et 250 mg/l",
+    "comment le pH est fixé à 3, 5, 6, 7 ou 11 alors que le mélange contient toujours de la soude ; pH 7 de la synthèse ou seulement de l'ultrafiltration",
+    "cultivar et partie des feuilles, solvant et nombre de lavages des feuilles, pression et durée de l'ultrafiltration",
+    "incohérence de masse : 12,5 μmol d'Ag+ (≈ 27 mg/l maximum dans 50 ml) contre ≈ 50 mg/l mesurés par AAS, et unités μl/ml des CMI contre μg/ml de la méthode",
+    "annexes : seulement des photographies de zones d'inhibition, aucun protocole"
+  ],
+  "mechanism_check": "ok : les explications des auteurs (groupes carbonyle réducteurs en milieu basique, vitesse de réaction avec la température, FTIR) sont dans le texte ; les annotations d'analyse sont signalées comme hypothèses. Détail de sécurité à nuancer pour la science : le Tollens vieilli donne surtout du nitrure/imide d'argent, le fulminate n'est pas le produit usuel.",
+  "notes": "Valeurs de figure Fig. 1 à 4 vérifiées : toutes à moins de 5 % de ma lecture (OLE pH 7 Fig. 3 : 1,15 contre 1,2 extrait ; OLE pH 6 : 1,07 contre 1,1 ; RLE pH 5 : 1,14 contre 1,2). Le 24 h de Fig. 4a (OLE) semble un peu sous la courbe 180 min (≈ 1,5 contre 1,6) mais reste dans les 10 %. Fig. 5 à 7 concordent avec le texte (Z-average, PDI, pics FTIR). Écarts du texte avec les figures non constats : pH 2 du texte contre pH 3 du Tableau 1/Fig. 3 (déjà en doute), Tableau 5 38 ± 2,71 contre texte 38 ± 3. Non retenu comme constat : durée de base non citée (le « 3 h » est conditionnel, doute déjà posé), pourcentages +65/61/81/78/27/50 % uniquement en annotation (acceptable comme tendances). method_sources : complet, ref-23 (ISO 22412, formule d'analyse) correctement exclue."
+}

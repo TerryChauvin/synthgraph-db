@@ -1,0 +1,14 @@
+# PMC9073369 — critique scientifique (Opus)
+
+- Masses des sels recalculées : 0,7 mmol × 404,00 = 0,2828 g et 0,3 × 237,69 = 0,0713 g ; la coquille « Fe(NO)3 » est donc sans conséquence, et ce n'est pas un problème.
+- `probleme` SAED : d(101) = 0,35 nm → 2θ = 25,45° (λ 0,154178 nm), aucune raie citée là ; avec c = 2 × 0,96 nm, il faudrait a ≈ 0,41 nm, contre ≈ 1,1 nm pour MIL-88B. Maille de comparaison prise sur MIL-88B(2OH) (Horcajada 2011, COD 4107051, lu dans un extrait de recherche) faute d'avoir pu ouvrir l'ESI de Surblé (DNS RSC bloqué). La conclusion ne dépend pas de la valeur exacte de a (tout a entre 0,9 et 1,5 nm donne d(101) > 0,7 nm).
+- `probleme` XPS C 1s : trois composantes à 283,1–283,6 eV, sous la référence de 284,8 eV utilisée pour l'étalonnage ; C–O et carbonate ne peuvent pas se trouver là. Même lecture pour O 1s (trois « pics » dans 0,45 eV) : ce sont plutôt trois échantillons. Classé `probleme` parce que les valeurs sont impossibles telles qu'écrites, même si elles ne touchent pas la synthèse.
+- `probleme` stabilité : la chronopotentiométrie impose le courant, donc « current densities increased by 3.7 % » ne décrit pas la mesure. Je n'ai pas tranché entre potentiel qui varie et chronoampérométrie.
+- Fe 2p : écart 725,5 − 714 = 11,5 eV contre ≈ 13 eV. Classé `reserve` et non `probleme` : 714 eV peut être une composante de multiplet de Fe3+, et seule la valeur Δ du métal (13,1 eV, Thermo Fisher) a été lue.
+- Référence Ag/AgCl : 0,197 V = KCl saturé (Metrohm), électrode décrite en KCl 3 M. Je n'ai pas trouvé de source primaire pour 0,210 V : `reserve`, avec un effet d'environ 13 mV.
+- Attaque de la mousse de Ni par Fe3+ (E° +0,77 contre −0,26 V) : raisonnement de chimie générale ; les articles RSC trouvés (J. Mater. Chem. A 2022, d1ta10103j) n'ont pas pu être ouverts, je ne les cite pas. Ce point rend le témoin Fe MOF/NF non exempt de Ni : `reserve` sur la branche, sans changer la valeur.
+- Ni MOF/NF : le sel n'apporte que 0,3 mmol de Ni pour 1 mmol de BDC (il faudrait 1,5 mmol pour Ni3(OH)2(BDC)2) : le reste vient sans doute de la mousse. Ce calcul appuie le point précédent.
+- Mécanisme : je préfère un trimère neutre Fe2Ni(μ3-O)(BDC)3 (électroneutralité calculée) plus du Ni2+ libéré par la mousse, plutôt que le seul « Ni2+ favorise la cristallinité » des auteurs. J'ajoute la reconstruction en NiFeOOH en OER (Zhao 2020, Nature Energy) et le rôle du Fe parasite dans KOH (Trotochaud 2014).
+- Rapports 5 : 5 et 3 : 7 : verdict `invérifiable`, sans quantités, et `calculs` vides (aucune quantité à convertir).
+- Pression en autoclave : coefficients d'Antoine de l'éthanol (NIST) cités de mémoire, page non ouverte ; présentés comme ordre de grandeur (borne haute 4,6 bar).
+- Recherches web : 8 (dont 3 ouvertures de page échouées par DNS). DOI non vérifiés sur Crossref (bloqué) : 10.1021/ja206936e, 10.1038/s41560-020-00709-1, 10.1021/ja502379c. Rien n'a été ajouté à fondateurs.md ni à constantes.md.

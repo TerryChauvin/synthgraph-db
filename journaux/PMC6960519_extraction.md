@@ -1,0 +1,16 @@
+# Journal d'extraction PMC6960519
+
+- Découpage : zeo1 (NH4-ZSM-5 commerciale calcinée) est une voie de base ; zeo2 est une voie de base séparée (étapes propres : NaOH, 3 échanges NH4Cl, calcination) qui prend zeo1 comme réactif `intermediate` ; zeo3 est une branche de zeo2 (seule la durée à la soude passe de 30 min à 2 h : « The procedure was performed again, but treating H-ZSM-5 zeolite (zeo1) with NaOH solution for 2 h »). La silicalite `sil` est une voie de base indépendante (Watanabe et al.).
+- Composites : PP+IF (extrusion, granulation, pressage à chaud puis à froid) est la voie de base ; PP+IF+zeo1/zeo2/zeo3/sil sont ses branches (variation `additive`, 3 % w/w). Choix d'une seule voie `material` (famille composite) plutôt que `device`, car il s'agit d'un matériau mis en forme, pas d'un dispositif.
+- Échantillons sans APP/PER (PP, PP+zeoX) : rattachés à PP+IF avec APP et PER « absent » (réactifs du parent). L'article ne dit pas qu'ils ont été extrudés et pressés ; héritage par hypothèse, signalé dans `doubts` et `limite_reproductibilite`. Alternative écartée : voie de base sans étapes (refusée par load.py).
+- Tableaux 2, 3 et 4 : chaque rangée est citée entière et attribuée par le nom d'échantillon ; la rangée « PP | NC 1 | V0 » sert à la fois à PP (colonne sans APP/PER, NC) et à PP+IF (colonne avec APP/PER, V0). Le tableau 4 nomme « PP + IF » ce que les tableaux 2 et 3 nomment « PP + APP/PER » : lu comme le même échantillon.
+- Résidus TGA : phrase « zeo1, zeo2, zeo3 and sil ... 13.0%, 10.8%, 13.3% and 8.8%, respectively » : ordre écrit avant attribution (zeo1 13,0 ; zeo2 10,8 ; zeo3 13,3 ; sil 8,8), cohérent avec la phrase de la microscopie (zeo1 et zeo3 au-dessus de zeo2).
+- Contradiction interne : rapport mésopores/micropores de zeo3 = 5.00 au tableau 1 alors que 0.40/0.11 ≈ 3,6 ; valeur du tableau gardée, doute noté.
+- Figure 1 lue (étiquettes imprimées de cristallinité) : zeo2 75 %, zeo3 50 %, sil 80 % ; zeo1 100 % tiré du texte (référence). Le texte dit « above 50% » pour zeo3 : écart signalé. Figure 3 contrôlée contre le texte (502, 1674, 3131), pas de valeur nouvelle. Figures 2, 4 et 5 non lues : résultats déjà dans le texte et les tableaux.
+- Annexes : aucune section Supporting Information dans le fichier et aucun renvoi à un tableau d'annexe dans l'article ; rien à signaler comme annexe absente.
+- Température de l'adsorption d'azote : « 196 °C » sans signe moins dans l'article, recopié tel quel dans les conditions de caractérisation.
+- Éthanol du rapport molaire de la silicalite : produit d'hydrolyse du TEOS, pas un réactif ajouté ; le rapport est gardé en paramètre `molar_ratio` (value_text) de l'étape d'ajout du TEOS.
+- Durée des échanges NH4Cl : « for 3 h » lue comme durée de chaque échange (doute noté).
+- Acidité de zeo3 (3131 μmol g−1) très supérieure à ce que contient un ZSM-5 de SAR 50 (≈ 650 μmol Al g−1) : signalée en hypothèse dans `mecanisme_analyse` de zeo2, pas corrigée.
+- Sources de méthode : Groen (B29, désilication), Watanabe (B33, silicalite), Wei (B32, rapport APP/PER 3:1, rôle « autre »), B41 (microscopie chauffante). BET (B34), t-plot (B35), normes et références de contexte exclues.
+- Les 8 avertissements de load.py (paramètre `additive` sans équivalent dans le parent) sont le motif prévu par le RUNBOOK.

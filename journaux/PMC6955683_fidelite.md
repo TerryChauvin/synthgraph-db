@@ -1,0 +1,15 @@
+# Journal critique de fidélité PMC6955683
+
+- Ma liste d'échantillons avant ouverture de l'extraction : MASS dopé à 0,25, 0,5, 1, 2, 4 % ; hôte x = 0 (S10–S14) ; MASS 40 min seul et MASS 2 x 40 min (S5) ; SSR 1000/1100/1200/1300/1400 °C (S2) ; SSR 1400 °C 1 h et 3 h (S4) ; MASS 40 min + 1 400 °C 1 h et 3 h (S4) ; SSR dopé 0,5 % (S7, S15). Écart avec l'inventaire : seul l'échantillon MASS + 1 h (route null dans l'inventaire) est absent des voies.
+- MASS 1 h : constat `probable` car la légende S4 dit « different reaction duration » et le texte « 40-min MASS treatment was added before each SSR synthesis », mais l'annexe est absente et je ne vois pas les durées exactes ; la règle des plages de l'extracteur est défendable, je tranche contre elle car les auteurs comparent deux durées.
+- Comparaison avec/sans MASS (« diffraction peaks from impurities decrease substantially ») : `sure`, la phrase existe et n'est dans aucun outcome.
+- SSR-1400-1h/3h : l'héritage du palier à 1000 °C 3 h n'est pas fondé (le texte ne parle que de « SSR reaction ... at 1400 °C ») ; `probable` parce que « Despite a prior 6-h ball mill » suggère que le protocole SSR complet a été suivi.
+- « All the prepared samples were well ground again after they were cooled down naturally » : la phrase est dans le paragraphe SSR, donc `probable` seulement pour la voie MASS.
+- Conditions de rémanence (1000 lux, 5 min, photodiode) : `sure`, texte explicite en Méthodes 2.2, absent de toute caractérisation ; la série Fig. 3 n'a que du XRD.
+- Fig. 3 (encart) ouverte : lecture 0,25 % ≈ 5,4e4 ; 0,5 % ≈ 9,5e4 ; 1 % ≈ 7e4 ; 2 % ≈ 3,1e4 ; 4 % ≈ 3–4e3. Aucun écart supérieur à 10 % hors point à 4 % (échelle trop petite pour trancher), donc pas de constat sur `from_figure`.
+- Fig. 5 : 93,4 % à 150 °C (annoté sur la figure) et ≈ 85,5 % à 220 °C, conforme au texte. Fig. 1 : pas de pic parasite visible, conforme à « no traces ».
+- Diffuse reflection rangée sur MASS-0Mn : l'échantillon mesuré est le 1 % ; `attribution`, `probable` (l'hôte sert de référence).
+- not_stated : 34 cases vérifiées, une seule fausse (refroidissement/broyage final de la voie MASS) ; « oven_model », « atmosphere » du chauffage micro-ondes, « heating_rate » de la calcination MASS : bien absents de l'article, annexes comprises (légendes seulement).
+- Écartés comme non-constats : la valeur « 11 h » et le « > 75 % » de gain de temps (reprise fidèle, même si l'arithmétique des auteurs 40 min + 3 h vs 11 h donne environ 67 %, relève de la critique scientifique) ; le choix de 1 % comme voie de base (convention de l'extracteur, doute déjà posé).
+- method_sources : B21, B22, B23, B24 présents. B22 « autre » est un renvoi de contexte (profil de température), signalé `mineur`. Les renvois de 3.1 (MASS pour Eu2+, Pr3+, etc.) sont de contexte, pas de méthode.
+- Mécanisme : annotations d'auteurs conformes aux passages (CO réducteur, calcination douce) ; la formule « Mn réoxydé à 1400 °C » est dans mecanisme_analyse, bien étiquetée comme interprétation.

@@ -1,0 +1,79 @@
+{
+ "pmcid": "PMC7913101",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "PBMO-m, PBMO-m + 1100 °C/Ar, PBMO-m + 1100 °C/Ar + TG/air : résultats EDX (at.%) des figures 7d, 8b, 9b",
+   "extracted": "seule la phrase de groupe « écart-type maximal ±2,3 % » est reprise (caractérisation de PBMO-m, annotation tendance_observee) ; aucun résultat chiffré par échantillon",
+   "article_says": "the corresponding spectra and average atomic percentage of the cations are presented in Figure 7d, Figure 8b and Figure 9b, respectively",
+   "fix": "ajouter trois résultats `from_figure` (compositions cationiques moyennes lues sur les spectres, valeurs imprimées sur les figures) : PBMO-m Pr 27,3 / Ba 26,4 / Mn 46,3 at.% (Fig. 7d) ; PBMO-m + 1100 °C/Ar Pr 26,4 / Ba 24,8 / Mn 48,8 at.% (Fig. 8b) ; PBMO-m + 1100 °C/Ar + TG/air Pr 27,1 / Ba 24,7 / Mn 48,2 at.% (Fig. 9b). Citation : la phrase ci-contre ; stœchiométrie attendue Pr = Ba = 25 %, Mn = 50 % (même paragraphe).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "branches PBMO-m + 1100 °C/Ar et PBMO-m + 1100 °C/Ar + TG/air : caractérisation EDX",
+   "extracted": "pas de caractérisation EDX sur ces deux voies (seulement SEM et HRTEM/FFT)",
+   "article_says": "The chemical composition (regarding the cations) of the three samples (PBMO-m, PBMO-m + 1100 °C/Ar and PBMO-m + 1100 °C/Ar + ATG/air) was analyzed by EDX spectroscopy",
+   "fix": "ajouter une caractérisation « EDX (cations) » sur chacune des deux voies, avec les résultats du constat précédent ; le texte ne dit pas si l'EDX est celui du MEB (20 kV) ou du MET : laisser `instrument` à null et garder les deux détecteurs en `conditions` comme sur PBMO-m",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "PBMO-m, caractérisation « TG in Ar », champ conditions",
+   "extracted": "60–80 mg of powders, alumina sample pan, 10 °C/min from room temperature up to 1100 °C, flowing air (50 mL/min) or Ar (50 mL/min)",
+   "article_says": "A weight loss of ~4.8% was observed when the PBMO-m sample was heated up to 850 °C in a flowing Ar atmosphere.",
+   "fix": "restreindre à la mesure concernée : sous Ar (50 mL/min), jusqu'à 850 °C (texte et axe de la figure 4a, qui s'arrête à 850 °C) ; la phrase des Méthodes (« up to 1100 °C … air … and Ar ») est générique et ne dit pas laquelle des deux atmosphères va à 1100 °C",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PBMO-m + 1100 °C/Ar + TG/air étape 1 temperature_final = 1100 °C ; PBMO-m + 900 °C/Ar caractérisation « TG in air » conditions",
+   "extracted": "temperature_final = 1100 °C ; conditions « up to 1100 °C, flowing air … or Ar »",
+   "article_says": "A weight loss of ~4.8% was observed when the PBMO-m sample was heated up to 850 °C in a flowing Ar atmosphere.",
+   "fix": "la figure 4 (courbes b et c, sous air) s'arrête à 850 °C comme la courbe a ; la valeur 1100 °C vient des Méthodes seules. Garder la valeur citée mais noter qu'elle est contredite par la figure 4 (doute déjà posé) ; pour la caractérisation TG in air du 900 °C, ne garder que l'atmosphère air (50 mL/min)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PBMO-m + 700 °C/Ar, succeeded",
+   "extracted": "succeeded = true",
+   "article_says": "The pseudo-cubic symmetry seemed to be maintained up to 800 °C.",
+   "fix": "remettre à null comme les branches 500 et 800 °C : à 700 °C la phase en couches n'est pas formée (tétragonal « already well defined » à 900 °C seulement) ; aucun passage ne présente 700 °C comme réussi",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PBMO-m_pellet_1500Ar, material.name « dense … pellet »",
+   "extracted": "dense PrBaMn2O5+δ pellet for impedance measurements",
+   "article_says": "Finally, the specimens were ground and polished to achieve a final thickness of 1 mm.",
+   "fix": "supprimer « dense » : l'article ne donne ni densité ni densité relative (le mot n'apparaît qu'à propos de la puissance « power density ») ; écrire « PrBaMn2O5+δ pellet for impedance measurements »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "échantillon de départ à 0 min (inventaire, route null)",
+   "extracted": "présent dans sample_inventory sans voie ni résultat",
+   "article_says": "The XRD pattern at 0 min corresponds to the starting reactant mixture.",
+   "fix": "le point 0 min de la figure 2 (conversion 0 wt.%) n'est conservé nulle part ; l'ajouter en annotation de comparaison_branches (« 0 % à 0 min, Fig. 2 ») plutôt qu'en voie, puisque le mélange n'est pas synthétisé",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 17,
+  "branches_extracted": 17,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masse de chaque poudre non donnée (« stoichiometric amounts … to produce 5 g ») ; l'équation (1) est aplatie (« 16Pr6O11 », 1/6 perdu) mais les rapports molaires 1/6 : 1 : 2 se retrouvent par la stœchiométrie Pr/Ba/Mn = 1/1/2 ; pureté BaO2 95 % avec BaCO3 déjà présent non quantifié",
+  "« six WC balls (d = 15 mm and m = 26.4 g) » : masse d'une bille ou des six ? le rapport billes/poudre n'est donc pas déterminable",
+  "arrêts toutes les 15 min pour la DRX : on ne sait pas si la poudre prélevée est remise dans la jarre ni si la jarre est rouverte à l'air ; la série en temps est-elle un seul broyage interrompu ou des lots séparés ?",
+  "recuits sous Ar : séparés (une portion par température) ou successifs sur le même échantillon ? four, rampe, débit d'argon, refroidissement non indiqués",
+  "pastille d'impédance : poudre non nommée (PBMO-m d'après les Résultats), densité non donnée, mêmes pastilles ou non sous air et sous Ar/10 %H2, température du maximum de conductivité non écrite, pas de mention des contacts autres que les fils de Pt",
+  "TG sous air : température finale réellement atteinte (850 ou 1100 °C) et durée des paliers non précisées pour l'échantillon qui devient « PBMO-m + 1100 °C/Ar + TG/air »",
+  "légendes des figures 8 et 9 : « 1150 °C » contre 1100 °C dans le texte"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs se limite à la description générale de la mécanochimie et à la lecture de la figure 1 ; mecanisme_analyse est marqué comme analyse",
+ "notes": "Points demandés. (1) Temps de broyage et conversions : j'ai ouvert la figure 2 ; abscisses régulièrement espacées de 15 en 15 min jusqu'à 150, ordonnées lues 14, 32, 47, 61, 72, 75,5, 87, 91, 96, 98 wt.% : écart maximal 0,5 point avec l'extraction, bien sous 10 %. Le point 0 % à 0 min existe sur la figure. (2) Héritage des branches de recuit : les branches 500, 700, 800, 1100 héritent seulement de l'étape de recuit (3 h, Ar) de la voie 900 °C, avec la température remplacée ; aucune autre étape ni caractérisation (TG, maille) n'est héritée. L'héritage est conforme à « annealed for 3 h at increasing temperatures », sous réserve de l'ambiguïté séparé/successif déjà en doute ; si les recuits étaient successifs, chaque branche devrait avoir pour parent la précédente. Valeurs vérifiées sur figure : TG (4a −4,78 %, 4b +2,75 %, 4c +3,26 %), conductivités à 100 °C (≈ 78 et ≈ 6 S·cm−1) et maxima à 800 °C (≈ 97 et ≈ 21), températures des cinq diffractogrammes de la figure 3 (500, 700, 800, 900, 1100) : conformes. Autres vérifications : tous les paramètres de maille, énergies d'activation (0,06 oxydé, 0,33 réduit, ordre « respectively » correct), stœchiométries 5,20 et 5,05 (recalcul à partir des gains : 2,72 % et 3,24 %), fournisseurs et puretés. Aucun renvoi de méthode dans l'article : method_sources vide est correct (B17/B24/B21/B26/B46/B47 sont des comparaisons de résultats). Fragile dans ma lecture : la ligne « par pas de 100 °C » des conditions d'impédance interprète « with a range of 100 °C » (la figure 10 montre huit points, 800 à 100 °C, donc l'interprétation tient) ; la mention « EDX couplé au SEM (20 kV) ou au TEM » est prudente car les spectres des figures 7 à 9 portent des pics de Cu de la grille, donc probablement du MET, mais l'article ne le dit pas."
+}

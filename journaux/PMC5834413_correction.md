@@ -1,0 +1,15 @@
+# Journal de correction PMC5834413
+
+- R-2.3_stirring : « conventional stirring was performed instead of ultrasonic treatment » ne nomme aucune étape. Décision de l'orchestrateur : ne pas figer. La variation perd `step_order` et son paramètre devient `ultrasonic_treatment` ; `replaced_step` est ajouté en `not_stated` de la voie ; le doute est réécrit. Le contrôle émet un avertissement (nom sans étape) expliqué dans ce doute.
+- Rapprochement « 20 mg de GO = R-2.3 » : conservé comme doute existant et nouvelle annotation `limite_reproductibilite` (article), pas comme valeur citée. Le `parent_value` des branches R-1.5, R-2, R-2.5, R-3 ne porte plus « theoretical 2.3 wt%, deduced » mais « 20 mg of GO (typical synthesis; link to R-2.3 not written) ».
+- Masse de GO des quatre branches : `graphene_oxide_mass` en `not_stated`. La teneur théorique reste en `value_text`, car l'article la donne (1.5, 2.0, 2.5, 3.0 wt%).
+- Les 300 W de l'étape 9 (R-2.3) et de l'étape 8 (Ag3PO4_QDs) sont la lampe Xe : paramètre `power` renommé `lamp_power`. Un doute le précise.
+- Sonde ultrasonique sur les étapes 1, 2, 5 : les `not_stated` sonicator_type sont gardés (rien ne dit que la sonde JY92-2D les concerne) et un doute note la sonde « supposée identique, non écrite ». Rien de copié comme cité.
+- Ag3PO4_QDs : descriptions des étapes 4, 6, 7, 8, 9, 10 sans mention de GO/rGO. Les citations restent mot pour mot (elles parlent de GO, c'est le texte de l'article). L'étape 8 est gardée avec la mention « not stated whether kept without GO » et le doute existant complété.
+- C/C0 à 10 min de Fig. 7a lus sur l'image corpus/fig (ordre de lecture : QDs 0,64 ; R-3 0,29 ; R-2.5 0,13 ; R-2 0,06 ; R-1.5 0,06 ; R-2.3 0,0), `from_figure` et légende de la Fig. 7 comme citation, tolérance ± 0,05 notée dans le doute et l'annotation. R-2.3 + isopropanol ≈ 0,0 à 10 min lu sur Fig. 8b (courbe superposée à R-2.3). Courbes plus bas que ± 0,05 : pas d'interpolation fine.
+- Inventaire : entrée « R-2.3 sur d'autres colorants » avec `route: null` (Fig. S4 absente) et annotation sur l'écart introduction (MO, RhB, MB) / texte (MB seul).
+- « up to 90% » après cinq cycles : valeur du texte gardée ; écart avec Fig. 7c (≈ 97 %) en doute et en annotation `limite_reproductibilite`, sans changer la valeur.
+- Oléate 2,2 mmol ≈ 0,67 g > 0,5 g (optimum Fig. S3) : doute déjà présent ; annotation ajoutée, regroupée avec l'oléate « en excès » alors qu'il est à 0,37 équivalent.
+- Critique scientifique : quatre `probleme` (oléate en excès, 0,67 g contre 0,5 g, sonolyse de l'eau dans l'éthanol, Eg 1,62 eV) en annotations ; réserves brèves regroupées en une annotation. DOI non vérifiés non repris ; Yi et al. cité par « littérature » sans DOI.
+- `mecanisme_analyse` réécrit : trous d'Ag3PO4 oxydant l'éthanol en radicaux α-hydroxyéthyle qui réduisent le GO, électrons de la BC réduisant plutôt Ag+ en Ag0 ; présenté comme hypothèse. `mecanisme_auteurs` inchangé (la citation couvre le texte des quatre étapes dans l'article).
+- Aucun doute périmé sur les marqueurs `[[id]]` du fichier refs.

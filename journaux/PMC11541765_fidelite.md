@@ -1,0 +1,16 @@
+# Journal de la critique de fidélité PMC11541765
+
+- Ma liste d'échantillons avant ouverture de l'extraction : film ZnO 3 couches, film 6 couches ; essais sous lampe (3L, 6L), sous laser 305 nm (6L), film 6L stocké un an à 4 °C, témoins sans film (lampe 24 h, laser 10 h), cinq modèles DFT. Identique à `sample_inventory` : aucun échantillon manquant, les deux témoins et les DFT sont bien sans voie, avec raison.
+- Tableaux 1 à 3 : comparaison par script des 142 valeurs d'extraction avec les rangées du texte (colonne par colonne). 0 écart ; les `–` de la ligne 1440 min laser ne sont correctement pas extraits.
+- Colonne « UV lamb » du Tableau 2 : ses valeurs à 664 nm égalent celles de 6L lampe du Tableau 1 (1.05 à 0.73), donc attribution à ZnOTF-6L correcte (le Tableau 2 ne nomme pas les couches). Non-constat.
+- Tableau 4 : k vérifiés par ln(C0/C)/t (5.1×10⁻³ pour le laser en 180 min, 6.4×10⁻⁴ et 3.8×10⁻⁴ en 1440 min) : cohérents avec l'extraction ; les équations 3 et 4 de l'article ont la forme fausse (signe, ×100), signalé en lacune et non en constat.
+- Constat 1 (Fig. 3c) : image agrandie, intersections des tangentes lues à ≈ 3.24 eV (noir, 3 couches) et ≈ 3.20 eV (rouge, 6 couches), contre 3.19 et 3.21 dans le texte. Écart de lecture ≈ 1,5 % mais ordre inversé, donc probable (pas sûr : légende de couleur peut être erronée chez l'auteur). Texte à garder, doute à ajouter.
+- Constat 2 sûr : les citations de trois entrées `characterizations` photocatalyse ne contiennent pas le résultat annoncé (42 %, 60 %) ; vérifié en comparant `quote` et `result`.
+- Constats 3 et 4 en `deduit` probable : le V730 est lié par l'article à l'absorbance du bleu de méthylène, pas aux films ; « dehydrate » est lu « dihydrate » sans appui (doute déjà posé, la formule reste une lecture).
+- Constat 6 : Fig. 4 lue (bande 664 nm ≈ 1.02 après 24 h de lampe, ≈ 1.00 après 10 h de laser, départ 1.05) ; précision ±0.02, je classe en `manquant` probable et non en `faux` : l'article dit « nearly no effect », ce qui reste vrai.
+- Fig. 6b : deux courbes (neuf/stocké) confondues, pic ≈ 0.28, compatible avec « decreases about 2.5% » ; la valeur 2.5 % est bien attachée à 6L sous laser (légende).
+- Fig. 1 : pic (112) vers 68° absent de la liste du texte ; non repris en constat (l'extraction suit le texte), mis en lacune.
+- `not_stated` : relu 28 cases, aucune fausse. Recherches faites sur « duration », « annealing », « rpm », « mg », « g of », « volume » ; l'aire 6.25 cm² du substrat est le seul oubli (constat 5).
+- `method_sources` : seul CR42 est une vraie source de méthode. CR43 (Scherrer), CR44 (densité de puissance), CR37 (équations 3 et 4) exclus par la règle du 2026-10-13 ; CR45 à CR49 portent sur des calculs DFT, hors synthèse, laissés. Observation : le titre de CR42 dans les références parle de SiO2–P2O5 dopé à l'erbium, donc le renvoi est vraisemblablement erroné chez les auteurs (lacune de reproductibilité).
+- Branche 6L : l'article dit les films préparés « as 3 and 6 layers » ; l'héritage des étapes du parent est acceptable, rien de plus n'est affirmé. Aucune étape héritée à tort trouvée.
+- Aucun `from_figure` dans l'extraction, donc aucun contrôle de lecture à faire de ce côté.

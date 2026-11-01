@@ -1,0 +1,16 @@
+# Journal critique scientifique PMC6600758
+
+- Repères 70,3 % et 63,8 % de la Fig. 1C (doute de l'extraction) : ce sont les résidus MoO3. Avec ×160,07/143,94, ils redonnent 78,2 % et 70,95 % de MoS2, contre 78,44 et 70,89 % dans le texte. Doute levé, constat `ok`.
+- MS « sans g-C3N4 » classé `probleme`. Les auteurs attribuent eux-mêmes l'étape TGA à 430 °C de MS à « decomposition of g-C3N4 ». Pour du MoS2 pur, le résidu en MoO3 serait de 89,9 %, MS en donne 70,3 % : ≈ 22 % de matière autre que MoS2, contre 29 % pour MS/CN.
+- Second `probleme` sur MS, distinct du premier : le témoin change à la fois la température, la durée et la morphologie (contrôle n° 5). Proposé : un témoin qui ne change qu'une variable, ou un mélange physique MS + CN.
+- Électrode classée `probleme`. Un disque de 16 mm fait 2,01 cm² ; à 0,9–1,0 mg/cm², il porte 1,8–2,0 mg, et non 0,6–0,7 mg. L'aire de 0,636 cm² de l'EIS donne d = 9,0 mm et 0,94–1,10 mg/cm², ce qui colle. L'erreur est donc dans le diamètre ou dans la masse ; la masse fausserait les mA·h/g.
+- Contradiction sur Rct (texte contre Tableau 1) classée `probleme` et non `reserve` : la seconde phrase contredit l'argument même des auteurs (conductivité apportée par g-C3N4).
+- D(Li+) du Tableau 1 recalculé à l'identique (6,06e-12 pour σ = 120,246) avec C = 1e-3 mol/cm³, c'est-à-dire la concentration de l'électrolyte, et n = 1. Constat `reserve` et non `probleme` : les rapports entre échantillons restent valables, et l'unité cm²·s−1/2 est une coquille.
+- Capacité de 1204 mA·h/g = 1,8 × la capacité théorique de MoS2 (670), alors que le mélange 71/26 en attendrait ≈ 500. Laissé en `reserve` : la capacité excédentaire des anodes de conversion est connue (Laruelle 2002). J'ai écarté l'idée d'une erreur de masse comme seule cause, même si le problème d'électrode la rend possible.
+- Fig. 1A ouverte : aucune raie (002) de MoS2 vers 14,4° ni pour MS ni pour MS/CN. Or 10–15 nm d'épaisseur font 16–24 feuillets, qui devraient la donner. `reserve` (preuve discriminante).
+- Mécanisme : préféré à celui des auteurs, une sulfuration du molybdate en thiomolybdate puis la décomposition MoS4²⁻ → MoS2 + S + S²⁻ (Weber ; Walton 1998). Il explique la réduction de Mo(VI) sans réducteur externe et le soufre élémentaire vu en CV, que les auteurs attribuent à la seule thiourée.
+- Le sodium (8,27 mmol) n'est jamais analysé : `reserve` sur l'hypothèse « résidu = MoO3 pur » et sur le rendement de 72,97 % (masse de produit non donnée, invérifiable).
+- Vocabulaire : le « blue shift 283 cm−1 » compare deux bandes différentes (N–H à 3173 cm−1, O–H à 3456 cm−1). Le pic à 13,2° est la périodicité dans le plan, (100). Le « satellite » Mo 3d est la raie S 2s. S 2p à 168,4 eV correspond plutôt à un sulfate. Le tout est regroupé en un seul constat `reserve`.
+- Sources : Zhang 2012 (10.1039/c2jm00097k) confirmé par plusieurs bibliographies PMC ; Laruelle 2002 (10.1149/1.1467947), DOI vu sur OSTI ; Wang 2009 (10.1038/nmat2317) sur nature.com. Pour Weber, seule l'URL du dépôt TU/e a été lue (année non vérifiée) ; pour Walton 1998, titre abrégé tiré du résultat de recherche.
+- Crossref bloqué : rien ajouté à fondateurs.md ni à constantes.md. 7 recherches web.
+- Comparaison avec la base : PMC5990742 (même chimie thiourée + molybdate sous Ar) et PMC12079599 (capacités de composites MoS2 bien plus basses).

@@ -1,0 +1,18 @@
+# PMC5369406 — critique scientifique (journal de décisions)
+
+- Tableau 1, colonne « Yield (%) Zn » = 0 : classé `probleme`. Le Zn est absent de l'effluent et présent à 36 at% dans le solide, donc un rendement nul est impossible. Erreur de l'article, à porter en `limite_reproductibilite` sans changer la valeur.
+- Tableau 2, normalisation par kg de Cu : classé `probleme`. Les rapports kgcat/kgCu valent 0,610 pour la georgeite (64:36) comme pour la malachite (67:33), et 0,480 pour l'étalon. 0,480 correspond exactement à la base oxyde de 60:30:10, alors que 0,610 ne correspond à aucune base pour 64:36 (0,511 en oxyde, 0,587 en réduit). Le constat porte sur la conclusion « encore plus net rapporté au Cu ».
+- Rendements du tableau 1 : les deux précipitants donnent le même volume d'effluent implicite (≈ 3,9 L par L de solution métallique). Les rendements sont donc cohérents entre eux, mais leur base de volume n'est pas donnée. Classé `reserve`.
+- EDX 1,8:1 pour NH4HCO3 contre 1,92:1 attendu avec 96,1 % de rendement : l'écart (1,8 at%) dépasse ± 1 at%, mais la mesure est grossière. Classé `reserve`, pas `probleme`.
+- Solubilité de Cu(OAc)2·H2O : 69,9 g/L contre 72 g/L à froid (source Wikipedia, recoupée par la fiche TCI). PubChem n'a pas été atteint, d'où une source secondaire. Classé `reserve` : le préchauffage décrit par les auteurs règle le problème.
+- « Ammonium carbonate » ACS : il s'agit d'un mélange de bicarbonate et de carbamate d'ammonium (British Pharmacopoeia). Une solution « 0,55 M » est donc ambiguë, et le préchauffage la fait dériver. Classé `reserve`.
+- TGA : 29–32 % mesurés contre 28 % (stœchiométrie de la malachite) et 41 % (formule idéale de la georgeite, Bridge 1979). Le solide co-précipité est donc bien moins hydraté que le minéral. La phrase « 12% residual mass after 300 °C » est relue comme une perte restante (CO3/M ≈ 0,3).
+- Nanocristaux de 2 nm de CuO/Cu2O vus en STEM : l'artefact de faisceau est proposé comme autre explication possible (preuve discriminante, contrôle n° 7). Aucune source précise n'a été cherchée pour la radiolyse des hydroxycarbonates de Cu. Classé `reserve` sur la base de Kondrat 2016 (même observation).
+- LTS : équilibre recalculé avec la corrélation de Moe (K = 142 à 220 °C, X_eq = 97,8 %). Les essais à 94 % sont proches de l'équilibre, donc la désactivation y paraît plus faible qu'elle n'est. L'article original de Moe n'a pas été lu (source secondaire).
+- Durée LTS : 135 h dans le texte contre 111 h tracées, déjà notée par l'extracteur. Reprise en `reserve` sans doublon de valeur.
+- SAS : l'injection de 500 mL à 6,5 mL/min dure 77 min. Les 3,5 h correspondent à l'essai entier : l'étape « precipitate » de l'extraction (3,5 h) est mal placée, ce qui relève de la critique de fidélité, mais c'est signalé. Le rapport scCO2/solution recalculé donne 18:1 contre 22:1 annoncé.
+- Référence malachite : elle change 8 variables à la fois et reste en partie non décomposée à 300 °C (Fig. 6). Classée `reserve` (contrôle n° 5), car les auteurs présentent surtout une comparaison de recettes.
+- Exotherme du précurseur non lavé : il disparaît sous N2 (Fig. S8), donc il s'agit d'une combustion et pas d'une décomposition. La légende S8 dit « ammonium carbonate », le texte dit « acétate d'ammonium ». Les m/z 30/46 sont ambigus pour NOx.
+- Zander/Seidlhofer/Behrens 2012 : seuls l'auteur, l'année et le DOI ont été vus dans la recherche, le titre n'a pas été relu. Cela est dit dans la source et dans `sources_not_found`.
+- Dépôt ORCA (Kondrat 2016) injoignable (DNS) : le rapport 22:1 du papier SAS n'a pas été comparé.
+- Recherches web : 7 recherches et 1 lecture de page en échec. Aucune autre voie de georgeite, de malachite ou de Cu/ZnO dans la base.

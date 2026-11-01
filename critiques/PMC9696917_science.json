@@ -1,0 +1,424 @@
+{
+ "pmcid": "PMC9696917",
+ "routes": [
+  {
+   "label": "Calendula_extract",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "dilution de l'éthanol",
+     "inputs": "éthanol acheté à 96,3 % v/v ; extractant 70 % v/v",
+     "formula": "70/96,3",
+     "result": "72,7 mL d'éthanol à 96,3 % pour 100 mL (contraction de volume négligée)",
+     "compared_to": "dilution non décrite par l'article",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "phénols totaux de l'extrait complet",
+     "inputs": "125 g de matière ; TPC 16,46 mg CGA/g",
+     "formula": "m × TPC",
+     "result": "≈ 2,06 g d'équivalent CGA",
+     "compared_to": "besoin en réducteur de la synthèse : 31,3 mg (voir CaO-AgNPs)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration du DPPH",
+     "inputs": "0,039 g/L ; M(DPPH) = 394,32 g/mol",
+     "formula": "m/(M·V)",
+     "result": "0,099 mM",
+     "compared_to": "protocole usuel : ≈ 0,1 mM : cohérent",
+     "source": "chimie générale"
+    },
+    {
+     "what": "rapport persulfate/ABTS",
+     "inputs": "0,15 mL ABTS 7,4 mM + 0,15 mL K2S2O8 2,6 mM",
+     "formula": "n(S2O8²⁻)/n(ABTS)",
+     "result": "0,35",
+     "compared_to": "protocole usuel 7 mM / 2,45 mM, rapport 0,35 : cohérent",
+     "source": "chimie générale"
+    },
+    {
+     "what": "composition du méthanol « 80 % » acidifié",
+     "inputs": "MeOH:H2O:HCl 89:19:0,1 v/v/v ; HCl concentré ≈ 12 M (hypothèse)",
+     "formula": "89/108,1 ; 0,1/108,1 × 12 M",
+     "result": "82,3 % de MeOH ; HCl ≈ 11 mM",
+     "compared_to": "« 80 % » : approximatif mais acceptable ; la somme 89 + 19 ne fait pas 100",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Macération 48 h à 24 °C et percolation à 0,3 mL/min : conditions douces, sans problème. Évaporation de l'éthanol à 70 °C pendant 4 h à l'évaporateur rotatif : point d'ébullition de l'éthanol 78,4 °C à 1 atm, abaissé sous vide, donc faisable ; 4 h à 70 °C peuvent dégrader ou isomériser une partie des acides caféoylquiniques, ce qui modifie le pouvoir réducteur de l'extrait. Pression d'évaporation non donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Ni le volume d'éthanol 70 %, ni le volume final ou la matière sèche de l'extrait aqueux, ni son pH ne sont donnés : la quantité de réducteur par mL (donc le rapport réducteur/Ag+ de la synthèse) ne peut pas être reproduite. Les résultats sont exprimés « par g de matière végétale » sans le volume qui permettrait de passer à une concentration (voir « phénols totaux de l'extrait complet »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le dosage « total tannins » suit Graham (1992), méthode au bleu de Prusse (Fe3+/ferricyanure en HCl 0,1 N) qui dose tous les phénols réducteurs, pas les tanins seuls : le mot « tanins » est abusif, il s'agit d'un second indice de phénols totaux en équivalent catéchine.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Stabilization of the Prussian blue color in the determination of polyphenols",
+      "authors_or_publisher": "Graham H. D., J. Agric. Food Chem. 40(5), 801–805",
+      "year": "1992",
+      "url_or_doi": "10.1021/jf00017a018"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Unités incohérentes entre sections : le FRAP est exprimé en « mg CGA mL−1 » dans les Méthodes (3.7.2) et en « mg CGA g−1 DW » dans les Résultats et la figure 3 ; le TPC en « mg CGA g−1 » de matière brute (3.5) puis en « DW » (légendes). La plage FRAP 14,3–43,6 du texte inclut une valeur d'AgNPs (≈ 14) alors qu'elle est donnée pour les extraits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Percolation et évaporation de grands volumes d'éthanol (inflammable, point d'éclair ≈ 13 °C) : hotte, pas de flamme ; la lyophilisation à 0,01 mbar demande un piège froid adapté.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Extraction solide-liquide classique : l'éthanol 70 % solubilise acides phénoliques (chlorogénique, caféique), flavonoïdes glycosylés et une partie des sucres ; l'évaporation de l'éthanol laisse une phase aqueuse riche en ces composés réducteurs, qui servent ensuite de réducteur et de stabilisant.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'éthanol 70 % et volume final de l'extrait aqueux",
+    "matière sèche (mg/mL) et pH de l'extrait aqueux, à mesurer avant la synthèse",
+    "pression et température réelles de l'évaporation (dégradation des phénols)"
+   ]
+  },
+  {
+   "label": "Hyssopus_extract",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "écart de tanins Hyssopus/Calendula",
+     "inputs": "21,4 et 7,3 mg CE/g (eau) ; 22,5 et 9,2 (méthanol)",
+     "formula": "(H − C)/C",
+     "result": "193,2 % (eau) ; 144,6 % (méthanol)",
+     "compared_to": "« 192,1 % higher » : cohérent avec la série eau, à l'arrondi près",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "phénols totaux de l'extrait complet",
+     "inputs": "125 g ; 30,90 mg CGA/g",
+     "formula": "m × TPC",
+     "result": "≈ 3,86 g d'équivalent CGA",
+     "compared_to": "besoin 31,3 mg pour 30 mL de synthèse",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Même protocole que Calendula (125 g de feuilles) ; mêmes manques (volume et matière sèche de l'extrait aqueux). Le « 192,1 % » de tanins en plus est cohérent avec la série eau (voir « écart de tanins Hyssopus/Calendula »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TPC 30,90 mg CGA/g, ordre de grandeur cohérent avec la valeur de littérature citée par les auteurs (35,5 mg GAE/g pour les feuilles d'hysope) ; les antibactériens de l'extrait seul (0–2,05 mm) sont faibles, comme attendu pour un extrait aqueux.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Identique à Calendula_extract ; l'extrait de feuilles d'hysope est plus riche en phénols réducteurs (acide rosmarinique, chlorogénique, flavonoïdes), ce qui augmente le réducteur disponible par mL si les volumes sont comparables.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "matière sèche de l'extrait et volume, pour comparer à Calendula à concentration égale"
+   ]
+  },
+  {
+   "label": "CaO-AgNPs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité d'AgNO3",
+     "inputs": "30 mg AgNO3 ; M = 169,87 g/mol",
+     "formula": "m/M",
+     "result": "0,1766 mmol",
+     "compared_to": "—",
+     "source": "masse molaire AgNO3 169,87 g/mol (PubChem ; valeur aussi donnée dans PMC6930575)"
+    },
+    {
+     "what": "concentration en Ag+",
+     "inputs": "0,1766 mmol ; 2,5 mL d'eau puis 2,5 + 30 mL",
+     "formula": "n/V",
+     "result": "70,6 mM dans la solution mère ; 5,43 mM dans le mélange (32,5 mL, contraction négligée)",
+     "compared_to": "synthèses vertes usuelles : 1–10 mM",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "argent total du colloïde",
+     "inputs": "0,1766 mmol × 107,87 g/mol ; 32,5 mL ; puits de 50 µL",
+     "formula": "n·M(Ag) ; /V ; ×50 µL",
+     "result": "19,05 mg Ag ; 0,586 mg/mL (≈ 586 ppm) ; 29,3 µg Ag par puits si la réduction est totale",
+     "compared_to": "concentration jamais donnée par l'article",
+     "source": "valeurs de l'article ; M(Ag) = 107,87 g/mol"
+    },
+    {
+     "what": "besoin en réducteur",
+     "inputs": "0,1766 mmol e− (Ag+ + e− → Ag0) ; catéchol → o-quinone = 2 e− ; M(acide chlorogénique) = 354,31 g/mol",
+     "formula": "n(Ag)/2 × M(CGA)",
+     "result": "0,0883 mmol, soit 31,3 mg d'équivalent CGA",
+     "compared_to": "phénols totaux disponibles (voir ligne suivante)",
+     "source": "chimie générale"
+    },
+    {
+     "what": "volume d'extrait aqueux au-delà duquel 30 mL ne suffiraient plus",
+     "inputs": "Calendula : 125 g × 16,46 mg CGA/g = 2 058 mg ; Hyssopus : 125 g × 30,90 = 3 863 mg ; besoin 31,3 mg dans 30 mL",
+     "formula": "V = 30 mL × (phénols totaux / 31,3 mg)",
+     "result": "≈ 1,97 L (Calendula) ; ≈ 3,70 L (Hyssopus)",
+     "compared_to": "volume réel de l'extrait aqueux non donné ; après évaporation de l'éthanol il est très probablement de quelques centaines de mL, donc réducteur en excès d'un facteur ≈ 5–10 (le test de Folin n'est pas un comptage d'électrons : ordre de grandeur seulement)",
+     "source": "valeurs de l'article ; hypothèse : TPC rapporté à la matière végétale"
+    },
+    {
+     "what": "seuil de précipitation de AgCl",
+     "inputs": "Ks(AgCl) = 1,77 × 10⁻¹⁰ ; [Ag+]0 = 5,43 mM",
+     "formula": "[Cl−]min = Ks/[Ag+]",
+     "result": "3,3 × 10⁻⁸ mol/L",
+     "compared_to": "teneur en chlorure d'un extrait de plante : très supérieure (sels minéraux)",
+     "source": "chimie générale (produit de solubilité de AgCl à 25 °C)"
+    },
+    {
+     "what": "dilution de l'extrait dans le colloïde",
+     "inputs": "30 mL d'extrait dans 32,5 mL",
+     "formula": "30/32,5",
+     "result": "0,923 : sans réaction, le TPC du colloïde devrait baisser de 7,7 % ; la hausse annoncée (+6,7 % et +27,2 %) correspond à +15,6 % et +37,8 % par rapport à l'attendu, alors que la réduction de Ag+ consomme des phénols",
+     "compared_to": "TPC annoncés : 16,46 → ≈ 18 et 30,90 → ≈ 39 mg CGA/g (Fig. 1)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "vérification des pourcentages de hausse du TPC",
+     "inputs": "16,46 × 1,067 ; 30,90 × 1,272",
+     "formula": "TPC_extrait × (1 + x)",
+     "result": "17,6 et 39,3 mg CGA/g",
+     "compared_to": "≈ 18 et ≈ 39 lus sur la figure 1 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "argent apporté dans une cuve de test antioxydant",
+     "inputs": "0,15 mL d'échantillon ; colloïde dilué 10 fois (0,2 mL + 1,8 mL) ; [Ag] = 5,43 mM",
+     "formula": "0,15 mL × 5,43 mM / 10",
+     "result": "0,082 µmol Ag (0,82 µmol sans dilution)",
+     "compared_to": "ABTS•+ : A734 = 0,70, ε ≈ 1,5 × 10⁴ M⁻¹ cm⁻¹, 3,0 mL → 0,14 µmol de radical ; FRAP : Fe3+ 20 mM × 1/12 × 2,85 mL = 4,75 µmol",
+     "source": "valeurs de l'article ; ε de ABTS•+ à 734 nm, valeur usuelle du protocole ABTS (chimie générale)"
+    },
+    {
+     "what": "polydispersité",
+     "inputs": "35,7 ± 4,8 nm ; 16,8 ± 5,8 nm",
+     "formula": "CV = σ/d ; (σ/d)²",
+     "result": "CV 13,4 % et 34,5 % ; (σ/d)² = 0,018 et 0,119",
+     "compared_to": "« polydispersity ≈ 4,5 et ≈ 6,0 » de l'article : aucune définition usuelle ne donne ces valeurs",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "sensibilité Gram+ contre Gram− (Table 1)",
+     "inputs": "Gram+ : S. aureus, β-streptocoque, S. epidermidis, B. cereus, E. faecalis ; Gram− : E. coli, K. pneumoniae, P. aeruginosa, P. vulgaris",
+     "formula": "moyenne des zones",
+     "result": "CaO-AgNPs : 13,5 contre 10,8 mm ; HyO-AgNPs : 13,4 contre 11,1 mm",
+     "compared_to": "affirmation « Gram-positive … somewhat stronger » : cohérente",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "30 mg AgNO3 → 0,1766 mmol, [Ag+]0 = 5,43 mM, 19 mg d'Ag au total (voir « quantité d'AgNO3 », « concentration en Ag+ »). Le réducteur nécessaire (≈ 31 mg équivalent CGA) est très probablement en excès dans 30 mL d'extrait (voir « volume d'extrait aqueux au-delà duquel… »), mais la concentration de l'extrait n'étant pas donnée, le rapport réducteur/Ag+ — qui fixe la taille — n'est pas reproductible. Ni le taux de conversion de Ag+, ni la concentration en Ag du colloïde ne sont mesurés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "E°(Ag+/Ag) = 0,80 V : les catéchols (acide chlorogénique, quercétine) réduisent Ag+ à température ambiante, réaction plausible en 2 h + 24 h. La lumière n'est pas exclue pendant la réaction (AgNO3 et AgCl sont photosensibles) : seul le stockage est à l'obscurité ; la photoréduction ambiante peut changer la cinétique et la taille d'un laboratoire à l'autre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve discriminante absente pour la phase : ni spectre UV-visible (bande plasmon ≈ 400–450 nm attendue pour Ag0 de 15–40 nm), ni DRX, ni SAED. L'EDS à 3,0 keV (raie Ag Lα1 ≈ 2,984 keV, raie d'émission X et non « binding energy » comme l'écrivent les auteurs) montre de l'argent mais ne distingue pas Ag0 de AgCl. Avec [Ag+] = 5,4 mM, AgCl précipite dès 3 × 10⁻⁸ M de chlorure (voir « seuil de précipitation de AgCl ») ; les extraits de plantes en contiennent toujours, et de nombreuses synthèses vertes « d'AgNPs » donnent en fait Ag/AgCl. Le Cl de l'EDS n'est ni montré ni discuté. La nature des particules (Ag0, AgCl ou mélange) n'est donc pas établie.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Phytofabrication of Silver/Silver Chloride Nanoparticles Using Aqueous Leaf Extract of Oedera genistifolia: Characterization and Antibacterial Potential",
+      "authors_or_publisher": "Molecules (MDPI) ; auteurs non relevés dans l'extrait lu",
+      "year": "2019",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/31801244"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Activité antioxydante et TPC « des AgNPs » non attribuables aux particules : le colloïde n'est pas purifié (92 % d'extrait, voir « dilution de l'extrait dans le colloïde ») et contient Ag0, Ag+ résiduel et nitrate. Plusieurs dosages oxydent l'argent lui-même : en présence de chlorure, E°(AgCl/Ag) = 0,22 V, donc Ag0 peut réduire Fe3+ (0,77 V ; réactif FRAP en HCl/FeCl3), le ferricyanure (0,36 V ; dosage « tanins » en HCl 0,1 N) et ABTS•+ (≈ 0,68 V ; dilué dans le PBS, NaCl ≈ 137 mM). Ordre de grandeur : 0,08 µmol d'Ag par cuve contre 0,14 µmol de radical ABTS•+ (voir « argent apporté dans une cuve de test antioxydant »). Le seul dosage sans chlorure (DPPH dans l'éthanol) montre au contraire une baisse pour Calendula (≈ 25 → ≈ 6,8), ce qui est l'inverse de la conclusion des auteurs. S'y ajoutent l'absorbance et la diffusion propres du colloïde (Na2CO3 du Folin qui agrège, Ag2CO3 avec Ag+ résiduel). Il faudrait des blancs de colloïde sans réactif, un témoin AgNO3 et des particules lavées.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Quantifying the Antioxidant Capacity of Inorganic Nanoparticles: Challenges and Analytical Solutions",
+      "authors_or_publisher": "Hu Y., Zhang Q., Xiao Z., Guo X., Ling V., Bi Y., Colvin V. L., Antioxidants (MDPI) 14(10), 1254",
+      "year": "2025",
+      "url_or_doi": "10.3390/antiox14101254"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin manquant pour l'antibactérien : le colloïde testé contient jusqu'à 29 µg d'Ag par puits dont une part inconnue de Ag+ libre, très actif à lui seul ; sans témoin AgNO3 à la même teneur en argent ni particules lavées, l'effet ne peut pas être attribué aux nanoparticules (seulement à « l'argent + extrait »). La comparaison extrait/colloïde change deux variables (argent ajouté, dilution 0,92).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Convention de mesure des zones incertaine : les extraits donnent 0,5–2,05 mm, valeurs impossibles pour un diamètre incluant le puits de 6 mm (largeur au-delà du puits ?), alors que HyO-AgNPs contre C. albicans vaut 6,00 mm, exactement le diamètre du puits (aucune inhibition si c'est un diamètre total). Le texte annonce 7,00–17,90 mm pour CaO-AgNPs alors que le minimum du tableau est 9,20 ; Proteus vulgaris (Gram−) est rangé parmi les Gram+ ; souches des Méthodes ≠ tableau ; titre « disk diffusion » mais méthode en puits. La tendance Gram+ > Gram− est en revanche cohérente avec le tableau (voir « sensibilité Gram+ contre Gram− »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Polydispersity ≈ 4,5 / 6,0 » sans définition : ni le CV (13 % et 35 %) ni (σ/d)² (0,018 et 0,12) ne donnent ces valeurs (voir « polydispersité »). « Size range 35,7 ± 4,8 nm » est une moyenne ± écart-type, sans nombre de particules comptées. Les tailles (17–36 nm) sont dans la gamme des autres synthèses vertes de la base (PMC3407523 : 31,6 ± 21,7 nm ; PMC3503618 : 24,6 ± 7,0 nm).",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "2 h d'agitation puis 24 h d'incubation à température ambiante : durées usuelles pour une réduction par extrait végétal à 5 mM ; la fin de réaction n'est suivie par aucune mesure (UV-visible au cours du temps).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non mentionnée : AgNO3 oxydant et corrosif (gants, lunettes, taches), déchets argentés à collecter ; colloïde de nanoparticules ; souches pathogènes (S. aureus, P. aeruginosa, K. pneumoniae, Candida) relevant d'un laboratoire de niveau 2. Ne pas mélanger AgNO3 avec l'extrait encore éthanolique en milieu acide nitrique (risque de fulminate d'argent) : ici l'éthanol est évaporé avant, donc risque faible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Les polyphénols (catéchols de l'acide chlorogénique, flavonoïdes) complexent Ag+ puis le réduisent en Ag0 en s'oxydant en o-quinones ; Ag0 nucléé en germes qui croissent par réduction de surface, et les phénols oxydés, tanins, protéines et sucres adsorbés stabilisent stériquement les particules. En parallèle, le chlorure de l'extrait précipite immédiatement une partie de Ag+ en AgCl (Ks 1,8 × 10⁻¹⁰), qui peut ensuite être partiellement réduit : le produit le plus probable est Ag0 avec ou sans AgCl, à trancher par DRX. Plus de réducteur par Ag+ donne une sursaturation plus forte, donc plus de germes et des particules plus petites (schéma de LaMer), ce qui est compatible avec Hyssopus < Calendula, sans être démontré puisque la concentration des extraits n'est pas connue.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     },
+     {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V. K., Dinegar R. H., JACS",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     },
+     {
+      "title": "Phytofabrication of Silver/Silver Chloride Nanoparticles Using Aqueous Leaf Extract of Oedera genistifolia: Characterization and Antibacterial Potential",
+      "authors_or_publisher": "Molecules (MDPI) ; auteurs non relevés dans l'extrait lu",
+      "year": "2019",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/31801244"
+     },
+     {
+      "title": "Phytochemical fabrication and characterization of silver/silver chloride nanoparticles using Albizia julibrissin flowers extract",
+      "authors_or_publisher": "Advanced Materials Letters, VBRI Press",
+      "year": "2015",
+      "url_or_doi": "https://aml.iaamonline.org/article_14719_3d22f11fce309b14796ac009553b3451.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer la matière sèche et le pH de l'extrait et fixer le rapport extrait/Ag+",
+    "faire la réaction à l'abri de la lumière ou en lumière contrôlée",
+    "suivre la bande plasmon par UV-visible et identifier la phase par DRX (Ag fcc contre AgCl)",
+    "doser l'argent ionique résiduel (ultrafiltration puis ICP) et laver les particules avant les tests",
+    "tests biologiques et antioxydants avec témoin AgNO3 à même teneur en Ag et blancs de colloïde"
+   ]
+  },
+  {
+   "label": "HyO-AgNPs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change plusieurs variables : passer de Calendula à Hyssopus change à la fois la teneur en phénols, les tanins, la matière sèche par mL (inconnue), le pH et le chlorure de l'extrait. La taille plus petite (16,8 contre 35,7 nm) ne peut pas être attribuée au seul TPC ; il faudrait comparer les deux extraits ramenés à la même matière sèche ou au même TPC par mL. La phrase « the type of extract and its concentration affect the shape » n'est pas étayée : la concentration n'a jamais été variée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mêmes limites que CaO-AgNPs (phase non prouvée, colloïde non purifié, pas de témoin AgNO3). Distribution plus large (CV 34,5 % contre 13,4 %) ; la valeur 6,00 mm contre C. albicans égale le diamètre du puits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hausse annoncée de 27,2 % du TPC après réduction de Ag+ : chimiquement inattendue (la réduction consomme des phénols et le colloïde est dilué à 92 %) ; plus probablement un artefact du dosage sur colloïde (interférence de l'argent et de la turbidité), voir CaO-AgNPs.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Quantifying the Antioxidant Capacity of Inorganic Nanoparticles: Challenges and Analytical Solutions",
+      "authors_or_publisher": "Hu Y., Zhang Q., Xiao Z., Guo X., Ling V., Bi Y., Colvin V. L., Antioxidants (MDPI) 14(10), 1254",
+      "year": "2025",
+      "url_or_doi": "10.3390/antiox14101254"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que CaO-AgNPs ; un extrait plus riche en réducteurs par Ag+ donne une nucléation plus abondante et des particules plus petites, si la matière sèche par mL est comparable.",
+    "sources": [
+     {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V. K., Dinegar R. H., JACS",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "comparer les deux plantes à matière sèche ou TPC par mL égal",
+    "DRX et UV-visible comme pour CaO-AgNPs"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse (30 mg AgNO3 dans 2,5 mL d'eau + 30 mL d'extrait aqueux, ambiante, 2 h + 24 h) est chimiquement plausible et le réducteur est vraisemblablement en excès, mais la concentration des extraits n'est pas donnée, la phase des particules n'est pas démontrée (pas d'UV-visible, de DRX ni de SAED ; risque Ag/AgCl) et les activités antioxydantes et antibactériennes sont mesurées sur des colloïdes bruts sans témoin AgNO3 ni blanc, dans des dosages où l'argent lui-même réagit (FRAP, ABTS dans le PBS, bleu de Prusse). Les conclusions « les AgNPs héritent et amplifient l'activité antioxydante » ne sont pas soutenues ; le DPPH, seul dosage sans chlorure, montre l'inverse pour Calendula.",
+  "author_errors_suspected": [
+   "« binding energy of silver » pour la raie d'émission Ag Lα à ≈ 2,98 keV",
+   "Proteus vulgaris rangé parmi les Gram positif ; souches des Méthodes différentes du tableau 1",
+   "7,00–17,90 mm annoncé pour CaO-AgNPs alors que le minimum du tableau est 9,20 mm",
+   "FRAP en mg CGA mL−1 (Méthodes) contre mg CGA g−1 DW (Résultats)",
+   "« polydispersity ≈ 4,5 et 6,0 » sans définition et incompatibles avec les écarts-types",
+   "« total tannins » mesurés par une méthode de phénols totaux (bleu de Prusse)",
+   "titre « Kirby–Bauer disk diffusion » pour une méthode en puits"
+  ],
+  "comparison_with_database": "Les autres synthèses vertes d'argent de la base (PMC3407523 gomme ghatti, PMC3503618 Tween 80, PMC3833323 Ganoderma, PMC3700086 Streptomyces, PMC10540474 Aconitum) appuient l'identification sur la bande plasmon (415–460 nm) et le plus souvent la DRX fcc ; cet article est le seul du lot sans aucune des deux. Tailles comparables (5–35 nm)."
+ },
+ "sources_not_found": [
+  "aucune mesure publiée de la teneur en chlorure d'extraits aqueux de Calendula ou d'Hyssopus n'a été recherchée (limite de recherches) ; l'argument AgCl repose sur Ks et sur des cas analogues",
+  "valeur NIST de la raie Ag Lα1 non consultée directement (site inaccessible depuis le cloud) : 2,984 keV pris dans des tables secondaires"
+ ]
+}

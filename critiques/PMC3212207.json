@@ -1,0 +1,70 @@
+{
+  "pmcid": "PMC3212207",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "FET_rGO-Au_DNA_target steps 4-6 (hybridize, wash, dry), branche FET_rGO-Au_DNA_mismatch (variation 'target DNA' remplacé par ADN mésapparié), réactifs 'target DNA' et 'single-base mismatched DNA', outcomes drain_current_decrease_after_hybridization / _mean_n4 / _plusminus_n4",
+      "extracted": "Voie post_treatment FET_rGO-Au_DNA_target = immobilisation de la sonde (étapes 1-3) + hybridation avec la cible (étapes 4-6), et branche FET_rGO-Au_DNA_mismatch (parent FET_rGO-Au_DNA_target) qui ne change que l'ADN appliqué",
+      "article_says": "Here, we employed our rGO-Au FETs to detect DNA hybridization.",
+      "fix": "Selon la règle du RUNBOOK (tests du matériau fini = outcomes, jamais branches), restructurer : (1) une seule voie de dispositif/post_treatment (p. ex. FET_rGO-Au_probeDNA, parent null, réactif intermédiaire FET_rGO-Au) qui ne garde que la fabrication : étapes immerse (1 µM, 16 h), wash PBS, dry (pas de branche mismatch) ; (2) l'hybridation (10 µL, 200 nM, 1 h, lavage, séchage, mesure électrique à Vg = 40 V) devient le protocole d'essai, porté par des characterizations (instrument Keithley 4200-SCS, conditions) et par les `conditions` de chaque outcome ; (3) les résultats cible et mésappariement sont des outcomes de cette voie, distingués dans le nom de propriété ou en conditions : décroissance du courant après hybridation, ADN complémentaire 13,5 % (moyenne 14,07 ± 0,58 %, n = 4), ADN à un mésappariement 5,3 % (moyenne 6,02 ± 0,59 %, n = 4) ; (4) supprimer la voie FET_rGO-Au_DNA_mismatch et les entrées d'inventaire correspondantes (les ramener à la voie unique, results_in Fig. 5a et 5b) ; (5) ajuster comparaison_branches et pourquoi_ces_donnees (qui disent aujourd'hui « d'où ces deux branches ») ; les ADN cible et mésapparié sont des analytes, plus des réactifs de fabrication. Le texte soutient cette lecture : section Methods « Label-Free Electrical Detection of DNA Hybridization », « Then, ten microliter target or mismatch DNA solution (200 nM) was pipetted onto the probe DNA decorated devices to hybridize 1 h, washed, dried, and characterized its electrical properties. » (essai de détection sur dispositif fini), et la conclusion « rGO-Au-based FETs are able to detect DNA hybridization with sequence specificity ».",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "état « sonde immobilisée » du dispositif rGO-Au (Fig. 5a et 5b, courbes « Immobilized »), outcome drain_current_decrease_after_probe_immobilization",
+      "extracted": "drain_current_decrease_after_probe_immobilization = « decrease obviously » (qualitatif) et aucune valeur numérique ; l'état du dispositif après immobilisation seule n'a pas de ligne propre dans sample_inventory",
+      "article_says": "the drain current decrease obviously after the immobilization of thiolated probe DNA on Au nanoparticles",
+      "fix": "Lire la Fig. 5 (corpus/fig/PMC3212207/1556-276X-6-60-5.jpg, courants à Vd = 0,5 V, Vg = 40 V) avec from_figure « Fig. 5a » / « Fig. 5b » et pour quote la légende de la Fig. 5 (« Figure 5 The drain current (Id) versus drain voltage (Vd) curves (at Vg = 40 V) of the bare rGO-Au device, the same device with immobilized probe DNA, and the same device after hybridization of the complementary or single-base mismatched DNA strands (DNA concentration is 200 nM). ») : Fig. 5a dispositif nu ≈ 1,9e-7 A, sonde immobilisée ≈ 1,6e-7 A (≈ −15 %), complémentaire ≈ 1,4e-7 A ; Fig. 5b nu ≈ 2,7e-7 A, immobilisée ≈ 2,3e-7 A (≈ −16 %), mésappariement ≈ 2,2e-7 A. Précision de lecture ≈ ±0,1e-7 A ; les −13,5 % et −5,30 % annotés sur la figure sont relatifs à l'état « immobilisé » (non au dispositif nu), ce que le mot « further » du texte confirme, à noter dans le nom ou les conditions de l'outcome. Ajouter l'échantillon « rGO-Au FET + sonde, avant hybridation » à l'inventaire.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "FET_rGO-Au et FET_rGO, outcomes hole_mobility_typical_device (9.0 et 0.015 cm2/Vs)",
+      "extracted": "propriété nommée « typical_device »",
+      "article_says": "The hole mobility of the rGO and rGO-Au FETs (slope of the Id–Vg curve at p-region) is about 0.015 and 9.0 cm2/Vs, respectively.",
+      "fix": "Le mot « typical » n'est pas dans cette phrase (seule la légende de la Fig. 4 parle de « Typical Id–Vg curve »). Renommer en hole_mobility_about_fig4 ou hole_mobility_single_device, ou signaler dans un doute que le dispositif des valeurs « about » est supposé être celui de la Fig. 4.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "GO material.morphology = « monolayer sheets dispersed in water »",
+      "extracted": "monolayer sheets",
+      "article_says": "To exfoliate the pre-oxidized graphite powder into monolayer graphene sheets, 2 g powder and 15 g KMnO4 were added into 120 ml H2SO4",
+      "fix": "Le texte énonce le but de l'étape d'oxydation, pas un résultat mesuré sur le GO (aucune AFM du GO n'est donnée ; la seule mesure d'épaisseur, 1,10 nm, porte sur l'rGO). Mettre morphology = « sheets dispersed in water » ou « GO sheets (monolayer exfoliation intended) » sans affirmer la monocouche.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "GO step 3 (sonicate)",
+      "extracted": "une seule étape « sonicate » qui porte température ambiante et pore_size 200 nm",
+      "article_says": "After sonication at room temperature, the solution was filtered using 200-nm porous filter and obtained the pre-oxidized graphite powder.",
+      "fix": "Séparer en deux étapes : sonicate (temperature = room temperature ; duration et power non cités) puis filter (pore_size = 200 nm), puis renuméroter les étapes suivantes ; sinon un lecteur lit un filtre de 200 nm comme paramètre de sonication.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "FET_rGO-Au_DNA_target réactifs 'probe DNA (thiolated)' (amount 1, unit μM) et 'target DNA' (amount_text)",
+      "extracted": "amount = 1 μM",
+      "article_says": "To immobilize probe DNAs, the rGO-Au devices were immersed in 1 μM probe DNA solution for a period of 16 h.",
+      "fix": "1 µM est une concentration de solution, pas une quantité de réactif : la mettre en concentration (paramètre ou texte) et déclarer `amount` (volume de solution de sonde) non cité ; à traiter dans la restructuration du premier constat.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 8,
+    "branches_extracted": 8,
+    "not_stated_checked": 75,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "concentration de la solution de SDS de redispersion et concentration (mg/ml) de la dispersion d'rGO après lavage (absentes ; le rapport Au/rGO ne peut donc pas être recalculé : 0,1 ml de HAuCl4 0,05 M = 5 µmol dans 5 ml)",
+    "température de la réduction de HAuCl4 sur l'rGO, aucune étape d'isolement de l'rGO-Au",
+    "qualité de l'hydrazine (« hydrate residue » suggère l'hydrate ; concentration non donnée) et fournisseurs de tous les réactifs sauf le graphite (NGS) ; pureté du graphite",
+    "durée et puissance de la sonication du graphite pré-oxydé, vitesses et durées de centrifugation (GO et rGO), nombre de lavages entre HCl et eau, agitation pendant les 4,5 h à 80 °C",
+    "dip-coating (concentration, temps, vitesse de retrait), taille de la grille de cuivre, pression et vitesse d'évaporation de l'or, largeur du canal",
+    "ADN : fournisseur et pureté, tampon et volume de la solution de sonde, concentration du PBS, nombre de lavages, température d'hybridation, identité des dispositifs de la Fig. 5a et 5b (« parallel experiment »)"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs est appuyé par la phrase sur la différence de potentiel chimique entre rGO et or ; mecanisme_analyse est formulé comme hypothèse. Non signalé en sécurité : HAuCl4 (corrosif, sensibilisant) et le risque de formation d'heptoxyde de manganèse avec KMnO4 dans H2SO4 concentré, point mineur.",
+  "notes": "Valeurs numériques du texte toutes vérifiées contre le texte (ordres « respectively » corrects : 0,015 rGO / 9,0 rGO-Au ; 8,62 rGO-Au / 0,03 rGO ; 13,5 et 14,07 pour la cible, 5,3 et 6,02 pour le mésappariement ; G 1602 pour rGO et 1606 pour rGO-Au). Valeurs from_figure de la Fig. 4 vérifiées sur image : rGO 1,7e-10 A à Vg = 0 (lu 1,7e-10), rGO-Au 2,2e-7 A (lu 2,2e-7), Vd = 0,5 V ; écart < 5 %. Non retenu comme constat : pureté « analytical grade » attribuée à l'hydrazine, au SDS et à HAuCl4 par la phrase « and other reagents were of analytical grade and used as received » (lecture déjà discutée dans les doutes ; phrase générale de la section Materials, acceptable selon la règle 6, mais l'orchestrateur peut préférer non cité). Non retenu : method_sources (seul B27 est une source de méthode ; B28 est l'équation de mobilité, B29 est un renvoi de contexte « It has been reported that… », donc non). « laser spot size about 0.5 mm » probablement μm : doute déjà posé, valeur recopiée telle quelle, correct. Les caractérisations TEM et SEM n'ont pas d'instrument dans l'article, correctement laissées vides. Les voies FET_rGO et FET_rGO-Au_DNA_mismatch n'ont pas de `kind` explicite (héritage du parent) : à vérifier que load.py le propage."
+}

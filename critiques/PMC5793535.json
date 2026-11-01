@@ -1,0 +1,97 @@
+{
+ "pmcid": "PMC5793535",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "UZR reagent 'Ga-doped ZnO seed layer on p-Si (route Seeds_Ga)' (citation) et matériau « UZRs on Ga-doped ZnO seeds » (Fig. 2a, Fig. 8)",
+   "extracted": "Réactif de la voie UZR de base = couche de germes dopés au Ga, citation « After 1 h, the seeded substrates were immersed upside down into solution autoclaves and was heated at 90 °C. »",
+   "article_says": "Hence, throughout the experiments, we used Ga-doped ZnO seeds for GZR growth to minimize surface free energy between GZRs and Si substrates",
+   "fix": "La citation actuelle ne mentionne pas la nature des germes ; l'article dit « for GZR growth » et ne précise la nature des germes des UZR que pour la Fig. 1d. Citer plutôt la légende Fig. 1 « (d) UZRs on Ga-doped ZnO seeds » et la phrase ci-contre, garder le doute et la mention dans missing_fields : l'identité des germes des UZR de la Fig. 2a et des dispositifs est une lecture, pas une donnée citée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Seeds_undoped (branche de Seeds_Ga, sans steps propres) ; variation 'gallium nitrate hydrate = absent'",
+   "extracted": "Branche héritant des 3 étapes de Seeds_Ga (sonication avec nitrate de gallium, dépôt 3000 RPM 2 min x2, recuit 100 et 300 °C) ; variation citée par la légende de la Fig. 1",
+   "article_says": "The doped and undoped seeds were used to monitor if there was any change in particle size of doped ZnO seeds.",
+   "fix": "L'article ne décrit aucune préparation des germes non dopés : ni l'absence de nitrate de gallium dans la solution, ni le même dépôt à la tournette et le même recuit. Selon la règle « pas d'héritage non fondé » du RUNBOOK, donner à Seeds_undoped ses propres steps (ou les déclarer dans not_stated avec doute) au lieu d'hériter l'étape 1 (qui mélange le nitrate de gallium) ; la citation de la variation est une légende qui ne dit pas « sans nitrate de gallium ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Fig. 4 : série de croissance 30 min / 2 h / 4 h / 6 h avec pH 9 / 8,5 / 7,5 / < 7,5 (aucune voie ; inventaire : route null)",
+   "extracted": "Pas de branche ; pH 8,5 et < 7,5 et les durées 30 min, 2 h, 6 h présents seulement dans un doute et dans l'annotation mécanisme",
+   "article_says": "Any rise in temperature or time beyond this point did not support nucleation, where NR length remained the same, as shown in Figure 4c,d.",
+   "fix": "Légende : « Figure 4 GZR isoelectric point-dependent growth mechanism with their corresponding cross-sectional SEM images at (a) 30 min; (b) 2 h; (c) 4 h; and (d) 6 h. » avec pH imprimés 9 / 8.5 / 7.5 / <7.5 sur la figure. La durée de croissance est une condition comparée : créer des branches de durée (30 min, 2 h, 6 h) sous la voie dont la croissance est décrite (taux de dopage et ammoniaque en not_stated, doute), avec le pH comme résultat lu sur la figure (from_figure). Les longueurs ne sont pas chiffrées.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Résultats de pH de la croissance (UZR / GZR sans ammoniaque)",
+   "extracted": "Seul maximum_solution_pH = 10.5 (GZR5_NH4OH) est un résultat ; les pH 7, 9 et 7,5 ne sont que dans l'annotation mecanisme_auteurs",
+   "article_says": "Initially, the solution pH was 7 and no nucleation was promoted. With methenamine decomposition, the solution pH was naturally raised to 9",
+   "fix": "Ajouter des résultats de pH (initial 7, maximum 9 « naturally », arrêt de croissance 7.5 : « until pH was reduced to 7.5 ») sur la voie sans ammoniaque la plus proche (UZR) avec ces citations, en gardant le doute sur le taux de dopage concerné ; l'article dit que le pH a été suivi in situ.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "GZR1_NH4OH, GZR2_NH4OH, GZR5_NH4OH : résultats de photoluminescence",
+   "extracted": "Seuls PL_UV_peak_position et PL_UV_peak_intensity (Fig. 7) ; rien sur la bande visible ni sur le pic proche IR",
+   "article_says": "Furthermore, it is also found that Ga-doping creates some defects which respond to near IR region as shown by the peaks around 750 nm.",
+   "fix": "Ajouter par branche, avec la citation du paragraphe 2.7, la bande visible (« An increase in UV peak intensity and a decrease in visible peak intensity with an increased doping concentration ») et le pic autour de 750 nm (visible sur Fig. 7b et 7c, très faible en 7a). Valeurs numériques non imprimées : value_text qualitatif.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "GZR*_NH4OH : résultats DRX (intensité du pic 002)",
+   "extracted": "XRD_phase, position 002, a, c, c/a, FWHM, contrainte, stress ; pas la tendance d'intensité du pic 002",
+   "article_says": "which was certified by an increase in 002 peak intensity with an increase in doping concentration",
+   "fix": "Ajouter un résultat qualitatif « intensité du pic 002 croissante avec le dopage » sur les trois branches (ou en annotation comparaison_branches) ; le tableau 1 ne la porte pas.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Seeds_Ga reagent 'p-Si substrate with bottom In electrode (route Device_UZR)' et Device_UZR step 4 (route Seeds_Ga)",
+   "extracted": "Dépendance circulaire : Seeds_Ga prend pour substrat le produit de Device_UZR, qui lui-même prend Seeds_Ga à l'étape 4",
+   "article_says": "Next step was bottom In electrode deposition, which was done via photolithography and metal evaporation, as depicted in Figure 9c. Doped ZnO seeds were made by mixing gallium nitrate hydrate",
+   "fix": "Dans Seeds_Ga, déclarer le substrat comme « p-Si (100, 1–10 Ω·cm) nettoyé, avec électrode In inférieure » sans renvoi à Device_UZR (ou retirer le renvoi de route) pour éviter la boucle ; la citation actuelle du substrat ne dit pas que les germes de la Fig. 1 sont déposés sur l'électrode.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "UZR outcome carrier_concentration_order_of_magnitude (value_text '1016 in UZRs')",
+   "extracted": "1016 in UZRs",
+   "article_says": "Ga-doing is an effective way to increase the average carrier concentration from 1016 in UZRs to 1021 in 5% GZRs.",
+   "fix": "Exposants aplatis par la conversion XML (10^16, 10^21, cohérents avec 7,86E16 et 2,38E21 du tableau) : écrire value_text « 10^16 (exposant aplati dans le texte, unité non écrite) » pour qu'un chimiste ne lise pas 1016. Le « 1021 » de 5 % GZRs n'est porté par aucune branche en texte (seul le tableau chiffre 2,38E21).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Résultats de Hall rattachés à UZR, GZR1/2/5_NH4OH",
+   "extracted": "Valeurs de l'inset de la Fig. 8 rangées sous les voies sur p-Si ; conditions de mesure (verre, contacts In) dans la caractérisation",
+   "article_says": "For a smooth carrier transport during Hall-measurement, GZRs were grown on an insulating glass substrate and an ohmic-In contacts were made around the four corners of the grown GZR film.",
+   "fix": "Les échantillons de Hall sont des films sur verre, non sur p-Si ; la couche de germes sur verre n'est pas décrite. Ajouter au champ result ou à l'annotation limite_reproductibilite que ces valeurs sont celles des films sur verre « synchronisés » en dimension et non des échantillons des Fig. 3, 5, 6, 7 (déjà dit dans un doute, pas dans l'annotation finale visible).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 14,
+  "branches_extracted": 14,
+  "not_stated_checked": 66,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "solution de germes : masses/concentrations d'acétate de zinc et de nitrate de gallium, volume de n-propanol, taux de Ga des germes absents",
+  "durée du recuit à 100 et 300 °C, atmosphère, vitesse de chauffe, et attribution de chaque température à chaque couche absentes",
+  "préparation des germes non dopés non décrite",
+  "volume de la solution de croissance, volume et remplissage des autoclaves, vitesse d'agitation, vitesse de chauffage/refroidissement absents",
+  "moment et intervalles d'ajout de l'ammoniaque (« after intermittent intervals ») absents ; volume total de solution de référence des 5, 7 et 10 mL absent",
+  "taux de dopage et ammoniaque de la série de la Fig. 4 non précisés",
+  "épaisseur et dimensions des électrodes d'In, épaisseur de la couche de germes absentes",
+  "préparation des films sur verre pour l'effet Hall non décrite",
+  "aucune annexe citée par l'article"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (point isoélectrique, pH 9 puis 7,5, Ga-OH et nucléation homogène, OH- de l'ammoniaque) suit les sections 2.2 à 2.4 ; mecanisme_analyse est marqué « Probablement ».",
+ "notes": "Valeurs de figures vérifiées en ouvrant les images : Fig. 3 (54,0/54,0 ; 62,0/60,0 ; 60,0/62,0 nm), Fig. 5 (Ga at.% 1,08/0,64/0,99/2,20 et wt.% 2,70/1,12/1,76/4,10), Fig. 7 (375,4/0,02 ; 374,6/0,26 ; 372,2/0,37), inset Fig. 8 (7,86E16/1,57 ; 2,02E17/6,17E-01 ; 2,64E18/4,37E-02 ; 2,38E21/5,27E-04) et courants à ±2 V de la Fig. 8 (écart inférieur à 0,3 mA, soit moins de 10 %) : tous exacts. Tableau 1 : 21 valeurs comparées, aucune erreur. Fig. 1, 2, 4, 6 n'ont pas de chiffres. method_sources vide : aucun renvoi bibliographique dans la section Méthodes de corpus/refs, ceux de Bragg et du modèle biaxial sont des équations d'analyse. 'purity' de l'ammoniaque en not_stated : écarté, 28 % NH3 est une concentration, mise dans le nom du réactif. Signe positif de σ dans le tableau contre l'équation (3) : l'extraction note déjà la contradiction de l'article."
+}

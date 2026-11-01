@@ -1,0 +1,79 @@
+{
+ "pmcid": "PMC11197484",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "PeLED_pristine et PeLED_optimized, étape 8 (dépôt du film per-DPPA) : spin_speed, spin_duration déclarés not_stated",
+   "extracted": "not_stated: spin_speed, spin_duration, solution_volume (étape 8)",
+   "article_says": "Per-DPPA films were fabricated as described above with x = 0.75, and the anti-solvent dropping time was 6 s from the beginning.",
+   "fix": "la section 2.2.4 renvoie explicitement à 2.2.2 (« The spin-coating rate was 4000 rpm ») : ajouter spin_speed = 4000 rpm à l'étape 8 avec cette citation et retirer spin_speed de not_stated ; spin_duration et solution_volume restent non cités (les Méthodes 2.2.2 n'en donnent pas). L'extracteur a déjà repris x = 0.75 et les 6 s de la même phrase, donc l'incohérence est interne.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PeLED_pristine et PeLED_optimized, étape 8 : le recuit à 95 °C, 10 min du film per-DPPA n'est pas une étape de la voie dispositif",
+   "extracted": "une seule étape « deposit » (antisolvant à 6 s, x = 0.75), sans recuit",
+   "article_says": "toluene was dropped on the spinning substrate at 6 s from the beginning and then annealed at 95 °C for 10 min to remove the residual solvent and ensure the complete reaction of the precursors.",
+   "fix": "ajouter après l'étape 8 une étape « anneal » 95 °C, 10 min (citation de 2.2.2, atmosphère boîte à gants par la phrase « All experiments were performed in a nitrogen-filled glovebox ») dans la voie de base du dispositif ; sans elle, un chimiste qui ne lit que la voie PeLED ne fait pas le recuit avant le lavage. Le doute « recuit non répété » le reconnaît mais ne le corrige pas.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "per-PEA, variation DPPABr remplacé par PEABr",
+   "extracted": "DPPABr = replaced by phenylethylammonium bromide (PEABr)",
+   "article_says": "The per-n-BA, per-PEA, and per-PBA films were fabricated using the same method described above, except for the variation in ligands.",
+   "fix": "l'article ne nomme pas le sel de chaque film : la formule (C8H9NH3)2… ne donne que le cation, et PEABr comme PEAI figurent dans la liste des réactifs (PEAI sert à l'échange de ligands). L'identité Br du sel de PEA est une déduction (plausible : PEABr, par analogie à DPPABr/n-BABr) ; la marquer comme telle dans la valeur ou la note et garder le doute (le doute actuel couvre les trois films ensemble sans distinguer PEA, seul cas où deux sels sont possibles). n-BABr (synthétisé en 2.2.1) et PBABr (seul sel de PBA listé) sont solides.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "per-DPPA_washed étape 1 et per-DPPA_LE étapes 1 et 3, atmosphère déclarée non citée, alors que per-DPPA (étapes 4 et 5) la prend dans « All experiments were performed in a nitrogen-filled glovebox »",
+   "extracted": "not_stated: atmosphere (lavage, recuit à 90 °C de l'échange de ligands)",
+   "article_says": "All experiments were performed in a nitrogen-filled glovebox.",
+   "fix": "traiter les deux cas de la même façon : soit la phrase (placée à la fin de 2.2.2, avant 2.2.3) vaut pour tout le film et alors le lavage et le recuit à 90 °C sont en boîte à gants, soit elle ne vaut que pour 2.2.2 et alors l'atmosphère du dépôt per-DPPA devient aussi un doute explicite. À trancher par l'orchestrateur ; si la portée est ambiguë, garder non cité et le dire dans les doutes.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PeLED_optimized, EQE moyen : l'écart-type est absent des résultats",
+   "extracted": "average_EQE_40_devices = 7.5 % (sans dispersion)",
+   "article_says": "Based on the understanding of the film structure, we developed an in-situ fabrication process with ligand exchange to achieve efficient pure red PeLEDs at 638 nm with an average EQE of 7.4% (± 2.3%).",
+   "fix": "ajouter un résultat « average_EQE_stated_in_abstract_intro » 7.4 % ± 2.3 % (ou ajouter l'incertitude en texte) avec cette citation ; le ± 2,3 % n'apparaît que dans une note de doute, pas dans une valeur.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "PeLED_optimized, EL : tension des spectres et décalage vers le rouge",
+   "extracted": "EL_central_wavelength = 638 nm, EL_FWHM = 37 nm, sans tension",
+   "article_says": "Fig. S6 shows the electroluminescence (EL) spectra of the optimized device at 3, 4, and 5 V.",
+   "fix": "noter la condition de mesure « spectres à 3, 4 et 5 V » et la tension à laquelle 638 nm et 37 nm sont donnés (non précisée : à déclarer non citée) ; le décalage vers le rouge à haute tension (déjà dans la citation) peut devenir un résultat qualitatif distinct.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "per-DPPA étape 4, not_stated: substrate",
+   "extracted": "not_stated: substrate (étape 4) ; manque « substrate of the film »",
+   "article_says": "TOF-SIMS samples were prepared by spin-coating the precursor solution onto an O2-plasma treated Si wafer for 2 min.",
+   "fix": "le substrat n'est pas inconnu : Si wafer traité O2 plasma pour l'échantillon TOF-SIMS (déjà dans les conditions de caractérisation), film sur couche PEDOT pour la coupe STEM (Fig. 2f), TFB pour les dispositifs. Le plus honnête est de garder « substrate » non cité pour le film générique mais d'écrire dans missing_fields/not_stated sa variété (Si, PEDOT, TFB) ou d'ajouter une annotation ; mineur car les trois substrats sont déjà placés ailleurs dans l'extraction.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 14,
+  "branches_extracted": 14,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 3
+ },
+ "reproducibility_gaps": [
+  "synthèse de DPPABr : quantités de DPPA, de HBr et d'éthanol, rendement, température et pression de l'évaporation rotative (l'article renvoie à bib0005, hors annexes)",
+  "solution précurseur : volume de DMF ou masses de sels (la base de la concentration 0,15 M n'est pas dite : Pb total, CsI ou somme des sels), volume déposé, volume de toluène, durée de rotation, substrat du film générique",
+  "films per-n-BA, per-PEA, per-PBA : sel exact de PEA, quantité (x) de ligand et valeur de x non données (« same method … except for the variation in ligands »)",
+  "lavage IPA/EA : volume, durée, nombre de lavages, départ des « 40 s », séchage ; solution de ligands : rapport IPA:EA, volume déposé, atmosphère du recuit à 90 °C",
+  "dispositif : durées de sonication, volumes de dépôt, vitesses d'évaporation, fournisseur de l'ITO, encapsulation, géométrie de mesure de l'EQE (seulement « Lambertian profile »)",
+  "Fig. S1 à S8 absentes du dépôt (profils TOF-SIMS des autres ligands, PL et FWHM, AFM, EL à 3/4/5 V, vieillissement)",
+  "incohérences de l'article : EQE moyen 7,4 % (± 2,3 %) contre 7,5 % ; 623,4 contre 623 cd/m2 ; T50 à tension constante (texte) contre densité de courant constante (légende Fig. S8) ; x = 0.4 dans la légende de la Fig. 4c"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Extraction globalement très fidèle : 14 voies couvrent tous les échantillons que je liste (x = 0.25/0.50/0.75/1.00/1.25, trois autres ligands, film lavé, film échangé, deux dispositifs, plus DPPABr et n-BABr) ; les échantillons sans préparation (0.4 DPPA de la Fig. 4c, films MA de Fig. S4, TEM dispersé, Table S1) sont correctement laissés sans voie. Valeurs lues sur Fig. 1a : j'ai calibré l'axe avec les ticks 400-700 nm ; pics lus 668 (x=0.25), 646 (0.50), 626 (0.75), 599 (1.00), 575 (1.25) nm : 640 et 600 de l'extraction sont à 1 % près. Fig. 5d : mode du film pristine à 1 % (barres 0.3, 1, 1.5, 2 %), conforme. Fig. 5c : pic pristine ≈ 10 avec facteur ×5, donc ≈ 2 %, conforme au texte. Fig. 4c : le pic n = 2 (560 nm) disparaît bien sur la courbe « 0.75 DPPA (after washing) » : attribution au film lavé correcte (aucune courbe après échange de ligands). Fig. 4b : PL lavée ≈ 7 % et échangée ≈ 41 % de la valeur pristine à la lecture, contre 10 % et 43 % du texte (le texte fait foi, écart de lecture sans conséquence). Fournisseur Xi'an Polymer Light : la dernière proposition de la liste vise bien PEDOT: PSS (grade Heraeus-Clevios), TFB, TPBi, PEABr, PEAI, PBABr, lecture de l'extracteur exacte ; l'aluminium n'est pas fourni. Fragile dans ma lecture : (1) « After 40 s » (début ou fin du lavage ?), l'extracteur l'a rangé en waiting_time de l'étape de dépôt des ligands, ce qui suit la phrase ; (2) PeLED_optimized en branche avec étapes copiées : l'héritage est fondé (« For the optimized device, additional film washing and ligand exchange processes were required, as described above »), les étapes 9 à 11 sont dans le bon ordre avant l'évaporation ; (3) Fig. 5a donne les niveaux d'énergie (TFB 2.3/5.3, TPBi 2.8, perovskite 3.24/5.45 et 3.26/5.26 eV) sans texte correspondant : non extraits, pas de constat faute de citation textuelle ; (4) la méthode `method_sources` est complète (seul bib0005 est un renvoi de méthode ; bib0041, bib0044, bib0045, bib0049, bib0050 sont du contexte)."
+}

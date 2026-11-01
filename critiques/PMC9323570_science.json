@@ -1,0 +1,556 @@
+{
+ "pmcid": "PMC9323570",
+ "routes": [
+  {
+   "label": "LFP/C-N",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de H3PO4 dans 0,2 mL à 85 %",
+     "inputs": "0,2 mL ; masse volumique de H3PO4 85 % ≈ 1,685 g/mL ; w = 0,85 ; M(H3PO4) = 97,99 g/mol",
+     "formula": "n = V × ρ × w / M",
+     "result": "2,92 mmol de P",
+     "compared_to": "Fe 5,82 mmol, LiOH 18 mmol",
+     "source": "valeurs de l'article ; masse volumique : valeur de fiche fournisseur usuelle de l'acide à 85 %, non relue en ligne dans cette session ; M calculée (masses atomiques IUPAC)"
+    },
+    {
+     "what": "rapport molaire Li:Fe:P tel qu'écrit",
+     "inputs": "LiOH·H2O 18 mmol ; FeSO4·7H2O 5,82 mmol ; P 2,92 mmol",
+     "formula": "n(Li)/n(P) : n(Fe)/n(P) : 1",
+     "result": "6,16 : 1,99 : 1",
+     "compared_to": "recette hydrothermale de référence Li:Fe:P = 3:1:1 (Chen et Whittingham 2006) ; LiFePO4 : Fe:P = 1:1",
+     "source": "valeurs de l'article ; Chen & Whittingham 2006, 10.1016/j.elecom.2006.03.021"
+    },
+    {
+     "what": "volume de H3PO4 85 % qui donnerait P = Fe",
+     "inputs": "5,82 mmol ; ρ = 1,685 g/mL ; w = 0,85 ; M = 97,99 g/mol",
+     "formula": "V = n × M / (ρ × w)",
+     "result": "0,40 mL (0,4 mL donnent 5,85 mmol, soit Li:Fe:P = 3,08:1,00:1)",
+     "compared_to": "0,2 mL écrits : facteur 2 exactement ; 18 mmol LiOH = 3 × 6 mmol, cohérent avec une recette 3:1:1 à ~0,4 mL",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "base libre et pH de la suspension LiOH + H3PO4 avant ajout du fer",
+     "inputs": "18 mmol OH− ; 2,92 mmol H3PO4 (3 H+ chacun) ; volume 20,2 mL",
+     "formula": "n(OH)libre = 18 − 3 × 2,92 ; [OH−] = n/V ; pH ≈ 14 + log[OH−] (activités et éthylène glycol négligés)",
+     "result": "9,2 mmol libres, [OH−] ≈ 0,46 mol/L, pH ≈ 13,7 ; avec 0,4 mL : 0,45 mmol libres, suspension de Li3PO4 encore basique",
+     "compared_to": "« white suspension (pH = 5.0) » ; pKa de H3PO4 ≈ 2,1 / 7,2 / 12,3 : pH 5 impose H2PO4− majoritaire, soit LiOH/H3PO4 ≈ 1, c'est-à-dire ≈ 18 mmol de H3PO4 (≈ 1,2 mL à 85 %)",
+     "source": "calcul sur valeurs de l'article ; pKa de manuel (chimie générale)"
+    },
+    {
+     "what": "devenir du fer en excès avec les quantités écrites",
+     "inputs": "Fe 5,82 mmol ; P 2,92 mmol ; OH− libre 9,2 mmol",
+     "formula": "Fe hors phosphate = 5,82 − 2,92 ; OH consommé = 2 × Fe hors phosphate",
+     "result": "2,9 mmol de Fe2+ sans phosphate, précipités en Fe(OH)2 (5,8 mmol OH−) ; il resterait 3,4 mmol OH− libres",
+     "compared_to": "XRD : LiFePO4 seul, « no additional phases » ; la moitié du fer en Fe(OH)2/Fe3O4 serait visible",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "concentrations dans les solutions mères",
+     "inputs": "LiOH 18 mmol / 20 mL ; FeSO4 5,82 mmol / 10 mL ; glucose 0,3 mol/L (M monohydrate 198,17 g/mol) ; CTAB 3 mmol / 30 mL (M 364,45 g/mol)",
+     "formula": "C = n/V ; ρm = C × M",
+     "result": "LiOH 0,90 mol/L ; FeSO4 0,58 mol/L ; glucose 59,5 g/L ; CTAB 0,10 mol/L = 36,4 g/L, soit ~100 fois la CMC (0,92–1,0 mM)",
+     "compared_to": "Table 1 : CTAB 0,1 mol/L, cohérent avec 3 mmol dans 30 mL ; solubilités de LiOH et FeSO4 très supérieures",
+     "source": "valeurs de l'article ; CMC : fiche Sigma-Aldrich H5882"
+    },
+    {
+     "what": "taux de remplissage et pression dans l'autoclave",
+     "inputs": "12 mL dans 25 mL ; eau:EG 4:1 ; 180 °C",
+     "formula": "remplissage = 12/25 ; pression ≈ pression de vapeur saturante de l'eau à 180 °C",
+     "result": "48 % ; ≈ 1,0 MPa (10 bar), un peu moins avec 20 % d'EG (éb. 197 °C), plus quelques bars de CO2 et d'amines issus du glucose et du CTAB",
+     "compared_to": "limite usuelle des chemises PTFE (≈ 200–220 °C, remplissage ≤ 70–80 %)",
+     "source": "tables de vapeur de l'eau (pression saturante 1,00 MPa à 180 °C, valeur de manuel) ; calcul sur valeurs de l'article"
+    },
+    {
+     "what": "masse de LiFePO4 attendue par autoclave",
+     "inputs": "12 mL sur 30 mL de lot (fraction 0,4) ; réactif limitant P ; M(LiFePO4) = 157,76 g/mol",
+     "formula": "m = 0,4 × n(P) × M",
+     "result": "≈ 0,18 g avec 0,2 mL de H3PO4 ; ≈ 0,37 g avec 0,4 mL",
+     "compared_to": "rendement non donné par l'article",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "carbone apporté par le glucose et par le CTAB dans 12 mL",
+     "inputs": "glucose 0,3 mol/L × 12 mL = 3,6 mmol (6 C) ; CTAB 0,1 mol/L × 12 mL = 1,2 mmol (19 C, 1 N)",
+     "formula": "m(C) = n × nC × 12,011 ; m(N) = n × 14,007",
+     "result": "glucose 0,71 g, 259 mg de C ; CTAB 0,44 g, 274 mg de C et 17 mg de N",
+     "compared_to": "le CTAB apporte autant de carbone que le glucose, mais LFP-N (6,71 % C) ne dépasse LFP (4,71 %) que de 2 points : l'essentiel du CTAB part au lavage ou en volatils",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "fraction du carbone du glucose retenue dans LFP/C-N",
+     "inputs": "16,85 % C (TGA) ; LiFePO4 0,18 ou 0,37 g ; 259 mg de C de glucose",
+     "formula": "m(C) = m(LFP) × w / (1 − w) ; fraction = m(C)/259",
+     "result": "37 mg (14 %) ou 75 mg (29 %)",
+     "compared_to": "rendement carbone usuel d'une carbonisation hydrothermale puis pyrolyse : quelques dizaines de %",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "capacité théorique de LiFePO4",
+     "inputs": "F = 96 485 C/mol ; M = 157,76 g/mol ; 1 électron",
+     "formula": "Q = F / (3,6 × M)",
+     "result": "169,9 mAh/g",
+     "compared_to": "160,7 mAh/g à 0,1 C (95 % du théorique) ; 128,4 à 5 C ; 115,8 à 10 C",
+     "source": "Padhi et al. 1997 (fondateurs.md) ; calcul"
+    },
+    {
+     "what": "rétention à 5 C",
+     "inputs": "128,4 et 160,7 mAh/g ; 76,88 % annoncés",
+     "formula": "128,4/160,7 ; base implicite = 128,4/0,7688",
+     "result": "79,90 % ; base implicite 167,0 mAh/g",
+     "compared_to": "76,88 % : la base est une capacité de 167 mAh/g (98 % du théorique), probablement à 0,1 C dans l'essai en régime après activation ; non dite",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "surface de l'électrode et concentration de Li+ dans la formule de D",
+     "inputs": "disque de 12 mm ; masse volumique de LiFePO4 ≈ 3,6 g/cm3 ; M = 157,76 g/mol ; C de l'article 7,69 × 10−3 mol/cm3",
+     "formula": "S = π r2 ; C = ρ/M ; D ∝ 1/C2",
+     "result": "S = 1,131 cm2 (identique à l'article) ; C = 2,28 × 10−2 mol/cm3, 3,0 fois la valeur de l'article ; D surestimé d'un facteur ≈ 8,8 pour les quatre échantillons",
+     "compared_to": "valeurs D de 4,9 à 7,3 × 10−14 cm2/s ; l'ordre entre échantillons n'est pas changé",
+     "source": "calcul ; masse volumique de LiFePO4 : valeur de manuel (3,6 g/cm3), non relue en ligne"
+    },
+    {
+     "what": "Bragg pour les raies (020) et (211) de LiFePO4",
+     "inputs": "λ = 0,15406 nm (article) ; a = 10,33, b = 6,01, c = 4,69 Å (maille Pnma usuelle)",
+     "formula": "1/d2 = h2/a2 + k2/b2 + l2/c2 ; 2θ = 2 arcsin(λ/2d)",
+     "result": "d(020) = 3,005 Å, 2θ = 29,71° ; d(211) = 3,006 Å, 2θ = 29,69° : les deux raies sont confondues",
+     "compared_to": "« strong (020) peak » et fenêtre 29,5–30,2° de la Fig. 2b",
+     "source": "calcul ; recouvrement 211/020 confirmé par le rapport LBNL 2008"
+    },
+    {
+     "what": "contraction de maille correspondant aux décalages de la Fig. 2b",
+     "inputs": "2θ ≈ 29,7° ; Δ(2θ) = 0,12° (LFP-N) et 0,04° (LFP/C-N)",
+     "formula": "Δd/d = −cot θ × Δθ (Δθ en radians)",
+     "result": "−0,39 % et −0,13 %",
+     "compared_to": "ordre de grandeur d'une erreur de hauteur d'échantillon en Bragg-Brentano sans étalon interne ; aucun affinement de maille",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Avec 0,2 mL de H3PO4 à 85 % (2,92 mmol), le rapport Li:Fe:P vaut 6,2:2,0:1 (voir « rapport molaire Li:Fe:P tel qu'écrit ») : le phosphore ne suffit que pour la moitié du fer. 0,4 mL donnerait exactement 3:1:1, la recette hydrothermale de référence (Chen et Whittingham 2006), et 18 mmol de LiOH = 3 × 6 mmol. La valeur écrite est très probablement une erreur d'un facteur 2 ; refaite telle quelle, elle laisserait 2,9 mmol de Fe hors olivine.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S., Electrochemistry Communications 8 (2006) 855–858",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« White suspension (pH = 5.0) » est incompatible avec les quantités : 18 mmol de LiOH contre 2,92 mmol de H3PO4 laissent ≈ 0,46 mol/L de OH− libre (pH ≈ 13,7, voir « base libre et pH ») ; même avec 0,4 mL (rapport 3:1), la suspension blanche de Li3PO4 est basique. Un pH de 5 suppose H2PO4− majoritaire (pKa2 ≈ 7,2), donc LiOH/H3PO4 ≈ 1 (≈ 1,2 mL d'acide), et LiH2PO4 ne précipite pas : pas de suspension blanche. Soit le pH, soit le moment de la mesure, soit le volume d'acide est faux.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Avec les quantités écrites, la moitié du fer (2,9 mmol) précipiterait en Fe(OH)2 en milieu très basique puis donnerait de la magnétite ou du fer réduit au recuit sous H2/Ar ; la XRD ne montre que LiFePO4. Ce désaccord renforce la lecture « 0,4 mL ». Chen et Whittingham notent aussi qu'une XRD propre ne garantit pas l'absence de Fe3+ (jusqu'à 50 % de Fe3+ sans seconde phase visible).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S., Electrochemistry Communications 8 (2006) 855–858",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Autoclave de 25 mL rempli à 48 %, 180 °C : pression de vapeur de l'eau ≈ 1,0 MPa (voir « taux de remplissage et pression »), dans le domaine normal d'une chemise PTFE. Éthylène glycol (éb. 197 °C) en milieu fermé : pas de problème. 180 °C est au-dessus du seuil de 175 °C sous lequel l'hydrothermal laisse du fer sur les sites du lithium (Chen et Whittingham 2006) ; le recuit à 650 °C les élimine de toute façon.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S., Electrochemistry Communications 8 (2006) 855–858",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le Fe2+ est manipulé à l'air (aucune atmosphère inerte écrite pendant le mélange) dans une suspension alcaline : Fe(OH)2 et Fe3(PO4)2 s'oxydent vite à l'air (rouille verte). Glucose et éthylène glycol sont des réducteurs doux, et le recuit sous H2/Ar 5 % puis la carbonisation réduisent le Fe3+ résiduel ; l'état d'oxydation final n'est cependant pas contrôlé (pas de Mössbauer, pas de gain de masse TGA exploité). Atmosphère compatible avec Fe2+.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S., Electrochemistry Communications 8 (2006) 855–858",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le CTAB est à 0,1 mol/L, ~100 fois sa CMC (≈ 1 mM), dans un milieu à force ionique élevée (Li2SO4 formé, ≈ 0,4 mol/L) : il est en micelles, pas seulement adsorbé ; l'effet « gabarit mou » sur des faces précises n'est pas démontré (pas de MET haute résolution des facettes, pas de série en CTAB).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hexadecyltrimethylammonium bromide (H5882), Product Information Sheet",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "2016",
+      "url_or_doi": "https://www.merckmillipore.com/deepweb/assets/sigmaaldrich/product/documents/220/630/h5882pis.pdf"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Dopage N par pyrolyse du CTAB : un ammonium quaternaire se dégrade d'abord par élimination de Hofmann (dès ~155–180 °C dans les argiles organophiles, Xie et al. 2001), en libérant de la triméthylamine volatile (éb. ≈ 3 °C) et de l'hexadécène ; une grande partie de l'azote doit donc partir avant 350 °C. L'article ne donne aucune teneur globale en N (seulement la répartition 63,5/36,5 entre N graphitique et pyridinique) : l'ampleur du dopage, sur lequel repose toute l'interprétation, n'est pas chiffrée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermal Degradation Chemistry of Alkyl Quaternary Ammonium Montmorillonite",
+      "authors_or_publisher": "Xie W., Gao Z., Pan W.-P., Hunter D., Singh A., Vaia R., Chem. Mater. 13 (2001) 2979–2990",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm010305s"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve du dopage : la cartographie EDS de N « uniforme » sur particules et microsphères ne distingue pas un faible signal d'azote du fond (raie N Kα à 0,39 keV, sur le flanc de C Kα à 0,28 keV, dans une matrice carbonée) ; sans quantification XPS du N total, la preuve repose sur un seul spectre N 1s.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Capacité de 160,7 mAh/g à 0,1 C, carbone déduit, soit 95 % des 169,9 mAh/g théoriques (voir « capacité théorique ») : plausible pour un LiFePO4 nanométrique enrobé. 128,4 mAh/g à 5 C et 115,8 à 10 C sont dans le haut de la fourchette publiée mais pas hors norme. La rétention de 76,88 % à 5 C ne se retrouve pas avec 160,7 (79,9 %) : base implicite 167 mAh/g, non dite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Phospho-olivines as Positive-Electrode Materials for Rechargeable Lithium Batteries",
+      "authors_or_publisher": "Padhi A.K., Nanjundaswamy K.S., Goodenough J.B., J. Electrochem. Soc. 144 (1997) 1188",
+      "year": "1997",
+      "url_or_doi": "10.1149/1.1837571"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Teneur en carbone par TGA sous air : LiFePO4 gagne 5,07 % de masse en s'oxydant en Li3Fe2(PO4)3 + Fe2O3 ; l'article ne dit pas s'il corrige ce gain. Sans correction, les teneurs (4,71 à 18,46 %) sont sous-estimées d'environ 4 points pour la phase LFP, ce qui fausse aussi les capacités « carbone déduit », surtout pour LFP et LFP-N.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation of LiFePO4 Powders by Ultrasonic Spray Drying Method and Their Memory Effect",
+      "authors_or_publisher": "Materials (MDPI) 14 (2021) 3193",
+      "year": "2021",
+      "url_or_doi": "https://www.mdpi.com/1996-1944/14/12/3193"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Coefficient de diffusion : la concentration de Li+ prise (7,69 × 10−3 mol/cm3) est trois fois plus faible que celle de LiFePO4 massif (2,28 × 10−2 mol/cm3 pour 3,6 g/cm3) ; comme D ∝ 1/C2, les D du Tableau 1 sont surestimés d'un facteur ≈ 8,8, de façon identique pour les quatre échantillons (voir « surface de l'électrode et concentration de Li+ »). La surface prise est la surface géométrique du disque (1,131 cm2), pas celle des particules : D est apparent. Recherche de l'origine de la valeur 7,69 × 10−3 : infructueuse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La raie « (020) forte » à 29,7° est en fait le doublet confondu (211)/(020) (d = 3,006 et 3,005 Å, voir « Bragg ») : son intensité relative ne mesure pas à elle seule la proportion de faces (010) exposées. Les décalages de 0,12° et 0,04° (contraction de −0,39 % et −0,13 %) sont mesurés sur une seule raie, sans étalon interne ni affinement : de l'ordre d'une erreur de hauteur d'échantillon. Enfin, « maille plus petite = cristallinité plus haute » n'est pas une relation physique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Characterization of LixFePO4 Solid Solution at Room Temperature (rapport LBNL)",
+      "authors_or_publisher": "Lawrence Berkeley National Laboratory, via UNT Digital Library",
+      "year": "2008",
+      "url_or_doi": "https://digital.library.unt.edu/ark:/67531/metadc900630/m2/1/high_res_d/927029.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : ID/IG de 0,82 contre 0,77 est une différence faible, et pour un carbone amorphe recuit à 650 °C (stade 2 de Ferrari et Robertson), une baisse d'ID/IG peut signifier moins d'ordre et non plus de graphitisation. La lecture « D = carbone sp3 » est aussi impropre : la bande D vient des cycles aromatiques désordonnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A.C., Robertson J., Phys. Rev. B 61 (2000) 14095",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction entre sections : le texte XPS dit que LFP/C-N « possesses a higher carbon content in the sample » que LFP/C, alors que la TGA du Tableau 1 donne 16,85 % contre 18,46 %. Un C 1s plus intense en XPS (sonde ≈ 5–10 nm) traduit un enrobage de surface plus complet, pas une teneur massique plus élevée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dangers non écrits : autoclave sous ≈ 10 bar à 180 °C (refroidir avant ouverture) ; dégagement possible de triméthylamine (gaz inflammable, odorant) à l'ouverture et au recuit, par dégradation du CTAB ; H3PO4 85 % et LiOH corrosifs ; poudres nanométriques. Remarque sur l'annotation de sécurité de l'extraction : un mélange H2/Ar à 5 % n'est pas inflammable en soi (H2 dilué sous sa limite inférieure de 4 % dans l'air dès qu'il se mélange à l'air) ; la purge reste une bonne pratique, mais « mélange inflammable » exagère le risque.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À la neutralisation, LiOH + H3PO4 forment Li3PO4 (suspension blanche, rapport 3:1) ; l'ajout de FeSO4 précipite un phosphate de fer(II) hydraté (vivianite Fe3(PO4)2·8H2O, verdâtre) à côté de Li3PO4 et de Li2SO4 dissous. À 180 °C, LiFePO4 se forme par dissolution-reprécipitation de ces précurseurs (Chen et Whittingham 2006 ; Lin et al. 2013), l'éthylène glycol abaissant la constante diélectrique et ralentissant la croissance. En parallèle, le glucose se déshydrate en 5-hydroxyméthylfurfural puis polymérise et s'aromatise en sphères de carbone hydrothermal (Sun et Li 2004), sur lesquelles les particules de LiFePO4 se fixent. Le CTAB, très au-dessus de sa CMC, limite l'agrégation et la croissance (particules de 288 à 143 nm et de 145 à 59 nm), plus probablement par adsorption électrostatique sur les surfaces chargées et stabilisation colloïdale que par un effet de face démontré. Au recuit, le CTAB résiduel subit une élimination de Hofmann (triméthylamine et hexadécène volatils) : seule une petite part de l'azote doit rester dans le carbone, sous forme pyridinique et graphitique. La quantité de phosphore écrite (0,2 mL) ne permet pas ce schéma pour tout le fer ; il ne tient qu'avec ≈ 0,4 mL.",
+    "sources": [
+     {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S., Electrochemistry Communications 8 (2006) 855–858",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     },
+     {
+      "title": "X-ray diffraction study of LiFePO4 synthesized by hydrothermal method",
+      "authors_or_publisher": "Lin L., Wen Y., O J., Guo Y., Xiao D., RSC Adv. 3 (2013) 14652–14660",
+      "year": "2013",
+      "url_or_doi": "10.1039/C3RA41678J"
+     },
+     {
+      "title": "Colloidal carbon spheres and their core/shell structures with noble-metal nanoparticles",
+      "authors_or_publisher": "Sun X., Li Y., Angew. Chem. Int. Ed. 43 (2004) 597",
+      "year": "2004",
+      "url_or_doi": "10.1002/anie.200352386"
+     },
+     {
+      "title": "Thermal Degradation Chemistry of Alkyl Quaternary Ammonium Montmorillonite",
+      "authors_or_publisher": "Xie W., Gao Z., Pan W.-P., Hunter D., Singh A., Vaia R., Chem. Mater. 13 (2001) 2979–2990",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm010305s"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de H3PO4 85 % : 0,4 mL (Li:Fe:P = 3:1:1) plutôt que 0,2 mL écrits ; à confirmer avec les auteurs ou par la référence de méthode (Zhang et al. 2019, 10.1016/j.electacta.2019.134686)",
+    "pH réel de la suspension et moment de la mesure (avant ou après ajout du fer)",
+    "travailler sous azote ou argon pendant le mélange du Fe2+ pour limiter l'oxydation",
+    "teneur globale en azote du produit final (XPS quantitative ou analyse élémentaire CHN)",
+    "correction du gain de masse de LiFePO4 (+5,07 %) dans le dosage du carbone par TGA sous air",
+    "rendement par autoclave (≈ 0,37 g attendus avec 0,4 mL d'acide) et pureté de phase par affinement Rietveld"
+   ]
+  },
+  {
+   "label": "LFP/C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carbone du glucose et teneur en carbone sans CTAB",
+     "inputs": "même lot que LFP/C-N sans CTAB ; 259 mg de C de glucose par autoclave ; 18,46 % C",
+     "formula": "m(C) = m(LFP) × w/(1 − w)",
+     "result": "≈ 42 mg (0,2 mL d'acide) ou ≈ 83 mg (0,4 mL), 16 % ou 32 % du carbone du glucose",
+     "compared_to": "LFP/C-N : 16,85 % malgré 274 mg de C supplémentaires apportés par le CTAB",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Même stœchiométrie que la voie de base : Li:Fe:P = 6,2:2,0:1 tel qu'écrit (problème hérité, voir LFP/C-N).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Sans CTAB, des particules plus grosses (288 nm, « grains de riz » de 400–700 nm) et des microsphères de carbone plus exposées : cohérent avec une croissance moins freinée. Le film de carbone plus mince (2,6 nm contre 4,2) avec une teneur en carbone plus élevée (18,46 % contre 16,85 %) va dans le sens d'un carbone surtout logé dans les microsphères, pas dans l'enrobage.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme LFP/C-N sans adsorption de CTAB : croissance et mûrissement d'Ostwald des cristaux de LiFePO4 moins limités, d'où des particules deux fois plus grandes, et microsphères de carbone hydrothermal moins couvertes.",
+    "sources": [
+     {
+      "title": "Colloidal carbon spheres and their core/shell structures with noble-metal nanoparticles",
+      "authors_or_publisher": "Sun X., Li Y., Angew. Chem. Int. Ed. 43 (2004) 597",
+      "year": "2004",
+      "url_or_doi": "10.1002/anie.200352386"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de H3PO4 (voir LFP/C-N)"
+   ]
+  },
+  {
+   "label": "LFP-N",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "glucose ajouté avant recuit",
+     "inputs": "20 wt.% ; base non dite ; ≈ 0,37 g de LiFePO4 par autoclave (lecture 0,4 mL)",
+     "formula": "m(glucose) = 0,20 × m(base)",
+     "result": "≈ 74 mg de glucose (29 mg de C) si la base est la poudre, contre 713 mg dans la synthèse de LFP/C-N",
+     "compared_to": "carbone final 6,71 % (LFP-N) contre 16,85 % (LFP/C-N)",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change plusieurs variables : retirer le glucose de la synthèse change à la fois la présence des microsphères (« cœur–coquille »), la quantité de carbone (6,71 % contre 16,85 %), le moment de l'apport de carbone (après solvothermie au lieu de pendant) et le milieu réducteur pendant la solvothermie. La « synergie » dopage N × cœur–coquille ne peut pas être séparée d'un simple effet de teneur en carbone ; il faudrait des témoins à teneur en carbone égale.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le CTAB divise la taille des particules par 2,5 (145 → 59 nm) ; la hausse de capacité de LFP à LFP-N (126,2 → 147,4 mAh/g) est attribuée par les auteurs au dopage N (« the N-doping played a more significant role »), alors que la taille, qui raccourcit le chemin de diffusion du Li+, change en même temps : la conclusion n'est pas démontrée. Le Rct de LFP-N (438 Ω), le plus élevé des quatre, contredit d'ailleurs un effet conducteur du carbone dopé N sans microsphères.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sans glucose, le CTAB est le seul additif organique pendant la solvothermie : il limite la croissance (59 nm) ; le carbone vient surtout des 20 wt.% de glucose ajoutés avant recuit, et l'azote d'un reste de CTAB adsorbé, en quantité non mesurée. L'effet sur la capacité est plus simplement expliqué par la taille des particules.",
+    "sources": [
+     {
+      "title": "Thermal Degradation Chemistry of Alkyl Quaternary Ammonium Montmorillonite",
+      "authors_or_publisher": "Xie W., Gao Z., Pan W.-P., Hunter D., Singh A., Vaia R., Chem. Mater. 13 (2001) 2979–2990",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm010305s"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base du pourcentage de 20 wt.% de glucose et mode de mélange",
+    "volume de H3PO4 (voir LFP/C-N)"
+   ]
+  },
+  {
+   "label": "LFP",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carbone apporté par 20 wt.% de glucose",
+     "inputs": "glucose monohydraté C6H12O6·H2O (M 198,17 ; 72,07 g de C par mole) ; 20 g pour 100 g de poudre (base supposée)",
+     "formula": "m(C) = 0,20 × 72,07/198,17",
+     "result": "7,3 g de C pour 100 g de poudre au plus ; 4,71 % mesurés, soit ≈ 65 % de rendement en carbone",
+     "compared_to": "rendement de carbonisation du glucose seul souvent plus faible ; valeur plausible si la TGA n'est pas corrigée du gain de masse de LiFePO4 (+5,07 %)",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Témoin de référence plausible : LiFePO4 de 145 nm enrobé ex situ, 126,2 mAh/g à 0,1 C. Il hérite des incertitudes de la voie de base (volume de H3PO4, base du pourcentage de glucose).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipitation-dissolution hydrothermale de LiFePO4 dans l'eau/EG sans additif, puis enrobage carboné par pyrolyse du glucose mélangé à la poudre.",
+    "sources": [
+     {
+      "title": "Hydrothermal synthesis of lithium iron phosphate",
+      "authors_or_publisher": "Chen J., Whittingham M.S., Electrochemistry Communications 8 (2006) 855–858",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.elecom.2006.03.021"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base du pourcentage de glucose"
+   ]
+  },
+  {
+   "label": "Electrode_LiFePO4C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse active par disque",
+     "inputs": "1,9–2,1 mg/cm2 ; disque de 12 mm (1,131 cm2) ; 80 % de poudre ; 16,85 % de carbone dans la poudre de LFP/C-N",
+     "formula": "m = charge × S × 0,8 × (1 − w(C))",
+     "result": "électrode 2,1–2,4 mg ; LiFePO4 actif ≈ 1,4–1,6 mg (66,5 % de la couche pour LFP/C-N)",
+     "compared_to": "charge faible, habituelle en demi-pile de laboratoire ; 1 C ≈ 0,25 mA",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "On ignore si la charge de 1,9–2,1 mg/cm2 porte sur la couche entière ou sur la poudre active ; avec 17–18 % de carbone interne, la fraction de LiFePO4 réellement active varie de 66 % (LFP/C) à 76 % (LFP) de la couche, ce qui avantage la comparaison « carbone déduit » des échantillons riches en carbone.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage à 100 °C 12 h en four infrarouge : suffisant pour la NMP en couche mince (éb. 202 °C) si l'étuve est ventilée ; un séchage sous vide est l'usage avant passage en boîte à gants.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "base de la charge massique",
+    "séchage sous vide avant boîte à gants"
+   ]
+  },
+  {
+   "label": "Cell_CR2032_Li",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "courant à 1 C pour une électrode",
+     "inputs": "≈ 1,5 mg de LiFePO4 actif ; 170 mAh/g",
+     "formula": "I = m × Q",
+     "result": "≈ 0,25 mA à 1 C ; ≈ 2,5 mA à 10 C",
+     "compared_to": "domaine habituel d'un banc LAND CT2001A",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Fenêtre de CV contradictoire : 2,5–4,2 V en Méthodes, 2,5–4,6 V dans la légende de la Fig. 8. Écart de potentiel de 176 mV à 0,1 mV/s : plausible pour un LiFePO4 enrobé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention de 101,29 % après 100 cycles à 1 C, expliquée par une activation (mouillage) pendant les 30 premiers cycles : phénomène courant en pile bouton de laboratoire, plausible ; les capacités absolues de début et de fin ne sont pas données.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "LiPF6 s'hydrolyse en HF au contact de l'humidité ; EC/EMC inflammables ; lithium métal réactif à l'eau : manipulation en boîte à gants (écrite) et démontage des piles sous hotte.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Insertion-désinsertion biphasée LiFePO4/FePO4 au plateau Fe2+/Fe3+ de ≈ 3,45 V contre Li+/Li.",
+    "sources": [
+     {
+      "title": "Phospho-olivines as Positive-Electrode Materials for Rechargeable Lithium Batteries",
+      "authors_or_publisher": "Padhi A.K., Nanjundaswamy K.S., Goodenough J.B., J. Electrochem. Soc. 144 (1997) 1188",
+      "year": "1997",
+      "url_or_doi": "10.1149/1.1837571"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fenêtre de potentiel réelle des CV",
+    "volume d'électrolyte"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse solvothermale classique de LiFePO4 (recette LiOH/H3PO4/FeSO4 en eau/éthylène glycol à 180 °C) avec glucose et CTAB, puis recuit sous H2/Ar : le principe est cohérent et les performances sont plausibles. Deux incohérences de protocole empêchent de la refaire telle qu'écrite : 0,2 mL de H3PO4 à 85 % ne donne que la moitié du phosphore nécessaire (0,4 mL donnerait exactement 3:1:1), et le pH de 5,0 annoncé pour la suspension blanche est incompatible avec l'excès de LiOH. L'interprétation est fragile : l'effet attribué au dopage N se confond avec la baisse de taille due au CTAB, la teneur en azote n'est jamais mesurée, et le texte XPS contredit la TGA sur la teneur en carbone.",
+  "author_errors_suspected": [
+   "0,2 mL de H3PO4 85 % au lieu de ≈ 0,4 mL (Li:Fe:P = 6,2:2:1 au lieu de 3:1:1)",
+   "pH 5,0 de la suspension LiOH + H3PO4 impossible avec un rapport LiOH/H3PO4 ≥ 3",
+   "LFP/C-N dit plus riche en carbone que LFP/C (XPS) alors que la TGA donne 16,85 % contre 18,46 %",
+   "concentration de Li+ de 7,69 × 10−3 mol/cm3 dans le calcul de D, trois fois inférieure à celle de LiFePO4 (2,28 × 10−2)",
+   "rétention de 76,88 % à 5 C non retrouvée à partir de 160,7 mAh/g (79,9 %)",
+   "fenêtre de CV 2,5–4,2 V (Méthodes) contre 2,5–4,6 V (légende Fig. 8)",
+   "« (020) » à 29,7° : doublet (211)/(020) confondu"
+  ],
+  "comparison_with_database": "Les deux autres synthèses de LiFePO4 de la base ne sont pas comparables directement : PMC3293091 est une solvothermie dans le diéthylène glycol en rapport 1:1:1 (Li3PO4 et Fe3(PO4)2 résiduels sous 170 °C) ; PMC10099130 une réduction carbothermique de FePO4 à 750 °C. Aucune ne reprend la recette LiOH/H3PO4/FeSO4 3:1:1 ; la référence externe est Chen et Whittingham 2006."
+ },
+ "sources_not_found": [
+  "origine de la valeur C(Li+) = 7,69 × 10−3 mol/cm3 utilisée dans la formule de Warburg : non trouvée",
+  "masse volumique de H3PO4 85 % (1,685 g/mL), pression de vapeur de l'eau à 180 °C (1,0 MPa) et masse volumique de LiFePO4 (3,6 g/cm3) : valeurs de manuel, non relues en ligne dans cette session (NIST non consulté)",
+  "DOI non vérifiés sur Crossref (bloqué) : 10.1002/anie.200352386 (Sun et Li 2004, vu seulement dans une liste de références PMC), 10.1039/C3RA41678J (Lin et al. 2013, page de l'éditeur), 10.1021/cm010305s (Xie et al. 2001, page de l'éditeur), 10.1016/j.elecom.2006.03.021 (Chen et Whittingham 2006, notice SUNY)"
+ ]
+}

@@ -1,0 +1,767 @@
+{
+ "pmcid": "PMC10583617",
+ "routes": [
+  {
+   "label": "S-CDs220C9H",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de saccharose et concentration",
+     "inputs": "4 g ; M(C12H22O11) = 342,30 g/mol ; 80 mL",
+     "formula": "n = m/M ; C = n/V",
+     "result": "11,69 mmol ; 0,146 mol/L ; 5 % m/v",
+     "compared_to": "5 %w/v annoncé : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "carbone apporté",
+     "inputs": "11,69 mmol × 12 C ; 12,011 g/mol",
+     "formula": "n(C) = 12 n ; m(C)",
+     "result": "140,2 mmol C ; 1,684 g C (42,1 % m/m)",
+     "compared_to": "base de calcul du rendement et de la récupération de carbone",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "volume du liquide à 220 °C",
+     "inputs": "80 mL d'eau à 25 °C (ρ = 997,05 kg/m³ → 79,8 g) ; ρ liquide saturé à 220 °C ≈ 840 kg/m³",
+     "formula": "V(220) = m/ρ(220)",
+     "result": "≈ 95 mL (≈ 92 mL à 200 °C)",
+     "compared_to": "capacité de l'autoclave non donnée : un récipient de 100 mL serait rempli à ≈ 95 % de liquide à chaud",
+     "source": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)"
+    },
+    {
+     "what": "pression autogène",
+     "inputs": "pression de vapeur saturante de l'eau",
+     "formula": "p_sat(T)",
+     "result": "≈ 1,56 MPa à 200 °C ; ≈ 2,32 MPa à 220 °C (plus le CO2 de décarboxylation)",
+     "compared_to": "autoclaves PTFE courants : 3 MPa, 220–250 °C max",
+     "source": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)"
+    },
+    {
+     "what": "productivité batch",
+     "inputs": "4 g × 2,56 % ; 9 h = 540 min",
+     "formula": "m(CDs)/t",
+     "result": "102 mg ; 0,190 mg/min",
+     "compared_to": "0,19 mg/min annoncé (conclusion) : cohérent ; montée et descente en température non comptées",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "récupération de carbone dans les sous-produits (Fig. 4)",
+     "inputs": "220 °C : HCOOH 14,33 % g/g (26,1 % C), CH3COOH 8,7 % g/g (40,0 % C), sucre 0 ; 200 °C : sucre 1,95, HCOOH 15,23, CH3COOH 13,95 % g/g",
+     "formula": "Σ (w_i × fC_i) / 0,421",
+     "result": "220 °C : 17,1 % ; 200 °C : 24,6 %",
+     "compared_to": "Fig. 4d : 20,93 % (220 °C) et 25,0 % (200 °C) : accord à 200 °C, écart de 3,8 points à 220 °C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "distance réticulaire du pic « 002 »",
+     "inputs": "2θ = 20,8–20,9° ; Cu Kα 1,5406 Å (D2 PHASER)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d ≈ 4,26 Å",
+     "compared_to": "graphite 002 : 3,35 Å (2θ = 26,5°) ; CDs turbostratiques ≈ 3,4–3,7 Å",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Autoclave fermé à 200–220 °C : pression de vapeur 1,56–2,32 MPa (voir calculs « pression autogène »), plus le CO2 de décarboxylation des sucres. Le volume de l'autoclave n'est pas donné ; 80 mL de solution se dilatent à ≈ 95 mL à 220 °C (calcul « volume du liquide à 220 °C »), donc un autoclave de 100 mL serait quasi plein de liquide : risque de surpression hydraulique. Il faut un récipient d'au moins 150 mL (remplissage ≤ 60 %).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)",
+      "authors_or_publisher": "NIST",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "5 % m/v de saccharose (0,146 mol/L), très en dessous de sa solubilité ; aucun autre réactif : C, H, O seulement. Rendement massique 2,56 % = 102 mg de CDs pour 1,68 g de carbone introduit : plausible pour une carbonisation hydrothermale dialysée à 1 kDa.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique de photoluminescence > 100 % : par définition (photons émis / photons absorbés) le rendement d'une émission de fluorescence d'une particule de carbone excitée dans l'UV ne peut pas dépasser 1 (pas de mécanisme de multiplication de photons connu pour ces matériaux). L'explication des auteurs (« greater emission intensity of CDs compared with quinine sulfate when the concentration of both CDs and the reference was the same ») montre une erreur de méthode : la méthode relative compare à absorbance égale et faible (A < 0,1), pas à concentration massique égale ; et le « facteur de dilution » ajouté en plus de la correction par l'absorbance multiplie le résultat. Toutes les valeurs de QY de l'article (2,6 à 240,9 % en batch, 24 à 112,8 % en continu) sont donc sans valeur absolue ; seul un classement relatif, et encore, pourrait être gardé.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "A. M. Brouwer, Pure Appl. Chem. 83, 2213–2228",
+      "year": "2011",
+      "url_or_doi": "10.1351/PAC-REP-10-09-31"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Référence : sulfate de quinine « QY = 54 % » dans H2SO4 0,1 M. Le rapport IUPAC donne 0,546 pour H2SO4 0,5 M (Melhuish, corrigé de l'auto-extinction), 0,52 dans H2SO4 0,05 M et 0,60 en HClO4 0,1 M, avec une forte dépendance en température dans H2SO4. L'erreur introduite (≈ 10 %) est faible devant celle du QY > 100 %, mais la référence doit être reprise (HClO4 0,1 M, Φ = 0,60).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "A. M. Brouwer, Pure Appl. Chem. 83, 2213–2228",
+      "year": "2011",
+      "url_or_doi": "10.1351/PAC-REP-10-09-31"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs attribuent à l'acide acétique une forme « 2-[3-methyl-2-(methylimino)-4-oxo-1,3-thiazolan-5-yl]acetic acid » (identification LC-MS/MS) : cette molécule contient N et S, absents du système (saccharose + eau ultrapure). C'est une attribution de bibliothèque spectrale par la seule masse, impossible par bilan élémentaire ; elle ne doit pas être reprise.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« 002 graphitic crystal plane » à 2θ = 20,8–20,9° : d ≈ 4,26 Å (calcul « distance réticulaire »), bien au-delà de 3,35 Å (graphite) et des 3,4–3,7 Å des CDs turbostratiques. Un halo à 4,2–4,3 Å est celui d'un carbone amorphe riche en oxygène (ou d'un polymère furanique), pas d'un plan graphitique ; « crystallinity » et « graphitic » sont des mots trop forts. Le rapport ID/IG de 1,13–1,66 (Table 1) va dans le même sens (carbone désordonné).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari & Robertson, Phys. Rev. B",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Fluorescence dépendante de l'excitation, double pic d'émission et QY très variable d'un essai à l'autre (175 % à 9 h, 7,5 % à 12 h, même température) : signature typique de fluorophores moléculaires (dérivés de l'HMF, oligomères furaniques) mêlés aux points de carbone. Une dialyse 1 kDa n'élimine que les petites molécules ; il faudrait une séparation (dialyse plus longue avec suivi de la fluorescence du dialysat, chromatographie d'exclusion) pour attribuer l'émission aux particules (Essner 2018).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Récupération de carbone de la Fig. 4d recalculée depuis les Fig. 4a–c : accord à 200 °C (24,6 contre 25,0 %) mais 17,1 contre 20,93 % à 220 °C (calcul « récupération de carbone ») ; la Fig. 4d inclut sans doute d'autres composés (HMF, acide lévulinique) non montrés. Le texte dit aussi « no sugar » à 220 °C alors que la Fig. 4a montre 1,74 % g/g de xylose.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tauc : le texte écrit que n = ½ correspond à une transition indirecte puis choisit « direct transition (n = 1/2) » ; avec la forme (αhν)^(1/n), n = ½ correspond à la transition directe permise. Contradiction de vocabulaire, sans effet sur les valeurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Autoclave fermé à 220 °C rempli à une fraction inconnue, production de CO2 et d'acides (formique, acétique) : ouvrir seulement à température ambiante, vérifier la limite de température du revêtement PTFE (souvent 220–250 °C). Rien n'est écrit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse acide du saccharose (catalysée par les acides formés) en glucose et fructose, déshydratation surtout du fructose en 5-HMF, réhydratation partielle de l'HMF en acides lévulinique et formique ; polymérisation/condensation aldolique des furanes en oligomères, puis aromatisation et carbonisation en noyaux sp2 très oxygénés (coque hydroxyle/carbonyle/carboxyle) ; à 220 °C et 9 h la carbonisation est plus avancée (C % XPS 45 → 62 %). Ce schéma est celui de la carbonisation hydrothermale des saccharides ; une partie de la fluorescence peut venir de fluorophores moléculaires.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     },
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de l'autoclave : remplissage ≤ 60 % (80 mL → récipient ≥ 150 mL)",
+    "mesurer le QY à absorbance < 0,1 à λex, sans « facteur de dilution », contre le sulfate de quinine dans HClO4 0,1 M (Φ = 0,60) ou en sphère d'intégration",
+    "vérifier que la fluorescence reste dans le rétentat après dialyse prolongée (fluorophores moléculaires)",
+    "ne pas reprendre les attributions LC-MS contenant N, S, F, Si, P ou Cl"
+   ]
+  },
+  {
+   "label": "X-CDs220C9H",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles et carbone apportés",
+     "inputs": "4 g xylose (C5H10O5) ; M = 150.13 g/mol ; 80 mL",
+     "formula": "n = m/M ; n(C) = 5 n",
+     "result": "26.64 mmol ; 0.333 mol/L ; 133.2 mmol C",
+     "compared_to": "saccharose (voie de base) : 11,69 mmol, 140,2 mmol C",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Xylose : la voie pentose passe par le furfural (et non l'HMF), comme le disent les auteurs ; QY de 120,33 % impossible (voir S-CDs220C9H). Récupération de carbone recalculée 7,1 % contre 10,59 % (Fig. 4d).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique > 100 % : impossible par définition ; même erreur de méthode que pour S-CDs220C9H (comparaison à concentration égale, facteur de dilution).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "A. M. Brouwer, Pure Appl. Chem. 83, 2213–2228",
+      "year": "2011",
+      "url_or_doi": "10.1351/PAC-REP-10-09-31"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même cascade que pour le saccharose (déshydratation en furanes, polymérisation, aromatisation) ; le xylose passe par le furfural, le glucose s'isomérise d'abord en fructose avant de donner l'HMF.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de sucre exprimée en anhydre pour comparer les précurseurs",
+    "QY à remesurer correctement"
+   ]
+  },
+  {
+   "label": "G-CDs220C9H",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles et carbone apportés",
+     "inputs": "4 g glucose monohydraté (C6H12O6·H2O) ; M = 198.17 g/mol ; 80 mL",
+     "formula": "n = m/M ; n(C) = 6 n",
+     "result": "20.18 mmol ; 0.252 mol/L ; 121.1 mmol C",
+     "compared_to": "saccharose (voie de base) : 11,69 mmol, 140,2 mmol C",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "4 g de glucose monohydraté n'apportent que 3,64 g de glucose et 121 mmol de C, soit 14 % de carbone de moins que 4 g de saccharose (140 mmol) : la comparaison des rendements massiques entre sucres « on the initial dry weight » est biaisée en défaveur du glucose si la masse pesée est celle de l'hydrate. QY de 190,67 % impossible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique > 100 % : impossible par définition ; même erreur de méthode que pour S-CDs220C9H (comparaison à concentration égale, facteur de dilution).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "A. M. Brouwer, Pure Appl. Chem. 83, 2213–2228",
+      "year": "2011",
+      "url_or_doi": "10.1351/PAC-REP-10-09-31"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même cascade que pour le saccharose (déshydratation en furanes, polymérisation, aromatisation) ; le xylose passe par le furfural, le glucose s'isomérise d'abord en fructose avant de donner l'HMF.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de sucre exprimée en anhydre pour comparer les précurseurs",
+    "QY à remesurer correctement"
+   ]
+  },
+  {
+   "label": "T-CDs220C9H",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles et carbone apportés",
+     "inputs": "4 g sucre de table (saccharose commercial) ; M = 342.3 g/mol ; 80 mL",
+     "formula": "n = m/M ; n(C) = 12 n",
+     "result": "11.69 mmol ; 0.146 mol/L ; 140.2 mmol C",
+     "compared_to": "saccharose (voie de base) : 11,69 mmol, 140,2 mmol C",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "QY de 240,9 % dans le texte, 249,86 % sur la Fig. 8d : incohérence interne en plus de la valeur physiquement impossible. Le sucre de table raffiné est du saccharose à > 99 % : les écarts avec S-CDs (ID/IG 1,66 contre 1,13, cristallinité « plus faible ») relèvent plus de la variabilité d'un essai unique que d'une « oxydation forte ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique > 100 % : impossible par définition ; même erreur de méthode que pour S-CDs220C9H (comparaison à concentration égale, facteur de dilution).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "A. M. Brouwer, Pure Appl. Chem. 83, 2213–2228",
+      "year": "2011",
+      "url_or_doi": "10.1351/PAC-REP-10-09-31"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même cascade que pour le saccharose (déshydratation en furanes, polymérisation, aromatisation) ; le xylose passe par le furfural, le glucose s'isomérise d'abord en fructose avant de donner l'HMF.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de sucre exprimée en anhydre pour comparer les précurseurs",
+    "QY à remesurer correctement"
+   ]
+  },
+  {
+   "label": "CDs-280C1F",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume du tube et temps de séjour",
+     "inputs": "d = 0,75 mm ; L = 10 m ; débit 1, 5, 10 mL/min (mesuré à 25 °C)",
+     "formula": "V = π d² L/4 ; τ = V/Q",
+     "result": "V = 4,42 mL ; τ = 4,42 / 0,88 / 0,44 min",
+     "compared_to": "4,4 / 0,9 / 0,4 min annoncés : cohérent si tout le tube est dans le four et le fluide garde la masse volumique de l'eau à 25 °C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "temps de séjour réel si le fluide restait liquide à 280 °C",
+     "inputs": "ρ(25 °C) = 997 kg/m³ ; ρ liquide saturé 280 °C ≈ 750 kg/m³",
+     "formula": "τ' = τ × ρ(280)/ρ(25)",
+     "result": "≈ 3,3 min",
+     "compared_to": "4,4 min annoncés ; en phase vapeur (ρ ≈ 1 kg/m³ à 0,2 MPa) τ tomberait à quelques dixièmes de seconde",
+     "source": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)"
+    },
+    {
+     "what": "pression de vapeur saturante contre pression annoncée",
+     "inputs": "NIST : p_sat = 3,35 MPa (240 °C), 4,71 MPa (260 °C), 6,44 MPa (280 °C), ≈ 11,9 MPa (324 °C), 16,6 MPa (350 °C) ; T_sat(0,2 MPa) ≈ 120 °C ; T_sat(1,8 MPa) ≈ 207 °C",
+     "formula": "comparaison p annoncée / p_sat(T)",
+     "result": "0,2–1,8 MPa est 2 à 80 fois sous p_sat à 240–350 °C",
+     "compared_to": "pour garder l'eau liquide à 280 °C il faut > 6,4 MPa (régulateur de contre-pression)",
+     "source": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)"
+    },
+    {
+     "what": "perte de charge d'un liquide dans le tube (Hagen-Poiseuille)",
+     "inputs": "μ(25 °C) = 0,89 mPa·s ; d = 0,75 mm ; L = 10 m ; Q = 1, 5, 10 mL/min",
+     "formula": "ΔP = 128 μ L Q / (π d⁴)",
+     "result": "0,019 / 0,095 / 0,19 MPa",
+     "compared_to": "0,2–1,8 MPa mesurés : sans régulateur de contre-pression, la pression observée s'explique par la perte de charge et la vaporisation, pas par une pressurisation",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "productivité continue",
+     "inputs": "1 mL/min × 50 mg/mL de saccharose ; rendement massique 13,37 %",
+     "formula": "Q × C × Y",
+     "result": "6,69 mg/min",
+     "compared_to": "6,6 mg/min annoncés : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Contradiction physique majeure : à 280 °C sous 0,2 MPa l'eau est de la vapeur surchauffée (T_sat à 0,2 MPa ≈ 120 °C ; il faudrait > 6,4 MPa pour rester liquide, calcul « pression de vapeur saturante »). Toute la plage annoncée (0,2–1,8 MPa, 240–350 °C) est sous la courbe de saturation. Le procédé n'est donc pas une synthèse « hydrothermale » en eau liquide : la solution se vaporise dans le tube, le saccharose se concentre et se pyrolyse au contact des parois (les auteurs écrivent eux-mêmes « greater evaporation of water and yielded higher concentration of sucrose residue », et trouvent du saccharose solide à 5 et 10 mL/min). Les pressions observées sont celles de la perte de charge (≈ 0,02–0,2 MPa pour le liquide) et du flux diphasique ; aucun régulateur de contre-pression n'est décrit.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)",
+      "authors_or_publisher": "NIST",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Temps de séjour 4,4 min = volume du tube / débit à 25 °C (calcul « volume du tube »). En liquide à 280 °C il serait ≈ 3,3 min ; en régime vapeur, beaucoup plus court. Le chiffre de 4,4 min ne décrit donc pas le temps passé à 280 °C ; la longueur réellement chauffée du tube n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique de 53 % (280 °C) et 112,8 % (260 °C) : même méthode erronée qu'en batch (voir S-CDs220C9H) ; 112,8 % est impossible.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "A. M. Brouwer, Pure Appl. Chem. 83, 2213–2228",
+      "year": "2011",
+      "url_or_doi": "10.1351/PAC-REP-10-09-31"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« XRD peaks of 002 plane found at 2θ equal to 18° » : d = 4,92 Å, encore plus loin du graphite (3,35 Å) qu'en batch ; ID/IG = 0,43 « high crystallinity » sans distance réticulaire visible en MET (« carbon lattice spacing was not obviously seen »). Le pic de « cristaux de sucre » à 2θ = 32° (d = 2,80 Å) n'est pas un pic discriminant du saccharose, et du saccharose cristallin ne devrait pas survivre à 48 h de dialyse 1 kDa (M = 342 Da).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari & Robertson, Phys. Rev. B",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande Raman à 2470 cm⁻¹ attribuée au saccharose, puis saccharose « solide » à 2900 cm⁻¹ : le saccharose montre ses élongations C–H vers 2900–2940 cm⁻¹ et rien de caractéristique vers 2470 cm⁻¹ ; une bande C–H à 2900 cm⁻¹ est commune à tout composé organique (HMF, oligomères, surface des CDs) et ne prouve pas la présence de saccharose non transformé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interfacial Interactions of Sucrose during Cryopreservation Detected by Raman Spectroscopy (bandes du saccharose : 820–880 cm⁻¹ CH2, 2936 cm⁻¹ élongation CH2)",
+      "authors_or_publisher": "PMC8023323",
+      "year": "2014",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8023323"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Composés identifiés par LC-MS/MS : difluorodiméthylsilane, propionitrile, éthéphon (contient P et Cl), dérivé thiazolidinique (N, S). Aucun de F, Si, N, P, Cl, S n'est apporté par le saccharose et l'eau ; l'explication des auteurs (méthanol + silicium, acide acétique + éthylène → éthéphon) est chimiquement intenable. Ce sont des fausses identifications par masse seule.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Récupération de carbone à 280 °C : 36,13 % mol/mol dans le texte (Fig. S11d) contre 12,43 % g/g sur la Fig. 11b ; le « décalage vers le rouge » 410 → 490 nm compare des spectres excités à 240 et 360 nm, ce qui ne prouve pas un changement de bande interdite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Tube inox chauffé à 240–350 °C avec pompe haute pression, vaporisation dans le tube et risque de bouchage par du saccharose ou du char (observé à 5–10 mL/min) : prévoir soupape de sécurité et capteur de pression, refroidir avant toute ouverture. Rien n'est écrit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans les conditions écrites (0,2 MPa), il s'agit d'une évaporation suivie d'une pyrolyse/caramélisation du saccharose concentré au contact de la paroi chaude (déshydratation en HMF et furanes, polycondensation, carbonisation), puis entraînement et condensation des produits ; ce n'est pas la cascade en eau liquide subcritique décrite par les auteurs. Pour une vraie synthèse hydrothermale continue, la pression doit dépasser p_sat (≥ 6,5 MPa à 280 °C).",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     },
+     {
+      "title": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)",
+      "authors_or_publisher": "NIST",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "présence et consigne d'un régulateur de contre-pression ; pression réelle dans la zone chaude",
+    "longueur du tube réellement dans le four",
+    "état (liquide ou vapeur) du fluide à 280 °C, risque de bouchage",
+    "QY à remesurer correctement",
+    "attributions LC-MS à reprendre"
+   ]
+  },
+  {
+   "label": "CDs-260C1F",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pression de vapeur saturante à 260 °C",
+     "inputs": "NIST : p_sat(260 °C) ≈ 4,71 MPa",
+     "formula": "comparaison à 0,2–1,8 MPa",
+     "result": "p annoncée < p_sat : phase vapeur",
+     "compared_to": "eau liquide seulement au-dessus de 4,7 MPa",
+     "source": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "QY = 112,8 % : impossible (voir S-CDs220C9H) ; taille 11,9 nm à 260 °C contre 6,5 nm à 280 °C sur un seul essai MET chacun.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "A. M. Brouwer, Pure Appl. Chem. 83, 2213–2228",
+      "year": "2011",
+      "url_or_doi": "10.1351/PAC-REP-10-09-31"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Même contradiction pression/température que la voie de base : l'eau est vapeur à 260 °C sous ≤ 1,8 MPa.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69, fluide « water »)",
+      "authors_or_publisher": "NIST",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme la voie de base : évaporation et pyrolyse du saccharose plutôt que carbonisation en eau liquide.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pression réelle dans la zone chaude"
+   ]
+  },
+  {
+   "label": "CP@CDs-100",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de CDs dans le mélange",
+     "inputs": "8 mL × 2 mg/mL",
+     "formula": "m = C V",
+     "result": "16 mg de CDs",
+     "compared_to": "dénominateur de la quantité chargée",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "bilan de charge selon l'unité de CP",
+     "inputs": "2 mL de CP à « 100 » ; DLE 65,9 % ; M(CP) = 331,34 g/mol ; 16 mg CDs",
+     "formula": "q = 2 mL × C × DLE / 16 mg",
+     "result": "µmol/L (Méthodes) : 2,73 µg/mg ; mg/mL (Résultats) : 8 238 µg/mg ; µg/mL : 8,24 µg/mg",
+     "compared_to": "Fig. 13 : ≈ 8,2 µg/mg → seule l'unité µg/mL ferme le bilan",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "CP chargé et concentration maximale dans le milieu de libération",
+     "inputs": "131,8 µg de CP dans 10 mL de conjugué ; 1 mL dialysé dans 50 mL de PBS",
+     "formula": "C_max = (131,8/10) µg / 51 mL",
+     "result": "13,2 µg dans 1 mL ; ≤ 0,26 µg/mL dans le PBS",
+     "compared_to": "texte : « ~690 µg mL−1 » libérés en 48 h pour CP@CDs-100 : 2 700 fois trop",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "solubilité de la ciprofloxacine dans l'eau",
+     "inputs": "x2 = 4,11·10⁻⁶ (eau pure) ; 55,35 mol/L d'eau ; M = 331,34",
+     "formula": "S ≈ x2 × 55,35 × M",
+     "result": "≈ 0,075 g/L (75 µg/mL)",
+     "compared_to": "100–400 µg/mL (unité qui ferme le bilan) dépassent la solubilité dans l'eau neutre",
+     "source": "Solubility of ciprofloxacin in different solvents at several temperatures (fraction molaire dans l'eau pure x2 = 4,11·10⁻⁶ au bas de la plage)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Concentration de ciprofloxacine écrite 100/200/400 µmol/L dans les Méthodes et 100/200/400 mg/mL dans les Résultats ; le bilan de la Fig. 13 (8,2 / 21 / 44 µg/mg pour DLE 65,9 / 84,9 / 87,2 %) n'est fermé que par 100/200/400 µg/mL (calcul « bilan de charge ») : 8,24, 21,2 et 43,6 µg/mg. µmol/L donne 3 fois moins, mg/mL 1 000 fois plus. La concentration réellement employée est donc très probablement 100/200/400 µg/mL (≈ 0,30 / 0,60 / 1,21 mmol/L).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Solvant de la solution de CP non donné. La ciprofloxacine base (zwitterion) est très peu soluble dans l'eau neutre (≈ 0,075 g/L d'après x2 = 4,11·10⁻⁶ ; fiche Sigma : « very limited solubility in water », soluble à 3 mg/mL dans HCl ou NaOH 0,1 N). 200 et 400 µg/mL demandent un milieu acide ou le chlorhydrate ; 100–400 mg/mL (Résultats) est impossible.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ciprofloxacin ≥98 % (HPLC), fiche produit 17850 : « very limited solubility in water », soluble à 3 mg/mL dans NaOH 0,1 N et dans HCl 0,1 N",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/sial/17850"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Concentrations libérées « ~690, ~2650 et ~3080 µg mL−1 » en 48 h à pH 7,4 : impossible, 1 mL de conjugué ne contient que 13 à 70 µg de CP dilués dans 51 mL (≤ 0,26 à 1,4 µg/mL, calcul « CP chargé »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tableau 3 en mg/mL avec CDs testés à « 250 mg mL−1 » alors que la solution mère fait 2 mg/mL ; CMI de la ciprofloxacine « <0,48 × 10⁻³ mg/mL » (= 0,48 µg/mL, cohérent avec le texte) mais CML de 0,49 et 0,98 mg/mL pour S. aureus et P. aeruginosa, soit un rapport CML/CMI > 1 000 pour un antibiotique bactéricide ; la plage QC CLSI pour E. coli ATCC 25922 est 0,004–0,015 µg/mL et 0,25–1 µg/mL pour P. aeruginosa ATCC 27853. Les unités du tableau sont vraisemblablement µg/mL et la série CML du témoin est à revoir.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Ciprofloxacin tablets — notice FDA (DailyMed), tableau des plages de contrôle qualité CMI (CLSI) : E. coli ATCC 25922 0,004–0,015 µg/mL ; P. aeruginosa ATCC 27853 0,25–1 µg/mL ; S. aureus ATCC 29213 0,12–0,5 µg/mL",
+      "authors_or_publisher": "U.S. National Library of Medicine, DailyMed",
+      "year": "consulté 2026",
+      "url_or_doi": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c14a40f7-6cd7-49c2-9e66-27cbff612257"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Agitation 100 rpm (Méthodes) contre 200 rpm (Résultats, légende Fig. 13).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Interaction électrostatique proposée : à pH 5,5 la ciprofloxacine (pKa carboxyle ≈ 6, pipérazine ≈ 8,7) est surtout cationique et se lie aux CDs carboxylés (zêta négatif) ; cohérent avec une libération plus lente à pH 5,5. En revanche l'affirmation que la surface des CDs devient positive à pH 5,5 n'est pas étayée (carboxyles de pKa ≈ 4 encore ionisés).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Ciprofloxacine (antibiotique, sensibilisant) et souches ATCC de niveau de biosécurité 2 : laboratoire et déchets adaptés ; rien n'est écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Adsorption électrostatique et liaisons hydrogène/π de la ciprofloxacine cationique sur des CDs oxygénés chargés négativement ; pas de liaison covalente démontrée.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "unité réelle de la concentration de CP (µg/mL d'après le bilan)",
+    "solvant et pH de la solution de CP",
+    "dosage UV à 273 nm en présence de CDs qui absorbent vers 280 nm (blanc CDs nécessaire)",
+    "unités du Tableau 3"
+   ]
+  },
+  {
+   "label": "CP@CDs-200",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan de charge",
+     "inputs": "2 mL × 200 µg/mL ; DLE 84,9 % ; 16 mg CDs",
+     "formula": "q = 400 µg × 0,849 / 16 mg",
+     "result": "21,2 µg/mg (µmol/L : 7,0 ; mg/mL : 21 225)",
+     "compared_to": "Fig. 13 : ≈ 21 µg/mg",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "CP apporté aux cellules à la concentration la plus toxique",
+     "inputs": "60 µg/mL de CP@CDs-200 ; 21 µg CP / mg CDs",
+     "formula": "60 × 0,021",
+     "result": "≈ 1,3 µg/mL de CP",
+     "compared_to": "viabilité 53 % à 60 µg/mL",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "MALDI-TOF : le pic m/z 354 correspond à [CP+Na]⁺ (331,13 + 22,99 = 354,1) et prouve seulement la présence de ciprofloxacine, pas sa « conjugaison » ; après 8 h de dialyse seulement, du CP libre peut rester. Un témoin mélange physique ou CP seul serait nécessaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Viabilité L-929 de 53 % à 60 µg/mL de CP@CDs-200, soit ≈ 1,3 µg/mL de CP : sous ISO 10993-5, une baisse de viabilité de plus de 30 % est un effet cytotoxique. Dire que CP@CDs-200 « can be used at only 60 µg mL−1 to maintain the lowest toxicity » revient à retenir une dose cytotoxique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "ISO 10993-5:2009 Biological evaluation of medical devices — Part 5: Tests for in vitro cytotoxicity (« Reduction of cell viability by more than 30 % is considered a cytotoxic effect »)",
+      "authors_or_publisher": "ISO / TC 194",
+      "year": "2009",
+      "url_or_doi": "https://www.iso.org/standard/36406.html"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Voir CP@CDs-100.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "témoin CP libre en MALDI et en cytotoxicité"
+   ]
+  },
+  {
+   "label": "CP@CDs-400",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan de charge",
+     "inputs": "2 mL × 400 µg/mL ; DLE 87,2 % ; 16 mg CDs",
+     "formula": "q = 800 µg × 0,872 / 16 mg",
+     "result": "43,6 µg/mg (µmol/L : 14,4)",
+     "compared_to": "Fig. 13 : ≈ 44 µg/mg",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration maximale libérable",
+     "inputs": "69,8 µg de CP dans 1 mL ; 51 mL",
+     "formula": "69,8/51",
+     "result": "≤ 1,37 µg/mL",
+     "compared_to": "texte : ~3080 µg/mL",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Libération maximale annoncée de ~3080 µg/mL : 2 250 fois la valeur maximale possible (calcul « concentration maximale libérable »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "400 µg/mL de ciprofloxacine dans l'eau dépasse sa solubilité au voisinage de la neutralité (≈ 75 µg/mL) : la solution devait être acidifiée ou préparée à partir du chlorhydrate.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Solubility of ciprofloxacin in different solvents at several temperatures (fraction molaire dans l'eau pure x2 = 4,11·10⁻⁶ au bas de la plage)",
+      "authors_or_publisher": "M. A. Parra et al. (ScienceDirect, résumé)",
+      "year": "2023",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S1876107023003577"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Voir CP@CDs-100.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "solvant de la solution de CP à 400 µg/mL"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie de base (carbonisation hydrothermale de sucres à 5 % m/v, 200–220 °C) est classique et refaisable si l'on choisit un autoclave assez grand. Trois défauts majeurs viennent de l'article : (1) des rendements quantiques de 112 à 241 %, physiquement impossibles, issus d'une comparaison à concentration égale et d'un facteur de dilution ajouté ; (2) le réacteur continu est décrit à 240–350 °C sous 0,2–1,8 MPa, bien sous la pression de vapeur de l'eau (6,4 MPa à 280 °C) : la solution se vaporise et le procédé n'est pas hydrothermal ; (3) les unités de la ciprofloxacine sont incohérentes (µmol/L, mg/mL), seul µg/mL ferme le bilan de charge, et les concentrations libérées (690–3080 µg/mL) sont 2 000 à 3 000 fois au-dessus du possible. S'y ajoutent des identifications LC-MS de composés contenant N, S, F, Si, P, Cl absents du système, et une cristallinité « graphitique » affirmée sur des pics à d = 4,3–4,9 Å.",
+  "author_errors_suspected": [
+   "QY > 100 % (120,3 / 190,7 / 175,5 / 240,9 % en batch, 112,8 % en continu) : méthode relative mal appliquée (concentration égale au lieu d'absorbance égale, facteur de dilution)",
+   "QY de T-CDs220C9H : 240,9 % (texte) contre 249,86 % (Fig. 8d)",
+   "0,2–1,8 MPa à 240–350 °C : eau en phase vapeur, régulateur de contre-pression absent ou pression mal rapportée",
+   "CP : 100/200/400 µmol/L (Méthodes) contre mg/mL (Résultats) ; le bilan impose µg/mL",
+   "libération de CP de ~690 à ~3080 µg/mL impossible avec ≤ 70 µg de CP par mL de conjugué",
+   "Tableau 3 : unités mg/mL au lieu de µg/mL vraisemblables ; CML du témoin CP 1 000 fois sa CMI",
+   "LC-MS/MS : thiazolidine (N, S), difluorodiméthylsilane (F, Si), propionitrile (N), éthéphon (P, Cl) dans un système C/H/O",
+   "agitation 100 rpm (Méthodes) contre 200 rpm (Résultats)",
+   "cytotoxicité « jusqu'à 1000 µg/mL » pour les CDs batch alors que leurs solutions mères font 25 µg/mL ; viabilité 53–67 % présentée comme non toxique (seuil ISO 10993-5 : 70 %)",
+   "récupération de carbone à 280 °C : 36,13 % mol/mol (texte) contre 12,43 % g/g (Fig. 11b)"
+  ],
+  "comparison_with_database": "Autres points de carbone de la base (compare.py « carbon dots ») : QY de 0,2 % (PMC10077337, micro-ondes saccharose + thiourée) et 7,2 % (PMC11840780, hydrothermal 160 °C) ; aucune autre publication n'annonce de QY > 100 %. Les conditions batch (200–220 °C, 6–12 h, dialyse 1 kDa) sont dans la plage des autres voies hydrothermales (PMC11944978 à 220 °C 6 h ; PMC9054292 à 180 °C 4 h). Aucune autre voie continue dans la base."
+ },
+ "sources_not_found": [
+  "Aucune source primaire trouvée pour l'attribution d'une bande Raman du saccharose à 2470 cm⁻¹ (les spectres publiés montrent les élongations C–H vers 2900–2940 cm⁻¹).",
+  "DOI de Parra et al. 2023 (solubilité de la ciprofloxacine) non relevé : seule l'URL ScienceDirect est donnée."
+ ]
+}

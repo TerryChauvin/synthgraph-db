@@ -1,0 +1,10 @@
+# Complément PMC7285084 — tableaux du texte (2 lus)
+
+- Tableaux lus : Table 1 (optimisation GPE + SBL : catalyseur et solvant, 10 entrées) et Table 2 (copolymérisation de SBL avec six oxiranes), avec leurs notes de bas de tableau (1,0 mmol de chaque monomère, 0,02 mmol de catalyseur, 80 °C, 24 h).
+- Table 1, entrée 5 (TBAB, masse) : rendement 99 % ajouté à `PSe-1` (propriété `yield_Table1_entry5`) ; le texte donne 98,5 %, les deux sont gardés.
+- Table 1, entrées 6 à 10 (solvants) : Mn et Ð ajoutés aux branches `S1_DMSO`, `S1_DMF`, `S1_anisole`, `S1_toluene`, `S1_hexane` ; les rendements du tableau (60, 74, 98, 98, 98) étaient déjà extraits de la phrase du texte et concordent.
+- Table 1, entrées 2 à 4 (TBAC, TBPB, TBPC) : trois branches nouvelles de `PSe-1` (`cat_TBAC`, `cat_TBPB`, `cat_TBPC`), catalyseur remplacé, quantité 0,02 mmol (note du tableau), pureté et fournisseur repris de la section Materials, rendement, Mn et Ð de la rangée. Atmosphère et isolement déclarés non cités (même choix que pour les branches `scope_*`), car l'article ne dit pas que ces essais suivent la procédure typique. Trois entrées ajoutées à `sample_inventory`.
+- Table 2 : rendements (97, 94, 89, 91, 92 %) ajoutés aux branches `scope_MPE`, `scope_BGE`, `scope_SO`, `scope_AGE`, `scope_BEA` par le nom de l'oxirane ; Mn et Ð du tableau égaux à ceux déjà extraits de la Fig. S9. CHO (« - ») déjà couvert.
+- Contradiction laissée telle quelle, signalée : le texte dit 5 mol % de TBAB pour la série de solvants, la note du Table 1 dit 0,02 mmol (2 mol %) pour toutes les entrées. La branche parent des solvants n'a pas été modifiée.
+- Non fait : entrée 1 (sans catalyseur, « - » partout), déjà couverte par `no_catalyst` ; l'annotation `limite_reproductibilite` sur l'absence du corps des Tables 1 et 2 est devenue fausse mais n'est pas modifiée (consigne : ne rien supprimer) ; le doute ajouté le précise.
+- Trois doutes ajoutés. Contrôle : `load.py check` 0 erreur, 5 avertissements préexistants (variation « solvent » des branches solvants, documentée dans les doutes antérieurs).

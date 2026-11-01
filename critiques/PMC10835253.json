@@ -1,0 +1,94 @@
+{
+ "pmcid": "PMC10835253",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "V-Mo-MCM-41(85), (39), (31) : réactif oxalic acid (0.0853 g) et étape 3 molar_ratio 1:2, hérités du parent 34",
+   "extracted": "Les trois branches n'ont de variation que sur NH4VO3 et Na2MoO4 (« varying the amounts of metal salts ») ; l'acide oxalique reste à 0.0853 g et le rapport molaire 1:2 NH4VO3 : acide oxalique reste attaché à l'étape 3, comme pour 34.",
+   "article_says": "The same procedure was followed to create the remaining metal catalysts, varying the amounts of metal salts while maintaining the silica source and template quantity constant.",
+   "fix": "L'article ne dit rien de l'acide oxalique pour 85, 39 et 31 (ce n'est pas un sel métallique, et le 1:2 n'est donné que pour le 34 : « 0.0368g of ammonium metavanadate and 0.0853g of oxalic acid (molar ratio 1:2) »). Comme la quantité de NH4VO3 change d'un échantillon à l'autre (V EDX de 0.04 à 1.02 wt%), garder 0.0853 g est presque sûrement faux. Ajouter à chaque branche une variation « oxalic acid » en value_text (« not stated for this sample ») avec le parent_value 0.0853g, ou à défaut une annotation limite_reproductibilite par branche ; ne pas laisser la valeur du parent s'afficher comme celle de l'échantillon.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "V-Mo-MCM-41(34) reagent oxalic acid, role = reducing_agent",
+   "extracted": "role: reducing_agent",
+   "article_says": "The resulting yellow solution was heated to 100 °C, yielding a stable blue solution.",
+   "fix": "L'article ne donne aucun rôle à l'acide oxalique (liste de la section Materials sans fonction : « oxalic acid (H2C2O4.2H2O, 99.5 %) »). Le rôle reducing_agent vient du changement de couleur jaune vers bleu, lecture de chimiste ; ligand/complexant est aussi possible (oxalate de vanadyle). Déjà déclaré en doute par l'extracteur : soit garder avec le doute, soit choisir le rôle le moins engageant et laisser l'explication dans mecanisme_analyse.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "V-Mo-MCM-41(34) step 10 (hydrothermal treatment) pressure",
+   "extracted": "paramètres temperature = 130 °C et duration = 48 h ; « self-generated pressure » seulement dans la description de l'étape",
+   "article_says": "The V–Mo-MCM-41 catalysts were synthesized using the direct hydrothermal method under self-generated pressure inside the autoclave.",
+   "fix": "ajouter à l'étape 10 le paramètre pressure = « self-generated pressure » (value_text) avec cette citation, plutôt que de le laisser hors des paramètres",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "V-Mo-MCM-41(34) step 2 (TEOS addition) : rapport tensioactif / silicium",
+   "extracted": "aucun paramètre de rapport molaire sur l'étape 2",
+   "article_says": "resulting in the formation of a homogeneous gel with a molar ratio (Sur/Si < 1)",
+   "fix": "ajouter molar_ratio = « Sur/Si < 1 » (value_text) à l'étape 2",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "V-Mo-MCM-41(34) step 12 (wash) parameter repetitions",
+   "extracted": "repetitions = until the pH of the filtrate reached 7",
+   "article_says": "washed with distilled water until the pH of the filtrate reached 7, ensuring the absence of hydroxide ions and impurities.",
+   "fix": "ce n'est pas un nombre de répétitions mais un critère d'arrêt : le ranger dans un paramètre de fin (ex. endpoint / ph = 7 du filtrat) plutôt que dans repetitions",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Résultats EDX Fig. 6 : Si et O non extraits (4 échantillons)",
+   "extracted": "seuls V et Mo en wt% pour 85, 39, 34, 31",
+   "article_says": "The EDX spectra of the prepared catalysts in Fig. 6(A-D) illustrate silicon, oxygen, vanadium, and molybdenum weight percentages.",
+   "fix": "ajouter Si et O en wt% lus sur la Fig. 6 (vérifiés sur l'image) : Si 52.85 / 48.16 / 52.83 / 56.25 et O 46.54 / 50.59 / 45.6 / 41.96 pour 85 / 39 / 34 / 31 (a, b, c, d), avec from_figure. Ils fondent le rapport Si/(V + Mo) cité par l'article (52.85/0.62 = 85).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fig. 9 : témoins sans catalyseur, V2O5, VK38 (aucun résultat structuré)",
+   "extracted": "valeurs 3 %, 10 %, 50 % seulement dans l'annotation tendance_observee (sans citation propre), échantillons dans l'inventaire avec route null",
+   "article_says": "Fig. 9 compares the performance of the prepared catalysts, the V2O5 catalyst, the VK38 catalyst (6–8% V2O5%), and the reaction conducted without a catalyst.",
+   "fix": "les valeurs sont justes (vérifiées sur l'image : 3, 10, 50 %). Les consigner en outcomes ou en caractérisation de la voie 34 (comparaison de catalyseurs, from_figure Fig. 9) pour qu'elles soient interrogeables, ou accepter qu'elles restent en annotation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "caractérisation « catalytic oxidation of glucose... » conditions : seconde cristallisation",
+   "extracted": "« a second crystallisation from the filtrate »",
+   "article_says": "Approximately 60 % of the resulting filtrate from the first evaporation was evaporated, and the solution was cooled again to 5 °C.",
+   "fix": "ajouter « approximately 60 % of the filtrate evaporated, cooled again to 5 °C, crystals filtered and dried » aux conditions",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation comparaison_branches : taille de particule MEB",
+   "extracted": "« la taille de particule au MEB diminue (40–140 nm pour 85, 25–55 nm pour 39, 25–70 nm pour 34) »",
+   "article_says": "Moving on to sample (V–Mo-MCM-41 (34)) in Fig. 5(c), it exhibits smaller particle size within the range of 25–70 nm compared to the previous catalysts.",
+   "fix": "la plage de 34 (25–70 nm) est plus large vers le haut que celle de 39 (25–55 nm) alors que l'article dit « smaller » : l'annotation présente une diminution monotone que les chiffres ne montrent pas. Le signaler comme incohérence de l'article (limite_reproductibilite ou nuance dans comparaison_branches)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantités de NH4VO3, d'acide oxalique et de Na2MoO4 pour les échantillons 85, 39 et 31 absentes de l'article (« varying the amounts of metal salts ») : seul le 34 est refaisable",
+  "le nom « 34 » est un rapport massique EDX (52.83/1.57), pas le rapport introduit (molaire proche de 25) : on ne peut pas viser 85, 39 ou 31 depuis les quantités",
+  "quantité de mélasse des essais catalytiques non donnée ; conditions de réactivation du catalyseur entre cycles non données (« reactivated »)",
+  "volume de NaOH 1 N pour atteindre pH 11, vitesses d'agitation, taux de remplissage et refroidissement de l'autoclave, atmosphère de séchage et de calcination non donnés",
+  "équations (1) à (6) absentes du texte, dont le modèle quadratique du plan composite ; rendement au point central contradictoire entre Table 5 (74.3 à 76.3 %) et Fig. 9 (83 %)",
+  "conditions DRX impossibles dans l'article (générateur à « 0 kV and 0 mA », pas de « 0.05 per second »)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs est bien appuyé par la phrase sur les micelles cylindriques ; mecanisme_analyse est formulé comme hypothèse ; le calcul de stœchiométrie (Si/(V+Mo) molaire ≈ 25, rapport massique EDX ≈ 34) est exact",
+ "notes": "Contrôles faits sans constat : Tables 2, 3, 4 (rangées par échantillon), Table 5 (30 rangées, conditions et rendements comparés par script : 0 écart), Fig. 6 (V et Mo des quatre spectres exacts), Fig. 9 (65, 75, 83, 80 exacts ; témoins 3, 10, 50 exacts), Fig. 10 (cycle 1 ≈ 83, cycle 2 ≈ 82.6, cycle 3 ≈ 81.5, cycle 4 ≈ 79.3 : l'extraction a arrondi à 82 et 81, écart inférieur à 1 point, sous le seuil). Fig. 9 contre Table 5 : l'extraction garde les deux et le déclare en doute et en annotation, ce qui est fidèle ; je n'ai pas fait de constat. Source de méthode : seuls bib65 à bib67 portent sur la préparation ; bib60, bib63 et bib64 (absorption des NOx) et bib70/bib71 (modèle) sont des renvois de contexte ou d'équation, correctement exclus. Pas d'annexe dans le corpus. Les « same procedure » du texte ne précisent pas les étapes ; l'héritage des étapes 1 à 14 aux trois branches est fondé sur cette phrase, seul l'acide oxalique pose problème."
+}

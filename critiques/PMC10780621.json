@@ -1,0 +1,137 @@
+{
+  "pmcid": "PMC10780621",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "NaOH_t24h/36h/48h/72h/5d, Na2CO3_t24h/48h/5d, NaHCO3_t24h/36h/48h/72h : héritage des étapes 8 à 11 (filtration, lavage, séchage 80 °C, calcination 550 °C / 5 h) du parent",
+      "extracted": "les 12 branches « t » n'ont pas d'étapes propres et héritent donc de la calcination à 550 °C sous air pendant 5 h et du lavage/séchage de la voie de base",
+      "article_says": "the solid products from the synthesis mixture at different crystallization times from 24 h to 120 h were characterized by XRD and SEM",
+      "fix": "ces solides sont prélevés avant la fin de la cristallisation et l'article ne décrit ni leur isolement ni une calcination (les observer par SEM comme particules précurseurs amorphes est incompatible avec une calcination) : donner aux branches leurs propres étapes (arrêt de l'autoclave au temps indiqué, isolement non décrit) ou déclarer lavage, séchage et calcination en not_stated avec un doute, conformément à la règle « pas d'héritage non fondé » du RUNBOOK",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "branches de la série en temps : parents NaOH_0.1, Na2CO3_0.05, NaHCO3_HF0.75",
+      "extracted": "composition de gel de chaque série héritée d'un échantillon de la Fig. 2 (H2O/Si = 5 et HF/Si = 0,75 pour NaOH et Na2CO3 ; H2O/Si = 10, NaHCO3/Si = 0,1, HF/Si = 0,75 pour NaHCO3)",
+      "article_says": "To investigate the evolution process of Na-MWW, the solid products from the synthesis mixture at different crystallization times from 24 h to 120 h were characterized by XRD and SEM.",
+      "fix": "l'article ne dit pas quelle composition (Na/Si, HF/Si, H2O/Si) a servi pour la série en temps ; le rattachement est une hypothèse (déjà en doute) à traduire en not_stated sur la composition, ou en annotation limite_reproductibilite explicite",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Fig. 2 : morphologies rattachées à NaOH_0.1, Na2CO3_0.05 et NaHCO3_HF0.75",
+      "extracted": "Na2CO3 → Na2CO3/Si = 0,05 ; NaHCO3 → HF/Si = 0,75 (morphologie « hexahedron »)",
+      "article_says": "under the same ratio of Na+/Si = 0.1",
+      "fix": "la conversion Na+/Si = 0,1 en Na2CO3/Si = 0,05 est une déduction stœchiométrique ; pour NaHCO3 la légende ne donne aucun HF/Si, et le texte dit que la morphologie évolue avec HF (« the morphology changes from the stacked sphere to hexahedron with tunable mesopores »). Garder le rattachement mais le marquer comme déduit (doute déjà posé) ; ne pas présenter HF/Si = 0,75 comme cité pour l'échantillon de la Fig. 2",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "NaOH_0.05 material.morphology",
+      "extracted": "ellipsoid with a shallow hole in the center",
+      "article_says": "As shown in Figure S3, with low NaOH, some nanoparticles can be seen, although big micron-level sphere morphology has appeared.",
+      "fix": "la morphologie ellipsoïdale à trou central est décrite pour l'échantillon à Na+/Si = 0,1 (Fig. 2) ; à NaOH/Si = 0,05 l'article parle de nanoparticules et de grandes sphères micrométriques : corriger la morphologie de cette branche (ou la laisser vide) et mettre l'observation de Fig. S3 en résultat de NaOH_0.05",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Na2CO3_0.05, 0.1, 0.15, 0.2 : résultats morphologie et taille",
+      "extracted": "seul Na2CO3_0.05 a une morphologie (« wool shape like many lines circling the sphere ») ; aucune taille ; Na2CO3_0.1, 0.15 et 0.2 n'ont aucun résultat de morphologie (6 résultats chacune, tous issus du Tableau 2)",
+      "article_says": "all the samples exhibit the wool ball morphology with a size of about 15 μm",
+      "fix": "ajouter à Na2CO3_0.05, 0.1, 0.15 et 0.2 les résultats morphology = wool ball et crystal_size = about 15 μm (Fig. S5) ; l'annotation tendance_observee ne suffit pas, c'est un résultat par échantillon",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "NaOH_0.05…0.25 : résultats d'isothermes et de distribution de pores",
+      "extracted": "uniquement les six valeurs du Tableau 1 ; type IV / H4 et pseudo-pic à 3,8 nm seulement dans une annotation",
+      "article_says": "N2 adsorption–desorption isotherms of sorption of the related materials show type IV isotherms with an H4 hysteresis loop in Figure S4.",
+      "fix": "ajouter en résultats des cinq branches NaOH : isotherme de type IV avec boucle H4 ; « In all the pore distribution curves, no obvious mesopore is detected in NaOH-MWW except a pseudopeak at 3.8 nm » (pseudo-pic à 3,8 nm) ; et « all samples display a low external surface area compared with the pure silica MWW zeolite without the addition of Na » comme observation qualitative",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "temps d'induction par sel (résultat de NaOH_t*, Na2CO3_t*, NaHCO3_t*)",
+      "extracted": "uniquement dans une annotation « résultat de groupe, non rattaché à une seule branche »",
+      "article_says": "different nucleation, morphologies, and induction time in the order of NaHCO3 (36 h) < Na2CO3 (72 h) = NaOH (72 h) were obtained depending on the kinds of anions",
+      "fix": "le temps d'induction est une valeur par sel : ajouter induction_time = 36 h à la série NaHCO3 (par ex. branche NaHCO3_t36h ou la voie NaHCO3_HF0.75), 72 h à la série Na2CO3 et à la série NaOH (citation du résumé ou de 2.3 pour chaque)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "branches à 72 h (NaOH_t72h, NaHCO3_t72h) et branche Na2CO3 72 h absente : résultat de DRX du troisième jour",
+      "extracted": "aucun résultat de DRX à 72 h ; aucune branche Na2CO3 à 72 h",
+      "article_says": "For all the samples, crystallization almost finished accompanied by the emergence of (100), (002), (101), and (102) reflection planes with high peak intensity that appear on the third day.",
+      "fix": "ajouter ce résultat (réflexions (100), (002), (101), (102) intenses à 72 h, cristallisation presque terminée) aux branches 72 h ; créer Na2CO3_t72h (l'article la cite : « The crystallinity of the sample markedly increased with the larger particle size between 48 and 72 h » et temps d'induction 72 h) et, si possible, Na2CO3_t36h",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "échantillon NaHCO3-MWW 5 d (Fig. 4, dernière colonne) absent de l'inventaire et des voies",
+      "extracted": "la ligne d'inventaire « NaOH-MWW, Na2CO3-MWW, NaHCO3-MWW 120 h » dit que 120 h équivaut à « 5 d déjà extrait », mais NaHCO3_t5d n'existe pas (seuls NaOH_t5d et Na2CO3_t5d existent) ; Na2CO3 36 h et 72 h sont dans l'inventaire sans voie",
+      "article_says": "SEM pictures of the samples synthesized with Na salts at different crystalline time",
+      "fix": "la figure 4 (vue) montre 15 échantillons : 3 sels × 24 h, 36 h, 48 h, 72 h, 5 d. Ajouter NaHCO3 5 d à l'inventaire et créer la branche (texte d'appui : Scheme 2 « (4) a high crystalline structure with more regular morphology could be collected at the final stage of the crystallization » ; figure : cristaux hexagonaux multicouches), et corriger la raison de la ligne 120 h",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "observations de la série en temps absentes des résultats",
+      "extracted": "une seule observation par branche « t » ; manquent par ex. : NaOH 24→36 h réseau d'hydrogel ; NaOH 5 d DRX ; NaHCO3 24 h plaques épaissies entourées de particules amorphes ; NaHCO3 48 h DRX faible ; Na2CO3 5–15 μm",
+      "article_says": "The change of the PXRD patterns of the samples is not so obvious until the 5th day when the integrated peaks are seen",
+      "fix": "compléter : NaOH_t5d (pics DRX intégrés vus au 5e jour, Fig. S10a) ; NaHCO3_t24h (« the plates became thicker as time went by and were surrounded by the amorphous particles ») ; NaHCO3_t48h (« whole peaks with weak intensity were seen », Fig. S10c) ; NaOH_t24h/t36h (hydrogel : « the larger particles were further accumulated to a hydrogel network with the prolonged reaction time from 24 h to 36 h ») ; Na2CO3 (« aggregated plate sphere particles with a size of about 5–15 μm »)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "reagents SDA(OH), TEOS, HF de la voie de base : volumes",
+      "extracted": "quantités en mmol seulement (0,75 ; 1,5 ; 0,75) ; les volumes 4,5 mL, 335 μL et 33 μL sont dans la citation mais pas en valeur",
+      "article_says": "1.5 mmol (335 μL) of TEOS was added into the SDA(OH) (4.5 mL, 0.75 mmol) solution",
+      "fix": "noter au moins le volume de solution de SDA(OH) (4,5 mL, soit 0,167 M) en amount_text ou en annotation : c'est la seule donnée de concentration de l'agent structurant",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "voie de base : rapports de gel vs quantités en mmol (incohérence de l'article non signalée)",
+      "extracted": "reagents en mmol (TEOS 1,5 ; SDA(OH) 0,75 ; HF 0,75) et molar_ratio « 1.0 SiO2: 0.75 SDA(OH): … 0.75 HF » copiés sans remarque",
+      "article_says": "the desired molar ratio of 1.0 SiO2: 0.75 SDA(OH): xNaOH/Na2CO3: 0.75 HF: 5/10 H2O was achieved",
+      "fix": "1,5 mmol de TEOS pour 0,75 mmol de SDA(OH) et 0,75 mmol de HF donne SDA/Si = HF/Si = 0,5 et non 0,75 ; ajouter une annotation limite_reproductibilite : la quantité de Si ou les rapports de l'article est erronée. La branche NaHCO3_HF0.5 correspondrait en fait à la quantité de HF écrite en mmol",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "characterizations : SEM, TEM, EDS et sorption N2 des voies à sel",
+      "extracted": "seules 4 caractérisations (PXRD, TGA, N2, RMN) sur MCM22_noNa ; aucune sur les voies à sel ; SEM, TEM et EDS absents",
+      "article_says": "BET surface areas and the related data about the aperture were tested on a Micromeritics ASAP 2460 analyzer under 77 K.",
+      "fix": "ajouter SEM (Hitachi S-4800, utilisé pour les morphologies et la taille de 40 μm), TEM (Thermo Fisher Talos, 200 kV), EDS (Bruker) et rattacher la sorption N2 aux voies dont le Tableau 1–3 donne les valeurs",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "NaOH_0.05 / Na2CO3_0.05 reagent quote (quantité de sel)",
+      "extracted": "« 1 | 0.05 | 208 | 170 | 38 | 0.12 | 0.07 | 0.05 » pour amount_text « NaOH/Si = 0.05 »",
+      "article_says": "the amount of NaOH was adjusted from 0.05 to 0.25 relative the molar of Si",
+      "fix": "la rangée de tableau ne contient pas « NaOH/Si » (c'est dans l'en-tête) : citer la phrase des Résultats 2.2 ou de la légende du Tableau 1 pour la quantité de sel",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 31,
+    "branches_extracted": 28,
+    "not_stated_checked": 54,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "Supporting Information absent du dépôt : Fig. S1 à S10 et Tableaux S1 à S3 (EDS) ; la DRX de tous les produits, les isothermes et la série en temps (Fig. S10) ne sont pas lisibles",
+    "rapport H2O/Si de l'échantillon sans sel : « 5/10 H2O » sans dire lequel",
+    "quantités de chlorure d'imidazolium, de résine 717, solvant et durée de l'échange d'anions pour préparer SDA(OH) ; volume titré",
+    "incohérence des rapports de gel : 1,5 mmol de TEOS avec 0,75 mmol de SDA(OH) et 0,75 mmol de HF font 0,5 et non 0,75 comme dans « 1.0 SiO2: 0.75 SDA(OH): … 0.75 HF »",
+    "composition du gel (Na/Si, HF/Si, H2O/Si) et mode d'isolement des solides de la série en temps non décrits",
+    "durée de l'évaporation à 80 °C, récipient, et durée et température exactes de séchage (phrase de séchage dupliquée et ambiguë)",
+    "vitesse de chauffe de l'autoclave, taux de remplissage, mode statique ou rotation ; vitesse de montée de la calcination",
+    "agent structurant : 1-butyl dans le résumé contre 1-hexyl dans le texte ; unité du pic de distribution de pores (0,68 Å probablement nm)",
+    "légende de la Fig. 3 (HF/Si = 0,5 à 1,25) contredite par la légende des courbes de la figure (0,05 à 0,25)"
+  ],
+  "mechanism_check": "ok : les annotations mecanisme_auteurs suivent la section 2.4 (NaOH/Na2CO3 non classique par hydrogel, NaHCO3 classique) ; la contradiction de 2.3 (« nonclassical pathway » pour NaHCO3) est signalée dans les doutes ; mecanisme_analyse reste prudent",
+  "notes": "Les 90 valeurs des Tableaux 1 à 3 (6 colonnes × 15 échantillons) et les valeurs de la Fig. 1 ont été recomparées aux tableaux du texte : aucune erreur. Toutes les citations retrouvées dans le texte. Aucune valeur n'a été lue sur figure (aucun from_figure) ; Fig. 1d confirme BET ≈ 620 m2/g (plateau ≈ 145–150 cm3/g) et un pic de pores vers 0,65 nm (donc 0,68 Å probablement 0,68 nm). Fig. 3 : la légende des courbes (0,05 à 0,25) ne correspond pas à la légende annoncée (HF/Si = 0,5 à 1,25), erreur de l'article. method_sources B38 et B39 (« prepared according to the refs. ») correct, sans autre renvoi de méthode dans l'article. Désaccord d'interprétation sans constat : la phrase de séchage « drying in air at 80 °C to evaporate excess water and ethanol until the desired water ratio was achieved » ressemble à l'évaporation du gel ; l'extraction la place au séchage final (80 °C cité), choix défendable et déjà en doute."
+}

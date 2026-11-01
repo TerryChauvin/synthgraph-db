@@ -1,0 +1,18 @@
+# Journal d'extraction PMC8717625
+
+- Article de spectroscopie (énergie de liaison du biexciton) : la synthèse n'est que le support. Les protocoles sont dans Methods et dans l'annexe S2 (présente dans le fichier texte) ; pas de rejet, car recette complète (quantités, températures, temps) pour CsPbBr3 et CsPbI3.
+- Découpage en 5 voies indépendantes, sans branche : aucune condition de synthèse n'est comparée. CsPbBr3 et CsPbI3 sont deux matériaux préparés indépendamment, donc deux voies de base ; seule CsPbBr3 est marquée `is_baseline` (voie de référence du premier matériau décrit).
+- Le Cs-oleate (annexe S2, « Cs-Oleate Preparation ») est un intermédiaire réutilisé par les deux synthèses : voie `intermediate`, avec ses quantités (101.7 mg, 312.5 µL, 5 mL) ; les deux voies matériau le référencent par un réactif de rôle `intermediate`.
+- Traitement NH4BF4 : voie `post_treatment` `CsPbBr3_NH4BF4` (étapes de l'annexe : solution saturée, puis 30 min d'agitation avec les nanocristaux). Les résultats (taille 5.9 nm, εb, durées de vie) y sont rangés car l'article décrit le traitement comme la dernière étape de préparation des CsPbBr3 NCs ; la voie CsPbBr3 n'a donc pas de résultat propre (doute écrit).
+- Contradiction texte principal / annexe : PbI2 87 mg contre 86.7 mg, TOPO 1.5 mg contre 1.47 mg, oléylamine « dry » contre « anhydrous ». J'ai suivi l'annexe (plus détaillée), valeurs du texte principal citées dans un doute.
+- Contradiction 25 mL (texte principal) contre 0.25 mL (annexe) de nanocristaux traités par 1 mL de NH4BF4 saturé : annexe retenue, doute écrit (25 mL pourrait être juste).
+- Étape de centrifugation du CsPbBr3 : vitesse et durée prises dans l'annexe (« centrifuged at 6000 rpm for 5 min ») ; la citation « the particles were re- dispersed » est coupée par un tableau (Table S1) dans le fichier texte, donc la redispersion est citée par la phrase du texte principal.
+- Température après injection du Cs-oleate : jamais écrite (palier à 180 ou 280 °C avant l'injection) ; déclarée `not_stated` sur les étapes `inject` et `react`, sans la déduire. L'argon est repris pour le palier à 180 °C parce que la même phrase (« under an Ar atmosphere, ... were injected ... and the temperature was raised to 180 °C ») le couvre ; à contester si le critique préfère `not_stated`.
+- Fournisseur « Sigma- Aldrich » (retour à la ligne du PDF) copié tel quel pour l'oléylamine et NH4BF4, car le contrôle exige la valeur dans la citation ; doute écrit.
+- PbI2 : le texte de l'annexe écrit « Aldrich » seul (et non Sigma-Aldrich) ; fournisseur enregistré « Aldrich ».
+- Durée de vie du biexciton de CsPbBr3 : « 234±44 ns » (annexe S5), très probablement « ps » ; valeur laissée en `value_text` avec l'unité telle qu'écrite, sans conversion, doute écrit.
+- Figures : Fig. 3 et 4 ouvertes ; coefficients de corrélation et valeurs p lus dans les encadrés (from_figure, 8 valeurs). Fig. 1c, 3a, 4a ouvertes pour contrôle : leurs valeurs sont déjà dans le texte, rien lu en plus. Les nuages de points individuels ne sont pas relevés (illisibles au-delà de 1 chiffre).
+- Population de 15.4 ± 3.3 nm de CsPbI3 : même lot, pas de voie ; inventaire avec `route: null` et raison.
+- Film de PMMA (spin coating) : voie `device` pour garder le protocole d'isolement des nanocristaux ; paramètres du dépôt (vitesse, durée, volume) déclarés non cités.
+- Méthodes de mesure (heralded spectroscopy, Eclipse Ti-U, laser 470 nm) rangées en `characterizations` des deux voies matériau ; le ref16 est ajouté aux `method_sources` pour le protocole de mesure, pas g(2) (formule d'analyse, exclue).
+- Plages d'énergie « meV » de l'annexe S4 (probablement eV) : recopiées avec « sic », non extraites en valeurs.

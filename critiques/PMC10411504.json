@@ -1,0 +1,106 @@
+{
+ "pmcid": "PMC10411504",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "method_sources : renvoi ref59 absent (préparation préliminaire « acid-to-alkoxide », branche acid-to-alkoxide_preliminary)",
+   "extracted": "method_sources ne contient que ref50, ref51, ref53",
+   "article_says": "Preliminary efforts followed a commonly reported route wherein H2SO4 is added to the metal alkoxide (‘acid-to-alkoxide’).",
+   "fix": "ajouter method_sources {route: acid-to-alkoxide_preliminary, ref_id: ref59, role: autre} avec cette citation (l'ordre d'addition inverse est la méthode « commonly reported » de ref59, Oh et al., Green Chem. 2011)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "faux",
+   "where": "method_sources ref50 et ref51 (FTIR de la pyridine adsorbée)",
+   "extracted": "ref50 et ref51 déclarés sources de méthode (rôle « autre ») avec la phrase sur les coefficients d'extinction molaires",
+   "article_says": "Following baseline correction, the relevant peaks were integrated and normalized using corresponding molar extinction coefficients, ε(Py-H+) or ε(Py-L).",
+   "fix": "retirer ref50 (Emeis, coefficients d'extinction) et ref51 (Gallo et al.) : ce sont des constantes d'analyse de données, pas une préparation ni un protocole à refaire (règle du 2026-10-13 : formules et constantes d'analyse exclues). Garder ref53 (protocole de mesure de T1)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "0.5-SZ-625_regenerated, résultats recycling_use_1st_* et recycling_use_2nd_* (Tableau S7) et trial*_use_1st_* (Tableau S8)",
+   "extracted": "1re utilisation (catalyseur frais) et 2e utilisation (catalyseur usé, non régénéré) rangées dans la voie post_treatment « regenerated »",
+   "article_says": "After reaction and separation, the spent SZ was used again without additional treatment.",
+   "fix": "la régénération (500 °C, 5 h, air) ne précède que les utilisations 3 à 7 (note c du Tableau S7 sur 3rd–7th ; accolade « With Regeneration » de la Fig. 11c) : ranger les résultats de 1re utilisation (frais) sur 0.5-SZ-625 et ceux de 2e utilisation (usé, sans traitement) avec une mention explicite, ou à défaut conserver l'attribution mais le dire dans la propriété ; le doute existant ne couvre que la 2e utilisation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "0.5-SZ-Uncalcined, étapes 4 (séchage 120 °C overnight) et 5 (broyage)",
+   "extracted": "étapes 1 à 5 de la voie de base reprises pour le précatalyseur non calciné, avec leurs citations de la voie de base",
+   "article_says": "TGA analysis was conducted on an uncalcined pre-catalyst sample to simulate thermal activation in synthesis (Figure S11).",
+   "fix": "l'article ne dit pas que l'échantillon non calciné a été séché à 120 °C ni broyé (le doute le reconnaît « par hypothèse ») : ne garder que ce qui est écrit (précurseur, hydrolyse, agitation 4 h) ou marquer les étapes 4 et 5 comme non attribuées par l'article ; la perte d'eau centrée à 120 °C en TGA rend même le séchage douteux",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "0.5-SZ-625, caractérisation « quantitative 13C NMR (reaction analysis) », délai de relaxation avec GdCl3",
+   "extracted": "« 60 s recycle delay ... 10 mM GdCl3 relaxation agent for complete-conversion samples » sans le délai utilisé avec GdCl3",
+   "article_says": "of 8 s was ultimately used in analyses employing GdCl3 to further improve confidence in",
+   "fix": "ajouter aux conditions : délai de relaxation de 8 s pour les échantillons avec GdCl3 (légende de la Fig. S1 de l'annexe, phrase « A relaxation delay of 8 s was ultimately used in analyses employing GdCl3 ») ; le texte principal ajoute « enabling a 7.5× reduction in analysis time »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "0.5-SZ-625 outcome homogeneous_H2SO4_control_without_SZ_conversion (essais témoins Fig. S12)",
+   "extracted": "« no conversion was detected » seul, sans les conditions des essais ni le résultat avec SZ",
+   "article_says": "the SZ control reaction (Figure S12c) achieved remarkably comparable conversion and selectivity when both catalysts were present (Figure S12d)",
+   "fix": "ajouter les conditions de la légende S12 (0,1 et 1 mol % S sous forme de H2SO4 aq., 170 µL, 91 mg de sorbitol, 150 °C, 5 min, sans SZ ; avec 25 mg de 0.5-SZ-625 et 170 µL d'eau ou de H2SO4 aq. 1 mol % S) et le résultat qualitatif du témoin SZ + H2SO4 comparable au témoin SZ + eau ; les spectres chiffrés de la Fig. S12 ne sont pas dans le dépôt",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Isolement de l'isosorbide (voie ou étapes absentes), conditions de cristallisation",
+   "extracted": "seuls les résultats 67 % isolé et 96 % de récupération (outcomes de 0.5-SZ-625) ; ni la séquence d'extraction ni la cristallisation",
+   "article_says": "Storage of the isosorbide-CHCl3 solution at −25 °C resulted in deposition of colorless crystalline needles after 72 h.",
+   "fix": "décision de périmètre de l'orchestrateur : si l'isolement du produit est gardé, ajouter une voie de séparation (CHCl3 10 mL × 3 sur le résidu sec d'une réaction à 160 °C, 2 h, 25 mg 0.5-SZ-625, 91 mg de sorbitol ; décantation, filtration ; −25 °C, 72 h) ; sinon l'écrire dans le doute existant (le doute actuel ne cite pas la cristallisation)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "0.25-SZ-525 outcome log_TOF_isosorbide (Fig. 10)",
+   "extracted": "quatre carrés groupés « non attribuables avec certitude » : aucun extrait",
+   "article_says": "Figure 10 Logarithm-normalized isosorbide turnover frequencies (TOF) and Brønsted acid densities of SZ catalysts.",
+   "fix": "un carré est attribuable : à x = 0,76 nm–2 (Tableau S6 : 0.25-SZ-525 = 0,76 ; 0.5-SZ-425 = 0,76 est le cercle vert « 425 »), le carré violet voisin du cercle 425 est à log TOF ≈ 1,12 (lecture ± 0,03) ; ajouter from_figure Fig. 10. Les trois autres carrés (x = 0,84 ; 0,85 ; 0,86 pour 0.25-SZ-625, 0.1-SZ-525, 0.1-SZ-625 ; y ≈ 1,17 ; 1,21 ; 1,29) ne se distinguent pas assez en x pour être attribués",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fig. 10, paramètres d'ajustement non extraits (voie 0.5-SZ-625)",
+   "extracted": "aucune valeur de l'ajustement quadratique ; maximum à 2,25 nm–2 seulement dans une annotation",
+   "article_says": "Second-order polynomial of the form y = Ax2 + Bx + C used for data fitting; A = 1.44, B = −0.322, C = 0, n = 11.",
+   "fix": "ajouter en outcome (sur 0.5-SZ-625 ou comme note) l'ajustement et son incohérence interne : la légende donne A = 1,44 (terme en x²) et B = −0,322, alors que l'équation imprimée sur la figure est y = 1,44x − 0,332x² (R² = 0,9894) ; le texte place le maximum à ∼2,25 nm–2",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "0.5-SZ-625, rendement en isosorbide à 150 °C, 2 h : Tableau S1 contre Tableau S3",
+   "extracted": "74 % (Tableau S1) et 76 % (Tableau S3, 2 h, 150 °C) rangés sans commentaire dans la même voie",
+   "article_says": "Reaction conditions: 150 °C, 2 h, 25 mg catalyst, 91 mg (0.5 mmol) sorbitol.",
+   "fix": "ajouter une annotation limite_reproductibilite : deux expériences indépendantes (« each data point in time-resolved experiments corresponds to an independent experiment ») donnent 74 % (Tableau S1, Fig. 1) et 76 % (Tableau S3 ; résumé de l'article « isosorbide in 76% yield »), soit un écart de 2 points entre répétitions apparentes",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 19,
+  "branches_extracted": 19,
+  "not_stated_checked": 9,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantité (masse ou volume) de n-propoxyde de zirconium : l'article ne donne que la solution à 70 % puis la dilution à 12,5 % en masse, ni volume de n-propanol",
+  "volume et concentration exacte de H2SO4 pour chaque S/Zr : seule la plage 0,1–2,0 M est écrite, sans correspondance avec x ; la Fig. S2 (schéma de synthèse) n'est pas dans le dépôt",
+  "vitesse d'agitation chiffrée, température du mélange, vitesse d'addition (« dropwise »), maintien ou non de Ar pendant l'ajout",
+  "calcination : vitesse de montée, type de four, masse calcinée ; la parenthèse « (50 sccm/4 h) » est ambiguë (débit et durée, ou débit seul)",
+  "rendement et masse de catalyseur obtenus ; conditions de stockage (« stored in air ») avant essai",
+  "atmosphère et four du séchage de 120 °C ; durée « overnight »",
+  "recyclage : volume de MeOH de trempe et de lavage, agitation, montée en température et débit d'air de la régénération",
+  "2.0-SZ : « handling difficulty », aucune caractérisation hormis Tableau S1 ; 2.0-SZ-425/525 sans surface ni acidité",
+  "74 % (Tableau S1) contre 76 % (Tableau S3) pour 0.5-SZ-625 à 150 °C, 2 h ; NS : 74 m²/g (Tableau 2) contre 75 m²/g (Tableau S4)",
+  "unité des constantes de vitesse du Tableau 1 (s–1 écrit, h–1 plausible vu la Fig. 5)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (hydrolyse de l'alcoxyde en Zr(OH)4 puis polycondensation Zr–O–Zr, acide à la fois catalyseur et agent de sulfatation) est soutenu par « The sol–gel synthesis used herein involves the hydrolysis of a Zr alkoxide with aqueous sulfuric acid ... »; le mécanisme de désactivation par dépôt organique est soutenu par la TGA/DRIFTS/XPS ; mecanisme_analyse est bien présenté comme hypothèse. Dangers signalés (propoxyde inflammable, SO2 à la calcination, CHCl3, pyridine, NH3)",
+ "notes": "Valeurs numériques vérifiées sans écart : Tableaux S1, S2, S3 (toutes les rangées 140, 150, 160, 170 °C), S4, S5, S6, S7, S8, Tableaux 1 à 4 ; densités de Brønsted recalculées (274 µmol/g × NA / 81 m²/g = 2,04 nm–2 ; 396 µmol/g, 56 m²/g = 4,26). Valeurs lues sur figures vérifiées : Fig. 3 (5, 15, 33 / 2, 12, 35 % ; conversions ≈ 74, 100 / 50, 88 %), Fig. 9 (3,4 ; 3,6 ; 4,1 ; 22,4 %), Fig. 10 (log TOF 0,43 ; 0,98 ; 0,48 ; 0,80 : tous à moins de 0,03) ; aucun écart supérieur à 10 %. Non-constats écartés : essais en température 140–170 °C et tests de recyclage rangés en outcomes (règle RUNBOOK sur les tests du matériau fini) ; zéolites, ZrO2 commercial et blanc non extraits comme voies (non synthétisés, dans sample_inventory) ; ref52 (« as described elsewhere » pour la fraction tétragonale) non retenue comme source de méthode car c'est une méthode d'analyse de données ; le doute sur l'unité s–1 est déjà bien traité. Cosmétique : pour pore_size_distribution_majority le value_text contient déjà « nm » et l'unité « nm » est répétée. Fragile : Fig. 10 (lecture de points groupés) et attribution des lignes 1re–2e utilisation du Tableau S7."
+}

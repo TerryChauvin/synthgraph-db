@@ -1,0 +1,18 @@
+# Journal d'extraction PMC5869654
+
+- Découpage : six voies. GO (Hummers modifiée), Ag NPs (Turkevich modifiée) et GO-SH (intermédiaire) sont trois voies de base indépendantes ; GO-Ag 0.2 M est la voie de base du nanocomposite, GO-Ag 0.1 M et GO-Ag 0.25 M en sont les branches. Le graphite commercial n'a pas de voie (sample_inventory, raison donnée).
+- Voie de base de la série GO-Ag : 0.2 M plutôt que 0.1 M (premier cité). Raison : c'est l'échantillon que l'article caractérise le plus (XPS Tableau 1, Raman, TEM Fig. 2g, UV) et celui de la conclusion. La phrase des Méthodes est « 0.1, 0.2, and 0.25 M of 2 mL AgNO3 ... respectively » ; la variation porte sur le paramètre `concentration` de l'étape 2 (AgNO3), volume fixé à 2 mL.
+- GO-SH est une voie `intermediate` ; GO et GO-SH entrent comme réactifs de rôle `intermediate` dans GO-SH et dans GO-Ag (pureté et fournisseur non demandés par la grille).
+- Héritage : les deux branches suivent la même phrase des Méthodes que la voie de base (une seule description, une série de concentrations) ; pas d'étape propre.
+- Le test antibactérien n'est pas une voie : il porte sur le matériau fini, d'où des résultats `inhibition_<bactérie>_<concentration>` dans chaque voie. Les conditions du test (PBS, plaques, densité optique à 600 nm) sont citées dans l'annotation de limite.
+- Résultats de 10 ppm : GO-Ag 0.1 M (0.82 % et 1.69 %) et GO-Ag 0.2 M (5.79 % et 7.82 %) sont dans deux phrases distinctes du texte, attribués par le nom de l'échantillon. Le GO « almost no inhibition » reste en texte (pas de chiffre écrit, la Fig. 7 donne un peu moins de 1 % pour P.A. mais n'est pas lue).
+- Résultats de 20 ppm : la phrase « GO–SH ... (10.8%), which was lower than the 0.1 M GO-Ag (16.7%) and 0.2 M GO-Ag (48.77%), respectively » attribue 16.7 à 0.1 M et 48.77 à 0.2 M par l'ordre de la phrase (vérifié aussi sur la Fig. 8 d'après le texte et le résumé : ~49 % pour 0.2 M).
+- Figure lue : Fig. 9b, GO-Ag 0.1 M à 100 ppm sur S. aureus ≈ 38 % (précision ± 2 points), absent du texte. Fig. 7 et Fig. 2 ouvertes : valeurs déjà dans le texte (ou histogrammes de taille donnés en nm dans le texte, 19 nm et 1.24 nm).
+- Teneur en Ag : deux mesures, EDX (Tableau 2, 32.4/44.3/62.0) et TGA (31/43/65 %). Le texte dit « weight percentage » alors que la légende du Tableau 2 dit « at % » : conflit signalé en doute, les rangées du tableau sont citées (unité « % »). Propriétés nommées avec la méthode.
+- Taille des feuillets de GO après fixation d'Ag (324 ± 20 nm, résumé 327 nm) : échantillon non précisé, donc pas d'outcome sur une voie ; annotation `tendance_observee` d'article et doute.
+- Potentiel zêta du GO : « 28.2 to 30.3 mV » écrit positif alors que le texte parle de charge négative ; valeur gardée en `value_text` telle quelle, doute posé, rien corrigé.
+- Raman : le texte intervertit les bandes G (1348) et D (1583) pour GO ; seules les valeurs ID/IG (0.28, 0.86, 1.07) sont extraites, les positions de bandes de GO ne le sont pas.
+- AgNO3 de la voie Ag NPs : quantité écrite sous forme de concentration (1 mM) avec 60 mL d'eau ; amount = 1 mM (doute).
+- KMnO4 de la voie GO : 2.4 g pour la première portion, total « 5 equivalent weights » sans base de calcul ; seule la première portion est extraite (doute).
+- Annexes : aucune section Supporting Information dans le fichier, et l'article n'en cite pas ; rien d'absent à signaler. Pas de renvoi à un tableau d'annexe.
+- Références méthode : B50 (Hummers), B51 (Turkevich), B34 (méthode GO-Ag « slightly modified », rattachée à GO-SH et à GO-Ag 0.2 M). La formule d'inhibition (B53) est une équation d'analyse de données : écartée.

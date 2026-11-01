@@ -1,0 +1,659 @@
+{
+ "pmcid": "PMC5887100",
+ "routes": [
+  {
+   "label": "ACD-HATU",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de HATU",
+     "inputs": "0,5 mmol ; M(HATU, C10H15F6N6OP) = 380,23 g/mol",
+     "formula": "n × M",
+     "result": "190 mg",
+     "compared_to": "aucune masse donnée par l'article",
+     "source": "fiche fournisseur HATU (Sigma-Aldrich 445460, ChemPep)"
+    },
+    {
+     "what": "concentration de HATU",
+     "inputs": "0,5 mmol dans 30 mL de toluène",
+     "formula": "n / V",
+     "result": "16,7 mmol/L (6,3 g/L)",
+     "compared_to": "HATU : sel soluble dans les solvants polaires aprotiques (DMF, NMP, DCM, MeCN) ; le toluène n'est pas listé",
+     "source": "fiche fournisseur HATU (ChemPep)"
+    },
+    {
+     "what": "taux de remplissage du flacon",
+     "inputs": "30 mL de solvant ; flacon Teflon de 50 mL",
+     "formula": "30 / 50",
+     "result": "60 % à froid ; ≈ 70 % à 150 °C si l'on applique une dilatation de l'ordre de 15 % au toluène (estimation, densité 0,867 g/mL à 20 °C, de mémoire)",
+     "compared_to": "règle usuelle ≤ 70–80 %",
+     "source": "valeurs de l'article ; dilatation estimée, non sourcée"
+    },
+    {
+     "what": "pression de vapeur du toluène à 150 °C",
+     "inputs": "Antoine NIST (Ambrose et al. 1967, 420–580 K) : A = 4,54436 ; B = 1738,123 ; C = 0,394 ; T = 423,15 K",
+     "formula": "log10 P(bar) = A − B/(T + C)",
+     "result": "P ≈ 2,76 bar",
+     "compared_to": "Éb. du toluène 383,8 K (110,7 °C) : 150 °C impose un récipient fermé, ce qui est le cas",
+     "source": "NIST Chemistry WebBook, toluène"
+    },
+    {
+     "what": "énergie de décomposition du HATU dans la charge",
+     "inputs": "190 mg ; ΔH_d ≈ −1131 J/g (DSC, début 161 °C) ; 30 mL toluène ≈ 26 g, Cp ≈ 1,70 J g−1 K−1 (valeur de manuel, de mémoire)",
+     "formula": "Q = m × |ΔH_d| ; ΔT_ad = Q / (m_tol × Cp)",
+     "result": "Q ≈ 215 J ; ΔT adiabatique ≈ 5 K",
+     "compared_to": "sans danger thermique à cette échelle, mais à surveiller si l'on augmente la charge (et HATU sec chauffé)",
+     "source": "Sperry et al. 2018 (valeurs HATU)"
+    },
+    {
+     "what": "carbone apporté et masse maximale de cœur carboné",
+     "inputs": "HATU : 10 C ; 0,5 mmol",
+     "formula": "n(C) = 10 × 0,5 ; m(C) = 5 mmol × 12,011",
+     "result": "5 mmol C, ≤ 60 mg de carbone (31,6 % de la masse de HATU)",
+     "compared_to": "aucun rendement donné par l'article",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "distance de frange contre graphite (100)",
+     "inputs": "a(graphite) = 0,2464 nm",
+     "formula": "d100 = a × √3 / 2",
+     "result": "0,213 nm",
+     "compared_to": "0,21 nm annoncé : cohérent",
+     "source": "paramètre de maille du graphite, valeur de manuel"
+    },
+    {
+     "what": "décalage de Stokes du non dopé",
+     "inputs": "excitation maximale 410 nm ; émission 470 nm (toluène)",
+     "formula": "470 − 410",
+     "result": "≈ 60 nm",
+     "compared_to": "≈ 100 nm pour le dopé Al (« larger Stokes shift ») : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "décalage de charge en XPS",
+     "inputs": "C 1s C–C annoncé 285,7 eV (référence usuelle 284,8 eV) ; F 1s annoncé ≈ 691 eV ; F 1s de PF6− ≈ 686,7 eV",
+     "formula": "285,7 − 284,8 ; 691 − 686,7",
+     "result": "+0,9 eV sur C 1s, +4,3 eV sur F 1s",
+     "compared_to": "un décalage de charge uniforme donnerait le même écart : échelle non calibrée ou attribution douteuse",
+     "source": "PMC7027538 (F 1s de PF6−) ; valeurs de l'article"
+    },
+    {
+     "what": "rapport P:F et intégrité du PF6−",
+     "inputs": "EDS P:F = 1:6",
+     "formula": "comparaison à PF6−",
+     "result": "1:6 = PF6− intact",
+     "compared_to": "un PF6− intact indique un sel non transformé (HATU résiduel ou sel de fragment cationique) présent dans l'échantillon analysé",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "150 °C dans un flacon Teflon fermé en autoclave d'acier : toluène à ≈ 2,8 bar (voir « pression de vapeur du toluène à 150 °C »), remplissage 60 %. Acceptable pour un autoclave standard.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Toluene — Phase change data (Antoine, Ambrose et al. 1967, 420–580 K ; T fus 178,1 K ; T boil 383,8 K)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C108883&Mask=4"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le HATU a un début de décomposition exothermique à ≈ 161 °C en DSC (−1131 J/g) et figure parmi les réactifs de couplage signalés comme potentiellement explosifs / sensibles au choc. Un palier de 8 h à 150 °C, juste sous le début DSC (mesuré en rampe), suffit à le décomposer : c'est vraisemblablement la vraie réaction de la synthèse. À l'échelle décrite l'exotherme est faible (ΔT ≈ 5 K, voir « énergie de décomposition »), mais il ne faut pas chauffer de HATU solide ni augmenter la charge sans évaluation.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermal Stability Assessment of Peptide Coupling Reagents Commonly Used in Pharmaceutical Manufacturing",
+      "authors_or_publisher": "Sperry J. B. et al., Org. Process Res. Dev. (ACS) ; valeurs HATU lues sur la présentation de J. B. Sperry « Inherently Safer Process Design », Purdue P2SAC 2018 (https://engineering.purdue.edu/P2SAC/presentations/documents/InherentlySaferProcessDesign-Sperry.pdf)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.oprd.8b00193"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le HATU est un sel (cation uronium + PF6−) soluble dans DMF, NMP, DCM, acétonitrile ; le toluène n'est pas un de ses solvants usuels. À 16,7 mmol/L (voir « concentration de HATU ») le mélange initial est probablement une suspension, et la réaction est hétérogène ; l'article parle de précurseurs « dissolved in toluene » sans le montrer. La séparation finale « yellowish solution / dark brown oily precipitate » va dans ce sens.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "HATU — fiche produit (M = 380,2 g/mol ; soluble DMF, NMP, DCM, acétonitrile ; insoluble dans l'eau ; se décompose au-dessus de 140 °C)",
+      "authors_or_publisher": "ChemPep (fiche fournisseur) ; Sigma-Aldrich 445460 : F 183–185 °C",
+      "year": "consulté 2026",
+      "url_or_doi": "https://chempep.com/product/hatu"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Aucune purification (ni dialyse, ni chromatographie, ni exclusion de taille) : toutes les mesures optiques portent sur la « mother liquid ». Dans une synthèse bottom-up à 150 °C, l'émission et le QY peuvent venir de fluorophores moléculaires ou oligomères (fragments azotés hétéroaromatiques du HATU) et non des points ; le rapport P:F 1:6 montre en plus qu'un sel PF6− non transformé reste dans l'échantillon. Le témoin « HATU non émissif » (Fig. S2) n'exclut pas des produits de décomposition émissifs. Le QY de 29 % ne peut pas être attribué aux points sans fractionnement.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al., Chem. Mater. (ACS)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Méthode du QY de 29 % non dite : les Méthodes décrivent une mesure absolue en sphère d'intégration avec une « film absorptance » α (formule pour un film) et une mesure relative ; les autres solvants sont en relatif contre le sulfate de quinine. « Up to 29 % » ne dit ni l'excitation ni le lot. Le sulfate de quinine n'absorbe pratiquement plus au-delà de ≈ 400 nm, alors que l'excitation optimale annoncée est 410 nm : la référence n'est utilisable qu'à une excitation ≤ ≈ 365 nm, non précisée. Le rendement relatif de 20 % (MeCN) et l'absolu de 29 % (toluène) ne sont pas comparables entre eux.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M., Pure Appl. Chem. (IUPAC)",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS non calibré : C 1s C–C à 285,7 eV et F 1s à ≈ 691 eV donnent des écarts de +0,9 et +4,3 eV aux valeurs attendues (voir « décalage de charge en XPS ») ; l'attribution « 288,2 eV = C–O » et « 534,0 eV = C–O–C » est décalée vers le haut (288 eV correspond plutôt à C=O / N–C=O). Le P n'est pas cité en XPS alors que l'EDS le voit à P:F 1:6.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Temperature-Dependent Surface Enrichment Effects in Binary Mixtures of Fluorinated and Non-Fluorinated Ionic Liquids (F 1s de [PF6]− à 686,6–686,7 eV)",
+      "authors_or_publisher": "Chemistry – A European Journal (Wiley), article en accès libre PMC7027538",
+      "year": "2020",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7027538"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Franges de 0,21 nm compatibles avec graphite (100) (voir « distance de frange contre graphite (100) ») ; ce critère est peu discriminant (beaucoup de phases ont une distance voisine) et une cristallinité graphitique à 150 °C en 8 h est inhabituellement douce pour une carbonisation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Raman de « ACDs in aqueous droplets » (légende Fig. 2b « in water ») pour des points synthétisés dans le toluène : la fraction analysée n'est pas celle des mesures optiques. Avec une émission vers 470–530 nm, l'excitation à 532 nm donne un fond de fluorescence important. La bande à ≈ 1080 cm−1 « C–N » normalisée sur D et G mesure un rapport surface / cœur et non une rigidité ; elle ne discrimine pas l'hypothèse des auteurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A. C., Robertson J., Phys. Rev. B",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : HATU potentiellement explosif / sensibilisant ; PF6− s'hydrolyse en milieu acide ou à chaud en libérant HF (traces d'eau, HOAt acide formé par la décomposition) ; ouvrir l'autoclave froid sous hotte. Toluène inflammable, pression ≈ 2,8 bar.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrolysis of Tetrafluoroborate and Hexafluorophosphate Counter Ions in Imidazolium-Based Ionic Liquids",
+      "authors_or_publisher": "Freire M. G. et al., J. Phys. Chem. A 114(11) 3744-3749",
+      "year": "2010",
+      "url_or_doi": "10.1021/jp903292n"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Purification et rendement non donnés ; centrifugation sans vitesse ni durée ; on ne sait pas quelle fraction (solution jaune ou huile brune) contient les points de la Fig. 3 et du QY : la solution, d'après « mother liquids » en TEM. À vérifier avant de refaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 150 °C pendant 8 h, juste sous le début DSC du HATU (≈ 161 °C), le cation uronium se décompose lentement (rupture N–O, libération de HOAt/7-azabenzotriazole et de tétraméthylurée ou de fragments guanidinium) ; les fragments azotés hétéroaromatiques condensent en oligomères conjugués et éventuellement en petits domaines carbonés, PF6− restant en contre-ion (P:F 1:6). L'émission bleue à 470 nm et une part du QY viennent probablement d'espèces moléculaires ou oligomères azotées autant que de cœurs sp2 ; l'écart de QY avec DIPA, BTEAC et BI s'explique plus simplement par la réactivité (seul le HATU se décompose à 150 °C) que par la rigidité moléculaire. Le mécanisme d'amélioration par la rigidité (auteurs) n'est pas démontré : l'angle dièdre DFT et la bande Raman à 1080 cm−1 ne le discriminent pas.",
+    "sources": [
+     {
+      "title": "Thermal Stability Assessment of Peptide Coupling Reagents Commonly Used in Pharmaceutical Manufacturing",
+      "authors_or_publisher": "Sperry J. B. et al., Org. Process Res. Dev. (ACS) ; valeurs HATU lues sur la présentation de J. B. Sperry « Inherently Safer Process Design », Purdue P2SAC 2018 (https://engineering.purdue.edu/P2SAC/presentations/documents/InherentlySaferProcessDesign-Sperry.pdf)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.oprd.8b00193"
+     },
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al., Chem. Mater. (ACS)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     },
+     {
+      "title": "Pyrolysis and Solvothermal Synthesis for Carbon Dots: Role of Purification and Molecular Fluorophores",
+      "authors_or_publisher": "Otten M., Hildebrandt M., Kühnemuth R., Karg M., Langmuir 38(19) 6148-6157",
+      "year": "2022",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/35502848"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "solubilité réelle du HATU dans le toluène à 16,7 mmol/L (suspension probable)",
+    "quelle fraction (solution jaune ou huile brune) porte l'émission ; vitesse et durée de centrifugation",
+    "purifier (dialyse ou chromatographie d'exclusion) avant de mesurer le QY, et comparer avec les produits de décomposition du HATU seuls",
+    "méthode du QY (absolue en sphère, excitation) ; référence relative adaptée à l'excitation (sulfate de quinine ≤ 365 nm)",
+    "sécurité : HATU énergétique (début DSC ≈ 161 °C), HF possible, autoclave refroidi avant ouverture"
+   ]
+  },
+  {
+   "label": "ACD-HATU_water",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "taux de remplissage et pression",
+     "inputs": "30 mL d'eau dans 50 mL ; 150 °C",
+     "formula": "30/50 ; pression de vapeur de l'eau à 150 °C",
+     "result": "60 % ; ≈ 4,8 bar (tables de vapeur, valeur de manuel de mémoire)",
+     "compared_to": "autoclave standard : acceptable",
+     "source": "valeurs de l'article ; tables de vapeur (NIST, non relu en ligne)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Le HATU est donné « insoluble dans l'eau » par les fournisseurs ; à 150 °C il s'hydrolyse (uronium → tétraméthylurée + HOAt). La « synthèse » dans l'eau est donc surtout une hydrolyse, chimiquement différente de la voie toluène.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "HATU — fiche produit (M = 380,2 g/mol ; soluble DMF, NMP, DCM, acétonitrile ; insoluble dans l'eau ; se décompose au-dessus de 140 °C)",
+      "authors_or_publisher": "ChemPep (fiche fournisseur) ; Sigma-Aldrich 445460 : F 183–185 °C",
+      "year": "consulté 2026",
+      "url_or_doi": "https://chempep.com/product/hatu"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "L'hydrolyse produit HOAt (acide faible) : le milieu s'acidifie, ce qui favorise l'hydrolyse de PF6− en HF et fluorophosphates à 150 °C. Non signalé par l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrolysis of Tetrafluoroborate and Hexafluorophosphate Counter Ions in Imidazolium-Based Ionic Liquids",
+      "authors_or_publisher": "Freire M. G. et al., J. Phys. Chem. A 114(11) 3744-3749",
+      "year": "2010",
+      "url_or_doi": "10.1021/jp903292n"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "QY relatif ≈ 7 % contre sulfate de quinine pour une émission à 510 nm ; excitation non précisée (voir voie de base). Comparable seulement qualitativement au 29 % du toluène.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M., Pure Appl. Chem. (IUPAC)",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "pH final et fluorure libre dans la solution aqueuse",
+    "excitation utilisée pour le QY relatif"
+   ]
+  },
+  {
+   "label": "ACD-HATU_ethanol",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport solvant / point d'ébullition",
+     "inputs": "éthanol, Éb. 78 °C ; 150 °C",
+     "formula": "150 − 78",
+     "result": "72 K au-dessus de l'ébullition : récipient fermé obligatoire, pression de l'ordre de 10 bar (ordre de grandeur, non recalculé avec une source)",
+     "compared_to": "autoclave acier : acceptable",
+     "source": "point d'ébullition de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Éthanol à 150 °C : pression nettement plus haute que le toluène (ordre de 10 bar) ; remplissage 60 % acceptable mais à respecter. L'éthanol peut réagir avec le cation uronium (alcoolyse) : chimie différente de la voie toluène.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "QY relatif ≈ 2 % (quinine), émission 475 nm ; aucune donnée de taille hors Fig. S4 (« ACD-HATU in ethanol as an example »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "pression de service de l'autoclave avec l'éthanol"
+   ]
+  },
+  {
+   "label": "ACD-HATU_acetonitrile",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport solvant / point d'ébullition",
+     "inputs": "acétonitrile, Éb. 82 °C ; 150 °C",
+     "formula": "150 − 82",
+     "result": "68 K au-dessus de l'ébullition ; pression de quelques bar (ordre de grandeur)",
+     "compared_to": "autoclave : acceptable",
+     "source": "point d'ébullition de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "L'acétonitrile dissout bien le HATU (fiche fournisseur) : réaction homogène, contrairement au toluène ; le QY relatif ≈ 20 % (quinine) n'est pas comparable à l'absolu de 29 % (toluène).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "HATU — fiche produit (M = 380,2 g/mol ; soluble DMF, NMP, DCM, acétonitrile ; insoluble dans l'eau ; se décompose au-dessus de 140 °C)",
+      "authors_or_publisher": "ChemPep (fiche fournisseur) ; Sigma-Aldrich 445460 : F 183–185 °C",
+      "year": "consulté 2026",
+      "url_or_doi": "https://chempep.com/product/hatu"
+     }
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "méthode et excitation du QY"
+   ]
+  },
+  {
+   "label": "ACD-HATU_DMF",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport solvant / point d'ébullition",
+     "inputs": "DMF, Éb. 153 °C ; 150 °C",
+     "formula": "150 − 153",
+     "result": "sous l'ébullition : pression ≈ 1 bar",
+     "compared_to": "—",
+     "source": "point d'ébullition de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction de l'article : un paragraphe donne les points obtenus dans DMF, eau et acétonitrile comme agrégés, le suivant donne le DMF « well-dispersed » et la pyridine agrégée. L'état de dispersion dans le DMF, et donc l'explication du faible QY (≈ 2 %) par l'ACQ, ne peuvent pas être retenus.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "DMF reprotoxique ; à 150 °C en présence d'un sel acide il se décompose partiellement en diméthylamine et CO.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "état d'agrégation réel dans le DMF (HRTEM de la Fig. 3a)"
+   ]
+  },
+  {
+   "label": "ACD-HATU_pyridine",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport solvant / point d'ébullition",
+     "inputs": "pyridine, Éb. 115 °C ; 150 °C",
+     "formula": "150 − 115",
+     "result": "35 K au-dessus : récipient fermé, quelques bar",
+     "compared_to": "—",
+     "source": "point d'ébullition de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Aucune émission ni QY donné pour la pyridine (absente de la liste des émissions du texte, alors que la Fig. 3 l'inclut) ; seule l'agrégation est décrite, et elle est contredite pour le DMF dans le paragraphe voisin. La pyridine, base et nucléophile, réagit avec le cation uronium : chimie différente.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "spectres de la Fig. 3b pour la pyridine"
+   ]
+  },
+  {
+   "label": "ACD-DIPA",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de diisopropylamine",
+     "inputs": "1 mL ; densité 0,722 g/mL ; M = 101,19 g/mol",
+     "formula": "V × ρ / M",
+     "result": "7,14 mmol, soit 14,3 fois les 0,5 mmol des autres précurseurs ; 0,24 mol/L dans 30 mL",
+     "compared_to": "« 0.5 mmol » pour HATU, BTEAC, BI",
+     "source": "Sigma-Aldrich, diisopropylamine"
+    },
+    {
+     "what": "carbone apporté",
+     "inputs": "DIPA C6H15N, 7,14 mmol ; HATU 0,5 mmol × 10 C",
+     "formula": "6 × 7,14 contre 5",
+     "result": "42,8 mmol C contre 5 mmol C (8,6 fois plus)",
+     "compared_to": "précurseurs dits comparables",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le DIPA est dosé en volume (1 mL ≈ 7,1 mmol, voir « moles de diisopropylamine ») : 14 fois plus de précurseur et 8,6 fois plus de carbone que le HATU. La comparaison « même conditions » change donc la quantité de précurseur en plus de sa structure ; elle ne peut pas isoler l'effet de la rigidité.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Diisopropylamine ≥99.5 % (fiche produit : densité 0,722 g/mL à 25 °C, Éb. 84 °C, M = 101,19 g/mol)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/sial/471224"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La diisopropylamine est une amine aliphatique saturée, stable à 150 °C (Éb. 84 °C) et sans cycle aromatique : aucune voie connue ne la carbonise à 150 °C en 8 h dans le toluène. L'affirmation « all these precursors can produce ACDs with similar compositions and sizes » n'est appuyée par aucune image ni analyse des ACD-DIPA/BTEAC/BI (l'annexe n'en montre pas). Le faible QY (0,6–1,7 %, valeurs non attribuées) peut venir d'impuretés plutôt que de points.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al., Chem. Mater. (ACS)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "DIPA à 150 °C, soit 66 K au-dessus de son ébullition, en mélange avec le toluène : récipient fermé obligatoire ; inflammable (point éclair −17 °C).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Diisopropylamine ≥99.5 % (fiche produit : densité 0,722 g/mL à 25 °C, Éb. 84 °C, M = 101,19 g/mol)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/sial/471224"
+     }
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "refaire avec 0,5 mmol de DIPA (≈ 70 µL) pour une comparaison équimolaire",
+    "TEM et analyse élémentaire de l'ACD-DIPA",
+    "QY individuel"
+   ]
+  },
+  {
+   "label": "ACD-BTEAC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse et carbone du BTEAC",
+     "inputs": "0,5 mmol ; C13H22NCl, M = 227,77 g/mol",
+     "formula": "n × M ; 13 × 0,5",
+     "result": "114 mg ; 6,5 mmol C",
+     "compared_to": "HATU : 5 mmol C",
+     "source": "masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Le chlorure de benzyltriéthylammonium est un sel d'ammonium quaternaire (catalyseur de transfert de phase), peu soluble dans le toluène pur : mélange probablement hétérogène, non dit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "À 150 °C, la voie attendue est une désalkylation (benzyl chloride + triéthylamine, réaction inverse de Menshutkin), pas une carbonisation : la formation de « carbon dots » n'est pas démontrée (pas d'image dans l'article). La différence de QY avec le HATU reflète plutôt la réactivité que l'angle dièdre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "preuve de formation de points (TEM) pour ce précurseur"
+   ]
+  },
+  {
+   "label": "ACD-BI",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse et carbone du 1-benzylimidazole",
+     "inputs": "0,5 mmol ; C10H10N2, M = 158,20 g/mol",
+     "formula": "n × M ; 10 × 0,5",
+     "result": "79 mg ; 5 mmol C",
+     "compared_to": "HATU : 5 mmol C (même carbone, comparaison équitable)",
+     "source": "masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Le 1-benzylimidazole est un composé aromatique neutre, soluble dans le toluène et thermiquement stable bien au-delà de 150 °C : sans réactif, aucune carbonisation n'est attendue en 8 h. C'est le meilleur témoin équimolaire de la série, mais il compare un réactif instable (HATU) à un réactif inerte, pas deux rigidités.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "preuve de formation de points (TEM, analyse) pour ce précurseur"
+   ]
+  },
+  {
+   "label": "ACD-HATU_Al",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantités de la voie dopée",
+     "inputs": "AlCl3·6H2O 1 mmol (M = 241,43 g/mol) ; HATU 0,5 mmol (3 mmol F)",
+     "formula": "n × M ; Al:HATU ; Al:F ; eau apportée 6 × 1 mmol",
+     "result": "241 mg de sel ; Al:HATU = 2:1 ; Al:F = 1:3 ; 6 mmol H2O (≈ 0,11 mL) ; 3 mmol Cl",
+     "compared_to": "stœchiométrie AlF3 (Al:F 1:3) exactement atteinte si PF6− s'hydrolyse ; eau suffisante (4 H2O par PF6− = 2 mmol)",
+     "source": "masses atomiques IUPAC ; valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Al3+ accélère l'hydrolyse de PF6− (plus que H+) en solution aqueuse ; l'eau d'hydratation (6 mmol) suffit à hydrolyser tout le PF6− (voir « quantités de la voie dopée »), et Al:F = 1:3 permet de former AlF3 ou des fluoroaluminates. Les « points dopés » de 0,8–3,6 nm à diffraction SAED peuvent donc contenir ou être des particules inorganiques d'Al–F–O ; la cartographie EDS ne montre que la présence d'Al dans le dépôt, pas dans les points.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Kinetics and mechanism of hydrolysis of PF6− accelerated by H+ or Al3+ in aqueous solution",
+      "authors_or_publisher": "Environ. Sci.: Water Res. Technol. 11(2), Royal Society of Chemistry (auteurs non relevés)",
+      "year": "2025",
+      "url_or_doi": "10.1039/d4ew00758a"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin non comparable : les points dopés sont observés dans le dépôt de centrifugation de la « mother liquid », les non dopés dans la solution elle-même. La « meilleure monodispersité » compare deux fractions différentes, et l'ajout de 6 mmol d'eau, d'HCl potentiel et d'un sel insoluble dans le toluène change plusieurs variables à la fois.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Solvant non écrit (« prepared in the same way »), toluène lisible seulement sur la Fig. 1 ; AlCl3·6H2O est insoluble dans le toluène : milieu biphasique (gouttes d'eau salée), non décrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HF et HCl possibles (hydrolyse de PF6− et de AlCl3·6H2O à 150 °C) : corrosion du revêtement et de l'acier, ouverture sous hotte. Non signalé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrolysis of Tetrafluoroborate and Hexafluorophosphate Counter Ions in Imidazolium-Based Ionic Liquids",
+      "authors_or_publisher": "Freire M. G. et al., J. Phys. Chem. A 114(11) 3744-3749",
+      "year": "2010",
+      "url_or_doi": "10.1021/jp903292n"
+     }
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "solvant réel de la voie dopée",
+    "phase des particules dopées (SAED indexé, XPS Al 2p / F 1s)",
+    "comparer les mêmes fractions (dépôt contre dépôt)"
+   ]
+  },
+  {
+   "label": "ACD-HATU_aqueous",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "lyophilisation d'une phase toluène",
+     "inputs": "fusion du toluène 178,1 K (−95 °C)",
+     "formula": "comparaison à un condenseur de lyophilisateur courant (−50 à −85 °C)",
+     "result": "le toluène ne gèle pas dans un lyophilisateur courant",
+     "compared_to": "« The mother liquid was freeze-dried »",
+     "source": "NIST Chemistry WebBook, toluène"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Si la « mother liquid » est la solution toluénique de la voie de base, la lyophilisation telle qu'écrite n'est pas réalisable (fusion du toluène −95 °C, voir « lyophilisation d'une phase toluène ») : il s'agit au mieux d'une évaporation sous vide, ou la mère liquide est celle d'une synthèse aqueuse. La provenance de la dispersion des essais cellulaires est indéterminée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Toluene — Phase change data (Antoine, Ambrose et al. 1967, 420–580 K ; T fus 178,1 K ; T boil 383,8 K)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C108883&Mask=4"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La fraction soluble dans l'eau contient aussi les produits moléculaires solubles (tétraméthylurée, HOAt, sels PF6−) : sans dialyse, viabilité et imagerie portent sur un mélange, et la concentration en µg/mL (masse du solide ?) n'est pas définie. Le texte de conclusion parle d'application « in vivo » alors que seules des cellules HeLa sont testées (in vitro).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al., Chem. Mater. (ACS)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "solvant et méthode réelle de séchage",
+    "purification avant les essais cellulaires",
+    "définition de la concentration en µg/mL"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse simple et réalisable (HATU 0,5 mmol, 30 mL de solvant, 150 °C, 8 h, autoclave), mais l'interprétation repose sur des comparaisons qui changent plusieurs variables et sur des produits non purifiés. Le HATU est le seul précurseur thermiquement instable à 150 °C (début DSC ≈ 161 °C) ; le DIPA est mis 14 fois plus en quantité ; aucune preuve de formation de points n'est montrée pour DIPA, BTEAC et BI. Le QY de 29 % porte sur une solution brute contenant du PF6− intact, sans méthode claire. Le dopage Al apporte de l'eau et de l'Al3+ qui hydrolysent le PF6− (AlF3 possible), et le témoin compare deux fractions différentes. Contradiction sur l'agrégation dans le DMF ; lyophilisation d'une phase toluène impossible telle qu'écrite.",
+  "author_errors_suspected": [
+   "DMF dit agrégé puis bien dispersé dans deux paragraphes voisins",
+   "comparaison des précurseurs non équimolaire (DIPA 1 mL ≈ 7,1 mmol contre 0,5 mmol)",
+   "QY « up to 29 % » : formule de sphère d'intégration pour un film appliquée à une solution, excitation non dite ; quinine comme référence pour une excitation optimale à 410 nm",
+   "XPS non calibré (C 1s C–C 285,7 eV ; F 1s ≈ 691 eV contre ≈ 686,7 eV attendu pour PF6−)",
+   "« intermolecular hydrogen bond » pour un calcul sur une molécule isolée (liaison intramoléculaire)",
+   "« fluorescence shifts dominated by quantum confinement » alors que la taille est dite identique dans tous les solvants",
+   "« applied in vivo » pour des essais in vitro sur HeLa",
+   "lyophilisation de la mère liquide (toluène, fusion −95 °C)"
+  ],
+  "comparison_with_database": "Autres points de carbone de la base (compare.py « carbon dots ») : synthèses à 160–280 °C, souvent suivies de dialyse ou de chromatographie (PMC10336645, PMC10583617, PMC11840780, PMC10131834). 150 °C dans le toluène sans purification est parmi les conditions les plus douces de ces voies (comparaison faite sur les premières voies listées, pas sur les 31) ; aucune autre synthèse à partir de HATU dans la base."
+ },
+ "sources_not_found": [
+  "solubilité chiffrée du HATU dans le toluène (aucune fiche ne la donne)",
+  "données sur la carbonisation de la diisopropylamine ou du chlorure de benzyltriéthylammonium à 150 °C (non cherchées au-delà de la chimie générale)",
+  "pression de vapeur de l'eau, de l'éthanol, de l'acétonitrile et de la pyridine à 150 °C non relues en ligne (ordres de grandeur de manuel)"
+ ]
+}

@@ -1,0 +1,17 @@
+# PMC6273754 — critique scientifique (journal de décisions)
+
+- Eau/thiourée : 0,0208/0,0312 = 0,67 ≠ 2,0 (CdS-120 = CdS-2.0). En ajoutant l'eau d'hydratation de Cd(NO3)2·4H2O (4 × 0,0104 = 0,0416 mol), on obtient exactement 2,00 : lecture (a) retenue comme la plus probable, sans écarter la lecture (b) (Cd:Tu = 1:1, qui donne aussi 2,0 exactement). L'article ne tranche pas : `probleme` (bilan) sur la voie de base, aucune quantité imposée.
+- Conséquence de (a) : CdS-1.3 = aucune eau ajoutée (0,0416/0,0312 = 1,33). Signalé comme `probleme` sur CdS-1.3 parce que l'article ne le dit pas et qu'aucune quantité n'est reconstructible de façon univoque.
+- L'eau n'est jamais limitante (2 n(Cd) = 0,0208 mol ; l'hydrate en apporte 0,0416) : `reserve` sur l'interprétation des auteurs « plus d'eau = plus de S2− ».
+- Eau du solvant : 0,5 % au plus pour l'EDA puriss. Sigma 03550 (fiche fournisseur vue en résultat de recherche), ≈ 0,025 mol, du même ordre que l'eau ajoutée. Je n'ai pas trouvé de spécification pour le grade ReagentPlus.
+- Remplissage à 80 % : NIST WebBook et PubChem sont bloqués par le proxy (403). Dilatation estimée par Rackett avec ZRA = 0,29056 − 0,08775 ω (ω = 0,51) et Tc = 593 ou 613 K (calculateurs en ligne vus en résultats de recherche, non vérifiés). Résultat : 113 mL à 120 °C, 118–119 mL à 150 °C, 125–128 mL à 190 °C pour 125 mL. `probleme` sécurité sur CdS-190 seulement ; `reserve` ailleurs.
+- Règles de remplissage : SOP CEITEC (≥ 50 % d'espace libre pour un organique) et fiche Parr 4748 (250 °C, 1900 psig) ; pas de manuel Parr lu. La bombe utilisée par les auteurs n'est pas identifiée : la fiche Parr est donnée pour un ordre de grandeur.
+- TXRF : Cd/S recalculé (0,855 / 0,930 / 0,876 / 0,845 / 0,880). CdS-190 et CdS-3.0 sont identiques à 0,004 près, avec des activités par m² de 0,37 et 0,26 : `probleme` (preuve non discriminante) sur CdS-3.0.
+- Nature « surface » du TXRF contestée par la chimie générale (dépôt traversé, Cd K non excité par Mo Kα). La recherche web n'a pas donné de source revue par les pairs attribuable avec certitude (résumé de résultats seulement) : laissé sans source, `reserve`.
+- Scherrer : Dp vient de (002), donc mesure une longueur selon c. La comparaison avec les longueurs MET est bonne, sauf pour 190 (98 nm contre 700 nm, β ≈ 0,083°, au niveau de l'élargissement instrumental) : `reserve`.
+- BET contre surface géométrique 4/(ρd) avec ρ(CdS) = 4,82 g/cm³ (valeur de manuel, non revérifiée en ligne) : 55–93 %, cohérent.
+- Bande interdite : le texte (bord de 511 à 505 nm, « transition quantifiée ») contredit le tableau 1 (2,49 / 2,45 / 2,48 eV) et le sens du confinement (les bâtonnets s'élargissent de 7 à 30 nm) : `reserve`.
+- Mécanisme : « nucléation plus rapide → plus grand diamètre » contredit LaMer (fondateurs.md). Yu et al. 1999 (10.1039/a809779h) et Jang et al. 2007 (10.1021/jp072683b) sont identifiés par la recherche web (titre, auteurs, revue) mais leur DOI n'a pas été vérifié sur Crossref (bloqué).
+- Recherche infructueuse : papier « Formation process of CdS nanorods via solvothermal route » (Chem. Mater. 2000) introuvable ; je ne l'ai pas cité. Fiche JCPDS 41-1049 (intensités) introuvable ; la préférence (002) n'a pas été recalculée.
+- Lampe Xe sans filtre contre « under visible light » : `reserve` (cohérence entre sections).
+- Neuf recherches web ; trois récupérations de pages échouées (Chemeo et NIST injoignables, PubChem bloqué).

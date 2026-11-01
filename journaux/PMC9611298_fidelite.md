@@ -1,0 +1,15 @@
+# Journal de la critique de fidélité, PMC9611298
+
+- Ma liste d'échantillons avant ouverture de l'extraction : x = 0, 0,01, 0,02, 0,03 (section 2.1, un seul protocole), plus la ligne « LiCoPO4 (89-6192) » du tableau 1 (fiche JCPDS, non synthétisée). Identique à `sample_inventory` ; la pile bouton est une voie `device` à part, ce qui convient.
+- Rangées de tableaux : tableaux 1, 2 et 4 attribués par le nom de l'échantillon (« @C » dans le tableau 1, « /C » dans les tableaux 2 et 4, même matériau). Aucune permutation trouvée. Polarisation du tableau 2 = pic d'oxydation 2 moins pic de réduction pour les quatre rangées, ce qui confirme l'ordre des colonnes retenu par l'extracteur.
+- « respectively » des capacités de cyclage : l'ordre x = 0, 0,01, 0,02, 0,03 est confirmé par le 148 mAh g−1 de x = 0,02 (tableau 3 et conclusion) ; rétentions recalculées (53,9, 73,8, 75, 66,9 %) cohérentes avec le texte.
+- Valeurs `from_figure` (Fig. 9b, 1 C) : x = 0,01 extrait 70, lu entre 69 et 72 ; x = 0,03 extrait 85, lu 85. Écarts très inférieurs à 10 %, donc pas de constat. Les valeurs « about » de x = 0 sont cohérentes avec la figure.
+- Constat 1 (FTIR, `sure`) : la figure 5 imprime 987, 983, 979 et 984 sur les courbes ; l'extraction n'a gardé que 979 et 984, au motif que 987 n'est pas écrit comme valeur de x = 0. Le texte dit « the symmetric stretching at 987 cm−1 », et l'étiquette de la figure lève l'ambiguïté : étiquette imprimée, pas de lecture graphique.
+- Constat 2 (régime à 0,1, 0,2, 0,5 C pour x = 0,01 et 0,03, `probable`) : seul le 1 C est lu ; je laisse `probable` parce que les courbes se recouvrent par endroits et que l'extracteur l'a signalé dans un doute.
+- Constats « deduit » (rôle de l'acide citrique, description de l'étape 5) en `probable` : aucune phrase de l'article ne donne ce rôle ni ne dit dans quelle calcination le carbone se forme ; l'extracteur l'avait déjà noté en doute pour le rôle.
+- Constat `mineur` sur x = 0,03 : phase sans l'impureté YPO4 ; sur `succeeded: false`, je ne tranche pas (la règle du RUNBOOK sur la phase impure s'applique, mais les auteurs ne parlent pas d'échec).
+- Écartés comme non-constats : variation « dopant » (trois avertissements déjà expliqués), `parent_value` « 1-1.5x, x = 0 » (lecture de la formule, pas un nombre), rattachement de XRD, SEM, TEM et FTIR à la seule voie de base.
+- `not_stated` : mots-clés recherchés dans le texte (binder, PVDF, slurry, grind, carbon content, loading, mixing) : aucun trouvé, donc aucune case déclarée à tort. Pas de section Supporting Information dans le fichier ; l'article n'en cite pas.
+- `method_sources` : un seul `[[id]]` dans les méthodes (B39, publication antérieure des auteurs sur LiCoPO4 substitué au Cr), bien repris. Les renvois B14, B25 et d'autres de la section 3.1 portent sur l'interprétation, hors méthode.
+- Figures non relues : 1, 2, 3, 4, 6, 7, 8 et 10 (pas de valeur absente du texte qui m'ait paru nécessaire) ; la figure 8 n'a aucun résultat extrait.
+- J'ai lancé `load.py check` (lecture seule, 0 erreur) alors que seul `review.py` était autorisé ; je le signale.

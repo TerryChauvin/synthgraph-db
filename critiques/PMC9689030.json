@@ -1,0 +1,88 @@
+{
+  "pmcid": "PMC9689030",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "TiO2 reagents, ITO-coated glass substrate (specifications)",
+      "extracted": "amount_text '1 × 2 cm2' ; résistance de couche absente ; taille 20 × 20 × 1.1 mm seulement dans les doutes",
+      "article_says": "A commercialized indium tin oxide (ITO) substrate (size: 20 × 20 × 1.1 mm (length × width × height) and resistance: 7–10 Ω/sq) was used as a substrate.",
+      "fix": "noter la résistance 7–10 Ω/sq (et l'épaisseur 1.1 mm) sur le réactif substrat ITO, avec cette citation ; mentionner l'écart 20 × 20 mm / 1 × 2 cm2 dans limite_reproductibilite",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "mesure nitrate (TiO2, TiO2-PANI_bilayer, TiO2-PANI_composite) : aucune entrée characterizations",
+      "extracted": "seules les valeurs nitrate_sensitivity et nitrate_linearity figurent, sans conditions de mesure",
+      "article_says": "Serial dilution of the NO3−-N standard of concentration 100 ppm was carried out to obtain 10, 15, 20, 25, and 30 ppm.",
+      "fix": "ajouter une caractérisation « nitrate sensing » (étalons Thermo Fisher, dilutions 10, 15, 20, 25, 30 ppm, ajouteur de force ionique Nitrate ISA ajouté selon le manuel du fournisseur, même montage EGFET)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "caractérisation « EGFET pH sensing », conditions du régime de saturation",
+      "extracted": "conditions : VREF 0–3 V, VDS 0.1 V (région linéaire), IDS = 100 µA ; rien pour la saturation alors que ph_sensitivity_saturation_region est extrait",
+      "article_says": "The saturation sensitivity was calculated by taking the readings of VDS = 2 V.",
+      "fix": "ajouter VDS = 2 V pour les valeurs de sensibilité en saturation",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "TiO2-PANI_composite characterizations : dérive et répétabilité",
+      "extracted": "seule l'hystérésis a une entrée characterizations ; dérive et répétabilité n'existent que comme outcomes",
+      "article_says": "Figure 8 shows the drift curves of the TiO2–PANI composite thin film in pH 4, 7, and 10 buffer solutions for 6 h.",
+      "fix": "ajouter deux caractérisations : dérive (6 h dans les tampons pH 4, 7 et 10, ΔVREF = VREF(t) − VREF(0)) et répétabilité (cinq mesures du même film, Fig. 9)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "préparation de l'électrode pour la mesure (toutes voies), étape après le dépôt",
+      "extracted": "aucune étape d'isolation de la zone de contact ni de câblage ; seul le Kapton est modélisé",
+      "article_says": "Before the measurement was carried out, the connector area that connects the SE with the Cu wire was isolated using epoxy resin in order to avoid the Cu wire from coming into contact with the measured solution.",
+      "fix": "ajouter une étape finale (isolation époxy de la zone de contact reliée au fil de Cu ; grille du MOSFET CD4007UBE) ou la noter dans limite_reproductibilite / un équipement de mesure",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "TiO2 step 2 (sonication dans l'eau déionisée) duration",
+      "extracted": "not_stated: duration, volume ; paramètre durée absent",
+      "article_says": "The same process was repeated using deionized (DI) water.",
+      "fix": "« same process » renvoie à la sonication de 10 min : soit extraire 10 min avec cette citation et la remarque que la durée est reprise par renvoi, soit garder not_stated mais l'écrire dans le doute ; trancher selon la règle du RUNBOOK sur « same process » (idem dans les deux autres voies)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_auteurs (route TiO2), partie composite",
+      "extracted": "« Pour le composite, ils attribuent les agglomérats observés à la concentration en TiO2. »",
+      "article_says": "This is also in agreement with a previous study in which the agglomerated particles on the surface of TiO2–PANI composite thin films were due to the increase in the concentration of TiO2",
+      "fix": "ce sont des auteurs d'une étude antérieure, pas les auteurs de l'article ; reformuler (accord avec une étude antérieure) et rattacher la phrase à la voie TiO2-PANI_composite ; la phrase sur « all the reactions to complete » n'est pas dans la citation fournie",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "TiO2 characterizations EDX result",
+      "extracted": "Ti low because the thin film lets the substrate signal dominate.",
+      "article_says": "Furthermore, the lower at% for titanium (Ti) and higher content of ITO substrate (In, Sn, Si, and O) might be due to the penetration depth through the thinner film resulting in more signals being collected from the substrate rather than the thin films.",
+      "fix": "écrire « Ti low; authors suggest this might be due to penetration depth » : l'explication est une hypothèse (« might be »)",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 3,
+    "branches_extracted": 3,
+    "not_stated_checked": 38,
+    "not_stated_wrong": 1,
+    "from_figure_checked": 6,
+    "from_figure_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "aucune quantité pour la solution de TiO2 (isopropoxyde de titane, acide acétique glacial, Triton X-100, éthanol) ni volume de méthanol pour la PANI ; ordre d'addition non décrit",
+    "volume d'une goutte, accélération, atmosphère de recuit, rampe de température, épaisseur des films non donnés",
+    "rapport 2:1 TiO2:PANI du composite sans précision (volume ou masse) ; aucun recuit à 400 °C décrit pour le composite alors que XRD attribue des pics anatase à tous les échantillons",
+    "taille du substrat ITO contradictoire (20 × 20 × 1.1 mm en 4.1, 1 × 2 cm2 en 4.2) ; séquence d'hystérésis contradictoire (7→4→7→10→7 pour 25 min dans les Résultats et en Fig. 7, 7→10→7→4→7 pour 5 min dans la Conclusion)",
+    "Fig. 8 : tensions de sortie ordonnées pH 4 > pH 7 > pH 10 (≈2.27, 2.04, 1.88 V), sens inverse de Fig. 7 et Fig. 9 ; la dérive lisible sur la figure à pH 4 et 10 (quelques mV sur 6 h) ne correspond pas à 4.96 et 3.32 mV/h du texte : mesures non cohérentes entre figures, à signaler en limite_reproductibilite",
+    "ratio exact Nitrate ISA « specified by the supplier manual » non donné ; ni référence ni protocole pour le nettoyage ou la conservation des électrodes entre mesures"
+  ],
+  "mechanism_check": "à revoir : mecanisme_auteurs attribue aux auteurs une explication des agglomérats qui vient d'une étude antérieure, et la phrase sur l'achèvement des réactions n'est pas dans la citation ; le reste (mecanisme_analyse, securite) est marqué comme analyse et reste plausible",
+  "notes": "Extraction globalement fidèle : les 3 voies, l'ITO nu comme témoin sans voie, les 50 valeurs de Table 1 et les 6 valeurs lues sur figure (Fig. 5b : 1.0897/0.995 ; 5d : 1.0344/0.9939 ; 6a : 0.6017 ; 6b : 0.8972) correspondent au texte et aux images ; valeurs 4a-d, 5f, 6c-d, 7 aussi confirmées. method_sources vide : correct (aucun renvoi dans les sections 4.2 à 4.3.2). Le step_order 8 de la variation de température du composite désigne le séchage du protocole hérité (cohérent avec load.py) mais le composite n'a pas de recuit à 400 °C : choix de modélisation correct mais à garder explicite. « Linearity » est le R² d'après les figures. Aucune erreur de valeur ni d'attribution trouvée."
+}

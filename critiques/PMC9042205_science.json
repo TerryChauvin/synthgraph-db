@@ -1,0 +1,625 @@
+{
+ "pmcid": "PMC9042205",
+ "routes": [
+  {
+   "label": "Biosurfactant",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition du milieu M9 en mmol/L",
+     "inputs": "Na2HPO4 6,78 g/L (M = 141,96) ; KH2PO4 3,0 g/L (136,09) ; NaCl 0,5 g/L (58,44) ; NH4Cl 1,0 g/L (53,49) ; MgSO4·7H2O 0,493 g/L (246,47) ; CaCl2 0,011 g/L (110,98) ; glucose 0,4 %",
+     "formula": "c/M",
+     "result": "Na2HPO4 47,8 mM ; KH2PO4 22,0 mM ; NaCl 8,6 mM ; NH4Cl 18,7 mM ; MgSO4 2,0 mM ; CaCl2 0,10 mM ; glucose 4 g/L = 22 mM",
+     "compared_to": "recette M9 standard (Na2HPO4 anhydre 6,78 g/L, MgSO4 2 mM, CaCl2 0,1 mM, glucose 0,4 %) : identique",
+     "source": "masses molaires PubChem ; arithmétique"
+    },
+    {
+     "what": "pression de vapeur saturante de l'eau à 121 °C",
+     "inputs": "eau saturée à 121 °C",
+     "formula": "table de vapeur",
+     "result": "≈ 2,05 bar absolus ≈ 1 bar (15 psi) au-dessus de l'atmosphère",
+     "compared_to": "article : « 15 atm » (15 atm absolus correspondraient à ≈ 200 °C)",
+     "source": "NIST Chemistry WebBook (water, saturation) ; CDC Steam Sterilization"
+    },
+    {
+     "what": "rayon de centrifugation impliqué",
+     "inputs": "10 000 rpm donnant 12 000 × g",
+     "formula": "r = RCF/(1,118·10−5·rpm²)",
+     "result": "r ≈ 10,7 cm",
+     "compared_to": "plausible pour un rotor angulaire R20A2",
+     "source": "arithmétique"
+    },
+    {
+     "what": "taille de l'inoculum",
+     "inputs": "2 µL à DO600 ≈ 1,2 dans un milieu de ≈ 1 L (volume de culture non donné)",
+     "formula": "fraction volumique = 2·10−6 L / 1 L",
+     "result": "dilution ≈ 1/500 000 (≈ 10³ cellules/mL au départ si DO 1 ≈ 10⁸–10⁹ cellules/mL)",
+     "compared_to": "inoculum usuel 1 % v/v",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "« autoclave at 121 °C for 20 min at 15 atm » : à 121 °C la vapeur d'eau saturée est à ≈ 2,05 bar absolus, soit ≈ 15 psi au-dessus de la pression atmosphérique (voir « pression de vapeur saturante de l'eau à 121 °C ») ; 15 atm est physiquement impossible pour de la vapeur saturée à 121 °C (cela correspondrait à ≈ 200 °C). Confusion d'unité psi/atm.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Steam Sterilization (Guideline for Disinfection and Sterilization in Healthcare Facilities, 2008)",
+      "authors_or_publisher": "Centers for Disease Control and Prevention (CDC)",
+      "year": "2024",
+      "url_or_doi": "https://www.cdc.gov/infection-control/hcp/disinfection-sterilization/steam-sterilization.html"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Composition M9 conforme à la recette standard (voir « composition du milieu M9 en mmol/L »). Le CaCl2 « 76,07 % assay » laisse penser à un sel hydraté : si c'est CaCl2·2H2O (75,5 % de CaCl2), 0,011 g/L ne donne que 0,075 mM ; sans conséquence pour la croissance.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Les sels sont dissous séparément puis réunis avant l'autoclave : chauffer Mg2+, Ca2+ et phosphates ensemble favorise la précipitation de phosphates de Ca/Mg ; la pratique usuelle stérilise MgSO4 et CaCl2 à part et les ajoute après refroidissement. Le glucose est ajouté après, sous hotte, ce qui est correct.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Inoculum de 2 µL pour une culture d'un volume non donné (≈ 1 L d'après le flacon) : dilution ≈ 1/500 000 (voir « taille de l'inoculum »), très inférieure aux 1 % v/v usuels ; 24 h à 37 °C en milieu minimal peuvent suffire avec un temps de doublement ≈ 1 h, mais la phase de production de surfactine (souvent fin de phase exponentielle ou stationnaire) n'est pas garantie. La « DO en CFU mL−1 » est une confusion d'unités : la DO600 est sans dimension.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Volume de culture, masse de biosurfactant récupérée par litre et pureté ne sont pas donnés. Les souches sauvages de B. subtilis produisent typiquement de quelques dizaines de mg/L à ≈ 1–2 g/L de surfactine selon le milieu ; obtenir 0,57 g peut demander plusieurs litres de culture en M9 glucose. Le précipité acide brut contient aussi protéines et autres métabolites.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical structure, properties and potential applications of surfactin, as well as advanced strategies for improving its microbial production",
+      "authors_or_publisher": "revue en accès libre (PMC10113169 ; auteurs non relevés)",
+      "year": "2023",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113169"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La précipitation acide à pH < 2 est la méthode classique de récupération de la surfactine (protonation des carboxylates de Glu et Asp, pKa ≈ 4–6). Mais l'identité « surfactine » n'est établie par aucune analyse (ni MS, ni HPLC, ni RMN) dans l'article : le mécanisme de la Fig. 4 suppose un composé non caractérisé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Surfactin-Like Lipopeptides From Bacillus spp.: Natural Biodiversity and Synthetic Biology for a Broader Application Range",
+      "authors_or_publisher": "revue en accès libre (PMC7960918 ; auteurs non relevés)",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7960918"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Souche isolée d'un site contaminé par du carburant : B. subtilis est de classe 1, mais un isolat environnemental non séquencé doit être manipulé en confinement de niveau 1 au moins et les cultures inactivées (autoclave) avant élimination. HCl 5 M corrosif.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Biosafety Manual, Chapter 7: Decontamination and Sterilization",
+      "authors_or_publisher": "Boston University, Office of Research",
+      "year": "2023",
+      "url_or_doi": "https://www.bu.edu/research/ethics-compliance/safety/biological-safety/ibc/resources/biosafety-manual/chapter-07-decontamination-and-sterilization"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "B. subtilis sécrète en fin de croissance un lipopeptide cyclique anionique (surfactine probable) ; l'acidification du surnageant à pH < 2 protone ses deux carboxylates, le rend insoluble et le fait précipiter avec d'autres métabolites ; le séchage à 65 °C donne un brut brun.",
+    "sources": [
+     {
+      "title": "The Surfactin-Like Lipopeptides From Bacillus spp.: Natural Biodiversity and Synthetic Biology for a Broader Application Range",
+      "authors_or_publisher": "revue en accès libre (PMC7960918 ; auteurs non relevés)",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7960918"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de culture et masse de précipité obtenue par litre",
+    "pression réelle de l'autoclave (≈ 1 bar relatif, pas 15 atm)",
+    "stérilisation séparée de MgSO4 et CaCl2",
+    "identité et pureté du biosurfactant (MS ou HPLC)"
+   ]
+  },
+  {
+   "label": "BMSN-550",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de TEOS",
+     "inputs": "10 mL ; densité 0,933 g/mL ; M = 208,33 g/mol",
+     "formula": "V·ρ/M",
+     "result": "9,33 g ; 44,8 mmol",
+     "compared_to": "",
+     "source": "Sigma-Aldrich 131903 et PubChem CID 6517"
+    },
+    {
+     "what": "masse théorique de SiO2",
+     "inputs": "44,8 mmol TEOS ; M(SiO2) = 60,08 g/mol ; conversion totale",
+     "formula": "n(TEOS)·M(SiO2)",
+     "result": "2,69 g",
+     "compared_to": "masse de produit isolée : non donnée par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "moles de NH3 et d'eau apportées par l'ammoniaque",
+     "inputs": "11 mL d'ammoniaque à 25 % en masse ; densité ≈ 0,91 g/mL",
+     "formula": "m = 11·0,91 ; n(NH3) = 0,25·m/17,03 ; m(H2O) = 0,75·m",
+     "result": "m = 10,0 g ; NH3 = 147 mmol ; eau = 7,5 g",
+     "compared_to": "",
+     "source": "fiche Sigma-Aldrich 1.05432 (densité 0,9 g/mL)"
+    },
+    {
+     "what": "rapports molaires du sol",
+     "inputs": "TEOS 44,8 mmol ; NH3 147 mmol ; eau 50 + 7,5 g = 3,19 mol ; éthanol 76 mL × 0,789 = 60,0 g = 1,30 mol",
+     "formula": "n(i)/n(TEOS)",
+     "result": "TEOS : NH3 : H2O : EtOH = 1 : 3,3 : 71 : 29",
+     "compared_to": "hydrolyse complète : H2O/TEOS ≥ 2 (4 sans condensation) ; large excès d'eau",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentrations dans le volume total",
+     "inputs": "V ≈ 50 + 11 + 76 + 10 = 147 mL (volumes supposés additifs)",
+     "formula": "n/V",
+     "result": "[TEOS] ≈ 0,30 M ; [NH3] ≈ 1,0 M ; [H2O] ≈ 21,7 M ; éthanol ≈ 52 % v/v (plus l'éthanol libéré par le TEOS)",
+     "compared_to": "domaine de Bogush et al. 1988 : TEOS 0,1–0,5 M, NH3 0,5–3 M, H2O 0,5–17 M ; l'eau est au-dessus du domaine",
+     "source": "Bogush, Tracy, Zukoski 1988, 10.1016/0022-3093(88)90187-1"
+    },
+    {
+     "what": "rapport biosurfactant / silice",
+     "inputs": "0,57 g de biosurfactant ; supposé surfactine (M ≈ 1036 g/mol) ; 2,69 g de SiO2 théorique ; 147 mL",
+     "formula": "n = 0,57/1036 ; c = n/V ; m(bio)/m(SiO2)",
+     "result": "0,55 mmol ; 3,7 mM (3,9 g/L) ; 0,21 g par g de SiO2 ; surfactine/Si = 0,012 mol/mol",
+     "compared_to": "CMC de la surfactine dans l'eau tamponnée : 10–90 µM ; MCM-41 au CTAB : CTAB/Si ≈ 0,1–0,2 mol/mol",
+     "source": "PubChem (surfactine) ; revue PMC7960918, 2021 (CMC)"
+    },
+    {
+     "what": "teneur organique attendue contre perte ATG",
+     "inputs": "si tout le biosurfactant restait dans le solide : 0,57/(0,57 + 2,69) ; pertes ATG attribuées à l'organique (307–600 °C) : 2 + 1 %",
+     "formula": "m(bio)/(m(bio)+m(SiO2))",
+     "result": "≤ 17,5 % attendus contre ≈ 3 % mesurés",
+     "compared_to": "MCM-41 brut de synthèse au CTAB : perte organique typique 35–45 %",
+     "source": "arithmétique ; valeurs de l'article"
+    },
+    {
+     "what": "rendement recalculé depuis les masses ATG",
+     "inputs": "10,174 mg restants sur 11,950 mg ; 1,776 mg perdus",
+     "formula": "10,174/11,950 ; 1,776/11,950",
+     "result": "85,14 % restants ; 14,86 % perdus",
+     "compared_to": "article : 87,87 % (« yield ») et 12,13 % de perte",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre de pore 4V/S à 550 °C",
+     "inputs": "V = 0,020407 cm3/g ; S = 8,2616 m2/g",
+     "formula": "d = 4000·V/S (nm)",
+     "result": "9,9 nm",
+     "compared_to": "BJH annoncé : 14,85 nm",
+     "source": "arithmétique (constantes.md)"
+    },
+    {
+     "what": "surface externe de sphères denses de 262 nm",
+     "inputs": "d = 262 nm (MET) ; ρ(silice amorphe) = 2,0–2,2 g/cm3",
+     "formula": "S = 6/(ρ·d)",
+     "result": "10,4 m2/g (ρ = 2,2) à 11,5 m2/g (ρ = 2,0) ; 9,1–12 m2/g pour 250–300 nm",
+     "compared_to": "S_BET mesurée : 6,5–8,3 m2/g",
+     "source": "arithmétique ; masse volumique de la silice amorphe ≈ 2,2 g/cm3 (valeur de manuel)"
+    },
+    {
+     "what": "position attendue de d100 pour a0 = 62,18 Å (hexagonal 2D)",
+     "inputs": "a0 = 62,18 Å ; λ(Cu Kα) = 1,5406 Å",
+     "formula": "d100 = a0·√3/2 ; 2θ = 2·asin(λ/2d)",
+     "result": "d100 = 53,8 Å ; 2θ = 1,64° (1,42° si 62,18 Å est d100)",
+     "compared_to": "un pore cylindrique ne peut pas dépasser a0 − épaisseur de paroi ≈ 5 nm",
+     "source": "arithmétique"
+    },
+    {
+     "what": "distance de Bragg du halo amorphe",
+     "inputs": "2θ = 21,03–22,59° ; λ = 1,5406 Å (l'article écrit 1,540600 nm)",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "3,9–4,2 Å (4,1 nm si l'on prenait la longueur d'onde en nm comme écrit)",
+     "compared_to": "halo de la silice amorphe vers 22° (≈ 4 Å)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "correction de charge XPS (C 1s ramené à 284,8 eV)",
+     "inputs": "C 1s : 282,99 / 283,22 / 283,76 / 283,56 eV ; Si 2p : 101,88 / 102,05 / 102,11 / 102,03 eV ; O 1s : 531,26 / 531,42 / 531,57 / 531,47 eV (450 → 600 °C)",
+     "formula": "E_corr = E + (284,8 − E(C 1s))",
+     "result": "décalages 1,81 / 1,58 / 1,04 / 1,24 eV ; Si 2p corrigé 103,69 / 103,63 / 103,15 / 103,27 eV ; O 1s − Si 2p = 429,38 / 429,37 / 429,46 / 429,44 eV",
+     "compared_to": "SiO2 : Si 2p 103,5–103,7 eV, O 1s 533,2 eV (NIST, réf. carbone adventice)",
+     "source": "NIST XPS Database ; Morgan et al. 2025"
+    },
+    {
+     "what": "rapport O/Si de l'EDX du résumé",
+     "inputs": "Si 56,09 % en masse ; O 42,13 % en masse",
+     "formula": "(42,13/16,00)/(56,09/28,09)",
+     "result": "O/Si = 1,32 (Si 56 % en masse)",
+     "compared_to": "SiO2 : O/Si = 2 ; Si = 46,7 % en masse ; XPS de l'article : O/Si = 2,5–2,6",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le seul précurseur de Si est le TEOS (44,8 mmol, 2,69 g de SiO2 au plus, voir « masse théorique de SiO2 ») ; NH3 sert de catalyseur basique (3,3 éq.) et l'eau est en très large excès (71 éq., voir « rapports molaires du sol »). Le bilan est cohérent pour une silice ; la masse de poudre récupérée n'est jamais donnée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le « rendement de 87,87 % » de la conclusion n'est pas un rendement : c'est la masse restante d'un échantillon de 11,950 mg de solide séché chauffé en ATG sous N2, et le calcul est faux : 10,174/11,950 = 85,14 % et 1,776/11,950 = 14,86 %, pas 87,87 et 12,13 % (voir « rendement recalculé depuis les masses ATG »). La somme des paliers décrits (3 + 2 + 1 %) ne donne pas non plus 12,13 %. Le vrai rendement (masse de silice calcinée / 2,69 g) est inconnu.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "0,57 g de biosurfactant « dissous jusqu'à solution claire » dans 50 mL d'eau : la surfactine précipitée à pH < 2 est sous forme acide, peu soluble dans l'eau pure ; elle se dissout à pH ≥ 7 (sel de carboxylate). La dissolution peut donc demander une base ou ne se faire qu'après l'ajout de l'ammoniaque ; le texte ne dit ni pH ni durée. Après ajout de NH3 (pH ≈ 11) elle est ionisée et soluble.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Surfactin-Like Lipopeptides From Bacillus spp.: Natural Biodiversity and Synthetic Biology for a Broader Application Range",
+      "authors_or_publisher": "revue en accès libre (PMC7960918 ; auteurs non relevés)",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7960918"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Gabarit peu plausible dans ces conditions : (1) la surfactine est anionique (deux carboxylates, Glu et Asp) et les oligomères silicatés sont aussi anioniques à pH ≈ 11 ; les silices mésoporeuses à gabarit anionique exigent un co-agent structurant cationique (aminosilane, APTES) que la recette n'a pas (Che et al. 2003) ; (2) le milieu contient ≈ 52 % v/v d'éthanol, qui défavorise la micellisation ; (3) le rapport surfactine/Si n'est que de 0,012 mol/mol (voir « rapport biosurfactant / silice »), dix fois moins que le CTAB dans un MCM-41. Le « complexe Si–O–surfactine » covalent proposé par les auteurs n'est montré par aucune mesure.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "A novel anionic surfactant templating route for synthesizing mesoporous silica with unique structure",
+      "authors_or_publisher": "Che et al. (Nat. Mater. 2, 801–805)",
+      "year": "2003",
+      "url_or_doi": "10.1038/nmat1022"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La surface BET de 6,5–8,3 m2/g est inférieure ou égale à la seule surface externe de sphères denses de 250–300 nm (9–12 m2/g, voir « surface externe de sphères denses de 262 nm ») : le matériau n'a pratiquement pas de porosité interne. L'hystérèse à P/P0 0,8–1,0 et les « pores » BJH de 15–30 nm correspondent aux vides entre particules agglomérées, pas à une mésoporosité ordonnée. Un MCM-41 réel donne 800–1 000 m2/g (base : PMC11891312 895 m2/g ; PMC12195685 1 022 m2/g ; PMC6154307 809 m2/g). Le qualificatif « mésoporeux » (et le nom BMSN) n'est pas soutenu.",
+     "status": "probleme",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Diamètre de pore : 4V/S = 9,9 nm à 550 °C contre 14,85 nm en BJH (voir « diamètre de pore 4V/S à 550 °C ») ; à 450 °C 9,7 contre 29,7 nm. Un écart d'un facteur 1,5 à 3 entre 4V/S et BJH, et un BJH qui baisse quand le volume monte, indiquent une distribution large de vides interparticulaires. Le texte attribue par ailleurs la montée à P/P0 = 0,1–0,2 à la « condensation capillaire » : à ces pressions on a l'adsorption mono-multicouche ; la condensation dans des pores de 15–30 nm se produit au-delà de P/P0 ≈ 0,9 (IUPAC).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes et al. (Pure Appl. Chem.)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX bas angle : une maille de 62,18 Å (a0) est incompatible avec des pores BJH de 15–30 nm (un pore ne peut dépasser a0 moins la paroi, ≈ 5 nm) et avec une surface de 8 m2/g ; l'indexation « d100 et d003 » n'existe pas pour un réseau hexagonal 2D (p6mm : 100, 110, 200). Pour a0 = 62,18 Å, d100 serait à 2θ ≈ 1,64° (voir « position attendue de d100 »), très près du faisceau direct sur un balayage commençant à 0,1°. L'ordre hexagonal n'est pas démontré (aucune image MET des canaux).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX grand angle : le halo à 21–22,6° est bien celui de la silice amorphe (d ≈ 3,9–4,2 Å, voir « distance de Bragg du halo amorphe ») ; l'étiqueter « d100 » est un abus (pas d'indexation pour un amorphe). La longueur d'onde écrite « λ = 1.540600 nm » est en Å, et « at elevated temperature (3 °C per minute) » désigne vraisemblablement une vitesse de balayage de 3°/min.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS : les énergies C 1s (282,99–283,76 eV) sont 1,0–1,8 eV sous la référence du carbone adventice (284,8 eV), et Si 2p (101,9–102,1 eV) et O 1s (531,3–531,6 eV) sont autant sous les valeurs de SiO2 (103,5–103,7 et 533,2 eV, NIST) : les spectres ne sont pas corrigés de la charge. L'écart O 1s − Si 2p reste constant à 429,4 ± 0,05 eV pour les quatre températures (voir « correction de charge XPS ») : les variations de 0,2 eV interprétées comme une liaison Si–O « la plus forte à 550 °C » sont un effet de charge, pas de chimie. Les attributions du tableau 2 (SiC, PbS, carbure de tungstène, natrolite, O dans Al métal) sont des correspondances de base de données sans rapport avec l'échantillon.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "NIST X-ray Photoelectron Spectroscopy Database, SiO2 : Si 2p 103,70 eV, O 1s 533,20 eV (référence carbone adventice)",
+      "authors_or_publisher": "NIST (SRD 20)",
+      "year": "consultée 2026",
+      "url_or_doi": "https://srdata.nist.gov/xps/XPSDetailPage/112469"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Composition : l'EDX du résumé (Si 56,09 %, O 42,13 % en masse) donne O/Si = 1,32, loin de SiO2 (O/Si = 2, Si 46,7 % en masse) et contraire à l'XPS de l'article (O/Si = 2,5–2,6) (voir « rapport O/Si de l'EDX du résumé ») ; l'EDX quantifie mal l'oxygène. Cette composition ne confirme donc pas la formation de SiO2, contrairement à ce qu'écrivent les auteurs, et l'échantillon n'est pas désigné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : les bandes à 2361 et 2343 cm−1 attribuées à N–H sont le doublet du CO2 atmosphérique (élongation asymétrique ≈ 2349 cm−1), artefact de fond courant. Le texte donne cinq positions Si–O–Si symétriques pour quatre températures. La disparition de la bande Si–OH (≈ 960 cm−1) dès 600 °C est surprenante : d'après le modèle de Zhuravlev, les silanols isolés persistent jusqu'à 1 000 °C environ ; une baisse d'intensité est attendue, pas une disparition.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The surface chemistry of amorphous silica. Zhuravlev model",
+      "authors_or_publisher": "L. T. Zhuravlev (Colloids Surf. A 173, 1–38)",
+      "year": "2000",
+      "url_or_doi": "10.1016/S0927-7757(00)00556-2"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "UV-vis-NIR : la silice amorphe pure a une bande interdite ≈ 9 eV (< 150 nm) ; des bandes à 202 et 257 nm (≈ 6,1 et 4,8 eV) relèvent de défauts (centres déficients en oxygène, oxygène non pontant) ou de carbone résiduel, et la bande à 202 nm est au bord de la plage mesurée (200 nm). L'interprétation « tamis moléculaire à faible transfert de charge » et le choix de 550 °C comme optimum sur l'intensité d'absorption ne reposent sur rien de discriminant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Durée de ≈ 1 h 45 min à température ambiante (non écrite) : courte mais compatible avec une croissance de Stöber à [NH3] ≈ 1 M ; [TEOS] ≈ 0,30 M et [NH3] ≈ 1,0 M sont dans le domaine de Bogush et al. où l'on obtient des sphères de quelques centaines de nm, l'eau (≈ 21,7 M) est au-dessus du domaine (voir « concentrations dans le volume total ») : sphères de 250–300 nm plausibles par la seule voie Stöber, sans gabarit.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation of monodisperse silica particles: Control of size and mass fraction",
+      "authors_or_publisher": "Bogush, Tracy, Zukoski (J. Non-Cryst. Solids 104, 95–106)",
+      "year": "1988",
+      "url_or_doi": "10.1016/0022-3093(88)90187-1"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination au four à moufle à 450–600 °C sans durée, ni vitesse de montée, ni atmosphère écrites ; sous air la surfactine brûle vers 300–550 °C, la silice amorphe ne cristallise pas en dessous de 1 000 °C environ : températures cohérentes, mais protocole incomplet. L'ATG est faite sous N2 (pyrolyse) alors que la calcination est en four à moufle (air probable) : la perte de masse ATG ne représente pas la calcination.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : le texte dit que surface et volume poreux augmentent de 450 à 600 °C, le tableau 3 montre un maximum à 550 °C (8,2616 puis 7,9856 m2/g) ; la surface est écrite « m3 g−1 » dans le texte et la conclusion (m2 g−1 au tableau) ; les tableaux 2 et 3 nomment les échantillons « MCM-41 » alors que le texte parle de BMSN amorphe ; tailles MEB contradictoires (250–300 nm, moyenne 280 nm, 264 nm à 600 °C présenté comme une « augmentation », 61–300 nm au résumé) ; la légende de la Fig. 2b parle d'ATG « à différentes températures de calcination » alors que le texte décrit un seul échantillon brut. Les écarts de surface entre températures (6,5–8,3 m2/g) sont proches de l'incertitude d'une BET sur un solide si peu poreux.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : TEOS inflammable (point éclair ≈ 45 °C) et irritant, libère de l'éthanol en s'hydrolysant ; ammoniaque à 25 % (vapeurs irritantes, hotte) ; méthanol de lavage toxique et inflammable ; ≈ 52 % d'éthanol dans le mélange. Poudre de silice amorphe submicronique à ne pas inhaler (masque FFP2/P2 pour la manipulation après calcination).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ethyl silicate (TEOS) / Ammonium hydroxide / Methanol — fiches de réactivité",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consultée 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison dans la base : les autres silices au TEOS + NH3 sans gabarit cationique sont des sphères non poreuses (PMC5923560 « 22C-SC », cœurs de Stöber de 451 nm) ; les vraies silices mésoporeuses de la base utilisent un gabarit cationique (CTAB, CPC) ou un copolymère (P123) et ont 600–1 000 m2/g (PMC11891312, PMC12195685, PMC6154307, PMC11099149). Le BMSN se range avec les sphères de Stöber.",
+     "status": "probleme",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Procédé de Stöber : NH3 catalyse l'hydrolyse du TEOS et la condensation des silanols ; la nucléation suivie d'une croissance par agrégation et addition de monomères donne des sphères de silice amorphe de 250–300 nm, taille attendue pour [TEOS] ≈ 0,3 M et [NH3] ≈ 1 M. La surfactine, anionique comme la surface de la silice à pH ≈ 11 et diluée dans ≈ 52 % d'éthanol, ne forme pas de mésophase organisée sans co-agent cationique ; elle s'adsorbe au plus en faible quantité (≈ 3 % de perte organique en ATG contre ≤ 17,5 % possibles) et est lavée en grande partie. La calcination brûle ce résidu et condense une partie des silanols, sans créer de mésopores mesurables : le produit est une silice de Stöber dense, et l'hystérèse N2 vient des vides entre particules.",
+    "sources": [
+     {
+      "title": "Controlled growth of monodisperse silica spheres in the micron size range",
+      "authors_or_publisher": "Stöber, Fink, Bohn (J. Colloid Interface Sci.)",
+      "year": "1968",
+      "url_or_doi": "10.1016/0021-9797(68)90272-5"
+     },
+     {
+      "title": "Preparation of monodisperse silica particles: Control of size and mass fraction",
+      "authors_or_publisher": "Bogush, Tracy, Zukoski (J. Non-Cryst. Solids 104, 95–106)",
+      "year": "1988",
+      "url_or_doi": "10.1016/0022-3093(88)90187-1"
+     },
+     {
+      "title": "A novel anionic surfactant templating route for synthesizing mesoporous silica with unique structure",
+      "authors_or_publisher": "Che et al. (Nat. Mater. 2, 801–805)",
+      "year": "2003",
+      "url_or_doi": "10.1038/nmat1022"
+     },
+     {
+      "title": "Precursor Mediated Synthesis of Nanostructured Silicas: From Precursor-Surfactant Ion Pairs to Structured Materials (revue)",
+      "authors_or_publisher": "Hesemann, Nguyen, El Hankari (Materials 7, 2978–3001)",
+      "year": "2014",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5453373"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de silice récupérée après calcination (rendement réel par rapport à 2,69 g)",
+    "durée, vitesse de montée et atmosphère de la calcination",
+    "témoin sans biosurfactant (même recette de Stöber) : surface BET et DRX bas angle à comparer",
+    "DRX bas angle et MET à fort grandissement pour chercher des canaux ordonnés",
+    "XPS corrigé de la charge (C 1s à 284,8 eV)",
+    "pH et mode de dissolution du biosurfactant avant l'ajout d'ammoniaque",
+    "unités : m2 g−1 (et non m3), λ en Å"
+   ]
+  },
+  {
+   "label": "BMSN-450",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S à 450 °C",
+     "inputs": "V = 0,015763 cm3/g ; S = 6,5179 m2/g",
+     "formula": "d = 4000·V/S (nm)",
+     "result": "9,7 nm",
+     "compared_to": "BJH annoncé : 29,707 nm",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Seule la température de calcination change (450 °C) ; mêmes réserves que la voie de base : S_BET = 6,5179 m2/g est inférieure à la surface externe de sphères denses de ≈ 260 nm (≈ 10–11 m2/g), donc pas de mésoporosité interne démontrée ; 4V/S = 9,7 nm contre 29,707 nm en BJH (vides interparticulaires). XPS non corrigé de la charge (C 1s < 284 eV).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme la voie de base : sphères de Stöber ; la température de calcination ne fait que brûler les résidus organiques et condenser une partie des silanols.",
+    "sources": [
+     {
+      "title": "Controlled growth of monodisperse silica spheres in the micron size range",
+      "authors_or_publisher": "Stöber, Fink, Bohn (J. Colloid Interface Sci.)",
+      "year": "1968",
+      "url_or_doi": "10.1016/0021-9797(68)90272-5"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée et atmosphère de calcination",
+    "isotherme N2 comparée à des sphères de Stöber sans biosurfactant calcinées à la même température"
+   ]
+  },
+  {
+   "label": "BMSN-500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S à 500 °C",
+     "inputs": "V = 0,017399 cm3/g ; S = 7,73 m2/g",
+     "formula": "d = 4000·V/S (nm)",
+     "result": "9,0 nm",
+     "compared_to": "BJH annoncé : 20,2166 nm",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Seule la température de calcination change (500 °C) ; mêmes réserves que la voie de base : S_BET = 7,73 m2/g est inférieure à la surface externe de sphères denses de ≈ 260 nm (≈ 10–11 m2/g), donc pas de mésoporosité interne démontrée ; 4V/S = 9,0 nm contre 20,2166 nm en BJH (vides interparticulaires). XPS non corrigé de la charge (C 1s < 284 eV).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme la voie de base : sphères de Stöber ; la température de calcination ne fait que brûler les résidus organiques et condenser une partie des silanols.",
+    "sources": [
+     {
+      "title": "Controlled growth of monodisperse silica spheres in the micron size range",
+      "authors_or_publisher": "Stöber, Fink, Bohn (J. Colloid Interface Sci.)",
+      "year": "1968",
+      "url_or_doi": "10.1016/0021-9797(68)90272-5"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée et atmosphère de calcination",
+    "isotherme N2 comparée à des sphères de Stöber sans biosurfactant calcinées à la même température"
+   ]
+  },
+  {
+   "label": "BMSN-600",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S à 600 °C",
+     "inputs": "V = 0,017394 cm3/g ; S = 7,9856 m2/g",
+     "formula": "d = 4000·V/S (nm)",
+     "result": "8,7 nm",
+     "compared_to": "BJH annoncé : 16,5246 nm",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Seule la température de calcination change (600 °C) ; mêmes réserves que la voie de base : S_BET = 7,9856 m2/g est inférieure à la surface externe de sphères denses de ≈ 260 nm (≈ 10–11 m2/g), donc pas de mésoporosité interne démontrée ; 4V/S = 8,7 nm contre 16,5246 nm en BJH (vides interparticulaires). XPS non corrigé de la charge (C 1s < 284 eV).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme la voie de base : sphères de Stöber ; la température de calcination ne fait que brûler les résidus organiques et condenser une partie des silanols.",
+    "sources": [
+     {
+      "title": "Controlled growth of monodisperse silica spheres in the micron size range",
+      "authors_or_publisher": "Stöber, Fink, Bohn (J. Colloid Interface Sci.)",
+      "year": "1968",
+      "url_or_doi": "10.1016/0021-9797(68)90272-5"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée et atmosphère de calcination",
+    "isotherme N2 comparée à des sphères de Stöber sans biosurfactant calcinées à la même température"
+   ]
+  },
+  {
+   "label": "BMSN-uncalcined",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "perte de masse ATG totale",
+     "inputs": "11,950 mg au départ ; 10,174 mg à la fin (800 °C, N2)",
+     "formula": "(11,950 − 10,174)/11,950",
+     "result": "14,86 % (et non 12,13 %)",
+     "compared_to": "paliers décrits : 3 + 2 + 1 % = 6 %, plus l'eau 30–210 °C non chiffrée",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "teneur organique attendue si tout le biosurfactant restait",
+     "inputs": "0,57 g de biosurfactant ; 2,69 g de SiO2 théorique",
+     "formula": "0,57/(0,57 + 2,69)",
+     "result": "17,5 %",
+     "compared_to": "pertes 307–600 °C : ≈ 3 %",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Bandes CH2 à 2968, 2924 et 2855 cm−1 : présence d'organique résiduel, cohérente. La perte organique (≈ 3 % entre 307 et 600 °C) montre qu'au plus ≈ 1/6 du biosurfactant introduit reste dans le solide (voir « teneur organique attendue si tout le biosurfactant restait ») : incorporation faible, peu compatible avec un rôle de gabarit structurant. Sous N2, la surfactine pyrolysée peut laisser du carbone, si bien que la perte réelle sous air serait un peu plus forte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Perte ATG totale recalculée 14,86 % contre 12,13 % écrit (voir « perte de masse ATG totale ») : erreur arithmétique des auteurs, reprise dans le « rendement » de 87,87 %.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sphères de Stöber portant un peu de biosurfactant adsorbé, plus agglomérées avant calcination (pontage organique et silanols non condensés).",
+    "sources": [
+     {
+      "title": "Controlled growth of monodisperse silica spheres in the micron size range",
+      "authors_or_publisher": "Stöber, Fink, Bohn (J. Colloid Interface Sci.)",
+      "year": "1968",
+      "url_or_doi": "10.1016/0021-9797(68)90272-5"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ATG sous air pour mesurer la vraie teneur organique",
+    "masse de solide séché récupérée"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le protocole sol-gel (TEOS 0,30 M, NH3 1,0 M, eau 21,7 M, ≈ 52 % d'éthanol) est une recette de Stöber réalisable et donne de façon attendue des sphères de silice amorphe de 250–300 nm. En revanche, la mésoporosité ordonnée revendiquée n'est pas démontrée : surface BET (6,5–8,3 m2/g) inférieure à la surface externe de sphères denses de même taille, pores BJH (15–30 nm) plus grands que la maille DRX annoncée (6,2 nm), XPS non corrigé de la charge dont les variations sont un artefact, gabarit anionique sans co-agent cationique. Le « rendement » de 87,87 % est une masse résiduelle d'ATG mal calculée (85,14 %). La production du biosurfactant suit une méthode classique mais porte une erreur d'unité (15 atm pour 121 °C) et n'est pas quantifiée.",
+  "author_errors_suspected": [
+   "87,87 % présenté comme rendement : c'est la masse restante en ATG du solide non calciné, et 10,174/11,950 = 85,14 % (perte 14,86 % et non 12,13 %)",
+   "échantillons nommés « MCM-41 » dans les tableaux 2 et 3 alors qu'il s'agit du BMSN amorphe du texte",
+   "surface spécifique écrite « m3 g−1 » dans le texte et la conclusion (m2 g−1 au tableau 3)",
+   "texte : surface et volume croissants jusqu'à 600 °C ; tableau 3 : maximum à 550 °C",
+   "tailles MEB discordantes (250–300 nm, moyenne 280 nm, 264 nm à 600 °C présenté comme une augmentation, 61–300 nm)",
+   "calcination sans durée, vitesse de montée ni atmosphère",
+   "autoclave « 121 °C à 15 atm » : 15 psi (≈ 1 bar relatif)",
+   "λ Cu Kα écrite 1,540600 nm au lieu de Å ; indexation « d003 » impossible en hexagonal 2D ; halo amorphe indexé « d100 »",
+   "XPS non corrigé de la charge (C 1s 283–283,8 eV) et attributions de base de données sans rapport (SiC, PbS, WC, natrolite)",
+   "bandes à 2361/2343 cm−1 attribuées à N–H : doublet du CO2 atmosphérique",
+   "EDX Si 56 % / O 42 % en masse (O/Si = 1,3) incompatible avec SiO2"
+  ],
+  "comparison_with_database": "Les MCM-41 et SBA-15 de la base (PMC11891312 895 m2/g, PMC12195685 1 022 m2/g, PMC6154307 809 m2/g, PMC11099149 687 m2/g) ont des surfaces 100 fois plus grandes et utilisent un gabarit cationique ou un copolymère ; les sphères de Stöber sans gabarit (PMC5923560 « 22C-SC », 451 nm) sont l'analogue le plus proche du BMSN."
+ },
+ "sources_not_found": [
+  "Maity et al. (procédure de production du biosurfactant, de DRX, FTIR et MEB) : référence citée par l'article mais non identifiée dans corpus/text ; non recherchée",
+  "aucune mesure publiée d'une silice mésoporeuse ordonnée obtenue avec de la surfactine seule (sans co-agent cationique) trouvée dans les recherches faites"
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "pmcid": "PMC9121351",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "Fabric_washing / Fabric_scouring / Fabric_staining (routes post_treatment) et leurs résultats caffeine_in_fabric_*",
+   "extracted": "3 voies post_treatment parent null, résultats de Table 4 rangés par traitement avec la teneur en capsules dans le nom de la propriété (caffeine_in_fabric_0.35wt_capsules...), tissu en réactif 'intermediate' (routes PA6_fiber_MIL53_*)",
+   "article_says": "The presence of caffeine in the fabrics made from the fibers was verified by GC/MS after several common textile procedures.",
+   "fix": "Lavage, décreusage et teinture sont des essais de rétention (durabilité) du matériau fini, pas des synthèses (« The influence of washing, scouring, and staining stages on the additive permanence ... was studied »). Règle RUNBOOK « tests du matériau fini = outcomes de la voie » : ranger les rangées de Table 4 et les % de rétention dans les outcomes de PA6_fiber_MIL53_0.35wt (lavage 51 ppm/4,5 % ; teinture 15 ppm/1,3 %), PA6_fiber_MIL53_0.45wt (décreusage 103 ppm/6,9 %) et PA6_fiber_MIL53_0.70wt (lavage 81 ppm/4,7 % ; teinture 30 ppm/1,7 %), avec les conditions que la citation écrit dans le nom (30 °C, 90 min, savon neutre ; 40 °C, ≥ 10 min, détergent liquide 0,5 g/L ; 100 °C, 1 h, Turquoise M-5G 1,5 %). Les conditions du protocole peuvent rester en annotation ou en une voie post_treatment unique sans résultats. Aujourd'hui la voie 0,35 % n'a aucun résultat de rétention.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources, route CAF_ZIF8",
+   "extracted": "aucune entrée pour la recette CAF@ZIF-8 ex situ",
+   "article_says": "The recipe of CAF@ZIF-8 ex situ (ZIF is first synthesized and then caffeine is encapsulated)",
+   "fix": "ajouter {route: CAF_ZIF8, ref_id: ref33, role: protocole_adapte, quote: la phrase 'The recipe of CAF@ZIF-8 ex situ ... was scaled up from about 0.5 g (commonly obtained at lab scale) to 500 g (at lab demonstrator).'}. ATTENTION : dans corpus/refs, ref33 est Bayliss et al., synthèse de MOF en flux continu, qui ne correspond pas à une recette CAF@ZIF-8 ; la numérotation des renvois semble décalée. L'orchestrateur doit vérifier (la ref35, Liedana et al., CAF@ZIF-8, est déjà utilisée pour la synthèse du ZIF-8) ; sinon mettre un doute plutôt qu'une entrée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CAF_MIL53_H2O_cal380 outcomes caffeine_released_6_days et caffeine_released_1_day (Fig. 6)",
+   "extracted": "20 % à 6 jours et ≈ 20 % à 1 jour rangés sur la voie calcinée à 380 °C",
+   "article_says": "The same procedure was done with CAF@MIL-53(Al)_H2O analyzing the 20% of the initial caffeine within the same period.",
+   "fix": "L'article ne dit pas si CAF@MIL-53(Al)_H2O du test de libération vient du MOF calciné à 380 °C (Fig. 1, S5) ou activé au DMF (Table 1 note e, 38,0 %) ; seul le non-activé est exclu (Fig. S4a). Rattachement par défaut à la voie calcinée = choix de l'extracteur. Soit dupliquer le résultat sur CAF_MIL53_H2O_DMF avec une mention, soit le garder une seule fois avec la précision dans value_text/doute (le doute existe déjà ; vérifier que value_text le dit). Lecture Fig. 6 contrôlée : à 0,9 jour, 19,4–19,5 % pour les deux courbes ; à 6 jours 20,0 (H2O) et 21,8 (H2O/MeOH) : écart < 10 %, valeurs correctes.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "CAF_MIL53_H2O_cal380, CAF_MIL53_H2O_DMF, CAF_MIL53_H2O_nonactivated, CAF_MIL53_SUFAL_cal380, CAF_ZIF8, CAF_zeoliteY, reagent MOF amount",
+   "extracted": "not_stated ['amount'] sur le MOF (ZIF-8, zéolithe Y) de chaque branche",
+   "article_says": "The procedure for caffeine encapsulation in MIL-53(Al) capsules consists of contacting double amount by weight of caffeine than MOF (200% caffeine) in water in a closed container at 80 °C for 24 h.",
+   "fix": "La phrase générale (rapport 2:1 en poids, « typical lab-scale encapsulation 0.3 g of MOF and 0.6 g of caffeine in 60 g of water », et « the same encapsulation process was followed for ZIF-8 and zeolite Y ») vaut pour tous les MOF ; la quantité du MOF n'est donc pas 'non citée' pour ces branches. À renseigner (0,3 g typique) ou à décrire comme quantité typique, plutôt que 'non cité'. Faible gravité : la variation de nature du MOF ne change pas le protocole.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PA6_fiber_MIL53_0.45wt step 1 extrude temperature",
+   "extracted": "temperature = 260 °C (value_text 'about 260 °C')",
+   "article_says": "where up to 260 °C can be reached for short times",
+   "fix": "260 °C est la température maximale que les capsules doivent supporter pendant le filage (« the spinning conditions ... (about 260 °C) »), pas une consigne d'extrudeuse. Préférer value_text « up to 260 °C (short times) » sans value_num de consigne, ou déclarer la température d'extrusion non citée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Act_SUFAL_cal380_24h outcome nonreacted_ligand_before_activation",
+   "extracted": "25–30 wt % de ligand non réagi rangé sur la voie de calcination",
+   "article_says": "The TGA curve in Figure 4a depicts a large amount of nonreacted carboxylate ligand (25–30 wt %, corresponding to the step at about 200 °C) that could interfere in the encapsulation process.",
+   "fix": "La mesure décrit le MOF SUFAL tel que synthétisé (avant calcination), échelle pilote (légende Fig. 4) : à ranger sur les voies MIL53_SUFAL_pilot_* ou en annotation (l'article ne dit pas laquelle des trois), non sur la voie qui l'élimine.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PA6_fiber_MIL53_0.70wt characterization EDX (Fig. 8b)",
+   "extracted": "« approximately 2% of Al » aux points 1–3, rien ailleurs ; annotation limite_reproductibilite : « figures 1 à 5, 7 et 8 n'ont pas été exploitées »",
+   "article_says": "Approximately 2% of Al was detected in points 1–3 while points 4 and 5 did not reveal Al.",
+   "fix": "Le tableau Fig. 8b (% atomique, lu sur l'image) donne : C 78,5/81,4/77,7/73,6/85,8 ; O 19,3/16,8/21,0/22,9/14,2 ; Al 2,3/1,8/2,3/0,1/0,0 ; Ti 0,0/0,0/0,0/3,5/0,0 pour les points 1 à 5. Peut être ajouté en résultat from_figure (Fig. 8b) ; noter que le point 4 montre Al 0,1 % alors que le texte dit « did not reveal Al ». Corriger l'annotation qui dit que la figure 8 n'est pas exploitée.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 41,
+  "branches_extracted": 41,
+  "not_stated_checked": 60,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "masses de Al(NO3)3·9H2O, d'acide téréphtalique et de SUFAL 8.2 (seuls les rapports molaires, les volumes de solvant du tableau 2 et les facteurs d'échelle sont donnés ; teneur en Al2O3 du SUFAL 8.2 absente)",
+  "récupération, lavage et séchage du MOF synthétisé dans l'eau/méthanol, du ZIF-8 et du CAF@zéolithe Y/ZIF-8 (lavage)",
+  "durée, atmosphère et vitesse de chauffe des calcinations à 330, 350 et 380 °C du MOF aqueux ; durée du reflux au méthanol et de l'échange au DMF",
+  "agitation pendant la synthèse et l'encapsulation ; pureté et fournisseur de la caféine, de l'eau et du méthanol",
+  "quelle activation (calcination ou DMF) a servi au CAF@MIL-53(Al)_H2O du test de libération ; laquelle des trois synthèses SUFAL pilotes a été calcinée puis chargée en caféine",
+  "quantités de PA-6, de TiO2 et de capsules dans le masterbatch, température d'extrusion, mode d'introduction des capsules (renvoi à un brevet)",
+  "rapport de bain, concentration du savon neutre, rinçage, centrifugation et séchage des traitements textiles ; Fig. S2 et S3 (calcinations, séries en durée) uniquement sous forme de courbes d'annexe non lues"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs de la rupture du disque (acide nitrique, hydrogène) et de l'homogénéité de taille (solubilité du ligand) suivent le texte, formulés comme hypothèses ; mecanisme_analyse rédigé en hypothèse ; sécurité (DMF, nitrates, autoclave sous pression, méthanol) couverte.",
+ "notes": "Rattachements par défaut vérifiés. (1) MOF de l'encapsulation de base : rattaché à la voie eau/méthanol 150 °C, 12 h ; l'article ne le dit pas dans les Méthodes mais Fig. 6, Fig. S4b/S5 et Table 1 (36,5 %) vont dans ce sens ; le doute existant suffit, pas de constat. (2) Libération à 6 jours sur la voie calcinée : constat deduit probable (voir plus haut). (3) Réacteur 400 mL en eau/méthanol : la note a du tableau 2 (« All of the syntheses were carried out in a water/methanol mixture ») et « Large-scale synthesis was only done by using water/methanol mixture » soutiennent le rattachement malgré l'emplacement du texte dans la section « in water » ; pas de constat. (4) Calcination du SUFAL (380 °C, 24 h) : l'article l'applique à « the synthesis carried out with SUFAL 8.2 » sans choisir parmi les pilotes ; la voie générique est acceptable, le doute existe. Valeurs vérifiées contre les tableaux 1 à 4 : toutes justes (rangées 40/150/400/3750 mL de Table 2, 27,5/9,9/13,3 % de BDC, 38,0/36,5/34,6 % de caféine, Table 3 et Table 4 par échantillon). Fig. 6 et Fig. 5 lues (Fig. 5 : 14, 26, 35, 31 % conformes). Annexes : le SI du dépôt est du texte sans courbes ; Fig. S2, S3 non vérifiables. Fragile : les branches 330/350 °C, 24/48/72 h et 180 °C n'ont pas de résultat chiffré faute de données dans le texte."
+}

@@ -1,0 +1,13 @@
+# Journal critique de fidélité PMC10674298
+
+- Ma liste avant lecture de l'extraction : 1 lot de synthèse (Pechini, 700 °C / 6 h), l'échantillon FTIR à 350 °C, la poudre pré-calcinée (TGA/DSC), 4 doses de catalyseur (3, 5, 10, 15 g/L) pour MO et pour LVF, un témoin de photolyse, les entrées de littérature du tableau 7. Identique à `sample_inventory` ; aucun échantillon manquant.
+- Doses de catalyseur laissées en résultats et non en branches : conforme à la règle du projet (essais du matériau fini), donc pas de constat de branche manquante.
+- Figure 6 ouverte : étiquettes « 700 °C / 6 H » (a) et « 350 °C / 4 H » (b) ; le texte 3.3.1 inverse a et b, la légende et la figure concordent. L'extracteur a retenu la bonne lecture. La durée 4 h ne vient que de l'étiquette : l'héritage des étapes 1–6 reste supposé, constat `deduit` probable.
+- Figure 14 ouverte : k du témoin 0,000153 (MO) et −0,000292 (LVF) lus exactement ; écart nul. Les k et les pourcentages du tableau 6 coïncident avec les légendes de la figure et les barres e/f (MO 5 g/L ≈ 88 %, LVF 10 g/L ≈ 98 % à 180 min).
+- Tableau 7 : LVF donné à 120 min alors que texte, conclusion et tableau 6 disent 180 min ; la figure 14f à 120 min (10 g/L) est ≈ 87 %. Constat `sure`, ajouté aux contradictions de l'article à noter (non relevé par l'extracteur).
+- Pas de constat sur les 8 attributions des tableaux 3 et 6 : colonnes MO et LVF relues rangée par rangée, concordantes. Le facteur de tolérance 0,903 (tableau) contre 0,902 (texte) est déjà un doute traité ; pas de constat.
+- `not_stated` de l'étape 4 (pH, volume) : seul cas contesté. Le texte 3.1 présente la courbe de titrage comme le suivi de la synthèse (pH 8–8,2 en zone III) et la figure 1 montre ≈ 55 mL de NH4OH cumulés jusqu'à pH ≈ 8, mais l'article ne dit pas que la synthèse s'arrête là : `non_cite_a_tort` mais `probable`, avec la consigne de ne pas écrire un pH cité.
+- Autres `not_stated` (durées de chauffage, atmosphère, rampes, quantités de réactifs) : cherchés dans le texte, les légendes et corpus/refs ; aucune annexe ; vraiment absents. Seul le volume 50 mL du témoin de photolyse a été trouvé.
+- Écarté comme non-constat : R² et erreurs standard du tableau 6 non extraits (choix assumé dans les doutes, erreur « 104 » du tableau) ; énergies et longueurs d'onde PL du tableau 5, déjà dans les caractérisations.
+- `method_sources` vide : vérifié, aucun renvoi de préparation dans corpus/refs (BET, Rietveld, Langmuir–Hinshelwood sont des modèles d'analyse, exclus par la règle du 2026-10-13).
+- Annotation comparaison_branches : « disparition » dépasse « decrease » du texte, et 545 cm−1 est attribué à Ca–Ti–O alors que le tableau 4 le range en O–Ti–O ; constat `mineur` sure.

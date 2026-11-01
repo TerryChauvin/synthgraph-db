@@ -1,0 +1,559 @@
+{
+ "pmcid": "PMC9143007",
+ "routes": [
+  {
+   "label": "LFS200",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses molaires",
+     "inputs": "Li 6,94 ; Fe 55,845 ; Si 28,086 ; O 15,999 ; H 1,008 ; Cl 35,45 ; C 12,011",
+     "formula": "somme des masses atomiques",
+     "result": "FeCl2·4H2O 198,81 ; SiO2 60,08 ; C6H8O6 176,12 ; LiOH·H2O 41,96 ; Li2FeSiO4 161,81 g/mol",
+     "compared_to": "-",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "masses pesées correspondant aux moles de l'article",
+     "inputs": "0,02 mol FeCl2·4H2O ; 0,02 mol SiO2 ; 0,0031 mol acide ascorbique ; 0,12 mol LiOH·H2O",
+     "formula": "n × M",
+     "result": "3,98 g ; 1,20 g ; 0,546 g ; 5,04 g",
+     "compared_to": "l'article ne donne aucune masse",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport molaire Li:Fe:Si",
+     "inputs": "0,12 mol Li ; 0,02 mol Fe ; 0,02 mol Si",
+     "formula": "n(Li):n(Fe):n(Si)",
+     "result": "6:1:1",
+     "compared_to": "Li2FeSiO4 : 2:1:1 (excès de Li ×3, usuel en hydrothermal)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "bilan en LiOH",
+     "inputs": "FeCl2 + SiO2 + 4 LiOH → Li2FeSiO4 + 2 LiCl + 2 H2O ; 0,0031 mol acide ascorbique (monoacide à ce pH)",
+     "formula": "0,12 − 4×0,02 − 0,0031",
+     "result": "0,037 mol LiOH libre, soit ≈ 0,61 mol/L dans 60 mL",
+     "compared_to": "milieu fortement basique en fin de réaction : silice dissoute en silicate, Fe(OH)2 précipité",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentrations initiales",
+     "inputs": "0,02 mol Fe et 0,12 mol LiOH dans 10 mL EG + 50 mL eau",
+     "formula": "n/V",
+     "result": "Fe 0,33 mol/L ; LiOH 2,0 mol/L (rapporté à 60 mL)",
+     "compared_to": "solubilité de LiOH dans l'eau ≈ 12–13 g/100 g à 20 °C (ordre de grandeur de manuel, à confirmer sur PubChem) : 2,87 g de LiOH anhydre dans 50 g d'eau = 5,7 g/100 g, soluble",
+     "source": "arithmétique ; solubilité de manuel non relue"
+    },
+    {
+     "what": "pouvoir réducteur de l'acide ascorbique",
+     "inputs": "0,0031 mol C6H8O6 → déhydroascorbique + 2 e− ; 0,02 mol Fe",
+     "formula": "2 n(AA)/n(Fe)",
+     "result": "0,31 : de quoi réduire 31 % du fer s'il était Fe(III)",
+     "compared_to": "rôle annoncé d'antioxydant : suffisant contre l'O2 dissous et l'air d'un ciel de 40 mL (calcul suivant)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "O2 de l'air du ciel gazeux (autoclave supposé de 100 mL)",
+     "inputs": "40 mL d'air à 25 °C ; 21 % O2 ; Vm = 24,47 L/mol",
+     "formula": "0,21 × 0,040 / 24,47 ; Fe oxydable = 4 n(O2) ; AA consommé = 2 n(O2)",
+     "result": "0,34 mmol O2 ; 1,4 mmol Fe(II) oxydable (7 % du Fe) ; 0,69 mmol AA (22 % de l'AA introduit)",
+     "compared_to": "volume de l'autoclave non donné : hypothèse de 100 mL",
+     "source": "arithmétique"
+    },
+    {
+     "what": "taux de remplissage et pression",
+     "inputs": "60 mL de liquide ; capacité non donnée ; pression de vapeur saturante de l'eau ≈ 0,62 / 1,00 / 1,55 MPa à 160 / 180 / 200 °C (tables de vapeur IAPWS)",
+     "formula": "V liquide / V autoclave",
+     "result": "60 % pour un autoclave de 100 mL ; impossible pour 50 mL ; P ≈ 1,5 MPa à 200 °C (moins avec 17 % vol. d'EG)",
+     "compared_to": "taux usuel ≤ 70–80 %",
+     "source": "chimie générale (tables de vapeur)"
+    },
+    {
+     "what": "masse maximale de Li2FeSiO4",
+     "inputs": "Fe et Si limitants 0,02 mol ; M = 161,81 g/mol",
+     "formula": "n × M",
+     "result": "3,24 g",
+     "compared_to": "rendement non donné",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Li:Fe:Si = 6:1:1 (voir « rapport molaire Li:Fe:Si ») : tous les éléments sont apportés, l'excès de LiOH (0,037 mol libre en fin de réaction, « bilan en LiOH ») sert à dissoudre la silice et à neutraliser HCl ; il reste 0,61 mol/L de base, ce qui est usuel pour la cristallisation hydrothermale de Li2FeSiO4.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Fe reste au degré +II visé. L'acide ascorbique (0,0031 mol, 31 % d'équivalent réducteur du Fe) suffit à piéger l'O2 dissous et celui d'un ciel d'environ 40 mL d'air (« O2 de l'air du ciel gazeux »). Mais aucune atmosphère inerte n'est indiquée, ni pour le mélange ni pour le lavage, et le témoin sans acide ascorbique n'a plus cette protection.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "200 °C en « reaction kettle » fermé : l'éthylène glycol (éb. 197 °C) et l'eau sont sous pression autogène, environ 1,5 MPa (pression de vapeur de l'eau à 200 °C ≈ 1,55 MPa). C'est acceptable en autoclave chemisé PTFE, mais le volume de la cuve n'est pas donné : 60 mL de liquide imposent une cuve d'au moins 80–100 mL (« taux de remplissage et pression »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Une phase orthorhombique Pmn21 à 160–200 °C en hydrothermal est conforme à la littérature : Pmn21 est le polymorphe de basse température obtenu vers 200 °C en hydrothermal.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemistry of orthosilicate-based lithium battery cathodes: a perspective",
+      "authors_or_publisher": "Phys. Chem. Chem. Phys. (Royal Society of Chemistry) ; auteurs non relus",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4CP00511B"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Sédiment « gris » devenu « solide jaune » après lavage à l'alcool et à l'eau puis centrifugation à l'air. Un silicate de Fe(II) jaunit quand sa surface s'oxyde en Fe(III) (les oxyhydroxydes de Fe(III) sont jaune-brun). Cela concorde avec le Li2−xFeSiO4 pauvre en Li que les auteurs invoquent pour la montée de capacité, et nuance l'effet protecteur de l'acide ascorbique : il ne protège plus après ouverture de l'autoclave. Aucune source trouvée sur la couleur de Li2FeSiO4 pur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs disent que l'acide ascorbique oriente l'auto-assemblage des particules primaires en hémisphères creuses, mais ils ne montrent ni série en temps, ni intermédiaire, ni coupe TEM de LFS200. Des coques sphériques minces cassées au lavage, à la centrifugation ou au séchage donneraient aussi des « hémisphères » au MEB. Les images seules ne départagent pas les deux hypothèses.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La morphologie de Li2FeSiO4 hydrothermal dépend fortement de la chimie du précurseur de fer, qui change l'auto-organisation des particules primaires (nanoplaquettes assemblées). Un additif complexant ou réducteur du Fe(II) peut donc modifier l'assemblage, ce qui rend l'effet de l'acide ascorbique plausible.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of novel morphologies of Li2FeSiO4/C micro/nano composites by a facile hydrothermal method",
+      "authors_or_publisher": "Jiang X., Xu H., Yang J., Liu J., Mao H., Qian Y. — RSC Adv. 4, 39889 (résumé lu sur https://faculty.qust.edu.cn/liujing123/en/lwcg/124662/content/233253.htm)",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4RA06392A"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : LiOH à 2 mol/L est caustique, l'autoclave est sous pression et doit être refroidi avant ouverture, les poudres nanométriques sont à ne pas inhaler.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans le mélange eau/EG très basique (LiOH 2 mol/L), la silice hydrophile se dissout en silicate et Fe2+ précipite en Fe(OH)2 (suspension vert foncé). En autoclave, Fe(OH)2 et le silicate se redissolvent et recristallisent en Li2FeSiO4 Pmn21 (dissolution–recristallisation) ; le LiOH en excès déplace l'équilibre vers le silicate lithié. L'ascorbate protège Fe(II) de l'O2 du ciel gazeux. En s'adsorbant ou en complexant Fe(II), lui ou ses produits de dégradation en milieu basique chaud limiteraient probablement la croissance des particules primaires et favoriseraient leur agrégation en coques. La forme creuse peut venir d'un mûrissement d'Ostwald interne ou de la rupture de sphères creuses ; l'article ne permet pas de trancher. La hausse de température accélère la dissolution–recristallisation : particules plus grosses, et disparition de Li2SiO3, qui consomme Li et Si avant que Fe ne soit incorporé.",
+    "sources": [
+     {
+      "title": "Synthesis of novel morphologies of Li2FeSiO4/C micro/nano composites by a facile hydrothermal method",
+      "authors_or_publisher": "Jiang X., Xu H., Yang J., Liu J., Mao H., Qian Y. — RSC Adv. 4, 39889 (résumé lu sur https://faculty.qust.edu.cn/liujing123/en/lwcg/124662/content/233253.htm)",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4RA06392A"
+     },
+     {
+      "title": "Hydrothermal crystallization of Pmn21 Li2FeSiO4 hollow mesocrystals for Li-ion cathode application",
+      "authors_or_publisher": "Zeng Y., Chiu H.-C., Rasool M., ..., Demopoulos G.P. — Chem. Eng. J. 359, 1592–1602 (référence [34] de l'article, liste des publications de Y. Zeng, FSU)",
+      "year": "2019",
+      "url_or_doi": "https://www.chem.fsu.edu/person/dr-yan-zeng"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de l'autoclave et taux de remplissage (60 mL de liquide)",
+    "dégazage des solutions ou préparation sous N2/Ar (aucune atmosphère n'est indiquée)",
+    "lavage et séchage rapides, si possible sous gaz inerte : le passage du gris au jaune suggère une oxydation de surface",
+    "masses à peser (3,98 g FeCl2·4H2O ; 1,20 g SiO2 ; 0,546 g acide ascorbique ; 5,04 g LiOH·H2O)",
+    "teneur en Fe(III) du FeCl2·4H2O commercial"
+   ]
+  },
+  {
+   "label": "LFS160",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "160 °C en autoclave : pression de vapeur de l'eau ≈ 0,62 MPa, sans difficulté. Une cristallisation moins avancée à plus basse température est attendue.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Li2SiO3 en impureté (astérisques vers 19° et 27° sur la Figure 1) signifie qu'une partie du Si est liée au Li sans Fe : à Fe:Si = 1:1 dans la charge, une fraction équivalente de fer doit se trouver ailleurs (Fe(OH)2 ou oxyde amorphe, ou en solution), ce qui n'est ni détecté ni discuté.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même chemin que LFS200, cinétiquement moins avancé : Li2SiO3 (formé à partir de l'excès de LiOH et du silicate) n'a pas fini de réagir avec le fer.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "bilan du fer quand Li2SiO3 apparaît (phase ferreuse amorphe ?)"
+   ]
+  },
+  {
+   "label": "LFS180",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Sur la Figure 1, LFS180 montre de petits pics vers 19° et 27°, aux mêmes positions que les astérisques de LFS160 mais non marqués. Le texte qui attribue Li2SiO3 à LFS180 est compatible avec la figure.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "180 °C : pression de vapeur de l'eau ≈ 1,0 MPa, sans difficulté en autoclave.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Intermédiaire entre LFS160 et LFS200.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": []
+  },
+  {
+   "label": "nano-LFS200",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "effet du retrait de l'acide ascorbique sur la basicité",
+     "inputs": "LiOH libre 0,037 mol avec acide ascorbique ; 0,040 mol sans",
+     "formula": "(0,040 − 0,037)/0,037",
+     "result": "+8 % de base libre",
+     "compared_to": "le témoin change donc surtout le redox et l'adsorbat, à peine le pH : témoin acceptable sur un seul facteur",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Aucun diffractogramme de nano-LFS200 n'est montré : sans acide ascorbique et sans gaz inerte, une partie du Fe(II) peut s'oxyder (≈ 7 % du Fe pour un ciel de 40 mL d'air) et donner des impuretés Fe(III) ou Fe3O4. La phase du témoin n'est donc pas établie, et la différence de morphologie peut venir aussi de cette oxydation et non seulement d'un effet d'assemblage de l'acide ascorbique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Une seule image (encart de la Figure 2c), sans distribution de taille : « relatively fine nanoparticles » n'est pas chiffré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Sans agent adsorbé ou réducteur, la croissance par dissolution–recristallisation donne des particules isolées plutôt que des agrégats creux.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "DRX du témoin sans acide ascorbique",
+    "atmosphère du témoin"
+   ]
+  },
+  {
+   "label": "LFS600",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carbone maximal apporté par le saccharose",
+     "inputs": "rapport massique LFS200:saccharose 1:2 ; C12H22O11 M = 342,30 g/mol, 144,13 g C par mole (42,1 % C)",
+     "formula": "2 g saccharose × 0,421 par g de LFS200",
+     "result": "≤ 0,84 g C par g de LFS200, soit ≤ 46 % de C dans le composite si tout le carbone restait",
+     "compared_to": "le rendement réel de pyrolyse est plus bas mais non mesuré ; enrobages usuels de Li2FeSiO4/C ≈ 10–20 % en masse ; teneur en C de LFS600 non donnée (pas d'ATG)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "capacité théorique de Li2FeSiO4",
+     "inputs": "F = 96485 C/mol ; M = 161,81 g/mol",
+     "formula": "n F / (3,6 M)",
+     "result": "165,6 mAh/g pour 1 Li ; 331,3 mAh/g pour 2 Li",
+     "compared_to": "article : 331 mAh/g et 1 C = 166 mA/g (cohérent)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Li échangés pour 192 mAh/g",
+     "inputs": "192 mAh/g ; 165,6 mAh/g par Li",
+     "formula": "192/165,6",
+     "result": "1,16 Li par formule (au moins, si la masse de référence inclut le carbone)",
+     "compared_to": "> 1 Li : exige l'oxydation de O2− ou des réactions parasites (que les auteurs invoquent eux-mêmes à 2,51–1,5 V)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rétentions de capacité",
+     "inputs": "114,2/126,2 ; 101,6/114,7 ; 79,3/105,4 mAh/g",
+     "formula": "C160/Cmax",
+     "result": "90,5 % ; 88,6 % ; 75,2 %",
+     "compared_to": "article : 90,5 ; 88,6 ; 75,2 % (exact)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "coefficient de l'équation (3)",
+     "inputs": "R = 8,314 ; T = 298,15 K ; A = 1,96 cm² ; n = 1 ; F = 96483 ; C = 0,04 mol/cm³",
+     "formula": "R²T²/(2 A² n⁴ F⁴ C²)",
+     "result": "5,768 × 10−12 (donc D = 5,768 × 10−12 / σ², exposant −2)",
+     "compared_to": "article : 5,7680 × 10−12 σ2 (signe moins perdu) ; à 303,15 K (mesures à 30 °C) le coefficient serait 3,4 % plus grand",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pente de Warburg sous-entendue",
+     "inputs": "D = 2,53 × 10−16 cm²/s",
+     "formula": "σ = √(5,768 × 10−12 / D)",
+     "result": "σ ≈ 151 Ω·s−1/2",
+     "compared_to": "σ non publié ; valeur plausible pour une électrode de silicate",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentration de Li dans Li2FeSiO4",
+     "inputs": "maille P21/n a = 8,229, b = 5,020, c = 8,233 Å, β = 99,2°, Z = 4 (paramètres usuels, cités de mémoire, à confronter à la fiche PDF#97-024-6132) ; M = 161,81",
+     "formula": "ρ = Z M /(NA V) ; C = 2 ρ / M",
+     "result": "V ≈ 335,7 Å³ ; ρ ≈ 3,20 g/cm³ ; C(Li) ≈ 0,040 mol/cm³",
+     "compared_to": "article : 0,04 mol/cm³ (cohérent)",
+     "source": "arithmétique ; paramètres de maille de mémoire"
+    },
+    {
+     "what": "Bragg : distances SAED contre maille monoclinique P21/n",
+     "inputs": "a = 8,229, b = 5,020, c = 8,233 Å, β = 99,2° (de mémoire)",
+     "formula": "1/d² = [h²/a² + k² sin²β/b² + l²/c² − 2hl cosβ/(ac)]/sin²β",
+     "result": "(101) 5,34 ; (111) 3,66 ; (−202) 3,13 ; (112) 2,83 ; (−301) 2,70 ; (020) 2,51 ; (−321) 1,84 Å ; 2θ(Cu) de (110) 20,8° et de (112) 31,6°",
+     "compared_to": "SAED : 5,37 ; 3,65 ; 3,13 ; 2,81 ; 2,68 ; 2,48 ; 1,87 Å (écarts ≤ 1,7 %) ; HRTEM (020) 2,52 Å ; positions des bâtons P21/n de la Figure 1 cohérentes",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg : mêmes distances dans la maille orthorhombique Pmn21",
+     "inputs": "a = 6,266, b = 5,330, c = 5,015 Å (de mémoire, à confronter à la fiche PDF#97-016-1306)",
+     "formula": "1/d² = h²/a² + k²/b² + l²/c²",
+     "result": "(010) 5,33 ; (011) 3,65 ; (111) 3,16 / (200) 3,13 ; (210) 2,70 ; (002) 2,51 ; aucune réflexion entre 2,70 et 3,13 Å",
+     "compared_to": "six des sept taches SAED s'indexent aussi en Pmn21 ; seule la tache à 2,81 Å (112)m est propre au monoclinique",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "« Predominated by monoclinic » n'est pas démontré. Sur la Figure 1, le diffractogramme de LFS600 a les mêmes raies fortes que LFS200 (16,6 ; 24,3 ; 28,5 ; 33,1 ; 35,7°), communes à Pmn21 et à P21/n. Les raies propres au monoclinique, (110) à 20,8° et (112) à 31,6°, ne sont que de faibles bosses. Les taches SAED s'indexent aussi en Pmn21, sauf celle à 2,81 Å (voir les deux calculs Bragg), et la SAED ne voit qu'une particule. Il faudrait un affinement de Rietveld pour donner les proportions de phases ; LFS600 est au mieux un mélange orthorhombique + monoclinique.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La transformation Pmn21 → P21/n vers 600 °C sous N2 est plausible : dans la littérature, Pmn21 est la forme de basse température, P21/n celle de température intermédiaire et Pmnb celle de haute température, et la méthode, le recuit et l'enrobage carboné décident de la forme obtenue. Mais les températures de transition varient selon les auteurs (le P21/n est obtenu par trempe vers 800–900 °C dans d'autres travaux), donc 600 °C pendant 10 h peut ne donner qu'une conversion partielle.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemistry of orthosilicate-based lithium battery cathodes: a perspective",
+      "authors_or_publisher": "Phys. Chem. Chem. Phys. (Royal Society of Chemistry) ; auteurs non relus",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4CP00511B"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Les températures et les étiquettes de polymorphes de Li2FeSiO4 ne concordent pas d'une publication à l'autre (exemple : forme P21/n donnée pour 900 °C par voie céramique). La seule comparaison aux fiches PDF ne suffit pas à fixer le polymorphe.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Crystal Chemistry and Electrochemical Delithiation of Li2FeSiO4",
+      "authors_or_publisher": "Quoirin G. et al., ECS Meeting Abstracts MA2007-01, 98",
+      "year": "2007",
+      "url_or_doi": "https://iopscience.iop.org/article/10.1149/MA2007-01/3/98/pdf"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Rapport LFS200:saccharose 1:2 en masse : jusqu'à 0,84 g de C par g de LFS200 (« carbone maximal apporté par le saccharose »), soit un composite très riche en carbone, bien au-delà des 10–20 % usuels même après les pertes de pyrolyse. La teneur en C n'est pas mesurée (pas d'ATG ni d'analyse élémentaire), alors qu'elle change la masse de référence des capacités.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "192 mAh/g à 0,2 C correspond à 1,16 Li par formule (« Li échangés pour 192 mAh/g »), au-delà de la capacité à 1 Li (165,6 mAh/g). La valeur n'apparaît que dans le résumé et la conclusion, sans numéro de cycle. Les auteurs attribuent eux-mêmes une partie de la capacité à une « side reduction » entre 2,51 et 1,5 V, autre que la réduction du fer, et la fenêtre monte à 4,8 V, où l'électrolyte carbonate s'oxyde. Le chiffre mêle donc capacité du fer, oxydation supposée de O2− et réactions parasites, sur une masse de référence non précisée (avec ou sans le carbone) : il n'est pas comparable aux capacités réversibles de la littérature.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Calcination sous N2 avec un excès de carbone : Fe(II) est préservé, et le Fe(III) de surface formé au lavage est probablement réduit par le carbone de pyrolyse ; c'est cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "LFS200 est agité dans eau/éthanol à 80 °C jusqu'à évaporation (durée non donnée). Les silicates de Li et Fe(II) peuvent échanger Li+/H+ et s'oxyder en milieu aqueux aéré chaud ; ce n'est pas contrôlé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le coefficient de l'équation (3) se recalcule exactement (5,768 × 10−12), mais en 1/σ² : le σ2 du texte est une erreur de mise en forme. T = 298,15 K est utilisé alors que les cellules sont testées à 30 °C (écart de 3,4 % sur D, négligeable). A = 1,96 cm² est l'aire géométrique d'un disque de 15,8 mm, pas l'aire active : D est apparent. D = 2,5 × 10−16 cm²/s est dans l'ordre de grandeur cité en introduction pour Li2FeSiO4.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : la pyrolyse du saccharose dégage des vapeurs organiques et du CO ; travailler sous hotte et purger le four.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "La pyrolyse du saccharose donne une couche carbonée conductrice. À 600 °C pendant 10 h, une partie du Pmn21 se réarrange en P21/n (orientation différente des tétraèdres FeO4 et SiO4, polymorphe de température intermédiaire). D'après la Figure 1, la conversion est partielle, et non « prédominante ».",
+    "sources": [
+     {
+      "title": "Electrochemistry of orthosilicate-based lithium battery cathodes: a perspective",
+      "authors_or_publisher": "Phys. Chem. Chem. Phys. (Royal Society of Chemistry) ; auteurs non relus",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4CP00511B"
+     },
+     {
+      "title": "Dependence of Li2FeSiO4 electrochemistry on structure",
+      "authors_or_publisher": "Sirisopanaporn C., Masquelier C., Bruce P.G., Armstrong A.R., Dominko R. — J. Am. Chem. Soc. 133, 1263–1265",
+      "year": "2011",
+      "url_or_doi": "10.1021/ja109695r"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en carbone du composite (ATG sous air)",
+    "proportion des polymorphes par affinement de Rietveld",
+    "masse de référence des capacités (Li2FeSiO4 seul ou composite)",
+    "durée de l'agitation à 80 °C et atmosphère de séchage"
+   ]
+  },
+  {
+   "label": "nano-LFS600",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "écart de capacité LFS600 contre nano-LFS600",
+     "inputs": "0,5 C : 134,5 / 121,9 ; 1 C : 115,5 / 110,5 ; 2 C : 93,4 / 96,9 mAh/g",
+     "formula": "(LFS600 − nano)/nano",
+     "result": "+10,3 % ; +4,5 % ; −3,6 %",
+     "compared_to": "l'article conclut à une performance « enhanced » sans barres d'erreur ni répétition de cellules",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'avantage de la morphologie creuse ne vaut qu'à bas régime (+10 % à 0,5 C, +4,5 % à 1 C). À 2 C, le témoin est meilleur (−3,6 %). Sur une seule cellule par échantillon, des écarts de 4 % sont dans la dispersion habituelle entre piles boutons : l'« enhanced performance » n'est établie qu'à 0,5 C. Ni la teneur en carbone ni la phase du témoin ne sont données.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même enrobage carboné que LFS600, sur des particules isolées.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "plusieurs cellules par échantillon",
+    "teneur en carbone des deux composites"
+   ]
+  },
+  {
+   "label": "Electrode_LFS600",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction de Li2FeSiO4 dans l'électrode",
+     "inputs": "LFS600 80 % en masse ; carbone de LFS600 inconnu (jusqu'à ≈ 46 %)",
+     "formula": "0,8 × (1 − x_C)",
+     "result": "entre ≈ 43 % et 80 % de Li2FeSiO4 selon x_C",
+     "compared_to": "masse de référence des capacités non précisée",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Formulation 8:1:1 dans la NMP sur Al, séchage sous vide à 60 °C pendant 12 h : c'est standard. Le grammage manque, et la proportion réelle de matière active est inconnue tant que la teneur en carbone de LFS600 n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "La NMP est reprotoxique : manipuler sous hotte. Non écrit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "grammage (mg/cm²)",
+    "épaisseur après calandrage"
+   ]
+  },
+  {
+   "label": "Coin_cell_LFS600",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "aire de l'électrode",
+     "inputs": "A = 1,96 cm²",
+     "formula": "d = 2√(A/π)",
+     "result": "disque de 15,8 mm",
+     "compared_to": "électrode usuelle de pile 2016",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Fenêtre de 1,5 à 4,8 V avec LiPF6 dans EC/EMC/DMC : au-delà d'environ 4,5 V, l'électrolyte carbonate s'oxyde sur le carbone. Le plateau au-dessus de 4,2 V, attribué à l'oxydation de O2−, peut contenir une part d'oxydation de l'électrolyte : aucun contrôle (électrode de carbone seule, analyse des gaz) ne les distingue.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Lithium métal réactif à l'eau ; LiPF6 hydrolysé en HF ; carbonates inflammables. Assemblage en boîte à gants (écrit).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (assemblage).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'électrolyte",
+    "contribution du carbone seul (électrode témoin super-P/saccharose pyrolysé) entre 1,5 et 4,8 V"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse hydrothermale est chimiquement cohérente : Li:Fe:Si = 6:1:1 (excès de LiOH usuel), Fe(II) protégé par 15 % molaire d'acide ascorbique, 160–200 °C en autoclave pour la phase Pmn21 attendue, enrobage par le saccharose sous N2. Elle reste reproductible avec réserves (volume de l'autoclave, atmosphère, masses à reconstituer, teneur en carbone). Les faiblesses sont dans l'interprétation : la prédominance du monoclinique après 600 °C n'est pas montrée par la DRX, la capacité de 192 mAh/g dépasse 1 Li par formule et inclut des réactions parasites sur une masse de référence non dite, et l'effet « auto-assemblage » de l'acide ascorbique repose sur des images MEB sans série en temps ni DRX du témoin.",
+  "author_errors_suspected": [
+   "Équation (3) : D = 5,768 × 10−12/σ² et non × σ² (recalcul exact du coefficient)",
+   "T = 298,15 K dans le calcul de D alors que les mesures sont à 30 °C (écart de 3 %, mineur)",
+   "« predominated by monoclinic Li2FeSiO4 » : affirmation non soutenue par la Figure 1 (raies (110) et (112) très faibles)",
+   "Capacité de 192 mAh/g sans numéro de cycle, introuvable dans les Résultats",
+   "Coquille « LSF600 » pour LFS600 dans la partie EIS"
+  ],
+  "comparison_with_database": "Aucune autre publication sur Li2FeSiO4 dans la base (compare.py « Li2FeSiO4 » ne renvoie que PMC9143007)."
+ },
+ "sources_not_found": [
+  "Couleur de Li2FeSiO4 pur et sensibilité à l'air ou à l'eau au lavage : aucune source trouvée en deux requêtes",
+  "Recette exacte de Jiang et al. 2014 (annexe RSC c4ra06392a1 : 404, et pubs.rsc.org injoignable) ; un extrait de moteur de recherche indique un rapport Li:Si:Fe ≈ 6:1:1 dans EG/eau à 160–200 °C pendant 12 h, non vérifié sur le document",
+  "Valeurs NIST de la pression de vapeur de l'eau à 160–200 °C : page récupérée sans les lignes voulues, valeurs de tables de vapeur données de mémoire (0,62 / 1,00 / 1,55 MPa)",
+  "Paramètres de maille P21/n et Pmn21 utilisés de mémoire (Nishimura 2008 ; Sirisopanaporn 2010-2011), non relus en ligne ; cohérents avec les bâtons de la Figure 1"
+ ]
+}

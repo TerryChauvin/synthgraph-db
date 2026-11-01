@@ -1,0 +1,82 @@
+{
+ "pmcid": "PMC9740727",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "HMX+ZIF-67, expérience MS avec ajout de HMX dans la cellule contenant HMX+ZIF-67 (§2.4) : échantillon absent de sample_inventory, de characterizations et d'outcomes",
+   "extracted": "seul le résultat de synthèse « catalysis promoted the formation of CH2O and N2O and inhibited the formation of HCN and NO2 » est repris ; l'essai (HMX ajouté dans la cellule HMX+ZIF-67) et sa observation (double pic MS) n'existent pas",
+   "article_says": "In order to further compare the decomposition mechanism, we added some HMX into the sample cell containing HMX+ZIF-67.",
+   "fix": "ajouter à sample_inventory un échantillon « HMX ajouté à HMX+ZIF-67 (MS) » et, dans la route HMX+ZIF-67, une caractérisation ou un résultat textuel : double pic en MS ; premier pic de m/z 30 et 44 plus haut que le second, premier pic de m/z 27 et 46 plus bas que le second",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "ZIF-67 step 4 (age, 24 h) : temperature déclarée not_stated",
+   "extracted": "not_stated: temperature (étape 4)",
+   "article_says": "After stirring and mixing the two solutions at 25 °C for 0.5 h, the resultant solution was precipitated for 24 h.",
+   "fix": "le schéma 1 (corpus/fig/PMC9740727/molecules-27-08370-sch001.jpg) donne « 25 °C / EtOH » pour la préparation entière ; à défaut de température propre à l'étape 4, noter dans le doute qu'elle n'est pas écrite dans le texte mais que le schéma affiche 25 °C pour la réaction, au lieu de la déclarer simplement absente",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZIF-67, consigne conditionnelle de dispersion (étape non créée)",
+   "extracted": "traitée seulement comme DOUTE, ni étape ni annotation de reproductibilité dédiée",
+   "article_says": "In the case of poor dispersibility during the preparation process, the materials were fully stirred or ultrasonically treated until they were completely dispersed in the solution.",
+   "fix": "ajouter une étape optionnelle (action disperse/sonicate, agitation ou ultrasons, durée et puissance non citées, déclenchée par une mauvaise dispersion) ou une annotation limite_reproductibilite ; le chimiste doit savoir que ce traitement existe",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "RDX/HMX/CL-20/DAP-4+ZIF-67, tendances Ea-α (Fig. 11) et écart aux modèles (Fig. 12) du §2.5 : absentes des outcomes",
+   "extracted": "seules les valeurs de Table 1 et le modèle (A3 ou A2) sont en outcomes ; les tendances sont dans une annotation mais sans citation",
+   "article_says": "The HMX+ZIF-67 curve shows a slow decline trend when α increases from 0 to 1, demonstrating minor autocatalytic activities.",
+   "fix": "ajouter par route un résultat value_text pour la tendance de Ea(α) (RDX : baisse de α = 0 à 0,4 puis hausse ; HMX : lente baisse ; CL-20 : stable ; DAP-4 : hausse continue) et, pour l'écart au modèle, « CL-20+ZIF-67 had the smallest deviation and RDX+ZIF-67 had the largest deviation » ; éventuellement « all the correlation coefficients were greater than 0.98 » pour l'ajustement Fraser–Suzuki",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "HMX+ZIF-67 et les trois autres routes cinétiques : baisse d'Ea par rapport aux valeurs de la littérature (résultat de tête du résumé)",
+   "extracted": "aucun résultat ni note ne reprend la comparaison ; doute « cet écart n'a pas été extrait comme valeur »",
+   "article_says": "HMX+ZIF-67 had the largest decrease in activation energy, which was approximately 190 kJ·mol−1 lower than that reported previously for HMX.",
+   "fix": "ajouter en résultat textuel (non converti) la phrase des auteurs et les Ea de référence citées par eux (RDX 211,7 ; HMX 383,6 ; CL-20 238,6 ; DAP-4 205,4 kJ·mol−1, refs B31 à B33) comme valeurs de comparaison, sans calculer de différence à leur place",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee / conclusion_auteurs : DAP-4+ZIF-67 et énergie d'activation",
+   "extracted": "annotations muettes sur le fait que Ea de DAP-4+ZIF-67 (combinée 211,74 ; Friedman 212,69) dépasse la valeur antérieure citée (205,4)",
+   "article_says": "In this study, we found through comparison that the activation energy of the four energetic materials was reduced to varying degrees after the addition of ZIF-67.",
+   "fix": "ajouter une annotation limite_reproductibilite : pour DAP-4, seule la valeur de Kissinger (151,43) est inférieure à 205,4 ; les méthodes que les auteurs jugent plus fiables donnent une valeur supérieure, ce qui contredit l'affirmation d'une baisse pour les quatre matières",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation comparison_branches, DAP-4 : « 10,5 °C (DAP-4, de 401,6 à 390,1 °C) »",
+   "extracted": "10,5 °C présenté comme la différence entre 401,6 et 390,1 °C",
+   "article_says": "ZIF-67 reduced the thermal decomposition peak temperatures of RDX, HMX, CL-20 and DAP-4 by 22.3 °C, 18.8 °C, 4.7 °C and 10.5 °C, respectively.",
+   "fix": "401,6 − 390,1 = 11,5 °C (les trois autres écarts sont exacts) ; reformuler l'annotation en signalant que 10,5 est la valeur des auteurs et que leurs étiquettes de pic donnent 11,5 (le doute existe déjà dans l'extraction, pas dans l'annotation)",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "pureté et fournisseur de Co(NO3)2·6H2O, du 2-méthylimidazole et de l'éthanol absents (la section Materials ne décrit que les matières énergétiques)",
+  "masse de sel de cobalt incohérente avec la formule : 249,0 mg pour 1 mmol de Co(NO3)2·6H2O (≈ 291 mg attendus ; 249 mg correspondent à l'acétate de cobalt tétrahydraté) : le sel réellement pesé est incertain",
+  "25 mL d'éthanol par solution ou au total : « dissolved in 25 mL ethanol separately » ambigu ; ordre et vitesse d'ajout des deux solutions, vitesse d'agitation absents",
+  "température de la précipitation de 24 h non écrite dans le texte (25 °C seulement sur le schéma)",
+  "centrifugation : vitesse, durée absentes ; « the washing product » sans solvant de lavage ni nombre de lavages ; aucun séchage ni activation décrits",
+  "durée, puissance et appareil du traitement agitation/ultrasons « en cas de mauvaise dispersion » absents",
+  "mélange avec les matières énergétiques : broyage manuel ou mécanique non précisé, pas de précautions de sécurité, pureté et fournisseur de RDX, HMX, CL-20, DAP-4 et AP absents (seules granulométries ou classes données ; RDX sans granulométrie)",
+  "DSC : atmosphère, masse d'échantillon, creuset, étalonnage non donnés (Netzsch STA 449 F3 seul) ; la vitesse de 10 °C·min−1 est dans le texte, pas dans la Fig. 6 ; MS : gaz vecteur, couplage avec la DSC et vitesse de chauffe non donnés",
+  "XRD (appareil, rayonnement), IR (mode, préparation de l'échantillon) et RMN (appareil, référence, attribution des trois signaux à 11,5 / 10,7 / 6,0 ppm) absents",
+  "degré de conversion et ajustement : modèle de la méthode combinée non détaillé (pas de logiciel, plage de conversion)"
+ ],
+ "mechanism_check": "ok : les citations de mecanisme_auteurs (§2.4 et §2.3) soutiennent l'annotation sur le HMX et sur la surface et la porosité du ZIF-67 ; l'hypothèse mecanisme_analyse sur la formation du ZIF-67 est une annotation Claude, plausible. Vigilance : l'article attribue m/z = 30 à NO puis à CH2O dans le même paragraphe (ambiguïté des auteurs, déjà en doute) ; la lecture de Fig. 8 montre pour HMX+ZIF-67 deux pics MS vers 266 et 279 °C, alors que le texte donne des seuils de 235 à 255 °C et dit « 0 °C » pour m/z = 44 à 280 °C.",
+ "notes": "Valeurs de Table 1 (4 rangées, 8 colonnes) : toutes comparées, aucune erreur d'attribution. Les 16 températures de pic à 2,5, 5, 10 et 20 K·min−1 du §2.5 sont correctement rangées (relues aussi sur Fig. 9 : 209,9 à 2,5 et 5 K·min−1 pour RDX, confirmé). Les 8 valeurs from_figure (Fig. 6) sont exactes à la lecture (240,1 ; 282,6 ; 252,8 ; 401,6 ; 286,3 ; 435,7 ; 259,2 ; 353,4, étiquettes imprimées) et les écarts imprimés concordent sauf DAP-4 (11,5 contre 10,5, incohérence des auteurs). Fig. 7 : HMX+ZIF-67 pic vers 266 °C et HMX vers 284 °C, légèrement différent de la Fig. 6 (263,8 et 282,6) : non signalé, pic tracé à une autre échelle. Aucun renvoi de méthode manquant : B13 (essais de sensibilité) est le seul ; B18, B19 (comparaison de spectres), B26 à B29 et B35 à B37 (méthodes de calcul cinétique, équation de Fraser–Suzuki) tombent dans les exclusions de la règle du 2026-10-13. La valeur « > 450 °C » du ZIF-67 est reprise de l'introduction (littérature, B14) dans la conclusion sans mesure : l'extracteur l'a prise comme résultat, défendable car la conclusion l'écrit pour le matériau de l'étude."
+}

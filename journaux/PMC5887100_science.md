@@ -1,0 +1,16 @@
+# PMC5887100 — critique scientifique (journal de décisions)
+
+- Le QY de 29 % est classé `probleme` (contrôle 7) : aucune purification, les mesures portent sur la « mother liquid ». Avec EDS P:F = 1:6, le PF6− est intact, donc il reste du sel non transformé. Essner 2018 est la source retenue (fondateurs.md), sans recherche web.
+- Thermique du HATU : la DSC donne un début à ≈ 161 °C et −1131 J/g (Sperry, OPRD 2018, 10.1021/acs.oprd.8b00193). Les chiffres viennent de la présentation Purdue de Sperry, car la page ACS ne les donnait pas. J'en conclus que la « carbonisation » à 150 °C est surtout la décomposition du HATU. Exotherme recalculé : 190 mg × 1131 J/g ≈ 215 J, soit ΔT ≈ 5 K dans 26 g de toluène, d'où `reserve` et non `probleme` pour la sécurité.
+- J'ai préféré une explication par la réactivité à la rigidité des auteurs : seul le HATU se décompose à 150 °C, alors que DIPA, BI et BTEAC sont stables ou ne font qu'une désalkylation. L'angle dièdre et la bande Raman à 1080 cm−1 ne permettent pas de trancher. Le mécanisme est donc noté `a_revoir`.
+- DIPA : 1 mL × 0,722 g/mL / 101,19 g/mol = 7,14 mmol, soit 14 fois les autres et 8,6 fois plus de carbone. C'est un `probleme` (contrôle 5, témoin non équimolaire). La densité est prise sur la fiche Sigma-Aldrich.
+- La voie Al est en `probleme`. AlCl3·6H2O 1 mmol apporte 6 mmol d'eau, et Al:F = 1:3, soit la stœchiométrie d'AlF3. Al3+ accélère l'hydrolyse de PF6− (RSC EW 2025, 10.1039/d4ew00758a ; auteurs non relevés, extrait seulement). Les « points dopés » pourraient donc être en partie inorganiques. Le témoin compare aussi un dépôt de centrifugation à une solution.
+- La voie aqueuse est en `probleme`. Le toluène fond à 178,1 K (−95 °C, NIST, relu en ligne), donc on ne peut pas lyophiliser une mère liquide toluénique dans un appareil courant. Soit la provenance est autre, soit il s'agit d'une évaporation.
+- DMF en `probleme` (contrôle 6) : l'article donne deux états de dispersion contradictoires. Je n'ai pas tranché.
+- XPS : C 1s C–C à 285,7 eV (+0,9 eV) et F 1s à 691 eV, contre 686,7 eV pour PF6− (PMC7027538), soit +4,3 eV. L'écart n'est pas un décalage uniforme, d'où une `reserve` sur la calibration et les attributions.
+- QY relatif : le sulfate de quinine n'absorbe plus au-delà d'environ 400 nm, alors que l'excitation optimale annoncée est de 410 nm. La sphère d'intégration est décrite avec une « film absorptance » pour des solutions. C'est une `reserve` (Brouwer 2011).
+- Pression du toluène à 150 °C : Antoine NIST (Ambrose 1967, 420–580 K) donne 2,76 bar, recalculé. Pour l'eau, l'éthanol, l'acétonitrile et la pyridine, je n'ai donné que des ordres de grandeur sans relire de source (noté dans `sources_not_found`).
+- La densité (0,867) et le Cp du toluène (1,70 J g−1 K−1) viennent de ma mémoire et sont signalés comme tels dans `calculs`. Il en va de même pour la dilatation à 150 °C, qui n'est qu'une estimation.
+- Otten et al., Langmuir 2022 (fluorophores moléculaires en solvothermal) : je l'ai cité par son URL PubMed. Le DOI n'a pas été relevé, je ne l'ai pas inventé.
+- Rien n'a été ajouté à fondateurs.md ni à constantes.md (Crossref bloqué, consigne).
+- Recherches web : 6 recherches et 1 lecture de page (NIST toluène).

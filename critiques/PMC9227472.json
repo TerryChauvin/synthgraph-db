@@ -1,0 +1,112 @@
+{
+ "pmcid": "PMC9227472",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "Citrus_limon_zest_extract et AgNPs_opt : DPPH_inhibition_25/50/100_ug_mL (6 valeurs)",
+   "extracted": "extrait : 45.39 / 53.69 / 68.56 % ; AgNPs : 22.29 / 30.59 / 54.11 % (25, 50, 100 µg/mL), tels qu'écrits dans le texte",
+   "article_says": "(45.39 ± 2.16%, 53.69 ± 3.84%, and 68.56 ± 2.41% at 25, 50, and 100 µg/mL) with lemon zest extract and (22.29 ± 0.79%, 30.59 ± 1.95%, and 54.11 ± 2.03% at 25, 50, and 100 µg/mL) with green AgNPs",
+   "fix": "Les étiquettes du texte sont contredites par l'article lui-même : la Fig. 7 (lue) montre AgNPs ≈ 51 % à 20 µg/mL et ≈ 70 % à 100 µg/mL, extrait ≈ 24 % et ≈ 49,5 % ; le Tableau 4 donne IC50 = 42,56 (AgNPs) contre 84 (extrait) ; le texte dit que les AgNPs ont la meilleure activité. Interpolées, les séries du texte donnent IC50 ≈ 40 µg/mL pour la série dite « extrait » et ≈ 90 pour la série dite « AgNPs ». Soit permuter les deux séries (la citation reste exacte, l'attribution change), soit garder les valeurs et ajouter une annotation limite_reproductibilite et un doute explicite ; ne pas laisser les deux séries attribuées comme dans la phrase sans signalement dans les résultats eux-mêmes (le doute existe mais les valeurs sont rangées comme si elles étaient sûres).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "AgNPs_opt step 1 duration = 4 h",
+   "extracted": "duration = 4 h (citation du résumé), appliquée à l'échantillon caractérisé",
+   "article_says": "After 30 min, the mixture solution turned turbid and became reddish-brown",
+   "fix": "Les Méthodes ne donnent aucune durée de réaction pour l'échantillon purifié et caractérisé ; les 4 h viennent du résumé (conditions optimales de l'étude d'optimisation par UV-vis). Indice contre l'identification : le spectre de la Fig. 1 (AgNPs, pic ≈ 535 nm) a une absorbance ≈ 1,38, qui correspond à la courbe de 180 min de la Fig. 2b (≈ 1,38), non à celle de 240 min (≈ 1,58). Déclarer `duration` de l'étape 1 dans `not_stated` (avec la valeur 4 h seulement en annotation) ou la garder avec un doute plus explicite ; ne pas la présenter comme citée pour l'échantillon de la Fig. 4–7 et des tests biologiques.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "AgNPs_0.5mM et AgNPs_2mM : héritage de la durée (4 h) et des volumes 10 mL / 90 mL du parent ; outcome 1 mM de la série Fig. 2a absent",
+   "extracted": "branches héritant de AgNPs_opt (4 h, 10 mL extrait + 90 mL AgNO3)",
+   "article_says": "mixing each concentration of AgNO3 solution (2, 1, 0.5 mM) with 9 mL of Citrus limon zest extract, and other parameters remained the same as those used in the previous experiments",
+   "fix": "Le texte dit 9 mL d'extrait (non 10 mL) pour cette série et ne donne aucune durée. Sur la Fig. 2a, 1 mM = Abs ≈ 0,77, très inférieure à la valeur à 240 min (≈ 1,6) pour la même composition : la série n'a donc pas été faite à 4 h, ou pas aux mêmes volumes. Les branches héritent de l'étape de durée du parent contre la règle « pas d'héritage non fondé ». Donner à ces deux branches leur propre étape 1 avec `duration` et `volume` dans `not_stated` (ou une variation de volume non valuée), et enregistrer la valeur de 1 mM (≈ 0,77) comme outcome distinct (property qui dit « série Fig. 2a ») pour que la comparaison 0,5 / 1 / 2 mM soit complète en base.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "AgNPs_extract_2mL et AgNPs_extract_5mL : parent_value 10 mL (extrait) et 90 mL (AgNO3)",
+   "extracted": "variation extrait 2 mL [parent 10 mL] et AgNO3 8 mL [parent 90 mL] ; idem 5 mL / 5 mL",
+   "article_says": "varying the extract ration (1 mL, 2 mL, and 5 mL) in the reaction mixture using the same biosynthesis process",
+   "fix": "La série est décrite à l'échelle 1 mL:9 mL, 2 mL:8 mL, 5 mL:5 mL (légende de la Fig. 2c, lue sur l'image), soit 10 mL au total, et non à l'échelle de 100 mL des Méthodes. Avec parent_value = 10 mL / 90 mL, la lecture « extrait 10 → 2 mL et AgNO3 90 → 8 mL » est fausse : la référence de la série est 1 mL / 9 mL. Corriger les parent_value (1 mL et 9 mL) ou ajouter une note de volume total 10 mL ; préciser que le point 1:9 de cette série est à l'échelle 10 mL, rattaché à AgNPs_opt seulement par le rapport. La citation de la variation AgNO3 (8 mL, 5 mL) est la légende générale de la Fig. 2 qui ne contient pas ces nombres : citer « varying the extract ration (1 mL, 2 mL, and 5 mL) » avec `from_figure` et décrire la lecture de la légende dans le doute.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "AgNPs_30min outcome colour_observation",
+   "extracted": "colour_observation = the mixture solution turned turbid and became reddish-brown (branche 30 min)",
+   "article_says": "After 30 min, the mixture solution turned turbid and became reddish-brown, and the color of the colloidal suspension changed from yellow to brown, suggesting the formation of silver nanoparticles.",
+   "fix": "Cette phrase des Méthodes 2.4 décrit la synthèse de référence, non l'échantillon de 30 min de la Fig. 2b ; ce dernier a une courbe plate (≈ 0,1) sans bande plasmon, ce qui contredit en apparence le changement de couleur. Retirer l'outcome de la branche 30 min (ou le ranger sous AgNPs_opt comme observation à 30 min) et signaler l'incohérence (couleur à 30 min / absence de bande à 30 min) dans un doute ou une annotation limite_reproductibilite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Protocole du test DPPH (Citrus_limon_zest_extract, AgNPs_opt) : absent de characterizations et de toute valeur",
+   "extracted": "aucune condition du test (résultats DPPH seuls)",
+   "article_says": "A total of 2 mL of a standard solution of DPPH (0.1 mM) was added to 1 mL of synthesized AgNPs–lemon zest extract solution diluted with methanol to obtain various concentrations (100–500 μg/mL), along with the standard methanolic solutions of ascorbic acid.",
+   "fix": "Ajouter une entrée characterizations (technique DPPH, instrument « UV-visible spectrophotometer », conditions : 2 mL DPPH 0,1 mM + 1 mL d'échantillon, à l'abri de la lumière, température ambiante, 1 h, lecture à 517 nm) sur chacune des deux voies, et un doute sur la plage 100–500 µg/mL des Méthodes contre 20–100 µg/mL de la Fig. 7 et 25–100 du texte. Témoin positif : acide ascorbique (IC50 22,6 ± 0,06 µg/mL, Tableau 4) non repris.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Protocole du test de diffusion en puits (AgNPs_opt, Citrus_limon_zest_extract) : absent",
+   "extracted": "aucune condition des essais antimicrobiens",
+   "article_says": "each well was filled separately with 100 μL of AgNPs suspended in double sterilized water of 1 mg/mL, plant extract, and sterilized water as the negative control",
+   "fix": "Ajouter characterizations (agar well diffusion) avec : puits de 6 mm, 100 µL d'AgNPs à 1 mg/mL dans l'eau doublement stérilisée, inoculum 10^6 CFU/mL (0,5 McFarland) sur gélose Mueller–Hinton (bactéries) et Sabouraud (levure), 24 h à 37 °C (bactéries) et 30 °C (champignon), triplicats, témoins gentamicine 100 µg et nystatine 100 µg (disque) ; souches E. coli ATCC 25922, S. aureus ATCC 25923, C. albicans clinique. Sans cela les diamètres de zone (14, 20, 24 mm) ne sont pas interprétables. Noter aussi que le texte dit 106 CFU/mL (exposant aplati dans corpus/text).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "AgNPs_opt : lignes de tableaux non extraites (Tableaux 1, 2, 3)",
+   "extracted": "seules les rangées Ag du Tableau 3, la taille moyenne de Scherrer, le PDI et le potentiel zêta sont en outcomes",
+   "article_says": "C (K) | 4.14 | 10.43 | 110.91",
+   "fix": "Reprendre toutes les rangées du Tableau 3 (C 4,14 % masse / 10,43 % at. ; N 5,18 / 11,2 ; O 31,65 / 59,93 ; K 3,75 / 2,91), la conductivité 0,158 mS/cm et l'écart-type du potentiel zêta 6,20 mV du Tableau 2, et les tailles de cristallite par pic (19,37 ; 13,30 ; 16,10 ; 15,14 nm) et espacements d (2,355 ; 2,041 ; 1,443 ; 1,231 Å) du Tableau 1. Les valeurs de 2θ sont dans la caractérisation XRD en texte seulement. Gravité faible (données secondaires).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "AgNPs_30min et AgNPs_0.5mM : property SPR_peak_absorbance",
+   "extracted": "SPR_peak_absorbance = 0.1 a.u. (30 min) et 0.4 a.u. (0,5 mM)",
+   "article_says": "The UV-Vis spectra exhibited strong SPR absorbance after 240 min due to the stabilization of nanoparticles because of the stabilization agent present in the plant extract",
+   "fix": "Sur la Fig. 2, les courbes de 30 min et de 0,5 mM n'ont pas de maximum plasmon (courbes décroissantes) : la valeur lue est l'absorbance à ≈ 535 nm, pas un pic. Renommer la property (« absorbance_at_535_nm ») pour ces deux branches ou ajouter « sans pic » en value_text ; sinon une comparaison automatique de « SPR_peak_absorbance » est fausse. Valeurs lues sur la figure vérifiées : 30 min ≈ 0,1 ; 60 min ≈ 0,82 ; 120 min ≈ 1,15 ; 180 min ≈ 1,38 ; 240 min ≈ 1,58 ; 0,5 mM ≈ 0,40 ; 1 mM ≈ 0,77 ; 2 mM ≈ 0,87 ; 1:9 ≈ 1,58 ; 2:8 ≈ 1,40 ; 5:5 ≈ 0,82 (aucun écart supérieur à 10 %).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "AgNPs_opt step 1 : concentration de AgNO3 absente des paramètres",
+   "extracted": "1 mM seulement dans le nom du réactif ; paramètres de l'étape 1 : agitation, température, lumière, durée",
+   "article_says": "10 mL of Citrus lemon zest extract was mixed with 90 mL of a concentration of 1 mM freshly prepared silver nitrate aqueous solution",
+   "fix": "Ajouter un paramètre `concentration` = 1 mM (et `volume` pour les deux liquides si la grille le permet) à l'étape 1 de AgNPs_opt ; sinon la variation 0,5 / 2 mM des branches n'a pas de valeur de comparaison dans les paramètres (la variation cite un « parent_value » 1 mM déjà présent, mais le paramètre parent n'existe pas).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Citrus_limon_zest_extract : provenance des citrons",
+   "extracted": "non présente (ni valeur, ni not_stated, ni annotation)",
+   "article_says": "In January 2020, the fresh and adult Citrus limon (L.) were harvested randomly by hand when they were fully mature, from the same tree in a private-public farm in the area of Data Ben Dahoua, Ghardaïa",
+   "fix": "Ajouter un paramètre ou une annotation : récolte en janvier 2020, fruits mûrs de couleur jaune, du même arbre, ferme de Data Ben Dahoua (Ghardaïa, Algérie). Utile car la composition de l'extrait en dépend.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 9,
+  "not_stated_checked": 22,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "durée de la réaction de l'échantillon caractérisé (30 min dans les Méthodes pour le changement de couleur, 4 h dans le résumé pour l'optimum, Fig. 1 compatible avec 3 h)",
+  "méthode de pelage du zeste, taille des morceaux, vitesse d'agitation et mode de chauffage de l'extraction (« refluxing at 60 °C »), concentration de l'extrait",
+  "eau utilisée pour la solution de AgNO3, séchage final de la poudre d'AgNPs (température, durée, atmosphère), température de centrifugation, rendement",
+  "durée, volumes et conditions de la série de concentration de AgNO3 (texte : 9 mL d'extrait ; Abs 0,77 à 1 mM contre 1,6 à 240 min)",
+  "échelle réelle de la série d'extrait (10 mL au total, d'après la légende de la Fig. 2c) et durée de cette série",
+  "affectation exacte des séries DPPH (extrait/AgNPs) : texte et Fig. 7/Tableau 4 se contredisent ; plage de concentration 100–500 µg/mL (Méthodes) contre 20–100 µg/mL (Fig. 7)",
+  "valeurs du texte et du Tableau 5 divergentes (C. albicans 20 contre 24 mm ; gentamicine 25/22 contre 22/25 mm ; AgNO3 sans zone dans le texte contre 8/11/12 mm dans le tableau ; extrait inactif contre 8 mm)",
+  "aucune annexe (Supporting Information) n'est fournie ; les références des méthodes (B46, B47, B49, B50) ne donnent pas de protocole dans l'article"
+ ],
+ "mechanism_check": "ok : le mecanisme_auteurs cite correctement la phrase des auteurs (qui écrit à tort « reduction of silver nitrate to silver ions » pour la réduction des ions argent) et l'hypothèse « inconnue » est bien notée ; mecanisme_analyse reste hypothétique, sans valeur chiffrée.",
+ "notes": "Lecture des figures : Fig. 2 (valeurs ci-dessus, aucun écart > 10 %) et Fig. 7 ouvertes avec Read. Le texte désigne la Fig. 2a comme temps et 2b comme AgNO3 ; légende et image donnent a = AgNO3, b = temps, c = extrait : l'extracteur a raison de suivre l'image. Le renvoi B47 (Chithrani et al.) est placé sur la mesure DLS/zêta (« with a 90° angle ») sans formule « according to » : pas de constat selon la règle du 2026-10-13, mais l'orchestrateur peut juger s'il s'agit d'un protocole de mesure. B50 (protocole DPPH) et B49 (diffusion en puits) sont rattachés à AgNPs_opt seulement alors qu'ils servent aussi la voie de l'extrait (mineur). L'article contredit lui-même son choix de 1 mM comme « highest yield » : Fig. 2a donne 2 mM > 1 mM en absorbance ; l'extraction le dit déjà dans ses annotations. Les « 2 nM / 1 nM » du texte sont bien lus en mM par l'extracteur (cohérent avec 10−3 M plus loin). Le PDI 0.248 (texte) contre 0.254 (Tableau 2) est signalé en doute : rien à ajouter."
+}

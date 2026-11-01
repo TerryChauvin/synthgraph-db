@@ -1,0 +1,16 @@
+# PMC6926885 — critique scientifique (journal de décisions)
+
+- Table 4 (échantillon C) jugée `probleme` : si SiO2 est conservé (insoluble dans HCl 5 % à froid), la fraction retenue vaut 47,89/59,65 = 0,803 et l'Al2O3 passerait de 18,17 à 19,55 g pour 100 g, ce qui est impossible ; si Al2O3 est conservé, 7 % de SiO2 disparaît. Les deux hypothèses échouent : les chiffres ne permettent pas de bilan.
+- Même Table 4 : Si/Al passe de 2,24 à 2,08, alors que la section 3.3.1 dit que le lavage acide fait monter Si/Al. Les données contredisent l'argument des auteurs, d'où le second `probleme`.
+- HCl : 30 mL à 5 % ≈ 42 mmol (masse volumique ≈ 1,023 g/mL, valeur de tables non relue en ligne) contre ≈ 106 mmol pour dissoudre tous les oxydes basiques. L'acide est limitant, d'où une lixiviation partielle.
+- Équations (1)–(3) jugées `probleme` (point signalé par l'orchestrateur et confirmé) : Na2AlO2 et Na2Al(OH)4 n'existent pas, aucun coefficient, « Si2O3 », cations Al3+/Si4+ en milieu NaOH 5 M. L'écriture équilibrée de (1) figure dans le JSON. Sans conséquence sur les dosages, d'où des équations qualitatives.
+- Masses de NaOH : les listes 5/10/15/20 g pour 10 g correspondent exactement aux rapports 0,5–2,0. Je l'ai noté comme déduction arithmétique (`what_to_verify`), pas comme `probleme`.
+- Témoin A contre C (AFH-A) laissé en `reserve` et non en `probleme` : à 10 g égaux, C apporte 34 % d'Al en plus. Le gain par Al n'est que de 1,25 contre 1,67 brut ; l'effet du fer n'est donc pas isolé, mais il n'est pas nié.
+- TH/AFH : même NaOH (250 mmol) et même eau (50 mL) des deux côtés, donc un témoin propre. Je l'ai marqué `ok` et j'ai seulement réservé la généralisation « TH inefficace » (une seule durée testée).
+- DRX : λ non écrite, Cu Kα supposée. Le paramètre a apparent croît de 24,3 à 24,9 Å avec l'angle, signe d'un décalage de zéro. Les raies restent compatibles avec la FAU, d'où une `reserve` sans plus. Référence de maille NaX : Porcher 1999 (a = 25,104 Å, Si/Al 1,06), trouvée par recherche ; DOI 10.1127/ejm/11/2/0333 lu dans le résultat de recherche, non vérifié sur Crossref.
+- « Pore size » 2,227 nm recalculé = 4V/S exact. Ce n'est pas l'ouverture de la FAU, signalé en vocabulaire.
+- Mécanisme « en phase liquide » contredit en partie par le MEB des auteurs (cristaux sur les grains résiduels, gel « onto the surface ») : je propose une nucléation hétérogène sur le résidu, et Fig. 11 ne discrimine pas.
+- Sources : Shigemoto 1993 (10.1007/BF00414272, confirmé par la page Springer dans la recherche), Querol 2002 (10.1016/S0166-5162(02)00124-6 ; je n'en ai lu qu'un résumé secondaire, donc il n'est cité que pour l'idée générale FAU/HS en NaOH concentré, sans chiffres), Cundy & Cox 2003 (fondateurs.md).
+- Écartée : la publication Sutarno & Arryanto (faujasite de cendres volantes), dont l'année et le volume sont introuvables et dont le site n'est pas joignable.
+- NIST WebBook, jurnal.ugm.ac.id et doaj.org sont injoignables (DNS). Les pressions de vapeur (1,99 bar à 120 °C, 4,76 bar à 150 °C) viennent des tables de vapeur, `chimie_generale`.
+- 7 recherches web et 3 lectures de page, toutes trois en échec (DNS). Rien n'a été ajouté à fondateurs.md ni à constantes.md (consigne : Crossref bloqué).

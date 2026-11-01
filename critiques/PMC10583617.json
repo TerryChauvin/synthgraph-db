@@ -1,0 +1,138 @@
+{
+ "pmcid": "PMC10583617",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "S-CDs200C9H et S-CDs200C12H, outcome cell_viability_L929 (value_text 'higher than 67%')",
+   "extracted": "higher than 67%, avec la citation « concentration of CDs was as high as 1000 µg mL−1 » rattachée aux trois voies S-CDs200C9H, S-CDs200C12H et CDs-280C1F",
+   "article_says": "S-CDs-200C9H at 25 µg mL−1, and S-CDs-200C12H at 25 µg mL−1",
+   "fix": "Fig. 15a et 15b (S-CDs200C9H et 200C12H) ont un axe de 0 à 25 µg mL−1 (viabilité minimale ≈ 67-68 %) ; seule la Fig. 15c (CDs-280C1F) va jusqu'à 1000 µg mL−1 (minimum ≈ 67 % à 600 µg mL−1). Ajouter la concentration maximale testée à chaque résultat (25 µg mL−1 pour les deux voies batch, 1000 µg mL−1 pour CDs-280C1F) et ne pas attribuer 1000 µg mL−1 aux voies batch.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation comparison_branches, plage « 7,5 à 46,8 % »",
+   "extracted": "6 h ou 12 h le font chuter (7,5 à 46,8 %)",
+   "article_says": "Figure 8. The %QY of (a) X-CDs, (b) G-CDs, (c) S-CDs and (d) T-CDs via a batch hydrothermal method when varying temperatures and times for CDs synthesis at 200°C and 220°C for 6, 9 and 12h.",
+   "fix": "À 220 °C, les valeurs à 6 h et 12 h de la Fig. 8 sont X 7,59 et 12,17 ; G 46,81 et 9,86 ; S 14,93 et 7,53 ; T 5,17 et 39,46. La borne basse est 5,17 % (T-CDs220C6H) et non 7,5 % ; corriger en « 5,2 à 46,8 % ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "CDs-240C1F, CDs-260C1F, CDs-260C5F à CDs-350C10F, VAR pressure (étape 4)",
+   "extracted": "pressure = « ranged from 0.2 to 1.8 MPa over the investigated temperatures » comme variation par rapport au parent (0,2 MPa), sur 12 branches",
+   "article_says": "at the pressure ranged from 0.2 to 1.8 MPa",
+   "fix": "L'article ne donne pas de pression par essai, seulement la plage de l'ensemble des essais (et 0,2 MPa pour la condition 280 °C, 1 mL min−1 dans le résumé). Une plage globale n'est pas une variation propre à la branche : supprimer ces VAR pressure, laisser la pression en not_stated/missing_fields pour chaque branche (déjà dit dans l'annotation limite_reproductibilite).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "CDs-260C5F, CDs-280C5F, CDs-300C5F, CDs-325C5F, CDs-350C5F, CDs-260C10F à CDs-350C10F, succeeded=false",
+   "extracted": "succeeded = false pour les dix voies à 5 et 10 mL min−1",
+   "article_says": "S-CDs was not completely formed",
+   "fix": "L'article dit « incomplètement formés » (temps de séjour insuffisant, saccharose résiduel au Raman) et enregistre quand même des spectres de fluorescence et d'absorption (Fig. S9, S10, panneau f) ; il ne dit pas que la synthèse a échoué et ne donne ni QY ni rendement pour ces essais. Garder succeeded=false seulement si une annotation précise « conversion incomplète, pas d'échec déclaré », sinon passer à true avec le résultat « saccharose résiduel ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CDs-240C1F, CDs-260C1F, CDs-280C1F, résultat Fig. 11b (saccharose résiduel)",
+   "extracted": "rien d'extrait pour Fig. 11b ; le DOUTE la lit comme « carbon content in by-products » (12,43 / 30,87 / 4,69 % g/g) et n'en garde que les valeurs du texte (36,13 / 31,48 / 4,69 %mol/mol)",
+   "article_says": "Sucrose residue was still observed in the CDs solution (Figure 11(b))",
+   "fix": "L'axe de Fig. 11b est « % g/g Sugar » et le texte dit que le moins de saccharose résiduel est à 240 °C : ajouter residual_sugar (Fig. 11b) = 4,69 (240 °C), 30,87 (260 °C) et 12,43 % g/g (280 °C), lus sur les étiquettes des barres (from_figure), et garder la légende « carbon content in by-products » comme ambiguïté signalée dans le doute.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "branches batch, caractérisations par échantillon absentes (seule S-CDs220C9H en a 4)",
+   "extracted": "XPS C 1s/O 1s, XRD, doublets de fluorescence et bandes UV non rangés par échantillon pour S-CDs200C9H, S-CDs200C12H, G-CDs220C9H, G-CDs200C12H, X/T",
+   "article_says": "For XRD diffractograms of CDs synthesized at 200°C for 9 h (Figure 6(a)), an obvious peak assigned to 002 graphitic crystal plane was detected for all CDs samples at 2θ = 20.8–20.9°",
+   "fix": "Ajouter des caractérisations : XRD pic 002 à 2θ = 20,8–20,9° pour les quatre échantillons 200C9H ; XPS de S-CDs200C9H (C 1s 284,7 / 285,7 / 288,4 eV ; O 1s 530,28 / 532,4 eV) et O 1s de S-CDs220C9H (530,3 / 532,4 eV) ; fluorescence à doublet pour G-CDs200C12H et G-CDs220C9H (« G-CDs (Figure S2) showed the FL doublet peak when the reaction time was 12 h at 200°C (Figure S2(e)) and when the temperature was increased to 220°C at 9 h of synthesis (Figure S2(d))»), S-CDs200C12H et T-CDs ; bande d'absorption 280–290 nm pour G-CDs220C9H et G-CDs200C12H ; bande interdite 3,6–4,0 eV pour les échantillons 200C6H, 200C12H et 220C9H contre 4,0–4,2 eV pour les autres.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "branches continues CDs-240C1F, CDs-260C1F, CDs-280C1F, caractérisations par température",
+   "extracted": "seulement XRD, TEM et Raman regroupés sur CDs-280C1F ; émission 410/480/490 nm et bandes interdites 3,0 / 2,6 eV déjà extraits",
+   "article_says": "The UV-vis absorption band at 282–283 nm was related to the n−π∗ transition for C=O moieties that are abundantly located in the CDs surface",
+   "fix": "Ajouter : bandes UV 282–283 nm et 225 nm à 1 mL min−1 ; bande interdite de CDs-240C1F = 4,5 eV (inset de la Fig. 10d, valeur lue sur figure) ; pic Raman du saccharose à 2470 cm−1 pour CDs-240C1F et CDs-260C1F (« The Raman spectra of S-CDs synthesized at 240°C and 260°C demonstrated the Raman peaks at 2470 cm−1 »), pic XRD résiduel à 2θ = 32° pour CDs-260C1F et XRD propre à chaque température ; potentiel zêta qualitatif (diminue quand la température monte).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "CP@CDs-100 étape 1 (add), not_stated ['addition_rate','volume']",
+   "extracted": "volume déclaré non cité",
+   "article_says": "2 mL of CP solution at a concentration of 100, 200 or 400 µmol L−1 was added to 8 mL of CDs solution (2 mg mL−1)",
+   "fix": "Les volumes (2 mL de solution de CP, 8 mL de solution de CDs à 2 mg mL−1) sont cités ; retirer « volume » de not_stated (la vitesse d'addition reste non citée) et porter les volumes et la concentration 2 mg mL−1 en paramètres de l'étape.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "T-CDs220C9H, outcomes quantum_yield (240,9) et quantum_yield_figure_label (249,86)",
+   "extracted": "quantum_yield = 240.9 % (texte) et propriété séparée quantum_yield_figure_label = 249.86 % (Fig. 8d)",
+   "article_says": "The %QYs of X-CDs, G-CDs, S-CDs and T-CDs were 120.3%, 190.7%, 175.5% and 240.9%, respectively.",
+   "fix": "Pour X, G, S, la valeur retenue sous quantum_yield est celle de la Fig. 8 (120,33 ; 190,67 ; 175,48, concordantes avec le texte). Pour T le texte (240,9) et la Fig. 8d (249,86) divergent : garder les deux sous la même propriété quantum_yield (une ligne par source, la figure marquée from_figure) plutôt qu'un nom de propriété à part qui sort T-CDs des requêtes de comparaison ; le doute existant reste.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CP@CDs-100, CP@CDs-200, CP@CDs-400, quantité libérée à pH 7,4",
+   "extracted": "seuls les pourcentages de libération à 48 h (Fig. 14) sont extraits",
+   "article_says": "to reach the maximum value at ~690 µg mL−1, ~2650 µg mL−1 and ~3080 µg mL−1 from CP@CDs-100, CP@CDs-200 and CP@CDs-400 within 48 h at pH 7.4, respectively",
+   "fix": "Ajouter les concentrations maximales libérées (~690, ~2650, ~3080 µg mL−1 à pH 7,4, 48 h) avec la citation, et une annotation limite_reproductibilite : ces valeurs dépassent la quantité de CP engagée (voir notes) et ne sont pas cohérentes avec les pourcentages de la Fig. 14.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "témoin CP (positive control), Table 3",
+   "extracted": "aucune voie ni résultat pour le témoin ciprofloxacine libre",
+   "article_says": "CPb(Positive control) | Staphylococcus aureus ATCC 25923 | <0.48 × 10−3 | 0.49",
+   "fix": "Ajouter les CMI et CML du témoin CP (<0,48×10−3 pour les trois souches ; CML 0,49 / 0,98 / 0,95×10−3), en résultat de CP@CDs-100 rattaché au témoin ou en voie séparée « CP libre (témoin) », avec la note de bas de tableau (500 mg mL−1).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources, cit0018 à cit0021 (route S-CDs220C9H, role autre)",
+   "extracted": "quatre renvois enregistrés comme sources de méthode pour la dialyse",
+   "article_says": "The CDs solution was further purified using dialysis membranes (MWCO 1.0 kDa, Spectra/Por®) for 48 h to eliminate impurities, e.g. furan byproducts, remaining sugars and organic acids",
+   "fix": "Les renvois cit0018 à cit0021 (carbone dots de feuilles de ginkgo, de déchets de palme, de régimes de palme) appuient le choix de la dialyse, sans « according to » ni « as described in », et la dialyse est décrite en entier (MWCO, durée) : par la règle du 2026-10-13 ce sont des renvois de contexte ; supprimer les quatre entrées, ou les garder en role « autre » seulement si l'orchestrateur les juge utiles.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs (S-CDs220C9H), citation d'appui",
+   "extracted": "hydrolyse, isomérisation, déshydratation en HMF, acides, puis carbonisation ; citation = seulement la phrase sur l'hydrolyse",
+   "article_says": "It has been reported that glucose and fructose are possibly isomerized and dehydrated during hydrothermal reaction in the presence of acids",
+   "fix": "La citation ne couvre que l'hydrolyse du disaccharide ; ajouter la phrase sur l'isomérisation et la déshydratation (nuancée par « possibly isomerized », rapportée de la littérature) et reformuler « les auteurs rapportent … » plutôt que « décrivent ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CDs-240C1F, CDs-260C1F, CDs-280C1F, outcomes emission_maximum_wavelength (410 / 480 / 490 nm)",
+   "extracted": "maximum d'émission 410, 480, 490 nm comparés sans condition d'excitation",
+   "article_says": "FL emission at ~ 480 and ~490 nm was observed under 360 nm excitation",
+   "fix": "Les 480 et ~490 nm sont donnés sous excitation 360 nm, le 410 nm sous excitation 240 nm (« strongest FL emission intensity at 410 nm under 240 nm excitation »), et ce dernier passage l'attribue à 260 °C alors que la Fig. 10a est à 240 °C. Ajouter la longueur d'onde d'excitation à chaque valeur et signaler l'incohérence du texte dans le doute ou une limite_reproductibilite.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 41,
+  "branches_extracted": 40,
+  "not_stated_checked": 22,
+  "not_stated_wrong": 1,
+  "figure_values_checked": 84,
+  "figure_values_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "volume de l'autoclave et taux de remplissage, vitesse de montée en température du batch",
+  "pression propre à chaque essai du réacteur continu (seule la plage 0,2 à 1,8 MPa est donnée ; 0,2 MPa à 280 °C est physiquement faible pour de l'eau liquide à 280 °C, vérifier s'il s'agit d'une contre-pression de sortie)",
+  "solvant de la solution de saccharose du réacteur continu, durée d'agitation et de dégazage aux ultrasons, marque et modèle de la pompe haute pression",
+  "milieu, volume et température de la dialyse (batch, continu et CP@CDs)",
+  "unité de la concentration de ciprofloxacine : 100/200/400 µmol L−1 (Méthodes) contre « mg mL−1 » (Résultats) ; le bilan de masse (2 mL de CP + 8 mL de CDs à 2 mg mL−1 = 16 mg, efficacité 65,9/84,9/87,2 % et charge 8,2/21/44 µg mg−1) ne tient que pour 100/200/400 µg mL−1",
+  "annexes S1–S3, S8–S16 non lisibles dans le dépôt (images) : rendement massique batch de 22 échantillons sur 24, zêta continu, spectres de fluorescence",
+  "protocole CLSI M100 des essais antibactériens (inoculum, milieu, durée) sans référence ni détail ; unités de la Table 3 (mg mL−1 pour 250 mg mL−1 d'essai, µg mL−1 dans le texte)",
+  "essai de cytotoxicité : concentration d'essai maximale de 25 µg mL−1 pour les CDs batch dans les Méthodes et la Fig. 15a,b, mais « 1000 µg mL−1 » dans le texte des Résultats"
+ ],
+ "mechanism_check": "à revoir : la citation d'appui de mecanisme_auteurs (S-CDs220C9H) ne couvre que l'hydrolyse ; le reste de la cascade est nuancé (« possibly ») dans l'article",
+ "notes": "Valeurs lues sur figure : 84 contrôlées une à une sur les Fig. 4, 8, 9, 11, 13, 14 (étiquettes imprimées sur les barres pour Fig. 4, 8, 11 : écart nul ; Fig. 9 à ±1 mV ; Fig. 13 et 14 à ±1 unité), aucune erreur de lecture. Les rangées du Tableau 3 sont correctement attribuées par position (CP@CDs-100, -200, -400). Table 1, Fig. 7 (tailles) et Tableau des XPS (45,2 → 62,5 % etc.) concordent. Héritage du protocole saccharose pour X, G, T : fondé, l'article décrit une seule méthode « from xylose, glucose, sucrose and table sugar » (4 g dans 80 mL), ce n'est pas un héritage abusif. Productivité batch 0,19 mg min−1 rattachée à S-CDs220C9H : le calcul 4 g × 2,56 % / 540 min = 0,19 est cohérent (200C12H donnerait 0,15). Pression 0,2 MPa : bien tirée du résumé et rattachée à CDs-280C1F, mais seulement dans le résumé ; les Méthodes donnent une plage 0,2–1,8 MPa. Fig. 9a : valeurs de zêta des 24 échantillons correctes. Contradictions internes de l'article à laisser telles quelles : le résumé dit que le saccharose a le QY le plus élevé (175,48 %) alors que G (190,67) et T (249,86) sont plus hauts ; légendes S9/S10 à 1 mL min−1 contre texte à 5 et 10 mL min−1 ; stirring 100 rpm (Méthodes) contre 200 rpm (Résultats). Fig. 11b : l'axe dit « % g/g Sugar » alors que la légende dit « carbon content in by-products » : à trancher par l'orchestrateur."
+}

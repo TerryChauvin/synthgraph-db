@@ -1,0 +1,73 @@
+{
+ "pmcid": "PMC10424190",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "LVP-pH7 characterizations XPS / XRD and Cell-LVP-pH7 ex situ XRD: result text vs quote",
+   "extracted": "XPS: « pics V2p3/2 et V2p1/2 vers 517,5 et 524,7 eV ... carbone résiduel (C1s 284,8 eV) » avec la citation « The observed binding energy values correspond to V3+ ... » ; XRD: « pics les plus fins et les plus intenses de la série » avec la citation « All of the diffraction peaks belong to the P21/n space group ... »",
+   "article_says": "The V2p spectrum presented in Fig. 3c possesses two obvious peaks located at around 517.5 and 524.7 eV, representing the V2p3/2 and V2p1/2 respectively",
+   "fix": "la citation de chaque caractérisation ne soutient qu'une partie du résultat : ajouter la phrase portant les énergies (XPS) et « The Li3V2(PO4)3 samples showed higher peak tips and narrower peak widths at pH = 7. » (XRD pH7), ou réduire le résultat à ce que la citation dit",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "LVP-pH7 step 10 atmosphere (not_stated) vs annotations resume / mecanisme_analyse / securite_analyse",
+   "extracted": "step 10 : atmosphere not_stated, missing_fields « atmosphere_800C_stage » ; mais le resume dit « calciné sous N2 (350 °C puis 800 °C) », la sécurité « calcination à 800 °C sous flux d'azote », et method « then calcination under N2 »",
+   "article_says": "held for 5 h to remove H2O, NH3 and CO2 from the decomposition of the organic components, and then heated at 800 °C for 10 h",
+   "fix": "l'article ne dit l'azote que pour la montée à 350 °C ; mettre les annotations en accord avec le not_stated (écrire « sous N2 à 350 °C ; atmosphère du palier à 800 °C non précisée, probablement N2 »), ou, si on juge la phrase comme un seul programme sous N2, reclasser l'atmosphère du step 10 en valeur héritée signalée",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cell-LVP-pH7 outcomes: potentiels de plateaux et pics CV",
+   "extracted": "aucun résultat de plateau de charge/décharge ni de pic CV",
+   "article_says": "the charge and discharge plateaus of sample occur at 1.38 V, 1.33 V and 1.47 V, 1.41 V",
+   "fix": "ajouter pour Cell-LVP-pH7 les potentiels lus sur Fig. 5c (pics à 1.47 V, 1.38 V à l'oxydation ; 1.41 V, 1.33 V à la réduction, valeurs from_figure) et/ou ceux du texte (« The first oxidation peak of around 1.39 V », « 1.48 V », « 1.40 V », « 1.33 V »), avec la réserve que le texte ne nomme pas l'échantillon pour les plateaux",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cell-LVP-pH5 / pH6 / pH8 outcomes: tenue en cyclage à 2C",
+   "extracted": "seule la rétention de LVP-pH7 (97.37 %) est extraite",
+   "article_says": "It can be seen from the figure that under the high current density of 2C, after 50 cycles, the specific capacity attenuation of LVP-pH7 is very small, and the capacity retention rate is high (remains at 97.37%).",
+   "fix": "la comparaison de tenue en cyclage entre branches est un résultat central de l'article (Fig. 6, cycles 26 à 75) : ajouter, en from_figure, la capacité aux cycles 26 et 75 pour pH5 (~42 puis ~36), pH6 (~41 puis ~38,5), pH8 (~33 puis ~31), ou le signaler explicitement comme non extrait",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation comparison_branches",
+   "extracted": "« LVP-pH7 est le meilleur sur tous ces critères » après une liste qui commence par la taille de cristallite (99,48 / 14,75 / 24,43 / 26,37 nm)",
+   "article_says": "It can be seen that materials prepared under nearly neutral conditions have smaller grain sizes.",
+   "fix": "pH 7 n'a pas la plus petite cristallite (pH 6 : 14,75 nm) ; restreindre l'affirmation « meilleur » à la capacité, Rct et au coefficient de diffusion",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "LVP-pH7 step 5 ph = 7, citation",
+   "extracted": "citation : « We labeled the Li3V2(PO4)3 cathode materials obtained by calcination of different pH precursors as LVP-pH5, LVP-pH6, LVP-pH7 and LVP-pH8, respectively. »",
+   "article_says": "the pH of the precursor was adjusted to pH 5, pH 6, pH 7, and pH 8 by NH3·H2O",
+   "fix": "utiliser cette phrase comme citation de la valeur de pH (la phrase d'étiquetage ne dit pas que le pH 7 est celui de l'ajustement) ; le doute de l'ordre des étapes est justifié par la Fig. 1 (ajustement du pH à 60 °C avant l'étape hydrothermale), à ajouter à la résolution du doute",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 36,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "masses ou moles des trois sels et volume d'eau (seule la concentration 0,5 M en ions métalliques est donnée)",
+  "solvant, volume et quantité de la solution d'acide citrique 0,5 M ; rapport acide citrique / métaux",
+  "concentration et volume de l'ammoniaque, méthode et température de mesure du pH, moment exact de l'ajustement (le texte dit « during this period » puis « pH of the precursor », la Fig. 1 le place avant le réacteur)",
+  "nature du réacteur de 100 ml (autoclave doublé de téflon ?), taux de remplissage, vitesse de montée en température",
+  "durée de la formation du gel à 80 °C, vitesse d'agitation",
+  "vitesses de chauffe, débit de N2 et atmosphère du palier à 800 °C, refroidissement après 800 °C, broyage éventuel",
+  "rendement non donné",
+  "électrode : charge massique d'actif, solvant de la pâte, épaisseur, volume d'électrolyte, pression de sertissage ; Fig. 6 : l'ordre 2C initial / 50 cycles à 2C est ambigu (la figure montre les cycles à 2C après le test de rate, cycles 26 à 75)",
+  "aucune annexe (Supporting Information) disponible"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs bien appuyé par les citations (complexation citrate-métaux, excès de NH4+ à pH 8, réduction V5+ vers V3+, carbone du citrate) ; mecanisme_analyse est étiqueté hypothèse. Réserve : l'atmosphère N2 à 800 °C y est affirmée sans appui direct (voir constat deduit).",
+ "notes": "Lecture indépendante : 4 échantillons de poudre (pH 5, 6, 7, 8) et leurs 4 cellules, soit les 8 voies de l'extraction ; aucune branche manquante ni inventée. Toutes les valeurs du texte (tailles de cristallite, capacités initiales, capacités de retour à 2C, Rct, coefficients de diffusion, 65,91 à 40,77, 97,37 %, 80,77 %) sont fidèles. Les 20 valeurs from_figure de Fig. 6 (pH 5, 6, 8 ; 2C à 20C) relues sur l'image : écart maximal environ 1 à 2 mA h g−1, aucune au-dessus de 10 %. Le texte donne 68,35 mA h g−1 en décharge initiale de pH 7 alors que Fig. 5a montre environ 65-66 (écart de 4 %, déjà en doute). Le 80,77 % n'est pas reproductible (52,39/65,91 = 79,5 %), déjà en doute. Fig. 10b montre aussi des pics de ZnSO4·H2O et de Fe2O3 sur les électrodes cyclées, non mentionnés dans le texte (le texte parle de maille de fer). method_sources vide : correct, les seuls renvois de méthode de refs sont l'équation de Scherrer (cit28) et JCPDS, exclus par la règle. Step 3 (ajout lent de l'acide citrique) classe temperature en not_stated alors que la même phrase dit 60 °C pour l'agitation : choix défendable, à ne pas corriger. Aucun cas de « non cité » à tort net ; l'atmosphère à 800 °C est ambiguë (un seul programme sous N2 ?)."
+}

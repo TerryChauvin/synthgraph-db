@@ -1,0 +1,77 @@
+{
+ "pmcid": "PMC5302706",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "ZnO_IDT_sensor outcomes, Figure 16 (NH3 10 ppm, H2 à RT et RT+UV, humidité à RT et RT+UV, NO2 en barres)",
+   "extracted": "Seules 4 valeurs de la Figure 16 sont lues (H2 1 % et ΔRH 8-20 % à 200 °C, sous azote et sous air).",
+   "article_says": "Figure 16 Comparison of the sensitivity of ZnO nanostructures to the action of selected gases.",
+   "fix": "Figure 16 est la seule source chiffrée de la réponse à NH3 (10 ppm : environ -5 à -10 % à RT et RT+UV sous azote, environ -2 % à 200 °C ; -5 % sous air à RT), de H2 à RT+UV (environ +8 % sous air) et de ΔRH à RT (environ +5 %) et RT+UV ; ajouter ces valeurs en from_figure (2 chiffres significatifs, précision environ ± 2 points) ou déclarer le manque dans limite_reproductibilite",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO_IDT_sensor outcomes NO2_1ppm_response_*_RT_UV et doutes (réponses sous UV)",
+   "extracted": "431 % (azote) et 341 % (air) sous UV à RT, sans mention d'incohérence avec les figures",
+   "article_says": "The structure responses to 1 ppm of NO2 amount to 430% in N2 and 340% in the air.",
+   "fix": "ajouter un doute et une annotation limite_reproductibilite : sur la Figure 9 (R de 3 à 21 kΩ sous azote, de 6 à 21,5 kΩ sous air au premier palier de 1 ppm) la formule (Rg-Ra)/Ra donne environ 550 % et 260 %, et les barres de la Figure 16 sont à environ 520 % et 265 % ; le texte et la Table 1 ne sont pas retrouvés sur les figures. Garder les valeurs du texte et du tableau",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO_IDT_sensor reagent hexane purity",
+   "extracted": "purity = pure",
+   "article_says": "they were dispersed in pure hexane (produced by POCH, Gliwice, Poland)",
+   "fix": "« pure » n'est pas un grade ni un pourcentage : déclarer purity dans not_stated du réactif (laisser la mention dans la citation)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO_IDT_sensor characterizations R(T), result",
+   "extracted": "resistance higher in air than in nitrogen between 40 and 180 °C, decreasing with temperature",
+   "article_says": "It can be seen in Figure 7 that at the measured temperature range the resistance of ZnO nanostructures is higher in air (in the presence of oxygen) than that in nitrogen.",
+   "fix": "l'article dit que la résistance est plus élevée sous air sur toute la plage mesurée (40-300 °C) et que l'écart est surtout visible de 40 à 180 °C ; reformuler le résultat. La citation de la rangée (conditions) ne soutient pas non plus le résultat : prendre la phrase ci-dessus",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO_IDT_sensor steps (fabrication du transducteur)",
+   "extracted": "le transducteur est un réactif substrat, sans étape de fabrication",
+   "article_says": "The transducer was obtained using the photolithography method, from a 300 nm thick gold layer on a silicon substrate with a 1 μm SiO2 layer.",
+   "fix": "ajouter une étape 0 (photolithographie, couche d'or de 300 nm sur silicium avec 1 μm de SiO2) avec not_stated sur masque, résine, dépôt de l'or, ou la mentionner dans limite_reproductibilite",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs ZnO_HT",
+   "extracted": "« la soude, le nitrate de zinc et l'EDA donnent d'abord un complexe Zn-EDA »",
+   "article_says": "Under these conditions ZnEDA complex was formed according to the reaction (Equation (1))",
+   "fix": "l'équation (1) ne fait intervenir que Zn2+ et l'EDA ; la soude n'apparaît dans aucune équation ni explication des auteurs : retirer la soude de la phrase ou la déplacer en mecanisme_analyse",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 0,
+  "branches_extracted": 0,
+  "samples_in_article": 2,
+  "samples_in_inventory": 4,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 1,
+  "from_figure_checked": 4,
+  "from_figure_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "rendement du ZnO non donné",
+  "pureté de NaOH, Zn(NO3)2·6H2O, EDA, éthanol non donnée ; fournisseur de l'eau non donné",
+  "volume de l'autoclave, taux de remplissage, vitesse de montée en température et de refroidissement non donnés",
+  "vitesse et durée de centrifugation, nombre de rinçages (« repeatedly ») non donnés",
+  "pas de température ni de durée de dissolution, pas de vitesse d'agitation",
+  "masse de ZnO, volume d'hexane, volume et nombre de gouttes, durée du séchage et du chauffage à 200 °C non donnés",
+  "photolithographie du transducteur sans détail (résine, masque, dépôt de l'or)",
+  "gaz titrés à 500 ppm NH3 et 100 ppm NO2 sans dilution détaillée : serveur de gaz renvoyé à un article antérieur (B39)",
+  "les courbes des Figures 8 à 15 ne sont pas chiffrées dans l'article ; les valeurs des Figures 8, 9 et 16 ne concordent pas toutes avec le texte"
+ ],
+ "mechanism_check": "à revoir : la soude est présentée comme participant à la formation du complexe, ce que l'article ne dit pas (annotation mecanisme_auteurs ZnO_HT). Le reste est conforme à l'article, et la stœchiométrie de mecanisme_analyse est exacte (1,5 mmol de Zn, 15 mmol de NaOH, environ 75 mmol d'EDA, 43 mL).",
+ "notes": "Article à une seule synthèse : pas de branche attendue, les conditions d'essai du capteur sont rangées en résultats comme le veut le RUNBOOK. Les 38 cases not_stated vérifiées par recherche de mots-clés dans le texte : aucune information cachée, sauf la pureté « pure » de l'hexane. Valeurs from_figure de la Figure 16 relues sur l'image : H2 200 °C -95 et -85 %, ΔRH 200 °C -23 et -41 %, écarts inférieurs à 3 points. Exposants « 105 » et « 106 » du texte (probablement 10^5 et 10^6, perdus à l'extraction) laissés tels quels, non signalés comme erreur. Les sources de méthode B38 (équation de réaction) et B21 (travail antérieur sur des fleurs de ZnO) n'en sont pas selon la règle du 2026-10-13 ; B39 (serveur de gaz) est bien une source de protocole de mesure."
+}

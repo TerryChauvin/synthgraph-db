@@ -1,0 +1,17 @@
+# Journal d'extraction PMC9227472 (AgNPs vertes, zeste de Citrus limon)
+
+- Découpage : trois voies de base (`Citrus_limon_zest_extract`, intermédiaire ; `Extract_dried_powder`, intermédiaire séché pour l'IRTF ; `AgNPs_opt`, voie des nanoparticules) et huit branches de `AgNPs_opt` pour les essais d'optimisation (temps, concentration de AgNO3, volume d'extrait). Les tests biologiques (DPPH, zones d'inhibition) sont des résultats, pas des branches.
+- Voie de base `AgNPs_opt` = conditions optimales du résumé (1 mM, 1:9, 4 h) : la durée de 4 h vient de la phrase du résumé, les Méthodes ne donnent que « After 30 min » (changement de couleur). Supposé, non confirmé, que l'échantillon caractérisé a été fait dans ces conditions : doute.
+- Légendes de la figure 2 : le texte inverse a et b (a = temps, b = AgNO3) par rapport à la légende et à l'image (a = AgNO3, b = temps). J'ai ouvert l'image et suivi la légende.
+- Valeurs lues sur Fig. 2 (absorbance du pic, 2 chiffres au plus) : 30, 60, 120, 180 min ; 0,5 et 2 mM ; extrait 2 et 5 mL. Les temps de 60, 120 et 180 min ne sont que dans la légende de la figure : branches avec `from_figure`, quote = légende de la figure.
+- Valeur de 1 mM en Fig. 2a (~0,77) écartée des résultats de la voie de base : elle est incompatible avec 1,6 à 240 min (Fig. 2b/2c), donc la série en concentration a été faite à une autre durée non écrite. Consignée en annotation et en doute.
+- Point 1 mL:9 mL de la série extrait = même rapport 1:9 que la base : pas de branche. Volumes de AgNO3 8 et 5 mL des branches 2:8 et 5:5 lus dans la légende de la figure.
+- Texte « 9 mL of Citrus limon zest extract » (série AgNO3) contredit les Méthodes (10 mL) ; « 2 nM / 1 nM » = mM. Méthodes conservées, doute consigné.
+- Héritage des étapes de purification (centrifugation, lavage, séchage) par les branches d'optimisation : l'article ne le dit pas, ces essais sont suivis par UV-vis. Hérité par défaut (« same biosynthesis process »), doute posé plutôt que quatre branches avec étapes propres.
+- Contradictions texte/tableau, lecture retenue : PDI 0,248 (texte) contre 0,254 (tableau 2) ; AgNPs sur C. albicans 20 mm (texte) contre 24 mm (tableau 5, retenu) ; gentamicine inversée S. aureus/E. coli ; AgNO3 « sans zone » contre 8/11/12 mm ; extrait 8 mm sur C. albicans contre « pas d'activité antifongique ».
+- DPPH : pourcentages du texte (extrait 45–69 %, AgNPs 22–54 %) probablement inversés par rapport à l'IC50 et à la figure 7 ; extraits tels qu'écrits, doute explicite. Fig. 7 ouverte mais non extraite (axes 20–100 µg/mL, différents de ceux du texte).
+- Pureté et fournisseur : AgNO3 chez Sigma-Aldrich (phrase des Matériaux, citée) ; pureté non citée ; « used as received » ne donne pas de pureté. Zeste et eau : non cités.
+- `reflux` à 60 °C pour l'extrait : lecture littérale gardée (étape `reflux`, 60 °C, 15 min), doute noté.
+- Échantillons sans voie : témoin extrait + AgNO3 (Fig. 1), AgNO3, gentamicine, nystatine, acide ascorbique, eau stérile (témoins des tests).
+- `method_sources` : B46 (protocole adapté de synthèse), B50 (DPPH), B49 (diffusion en puits). Écartés : B48 (équation de Scherrer), B75 (classification de sensibilité), B47 (DLS, renvoi de contexte).
+- Figures non ouvertes (valeurs déjà dans le texte ou tableaux) : Fig. 3 à 6 ; Fig. 1 ouverte (pic ~1,4 à 535 nm, non repris car conditions de l'échantillon non écrites). Pas d'annexes ni de renvoi à un SI.

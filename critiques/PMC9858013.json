@@ -1,0 +1,93 @@
+{
+ "pmcid": "PMC9858013",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "route ModifiedZIF_aged (kind post_treatment, parent null) : vieillissement du modified ZIF dans KCl 7 wt% pH 11, 200 °C, 32 h",
+   "extracted": "Voie de base à part entière « ModifiedZIF_aged » avec réactifs (KCl, NaOH, eau, ModifiedZIF), 4 étapes et 4 résultats (taille MEB, plage et mode de distribution, BET après vieillissement).",
+   "article_says": "The mixture was subsequently aged at 200 °C for 32 h to investigate the physicochemical properties of the modified ZIF after aging.",
+   "fix": "Ce n'est pas une préparation : c'est un essai de stabilité du matériau fini (section 2.2, « Performance Study of the Modified ZIF in Drilling Fluid », liquide simulé pour « investigate the physicochemical properties of the modified ZIF after aging »). Règle RUNBOOK : essai de stabilité = outcomes de la voie. Structure proposée : supprimer la voie ModifiedZIF_aged ; ranger ses 4 résultats et ses 4 caractérisations (MEB, DRX, distribution de taille, BET) dans les outcomes/characterizations de ModifiedZIF, avec dans le nom de propriété uniquement les conditions écrites par la citation (« after_aging_200C_32h », « after aging ») ; écrire une annotation de protocole d'essai (KCl 7 wt% dans l'eau désionisée, pH 11 par NaOH, 200 °C, 32 h, « a certain amount » de modified ZIF, cf. 2.2.1) et conserver les manques (quantité, récupération, séchage, récipient). Si l'orchestrateur préfère garder la voie post_treatment pour le protocole structuré, aucune valeur n'est fausse : c'est un choix de structure.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "route Insoluble_gel_SMP3_SPNH (kind post_treatment) : essai de catalyse de la réticulation SMP-3/SPNH",
+   "extracted": "Voie de base « Insoluble_gel_SMP3_SPNH » (matériau « particle-gel composite ») avec 6 réactifs, 6 étapes, résultats FTIR et GPC du filtrat.",
+   "article_says": "To study the catalytic performance of the modified ZIF on the cross-linking reaction between SMP-3 and SPNH in a pH-neutral environment after contacting the formation fluid",
+   "fix": "Les auteurs présentent l'expérience comme un essai de performance catalytique du modified ZIF (titre 2.2.6 « Catalytic Performance of the Modified ZIF on SMP-3 and SPNH »), pas comme la synthèse d'un matériau : la « insoluble matter » est isolée et purifiée pour être analysée (FTIR, Fig. 8) et le filtrat pour la GPC (Table 1). Règle RUNBOOK : essai d'activité = outcomes. Structure proposée : supprimer la voie ; ranger dans les outcomes de ModifiedZIF les résultats d'essai (pics IR supplémentaires 3353, 759, 788 cm−1 de la matière insoluble ; GPC de la ligne « Filtrate » du Table 1), avec le protocole d'essai en annotation (7.0 wt% KCl dans l'eau désionisée, 3 wt% SMP-3, 3 wt% SPNH, 4 wt% de modified ZIF, agitation, 32 h à 200 °C, filtration sous vide, trois lavages à l'eau désionisée). Confiance probable : la matière insoluble est un produit isolé et caractérisé, donc la lecture « voie post_treatment » reste défendable ; aucune valeur n'est fausse.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "route SMP3_SPNH_KCl_control (kind material) : témoin GPC du mélange SMP-3/SPNH vieilli en KCl sans ZIF",
+   "extracted": "Voie de base « SMP3_SPNH_KCl_control » avec 4 réactifs, 2 étapes et 4 résultats GPC (Mn 3897, Mw 36544, Mp 2927, polydispersité 9.378).",
+   "article_says": "The molecular weights of the identical amount of SMP-3/SPNH mixtures aged in a 7.0 wt.% KCl deionized aqueous solution and in the filtrate after the initial separation were evaluated using GPC.",
+   "fix": "C'est le témoin de l'essai catalytique (même quantité de résines, sans modified ZIF), pas un matériau préparé. À traiter avec le constat précédent : ses quatre valeurs du Table 1 deviennent des outcomes de ModifiedZIF nommés comme témoin (par exemple « GPC_Mn_SMP-3/SPNH_in_KCl_without_ZIF »), avec la rangée « SMP-3/SPNH Mixture | Solution | 3897 | 36,544 | 2927 | 9.378 » en citation. Les valeurs elles-mêmes sont justes (36544/3897 = 9.378).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Insoluble_gel_SMP3_SPNH outcomes GPC_Mn/Mw/Mp/polydispersity_filtrate (Table 1, rangée « Filtrate »)",
+   "extracted": "« GPC_*_filtrate » = masses molaires du filtrat de la première séparation, citation « Filtrate | 6651 | 71,235 | 187,374 | 10.712 ».",
+   "article_says": "the GPC spectrum of the SMP-3/SPNH mixture aged in the filtrate exhibited a significant overall rightward shift",
+   "fix": "Dans le Table 1, la rangée « Filtrate » n'a pas de cellule d'échantillon : c'est la seconde valeur de la colonne « State » du même échantillon « SMP-3/SPNH Mixture » (Solution / Filtrate), et la légende de la Fig. 9 dit « SMP-3/SPNH in filtrate ». Le texte parle donc d'un mélange SMP-3/SPNH vieilli dans le filtrat, tandis que 2.2.6 dit que « the filtrate from the initial separation » a été analysé : deux lectures. L'extraction retient la seconde et l'a mise en doute ; nommer la propriété d'après la ligne du tableau (« GPC_Mn_state_Filtrate ») plutôt que « filtrat » tout court, et garder le doute.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "SMP3_SPNH_KCl_control, milieu du témoin (Fig. 9)",
+   "extracted": "Milieu du témoin : eau désionisée contenant 7.0 wt.% KCl (réactifs KCl 7.0 wt.% et eau).",
+   "article_says": "Figure 9 GPC spectra of SMP-3/SPNH aged in the 7.0 wt.% KCl deionized aqueous solution and the filtrate.",
+   "fix": "Dans l'image de la Fig. 9 (corpus/fig/PMC9858013/gels-09-00044-g009.jpg) la courbe noire est étiquetée « SMP-3/SPNH in pure water » et non KCl 7.0 wt.%. Le texte et la légende disent KCl : garder KCl (le texte fait foi) mais ajouter une annotation limite_reproductibilite et un doute sur cette contradiction (étiquette de figure contre légende).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "ModifiedZIF_aged, caractérisation XRD « crystalline peaks still present at the same positions after 32 h at 200 °C » (Fig. 5)",
+   "extracted": "Résultat XRD après vieillissement, appuyé par la phrase du texte 2.2.3.",
+   "article_says": "Figure 5 XRD patterns of modified ZIF before and after aging at 200 °C for 32 h.",
+   "fix": "L'image g005 (Fig. 5) ne montre pas de comparaison avant/après vieillissement : elle porte « Measured curve of modified ZIF » et « Standard Spectral Line » avec les indices (011), (002), (112), (022), (013), (222), soit la même comparaison mesure/standard que la Fig. 2. La conclusion « peak positions essentially the same as before aging » n'est donc appuyée par aucune courbe vieillie dans le dépôt. Ajouter une annotation limite_reproductibilite d'article : « Fig. 5 : la courbe après vieillissement n'est pas présente (la figure reprend la comparaison mesure/standard de la Fig. 2) ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "ModifiedZIF material.phase",
+   "extracted": "« ZIF-8 (sodalite) framework, crystalline »",
+   "article_says": "in excellent agreement with the typical diffraction peaks in the standard spectral line of ZIF-8",
+   "fix": "Le mot « sodalite » (topologie sod) n'est pas dans l'article (0 occurrence dans corpus/text). Écrire « ZIF-8 framework, crystalline » (la donnée de l'article : concordance DRX avec ZIF-8).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "OrganoPEPA, réactif APTS (in-house synthesized), formule C9H23NO3Si",
+   "extracted": "formula C9H23NO3Si (celle de l'APTS commercial, amine primaire)",
+   "article_says": "in-house synthesized (3-aminopropyl) triethoxysilane (APTS)",
+   "fix": "La formule n'est pas dans l'article ; elle est déduite du nom. La structure de la Fig. 10 montre un amide (NH–C(=O)–CH2CH2–NH–) lié au propyl-Si(OEt)3, et le texte décrit un carbonyle (2.37 ppm, amide à 1713 cm−1) : l'APTS « maison » n'est donc sans doute pas l'aminopropyltriéthoxysilane commercial. Mettre formula à null et laisser la nature du réactif dans le doute déjà écrit ; l'annotation mecanisme_analyse (OrganoPEPA) peut citer la Fig. 10 (adduit de type Michael, hypothèse).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ModifiedZIF_aged caractérisation « particle size distribution » (Fig. 6)",
+   "extracted": "« the curve peaks at about 220 nm and has a tail up to about 1000 nm »",
+   "article_says": "the particle size of the aged modified ZIF is highly concentrated in the range of 150–300 nm",
+   "fix": "Lecture de la Fig. 6 : maximum vers 220 nm confirmé (écart < 5 %), queue vers 1000 nm confirmée, mais la courbe montre aussi un large épaulement du côté des petites tailles (de ≈ 3 nm à 100 nm, environ 1 à 6 % par intervalle) que l'extraction ne mentionne pas ; la distribution est donc nettement plus large que « 150–300 nm ». À ajouter à la description (et à l'annotation limite_reproductibilite déjà écrite sur ce point).",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 9,
+  "not_stated_checked": 163,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "préparation de l'APTS « maison » et du ZIF-8 « maison » : renvoyées à « (preparation method reference) » sans identifiant de référence (aucun renvoi dans corpus/refs), donc ni précurseurs ni rapport Zn/2-méthylimidazole",
+  "rendement, puretés et fournisseurs de tous les réactifs ; masse molaire de la PEPA ; vitesse et durée de centrifugation ; température, durée et pression du séchage sous vide ; conditions de l'évaporation rotative",
+  "essai de vieillissement : masse de modified ZIF « a certain amount », récipient, mode de récupération et de séchage avant MEB/DRX/BET ; essai catalytique : pH réel non mesuré, durée et vitesse d'agitation, GPC (colonne, éluant, étalons) ; appareil de DRX, de BET, de GPC et de MEB (le MEB n'est lisible que sur l'image : TESCAN MIRA3, 10 kV, ×50 k)",
+  "boues de forage : eau, ordre de mélange, appareil et normes de mesure (API, HTHP), température et pression HTHP, cellule de vieillissement ; unité du « % » de la formulation (masse ou volume) ; 4 % ou 5 wt% de modified ZIF (contradiction Méthodes/Résultats)",
+  "Table 1 et texte 2.2.8 : valeurs de masses molaires différentes (facteur ≈ 10 et Mn/Mw permutés) ; le tableau est cohérent (Mw/Mn = polydispersité) et a été retenu"
+ ],
+ "mechanism_check": "ok : les annotations distinguent bien « mecanisme_auteurs » (addition, modification post-synthétique, catalyse de la réticulation par les ponts méthylène) et « mecanisme_analyse » (hypothèses de chimiste signalées comme telles) ; précision possible avec la Fig. 10 (voir le constat sur la formule de l'APTS). Aucun danger évident omis.",
+ "notes": "Valeurs numériques : toutes les valeurs de texte, du Table 1 (rapport Mw/Mn recalculé : 9.378 et 10.711) et du Table 2 (4 fluides × 4 scénarios × 5 à 7 grandeurs, relues cellule par cellule) sont justes et sur le bon fluide. Les pourcentages du texte (38,4 %, 58,3 %, 30,8 %, 42,1 %) se retrouvent dans le Table 2. Figures ouvertes : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ; le mode à 220 nm (Fig. 6) est juste (≈ 216 nm). Le Mp du témoin dans la Fig. 9 (pic principal vers log M ≈ 3,35 soit ≈ 2,2 × 10³) s'écarte un peu de 2927 du tableau (log 3,47) : non retenu comme constat (lecture de courbe en « slice log Mw »). Les routes DF1/DF2 (formulations, remplacement des agents colmatants en variation) n'ont pas été contestées : c'est une formulation avec recette, pas un essai sur le matériau seul ; la question de structure ne porte que sur ModifiedZIF_aged, Insoluble_gel_SMP3_SPNH et SMP3_SPNH_KCl_control. method_sources vide est correct : « preparation method reference » est un texte laissé en place par les auteurs, sans balise bibliographique, et le renvoi [50] de la RMN porte sur la stabilité thermique du ZIF-8 (contexte, pas une méthode). Les annexes sont absentes du dépôt mais l'article n'en cite aucune."
+}

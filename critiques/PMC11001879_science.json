@@ -1,0 +1,658 @@
+{
+ "pmcid": "PMC11001879",
+ "routes": [
+  {
+   "label": "AC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume poreux implicite de l'AC",
+     "inputs": "SBET 2134 m2/g ; diamètre moyen 18,7 Å (tableau 1)",
+     "formula": "V = S·D/4 (pores cylindriques)",
+     "result": "≈ 1,00 cm3/g",
+     "compared_to": "charbons activés à la KOH : 0,5-1,5 cm3/g, jusqu'à ~3000 m2/g (Wang & Kaskel 2012)",
+     "source": "valeurs de l'article ; formule 4V/S"
+    },
+    {
+     "what": "rapport KOH : écorces",
+     "inputs": "« stoichiometric ratio of 1:2 » ; « molar ratio of potassium hydroxide to orange peels (2:1) »",
+     "formula": "n(KOH)/n(écorce) — n(écorce) non défini",
+     "result": "non calculable : une biomasse n'a pas de masse molaire ; le rapport est vraisemblablement massique KOH:écorce = 2:1",
+     "compared_to": "rapports massiques KOH:précurseur 1:1 à 4:1 usuels (Wang & Kaskel 2012)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le « rapport molaire stœchiométrique 2:1 » KOH:écorces n'a pas de sens pour une biomasse (pas de masse molaire) ; il s'agit très probablement d'un rapport massique, mais ni la masse d'écorces ni celle de KOH ne sont données (voir calcul « rapport KOH : écorces »). Le milieu du mélange (eau ?) n'est pas dit alors que le texte parle de « suspension » évacuée à 80 °C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Activation à 600 °C pendant 1 h sous N2 : au-dessus de la fusion de KOH (360 °C), la réaction redox 6 KOH + 2 C → 2 K + 3 H2 + 2 K2CO3 a lieu ; 600 °C est la borne basse des activations à la KOH. Une SBET de 2134 m2/g à 600 °C est haute mais dans la plage publiée pour la KOH (jusqu'à ~3000 m2/g), d'habitude atteinte vers 700-800 °C. Plausible, à vérifier.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Understanding chemical reactions between carbons and NaOH and KOH: an insight into the chemical activation mechanism",
+      "authors_or_publisher": "Lillo-Ródenas M.A., Cazorla-Amorós D., Linares-Solano A., Carbon 41(2), 267-275",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0008-6223(02)00279-8"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "KOH fondue à 600 °C dans un creuset en porcelaine : les hydroxydes alcalins fondus dissolvent la silice et attaquent la porcelaine (formation de silicates), ce qui contamine le charbon et ruine le creuset ; creusets en nickel ou acier inoxydable habituellement employés. La réaction dégage H2 (inflammable) et peut former du potassium métallique ; le défournement et le lavage acide se font sous hotte. Aucun de ces points n'est dans l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Understanding chemical reactions between carbons and NaOH and KOH: an insight into the chemical activation mechanism",
+      "authors_or_publisher": "Lillo-Ródenas M.A., Cazorla-Amorós D., Linares-Solano A., Carbon 41(2), 267-275",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0008-6223(02)00279-8"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Isotherme de type I, diamètre moyen 18,7 Å (< 2 nm, micropores selon l'IUPAC) et volume ≈ 1,0 cm3/g (calcul « volume poreux implicite de l'AC ») : cohérent pour un charbon activé à la KOH. Mais le diamètre « moyen » est donné sans méthode (BJH sur la désorption est invalide pour des micropores ; l'IUPAC recommande NLDFT/QSDFT).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : bandes à 2316 et 2044 cm-1 attribuées à des liaisons C=C et C=N, et 1036 cm-1 à un « stretching C–H hors du plan ». Les doubles liaisons C=C absorbent vers 1500-1650 cm-1 ; 2316-2360 cm-1 est la zone du CO2 atmosphérique (2349 cm-1) et 2000-2260 cm-1 celle des triples liaisons ou cumulènes ; 1036 cm-1 est typique d'une élongation C–O, et les déformations C–H hors du plan sont vers 700-900 cm-1. Attributions fausses, sans effet sur la synthèse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Fusion de KOH (360 °C), puis réaction redox solide-liquide avec le carbone de l'écorce pyrolysée (6 KOH + 2 C → 2 K + 3 H2 + 2 K2CO3), gravure du réseau carboné, intercalation de K et dégagement de CO/CO2 qui ouvrent la microporosité ; le lavage HCl dissout K2CO3 et les résidus de potassium et libère les pores.",
+    "sources": [
+     {
+      "title": "Understanding chemical reactions between carbons and NaOH and KOH: an insight into the chemical activation mechanism",
+      "authors_or_publisher": "Lillo-Ródenas M.A., Cazorla-Amorós D., Linares-Solano A., Carbon 41(2), 267-275",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0008-6223(02)00279-8"
+     },
+     {
+      "title": "KOH activation of carbon-based materials for energy storage",
+      "authors_or_publisher": "Wang J., Kaskel S., J. Mater. Chem. 22, 23710-23725",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2jm34066f"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses d'écorces et de KOH (rapport massique supposé 2:1) et solvant du mélange",
+    "creuset résistant à la KOH fondue (Ni ou inox) plutôt que porcelaine",
+    "vitesse de chauffe et débit de N2 ; ventilation (H2, K)",
+    "sens de « evacuated at 80 °C » (évaporation ou vide)"
+   ]
+  },
+  {
+   "label": "MF",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de Mg(NO3)2·6H2O",
+     "inputs": "0,512 g ; M = 256,40 g/mol (masses atomiques IUPAC)",
+     "formula": "m/M",
+     "result": "2,00 mmol",
+     "compared_to": "2 mmol annoncés",
+     "source": "masses atomiques standard IUPAC"
+    },
+    {
+     "what": "moles de FeCl3·6H2O",
+     "inputs": "1,08 g ; M = 270,29 g/mol",
+     "formula": "m/M",
+     "result": "4,00 mmol",
+     "compared_to": "4 mmol annoncés",
+     "source": "masses atomiques standard IUPAC"
+    },
+    {
+     "what": "rapport Fe:Mg",
+     "inputs": "4,00 mmol Fe ; 2,00 mmol Mg",
+     "formula": "n(Fe)/n(Mg)",
+     "result": "2,00",
+     "compared_to": "MgFe2O4 : 2",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse théorique de MgFe2O4",
+     "inputs": "2,00 mmol ; M(MgFe2O4) = 199,99 g/mol",
+     "formula": "n·M",
+     "result": "0,399 g",
+     "compared_to": "rendement non donné",
+     "source": "masses atomiques standard IUPAC"
+    },
+    {
+     "what": "OH- nécessaire à la précipitation",
+     "inputs": "4 mmol Fe3+ × 3 + 2 mmol Mg2+ × 2",
+     "formula": "Σ z·n",
+     "result": "16 mmol de NaOH au minimum (0,64 g)",
+     "compared_to": "quantité de NaOH non donnée",
+     "source": "stœchiométrie"
+    },
+    {
+     "what": "Mg2+ résiduel à pH 10",
+     "inputs": "Ksp(Mg(OH)2) = 5,61×10^-12 à 25 °C ; [OH-] = 10^-4 M",
+     "formula": "[Mg2+] = Ksp/[OH-]^2",
+     "result": "5,6×10^-4 M (0,056 mmol perdu par 100 mL de solution)",
+     "compared_to": "2 mmol de Mg engagés",
+     "source": "Ksp tabulé (CRC Handbook), chimie générale"
+    },
+    {
+     "what": "pH de début de précipitation de Mg(OH)2",
+     "inputs": "Ksp = 5,61×10^-12 ; [Mg2+] = 0,02 M (2 mmol dans 100 mL supposés)",
+     "formula": "pH = 14 + log√(Ksp/[Mg2+])",
+     "result": "≈ 9,2",
+     "compared_to": "pH visé 10",
+     "source": "chimie générale"
+    },
+    {
+     "what": "paramètre de maille par la formule des auteurs",
+     "inputs": "2θ(220) = 30,47° ; λ supposée Cu Kα = 1,5406 Å (non déclarée)",
+     "formula": "d = λ/(2 sin θ) ; a = 2d/√3",
+     "result": "d220 = 2,931 Å ; a = 3,38 Å (ni 5,5 Å ni une maille de spinelle)",
+     "compared_to": "tableau 1 : 5,5 Å",
+     "source": "NIST X-ray Transition Energies (Cu Kα1)"
+    },
+    {
+     "what": "paramètre de maille cubique correct",
+     "inputs": "d220 = 2,931 Å",
+     "formula": "a = d·√(h²+k²+l²) = d220·√8",
+     "result": "8,29 Å",
+     "compared_to": "MgFe2O4 : 8,32-8,40 Å selon la voie",
+     "source": "recherche web : paramètres rapportés pour MgFe2O4 (voir le check résultats de cette voie)"
+    },
+    {
+     "what": "d impliqué par les constantes du tableau 1",
+     "inputs": "a0 = 5,5 / 4,9 / 5,2 / 5,4 Å",
+     "formula": "d = a0·√3/2 (inverse de la formule des auteurs)",
+     "result": "4,76 / 4,24 / 4,50 / 4,68 Å (2θ ≈ 18,6-20,9°)",
+     "compared_to": "aucun pic listé dans cette zone ; seul (111) de la spinelle est vers 18,3° (d = 4,84 Å)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "positions attendues pour a = 8,38 Å (Cu Kα)",
+     "inputs": "a = 8,38 Å",
+     "formula": "2θ = 2 asin(λ√(h²+k²+l²)/(2a))",
+     "result": "(220) 30,14 ; (311) 35,50 ; (222) 37,14 ; (400) 43,15 ; (422) 53,53 ; (511) 57,06 ; (440) 62,66°",
+     "compared_to": "liste des auteurs : 30,47 ; 36,97 ; 37,08 ; 43,09 ; 53,09 ; 55,78 ; 63,05°",
+     "source": "calcul"
+    },
+    {
+     "what": "densité de dislocation",
+     "inputs": "D = 15,47 / 7,14 / 7,61 / 11,47 nm",
+     "formula": "δ = 1/D²",
+     "result": "4,18 / 19,62 / 17,27 / 7,60 ×10^15 m-2",
+     "compared_to": "tableau 1 : 4,18 / 19,61 / 17,27 / 7,61 : concordant",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "produit déformation × taille",
+     "inputs": "ε = 25,7 / 57,9 / 53,1 / 34,9 ×10^-3 ; D = 15,47 / 7,14 / 7,61 / 11,47 nm",
+     "formula": "ε·D = Kλ/(4 sin θ) si ε = β/(4 tan θ) et D = Kλ/(β cos θ)",
+     "result": "0,398 / 0,413 / 0,404 / 0,400 nm",
+     "compared_to": "Kλ/(4 sin θ) au pic (311) avec K = 0,9 : 0,114 nm ; 0,40 nm exigerait θ ≈ 5° : déformations ≈ 3,5 fois trop grandes ou formule différente",
+     "source": "calcul"
+    },
+    {
+     "what": "surface géométrique maximale de MF",
+     "inputs": "sphères pleines de 15,47 nm ; ρ(MgFe2O4) = 8M/(N_A a³) = 4,51 g/cm3 avec a = 8,38 Å",
+     "formula": "S = 6/(ρ·D)",
+     "result": "≈ 86 m2/g (16,14 nm MET : 82 m2/g)",
+     "compared_to": "SBET annoncée 178 m2/g",
+     "source": "calcul"
+    },
+    {
+     "what": "volume poreux implicite de MF",
+     "inputs": "SBET 178 m2/g ; diamètre moyen 6,8 Å",
+     "formula": "V = S·D/4",
+     "result": "0,030 cm3/g",
+     "compared_to": "pores de 0,68 nm dans un agrégat calciné de grains de 15 nm : pas de microporosité attendue, les vides intergranulaires sont mésoporeux",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Masses et moles exactes (calculs « moles de Mg(NO3)2·6H2O », « moles de FeCl3·6H2O ») ; Fe:Mg = 2,00, conforme à MgFe2O4 ; 0,40 g de ferrite attendu. Volume d'eau, quantité de NaOH (≥ 16 mmol) et rendement non donnés.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "À pH 10, Mg(OH)2 (Ksp = 5,61×10^-12) laisse ≈ 0,56 mM de Mg2+ en solution (calcul « Mg2+ résiduel à pH 10 ») : selon le volume (non donné), quelques pour cent du Mg peuvent partir au lavage, d'où un déficit en Mg et un risque d'α-Fe2O3 après calcination. Beaucoup de coprécipitations de MgFe2O4 travaillent à pH 11-12. L'ordre opératoire (agitation 1 h à 60 °C puis « after 2 h » ajout de NaOH) laisse aussi l'hydrolyse de Fe3+ démarrer seule.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Autoclave à 150 °C : pression de vapeur de l'eau ≈ 4,8 bar, sans difficulté pour un autoclave à chemise PTFE ; le volume rempli et la capacité ne sont pas donnés. Calcination à 550 °C / 3 h sous air : compatible avec la cristallisation d'une spinelle MgFe2O4 nanométrique ; Fe3+ et Mg2+ stables sous air.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Water, saturation properties (pression de vapeur à 150 °C ≈ 0,476 MPa)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "2025",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Constante de maille fausse : la formule a0 = 2d220/√3 est celle de a d'une maille hexagonale à partir de d100, pas d'une maille cubique (a = d_hkl·√(h²+k²+l²)). Avec le pic (220) à 30,47° et Cu Kα, a = 8,29 Å (calcul « paramètre de maille cubique correct »), proche de MgFe2O4 (8,32-8,40 Å) ; la formule des auteurs donnerait 3,38 Å, et les valeurs 4,9-5,5 Å du tableau 1 ne se déduisent d'aucun pic listé (calcul « d impliqué par les constantes du tableau 1 »). Les « variations subtiles » commentées n'ont donc pas de sens physique.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Recherche web : paramètres de maille rapportés pour MgFe2O4 spinelle, 8,32 à 8,40 Å selon la voie (p. ex. 0,8381 nm par voie solide ; fiche de référence 01-071-1232, a = 8,344-8,378 Å)",
+      "authors_or_publisher": "résultats agrégés (Science of Sintering 2021 ; Nanoscale Res. Lett. tableau 1) — fiche ICDD non consultée",
+      "year": "2021",
+      "url_or_doi": "https://doaj.org/article/e0f20042373b4ecda8c354e72488b795"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Indexation DRX incohérente : 7 angles pour 6 plans ; (420) est une extinction systématique du groupe Fd-3m (hkl tous pairs exige h+k+l = 4n) — la raie vers 53° est (422) ; la raie la plus intense de la spinelle, (311) à ≈ 35,5° pour a = 8,38 Å, n'est pas dans la liste ; 36,97/37,08° correspondent à (222) et 55,78° est loin de (511) attendu à 57,1° (calcul « positions attendues pour a = 8,38 Å »). La longueur d'onde n'est pas déclarée. La phase spinelle unique n'est donc pas démontrée par les données publiées (pas de fiche de référence citée, pas de recherche d'α-Fe2O3 ou MgO).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Déformation de réseau : le produit ε·D vaut ≈ 0,40 nm pour les quatre échantillons (calcul « produit déformation × taille »), ce qui confirme que ε et D viennent de la même largeur β, mais avec les formules usuelles ce produit devrait être ≈ 0,11 nm au pic (311) : les déformations (25-58 ×10^-3) sont surestimées d'un facteur ≈ 3,5 ou calculées par une formule non standard (équations 5-6 absentes du texte). La densité de dislocation est bien 1/D² (concordant). Taille XRD de MF : 15,74 nm dans le texte, 15,47 nm au tableau 1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SBET de MF = 178 m2/g pour des grains de 15,5-16 nm : la surface géométrique maximale de sphères pleines de cette taille est ≈ 86 m2/g (calcul « surface géométrique maximale de MF ») ; 178 m2/g demanderait des grains de ≈ 7,5 nm ou une porosité interne. Diamètre de pore moyen 6,8 Å (0,030 cm3/g) peu compatible avec un agrégat de nanograins calcinés à 550 °C, dont les vides sont mésoporeux. Une des deux mesures (taille ou SBET) est douteuse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nanopoudre de ferrite inhalable après calcination ; autoclave sous pression ; NaOH corrosif. Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Coprécipitation d'oxyhydroxydes de Fe(III) (dès pH 2-3) puis de Mg(OH)2 (vers pH 9-10), mûrissement hydrothermal à 150 °C qui forme des germes de ferrite ou de ferrihydrite/oxyhydroxyde intimement mélangés au Mg, puis déshydratation et diffusion à l'état solide pendant la calcination à 550 °C sous air conduisant à la spinelle MgFe2O4 partiellement inverse ; la taille de grain (~15 nm) est fixée par la calcination.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'eau et quantité de NaOH ; contrôler le pH final (10 contre 11-12) et doser Mg/Fe du produit (ICP) pour vérifier Mg:Fe = 1:2",
+    "DRX avec λ déclarée, indexation complète incluant (311) et recherche d'α-Fe2O3 / MgO ; recalculer a avec a = d·√(h²+k²+l²)",
+    "cohérence taille de grain / SBET",
+    "séchage avant calcination et vitesse de chauffe"
+   ]
+  },
+  {
+   "label": "MF45-AC",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "teneur en ferrite obtenue avec la recette écrite",
+     "inputs": "0,399 g de MgFe2O4 théorique (2 mmol) ; 2 g d'AC",
+     "formula": "m(MF)/(m(MF)+m(AC))",
+     "result": "16,6 % en masse",
+     "compared_to": "25, 45 ou 65 % annoncés",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "ferrite nécessaire pour les teneurs annoncées avec 2 g d'AC",
+     "inputs": "w = 0,25 / 0,45 / 0,65",
+     "formula": "m(MF) = 2·w/(1−w)",
+     "result": "0,667 g (3,33 mmol) / 1,64 g (8,18 mmol) / 3,71 g (18,6 mmol), soit 1,7 / 4,1 / 9,3 fois la recette de MF",
+     "compared_to": "aucune quantité donnée pour les composites",
+     "source": "calcul"
+    },
+    {
+     "what": "SBET attendue par simple mélange",
+     "inputs": "SBET(AC) 2134 ; SBET(MF) 178 m2/g ; w = 0,25 / 0,45 / 0,65",
+     "formula": "(1−w)·2134 + w·178 (borne haute si la ferrite ne fait que boucher des pores)",
+     "result": "1645 / 1254 / 863 m2/g",
+     "compared_to": "mesuré 1897 / 1645 / 1223 m2/g : toujours au-dessus de la borne ; 1897 correspond à w ≈ 0,12-0,17",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité exigée de la ferrite dans MF45-AC",
+     "inputs": "870 F/g ; part AC 0,55 × 96 F/g ; w(MF) = 0,45",
+     "formula": "C(MF) = (870 − 0,55·96)/0,45",
+     "result": "1816 F/g de ferrite",
+     "compared_to": "MF seul : 402 F/g",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité faradique maximale de MgFe2O4 sur 0,5 V",
+     "inputs": "2 Fe3+/Fe2+ par formule ; F = 96 485 C/mol ; M = 199,99 g/mol ; ΔV = 0,5 V",
+     "formula": "Q = 2F/M ; C = Q/ΔV",
+     "result": "Q = 965 C/g ; C ≈ 1930 F/g",
+     "compared_to": "1816 F/g exigés = 94 % de tout le fer réduit puis réoxydé à chaque cycle ; avec la teneur réelle de 16,6 %, il faudrait 245 % (impossible)",
+     "source": "chimie générale"
+    },
+    {
+     "what": "temps de décharge à 1 A/g",
+     "inputs": "C = 870 F/g ; ΔV = 0,5 V ; I/m = 1 A/g",
+     "formula": "t = C·ΔV/(I/m)",
+     "result": "435 s",
+     "compared_to": "non vérifiable sans la figure 8d",
+     "source": "équation 2 de l'article"
+    },
+    {
+     "what": "rétention après 5000 cycles à 3 A/g",
+     "inputs": "826,5 F/g après cyclage ; 870 F/g à 1 A/g ; 396 F/g à 3 A/g",
+     "formula": "C_fin/C_initial",
+     "result": "95,0 % rapporté à 1 A/g ; 209 % rapporté à 3 A/g",
+     "compared_to": "95,1 % annoncé ; cyclage annoncé à 3,0 A/g",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La recette écrite (2 g d'AC ajoutés à la préparation de MF : 2 mmol Mg, 4 mmol Fe) donne 16,6 % de ferrite pour tous les composites ; obtenir 25, 45 et 65 % exige 1,7, 4,1 et 9,3 fois plus de précurseurs (calculs « teneur en ferrite obtenue » et « ferrite nécessaire »). Les trois teneurs ne sont pas reproductibles à partir de l'article et ne sont vérifiées par aucune analyse (ATG, ICP).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Les composites suivent « the same method », donc la calcination à 550 °C pendant 3 h « in an open-air atmosphere » s'applique avec l'AC présent : un charbon activé brûle à l'air vers 500 °C (dispersion d'essais ASTM D3466 « au voisinage de 500 °C »), et les oxydes de fer catalysent la combustion du carbone. On doit s'attendre à une perte importante, peut-être totale, de l'AC, ce qui rend la teneur en carbone incontrôlée et contredit les SBET conservées de 1223-1897 m2/g. Soit les composites n'ont pas été calcinés sous air (atmosphère non dite), soit les teneurs annoncées sont fausses.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "D3466 Standard Test Method for Ignition Temperature of Granular Activated Carbon (énoncé de fidélité : dispersion de 65 °C « au voisinage de 500 °C »)",
+      "authors_or_publisher": "ASTM International",
+      "year": "1976, réapprouvée 1998 ; édition en vigueur D3466-06(2023)",
+      "url_or_doi": "https://store.astm.org/d3466-06r23.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SBET des composites supérieures à la borne de mélange (1897 > 1645 ; 1645 > 1254 ; 1223 > 863 m2/g, calcul « SBET attendue par simple mélange ») : un dépôt d'oxyde dense ne peut pas augmenter la surface par gramme au-delà de cette somme pondérée. Les valeurs sont compatibles avec une teneur réelle en ferrite bien plus faible (≈ 12-17 % pour MF25-AC), ce qui rejoint le calcul de la recette (16,6 %). SBET de MF65-AC : 1223 (texte, tableau) contre 1423 m2/g (conclusion).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "870 F/g sur 0,5 V exigerait que la ferrite fournisse ≈ 1816 F/g, soit 94 % de la capacité faradique maximale de tout le fer (Fe3+/Fe2+) à chaque cycle, en électrolyte neutre Na2SO4, alors que la ferrite seule ne donne que 402 F/g (21 %) (calculs « capacité exigée » et « capacité faradique maximale »). Avec la teneur de 16,6 % que donne la recette, c'est impossible. Les pics redox et les GCD « quasi-triangulaires » relèvent d'un comportement de type batterie, pour lequel une capacité en F/g sur une fenêtre étroite n'est pas une grandeur pertinente (préférer mAh/g).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J.W., J. Electrochem. Soc. 162(5), A5185-A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cyclage annoncé à 3,0 A/g, mais les capacités finales (826,5 ; 378,4 ; 86,1 F/g) et les rétentions (95,1 ; 94,2 ; 89,6 %) sont calculées par rapport aux valeurs à 1,0 A/g (870, 402, 96) ; rapporté à la capacité de MF45-AC à 3 A/g (396 F/g), le « 826,5 » ferait 209 % (calcul « rétention après 5000 cycles à 3 A/g »). Le courant de cyclage ou les valeurs sont faux. La légende de la figure 9d cite MF25-AC alors que le texte parle de MF.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Chute de 870 à 396 F/g entre 1 et 3 A/g (45 % de rétention) : présentée comme une « bonne tenue en régime », c'est au contraire une tenue médiocre, cohérente avec une électrode peu chargée et un stockage diffusif.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison des électrolytes (KOH 292, H2SO4 598, Na2SO4 870 F/g) sur la même fenêtre 0-0,5 V : la fenêtre stable et les couples redox du fer diffèrent selon le pH ; une ferrite dans H2SO4 2 M se dissout en partie. Le choix de Na2SO4 sur une seule fenêtre n'est pas une comparaison équitable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La baisse de taille de cristallite en présence d'AC (15,5 → 7-11 nm) est attribuée à la dispersion sur le support ; plausible, mais si l'AC brûle pendant la calcination sous air la ferrite finit en partie non supportée. La FTIR (576 et 427 cm-1, sites tétraédrique et octaédrique) est cohérente avec une spinelle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Adsorption de Fe3+/Mg2+ sur les fonctions oxygénées de l'AC, coprécipitation des hydroxydes sur et dans le charbon (nucléation hétérogène, grains plus petits), mûrissement hydrothermal à 150 °C ; la conversion en spinelle demande ensuite un traitement thermique sous gaz inerte (N2/Ar) pour préserver le carbone : sous air à 550 °C, l'oxydation du carbone catalysée par les oxydes de fer est attendue. Le mécanisme de stockage de charge est faradique (Fe3+/Fe2+ en surface) plus double couche de l'AC, mais sa contribution annoncée dépasse ce que le fer peut fournir.",
+    "sources": [
+     {
+      "title": "D3466 Standard Test Method for Ignition Temperature of Granular Activated Carbon (énoncé de fidélité : dispersion de 65 °C « au voisinage de 500 °C »)",
+      "authors_or_publisher": "ASTM International",
+      "year": "1976, réapprouvée 1998 ; édition en vigueur D3466-06(2023)",
+      "url_or_doi": "https://store.astm.org/d3466-06r23.html"
+     },
+     {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J.W., J. Electrochem. Soc. 162(5), A5185-A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de Mg et Fe à engager pour chaque teneur (3,3 / 8,2 / 18,6 mmol de Mg pour 2 g d'AC)",
+    "atmosphère réelle de la calcination des composites (N2 recommandé) ; mesurer la teneur réelle en carbone par ATG sous air après synthèse",
+    "masse active déposée (≥ 1 mg/cm2) et contribution du noir d'acétylène et du graphite (électrode témoin sans matière active)",
+    "courant réel du cyclage et capacité initiale à ce courant",
+    "exprimer la capacité en mAh/g pour un comportement redox de type batterie"
+   ]
+  },
+  {
+   "label": "MF25-AC",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "teneur en ferrite et SBET de MF25-AC",
+     "inputs": "recette : 0,399 g MF + 2 g AC ; borne de mélange w = 0,25",
+     "formula": "m(MF)/(m(MF)+2) ; 0,75·2134 + 0,25·178",
+     "result": "16,6 % ; 1645 m2/g",
+     "compared_to": "25 % annoncé ; SBET mesurée 1897 m2/g (≈ w = 0,12-0,17)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Mêmes problèmes que MF45-AC : 25 % exigerait 3,33 mmol de Mg (1,7 fois la recette) ; la SBET de 1897 m2/g correspond plutôt à 12-17 % de ferrite. Calcination sous air de l'AC à 550 °C.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir MF45-AC.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de précurseurs",
+    "atmosphère de calcination",
+    "teneur réelle par ATG"
+   ]
+  },
+  {
+   "label": "MF65-AC",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "ferrite nécessaire et SBET de MF65-AC",
+     "inputs": "2 g AC ; w = 0,65",
+     "formula": "2·w/(1−w) ; 0,35·2134 + 0,65·178",
+     "result": "3,71 g MgFe2O4 (18,6 mmol, 9,3 fois la recette) ; 863 m2/g",
+     "compared_to": "SBET mesurée 1223 m2/g (1423 en conclusion)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "65 % exigerait 9,3 fois les quantités de la recette écrite ; la SBET mesurée (1223 m2/g) dépasse de 42 % la borne de mélange (863 m2/g), alors que les auteurs invoquent un bouchage des pores. Teneur non démontrée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir MF45-AC.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de précurseurs",
+    "atmosphère de calcination",
+    "teneur réelle par ATG"
+   ]
+  },
+  {
+   "label": "Electrode_3E",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport additif conducteur / matière active",
+     "inputs": "80 % noir d'acétylène ; 10 % PVDF ; 10 % matière active",
+     "formula": "m(noir)/m(actif)",
+     "result": "8 g de noir par g de matière active",
+     "compared_to": "formulation usuelle 80:10:10 actif:noir:liant (rapport 0,125)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "densité de courant de la méthode contre A/g des résultats",
+     "inputs": "1,0-20,0 mA/cm2 (Méthodes) ; 1,0-3,0 A/g (Résultats) ; 1,0 cm2",
+     "formula": "m = I/(I/m)",
+     "result": "si 1 mA/cm2 ↔ 1 A/g, masse active ≈ 1 mg ; 20 mA/cm2 ↔ 20 A/g jamais rapporté",
+     "compared_to": "masse active non donnée",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Électrode à 80 % de noir d'acétylène et 10 % de matière active (calcul « rapport additif conducteur / matière active ») : la double couche du noir (et du support graphite) est rapportée à la seule masse active, ce qui gonfle les F/g (8 g de noir par g d'actif ; quelques F/g de noir donnent déjà plusieurs dizaines de F/g ramenés à l'actif), surtout pour l'AC (96 F/g). Une électrode témoin sans matière active est indispensable ; elle n'est pas décrite. Si les proportions sont inversées par erreur d'écriture, il faut le savoir pour refaire.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Best practice methods for determining an electrode material's performance for ultracapacitors",
+      "authors_or_publisher": "Stoller M.D., Ruoff R.S., Energy Environ. Sci. 3, 1294-1301",
+      "year": "2010",
+      "url_or_doi": "10.1039/C0EE00074D"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Solvant du slurry non donné (NMP listé dans les matériaux) ; séchage à 80 °C sans durée ni vide alors que le NMP bout à 202 °C ; masse active non donnée (calcul « densité de courant ») : les F/g ne sont pas recalculables.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NMP classé reprotoxique (catégorie 1B, ECHA) : manipulation sous hotte, gants.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme d'électrode).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "proportions réelles actif/noir/PVDF",
+    "masse active par cm2",
+    "électrode témoin noir + PVDF sur graphite",
+    "solvant et séchage (NMP, 80-120 °C sous vide)"
+   ]
+  },
+  {
+   "label": "ASC_MF45-AC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "densité d'énergie maximale",
+     "inputs": "C = 448 F/g ; ΔV = 0,5 V",
+     "formula": "E = ½·C·ΔV²/3,6",
+     "result": "15,56 Wh/kg",
+     "compared_to": "15,56 annoncé : C d'électrode utilisée directement",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "densité d'énergie à 3 A/g",
+     "inputs": "C = 276 F/g ; ΔV = 0,5 V",
+     "formula": "½·C·ΔV²/3,6",
+     "result": "9,58 Wh/kg",
+     "compared_to": "9,6 lu sur la figure 9c",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "densité de puissance",
+     "inputs": "I/m = 1 et 3 A/g ; ΔV = 0,5 V",
+     "formula": "P = (I/m)·ΔV/2",
+     "result": "250 et 750 W/kg",
+     "compared_to": "250 et 750 W/kg annoncés",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Énergie et puissance se recalculent exactement avec E = ½CV² en prenant la capacité 448 F/g (calcul « densité d'énergie maximale »). Pour une cellule à deux électrodes, la capacité de cellule rapportée à la masse totale vaut le quart de la capacité spécifique d'une électrode ; si 448 F/g est une capacité d'électrode, l'énergie est surestimée d'un facteur pouvant aller jusqu'à 4. Les équations 3-4 manquent au texte et la masse prise en compte n'est pas dite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Best practice methods for determining an electrode material's performance for ultracapacitors",
+      "authors_or_publisher": "Stoller M.D., Ruoff R.S., Energy Environ. Sci. 3, 1294-1301",
+      "year": "2010",
+      "url_or_doi": "10.1039/C0EE00074D"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cellule dite « asymétrique » alors que les deux électrodes décrites sont en MF45-AC (« similar or different compositions ») : si elles sont identiques, la cellule est symétrique. Électrolyte de la cellule non donné. La fenêtre de 0,5 V est très étroite pour une cellule aqueuse (1,6-1,8 V en Na2SO4 sur carbone), ce qui limite fortement l'énergie réelle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (assemblage de cellule).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "composition des deux électrodes et électrolyte",
+    "masse prise en compte (une électrode ou les deux) et équations de C, E, P",
+    "fenêtre de tension utile de la cellule"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La voie AC (KOH, 600 °C, N2) et la voie MF (coprécipitation Mg:Fe = 1:2 exact, hydrothermal 150 °C, calcination 550 °C sous air) sont chimiquement plausibles, avec des grandeurs dérivées fausses (constante de maille par une formule hexagonale, indexation DRX avec une raie interdite (420) et sans (311), SBET de MF deux fois au-dessus de la surface géométrique de grains de 15 nm). Les composites sont incohérents : la recette écrite ne donne que 16,6 % de ferrite, la calcination sous air à 550 °C devrait brûler l'AC, les SBET dépassent la borne de mélange, et 870 F/g exigerait 94 % de la capacité faradique de tout le fer. Le cyclage annoncé à 3 A/g est rapporté aux capacités à 1 A/g. L'électrode contient 80 % de noir d'acétylène pour 10 % de matière active, sans témoin.",
+  "author_errors_suspected": [
+   "a0 = 2d220/√3 (formule hexagonale) au lieu de a = d220·√8 ; constantes 4,9-5,5 Å impossibles pour une spinelle (≈ 8,3-8,4 Å)",
+   "plan (420) indexé alors qu'il est éteint en Fd-3m ; (311) absent ; 7 angles pour 6 plans",
+   "teneurs 25/45/65 % sans quantités ; la recette donne 16,6 %",
+   "calcination sous air à 550 °C appliquée aux composites contenant l'AC",
+   "rétentions calculées sur les capacités à 1 A/g pour un cyclage à 3 A/g",
+   "taille XRD de MF 15,74 (texte) contre 15,47 nm (tableau) ; SBET de MF65-AC 1223 contre 1423 m2/g ; « solvothermal » en conclusion",
+   "attributions FTIR à 2316/2044 cm-1 (C=C, C=N) et 1036 cm-1 (C–H hors plan) erronées",
+   "« MgO2/activated carbon » au tableau 2 (probablement MnO2)"
+  ],
+  "comparison_with_database": "MgFe2O4 : PMC9181868 (sol-gel citrate, calcination 500 °C) — conditions de calcination voisines, sans composite carbone. Charbon activé : PMC10754887 (balle de riz, NaOH, 850 °C, 469 m2/g) ; la SBET de 2134 m2/g ici à 600 °C avec la KOH est bien plus haute mais dans la plage des activations KOH."
+ },
+ "sources_not_found": [
+  "Fiche ICDD/JCPDS de MgFe2O4 (36-0398 ou autre) non consultée : seul un intervalle de paramètres de maille rapportés (8,32-8,40 Å) a été trouvé",
+  "Valeur typique de la température d'inflammation d'un charbon activé selon ASTM D3466 : seul l'énoncé de fidélité « au voisinage de 500 °C » est accessible (norme payante)",
+  "Aucune source trouvée donnant la température d'oxydation à l'air d'un composite oxyde de fer / charbon activé"
+ ]
+}

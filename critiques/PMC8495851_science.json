@@ -1,0 +1,547 @@
+{
+ "pmcid": "PMC8495851",
+ "routes": [
+  {
+   "label": "SBA-15",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses pour une base de 1 g de P123 (rapport 0,01:1:0,05:0,05:170)",
+     "inputs": "P123 M = 5800 (article) ; TEOS 208,33 ; ZrOCl2·8H2O 322,25 ; Ce(NO3)3·6H2O 434,22 ; H2O 18,015 g/mol",
+     "formula": "n(P123) = 1/5800 ; n(TEOS) = n(P123)/0,01 ; m = n × M",
+     "result": "P123 0,172 mmol ; TEOS 17,2 mmol = 3,59 g ; ZrOCl2·8H2O 0,278 g ; Ce(NO3)3·6H2O 0,374 g ; eau 52,8 g ; P123 ≈ 1,9 % en masse dans l'eau ; SiO2 attendu ≈ 1,04 g",
+     "compared_to": "Zhao 1998 : P123/TEOS ≈ 0,017, ≈ 2,6 % de P123 ; Chen 2004 : Zr/Si jusqu'à 0,1 sans acide minéral ajouté",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "concentration en Zr du gel",
+     "inputs": "0,862 mmol Zr dans 52,8 g d'eau (base ci-dessus)",
+     "formula": "n(Zr)/V(eau)",
+     "result": "[Zr] ≈ 0,016 mol/L",
+     "compared_to": "seule source d'acidité du gel (aucun HCl écrit) : milieu nettement moins acide que HCl 2 M de la SBA-15 classique",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "diamètre 4V/S de SBA-15",
+     "inputs": "V = 0,67 cm3/g ; S = 148,74 m2/g (Tableau 1)",
+     "formula": "d = 4V/S",
+     "result": "18,0 nm",
+     "compared_to": "15,82 nm annoncés (écart 12 %, acceptable pour un BJH)",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "diamètre 4V/S de CoFe2O4 (Tableau 1)",
+     "inputs": "V = 0,38 cm3/g ; S = 48,36 m2/g",
+     "formula": "d = 4V/S",
+     "result": "31,4 nm",
+     "compared_to": "17,08 nm annoncés ; 17,08 est aussi la surface BET de CoFe2O4@SiO2-NH2 au Tableau S3 (coïncidence ou recopie)",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "pression relative de condensation attendue pour un pore de 15,8 nm",
+     "inputs": "équation de Kelvin pour N2 à 77 K (ordre de grandeur : pore de 6 nm → P/P0 ≈ 0,7 ; 15 nm → ≈ 0,9)",
+     "formula": "Kelvin + épaisseur de film",
+     "result": "P/P0 ≈ 0,85–0,9",
+     "compared_to": "l'article écrit « P/P0 de SBA-15 < 0,7 », incompatible avec 15,82 nm",
+     "source": "chimie générale (équation de Kelvin), Thommes 2015 pour la méthode"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Étape à 373 K pendant 24 h : le récipient n'est pas écrit (bécher à l'étape précédente). Point d'ébullition de l'eau : 373 K ; dans un bécher ouvert, le gel (≈ 170 H2O par Si) bout et s'évapore en 24 h. Le vieillissement de la SBA-15 se fait en flacon fermé (polypropylène ou autoclave), pression de vapeur ≈ 1 bar à 100 °C, sans danger.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucun acide minéral n'est écrit, contrairement à la SBA-15 de Zhao (HCl 2 M). La recette correspond à la voie « acidité auto-générée » de Chen et al. 2004, où l'hydrolyse de ZrOCl2 fournit l'acidité ; avec [Zr] ≈ 0,016 mol/L (voir calcul « concentration en Zr du gel »), le pH est vraisemblablement 1,5–2,5. La voie est donc plausible, mais l'article ne renvoie qu'à son travail antérieur et ne donne aucune quantité absolue.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of Zr-incorporated SBA-15 mesoporous materials in a self-generated acidic environment",
+      "authors_or_publisher": "Chen S.-Y., Jang L.-Y., Cheng S., Chem. Mater. 16, 4174–4180",
+      "year": "2004",
+      "url_or_doi": "10.1021/cm049247b"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Zr/Si = Ce/Si = 0,05 dans le gel, mais ni l'EDS (« only C, N, O, Fe, Co and Si ») ni le spectre XPS général (Co, Fe, O, Si, C, N) ne montrent Zr ou Ce dans le produit final. Soit Zr et Ce ne sont pas incorporés (lessivés ou sous le seuil), soit l'analyse est incomplète ; la formule « SiO2 » de l'extraction est donc cohérente avec l'article, mais le rôle de Ce n'est démontré nulle part.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surface BET de 148,74 m2/g pour une SBA-15 ordonnée (pics (100), (110), (200)) : très en dessous des 600–900 m2/g usuels de la SBA-15 et de la Zr-SBA-15 en plaquettes ; la seule autre SBA-15 de la base donne 675 m2/g (PMC6812203). Une telle valeur suggère une mésostructure en partie effondrée, une calcination mal conduite ou une erreur de mesure.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Taille uniforme d'environ 12 nm » des plaquettes au MEB : impossible pour une plaquette de SBA-15 qui contient des pores de 15,8 nm et des parois ; les plaquettes à canaux courts mesurent quelques centaines de nm (canaux de ≈ 200 nm dans les travaux de Chen et Cheng). Probable confusion d'unité (µm ou centaines de nm) ou de grandeur.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'article écrit que la condensation capillaire de SBA-15 se produit à P/P0 < 0,7 ; pour un diamètre de 15,82 nm, l'équation de Kelvin la place vers 0,85–0,9 (voir calcul « pression relative de condensation attendue »). Le diamètre ou la phrase est faux ; le 4V/S (18,0 nm) va dans le sens du grand diamètre.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Large bosse DRX à 23° (2θ, Cu Kα supposé) : signature habituelle de la silice amorphe (≈ 22–23°).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "TEOS inflammable et irritant ; calcination à 823 K de P123 et de nitrate de cérium : fumées organiques et NOx, sous hotte ou four ventilé. Poudre de silice mésoporeuse à ne pas inhaler.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Auto-assemblage coopératif : les micelles de P123 (cœur PPO, couronne PEO) s'entourent d'oligomères siliciques issus de l'hydrolyse du TEOS catalysée par l'acidité que libère l'hydrolyse de ZrOCl2 (voie de Chen et al. 2004) ; à 308 K se forme la mésophase hexagonale, le passage à 373 K en récipient fermé consolide les parois et élargit les pores, la calcination à 823 K brûle le P123. La condensation rapide en présence d'ions Zr4+ et de sels favorise des particules en plaquettes à canaux courts. Le rôle de Ce(III) n'est pas établi (aucun Ce détecté dans le produit).",
+    "sources": [
+     {
+      "title": "Synthesis of Zr-incorporated SBA-15 mesoporous materials in a self-generated acidic environment",
+      "authors_or_publisher": "Chen S.-Y., Jang L.-Y., Cheng S., Chem. Mater. 16, 4174–4180",
+      "year": "2004",
+      "url_or_doi": "10.1021/cm049247b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités absolues (base de calcul ci-dessus) et protocole du travail antérieur (Shen et al. 2018, J. Environ. Chem. Eng., 10.1016/j.jece.2018.08.030)",
+    "récipient fermé pour l'étape à 373 K",
+    "pH du gel sans HCl ajouté",
+    "teneur réelle en Zr et Ce du produit (ICP ou EDS)",
+    "surface BET attendue (≫ 150 m2/g pour une SBA-15 ordonnée)",
+    "taille réelle des plaquettes au MEB (pas 12 nm)"
+   ]
+  },
+  {
+   "label": "M-SBA-15",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "teneur en CoFe2O4 de M-SBA-15 déduite de l'aimantation",
+     "inputs": "Ms(M-SBA-15) = 23,11 emu/g (article) ; Ms(CoFe2O4 massif) ≈ 86 emu/g, nanoparticules ≈ 60 emu/g",
+     "formula": "w = Ms(composite)/Ms(CoFe2O4)",
+     "result": "w ≈ 27 % (86 emu/g) à 39 % (60 emu/g)",
+     "compared_to": "aucune teneur donnée par l'article",
+     "source": {
+      "title": "Magnetization and Anisotropy of Cobalt Ferrite Thin Films (aimantation du massif CoFe2O4 ≈ 86 emu/g, rappelée en introduction)",
+      "authors_or_publisher": "arXiv:1709.09965",
+      "year": "2017",
+      "url_or_doi": "https://arxiv.org/pdf/1709.09965"
+     }
+    },
+    {
+     "what": "Fe(acac)3 nécessaire pour cette teneur sur 0,25 g de SBA-15",
+     "inputs": "w = 0,27–0,42 ; M(CoFe2O4) = 234,62 ; M(Fe(acac)3) = 353,17 g/mol ; 2 Fe par CoFe2O4 ; 10 mL d'eau",
+     "formula": "m(CoFe2O4) = 0,25·w/(1−w) ; m(Fe(acac)3) = 2·n(CoFe2O4)·353,17 ; c = m/0,010 L",
+     "result": "0,11–0,18 g de CoFe2O4 → 0,32–0,55 g de Fe(acac)3 → 32–55 g/L",
+     "compared_to": "solubilité de Fe(acac)3 dans l'eau ≈ 2 g/L : 16 à 27 fois plus",
+     "source": {
+      "title": "Tris(acetylacetonato)iron(III) (infobox : solubilité dans l'eau 2 g/L)",
+      "authors_or_publisher": "Wikipedia (source secondaire, à confirmer sur PubChem CID de Fe(acac)3)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Tris(acetylacetonato)iron(III)"
+     }
+    },
+    {
+     "what": "charge maximale si seul le Fe(acac)3 dissous est imprégné",
+     "inputs": "2 g/L × 10 mL = 20 mg Fe(acac)3 = 0,057 mmol Fe",
+     "formula": "n(CoFe2O4) = n(Fe)/2 ; w = m/(m + 250 mg) ; Ms = w × 86",
+     "result": "6,6 mg CoFe2O4 ; w ≈ 2,6 % ; Ms ≈ 2,3 emu/g",
+     "compared_to": "23,11 emu/g mesurés : dix fois plus",
+     "source": {
+      "title": "Tris(acetylacetonato)iron(III) (infobox : solubilité dans l'eau 2 g/L)",
+      "authors_or_publisher": "Wikipedia (source secondaire, à confirmer sur PubChem CID de Fe(acac)3)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Tris(acetylacetonato)iron(III)"
+     }
+    },
+    {
+     "what": "diamètre 4V/S de M-SBA-15",
+     "inputs": "V = 0,32 cm3/g ; S = 108,36 m2/g",
+     "formula": "d = 4V/S",
+     "result": "11,8 nm",
+     "compared_to": "6,55 nm annoncés (facteur 1,8)",
+     "source": "calcul sur les valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Fe(acac)3 est mis « dans 10 mL de solution purement aqueuse » ; sa solubilité dans l'eau est d'environ 2 g/L. Pour atteindre l'aimantation mesurée (23,11 emu/g), il faut 0,3–0,55 g de Fe(acac)3 dans 10 mL (voir calcul « Fe(acac)3 nécessaire »), soit 16 à 27 fois la solubilité ; le Fe(acac)3 dissous seul donnerait au plus ≈ 2,6 % de CoFe2O4 et ≈ 2 emu/g (voir calcul « charge maximale »). Le fer arrive donc surtout sous forme de cristaux non dissous récupérés par centrifugation avec la silice, ce qui n'est pas une imprégnation des pores : la répartition « dans les pores » vue au MET n'est pas assurée par ce protocole, et la charge dépend de la quantité non écrite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Tris(acetylacetonato)iron(III) (infobox : solubilité dans l'eau 2 g/L)",
+      "authors_or_publisher": "Wikipedia (source secondaire, à confirmer sur PubChem CID de Fe(acac)3)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Tris(acetylacetonato)iron(III)"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Rapport Fe:Co = 2:1 cohérent avec CoFe2O4. Mais aucune quantité absolue de Fe(acac)3 ni de nitrate de cobalt n'est donnée : la charge en ferrite, qui fixe l'aimantation et la perte de surface, ne peut pas être refaite. Le réactif « Fe(caca)3 » (coquille) n'est pas dans la liste des produits, et le nitrate de cobalt y est écrit « Co(NO3)·2H2O » au lieu de Co(NO3)2·6H2O.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Fe(III) et Co(II) sont déjà aux états d'oxydation de CoFe2O4 ; une calcination à 723 K sous air (atmosphère non écrite) décompose acac et nitrates et suffit à cristalliser un spinelle nanométrique. Cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Agitation à 318 K, séchage à 333 K, calcination à 723 K pendant 2 h : compatibles avec l'eau et avec la stabilité de la silice. Fe(acac)3 se décompose vers 180–200 °C, sans risque particulier en four ventilé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Diamètre des pores passant de 15,82 à 6,55 nm alors que le volume poreux n'est divisé que par 2 ; le 4V/S de M-SBA-15 vaut 11,8 nm (voir calcul « diamètre 4V/S de M-SBA-15 ») ; l'article situe aussi la condensation « vers 0,4 », ce qui correspondrait à des pores de ≈ 3–4 nm. Les trois indications du diamètre ne concordent pas.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le nitrate de cobalt(II) hexahydraté est classé cancérogène 1B et reprotoxique 1B (CLP, substance extrêmement préoccupante) : pesée sous hotte, gants. La calcination de nitrates et d'acétylacétonate dégage NOx et vapeurs organiques. Nanoparticules de ferrite de cobalt : poudre à ne pas inhaler. Rien de cela n'est écrit dans l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Cobalt(2+) dinitrate hexahydrate, CAS 10026-22-9 : Carc. 1B, Repr. 1B (classification harmonisée CLP, SVHC ECHA 2011)",
+      "authors_or_publisher": "NextSDS (reprise de l'inventaire C&L de l'ECHA ; à confirmer sur echa.europa.eu, CE 233-402-1)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://nextsds.com/substances/10026-22-9"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le nitrate de cobalt, soluble, s'adsorbe et imprègne les pores ; Fe(acac)3, presque insoluble dans l'eau, reste en grande partie en cristaux dispersés que la centrifugation récupère avec la silice. Au séchage puis à la calcination à 723 K, acac et nitrates se décomposent ; Fe et Co réagissent là où ils sont en contact pour former CoFe2O4, à la fois dans les pores (Co imprégné + Fe dissous) et à l'extérieur des grains (cristaux de Fe(acac)3). On attend donc une ferrite en partie hors des pores, et éventuellement des oxydes de fer ou de cobalt séparés si le rapport local Fe:Co s'écarte de 2:1.",
+    "sources": [
+     {
+      "title": "Tris(acetylacetonato)iron(III) (infobox : solubilité dans l'eau 2 g/L)",
+      "authors_or_publisher": "Wikipedia (source secondaire, à confirmer sur PubChem CID de Fe(acac)3)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Tris(acetylacetonato)iron(III)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de Fe(acac)3 et de nitrate de cobalt (viser la teneur en CoFe2O4 visée, ≈ 30 % d'après Ms)",
+    "solvant réel du Fe(acac)3 (l'eau ne le dissout pas à cette concentration ; éthanol ou acétone envisageables)",
+    "atmosphère et rampe de calcination",
+    "phases secondaires (Fe2O3, Co3O4) par DRX",
+    "teneur en Fe et Co par ICP"
+   ]
+  },
+  {
+   "label": "PPy-PANI/M-SBA-15",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de monomères et d'oxydant",
+     "inputs": "pyrrole 0,05 mL × 0,967 g/mL / 67,09 ; aniline 0,05 mL × 1,022 g/mL / 93,13 ; APS 0,23 g / 228,20 g/mol",
+     "formula": "n = V·ρ/M ; n = m/M",
+     "result": "pyrrole 0,721 mmol ; aniline 0,549 mmol ; APS 1,008 mmol ; APS/monomères = 0,79 (0,05 mL de chacun) ou 1,59 (0,05 mL au total)",
+     "compared_to": "APS/aniline = 1,25 dans le protocole IUPAC (2,5 électrons par aniline)",
+     "source": "densités et masses molaires : valeurs de manuel ; rapport de référence : Stejskal & Gilbert 2002"
+    },
+    {
+     "what": "électrons nécessaires et conversion maximale",
+     "inputs": "aniline 2,5 e− par unité (éméraldine) ; pyrrole 2,33 e− par unité (2 + dopage 0,33) ; APS = 2 e−",
+     "formula": "f = 2·n(APS)/(2,5·n(Ani) + 2,33·n(Py))",
+     "result": "besoin 3,05 mmol e− ; disponible 2,02 mmol e− ; conversion maximale ≈ 66 %",
+     "compared_to": "oxydant en défaut (si 0,05 mL de chacun)",
+     "source": {
+      "title": "Polyaniline: Preparation of a conducting polymer (IUPAC Technical Report)",
+      "authors_or_publisher": "Stejskal J., Gilbert R. G., Pure Appl. Chem. 74, 857–867",
+      "year": "2002",
+      "url_or_doi": "10.1351/pac200274050857"
+     }
+    },
+    {
+     "what": "masse maximale de copolymère dopé",
+     "inputs": "unités : PANI éméraldine·0,5 HCl ≈ 108,8 g/mol ; PPy·0,33 Cl ≈ 76,8 g/mol",
+     "formula": "m = n(Ani)·108,8 + n(Py)·76,8 (× 0,66 si l'oxydant limite)",
+     "result": "115 mg à conversion totale ; 76 mg si l'oxydant limite ; 58 mg si 0,05 mL au total",
+     "compared_to": "0,1 g de M-SBA-15 engagé",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "aimantation attendue par simple dilution",
+     "inputs": "Ms(M-SBA-15) = 23,11 emu/g ; 100 mg de M-SBA-15 + m(polymère)",
+     "formula": "Ms = 23,11 × 100/(100 + m)",
+     "result": "10,7 emu/g (115 mg) ; 13,1 emu/g (76 mg) ; 14,7 emu/g (58 mg)",
+     "compared_to": "8,21 emu/g mesurés",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "masse de polymère nécessaire pour Ms = 8,21 emu/g",
+     "inputs": "fraction de M-SBA-15 = 8,21/23,11 = 0,355",
+     "formula": "m = 100/0,355 − 100",
+     "result": "182 mg de polymère pour 100 mg de M-SBA-15",
+     "compared_to": "au-dessus du maximum possible (115 mg)",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "volume de monomères contre volume poreux",
+     "inputs": "0,1 mL de monomères ; 0,1 g × 0,32 cm3/g",
+     "formula": "V(pores) = m·Vp",
+     "result": "0,032 mL de pores pour 0,1 mL de liquide",
+     "compared_to": "le liquide dépasse trois fois le volume poreux : bouillie, pas imprégnation capillaire",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "bilan de matière de l'essai 26 du plan composite",
+     "inputs": "C0 = 10 mg/L ; dose 0,05 g/L ; qe = 231 mg/g (Tableau 2)",
+     "formula": "qe,max = C0/dose (élimination totale)",
+     "result": "200 mg/g au plus",
+     "compared_to": "231 mg/g annoncés : impossible",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "taux d'élimination à 0,05 g/L",
+     "inputs": "qe = 253,8 mg/g ; dose 0,05 g/L ; C0 = 30 mg/L",
+     "formula": "R = qe·dose/C0",
+     "result": "42,3 %",
+     "compared_to": "44,7 % annoncés (soit 268 mg/g)",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "cohérence de la Fig. 9 (lecture ±10 mg/g)",
+     "inputs": "doses 0,02–0,12 g/L ; qe lus 520, 270, 220, 210, 200, 190 mg/g ; C0 = 30 mg/L",
+     "formula": "R = qe·dose/C0",
+     "result": "34,7 ; 36,0 ; 44,0 ; 56,0 ; 66,7 ; 76,0 %",
+     "compared_to": "37 ; 39 ; 52 ; 60 ; 72 ; 80 % lus : concordants à la précision de lecture près, sauf 0,06 g/L",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "capacité de Langmuir au point 0,02 g/L de la Fig. 9",
+     "inputs": "Qm = 363,9 mg/g ; KL = 0,0967 L/mg (298 K, Tableau S2) ; Ce = 30 × (1 − 0,37) = 18,9 mg/L",
+     "formula": "q = Qm·KL·Ce/(1 + KL·Ce)",
+     "result": "235 mg/g",
+     "compared_to": "520 mg/g lus sur la Fig. 9 : plus du double, et au-dessus de Qm",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "C0 implicite des RL du Tableau S2",
+     "inputs": "(KL, RL) = (0,0967 ; 0,256), (0,1839 ; 0,153), (1,3095 ; 0,025)",
+     "formula": "C0 = (1/RL − 1)/KL",
+     "result": "30,1 ; 30,1 ; 29,8 mg/L",
+     "compared_to": "RL cohérents avec C0 = 30 mg/L ; KL croît avec T (endothermique), RL décroît, contrairement au texte",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "ΔG° = ΔH° − TΔS° (Tableau S4, kJ/mol et J/(mol·K) supposés)",
+     "inputs": "C0 = 20 : ΔH 45,17, ΔS 218,16 ; C0 = 30 : 20,64 / 134,81 ; C0 = 40 : 16,37 / 117,53",
+     "formula": "ΔG = ΔH − T·ΔS/1000 à 298, 308, 318 K",
+     "result": "−19,8/−22,0/−24,2 ; −19,5/−20,9/−22,2 ; −18,7/−19,8/−21,0 kJ/mol",
+     "compared_to": "Tableau S4 : −20,01/−21,61/−24,40 ; −19,64/−20,64/−22,36 ; −18,72/−19,68/−21,08 : cohérents ; le texte dit « < −40 kJ/mol »",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "densité de Hg adsorbé par surface BET",
+     "inputs": "Qm = 363,9 mg/g = 1,81 mmol/g (Hg 200,59 g/mol) ; S = 12,3 m2/g",
+     "formula": "N = q·NA/S",
+     "result": "≈ 89 Hg par nm2",
+     "compared_to": "une monocouche de surface porte au plus quelques ions par nm2",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "vérification du pseudo-second ordre à 30 min",
+     "inputs": "k2 = 0,0008 g/(mg·min) ; qe = 241,5 mg/g (Tableau S1)",
+     "formula": "qt = k2·qe²·t/(1 + k2·qe·t)",
+     "result": "206 mg/g",
+     "compared_to": "159,6 mg/g dans le texte ; ≈ 190 mg/g sur la Fig. 11a",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "solubilité de HgO contre C0",
+     "inputs": "C0 = 30 mg/L de Hg = 32,4 mg/L de HgO (216,59/200,59)",
+     "formula": "comparaison",
+     "result": "32 mg/L",
+     "compared_to": "solubilité de HgO ≈ 52 mg/L à 25 °C : pas de précipitation attendue à pH 8",
+     "source": {
+      "title": "Mercury(II) oxide (solubilité dans l'eau 0,0053 g/100 mL à 25 °C) ; fiche Sigma-Aldrich reprise par Thomas Scientific : 0,052 g/L à 25 °C",
+      "authors_or_publisher": "Wikipedia ; Sigma-Aldrich via Thomas Scientific (sources secondaires)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Mercury(II)_oxide"
+     }
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Si 0,05 mL de chaque monomère, APS/monomères = 0,79, sous le rapport de 1,25 du protocole IUPAC de la polyaniline : l'oxydant ne peut convertir qu'environ 66 % des monomères (voir calcul « électrons nécessaires et conversion maximale »). Si 0,05 mL au total, le rapport (1,59) est en excès. La lecture « de chacun » est la plus probable mais l'article ne tranche pas ; le taux de polymère du produit en dépend.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Polyaniline: Preparation of a conducting polymer (IUPAC Technical Report)",
+      "authors_or_publisher": "Stejskal J., Gilbert R. G., Pure Appl. Chem. 74, 857–867",
+      "year": "2002",
+      "url_or_doi": "10.1351/pac200274050857"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'aimantation tombe de 23,11 à 8,21 emu/g, ce que les auteurs attribuent à la seule dilution par le polymère. Cela exige ≈ 182 mg de polymère pour 100 mg de M-SBA-15 (voir calcul « masse de polymère nécessaire »), alors que les monomères ne peuvent en donner que 115 mg au plus, et ≈ 76 mg si l'oxydant limite ; la dilution seule prédit 10,7 à 14,7 emu/g (voir calcul « aimantation attendue »). L'écart suggère une dissolution partielle de CoFe2O4 dans 33 mL de HCl 1 M (33 mmol H+, très en excès sur ≈ 0,15 mmol de ferrite) pendant ≈ 8 h d'agitation, ou une perte de la fraction magnétique au lavage : le rôle d'oxydant des ions Fe3+ lessivés et la teneur finale en Co et Fe ne sont pas contrôlés.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Sonication de 0,1 mL de monomères purs pendant 10 min, puis 1 h avec 0,1 g de poudre, sans température ni puissance : le liquide dépasse trois fois le volume poreux (voir calcul « volume de monomères contre volume poreux ») et un si petit volume chauffe vite sous ultrasons ; pyrrole (Éb ≈ 130 °C) et aniline s'oxydent à l'air et à la lumière. Bain de glace écrit seulement pour l'heure avant l'ajout d'APS ; la polymérisation par APS est exothermique et la température des 6 h suivantes n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Aniline (≈ 17 mmol/L) et pyrrole (≈ 22 mmol/L) dans 33 mL de HCl 1 M : l'aniline est protonée et soluble, le pyrrole reste sous sa solubilité (≈ 45 g/L) ; APS 0,23 g dans 1 mL (230 g/L) reste sous sa solubilité (≈ 800 g/L). Cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Essai 26 du plan composite (C0 = 10 mg/L, dose 0,05 g/L) : qe = 231 mg/g, alors qu'une élimination totale donne au plus 200 mg/g (voir calcul « bilan de matière de l'essai 26 »). Cette valeur est physiquement impossible ; elle entre dans l'ajustement du modèle quadratique (R2 = 0,9993) et dans l'optimum de 346,2 mg/g.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fig. 9 : ≈ 520 mg/g à 0,02 g/L, alors que l'isotherme de Langmuir du Tableau S2 prédit 235 mg/g dans ces conditions et plafonne à 363,9 mg/g (voir calcul « capacité de Langmuir au point 0,02 g/L »). À 0,05 g/L, 253,8 mg/g correspond à 42,3 % d'élimination et non 44,7 %. Les données de dose et d'isotherme ne décrivent pas le même matériau ou ne sont pas mesurées de la même façon.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Thermodynamique incohérente entre sections : le résumé parle d'adsorption « auto-chauffante » (exothermique) et la section isothermes de Qm qui décroît avec T et de RL qui croît (« exothermique »), alors que le Tableau S2 donne Qm 363,9/355,8/366,1 mg/g (non monotone), KL croissant et RL décroissant avec T (voir calcul « C0 implicite des RL »), et que le Tableau S4 et la conclusion donnent ΔH° > 0 (endothermique). Le texte affirme ΔG° < −40 kJ/mol (chimisorption), alors que le Tableau S4, cohérent avec ΔH − TΔS (voir calcul « ΔG° = ΔH° − TΔS° »), donne −18,7 à −24,4 kJ/mol, valeurs de l'ordre de la physisorption. Les isothermes sont faites à 298–308 K dans les Méthodes et à 298–318 K dans les Résultats.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "1,81 mmol/g de Hg (Qm) sur 12,3 m2/g donne ≈ 89 ions Hg par nm2 (voir calcul « densité de Hg adsorbé »), impossible en monocouche de surface : l'adsorption se fait dans le volume du copolymère gonflé, et l'interprétation de Langmuir comme « monocouche homogène » n'a pas de sens physique ici. Les auteurs notent eux-mêmes que la surface spécifique « ne joue pas un rôle majeur ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Le modèle d'Elovich ajuste le mieux (R2 = 0,9924) alors que les auteurs retiennent le pseudo-second ordre (R2 = 0,9309) et en tirent une « chimisorption » ; un bon ajustement en pseudo-second ordre ne prouve pas le mécanisme. Le β d'Elovich est 0,03236 g/mg au Tableau S1 contre « 0,3 à 0,9 » dans le texte. Le pseudo-second ordre ajusté prédit 206 mg/g à 30 min contre 159,6 mg/g dans le texte (voir calcul « vérification du pseudo-second ordre »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "On the comparison of pseudo-first order and pseudo-second order rate laws in the modeling of adsorption kinetics",
+      "authors_or_publisher": "Simonin J.-P., Chem. Eng. J. 300, 254–263 (HAL hal-01311325 ; DOI non vérifié)",
+      "year": "2016",
+      "url_or_doi": "https://hal.sorbonne-universite.fr/hal-01311325"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs expliquent la charge négative au-dessus du pHzpc (3,4) par les « groupes amino » de PPy et PANI ; des amines et imines protonables donnent au contraire une charge positive. Le zêta négatif vient plus probablement des silanols de la silice et des anions dopants (Cl−, sulfate) ; l'attraction électrostatique invoquée n'est pas démontrée. À pH 3–7 en milieu chloruré (HCl pour ajuster le pH, sel de Hg non écrit), Hg(II) est surtout HgCl2 ou Hg(OH)2, espèces neutres, ce qui contredit aussi l'attraction électrostatique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hausse à pH 8 attribuée à la précipitation d'hydroxyde de mercure : 30 mg/L de Hg correspondent à 32 mg/L de HgO, sous la solubilité de HgO (≈ 52 mg/L à 25 °C, voir calcul « solubilité de HgO contre C0 ») ; la précipitation n'est pas attendue, d'autant que les chlorures complexent Hg(II). L'explication des auteurs est peu probable ; la hausse de capacité vient plutôt de la déprotonation des sites azotés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Mercury(II) oxide (solubilité dans l'eau 0,0053 g/100 mL à 25 °C) ; fiche Sigma-Aldrich reprise par Thomas Scientific : 0,052 g/L à 25 °C",
+      "authors_or_publisher": "Wikipedia ; Sigma-Aldrich via Thomas Scientific (sources secondaires)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Mercury(II)_oxide"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve discriminante : Hg 4f7/2 et 4f5/2 (100,81 et 104,82 eV) tombent sur le Si 2p de la silice (≈ 102–103,6 eV) ; sur un support à base de silice, l'ajustement Hg 4f doit soustraire le Si 2p, ce que l'article ne montre pas. L'écart de spin-orbite (4,01 eV) est correct et 100,8 eV est compatible avec Hg(II), mais l'absence de réduction n'est démontrée qu'à cette réserve près. Les énergies N 1s « avant » diffèrent entre deux passages (397,78 contre 397,52 eV).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Mercury (Hg), Z=80 — Hg 4f chevauche Si 2p",
+      "authors_or_publisher": "XPS Database (xpsdatabase.com)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://xpsdatabase.com/mercury-hg-z80"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : aniline (toxique, absorbée par la peau, cancérogène suspectée), pyrrole (inflammable, toxique), APS (oxydant, sensibilisant respiratoire ; ne pas le mélanger aux monomères purs), HCl 1 M, solutions de Hg(II) très toxiques et déchets mercuriels à collecter, régénération en HCl 0,1 M qui libère du Hg dans l'éluat ; nanopoudre magnétique contenant du cobalt.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "APS (et sans doute les ions Fe3+ lessivés de CoFe2O4 par HCl 1 M) oxyde aniline protonée et pyrrole en cations radicaux qui se couplent ; le pyrrole, plus facile à oxyder, polymérise en premier, d'où un mélange de copolymère et d'homopolymères plutôt qu'un copolymère statistique. La polymérisation se fait dans les pores (monomères imprégnés au préalable) et surtout en solution et à la surface externe, ce qu'indiquent la chute de surface (12,3 m2/g) et la perte de la forme des plaquettes. Avec l'oxydant en défaut, une partie des monomères reste libre et part au lavage. L'adsorption de Hg(II) se fait par coordination aux azotes déprotonés dans le volume du polymère (≈ 89 Hg/nm2 de surface BET), plutôt que par attraction électrostatique sur une monocouche.",
+    "sources": [
+     {
+      "title": "Polyaniline: Preparation of a conducting polymer (IUPAC Technical Report)",
+      "authors_or_publisher": "Stejskal J., Gilbert R. G., Pure Appl. Chem. 74, 857–867",
+      "year": "2002",
+      "url_or_doi": "10.1351/pac200274050857"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de chaque monomère (0,05 mL de chacun ou au total) et rapport APS/monomères",
+    "température pendant les 6 h après l'ajout d'APS",
+    "teneur en Fe et Co avant et après le traitement en HCl 1 M (ICP sur le filtrat) et aimantation",
+    "masse de produit obtenue (rendement du polymère)",
+    "bilan de matière de chaque essai (qe ≤ C0/dose) et données brutes de l'essai 26",
+    "sel de mercure utilisé et spéciation en présence de chlorures",
+    "ajustement XPS Hg 4f en tenant compte du Si 2p"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les trois étapes sont chimiquement plausibles dans leur principe (SBA-15 à acidité auto-générée par ZrOCl2, ferrite de cobalt par décomposition thermique, polymérisation oxydante PPy/PANI par APS), mais aucune n'est reproductible à l'identique : quantités absolues absentes pour SBA-15 et pour les précurseurs de la ferrite, Fe(acac)3 annoncé dans l'eau où il est presque insoluble, oxydant en défaut pour les monomères. Les résultats d'adsorption contiennent une valeur physiquement impossible (essai 26 : 231 mg/g > C0/dose = 200 mg/g) et des contradictions de signe thermodynamique entre résumé, texte et tableaux du SI. La chute d'aimantation n'est pas explicable par la seule dilution par le polymère.",
+  "author_errors_suspected": [
+   "SEM : plaquettes de SBA-15 de « 12 nm » (impossible avec des pores de 15,8 nm)",
+   "SBA-15 : condensation capillaire « < 0,7 » incompatible avec un pore de 15,82 nm",
+   "Fe(acac)3 en solution « purement aqueuse » (solubilité ≈ 2 g/L) ; « Fe(caca)3 », « Co(NO3)·2H2O », « Ce(NO3)·H2O » (coquilles de formules)",
+   "Tableau 2, essai 26 : qe = 231 mg/g supérieur au maximum de 200 mg/g",
+   "Résumé « auto-chauffant » et texte « exothermique » contre ΔH° > 0 au Tableau S4 et dans la conclusion",
+   "ΔG° « < −40 kJ/mol » dans le texte contre −18,7 à −24,4 kJ/mol au Tableau S4",
+   "Statistiques ANOVA du texte (R2 0,9980, F 538,64, F(BC) 254,36) contre Tableaux 3 et 4 (0,9993 ; 1575,40 ; 25,15)",
+   "β d'Elovich « 0,3 à 0,9 » contre 0,03236 au Tableau S1",
+   "Figure 5 : « 0–1200 cm–1 » pour un spectre XPS (eV)",
+   "Charge négative de surface attribuée aux groupes amino"
+  ],
+  "comparison_with_database": "Seule autre SBA-15 de la base : PMC6812203 (HCl, vieillissement 100 °C, calcination 550 °C 6 h) avec 675 m2/g ; la SBA-15 de cet article (148,74 m2/g) est 4,5 fois moins poreuse. Conditions thermiques semblables (35 °C / 100 °C / 550 °C), mais sans acide minéral ici. Pas d'autre CoFe2O4/SBA-15 ni de PPy-PANI dans la base."
+ },
+ "sources_not_found": [
+  "Protocole de SBA-15 à canaux courts au Zr et Ce de Shen et al. 2018 (J. Environ. Chem. Eng. 6, 5420, 10.1016/j.jece.2018.08.030) : non trouvé en accès libre, surface BET de référence non vérifiée",
+  "Texte intégral du rapport IUPAC Stejskal & Gilbert 2002 non ouvert (publications.iupac.org injoignable) : le rapport APS/aniline = 1,25 vient de ma connaissance du protocole, non relu",
+  "Aucune source trouvée qui mesure la perte d'aimantation d'une ferrite par lessivage en HCl pendant la polymérisation de l'aniline (seule une mention qualitative du risque de dissolution des ferrites en milieu aniline/HCl)",
+  "Fiche PubChem de Fe(acac)3 et de HgO non ouvertes : solubilités prises de sources secondaires (Wikipedia, fiche Sigma via Thomas Scientific)"
+ ]
+}

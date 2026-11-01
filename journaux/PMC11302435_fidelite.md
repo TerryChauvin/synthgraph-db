@@ -1,0 +1,15 @@
+# Journal critique de fidélité PMC11302435
+
+- Ma liste avant lecture de l'extraction : 14 échantillons, soit les 10 rangées du tableau 2 (méthodes 1 à 10) et les 4 kits du tableau 1 ; `sample_inventory` en compte 14 identiques, rien de manquant. Un test de stabilité PBS/plasma s'ajoute mais il est rangé en résultat du kit 2, ce qui est correct.
+- Tableaux 2 et 3 relus rangée par rangée contre les `outcomes` : 10 x (taille, PDI) et 4 x (RE, RCP) justes, bonne branche. Aucune valeur fausse.
+- Figure 3 (i002.jpg) ouverte : pics en intensité vers 550 nm (échantillon 1) et 1600 nm (échantillon 2), différents des moyennes du tableau (1050 et 1983 nm). L'extraction n'a repris aucune valeur de la figure et le dit en doute : pas de constat.
+- Figure 2 (i001.jpg) ouverte : elle porte l'équation 1 (%RCP = A0/(A0+A1) x 100). L'annotation limite_reproductibilite affirme qu'elle n'est pas donnée : constat `non_cite_a_tort`, `sure` (l'image et la phrase du texte le montrent). La formule de RE est dans le texte (« dividing "a" by "b" ») et n'est pas non plus dans les caractérisations.
+- Contradiction Méthodes 3.4 / rangée 3 du tableau 2 (1,620/1,468/100 mL contre 1,125/1,101/150 mL) : bien repérée par l'extracteur en doute et en annotation globale. Je signale seulement que le résultat de la voie de base cite la rangée aux autres quantités ; constat `attribution` en `probable` car le choix de la voie de base est défendable.
+- « separately dissolved in 100 mL » : les voies solvothermale et aqueuse séparent le solvant par solution, pas celle-ci ; ambiguïté laissée en doute par l'extracteur, je la remets en `mineur` pour harmoniser la présentation.
+- `(no stirring)` dans parent_value de la branche agitée : inférence. Le texte 3.4 dit « while stirring » à l'ajout puis « remained unchanged » ; seule la section 4.1 oppose repos et agitation. Classé `deduit`, `probable`.
+- Héritage des étapes de centrifugation, lavage et séchage par les branches 4 à 10 : non écrit dans l'article ; l'extraction l'a signalé en doute. Classé `deduit`, `probable` (la convention du dépôt peut l'accepter).
+- `succeeded: false` pour la voie solvothermale : des particules de 1050 nm ont été obtenues, donc pas un échec au sens du RUNBOOK, et la voie aqueuse (aussi trop grosse) est à None. Incohérence, `mineur`, `probable`.
+- Résumé « Ces particules sont ensuite marquées » : l'article ne dit pas quel lot est marqué, et l'extraction le note elle-même ailleurs. `deduit`, `sure` car contradiction interne.
+- Écartés comme non-constats : écarts-types absents des champs structurés (choix de format) ; attribution du test de stabilité au kit 2 (appuyée par « using an effective method ») ; renvois REF31 et REF8 en rôle `autre` ; PDI étiqueté « nm » dans le tableau (déjà en doute).
+- method_sources : REF21, REF22, REF23 présents et rattachés aux bonnes voies ; pas de renvoi de méthode manquant. Les renvois REF24 à REF30 sont du contexte (discussion).
+- Stœchiométrie contrôlée en passant : 4 à 4,5 équivalents de ligand pour les voies méthanol, environ 70 équivalents dans l'eau, cohérent avec les précédents cités ; rien à signaler.

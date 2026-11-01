@@ -1,0 +1,13 @@
+# Journal critique de fidélité PMC7583944
+
+- Ma liste d'échantillons (article lu avant l'extraction) : Cit-SPIONs, Au-SPIONs (= 0,0 mg/mL), Cit-Au-SPIONs standard, citrate 0,1 et 0,5, temps 60 et 300 min, 90 et 130 °C, précurseurs 50 et 200 %, or 50 et 200 %, autoclavé, essais Jurkat, cystéine Cit-Au et témoin Cit-SPIONs. Identique à `sample_inventory` : aucun constat « échantillon absent ».
+- Tableaux 1-5, A1, A2 : chaque rangée comparée aux outcomes de la branche correspondante (Z, PDI, zêta, pH, susceptibilité). Aucune erreur d'attribution de rangée.
+- Valeurs sur figure ouvertes : Fig. A6 (étiquettes imprimées 0,31 ; 0,25 ; 0,32 ; 0,29 ; 0,31 ; 0,33 ; 0,29 exactes), Fig. 2b (Au-SPIONs jour 21 ≈ 345 contre 350 extrait), Fig. 5b (0,1 mg/mL ≈ 255 contre 260), Fig. 7b (≈ 118 et ≈ 243 contre 120 et 240). Écarts inférieurs à 5 %, pas de constat. Fig. 9 : correspondance Fe/Au (93/25, 186/50, 272/75) confirmée par l'axe.
+- Constat 1 (Z-moyenne = moyenne sur 21 jours) : en lisant les points de Fig. 2b (440, 415, 445, 432, 400, 360, 345) la moyenne vaut 405 nm, valeur du tableau ; idem Fig. 5b pour 318. La légende Fig. 2a dit « Mean Z-averages over 21 days ». Classé `mineur` / `probable` car la donnée recopiée est juste ; c'est la qualification de la valeur qui manque. Le DOUTE de l'extracteur le soupçonnait.
+- Constat Au/Fe 0,30 des branches citrate : `sure`, car la phrase « kept at 0.30 ± 0.04 for all samples » et les étiquettes Fig. A6a (0,30 et 0,30) sont explicites.
+- Pic d'or à 44,5° : `sure` (Discussion 3.2), l'extracteur l'avait vu et laissé en doute ; je le range `manquant` mineur parce que la Fig. 4b marque (200) à cette position.
+- Étape 10 « glass flasks » de Cit-Au-SPIONs : phrase de 4.3 (Au-SPIONs), 4.4 ne la reprend pas ; `deduit` / `probable`, l'héritage est plausible (« the above-mentioned procedure was extended »).
+- Autoclavage : aucune condition dans l'article ; rangement en outcomes accepté, mais lacune de reproductibilité à écrire.
+- Écartés comme non-constats : phosphate disodique vs tampon phosphate de sodium (interprétation, pas de texte qui le dise) ; cystéine par concentration en outcomes et non en branches (conforme à la règle du dépôt, test du matériau fini) ; PDI 0,129 de la Discussion (doute déjà noté).
+- Cases `not_stated` (8 vérifiées : rendement, rapport Fe2+/Fe3+, volume NH3, volume de solution de fer, concentration de la dispersion diluée, quantité HAuCl4, concentration/volume du citrate, rendement) : toutes justes.
+- method_sources : B43 et B34 présents ; renvoi d'équation (Bragg, Scherrer) exclu conformément à la règle du 2026-10-13.

@@ -1,0 +1,81 @@
+{
+ "pmcid": "PMC5327880",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "SnS_TEA2mL, SnS_TEA4mL, SnS_TEA8mL, SnS_TEA10mL, Heat100C_10min/30min/60min material.phase = 'orthorhombic (Pbnm)'",
+   "extracted": "phase orthorhombic (Pbnm) pour toutes ces voies",
+   "article_says": "the confirmation of the crystal structure of the TEA stabilised SnS obtained from SAED is shown in Figure 3b",
+   "fix": "La structure n'est établie (SAED, Fig. 3, légende « obtained with 6 mL TEA ») que pour l'échantillon 6 mL TEA, et par « same crystal structure » pour MDEA/DMEA. Aucune diffraction n'est rapportée pour 2, 4, 8, 10 mL ni pour les échantillons chauffés : mettre phase à null (ou noter l'héritage) sur ces voies.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "SnS_TEA2mL, SnS_TEA4mL, SnS_TEA8mL, SnS_TEA10mL material.morphology = 'nanoparticules sphériques'",
+   "extracted": "nanoparticules sphériques",
+   "article_says": "TEM images showed that before heat treatment, the particles had predominantly spherical shape with an average size of 3.0 ± 0.5 nm, as shown in Figure 2a.",
+   "fix": "La forme sphérique n'est écrite que pour l'échantillon 6 mL TEA (avant chauffage) ; pour 2 et 4 mL le texte ne donne que la taille (Fig. 5) et pour 8 et 10 mL rien. Mettre morphology à null sur ces quatre voies.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Heat100C_10min step 1 (heat) not_stated: atmosphere",
+   "extracted": "atmosphere déclarée non citée",
+   "article_says": "All syntheses were performed under Argon.",
+   "fix": "Le chauffage fait partie de la synthèse (« The synthesis was first carried out ... followed by heating ») et la phrase des Matériaux couvre toutes les synthèses : renseigner atmosphere = Argon avec cette citation (ou au moins le signaler dans un doute), au lieu de not_stated.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "SnS_TEA8mL et SnS_TEA10mL outcomes (vides)",
+   "extracted": "aucun résultat ; l'information n'est que dans une annotation tendance_observee",
+   "article_says": "It was noticed that using 8 mL TEA or more tended to highly stabilise the Sn2+ precursor complex, and therefore, slowed down the formation of SnS nanoparticles and gave less yield under the same conditions.",
+   "fix": "Ajouter à chacune des deux voies un résultat qualitatif (par ex. yield, value_text « less yield than with 6 mL TEA », formation ralentie) avec cette citation, au lieu de la seule annotation ; le résultat est donné pour « 8 mL or more » donc les deux voies le portent.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources : protocole de mesure de réflectance diffuse (voie SnS_TEA6mL et branches caractérisées)",
+   "extracted": "method_sources ne contient que B25 pour MDEA/DMEA",
+   "article_says": "Diffuse reflectance spectra were recorded on a High Accuracy Reference Spectrophotometer at IRL",
+   "fix": "Dans corpus/refs, B28 est la note « Diffuse reflectance spectra were record on a High Accuracy Reference Spectrophotometer at ... MSL/Industrial Research Limited » citée à la phrase des spectres 2, 4, 6 mL, et le renvoi de la section 3.4 (IRL) pointe B26 (article sur des SnS en couches, probablement une erreur de numérotation des auteurs). Ajouter B28 comme source du protocole de mesure (rôle protocole_mesure), et noter l'incohérence B26/B28 dans un doute. Constat à arbitrer : la règle du 2026-10-13 exclut les renvois de contexte, mais B28 décrit l'instrument de mesure lui-même.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "sample_inventory, Heat100C_* results_in (Fig. 7a,d / 7b,e / 7c,f)",
+   "extracted": "Fig. 7a,d (10 min), 7b,e (30 min), 7c,f (60 min)",
+   "article_says": "Figure 7 TEM images of SnS nanoparticles synthesized using 6 mL TEA at room temperature with further heat treatment at 100 °C for (a) 10 min, (b) 30 min, and (c) 60 min, respectively. The corresponding histograms of the size distribution for the SnS nanoparticles are shown in (d) 10 min, (e) 30 min, and (f) 60 min.",
+   "fix": "La légende suit cette numérotation mais l'image Fig. 7 est étiquetée a/b (10 min, histogramme centré ~4 nm), c/d (30 min, ~5 nm), e/f (60 min, ~6 nm). L'inventaire recopie la légende ; ajouter dans un doute que la légende de l'article ne correspond pas aux lettres de l'image (sans changer de valeur).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "SnS_TEA6mL steps 2 et 3, agitation",
+   "extracted": "stirring_speed déclarée non citée, aucun paramètre d'agitation",
+   "article_says": "SnBr2 (0.056 g, 0.2 mmol) was dissolved in a mixture of 20 mL EG and 2, 4, 6, 8 or 10 mL TEA with vigorous stirring at room temperature under Argon flow.",
+   "fix": "Le niveau d'agitation est écrit qualitativement (« vigorous stirring », aussi à l'étape 3 « vigorously stirred ») : ajouter un paramètre stirring value_text « vigorous » aux étapes 2 et 3 ; la vitesse numérique reste non citée.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 10,
+  "branches_extracted": 10,
+  "not_stated_checked": 22,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "masse de Na2S et volume d'éthylène glycol de la solution 0,1 M (« an appropriate amount »)",
+  "durée d'agitation après l'ajout de Na2S, vitesse d'agitation, température de centrifugation",
+  "durée de centrifugation en plage (1–2 h) et vitesse en tr/min seulement (50,000 rpm : pas de rotor ni de g)",
+  "solvant et mode de stockage avant mesure (« a desired solvent »), rendement jamais chiffré",
+  "pureté de la triéthanolamine absente",
+  "chauffage à 100 °C : milieu (mélange réactionnel ou particules purifiées), atmosphère explicite, montée en température non décrits",
+  "MDEA et DMEA : volumes et quantités absents (« A similar method »), tailles absentes de cet article (renvoi à la communication antérieure)",
+  "échantillons 8 et 10 mL TEA : seule une phrase qualitative, aucune taille ni rendement chiffré",
+  "titre et résumé annoncent des particules « water soluble » mais aucun test de solubilité ni solvant de dispersion n'est décrit"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs repose sur « dual role » (chélation de Sn2+ puis stabilisant) et sur le mûrissement d'Ostwald cités ; mecanisme_analyse est signalée comme hypothèse (« Probablement ») et le rapport Sn:S 1:1 (0,2 mmol SnBr2 pour 2 mL à 0,1 M de Na2S) est exact.",
+ "notes": "Lecture des figures : Fig. 8 inset, pics de dérivée lus à environ 1,78 (RT), 1,67 (10 min), 1,53 (30 min), 1,45 (60 min) eV ; valeurs extraites 1,7 et 1,5 eV, écart inférieur à 10 %, correct. Fig. 6 (inset) pics à environ 1,78 / 1,68 / 1,53 eV pour 6 / 4 / 2 mL, cohérents avec les décalages ~0,1 et ~0,2 eV du texte (les valeurs absolues 2 et 4 mL pourraient être lues sur la figure mais le texte donne seulement les décalages ; choix acceptable). Tailles Fig. 5 et 7 (histogrammes) cohérentes avec 4,3 / 3,3 / 4,0 / 5,1 / 6,0 nm. Valeurs, unités et attributions du texte (tailles, ±, 1,76 et 1,45 eV, quantités SnBr2 0,056 g/0,2 mmol, 20 mL EG, 2 mL Na2S 0,1 M, 10 min, centrifugation, quatre lavages) toutes exactes. Le rattachement de MDEA/DMEA à B25 (Tilley et al., JACS 2009) est une inférence raisonnable (« In our previous work, a general method ... was described ») mais l'article ne place pas de renvoi sur la phrase « similar method ». Aucune branche manquante ni inventée."
+}

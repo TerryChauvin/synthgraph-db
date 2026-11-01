@@ -1,0 +1,17 @@
+# PMC11806586 — critique scientifique (journal de décisions)
+
+- « 2/6/10 wt% F » : 0,02/0,06/0,1 g de NaF rapportés à ≈ 1 g donnent exactement 2/6/10 % ; si tout le F entre dans 0,85 g d'apatite (Ca limitant, 8,47 mmol), on a 1,06/3,19/5,32 % de F. La fluorapatite pure n'en a que 3,77 % → `probleme` sur H1 (étiquettes) et H3 (impossible).
+- H3 : 2,81 F pour 10 Ca contre 2 au plus dans l'apatite ; l'EDS (Ca/F 3,7 ; 6,16 % at. de F > 4,76 % at. de Ca10(PO4)6F2) ne peut pas décrire une apatite seule → verdict `incoherente` : CaF2/fluorure résiduel ou EDS fausse. Source d'appui sur le passage FHA → CaF2 au-delà d'un seuil de fluor : Ferizoli et al. 2023 (trouvée par recherche, page PMC non ouverte : proxy).
+- H2 laissé en `reserve` : 1,69 F pour 10 Ca reste dans la solution solide ; seule l'étiquette 6 % est fausse.
+- Rapport d'aspect H1 : 505,31/22,28 = 22,7 ; un écart-type de 1,25 (CV 5 %) exige une corrélation L–D ≈ 0,97 alors que H2 et H3 ont des CV de 23–24 % cohérents avec ceux de L et D → `probleme` (erreur de saisie probable), point signalé par l'orchestrateur confirmé.
+- Autoclave : 162 mL dans 200 mL (81 %) avec 64 mL d'éthanol ; à 200 °C l'eau seule passe de 80 à ≈ 92 mL et l'éthanol est à T/Tc = 0,92 → volume liquide estimé ≥ 190 mL. Classé `probleme` (sécurité) ; la densité de l'éthanol à 200 °C n'a pas pu être relue sur NIST (proxy), l'estimation est signalée comme telle. Pression de vapeur éthanol 27,7 bar par l'équation d'Antoine NIST rappelée de mémoire.
+- Ordre d'ajout Ca puis NaF : produit ionique ≈ 10⁴ × Ksp(CaF2) avant le phosphate → `reserve` et intégré au mécanisme proposé (CaF2 transitoire converti à 200 °C).
+- Mécanisme : je préfère « sursaturation accrue par F (FA moins soluble) → plus de germes → bâtonnets courts » à « F ralentit la croissance selon c » des auteurs, non démontré ; les deux restent compatibles, assessment `a_revoir`.
+- XRD : F contracte a, pas c ; « tous les pics décalés » et « intensité … volume de maille » (Discussion) jugés `reserve` (incohérence entre sections, vocabulaire).
+- Deux fiches ICDD 0566/0565 : `reserve` sans conséquence (deux fiches HA voisines).
+- A0 : CQ sans co-amorceur amine déclaré + 25 % d'ester phosphate acide → `probleme` ; source = recherche web (Applied Adhesion Science 2016, DOI 10.1186/s40563-016-0080-6, auteurs non relevés car page non ouvrable). « Methyl propionic acid » = acide isobutyrique sans C=C → probablement acide méthacrylique : `probleme` de reproductibilité (monomères non identifiés), A0 jugé `non_reproductible`.
+- Relargage (valeurs lues sur Fig. 6 par l'extracteur, ± 10 ppm) : Ca 6,7 mM et F 1,34 mM dans le même extrait → 350 × Ksp(CaF2) ; même avec l'incertitude de lecture, AH3 reste > 100 × Ksp → `probleme` : courbes probablement cumulées.
+- SOF : tampon K2HPO4/KH2PO4 = pH 7,48 ; « ajusté à 6,8 avec Tris » impossible → `probleme` (hors synthèse mais conditionne les résultats in vitro).
+- Zoletil 50 = tilétamine + zolazépam (base EMA Union Product Database) et non tilidine + midazolam → `probleme` rangé en sécurité sur AH1.
+- Dureté Vickers 1 kgf : empreinte ≈ 12 µm de profondeur, bien au-delà des dépôts → `reserve`.
+- Recherches web : 8. Infructueuses : Hui & Wang Chem. Eur. J. 2011 (réf. CR45), DOI de Wang Adv. Mater. 2006, densité NIST de l'éthanol à 200 °C. DOI Wang 2005 Nature (10.1038/nature03968) cité de mémoire, non vérifié. Rien ajouté à fondateurs.md ni constantes.md (Crossref bloqué).

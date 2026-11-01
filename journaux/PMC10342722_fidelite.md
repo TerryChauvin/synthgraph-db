@@ -1,0 +1,15 @@
+# Journal de la critique de fidélité, PMC10342722
+
+- Ma liste d'échantillons avant l'extraction : quatre poudres CoS (160, 180, 200, 220 °C, une seule recette, 12 h) et une électrode de travail commune (section 2.4). C'est exactement l'inventaire de l'extracteur ; aucun échantillon manquant, aucune branche inventée.
+- Tables 1, 2 et 3 : chaque rangée relue contre son nom d'échantillon (« CoS 160 °C … CoS 220 °C », colonnes CoS 160 à 220 de Table 3) ; aucune permutation. Les 60 valeurs de Table 2 sont recopiées dans le bon ordre.
+- Figure 3 (EDX) : les 16 valeurs lues par l'extracteur correspondent aux encarts, panneau par panneau (a = 160 … d = 220, O = 6,82 wt % / 14,79 at % seulement en d). Aucun écart.
+- Figure 8 (capacité, Ah) : lecture personnelle 160 °C environ 0,00115, 180 °C 0,0012, 200 °C 0,00126, 220 °C 0,00097 ; l'extracteur a 0,0011 / 0,0012 / 0,0013 / 0,00097, écart inférieur à 5 %, donc pas de constat (seuil 10 %). Les trois chutes ponctuelles de 160 °C (cycles 32, 39, 46) sont bien visibles.
+- Figure 7 (GCD) : durées de décharge environ 5, 5,5, 11,5 et 7,5 s ; l'extracteur a vu la même chose et l'a mis en doute sans changer les valeurs du texte. J'ai approuvé : les valeurs écrites par les auteurs font foi.
+- Constat 1 (mineur, sure) : la valeur 1480 F/g à 20 mV/s de CoS 200 °C est fidèle au tableau et au texte, mais 546/0,4255 = 1283 et la figure 5 place la courbe à environ 1280. Ce n'est pas une erreur d'extraction, c'est une incohérence de l'article absente des doutes ; je recommande doute et limite_reproductibilite, pas de correction de valeur. J'ai contrôlé les autres rétentions (180 et 220 °C cohérentes ; 160 °C ne l'est pas : 22,8 % contre 21,3 %).
+- Constat 2 (manquant, sure) : les pics DRX 30,64 / 35,28 / 46,94 / 54,6° indexés (102), (110), (202), (210) et la fiche JCPDS 01-075-0605 ne figurent nulle part dans l'extraction ; la phrase est dans l'article et la figure 1 porte les mêmes indices.
+- Constat 3 (manquant, probable) : cellule d'essai (KOH, Pt, Ag/AgCl) seulement dans le texte libre ; probable parce que c'est un choix de périmètre de la voie device.
+- Non-constat : température 160 °C de la voie de base fondée sur une phrase à quatre températures. Lecture littérale, choix arbitraire déjà déclaré en doute, branches 180 à 220 correctement construites par variation de la température de l'étape 4.
+- Non-constat : « distilled water » à 99,99 % et Sigma Aldrich. La phrase de 2.1 couvre la liste des précurseurs où l'eau distillée est nommée (règle 6) ; invraisemblable mais textuel.
+- not_stated : 38 cases revérifiées par recherche dans le texte (vitesse d'agitation, volume et remplissage de l'autoclave, vitesses de chauffe et de refroidissement, nafion, surface d'électrode, rendement, etc.) ; toutes réellement absentes.
+- method_sources vide : la section 2 de corpus/refs n'a aucun renvoi [[B…]] ; les renvois de 3.1 (Scherrer) et de 3.4.3 sont de l'analyse ou du contexte, hors définition.
+- Pour le critique scientifique : « Smith et al. » sans référence dans la liste, et B27 (Zhang, oxyde de graphène) cité pour des nanofeuilles de CoS.

@@ -1,0 +1,209 @@
+{
+  "pmcid": "PMC9083121",
+  "routes": [
+    {
+      "label": "Na2SeSO3",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de Se", "inputs": "2 g ; M(Se) = 78,971 g/mol", "formula": "n = m / M", "result": "25,33 mmol", "compared_to": "Na2SO3 apporté", "source": "masse molaire IUPAC (Se 78,971)"},
+        {"what": "moles de Na2SO3", "inputs": "4,83 g ; M(Na2SO3) = 126,04 g/mol", "formula": "n = m / M", "result": "38,32 mmol", "compared_to": "Se apporté", "source": "masse molaire calculée (Na 22,990 ; S 32,06 ; O 15,999)"},
+        {"what": "rapport SO3(2-)/Se", "inputs": "38,32 mmol ; 25,33 mmol", "formula": "n(Na2SO3)/n(Se)", "result": "1,51", "compared_to": "Se + SO3(2-) → SeSO3(2-) : 1:1 au minimum ; excès de sulfite usuel pour dissoudre tout le Se et protéger la solution de l'oxydation", "source": "stœchiométrie de la réaction"},
+        {"what": "concentration de la solution de Na2SeSO3 (conversion totale, volume constant à reflux)", "inputs": "25,33 mmol dans 100 mL", "formula": "C = n / V", "result": "0,253 mol/L", "compared_to": "volume à prélever pour 0,25 mmol de Se dans la voie SA1", "source": "valeurs de l'article"},
+        {"what": "volume de solution pour 0,25 mmol de Se", "inputs": "0,25 mmol ; 0,253 mol/L", "formula": "V = n / C", "result": "≈ 0,99 mL (si tout le Se est dissous)", "compared_to": "« 19,74 mg » donné par l'article", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Reflux de l'eau (100 °C sous 1 atm) en ballon surmonté d'un réfrigérant : pas de surpression. 10 h est dans la durée habituelle pour dissoudre la poudre de Se dans le sulfite chaud.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Sulfite en excès de 51 % (voir calcul « rapport SO3(2-)/Se ») : compatible avec la dissolution complète du Se ; la solution finale contient donc environ 13 mmol de sulfite libre, réducteur, qui accompagnent chaque prélèvement (0,13 mmol de sulfite libre pour 0,25 mmol de Se).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "4,83 g de Na2SO3 dans 100 mL : très en dessous de la solubilité du sulfite de sodium dans l'eau (de l'ordre de 25 g/100 mL à 20 °C, ordre de grandeur de manuel, non vérifié en ligne ici).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "redox", "finding": "Le sélénosulfate est instable à l'air et en milieu acide (retour au Se rouge). L'article ne dit ni s'il filtre le Se non dissous, ni l'atmosphère, ni le délai d'utilisation (« freshly prepared ») : la concentration réelle de la solution n'est pas connue.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Poudre de Se et sélénosulfate toxiques ; l'acidification accidentelle de la solution peut libérer du SO2 et du Se ; manipuler sous hotte.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Addition nucléophile du sulfite sur le sélénium élémentaire : Se + SO3(2-) → SeSO3(2-) (analogue du thiosulfate), favorisée à chaud et par l'excès de sulfite ; en milieu alcalin, l'ion sélénosulfate libère lentement HSe-/Se(2-) (SeSO3(2-) + OH- → HSe- + SO4(2-)), ce qui en fait un précurseur à libération lente.", "sources": []},
+      "what_to_verify_before_repeating": ["filtrer le Se non dissous et titrer ou estimer la concentration de Se de la solution", "préparer et conserver sous gaz inerte, utiliser le jour même", "prélever environ 1 mL de solution pour 0,25 mmol de Se (et non 19,74 mg de Na2SeSO3, qui pèserait 51 mg pour 0,25 mmol)"]
+    },
+    {
+      "label": "SA1",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles d'acétate de cadmium dihydraté", "inputs": "133,26 mg ; M = 266,53 g/mol", "formula": "n = m / M", "result": "0,500 mmol (cohérent avec l'article)", "compared_to": "0,5 mmol annoncé", "source": "masse molaire calculée (Cd 112,41 ; C2H3O2 59,044 ; H2O 18,015)"},
+        {"what": "moles de 3-MPA", "inputs": "122 mg ; M = 106,14 g/mol", "formula": "n = m / M", "result": "1,149 mmol (cohérent)", "compared_to": "1,15 mmol annoncé", "source": "masse molaire calculée"},
+        {"what": "masse de 0,25 mmol de Na2SeSO3", "inputs": "M(Na2SeSO3) = 205,01 g/mol", "formula": "m = n × M", "result": "51,3 mg ; 19,74 mg = 0,25 mmol × 78,97 g/mol est la masse de Se, pas de Na2SeSO3", "compared_to": "« 19,74 mg, 0,25 mmol » du tableau 1 et des Méthodes ; l'annotation limite_reproductibilite de l'extraction donne « environ 43 mg », valeur fausse (51 mg)", "source": "masse molaire calculée (Na 22,990 ; Se 78,971 ; S 32,06 ; O 15,999)"},
+        {"what": "rapports molaires Cd : Se : 3-MPA", "inputs": "0,5 ; 0,25 ; 1,15 mmol", "formula": "n/n(Cd)", "result": "1 : 0,5 : 2,3", "compared_to": "rapports usuels des synthèses aqueuses de CdE coiffés de thiols (Cd en excès, thiol/Cd ≈ 2–2,5)", "source": "valeurs de l'article"},
+        {"what": "concentrations dans 80 mL", "inputs": "0,5 ; 1,15 ; 0,25 mmol dans 80 mL", "formula": "C = n / V", "result": "Cd 6,25 mM ; 3-MPA 14,4 mM ; Se 3,1 mM", "compared_to": "solubilités (acétate de Cd très soluble)", "source": "valeurs de l'article"},
+        {"what": "masse maximale de CdSe", "inputs": "Se limitant : 0,25 mmol ; M(CdSe) = 191,38 g/mol", "formula": "m = n(Se) × M(CdSe)", "result": "47,8 mg ; la moitié du Cd (0,25 mmol) reste hors de CdSe", "compared_to": "rendement non donné par l'article", "source": "stœchiométrie"},
+        {"what": "énergie du premier pic excitonique", "inputs": "λ = 397 nm", "formula": "E = 1239,84 / λ", "result": "3,12 eV", "compared_to": "« band gap 2.5 eV » tiré du Tauc (soit 496 nm)", "source": "valeurs de l'article"},
+        {"what": "diamètre correspondant au pic à 397 nm (courbe de Yu et al.)", "inputs": "λ = 397 nm ; D = 1,6122e-9 λ^4 − 2,6575e-6 λ^3 + 1,6242e-3 λ^2 − 0,4277 λ + 41,57", "formula": "courbe empirique CdSe", "result": "D ≈ 1,5 nm (et 1,8 nm pour 432 nm ; un CdSe de 5,3 nm a son premier exciton vers 620 nm)", "compared_to": "5,3 nm annoncé (Tauc + Brus), 5,2–5,5 nm en MET, 2,10 nm par Scherrer", "source": "Yu, Qu, Guo, Peng, Chem. Mater. 2003, 10.1021/cm034081k (coefficients relevés dans une annexe qui la cite ; article non ouvert)"},
+        {"what": "rayon par l'équation de Brus avec les paramètres de l'article", "inputs": "Eg = 1,84 eV ; me = 0,1 ; mh = 0,45 ; ε = 9,2 ; ħ²/2m0 = 0,0381 eV nm² ; e²/4πε0 = 1,440 eV nm", "formula": "E = Eg + 0,0381·π²(1/me+1/mh)/R² − 1,786·1,440/(ε R)", "result": "E = 2,5 eV → D = 4,9 nm ; E = 3,12 eV (pic à 397 nm) → D = 3,6 nm", "compared_to": "5,3 nm annoncé", "source": "constantes données par l'article"},
+        {"what": "positions de raies attendues pour CdSe blende de zinc", "inputs": "a = 6,077 Å (JCPDS 19-0191) ; λ Cu Kα1 = 1,5406 Å (longueur d'onde non déclarée par l'article, supposée)", "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 asin(λ/2d)", "result": "(111) 25,37° ; (220) 42,02° ; (311) 49,72°", "compared_to": "observé 25,4° ; 42,5° ; 49,9° (écarts +0,03 ; +0,48 ; +0,18°)", "source": "paramètre de maille de la fiche citée par l'article ; longueur d'onde : NIST X-ray Transition Energies"},
+        {"what": "énergie apportée par les micro-ondes", "inputs": "3 × 60 s à 450 W nominal ; 80 mL d'eau ; cp = 4,18 J g-1 K-1 ; ΔvapH = 2257 J/g", "formula": "Q = P t ; Q(24→100 °C) = m cp ΔT", "result": "81 kJ au plus ; 25,4 kJ suffisent à porter 80 mL de 24 à 100 °C (≈ 56 s à pleine puissance absorbée) ; le reste pourrait évaporer jusqu'à ≈ 25 g d'eau", "compared_to": "synthèse présentée comme « at room temperature » / « ambient condition »", "source": "chimie générale (capacité calorifique et enthalpie de vaporisation de l'eau, NIST WebBook)"},
+        {"what": "décalage de Stokes", "inputs": "absorption 397 nm (3,12 eV) ; émission 574 nm (2,16 eV)", "formula": "ΔE = E_abs − E_em", "result": "0,96 eV (177 nm)", "compared_to": "émission de bord de bande d'un QD de CdSe : quelques dizaines de meV", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Masses et moles de Cd(OAc)2·2H2O et de 3-MPA concordent (voir « moles d'acétate de cadmium dihydraté », « moles de 3-MPA »). En revanche 19,74 mg est la masse de 0,25 mmol de Se et non de Na2SeSO3 (51,3 mg) ; de plus le sélénosulfate est employé en solution (≈ 1 mL de la solution 0,253 M), une masse n'a pas de sens pratique. Cd:Se = 2:1 : le Cd est en excès voulu, la moitié reste sous forme de complexe Cd–MPA.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Incohérence de taille : le premier pic excitonique à 397 nm (3,12 eV) correspond à des cristallites d'environ 1,5 nm selon la courbe de Yu et al., à 3,6 nm même avec l'équation de Brus (qui surestime la taille), alors que l'article annonce 5,3 nm en prenant un gap de Tauc de 2,5 eV, 0,6 eV sous le pic excitonique. Un CdSe de 5,3 nm absorbe vers 620 nm et donne une solution rouge foncé, pas « greenish yellow ». La taille de Scherrer (2,10 ± 0,69 nm) concorde avec le pic à 397 nm ; les objets de 5,2–5,5 nm vus en MET sont donc plus probablement des agrégats ou des particules polycristallines. L'explication des auteurs (distribution de tailles) va dans le mauvais sens : la taille de Scherrer, pondérée en volume, est biaisée vers les gros cristaux.", "status": "probleme", "basis": "litterature", "source": {"title": "Experimental Determination of the Extinction Coefficient of CdTe, CdSe, and CdS Nanocrystals", "authors_or_publisher": "W. W. Yu, L. Qu, W. Guo, X. Peng, Chem. Mater. 15, 2854–2860", "year": "2003", "url_or_doi": "10.1021/cm034081k"}},
+        {"aspect": "resultats", "finding": "Émission à 574 nm pour un pic d'absorption à 397 nm : décalage de Stokes de 0,96 eV (voir « décalage de Stokes »). Ce n'est pas une émission « from the conduction band to valence band » comme l'écrivent les auteurs, mais une émission de pièges (défauts de surface, lacunes de Se) ; le déplacement de 574 à 623 nm avec le pH va dans le même sens. Les conclusions sur la « single line emission » et sur la position des niveaux du Mn hors du gap ne sont donc pas soutenues.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Les micro-ondes ne sont pas « mild » : 450 W nominal pendant 3 × 60 s portent 80 mL d'eau à l'ébullition dès la première séquence (voir « énergie apportée par les micro-ondes »), avec risque de surchauffe et de projection en four domestique ; récipient, couvercle, température atteinte et perte d'eau ne sont pas donnés. La synthèse n'est donc à température ambiante que pour l'étape de croissance de 2 h.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Diffraction : (111) tombe sur la valeur de la fiche, mais (220) est décalée de +0,48° et (311) de +0,18° (voir « positions de raies attendues ») ; une contraction de maille homogène décalerait les trois raies dans l'ordre croissant de tan θ. Sur des raies aussi larges (cristallites de 2 nm), ces écarts relèvent de l'incertitude de pointé et ne permettent d'attribuer ni l'effet du Mn (2 % de Mn donnent par la loi de Vegard une contraction de l'ordre de 0,1 %), ni un effet du ligand. Une incorporation partielle de soufre issu du 3-MPA (CdSe1-xSx) serait une explication plus courante d'un décalage vers les grands angles. La distinction blende/wurtzite à 2 nm demande l'absence des raies (102) et (103) de la wurtzite, non discutée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "XPS : Se 3d à 55,8 eV avec un calage du C 1s à 285,4 eV (au lieu des 284,8 eV habituels) ; recalé, 55,2 eV, encore plus haut que les valeurs de séléniure de cadmium et dans la plage du Se élémentaire de la base NIST (54,6–55,6 eV pour Se 3d5/2). Un Se(0) de surface, fréquent avec le sélénosulfate à l'air, ne peut pas être exclu.", "status": "reserve", "basis": "litterature", "source": {"title": "NIST X-ray Photoelectron Spectroscopy Database (entrées Se 3d)", "authors_or_publisher": "NIST", "year": "consulté en 2026", "url_or_doi": "https://srdata.nist.gov/xps/"}},
+        {"aspect": "solubilite", "finding": "Cd2+ + 3-MPA forme un thiolate peu soluble (trouble blanc), redissous à pH 9,5 par déprotonation du carboxylate et complexation par l'ammoniac : séquence classique, pH atteignable avec NH4OH 25 %. Le volume de NH4OH n'est pas donné ; il fixe aussi la teneur en NH3 complexant.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "redox", "finding": "Croissance de 2 h à l'air à pH 9,5 sans gaz inerte : HSe-/Se(2-) s'oxyde à l'air ; le sulfite en excès apporté avec la solution de sélénosulfate le protège en partie. Point à surveiller (couleur rouge = Se élémentaire).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "Après les micro-ondes, le pic passe de 432 à 397 nm (décalage vers le bleu). Un chauffage à l'ébullition fait d'ordinaire croître les QD (décalage vers le rouge). Un décalage vers le bleu indique plutôt une dissolution ou une oxydation de surface, ou que la bande large à 432 nm avant chauffage n'était pas un pic excitonique (diffusion, agrégats, Se colloïdal). L'interprétation « défauts de surface en moins » n'est pas démontrée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Acétate de cadmium et CdSe : cancérogènes (Cd), toxiques ; chauffage micro-ondes d'une solution de Cd en four domestique (contamination du four, projection) ; acétonitrile inflammable et toxique pour la purification ; poudre séchée de QD à ne pas inhaler.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "La purification par précipitation à l'acétonitrile coprécipite le complexe Cd–MPA en excès (la moitié du Cd) : voir la voie SA5 (ICP : Cd/Se = 2,0 pour SA1, soit exactement le rapport introduit).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Cd2+ complexé par le 3-MPA (et par NH3) à pH 9,5 ; le sélénosulfate libère lentement HSe- et forme dès la température ambiante de petits amas de CdSe blende de zinc (≈ 1,5–2 nm, solution jaune, pic à ~400 nm), recouverts d'une couche de thiolate de Cd ; le passage aux micro-ondes (ébullition brève) recuit ou attaque la surface plutôt qu'il ne fait croître les cristaux, d'où le léger décalage vers le bleu ; l'émission à 574 nm vient de pièges de surface. Les particules de 5 nm du MET sont plutôt des agrégats de ces cristallites. La blende de zinc est la phase habituelle des CdSe aqueux coiffés de thiols à basse température.", "sources": [{"title": "Experimental Determination of the Extinction Coefficient of CdTe, CdSe, and CdS Nanocrystals", "authors_or_publisher": "W. W. Yu, L. Qu, W. Guo, X. Peng, Chem. Mater.", "year": "2003", "url_or_doi": "10.1021/cm034081k"}]},
+      "what_to_verify_before_repeating": ["prélever ≈ 1 mL de solution de sélénosulfate (0,25 mmol de Se), pas 19,74 mg", "mesurer la température atteinte au four micro-ondes, le récipient et la perte d'eau ; éviter le récipient fermé", "contrôler la taille par la position du pic excitonique (courbe de Yu) plutôt que par le gap de Tauc ; attendre ~1,5–2 nm et non 5,3 nm", "vérifier l'absence de Se rouge (oxydation) pendant les 2 h de croissance à l'air"]
+    },
+    {
+      "label": "SA2",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "masse d'acétate de manganèse tétrahydraté pour 0,5 µmol", "inputs": "M = 245,09 g/mol", "formula": "m = n × M", "result": "0,123 mg (cohérent avec 0,12 mg du tableau)", "compared_to": "lisibilité d'une balance analytique : 0,1 mg", "source": "masse molaire calculée (Mn 54,938)"},
+        {"what": "teneur nominale Mn/Cd", "inputs": "0,5 µmol Mn ; 500 µmol Cd ; masses Mn 54,938 et Cd 112,41", "formula": "molaire n(Mn)/n(Cd) ; massique m(Mn)/m(Cd)", "result": "0,1 % molaire ; 0,049 % massique", "compared_to": "étiquette « 0.1 wt% »", "source": "valeurs de l'article"},
+        {"what": "Mn/Cd mesuré par EDS (tableau S1)", "inputs": "Cd 62,64 ; Mn 0,25 (colonne « Atomic weight % »)", "formula": "Mn/Cd en % atomique ; ou (Mn/54,94)/(Cd/112,41) si ce sont des % massiques", "result": "0,40 % (lecture atomique) ou 0,82 % (lecture massique)", "compared_to": "0,1 % nominal", "source": "valeurs de l'annexe"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Les étiquettes « wt% » sont des pourcentages molaires Mn/Cd (0,1 ; 0,2 ; 1 ; 2 mol%) ; en masse, ce serait 0,05 ; 0,10 ; 0,49 ; 0,98 % (voir « teneur nominale Mn/Cd »). L'article dit lui-même calculer « the mole ratio ».", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "EDS : le Mn mesuré (Mn/Cd ≈ 0,4 %) dépasse 4 fois la quantité introduite (0,1 %), ce qui est impossible si tout le Cd est dans l'échantillon ; 0,25 % atomique est aussi sous la limite de détection usuelle de l'EDS (quelques dixièmes de %). Les valeurs EDS de SA2 et SA3 ne sont pas des mesures de dopage.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "0,12 mg ne se pèse pas sur une balance de laboratoire courante (0,1 mg de lisibilité) : il faut une solution mère d'acétate de Mn, non décrite.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Voir SA5 : Mn2+ probablement adsorbé en surface ou piégé dans la couche de thiolate, incorporation dans le réseau non démontrée.", "sources": []},
+      "what_to_verify_before_repeating": ["préparer une solution mère d'acétate de Mn (par ex. 1 mM) et en prélever 0,5 mL", "ne pas utiliser l'EDS pour des teneurs de 0,1 % : ICP sur poudre purifiée"]
+    },
+    {
+      "label": "SA5",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "masse d'acétate de manganèse pour 10 µmol", "inputs": "M = 245,09 g/mol", "formula": "m = n × M", "result": "2,45 mg (cohérent)", "compared_to": "tableau 1", "source": "masse molaire calculée"},
+        {"what": "teneur nominale Mn/Cd", "inputs": "10 µmol Mn ; 500 µmol Cd", "formula": "n(Mn)/n(Cd) ; m(Mn)/m(Cd)", "result": "2,0 % molaire ; 0,98 % massique", "compared_to": "étiquette « 2.0 wt% »", "source": "valeurs de l'article"},
+        {"what": "rapports molaires ICP (tableau S2)", "inputs": "SA1 : Cd 1134,85 ; Se 397,562 ; Mn 0,018 ppm. SA5 : Cd 1150,57 ; Se 435,236 ; Mn 9,947 ppm", "formula": "n = ppm / M ; rapports", "result": "SA1 : Cd/Se = 2,01. SA5 : Cd/Se = 1,86 ; Mn/Cd = 1,77 % ; Mn/Se = 3,3 %", "compared_to": "rapport introduit Cd/Se = 2,0 ; Mn/Cd = 2 % ; Mn/Se = 4 %", "source": "valeurs de l'annexe"},
+        {"what": "concentrations attendues si l'ICP mesure la solution de croissance", "inputs": "0,5 mmol Cd et 0,25 mmol Se dans 80 mL", "formula": "ppm = n M / V", "result": "Cd 703 ppm ; Se 247 ppm ; mesurés 1135 et 398 ppm, soit le même facteur 1,61 pour les deux éléments", "compared_to": "ICP SA1", "source": "valeurs de l'article"},
+        {"what": "Mn/Cd mesuré par EDS (tableau S1)", "inputs": "Cd 60,33 ; Se 38,48 ; Mn 1,19", "formula": "rapports atomiques", "result": "Mn/Cd = 1,97 % ; Cd/Se = 1,57 (lecture atomique) ou 1,10 (lecture massique)", "compared_to": "Mn/Cd = 2 % nominal ; CdSe = 1", "source": "valeurs de l'annexe"},
+        {"what": "Mn(OH)2 à pH 9,5", "inputs": "[Mn2+] = 10 µmol / 80 mL = 1,25e-4 M ; [OH-] = 10^-4,5 M", "formula": "Q = [Mn2+][OH-]²", "result": "1,25e-13", "compared_to": "Ks de Mn(OH)2 de l'ordre de 1e-13 (ordre de grandeur de manuel, non vérifié en ligne)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "L'ICP donne Cd/Se = 2,01 pour SA1, exactement le rapport introduit, et le même facteur de concentration (1,61) pour Cd et Se (voir « concentrations attendues ») : l'échantillon analysé contient tout le Cd, y compris l'excès de complexe Cd–MPA, et non des QD purifiés de CdSe. La teneur en Mn mesurée (Mn/Cd = 1,77 % pour SA5) dit donc que le Mn a été retenu dans le solide, pas qu'il est dans le réseau de CdSe ; « high doping yield » n'est pas démontré.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Aucune mesure ne distingue le Mn substitué dans CdSe du Mn adsorbé, complexé par le 3-MPA ou précipité (hydroxyde, oxyhydroxyde : le produit ionique de Mn(OH)2 à pH 9,5 est voisin de Ks, voir calcul). La preuve habituelle est la RPE (six raies hyperfines du 55Mn, écart qui dépend du site) ou l'émission 4T1→6A1 du Mn2+ vers 2,1 eV, attendue pour un hôte de gap > 2,1 eV ; ici le gap annoncé est 2,5–3,1 eV et l'émission à 574 nm existe déjà sans Mn. L'EDS, l'ICP et l'XPS mesurent la présence du Mn, pas sa position.", "status": "probleme", "basis": "litterature", "source": {"title": "Excitonic pathway to photoinduced magnetism in colloidal nanocrystals with nonmagnetic dopants", "authors_or_publisher": "V. Pinchetti et al., Nature Nanotechnology 13, 145–151", "year": "2018", "url_or_doi": "10.1038/s41565-017-0024-8"}},
+        {"aspect": "resultats", "finding": "XPS Mn 2p : l'écart de 10,9 eV entre 2p3/2 et 2p1/2 est un dédoublement spin-orbite, pas le « multiplet splitting » invoqué par les auteurs (le multiplet élargit chaque composante et donne le satellite d'environ 6 eV caractéristique de Mn(II)). 641,7 eV pour Mn 2p3/2 ne distingue pas Mn(II) de Mn(III) (MnO et Mn2O3 vers 641,4 eV) ; seul le satellite le ferait. L'écart spin-orbite usuel est d'environ 11,2 eV ou plus : 10,9 eV sur un signal de 1 % de Mn est à la limite.", "status": "reserve", "basis": "litterature", "source": {"title": "Manganese – XPS reference (periodic table, transition metals)", "authors_or_publisher": "Thermo Fisher Scientific (extrait de recherche, page non ouverte)", "year": "consulté en 2026", "url_or_doi": "https://www.thermofisher.com/us/en/home/materials-science/learning-center/periodic-table/transition-metal/manganese.html"}},
+        {"aspect": "bilan", "finding": "Rayons ioniques cités (Mn2+ 70 pm, Cd2+ 95 pm) mélangent des coordinences : en site tétraédrique (celui de la blende de zinc) on compare Mn2+ ≈ 66 pm et Cd2+ ≈ 78 pm (Shannon). L'argument qualitatif reste juste.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Choix de la blende de zinc pour faciliter le dopage au Mn : cohérent avec Erwin et al. (adsorption du Mn sur les faces {001} de la blende de zinc) ; c'est la seule partie du raisonnement sur le dopage qui soit sourcée.", "status": "ok", "basis": "litterature", "source": {"title": "Doping semiconductor nanocrystals", "authors_or_publisher": "S. C. Erwin, L. Zu, M. I. Haftel, A. L. Efros, T. A. Kennedy, D. J. Norris, Nature 436, 91–94", "year": "2005", "url_or_doi": "10.1038/nature03832"}}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Mn2+ introduit avec Cd2+ dès le départ est complexé par le 3-MPA et l'ammoniac ; pendant la croissance à température ambiante, il s'adsorbe plutôt à la surface des cristallites de CdSe blende de zinc (mécanisme d'adsorption de surface d'Erwin et al.) ou reste dans la couche de thiolate de Cd ; une partie peut précipiter en hydroxyde ou s'oxyder à l'air à pH 9,5. L'incorporation substitutionnelle dans le cœur n'est pas démontrée et serait à tester par RPE et par l'émission du Mn2+.", "sources": [{"title": "Doping semiconductor nanocrystals", "authors_or_publisher": "S. C. Erwin et al., Nature", "year": "2005", "url_or_doi": "10.1038/nature03832"}, {"title": "Excitonic pathway to photoinduced magnetism in colloidal nanocrystals with nonmagnetic dopants", "authors_or_publisher": "V. Pinchetti et al., Nature Nanotechnology", "year": "2018", "url_or_doi": "10.1038/s41565-017-0024-8"}]},
+      "what_to_verify_before_repeating": ["purifier jusqu'à Cd/Se proche de 1 avant l'ICP, ou laver à l'EDTA pour retirer le Mn de surface", "RPE pour localiser le Mn2+", "chercher l'émission du Mn2+ vers 585–600 nm à basse température", "XPS Mn 2p avec satellite pour l'état d'oxydation"]
+    },
+    {
+      "label": "SA5_noMW",
+      "verdict": "douteuse",
+      "feasibility": "reproductible",
+      "calculs": [
+        {"what": "énergies des pics avant et après micro-ondes", "inputs": "432 nm ; 397 nm", "formula": "E = 1239,84 / λ ; courbe de Yu", "result": "2,87 eV (D ≈ 1,8 nm) avant ; 3,12 eV (D ≈ 1,5 nm) après", "compared_to": "un chauffage fait croître les QD (décalage vers le rouge)", "source": "Yu et al. 2003, 10.1021/cm034081k"}
+      ],
+      "checks": [
+        {"aspect": "cinetique", "finding": "Le témoin sans micro-ondes est bien le même échantillon sans la dernière étape (une seule variable), mais le décalage vers le bleu après chauffage contredit une croissance ; il évoque une attaque de surface ou un changement de la nature de la bande (voir SA1). L'émission à 574 nm, la même avant et après, confirme qu'elle ne suit pas le gap.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Recuit ou attaque de surface brefs à l'ébullition plutôt que croissance (voir SA1).", "sources": []},
+      "what_to_verify_before_repeating": ["mesurer l'absorbance avant et après chauffage à concentration égale (non normalisée) pour savoir si le pic se déplace ou si une autre population disparaît"]
+    },
+    {
+      "label": "SA5_pH_series",
+      "verdict": "invérifiable",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "émission en énergie", "inputs": "574 et 623 nm", "formula": "E = 1239,84 / λ", "result": "2,16 et 1,99 eV", "compared_to": "absorption à ~397 nm (3,12 eV)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Les valeurs de pH intermédiaires et les spectres sont en annexe (figures non lisibles) ; le déplacement de l'émission (574 → 623 nm) avec le pH, gros (0,17 eV) alors que le pic d'absorption ne bouge pas d'après les auteurs, confirme une émission de pièges. Le pH plus élevé demande plus de NH4OH : la teneur en ammoniac complexant change aussi (témoin à deux variables).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "À pH plus élevé, la libération de Se(2-) est plus rapide et la couche de thiolate change, ce qui modifie les pièges de surface responsables de l'émission.", "sources": []},
+      "what_to_verify_before_repeating": ["noter les pH exacts et les volumes de NH4OH de chaque essai"]
+    },
+    {
+      "label": "Device_ML_SA1",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "concentration massique du bain de PAH", "inputs": "5 mM en unités de répétition ; M(C3H8NCl) = 93,56 g/mol", "formula": "c = C × M", "result": "0,47 g/L (si 5 mM se rapporte au monomère, convention usuelle non précisée par l'article)", "compared_to": "bains de PAH habituels en couche par couche (quelques mM en monomère)", "source": "masse molaire calculée"},
+        {"what": "composition du bain NH4OH : H2O2 3:1 v/v", "inputs": "NH3 25 % (≈ 13,4 M, masse volumique ≈ 0,91, valeur approchée) ; H2O2 30 % m/v (300 g/L ÷ 34,01 = 8,8 M)", "formula": "C × fraction volumique", "result": "NH3 ≈ 10 M ; H2O2 ≈ 2,2 M", "compared_to": "SC-1 classique dilué (NH4OH:H2O2:H2O 1:1:5)", "source": "valeurs de l'article ; masse volumique approchée"},
+        {"what": "épaisseur par bicouche", "inputs": "98,6 nm pour 10 bicouches ; pente 9,97 nm", "formula": "e/n", "result": "≈ 10 nm par bicouche", "compared_to": "PAH (1–2 nm) + une couche de QD (1,5–2 nm d'après le pic à 397 nm, ou 5,3 nm d'après les auteurs)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "mecanisme", "finding": "PAH (pKa de l'amine vers 8–9) protoné à pH 6,5 et carboxylate du 3-MPA (pKa ≈ 4,3) déprotoné : l'attraction électrostatique PAH/QD est cohérente.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "10 nm par bicouche dépasse PAH + une monocouche de QD, même avec 5,3 nm de QD, et à plus forte raison avec des cristallites de 1,5–2 nm : chaque trempage dépose plusieurs couches ou des agrégats. L'affirmation « deposition of a monolayer is assured » n'est pas soutenue par la mesure AFM.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "NH4OH 25 % : H2O2 30 % 3:1 sans eau (≈ 10 M NH3, 2,2 M H2O2) laissé plus de 2 h : décomposition de H2O2 avec dégagement d'O2 et vapeurs d'ammoniac ; récipient ouvert sous hotte, jamais fermé. Ce bain peut aussi attaquer l'ITO.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Recuit à 110 °C sous vide : sous la décomposition du PAH et sans risque pour l'Al (déposé après) ; compatible avec un film hybride.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Résistance carrée de l'ITO écrite « 10−15 ohm cm−2 » : l'unité correcte est Ω/□ (ohm par carré).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Assemblage couche par couche électrostatique : chaque bain inverse la charge de surface (PAH-NH3+ puis QD-COO-) ; l'épaisseur par cycle dépend de la concentration et de l'agrégation des QD dans le bain.", "sources": []},
+      "what_to_verify_before_repeating": ["concentration de la solution de QD de trempage", "épaisseur par bicouche par ellipsométrie ou AFM sur 1–2 bicouches", "aire des croisements ITO/Al pour calculer une conductivité"]
+    },
+    {
+      "label": "Device_ML_SA5",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport des courants à +1 V (lus sur la Fig. 6a)", "inputs": "SA1 ≈ 1e-8 A ; SA2 ≈ 5e-8 ; SA3 ≈ 2,5e-6 ; SA4 ≈ 1,5e-5 ; SA5 ≈ 1,3e-4 A", "formula": "I(SAx)/I(SA1)", "result": "×5 ; ×250 ; ×1500 ; ×13 000", "compared_to": "Mn/Cd 0,1 ; 0,2 ; 1 ; 2 %", "source": "valeurs lues par l'extracteur"}
+      ],
+      "checks": [
+        {"aspect": "mecanisme", "finding": "Mn2+ remplace Cd2+ sans changer la charge : c'est un dopant isovalent, magnétique, qui n'apporte pas de porteurs. L'« auto-ionisation » des dopants dans les nanocristaux vaut pour des donneurs ou accepteurs (In, Ag, Cu dans CdSe), pas pour Mn2+ dans CdSe. Le gain de conductivité de 10^4 ne peut donc pas s'expliquer par des porteurs libérés par le Mn ; d'autres causes plausibles sont l'épaisseur ou la compacité des films, des sels résiduels (conduction ionique), des phases de Mn en surface, ou la dispersion entre dispositifs (un seul dispositif par échantillon, sans répétition).", "status": "probleme", "basis": "litterature", "source": {"title": "Excitonic pathway to photoinduced magnetism in colloidal nanocrystals with nonmagnetic dopants", "authors_or_publisher": "V. Pinchetti et al., Nature Nanotechnology 13, 145–151", "year": "2018", "url_or_doi": "10.1038/s41565-017-0024-8"}},
+        {"aspect": "resultats", "finding": "Le courant ne suit pas la teneur en Mn de façon simple : ×5 pour 0,1 %, ×250 pour 0,2 % (voir calcul). Sans répétition ni épaisseur mesurée par dispositif, l'effet du dopage ne se sépare pas de la variabilité de fabrication. Témoin utile : QD non dopés auxquels on ajoute du Mn(OAc)2 après synthèse, ou dopage par un ion isovalent non magnétique (Zn2+).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Conduction par sauts entre QD limitée par les ligands et les pièges ; le Mn2+ isovalent peut modifier les pièges de surface ou la compacité du film, mais ne donne pas de porteurs libres.", "sources": [{"title": "Doped nanocrystals", "authors_or_publisher": "D. J. Norris, A. L. Efros, S. C. Erwin, Science 319, 1776–1779", "year": "2008", "url_or_doi": "10.1126/science.1143802"}]},
+      "what_to_verify_before_repeating": ["fabriquer plusieurs dispositifs par échantillon et mesurer leur épaisseur", "témoin Mn ajouté après synthèse", "mesure en température pour tester Poole–Frenkel contre conduction ionique"]
+    },
+    {
+      "label": "Device_Mono_SA1",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "concentration du HF dilué à 2 %", "inputs": "2 % massique ; masse volumique ≈ 1,0 g/mL ; M(HF) = 20,01 g/mol", "formula": "C = 10 × % × ρ / M", "result": "≈ 1,0 mol/L", "compared_to": "bains de désoxydation du Si (1–5 % HF)", "source": "valeurs de l'article"},
+        {"what": "SC-1 NH4OH (25 %) : H2O2 (30 %) : H2O = 1:2:10", "inputs": "NH3 ≈ 13,4 M ; H2O2 ≈ 8,8 M", "formula": "C × fraction volumique (13 volumes)", "result": "NH3 ≈ 1,0 M ; H2O2 ≈ 1,4 M", "compared_to": "SC-1 de Kern 1:1:5 (NH3 ≈ 1,9 M ; H2O2 ≈ 1,3 M)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Bains SC-1 (1:2:10) et SC-2 (1:1:5) à 70 °C pendant 10 min : conformes au nettoyage RCA (SC-1 un peu plus riche en H2O2, sans conséquence).", "status": "ok", "basis": "litterature", "source": {"title": "The Evolution of Silicon Wafer Cleaning Technology", "authors_or_publisher": "W. Kern, J. Electrochem. Soc. 137, 1887–1892", "year": "1990", "url_or_doi": "10.1149/1.2086825"}},
+        {"aspect": "cinetique", "finding": "Ordre des étapes : la désoxydation au HF est suivie d'un traitement UV–ozone qui reforme quelques angströms d'oxyde. C'est voulu (surface hydrophile), mais la jonction mesurée en STM est donc Si/SiOx/PAH/QD, pas Si nu ; la rugosité < 1,6 Å est celle de cette surface.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "HF 2 % (≈ 1 M) : pénètre la peau, toxicité systémique (fixation du calcium), gants nitrile épais ou néoprène, gel de gluconate de calcium à disposition, récipients en PTFE ou PP ; bains RCA chauds : dégagement d'O2, de NH3 et de Cl2 possible, sous hotte.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Une seule bicouche PAH/QD par adsorption électrostatique sur Si oxydé hydrophile (silanols) ; l'attraction silanolate/PAH-NH3+ puis PAH/carboxylate donne un réseau 2D de QD.", "sources": []},
+      "what_to_verify_before_repeating": ["concentration de la solution de QD", "épaisseur de l'oxyde après UV–ozone"]
+    },
+    {
+      "label": "Device_Mono_SA3",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "tension par rapport au gap", "inputs": "VTh = 2,5 V ; gap 2,5–3,1 eV", "formula": "comparaison", "result": "VTh du même ordre que le gap optique", "compared_to": "VMax 3 V", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Commutation résistive sous pointe STM à l'air, une seule courbe montrée pour SA3, les autres échantillons en annexe ; à ±3 V sous pointe à l'air, l'oxydation anodique locale de la surface (Si, QD) et la migration d'ions sont des alternatives courantes à une commutation électronique. La tendance « VTh diminue avec le dopage » repose sur des figures d'annexe non lisibles.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les conditions d'approche de la pointe diffèrent entre Résultats (1 nA, 1,5 V) et Méthodes (0,5 nA, 1,5 V) : la distance pointe–échantillon n'est pas la même selon la version.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Mécanisme de commutation non établi par l'article ; l'argument de densité d'états (aire sous dI/dV) ne distingue pas un piégeage de charge d'une modification de la jonction pointe–échantillon.", "sources": []},
+      "what_to_verify_before_repeating": ["répéter sous atmosphère inerte ou sous vide", "statistique sur plusieurs points et plusieurs pointes pour chaque teneur en Mn"]
+    }
+  ],
+  "article_level": {
+    "summary": "Les quantités de réactifs sont cohérentes (Cd, 3-MPA, Mn), sauf la masse de sélénosulfate (19,74 mg = masse de 0,25 mmol de Se ; le réactif s'emploie en solution, ≈ 1 mL). Le cœur du problème est la taille : un pic excitonique à 397 nm, une solution jaune et une taille de Scherrer de 2,1 nm désignent des cristallites de CdSe de 1,5–2 nm, pas les 5,3 nm tirés d'un gap de Tauc de 2,5 eV. L'émission à 574 nm (décalage de Stokes de 0,96 eV) est une émission de pièges. Le dopage au Mn est montré par sa présence (EDS, ICP, XPS), non par sa position dans le réseau ; l'ICP de SA1 (Cd/Se = 2,0, le rapport introduit) montre que l'échantillon analysé contient tout l'excès de Cd. Enfin Mn2+ est isovalent : il n'apporte pas de porteurs, et l'explication du gain de conductivité de 10^4 par l'« auto-ionisation » ne tient pas. La recette reste refaisable, à condition de prélever le sélénosulfate en volume et de contrôler la température sous micro-ondes.",
+    "author_errors_suspected": [
+      "19,74 mg de Na2SeSO3 pour 0,25 mmol : c'est la masse de Se (Na2SeSO3 : 51,3 mg)",
+      "étiquettes « wt% » qui sont des % molaires Mn/Cd",
+      "diamètre de 5,3 nm incompatible avec le premier exciton à 397 nm (≈ 1,5 nm selon Yu et al.) ; gap de Tauc 2,5 eV à 0,6 eV sous le pic",
+      "émission à 574 nm décrite comme émission bande à bande alors que le décalage de Stokes est de 0,96 eV",
+      "écart Scherrer/MET expliqué par la distribution de tailles, qui jouerait en sens inverse",
+      "« multiplet splitting » pour le dédoublement spin-orbite Mn 2p3/2–2p1/2",
+      "auto-ionisation de porteurs attribuée à un dopant isovalent (Mn2+)",
+      "EDS de SA2 : Mn/Cd mesuré 4 fois supérieur à la quantité introduite",
+      "unité de résistance carrée de l'ITO (« ohm cm−2 »)"
+    ],
+    "comparison_with_database": "Aucune autre synthèse de CdSe dans la base (compare.py « CdSe » ne renvoie que les voies de cette publication).",
+    "extraction_note": "L'annotation limite_reproductibilite de la voie SA1 donne « environ 43 mg » pour 0,25 mmol de Na2SeSO3 : la valeur exacte est 51,3 mg (M = 205,0 g/mol)."
+  },
+  "sources_not_found": [
+    "solubilité de Na2SO3 et Ks de Mn(OH)2 : ordres de grandeur de manuel, non vérifiés en ligne (budget de recherche)",
+    "valeur exacte de l'écart spin-orbite Mn 2p de MnO dans Biesinger et al. 2011 (Appl. Surf. Sci. 257, 2717) : texte non accessible, seul un extrait de la page Thermo Fisher a été lu",
+    "texte intégral de Yu et al. 2003 non ouvert (domaine inaccessible) : coefficients de la courbe CdSe relevés dans une annexe RSC qui la cite"
+  ]
+}

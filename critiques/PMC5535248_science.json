@@ -1,0 +1,595 @@
+{
+ "pmcid": "PMC5535248",
+ "routes": [
+  {
+   "label": "OPL-C900",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de carbone par lot de carbonisation (OPL, 900 °C)",
+     "inputs": "6,0 g de poudre ; rendement 27 % (fig. 5, lu)",
+     "formula": "m = 6,0 × 0,27",
+     "result": "≈ 1,6 g de carbone par lot",
+     "compared_to": "masse de GO annoncée : 5,00 g",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse de carbone par lot de carbonisation (OPL, 400 °C)",
+     "inputs": "6,0 g ; rendement 37 %",
+     "formula": "m = 6,0 × 0,37",
+     "result": "≈ 2,2 g",
+     "compared_to": "baisse de 0,6 g entre 400 et 900 °C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport ID/IG des carbones OPL (inverse de IG/ID lu)",
+     "inputs": "IG/ID 1,3 (400 °C), 0,96 (800 °C), 1,0 (900 °C)",
+     "formula": "ID/IG = 1 / (IG/ID)",
+     "result": "0,77 (400 °C) → 1,04 (800 °C) → 1,0 (900 °C)",
+     "compared_to": "carbone amorphe en cours d'ordonnancement (étape 2 de Ferrari et Robertson) : ID/IG croît avec l'ordre",
+     "source": "Ferrari et Robertson 2000 (10.1103/physrevb.61.14095)"
+    },
+    {
+     "what": "distance (002) du carbone à 900 °C (Bragg)",
+     "inputs": "2θ = 25° ; λ = 1,540 56 Å (Cu Kα1 supposé, la longueur d'onde n'est pas écrite)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d ≈ 0,356 nm",
+     "compared_to": "graphite : 0,335 nm (2θ = 26,55°)",
+     "source": "λ : NIST X-ray Transition Energies Database (constantes.md) ; valeur de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Tube de quartz à 900 °C sous azote, nacelle d'alumine, refroidissement sous azote jusqu'à 100 °C : compatible (le quartz fondu supporte ~1100 °C en continu). Le débit d'azote n'est pas donné, alors qu'il conditionne l'évacuation des volatils et le rendement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendements 37 % (400 °C) → 27 % (900 °C) pour OPL, 33 → 26 % pour PKS : ordre de grandeur habituel des biochars de déchets de palmier (PKS ≈ 37 % à 500 °C et 30 min dans une étude d'optimisation ; ici 29 % à 500 °C mais pendant 3 h). Voir 'masse de carbone par lot'.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Valorisation of oil palm wastes into high yield and energy content biochars via slow pyrolysis: multivariate process optimisation and combustion kinetic studies (résumé seulement ; année et DOI non vérifiés)",
+      "authors_or_publisher": "Lee X. J. et al., Heriot-Watt University research portal",
+      "year": "non vérifiée",
+      "url_or_doi": "https://researchportal.hw.ac.uk/en/publications/valorisation-of-oil-palm-wastes-into-high-yield-and-energy-conten/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PKS donne à 900 °C un rendement (26 %) égal ou inférieur à celui de OPL (27 %), alors que les auteurs disent PKS plus riche en lignine (résidu de pyrolyse de la lignine ≈ 40 %, bien plus que la cellulose et l'hémicellulose). Un rendement élevé des feuilles s'explique plus probablement par leurs minéraux (cendres), que le simple lavage à l'eau n'enlève pas : le « carbone » OPL contient alors une fraction minérale non mesurée (pas d'analyse de cendres ni élémentaire).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Characteristics of hemicellulose, cellulose and lignin pyrolysis",
+      "authors_or_publisher": "Yang H., Yan R., Chen H., Lee D. H., Zheng C., Fuel 86, 1781-1788",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.fuel.2006.12.013"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le carbone de biomasse obtenu à 900 °C est un carbone non graphitable (« hard carbon ») : réseau réticulé, riche en oxygène, qui ne graphitise à aucune température (Franklin 1951). La DRX (pic (002) large à 25°, d ≈ 0,356 nm contre 0,335 nm pour le graphite, voir le calcul de Bragg) et ID/IG ≈ 1 décrivent un carbone turbostratique désordonné, pas un « matériau de type graphite » ni une « phase graphitique ». Les mots « graphitization » et « graphite-like » sont donc impropres, et le choix de 900 °C fondé sur la « formation de la phase graphitique » n'est pas démontré.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Crystallite growth in graphitizing and non-graphitizing carbons",
+      "authors_or_publisher": "Franklin R. E., Proc. R. Soc. Lond. A 209, 196-218",
+      "year": "1951",
+      "url_or_doi": "10.1098/rspa.1951.0197"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le critère IG/ID est lu à l'envers dans ce domaine : pour un carbone amorphe qui s'ordonne (étape 2 de Ferrari et Robertson, domaines < 2 nm), ID/IG augmente avec l'ordre (ID/IG ∝ La²), si bien que la baisse de IG/ID de 400 à 800 °C sur la figure 4 (ID/IG 0,77 → 1,04, voir le calcul) indique bien un ordonnancement progressif. Le texte dit pourtant à la fois qu'un IG/ID plus élevé signifie plus de graphitisation (résumé, conclusion) et que OPL est « toujours plus bas en ID/IG » que PKS, ce que la figure 4 contredit (OPL a le IG/ID le plus bas, donc le ID/IG le plus haut). Les auteurs citent eux-mêmes ce double régime (section 3.1) sans l'appliquer.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A. C., Robertson J., Phys. Rev. B",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pics DTG du carbone OPL traité à 900 °C (96, 392 et 722 °C) : un carbone déjà porté 3 h à 900 °C sous azote ne devrait presque plus perdre de masse sous gaz inerte avant 900 °C. L'atmosphère de l'ATG n'est pas écrite ; un pic à 722 °C évoque une combustion sous air ou une réadsorption (eau, CO2, oxydation de surface) entre la carbonisation et la mesure. À préciser avant de comparer.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Attribution des pics DTG des biomasses brutes : les auteurs placent l'hémicellulose à 150–350 °C, la cellulose à 275–350 °C et la lignine à 250–500 °C, et attribuent 288 °C à des « matières inorganiques », 345 °C à l'hémicellulose et 359 °C à la cellulose. Les plages de référence sont 220–315 °C (hémicellulose), 315–400 °C (cellulose) et 160–900 °C (lignine) ; 288 °C correspond plutôt à l'hémicellulose et 345–359 °C à la cellulose. Les minéraux ne se « décomposent » pas en volatils à 288 °C.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Characteristics of hemicellulose, cellulose and lignin pyrolysis",
+      "authors_or_publisher": "Yang H., Yan R., Chen H., Lee D. H., Zheng C., Fuel 86, 1781-1788",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.fuel.2006.12.013"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Pyrolyse à 900 °C : CO, H2, CH4 et goudrons (lignine : H2 et CH4 surtout) dans le gaz de sortie ; le montage prévoit condenseur et piège, mais l'évacuation vers une hotte et la purge à l'azote avant chauffage ne sont pas écrites.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Characteristics of hemicellulose, cellulose and lignin pyrolysis",
+      "authors_or_publisher": "Yang H., Yan R., Chen H., Lee D. H., Zheng C., Fuel 86, 1781-1788",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.fuel.2006.12.013"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Déshydratation et dévolatilisation de l'hémicellulose (≈ 220–315 °C) puis de la cellulose (≈ 315–400 °C), décomposition lente de la lignine jusqu'à 900 °C ; le résidu est un carbone non graphitable dont les petits domaines aromatiques grossissent et s'ordonnent avec la température (ID/IG qui augmente jusqu'à 800 °C, étape 2 de Ferrari et Robertson), sans formation de graphite : pic (002) large à d ≈ 0,356 nm. La perte de masse avec la température (37 → 27 %) suit le départ continu des hétéroatomes (O, H) de la lignine et du résidu carboné.",
+    "sources": [
+     {
+      "title": "Characteristics of hemicellulose, cellulose and lignin pyrolysis",
+      "authors_or_publisher": "Yang H., Yan R., Chen H., Lee D. H., Zheng C., Fuel 86, 1781-1788",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.fuel.2006.12.013"
+     },
+     {
+      "title": "Crystallite growth in graphitizing and non-graphitizing carbons",
+      "authors_or_publisher": "Franklin R. E., Proc. R. Soc. Lond. A 209, 196-218",
+      "year": "1951",
+      "url_or_doi": "10.1098/rspa.1951.0197"
+     },
+     {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A. C., Robertson J., Phys. Rev. B",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "débit d'azote et purge avant chauffage",
+    "taux de cendres des déchets lavés et du carbone (calcination sous air) : le lavage à l'eau n'enlève pas les minéraux",
+    "longueur d'onde de la DRX (Cu Kα supposé)",
+    "ne pas lire IG/ID comme un degré de graphitisation pour un carbone de biomasse à ≤ 900 °C",
+    "atmosphère de l'ATG"
+   ]
+  },
+  {
+   "label": "PKS-C900",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de carbone par lot (PKS, 900 °C)",
+     "inputs": "6,0 g ; rendement 26 %",
+     "formula": "m = 6,0 × 0,26",
+     "result": "≈ 1,56 g",
+     "compared_to": "OPL : 1,62 g",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport ID/IG des carbones PKS",
+     "inputs": "IG/ID 1,7 (400 °C) ; 1,0 (800 °C) ; 1,1 (900 °C)",
+     "formula": "ID/IG = 1 / (IG/ID)",
+     "result": "0,59 → 1,0 → 0,91",
+     "compared_to": "OPL : 0,77 → 1,04 → 1,0",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Même réserve que pour OPL : la coque de palmiste, riche en lignine et en oxygène, est un précurseur typique de carbone non graphitable ; l'affirmation d'une « formation plus facile de la phase graphitique » de PKS liée à sa densité n'a pas d'appui. La pente plus forte de IG/ID pour PKS traduit un départ plus désordonné (ID/IG 0,59 à 400 °C), pas une graphitisation plus rapide.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Crystallite growth in graphitizing and non-graphitizing carbons",
+      "authors_or_publisher": "Franklin R. E., Proc. R. Soc. Lond. A 209, 196-218",
+      "year": "1951",
+      "url_or_doi": "10.1098/rspa.1951.0197"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les auteurs justifient l'absence de série en température pour EFB et le graphite par des densités « comparables » (OPL ~ EFB, PKS ~ graphite) : la densité apparente ne détermine pas le comportement en pyrolyse, qui dépend de la composition (cellulose, hémicellulose, lignine, cendres). EFB à 900 °C n'a d'ailleurs ni rendement ni Raman publiés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Characteristics of hemicellulose, cellulose and lignin pyrolysis",
+      "authors_or_publisher": "Yang H., Yan R., Chen H., Lee D. H., Zheng C., Fuel 86, 1781-1788",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.fuel.2006.12.013"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme OPL-C900 ; la teneur plus élevée en lignine de PKS donne un carbone plus réticulé, non graphitable.",
+    "sources": [
+     {
+      "title": "Crystallite growth in graphitizing and non-graphitizing carbons",
+      "authors_or_publisher": "Franklin R. E., Proc. R. Soc. Lond. A 209, 196-218",
+      "year": "1951",
+      "url_or_doi": "10.1098/rspa.1951.0197"
+     },
+     {
+      "title": "Characteristics of hemicellulose, cellulose and lignin pyrolysis",
+      "authors_or_publisher": "Yang H., Yan R., Chen H., Lee D. H., Zheng C., Fuel 86, 1781-1788",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.fuel.2006.12.013"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "rendement et Raman de EFB, non publiés",
+    "taux de cendres"
+   ]
+  },
+  {
+   "label": "GO-OPL",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carbone nécessaire pour 5,00 g de GO",
+     "inputs": "5,00 g de GO ; fraction massique de carbone d'un GO ≈ 0,5–0,6 (C/O atomique ≈ 2 : 24/(24+16) = 0,60, moins avec l'eau liée)",
+     "formula": "m(C) ≈ 5,00 × (0,5 à 0,6)",
+     "result": "≈ 2,5–3,0 g de carbone",
+     "compared_to": "1,6 g de carbone par lot de carbonisation de 6 g (OPL, 900 °C) : il faut au moins 2 lots",
+     "source": "valeurs de l'article ; masses atomiques"
+    },
+    {
+     "what": "rapport masse de GO / masse de carbone d'un seul lot",
+     "inputs": "5,00 g ; 1,62 g",
+     "formula": "5,00 / 1,62",
+     "result": "3,1",
+     "compared_to": "un gain de masse d'un facteur ~2 au plus par oxydation (fraction de carbone ≥ 0,5) : 5,00 g ne peut pas venir d'un seul lot",
+     "source": "calcul"
+    },
+    {
+     "what": "distance interfeuillets du GO (Bragg)",
+     "inputs": "2θ = 10,3° ; λ = 1,540 56 Å (supposé)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d ≈ 0,858 nm",
+     "compared_to": "GO habituel 0,8–0,9 nm ; GO de graphite de la base : 2θ = 10,56° (PMC4164668)",
+     "source": "NIST (λ) ; comparaison_base"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune masse de carbone de départ, de H2SO4/H3PO4, de KMnO4 ni de H2O2 n'est donnée ; la méthode est renvoyée à Marcano et al. (rapport massique KMnO4/carbone de 6, H2SO4/H3PO4 9:1, 50 °C, 12 h, versé sur glace avec H2O2). Les 5,00 g de GO demandent au moins 2,5 g de carbone, soit au moins deux lots de carbonisation de 6 g (voir 'carbone nécessaire pour 5,00 g de GO') ; l'article ne dit ni la masse oxydée ni de quel précurseur proviennent ces 5,00 g.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D. C. et al., ACS Nano 4, 4806-4814",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "L'article affirme que la réaction de Marcano « n'est pas exothermique ». C'est faux : l'ajout de KMnO4 au mélange H2SO4/H3PO4 échauffe le milieu (le texte du brevet décrivant le procédé indique une montée vers ~40 °C avant le chauffage à 50 °C), la trempe sur glace avec H2O2 est exothermique et dégage O2. L'avantage réel de la méthode est l'absence de NOx/NO2 (pas de NaNO3), pas l'absence d'exotherme. KMnO4 dans l'acide sulfurique concentré forme Mn2O7, qui peut détoner au-dessus d'environ 55 °C : ne jamais dépasser la consigne ni ajouter le KMnO4 d'un coup.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S., Chem. Soc. Rev.",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Lavage au HCl 37 % (Marcano emploie un HCl plus dilué, d'après les reprises du protocole ; non vérifié sur l'original) : s'il reste du MnO2 non réduit par H2O2, HCl concentré le transforme en Cl2 (MnO2 + 4 HCl → MnCl2 + Cl2 + 2 H2O). Vérifier que la suspension est jaune clair, sans brun, avant le lavage acide, et travailler sous hotte. L'éther diéthylique (Éb 34,6 °C) est extrêmement inflammable et peroxydable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Rôles des réactifs mal nommés : la conclusion appelle « acides » H2SO4, H3PO4, H2O2 et KMnO4 ; KMnO4 est l'oxydant, H2O2 sert à réduire l'excès de MnO4− et le MnO2 en Mn2+ soluble (trempe), H3PO4 limite la formation de trous dans le plan basal.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D. C. et al., ACS Nano 4, 4806-4814",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le pic à 2θ = 10,3° (d ≈ 0,86 nm) est cohérent avec un GO. Mais un carbone non graphitable n'a pas d'empilement graphitique étendu à intercaler : l'oxydation d'un tel carbone donne surtout des fragments aromatiques oxydés (carbone de type acides humiques ou points de graphène oxydés) ; un pic à 10,3° « fort » pour les GO de biomasse et « faible » pour le GO de graphite est l'inverse de ce qu'on attend (le graphite en paillettes donne la raie (001) la plus nette). Sans analyse élémentaire (C/O) ni épaisseur de feuillet (AFM), l'identité « oxyde de graphène » des produits de biomasse n'est pas établie.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S., Chem. Soc. Rev.",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Séchage du GO à température ambiante pendant une nuit après coagulation à l'éther : le produit garde de l'eau liée et de l'éther ; la masse de 5,00 g n'est donc pas une masse sèche (Marcano sèche sous vide).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Intercalation du carbone par H2SO4/H3PO4 puis oxydation par l'espèce manganèse(VII) (MnO3+ / Mn2O7) : époxydes et hydroxyles sur le plan, carboxyles et cétones en bord ; H3PO4 forme des diols cycliques qui limitent la coupure des plans. La trempe sur glace avec H2O2 réduit MnO4− et MnO2 en Mn2+. Sur un carbone non graphitable, l'oxydation attaque d'abord les domaines désordonnés et les bords, ce qui fragmente le réseau en petits feuillets oxydés.",
+    "sources": [
+     {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D. C. et al., ACS Nano 4, 4806-4814",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     },
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S., Chem. Soc. Rev.",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "reprendre toutes les quantités et conditions dans Marcano et al. 2010",
+    "masse de carbone oxydée et nombre de lots de carbonisation",
+    "absence de MnO2 avant le lavage HCl 37 %",
+    "contrôle de température à l'ajout de KMnO4 (Mn2O7)",
+    "analyse C/O (XPS ou élémentaire) pour établir qu'il s'agit d'un GO"
+   ]
+  },
+  {
+   "label": "GO-CG",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre moyen 4V/S (GOCG)",
+     "inputs": "V = 0,08 cm3/g ; S = 8 m2/g",
+     "formula": "d = 4000 V/S (nm)",
+     "result": "40 nm",
+     "compared_to": "41 nm annoncé : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "IG/ID recalculé (GOCG)",
+     "inputs": "ID 0,83 ; IG 0,97",
+     "formula": "IG/ID",
+     "result": "1,169",
+     "compared_to": "1,16 annoncé (écart d'arrondi)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Témoin qui change deux variables : les tableaux 1 et 2 et les figures 9d, 10d, 12d portent sur GOCG (oxyde de graphène de graphite, non réduit), alors que les échantillons de biomasse sont des rGO réduits à 300 °C. La comparaison de surface BET (8 contre 114–117 m2/g), de perte de masse en ATG (la plus forte pour GOCG, attendue pour un GO non réduit) et de IG/ID mélange l'effet du précurseur et celui de la réduction. Le résumé et la section FTIR parlent pourtant de « rGOCG » (figure 8 : quatre GO et quatre rGO). Il fallait comparer rGOCG à rGOOPL/PKS/EFB, ou GOCG aux GO de biomasse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Isotherme de type III (non poreux, faibles interactions adsorbant-adsorbat) : la méthode BET n'est pas applicable à une isotherme de type III selon l'IUPAC ; les surfaces de 8 m2/g (GOCG) et 15 m2/g (rGOOPL) ne sont qu'indicatives.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Oxydation de Marcano du graphite en paillettes (voir GO-OPL) ; la raie GO faible à 10,3° suggère une oxydation incomplète du graphite ; la plage mesurée (5–40°) couvre la raie (002) du graphite à 26,5°, qu'il faut chercher sur la figure 6b.",
+    "sources": [
+     {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D. C. et al., ACS Nano 4, 4806-4814",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "le GO du graphite a-t-il été réduit (rGOCG) ou non (GOCG) ?",
+    "raie (002) résiduelle du graphite à 26,5° sur le diffractogramme du GOCG"
+   ]
+  },
+  {
+   "label": "rGO-OPL",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "distance interfeuillets des rGO (Bragg)",
+     "inputs": "2θ = 23,6° et 25,3° ; λ = 1,540 56 Å (supposé)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "0,377 nm et 0,352 nm",
+     "compared_to": "graphite 0,335 nm ; GO 0,858 nm",
+     "source": "NIST (λ) ; valeurs de l'article"
+    },
+    {
+     "what": "diamètre moyen 4V/S des rGO",
+     "inputs": "OPL : 0,06 cm3/g, 15 m2/g ; PKS : 0,08, 114 ; EFB : 0,10, 117",
+     "formula": "d = 4000 V/S (nm)",
+     "result": "OPL 16 nm ; PKS 2,8 nm ; EFB 3,4 nm",
+     "compared_to": "annoncés 14, 3 et 3 nm : cohérents",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "IG/ID recalculés du tableau 1",
+     "inputs": "ID/IG : OPL 0,92/0,98 ; PKS 0,87/0,99 ; EFB 0,80/0,96",
+     "formula": "IG/ID",
+     "result": "1,065 ; 1,138 ; 1,200",
+     "compared_to": "1,06 ; 1,14 ; 1,20 annoncés : cohérents",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "ordre IG/ID contre ordre BET",
+     "inputs": "IG/ID : OPL 1,06 < PKS 1,14 < CG 1,16 < EFB 1,20 ; BET : OPL 15, PKS 114, CG 8, EFB 117 m2/g",
+     "formula": "comparaison des rangs",
+     "result": "le GOCG (IG/ID 1,16) a la plus faible surface (8 m2/g)",
+     "compared_to": "conclusion des auteurs : IG/ID plus élevé = surface plus élevée",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Recuit à 300 °C, 1 h, sous azote : réduction thermique partielle. Les époxydes et hydroxyles partent largement entre 200 et 400 °C, mais une part notable d'oxygène reste (C/O typiquement bien inférieur à celui des réductions au-delà de 700 °C). La distance de 0,377 nm (voir le calcul de Bragg), au-dessus de 0,335 nm, le confirme. L'expression « réduction presque complète » tirée du FTIR est exagérée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The reduction of graphene oxide",
+      "authors_or_publisher": "Pei S., Cheng H.-M., Carbon 50, 3210-3228",
+      "year": "2012",
+      "url_or_doi": "10.1016/j.carbon.2011.11.010"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Classement « degré de graphitisation » par IG/ID 1,06–1,20 : pour des GO et rGO, ID/IG ≈ 0,8–0,95 est le régime de carbone très désordonné où le rapport ne varie pas de façon monotone avec l'ordre ; des écarts de 0,06 à 0,14 sans répétition ni incertitude ne permettent pas de classer, et le GOCG non réduit s'intercale dans la série. La conclusion « IG/ID plus élevé → surface plus élevée » ne tient pas pour le GOCG (voir 'ordre IG/ID contre ordre BET').",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A. C., Robertson J., Phys. Rev. B",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Type I (microporeux, pores < 2 nm) annoncé pour rGOPKS et rGOEFB, avec un diamètre moyen de 3 nm et 0,08–0,10 cm3/g : un diamètre moyen 4V/S de 2,8–3,4 nm (calcul) indique une contribution mésoporeuse ; plutôt un type I(b) ou un mélange I + IV. Les surfaces de 114–117 m2/g sont modestes pour un rGO (plusieurs centaines de m2/g si exfolié) mais cohérentes avec une réduction lente à 300 °C sans exfoliation.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La section MEB attribue les pores à « un dégagement gazeux rapide sous la forte pression de vapeur créée pendant la centrifugation et le lavage au HCl concentré » : la centrifugation ne crée pas de pression de vapeur et HCl ne dégage pas de gaz avec un GO (sauf Cl2 avec du MnO2 résiduel). La section BET donne l'explication plausible (dégagement de CO, CO2 et H2O des groupes labiles pendant le recuit). Les deux explications se contredisent.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : la bande à 1628 cm−1 est attribuée à l'élongation C=O, qui se situe vers 1720–1740 cm−1 pour les carboxyles du GO ; 1620–1630 cm−1 correspond aux C=C aromatiques non oxydés ou à la déformation de l'eau. « La réduction d'ester, d'acides carboxyliques et d'alcool » à 1039–1218 cm−1 n'a pas de sens : ce sont des élongations C–O.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chauffage du GO libère CO, CO2 et vapeur ; une montée rapide peut exfolier brutalement la poudre (projection de poudre fine) : charger peu, monter lentement, gaz de sortie vers la hotte.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The reduction of graphene oxide",
+      "authors_or_publisher": "Pei S., Cheng H.-M., Carbon 50, 3210-3228",
+      "year": "2012",
+      "url_or_doi": "10.1016/j.carbon.2011.11.010"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Désoxygénation thermique partielle à 300 °C : départ de l'eau intercalée puis des époxydes et hydroxyles (CO, CO2, H2O), effondrement de l'espacement de 0,86 nm vers 0,35–0,38 nm ; le dégagement gazeux entre feuillets crée une porosité locale, et des feuillets plus petits et plus défectueux (biomasse) se ré-empilent moins que des feuillets larges, ce qui peut expliquer les surfaces plus élevées de PKS et EFB.",
+    "sources": [
+     {
+      "title": "The reduction of graphene oxide",
+      "authors_or_publisher": "Pei S., Cheng H.-M., Carbon 50, 3210-3228",
+      "year": "2012",
+      "url_or_doi": "10.1016/j.carbon.2011.11.010"
+     },
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S., Chem. Soc. Rev.",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "vitesse de chauffe et débit d'azote du recuit",
+    "masse de GO réduite",
+    "analyse C/O (XPS) pour quantifier la réduction",
+    "répétabilité des rapports IG/ID (plusieurs points de mesure)"
+   ]
+  },
+  {
+   "label": "rGO-PKS",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre moyen 4V/S (rGOPKS)",
+     "inputs": "0,08 cm3/g ; 114 m2/g",
+     "formula": "4000 V/S",
+     "result": "2,8 nm",
+     "compared_to": "3 nm annoncé ; limite micro/méso IUPAC : 2 nm",
+     "source": "valeurs de l'article ; Thommes 2015"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Isotherme dite de type I avec un diamètre moyen de 2,8 nm (calcul) : supérieur à la borne des micropores ; préciser le modèle de distribution (BJH, NLDFT) et la plage de pression BET utilisée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme rGO-OPL.",
+    "sources": [
+     {
+      "title": "The reduction of graphene oxide",
+      "authors_or_publisher": "Pei S., Cheng H.-M., Carbon 50, 3210-3228",
+      "year": "2012",
+      "url_or_doi": "10.1016/j.carbon.2011.11.010"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "plage de pression relative du BET (critères de Rouquerol)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Chaîne carbonisation de déchets de palmier (400–900 °C, N2) → oxydation de Marcano → recuit à 300 °C sous N2. Les étapes sont réalisables mais l'oxydation n'est décrite que par renvoi (aucune quantité), et l'interprétation est fragile : le carbone de biomasse à 900 °C est un carbone non graphitable, pas une phase « graphitique » ; IG/ID est lu comme un degré de graphitisation dans un régime où le rapport varie à l'envers ; le témoin du graphite commercial est un GO non réduit comparé à des rGO ; l'affirmation que la méthode de Marcano n'est pas exothermique est fausse. Les grandeurs dérivées publiées (IG/ID du tableau 1, diamètres 4V/S) sont arithmétiquement cohérentes.",
+  "author_errors_suspected": [
+   "« graphite-like material » et « graphitization » pour un carbone de biomasse turbostratique à 900 °C (d002 ≈ 0,356 nm)",
+   "sens de variation de IG/ID inversé entre le texte (hausse avec la température) et la figure 4 (baisse jusqu'à 800 °C), et interprétation contraire au régime de Ferrari et Robertson",
+   "GOCG (non réduit) dans les tableaux contre rGOCG dans le résumé et la section FTIR",
+   "méthode de Marcano dite « non exothermique »",
+   "bande FTIR à 1628 cm−1 attribuée à C=O",
+   "pores attribués à une pression de vapeur pendant la centrifugation",
+   "5,00 g de GO incompatibles avec un seul lot de carbonisation de 6 g (≈ 1,6 g de carbone), sans que la masse oxydée soit dite"
+  ],
+  "comparison_with_database": "GO de graphite par Hummers modifié dans PMC4164668 : pic DRX à 2θ = 10,56° (ici 10,3°) et ID/IG = 0,78 (ici 0,86 pour GOCG) : ordres de grandeur concordants. Carbone poreux de MOF/GO carbonisé à 600 °C (PMC10625068) : ID/IG 0,84 et 595 m2/g, ce qui situe les 114–117 m2/g de rGOPKS/EFB comme modestes. Aucune autre carbonisation de biomasse dans la base."
+ },
+ "sources_not_found": [
+  "texte original de Marcano et al. 2010 (exotherme, concentration du HCl de lavage, masse de produit) : non accessible, valeurs reprises d'un extrait de brevet lu par le moteur de recherche (page non ouverte)",
+  "série complète de rendement en carbone de la coque de palmiste de 400 à 900 °C"
+ ]
+}

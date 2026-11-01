@@ -1,0 +1,106 @@
+{
+ "pmcid": "PMC8434467",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "F127_pH9 / CAPB_pH9 / F127-C_pH9 : caractérisation HRTEM (réseau 0,40 / 0,28 / 0,27 nm)",
+   "extracted": "Les trois espacements 0,40 nm (200), 0,28 nm (211) et 0,27 nm (300) sont attachés à la fois à F127_pH9 et à CAPB_pH9 ; F127-C_pH9 n'a aucune ligne HRTEM.",
+   "article_says": "In Figure 5b, 0.40 nm corresponded to the (200) plane HA crystal, 0.28 nm corresponded to the (2 1 1) plane, and 0.27 nm corresponded to the (300) plane.",
+   "fix": "La figure 5b (ouverte) montre trois images de réseau, une par échantillon : F127 = 0,40 nm, F127-C = 0,28 nm, CAPB = 0,27 nm. Rattacher 0,40 nm (200) à F127_pH9 seul, 0,28 nm (211) à F127-C_pH9 (à créer en caractérisation de cette voie), 0,27 nm (300) à CAPB_pH9 seul ; le texte ne dit pas quelle valeur va à quel échantillon, c'est l'étiquetage de l'image qui tranche.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "faux",
+   "where": "SDS_pH4 : matériau (nom et formule)",
+   "extracted": "Matériau « hydroxyapatite (SDS-assisted) », formule Ca10(PO4)6(OH)2, alors que la phase extraite est « DCPA + (HA), HA minor phase » et que la voie est marquée succeeded=False.",
+   "article_says": "Notably, when using SDS as a nucleation template at pH 4, the diffraction peak was also based on the DCPA structure, although it contained a small amount of HA diffraction at 31.7°.",
+   "fix": "Aligner sur P_pH4 : produit principal = phosphate dicalcique anhydre (CaHPO4, DCPA) avec un peu d'HA ; nom et formule du matériau en conséquence.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CTAB-C_pH9 crystal_length_change_after_calcination = « length hardly changed after calcination »",
+   "extracted": "« length hardly changed after calcination » pour CTAB-C_pH9, avec la citation « Except for the cationic CTAB group, the length of these crystals hardly changed after calcination. »",
+   "article_says": "Except for the cationic CTAB group, the length of these crystals hardly changed after calcination. The crystals of the other groups (P, SDS, F127, and CAPB) were significantly shorter in length after calcination.",
+   "fix": "Prise au pied de la lettre, la phrase exclut le CTAB de « hardly changed » ; la phrase suivante, elle, dit que les quatre autres groupes raccourcissent, donc l'article se contredit (probable inversion). La lecture de la figure 4b (2,7 puis 2,6 μm) soutient « inchangé » pour le CTAB. Garder la valeur mais l'appuyer sur la figure, et ajouter une annotation limite_reproductibilite signalant la phrase contradictoire.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CTAB_pH4 crystal_size_length_diameter (texte) face à crystal_length_SEM = 4.6 μm (figure 3b)",
+   "extracted": "Deux valeurs côte à côte sans signalement : texte « length about 5–10 μm, diameter about 2–3 μm » et lecture de figure 4,6 μm de longueur.",
+   "article_says": "In the CTAB group at pH 4, hexagonal columnar crystals with a length of about 5–10 μm and a diameter of about 2–3 μm were found to be HA crystals.",
+   "fix": "La figure 3b donne pour CTAB une longueur ≈ 4,6 μm et un diamètre ≈ 0,45 μm (rapport 9,5), loin de « 5–10 μm » et « 2–3 μm » ; les barres du CTAB-C (6,1 μm, ≈ 1 μm) sont plus proches de ce que dit le texte. Ajouter un doute et une annotation limite_reproductibilite sur l'écart texte/figure ; ne pas corriger les valeurs.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Diamètres des cristaux (figures 3b et 4b) : aucun échantillon n'a de valeur de diamètre lue sur figure",
+   "extracted": "Seuls longueur et rapport L/D sont extraits ; les diamètres ne figurent qu'en texte approximatif pour P, P-C, CTAB et SDS à pH 4 et pour le groupe pH 9 en général.",
+   "article_says": "The diameter of HA synthesized at pH 4 was significantly larger than that of HA synthesized at pH 9",
+   "fix": "Ajouter une issue crystal_diameter_SEM (from_figure) par échantillon, lectures approximatives des barres hachurées : pH 4 : P 1,2 ; P-C 3,5 ; CTAB 0,45 ; CTAB-C 1,0 ; SDS 0,25 ; SDS-C 0,33 ; F127 0,3 ; F127-C 0,3 ; CAPB 0,33 ; CAPB-C 0,3 μm. pH 9 : tous entre 0,14 et 0,3 μm (P 0,3 ; P-C 0,17 ; CTAB 0,14 ; CTAB-C 0,18 ; SDS 0,19 ; SDS-C 0,22 ; F127 0,2 ; F127-C 0,17 ; CAPB 0,25 ; CAPB-C 0,2). C'est la tendance annoncée dans le résumé (diamètre pH 4 > pH 9) et elle n'a aucune valeur par échantillon.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Résultats DRX et IRTF par échantillon (sections 3.1 et 3.2)",
+   "extracted": "DRX : seule la phase est extraite (HA, DCPA, HA + β-TCP) ; pas de positions de pics pour CTAB, F127, CAPB à pH 4, ni pour le β-TCP après calcination, ni la largeur à mi-hauteur. IRTF : seule la phrase « pas de bande organique » est rattachée à CTAB-C_pH4.",
+   "article_says": "HA planes of (2 1 1), (1 1 2), and (300) (HA: JCPDS 09-0432) had the highest diffraction density at 31.7°, 32.2°, and 32.9°, respectively",
+   "fix": "Ajouter : (a) pics HA à 31,7 / 32,2 / 32,9° pour CTAB_pH4, F127_pH4, CAPB_pH4 (phrase ci-dessus) ; (b) pics β-TCP à 31,0° et 34,4° [(0 2 10), (2 2 0), JCPDS 09-0169] sur les voies calcinées (« diffraction peaks at 31.0° and 34.4° corresponding to the (0 2 10) and (2 2 0) planes, respectively, for the beta-tricalcium phosphate (β-TCP: JCPDS 09-0169) phase ») ; (c) FWHM de tous les pics HA plus étroit à pH 4 qu'à pH 9 (« the full-width at half-maximum (FWHM) of all HA diffractions at pH 4 (Figure 1a) was narrower than that at pH 9 (Figure 1c) ») ; (d) teneur en β-TCP un peu plus élevée à pH 4 qu'à pH 9 après calcination ; (e) IRTF : bandes β-TCP à 947, 971 et 1120 cm−1 après calcination, bande à 875 cm−1 (HPO4) à pH 4 pour DCPA, rattachées aux voies concernées ; la conclusion « no residual surfactant » vaut pour les cinq voies calcinées à pH 4, pas pour CTAB-C_pH4 seule.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Voies calcinées P-C_pH9, F127-C_pH9, CAPB-C_pH9 : résultats TEM",
+   "extracted": "Aucune caractérisation TEM sur les voies calcinées ; seules P_pH9, F127_pH9 et CAPB_pH9 portent le TEM.",
+   "article_says": "The rod-shaped HA crystals synthesized with F127 and CAPB as templates were nanometer-size in diameter and thickened after calcination.",
+   "fix": "Rattacher « thickened after calcination » à F127-C_pH9 et CAPB-C_pH9, et à P-C_pH9 le cliché de la figure 5a (même série pH 9 : P, P-C, F127, F127-C, CAPB, CAPB-C) ; les points de diffraction (002), (211), (222) sont étiquetés pour chacun.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Test XTT (caractérisation de CTAB_pH4) : protocole incomplet",
+   "extracted": "conditions = extrait à 0,2 g/mL, 37 °C, 24 h, 492 nm, DMSO 15 wt %, HDPE ; il manque l'ensemencement, la centrifugation, le volume d'extrait, la durée de culture, le kit XTT et l'incubation.",
+   "article_says": "mixed with an XTT cell proliferation detection kit (50 μL/well; Sigma-Aldrich, Louis, MO, USA), and placed in a 37 °C, 5% CO2 incubator for 4 h",
+   "fix": "Compléter les conditions : centrifugation 3000 rpm 5 min du milieu d'extraction ; ≈ 100 μL de cellules à 1 × 10^4 ; extrait à 100 μL/puits en plaque 96 puits, culture 24 h ; milieu remplacé (100 μL/puits) puis kit XTT 50 μL/puits, 4 h à 37 °C sous 5 % CO2 ; HDPE à 1/5 g/mL.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotation mecanisme_auteurs (CTAB_pH4)",
+   "extracted": "« Selon les auteurs, au-dessus de la concentration micellaire critique le CTAB forme des micelles chargées positivement ; … »",
+   "article_says": "According to previous studies, when the cationic surfactant concentration is greater than the critical micelle concentration (CMC)",
+   "fix": "Ce mécanisme est rapporté d'études antérieures dans l'introduction ; l'étude ne l'établit pas (aucune mesure de micelles, de charge ou d'adsorption). Reformuler en « selon des études antérieures citées par les auteurs » et ne pas le présenter comme conclusion de l'article.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotation tendance_observee (cytotoxicité des tensioactifs seuls, fig. 6)",
+   "extracted": "« … ce qui annonce que la toxicité des poudres non calcinées vient du tensioactif résiduel. »",
+   "article_says": "although FTIR confirmed that there was no residual surfactant, the rod-shaped HA crystals synthesized by the CTAB, SDS, and CAPB groups had excellent biocompatibility only after calcination at 900 °C.",
+   "fix": "Les auteurs ne concluent pas à un tensioactif résiduel ; le recoupement avec les figures le contredit en partie : CAPB seul ≈ 12 % de viabilité (fig. 6) mais HA-CAPB non calcinée à pH 9 ≈ 100 % (fig. 7b), et SDS seul ≈ 10 % contre 62 % pour SDS_pH4. Retirer la dernière phrase ou la marquer comme hypothèse de l'orchestrateur avec cette réserve.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 20,
+  "branches_extracted": 20,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0,
+  "figure_values_checked": 58,
+  "figure_values_off_more_than_10pct": 0
+ },
+ "reproducibility_gaps": [
+  "quantités de CaHPO4·2H2O et de Ca(OH)2 absentes (seul Ca/P = 1,67 et 160 mL d'eau)",
+  "pureté des précurseurs de calcium et de l'eau ; fournisseur de l'acide acétique ou de l'acétate de sodium",
+  "laquelle des deux solutions (acide acétique ou acétate de sodium) donne le pH 4 ou le pH 9, volume et vitesse d'ajout, température de la suspension",
+  "durée et vitesse d'agitation (« stirred well »)",
+  "récipient hydrothermal (autoclave, matériau, taux de remplissage), vitesse de chauffe et de refroidissement de la synthèse",
+  "nombre et volume des lavages, filtration à chaud ou à froid (« quickly aspirated »), atmosphère du séchage",
+  "four, creuset et atmosphère de la calcination à 900 °C",
+  "rendement non donné ; aucune Supporting Information"
+ ],
+ "mechanism_check": "à revoir : le mécanisme micellaire cité est tiré d'études antérieures (introduction), pas démontré par l'étude ; l'annotation « toxicité due au tensioactif résiduel » dépasse l'article",
+ "notes": "Table 1 : ordre des colonnes vérifié (pH 4 original, calciné ; pH 9 original, calciné) et les 20 valeurs c-axis/(100) et les 20 phases sont correctes pour chaque échantillon. Les 58 lectures de figure (fig. 3b : 8 rapports + 10 longueurs, les rapports de F127_pH4 et CAPB_pH4 venant du texte « ~18 » ; fig. 4b : 10 rapports + 10 longueurs ; fig. 7a/7b : 20 viabilités) sont toutes à moins de 10 % de ma lecture ; arrondis de viabilité >100 % à 100 ou 110 (écart ≤ 5 points). Écarts entre texte et figures de l'article lui-même (non imputables à l'extraction) : diamètre CTAB, rapport L/D de P à pH 9 (13 à 15, alors que le texte parle de « downward trend »). Le texte a « CTAB, F127, or CTAB » (coquille pour CAPB) et « L929 » dans la méthode XTT, déjà en doutes. Aucune source de méthode dans les Méthodes (seule la référence de Scherrer, équation d'analyse, non retenue) : method_sources vide est correct. Fig. 1 et 2 non utilisées pour des valeurs, non relues en détail."
+}

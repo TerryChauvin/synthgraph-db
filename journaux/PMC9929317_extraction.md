@@ -1,0 +1,15 @@
+# Journal d'extraction PMC9929317
+
+- **Découpage** : trois voies indépendantes, aucune branche. Le CuO vert (extrait d'E. alata) et le CuO chimique (KOH, pH 10) n'ont pas les mêmes étapes (pas de chauffage d'extrait ni d'ajustement de pH pour l'un ; pas de KOH pour l'autre) et des séchages différents (40 °C 24 h contre 80 °C 18 h) : deux voies de base. L'article ne dit pas que l'un suit « le même protocole » que l'autre.
+- **Extrait de plante en voie `intermediate`** : « 45 g ... 120 ml ... a week », dont 30 ml sont réutilisés dans la voie verte ; il est donc isolé puis réutilisé. Dans la voie verte il est un réactif de rôle `intermediate` (30 ml). Ce n'est pas du bioprocédé de culture : la règle du périmètre ne s'applique pas.
+- **Série de photocatalyse (MB 10, 20, 50 mg/L ; pH 4–10)** : essais du matériau fini, donc outcomes de Bio-CuO, pas des branches (règle « Tests du matériau fini »). Inventaire : une ligne `route: Bio-CuO` avec la raison.
+- **Valeurs lues sur figure** : Fig. 9 (80,5 et 77,4 %), Fig. 11 (pourcentages à 30, 60, 90, 120 min pour les deux matériaux) et Fig. 5c,f (EDX, % massique et atomique) sont imprimés sur les images, repris tels quels. Fig. 10 (pH) n'a pas d'étiquettes : lecture graphique à 2 chiffres (43, 84, 93, 90, 80 %), précision environ ±2 points. 10 mg/L et 180 min viennent du texte (93,4 %), sans figure.
+- **Texte préféré à la figure** : constantes de vitesse (0,005 et 0,01 min−1) et R2 repris du texte ; la Fig. 8 donne les mêmes valeurs (équations de droite).
+- **« copper oxide pentahydrate »** dans les Méthodes de la voie verte : erreur évidente d'intitulé (la formule CuSO4.5H2O et Materials parlent de sulfate de cuivre). Réactif nommé « copper sulfate pentahydrate », citation conservée telle quelle, doute consigné.
+- **Fournisseur** : « All the chemicals were purchased from Sigma-Aldrich without further purification » couvre explicitement tous les produits chimiques : fournisseur Sigma-Aldrich pour CuSO4·5H2O et KOH ; pureté non citée (« without further purification » ne donne pas de titre). Eau et poudre de plante : ni pureté ni fournisseur (la plante est récoltée, pas achetée).
+- **Lavage** : « three times » se rattache à la centrifugation ; nombre de lavages déclaré non cité (doute pour la lecture alternative).
+- **KOH** : 1 g dans 90 ml versé « until the pH reached 10 » : quantité extraite telle quelle, volume réellement versé non cité.
+- **Table 3, cellules « – »** (CuO chimique, champignons) : `value_text` « – », sans interprétation d'absence d'activité.
+- **Table 1** : les trois colonnes Dsh, microdéformation et densité de dislocations sont attribuées par le nom de la rangée (« Chem CuO-NP » / « Bio CuO-NP »), jamais par position ; dans la phrase « respectively » l'ordre est chimique puis vert.
+- **Annexes** : mmc1.docx présent (Fig. S1 structure du MB, Table S1, Fig. S2 couleur) ; aucune annexe absente. Pas de renvoi de méthode : `method_sources` vide (Debye-Scherrer, Tauc et JCPDS exclus par la règle).
+- **Non lu** : Fig. 2, 3, 4, 6, 7 (diffractogrammes, FTIR, UV-Vis, spectres de dégradation, schéma de mécanisme) : valeurs déjà dans le texte.

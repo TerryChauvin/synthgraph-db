@@ -1,0 +1,16 @@
+# Journal d'extraction PMC11098855
+
+- Découpage : cinq voies indépendantes (parent null), une par étape isolée de la chaîne MCF → MCF@SiO2 → Pr-Cl → Pr-ABT → catalyseur final. Les quatre premières sont `intermediate` (chacune est isolée, séchée et réutilisée par la suivante), la dernière est `material` et voie de base ; chaque réactif de départ issu de l'étape précédente est un réactif de rôle `intermediate` nommé d'après la voie.
+- Aucune branche : l'article ne varie aucun paramètre de synthèse du catalyseur. Les séries (Table 1, Table 2, réutilisation) varient les conditions de la réaction catalysée, donc des tests du matériau fini : rangés en `outcomes` (règle « tests du matériau fini »).
+- Table 1 : entrées 1–6 et 8–12 sur le catalyseur final, entrée 13 (MCF) sur la voie MCF, entrée 14 (Pr-ABT) sur la voie MCF@SiO2-Pr-ABT. Entrée 7 (sans catalyseur, « Trace ») sans voie, dans l'inventaire.
+- Table 2 : 20 rendements rangés sur le catalyseur final, un par rangée recopiée entière ; les produits organiques ne sont pas des matériaux (inventaire, route null). Temps et points de fusion non extraits.
+- Texte contre tableau : « reflux condition (Table 1, Entry 9) » contre 75 °C dans la rangée ; valeurs prises dans la rangée. Malononitrile 1,1 mmol (texte) contre 1 mmol (note) : en doute.
+- Texte contre schéma 1 (lu sur sc1.jpg) : 95 °C contre 90 °C (MCF), reflux 48 h contre 24 h (ABT), reflux contre r.t. (ZnCl2), trimethylamine contre Et3N, anions des sels (chlorures). Valeurs du texte conservées, écarts en doutes ; le schéma n'est pas citable car absent du fichier texte.
+- « heated for another 2 h under the same conditions » : température implicite (95 °C), déclarée `not_stated` selon la règle de la grille, durée extraite.
+- Sels de Mn, Co et Fe : un seul rapport molaire 1:1:4, pas de masses ni d'anions ; trois réactifs avec `amount_text` (rapport) plutôt qu'une quantité inventée.
+- Fournisseur : phrase générale « All chemicals and solvents were purchased from Merk, Fluka, and Aldrich… » appliquée aux réactifs achetés ; pas à l'eau déionisée (purity/supplier non cités). Pureté : seulement ethanol 99 % et ammoniaque 25 % (concentration écrite entre parenthèses).
+- Figures lues : Fig. 9 (rendements de réutilisation 92, 90, 90, 87 % aux cycles 1 à 4, étiquettes imprimées sur les barres) et Fig. 10 (55 % à 60 min après retrait du catalyseur). Texte (cinq cycles, 50 % en 20 min) en désaccord avec légendes et courbes : doutes. Fig. 7 (VSM) vérifiée, 44 et ≈ 20 emu/g comme dans le texte ; Fig. 11 (histogramme du catalyseur recyclé) non chiffrée, car illisible à 2 chiffres.
+- ATG : valeurs recopiées avec leur ordre « respectively » (a = MCF, b = Pr-Cl, c = final) ; incohérence interne 4.2 % / 4.1 % signalée sans correction.
+- Zêta : valeur donnée en texte (`value_text`) car le signe moins Unicode empêche un nombre propre ; temps de séchage et nombre de lavages déclarés non cités partout où l'article se tait.
+- method_sources : trois renvois (bib28 MCF, bib29 Stöber, bib30 Pr-Cl) en `protocole_adapte` : l'article reprend les quantités, donc ce n'est pas un simple renvoi ; les renvois vers les références de rendement/point de fusion du Table 2 ne sont pas des sources de méthode.
+- Annexe mmc1.docx : seulement les légendes de spectres IR/RMN de produits ; rien à extraire pour le matériau.

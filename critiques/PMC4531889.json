@@ -1,0 +1,72 @@
+{
+ "pmcid": "PMC4531889",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "Wch 20 μm (device, 25 mM) – inset of Fig. 5a, no branch",
+   "extracted": "sample_inventory lists « Wch 20 μm » with route null; no Substrate-Wch20 / ZnO-NRA-25mM-Wch20 branch",
+   "article_says": "Above 20 μm, the photocurrent on-off ratio was gradually decreased",
+   "fix": "Créer Substrate-Wch20 et ZnO-NRA-25mM-Wch20 (même schéma que Wch5/Wch30) avec on-off ≈ 31 lu sur l'encart de la Fig. 5a (from_figure), ou rejeter motivé : la largeur 20 μm n'est pas écrite dans les Résultats comme échantillon, seulement comme point de l'encart et dans « Above 20 μm ». Les points 5, 10, 15, 30 μm de ce même encart ont une branche ou une valeur, 20 μm est le seul absent.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs ZnO-NRA-25mM, quote",
+   "extracted": "quote = « Typically, the ZnO nuclei are formed at the surface of seed layer, and the Zn(OH)2 nanorods grow in a perpendicular direction with reaction of hydroxide ions and zinc ions. » alors que le texte de l'annotation ajoute la transformation de Zn(OH)2 en ZnO par déshydratation à l'air",
+   "article_says": "After dehydration in air, Zn(OH)2 is naturally transformed into ZnO.",
+   "fix": "Allonger la citation de l'annotation pour inclure cette phrase, qui seule soutient la fin du texte du mécanisme.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO-NRA-25mM / 5mM / 50mM outcome calculated_absorption_365nm_RCWA (conditions de simulation)",
+   "extracted": "valeurs 93.4 / 92.8 / 91.3 % sans condition de calcul",
+   "article_says": "Here, D is fixed to 0.7 and Px equals Py.",
+   "fix": "Ajouter aux trois résultats (ou en annotation) les conditions de la simulation RCWA : densité D = 0,7, Px = Py, indice complexe 2,1 + i0,5 à 365 nm (« At 365 nm of incident light, the complex refractive index of ZnO nanorods is considered to be 2.1 + i0.5 »). Ce sont des valeurs de calcul et non de synthèse, mais sans elles les % ne se comparent pas.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO-NRA-25mM-Wch5 / Wch30 outcome photocurrent_on_off_ratio vs ZnO-NRA-25mM / Wch15 photocurrent_on_off_ratio_at_5V",
+   "extracted": "propriété sans tension (9.5 ; 27) pour Wch5/Wch30, propriété « _at_5V » pour 10 μm et 15 μm",
+   "article_says": "For Wch = 15 μm, a high photocurrent on-off ratio of 37.4 was observed at 5 V of bias voltage.",
+   "fix": "Harmoniser le nom de propriété pour que les quatre largeurs se comparent (l'encart donne 10 μm ≈ 25 et 15 μm ≈ 37 en accord avec les valeurs à 5 V du texte, donc l'encart est très probablement à 5 V) ; au minimum, noter dans la valeur ou le doute que la tension des points 5 et 30 μm est supposée identique et non écrite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO-NRA-5mM, ZnO-NRA-50mM, variation hexamethylenetetramine",
+   "extracted": "value_text « equimolar to zinc nitrate », parent_value « equimolar to zinc nitrate (25 mM) »",
+   "article_says": "equimolar concentrations (5–50 mM)",
+   "fix": "Cette variation ne change rien (même valeur que le parent) ; elle peut rester comme rappel mais ne doit pas être comptée comme paramètre varié. Variation réelle = concentration de Zn(NO3)2 seulement ; la concentration de HMTA (5 et 50 mM) découle de « equimolar » sans être écrite chiffrée pour ces branches.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO-NRA-25mM photocurrent_at_10V, photocurrent_on_off_ratio_at_5V ; branches 5 mM et 50 mM (sans caractérisation)",
+   "extracted": "résultats sans largeur de canal (10 μm) ni référence au montage ; branches 5 et 50 mM sans entrée characterizations (FE-SEM coupe, I-V)",
+   "article_says": "the measured photocurrents of the corresponding samples are compared under the same illumination condition with a fixed channel width of 10 μm",
+   "fix": "Ajouter les caractérisations FE-SEM (Fig. 3a) et photocourant I-V (Fig. 3b, canal 10 μm, 365 nm) aux branches 5 mM et 50 mM, et mentionner la largeur 10 μm dans les conditions de la caractérisation I-V du 25 mM (et 2.8 mW/cm2 pour les branches Wch).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 8,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "cible de pulvérisation, durée de dépôt, débit d'Ar, pression de base et température du substrat pour la couche de ZnO de 50 nm",
+  "nature et épaisseur du SiO2, type et orientation du Si ; nettoyage du substrat",
+  "dessin des électrodes et du masque d'ombre (longueur, largeur, forme du canal), résine et solvant de lift-off, vitesse et pression de l'évaporation e-beam",
+  "pureté et fournisseur de Zn(NO3)2·6H2O et de l'hexaméthylènetétramine",
+  "récipient dans le four, orientation de l'échantillon dans la solution (face vers le haut ou le bas), vitesse d'agitation, refroidissement",
+  "conditions de séchage (« dried by flowing DI water » seulement), absence ou présence de recuit de la couche de germination",
+  "durée des phases on/off, tension et vitesse de balayage des courbes I-V, nombre de dispositifs mesurés",
+  "la largeur de canal de la voie de base (10 μm) n'est écrite que dans les Résultats ; aucune annexe"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs est bien celui des auteurs (citation à compléter par la phrase sur la déshydratation) ; mecanisme_analyse est étiqueté comme interprétation, hypothèses hors article (hydrolyse de l'HMTA, adsorption sur facettes latérales)",
+ "notes": "Valeurs from_figure vérifiées sur les images : Fig. 4b, point 50 mM centré vers 270 nm / 1,65-1,7 μm (extrait 270 nm, 1,7 μm, OK ; points 25 mM ≈ 45 nm/1,35 μm et 5 mM ≈ 35 nm/0,57 μm cohérents avec le texte) ; encart Fig. 5a : 5 μm ≈ 9,5, 10 μm ≈ 25, 15 μm ≈ 37, 20 μm ≈ 31, 30 μm ≈ 27 (extrait 9,5 et 27, OK). Fig. 3b : 1,34/1,91/1,04e-4 A à 10 V en accord avec le texte. Fig. 5b : pic ≈ 3,9e-4 A à 10 V (accord avec 3,93e-4). Les photocourants à 10 V pour 5 et 30 μm sont en échelle logarithmique serrée sur la Fig. 5a, la non-extraction est défendable. Aucune valeur fausse ni mauvaise attribution trouvée ; tous les « not_stated » vérifiés sont bien absents de l'article (pas d'annexe). Aucun renvoi de méthode dans refs (CR22–CR29 : interprétation ; CR25 : constante optique de simulation), method_sources vide est correct. Les branches Wch5/15/30 héritent du protocole des Méthodes sans que l'article le dise (déjà en doute). Le texte renvoie à « inset of Fig. 4a » pour l'encart de la Fig. 5a (coquille de l'article, déjà en doute)."
+}

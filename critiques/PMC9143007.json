@@ -1,0 +1,87 @@
+{
+ "pmcid": "PMC9143007",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "nano-LFS200 steps 1-7 (durée 12 h, lavage, centrifugation, séchage 80 °C/6 h, ordre des ajouts)",
+   "extracted": "étapes copiées de LFS200 sans acide ascorbique ; durée 12 h citée par la phrase du protocole typique",
+   "article_says": "A sample obtained after a hydrothermal reaction without the addition of ascorbic acid at 200 °C is denoted as nano-LFS200.",
+   "fix": "la phrase ne soutient que 200 °C et l'absence d'acide ascorbique ; déclarer durée, lavage, centrifugation et séchage de nano-LFS200 comme hérités du protocole typique (doute déjà posé, à rendre explicite en not_stated ou en annotation) plutôt que comme valeurs citées pour cet échantillon",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "LFS160 et LFS180 caractérisation FE-SEM (result « lower particle development degree than LFS200 »)",
+   "extracted": "quote : « SEM images given in Figure 2a–f demonstrate that the LFS160, LFS180 and LFS200 exhibited a hollow hemispherical morphology. »",
+   "article_says": "their particle development degree (Figure 2d,e) was lower than that of LFS200 (Figure 2f)",
+   "fix": "la citation de la caractérisation ne contient pas « lower development degree » ; remplacer ou compléter par la phrase de la section 3.2",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs (LFS200)",
+   "extracted": "Pour les auteurs, l'acide ascorbique agit comme réducteur ... et peut réduire la taille des particules.",
+   "article_says": "It has been found that ascorbic acid inhibited the oxidation of Fe2+ and reduced the particle size [], and acted as a reducing agent [,].",
+   "fix": "le rôle de réducteur et la réduction de taille sont des résultats de la littérature (renvois B34-B36), non démontrés par les auteurs ; la citation retenue ne porte que sur le changement de morphologie et l'auto-assemblage. Reformuler en précisant « d'après la littérature citée » ou citer aussi ce passage",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Coin_cell_LFS600 caractérisation galvanostatique, conditions « 1 C = 166 mA·g−1 »",
+   "extracted": "conditions : 2016-type coin cells at 30 °C, 1.5–4.8 V versus Li/Li+; 1 C = 166 mA·g−1 ; quote = phrase des Méthodes",
+   "article_says": "(b) rate performance (1 C = 166 mA·g−1)",
+   "fix": "la valeur 1 C = 166 mA·g−1 vient de la légende de la Figure 4, pas de la citation fournie ; ajouter cette légende comme citation (ou le préciser dans conditions)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "LFS600 résultats de performance (capacités, rétention, EIS, D_Li) placés sur la voie matériau, voie device Coin_cell_LFS600 n'a que potential_window",
+   "extracted": "capacités, rétention, Rct, RΩ, D_Li sur LFS600 ; capacités de nano-LFS600 sur nano-LFS600 sans voie device propre",
+   "article_says": "Cyclic charge–discharge measurements were performed on 2016-type coin cells at 30 °C in a potential window of 1.5–4.8 V versus Li/Li+",
+   "fix": "RUNBOOK : résultats d'une voie device sur elle ; les performances de cellule pourraient être rattachées à Coin_cell_LFS600 (ou laissées sur LFS600 avec un doute explicite). La cellule de nano-LFS600 n'a pas de voie propre (déjà notée en doute)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "LFS600 outcome discharge_capacity_0.2C_max = 192 mAh·g−1",
+   "extracted": "nom de propriété « max »",
+   "article_says": "The carbon-coated LFS600 sample exhibited a high discharge capacity of 192 mAh·g−1 at 0.2 C",
+   "fix": "« max » n'est pas écrit dans la citation et aucun numéro de cycle n'est donné ; renommer en discharge_capacity_0.2C (conclusion) ; la Figure 4b montre un plateau vers 190 mAh·g−1 autour du cycle 50, cohérent",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "LFS600 résultats électrochimiques : plateaux de la courbe charge-décharge",
+   "extracted": "seul le plateau de charge à 3.2 V et le pic de réduction à 2.74 V sont extraits",
+   "article_says": "When the voltage exceeded 4.2 V, another voltage plateau was formed due to the O2− oxidation",
+   "fix": "ajouter le plateau d'oxydation O2− au-delà de 4.2 V (et éventuellement « The first discharge curve became smooth at ~3.3 V ») ; la Figure 4c montre en plus les pics de charge 3.2 V (1er cycle), 3.1 V (2e cycle) et 4.6 V, non écrits dans le texte",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "LFS600 EIS : pente σ du tracé Z'-ω^-1/2 (Figure 5b)",
+   "extracted": "RΩ, Rct et D_Li extraits, σ absent (noté comme non donné dans le texte)",
+   "article_says": "the slope (σ) obtained by linear fitting can be used to calculate the Li ion diffusion coefficient",
+   "fix": "la Figure 5b permet de lire σ ≈ 150 Ω·s^1/2 (Z' de ≈ 92 à ≈ 188 Ω pour ω^-1/2 de 0.62 à 1.26), cohérent avec D = 5.768e-12/σ² = 2.5e-16 ; à marquer from_figure Fig. 5b (précision 2 chiffres) ou à garder en limite_reproductibilite",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 87,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantités de solides en moles uniquement, volume et taux de remplissage de l'autoclave absents",
+  "nature de l'« alcohol » de lavage non précisée (éthanol ?), nombre de lavages, vitesse et durée de centrifugation absents",
+  "vitesse et durée d'agitation, atmosphère pendant la réaction hydrothermale (Fe(II)) non écrites",
+  "masses de LFS200 et de saccharose (seul le rapport 1:2, dont l'ordre n'est pas nommé), vitesse de chauffe et four de calcination, débit de N2, teneur en carbone",
+  "Figures S1, S2, S3 et Table S1 absentes du dépôt (distributions de taille, performances de nano-LFS600, SEI, comparaison bibliographique)",
+  "grammage de matière active, épaisseur de l'électrode, volume d'électrolyte, pression de sertissage",
+  "aucune caractérisation DRX ni taille de nano-LFS200 ; les valeurs de LFS180 et LFS160 portent sur la Figure 1 où les astérisques Li2SiO3 ne sont tracés que sur LFS160"
+ ],
+ "mechanism_check": "ok : mecanisme_analyse marqué comme hypothèse, calculs vérifiés (LiOH 0.12 mol / 0.06 L ≈ 2 mol/L ; ascorbique 0.0031/0.02 ≈ 15 % ; vapeur d'eau ≈ 1.5 MPa à 200 °C) ; seul le mecanisme_auteurs attribue aux auteurs des rôles issus de la littérature (voir constat).",
+ "notes": "Extraction globalement fidèle : toutes les valeurs numériques du texte (tailles, capacités, rétentions 90.5/88.6/75.2 %, RΩ, Rct, D_Li) vérifiées contre le texte, et cohérence des rétentions recalculée (114.2/126.2 etc.). Aucune valeur from_figure dans l'extraction ; les Figures 4b, 4e et 5 confirment les valeurs du texte (110, 163, ~190, 126/114/105). Équation (3) du texte vérifiée : R²T²/(2A²n⁴F⁴C²) = 5.77e-12 en σ^-2 (annotation de l'extracteur exacte). method_sources vide : correct, aucun renvoi de méthode (B51-B53 sont des équations, B30 une valeur de n, B37 une comparaison de phase). Ambiguïté T = 25 °C (équation de D) contre 30 °C (essais) laissée à l'article."
+}

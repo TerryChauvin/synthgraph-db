@@ -1,0 +1,111 @@
+{
+ "pmcid": "PMC11297172",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "BTS12-1300 et BTS12-1400, étape 10 (sinter), duration hérité = 10 min",
+   "extracted": "duration = 10 min (héritée de BTS12-1350 via la voie parent)",
+   "article_says": "Overall, a sintering temperature of 1350 °C for 10 min was chosen for rapid sintering of the BTS family samples.",
+   "fix": "Le 10 min est cité uniquement comme condition retenue (1350 °C) après la série ; pour 1300 et 1400 °C l'article ne donne aucune durée (autre passage : « The rapid sintering of all 7 samples took a total of 70 min », durée totale, pas un palier). La Fig. 3 (étiquette de l'image) donne « 5-10 min » pour la série BTS, donc la durée de ces deux échantillons est inconnue. Ajouter à ces deux branches une variation duration en value_text « non précisée (Fig. 3 : plage 5-10 min pour la série BTS) » ou donner à la branche son étape 10 propre avec duration dans not_stated ; ne pas hériter 10 min. Le contrôle croisé BST renforce le doute : 4 BST à 10 min de palier ont pris « 60 min » au total (15 min par pastille), donc 70 min / 7 = 10 min par pastille ne vaut pas palier de 10 min (ce serait plutôt 5 min). Le doute existant (BTS12-1300 et BTS12-1400, étape 10) reconnaît l'héritage mais la donnée reste présentée comme valeur citée.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "(Ba0.8Sr0.2)CeO3 étape 5 (1400 °C, 10 min) et (Ba0.4Sr0.6)CeO3 variations (1250 °C, 25 min)",
+   "extracted": "(Ba0.8Sr0.2)CeO3 : 1400 °C / 10 min ; (Ba0.4Sr0.6)CeO3 : 1250 °C / 25 min",
+   "article_says": "The XRD analysis revealed that (Ba0.8Sr0.2)CeO3, which was sintered at 1400 °C for 10 min and (Ba0.6Sr0.4)CeO3 sintered at 1250 °C for 25 min, successfully achieved a single phase structure.",
+   "fix": "Le texte attribue 1400 °C/10 min à Ba0.8Sr0.2 (retenu à juste titre, le texte tranche). Mais la Fig. 6a (lue) a deux cadres : le cadre haut (1250 °C, ≈ 30 min) relié par une flèche au panneau b = XRD de (Ba0.8Sr0.2)CeO3 et le cadre bas (≈ 1390-1400 °C, ≈ 15 min) relié au panneau c = (Ba0.4Sr0.6)CeO3, soit l'inverse du texte, avec des durées lues ≈ 30 et ≈ 15 min au lieu de 25 et 10. Le doute existant ne signale que 25 contre 30 min ; y ajouter l'inversion possible des deux compositions et l'écart 10 contre ≈ 15 min. Aucune valeur à changer. Nom de la 2e composition : trois graphies (Ba0.6Sr0.4 texte, Ba0.4Sr0.6 Tableau 2/Fig. 6, Ba0.5Sr0.5 étiquette Fig. 4b).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "BTS12-Con, étape 10 et étapes amont héritées",
+   "extracted": "étape 10 « Automated rapid sintering of the green pellet in the tube furnace » avec équipement tube furnace M.L. Furnaces + bras robotisé, durée 2 h, plus pré-frittage à 200 °C hérité",
+   "article_says": "To compare the dielectric performance of robotic versus conventional sintering methods, another batch of BTS12 (BTS12-Con) was prepared by sintering at 1350 °C for 2 h.",
+   "fix": "L'article oppose frittage robotisé et conventionnel : le lot Con n'est pas dit passé par le four tubulaire robotisé (Méthodes : le frittage conventionnel se fait « in an air furnace »). Donner à BTS12-Con sa propre étape 10 (sinter, 1350 °C, 2 h, four et atmosphère not_stated) au lieu d'hériter description et équipement de la voie robotisée ; l'héritage du pré-frittage à 200 °C et du broyage est déjà en doute, y ajouter l'équipement.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "série en température du BTS12 : 1100, 1150, 1200, 1250 °C",
+   "extracted": "voie null dans sample_inventory (« températures déduites de la plage »)",
+   "article_says": "A total of 7 identical BTS12 pellets were fabricated for testing.",
+   "fix": "« 1100 °C to 1400 °C (with 50 °C intervals) » + « 7 identical BTS12 pellets » donne exactement 7 températures ; une branche par température fabriquée (1100, 1150, 1200, 1250) avec la variation temperature citée sur cette phrase, sans résultat propre (seule la tendance « density … increases with increasing sintering temperature » les couvre). Choix discutable (valeurs non écrites une à une) : à trancher par l'orchestrateur, au minimum une annotation tendance_observee sur la série.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "essais ML ratés ((Sr0.5Pb0.5)CeO3, (Sr0.2Pb0.8)CeO3, (La0.3Bi0.7)CrO3, (K0.5Bi0.5)CeO3)",
+   "extracted": "aucune voie (sample_inventory route null)",
+   "article_says": "XRD results revealed multiple phases in these samples (Supplementary Fig. 14).",
+   "fix": "RUNBOOK règle 3 : les essais ratés sont gardés avec succeeded:false. Les quatre compositions sont nommées dans la légende de l'annexe (« calcining at different temperatures »), mêmes préparation manuelle à l'éthanol que les ML réussis ; créer quatre voies (ou une par composition) succeeded:false avec les températures et durées dans not_stated. Noter que cette légende parle de calcination, absente de la voie (Ba0.8Sr0.2)CeO3 (doute déjà consigné).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "BTS12-1350, Pure-BST, ML : étape de sortie du four et refroidissement forcé après l'étape 10",
+   "extracted": "cooling_rate déclaré not_stated à l'étape 10 ; aucune étape de refroidissement",
+   "article_says": "To increase the cooling rate, a pneumatic solenoid valve was activated, which controlled the flow of compressed air to a cooling vortex tube.",
+   "fix": "Ajouter après l'étape 10 une étape cool/retrait (« As the samples were removed from the furnace, they were placed between two coaxial loops of the sensor », refroidissement par tube vortex à air comprimé jusqu'à température ambiante, mesure sur ≈ 20 min) ; le mode de refroidissement est cité, seule la vitesse est inconnue (cooling_rate reste not_stated). Le tube vortex n'apparaît nulle part dans le JSON.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BTS12-1350 et BTS16-1350, Tableau 1 colonne (b) (Curie, 25–65 °C) et phrase 2 kV mm−1",
+   "extracted": "curie : BTS12 58.4 ; BTS16 38.1 ; impédance : BTS12 60.44 ; BTS16 39.4 (valeurs du tableau, par nom de rangée)",
+   "article_says": "Under an electric field of 2 kV mm−1, BTS12 and BTS16 exhibit 58.4% and 38.1% electrical tuning, respectively.",
+   "fix": "Contradiction non consignée : le texte donne 58.4 et 38.1 comme tunabilité sous 2 kV mm−1 alors que ce sont les valeurs de la colonne (b) du tableau (sans champ, température) ; la colonne (a) et la Fig. 5a donnent ≈ 60 et ≈ 40. De plus la Fig. 5b (lue) place BTS12 à ≈ 39 % et BTS16 à ≈ 57 % à 65 °C, ce qui est l'inverse des valeurs de la colonne (b). Aucune valeur à changer (les rangées sont attribuées par nom comme écrit) ; ajouter un doute et une annotation limite_reproductibilite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BTS14-1350 / BTS16-1350, variation « tin precursor (not named) » = « BTS14 / BTS16 »",
+   "extracted": "value_text BTS16 (nom d'échantillon, pas une quantité)",
+   "article_says": "3 BTS ratios (BaTi1-xSnxO3) (referred to as BTS12, 14 and 16)",
+   "fix": "La Fig. 3 (image, lue) écrit « Ratios 12 % 14 % 16 % » pour les trois pastilles BTS : renseigner la variation avec la quantité d'étain (12, 14, 16 %) marquée from_figure Fig. 3, en gardant « x non défini dans le texte » en doute ; actuellement la variation ne porte que le nom de l'échantillon.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "mécanisme_auteurs (hausse de permittivité du BTS12 avec la température de frittage)",
+   "extracted": "« ils expliquent l'accordabilité par l'activité de nano-amas polaires » avec citation sur grain/cristallinité seulement",
+   "article_says": "The reason is that the activity of the polar nanoclusters is reduced by applying the DC bias field, resulting in a decrease in their contribution to the dielectric permittivity.",
+   "fix": "La citation de l'annotation n'appuie que la moitié grain/cristallinité ; soit retirer la phrase sur les nano-amas polaires de cette annotation, soit en faire une seconde annotation mecanisme_auteurs avec la citation ci-contre.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "conditions de criblage ML : (Ba,Sr)CeO3, plage de frittage",
+   "extracted": "annotation tendance_observee sur le contour, aucune branche ; annotation « 10 à 35 min, 1250 à 1400 °C »",
+   "article_says": "This encompassed the examination of sintering temperatures ranging from 1250 °C up to 1400 °C and sintering holding times of 10, 15, 25, and 35 min.",
+   "fix": "La Fig. 3 (image) écrit « 5-35 min » et « 1200-1400 °C » pour le groupe ML, contre 10-35 min et 1250-1400 °C du texte : le noter en doute. Les quatre durées sont listées une à une (10, 15, 25, 35 min), mais sans résultat chiffré par condition (carte continue) : pas de branche à créer, l'annotation suffit.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources : renvoi CR65 absent",
+   "extracted": "CR24, CR25, CR42, CR64 seulement",
+   "article_says": "the automated setup uses a free space dielectric characterization technique to measure the resonant modes within the hot samples in 0 to 3 GHz frequency range",
+   "fix": "Dans refs, cette phrase porte le renvoi [[CR65]] : technique de mesure à refaire, donc source de méthode (role mesure/autre) selon la règle du 13/10 ; à ajouter ou à écarter explicitement. CR60-63 (« sintered into a dense block ») et CR66 (facteurs R « reported previously ») ne sont pas des méthodes.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 21,
+  "branches_extracted": 13,
+  "not_stated_checked": 45,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "aucune masse ni quantité de précurseur (seulement « stoichiometric amounts ») ; précurseurs d'étain et de cérium non nommés ; taux de dopant (Ta, Nb, Zr, Hf) et valeur de x (BTS12/14/16) non donnés",
+  "pureté et fournisseur de HfO2, ZrO2 absents ; formule de l'oxyde de tantale non écrite",
+  "milieu et solvant du broyage, rapport billes/poudre, vitesse et durée du second broyage, température et durée de séchage, maille du tamis, liant du pressage non donnés",
+  "durée de maintien des pastilles BTS12 à 1300 et 1400 °C non donnée (Fig. 3 : 5-10 min) ; atmosphère, vitesses de chauffe et de refroidissement du frittage rapide non donnés ; durée du pré-frittage à 200 °C absente",
+  "Supplementary Figs 2-14 et Movie 1 absentes du dépôt : densités du BTS12 par température, MEB, boucles P-E, XRD des essais ML ratés",
+  "ML : précurseurs, calcination éventuelle, mélange à l'éthanol (quantité, durée) non donnés ; la Fig. 6a (carte du pic de phase secondaire) n'est pas chiffrée",
+  "four et atmosphère du lot conventionnel BTS12-Con non donnés"
+ ],
+ "mechanism_check": "ok : mécanisme de formation de phases non revendiqué par les auteurs ; réserve sur la citation de mecanisme_auteurs (voir constat)",
+ "notes": "Valeurs du Tableau 1 (5 rangées x 5 colonnes), Tableau 2, lattice, FOM, tan δ, grain (200 nm, 1 µm, 20 µm) toutes relues contre le texte : 0 erreur de valeur. Valeurs lues sur figure vérifiées : Fig. 4b (68, 63.8, 62.2, 77.4, 83, 55.8, 0 %) exactes ; Fig. 4c ε′ à 25 °C (≈ 4100, 3600, 3400, 4200, 2100) dans la précision ±200 déclarée, écart < 10 %. Contradiction légende/panneaux de la Fig. 4 déjà en doute. Ordre de l'étape 9 (pré-frittage à 200 °C après pressage) non écrit par l'article mais très probable (« green pellets » transférés par le robot) : non retenu comme constat. Formule des BST dopés (Ba0.6Sr0.4Ti0.02O3) incohérente dans l'article : doute existant suffisant."
+}

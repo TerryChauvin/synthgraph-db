@@ -1,0 +1,80 @@
+{
+ "pmcid": "PMC7645746",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "route CuGA 90–2.2, caractérisations/résultats : FTIR, MEB et DRX du matériau après adsorption (MB@CuGA, CR@CuGA)",
+   "extracted": "seul « MB@CuGA » apparaît dans sample_inventory (route null) ; aucune caractérisation ni aucun résultat de FTIR/MEB après adsorption n'est repris",
+   "article_says": "In MB@CuGA chromatogram, new peaks appear at 1170, 1360, and 1363–1591 cm−1 corresponding to the C=C, aromatic ring, and C–H asymmetric vibration peaks of MB, respectively.",
+   "fix": "ajouter à CuGA 90–2.2 une caractérisation FTIR post-adsorption (MB : 1170, 1360, 1363–1591 cm−1 ; CR : 829, 1051, 1409, 1575 cm−1 selon le texte) et le MEB sans changement apparent (Fig. 7c,d), ou noter dans l'annotation limite que ces essais du matériau usagé ne sont pas repris",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CuGA 60–3.3 succeeded=false contre CuGA 60–4.4 succeeded=true",
+   "extracted": "60–3.3 marqué échec (pics Cu2O) ; 60–4.4 (rendement 4,70 %, pH 8,53) marqué réussi par défaut",
+   "article_says": "at a higher NaOH concentration (X = 3.3 and 4.4), excessive OH− ions may inhibit the Cu to GA coordination bonds and triggers the formation of metal hydroxide compound instead.",
+   "fix": "critère incohérent : les auteurs traitent 3.3 et 4.4 ensemble et ne parlent d'échec ni pour l'un ni pour l'autre ; soit 3.3 réussi (motif du MOF « quite prominent », Cu2O en plus, noté en résultat), soit 4.4 aussi marqué succeeded=false ; dans les deux cas, dire dans une annotation que le marquage est une lecture de l'extracteur",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "résultats « reaction_mixture_pH_measured » (6 voies)",
+   "extracted": "nom de propriété : pH du mélange réactionnel",
+   "article_says": "Sample name | Concentration (M) | Temp | pHmeasured",
+   "fix": "l'article ne dit ni quel milieu ni à quel moment le pH est mesuré (solution de NaOH, mélange final ?) : renommer « pH_measured_Table4 » ou ajouter la réserve ; le résumé comparaison_branches écrit aussi « pH mesuré du mélange »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CuGA 60–2.2 yield (route et résultat)",
+   "extracted": "34,66 % sans incertitude",
+   "article_says": "As shown in Fig. 1a, the highest yield (34.66%) was obtained at X = 2.2.",
+   "fix": "la figure 1a imprime « 34.66 ± 3.21 % » (lu sur l'image) ; les trois autres rendements portent leur ± dans value_text : ajouter value_text « 34.66 ± 3.21 % » au résultat de 60–2.2, comme pour les autres",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CuGA 90–2.2 material.formula = Cu2C8H6O8",
+   "extracted": "formule du matériau Cu2C8H6O8 reprise comme formule de la voie",
+   "article_says": "calculated formula Cu2C8H6O8 (fw.296): 26.90% C, 1.80% H, and 35.30% O",
+   "fix": "la formule est introduite comme « calculated » ; fw 296 ne correspond pas à la formule (M ≈ 357 g/mol, les 26,90 % C correspondent d'ailleurs à 357) ; C8 ne correspond pas à l'acide gallique (C7) et Cu2/GA contredit le rapport 1:1:2,2 : le doute existe dans doubts mais l'annotation limite_reproductibilite ne le dit pas ; l'ajouter, et ne pas présenter la formule comme mesurée",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CuGA 60–1.1, 60–3.3, 60–4.4 : variation « sodium hydroxide » sans step_order",
+   "extracted": "variation sur la quantité de NaOH rattachée à aucune étape",
+   "article_says": "2.5 mmol (0.425 g) of GA was dissolved in 5 mL NaOH solution at certain molar concentration (Table 4).",
+   "fix": "rattacher la variation à l'étape 1 (dissolution de GA dans la solution de NaOH) ; à noter que les deux variations de température sont, elles, rattachées à l'étape 3",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "sample_inventory : témoin « CR only » de la figure 2b",
+   "extracted": "absent de l'inventaire",
+   "article_says": "(b) Adsorption ability of CuGA T-2.2 for removal of 1000 ppm CR dye.",
+   "fix": "ajouter à l'inventaire la cuvette « CR only » (solution de rouge Congo à 1000 ppm sans MOF, lue sur la figure 2b), route null, car elle sert de référence pour la décoloration",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 19,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "mode de séparation du solide avant les 5 rinçages (filtration ou centrifugation non dite) et volume de chaque rinçage",
+  "température de dissolution de GA dans NaOH et de l'addition de CuCl2 (seule la température de la réaction sous agitation est donnée, colonne Temp du tableau 4)",
+  "solvant de la solution de NaOH non nommé (eau supposée) ; NaOH donné en molarité seulement (5,5 mmol à X = 2,2, à calculer)",
+  "vitesse d'agitation, récipient, atmosphère (air supposé), débit ou durée de l'addition goutte à goutte",
+  "paramètres de la lyophilisation (température, pression) hors la durée de 24 h",
+  "définition du rendement (base de calcul) ; la valeur à X = 4,4 est liée à une molarité de NaOH (2,42 M) incohérente avec X × 0,5 M (2,2 M attendus)",
+  "formule et masse molaire du MOF incohérentes (Cu2C8H6O8, fw 296) : structure non établie ; pas de PXRD pour 60–4.4",
+  "protocoles de pHPZC, potentiel zêta et désorption à l'éthanol non décrits (renvois CR34 et CR52, une phrase)"
+ ],
+ "mechanism_check": "ok : le résumé et mecanisme_auteurs (NaOH déprotone l'acide carboxylique et les hydroxyles de GA ; excès d'OH− donne hydroxyde métallique ; Cu2O attribué à l'excès de NaOH) reposent sur le texte ; mecanisme_analyse est bien présenté comme hypothèse.",
+ "notes": "Extraction fidèle : valeurs du tableau 1 (colonnes Langmuir/Freundlich/Sips, 3 températures, 2 colorants), tableaux 3 et 4, cristallinités et pH vérifiés un par un, aucun décalage de rangée. Valeurs lues sur figure confirmées sur les images : Fig. 1a (21,99 ± 2,76 ; 34,66 ± 3,21 ; 10,59 ± 2,91 ; 4,70 ± 0,50), Fig. 3b (eau 7,5 % ; 43,7 % étiqueté « Gallic acid »), Fig. 4a (MB ≈ 98 % à pH 6, CR ≈ 99 % à pH 7), Fig. 8 (cycle 1 MB ≈ 122 mg/g, extrait 120, écart 1,7 % ; CR ≈ 331, extrait 330). method_sources jugé complet : seuls CR34 et CR52 (pHPZC et potentiel zêta) sont des renvois de méthode ; CR19 (Sharma, synthèse du témoin dans le DMF) est donné comme contexte et non comme protocole nécessaire ici ; CR47, CR53, CR54 sont des équations. Fragile dans ma lecture : la légende de la figure 4 inverse les panneaux b et c par rapport à l'image (b = pHPZC, c = potentiel zêta, comme le texte) ; la molarité 2,42 M du tableau 4 pour 60–4.4 est possiblement une erreur des auteurs (gardée, doute déjà noté). Le diffractogramme 90–2.2 de la figure 2a porte un pic net vers 28,5° et 43,5° non commentés par l'article (pas un constat d'extraction)."
+}

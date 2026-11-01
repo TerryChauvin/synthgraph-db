@@ -1,0 +1,15 @@
+# Journal d'extraction PMC10336645
+
+- Découpage : trois voies de base. Le mélange P,N-CDs (`PN-CDs_mixture`, `kind: intermediate`, seule voie `is_baseline`) est celui que l'article « utilise immédiatement pour la séparation » ; bCDs et gCDs sont des voies à étapes propres (colonne DOWEX), le mélange y figure comme réactif `intermediate`.
+- bCDs et gCDs ne sont pas des branches l'une de l'autre : elles sortent de la même colonne, mais l'article n'écrit pas qu'une fraction suit le protocole de l'autre. Pas de variation, donc pas de branche (les « 0 branches » sont voulues). L'éluant (eau, puis HCl 1,0 M) est le seul écart, noté dans `comparaison_branches`.
+- Étape 4 des deux voies (« unbound fractions were washed with deionized water ») : répétée telle quelle dans gCDs, car l'article dit que les bCDs sont éluées à l'eau avant l'élution acide ; l'ordre exact (lavage, puis élution bCDs, puis HCl) n'est pas détaillé, répétitions et volumes en `not_stated`.
+- « respectively » : maxima d'émission 460/510 nm, QY 20,33/1,92 %, durées de vie 6,194/2,09 ns attribués dans l'ordre de la phrase (bCDs, gCDs), confirmés par la Fig. 2f pour QY et durée de vie.
+- Émission : le texte (460/510 nm « according to the color under the UV lamp ») contredit les spectres des Fig. 2b/2e (maxima vers 440/430 nm, sans écart net). Texte gardé comme valeur, lectures de figure ajoutées en doute avec ± 10 nm.
+- Viabilité cellulaire (Fig. 4) : texte (> 90 % ; > 92,6 %) conservé en `value_text`, lecture de figure à 10 et 160 μg mL−1 pour U20S et 143B, tout le reste de la série non lu (précision et utilité faibles). Axe de la Fig. 4a en « mg/mL », légende en μg mL−1 : légende retenue.
+- Phosphore bCDs : le texte dit P 1,26 % et O 33,76 %, le tableau S2 dit O 15,81 % et N 33,76 % ; seule la valeur de P est extraite, l'écart est en doute. Le tableau S2 aplati n'est pas extrait (citation d'un seul nombre refusée) ; valeurs seulement citées dans les annotations.
+- XPS N 1s de bCDs : l'attribution du texte (398,7 = N-oxyde de pyridine) est contredite par la Fig. 3b ; valeurs du texte recopiées, désaccord en doute.
+- Pureté et fournisseur : phrase générale « All reagents were analytical grade » contiguë aux phrases Aladdin et Yuanye dans le texte, donc citée avec elles (supplier_quote). Pas de pureté ni de fournisseur pour la résine DOWEX (non cités) ; l'eau désionisée est rangée en rôle `wash`.
+- Essais de stabilité (NaCl, pH) et tests cellulaires : rangés en caractérisations avec conditions, sans voie `device`. Résultats de stabilité qualitatifs, non extraits en valeurs.
+- Hydrothermal (résumé) contre solvothermal (corps) : méthode notée solvothermale, formamide étant le solvant ; en doute.
+- Annexe : l'annexe PDF est présente (légendes S1 à S9, tableaux S1 et S2) mais les images S1 à S9 n'y sont pas ; notée en `limite_reproductibilite` avec le préfixe « Annexe absente du dépôt ». Pas de renvoi de méthode vers une autre publication : `method_sources` vide.
+- Milieux de culture : McCoy's 5A et MEM listés dans les réactifs mais « DMEM » dans l'imagerie ; non repris (biologie, hors synthèse), non signalé en doute.

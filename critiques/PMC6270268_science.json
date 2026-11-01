@@ -1,0 +1,432 @@
+{
+ "pmcid": "PMC6270268",
+ "routes": [
+  {
+   "label": "HAP-NH2",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de Ca(OH)2 contre solubilité",
+     "inputs": "0,1 mol Ca(OH)2 (74,09 g/mol) dans 5 000 mL",
+     "formula": "m = n × M ; c = m/V",
+     "result": "7,41 g ; 1,48 g/L (0,020 mol/L)",
+     "compared_to": "solubilité 1,73 g/L à 20 °C (un peu moins à 25 °C, solubilité rétrograde) : solution proche de la saturation",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques IUPAC (Ca 40,078 ; P 30,974 ; O 15,999 ; H 1,008 ; C 12,011 ; N 14,007), PubChem https://pubchem.ncbi.nlm.nih.gov/ ; solubilité : references/constantes.md (Wikipedia, source secondaire)"
+    },
+    {
+     "what": "rapport Ca/P introduit et bilan acide-base",
+     "inputs": "0,1 mol Ca(OH)2 (0,2 mol OH−) ; 0,06 mol H3PO4",
+     "formula": "n(Ca)/n(P) ; 10 Ca(OH)2 + 6 H3PO4 → Ca10(PO4)6(OH)2 + 18 H2O",
+     "result": "Ca/P = 1,667 ; OH− apportés 0,20 mol = 0,18 (déprotonation de H3PO4) + 0,02 (OH de l'apatite) : neutralisation exactement stœchiométrique",
+     "compared_to": "hydroxyapatite stœchiométrique Ca/P = 1,67",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse attendue de HAP et rapport β-alanine/HAP",
+     "inputs": "0,01 mol Ca10(PO4)6(OH)2 (1 004,6 g/mol) ; 0,1 mol β-alanine (89,09 g/mol)",
+     "formula": "m(HAP) = 0,01 × 1 004,6 ; m(β-Ala) = 0,1 × 89,09",
+     "result": "m(HAP) = 10,05 g ; m(β-Ala) = 8,91 g, soit 1 β-Ala par Ca ; si tout était retenu : 47 % en masse d'organique, Ca = 21,1 %",
+     "compared_to": "TGA de HAP-NH2 : perte < 6 % (texte) ou ≈ 8 % (figure 1) jusqu'à 1 000 °C",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques IUPAC (Ca 40,078 ; P 30,974 ; O 15,999 ; H 1,008 ; C 12,011 ; N 14,007), PubChem https://pubchem.ncbi.nlm.nih.gov/"
+    },
+    {
+     "what": "teneur maximale en amine de HAP-NH2 d'après la TGA",
+     "inputs": "perte TGA ≤ 6 % (attribuée par les auteurs à l'eau absorbée) ; β-Ala 89,09 g/mol",
+     "formula": "n(β-Ala) ≤ 0,06 g / 89,09 g/mol par g",
+     "result": "≤ 0,67 mmol/g si toute la perte était de la β-alanine ; ≈ 0 si elle est de l'eau, comme le disent les auteurs",
+     "compared_to": "valeur nominale 5,3 mmol/g (0,1 mol β-Ala / 19 g) : au plus 13 % de la β-alanine retenue",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "teneur en Ca théorique de l'hydroxyapatite",
+     "inputs": "Ca10(PO4)6(OH)2, M = 1 004,6 g/mol",
+     "formula": "10 × 40,078 / 1 004,6",
+     "result": "39,89 %",
+     "compared_to": "« théorique » du tableau 1 : 38,46 % (= 96,4 % de HAP, base non expliquée) ; mesurée 15,89 %",
+     "source": "masses molaires calculées à partir des masses atomiques IUPAC (Ca 40,078 ; P 30,974 ; O 15,999 ; H 1,008 ; C 12,011 ; N 14,007), PubChem https://pubchem.ncbi.nlm.nih.gov/"
+    },
+    {
+     "what": "acide disponible pour dissoudre 100 mg d'échantillon (dosage du Ca)",
+     "inputs": "100 mg de HAP (0,0995 mmol) ; 5 mL HNO3 0,1 N = 0,50 mmol H+",
+     "formula": "H+ requis : Ca10(PO4)6(OH)2 + 14 H+ → 10 Ca2+ + 6 H2PO4− + 2 H2O (8 H+ jusqu'à HPO4^2−)",
+     "result": "requis 1,39 mmol (vers H2PO4−) ou 0,80 mmol (vers HPO4^2−) contre 0,50 mmol disponibles : 36 à 63 % de la HAP au plus dissoute ; Ca dosable ≤ 14,3 à 25,0 % de la masse",
+     "compared_to": "Ca mesuré de HAP-NH2 : 15,89 %, dans cette fourchette : la sous-estimation s'explique par l'acide insuffisant",
+     "source": "valeurs de l'article ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ca/P introduit = 1,667 et OH− juste suffisants pour neutraliser H3PO4 (calcul « rapport Ca/P introduit et bilan acide-base ») : bilan de l'hydroxyapatite stœchiométrique correct.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "1,48 g/L de Ca(OH)2 contre ≈ 1,7 g/L de solubilité (calcul « concentration de Ca(OH)2 contre solubilité ») : dissolution possible mais lente et proche de la saturation, ce qui justifie les 24 h d'agitation ; une solution trouble au départ signale du Ca(OH)2 non dissous ou du CaCO3.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Calcium hydroxide (infobox, solubilité)",
+      "authors_or_publisher": "Wikipedia (source secondaire, reprise de references/constantes.md)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Calcium_hydroxide"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Agitation 48 h à 25 °C d'une solution de Ca(OH)2 0,02 M (pH ≈ 12,6) sans atmosphère inerte citée : absorption de CO2 de l'air, carbonatation de l'apatite (bande à 1 416 cm−1 rapportée) ou CaCO3. Ce n'est pas un problème redox mais de composition : la HAP obtenue est probablement carbonatée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Accommodation of the carbonate ion in apatite: an FTIR and X-ray structure study of crystals synthesized at 2–4 GPa",
+      "authors_or_publisher": "Fleet M. E., Liu X., King P. L. — American Mineralogist 89, 1422–1432",
+      "year": "2004",
+      "url_or_doi": "https://rruff.info/doclib/am/vol89/AM89_1422.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Ca mesuré 15,89 % contre 39,89 % pour la HAP pure et ≥ 92 % de résidu TGA à 1 000 °C : une poudre à ≥ 92 % inorganique ne peut pas contenir 15,89 % de Ca si l'inorganique est de l'hydroxyapatite (attendu ≥ 36 %). Cause probable : 5 mL de HNO3 0,1 N n'apportent que 0,50 mmol H+ alors qu'il en faut 0,80 à 1,39 mmol pour dissoudre 100 mg de HAP (calcul « acide disponible pour dissoudre 100 mg »), ce qui plafonne le Ca dosé à 14–25 %. La teneur en Ca de HAP-NH2 du tableau 1 est donc un artefact de dosage.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La présence de β-alanine en surface n'est pas démontrée : les auteurs attribuent toute la perte TGA (< 6 %) à l'eau absorbée, ce qui ne laisse pas de place à l'organique ; au mieux 0,67 mmol/g de β-Ala, soit ≤ 13 % de la quantité introduite (calcul « teneur maximale en amine »). La β-alanine (très soluble dans l'eau) est largement éliminée par les trois lavages. L'« analyse élémentaire » invoquée (teneur en N) n'est pas donnée : sans elle, la densité d'amines amorceuses est inconnue.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La teneur « théorique » de 38,46 % ne correspond ni à la HAP pure (39,89 %) ni à la HAP avec 1 β-Ala par Ca (21,1 %) (calcul « masse attendue de HAP et rapport β-alanine/HAP ») ; la base de calcul n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire IR : la bande à 874 cm−1 attribuée à PO4^3− est la bande ν2 du carbonate de type B dans l'apatite (≈ 872–874 cm−1) ; les bandes du phosphate sont ν3 ≈ 1 030–1 090, ν1 ≈ 960 et ν4 ≈ 560–600 cm−1. Avec la bande à 1 416 cm−1 (ν3 CO3), elle confirme une apatite carbonatée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Accommodation of the carbonate ion in apatite: an FTIR and X-ray structure study of crystals synthesized at 2–4 GPa",
+      "authors_or_publisher": "Fleet M. E., Liu X., King P. L. — American Mineralogist 89, 1422–1432",
+      "year": "2004",
+      "url_or_doi": "https://rruff.info/doclib/am/vol89/AM89_1422.pdf"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Précipitation à 25 °C sans contrôle ni mesure du pH : une telle voie donne en général une apatite peu cristalline, éventuellement déficiente en Ca, ce qui concorde avec les raies larges de la DRX. Comparaison base : PMC6928996 (même couple Ca(OH)2/H3PO4, pH ajusté à 9, 85 °C).",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "securite",
+     "finding": "H3PO4 concentré corrosif ; Ca(OH)2 irritant pour les yeux ; centrifugation de ≈ 5 L de suspension en nombreux passages. Pas de danger majeur non signalé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Précipitation acide-base d'une apatite carbonatée peu cristalline (Ca2+ + H2PO4−/HPO4^2− à pH décroissant depuis ≈ 12,6) ; la β-alanine, zwitterion soluble, peut s'adsorber par son carboxylate sur les sites Ca2+ et freiner la croissance, mais l'essentiel est éliminé au lavage. La « coordination forte » invoquée est plausible comme adsorption ; sa densité n'est pas mesurée.",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M. et al. — Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     },
+     {
+      "title": "Accommodation of the carbonate ion in apatite: an FTIR and X-ray structure study of crystals synthesized at 2–4 GPa",
+      "authors_or_publisher": "Fleet M. E., Liu X., King P. L. — American Mineralogist 89, 1422–1432",
+      "year": "2004",
+      "url_or_doi": "https://rruff.info/doclib/am/vol89/AM89_1422.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer l'azote (analyse élémentaire CHN) de HAP-NH2 lavée pour connaître la teneur réelle en amine",
+    "doser le Ca après dissolution complète (≥ 2 mmol H+ pour 100 mg, ou HNO3 plus concentré)",
+    "travailler sous N2 ou avec de l'eau décarbonatée si une HAP non carbonatée est voulue ; mesurer le pH final"
+   ]
+  },
+  {
+   "label": "HAP-5",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "base implicite des teneurs en Ca « théoriques » (tableau 1)",
+     "inputs": "Ca théorique : HAP-NH2 38,46 % ; HAP-5 2,65 ; HAP-10 1,45 ; HAP-20 0,76 ; HAP-50 0,31 ; HAP-100 0,16 ; HAP-200 0,08 ; HAP-300 0,05 %",
+     "formula": "facteur de dilution F = 38,46 / Ca_th ; k = (F − 1)/r, r = rapport BLG-NCA/HAP-NH2",
+     "result": "F = 14,5 ; 26,5 ; 50,6 ; 124 ; 240 ; 481 ; 769 → k = 2,70 ; 2,55 ; 2,48 ; 2,46 ; 2,39 ; 2,40 ; 2,56 (moyenne ≈ 2,5)",
+     "compared_to": "masse du motif PBLG / masse molaire de la β-alanine = 219,24 / 89,09 = 2,46 : les auteurs ont compté 1 « mole » de HAP-NH2 comme 89 g et une conversion totale du NCA",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques IUPAC (Ca 40,078 ; P 30,974 ; O 15,999 ; H 1,008 ; C 12,011 ; N 14,007), PubChem https://pubchem.ncbi.nlm.nih.gov/"
+    },
+    {
+     "what": "quantités implicites de BLG-NCA",
+     "inputs": "r mol NCA par 89 g de HAP-NH2 (base déduite ci-dessus) ; BLG-NCA 263,25 g/mol",
+     "formula": "n(NCA)/g HAP-NH2 = r / 89,09 ; m(NCA)/g = n × 263,25",
+     "result": "r = 5 : 56 mmol, 14,8 g de NCA par g de HAP-NH2 ; r = 100 : 1,12 mol, 295 g ; r = 300 : 3,4 mol, 886 g par g",
+     "compared_to": "aucune quantité citée dans l'article ; base à confirmer par les auteurs",
+     "source": "valeurs de l'article ; hypothèse sur la base de calcul"
+    },
+    {
+     "what": "Ca attendu d'après le taux de greffage TGA contre Ca mesuré",
+     "inputs": "greffage (% perte TGA) : 39,31 ; 66,36 ; 70,03 ; 76,79 ; 83,18 ; 80,37 ; 78,15 ; Ca de HAP-NH2 38,46 % ; Ca mesuré 4,03 ; 2,56 ; 1,10 ; 0,44 ; 0,23 ; 0,23 ; 0,33 %",
+     "formula": "Ca attendu = (100 − greffage) × 0,3846",
+     "result": "23,3 ; 12,9 ; 11,5 ; 8,9 ; 6,5 ; 7,5 ; 8,4 % : 5 à 33 fois le Ca mesuré",
+     "compared_to": "Ca mesuré (AAS) du tableau 1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "perte TGA lue sur la figure 1 contre taux de greffage du tableau 1",
+     "inputs": "résidus à 1 000 °C lus (± 2 points) : HAP-5 40 % ; HAP-10 22 % ; HAP-20 19 % ; HAP-200 4 % ; HAP-100 −5 %",
+     "formula": "perte = 100 − résidu",
+     "result": "60 ; 78 ; 81 ; 96 ; 105 % contre 39,31 ; 66,36 ; 70,03 ; 80,37 ; 83,18 % au tableau",
+     "compared_to": "méthode déclarée : greffage = perte de masse en %",
+     "source": "valeurs de l'article (lectures de figure de l'extraction)"
+    },
+    {
+     "what": "eau apportée par HAP-NH2 contre amines",
+     "inputs": "HAP-NH2 : ≤ 6 % de perte TGA, attribuée à l'eau ; amine ≤ 0,67 mmol/g (voie HAP-NH2)",
+     "formula": "n(H2O)/g = 0,06 / 18,02",
+     "result": "≈ 3,3 mmol H2O par g contre ≤ 0,67 mmol NH2 par g : 5 fois plus d'amorceurs protiques non greffés que d'amines",
+     "compared_to": "l'eau amorce la polymérisation des NCA (mécanisme amine/eau)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "48 h à température ambiante dans le DMF (Téb 153 °C), sous N2 : conditions habituelles de polymérisation des NCA amorcée par amine primaire.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of well-defined polypeptide-based materials via the ring-opening polymerization of α-amino acid N-carboxyanhydrides",
+      "authors_or_publisher": "Hadjichristidis N., Iatrou H., Pitsikalis M., Sakellariou G. — Chemical Reviews (ACS)",
+      "year": "2009",
+      "url_or_doi": "https://pergamos.lib.uoa.gr/uoa/dl/object/2959222 (DOI 10.1021/cr900049t non vérifié : Crossref et doi.org injoignables)"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune masse de BLG-NCA, de HAP-NH2 ni volume de DMF n'est donné, et le rapport est dit tantôt molaire, tantôt massique. Les teneurs « théoriques » ne se retrouvent que si une « mole » de HAP-NH2 vaut 89 g (masse de la β-alanine) avec conversion totale du NCA (calcul « base implicite des teneurs en Ca théoriques »), ce qui mélange une base massique de HAP et une base molaire de β-Ala. Pour r = 300, cela ferait ≈ 890 g de NCA par g de HAP (calcul « quantités implicites de BLG-NCA »). La série ne peut pas être refaite sans les quantités réelles.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le taux de greffage TGA et le Ca mesuré se contredisent pour chaque échantillon : si 16,8 % du HAP-100 était de la HAP-NH2 (100 − 83,18), il devrait contenir ≈ 6,5 % de Ca, pas 0,23 % (facteur 5 à 33 selon l'échantillon ; calcul « Ca attendu d'après le taux de greffage TGA »). Le tableau 1 donne aussi des taux de greffage inférieurs de 10 à 22 points à la perte lue sur la figure 1, dont une courbe (HAP-100) descend à −5 % de masse résiduelle, ce qui est physiquement impossible (dérive de ligne de base ou poussée) ; calcul « perte TGA lue sur la figure 1 ». Au moins une des deux mesures (TGA ou AAS) est fausse, et le « taux de greffage » n'est pas défini de façon reproductible.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve discriminante absente entre PBLG greffé et PBLG libre mélangé à la HAP : la HAP-NH2 apporte ≈ 5 fois plus d'eau que d'amines (calcul « eau apportée par HAP-NH2 contre amines »), et l'eau amorce aussi les NCA ; le Ca très bas (0,23–0,44 % dès HAP-50) indique un produit à > 98 % organique, et la « solubilité » dans le chloroforme peut venir de l'homopolymère libre. Il faudrait extraire le polymère libre (dissolution, centrifugation, lavage répété au solvant) puis doser Ca et PBLG du résidu, ou dissoudre la HAP à l'acide et comparer les masses molaires.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of well-defined polypeptide-based materials via the ring-opening polymerization of α-amino acid N-carboxyanhydrides",
+      "authors_or_publisher": "Hadjichristidis N., Iatrou H., Pitsikalis M., Sakellariou G. — Chemical Reviews (ACS)",
+      "year": "2009",
+      "url_or_doi": "https://pergamos.lib.uoa.gr/uoa/dl/object/2959222 (DOI 10.1021/cr900049t non vérifié : Crossref et doi.org injoignables)"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« HAP soluble dans le chloroforme » : une particule minérale ne se dissout pas ; il s'agit au mieux d'une dispersion colloïdale stabilisée par le PBLG (ou du PBLG libre). La RMN « en solution » et la GPC ne voient que la fraction soluble ou filtrable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "BLG-NCA sensible à l'humidité ; sa préparation « selon Mori et al. » n'est pas décrite, or les voies usuelles (Fuchs–Farthing) emploient le phosgène ou le triphosgène, très toxiques. DMF classé toxique pour la reproduction (ECHA) : hotte et gants.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XRD et TEM ne sont faits que sur HAP-5 et HAP-20 ; pour HAP-50 à HAP-300 (Ca < 0,5 %, soit < 1,2 % de HAP) aucune preuve qu'il reste une phase apatite. La baisse de cristallinité « avec le PBLG » peut aussi venir de la simple dilution du minéral dans le polymère (intensité absolue plus faible).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Polymérisation par ouverture de cycle des NCA selon le mécanisme amine normal (attaque du C5 par l'amine, décarboxylation, amine terminale propagatrice), amorcée par les amines de surface mais aussi par l'eau adsorbée sur la HAP et, avec des amines basiques, par le mécanisme du monomère activé ; une part importante du PBLG est vraisemblablement libre. La masse molaire attendue d'un amorçage contrôlé croîtrait avec r (DP ≈ r par amorceur), ce que le tableau 1 ne montre pas.",
+    "sources": [
+     {
+      "title": "Synthesis of well-defined polypeptide-based materials via the ring-opening polymerization of α-amino acid N-carboxyanhydrides",
+      "authors_or_publisher": "Hadjichristidis N., Iatrou H., Pitsikalis M., Sakellariou G. — Chemical Reviews (ACS)",
+      "year": "2009",
+      "url_or_doi": "https://pergamos.lib.uoa.gr/uoa/dl/object/2959222 (DOI 10.1021/cr900049t non vérifié : Crossref et doi.org injoignables)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "obtenir les masses de BLG-NCA et de HAP-NH2 et le volume de DMF, et la base du rapport (mol de quoi par mol de quoi)",
+    "sécher la HAP-NH2 (vide, chauffage) et le DMF avant la polymérisation",
+    "séparer le PBLG libre avant de mesurer greffage, Ca et Mn",
+    "doser le Ca après dissolution complète et définir le taux de greffage (perte entre 150 et 600 °C par rapport à la masse sèche)"
+   ]
+  },
+  {
+   "label": "HAP-50",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "degré de polymérisation contre rapport d'alimentation",
+     "inputs": "Mn = 148 000 (HAP-50), 142 000 (HAP-100), 131 000 (HAP-200), 153 000 (HAP-300) ; motif PBLG 219,24 g/mol",
+     "formula": "DP = Mn / 219,24 ; Mn attendu ≈ r × 219,24 (un amorceur par r monomères)",
+     "result": "DP ≈ 675 ; 648 ; 598 ; 698 contre DP attendu 50 ; 100 ; 200 ; 300 (Mn attendu 11 000 ; 22 000 ; 44 000 ; 66 000)",
+     "compared_to": "Mn quasi constant et PDI 1,01–1,03 quel que soit r",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques IUPAC (Ca 40,078 ; P 30,974 ; O 15,999 ; H 1,008 ; C 12,011 ; N 14,007), PubChem https://pubchem.ncbi.nlm.nih.gov/"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Mn quasi indépendant de r (DP 600–700 pour r = 50 à 300 ; calcul « degré de polymérisation contre rapport d'alimentation ») : incompatible avec une polymérisation amorcée par un nombre fixe d'amines, où DP ≈ r. Le texte des auteurs se contredit (« la masse molaire augmente » puis « faible degré de polymérisation »). Le Mn est en outre étalonné en polystyrène, alors que le PBLG est hélicoïdal (bâtonnet) dans le DMF : son volume hydrodynamique surestime la masse ; l'unité n'est pas donnée. Un PDI de 1,01 est exceptionnel pour un amorçage par amine sur une surface hétérogène, où l'on obtient d'habitude des distributions plus larges.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of well-defined polypeptide-based materials via the ring-opening polymerization of α-amino acid N-carboxyanhydrides",
+      "authors_or_publisher": "Hadjichristidis N., Iatrou H., Pitsikalis M., Sakellariou G. — Chemical Reviews (ACS)",
+      "year": "2009",
+      "url_or_doi": "https://pergamos.lib.uoa.gr/uoa/dl/object/2959222 (DOI 10.1021/cr900049t non vérifié : Crossref et doi.org injoignables)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Une particule de HAP portant des chaînes ne peut pas éluer comme une macromolécule unique de 1,5 × 10^5 : soit les particules sont retenues par le filtre ou la colonne et la GPC mesure le PBLG libre, soit la valeur n'a pas de sens. Cela renforce l'hypothèse d'un homopolymère libre (voie HAP-5).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir HAP-5 : chaînes de PBLG en grande partie libres, amorcées par l'eau ou des amines non greffées ; Mn surestimé par l'étalonnage polystyrène.",
+    "sources": [
+     {
+      "title": "Synthesis of well-defined polypeptide-based materials via the ring-opening polymerization of α-amino acid N-carboxyanhydrides",
+      "authors_or_publisher": "Hadjichristidis N., Iatrou H., Pitsikalis M., Sakellariou G. — Chemical Reviews (ACS)",
+      "year": "2009",
+      "url_or_doi": "https://pergamos.lib.uoa.gr/uoa/dl/object/2959222 (DOI 10.1021/cr900049t non vérifié : Crossref et doi.org injoignables)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer Mn par diffusion de lumière (SEC-MALS) ou RMN de bout de chaîne, dans DMF + LiBr"
+   ]
+  },
+  {
+   "label": "HAP-100",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Attributions IR inexactes : 1 652 et 1 549 cm−1, attribués au phényle, sont les bandes amide I (hélice α) et amide II du squelette polypeptidique ; 1 591 cm−1, attribué à un « étirement C–O du PBLG », se trouve dans la zone de l'étirement asymétrique d'un carboxylate (β-Ala liée au Ca) ou du cycle aromatique, pas d'un C–O (1 150–1 250 cm−1) ; l'ester benzylique (C=O ≈ 1 730 cm−1), marqueur propre du PBLG, n'est pas discuté. La présence de polypeptide reste plausible, mais la démonstration est mal fondée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "RMN dans CDCl3 : les signaux à 2,5–2,7 et 3,8–4,0 ppm attribués à la β-alanine recouvrent ceux du PBLG lui-même (CH2 de chaîne latérale vers 2,0–2,6 ppm, CH α vers 3,9–4,0 ppm) ; avec un DP ≈ 650 par β-Ala, le signal de la β-alanine serait d'environ 1/650 de celui du PBLG. Ces pics ne prouvent pas le lien PBLG–β-Ala–HAP. Aucune source trouvée pour les déplacements exacts : valeurs usuelles du PBLG.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir HAP-5.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "enregistrer l'IR dans la région 1 700–1 750 cm−1 (ester) et intégrer les signaux RMN contre une référence interne"
+   ]
+  },
+  {
+   "label": "HAP-PLGA",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "charge de catalyseur contre groupes benzyle",
+     "inputs": "0,5 g HAP-100 (≥ 99 % organique d'après Ca 0,23 %) ; motif PBLG 219,24 g/mol ; 2,5 g Pd/C à 5 % ; Pd 106,42 g/mol",
+     "formula": "n(Bn) = 0,5 × 0,99 / 219,24 ; n(Pd) = 2,5 × 0,05 / 106,42",
+     "result": "n(Bn) ≈ 2,26 mmol ; n(Pd) ≈ 1,17 mmol : Pd/Bn ≈ 0,52 mol/mol ; catalyseur = 5 fois la masse du substrat",
+     "compared_to": "hydrogénolyses usuelles d'esters benzyliques : ≈ 5–20 % en masse de Pd/C par rapport au substrat",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques IUPAC (Ca 40,078 ; P 30,974 ; O 15,999 ; H 1,008 ; C 12,011 ; N 14,007), PubChem https://pubchem.ncbi.nlm.nih.gov/"
+    },
+    {
+     "what": "concentration du substrat",
+     "inputs": "0,5 g dans 45 mL DMF + 5 mL méthanol",
+     "formula": "m/V",
+     "result": "10 g/L ; ≈ 45 mmol/L de motifs benzyle",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Aucune source d'hydrogène n'est écrite (ni H2, ni pression, ni donneur de transfert comme le formiate d'ammonium ou le cyclohexène) : Pd/C seul dans DMF/méthanol à température ambiante ne coupe pas un ester benzylique de façon notable. Telle qu'écrite, l'étape ne peut pas donner la déprotection rapportée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune filtration du catalyseur n'est écrite avant la précipitation à l'éther tert-butylméthylique : 2,5 g de Pd/C insoluble seraient récupérés avec ≈ 0,4 g de produit (calcul « charge de catalyseur contre groupes benzyle »). La charge de catalyseur (Pd/Bn ≈ 0,5) est aussi très supérieure à l'usage.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve de la déprotection partielle : la disparition du pic à 5,0 ppm est un bon indice, mais la bande –OH à 3 450 cm−1 ne prouve rien (eau du KBr) ; il faudrait le C=O de l'acide (≈ 1 710 cm−1), la disparition des aromatiques à 7,3 ppm et un titrage des COOH. Les auteurs disent que les bandes « phényle » (1 652, 1 549 cm−1) s'aplatissent : ce sont les amides I et II, qui doivent rester dans le PLGA ; leur affaiblissement contredirait la conservation du squelette.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Pd/C sec est pyrophore au contact du méthanol et de H2 : l'ajouter humide sous gaz inerte, filtrer sur Célite sans laisser sécher le gâteau. L'éther tert-butylméthylique est très inflammable ; le DMF est reprotoxique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrogénolyse de la liaison O–CH2 de l'ester benzylique sur Pd(0) en présence de H2 : formation de toluène et de l'acide carboxylique (PLGA). Elle exige une source d'hydrogène, non écrite.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "source d'hydrogène (H2 en ballon ou sous pression, ou donneur de transfert), température",
+    "filtration du Pd/C avant précipitation",
+    "charge de catalyseur (2,5 g de Pd/C pour 0,5 g de substrat semble une erreur ou un choix extrême)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie générale (précipitation stœchiométrique de HAP, polymérisation des NCA amorcée par amine, hydrogénolyse des esters benzyliques) est classique, mais les mesures se contredisent : Ca dosé avec un acide insuffisant (HAP-NH2), taux de greffage TGA incompatible avec le Ca mesuré (facteur 5 à 33), Mn indépendant du rapport d'alimentation, teneur en amine de HAP-NH2 jamais mesurée. Le greffage covalent n'est pas distingué d'un mélange HAP + PBLG libre. La série HAP-PBLG n'a aucune quantité et la déprotection n'a ni source d'hydrogène ni filtration du catalyseur.",
+  "author_errors_suspected": [
+   "5 mL de HNO3 0,1 N trop peu acide pour dissoudre 100 mg de HAP : Ca de HAP-NH2 sous-estimé (15,89 % au lieu de ≈ 37–40 %)",
+   "taux de greffage du tableau 1 incompatibles avec la figure 1 et avec le Ca mesuré ; courbe TGA à −5 % de masse",
+   "« weight loss increased when the ratio was decreased from 5/1 to 100/1 » : « increased » voulu",
+   "rapport BLG-NCA/HAP-NH2 dit molaire et massique ; base de la teneur en Ca théorique = 89 g par « mole » de HAP-NH2",
+   "attributions IR : 874 cm−1 est le carbonate (ν2), 1 652/1 549 cm−1 les amides I/II, pas le phényle",
+   "hydrogénation sans source d'hydrogène écrite et sans filtration du Pd/C"
+  ],
+  "comparison_with_database": "PMC6928996 (GHM) précipite aussi l'hydroxyapatite à partir de Ca(OH)2 et H3PO4, mais à 85 °C avec pH ajusté à 9 ; ici, 25 °C sans pH, ce qui concorde avec la faible cristallinité observée. Aucune autre greffe de polypeptide sur HAP dans la base."
+ },
+ "sources_not_found": [
+  "source citable des déplacements RMN 1H du PBLG dans CDCl3 (CH α, CH2 latéraux)",
+  "source quantifiant la surestimation de Mn du PBLG par étalonnage polystyrène dans le DMF",
+  "DOI de Hadjichristidis et al. 2009 (10.1021/cr900049t) et de Fleet et al. 2004 non vérifiés : Crossref et doi.org injoignables"
+ ]
+}

@@ -1,0 +1,209 @@
+{
+  "pmcid": "PMC9147655",
+  "routes": [
+    {
+      "label": "W-TiN",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "puissance moyenne et énergie déposée", "inputs": "30 µJ par impulsion ; 100 kHz ; 10 min", "formula": "P = E × f ; Q = P × t", "result": "P = 3,0 W ; Q = 1 800 J en 10 min", "compared_to": "—", "source": "valeurs de l'article"},
+        {"what": "puissance crête contre puissance critique d'autofocalisation", "inputs": "30 µJ ; 270 fs ; P_cr(eau, 1030 nm) = 2,9 MW", "formula": "P_crête ≈ E/τ ; P_crête/P_cr", "result": "P_crête ≈ 1,1 × 10^8 W = 111 MW, soit ≈ 38 fois P_cr", "compared_to": "régime de filamentation dans les 3 mm de liquide", "source": "valeurs de l'article ; P_cr de l'eau : Femtosecond Laser Cutting of 110–550 µm Thickness Borosilicate Glass in Ambient Air and Water, MDPI 2023, https://pmc.ncbi.nlm.nih.gov/articles/PMC9867199"},
+        {"what": "pas entre impulsions et fluence crête (hypothèse sur le spot)", "inputs": "4 m/s ; 100 kHz ; 30 µJ ; rayon w0 = 20 µm SUPPOSÉ (non donné)", "formula": "pas = v/f ; F0 = 2E/(π w0²)", "result": "pas = 40 µm ; F0 ≈ 4,8 J/cm² si w0 = 20 µm (≈ 19 J/cm² si w0 = 10 µm)", "compared_to": "seuils d'ablation femtoseconde des céramiques de l'ordre de 0,1–1 J/cm² : ablation assurée mais fluence réelle inconnue", "source": "valeurs de l'article ; w0 hypothétique"},
+        {"what": "échauffement adiabatique maximal du liquide (volume supposé)", "inputs": "Q = 1 800 J ; volume de liquide SUPPOSÉ 10 ou 15 mL (cuvette de 20 mL, volume non donné) ; eau : ρ = 1,00 g/mL, cp = 4,18 J/(g·K) ; acétone : ρ = 0,784 g/mL, cp ≈ 2,16 J/(g·K)", "formula": "ΔT = Q/(m cp)", "result": "eau : 43 K (10 mL) à 29 K (15 mL) ; acétone : 106 K (10 mL) à 71 K (15 mL)", "compared_to": "Téb acétone 56 °C, acétonitrile 82 °C : sans refroidissement, l'acétone peut atteindre l'ébullition si une fraction importante des 3 W reste dans le liquide", "source": "valeurs de l'article ; densités et capacités calorifiques : valeurs de manuel (NIST WebBook), non relues dans cette session"},
+        {"what": "déplacement du foyer par la couche de liquide de 3 mm", "inputs": "t = 3 mm ; n = 1,333 (eau), 1,359 (acétone), 1,344 (acétonitrile), 1,430 (DMF)", "formula": "Δz ≈ t (1 − 1/n) (paraxial, lame à faces parallèles)", "result": "eau 0,75 mm ; acétonitrile 0,77 mm ; acétone 0,79 mm ; DMF 0,90 mm : écart maximal 0,15 mm", "compared_to": "plage de réglage lentille–cuvette 95–97 mm (2 mm) : le réglage par liquide compense davantage que la réfraction linéaire (autofocalisation, bulles, écran de colloïde)", "source": "indices de réfraction : valeurs de manuel, non relues dans cette session"},
+        {"what": "passage de la masse de Ti à la masse de matériau", "inputs": "M(Ti) = 47,87 ; M(TiN) = 61,87 ; M(TiO2) = 79,87 g/mol ; extinction W-TiN 0,054 mL/(µg·cm) par µg de Ti", "formula": "facteur = M(composé)/M(Ti)", "result": "TiN 1,29 ; TiO2 1,67 ; W-TiN par masse de matériau ≈ 0,042 (si TiN) à 0,032 (si TiO2) mL/(µg·cm)", "compared_to": "valeurs de comparaison de l'article (Au, GO, WS2, MoS2) exprimées par masse totale de matériau", "source": "masses molaires d'après les formules (masses atomiques IUPAC)"},
+        {"what": "énergies des raies EDX en jeu pour N", "inputs": "N Kα = 392,4 eV ; Ti Lα1 = 452,2 eV ; Ti Lβ1 = 458,4 eV ; O Kα = 524,9 eV ; C Kα = 277 eV", "formula": "écart N Kα – Ti Lα", "result": "≈ 60 eV, inférieur à la résolution d'un détecteur EDS à ces énergies (quelques dizaines d'eV au mieux) : N K et Ti L sont confondus", "compared_to": "méthode des auteurs : soustraction d'un spectre L de Ti mis à l'échelle sur Ti K", "source": "X-Ray Data Booklet, Table 1-2, LBNL, 2001, https://xdb.lbl.gov/Section1/Table_1-2.pdf"},
+        {"what": "rapport d'aires du doublet Ti 2p", "inputs": "2p3/2 : j = 3/2, 2j+1 = 4 ; 2p1/2 : j = 1/2, 2j+1 = 2 ; valeurs mesurées 100:26 à 100:31", "formula": "A(2p1/2)/A(2p3/2) = 2/4", "result": "rapport théorique d'aires 100:50 quel que soit l'ordre cristallin ; 100:26–31 = écart de près d'un facteur 2", "compared_to": "Tableau 1 et § 3.4", "source": "dégénérescence 2j+1 (chimie générale) ; xpsfitting.com, Spin Orbit Splitting"},
+        {"what": "rapport N/Ti de surface corrigé des facteurs de sensibilité (ordre de grandeur)", "inputs": "I(N 1s, TiN)/I(Ti 2p3/2, TiO2) = 1,7 % (W-TiN) ; facteurs de Scofield N 1s ≈ 1,80, Ti 2p3/2 ≈ 5,2 (valeurs de manuel, non relues dans cette session)", "formula": "n(N)/n(Ti) ≈ (I_N/I_Ti) × (S_Ti/S_N)", "result": "≈ 0,05 pour W-TiN (≈ 0,32 pour AN-TiN)", "compared_to": "surface presque entièrement oxydée, conforme à l'interprétation des auteurs", "source": "valeurs de l'article ; facteurs de sensibilité de manuel"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Aucune température de liquide ni refroidissement indiqué alors que 3 W sont déposés pendant 10 min (voir « échauffement adiabatique maximal du liquide ») : dans l'eau l'échauffement reste modéré (≤ 30–40 K au pire), mais le volume de liquide n'étant pas donné, la température réelle de synthèse n'est pas connue.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "Puissance crête ≈ 38 fois la puissance critique d'autofocalisation de l'eau (voir « puissance crête contre puissance critique ») : le faisceau filamente dans les 3 mm de liquide, génère un supercontinuum et peut refragmenter les NPs déjà formées qui traversent le faisceau pendant les 10 min. La taille finale dépend donc aussi de la concentration accumulée et de l'optique non linéaire du liquide, pas seulement de la chimie.", "status": "reserve", "basis": "litterature", "source": {"title": "Fragmentation of colloidal nanoparticles by femtosecond laser-induced supercontinuum generation", "authors_or_publisher": "Besner S., Kabashin A. V., Meunier M. (Appl. Phys. Lett.)", "year": "2006", "url_or_doi": "10.1063/1.2402944"}},
+        {"aspect": "resultats", "finding": "L'interprétation « surface de TiO2 amorphe » repose sur un rapport d'intensité Ti 2p1/2:2p3/2 de 100:26–31 comparé à 100:50 pour le TiO2 cristallin. Or le rapport d'aires d'un doublet spin-orbite est fixé à 1:2 par la dégénérescence (2j+1) et ne dépend pas de la cristallinité ; un rapport mesuré près de deux fois trop bas signale un artefact d'ajustement (fond, largeurs imposées égales alors que la composante 2p1/2 de Ti(IV) est presque deux fois plus large, ou rapport de hauteurs pris pour un rapport d'aires). Aucune mesure de structure (DRX, SAED, Raman) n'est montrée : le caractère amorphe de la surface, et son « vieillissement cristallin » (100:50 après des mois), ne sont pas démontrés.", "status": "probleme", "basis": "litterature", "source": {"title": "A New Mechanism For XPS Line Broadening: The 2p-XPS of Ti(IV)", "authors_or_publisher": "Pacific Northwest National Laboratory (Bagus et al.)", "year": "2019", "url_or_doi": "https://www.pnnl.gov/publications/new-mechanism-xps-line-broadening-2p-xps-tiiv"}},
+        {"aspect": "resultats", "finding": "Contradiction entre sections sur le cœur des NPs d'eau : § 3.3, les rapports N/O très bas « suggest that not only the surface, but also the core of the NPs was oxidized » (W-TiN et H2O2-TiN) ; § 3.6, pour W-TiN, « predominant oxidation of the NP surface, while the core remains unaffected ». Aucune technique de volume (DRX, MET haute résolution, EELS) ne tranche ; le maintien d'une extinction proche IR élevée (0,054 contre 0,071–0,076 mL/(µg·cm)) favorise la seconde lecture, mais l'article ne peut pas soutenir les deux.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Quantification EDX de l'azote : N Kα (392,4 eV) et Ti Lα/Lβ (452–458 eV) sont séparés de ≈ 60 eV (voir « énergies des raies EDX »), donc non résolus. La procédure soustrait un spectre L de Ti mis à l'échelle sur les raies K ; toute variation du rapport L/K (absorption dans une matrice oxydée contre nitrurée, taille des agglomérats, couche de carbone) se reporte entièrement sur le signal N. Les rapports N/Ti et N/O (0,14 à 0,33 ; 0,15 à 1,6) sont des rapports d'intensité semi-quantitatifs, à ne pas lire comme des compositions. De plus, le substrat de Si porte une couche d'oxyde natif dont l'O n'est retiré que par soustraction d'un fond pris hors des NPs.", "status": "reserve", "basis": "litterature", "source": {"title": "X-Ray Data Booklet, Table 1-2 : Photon energies of principal K-, L- and M-shell emission lines", "authors_or_publisher": "Lawrence Berkeley National Laboratory", "year": "2001", "url_or_doi": "https://xdb.lbl.gov/Section1/Table_1-2.pdf"}},
+        {"aspect": "resultats", "finding": "Coefficients d'extinction massique : ils sont normalisés à la masse de Ti mesurée par AAS (voir « passage de la masse de Ti à la masse de matériau ») et comparés à des valeurs de la littérature exprimées par masse totale et à 808 nm, alors que les valeurs de l'article sont des maxima entre 650 et 750 nm. Ce sont des extinctions (absorption + diffusion) : pour des sphères de 50–95 nm la diffusion n'est pas négligeable et ne chauffe pas. La supériorité affirmée sur Au, GO, WS2, MoS2 est surestimée d'au moins 1,3 à 1,7 et doit être recalculée à 808 nm par masse de matériau. Les unités sont cohérentes (0,028 mL/(µg·cm) = 28 L/(g·cm), proche des 29,2 L/(g·cm) de Chou et al. pour MoS2).", "status": "reserve", "basis": "litterature", "source": {"title": "Chemically exfoliated MoS2 as near-infrared photothermal agents", "authors_or_publisher": "Chou S. S., Kaehr B., Kim J., et al. (Angew. Chem. Int. Ed.)", "year": "2013", "url_or_doi": "10.1002/anie.201209229"}},
+        {"aspect": "solubilite", "finding": "Dosage du Ti par AAS après simple dilution par 50 000 dans HNO3 à 5 %, étalonné sur un étalon ionique : TiO2 ne se dissout pas sans HF ou H2SO4 concentré, et TiN n'est attaqué que par HNO3 concentré, l'eau régale, HNO3 + HF ou H2O2 à 30 %. Les NPs sont donc analysées en suspension ; l'efficacité d'atomisation d'une particule réfractaire peut différer de celle de l'étalon et varier avec l'oxydation (TiO2 dans l'eau et H2O2, TiN/TiC dans les organiques), ce qui biaise la comparaison des extinctions massiques entre liquides. Le programme de température (Table S1) est absent du dépôt.", "status": "reserve", "basis": "litterature", "source": {"title": "Sample Preparation Guide : samples containing titanium", "authors_or_publisher": "Inorganic Ventures", "year": "s.d.", "url_or_doi": "https://www.inorganicventures.com/sample-preparation-guide/samples-containing-titanium"}},
+        {"aspect": "mecanisme", "finding": "Les NPs se forment dans le plasma et la bulle de cavitation à partir de la vapeur Ti/N ; dans l'eau, O et OH issus de la décomposition de l'eau et l'O2 dissous oxydent le Ti, et l'oxydation continue après la synthèse (colloïde conservé dans l'eau, préparation EDX de plusieurs heures à l'air). Explication cohérente avec la littérature du même groupe (TiN par ablation fs dans l'eau et l'acétone, phase TiN cristalline avec fraction oxydée mineure).", "status": "ok", "basis": "litterature", "source": {"title": "Laser-synthesized TiN nanoparticles as promising plasmonic alternative for biomedical applications", "authors_or_publisher": "Popov A. A., Tselikov G., Dumas N., et al. (Sci. Rep.)", "year": "2019", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6362057"}},
+        {"aspect": "securite", "finding": "Laser femtoseconde de classe 4 (3 W moyens, faisceau balayé à 4 m/s par galvanomètre : réflexions sur la cuvette et la cible) ; nanopoudres de TiN/TiO2 sèches sur substrat (inhalation). Rien n'est écrit sur la sécurité.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Ablation fs : éjection de vapeur et de gouttelettes de TiN, refroidissement dans la bulle de cavitation où se mêlent Ti, N et produits de décomposition de l'eau (O, OH, H) ; nucléation de TiNx sous-stœchiométrique puis oxydation de surface (et partielle du cœur) par O/OH et O2 dissous, poursuivie dans le colloïde aqueux et à l'air ; la refragmentation des NPs par le supercontinuum dans le faisceau filamenté contribue à la taille. La surface est un TiO2 dont la cristallinité n'est pas mesurée (l'argument du rapport de doublet Ti 2p ne vaut pas).",
+        "sources": [
+          {"title": "Laser-synthesized TiN nanoparticles as promising plasmonic alternative for biomedical applications", "authors_or_publisher": "Popov A. A., Tselikov G., Dumas N., et al. (Sci. Rep.)", "year": "2019", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6362057"},
+          {"title": "Fragmentation of colloidal nanoparticles by femtosecond laser-induced supercontinuum generation", "authors_or_publisher": "Besner S., Kabashin A. V., Meunier M. (Appl. Phys. Lett.)", "year": "2006", "url_or_doi": "10.1063/1.2402944"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "volume de liquide dans la cuvette de 20 mL et température du liquide pendant les 10 min (refroidissement ou non)",
+        "diamètre du faisceau au foyer, donc la fluence, et distance lentille–cuvette retenue pour l'eau",
+        "phase cristalline des NPs (DRX ou SAED) avant de conclure sur un cœur de TiN et une surface de TiO2 amorphe",
+        "ajustement XPS Ti 2p avec rapport d'aires 2:1 imposé et largeur propre au 2p1/2",
+        "minéralisation des NPs (HF/HNO3 ou fusion) avant le dosage du Ti, et extinction recalculée à 808 nm par masse de matériau"
+      ]
+    },
+    {
+      "label": "DMF-TiN",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "concentration en N et O du liquide pur (DMF contre acétonitrile)", "inputs": "DMF : ρ = 0,944 g/mL, M = 73,09 g/mol, 1 N et 1 O par molécule ; acétonitrile : ρ = 0,786 g/mL, M = 41,05 g/mol, 1 N, 0 O", "formula": "c = ρ × 1000 / M", "result": "DMF : 12,9 mol/L de N et 12,9 mol/L de O ; acétonitrile : 19,1 mol/L de N, 0 de O", "compared_to": "conclusion des auteurs sur « l'état chimique » de l'azote", "source": "masses molaires d'après les formules ; densités : valeurs de manuel (PubChem), non relues dans cette session"},
+        {"what": "rapport Ti–N / Ti–C de surface corrigé des facteurs de sensibilité", "inputs": "I(N 1s, Ti–N)/I(C 1s, Ti–C) = 2,28 ; facteurs de Scofield N 1s ≈ 1,80, C 1s = 1,00 (valeurs de manuel, non relues ici)", "formula": "n(N)/n(C) = (I_N/I_C) × (S_C/S_N)", "result": "≈ 1,27", "compared_to": "conclusion « slight titanium carbide fraction »", "source": "valeurs de l'article ; facteurs de sensibilité de manuel"},
+        {"what": "surface spécifique relative AN-TiN / DMF-TiN", "inputs": "tailles modales 20 nm (AN) et ≈ 39 nm (DMF, lecture de figure)", "formula": "S/m = 6/(ρ d) ⇒ rapport = d_DMF/d_AN", "result": "≈ 1,95", "compared_to": "« 4-fold large surface area » écrit par les auteurs", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le témoin DMF contre acétonitrile ne change pas une seule variable : le DMF apporte 12,9 mol/L de N et autant d'O, l'acétonitrile 19,1 mol/L de N et pas d'O (voir « concentration en N et O du liquide pur »), avec des viscosités, indices non linéaires et distances de focalisation différentes. Conclure que « the chemical state of this element plays an important role » est possible, mais la concentration en N et la présence d'O expliquent aussi bien le faible azote des NPs de DMF.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Corrigé des facteurs de sensibilité, le rapport N(Ti–N)/C(Ti–C) vaut ≈ 1,3 pour DMF-TiN (et ≈ 0,76–0,78 pour AN-TiN et A-TiN : voir ces voies) : la phase carbure de surface est du même ordre que le nitrure, ce qui va au-delà de la « slight titanium carbide fraction » de la conclusion et rejoint le « significant amount » du § 3.4.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "DMF : Téb 153 °C, l'échauffement de 3 W pendant 10 min ne le fait pas bouillir ; la décomposition du DMF dans le plasma (diméthylamine, CO, carbone amorphe) explique les carbures et la matrice carbonée observée.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "DMF classé toxique pour la reproduction (catégorie 1B CLP) et absorbé par la peau ; ablation sous hotte, gants adaptés. Non écrit dans l'article.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Pyrolyse du DMF dans le plasma et la bulle : le carbone libéré forme TiC et une coque carbonée qui arrête tôt la croissance (taille plus petite que dans l'eau) ; l'oxygène de la molécule oxyde une partie du Ti ; l'azote amide, lié à deux méthyles et au carbonyle, est libéré surtout sous forme de produits moléculaires (amines, N2) plutôt qu'incorporé dans le réseau.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "distance lentille–cuvette retenue pour le DMF",
+        "pureté et teneur en eau du DMF (source d'O supplémentaire)"
+      ]
+    },
+    {
+      "label": "A-TiN",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Ti–N / Ti–C de surface corrigé des facteurs de sensibilité", "inputs": "I(N 1s, Ti–N)/I(C 1s, Ti–C) = 1,41 ; S(N 1s) ≈ 1,80, S(C 1s) = 1,00", "formula": "n(N)/n(C) = (I_N/I_C) × (S_C/S_N)", "result": "≈ 0,78 : plus de C carbure que de N nitrure en surface", "compared_to": "« slight titanium carbide fraction » (conclusion)", "source": "valeurs de l'article ; facteurs de Scofield (valeurs de manuel, non relues ici)"},
+        {"what": "échauffement adiabatique maximal de l'acétone", "inputs": "1 800 J ; 10 ou 15 mL SUPPOSÉS ; ρ = 0,784 g/mL ; cp ≈ 2,16 J/(g·K)", "formula": "ΔT = Q/(m cp)", "result": "106 K (10 mL) à 71 K (15 mL)", "compared_to": "Téb acétone 56 °C", "source": "valeurs de l'article ; constantes de manuel non relues ici"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Avec 3 W déposés pendant 10 min dans un volume non donné, l'acétone peut s'approcher de son ébullition (56 °C) faute de refroidissement (voir « échauffement adiabatique maximal de l'acétone ») ; l'évaporation modifie le volume et la concentration du colloïde, et des bulles de vapeur perturbent la focalisation.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Rapport N(Ti–N)/C(Ti–C) ≈ 0,78 une fois corrigé des facteurs de sensibilité : en surface, la phase carbure dépasse la phase nitrure ; la conclusion « slight titanium carbide fraction » minimise ce que les données XPS montrent. Comme les liaisons Ti–N et Ti–C tombent au même endroit en Ti 2p, la « fraction TiN » de surface est elle aussi incertaine.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les auteurs écrivent que les coques creuses « had never been observed in any organic solvents », alors que le même groupe a décrit en 2019 des cavités internes dans 5–10 % des NPs de TiN obtenues dans l'acétone (jusqu'à 60 % dans l'eau). La phrase vaut pour les coques rompues, pas pour les cavités.", "status": "reserve", "basis": "litterature", "source": {"title": "Laser-synthesized TiN nanoparticles as promising plasmonic alternative for biomedical applications", "authors_or_publisher": "Popov A. A., Tselikov G., Dumas N., et al. (Sci. Rep.)", "year": "2019", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6362057"}},
+        {"aspect": "securite", "finding": "Acétone très inflammable (point d'éclair ≈ −20 °C) sous faisceau focalisé de 3 W, avec claquage optique et échauffement : risque d'inflammation des vapeurs au-dessus de la cuvette ; travailler sous hotte, cuvette couverte, sans source d'ignition. Non écrit.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Pyrolyse de l'acétone dans le plasma : carbone et fragments carbonés forment TiC et une matrice carbonée qui coiffe les NPs tôt (taille ≈ 35 nm), l'oxygène de la molécule et l'O2 dissous oxydent la surface ; l'azote provient uniquement de la cible.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "température de l'acétone pendant l'ablation et perte par évaporation",
+        "phase cristalline (TiN contre TiC, mêmes énergies Ti 2p) par DRX"
+      ]
+    },
+    {
+      "label": "AN-TiN",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "surface spécifique relative AN-TiN / DMF-TiN et A-TiN", "inputs": "tailles modales 20 nm (AN), ≈ 39 nm (DMF), ≈ 35 nm (acétone)", "formula": "S/m = 6/(ρ d) ⇒ rapport = d_autre/d_AN ; surface par particule ∝ d²", "result": "surface totale à masse égale : × 1,95 (DMF) et × 1,75 (acétone) ; surface d'une particule : 4 fois plus PETITE", "compared_to": "« AN-TiN NPs have a 4-fold large surface area »", "source": "valeurs de l'article"},
+        {"what": "fraction volumique d'une couche d'oxyde natif (épaisseur supposée)", "inputs": "épaisseur δ = 1,5 nm SUPPOSÉE ; d = 20, 35, 39, 50 nm", "formula": "f = 1 − (1 − 2δ/d)³", "result": "20 nm : 0,39 ; 35 nm : 0,24 ; 39 nm : 0,21 ; 50 nm : 0,17 ; rapport AN/DMF ≈ 1,8", "compared_to": "excès d'O de AN-TiN par rapport à DMF-TiN (O/Ti 0,22 contre 0,11)", "source": "valeurs de l'article ; δ hypothétique"},
+        {"what": "rapport Ti–N / Ti–C de surface corrigé des facteurs de sensibilité", "inputs": "I(N 1s)/I(C 1s) = 1,36 ; S(N 1s) ≈ 1,80, S(C 1s) = 1,00", "formula": "n(N)/n(C) = (I_N/I_C) × (S_C/S_N)", "result": "≈ 0,76", "compared_to": "« slight titanium carbide fraction »", "source": "valeurs de l'article ; facteurs de manuel non relus ici"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Erreur de calcul des auteurs : des NPs « almost two folds smaller » ont une surface totale à masse égale deux fois plus grande, pas quatre (voir « surface spécifique relative AN-TiN / DMF-TiN ») ; le facteur 4 est le rapport des surfaces d'une particule, et dans l'autre sens. Avec une couche d'oxyde natif de 1,5 nm, la fraction oxydée passe de 0,21 à 0,39 (× 1,8), ce qui suffit déjà à rendre compte d'un O/Ti double (0,22 contre 0,11) : l'argument tient, mais avec le bon facteur.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "« Relative nitrogen signal even higher than the ablation target » : l'EDX ne distingue pas l'azote du réseau TiN de l'azote d'une matrice carbonée azotée (produits de pyrolyse de l'acétonitrile : nitriles polymérisés, carbone azoté), que les auteurs observent eux-mêmes en MEB dans les solvants organiques ; et le signal N dépend de la soustraction des raies L du Ti. La sur-stœchiométrie n'est pas démontrée ; l'XPS (N 1s 397,1 eV, Ti–N le plus intense) va dans le sens d'un nitrure, sans quantifier un excès.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Corrigé des facteurs de sensibilité, n(N Ti–N)/n(C Ti–C) ≈ 0,76 : même pour le meilleur échantillon, le carbure de surface est au moins aussi abondant que le nitrure, et Ti–N/Ti–C ne se distinguent pas en Ti 2p : le « 34 % » de Ti–N du Tableau 1 inclut une part de Ti–C.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Acétonitrile (Téb 82 °C, cp ≈ 2,2 J/(g·K)) : avec 3 W pendant 10 min et un volume non donné, l'échauffement peut atteindre plusieurs dizaines de kelvins sans refroidissement ; température de synthèse inconnue.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Les auteurs signalent la formation de HCN pendant l'ablation dans l'acétonitrile, sans mesure ni précaution : cuvette ouverte sous hotte, détecteur de HCN, traitement des colloïdes et des solvants usés comme déchets cyanurés ; acétonitrile inflammable (point d'éclair ≈ 2 °C).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Pyrolyse de l'acétonitrile dans le plasma et la bulle : les fragments CN et N réagissent avec le Ti (nitruration réactive, d'où le Ti–N le plus intense), le carbone forme TiC et une matrice carbonée azotée qui coiffe les NPs tôt (taille la plus petite, 20 nm) ; l'oxygène provient de l'O2 dissous et surtout de l'oxydation à l'air après synthèse, amplifiée par la plus grande surface spécifique (× 2).",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "dosage du HCN formé et procédure d'élimination",
+        "composition de la matrice carbonée (XPS N 1s des espèces C–N, ~399–400 eV) avant d'attribuer l'excès d'azote au réseau"
+      ]
+    },
+    {
+      "label": "H2O2-TiN",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bilan redox de l'oxydation de TiN par H2O2", "inputs": "TiN : Ti(+3), N(−3) ; H2O2 : 2 e− par molécule", "formula": "vers N2 : 2 TiN + 4 H2O2 → 2 TiO2 + N2 + 4 H2O (4 e− par TiN) ; vers nitrate : 2 TiN + 9 H2O2 → 2 TiO2 + 2 HNO3 + 8 H2O (9 e− par TiN)", "result": "2 à 4,5 H2O2 par TiN selon le produit azoté", "compared_to": "N 1s observés à 401,4 et 406,7 eV", "source": "équations équilibrées (H, O, charges vérifiés)"},
+        {"what": "H2O2 disponible contre TiN ablaté (ordre de grandeur, hypothèses)", "inputs": "10 mL de H2O2 à 3 % SUPPOSÉ (0,88 mol/L ; concentration non donnée) ; 1 mg de TiN ablaté SUPPOSÉ (M = 61,87 g/mol)", "formula": "n(H2O2) = c V ; n(TiN) = m/M", "result": "8,8 mmol de H2O2 contre 16 µmol de TiN : excès d'environ 500 fois même pour la solution la plus diluée du commerce", "compared_to": "oxydation complète attendue, conforme au TiO2 presque pur observé", "source": "hypothèses déclarées ; M(TiN) d'après la formule"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Attribution du N 1s à de l'azote moléculaire « adsorbé » : du N2 physisorbé ne reste pas sur une surface à température ambiante sous le vide de l'XPS (énergie de physisorption de quelques kJ/mol, désorption bien en dessous de 100 K), et des coques « rompues » n'enferment plus de gaz. Les énergies mesurées correspondent mieux à des espèces chimiques : 406,7 eV à des nitrates (≈ 407 eV, gamme 407,0–408,2 eV dans les compilations NIST) ou à des espèces NO2 adsorbées (≈ 405,9–406 eV), 401,4 eV à des ions ammonium ou des liaisons N–O, produits attendus de l'oxydation du nitrure par H2O2 (voir « bilan redox »). L'hypothèse « gaz dans les cavités » n'est pas soutenue par l'XPS ; les auteurs disent eux-mêmes qu'elle demande confirmation.", "status": "probleme", "basis": "litterature", "source": {"title": "XPS study of nitrogen dioxide adsorption on metal oxide particle surfaces under different environmental conditions", "authors_or_publisher": "Baltrusaitis J., Jayaweera P. M., Grassian V. H. (Phys. Chem. Chem. Phys.)", "year": "2009", "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/19756286"}},
+        {"aspect": "solubilite", "finding": "TiN se dissout presque entièrement dans H2O2 à 30 % : dans H2O2 l'oxydation se poursuit après l'ablation, dans le colloïde récolté « sans post-traitement » et conservé des mois (le changement du doublet Ti 2p au vieillissement en témoigne). La taille (95 nm, jusqu'à 200 nm) et les coques rompues peuvent résulter de cette attaque chimique en solution (gravure du cœur nitrure sous une coque d'oxyde, effet Kirkendall) autant que de l'ablation. La concentration de H2O2 et le délai avant caractérisation, non donnés, commandent ce résultat.", "status": "reserve", "basis": "litterature", "source": {"title": "Acid stability and methods of analysis of titanium, zirconium, niobium and tantalum nitrides", "authors_or_publisher": "Popova O. I., Kabannik G. T. (Zh. Neorg. Khim.)", "year": "1960", "url_or_doi": "https://www.osti.gov/biblio/4140822"}},
+        {"aspect": "resultats", "finding": "Tailles incohérentes entre sections : 95 nm (§ 3.2) contre 90 nm (Conclusion), et « 20 to 100 nm » (§ 3.6) ; écart faible mais à signaler.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "H2O2 concentré sous irradiation et au contact de TiN/TiO2 se décompose (dégagement d'O2, exotherme) : cuvette non fermée, pas de solvant organique à proximité, protection oculaire. Concentration non donnée, donc risque non évaluable ; rien n'est écrit.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Dans H2O2, les NPs formées par ablation sont oxydées pendant et après la synthèse par H2O2 et ses radicaux (OH) : le nitrure est converti en TiO2 avec départ de l'azote sous forme de N2 et surtout d'espèces oxydées (nitrite, nitrate) et ammonium retenues en surface, d'où les N 1s à 406,7 et 401,4 eV. Les cavités et coques rompues s'expliquent par une diffusion du Ti vers l'extérieur plus rapide que celle de O vers l'intérieur (effet Kirkendall à l'échelle nanométrique) et par le gaz produit pendant l'oxydation, qui fait éclater la coque ; ce gaz s'échappe et n'est pas ce que voit l'XPS.",
+        "sources": [
+          {"title": "Formation of hollow nanocrystals through the nanoscale Kirkendall effect", "authors_or_publisher": "Yin Y., Rioux R. M., Erdonmez C. K., Hughes S., Somorjai G. A., Alivisatos A. P. (Science)", "year": "2004", "url_or_doi": "10.1126/science.1096566"},
+          {"title": "Nitrogen (N), Z=7 – The International XPS Spectra-Base (compilation des énergies N 1s, NIST SRD 20)", "authors_or_publisher": "xpsdatabase.com", "year": "2021", "url_or_doi": "https://xpsdatabase.com/nitrogen-n-z7"},
+          {"title": "Acid stability and methods of analysis of titanium, zirconium, niobium and tantalum nitrides", "authors_or_publisher": "Popova O. I., Kabannik G. T. (Zh. Neorg. Khim.)", "year": "1960", "url_or_doi": "https://www.osti.gov/biblio/4140822"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "concentration de la solution de H2O2 et délai entre ablation et caractérisation",
+        "dosage des nitrates et de l'ammonium dans le surnageant (chromatographie ionique) pour trancher l'origine des pics N 1s",
+        "MET des NPs juste après ablation et après quelques jours dans H2O2, pour séparer ablation et attaque chimique"
+      ]
+    },
+    {
+      "label": "AN-Ti",
+      "verdict": "invérifiable",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "concentration en N du liquide pur", "inputs": "acétonitrile : ρ = 0,786 g/mL, M = 41,05 g/mol, 1 N par molécule", "formula": "c = ρ × 1000 / M", "result": "19,1 mol/L de N, pas d'O", "compared_to": "DMF-Ti : 12,9 mol/L de N et 12,9 mol/L de O", "source": "masses molaires d'après les formules ; densités de manuel non relues ici"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le seul apport d'azote est le solvant ; l'observation (N « plusieurs fois » plus élevé que pour DMF-Ti) va dans le sens attendu, mais l'acétonitrile apporte 1,5 fois plus de N par litre que le DMF et pas d'O (voir « concentration en N du liquide pur ») : le témoin ne sépare pas « état chimique » et « concentration de N et d'O ». Aucun réglage laser, aucune valeur (Fig. S4 absente) : rien à recompter.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Comme pour AN-TiN : formation possible de HCN, acétonitrile inflammable ; nanoparticules de Ti métallique partiellement nitrurées, potentiellement pyrophoriques une fois sèches.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Nitruration réactive du Ti dans le plasma par les fragments CN/N de l'acétonitrile, en concurrence avec la carburation (TiC, rapportée pour l'ablation du Ti dans les solvants organiques).",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "réglages laser (énergie, durée, distance) et pureté de la cible de Ti",
+        "valeurs EDX de la Fig. S4"
+      ]
+    },
+    {
+      "label": "DMF-Ti",
+      "verdict": "invérifiable",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "concentration en N et O du liquide pur", "inputs": "DMF : ρ = 0,944 g/mL, M = 73,09 g/mol, 1 N et 1 O par molécule", "formula": "c = ρ × 1000 / M", "result": "12,9 mol/L de N et 12,9 mol/L de O", "compared_to": "acétonitrile : 19,1 mol/L de N, pas d'O", "source": "masses molaires d'après les formules ; densités de manuel non relues ici"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Témoin de l'expérience AN-Ti : il change la concentration en N, la présence d'O (qui oxyde le Ti métallique en concurrence avec la nitruration) et la quantité de C par N (3 contre 2). Ne prouve pas à lui seul le rôle de « l'état chimique » de l'azote. Aucune valeur donnée dans le texte.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "DMF reprotoxique (catégorie 1B CLP) ; poudres de Ti fines potentiellement pyrophoriques une fois sèches.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Oxydation et carburation du Ti par les fragments du DMF (O du carbonyle, C des méthyles), l'azote amide étant surtout libéré sous forme de produits moléculaires.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "réglages laser et valeurs EDX de la Fig. S4"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "Ablation laser femtoseconde d'une cible de TiN dans cinq liquides : procédé physique sans réactif, sans bilan de matière à vérifier, possible à refaire avec un laser comparable. Les réserves portent sur ce qui n'est pas contrôlé (volume et température du liquide, fluence, distance de focalisation changée à chaque liquide, concentration de H2O2, régime de filamentation à 38 fois la puissance critique) et sur l'interprétation : surface « amorphe » déduite d'un rapport de doublet Ti 2p qui ne dépend pas de la cristallinité, aucune DRX, quantification EDX de N sous les raies L du Ti, carbures sous-estimés dans la conclusion, coefficients d'extinction normalisés à la masse de Ti et comparés à des valeurs par masse totale à 808 nm, NPs non minéralisées avant l'AAS.",
+    "author_errors_suspected": [
+      "« 4-fold large surface area » pour des NPs deux fois plus petites : le facteur correct pour la surface totale à masse égale est 2",
+      "rapport d'intensité Ti 2p1/2:2p3/2 de 100:26–31 utilisé comme preuve de TiO2 amorphe ; le rapport d'aires vaut 1:2 par dégénérescence quel que soit l'ordre cristallin",
+      "azote moléculaire « adsorbé » détecté en XPS à température ambiante sous vide : physiquement improbable, 406,7 eV correspond à des nitrates",
+      "§ 3.3 (cœur des NPs d'eau oxydé) contre § 3.6 (cœur intact)",
+      "conclusion « slight titanium carbide fraction » contre § 3.4 « significant amount », et rapports N/C corrigés de la sensibilité ≈ 0,8–1,3",
+      "taille de H2O2-TiN : 95 nm (§ 3.2) contre 90 nm (Conclusion)"
+    ],
+    "comparison_with_database": "Aucune autre synthèse de nanoparticules de TiN par ablation laser dans la base (compare.py « TiN » : couches minces par APCVD PMC10342551 et pulvérisation réactive PMC4214824, non comparables)."
+  },
+  "sources_not_found": [
+    "capacités calorifiques, densités et indices de réfraction des solvants utilisés ici non relus sur NIST/PubChem pendant cette session (valeurs de manuel)",
+    "facteurs de sensibilité de Scofield (N 1s, C 1s, Ti 2p3/2) non relus pendant cette session",
+    "aucune source trouvée sur la productivité ou la température du liquide pour l'ablation fs de TiN à 3 W"
+  ]
+}

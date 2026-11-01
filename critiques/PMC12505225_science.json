@@ -1,0 +1,537 @@
+{
+ "pmcid": "PMC12505225",
+ "routes": [
+  {
+   "label": "SiO2-700",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition du sol par mole de TEOS",
+     "inputs": "TEOS 208,33 g/mol, ρ 0,933 ; EtOH 10 mol, 46,07 g/mol, ρ 0,789 ; H2O 4 mol ; AcOH 0,05 mol, 60,05 g/mol, ρ 1,049",
+     "formula": "V = Σ n·M/ρ",
+     "result": "223 + 584 + 72 + 2,9 ≈ 882 mL par mole de TEOS ; [AcOH] ≈ 0,057 mol/L ; [H2O] ≈ 4,5 mol/L ; 60,1 g de SiO2 attendus par mole de TEOS",
+     "compared_to": "rapport molaire 1 : 10 : 4 : 0,05 de l'article (aucune quantité absolue)",
+     "source": "valeurs de l'article ; masses molaires et densités usuelles (PubChem)"
+    },
+    {
+     "what": "rapport d'hydrolyse r = H2O/TEOS",
+     "inputs": "4 mol H2O par mol TEOS",
+     "formula": "Si(OEt)4 + 4 H2O → Si(OH)4 + 4 EtOH ; condensation complète : Si(OEt)4 + 2 H2O → SiO2 + 4 EtOH",
+     "result": "r = 4 = hydrolyse complète stœchiométrique, 2 fois le minimum pour SiO2",
+     "compared_to": "« low water content » des auteurs : r = 4 est bas au regard des sols à r ≥ 10, mais pas sous-stœchiométrique",
+     "source": "chimie générale"
+    },
+    {
+     "what": "température de gélification contre ébullition du solvant",
+     "inputs": "gélification 75 °C ; éthanol Téb = 78,4 °C",
+     "formula": "Téb − T",
+     "result": "3,4 °C de marge seulement",
+     "compared_to": "récipient non précisé (ouvert, fermé, reflux)",
+     "source": "NIST Chemistry WebBook (éthanol)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "TEOS seul apporte Si ; r = 4 suffit à l'hydrolyse complète (voir calcul « rapport d'hydrolyse r »). Rien à redire au bilan ; aucune quantité absolue n'est donnée, donc aucun rendement ne peut être recompté.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Gélification à 75 °C, à 3,4 °C du point d'ébullition de l'éthanol (78,4 °C), dans un récipient non précisé : en récipient ouvert, une grande part des 584 mL d'éthanol par mole de TEOS s'évapore et la gélification devient surtout un séchage ; le temps de gel dépend alors du volume et de la surface libre. Le texte ne donne ni récipient ni durée de gélification.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Ethanol, Phase change data",
+      "authors_or_publisher": "NIST Chemistry WebBook",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Catalyse par 0,057 mol/L d'acide acétique (pKa 4,76), acide faible : pH du sol vers 3, proche du point isoélectrique de la silice (≈ 2) où la condensation est la plus lente ; un gel en quelques heures à 75 °C est plausible surtout par évaporation. Les 18 h de vieillissement sont compatibles avec un renforcement du réseau (dissolution–reprécipitation, que les auteurs appellent mûrissement d'Ostwald).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L. L., West J. K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs affirment que la recette donne des structures mésoporeuses et que le recuit réduit la surface spécifique, mais aucune mesure d'adsorption (BET, BJH) n'est faite : ces deux affirmations sont reprises de la littérature (Fardad 2000, Mocioiu 2022), non démontrées sur ces poudres. En outre, la catalyse acide à faible r donne en général des chaînes peu ramifiées et des xérogels plutôt microporeux.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Catalysts and the structure of SiO2 sol-gel films",
+      "authors_or_publisher": "Fardad M. A., J. Mater. Sci. 35, 1835–1841",
+      "year": "2000",
+      "url_or_doi": "10.1023/A:1004749107134 (référence citée par l'article, non ouverte)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pic EDS du carbone (0,28 keV dans le texte, 0,2 keV dans la Fig. S1 ; C Kα = 0,277 keV) attribué à une réadsorption d'organiques. L'alternative la plus simple n'est pas discutée : ruban adhésif carboné ou métallisation au carbone du porte-échantillon MEB, qui donnent ce pic sur toute poudre. Le pic plus intense à 800 qu'à 700 °C ne prouve donc pas un carbone résiduel.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "TEOS et éthanol inflammables, chauffage à 75 °C près du point d'ébullition de l'éthanol : chauffer sans flamme, sous hotte. Déjà noté dans securite_analyse.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse acide du TEOS (catalyse AcOH) en silanols, condensation en chaînes Si–O–Si peu ramifiées, gel par condensation et évaporation de l'éthanol à 75 °C, vieillissement (dissolution–reprécipitation), séchage à 120 °C, puis élimination des éthoxy et silanols résiduels et densification visqueuse entre 700 et 900 °C ; la silice reste amorphe (cristallisation habituelle en cristobalite au-delà de ≈ 1000 °C).",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L. L., West J. K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "récipient de gélification (ouvert, fermé, reflux) et durée de gélification à 75 °C, à 3 °C du point d'ébullition de l'éthanol",
+    "quantités absolues (base : 882 mL de sol par mole de TEOS, 60 g de SiO2 attendus)",
+    "durée, atmosphère et vitesse de chauffe des recuits",
+    "support MEB (ruban carboné ?) avant d'interpréter le pic du carbone en EDS"
+   ]
+  },
+  {
+   "label": "SiO2-900",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "distance réticulaire du pic à 27°",
+     "inputs": "2θ = 27° ; λ = 0,154056 nm ; α-quartz (101) d = 0,3343 nm (2θ = 26,64°)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 0,330 nm ; 27° − 26,64° = +0,36°, du même ordre que le décalage constant de +0,42° mesuré sur le ZnO pur",
+     "compared_to": "quartz (101)",
+     "source": "valeurs de l'article ; references/constantes.md"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Un seul pic fin à 27° est attribué à l'α-quartz (101) ; sa position colle au quartz si l'on applique le décalage instrumental de ≈ +0,4° vu sur le ZnO (voir calcul « distance réticulaire du pic à 27° »). Mais un seul pic, sans la raie (100) vers 20,9°, ne suffit pas à identifier une phase. De plus, une silice sol–gel pure cristallise en général en cristobalite, pas en quartz, et pas avant ≈ 1000 °C sans minéralisateur (les auteurs le rappellent eux-mêmes). L'alternative simple n'est pas écartée : contamination par un mortier en agate (quartz microcristallin) ou par le porte-échantillon. Il faudrait un balayage lent autour de 20,9° et 50,1° (autres raies du quartz) ou la mention du broyage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Si le quartz est réel, la poudre recuite à 900 °C contient de la silice cristalline respirable (cancérogène connu) : manipulation sous hotte ou avec protection respiratoire (déjà dans securite_analyse).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Densification visqueuse de la silice amorphe à 900 °C ; la cristallisation d'α-quartz à cette température sans minéralisateur est peu probable, l'origine du pic unique (contamination ou impureté alcaline) reste à établir.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "mode de broyage (agate ?) et porte-échantillon DRX",
+    "autres raies du quartz avant de conclure à une cristallisation"
+   ]
+  },
+  {
+   "label": "ZnO-450",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de l'acétate de zinc dans l'éthanol",
+     "inputs": "10 g Zn(CH3COO)2·2H2O (219,50 g/mol) ; 100 mL éthanol (ρ 0,789 → 78,9 g)",
+     "formula": "n = m/M ; c = n/V ; m/m(EtOH)",
+     "result": "45,6 mmol ; 0,456 mol/L ; 12,7 g pour 100 g d'éthanol",
+     "compared_to": "solubilité du dihydrate dans l'alcool : 3 g/100 g à 25 °C (PubChem/HSDB), soit ≈ 4 fois moins",
+     "source": "valeurs de l'article ; PubChem CID 11192"
+    },
+    {
+     "what": "NaOH 1 M nécessaire",
+     "inputs": "45,6 mmol Zn2+",
+     "formula": "Zn2+ + 2 OH− → Zn(OH)2 ; Zn2+ + 4 OH− → Zn(OH)4^2−",
+     "result": "91 mL de NaOH 1 M pour Zn(OH)2 ; 182 mL redissolvent le zinc en zincate",
+     "compared_to": "volume non donné par l'article",
+     "source": "chimie générale"
+    },
+    {
+     "what": "masse maximale de ZnO et sous-produit",
+     "inputs": "45,6 mmol Zn ; ZnO 81,38 g/mol ; CH3COONa 82,03 g/mol",
+     "formula": "n·M",
+     "result": "3,71 g de ZnO au plus ; 91 mmol (7,5 g) d'acétate de sodium formés",
+     "compared_to": "aucun lavage décrit ; EDS sans Na",
+     "source": "chimie générale"
+    },
+    {
+     "what": "décalage des raies du ZnO pur contre la fiche JCPDS 05-0664",
+     "inputs": "article : 32,2 ; 34,85 ; 36,7 ; 47,9 ; 57,0 ; 63,2 ; 66,9 ; 68,3 ; 69,5 ; 73,1 ; 77,3° ; fiche : 31,751 ; 34,440 ; 36,252 ; 47,543 ; 56,555 ; 62,870 ; 66,388 ; 67,917 ; 69,057 ; 72,610 ; 76,956°",
+     "formula": "2θ(article) − 2θ(fiche)",
+     "result": "+0,33 à +0,51°, moyenne +0,42° sur les 11 raies (décalage constant)",
+     "compared_to": "composite à 900 °C : 31,7 ; 34,4 ; 36,2° = fiche à ±0,05° (aucun décalage)",
+     "source": "valeurs de l'article ; fiche JCPDS 05-0664 (annexe CMU 2016)"
+    },
+    {
+     "what": "Bragg avec la longueur d'onde déclarée (1,54 nm)",
+     "inputs": "d(100) ZnO = 0,2816 nm (fiche) ; λ = 1,54 nm (article)",
+     "formula": "sin θ = λ / (2d)",
+     "result": "sin θ = 2,73 > 1 : aucune diffraction possible ; avec λ = 0,154056 nm, d(32,2°) = 0,2778 nm et d(31,7°) = 0,2820 nm",
+     "compared_to": "Cu Kα1 = 0,154056 nm",
+     "source": "references/constantes.md (NIST X-ray Transition Energies)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "10 g d'acétate de zinc dihydraté dans 100 mL d'éthanol font 12,7 g/100 g, environ 4 fois la solubilité à 25 °C (3 g/100 g, PubChem/HSDB ; voir calcul « concentration de l'acétate de zinc »). À température ambiante, une grande partie du sel reste solide : la « solution » n'en est pas une, sauf chauffage (les voies éthanoliques de la base, p. ex. PMC3477086, dissolvent à reflux à 80 °C) ou ajout d'eau, que le texte ne mentionne pas.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Zinc Acetate, CID 11192 — section Solubility (HSDB : « 3 g/100 g alcohol at 25 °C » pour le dihydrate)",
+      "authors_or_publisher": "PubChem, NIH (donnée HSDB)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Zinc-Acetate"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Il faut au moins 91 mL de NaOH 1 M pour précipiter Zn(OH)2, et un excès vers 4 OH−/Zn redissout le zinc en zincate (voir calcul « NaOH 1 M nécessaire ») ; le volume, le solvant de la soude (eau ou éthanol) et le pH final ne sont pas donnés. Si la soude est aqueuse, le milieu final contient ≈ 50 % d'eau, ce qui contredit l'argument des auteurs sur la faible polarité de l'éthanol.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« La polarité plus faible de l'éthanol ralentit la formation des ions hydroxyde » n'a pas de sens ici : NaOH apporte directement OH−. Ce qui ralentit la croissance dans l'éthanol est la faible solubilité de ZnO et des intermédiaires (acétates basiques), pas la formation de OH−.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le protocole vise des nanobâtonnets (« favoring controlled growth of nanorods », réf. Hasnidawani), le MEB montre des amas en fleurs. Les auteurs attribuent ces fleurs au recuit à 450 °C, ce qui est peu plausible : les architectures ramifiées en fleur de ZnO se forment en solution (croissance à partir de zincate en excès de base), pas par recuit d'une poudre. Le résultat suggère plutôt un excès de NaOH non décrit.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal growth of ZnO nanostructures",
+      "authors_or_publisher": "Baruah S., Dutta J., Sci. Technol. Adv. Mater.",
+      "year": "2009",
+      "url_or_doi": "10.1088/1468-6996/10/1/013001"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La réaction forme 7,5 g d'acétate de sodium (voir calcul « masse maximale de ZnO et sous-produit ») ; sans lavage, il resterait du Na2CO3 après 450 °C. L'EDS ne montre que Zn et O : un lavage a donc eu lieu mais n'est pas décrit (séparation, solvant, nombre de lavages, séchage).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les 11 raies du ZnO sont toutes décalées de +0,33 à +0,51° (moyenne +0,42°) par rapport à la fiche JCPDS 05-0664 (voir calcul « décalage des raies du ZnO pur ») : décalage instrumental (zéro ou hauteur d'échantillon), pas une contraction de maille. La taille de Scherrer (18,4 nm) n'est pas affectée, et elle est dans la gamme de la base (PMC10420257 : 20 nm ; PMC10585300 : 34 nm à 500 °C).",
+     "status": "reserve",
+     "basis": "comparaison_base",
+     "source": {
+      "title": "Appendix A — JCPDS ZnO 00-005-0664 peak list (d, 2θ, I)",
+      "authors_or_publisher": "Chiang Mai University, thèse (annexe reproduisant la fiche JCPDS)",
+      "year": "2016",
+      "url_or_doi": "https://archive.lib.cmu.ac.th/full/T/2016/chem61216jar_app.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La longueur d'onde est écrite λ = 1,54 nm : avec cette valeur, sin θ = 2,73 pour la raie (100) du ZnO, aucune diffraction n'est possible (voir calcul « Bragg avec la longueur d'onde déclarée »). C'est 0,154 nm (1,54 Å), erreur d'unité des auteurs ; un lecteur qui recalcule d ou la taille de Scherrer avec la valeur écrite obtient des résultats faux d'un facteur 10.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Zn Kα peak at approximately 1.1 keV » : la raie Zn Kα est à 8,64 keV ; le pic vers 1,0 keV est Zn Lα (1,01 keV), comme l'écrivent d'ailleurs les auteurs pour le composite. Erreur de vocabulaire sans conséquence sur la synthèse.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "X-ray Transition Energies Database",
+      "authors_or_publisher": "NIST",
+      "year": "consulté 2026",
+      "url_or_doi": "https://physics.nist.gov/PhysRefData/XrayTrans/"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "NaOH 1 M corrosive ; poudre nanométrique de ZnO à ne pas inhaler (déjà dans securite_analyse).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans l'éthanol, l'ajout de NaOH à l'acétate de zinc (en partie non dissous) forme des acétates basiques puis Zn(OH)2/ZnO déjà cristallisé en solution ; un excès local de base donne des ions zincate dont la croissance anisotrope selon c produit bâtonnets et fleurs pendant les 24 h de vieillissement ; le recuit à 450 °C déshydrate l'hydroxyde restant (≈ 125–150 °C), brûle les acétates et fait croître les cristallites (≈ 18 nm), sans créer la morphologie en fleur.",
+    "sources": [
+     {
+      "title": "Hydrothermal growth of ZnO nanostructures",
+      "authors_or_publisher": "Baruah S., Dutta J., Sci. Technol. Adv. Mater.",
+      "year": "2009",
+      "url_or_doi": "10.1088/1468-6996/10/1/013001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dissolution réelle de 10 g d'acétate de zinc dihydraté dans 100 mL d'éthanol (≈ 4 fois la solubilité à 25 °C) : chauffer à reflux ou diluer",
+    "volume et solvant de la soude 1 M (≥ 91 mL pour Zn(OH)2, ≤ 182 mL pour éviter le zincate), pH final",
+    "séparation et lavage du précipité (7,5 g d'acétate de sodium à éliminer)",
+    "durée et atmosphère du recuit à 450 °C",
+    "longueur d'onde réelle : 0,154 nm, pas 1,54 nm"
+   ]
+  },
+  {
+   "label": "ZnO-SiO2-700",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rapport Zn/Si pour 10 % en masse de ZnO",
+     "inputs": "ZnO 10 g (81,38 g/mol) ; SiO2 90 g (60,08 g/mol)",
+     "formula": "n(ZnO)/n(SiO2)",
+     "result": "0,1229 / 1,498 = 0,082 ; soit 7,6 % molaire de ZnO ; 18,0 g de Zn(CH3COO)2·2H2O par mole de TEOS (208,3 g)",
+     "compared_to": "Mocioiu 2022 (méthode G4 citée) : 10 % molaire de ZnO = 13,1 % en masse",
+     "source": "valeurs de l'article ; Mocioiu et al. 2022"
+    },
+    {
+     "what": "acide chlorhydrique contre acétate apporté par le zinc",
+     "inputs": "0,082 mol Zn(OAc)2 par mol TEOS → 0,164 mol d'acétate ; HCl : soit 0,03 M dans 4 mol d'eau (72 mL) = 0,0022 mol, soit HCl/TEOS = 0,03 mol (rapport de Mocioiu)",
+     "formula": "pH ≈ pKa(AcOH) + log[(n(AcO−) − n(HCl)) / n(HCl)], pKa 4,76",
+     "result": "HCl entièrement consommé par l'acétate dans les deux cas ; pH tamponné vers 6,6 (0,03 M) ou 5,4 (rapport 0,03)",
+     "compared_to": "rôle annoncé : « HCl … prevent the undesirable precipitation of Zn(OH)2 »",
+     "source": "chimie générale (pKa de l'acide acétique)"
+    },
+    {
+     "what": "masses par gramme de composite",
+     "inputs": "0,9 g SiO2 ; 0,1 g ZnO",
+     "formula": "m(TEOS) = 0,9/60,08 × 208,33 ; m(Zn(OAc)2·2H2O) = 0,1/81,38 × 219,50",
+     "result": "3,12 g de TEOS (3,34 mL) et 0,270 g d'acétate de zinc dihydraté par gramme de composite",
+     "compared_to": "aucune masse donnée par l'article",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le protocole dit suivre la méthode G4 de Mocioiu et al. (réf. 31), mais il la contredit : dans G4, le TEOS est ajouté en dernier à une solution d'acétate de zinc, d'eau, de HCl et d'éthanol (rapport molaire EtOH : TEOS : H2O : HCl = 10 : 1 : 3 : 0,03), et la composition finale est 10 % molaire de ZnO ; ici, le TEOS est mis en premier, puis HCl/eau, puis le zinc, sans éthanol, avec « HCl 0,03 M » (probablement le rapport molaire 0,03 lu comme une concentration) et 10 % en masse (= 7,6 % molaire, voir calcul « rapport Zn/Si »). Impossible de savoir lequel des deux protocoles a été suivi.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Influence of Gel Preparation and Thermal Treatment on the Optical Properties of SiO2-ZnO Powders Obtained by Sol–Gel Method",
+      "authors_or_publisher": "Mocioiu O.-C., Vlăduț C. M., Atkinson I., Brătan V., Mocioiu A.-M. (Gels, MDPI)",
+      "year": "2022",
+      "url_or_doi": "10.3390/gels8080498 (https://pmc.ncbi.nlm.nih.gov/articles/PMC9407535)"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Sans éthanol, le TEOS et l'eau ne sont pas miscibles : le mélange est biphasique jusqu'à ce que l'hydrolyse libère assez d'éthanol. En 30 min d'agitation à 500 rpm, l'homogénéité n'est pas garantie, et l'acétate de zinc ne peut se dissoudre que dans la phase aqueuse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune étape ne mène du sol à la poudre : ni gélification, ni séchage. Chez Mocioiu, le sol G4 ne gélifie qu'après un mois à température ambiante ; les auteurs de la méthode séchaient donc la solution vieillie 18 h à 200 °C. Ici, après 18 h de vieillissement, le texte passe directement au recuit d'une « poudre ».",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Influence of Gel Preparation and Thermal Treatment on the Optical Properties of SiO2-ZnO Powders Obtained by Sol–Gel Method",
+      "authors_or_publisher": "Mocioiu O.-C., Vlăduț C. M., Atkinson I., Brătan V., Mocioiu A.-M. (Gels, MDPI)",
+      "year": "2022",
+      "url_or_doi": "10.3390/gels8080498 (https://pmc.ncbi.nlm.nih.gov/articles/PMC9407535)"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le rôle annoncé de HCl (« prevent the undesirable precipitation of Zn(OH)2 ») ne tient pas à ces quantités : l'acétate apporté par le zinc (0,164 mol par mole de TEOS) neutralise tout le HCl (0,002 à 0,03 mol) et tamponne le milieu vers pH 5,4–6,6 (voir calcul « acide chlorhydrique contre acétate »). Ce qui évite la précipitation est l'absence de base : une solution d'acétate de zinc est déjà à pH 6–7 et reste limpide.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Zinc Acetate Dihydrate (Cryst./Certified), Fisher Chemical, Z20500 — spécification pH 6,0 à 7,0",
+      "authors_or_publisher": "Fisher Scientific (fiche fournisseur)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.fishersci.com/shop/products/zinc-acetate-dihydrate-cryst-certified-fisher-chemical/Z20500"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Recuits à 700–900 °C de durée, d'atmosphère et de vitesse de chauffe inconnues ; Mocioiu traitait 2 h. La « layered annealing protocol » n'est pas décrite : un ou trois échantillons, recuits successifs ou séparés (doute déjà relevé par l'extracteur).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Influence of Gel Preparation and Thermal Treatment on the Optical Properties of SiO2-ZnO Powders Obtained by Sol–Gel Method",
+      "authors_or_publisher": "Mocioiu O.-C., Vlăduț C. M., Atkinson I., Brătan V., Mocioiu A.-M. (Gels, MDPI)",
+      "year": "2022",
+      "url_or_doi": "10.3390/gels8080498 (https://pmc.ncbi.nlm.nih.gov/articles/PMC9407535)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : le pic à 579 cm−1 est attribué à des liaisons Si–O–Zn d'interface. Mocioiu 2022 attribue bien 560–568 cm−1 à Si–O–Zn dans des poudres vitreuses, mais Alibe 2018 attribue 574–578 cm−1 à l'élongation Zn–O des tétraèdres ZnO4 de la willémite Zn2SiO4 formée dès 800 °C. Un pic qui grandit avec la température est donc aussi bien le signe d'une silicatation. La bande à 885–890 cm−1 (Si–O des SiO4 isolés de la willémite) permettrait de trancher ; les auteurs ne la discutent pas.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The influence of calcination temperature on structural and optical properties of ZnO-SiO2 nanocomposite by simple thermal treatment route",
+      "authors_or_publisher": "Alibe I. M., Matori K. A., Sidek H. A. A., Yazid Y., Saion E., Alibe A. M., Zaid M. H. M., Engku Ali E. A. G., Zangina T. (Arch. Metall. Mater. 63(2), 539–545)",
+      "year": "2018",
+      "url_or_doi": "10.24425/118972 (https://www.imim.pl/files/archiwum/Vol2_2018/02.pdf)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La hausse de 46,71 % de l'absorption de la bande Si–O–Si après ajout de ZnO vient de spectres en transmission dont l'intensité dépend de la masse d'échantillon dans la pastille ; ni la normalisation ni la température de recuit ne sont précisées. Ce chiffre n'est pas une grandeur du matériau.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction entre sections : résumé et conclusion annoncent une distribution homogène de Si, Zn et O ; les Résultats disent que le Zn est « sparse and unevenly distributed », et le MEB à 900 °C décrit des « individual ZnO crystals » dans un verre de silice, alors que la cartographie est interprétée comme un zinc lié à l'interface sans phase séparée. Une faible teneur explique un signal faible, pas une répartition inégale.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "TEOS inflammable ; HCl dilué ; poudre nanométrique ; formation possible de silice cristalline à 900 °C (déjà dans securite_analyse).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hydrolyse acide du TEOS, Zn2+ (avec ses acétates) piégé dans le gel sous forme dispersée ; au séchage et au recuit, les acétates brûlent (≈ 300–400 °C) et Zn2+ reste lié aux silanols (Si–O–Zn, vitreux) jusqu'à 700–800 °C ; vers 800–900 °C, la diffusion de Zn dans la silice amorphe forme soit des nanocristaux de ZnO, soit de la willémite Zn2SiO4, la seconde étant la phase attendue par réaction ZnO + SiO2 dans cette gamme de température.",
+    "sources": [
+     {
+      "title": "The influence of calcination temperature on structural and optical properties of ZnO-SiO2 nanocomposite by simple thermal treatment route",
+      "authors_or_publisher": "Alibe I. M., Matori K. A., Sidek H. A. A., Yazid Y., Saion E., Alibe A. M., Zaid M. H. M., Engku Ali E. A. G., Zangina T. (Arch. Metall. Mater. 63(2), 539–545)",
+      "year": "2018",
+      "url_or_doi": "10.24425/118972 (https://www.imim.pl/files/archiwum/Vol2_2018/02.pdf)"
+     },
+     {
+      "title": "The Influence of Gel Preparation and Thermal Treatment on the Optical Properties of SiO2-ZnO Powders Obtained by Sol–Gel Method",
+      "authors_or_publisher": "Mocioiu O.-C., Vlăduț C. M., Atkinson I., Brătan V., Mocioiu A.-M. (Gels, MDPI)",
+      "year": "2022",
+      "url_or_doi": "10.3390/gels8080498 (https://pmc.ncbi.nlm.nih.gov/articles/PMC9407535)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "suivre la méthode G4 originale (Mocioiu 2022) : TEOS ajouté en dernier à acétate de zinc + eau + HCl + éthanol, EtOH : TEOS : H2O : HCl = 10 : 1 : 3 : 0,03",
+    "choisir 10 % en masse (7,6 % molaire) ou 10 % molaire (13,1 % en masse) de ZnO",
+    "ajouter une étape de séchage (200 °C chez Mocioiu) : le sol ne gélifie pas en 18 h",
+    "durée et atmosphère des recuits (2 h chez Mocioiu)"
+   ]
+  },
+  {
+   "label": "ZnO-SiO2-900",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "raies DRX du composite contre ZnO pur et fiche",
+     "inputs": "composite : 31,7 ; 34,4 ; 36,2° ; ZnO pur (même appareil) : 32,2 ; 34,85 ; 36,7° ; fiche : 31,751 ; 34,440 ; 36,252°",
+     "formula": "écarts",
+     "result": "composite = fiche à −0,05/−0,04/−0,05° ; ZnO pur = fiche + 0,42° en moyenne ; d(31,7°) = 0,2820 nm",
+     "compared_to": "décalage instrumental attendu identique pour les deux poudres",
+     "source": "valeurs de l'article ; fiche JCPDS 05-0664"
+    },
+    {
+     "what": "distance du pic « tridymite (211) »",
+     "inputs": "2θ ≈ 21° ; λ = 0,154056 nm",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d ≈ 0,423 nm",
+     "compared_to": "zone où tombent aussi des raies de la cristobalite et de la willémite (fiches COD à consulter)",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les pics du composite (31,7 ; 34,4 ; 36,2°) tombent exactement sur la fiche ZnO, alors que le ZnO pur mesuré sur le même diffractomètre est décalé de +0,42° (voir calcul « raies DRX du composite »). Soit les échantillons n'étaient pas à la même hauteur, soit les positions du composite ont été prises à la fiche plutôt que mesurées : à vérifier sur la Fig. 3.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Appendix A — JCPDS ZnO 00-005-0664 peak list (d, 2θ, I)",
+      "authors_or_publisher": "Chiang Mai University, thèse (annexe reproduisant la fiche JCPDS)",
+      "year": "2016",
+      "url_or_doi": "https://archive.lib.cmu.ac.th/full/T/2016/chem61216jar_app.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs écrivent « ZnSiO4 » : le silicate de zinc est Zn2SiO4 (willémite). Et ils disent les trois pics « partagés » par ZnO et le silicate ; or Alibe 2018 indexe la willémite et garde une trace de ZnO non réagi à 36,37°, c'est-à-dire que la raie à 36,2° est propre au ZnO. La présence simultanée de ZnO et de willémite est la lecture la plus probable, à confirmer par les raies propres à la willémite (vers 22, 25,5 et 38,8°) sur la fiche JCPDS 37-1485.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The influence of calcination temperature on structural and optical properties of ZnO-SiO2 nanocomposite by simple thermal treatment route",
+      "authors_or_publisher": "Alibe I. M., Matori K. A., Sidek H. A. A., Yazid Y., Saion E., Alibe A. M., Zaid M. H. M., Engku Ali E. A. G., Zangina T. (Arch. Metall. Mater. 63(2), 539–545)",
+      "year": "2018",
+      "url_or_doi": "10.24425/118972 (https://www.imim.pl/files/archiwum/Vol2_2018/02.pdf)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le pic vers 21° est attribué à la tridymite (211) en invoquant son domaine de stabilité au-dessus de 870 °C. Ce domaine est thermodynamique ; en pratique, la silice amorphe cristallise d'abord en cristobalite, et la tridymite pure ne se forme guère sans impuretés. Un seul pic à d ≈ 0,423 nm ne distingue pas tridymite, cristobalite et willémite ; la conclusion « ZnO promeut la cristallisation en tridymite » n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mocioiu 2022, avec la même méthode G4 citée, trouve toutes ses poudres non cristallines après 2 h à 900 °C ; ici des pics apparaissent à 900 °C. L'écart peut venir de la teneur, de l'ordre d'addition ou de la durée de recuit (non donnée) : un chimiste ne peut pas savoir quel résultat attendre.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Influence of Gel Preparation and Thermal Treatment on the Optical Properties of SiO2-ZnO Powders Obtained by Sol–Gel Method",
+      "authors_or_publisher": "Mocioiu O.-C., Vlăduț C. M., Atkinson I., Brătan V., Mocioiu A.-M. (Gels, MDPI)",
+      "year": "2022",
+      "url_or_doi": "10.3390/gels8080498 (https://pmc.ncbi.nlm.nih.gov/articles/PMC9407535)"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 900 °C, la diffusion de ZnO dans la silice amorphe produit des nanocristaux de ZnO et une silicatation partielle en willémite Zn2SiO4 (formée dès 800 °C dans Alibe 2018), avec densification visqueuse de la matrice ; le pic vers 21° reste d'attribution incertaine (cristobalite, tridymite ou willémite).",
+    "sources": [
+     {
+      "title": "The influence of calcination temperature on structural and optical properties of ZnO-SiO2 nanocomposite by simple thermal treatment route",
+      "authors_or_publisher": "Alibe I. M., Matori K. A., Sidek H. A. A., Yazid Y., Saion E., Alibe A. M., Zaid M. H. M., Engku Ali E. A. G., Zangina T. (Arch. Metall. Mater. 63(2), 539–545)",
+      "year": "2018",
+      "url_or_doi": "10.24425/118972 (https://www.imim.pl/files/archiwum/Vol2_2018/02.pdf)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "indexation complète de la Fig. 3 (raies propres de la willémite, de la cristobalite et de la tridymite)",
+    "bande FTIR vers 885–890 cm−1 (SiO4 isolés de la willémite)",
+    "durée du recuit à 900 °C"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La silice sol–gel est cohérente et refaisable si l'on fixe le récipient de gélification (75 °C, à 3 °C de l'ébullition de l'éthanol). Le ZnO part d'une « solution » d'acétate de zinc 4 fois au-dessus de sa solubilité dans l'éthanol à 25 °C, sans volume de soude ni lavage. Le composite est le point faible : il se réclame de la méthode G4 de Mocioiu 2022 mais en inverse l'ordre d'addition, supprime l'éthanol, remplace un rapport molaire HCl/TEOS de 0,03 par « 0,03 M », passe de 10 % molaire à 10 % en masse et omet le séchage d'un sol qui ne gélifie qu'en un mois. Les attributions de phase à 900 °C (quartz, tridymite, Si–O–Zn) reposent sur des pics isolés non discriminants ; la willémite Zn2SiO4 (écrite « ZnSiO4 ») est l'alternative la plus probable. Erreurs d'unité et de vocabulaire : λ = 1,54 nm au lieu de 0,154 nm, Zn Kα au lieu de Zn Lα, homogénéité du Zn affirmée en conclusion et démentie dans les Résultats.",
+  "author_errors_suspected": [
+   "λ(Cu Kα1) = 1,54 nm au lieu de 0,154 nm",
+   "« ZnSiO4 » au lieu de Zn2SiO4",
+   "« Zn Kα à 1,1 keV » au lieu de Zn Lα ≈ 1,01 keV",
+   "protocole du composite contraire à la méthode G4 citée (ordre d'addition, éthanol, HCl 0,03 en rapport molaire, % molaire)",
+   "distribution du Zn dite homogène (résumé, conclusion) et inégale (Résultats)",
+   "10 g d'acétate de zinc dihydraté dans 100 mL d'éthanol : au-dessus de la solubilité à 25 °C",
+   "décalage constant de +0,42° des raies du ZnO pur absent des raies du composite"
+  ],
+  "comparison_with_database": "ZnO : taille de Scherrer 18,4 nm du même ordre que PMC10420257 (20 nm, coprécipitation aqueuse) et PMC10585300 (34 nm après 500 °C) ; les voies éthanoliques de la base (PMC3477086) dissolvent l'acétate de zinc à reflux, ce que ce protocole ne fait pas. Aucune autre voie de composite ZnO–SiO2 dans la base ; silice : pas de voie sol–gel catalysée par acide acétique comparable (les voies SiO2 de la base sont Stöber ou gabarits)."
+ },
+ "sources_not_found": [
+  "valeur de la solubilité de l'acétate de zinc dihydraté dans l'éthanol lue dans un extrait de recherche PubChem/HSDB (3 g/100 g à 25 °C) : la page PubChem n'a pas pu être ouverte depuis cet environnement",
+  "fiche JCPDS 37-1485 de la willémite (positions des raies) : non trouvée en accès libre lisible ; les positions citées vers 22, 25,5 et 38,8° sont à confirmer",
+  "bandes IR de la tridymite et de la cristobalite et fiche de la tridymite (211) : non recherchées (budget de recherches)"
+ ]
+}

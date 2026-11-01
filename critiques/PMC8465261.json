@@ -1,0 +1,96 @@
+{
+ "pmcid": "PMC8465261",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "route pure_CQD_dialysis_24h (branche entière) et inventaire « pure CQD, after 24 h of dialysis (HPLC stage b) »",
+   "extracted": "branche de synthèse séparée : mêmes étapes 1-10 que pure_CQD, dialyse de 24 h au lieu de 48 h, avec son résultat HPLC",
+   "article_says": "The purification efficiency was investigated in three stages: (a) before dialysis; (b) after 24 h; and (c) after 48 h.",
+   "fix": "supprimer la branche ; ranger le chromatogramme à 24 h en résultat de pure_CQD, avec la condition « after 24 h of dialysis » dans le nom de la propriété. L'article parle d'une analyse du « retentate » de la dialyse appliquée (« by recording HPLC chromatograms of the retentate ») en trois stades, pas de trois lots préparés à part ; la durée de dialyse n'est pas un paramètre de synthèse comparé mais un temps de prélèvement. Le doute D3 de l'extracteur va dans ce sens.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "route pure_CQD_no_dialysis (branche entière) et inventaire « pure CQD, before dialysis (HPLC stage a) »",
+   "extracted": "branche de synthèse sans étape de dialyse, variation « duration (étape 10) = before dialysis (no dialysis step) », résultats HPLC 30–50 min et 5.89–17.20 min",
+   "article_says": "As it can be seen, the as-prepared pure CQDs show multiple peaks as a result of the CQDs contamination found at the ~30–50 min, mainly contributed by the unreacted chemical species formed during thermal treatment.",
+   "fix": "supprimer la branche ; ranger les deux résultats HPLC (pics à ~30–50 min ; pics faibles à 5.89–17.20 min) en résultats de pure_CQD, condition « before dialysis ». Une durée « avant dialyse » n'est pas une valeur de la durée de dialyse (la variation est mal formée : c'est une étape retirée, non une durée) ; et l'article ne dit pas que le lot a été préparé sans dialyse. Les pics à 5.89–17.20 min ne sont pas explicitement rattachés au stade « avant dialyse » par la phrase suivante (« The retention times of the low absorption peaks are 5.89–17.20 min ») : à garder avec cette réserve.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CQD@Gly et CQD@Arg reagents supplier (glycine = Merck, arginine = Sigma–Aldrich)",
+   "extracted": "glycine : « Merck, Germany » ; arginine : « Sigma–Aldrich, USA »",
+   "article_says": "Amino acids L-glycine and L-arginine were purchased from Merck, Germany, and Sigma–Aldrich, USA.",
+   "fix": "l'article n'écrit pas « respectively » : l'appariement est une lecture de l'ordre de la phrase. Le garder si on veut, mais signaler en annotation que l'attribution fournisseur/acide aminé est déduite de l'ordre (le doute existe déjà, l'annotation limite_reproductibilite non).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "pure_CQD et CQD@Gly outcomes : stabilité de fluorescence dans NaCl et comportement au pH",
+   "extracted": "stabilité NaCl 0–1.0 mol dm−3 et effet du pH rangés seulement dans CQD@Arg",
+   "article_says": "The same observation was denoted for the pure CQD and CQD@Gly, demonstrating their good stability in high salt conditions, the results of which are shown in Figures S5c and S6c.",
+   "fix": "ajouter à pure_CQD et CQD@Gly un résultat « NaCl_stability » (stabilité en NaCl, valeurs seulement dans l'annexe absente) ; idem pour le pH avec la citation « Similar pH behaviour is demonstrated and presented in Figures S5d and S6d for pure CQD and CQD@Gly, respectively. »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CQD@Arg outcome pH_effect_on_fluorescence et CARAC « fluorescence, UV-vis, pH and solvent effects »",
+   "extracted": "stable from pH 6.0 to 10.0; strong decrease at pH 2.0 and 12.0 ; « pH-independent fluorescence from pH 6.0 to 10.0 »",
+   "article_says": "Some changes occurred in acidic conditions from pH = 2.0 to pH = 4.0, and also a decrease in fluorescence intensity was observed at pH = 10.0.",
+   "fix": "le texte se contredit : « no significant changes ... from pH = 6.0 to pH = 10.0 » puis une baisse à pH 10,0 ; ajouter un doute et nuancer la valeur (ne pas écrire « pH-independent » ; l'extraction cite seulement la première phrase)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "résultats UV-vis des CQD préparés (aucune propriété d'absorption extraite)",
+   "extracted": "aucune valeur d'absorption UV-vis (la CARAC UV-vis de CQD@Arg ne reprend que pH, NaCl, solvants)",
+   "article_says": "in the UV region, there are two weak absorption peaks present at around 270 nm designated for π–π* transition of C=C double bond, and around 320 nm for n–π* transition of C=O bonds",
+   "fix": "ajouter un résultat commun (annotation tendance_observee ou résultat par voie) : pics d'absorption à ~270 nm (π–π*, C=C) et ~320 nm (n–π*, C=O) pour les CQD préparés ; mineur car caractérisation du matériau fini. Même remarque pour l'ajustement exponentiel et R² = 0,9891 du dosage de Fe3+, et pour la variation du potentiel zêta de CQD@Arg de 9,8 ± 2,5 à −26,0 ± 1,7 mV selon le pH, absents.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CARAC XRD (rangée CQD@Arg) et CARAC FTIR (rangée pure_CQD)",
+   "extracted": "XRD rattaché à CQD@Arg seul ; FTIR « common to all prepared CQDs » rattaché à pure_CQD seul",
+   "article_says": "The XRD measurements of the prepared CQDs did not show significant differences between patterns (Figure 2A and Figure S3).",
+   "fix": "résultat de groupe : le traiter de la même façon pour les deux techniques (annotation tendance_observee, déjà présente pour XRD et FTIR, sans recopier sur une seule voie), ou le déclarer sur les trois voies. Aujourd'hui un lecteur qui ouvre CQD@Gly ne voit ni DRX ni FTIR.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs (CQD@Arg)",
+   "extracted": "coordination Fe3+ / groupes N et O de surface, transfert d'électron vers les orbitales d de Fe3+ ([Ar]3d5), avec la citation « These observations clearly indicate the strong affinity of CQDs toward Fe3+ ions due to the chemical nature of CQDs. »",
+   "article_says": "Zhu et al. [] have reported that Fe3+ ions most likely coordinate with amino- and oxygen-rich groups on the CQD surface and cause quenching.",
+   "fix": "la citation ne soutient pas le mécanisme décrit ; la remplacer par la phrase de Zhu et al. et celle sur Issa et al. (« A more detailed mechanism is provided by Issa et al. []... »), et préciser dans le texte que c'est un mécanisme de la littérature repris par les auteurs, non démontré par eux sur leurs CQD",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs (pure_CQD)",
+   "extracted": "« cinq phases ... et ... réaction de Maillard » avec la seule citation sur les cinq phases",
+   "article_says": "By adding amino acids Gly and Arg into the mixture, a condensation reaction of Maillard non-enzymatic reaction could take place.",
+   "fix": "la citation ne couvre pas la partie Maillard (propos hypothétique : « could take place ») ; ajouter cette phrase et écrire « pourrait avoir lieu » ; les cinq phases sont un énoncé général de la littérature (réf. non précisée), pas un résultat des auteurs sur leurs échantillons",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 3,
+  "branches_extracted": 5,
+  "not_stated_checked": 45,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masse de peau de clémentine par lot : seulement le rapport 0,05 g/mL et le volume d'extrait (20 mL), pas de masse ni de volume d'eau ajouté",
+  "température et durée du séchage au soleil, durée et type de broyage, taille du broyat",
+  "température de l'ultrasonication de 30 min de l'extrait des CQD (70 °C ne vaut que pour l'extrait témoin), puissance et fréquence du bain",
+  "séquence de mélange de l'extrait et de la solution d'acide aminé (les deux « transferred into Teflon-lined autoclave »), volume de l'autoclave pour les CQD dopés, remplissage, vitesse de chauffe et de refroidissement",
+  "durée de la centrifugation à 15000 rpm, volume filtré, volume et renouvellement de l'eau de dialyse, température de dialyse, nature de la membrane Spectra/Por 7 (cellulose) non précisée",
+  "choix entre concentration à l'évaporateur rotatif et lyophilisation, conditions de chacune ; rendement massique des CQD non donné",
+  "annexe absente : Tableau S1-S2 et figures S1-S6 (EDS complet, DRX de pure CQD et CQD@Gly, chromatogrammes HPLC, rendements quantiques, spectres de fluorescence de pure CQD et CQD@Gly)",
+  "TEM et HR-TEM seulement pour CQD@Arg : pas de taille pour pure CQD et CQD@Gly"
+ ],
+ "mechanism_check": "à revoir : les citations de mecanisme_auteurs (pure_CQD, CQD@Arg) ne soutiennent pas tout ce que le texte annoté affirme ; les mécanismes viennent de la littérature (Zhu, Issa) ou sont hypothétiques (« could take place »)",
+ "notes": "Valeurs numériques vérifiées une à une contre le texte et le tableau 1 (QY, ζ, EDS N, émission, EC50, IC50, rangées HFF-1) : aucune fausse. Fig. 5 ouverte : Gly à 100 µg/mL ≈ 73 % (B), extrait ≈ 57 % (D), pente et R² de l'équation affichée cohérents avec les EC50 du texte (EC50 Gly 53,8 par la droite y = 0,3682x + 30,1969, soit 53,8) ; Fig. 6A : Fe3+ ≈ 0,52, Cu2+ ≈ 0,18 et Hg2+ ≈ 0,17, ce qui confirme la lecture « baisse de plus de 50 % / moins de 20 % » malgré la formulation « reduced to >50% ». Extrait des CQD dopés : l'article ne le réécrit pas ; la préparation de l'extrait (lavage, séchage, broyage, 0,05 g/mL, 30 min d'ultrasons, filtration) est décrite une seule fois avant la séparation pure/dopé, puis les dopés disent « 15 mL of a citrus extract with 5 mL of amino acid » : l'héritage des étapes 1-6 est la lecture naturelle, pas un constat. La citation de l'étape de filtration des branches dopées porte « 20 mL of the extract » alors que la voie utilise 15 mL : cosmétique. Variation de CQD@Arg nommée « glycine » avec parent_value « glycine » : conforme au nom du réactif parent. Références de méthode : B28 (HPLC, Chen et al.) et B43 (DPPH, Sachdev et Gopinath) présentes ; B57 (formules NIH du pourcentage de croissance) correctement exclu ; pas de renvoi manquant. Dialyse : l'extracteur signale lui-même le doute ; je ne peux pas prouver qu'il s'agit d'un même lot mais le texte parle d'un seul protocole appliqué et de « retentate »."
+}

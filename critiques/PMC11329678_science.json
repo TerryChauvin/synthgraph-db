@@ -1,0 +1,413 @@
+{
+ "pmcid": "PMC11329678",
+ "routes": [
+  {
+   "label": "CuS-Fe3O4",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "moles et masse de CuCl2·2H2O",
+     "inputs": "3 mmol ; M(CuCl2·2H2O) = 170,48 g/mol",
+     "formula": "m = n × M",
+     "result": "0,511 g ; [Cu2+] = 3 mmol / 25 mL = 0,12 mol/L ; Cl/Cu = 2",
+     "compared_to": "soluble sans difficulté",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "concentration de Na2SO3",
+     "inputs": "8 mmol ; M = 126,04 g/mol ; 10 mL d'eau",
+     "formula": "m = n × M ; C = n/V",
+     "result": "1,008 g dans 10 mL = 10,1 g/100 mL ; 0,8 mol/L",
+     "compared_to": "solubilité 22 g/100 mL à 20 °C : solution possible",
+     "source": "PubChem CID 24437"
+    },
+    {
+     "what": "rapport molaire S/Cu apporté et bilan redox",
+     "inputs": "8 mmol SO3^2- (S +IV) ; 3 mmol Cu2+ ; CuS visé (S −II)",
+     "formula": "électrons nécessaires = 3 mmol × [(+4) − (−2)]",
+     "result": "S/Cu = 2,7 ; 18 mmol d'électrons à fournir pour réduire 3 mmol de S(IV) en sulfure ; aucun réducteur ajouté (le sulfite est lui-même le réducteur)",
+     "compared_to": "CuS : S/Cu = 1 et S(−II)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "bilan de la réduction de Cu(II) par le sulfite",
+     "inputs": "2 Cu2+ + SO3^2- + 2 Cl- + H2O → 2 CuCl + SO4^2- + 2 H+ ; 3 mmol Cu2+",
+     "formula": "n(SO3^2-) consommé = n(Cu)/2",
+     "result": "1,5 mmol de sulfite consommés, 3 mmol de H+ libérés, 6,5 mmol de sulfite restant (tampon HSO3-/SO3^2-)",
+     "compared_to": "préparation classique de CuCl (CuCl2 + Na2SO3)",
+     "source": "LibreTexts, Preparation of CuCl"
+    },
+    {
+     "what": "teneur attendue en Cu et S du composite CuS/Fe3O4",
+     "inputs": "1 g Fe3O4 ; 3 mmol CuS (M = 95,61 g/mol) si rendement 100 %",
+     "formula": "w(Cu) = 3 mmol × 63,55 / (1 + 0,287 g)",
+     "result": "CuS 0,287 g ; Cu 14,8 % en masse ; S 7,5 % en masse",
+     "compared_to": "à comparer à l'EDX du composite final (voie Ag-CuS-Fe3O4)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg : covellite contre digénite",
+     "inputs": "Cu Kα 1,5406 Å ; covellite a = 3,794 Å, c = 16,332 Å ; digénite haute cubique a = 5,567 Å (Cu-S System 1983)",
+     "formula": "2θ = 2 arcsin(λ/2d)",
+     "result": "covellite : 27,67 (101), 29,28 (102), 31,78 (103), 32,88 (006), 47,92 (110) ; digénite : 27,72 (111), 32,11 (200), 46,05 (220), 54,60 (311)",
+     "compared_to": "composite (Fig. 1–2) : pics forts vers 27,9, 32,3, 46,4 et 55,0°, pas de pic à 29,3 ni à 47,9° → digénite Cu9S5 (fiche 96-153-6219 « Cu9 S5 » utilisée par les auteurs), pas covellite CuS",
+     "source": "paramètres de maille : The Cu-S System (1983) ; lecture de la Fig. 2"
+    },
+    {
+     "what": "Bragg : hématite (104)",
+     "inputs": "Cu Kα 1,5406 Å ; hématite a = 5,035 Å, c = 13,75 Å (valeurs de manuel, à confirmer sur COD)",
+     "formula": "2θ = 2 arcsin(λ/2d)",
+     "result": "(012) 24,15 ; (104) 33,16 ; (110) 35,63 ; (024) 49,47 ; (116) 54,07",
+     "compared_to": "épaulement fort vers 33,1° dans le composite, non attribué par les auteurs",
+     "source": "arithmétique ; paramètres de manuel"
+    },
+    {
+     "what": "énergie de bande déduite de Eg = 1242/λ",
+     "inputs": "Eg annoncés 2,03 / 2,00 / 1,97 eV ; pics 580 et 610 nm",
+     "formula": "λonset = 1242/Eg ; E(pic) = 1242/λ",
+     "result": "λonset = 612, 621 et 630 nm ; E(580 nm) = 2,14 eV ; E(610 nm) = 2,04 eV",
+     "compared_to": "Fig. 5 couvre 500–650 nm seulement, sans front d'absorption visible ; magnétite quasi métallique (demi-métal)",
+     "source": "arithmétique ; Jeng & Guo 2002"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Le sulfite de sodium (S +IV) n'est pas une source de sulfure : former 3 mmol de CuS demanderait 18 mmol d'électrons (calcul « rapport molaire S/Cu apporté et bilan redox ») et aucun réducteur n'est ajouté. En milieu chlorure (Cl/Cu = 2), le sulfite réduit au contraire Cu(II) en Cu(I) : c'est la préparation classique de CuCl (CuCl2 + Na2SO3), ou du sel de Chevreul Cu2SO3·CuSO3·2H2O. Le précipité attendu à température ambiante est donc CuCl et/ou un sulfite de cuivre, pas CuS.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "3.9: Preparation of Copper(I) Chloride, CuCl",
+      "authors_or_publisher": "Chemistry LibreTexts (Laboratory Experiments, Inorganic)",
+      "year": "2024",
+      "url_or_doi": "https://chem.libretexts.org/Ancillary_Materials/Laboratory_Experiments/Wet_Lab_Experiments/Organic_Laboratory_Experiments/03:_Inorganic_Laboratory_Experiments/3.09:_Preparation_of_Copper(I)_Chloride_CuCl"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le sel de Chevreul, chauffé à l'air, donne CuSO4, CuSO3 puis CuO, jamais un sulfure. Si le solide lavé est un sulfite ou un chlorure de cuivre(I), la calcination à 550 °C ne fournit pas non plus de sulfure. La digénite vue en DRX demande une source S(−II) que le protocole écrit ne contient pas (réactif réellement Na2S ? dismutation du sulfite non démontrée).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Chevreul's salt (source secondaire ; renvoie à Silva et al., Thermochim. Acta 360 (2000) 17–27, doi 10.1016/S0040-6031(00)00525-6, non vérifié sur Crossref)",
+      "authors_or_publisher": "Wikipedia",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Chevreul's_salt"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination à 550 °C pendant 2 h, atmosphère non dite. La covellite CuS n'est stable que jusqu'à 507 °C et se transforme en digénite Cu2−xS même sans air. À l'air, la covellite passe à la digénite puis à Cu2O, CuO·CuSO4 et CuO : à 20 °C/min, 5,8 % de Cu2O dès 500 °C, et la conversion est plus avancée en palier isotherme de 2 h. Un « CuS » calciné à 550 °C ne peut pas rester CuS.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Cu-S (Copper-Sulfur) System",
+      "authors_or_publisher": "Bulletin of Alloy Phase Diagrams 4(3) (PDF hébergé sur la page de D. E. Laughlin, CMU ; auteurs à confirmer : Chakrabarti & Laughlin)",
+      "year": "1983",
+      "url_or_doi": "http://www.contrib.andrew.cmu.edu/~dl0p/laughlin/pdf/037.pdf"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Oxydation à l'air de la covellite (digénite puis Cu2O, CuO·CuSO4 et CuO entre 500 et 750 °C) : confirmation de la réserve précédente par une seconde source.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Quantitative analysis of phases formed during the oxidation of covellite (CuS)",
+      "authors_or_publisher": "J. G. Dunn, C. Muzenda — Journal of Thermal Analysis and Calorimetry 64(3), 1241–1246",
+      "year": "2001",
+      "url_or_doi": "https://www.ovid.com/journals/jthac/abstract/00984844-200164030-00045"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La fiche de référence que les auteurs superposent au composite (Fig. 2, 96-153-6219) est « Cu9 S5 » (digénite), et les pics 27,9 / 32,3 / 46,4 / 55,0° correspondent à la digénite, pas à la covellite (pas de 29,3 ni de 47,9°) (calcul « Bragg : covellite contre digénite »). L'article appelle « CuS » une phase Cu9S5 (Cu1,8S, cuivre surtout +I). Ce constat s'accorde avec une calcination au-dessus de 507 °C, mais pas avec les réactifs déclarés.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "À 550 °C sous air, la magnétite s'oxyde en maghémite puis en hématite (au-dessus d'environ 300 °C, l'hématite est le produit habituel). Le composite montre un épaulement fort vers 33,1°, compatible avec l'hématite (104) à 33,16° (ou Ag2O (111) à 32,84°), qui n'est pas attribué (calcul « Bragg : hématite (104) »). La fraction de magnétite après calcination, donc la séparation magnétique invoquée, n'est pas vérifiée (pas de magnétométrie).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Mechanism and kinetics of magnetite oxidation under hydrothermal conditions",
+      "authors_or_publisher": "Z. Li et al. — RSC Advances",
+      "year": "2019",
+      "url_or_doi": "10.1039/c9ra03234g"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Na2SO3 à 10,1 g/100 mL (0,8 mol/L) sous la solubilité de 22 g/100 mL à 20 °C ; CuCl2 à 0,12 mol/L : solutions réalisables (calcul « concentration de Na2SO3 »).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Sodium Sulfite, CID 24437 — section Solubility (ICSC : 22 g/100 mL à 20 °C ; CRC : 30,7 g/100 g à 25 °C)",
+      "authors_or_publisher": "PubChem (NIH)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Sulfite"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les bandes interdites 2,03 / 2,00 / 1,97 eV ne sont pas soutenues. La magnétite est un demi-métal sans vraie bande interdite dans le visible, et 2,0–2,2 eV est la plage de l'hématite (2,14–2,2 eV). Les seuils correspondants (612–630 nm) tombent au bord d'une fenêtre de mesure de 500–650 nm où aucun front d'absorption n'apparaît, et les « pics » de la Fig. 5 ne sont pas des bords de bande (calcul « énergie de bande déduite de Eg = 1242/λ »). Si la valeur de 2,03 eV de la « magnétite » est réelle, elle signale plutôt de l'hématite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Band-gap measurements of bulk and nanoscale hematite by soft x-ray spectroscopy",
+      "authors_or_publisher": "B. Gilbert et al. — Physical Review B 79, 035108",
+      "year": "2009",
+      "url_or_doi": "10.1103/PhysRevB.79.035108"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Magnétite demi-métallique (seul le spin majoritaire a un gap de l'ordre de 0,5 eV ; conduction par la bande Fe(B) 3d minoritaire) : une bande interdite optique de 2,03 eV ne lui correspond pas.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "First-principles investigations of the electronic structure and magnetocrystalline anisotropy in strained magnetite Fe3O4",
+      "authors_or_publisher": "H.-T. Jeng, G. Y. Guo — Physical Review B 65, 094429",
+      "year": "2002",
+      "url_or_doi": "10.1103/PhysRevB.65.094429"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La magnétite de départ est donnée comme produit commercial à 99 %, mais le titre dit « mineral magnetite » et l'IR invoque des impuretés de SiO2 et d'alumine. Le spectre IR que le texte attribue à Fe3O4 (bandes 1478, 1451, 1376, 876 et 707 cm-1) a la signature d'un carbonate de type calcite (ν3 vers 1420–1450, ν2 vers 876, ν4 vers 712 cm-1, valeurs de manuel). Le pic EDX le plus intense du spectre de la « magnétite » (vers 3,7–3,9 keV, compatible avec Ca Kα 3,69 keV) n'est pas attribué, et la table ne retient que O et Fe. La composition réelle du support est inconnue ; un carbonate serait dissous par la solution acide de CuCl2/HCl.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : la réduction de Cu(II) par le sulfite libère 2 H+ par CuCl formé (calcul « bilan de la réduction de Cu(II) par le sulfite »), donc un dégagement possible de SO2 si le sulfite est ajouté à une solution acide ; à 550 °C, l'oxydation des sulfures et sulfites et la décomposition des sulfates de cuivre dégagent SO2/SO3 : four ventilé ou sous hotte. CuCl2 est nocif et très toxique pour le milieu aquatique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Avec les réactifs écrits, on attend : adsorption de Cu2+ sur le support ; puis, à l'ajout du sulfite, réduction de Cu(II) en Cu(I) avec oxydation du sulfite en sulfate (2 Cu2+ + SO3^2- + 2 Cl- + H2O → 2 CuCl + SO4^2- + 2 H+), et précipitation de CuCl et/ou du sel de Chevreul sur la magnétite. À 550 °C sous air, ces phases deviennent CuO, CuO·CuSO4 et CuSO4, et la surface de la magnétite s'oxyde en hématite. La digénite Cu9S5 vue en DRX ne s'explique que par une vraie source de sulfure : si le réactif était Na2S (confusion sulfite/sulfure possible), Cu2+ + S2- → CuS précipite à froid, puis CuS → digénite au-dessus de 507 °C (perte de soufre), avec une oxydation partielle si l'air n'est pas exclu. Le mécanisme exact ne peut pas être tranché à partir de l'article.",
+    "sources": [
+     {
+      "title": "3.9: Preparation of Copper(I) Chloride, CuCl",
+      "authors_or_publisher": "Chemistry LibreTexts (Laboratory Experiments, Inorganic)",
+      "year": "2024",
+      "url_or_doi": "https://chem.libretexts.org/Ancillary_Materials/Laboratory_Experiments/Wet_Lab_Experiments/Organic_Laboratory_Experiments/03:_Inorganic_Laboratory_Experiments/3.09:_Preparation_of_Copper(I)_Chloride_CuCl"
+     },
+     {
+      "title": "Chevreul's salt (Molecule of the Week)",
+      "authors_or_publisher": "American Chemical Society",
+      "year": "2023",
+      "url_or_doi": "https://www.acs.org/molecule-of-the-week/archive/c/chevreuls-salt.html"
+     },
+     {
+      "title": "The Cu-S (Copper-Sulfur) System",
+      "authors_or_publisher": "Bulletin of Alloy Phase Diagrams 4(3) (PDF hébergé sur la page de D. E. Laughlin, CMU ; auteurs à confirmer : Chakrabarti & Laughlin)",
+      "year": "1983",
+      "url_or_doi": "http://www.contrib.andrew.cmu.edu/~dl0p/laughlin/pdf/037.pdf"
+     },
+     {
+      "title": "Chemical Reactions in the Roasting of Copper Sulfides",
+      "authors_or_publisher": "U.S. Bureau of Mines (rapport d'investigation, archivé par CDC Stacks ; auteurs non relevés)",
+      "year": "non relevé (numérisé 2003)",
+      "url_or_doi": "https://stacks.cdc.gov/view/cdc/201666/cdc_201666_DS1.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "nature réelle du réactif soufré (sulfite Na2SO3 ou sulfure Na2S) : avec le sulfite, attendre un précipité blanc de CuCl ou rouge (sel de Chevreul), pas du CuS noir",
+    "atmosphère de la calcination à 550 °C (air, N2, Ar) et vitesse de chauffe : sous air, CuS et la magnétite s'oxydent",
+    "DRX de l'intermédiaire avant et après calcination, avec indexation covellite (29,3 / 47,9°) contre digénite (46,1°), hématite (33,2°) et CuO (35,5 / 38,7°)",
+    "origine et composition de la magnétite (minérale ou synthétique ; carbonate et silice présents ?)",
+    "rendement massique et teneur en Cu de l'intermédiaire (ICP ou AAS plutôt qu'un pointé EDX)"
+   ]
+  },
+  {
+   "label": "Ag-CuS-Fe3O4",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport OH-/Ag+ et pH final",
+     "inputs": "1 mmol AgNO3 ; 3 mmol NaOH ; volume 25 + 5 mL",
+     "formula": "2 Ag+ + 2 OH- → Ag2O + H2O ; OH- en excès = 3 − 1 mmol ; pH = 14 + log[OH-]",
+     "result": "OH/Ag = 3 ; 2 mmol OH- en excès ; [OH-] ≈ 0,067 mol/L ; pH ≈ 12,8",
+     "compared_to": "précipitation complète d'Ag2O attendue ; aucun réducteur ajouté",
+     "source": "arithmétique, chimie générale"
+    },
+    {
+     "what": "teneur attendue en Ag et Cu du composite final",
+     "inputs": "0,3 g CuS/Fe3O4 (Cu 14,8 %) ; 1 mmol Ag (107,87 g/mol) entièrement retenu",
+     "formula": "w(Ag) = 107,9 mg / (300 + 107,9 mg) ; w(Cu) = 0,148 × 300 / 407,9",
+     "result": "Ag ≈ 26,4 % en masse (25,9 % si Ag2O) ; Cu ≈ 10,9 % en masse ; en atomes : Fe 32, O 43, Cu 7,4, S 7,4, Ag 10,6 %",
+     "compared_to": "EDX Fig. 4 : Ag 0,32 % masse (0,09 % at.), Cu 0,61 % masse (0,29 % at.), S 1,55 % masse (1,45 % at.) → Ag 83 fois et Cu 18 fois plus bas qu'attendu",
+     "source": "arithmétique ; table de la Fig. 4"
+    },
+    {
+     "what": "rapport S/Cu de l'EDX",
+     "inputs": "S 1,45 % at., Cu 0,29 % at. (ou 1,55 et 0,61 % masse)",
+     "formula": "n(S)/n(Cu)",
+     "result": "S/Cu = 5,0",
+     "compared_to": "CuS : 1 ; Cu9S5 : 0,56",
+     "source": "table de la Fig. 4"
+    },
+    {
+     "what": "EDX de la magnétite de départ : masse ou atomes ?",
+     "inputs": "Fe3O4 : Fe 72,36 % masse, O 27,64 % masse ; Fe 42,86 % at., O 57,14 % at.",
+     "formula": "w(Fe) = 3 × 55,845 / 231,53",
+     "result": "le texte (« weight percent » O 59,19, Fe 40,81) reprend la colonne A% (atomes) de la Fig. 4 ; la colonne W% donne O 29,35 / Fe 70,65, proche de Fe3O4",
+     "compared_to": "même confusion pour le composite (texte 64,21/1,45/33,97/0,29/0,09 = colonne A%)",
+     "source": "table de la Fig. 4"
+    },
+    {
+     "what": "Bragg : Ag contre Ag2O",
+     "inputs": "Cu Kα 1,5406 Å ; Ag cfc a = 4,086 Å ; Ag2O cubique a = 4,72 Å (valeurs de manuel, à confirmer sur COD)",
+     "formula": "2θ = 2 arcsin(λ/2d)",
+     "result": "Ag : 38,12 (111), 44,30 (200), 64,45 (220), 77,40 (311) ; Ag2O : 32,84 (111), 38,10 (200), 54,98 (220), 65,54 (311)",
+     "compared_to": "Ag(111) et Ag2O(200) se superposent à 38,1° ; composite : épaulement ≈ 33,1°, pic large ≈ 38,3°, pic ≈ 55,0°, pas de pic net à 44,3°",
+     "source": "arithmétique ; lecture de la Fig. 2"
+    },
+    {
+     "what": "dose de catalyseur en g/L",
+     "inputs": "0,02 g ou 0,01 g dans 40 mL",
+     "formula": "m/V",
+     "result": "0,50 g/L (0,02 g) ; 0,25 g/L (0,01 g, Méthodes)",
+     "compared_to": "Tableau 1 : 0,5 g/L, cohérent avec 0,02 g et non avec la dose des Méthodes",
+     "source": "arithmétique"
+    },
+    {
+     "what": "cohérence k contre rendement à 30 min (premier ordre)",
+     "inputs": "k = 0,1 ; 0,1057 ; 0,026 min-1 ; t = 30 min",
+     "formula": "η = 1 − exp(−k t)",
+     "result": "95,0 % ; 95,8 % ; 54,2 %",
+     "compared_to": "texte : ≈ 95 % à 0,02 g (cohérent) ; ≈ 60 % à 0,002 g (écart de 6 points, acceptable)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "point de charge nulle par dérive de pH (Fig. 9)",
+     "inputs": "droite de la Fig. 9 lue de (3 ; −4) à (11 ; 1,5)",
+     "formula": "ΔpH = 0",
+     "result": "pH ≈ 8,8 ; à pH initial 3 l'écart est de ≈ 3,6 unités",
+     "compared_to": "8,7 annoncé (cohérent) ; un écart de 3,6 unités traduit un solide fortement basique (NaOH résiduel, Ag2O ou carbonate)",
+     "source": "lecture de la Fig. 9"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "AgNO3 + NaOH sans réducteur donne Ag2O (OH/Ag = 3, pH ≈ 12,8 ; calcul « rapport OH-/Ag+ et pH final »), pas de l'argent métallique. Une réduction partielle en Ag0 par le Cu(I) de la digénite ou par le Fe(II) de la magnétite en milieu basique est envisageable, mais l'article ne la décrit ni ne la démontre ; aucune source trouvée qui la quantifie dans ces conditions.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : Ag(111) à 38,12° et Ag2O(200) à 38,10° se superposent. Le composite montre un épaulement vers 33,1°, un pic large vers 38,3° et un pic vers 55,0°, compatibles avec Ag2O (32,84 / 38,10 / 54,98°), sans pic net à 44,3° (Ag(200)) (calcul « Bragg : Ag contre Ag2O »). Les « AgNPs » ne sont pas établies ; il faudrait l'XPS Ag 3d avec le paramètre Auger, ou la raie Ag(200).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "L'EDX contredit la synthèse : Ag 0,32 % et Cu 0,61 % en masse, contre ≈ 26 % et ≈ 11 % attendus si les précurseurs sont retenus, soit un facteur 83 et 18 (calcul « teneur attendue en Ag et Cu du composite final »). Le rapport S/Cu de 5 (calcul « rapport S/Cu de l'EDX ») est incompatible avec CuS (1) comme avec Cu9S5 (0,56) : le soufre est probablement surtout du sulfate (bandes IR fortes vers 1000–1100 cm-1). La DRX, dominée par les raies du sulfure de cuivre, est elle-même incompatible avec 0,61 % de Cu. Soit l'analyse EDX n'est pas représentative (un seul pointé), soit la plupart du cuivre et de l'argent n'est pas dans le solide analysé.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte donne les pourcentages EDX comme « weight percent » alors qu'il recopie la colonne A% (atomes) de la Fig. 4 (calcul « EDX de la magnétite de départ : masse ou atomes ? »). La colonne W% de la magnétite (O 29,35, Fe 70,65) est cohérente avec Fe3O4 (27,6/72,4) ; les valeurs « en masse » du texte ne le sont pas.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage final à 60 °C pendant 24 h (lu sur le schéma 1 ; absent du texte) : Ag2O et la digénite ne s'y transforment pas ; aucune calcination ne réduit Ag2O en Ag (il faudrait plusieurs centaines de °C).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« pHiep » mesuré par dérive de pH dans NaCl : c'est un point de charge nulle (pHpzc), pas un point isoélectrique (électrocinétique). La valeur de 8,7 est cohérente avec la Fig. 9 (≈ 8,8). Un écart de 3,6 unités à pH 3 indique un solide qui neutralise fortement l'acide (NaOH résiduel, Ag2O ou carbonate) (calcul « point de charge nulle par dérive de pH »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Effet du pH : les auteurs appellent « alcalins » les pH 4, 6 et 7. Avec des pKa de la TC de 3,3, 7,7 et 9,7 et un pHpzc de 8,7, la surface et la TC sont toutes deux négatives au-dessus de 9,7 : l'« adsorption accrue en milieu alcalin » invoquée n'est pas cohérente. La TC est détruite rapidement par les hydroxydes alcalins et son spectre UV dépend du pH : les > 95 % à pH 11–12 peuvent venir de l'hydrolyse et non de la photocatalyse. Il n'y a ni témoin sans catalyseur (photolyse ou hydrolyse) ni étalonnage à chaque pH.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Tetracycline hydrochloride — Product Information (T3383)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "non daté",
+      "url_or_doi": "https://www.sigmaaldrich.com/deepweb/assets/sigmaaldrich/product/documents/348/160/t3383pis.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Essais avec capteurs mal interprétés. H2O2 est un accepteur d'électrons et une source de •OH : il accélère la dégradation (c'est ce que montre la Fig. 12), mais les auteurs l'appellent « scavenger » et attribuent la hausse à une « forte capacité de piégeage ». EDTA piège les trous ; l'éthanol piège •OH sans « absorber des photons » ; Cl- piège plutôt les trous et •OH qu'il n'accepte d'électrons. Aucune concentration n'est donnée : on ne peut rien conclure sur les espèces actives.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Use of scavenger agents in heterogeneous photocatalysis: truths, half-truths, and misinterpretations",
+      "authors_or_publisher": "Physical Chemistry Chemical Physics (RSC) — auteurs non relevés",
+      "year": "2020",
+      "url_or_doi": "10.1039/d0cp02411b"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérences entre sections. Méthodes : 0,01 g dans 40 mL de TC à 50 ppm (0,25 g/L). Tableau 1 : 0,5 g/L (0,02 g/40 mL) (calcul « dose de catalyseur en g/L »). La « dégradation complète » de 20 ppm devient ≈ 95 % à 0,02 g dans la série en dose. 98 % à 60 ppm dépasse 95 % à 20 ppm, alors que le texte dit que les faibles concentrations se dégradent mieux. Unités de k « L/min or cm3/min » fausses pour un premier ordre (min-1). k et rendements sont cohérents entre eux (calcul « cohérence k contre rendement à 30 min »). Les FTIR (A) et (B) sont permutés entre légende et texte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Une lampe fluocompacte de 60 W sans filtre émet aussi des raies du mercure dans le proche UV (365, 405 nm) : « lumière visible » non garanti. La puissance reçue n'est pas mesurée et la TC absorbe vers 355–365 nm, donc la photolyse directe est possible ; un témoin lumière sans catalyseur manque.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : AgNO3 est oxydant, corrosif et tache la peau ; NaOH 0,6 mol/L (3 mmol dans 5 mL) est corrosif ; poudres fines d'oxydes, de sulfures et d'argent à ne pas inhaler ; ne pas laisser sécher de solutions ammoniacales d'argent (pas le cas ici, NaOH seul).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Adsorption d'Ag+ sur le composite pendant 90 min, puis précipitation d'Ag2O à l'ajout de NaOH (2 Ag+ + 2 OH- → Ag2O + H2O). Une petite fraction d'Ag+ peut être réduite en Ag0 au contact du Cu(I) de la digénite ou du Fe(II) de surface en milieu basique, ou échanger avec le cuivre du sulfure (formation d'Ag2S). Le dépôt est donc probablement un mélange Ag2O / Ag0 / Ag2S, à identifier par XPS ; l'article ne permet pas de trancher. La forte basicité (pHpzc 8,7, dérive de pH) est cohérente avec un dépôt d'Ag2O et du NaOH mal lavé.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "nature de l'argent déposé (Ag0 ou Ag2O) : DRX avec la raie Ag(200) à 44,3°, XPS Ag 3d et Auger",
+    "teneurs réelles en Ag, Cu et S par ICP ou AAS après digestion (l'EDX ponctuelle donne des teneurs 20 à 80 fois sous la stœchiométrie)",
+    "nombre de lavages et pH de l'eau de lavage (NaOH résiduel)",
+    "essais de photocatalyse : témoin sans catalyseur (lumière seule) et témoin catalyseur à l'obscurité, à chaque pH ; étalonnage UV de la TC au pH de l'essai ; spectre de la lampe",
+    "concentrations des capteurs et choix de capteurs spécifiques (EDTA-2Na pour h+, alcool tert-butylique ou isopropanol pour •OH, p-benzoquinone pour O2•-)",
+    "dose et volume réellement utilisés pour chaque série (Méthodes : 0,25 g/L ; Tableau 1 : 0,5 g/L)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le protocole du composite CuS/Fe3O4 est chimiquement incohérent tel qu'écrit : le sulfite de sodium réduit Cu(II) en Cu(I) (CuCl, sel de Chevreul) mais ne fournit pas de sulfure, et une calcination à 550 °C (atmosphère non dite) détruirait la covellite. La DRX montre d'ailleurs de la digénite Cu9S5 (fiche utilisée par les auteurs), pas du CuS. Le dépôt d'« argent » par AgNO3 + NaOH sans réducteur donne a priori Ag2O, et la DRX ne discrimine pas Ag et Ag2O. L'EDX (pourcentages atomiques présentés comme massiques) donne des teneurs en Cu et Ag 18 et 83 fois plus basses que la stœchiométrie et un S/Cu de 5, incompatibles avec la DRX. Les bandes interdites de 2,0 eV attribuées à la magnétite sont physiquement douteuses. Les essais photocatalytiques manquent de témoins (photolyse, hydrolyse alcaline de la TC) et l'interprétation des capteurs est erronée (H2O2 traité comme piégeur).",
+  "author_errors_suspected": [
+   "réactif soufré : Na2SO3 (sulfite, S +IV) ne peut pas donner CuS sans réducteur ; confusion probable avec Na2S, ou phase finale mal identifiée",
+   "« CuS » désigne en fait la digénite Cu9S5 (fiche 96-153-6219 de la Fig. 2)",
+   "EDX : colonne A% (atomes) reprise dans le texte comme « weight percent » ; spectre de la magnétite avec un pic intense non attribué (Ca probable)",
+   "bandes interdites de 2,03 eV pour Fe3O4 tirées d'une fenêtre 500–650 nm sans front d'absorption",
+   "pH 4 et 6 qualifiés d'alcalins ; pHpzc appelé point isoélectrique ; unités de k (L/min) fausses pour un premier ordre",
+   "H2O2 présenté comme piégeur de ROS alors qu'il accélère la dégradation ; rôle d'EDTA, EtOH et KCl mal décrit",
+   "légendes FTIR (A) et (B) permutées par rapport au texte ; bandes 1376–1478 cm-1 attribuées à Fe–O (Fe–O de la magnétite vers 570–590 cm-1 ; 1420–1450, 876 et 712 cm-1 = carbonate)",
+   "conditions d'essai différentes entre Méthodes (0,01 g, 50 ppm), résultats (0,02 g, 20 ppm) et Tableau 1 (0,5 g/L, 60 ppm)"
+  ],
+  "comparison_with_database": "Seule autre synthèse de CuS dans la base : PMC7352182 (CuS/C-120), qui sulfure un précurseur avec du thioacétamide (vraie source de S2-) à 120 °C et indexe la covellite (PDF 06-0464) sans calcination. Ici, il n'y a pas de source de sulfure, la calcination se fait au-dessus de la limite de stabilité de la covellite et la DRX donne de la digénite. Aucune autre voie Fe3O4 comparable : PMC10818925 synthétise Fe3O4@rGO par voie solvothermale, sans rapport."
+ },
+ "sources_not_found": [
+  "température de dismutation thermique du sulfite de sodium (4 Na2SO3 → 3 Na2SO4 + Na2S) : non trouvée lors de la recherche, l'hypothèse reste non sourcée",
+  "réduction quantitative d'Ag+ par le Fe(II) structural de la magnétite à pH ≈ 13 : pas de source spécifique trouvée",
+  "attribution IR de la calcite (1420–1450, 876, 712 cm-1) : valeurs de manuel, non sourcées par une recherche",
+  "paramètres de maille de l'hématite, d'Ag et d'Ag2O : valeurs de manuel, non vérifiées sur COD"
+ ]
+}

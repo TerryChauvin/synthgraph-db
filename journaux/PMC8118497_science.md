@@ -1,0 +1,16 @@
+# PMC8118497 — critique scientifique (Opus)
+
+- Chiralité (PEIs@TA-CMS) en `probleme` : aucun CD/DRCD ni témoin D/DL dans l'article ; chez le groupe Jin (Liu et al. 2018, RSC Adv., PMC9080238 lu ; Chem. Eur. J. 2015), la chiralité de ces silices non hélicoïdales n'est établie que par DRCD. Le gabarit L-tartrate est brûlé à 550 °C, donc rien ne la prouve ici.
+- Porosité en `probleme` : sur la figure 3A, remplissage à p/p0 < 0,02 (≈ 150 cm3 STP/g, soit ≈ 0,23 cm3/g de micropores), pas de marche intermédiaire, boucle seulement au-dessus de 0,75–0,8. Avec Thommes 2015 (pores < 4 nm réversibles pour N2 à 77 K), la boucle est interparticulaire. « < 2,21 nm » est la borne basse de la courbe BJH (figure 3C monotone) ; 4V/S = 2,50 nm ; « 2,8 nm » contredit le tableau.
+- Tableau 1 : surfaces et volumes ramenés au gramme de support (division par 1 − teneur). 1:1 : Vt 0,71 cm3/g de support, plus que le support vide (0,63) ; SBET 880 contre 273 m2/g à 1:3 → `probleme` pour 1:1 et 1:2, verdict `incoherente`. Calcul indépendant de la densité du NMP pour 1:1 ; pour 1:2, il tient jusqu'à ρ = 1,5.
+- Densité du NMP non trouvée : 1,3 g/cm3 supposé et signalé comme hypothèse ; aucune conclusion n'en dépend dans la plage 1,2–1,5.
+- Teneur 1:1 (52,1 %) au-dessus du maximum théorique (50 %) et du remplissage maximal des pores (≈ 45 %) malgré le lavage : `probleme`. L'état amorphe à 1:1 n'est pas établi (DRX et DSC faites seulement sur l'échantillon 1:3, d'après les légendes).
+- Amorphisation à 1:3 jugée `ok` : remplissage ≈ 40 % du volume poreux, et le mélange physique de même composition garde raies et fusion, donc la détection est suffisante. Réserves : pas de Tg, pas de stabilité au stockage.
+- Facteurs recalculés : 57,31/29,24 = 1,96 (et non 1,83) ; 0,35/0,26 = 1,35 (et non 1,45) ; 3,89/3,29 = 1,18 (et non 1,20). Les facteurs de Cmax 3,68 et 2,72 ont le même rapport, ce qui correspond à un Cmax du NMP non arrondi de ≈ 0,095 : jugés cohérents, non signalés comme erreur.
+- Recette du gabarit : mêmes masses que Liu/Jin 2018 (0,32 g PEI ; 0,30 g tart), mais dans 160 mL à 80 °C avec pH ≈ 4 par NH3, contre 1 mL ici : mise en `reserve` (coquille possible), pas en `probleme`, parce que l'article ne dit pas que la dissolution est complète.
+- Mécanisme : sphères lisses de 120–130 nm avec TEOS, contre nanofibres avec TMOS chez Jin. Je propose une condensation catalysée par les amines de type Stöber ; la microporosité vient du polymère brûlé (≈ 0,3 cm3/g estimé, proche des 0,23 lus). Hypothèse, pas preuve.
+- NaNO2 : 0,8 mg i.p. ≈ 40 mg/kg, contre une LD50 orale de souris de 175 mg/kg (MSDS CDH) ; LD50 i.p. non trouvée, donc `reserve` seulement.
+- Fusion du NMP à 114,4 °C contre 125 °C (PubChem) : polymorphe probable différent, `reserve`.
+- Solubilité du NMP dans l'éthanol : fiches fournisseurs contradictoires (Cayman ≈ 2 mg/mL, Selleck 84 mg/mL). Le raisonnement sur le lavage s'appuie sur la valeur de l'article (10 mg/mL dissous).
+- DOI de Matsukizono & Jin 2012 (10.1002/anie.201108914) relevé sur PubMed, non vérifié sur Crossref (bloqué). WebFetch direct en échec (DNS) : lectures faites avec l'outil Parallel.
+- Recherches web : 5 recherches et 2 lectures de page réussies (2 lectures en échec).

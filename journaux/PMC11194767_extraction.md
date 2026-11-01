@@ -1,0 +1,15 @@
+# Journal d'extraction PMC11194767
+
+- Voie de base Cu-BTC : « CuBTC-water-24h ». Le protocole dit seulement « at least 30 min up to 48 h » ; j'ai pris 24 h car c'est la durée où les auteurs chiffrent l'épaisseur (20 μm) et jugent le film formé. 30 min, 4 h et 48 h sont des branches (Figure 2).
+- ZIF-8 dans le méthanol est une seconde voie de base (« ZIF8-MeOH-24h »), car précurseurs, solvant et concentrations (0,05 M / 0,4 M) diffèrent ; sa branche à 48 h ne varie que la durée (Figure 3).
+- Cu-BTC dans le méthanol (« CuBTC-MeOH-4h », Figure 4) est rattaché à CuBTC-water-4h avec ses propres étapes : pas d'étape de conversion en Na-BTC, acide trimésique sous forme acide, membrane trempée dans le méthanol. Variations : eau et eau Milli-Q remplacées par le méthanol, soude absente, BTC sous forme acide.
+- Les deux essais « modifiés » du SI S1 (Figure S1) sont lus comme deux procédés : (1) membrane échangée au chlorure, (2) idem plus Na-BTC titré à pH 6,8. Voies « CuBTC-water-4h-Cl » (étapes propres avec une étape d'échange insérée après le trempage, ordre non donné par l'article) et « CuBTC-water-4h-Cl-pH6.8 » (variation du pH à l'étape 1).
+- « 24 hr modified » apparaît seulement dans les étiquettes de la Figure S2 (légende : « second modified synthesis method ») : branche « CuBTC-water-24h-Cl-pH6.8 », sans résultat chiffré (barres EDS illisibles, images du SI absentes du dépôt).
+- Résultat de groupe (« both the adapted synthesis methods show a similar morphology ») : une annotation tendance_observee plutôt qu'une valeur recopiée sur chaque voie.
+- Contradiction soude : texte principal « stoichiometric amount », SI « slightly higher than stoichiometric ». Valeur du texte principal retenue (amount_text), contradiction signalée en limite_reproductibilite.
+- Température : seule mention « at room temperature » (résumé), reprise en value_text ; aucune plage ni mesure.
+- Quantités de BTC et de NaOH non données : la concentration du Na-BTC (0,1 M) est portée en amount_text de l'acide trimésique ; NaOH en « stoichiometric amount ».
+- Épaisseurs : 20 μm (Cu-BTC) et 0,5 μm (ZIF-8) à 24 h tirées de la phrase des Résultats ; le SI donne 20 μm aussi à 48 h pour Cu-BTC (« in both cases »), rangé en outcome des branches 24 h et 48 h, sans en déduire une valeur pour ZIF-8.
+- ZIF-8 dans l'eau (SI S3, Figure S4) : essai raté gardé (succeeded: false), voie avec ses étapes minimales (aucune concentration donnée), durée 16 h tirée de la légende de la figure. La membrane cationique de la même photo n'a pas de voie (inventaire, raison donnée). L'avertissement du contrôle sur « additive » est volontaire.
+- Figures : seules les figures 3 et 4 ont été ouvertes ; ce sont des images MEB sans valeur chiffrée, donc aucune valeur lue sur figure. Figures du SI (S1, S2, S5 à S9) absentes de corpus/fig : consigné en limite_reproductibilite, pas d'« annexe absente » (le texte du SI est présent).
+- Source de méthode : seul renvoi utile = Nowacka et al. (ref36) pour la conversion du BTC en sel de sodium (protocole_adapte). Le renvoi à la thèse (ref45, DRX de ZIF-8) est un renvoi de caractérisation, non retenu.

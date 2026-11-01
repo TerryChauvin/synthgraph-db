@@ -1,0 +1,16 @@
+# PMC9143007 — critique scientifique : journal de décisions
+
+- Bilan en LiOH (FeCl2 + SiO2 + 4 LiOH → Li2FeSiO4 + 2 LiCl + 2 H2O) : il reste 0,037 mol de base libre (0,61 mol/L). L'excès 6:1:1 est donc justifié (dissolution de la silice), noté `ok`.
+- Rôle antioxydant de l'acide ascorbique : calculé contre l'O2 d'un ciel supposé de 40 mL (autoclave de 100 mL, hypothèse explicite, volume non donné) ; 22 % de l'AA suffit. Donc `reserve` (atmosphère non dite) et non `probleme`.
+- Passage du sédiment gris au « solide jaune » après lavage : interprété comme une oxydation de surface en Fe(III). Aucune source sur la couleur de Li2FeSiO4 trouvée en une requête, d'où `reserve` en chimie générale seulement.
+- Premier `probleme` (LFS600, phase) : Figure 1 ouverte. LFS600 a les mêmes raies fortes que LFS200 ; (110) à 20,8° et (112) à 31,6° ne sont que des bosses. Recalcul Bragg dans les deux mailles : 6 des 7 taches SAED s'indexent aussi en Pmn21, seule celle à 2,81 Å est propre au P21/n. « Predominated by monoclinic » n'est donc pas démontré.
+- Paramètres de maille (P21/n 8,229/5,020/8,233 Å, β = 99,2° ; Pmn21 6,266/5,330/5,015 Å) pris de mémoire. Je les ai acceptés parce que les 2θ calculés tombent sur les bâtons de référence de la Figure 1 ; c'est signalé dans `sources_not_found`.
+- Second `probleme` (192 mAh/g) : 192/165,6 = 1,16 Li. Valeur sans numéro de cycle, fenêtre jusqu'à 4,8 V, « side reduction » 2,51–1,5 V reconnue par les auteurs, masse de référence non dite. J'ai gardé `probleme`, et non `reserve`, parce que c'est le chiffre phare du résumé.
+- Rapport saccharose 1:2 : jusqu'à 46 % de C dans le composite si tout le carbone restait. Le rendement réel de pyrolyse n'a pas été cherché ; le point reste en `reserve` en demandant une ATG.
+- Équation (3) : le coefficient 5,768 × 10−12 se recalcule exactement, ce qui confirme l'exposant −2 perdu (déjà noté par l'extracteur). L'écart T = 298 K contre 30 °C ne fait que 3,4 % sur D, d'où `reserve`.
+- Témoin nano-LFS200 : retirer l'AA ne change la base libre que de 8 %. Le témoin est propre sur le pH, mais pas sur le redox, et sa phase n'est pas montrée : `reserve`.
+- nano-LFS600 contre LFS600 : +10 % à 0,5 C, −3,6 % à 2 C. L'« enhanced performance » n'est établie qu'à bas régime, sur une seule cellule.
+- Sources : la perspective PCCP 2014 (10.1039/C4CP00511B), via un extrait de recherche, pour l'ordre des polymorphes Pmn21 < P21/n < Pmnb ; l'abstract ECS de Quoirin 2007 montre que les étiquettes de polymorphes varient selon les auteurs. Jiang et al. 2014 (RSC Adv.) est retenu pour l'effet du précurseur de fer sur l'auto-organisation (résumé lu sur la page QUST). La recette 6:1:1 de son annexe vient d'un extrait de moteur, non confirmé (404) : elle n'est pas utilisée comme preuve.
+- Échecs : pubs.rsc.org, www.rsc.org et pmc.ncbi.nlm.nih.gov sont injoignables en WebFetch ; la page NIST récupérée n'avait pas les lignes 160–200 °C. Les pressions de vapeur (0,62/1,00/1,55 MPa) sont donc données comme valeurs de tables de vapeur, en chimie générale.
+- Mécanisme : je garde dissolution–recristallisation + adsorption de l'ascorbate, et laisse ouverte l'alternative « sphères creuses cassées », que les seules images MEB ne départagent pas (`a_revoir`).
+- Rien n'a été ajouté à fondateurs.md ni à constantes.md (Crossref bloqué, consigne).

@@ -1,0 +1,15 @@
+# Journal de critique de fidélité PMC9795147 (N@CQDs de feuilles d'Eruca sativa)
+
+- Ma liste d'échantillons avant ouverture de l'extraction : une seule synthèse (filtrat de feuilles, micro-ondes 4 min), plus les objets du dosage (modafinil, Bravamax, plasma). Identique à `sample_inventory` ; aucune branche manquante ni inventée.
+- Pas de branche pour pH, concentration de N@CQDs ni temps (Fig. 3b-d, Tableau 4) : ces variables portent sur la réaction de dosage (« The time of the reaction of MOD with N@CQDs »), pas sur la fabrication. Choix de l'extracteur confirmé. Lecture des figures : Fig. 3b plateau 6,8-7,4 ; 3c plateau 0,14-0,16 mg/mL ; 3d plateau dès ≈ 8-10 min, tous cohérents avec le texte.
+- 25 cases `not_stated` vérifiées, 0 fausse. Cas limite : la « IR Temperature Sensor (0–300'C) » de la liste d'équipement est une plage de capteur, pas une température de synthèse, donc `temperature` reste non cité à juste titre.
+- Puissance : 700 W (résumé, introduction) contre « 0- 1000 W for 4 min » (Méthodes). Choix de 700 W avec citation de l'introduction accepté ; pas de constat, la contradiction est déjà en doute et en annotation.
+- Valeur `from_figure` (espacement 0,21 nm, Fig. 1b) : lue sur l'image, « 0.21 nm » deux fois dans l'encart, écart nul. Constat mineur seulement parce que la citation est la légende, qui ne contient pas le nombre.
+- Fig. 2 contre texte : maxima d'absorption lus à ≈ 218 et ≈ 280 nm (texte 229 et 296), émission ≈ 495 nm (texte 515). Écarts ≈ 5 %, sous le seuil de 10 % ; Fig. 4a montre bien ≈ 515 nm. Constat `mineur`, `probable` : à annoter, pas à corriger.
+- Citation FTIR : le résultat annonce six bandes mais la citation n'en soutient que deux (3410, 2900) ; les phrases suivantes du texte portent 1690, 1560, 1556, 1293. Constat `sure` (vérifiable par simple lecture).
+- XPS : seules les teneurs sont extraites ; les énergies de liaison (survol 284,9 / 395,6 / 538,5 ; C 1s, N 1s, O 1s détaillés) manquent. `probable` car le choix de ne pas les reprendre peut être voulu ; l'incohérence 395,6 contre 399,2 eV est déjà en doute.
+- Rendement quantique : méthode du point unique avec la quinine pour référence, absente de l'extraction. `probable`.
+- `method_sources` : CR22, CR23, CR33 gardés comme protocoles d'essai, donc CR19-CR21 (« For content uniformity test [..] ») doivent l'être aussi, sinon la règle est appliquée de façon inégale. J'ai vérifié le renvoi dans `corpus/refs/`. Écartés : CR9 (méthode publiée de comparaison), CR29 et CR30 (lignes directrices), CR13 (même groupe, cité pour XRD, température, mécanisme), CR16-18 (contexte).
+- LOD et LOQ : 14,85 et 45,0 corrects selon le Tableau 1, mais incohérents avec Sa = 0,009 et les formules de l'image Figa (calcul : ≈ 11,4 et ≈ 34,6). Incohérence de l'article, jamais à corriger ; constat `mineur` pour annotation.
+- Mécanisme : `mecanisme_auteurs` reste prudent et correspond au texte ; `mecanisme_analyse` est présentée comme hypothèse. Pas de constat. Sécurité : seule `securite_analyse` (rien dans l'article), acceptable.
+- Tableau 11 (GAPI/AGREE) : image, non lue ; hors périmètre de synthèse.

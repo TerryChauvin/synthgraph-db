@@ -1,0 +1,14 @@
+# Journal d'extraction PMC7481534 (aGQDs, détection d'uranyle)
+
+- Découpage : trois voies. `aGQD` est la voie de base (seul protocole détaillé : KOH 20 g, GO 5 g, 300 °C, 4 h). `GO_crude` est une voie `intermediate`, car l'oxydation de Hummers est renvoyée à des publications des auteurs et sert de réactif (rôle `intermediate`). `aGQD_500C` est une branche de `aGQD`.
+- Branche 500 °C : « when the temperature reaches 500 °C or even higher, no aGQDs could be obtained ». Gardée comme branche échouée (règle 3 : toute condition testée, même ratée), mais l'article ne dit pas que le reste du protocole a été suivi ; l'héritage est signalé en doute et en `limite_reproductibilite`, sans résultat chiffré.
+- GO_crude : seul le graphite (300 mesh, Alfa Aesar) est extrait comme réactif. KMnO4, H2SO4, H2O2, HCl sont achetés selon « Materials » mais l'article ne les rattache pas à la méthode de Hummers ; ne rien déduire (doute consigné).
+- Pureté « Analytical grade » : phrase générale « Analytical grade chemicals were used throughout the investigation » prise comme `supplier_quote` pour KOH, éthanol et graphite ; l'éthanol n'est pas listé dans la phrase du fournisseur, donc fournisseur déclaré non cité. L'eau du solvant n'est pas couverte de façon explicite : pureté et fournisseur non cités.
+- Solvant éthanol/eau : « 25 mL, vethanol/vwater = 4:1 » donne un volume total ; je n'ai pas calculé 20 mL / 5 mL (rien de déduit), d'où `amount_text` sur les deux réactifs et une étape `dissolve` avec `volume` 25 mL.
+- Séchage à 80 °C et four à moufle : deux étapes distinctes (`dry`, `calcine`) à partir de la même phrase ; la durée du séchage est absente donc non citée.
+- Taille : résumé 5–10 nm, texte 5–14 nm (et 8–13 nm majoritaire), figure 2c de 5 à 14 nm. Texte du corps retenu, contradiction en doute. Mode de l'histogramme (≈ 12 nm) lu sur la Fig. 2c, 2 chiffres.
+- Figures lues : Fig. 2c (histogramme), Fig. 8b (équation de droite écrite sur la figure, pente arrondie à −9,7), Fig. 9 (barres : blanc ≈ 2×10^4, UO22+ ≈ 1,7×10^4 u.a., autres ions ≈ blanc). Les autres figures (3, 4, 5, 6, 7) n'ont pas été ouvertes : leurs résultats sont écrits dans le texte.
+- Tests du capteur (pH, lumière, linéarité, sélectivité) rangés en `outcomes` de `aGQD`, pas en branches ; le protocole de détection (2 mL, additions de 20 μL) est consigné comme caractérisation, pas comme voie `device`, car aucun dispositif n'est fabriqué.
+- Bande de pH de la détection : « after optimizing pH » sans valeur dans Méthodes ; pH 5 ne figure que dans les légendes des Fig. 4 et 8 (doute).
+- Aucune annexe mentionnée dans l'article : pas d'annotation « Annexe absente ».
+- `method_sources` : trois renvois bib43 à bib45 pour la méthode de Hummers modifiée, role `protocole_complet` (on ne sait pas lequel des trois contient le protocole utilisé). Le renvoi bib46 (modèle DSM de Tour) est un renvoi d'interprétation, pas une source de méthode.

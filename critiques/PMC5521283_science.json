@@ -1,0 +1,269 @@
+{
+  "pmcid": "PMC5521283",
+  "routes": [
+    {
+      "label": "TiO2_sol",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "quantités pour 1 mol de TBOT au rapport 1:30:3:2:1",
+          "inputs": "TBOT M = 340,32 g/mol, d = 1,00 g/mL (20 °C) ; EtOH M = 46,07, d = 0,789 ; H2O M = 18,015, d = 0,997 ; acide acétique M = 60,05, d = 1,049 ; acétylacétone M = 100,12, d = 0,975",
+          "formula": "m = n × M ; V = m / d",
+          "result": "TBOT 340,3 g (340 mL) ; EtOH 1382 g (1752 mL) ; H2O 54,0 g (54 mL) ; HAc 120,1 g (114 mL) ; AcAc 100,1 g (103 mL) ; total ≈ 2363 mL, ≈ 1997 g",
+          "compared_to": "aucune masse ni volume dans l'article : reconstitution à partir du seul rapport molaire",
+          "source": {"title": "Titanium(IV) butoxide, fiche produit 244112 (M = 340,32 ; d = 1,00 g/mL à 20 °C) ; autres masses molaires et densités : fiches PubChem des composés", "authors_or_publisher": "Sigma-Aldrich (Merck) ; PubChem (NIH)", "year": "consulté 2026", "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/244112"}
+        },
+        {
+          "what": "concentration en titane du sol",
+          "inputs": "1 mol Ti dans ≈ 2363 mL (volumes additifs supposés) ; TiO2 M = 79,87 g/mol ; masse du sol ≈ 1997 g",
+          "formula": "[Ti] = n(Ti)/V ; équivalent TiO2 = n × M(TiO2) / V et / m",
+          "result": "[Ti] ≈ 0,42 mol/L ; ≈ 34 g/L d'équivalent TiO2 ; ≈ 4,0 % en masse",
+          "compared_to": "ordre de grandeur courant des sols de trempage à base d'alcoolate de titane (quelques dixièmes de mol/L)",
+          "source": "valeurs de l'article et calcul ci-dessus"
+        },
+        {
+          "what": "rapport d'hydrolyse effectif h = H2O/Ti",
+          "inputs": "H2O:Ti = 3 ajouté ; HAc:Ti = 2 ; estérification R-OH + CH3COOH → CH3COOR + H2O (1 H2O par HAc estérifié)",
+          "formula": "h_eff = 3 + x, avec x ≤ n(HAc)/n(Ti) = 2",
+          "result": "h compris entre 3 (au mélange) et 5 au maximum (estérification complète de l'acide), qui dépasse h = 4 de l'hydrolyse complète Ti(OR)4 + 4 H2O",
+          "compared_to": "h = 2 suffit à la stœchiométrie Ti(OR)4 + 2 H2O → TiO2 + 4 ROH",
+          "source": "stœchiométrie"
+        },
+        {
+          "what": "fraction d'eau dans la seconde moitié d'éthanol",
+          "inputs": "54 mL H2O ; 15 mol EtOH = 876 mL",
+          "formula": "V(H2O) / [V(H2O) + V(EtOH)]",
+          "result": "≈ 5,8 % en volume, miscible",
+          "compared_to": "eau et éthanol miscibles en toutes proportions",
+          "source": "calcul"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Le titane est seul apporté par le TBOT ; le rapport 1:30:3:2:1 donne un sol à ≈ 0,42 mol/L de Ti, ≈ 4 % en masse d'équivalent TiO2 (voir « concentration en titane du sol »), concentration habituelle pour un dépôt par trempage. AcAc:Ti = 1 est le taux de chélation classique qui laisse des positions hydrolysables tout en évitant la précipitation.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Les auteurs appellent l'acide acétique « catalyseur ». À 2 équivalents par Ti, il est un réactif : l'acétate remplace des groupes butoxy (ligand chélatant ou pontant), et son estérification avec l'éthanol et le butanol libérés produit de l'eau. Le rapport d'hydrolyse réel passe donc de 3 à 5 au plus (voir « rapport d'hydrolyse effectif h = H2O/Ti ») et continue d'évoluer pendant le stockage. C'est d'ailleurs ce que les auteurs invoquent pour la croissance des particules du sol. Le mot est inexact, et la conséquence est que la composition du sol dépend de son âge.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Hydrolysis of titanium alkoxides: modification of the molecular precursors by acetic acid", "authors_or_publisher": "Doeuff S., Henry M., Sanchez C., Livage J., Journal of Non-Crystalline Solids 89, 206-216", "year": "1987", "url_or_doi": "10.1016/S0022-3093(87)80333-2"}
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Toutes les étapes du sol se font à température ambiante (vieillissement à 20–25 °C, flacon fermé pendant la chélation), loin du point d'ébullition de l'éthanol (≈ 78 °C, NIST WebBook). Une humidité inférieure à 30 % est cohérente avec un alcoolate sensible à l'eau.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "solubilite",
+          "finding": "Le TBOT, l'acétylacétone et l'acide acétique sont miscibles à l'éthanol. L'eau ajoutée représente ≈ 5,8 % en volume de la seconde moitié d'éthanol (voir « fraction d'eau dans la seconde moitié d'éthanol »), donc miscible. L'échange d'alcoolate Ti–OBu/Ti–OEt dans l'éthanol est attendu et sans conséquence sur le produit final.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Taille DLS de 7,4 nm, puis 8, 10,6 et 14 nm à 30, 60 et 90 jours : une croissance lente est plausible pour un sol chélaté par l'acac (1:1), acidifié et dilué (h ≤ 5). La DLS donne un diamètre hydrodynamique (pondéré en intensité selon le réglage de l'appareil, non dit) et non une taille de cristallite. L'article ne dit pas à quel âge du sol chaque série de couches a été déposée, alors que la viscosité et la taille changent.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "L'article n'écrit aucune consigne de sécurité. Le TBOT, l'éthanol et l'acétylacétone sont inflammables, l'acide acétique glacial est corrosif et l'acétylacétone est nocive par inhalation ; il faut travailler sous hotte. Pas de danger majeur à température ambiante.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "L'acétylacétone remplace un groupe butoxy (Ti(OBu)3(acac)) et l'acide acétique en remplace d'autres (acétates pontants ou chélatants), ce qui abaisse la coordinence libre du titane et ralentit l'hydrolyse. L'eau ajoutée (h = 3) hydrolyse les Ti–OR restants et la condensation (olation, oxolation) forme des oligomères Ti–O–Ti de quelques nanomètres, protégés par l'acac. L'estérification lente de l'acide acétique par les alcools du milieu libère de l'eau au cours du stockage, d'où une hydrolyse et une agrégation qui se poursuivent (7,4 → 14 nm en 90 jours). C'est le mécanisme décrit par les auteurs, et il est conforme à la chimie des alcoolates modifiés par les carboxylates.",
+        "sources": [
+          {"title": "Hydrolysis of titanium alkoxides: modification of the molecular precursors by acetic acid", "authors_or_publisher": "Doeuff S., Henry M., Sanchez C., Livage J., Journal of Non-Crystalline Solids 89", "year": "1987", "url_or_doi": "10.1016/S0022-3093(87)80333-2"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "fixer une échelle (par ex. 10 mmol de TBOT ≈ 3,4 mL) à partir du rapport 1:30:3:2:1, car l'article ne donne aucune quantité absolue",
+        "ajouter l'eau diluée dans l'éthanol lentement et sous agitation, pour éviter une précipitation locale de TiO2",
+        "dater le sol au moment de chaque dépôt : le sol évolue (7,4 → 14 nm en 90 jours) et le rapport d'hydrolyse effectif change avec l'estérification"
+      ]
+    },
+    {
+      "label": "TiO2_400C",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "indice n(633 nm) recalculé à partir des paramètres de Cauchy du tableau 1",
+          "inputs": "n = An + 10^6 Bn/λ² + 10^12 Cn/λ⁴, λ = 633 nm ; An, Bn, Cn du tableau 1 pour 400 à 900 °C",
+          "formula": "n(633) = An + 10^6·Bn/633² + 10^12·Cn/633⁴",
+          "result": "400 °C 1,985 ; 500 °C 2,068 ; 600 °C 2,083 ; 700 °C 2,262 ; 800 °C 2,521 ; 900 °C 2,572",
+          "compared_to": "texte : 1,98 à 2,57 (400 et 900 °C), « highest refractive index of anatase 2,26 » = 700 °C ; lecture de la figure 4 par l'extraction : 2,1 ; 2,1 ; 2,3 ; 2,5",
+          "source": "valeurs de l'article (équation 1 et tableau 1)"
+        },
+        {
+          "what": "unités de B et C dans l'équation de Cauchy",
+          "inputs": "équation 1 : n = A + 10^6 B/λ² + 10^12 C/λ⁴ avec λ en nm",
+          "formula": "10^6/λ²(nm²) = 1/λ²(µm²) ; 10^12/λ⁴(nm⁴) = 1/λ⁴(µm⁴)",
+          "result": "B en µm², C en µm⁴ (et non « nm » comme dans l'en-tête du tableau 1)",
+          "compared_to": "en-tête du tableau 1 : Bn (nm), Cn (nm), Bk (nm), Ck (nm)",
+          "source": "analyse dimensionnelle"
+        },
+        {
+          "what": "extinction k(633 nm), coefficient d'absorption et absorption par couche",
+          "inputs": "Ak, Bk, Ck du tableau 1 ; épaisseurs d du tableau 1",
+          "formula": "k = Ak + 10^6 Bk/λ² + 10^12 Ck/λ⁴ ; α = 4πk/λ ; absorption ≈ α·d",
+          "result": "k = 0,0035 (400 °C) à 0,018 (900 °C) ; α ≈ 700 à 3500 cm⁻¹ ; α·d ≈ 0,7 % (400 °C) à 2,2 % (900 °C) par couche",
+          "compared_to": "TiO2 non absorbant sous la bande interdite (k ≈ 0 à 633 nm pour le massif) : ce k décrit surtout des pertes par diffusion ou défauts",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "transmittance à 633 nm d'un empilement air/TiO2/silice/TiO2/air sans absorption",
+          "inputs": "n et d recalculés (voir « indice n(633 nm) recalculé… ») ; silice fondue n(633) = 1,457 (Sellmeier de Malitson) ; substrat traité en incohérent, film en cohérent",
+          "formula": "matrice d'Abelès pour chaque face ; T = T1·T2/(1 − R1'·R2) ; substrat nu T = (1 − Rs)/(1 + Rs)",
+          "result": "T(633) = 67 % (400 °C), 63 % (500), 61 % (600), 53 % (700), 44 % (800), 42 % (900) ; substrat nu 93,3 % ; épaisseur quart d'onde 4nd = 766, 744, 724, 640, 623, 628 nm",
+          "compared_to": "lecture de la figure 3 par l'extraction : 66, 62, 60, 52, 41, 40 %",
+          "source": {"title": "Interspecimen Comparison of the Refractive Index of Fused Silica", "authors_or_publisher": "Malitson I. H., Journal of the Optical Society of America 55, 1205", "year": "1965", "url_or_doi": "10.1364/JOSA.55.001205"}
+        },
+        {
+          "what": "transmittance visible moyenne de la couche à 400 °C rapportée au substrat",
+          "inputs": "n(λ), d = 96,46 nm (tableau 1) ; moyenne de 400 à 700 nm par pas de 5 nm ; substrat nu 93,3 %",
+          "formula": "T_moy(empilement) / T(substrat nu)",
+          "result": "T_moy ≈ 75,6 % absolu, soit ≈ 81 % du substrat",
+          "compared_to": "texte : « about 80 % in the visible region with respect to silica glass substrate »",
+          "source": "valeurs de l'article et Malitson 1965"
+        },
+        {
+          "what": "fraction volumique de solide (Lorentz-Lorenz) des couches d'anatase",
+          "inputs": "n(633) = 1,985 (400 °C) et 2,262 (700 °C) ; anatase massive : nω = 2,561, nε = 2,488 (moyenne (2nω + nε)/3 = 2,537, à 589 nm ; ≈ 2,50 à 633 nm)",
+          "formula": "f = [(n² − 1)/(n² + 2)] / [(nb² − 1)/(nb² + 2)]",
+          "result": "f(400 °C) = 0,77–0,78 (porosité ≈ 22–23 %) ; f(700 °C) = 0,90–0,91 (porosité ≈ 9–10 %) ; rapport f(700)/f(400) = 1,17",
+          "compared_to": "« 2,26 close to the bulk anatase » : il reste ≈ 10 % de vide",
+          "source": {"title": "Mineral phase: anatase (nω 2.561, nε 2.488, d'après le Handbook of Mineralogy)", "authors_or_publisher": "SSHADE (Solid Spectroscopy Hosting Architecture of Databases and Expertise)", "year": "consulté 2026", "url_or_doi": "https://www.sshade.eu/data/mineral/MINER_anatase"}
+        },
+        {
+          "what": "densification déduite de l'épaisseur contre densification déduite de l'indice (400 → 700 °C, anatase)",
+          "inputs": "d = 96,46 nm (400 °C) et 70,70 nm (700 °C) ; f(700)/f(400) = 1,17",
+          "formula": "d(400)/d(700) à surface constante et masse de TiO2 conservée",
+          "result": "épaisseur : × 1,36 ; indice : × 1,17 ; écart ≈ 17 %",
+          "compared_to": "les deux doivent coïncider si la masse de TiO2 par unité de surface est la même pour tous les échantillons et qu'aucune masse ne part après 400 °C",
+          "source": "valeurs de l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "thermique",
+          "finding": "Le préséchage se fait à 100 °C, puis le recuit à 300–900 °C pendant 2 h au four à moufle. La silice fondue (ramollissement ≈ 1600 °C) et le silicium (fusion 1414 °C) supportent 900 °C. Le silicium s'oxyde un peu en surface sous air, sans effet sur les mesures optiques faites sur silice. La rampe et l'atmosphère du four ne sont pas données.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Les paramètres de Cauchy du tableau 1 redonnent bien les indices annoncés : 1,985 à 400 °C et 2,572 à 900 °C. La valeur 2,26, « highest refractive index of anatase », est celle de l'échantillon à 700 °C (2,262), alors que l'extraction porte 2,3 lu sur la figure 4. Les valeurs à 500, 600 et 800 °C sont 2,07, 2,08 et 2,52 (voir « indice n(633 nm) recalculé… »). Les données sont cohérentes entre le tableau, le texte et la figure.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "La transmittance à 633 nm recalculée sans absorption, à partir des seuls n et d du tableau 1 et de deux faces revêtues, donne 67, 63, 61, 53, 44 et 42 %. La figure 3 donne 66, 62, 60, 52, 41 et 40 %. La baisse de transmittance avec la température est donc presque entièrement de la réflexion par interférence : à 800–900 °C, la couche est quart d'onde près de 633 nm (4nd ≈ 625 nm). L'absorption, d'après k, reste de 1 à 4 % (voir « extinction k(633 nm)… »). Les 80 % « with respect to silica glass substrate » à 400 °C se retrouvent (81 %). L'attribution des auteurs à l'indice qui augmente est juste. Le mot « transparent » reste valable : la baisse vient de la réflexion, pas d'une absorption.",
+          "status": "ok",
+          "basis": "litterature",
+          "source": {"title": "Interspecimen Comparison of the Refractive Index of Fused Silica", "authors_or_publisher": "Malitson I. H., Journal of the Optical Society of America 55, 1205", "year": "1965", "url_or_doi": "10.1364/JOSA.55.001205"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "L'en-tête du tableau 1 note Bn, Cn, Bk et Ck en « nm ». Avec l'équation 1 (facteurs 10^6/λ² et 10^12/λ⁴, λ en nm), B est en µm² et C en µm⁴ (voir « unités de B et C… »). Plusieurs paramètres sont nuls en pratique (Cn = 3,9 × 10⁻¹⁵ à 600 °C, Bk = 1,5 × 10⁻¹⁵ à 400 °C), signe d'un ajustement mal contraint pour ces termes. Le k non nul à 633 nm (0,0035 à 0,018) n'est pas une absorption intrinsèque du TiO2 mais traduit des pertes par diffusion ou défauts. L'indice n reste fiable, car il redonne la transmittance mesurée.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "« 2,26, close to the bulk anatase » : l'anatase massive a nω = 2,561 et nε = 2,488 (≈ 2,50 en moyenne à 633 nm). Selon Lorentz-Lorenz, la couche à 700 °C garde ≈ 10 % de vide, et celle à 400 °C ≈ 22 % (voir « fraction volumique de solide (Lorentz-Lorenz)… »). La couche reste donc nettement poreuse, et « proche du massif » est exagéré. De même, 2,57 à 900 °C reste sous les indices du rutile massif (ne ≈ 2,87 à 633 nm), ce qui est cohérent avec les trous vus en AFM.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Mineral phase: anatase (nω 2.561, nε 2.488, d'après le Handbook of Mineralogy)", "authors_or_publisher": "SSHADE", "year": "consulté 2026", "url_or_doi": "https://www.sshade.eu/data/mineral/MINER_anatase"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Entre 400 et 700 °C, toujours en anatase, l'épaisseur ajustée baisse d'un facteur 1,36. Si la masse de TiO2 par unité de surface était la même, l'indice ne justifierait qu'une densification d'un facteur 1,17 (voir « densification déduite de l'épaisseur… »). L'écart de ≈ 17 % suppose soit une perte de masse après 400 °C (résidus organiques, OH), soit des couches d'épaisseur initiale différente. Chaque température est un dépôt séparé, et l'article ne donne ni l'épaisseur avant recuit, ni la vitesse de retrait, ni l'âge du sol. La série en température n'est donc un témoin propre que si ces trois grandeurs sont identiques. Il faudrait mesurer l'épaisseur avant recuit, ou recuire des morceaux d'un même substrat revêtu.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Raies Raman annoncées. Anatase : 141, 194, 394, 515 et 636 cm⁻¹, contre 144, 197, 399, 513/519 et 639 cm⁻¹ pour le monocristal. Rutile : 144, 235, 443, 610 et 824 cm⁻¹. Les attributions sont justes. La raie à 144 cm⁻¹ du rutile se superpose au mode Eg de l'anatase. Les raies discriminantes du rutile sont donc 443, 610 et 235 cm⁻¹, qu'il faut regarder à 800 °C. L'excitation à 325 nm (3,81 eV) est au-dessus de la bande interdite : la profondeur sondée est de quelques dizaines de nm, ce qui suffit pour des couches de 60 à 100 nm.",
+          "status": "ok",
+          "basis": "litterature",
+          "source": {"title": "Raman spectrum of anatase, TiO2", "authors_or_publisher": "Ohsaka T., Izumi F., Fujiki Y., Journal of Raman Spectroscopy 7(6), 321-324", "year": "1978", "url_or_doi": "10.1002/jrs.1250070606"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "La couche contient un mélange anatase-rutile à 800 °C et n'est plus que rutile à 900 °C (2 h). C'est dans la plage connue de la transformation anatase → rutile (≈ 600–700 °C pour l'anatase pure non dopée, plus haut en couche mince ou en présence de silice, qui la retarde). La base va dans le même sens : PMC5858874 trouve de l'anatase majoritaire avec un peu de rutile après 4 h à 600 °C. Une réserve tient au substrat des spectres Raman, qui n'est pas dit. Sur silice, la diffusion du silicium peut retarder le rutile, et la phase des couches mesurées en optique (sur silice) peut alors différer de celle vue en Raman.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Review of the anatase to rutile phase transformation", "authors_or_publisher": "Hanaor D. A. H., Sorrell C. C., Journal of Materials Science 46(4), 855-874", "year": "2011", "url_or_doi": "10.1007/s10853-010-5113-0"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "La cristallinité de la couche à 400 °C est contradictoire selon les sections. Le §3.1 dit que la cristallisation « does not start until the annealing temperature reaches 400 °C » et que les raies d'anatase apparaissent « at temperatures higher than 400 °C ». Le résumé parle de cristallisation « above 400 °C », la conclusion de couches « crystallized to the anatase phase » à 400 °C. La figure 2 n'a pas de spectre à 600 °C. La couche de référence (tableau 1, figure 5) est peut-être partiellement amorphe, ce qui pèse aussi sur son indice bas (1,98).",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Les Méthodes donnent des spectres de transmittance et de réflectance mesurés « in the 400~1000 nm region ». Or la figure 3 est décrite de 300 à 1000 nm, et les bandes interdites viennent du front d'absorption à 300–350 nm. Si la plage des Méthodes était juste, aucune des valeurs de bande interdite du tableau 2 ne pourrait être calculée. Il s'agit probablement d'une coquille (le JASCO V-570 mesure dans l'UV), mais la plage réellement mesurée doit être confirmée.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Les auteurs attribuent la baisse de la bande interdite (indirecte 3,22 → 2,93 eV) à un effet de taille quantique qui s'affaiblit quand les grains grossissent. Pour l'anatase, le rayon de Bohr de l'exciton est de l'ordre du nanomètre. Serpone et al. ne trouvent pas de quantification de taille dans des particules d'anatase de quelques nanomètres. Or les grains ici mesurent déjà des dizaines de nanomètres en AFM, et le sol seul donne 7–14 nm. La baisse de 3,22 à 3,09 eV dans l'anatase (400–700 °C) s'explique plutôt par la queue d'Urbach (désordre, défauts) et par la diffusion. L'équation 4, α = (1/d) ln(1/T), ne corrige pas la réflexion, qui atteint 40 % ici (voir « transmittance à 633 nm… »), et ignore la seconde face revêtue (épaisseur traversée 2d). Ce dernier facteur ne déplace pas l'extrapolation de Tauc, mais une réflexion qui varie près du front la déplace. La baisse à 800–900 °C vient d'abord de l'apparition du rutile (bande interdite ≈ 3,0 eV). L'explication par la taille quantique n'est pas soutenue.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {"title": "Size Effects on the Photophysical Properties of Colloidal Anatase TiO2 Particles: Size Quantization versus Direct Transitions in This Indirect Semiconductor?", "authors_or_publisher": "Serpone N., Lawless D., Khairutdinov R., The Journal of Physical Chemistry 99(45), 16646-16654", "year": "1995", "url_or_doi": "10.1021/j100045a026"}
+        },
+        {
+          "aspect": "securite",
+          "finding": "L'article n'écrit aucune consigne. Il faut gérer : un four à 900 °C (brûlures, refroidissement avant ouverture) ; les vapeurs organiques (butanol, acac, acétate d'éthyle) au séchage à 100 °C et au début du recuit, sous ventilation ; un laser UV à 325 nm de 30 mW pour le Raman, avec des lunettes adaptées.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Le séchage à 100 °C chasse l'éthanol et une partie du butanol. Entre ≈ 250 et 400 °C, les ligands acac et acétate sont pyrolysés et le réseau Ti–O–Ti se condense : la couche amorphe (300 °C, Rq 0,21 nm) cristallise en anatase vers 400 °C, avec ≈ 22 % de porosité (Lorentz-Lorenz). De 400 à 700 °C, les grains d'anatase grossissent et la couche se densifie (porosité ≈ 10 % à 700 °C, indice 1,98 → 2,26, épaisseur 96 → 71 nm). Vers 800 °C, la transformation reconstructive anatase → rutile, nucléée aux joints de grains, donne un mélange de phases. À 900 °C, la conversion est complète, avec coalescence en gros grains et trous (indice 2,57, Rq 3,5 nm). La baisse de la bande interdite suit le désordre et l'apparition du rutile (≈ 3,0 eV), et non un effet de taille quantique, sans objet à ces tailles de grains. La baisse de transmittance est un effet de réflexion qui suit l'indice.",
+        "sources": [
+          {"title": "Review of the anatase to rutile phase transformation", "authors_or_publisher": "Hanaor D. A. H., Sorrell C. C., Journal of Materials Science 46(4), 855-874", "year": "2011", "url_or_doi": "10.1007/s10853-010-5113-0"},
+          {"title": "Size Effects on the Photophysical Properties of Colloidal Anatase TiO2 Particles: Size Quantization versus Direct Transitions in This Indirect Semiconductor?", "authors_or_publisher": "Serpone N., Lawless D., Khairutdinov R., The Journal of Physical Chemistry 99(45)", "year": "1995", "url_or_doi": "10.1021/j100045a026"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "choisir et noter la vitesse de retrait et le nombre de trempages (≈ 96 nm après 400 °C correspond probablement à une seule couche, mais l'article ne le dit pas)",
+        "mesurer l'épaisseur avant recuit, ou recuire des morceaux d'un même substrat revêtu, pour que la série en température ne change qu'une variable",
+        "noter la rampe, l'atmosphère du four et l'humidité au moment du trempage",
+        "vérifier par Raman ou DRX sur silice (et pas seulement sur silicium) la phase des couches mesurées en optique, en particulier à 400 et 800 °C",
+        "mesurer la transmittance et la réflectance jusqu'à 300 nm au moins et corriger la réflexion avant le tracé de Tauc"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "La synthèse est classique et cohérente : sol de TBOT chélaté par l'acac (1:1), [Ti] ≈ 0,42 mol/L, dépôt par trempage, recuits de 300 à 900 °C. Les données optiques se recoupent bien : les paramètres de Cauchy redonnent les indices annoncés (1,985 et 2,572), et la transmittance à 633 nm recalculée sans absorption à partir des seuls n et d (67 → 42 %) reproduit la figure 3. La baisse de transmittance est donc un effet de réflexion qui suit l'indice. Le seul problème de fond est d'interprétation : la baisse de la bande interdite n'est pas un effet de taille quantique pour des grains de plusieurs dizaines de nanomètres, et l'équation 4 néglige la réflexion. S'y ajoutent des réserves : « 2,26 proche de l'anatase massive » (≈ 10 % de vide), unités du tableau 1, cristallinité à 400 °C, plage spectrale des Méthodes, série en température qui n'est pas un témoin à une seule variable, quantités absolues absentes.",
+    "author_errors_suspected": [
+      "baisse de la bande interdite attribuée à un effet de taille quantique, sans objet pour l'anatase à ces tailles de grains (Serpone 1995)",
+      "équation 4 : α = (1/d) ln(1/T) sans correction de la réflexion (jusqu'à 40 %) ni de la seconde face revêtue",
+      "unités de Bn, Cn, Bk et Ck notées « nm » dans le tableau 1 au lieu de µm² et µm⁴",
+      "« 2,26 close to the bulk anatase » alors que l'anatase massive vaut ≈ 2,5 (≈ 10 % de porosité restante)",
+      "plage de mesure de 400–1000 nm dans les Méthodes, contre 300–1000 nm pour la figure 3 et le front d'absorption utilisé pour les bandes interdites",
+      "cristallinité de la couche à 400 °C décrite de façon contradictoire (§3.1, résumé, conclusion) ; pas de spectre Raman à 600 °C",
+      "acide acétique appelé « catalyseur » alors qu'il est consommé (ligand acétate, eau d'estérification)"
+    ],
+    "comparison_with_database": "Peu de points de comparaison directs : PMC5858874 (TiO2 calciné 4 h à 600 °C : anatase majoritaire avec un peu de rutile) est cohérent avec l'apparition du rutile entre 600 et 800 °C ici. PMC2964502 (traitement hydrothermal en HCl à 150 °C) suit un autre mécanisme et n'est pas comparable."
+  },
+  "sources_not_found": [
+    "DeVore 1951, « Refractive indices of rutile and sphalerite » (JOSA 41, 416) : DOI non confirmé par la recherche, non cité ; l'indice du rutile massif (ne ≈ 2,87 à 632,8 nm) n'est donné qu'à titre indicatif, d'après la base d'indices KLA/SPTS (https://www.kla.com/products/instruments/refractive-index-database/TiO2+-+Rutile)",
+    "aucun DOI n'a pu être vérifié sur Crossref (api.crossref.org bloqué par le proxy, 403) : DOI vérifiés seulement par recherche web"
+  ]
+}

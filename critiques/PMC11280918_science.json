@@ -1,0 +1,561 @@
+{
+ "pmcid": "PMC11280918",
+ "routes": [
+  {
+   "label": "TiO2NTs",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration en NH4F de l'électrolyte",
+     "inputs": "5 g NH4F (M = 37,04 g/mol) ; 250 mL eau + 250 mL glycérol = 500 mL",
+     "formula": "n = 5/37,04 ; c = n/0,500 L",
+     "result": "0,135 mol ; 0,27 mol/L",
+     "compared_to": "électrolyte glycérol/eau + 0,27 M NH4F, classique de l'anodisation de Ti en milieu visqueux (école Schmuki)",
+     "source": "valeurs de l'article ; masse molaire IUPAC"
+    },
+    {
+     "what": "fraction massique de NH4F",
+     "inputs": "5 g ; eau 250 mL × 0,997 g/mL ; glycérol 250 mL × 1,261 g/mL",
+     "formula": "5/(249 + 315 + 5)",
+     "result": "≈ 0,88 % en masse",
+     "compared_to": "0,5–1,5 % en masse dans les électrolytes glycérol-fluorure usuels",
+     "source": "densités usuelles (eau, glycérol à 20 °C), non relues sur NIST"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "0,27 mol/L de NH4F (voir « concentration en NH4F de l'électrolyte ») dans glycérol/eau 1:1 : composition standard pour des nanotubes de TiO2 ordonnés ; le fluorure est très soluble dans ce mélange, rien d'anormal.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "TiO2 Nanotubes: Synthesis and Applications",
+      "authors_or_publisher": "P. Roy, S. Berger, P. Schmuki, Angewandte Chemie International Edition",
+      "year": "2011",
+      "url_or_doi": "10.1002/anie.201001374"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Diamètre moyen de tube 50 nm à 30 V : dans les électrolytes glycérol-fluorure le diamètre croît avec la tension et la teneur en eau ; les valeurs rapportées vont de ≈ 50 à ≈ 120 nm, et 50 % d'eau tire vers le haut de la plage à 30 V. 50 nm est plausible s'il s'agit du diamètre intérieur ; l'article ne précise pas intérieur ou extérieur, et le mesure sur l'image après dépôt de l'or (Fig. 1a).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "TiO2 Nanotubes: Synthesis and Applications",
+      "authors_or_publisher": "P. Roy, S. Berger, P. Schmuki, Angewandte Chemie International Edition",
+      "year": "2011",
+      "url_or_doi": "10.1002/anie.201001374"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Recuit 450 °C, 2 h, air : les nanotubes anodiques bruts sont amorphes et cristallisent en anatase vers 280–450 °C ; le rutile n'apparaît qu'à l'interface métal au-delà d'≈ 500 °C. Cohérent, mais aucune DRX ni Raman du TiO2 (bande Eg de l'anatase à 144 cm−1, hors de la plage montrée) ne vérifie la phase.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "TiO2 Nanotubes: Synthesis and Applications",
+      "authors_or_publisher": "P. Roy, S. Berger, P. Schmuki, Angewandte Chemie International Edition",
+      "year": "2011",
+      "url_or_doi": "10.1002/anie.201001374"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Nettoyage dans l'« acetophenone » : l'acétophénone (éb. ≈ 202 °C) est peu volatile et laisse un film ; le solvant usuel est l'acétone (éb. 56 °C). Coquille probable. Effet faible sur le capteur (l'anodisation et le recuit à 450 °C éliminent les résidus), mais gênant puisque l'acétophénone est l'analyte : à remplacer par l'acétone.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NH4F en solution aqueuse libère HF/HF2− (surtout si l'électrolyte s'acidifie pendant l'anodisation) : gants nitrile, lunettes, gluconate de calcium à portée, déchets fluorés séparés ; alimentation 30 V à isoler. Non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CAMEO Chemicals (fiches ammonium fluoride, methanol, acetophenone)",
+      "authors_or_publisher": "NOAA",
+      "year": "consulté non en ligne ici",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Oxydation anodique assistée par le champ (Ti + 2 H2O → TiO2 + 4 H+ + 4 e−) en compétition avec la dissolution chimique et assistée par le champ de l'oxyde par le fluorure (TiO2 + 6 F− + 4 H+ → [TiF6]2− + 2 H2O) ; la viscosité du glycérol ralentit la diffusion et lisse les parois ; le recuit cristallise l'oxyde amorphe en anatase.",
+    "sources": [
+     {
+      "title": "TiO2 Nanotubes: Synthesis and Applications",
+      "authors_or_publisher": "P. Roy, S. Berger, P. Schmuki, Angewandte Chemie International Edition",
+      "year": "2011",
+      "url_or_doi": "10.1002/anie.201001374"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "acétone et non acétophénone pour le dégraissage",
+    "température du bain et distance anode–Pt (non données)",
+    "diamètre intérieur ou extérieur mesuré",
+    "phase du TiO2 après recuit (DRX ou Raman 144 cm−1)"
+   ]
+  },
+  {
+   "label": "AuNPs",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité d'or",
+     "inputs": "100 mL de HAuCl4 à 0,01 % (m/v supposé) = 10 mg ; M(HAuCl4) = 339,79 ; M(HAuCl4·4H2O) = 411,85 g/mol",
+     "formula": "n = 0,010 g / M",
+     "result": "29,4 µmol (anhydre) ou 24,3 µmol (tétrahydrate) ; 0,29 ou 0,24 mmol/L",
+     "compared_to": "Frens : 0,01 % HAuCl4",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "quantité de citrate",
+     "inputs": "1 mL de citrate trisodique à 1 % = 10 mg ; M = 258,07 (anhydre) ou 294,10 g/mol (dihydrate)",
+     "formula": "n = 0,010 g / M",
+     "result": "38,7 µmol (anhydre) ou 34,0 µmol (dihydrate)",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport molaire citrate/Au",
+     "inputs": "voir « quantité d'or » et « quantité de citrate »",
+     "formula": "n(cit)/n(Au)",
+     "result": "1,16 à 1,60 selon les formes hydratées (1,40 pour dihydrate/tétrahydrate)",
+     "compared_to": "Turkevich-Frens : rapport ≈ 3,5 pour des particules de ≈ 15 nm ; le diamètre croît quand le rapport baisse",
+     "source": "valeurs de l'article ; tendance : Frens 1973"
+    },
+    {
+     "what": "bilan électronique de la réduction",
+     "inputs": "Au(III) → Au(0) : 3 e− ; citrate → acétonedicarboxylate : 2 e− ; 34,0 µmol citrate, 24,3–29,4 µmol Au",
+     "formula": "2 n(cit) contre 3 n(Au)",
+     "result": "68 µmol e− fournis contre 73–88 µmol e− requis (77–93 %)",
+     "compared_to": "réduction complète annoncée (colloïde rouge implicite)",
+     "source": "chimie générale"
+    },
+    {
+     "what": "nombre de particules de 15 nm",
+     "inputs": "24,3–29,4 µmol Au × 196,97 g/mol = 4,8–5,8 mg ; particule de 15 nm : V = π d³/6 = 1,77 × 10−18 cm³, ρ(Au) = 19,3 g/cm³",
+     "formula": "m(Au) / (ρ V)",
+     "result": "≈ 1,4–1,7 × 10^14 particules par lot (≈ 1,5 × 10^12 par mL)",
+     "compared_to": "ordre de grandeur usuel des colloïdes au citrate de 15 nm (≈ 10^12 /mL)",
+     "source": "masse volumique de l'or usuelle, non relue sur NIST"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Taille de 15 nm (mesurée au MEB sur TiO2, Fig. 1a) contre rapport citrate/Au ≈ 1,2–1,6 (voir « rapport molaire citrate/Au ») : dans la méthode de Frens, 1 mL de citrate 1 % pour 50 mL d'HAuCl4 0,01 % donne ≈ 16 nm ; ici 1 mL pour 100 mL revient à la moitié du citrate, ce qui donne des particules nettement plus grosses (≈ 40 nm dans la table de Frens, valeur de mémoire, PDF non relu ici) et plus polydisperses. Soit la taille, soit les quantités (volume de citrate ou concentration d'or) sont inexactes ; l'article ne donne ni UV-vis (bande plasmon ≈ 520 nm pour 15 nm) ni MET du colloïde.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Controlled nucleation for the regulation of the particle size in monodisperse gold suspensions",
+      "authors_or_publisher": "G. Frens, Nature Physical Science",
+      "year": "1973",
+      "url_or_doi": "10.1038/physci241020a0"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le citrate, comptant 2 e− par molécule, ne fournit que 77–93 % des électrons nécessaires (voir « bilan électronique de la réduction ») ; en pratique la réduction va à terme à ces rapports parce que les produits d'oxydation du citrate réduisent encore, mais la marge est faible et les particules sont alors moins stabilisées (moins de citrate libre).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "J. Turkevich, P. C. Stevenson, J. Hillier, Discussions of the Faraday Society",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Ébullition de l'eau (100 °C) sous agitation, 15 min après l'ajout : conditions standard de Turkevich-Frens ; récipient ouvert sans reflux, l'évaporation sur 15 min est faible.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "J. Turkevich, P. C. Stevenson, J. Hillier, Discussions of the Faraday Society",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "HAuCl4 corrosif et sensibilisant ; manipulation à chaud sans danger particulier.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réduction de Au(III) par le citrate à ébullition (oxydation en acétonedicarboxylate), nucléation en rafale puis croissance ; le citrate adsorbé assure la charge négative ; à rapport citrate/Au bas, moins de germes et particules plus grosses (Frens).",
+    "sources": [
+     {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "J. Turkevich, P. C. Stevenson, J. Hillier, Discussions of the Faraday Society",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     },
+     {
+      "title": "Controlled nucleation for the regulation of the particle size in monodisperse gold suspensions",
+      "authors_or_publisher": "G. Frens, Nature Physical Science",
+      "year": "1973",
+      "url_or_doi": "10.1038/physci241020a0"
+     },
+     {
+      "title": "Effect of high gold salt concentrations on the size and polydispersity of gold nanoparticles prepared by an extended Turkevich–Frens method",
+      "authors_or_publisher": "K. Zabetakis, W. E. Ghann, S. Kumar, M.-C. Daniel, Gold Bulletin (Springer)",
+      "year": "2012",
+      "url_or_doi": "https://link.springer.com/article/10.1007/s13404-012-0069-2"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "forme hydratée et base (m/v) des « 0,01 % » et « 1 % »",
+    "taille obtenue (UV-vis, MET) : à ce rapport citrate/Au, attendre plus de 15 nm ; doubler le citrate si 15 nm est visé"
+   ]
+  },
+  {
+   "label": "TiO2NTs_AuNPs",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "dilution du PDDA",
+     "inputs": "PDDA commercial à 35 % en masse ; solution d'usage à 2 %",
+     "formula": "35/2",
+     "result": "facteur 17,5 (≈ 5,7 g de solution commerciale pour 100 g)",
+     "compared_to": "aucun volume donné dans l'article",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre de tube contre taille d'or",
+     "inputs": "tube 50 nm ; or 15 nm",
+     "formula": "50/15",
+     "result": "≈ 3,3 particules sur un diamètre",
+     "compared_to": "dépôt possible sur les parois internes près de l'entrée seulement",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Auto-assemblage électrostatique : PDDA (polycation) sur TiO2 (point isoélectrique de l'anatase ≈ pH 6, surface peu chargée à neutralité) puis or au citrate (négatif) : schéma couche-par-couche classique, cohérent. Sans sel ajouté au PDDA, la couche est mince mais suffisante.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Or annoncé « sur les parois internes » : avec des tubes de 50 nm et des particules de 15 nm, la pénétration par simple dépôt de 2 h se limite à l'entrée des tubes ; la Fig. 1a (vue de dessus) ne montre que la surface. Affirmation 3D non démontrée (coupe MEB nécessaire).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin sans coque (signal « négligeable » pour 1 ppm, 30 min) : ce témoin ne diffère des autres que par l'absence d'immersion dans la solution de ZIF-8, ce qui est le bon témoin ; mais aucune intensité nette n'est donnée (courbes décalées, Fig. 3a).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Adsorption du PDDA cationique sur TiO2, inversion de charge de surface, puis capture électrostatique des particules d'or chargées négativement par le citrate.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "volumes de PDDA et de colloïde par substrat",
+    "densité d'or en surface et en profondeur (coupe MEB)"
+   ]
+  },
+  {
+   "label": "TiO2NTs_AuNPs@ZIF-8_30min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de 2-méthylimidazole et de zinc",
+     "inputs": "0,9852 g Hmim (M = 82,10) ; 0,4461 g Zn(NO3)2·6H2O (M = 297,49)",
+     "formula": "m/M",
+     "result": "12,00 mmol Hmim ; 1,4995 mmol Zn",
+     "compared_to": "masses calculées pour exactement 12 et 1,5 mmol",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "rapport et concentrations dans le méthanol",
+     "inputs": "12,00 et 1,50 mmol dans 30 mL",
+     "formula": "n/V ; n(Hmim)/n(Zn)",
+     "result": "[Zn] = 50 mmol/L ; [Hmim] = 400 mmol/L ; Hmim/Zn = 8,0 (4 fois la stœchiométrie Zn(mim)2)",
+     "compared_to": "Cravillon 2009 : Hmim/Zn = 8 dans le méthanol, [Zn] ≈ 25 mmol/L (variante ESI RSC : 3,45 mmol Zn et 25,2 mmol Hmim dans 140 mL, soit 24,6 mmol/L et rapport 7,3)",
+     "source": "valeurs de l'article ; Cravillon 2009 ; ESI RSC c3cc45308a"
+    },
+    {
+     "what": "masse maximale de ZIF-8",
+     "inputs": "Zn limitant 1,4995 mmol ; M(Zn(C4H5N2)2) = 227,6 g/mol",
+     "formula": "n(Zn) × M",
+     "result": "≈ 0,34 g de ZIF-8 possible dans 30 mL, pour trois substrats de 0,64 cm²",
+     "compared_to": "quelques µg dans une coque de 6 nm sur 0,64 cm² : l'essentiel précipite dans la solution",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètres attendus des particules à coque",
+     "inputs": "or 15 nm ; coques 3,5 / 6 / 9,4 nm",
+     "formula": "d = 15 + 2e",
+     "result": "22 / 27 / 33,8 nm (écarts au cœur : 7 / 12 / 18,8 nm)",
+     "compared_to": "dispersion usuelle d'un colloïde au citrate ±10–15 % (≈ ±2 nm) et contraste faible du MOF au MEB",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "conversion ppm/ppb ↔ mol/L dans un gaz",
+     "inputs": "gaz parfait, 25 °C, 1 atm : c(tot) = P/RT = 101 325/(8,314 × 298,15) = 40,9 mol/m³",
+     "formula": "c = x × 0,0409 mol/L",
+     "result": "10 ppm = 4,1 × 10−7 M ; 1 ppm = 4,1 × 10−8 M ; 1 ppb = 4,1 × 10−11 M ; 10−11 M = 0,24 ppb ; 10−12 M = 0,024 ppb ; 10−7 M = 2,4 ppm",
+     "compared_to": "Fig. 5b « 10−7 M » contre texte « 10 ppm » (facteur 4) ; limite de détection 10−11 M ≈ 0,24 ppb",
+     "source": "constante des gaz parfaits (CODATA), conditions supposées car non données"
+    },
+    {
+     "what": "droite d'étalonnage de l'encart de la Fig. 4a",
+     "inputs": "y = 451,26 x + 4915,6, x = lg C(M)",
+     "formula": "y(x) ; zéro : x = −4915,6/451,26",
+     "result": "y(−7) = 1757 ; y(−9) = 854 ; y(−11) = −48 ; intensité nulle à C = 10^−10,89 M",
+     "compared_to": "« pic faible observable » à 10−11 M",
+     "source": "valeurs de la figure"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Nitrate de zinc et 2-méthylimidazole très solubles dans le méthanol aux concentrations calculées (voir « rapport et concentrations dans le méthanol ») ; 25 °C sous l'ébullition du méthanol (64,7 °C). Conditions de Cravillon, doublées en concentration.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework",
+      "authors_or_publisher": "J. Cravillon et al., Chemistry of Materials",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm900166h"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Dans ces conditions la nucléation homogène est rapide : des nanocristaux de ≈ 45 nm apparaissent en quelques minutes et la solution se trouble ; la quasi-totalité du ZIF-8 (≈ 0,34 g possible, voir « masse maximale de ZIF-8 ») se forme dans la solution, pas sur les substrats. Sans agitation ni rinçage décrit, une partie de la « coque » peut être des cristallites sédimentés ; la Fig. 1b montre des amas plutôt qu'une coque conforme. Le temps de séjour règle bien une épaisseur apparente, mais pas forcément une coque.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework",
+      "authors_or_publisher": "J. Cravillon et al., Chemistry of Materials",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm900166h"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les coques conformes de ZIF-8 sur or s'obtiennent d'ordinaire avec un agent de surface (PVP, CTAB) qui favorise la nucléation hétérogène ; ici, or au citrate sur PDDA sans modulateur : rien ne garantit une croissance localisée sur chaque particule. Hypothèse plus simple : dépôt de petits cristallites ou de Zn-imidazolate amorphe sur toute la surface.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve de la coque non discriminante : l'épaisseur vient d'une différence de diamètres moyens au MEB (7 nm pour la coque de 3,5 nm, voir « diamètres attendus des particules à coque »), du même ordre que la dispersion de l'or et que l'incertitude de bord d'un MOF peu contrasté ; ni MET, ni DRX, ni FTIR ; l'EDS (Fig. 1d) étiquette O, Ti, Zn, Au mais pas l'azote (24,6 % en masse dans ZIF-8 ; N Kα 0,392 keV recouvert par Ti Ll 0,395 keV et Ti Lα 0,452 keV). La nature cristalline ZIF-8 n'est pas établie.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Unités du gaz incohérentes : ppm et ppb dans le texte (1 ppm en 3.2, 1 ppb en 3.3, 10 ppm en 3.4), mol/L dans la Fig. 4a, la Fig. 5b et la limite de détection. Converties (voir « conversion ppm/ppb ↔ mol/L dans un gaz »), 10 ppm ≈ 4 × 10−7 M (Fig. 5b dit 10−7 M) et 10−11 M ≈ 0,24 ppb. Surtout, le gaz est une bouteille étalonnée à une seule teneur : aucun système de dilution (débits, gaz porteur, humidité, volume de la boîte) n'est décrit pour couvrir cinq décades (10−7 à 10−12 M). La limite de détection de 10−11 M n'est donc pas reproductible telle qu'écrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Étalonnage : la droite de l'encart (voir « droite d'étalonnage de l'encart de la Fig. 4a ») donne une intensité négative à 10−11 M et nulle à 10^−10,9 M ; la limite est fixée à l'œil (« pic faible »), pas par 3σ du blanc, et les points à 10−8 et 10−7 M montrent déjà une saturation. R² = 0,9709 sur 5 points en échelle log : « relation linéaire » seulement avec lg C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Empreinte spectrale incohérente d'une figure à l'autre pour la même molécule sur le même substrat : Fig. 3a et 4a dominées par 1029, 1229, 1472, 1573 cm−1 avec une bande forte non attribuée vers 810 cm−1 ; Fig. 3b (1 ppb, coque de 6 nm) dominée par une bande vers 1140 cm−1 et des bandes vers 1500–1590 cm−1 ; Fig. 5a (acétophénone seule) dominée par une bande vers 1000 cm−1. La légende de la Fig. 4a parle d'acétone et de 1025 cm−1 alors que le texte trace 1573 cm−1 pour l'acétophénone. L'attribution des signaux à l'acétophénone adsorbée n'est pas établie (contamination, linker du ZIF-8, autre molécule ?).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Attributions Raman : 1029 cm−1 est dite « déformation C–H hors du plan », or vers 1025–1030 cm−1 un benzène monosubstitué présente la déformation C–H dans le plan (ν18a) ; les C–H hors du plan sont vers 750 et 690 cm−1. La respiration du cycle (≈ 1000 cm−1, bande la plus forte de l'acétophénone) n'est pas citée ; la bande C=O annoncée à 1669 cm−1 n'est pas visible sur la Fig. 4a. Le mot est faux, la conséquence est que la sélectivité repose sur une seule bande (1573 cm−1, élongation du cycle) que le cumène, autre benzène monosubstitué, possède aussi vers 1585–1605 cm−1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'explication par confinement dans les pores du ZIF-8 bute sur la taille : ouverture cristallographique des fenêtres de ZIF-8 ≈ 3,4 Å, contre ≈ 5,8 Å pour le diamètre cinétique d'un cycle benzénique ; l'acétophénone ne diffuse dans les cages que par flexibilité du linker, lentement. Sur des coques de 3,5–9,4 nm, l'adsorption se fait plus probablement en surface externe, aux joints et défauts. Le maximum à 6 nm reste plausible (compromis adsorption/distance à l'or), mais le mécanisme « pores » n'est pas démontré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Exceptional chemical and thermal stability of zeolitic imidazolate frameworks",
+      "authors_or_publisher": "K. S. Park et al., PNAS",
+      "year": "2006",
+      "url_or_doi": "10.1073/pnas.0602439103"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Régénération sous UV : le TiO2 photocatalytique oxyde aussi le 2-méthylimidazolate et le PDDA ; aucun cycle de réutilisation, aucune image ni spectre du substrat après UV ; lampe non décrite. La conclusion dit « désorbé », la section 3.4 « dégradé en CO2 et eau » sans analyse des produits. Réutilisabilité affirmée, non montrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérences entre sections : RSD 4,7 % (résumé) contre 4,5 % (3.4 et conclusion) ; limite « inférieure à la teneur dans l'haleine des patientes atteintes de cancer du sein » (3.4) contre « des sujets sains » (conclusion), sans valeur d'haleine citée ; troisième COV du test de sélectivité nommé seulement dans la Fig. 5a (« cucumene », cumène probable).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Méthanol (inflammable, toxique), nitrate de zinc (oxydant), acétophénone gazeuse (irritante, boîte fermée reliée à un sac), UV (lunettes) : aucune précaution écrite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CAMEO Chemicals (fiches ammonium fluoride, methanol, acetophenone)",
+      "authors_or_publisher": "NOAA",
+      "year": "consulté non en ligne ici",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Zn2+ + 2 Hmim → Zn(mim)2 + 2 H+ (protons captés par l'excès de Hmim, base). Aux concentrations de Cravillon, nucléation homogène en quelques minutes : la majorité du ZIF-8 se forme en solution en nanocristaux de ≈ 45 nm ; sur le substrat, nucléation hétérogène peu sélective sur PDDA, citrate et TiO2, plus dépôt de cristallites. L'épaisseur apparente croît avec le temps de séjour ; une coque conforme sur chaque particule d'or demanderait un agent de surface (PVP) et une preuve par MET.",
+    "sources": [
+     {
+      "title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework",
+      "authors_or_publisher": "J. Cravillon et al., Chemistry of Materials",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm900166h"
+     },
+     {
+      "title": "Electronic Supplementary Information, Chem. Commun. article c3cc45308a (préparation de nanocristaux de ZIF-8 dans le méthanol « selon Cravillon et al. »)",
+      "authors_or_publisher": "Royal Society of Chemistry (ESI)",
+      "year": "2013",
+      "url_or_doi": "https://www.rsc.org/suppdata/cc/c3/c3cc45308a/c3cc45308a.pdf"
+     },
+     {
+      "title": "Exceptional chemical and thermal stability of zeolitic imidazolate frameworks",
+      "authors_or_publisher": "K. S. Park et al., PNAS",
+      "year": "2006",
+      "url_or_doi": "10.1073/pnas.0602439103"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "nature et continuité de la coque (MET, DRX en incidence rasante, azote en EDS ou XPS)",
+    "rinçage au méthanol après croissance (non décrit)",
+    "montage de dilution du gaz et conditions (débit, volume de la boîte, température, humidité) pour chaque teneur",
+    "unités cohérentes (ppb ou mol/L) et limite de détection par 3σ du blanc",
+    "spectre Raman de référence de l'acétophénone et du substrat seul exposé à l'air",
+    "cycles UV successifs avec contrôle du ZIF-8 après irradiation"
+   ]
+  },
+  {
+   "label": "TiO2NTs_AuNPs@ZIF-8_15min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "écart de diamètre à mesurer",
+     "inputs": "or 15 nm ; coque 3,5 nm",
+     "formula": "2e",
+     "result": "7 nm sur des particules de ≈ 22 nm",
+     "compared_to": "dispersion de l'or ≈ ±2 nm et résolution de bord au MEB",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Une coque de 3,5 nm déduite d'une différence de moyennes de 7 nm (voir « écart de diamètre à mesurer ») est à la limite de ce que le MEB distingue ; sans MET, la valeur est indicative.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que la voie de base, temps de séjour plus court.",
+    "sources": [
+     {
+      "title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework",
+      "authors_or_publisher": "J. Cravillon et al., Chemistry of Materials",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm900166h"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "épaisseur par MET"
+   ]
+  },
+  {
+   "label": "TiO2NTs_AuNPs@ZIF-8_45min",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "croissance apparente",
+     "inputs": "3,5 nm à 15 min ; 6 nm à 30 min ; 9,4 nm à 45 min",
+     "formula": "Δe/Δt",
+     "result": "≈ 0,17 nm/min (15→30 min) puis ≈ 0,23 nm/min (30→45 min)",
+     "compared_to": "pas de ralentissement alors que la solution s'appauvrit par nucléation homogène : compatible avec un dépôt de cristallites formés en solution",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Croissance non ralentie à 45 min et particules « presque interconnectées » (voir « croissance apparente ») : cohérent avec la sédimentation de cristallites de ZIF-8 formés en solution plutôt qu'avec une croissance hétérogène limitée par la diffusion.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework",
+      "authors_or_publisher": "J. Cravillon et al., Chemistry of Materials",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm900166h"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que la voie de base ; à 45 min les dépôts coalescent en film continu.",
+    "sources": [
+     {
+      "title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework",
+      "authors_or_publisher": "J. Cravillon et al., Chemistry of Materials",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm900166h"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "épaisseur par MET",
+    "rinçage après croissance"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les synthèses des briques sont standard et cohérentes : nanotubes de TiO2 par anodisation dans glycérol/eau + 0,27 M NH4F à 30 V puis recuit à 450 °C, or au citrate (Turkevich-Frens), assemblage sur PDDA, ZIF-8 dans le méthanol aux conditions de Cravillon (Hmim/Zn = 8). Réserves de synthèse : dégraissage « à l'acétophénone » (acétone probable), taille d'or de 15 nm peu compatible avec un rapport citrate/Au de ≈ 1,4, coque de ZIF-8 non prouvée (ni MET, ni DRX, ni azote) alors que l'essentiel du ZIF-8 précipite en solution. Les problèmes sont dans les tests : unités de gaz mélangées (ppm, ppb, mol/L) sans montage de dilution décrit, ce qui rend la limite de 10−11 M (≈ 0,24 ppb) non reproductible ; empreintes Raman différentes d'une figure à l'autre et légende de la Fig. 4a qui parle d'acétone à 1025 cm−1.",
+  "author_errors_suspected": [
+   "« acetophenone » pour le nettoyage du titane, probablement acétone",
+   "légende de la Fig. 4a : acétone et 1025 cm−1 au lieu d'acétophénone et 1573 cm−1 (reste d'un autre article ?)",
+   "Fig. 5b « 10−7 M » contre texte « 10 ppm » (10 ppm ≈ 4 × 10−7 M)",
+   "RSD 4,7 % (résumé) contre 4,5 % (texte et conclusion)",
+   "limite comparée à l'haleine des patientes (3.4) puis des sujets sains (conclusion)",
+   "1029 cm−1 attribuée à une déformation C–H hors du plan (dans le plan)",
+   "rapport citrate/Au ≈ 1,4 incompatible avec 15 nm selon la calibration de Frens (quantités ou taille inexactes)"
+  ],
+  "comparison_with_database": "compare.py « ZIF-8 » : 29 voies de base ; les voies méthanoliques (PMC10493855, 36 h d'agitation) et aqueuses (PMC10326808, 2 h à 22–30 °C) visent des poudres ; aucune n'est un dépôt de 15–45 min sans agitation sur substrat. Le rapport Hmim/Zn = 8 dans le méthanol est le plus courant ; pas de valeur aberrante, mais pas de point de comparaison direct pour l'épaisseur de coque."
+ },
+ "sources_not_found": [
+  "teneur en acétophénone de l'haleine (patientes atteintes de cancer du sein ou sujets sains) : aucune valeur trouvée en ppb",
+  "table de Frens 1973 (volume de citrate contre diamètre) : PDF hébergé inaccessible depuis le cloud, valeur ≈ 40 nm citée de mémoire",
+  "table d'attribution Raman de l'acétophénone (Mohan et al., Orient. J. Chem.) : site inaccessible ; attributions données de chimie générale",
+  "diamètre des nanotubes à 30 V dans glycérol/eau 1:1 + 0,27 M NH4F (Macak et Schmuki, Valota et al. 2009) : article non trouvé ; plage 50–120 nm tirée d'extraits de recherche",
+  "DOI non vérifiés (Crossref bloqué) : 10.1002/anie.201001374 (Roy 2011) et 10.1007/s13404-012-0069-2 (Zabetakis 2012), absents de fondateurs.md"
+ ]
+}

@@ -1,0 +1,63 @@
+{
+  "pmcid": "PMC6058695",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "mineur",
+      "where": "method_sources MSN-DEA0.2 / MSN-DEA0.6 / MSN-TEA-CTAB / MSN-TEA-CTAC, role",
+      "extracted": "role = protocole_complet (ref CIT0034)",
+      "article_says": "The synthesis of different-sized of MSNs was based on our previous reports",
+      "fix": "« based on » signale une adaptation : role = protocole_adapte plutôt que protocole_complet (l'article lui-même ne donne que base, tensioactif et quelques concentrations, ce qui montre que le protocole de CIT0034 n'est pas repris tel quel).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ru@MSNs-80 outcome cytoplasm_entry_HepG2 (value_text « slower than for the 20 and 40 nm particles »)",
+      "extracted": "slower than for the 20 and 40 nm particles",
+      "article_says": "until this moment, Ru@MSNs at 80 nm began to enter cytoplasm",
+      "fix": "Le texte situe cette entrée juste après le point à 2 h (« After 2 h of incubation, ... »), alors que 20 et 40 nm entrent après 1 h (déjà extrait pour ces branches). Ajouter si on veut une valeur chiffrée cytoplasm_entry_onset_HepG2 = 2 h pour Ru@MSNs-80 avec cette phrase en citation ; sinon laisser tel quel (lecture « 2 h » non explicite).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ru@MSNs-20/40/80 outcomes MSN_zeta_potential, pore_size, MSN_hydrodynamic_diameter_* , MSN_carrier_viability_*",
+      "extracted": "propriétés des noyaux MSNs nus rangées dans les résultats des voies Ru@MSNs-xx",
+      "article_says": "The pore size of 20, 40, and 80 nm MSNs were about 2.88, 2.87, and 2.69 nm, respectively",
+      "fix": "Ces valeurs portent sur les MSNs avant chargement (« free MSNs », « these MSNs »), pas sur Ru@MSNs. Elles sont étiquetées MSN_* donc non fausses, mais un lecteur des voies MSN-DEA0.2 / MSN-DEA0.6 / MSN-TEA-CTAC n'y trouve que le diamètre. Le doute sur le rattachement MSN-xx / Ru@MSNs-xx couvre déjà ce point ; rien à corriger de plus qu'à le garder explicite.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ru@MSNs-20 reagent « PEI-FA solution », supplier / not_stated",
+      "extracted": "not_stated: amount, purity, supplier",
+      "article_says": "poly (etherimide) (PEI, Mw =10,000), and folic acid (FA) were purchased from Aladdin Chemistry Co., Ltd. (Shanghai, China).",
+      "fix": "Le PEI (Mw = 10 000) et l'acide folique viennent d'Aladdin, ainsi que EDC et NHS ; la solution PEI-FA « pre-prepared » est ensuite faite par les auteurs. Garder supplier non cité pour la solution est correct, mais EDC, NHS, PEI et FA (achetés, Mw du PEI donné) n'apparaissent dans aucune voie : à signaler dans limite_reproductibilite (c'est déjà dit) ou, si l'orchestrateur le souhaite, ajouter une voie intermédiaire PEI-FA sans étapes. L'article ne décrit aucune étape de couplage, donc aucune quantité ni condition ne peut être extraite.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "MSN-TEA-CTAC reagents (hérité de MSN-TEA-CTAB + ajout de CTAC) ",
+      "extracted": "variation template = CTAC (step 1) et réactif CTAC ajouté",
+      "article_says": "MSNs at 60 or 80 nm was obtained with 10 wt% CTAB or CTAC as templates, respectively.",
+      "fix": "CTAC remplace CTAB (« CTAB or CTAC ») : vérifier dans la fiche que la branche n'affiche pas les deux tensioactifs (CTAB hérité du parent + CTAC ajouté). Si c'est le cas, passer par une variation sur le réactif « cetyltrimethylammonium bromide » (sans step_order) plutôt que par un réactif supplémentaire.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 7,
+    "branches_extracted": 7,
+    "not_stated_checked": 49,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "Synthèse des noyaux MSNs : solvant (eau/éthanol), température, durée, agitation, quantités de TEOS et de CTAB pour la série DEA (« The same concentration » sans valeur), élimination du tensioactif, lavage, séchage, tout renvoyé à Mo et al. (CIT0034) ; aucun Supporting Information dans le corpus",
+    "Série DEA : l'article ne donne pas la concentration de TEOS ni de CTAB, et ne dit pas si 0,75 vt% de TEOS / 10 wt% de tensioactif de la série TEA s'y appliquent",
+    "Lien non écrit entre les noyaux synthétisés (20/40 nm par DEA, 60/80 nm par TEA) et les trois MSNs chargés en RuPOP ; la 80 nm chargée vient peut-être de la série CTAC mais l'article ne le dit pas",
+    "PEI-FA : préparation (couplage EDC/NHS), quantités, solvant, concentration et volume de la solution utilisée pour l'enrobage non donnés",
+    "Température du mélange MSNs/PEI-FA (24 h), vitesse et durée de la dernière centrifugation, lavages, température, durée et pression du séchage sous vide (« low-temperature vacuum drying »), rendement",
+    "RuPOP : synthèse renvoyée à Chen et al. (CIT0004) ; pureté et fournisseur du DMSO non donnés",
+    "Mw du PEI donné (10 000) mais pas la masse ni le taux de greffage de FA ; la teneur en PEI-FA du produit final n'est pas quantifiée"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs rapportent bien « Base catalyst and template had great influence... », l'enrobage électrostatique par PEI-FA et le blocage des nanocanaux (introduction) ; mecanisme_analyse est formulé comme hypothèse. securite_analyse couvre TEOS, ammoniums quaternaires, DMSO et ruthénium ; aucun danger évident omis.",
+  "notes": "Lecture de l'article intégrale (corps, légendes, notes ; pas de section Supporting Information dans le texte) puis comparaison. Toutes les valeurs numériques de synthèse (0,2/0,6 vt% DEA, 0,3 vt% TEA, 0,75 vt% TEOS, 10 wt% CTAB/CTAC, 20 mg RuPOP, 10 mL DMSO, 50 mg MSNs, 24 h, 12 000 rpm, 10 min, 24 h PEI-FA) et la quarantaine de résultats contrôlés sont correctement attribuées aux tailles 20/40/80 nm (ordre « respectively » respecté pour IC50 HepG2 et R-HepG2, libération PBS et lysat, rétention, apoptose, ROS, inhibition tumorale, captation avec FA). Fragile dans ma propre lecture : (1) les sept valeurs de viabilité pour cinq échantillons (Figure S4) ne sont attribuées avec certitude qu'aux trois premières, comme l'extracteur l'a fait ; (2) l'unité μmol/106 cells est probablement fautive côté auteurs, déjà en doute ; (3) l'hypothèse que les quantités RuPOP/MSNs valent pour chaque taille séparément est la plus naturelle (« respectively ») mais n'est pas explicite ; (4) les échantillons MSNs-FA et PEI-FA (Figure S4) et le RuPOP libre sont des témoins sans protocole ni voie, ce qui est cohérent avec l'absence de détails. Aucune valeur fausse, aucune branche manquante ni inventée, aucun « non cité » à tort trouvés."
+}

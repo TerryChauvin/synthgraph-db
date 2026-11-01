@@ -1,0 +1,111 @@
+{
+ "pmcid": "PMC10324055",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "Table 3, ΔG à 303, 313, 323 et 333 K (phosphate et fluorure), 8 résultats en value_text",
+   "extracted": "value_text « –3641.2 » (etc.), unit KJ/mol, sans value_num",
+   "article_says": "phosphate | 303 | –3641.2",
+   "fix": "passer les 8 ΔG en value_num négatif (-3641.2, -4194.5, -4747.8, -5301, -91.168, -754.17, -1410.2, -2069.2), maintenant que load.py accepte le « – » ; unité et citation inchangées",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "fluoride_pseudo_second_order_qe_calculated (0.99) et fluoride_pseudo_second_order_R2 (0.9997)",
+   "extracted": "qe calc = 0.99 mg g–1 (texte), R2 = 0.9997 (texte)",
+   "article_says": "fluoride | 0.94 | 15 | 2.80 | 0.56 | 0.98 | 0.999 | 2.80 | 0.99",
+   "fix": "le tableau 2 (section la plus détaillée) donne qe calc 0.999 pour le fluorure, et la droite S8d (t/qt = 1.0007t + 0.3462) donne 1/pente = 0.9993 : le 0.99 du texte est un arrondi tronqué ; garder 0.99 est défendable mais le doute doit nommer 0.999 comme valeur du tableau et du SI, ou extraire 0.999 ; le R2 de 0.9997 (texte et SI) est bon, le 0.99 du tableau est la coquille",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "characterizations EDX, result",
+   "extracted": "elements of the MOF detected; phosphorus detected after phosphate adsorption",
+   "article_says": "It is obvious that Ce and P after adsorption experiment are identified.",
+   "fix": "le corps du texte dit « the presence of the elements of MOF » mais l'annexe précise que l'appareil ne détecte pas les éléments plus légers que Na (C, O, F non détectés) : écrire « Ce détecté ; P détecté après adsorption du phosphate ; C, O non détectables » et ajouter un doute sur l'écart texte/annexe",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "phosphate_removal_efficiency_initial_concentration_study (98.2) et fluoride_… (96.4)",
+   "extracted": "98.2 % et 96.4 %, nom de propriété sans la concentration initiale",
+   "article_says": "Thus, the initial concentrations of 10 mg L–1 for phosphate and 15 mg L–1 for fluoride were chosen as optimized values.",
+   "fix": "le texte ne dit pas explicitement à quelle concentration (10 ou 15 mg L–1) correspondent 98.2 et 96.4 % ; l'ajouter dans un doute (ne pas la déduire en valeur) pour qu'on sache quelle concentration porte chaque résultat",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "série en concentration initiale (10 à 50 mg L–1) : valeurs de la courbe, figure ao3c02290_0007.jpg (résumé graphique)",
+   "extracted": "seuls 98.2 et 96.4 % extraits ; la tendance est en annotation sans valeurs",
+   "article_says": "The effect of the initial concentration of both targeted anions on the degree of removal of the adsorbate is exhibited in Figure S5b.",
+   "fix": "le résumé graphique (corpus/fig, non légendé dans l'article) trace la même série : phosphate ≈ 98, 97.5, 97, 97, 95.5, 92.5 % et fluorure ≈ 95, 95, 93, 90.5, 84, 75 % à 10, 15, 20, 30, 40, 50 ppm. Si l'orchestrateur accepte cette figure, ajouter des résultats from_figure (2 chiffres significatifs), avec doute ; sinon le noter dans limite_reproductibilite. Lecture du fluorure à 15 ppm (≈ 95 %) à 1,5 point de 96.4 % du texte",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "protocole d'essai d'adsorption et de désorption (batch) : aucune structure dédiée",
+   "extracted": "uniquement la ligne UV-vis/ISE dans characterizations ; les conditions de l'essai sont dans des doutes",
+   "article_says": "Adsorption experiments were conducted in a batch mode using 0.1 g of adsorbent (Ce(III)-BDC MOF) with 25 mL of KH2PO4 and NaF solution (20 mg L–1) in separate Erlenmeyer flasks at ambient temperature.",
+   "fix": "consigner le protocole d'essai (0,1 g d'adsorbant, 25 mL, 20 mg L–1, flacons d'Erlenmeyer, agitateur rotatif, température ambiante, solutions mères de 1000 mg L–1 de KH2PO4 et NaF, séparation par filtration ; désorption : 0,1 g dans 25 mL d'eau ou de NaOH 0,1 M, lavage de 15 min) dans une annotation ou la conditions de characterizations, car il conditionne tous les résultats de la voie",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources, renvoi ref37 et ref38",
+   "extracted": "absents (seuls ref36, ref39, ref40)",
+   "article_says": "(10 and 15 mg L–1 each prepared from Na2SO4, NaHCO3, and NaCl, respectively) was also evaluated.",
+   "fix": "ref37 (Wambu et Kurui) et ref38 (Liu et al.) sont attachés à la phrase qui décrit l'essai des ions concurrents ; ajouter deux entrées role « autre » (protocole d'essai) ou dire en notes pourquoi elles ne comptent pas (aucune formule « according to » dans la phrase)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "étape 1 dissolve, not_stated « temperature »",
+   "extracted": "temperature déclarée non citée à l'étape 1 alors que l'étape 4 cite « room temperature »",
+   "article_says": "Ce(III)-BDC MOF was synthesized in water as a sole solvent by direct precipitation at room temperature",
+   "fix": "la phrase d'ouverture vaut pour toute la préparation ; soit citer room temperature (value_text) aux étapes de solution et de mélange (1 à 4), soit la retirer de l'étape 4 : traitement incohérent entre étapes",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "réactif ammonia solution NH3/H2O (V/V = 1:1), not_stated « concentration »",
+   "extracted": "concentration non citée (et missing_fields « ammonia_volume_and_concentration »)",
+   "article_says": "the required amount of ammonia solution NH3/H2O (V/V = 1:1)",
+   "fix": "la dilution 1:1 en volume est écrite (déjà dans le nom du réactif) ; seule la concentration de l'ammoniaque mère et le volume sont absents : préciser « concentration de la solution mère » dans not_stated ou lever la case",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "characterizations FTIR et TGA, result",
+   "extracted": "FTIR : 1538, 1397, 3455, 2918, 1502 cm–1 seulement ; TGA : plateau « up to 570 °C » sans sa perte",
+   "article_says": "similar peaks shown at 1411, 823, and 753 cm–1 correspond to the C–O stretching of the carboxylate group, C–C bending of the carboxylic group, and O–H bending of the carboxylic group, respectively.",
+   "fix": "ajouter 1411, 823 et 753 cm–1 au résultat FTIR ; ajouter la perte de 10.4 wt % (second palier, jusqu'à 570 °C) au résultat TGA (le doute sur la somme incohérente existe déjà)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation limite_reproductibilite : incohérences internes de la cinétique et de la thermodynamique non signalées",
+   "extracted": "seuls 24 h/16 h, g/g L–1 et le désorbant sont cités ; les valeurs de Table 2 et 3 ne sont pas recoupées avec le SI",
+   "article_says": "log(qe- qt) = 0.7098t + 1.4436",
+   "fix": "ajouter à limite_reproductibilite : (a) S8a (phosphate, pseudo-premier ordre) a une pente positive (0.7098, impossible pour log(qe–qt) en fonction de t) et une ordonnée 1.4436 qui donne qe ≈ 28 mg g–1 au lieu de 2.75 (Table 2) ; k1 = 0.7098×2.303 = 1.63 est bien celui du tableau ; (b) k2 = pente²/ordonnée donne 1.91 (phosphate) et 2.89 (fluorure) contre 4.90 et 2.80 au tableau ; temps en h dans les figures, en min dans le texte ; (c) les ΔG de Table 3 ne sont cohérents avec ΔH – TΔS (pentes de S9, ΔH ≈ 13125 et 19875 J mol–1, ΔS 55.3 et 65.9 J mol–1 K–1) qu'en J mol–1, et ΔH du tableau (1312.5, 1987.5) est 10 fois trop faible même dans cette unité : le doute existant parle d'un facteur 100 sur la seule unité écrite KJ/mol",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 1,
+  "branches_extracted": 1,
+  "not_stated_checked": 23,
+  "not_stated_wrong": 2
+ },
+ "reproducibility_gaps": [
+  "volume et concentration (mère) de l'ammoniaque, nombre de gouttes/vitesse d'ajout, vitesse d'agitation et température exactes des étapes de dissolution et de mélange",
+  "rendement absent ; « with some modification » du protocole de la réf. 36 sans dire ce qui est modifié",
+  "séparation après centrifugation, volume et durée des lavages (eau ×4, éthanol ×3), appareil et atmosphère de séchage absents",
+  "formule du MOF illisible dans l'article (Ce(NO3)324·6H2O ; Ce2(BDC)6(H2O)4 non équilibrée)",
+  "essais d'adsorption : durée d'agitation (24 h Méthodes, 16 h annexe), charge d'adsorbant (0,1 g ou 0,1 g L–1, 0,05–0,5 g L–1 contre 0,05–0,35 g), désorbant de chaque cycle de recyclage (eau ou NaOH 0,1 M), séchage de l'adsorbant régénéré, plage de température (20–60 °C contre 303–333 K)",
+  "caractérisation : vitesse de chauffe de l'ATG, température de dégazage du BET, résidu TGA du texte (40.0 %) contraire à la courbe (≈ 37 % à 800 °C) et à la somme des pertes (88,9 %)",
+  "unités de Qo et b (Table 1), de k1 et k2 (Table 2) et de ΔG, ΔH (Table 3) douteuses ou absentes ; figures S3b, S4, S5, S10 de l'annexe absentes du dépôt"
+ ],
+ "mechanism_check": "ok : mecanisme_analyse est présenté comme hypothèse de chimiste (« probablement »), la formule Ce2(BDC)3(H2O)4 comme coquille probable ; mecanisme_auteurs absent, ce qui est juste puisque les auteurs n'avancent que des interactions d'adsorption (complexe de sphère interne, échange de ligand Ce–F). Sécurité acceptable (NaF toxique, NH3, éthanol signalés).",
+ "notes": "Aucune valeur fausse ni mauvaise attribution trouvée. Vérifié contre le texte : les 4 tableaux (rangée par rangée, dont ΔH et ΔS fusionnés avec les rangées 323 K phosphate et 313 K fluorure, confirmés par les pentes de S9), les « respectively » (30/70 mL, 3/6 h, 120/100 rpm, 0,2/0,35 g) et la grille de réactifs (4.34 g Ce(NO3)3·6H2O = 10 mmol ; 2.49 g H2BDC = 15 mmol, cohérent). Fig. 5 ouverte : les 9 valeurs from_figure sont exactes (étiquettes imprimées sur les barres) et l'attribution des barres aux ions est bonne dans les deux panneaux. Fig. 3 (TGA) ouverte : perte ≈ 12 % vers 200 °C, ≈ 37 % à 800 °C, le doute de l'extracteur est justifié. Constantes de Table 1 recoupées avec S6 et S7 (1/0.1352 = 7.40 ; 1/0.3347 = 2.99 ; Kf = 10^0.5133 = 3.26) : bonnes. Inventaire d'échantillons complet (une seule synthèse, branches inutiles). Fragile dans ma lecture : le texte extrait de l'annexe mêle étiquettes d'axes et courbes, les figures S3b, S4, S5, S10 ne sont pas disponibles donc non vérifiables ; la lecture du résumé graphique est à ± 2 points."
+}

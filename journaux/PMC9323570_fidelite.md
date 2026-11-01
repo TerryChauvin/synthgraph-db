@@ -1,0 +1,15 @@
+# Journal de la critique de fidélité, PMC9323570
+
+- Ma liste d'échantillons avant ouverture de l'extraction : LFP/C-N, LFP/C (sans CTAB), LFP-N (CTAB sans glucose de synthèse, 20 wt.% de glucose avant calcination), LFP (ni l'un ni l'autre, même ajout de glucose). Identique à `sample_inventory` : aucun échantillon manquant, aucune branche inventée.
+- Pas d'annexe (`Supporting Information` absent du texte) : les `not_stated` ont été contrôlés contre le corps et les légendes seulement (47 cases, 0 à tort). Fill fraction non stockée mais 12 mL dans 25 mL sont donnés : écarté comme non-constat.
+- Table 1 : les colonnes (carbone, Rs, Rct, D) sont bien attribuées rangée par rangée. Vérifié que LFP/C-N = 16,85 / 2,09 / 83,1 / 6,35e-14 et que le texte (Rct 137 pour LFP/C, 83,1 pour LFP/C-N) concorde.
+- Phrases « respectively » (tailles 145/59 nm, 288/143 nm, Raman 0,82/0,77, TEM 2,6/4,2 nm, capacités, rétentions) : toutes vérifiées dans l'ordre des échantillons, aucune permutation.
+- Valeurs `from_figure` : Fig. 7b lue sur l'image. 5 C : LFP ≈ 74, LFP/C ≈ 95, LFP-N ≈ 104 (extrait 100, écart 4 %), LFP/C-N ≈ 128. 10 C : LFP ≈ 62, LFP/C ≈ 79, LFP-N ≈ 82, LFP/C-N ≈ 116. Fig. 8a : écarts pic à pic LFP 0,46, LFP-N 0,38, LFP/C 0,31, LFP/C-N ≈ 0,18 V (texte 176 mV). Tous sous 10 % : pas de constat.
+- Constat « dried » (LFP-N étape 10) : `deduit` probable. L'article dit seulement « before calcination » ; l'extraction écrit « to the dried LFP-N powder », ce qui fixe un ordre non écrit.
+- Constat sur le protocole copié de LFP/C-N vers LFP-N et LFP : `deduit` probable, pas `faux`, parce que l'extracteur l'a déjà déclaré en doute. J'ajoute que les citations des étapes 2 et 4 de LFP-N parlent d'une « glucose solution » alors que la description dit « glucose-free ».
+- Sens du décalage XRD : la citation dit « shifted to the right » mais la valeur (0,04 / 0,12 °) n'a pas de signe ; LFP et LFP/C « consistent » ne sont pas extraits. `mineur`.
+- Observations qualitatives de section 3.1 absentes : pic (020) fort pour LFP-N et LFP/C-N (effet direct du CTAB, donc utile pour comparer les branches) et C=O / C–O dans le C 1s de LFP/C-N. `manquant`/`mineur`, probable.
+- `method_sources` : B33 (« based on reports from the literature ») correct. B32 est placé après « 8:1:1 » seulement ; je ne le déclare pas faux, mais le rôle exact est à trancher. B52/B53 (équation de D), B34 à B46 (interprétation) exclus à juste titre par la règle du 2026-10-13. Aucun renvoi de méthode manquant dans `corpus/refs`.
+- Annotation `mecanisme_auteurs` du CTAB : la citation soutient la moitié « gabarit mou » ; la moitié « pyrolysé et dopé dans le carbone » vient de l'introduction et n'est pas citée. `mineur`, sûr.
+- Écarté : contradiction de fenêtre de CV (4,2 contre 4,6 V) et rétention de 76,88 % ≠ 79,9 % : déjà en doute dans l'extraction, valeurs recopiées fidèlement. Repris dans `reproducibility_gaps`.
+- Écarté : stœchiométrie H3PO4 0,2 mL (P:Fe ≈ 0,5). Contrôlé : 0,2 mL × 1,685 g/mL × 0,85 / 98 g/mol ≈ 2,9 mmol. C'est un point pour la critique scientifique, pas une erreur d'extraction.

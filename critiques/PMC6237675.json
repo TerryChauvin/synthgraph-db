@@ -1,0 +1,113 @@
+{
+ "pmcid": "PMC6237675",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "TZ reagents/steps (quantité de TPAOH de TZ)",
+   "extracted": "TZ n'a ni liste de réactifs ni quantité de TPAOH ; aucun manque déclaré pour le volume de TPAOH de TZ",
+   "article_says": "because of the same amounts of TPAOH utilized",
+   "fix": "ajouter au champ de TZ (réactif TPAOH ou annotation) que TZ et MZ-3 ont reçu la même quantité de TPAOH, avec cette citation ; le rapport TPAOH/ST = 8 ne peut pas définir le TPAOH de TZ puisque TZ n'a pas de ST",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "MZ-3 reagent TPAOH amount_text",
+   "extracted": "20–60 mL",
+   "article_says": "we added the mesoporogen ST (methanol solution, 48 wt%, ρ = 0.9120 g/mL; C24H57O13NSi3, molar weight 651) into the solution of 8.7 g silica sol (40 wt% SiO2, Guangdong Huihe Silicon Products Co., Ltd) and 20–60 mL tetrapropylammonium hydroxide (TPAOH, 25 wt%",
+   "fix": "la plage 20–60 mL est celle du protocole type (criblage), pas le volume de MZ-3 : la noter comme plage du protocole type et marquer le volume de MZ-3 en not_stated (déjà dans missing_fields), ou ajouter dans le champ la mention « plage du protocole type »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MZ-1, MZ-2, MZ-4 (héritage du TPAOH de MZ-3)",
+   "extracted": "seule variation enregistrée : masse de ST ; le volume de TPAOH (plage 20–60 mL) est hérité tel quel de MZ-3",
+   "article_says": "The MZ samples were crystallined under the optimum conditions of 170 °C for 3 days and the molar ratio of TPAOH/ST = 8",
+   "fix": "l'héritage de 170 °C / 3 jours et du rapport TPAOH/ST = 8 est bien soutenu par cette phrase (à citer dans les branches), mais comme TPAOH/ST reste à 8 le volume de TPAOH change forcément avec la masse de ST sans être donné : ajouter à chaque branche une variation ou une annotation « volume de TPAOH ajusté pour garder TPAOH/ST = 8, non donné » plutôt que de laisser croire que 20–60 mL vaut pour toutes",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MZ-3 step 6 (80 °C 24 h) et TZ step 5",
+   "extracted": "80 °C, 24 h appliqué à MZ-3 et TZ",
+   "article_says": "hydrothermally crystallized at 80 °C for 24 h and then 160–200 °C for 1–5 days",
+   "fix": "phrase du protocole type, pas de MZ-3 en propre ; l'application à MZ-3 (et à TZ) est cohérente avec la figure Process 1 mais non écrite pour l'échantillon : déjà signalé en doute, ajouter la mention « protocole type » dans la description de l'étape",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "TZ step 6 (170 °C, 3 jours)",
+   "extracted": "temperature = 170 °C ; duration = 3 days, citation : « The optimal samples in this work were produced under the crystalline conditions of 170 °C for 3 days »",
+   "article_says": "The traditional microporous ZSM-5 zeolite, named TZ (traditional zeolite), was produced with the same method of MZ without the mesoporogen ST.",
+   "fix": "la citation attachée à l'étape ne mentionne pas TZ ; les 170 °C / 3 jours de TZ viennent de « same method of MZ » (déduit) : citer cette phrase pour l'étape et noter que la durée et la température de cristallisation de TZ ne sont pas écrites séparément",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Résultat LDPE : essai à blanc (blank)",
+   "extracted": "blank dans sample_inventory sans route ; T50 = 460 °C absent des résultats",
+   "article_says": "The T50 (temperature for 50% conversion of LDPE) of blank test, TZ and MZ-3 are 460, 390, and 350 °C, respectively",
+   "fix": "garder le T50 du blanc (460 °C, lu aussi sur Fig. 9) comme résultat de référence, par exemple en annotation ou dans les résultats de TZ/MZ-3 sous une propriété « LDPE_cracking_T50_blank »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MZ-1, MZ-2, MZ-4 caractérisations et résultats (XRD, FTIR, isotherme, mésopores)",
+   "extracted": "aucune caractérisation sur MZ-1/2/4 (0 entrée), seuls les 7 chiffres de la Table 1 ; XRD, FTIR, isotherme de type IV et mésopores de 4–8 nm sont rangés sous MZ-3 seulement",
+   "article_says": "The isotherms of MZ samples all exhibit an obviously hysteresis loop of typical type IV, implying the existence of mesopores",
+   "fix": "le texte attribue XRD MFI, FTIR, boucle d'hystérésis de type IV et mésopores centrés à 4–8 nm à « MZ samples » (MZ-1 à MZ-4, Fig. 1) : dupliquer ces caractérisations sur MZ-1, MZ-2 et MZ-4, ou les marquer comme communes aux quatre échantillons MZ",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TZ caractérisations (conditions des essais)",
+   "extracted": "TZ a une seule caractérisation (SEM) ; les conditions des essais catalytiques, de la TG et de la TPD ne sont rattachées qu'à MZ-3, alors que TZ y a ses résultats",
+   "article_says": "The alkylation of benzene and benzyl alcohol was conducted at 80 °C with the mixture of 0.30 g sample, 68 mL benzene, and 1.0 mL benzyl alcohol.",
+   "fix": "ajouter à TZ les caractérisations (alkylation, craquage du TIPB, craquage du LDPE, NH3-TPD, TG) avec les mêmes conditions que MZ-3, pour que les résultats de TZ aient leurs conditions",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "MZ-3 résultats après 20 essais (recyclage)",
+   "extracted": "TIPB_cracking_conversion_after_20_consecutive_runs = 31.8 % ; ..._benzene_selectivity_after_20_consecutive_runs = 21.6 % ; coke_deposition_after_20_runs = 18.57 wt %, rangés dans les résultats de MZ-3",
+   "article_says": "Twenty sets of cracking reaction were conducted consecutively without changing of the catalyst of MZ-3.",
+   "fix": "ces valeurs décrivent MZ-3-used (catalyseur usagé), pas MZ-3 frais ; le nom des propriétés le dit, mais préciser dans le résultat ou une annotation qu'il s'agit du catalyseur usagé après 20 essais (inventaire : MZ-3-used sans route)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MZ-3 caractérisation craquage du TIPB (type de réacteur)",
+   "extracted": "conditions : 300 °C ; 120 mg ; 0.8 μL ; N2 60 mL/min, sans type de réacteur",
+   "article_says": "After a continuous measurement in fixed bed reactor, the conversion of raw material (1,3,5-tri-isopropylbenzene) dropped to 31.8%",
+   "fix": "ajouter « fixed bed reactor » (réacteur à lit fixe) aux conditions du craquage du TIPB",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Table 1 ICP (SiO2/Al2O3) et annotation limite_reproductibilite",
+   "extracted": "SiO2/Al2O3 : TZ 49, MZ-3 51, MZ-4 47 (Table 1), sans remarque",
+   "article_says": "Figure 6 shows the NH3-TPD patterns of H-type TZ and MZ-3 with the same SiO2/Al2O3 molar ratios (SiO2/Al2O3 = 50)",
+   "fix": "ne pas changer les valeurs ; ajouter une annotation limite_reproductibilite : le texte dit 50 pour TZ et MZ-3 alors que la Table 1 donne 49 et 51 (incohérence de l'article)",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 81,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "volume de TPAOH de MZ-3 (et de MZ-1, MZ-2, MZ-4, ajusté pour TPAOH/ST = 8) absent : seule la plage 20–60 mL du protocole type est écrite",
+  "masse de ST : pure ou en solution méthanolique à 48 % non dite (la lecture « ST pur » est la plus cohérente avec la composition 60 SiO2 : 2–7 ST, MZ-1 pur donnant 2,1 ST/60 SiO2 contre 1,0 en solution)",
+  "quantités et rapport des deux silanes du ST, puissance des micro-ondes, rendement, purification absents ; annexe Figure S1 absente",
+  "volume et taux de remplissage des autoclaves, vitesses de chauffe, solvant et nombre de lavages, vitesses d'agitation non donnés",
+  "forme (Na ou H) des échantillons pour la Table 1, pour le traitement hydrothermique et pour les essais d'alkylation et de craquage du TIPB non dite (H-form seulement écrit pour la TPD et le LDPE)",
+  "échange NH4NO3 : lavages et séchage entre échange et calcination, atmosphère de la calcination de 6 h non écrits",
+  "milieu (eau ou vapeur) et récipient du traitement hydrothermique de MZ-3 non donnés",
+  "composition molaire annoncée incohérente : 2–7 ST avec TPAOH/ST = 8 donnerait 16–56 TPAOH pour 60 SiO2, alors que l'article écrit 25,4–76",
+  "criblage des conditions de synthèse (Figures S2–S4, Tables S1–S3), recyclage (S5–S7, Table S4) : annexe absente du dépôt"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (liaison Si–O–Si, blocage stérique par les chaînes alkyle, cavités puis mésopores après calcination) correspond à la section Results ; mecanisme_analyse du ST (1 aminosilane + 2 époxysilanes, formule C24H57O13NSi3 vérifiée, figure du schéma cohérente) et calcul SiO2/Al2O3 ≈ 59 vérifiés. securite_* complets (HF, TPAOH, méthanol, autoclave, micro-ondes).",
+ "notes": "Valeurs lues sur figure vérifiées : Fig. 7 à 5 h MZ-3 ≈ 74 % et TZ ≈ 6 % (écart < 1 point) ; Fig. 8 valeurs imprimées sur les barres (TZ 13,7 / 38,2 / 38,3 / 23,5 ; MZ-3 97,5 / 26,4 / 42,8 / 30,8), sélectivités de somme 100 % ; Fig. 10 Vmic = 0,1 cm3/g imprimé ; pas d'écart. Table 1 recoupée (SBET = Smic + Sext, HF recalculé) sans écart. Fig. 5 : MZ-3 −1,0 / −10,0 / −5,5 − 3,79 = 9,29 % conforme ; pics DTG lus 377,4 et 442,3 °C contre pics DSC 265 et 390 °C écrits dans le texte (divergence de l'article, pas de l'extraction). Fig. 9 : T50 460 / 390 / 350 conforme. Pas de method_sources à ajouter : aucun renvoi bibliographique dans les paragraphes Methods de corpus/refs. Héritage des étapes par MZ-1/2/4 : bien soutenu pour 170 °C, 3 jours et TPAOH/ST = 8 par la phrase « The MZ samples were crystallined under the optimum conditions… », pas de constat sur ce point sauf le volume de TPAOH. Fragile : l'ambiguïté ST pur / solution reste non tranchée par l'article."
+}

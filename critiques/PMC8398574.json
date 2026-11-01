@@ -1,0 +1,58 @@
+{
+  "pmcid": "PMC8398574",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "mineur",
+      "where": "NiFe-LDH et NiFe-MMO, résultats RL_min (-58.79 / -64.43 dB) et RL_min_frequency",
+      "extracted": "RL_min = -58.79 dB (LDH), -64.43 dB (MMO), sans épaisseur ; l'épaisseur de 4.0 mm n'apparaît que dans le nom de la propriété dupliquée RL_min_thickness_4mm_Table1 (-58.8 / -64.4 dB)",
+      "article_says": "The reflection loss of -58.8 dB for NiFe-LDH and -64.4 dB for NiFe-MMO are observed at the C band with a thickness of 4.0 mm.",
+      "fix": "rattacher explicitement l'épaisseur de 4.0 mm à RL_min et RL_min_frequency (renommer en RL_min_4mm ou l'ajouter dans la description) ; sans cela le RL_min seul est ambigu face aux valeurs de la Fig. 4 à 1, 2, 3 et 5 mm",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "NiFe-MMO total_weight_loss_TGA (~2.5%)",
+      "extracted": "~2.5%",
+      "article_says": "The TGA (Figure 1f) shows that the product upon heating has a smaller weight loss (~2.5%) than the NiFe-LDH (~35%)",
+      "fix": "garder la valeur du texte, mais ajouter une annotation limite_reproductibilite : la courbe de la Fig. 1f descend à ≈ 96,5 % à 900 °C (≈ 3,5 % de perte) et l'axe est gradué de 100 à 97 %, donc le « ~2,5 % » du texte est inférieur à la lecture de la figure ; de même la somme 11,2 + 22,3 = 33,5 % pour le LDH diffère du « ~35% »",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "NiFe-LDH et NiFe-MMO, résultats de pertes magnétique et diélectrique",
+      "extracted": "absents (seules la permittivité réelle, la perméabilité réelle du LDH et les fréquences des pics de μ″ sont gardées)",
+      "article_says": "The magnetic loss tangents (about 1.4 in Figure 2d) in the frequency of 5–7 GHz are larger than the dielectric loss tangents (less than 0.1 in Figure 2c)",
+      "fix": "ajouter pour chaque matériau tan δμ ≈ 1.4 à 5–7 GHz et tan δε < 0.1 (valeurs de texte, communes aux deux échantillons ; le texte dit aussi tan δε LDH > MMO sur 2–18 GHz)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "NiFe-MMO caractérisation XRD, résultat qualitatif manquant",
+      "extracted": "pics NiO et NiFe2O4 indexés, sans comparaison d'intensité",
+      "article_says": "The peak intensities of NiO are higher than that of NiFe2O4, which means better crystallinity and more NiO in the NiFe-MMO.",
+      "fix": "ajouter à la caractérisation XRD : pics de NiO plus intenses que ceux de NiFe2O4 (interprétation des auteurs : plus de NiO, lié au rapport Ni/Fe de 3.79)",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 0,
+    "branches_extracted": 0,
+    "routes_in_article": 3,
+    "routes_extracted": 3,
+    "not_stated_checked": 18,
+    "not_stated_wrong": 0,
+    "from_figure_checked": 8,
+    "from_figure_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "solvant de la solution de sels métalliques (20,0 mL) non cité (vraisemblablement de l'eau)",
+    "dilution de l'ammoniaque commerciale (25–28 %) à 0,5 M non décrite ; température et durée de l'addition goutte à goutte non données (le 65 °C ne vise que l'agitation « further »)",
+    "vitesse d'agitation, vitesse et durée de centrifugation, nombre et volume des lavages, pression et type d'étuve du séchage sous vide, rendement",
+    "calcination : rampe de chauffe, refroidissement, débit d'argon, masse de LDH calcinée (le 10 °C/min cité est celui de l'ATG sous N2)",
+    "anneau : mode et durée de mélange avec la paraffine, pression de compression ; l'anneau décrit fait 3,0 mm, les RL de 1 à 5 mm sont calculées",
+    "Figures S1–S3 (MEB, EDS) citées mais absentes du dépôt"
+  ],
+  "mechanism_check": "ok : mecanisme_analyse est étiqueté « Probablement », les quantités recalculées sont exactes (16,0 mmol Ni, 4,00 mmol Fe, 50 mmol NH3 contre 44 mmol OH- requis) ; les auteurs ne donnent aucun mécanisme de formation, aucun mecanisme_auteurs n'est posé à tort.",
+  "notes": "Extraction très fidèle : valeurs, unités, attributions LDH/MMO et lecture de la Fig. 4 (écart < 2 dB sur les 8 valeurs, tolérance 10 %) conformes. Les 18 cases not_stated vérifiées sont réellement absentes du texte. method_sources vide : correct (les renvois B19, B20, B26, B31–B33 sont des formules ou des contextes, aucun renvoi de préparation). Doute sur « 99% » (un ou deux nitrates) non tranchable par le texte, lecture retenue acceptable. Fig. 1f : l'axe 100 à 97 % et la courbe finissant vers 96,5 % contredisent légèrement le « ~2,5 % » du texte (voir constat 2)."
+}

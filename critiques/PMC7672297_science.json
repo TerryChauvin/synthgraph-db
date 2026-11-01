@@ -1,0 +1,371 @@
+{
+ "pmcid": "PMC7672297",
+ "routes": [
+  {
+   "label": "AgNP_M_moribidii",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité d'argent introduite (hypothèse 1 mM)",
+     "inputs": "90 mL de AgNO3 ; concentration non écrite pour la synthèse, 1 mM pour le témoin et le blanc ; M(AgNO3) = 169,87 g/mol ; M(Ag) = 107,87 g/mol ; volume final 100 mL",
+     "formula": "n = C·V ; m = n·M ; C_finale = n/100 mL",
+     "result": "0,090 mmol AgNO3 = 15,3 mg AgNO3 = 9,7 mg Ag ; [Ag]total = 0,90 mM dans le mélange",
+     "compared_to": "Ibrahim et al. 2022 (même groupe) : 90 mL de AgNO3 1 mM + 10 mL d'extrait",
+     "source": "masses molaires IUPAC (chimie générale) ; Ibrahim et al. 2022, 10.46754/jssm.2022.4.007"
+    },
+    {
+     "what": "coefficient d'extinction par atome d'Ag (sphères de 40 nm)",
+     "inputs": "ε(40 nm) = 3,36e10 M-1 cm-1 par particule à λmax = 412,3 nm (Paramelle 2014, tableau 1) ; ρ(Ag) = 10,49 g/cm3 ; d = 40 nm",
+     "formula": "N_atomes = (π/6)d³·ρ·NA/M ; ε_atome = ε_particule/N_atomes",
+     "result": "N ≈ 1,96e6 atomes ; ε ≈ 1,7e4 M-1 cm-1 par atome d'Ag (même valeur pour 20 nm : 4,18e9/2,45e5)",
+     "compared_to": "—",
+     "source": "Paramelle et al. 2014, 10.1039/C4AN00978A ; masse volumique de l'argent, valeur de manuel"
+    },
+    {
+     "what": "absorbance attendue pour une réduction complète, et conversion apparente",
+     "inputs": "[Ag] = 0,90 mM ; ε_atome ≈ 1,7e4 M-1 cm-1 ; trajet 1 cm ; absorbance lue 1,3 (Fig. 3)",
+     "formula": "A = ε·c·l ; conversion = 1,3/A_complète",
+     "result": "A_complète ≈ 15,4 ; A = 1,3 correspond à ≈ 0,076 mM d'Ag0, soit ≈ 8 % de l'argent si l'échantillon n'a pas été dilué",
+     "compared_to": "dilution avant mesure non écrite",
+     "source": "calcul ; Paramelle et al. 2014"
+    },
+    {
+     "what": "taille compatible avec λmax = 398–400 nm",
+     "inputs": "λmax(d) = 397 + 9,58e-3·d² (ajustement de Paramelle 2014, 20–100 nm) ; TEM moyen 40,19 nm",
+     "formula": "d = √((λ−397)/9,58e-3) ; λ(40,19 nm)",
+     "result": "400 nm → d ≈ 18 nm ; 398 nm → d ≈ 10 nm ; une population de 40 nm donnerait λmax ≈ 412 nm dans l'eau",
+     "compared_to": "TEM : moyenne 40,19 nm, 20–100 nm",
+     "source": "Paramelle et al. 2014, 10.1039/C4AN00978A"
+    },
+    {
+     "what": "rapport DLS/TEM",
+     "inputs": "DLS 91,21 nm ; TEM 40,19 nm",
+     "formula": "d_DLS/d_TEM",
+     "result": "2,27",
+     "compared_to": "ordre de grandeur habituel (couronne organique, pondération en intensité, agrégats)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "largeur du halo d'inhibition (disque de 6 mm)",
+     "inputs": "zones 6,00 à 9,18 mm ; diamètre d'un disque standard de papier Whatman n°1 : 6 mm (non écrit dans l'article)",
+     "formula": "(zone − 6)/2",
+     "result": "K. pneumoniae : 0 mm (zone = disque) ; autres bactéries : 0,9 à 1,6 mm de halo",
+     "compared_to": "gentamicine : 22,78–31,66 mm",
+     "source": "Hudzicki, protocole ASM (disque de 6 mm, diamètre du disque inclus dans la mesure)"
+    },
+    {
+     "what": "dose de gentamicine par disque",
+     "inputs": "20 μL ? (le volume n'est écrit que pour les AgNPs) ; 1 mg/mL",
+     "formula": "m = C·V",
+     "result": "≈ 20 μg par disque si le même volume a été déposé",
+     "compared_to": "disque standard de gentamicine : 10 μg",
+     "source": "calcul ; valeur standard des disques commerciaux"
+    },
+    {
+     "what": "rapport Cl-/Ag+ possible apporté par l'extrait (estimation hypothétique)",
+     "inputs": "masse de vers non écrite ; Ibrahim 2022 (même groupe) : 5 g minimum pour obtenir une bande SPR ; hypothèse 5 g de vers à ≈ 80 % d'eau, fluides à 0,15–0,55 M Cl- (eau saumâtre de mangrove à eau de mer) ; 10 mL de l'extrait de 100 mL ; 0,090 mmol Ag+",
+     "formula": "n(Cl) = m·0,8·[Cl]/10 ; n(Cl)/n(Ag)",
+     "result": "0,06 à 0,22 mmol Cl- pour 0,09 mmol Ag+ : Cl/Ag ≈ 0,7 à 2,4 (ordre de grandeur seulement)",
+     "compared_to": "Ksp(AgCl) ≈ 1,8e-10 : tout Cl- disponible précipite AgCl",
+     "source": "estimation de chimiste ; Ibrahim et al. 2022 pour la masse"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Incubation 24 h à 30 ± 2 °C, à l'obscurité, en solution aqueuse : aucune contrainte de solvant ni de récipient. La flèche Δ de la figure 1 (chauffage) n'a pas d'équivalent dans les Méthodes : on ne sait pas si un chauffage a eu lieu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La concentration de AgNO3 de la synthèse n'est pas écrite (1 mM seulement pour le témoin et le blanc) et la masse de vers broyés dans 100 mL n'est pas donnée. Le même groupe montre (Ibrahim 2022) qu'avec 1 g ou 3 g de vers aucune bande SPR n'apparaît, et qu'il en faut 5 à 15 g : la masse de vers est donc le paramètre qui décide du succès, et elle manque. Avec 1 mM : 9,7 mg d'Ag au total (voir « quantité d'argent introduite »).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Efficiency of silver nanoparticles (AgNPs) synthesis based on sample preparation of mangrove baitworm (Annelida, Eunicidae) Marphysa moribidii Idris, Hutchings and Arshad, 2014",
+      "authors_or_publisher": "Ibrahim U. S. N., Masimen M. A. A., Harun N. A., Idris I., Wan Ismail W. I. (J. Sustainability Science and Management 17(4), 84-98)",
+      "year": "2022",
+      "url_or_doi": "10.46754/jssm.2022.4.007"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Absorbance de 1,3 au maximum : pour 0,90 mM d'Ag entièrement réduit en sphères de 20–40 nm on attendrait A ≈ 15 (voir « absorbance attendue ») ; soit l'échantillon a été dilué (non écrit), soit ≈ 8 % seulement de l'argent est sous forme de particules, le reste restant Ag+ complexé ou AgCl. Le rendement de réduction n'est pas mesuré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A rapid method to estimate the concentration of citrate capped silver nanoparticles from UV-visible light spectra",
+      "authors_or_publisher": "Paramelle D., Sadovoy A., Gorelik S., Free P., Hobley J., Fernig D. G. (Analyst, RSC)",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4AN00978A"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "λmax = 398–400 nm correspond à des sphères de 10–18 nm dans l'eau ; des particules de 40 nm de moyenne (TEM, 20–100 nm) donneraient ≈ 412 nm, et une couronne protéique (indice > 1,33) décalerait encore vers le rouge (voir « taille compatible avec λmax »). Les tailles TEM et la position du plasmon ne concordent qu'à moitié : l'histogramme TEM (36 % dans 30–40 nm) pourrait sous-compter les petites particules, ou la bande être déformée par l'absorption de l'extrait (voir mécanisme).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A rapid method to estimate the concentration of citrate capped silver nanoparticles from UV-visible light spectra",
+      "authors_or_publisher": "Paramelle D., Sadovoy A., Gorelik S., Free P., Hobley J., Fernig D. G. (Analyst, RSC)",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4AN00978A"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve non discriminante de l'identité des particules : l'abstract annonce une caractérisation des AgNPs par DRX et FTIR, mais les Méthodes et les Résultats ne font ces deux mesures que sur l'extrait brut. Aucune DRX, SAED ni EDX des particules : rien ne distingue Ag0 de AgCl ou d'un mélange Ag/AgCl. Or l'extrait d'un ver marin de mangrove apporte du chlorure (fluides corporels ; Cl/Ag possiblement 0,7 à 2,4, voir « rapport Cl-/Ag+ ») ; avec le même protocole (95 mL de AgNO3 1 mM + 5 mL d'extrait d'algue rouge), Cabello-Torres et al. trouvent AgCl comme phase principale et Ag comme phase secondaire. Il faut une DRX ou une SAED des particules isolées (raies Ag fcc 38,1° ; AgCl 27,8°/32,2°).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Antifungal Properties of Silver Nanoparticles Produced by Green Synthesis with Extract of Red Seaweed Chondracanthus chamissoi",
+      "authors_or_publisher": "Cabello-Torres R. J. et al. (Chemical Engineering Transactions 101, 145-150)",
+      "year": "2023",
+      "url_or_doi": "10.3303/CET23101025"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La DRX de l'extrait lyophilisé est présentée comme preuve que l'argent ne vient pas du ver. Elle ne peut pas l'être : la DRX de poudre ne voit pas une phase cristalline en dessous d'environ 1 % massique, et une contamination environnementale serait de l'ordre du μg (hypothèse 1 μg/g dans 5 g de vers → 0,5 μg dans 10 mL d'extrait, contre 9,7 mg d'Ag apportés par AgNO3, soit 0,005 %). La conclusion est vraie par bilan de matière, pas par la DRX ; le témoin pertinent est l'extrait seul sans AgNO3 (UV-Vis, couleur), non montré. Instrument incohérent : un MiniFlex II (Rigaku) n'est pas équipé d'un détecteur X'Celerator (PANalytical), et une plage 2θ de 0 à 110° n'est pas mesurable (faisceau direct).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Attributions FTIR erronées : la bande large à 2091 cm-1 est la bande de combinaison flexion + libration de l'eau (≈ 2100–2130 cm-1), pas un nitrile (C≡N 2210–2260 cm-1) ; 1642,89 cm-1 est l'amide I des protéines (C=O) et la flexion de l'eau (≈ 1645 cm-1), pas une C=C d'alcène ; 1226–1045 cm-1 sont des élongations C–O, C–N, P–O (sucres, phosphates), pas des élongations N–H (≈ 3300 cm-1) ; 619,93 cm-1 en C–Br est très peu probable dans un extrait aqueux (bande de sulfate ν4 ou libration de l'eau plus probables). En plus, un seul spectre de l'extrait, sans spectre des particules, ne montre pas quels groupes réduisent ou coiffent l'argent.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Bend+Libration Combination Band Is an Intrinsic, Collective, and Strongly Solute-Dependent Reporter on the Hydrogen Bonding Network of Liquid Water",
+      "authors_or_publisher": "Verma P. K. et al. (J. Phys. Chem. B, ACS)",
+      "year": "2017 (en ligne) / 2018",
+      "url_or_doi": "10.1021/acs.jpcb.7b09641"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Zone d'inhibition de K. pneumoniae = 6,00 ± 0,00 mm : c'est le diamètre d'un disque standard (6 mm, diamètre du disque inclus dans la mesure) ; il n'y a donc pas de halo, alors que les auteurs déclarent un effet significatif sur K. pneumoniae et notent 0 mm pour les témoins (convention incohérente : 0 pour « pas de zone » chez les témoins, 6 chez l'essai). Pour les autres bactéries, le halo n'est que de 0,9 à 1,6 mm (voir « largeur du halo d'inhibition »). Le diamètre des disques découpés dans le Whatman n°1 n'est pas écrit.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Kirby-Bauer Disk Diffusion Susceptibility Test Protocol",
+      "authors_or_publisher": "Hudzicki J., American Society for Microbiology",
+      "year": "2009 (PDF ASM mis en ligne 2016)",
+      "url_or_doi": "https://asm.org/getattachment/2594ce26-bd44-47f6-8287-0657aa9185ad/kirby-bauer-disk-diffusion-susceptibility-test-protocol-pdf.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin manquant pour l'activité antibactérienne : la « solution mère » est le milieu réactionnel (aucune purification décrite dans les Méthodes), qui contient jusqu'à 0,9 mM d'argent total dont l'essentiel n'est probablement pas réduit (voir « absorbance attendue »). Ag+ libre ou complexé est lui-même antibactérien ; sans essai de AgNO3 seul à la même concentration (seuls l'extrait et l'eau servent de témoins négatifs), l'effet ne peut pas être attribué aux nanoparticules. L'inhibition n'apparaît qu'à 100 % de la solution mère, ce qui indique une activité faible.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Changement de couleur en 15 min puis jaune-brun à 24 h à 30 °C, à l'obscurité : cinétique plausible pour une réduction par biomolécules (Ibrahim 2022 : 24 h, extraits de 5–15 g). Les auteurs parlent d'une étape de purification au cours de laquelle les AgNPs s'oxyderaient, absente des Méthodes ; et l'oxydation n'empêche pas de doser l'argent total (ICP-OES ou AAS après dissolution acide) : la justification donnée pour ne pas connaître la concentration ne tient pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "AgNO3 1 mM dans l'eau : très loin de la solubilité (> 2 kg/L). Le pH de l'extrait et du mélange n'est ni mesuré ni réglé, alors qu'il conditionne le pouvoir réducteur des protéines et sucres (réduction plus rapide en milieu basique) ; à vérifier avant de refaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DLS : les AgNPs sont filtrées à 0,2 μm puis « dispersées dans l'eau » et soniquées, ce qui suppose une poudre ou un culot jamais décrit ; la filtration à 0,2 μm retire aussi les agrégats que la SEM montre. Rapport DLS/TEM = 2,27 (voir « rapport DLS/TEM ») : compatible avec une couronne organique et une pondération en intensité ; PDI 0,163 cohérent avec « modérément polydisperse ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dangers non écrits : AgNO3 oxydant et corrosif, tache la peau ; déchets argentés toxiques pour le milieu aquatique ; huit bactéries pathogènes (dont Salmonella, Shigella, P. aeruginosa) à manipuler en laboratoire de confinement de niveau 2 ; MTT toxique. Seule la stérilisation à 121 °C est mentionnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans un extrait aqueux de ver marin (protéines dont l'hémoglobine extracellulaire qui colore l'extrait en rose-rouge, peptides, acides aminés, sucres, sels), Ag+ est d'abord capté : une partie précipite en AgCl avec le chlorure des fluides corporels, une partie se complexe aux groupes amine, imidazole et thiol des protéines. La réduction en Ag0 se fait lentement à 30 °C par les résidus réducteurs des protéines (tyrosine, tryptophane, cystéine) et les sucres réducteurs, plutôt que par des « phénols oxydés en quinones », qui sont minoritaires dans un tissu animal. Les atomes d'Ag nucléent, croissent, et sont coiffés par les protéines (stabilisation stérique et électrostatique), d'où la couronne vue en DLS. La conversion est probablement partielle (≈ 8 % si l'échantillon n'est pas dilué). Le virage du rose au jaune-brun mêle l'apparition du plasmon et la transformation des hémoprotéines (bande de Soret vers 414 nm, proche du plasmon), ce qui rend nécessaire le spectre de l'extrait seul dilué au dixième comme témoin.",
+    "sources": [
+     {
+      "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+      "authors_or_publisher": "Raveendran P., Fu J., Wallen S. L. (JACS)",
+      "year": "2003",
+      "url_or_doi": "10.1021/ja029267j"
+     },
+     {
+      "title": "Efficiency of silver nanoparticles (AgNPs) synthesis based on sample preparation of mangrove baitworm (Annelida, Eunicidae) Marphysa moribidii Idris, Hutchings and Arshad, 2014",
+      "authors_or_publisher": "Ibrahim U. S. N., Masimen M. A. A., Harun N. A., Idris I., Wan Ismail W. I. (J. Sustainability Science and Management 17(4), 84-98)",
+      "year": "2022",
+      "url_or_doi": "10.46754/jssm.2022.4.007"
+     },
+     {
+      "title": "Antifungal Properties of Silver Nanoparticles Produced by Green Synthesis with Extract of Red Seaweed Chondracanthus chamissoi",
+      "authors_or_publisher": "Cabello-Torres R. J. et al. (Chemical Engineering Transactions 101, 145-150)",
+      "year": "2023",
+      "url_or_doi": "10.3303/CET23101025"
+     },
+     {
+      "title": "Method for the dissociation of the extracellular haemoglobin molecule of Arenicola marina ... (brevet US 7 776 526 ; suivi de l'hème à 414 nm, des protéines à 280 nm)",
+      "authors_or_publisher": "USPTO (brevet, déposant non relevé)",
+      "year": "non relevée",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7776526"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de vers frais broyés dans les 100 mL d'eau (le même groupe montre qu'il en faut au moins 5 g ; 1–3 g ne donnent pas de plasmon)",
+    "concentration de AgNO3 de la synthèse (1 mM probable, non écrite) et pH du mélange",
+    "nature des particules : DRX ou SAED/EDX des particules isolées pour distinguer Ag0 de AgCl",
+    "spectre UV-Vis de l'extrait seul dilué au dixième (absorption des hémoprotéines vers 410–415 nm) comme blanc",
+    "chauffage éventuel (flèche Δ de la figure 1) : demander aux auteurs",
+    "rendement de réduction et argent total (ICP-OES) de la solution mère, purification par centrifugation",
+    "témoin AgNO3 seul à la même concentration dans les essais antibactériens ; diamètre des disques de papier"
+   ]
+  },
+  {
+   "label": "M_moribidii_extract",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "contamination environnementale possible contre argent apporté (hypothèse)",
+     "inputs": "hypothèse 5 g de vers à 1 μg/g d'Ag (sédiment contaminé) dans 100 mL ; 10 mL d'extrait utilisés ; 9,7 mg d'Ag apportés par 90 mL de AgNO3 1 mM",
+     "formula": "m_contamination = 5 g × 1 μg/g / 10 ; rapport = m_contamination / 9,7 mg",
+     "result": "0,5 μg, soit 0,005 % de l'argent du mélange",
+     "compared_to": "limite de détection d'une phase cristalline en DRX de poudre : ≈ 1 % massique",
+     "source": "estimation de chimiste"
+    },
+    {
+     "what": "distance de Bragg de la bosse amorphe",
+     "inputs": "2θ = 21,68° ; Cu Kα1 = 1,5406 Å (NIST)",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "d ≈ 4.10 Å",
+     "compared_to": "halo des matières organiques amorphes (≈ 4–5 Å)",
+     "source": "NIST X-ray Transition Energies Database pour λ"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Masse de vers, durée de broyage et durée de conservation au réfrigérateur non écrites : l'extrait n'est pas défini en concentration (la masse de matière sèche des 40 mL lyophilisés pour la FTIR aurait suffi à le définir, mais n'est pas donnée). Organisme sauvage récolté en mangrove : composition variable d'un lot à l'autre.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Efficiency of silver nanoparticles (AgNPs) synthesis based on sample preparation of mangrove baitworm (Annelida, Eunicidae) Marphysa moribidii Idris, Hutchings and Arshad, 2014",
+      "authors_or_publisher": "Ibrahim U. S. N., Masimen M. A. A., Harun N. A., Idris I., Wan Ismail W. I. (J. Sustainability Science and Management 17(4), 84-98)",
+      "year": "2022",
+      "url_or_doi": "10.46754/jssm.2022.4.007"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Extraction 1 h sur la paillasse (≈ 30 °C au laboratoire) d'un tissu broyé : autolyse et prolifération bactérienne possibles ; la conservation au réfrigérateur sans durée ni filtration stérile peut changer le pouvoir réducteur de l'extrait.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX de l'extrait lyophilisé : la bosse large à 2θ = 21,68° (d = 4,10 Å avec Cu Kα 1,5406 Å) est typique d'une matière organique amorphe (protéines, polysaccharides). L'absence de pics fins sur l'extrait n'exclut pas des traces d'argent (voir « contamination environnementale possible »), mais montre qu'aucun sel cristallin (NaCl par exemple) n'est majoritaire après lyophilisation.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Attributions FTIR erronées (nitrile à 2091 cm-1 au lieu de la bande de combinaison de l'eau ; C=C au lieu de l'amide I ; N–H à 1226–1045 cm-1 ; C–Br à 620 cm-1) : voir la voie AgNP_M_moribidii. Spectre mesuré sur deux instruments différents selon le texte (PerkinElmer Spectrum 100 et Nicolet 520) ; « KBr disk (3% of KBr) » doit vouloir dire 3 % d'échantillon dans KBr.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Bend+Libration Combination Band Is an Intrinsic, Collective, and Strongly Solute-Dependent Reporter on the Hydrogen Bonding Network of Liquid Water",
+      "authors_or_publisher": "Verma P. K. et al. (J. Phys. Chem. B, ACS)",
+      "year": "2017 (en ligne) / 2018",
+      "url_or_doi": "10.1021/acs.jpcb.7b09641"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Extraction aqueuse simple des composés hydrosolubles du ver broyé (protéines dont l'hémoglobine extracellulaire, peptides, acides aminés libres, sucres, sels des fluides corporels) ; aucune transformation chimique visée.",
+    "sources": [
+     {
+      "title": "Efficiency of silver nanoparticles (AgNPs) synthesis based on sample preparation of mangrove baitworm (Annelida, Eunicidae) Marphysa moribidii Idris, Hutchings and Arshad, 2014",
+      "authors_or_publisher": "Ibrahim U. S. N., Masimen M. A. A., Harun N. A., Idris I., Wan Ismail W. I. (J. Sustainability Science and Management 17(4), 84-98)",
+      "year": "2022",
+      "url_or_doi": "10.46754/jssm.2022.4.007"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de vers frais par 100 mL d'eau (≥ 5 g selon le même groupe)",
+    "matière sèche et teneur en chlorure de l'extrait",
+    "durée et température de conservation",
+    "pH de l'extrait"
+   ]
+  },
+  {
+   "label": "Negative_control_AgNO3",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [
+    {
+     "what": "concentration finale du témoin",
+     "inputs": "90 mL de AgNO3 1 mM + 10 mL d'eau ddH2O",
+     "formula": "C = 0,090 mmol / 100 mL",
+     "result": "0,90 mM AgNO3",
+     "compared_to": "même [Ag] que la synthèse si celle-ci est à 1 mM",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le témoin ne change qu'une variable (extrait remplacé par le même volume d'eau) : il est bien construit pour montrer que AgNO3 ne se réduit pas seul à l'obscurité. Mais le texte annonce « deux types » de témoins négatifs et n'en décrit qu'un ; le témoin manquant, l'extrait seul dilué au dixième sans AgNO3, est celui qui montrerait la contribution de l'extrait (rose, hémoprotéines) au spectre vers 400 nm, puisque le blanc UV-Vis est AgNO3 1 mM et non l'extrait.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Method for the dissociation of the extracellular haemoglobin molecule of Arenicola marina ... (brevet US 7 776 526 ; suivi de l'hème à 414 nm, des protéines à 280 nm)",
+      "authors_or_publisher": "USPTO (brevet, déposant non relevé)",
+      "year": "non relevée",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7776526"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Durée et conditions d'incubation du témoin non écrites (24 h à l'obscurité supposées) : un témoin exposé à la lumière ambiante pourrait noircir par photoréduction de Ag+.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Sans réducteur et à l'obscurité, Ag+ 0,9 mM reste en solution : pas de bande plasmon.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "incubation du témoin dans les mêmes conditions (24 h, obscurité)",
+    "ajouter le témoin extrait seul sans AgNO3"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse verte simple (10 mL d'extrait aqueux de ver marin + 90 mL de AgNO3, 24 h à 30 °C, obscurité) dont la chimie est plausible, mais mal définie et mal démontrée : masse de vers et concentration de AgNO3 non écrites, identité des particules (Ag0 contre AgCl) jamais établie car DRX et FTIR ne portent que sur l'extrait, attributions FTIR fausses, preuve d'absence de contamination par DRX non discriminante, et activité antibactérienne faible (halo de 0 à 1,6 mm, inhibition seulement à 100 % de la solution mère) sans témoin Ag+.",
+  "author_errors_suspected": [
+   "abstract : « caractérisées par DRX et FTIR » alors que ces mesures portent sur l'extrait seul",
+   "FTIR : bande de combinaison de l'eau (≈ 2100 cm-1) attribuée à un nitrile ; amide I attribuée à C=C ; élongations N–H placées à 1226–1045 cm-1 ; C–Br à 620 cm-1",
+   "K. pneumoniae 6,00 ± 0,00 mm (= diamètre du disque) présentée comme une inhibition significative, alors que les témoins sans zone sont notés 0",
+   "DRX : MiniFlex II « équipé d'un X'Celerator » et plage 2θ de 0 à 110°",
+   "deux types de témoins négatifs annoncés, un seul décrit ; étape de purification évoquée en Résultats, absente des Méthodes",
+   "flèche Δ (chauffage) de la figure 1 absente des Méthodes"
+  ],
+  "comparison_with_database": "Dans la base, les autres AgNPs par voie verte (PMC6297187, PMC3998862, PMC4735866, PMC4973716, PMC9609168, PMC7932996) ont une DRX des particules montrant l'argent cfc ; PMC9908928 trouve un mélange Ag/AgO. PMC7672297 est la seule sans DRX des particules. Son plasmon (398–400 nm) est parmi les plus bas (PMC7932996 : 400 nm pour 33 nm ; PMC9609168 : 404,5 nm pour 14,5 nm ; PMC3700086 : 420–425 nm), ce qui renforce l'écart avec la taille TEM de 40 nm."
+ },
+ "sources_not_found": [
+  "spectre publié (Soret) de l'hémoglobine de Marphysa moribidii ou d'une espèce proche : non trouvé ; la bande de l'hème vers 414 nm est prise d'une hémoglobine extracellulaire d'Arenicola marina (brevet)",
+  "teneur en chlorure des fluides de M. moribidii : non trouvée ; l'estimation Cl/Ag repose sur une hypothèse (0,15–0,55 M)",
+  "tableau S1 complet de Paramelle 2014 (annexe RSC injoignable) : valeurs prises dans le tableau 1 de l'article"
+ ]
+}

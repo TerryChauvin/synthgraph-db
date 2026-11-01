@@ -1,0 +1,720 @@
+{
+ "pmcid": "PMC8348040",
+ "routes": [
+  {
+   "label": "DSDA_C18",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de cilastatine",
+     "inputs": "1 g ; M = 358,45 g/mol (C16H26N2O5S, acide libre)",
+     "formula": "n = m/M",
+     "result": "2,79 mmol",
+     "compared_to": "article : 2,8 mmol (1 equiv.) ; correspond à l'acide libre, pas au sel de sodium (M 380,4 → 2,63 mmol)",
+     "source": "PubChem CID 6435415 ; GSRS/FDA 358,45"
+    },
+    {
+     "what": "moles de NaOH et équivalents",
+     "inputs": "390 mg ; M = 40,00 g/mol ; cilastatine 2,8 mmol",
+     "formula": "n = m/M ; n/n(cil)",
+     "result": "9,75 mmol ; 3,48 equiv. (l'article écrit « 9.76 mmol, 3.5 mmol » : lire 3,5 equiv.)",
+     "compared_to": "besoin minimal : 2 equiv. (deux COOH, amine libérée) + 1 equiv. (HCl formé) = 3 equiv. ; excès 0,5 equiv. pour l'hydrolyse du chlorure d'acyle",
+     "source": "arithmétique"
+    },
+    {
+     "what": "chlorure d'oléoyle : masse, volume et quantité réelle",
+     "inputs": "2,8 mmol ; M = 300,91 g/mol ; d = 0,91 g/mL ; pureté ≥ 89 %",
+     "formula": "m = n·M ; V = m/d ; n réel = 0,89·n si 2,8 mmol est calculé sur la masse pesée",
+     "result": "843 mg ; 0,93 mL ; 2,49 mmol de chlorure d'oléoyle réel si la pureté n'est pas corrigée",
+     "compared_to": "1 equiv. annoncé ; 0,89 equiv. réel au pire",
+     "source": "Sigma-Aldrich 367850"
+    },
+    {
+     "what": "masse molaire et rendement théorique du DSDA C18",
+     "inputs": "M(cil) 358,45 + M(oléoyl-Cl) 300,91 − M(HCl) 36,46 ; 2,8 mmol",
+     "formula": "M = somme ; m = n·M",
+     "result": "622,9 g/mol ; 1,74 g au plus",
+     "compared_to": "rendement non donné par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentration de cilastatine dans le THF",
+     "inputs": "1 g dans 10 mL de THF",
+     "formula": "c = m/V",
+     "result": "100 mg/mL",
+     "compared_to": "solubilité de la cilastatine (acide libre, zwitterion) : 12,5 mg/mL dans le DMF et le DMSO, solvants plus polaires que le THF",
+     "source": "Cayman Chemical, fiche 23511"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Schotten–Baumann classique : 1 equiv. de chlorure d'acyle pour 1 amine primaire, 3,5 equiv. de NaOH (voir calcul « moles de NaOH ») ; le bilan est cohérent. Le soufre (thioéther) de la cilastatine est conservé, ce qui justifie le dosage du DSDA dans les MSN par le soufre.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« stirred at room temperature until the compound was completely dissolved » : 1 g de cilastatine (acide libre, zwitterion d'acide aminé) dans 10 mL de THF fait 100 mg/mL, alors que le fournisseur donne 12,5 mg/mL dans le DMF et le DMSO. Une dissolution complète dans le THF pur est peu probable ; la cilastatine se dissout sans doute seulement après l'ajout de la soude aqueuse (sel disodique). Sans conséquence sur la réaction, mais un chimiste ne doit pas attendre une solution limpide avant l'ajout de la base.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Cilastatin (CAS 82009-34-5), fiche produit 23511 : solubilité DMF 12,5 mg/mL, DMSO 12,5 mg/mL",
+      "authors_or_publisher": "Cayman Chemical (fiche fournisseur)",
+      "year": "2025",
+      "url_or_doi": "https://www.caymanchem.com/product/23511/cilastatin"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Pureté du produit : la réaction en milieu aqueux basique hydrolyse une partie du chlorure d'acyle en acide gras (oléique ou décanoïque). À pH 2–3, cet acide gras est extrait avec le DSDA par l'acétate d'éthyle et aucune purification (chromatographie, recristallisation) n'est décrite. Le chlorure d'oléoyle à ≥ 89 % contient aussi d'autres chaînes. Le DSDA C18 contient donc probablement de l'acide oléique, lui-même tensioactif anionique capable de structurer la silice (voie AMS). Ni rendement, ni pureté (intégration RMN, HPLC) ne sont donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Crude oleoyl chloride, data sheet 1900 F (hydrolyse en HCl et acide oléique)",
+      "authors_or_publisher": "Framochem (fiche technique fournisseur)",
+      "year": "2023",
+      "url_or_doi": "https://framochem.com/wp-content/uploads/2025/01/TDS_Oleoyl-chloride.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire physique : « the stretching vibrations bands of the multiple C-H bonds of the fatty acid chains can be observed between 3000 and 4000 cm−1 ». Les élongations C–H aliphatiques sont entre 2850 et 3000 cm−1 (les auteurs l'écrivent d'ailleurs correctement en 3.2 pour les MSN) ; 3000–4000 cm−1 est la région O–H et N–H. Erreur des auteurs à corriger avant de lire les figures S2 et S5.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le potentiel zêta (−6,1 et −12,8 mV) est présenté comme preuve des deux acides carboxyliques libres. Un potentiel zêta ne compte pas des groupes acides ; le milieu de mesure du DSDA (PBS 1 mg/mL ?) et l'état d'agrégation ne sont pas dits, et à force ionique du PBS (≈ 0,16 M) l'écrantage réduit fortement la valeur. Preuve non discriminante ; un titrage acido-basique ou la RMN 13C des deux COOH serait la preuve adaptée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Chlorures d'oléoyle et de décanoyle : corrosifs (H314), hydrolysés par l'eau en HCl et acide gras ; ajout lent en bain de glace sous hotte. Dissolution de NaOH exothermique (d'où le refroidissement décrit). THF : inflammable, formateur de peroxydes. Aucune précaution n'est écrite dans l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Oleoyl chloride, CID 5364783 (GHS : H314, corrosif)",
+      "authors_or_publisher": "PubChem (NIH)",
+      "year": "2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Oleoyl-chloride"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "N-acylation de Schotten–Baumann en milieu biphasique THF/eau basique : la soude déprotone les deux COOH et l'ammonium de la cystéine, l'amine libre attaque le chlorure d'acyle, la soude neutralise HCl ; l'hydrolyse du chlorure d'acyle est la réaction concurrente (d'où 0,5 equiv. de base en excès). L'acidification à pH 2–3 reprotone les carboxylates et rend le diacide amphiphile extractible ; la cilastatine non acylée, zwitterionique, reste dans l'eau.",
+    "sources": [
+     {
+      "title": "Crude oleoyl chloride, data sheet 1900 F (hydrolyse en HCl et acide oléique)",
+      "authors_or_publisher": "Framochem (fiche technique fournisseur)",
+      "year": "2023",
+      "url_or_doi": "https://framochem.com/wp-content/uploads/2025/01/TDS_Oleoyl-chloride.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "forme commerciale de la cilastatine (acide libre 358,45 g/mol ou sel de sodium 380,4 g/mol) et ajustement de NaOH",
+    "corriger la quantité de chlorure d'oléoyle pour sa pureté (≥ 89 %)",
+    "contrôler par RMN la teneur en acide gras libre du DSDA et, si besoin, purifier",
+    "rendement et pureté du DSDA (non donnés)"
+   ]
+  },
+  {
+   "label": "DSDA_C10",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "chlorure de décanoyle et masse molaire du DSDA C10",
+     "inputs": "2,8 mmol ; M(décanoyl-Cl) = 190,71 g/mol ; M(cil) 358,45 ; M(HCl) 36,46",
+     "formula": "m = n·M ; M(DSDA) = M(cil) + M(acyl-Cl) − M(HCl)",
+     "result": "534 mg de chlorure ; M(DSDA C10) = 512,7 g/mol ; 1,44 g au plus",
+     "compared_to": "rendement non donné",
+     "source": "NIST WebBook (décanoyl chloride)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Même chimie que DSDA_C18 avec un chlorure à 98 % : l'écart de pureté est négligeable ici. L'acide décanoïque formé par hydrolyse est extrait avec le produit à pH 2–3 (même réserve que pour C18).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Potentiel zêta de −6,1 mV (C10) contre −12,8 mV (C18) : sans milieu ni concentration indiqués, l'écart ne se rattache à aucune différence de groupes acides (les deux DSDA en ont deux).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Identique à DSDA_C18 (N-acylation de Schotten–Baumann).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en acide décanoïque libre du produit",
+    "rendement"
+   ]
+  },
+  {
+   "label": "Cilastatin-C18@MSN-3",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'APTES et équivalents",
+     "inputs": "137 µL ; d = 0,946 g/mL ; M = 221,37 g/mol ; DSDA 0,35 mmol",
+     "formula": "n = V·d/M ; n/n(DSDA)",
+     "result": "0,585 mmol ; 1,67 equiv.",
+     "compared_to": "article : 0,585 mmol, 1,65 equiv. (concorde)",
+     "source": "Sigma-Aldrich 440140"
+    },
+    {
+     "what": "moles de TEOS et équivalents",
+     "inputs": "920 µL ; d = 0,933 g/mL ; M = 208,33 g/mol",
+     "formula": "n = V·d/M ; n/0,35",
+     "result": "4,12 mmol ; 11,8 equiv.",
+     "compared_to": "article : 4,16 mmol (d ≈ 0,94 g/mL), 11,8 equiv. (concorde)",
+     "source": "Sigma-Aldrich 131903"
+    },
+    {
+     "what": "rapport H2O/DSDA",
+     "inputs": "15 mL d'eau ; M = 18,015 g/mol ; DSDA 0,35 mmol",
+     "formula": "n(H2O)/n(DSDA)",
+     "result": "833 mmol ; 2379",
+     "compared_to": "article : 2360 (concorde à 1 %)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentration massique du DSDA C18",
+     "inputs": "0,35 mmol × 622,9 g/mol ; 15 g d'eau",
+     "formula": "w = m/(m + 15 000 mg)",
+     "result": "218 mg ; 1,43 % m",
+     "compared_to": "article : 1,5 % m (concorde à 5 % près)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rapport ammonium/carboxylate",
+     "inputs": "0,585 mmol NH2 (APTES) ; 2 COOH × 0,35 mmol",
+     "formula": "n(N)/n(COOH)",
+     "result": "0,84",
+     "compared_to": "les auteurs voulaient un N par COOH (« double the amount ») ; l'optimum retenu laisse 16 % des carboxyles sans contre-ion aminé",
+     "source": "arithmétique"
+    },
+    {
+     "what": "bilan du solide et teneur organique maximale",
+     "inputs": "SiO2 = 4,12 mmol × 60,08 ; H2N(CH2)3SiO1.5 = 0,585 mmol × 110,2 ; DSDA 218 mg",
+     "formula": "fraction = m(DSDA)/m(total)",
+     "result": "SiO2 248 mg + aminopropylsilice 65 mg + DSDA 218 mg = 530 mg ; DSDA ≤ 41 % ; organique ≤ 48 %",
+     "compared_to": "ATG de la série : 28 à 41 % de matière organique (cohérent avec une incorporation partielle)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "charge maximale de DSDA déduite des pourcentages de libération",
+     "inputs": "100 mg ↔ 32 % ; 200 mg ↔ 68 % ; 240 mg ↔ 78 %",
+     "formula": "m/pourcentage",
+     "result": "312 ; 294 ; 308 mg/g",
+     "compared_to": "cohérent entre eux (≈ 300 mg/g, soit 30 % m) et avec l'ATG (28–41 %) et le maximum de 41 % du calcul précédent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "S = 685 m2/g ; V = 0,80 cm3/g",
+     "formula": "d = 4V/S",
+     "result": "4,67 nm",
+     "compared_to": "NLDFT 4,9 nm (concorde)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "longueur de chaîne et taille de micelle (Tanford)",
+     "inputs": "oléoyle : 17 carbones dans la queue ; lmax = 0,154 + 0,1265·n nm",
+     "formula": "2·lmax",
+     "result": "2,30 nm ; cœur ≈ 4,6 nm",
+     "compared_to": "pore NLDFT 4,9 nm (C18) : cohérent avec des pores moulés sur le cœur des micelles",
+     "source": "chimie générale (formule de Tanford)"
+    },
+    {
+     "what": "distance de Bragg de la bande de diffraction aux petits angles",
+     "inputs": "Cu Kα1 λ = 0,154056 nm ; 2θ ≈ 2° (« a band at around 2 theta »)",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "d ≈ 4,4 nm (2θ = 1,5° → 5,9 nm ; 2,5° → 3,5 nm)",
+     "compared_to": "pores de 4,9 nm : une distance de corrélation pore-pore de 4,4 nm laisserait une paroi de moins de 0,5 nm, irréaliste ; la valeur 2θ est trop vague pour conclure",
+     "source": "NIST X-ray transition energies (λ Cu Kα1)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Émulsion de 15 mL d'eau à 100 °C « overnight » sous agitation, puis 1 jour à 100 °C : c'est le point d'ébullition de l'eau à 1 atm. Le récipient n'est pas dit ; en récipient ouvert l'eau s'évapore et la concentration (1,5 % m, H2O/DSDA = 2360) n'est plus tenue. Il faut un flacon fermé (polypropylène, comme dans les synthèses AMS) ou un reflux ; en flacon fermé à 100 °C la pression reste ≈ 2 bar absolus (vapeur 1,01 bar + air), sans danger.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantités cohérentes avec les rapports annoncés (voir calculs « moles d'APTES », « moles de TEOS », « rapport H2O/DSDA »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "pH non donné et forme du DSDA non précisée : après l'acidification à pH 2–3, le DSDA est un diacide libre ; dans l'eau, c'est l'APTES (base) qui l'ionise par transfert de proton. Dans la voie AMS, le degré d'ionisation du tensioactif fixe la géométrie de la mésophase ; avec N/COOH = 0,84 (calcul « rapport ammonium/carboxylate ») le pH final dépend de la pureté du DSDA (acide gras libre) et doit être mesuré pour reproduire.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Anionic surfactant templated mesoporous silicas (AMSs)",
+      "authors_or_publisher": "Han L., Che S., Chemical Society Reviews",
+      "year": "2013",
+      "url_or_doi": "10.1039/c2cs35297d"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Textures mesurées après calcination à 550 °C (DSDA brûlé) alors que la libération porte sur le matériau brut : la surface de 685 m2/g n'est pas celle du vecteur testé. 4V/S = 4,67 nm concorde avec le maximum NLDFT de 4,9 nm. Lors de la calcination et de l'ATG sous air, le soufre du DSDA part en SO2 (hotte).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« The XRD patterns of the calcinated materials show a band at around 2 theta … which may suggest a specific ordering » : une seule bande large aux petits angles indique une porosité vermiculaire (corrélation pore-pore), pas un ordre ; avec 2θ ≈ 2° la distance est ≈ 4,4 nm (calcul de Bragg), à peine plus que le pore de 4,9 nm. Valeur de 2θ et indexation à demander (figure S7 absente).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Libération : les trois couples masse/pourcentage donnent tous une charge maximale ≈ 300 mg/g (calcul « charge maximale »), cohérente avec l'ATG (28–41 %). Concentration maximale dans le milieu : 15 mg dans 50 mL = 0,3 mg/mL. Le prélèvement de 1 mL sans remplacement (non dit) fausse légèrement les cumuls. Dosage UV à 206 nm : longueur d'onde peu sélective (amide, carboxylates, C=C) ; un blanc de silice sans DSDA dans le PBS manque.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison de libération C18@MSN-3 contre C10@MSN-8 : les deux matériaux diffèrent par la chaîne (C18/C10), la taille (373 contre 69 nm), le vieillissement à 100 °C (oui/non), la vitesse d'agitation (500/800 tr/min) et le pore (4,9/3,1 nm). Les auteurs attribuent l'écart à la chaîne et à la taille ; le dispositif ne permet pas de le dire. Témoin adapté : C18@MSN-3 contre C10@MSN-5 (mêmes conditions) ou C18@MSN-7 contre C10@MSN-8. Ils écrivent en outre « the lower hydrophobicity … of DSDA cilastatin-C18 » alors que C18 est le plus hydrophobe.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« After release from the DSDA and cleavage of the amide [], the DSDA renders … cilastatin » : l'hydrolyse non catalysée d'une liaison amide à pH neutre a une demi-vie de plusieurs centaines d'années à 25 °C ; dans le PBS à 37 °C, c'est le DSDA intact qui est libéré et dosé. La libération de cilastatine libre suppose une amidase in vivo, non montrée ici, et l'activité du DSDA acylé sur la DHP-I n'est pas mesurée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Rates of Uncatalyzed Peptide Bond Hydrolysis in Neutral Solution and the Transition State Affinities of Proteases",
+      "authors_or_publisher": "Radzicka A., Wolfenden R., J. Am. Chem. Soc.",
+      "year": "1996",
+      "url_or_doi": "10.1021/ja954077c"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "TEOS (inflammable, irritant), APTES (corrosif), nanopoudre de silice à ne pas inhaler (manipulation sous hotte, masque FFP3), SO2 dégagé à la calcination du DSDA soufré ; aucune mention dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voie AMS (Che 2003) : l'ammonium de l'APTES, protoné par les COOH du DSDA, s'apparie électrostatiquement aux carboxylates à la surface des micelles ; ses groupes triéthoxysilyle se co-condensent avec le TEOS (hydrolyse catalysée par l'amine, à 60 °C) pour former la paroi, si bien que l'aminopropyle reste dans le mur. La taille de pore suit la longueur de la chaîne (cœur de micelle ≈ 2 lmax = 4,6 nm pour C18, 2,6 nm pour C10). L'effet de l'agitation passe par la dispersion de l'émulsion du DSDA peu soluble et par le nombre de germes, pas par la taille des micelles (grandeur thermodynamique) comme l'écrivent les auteurs. Le vieillissement à 100 °C restructure la paroi (dissolution-reprécipitation) : pores un peu plus larges, surface plus faible, comme pour MCM-41.",
+    "sources": [
+     {
+      "title": "A novel anionic surfactant templating route for synthesizing mesoporous silica with unique structure",
+      "authors_or_publisher": "Che S. et al., Nature Materials",
+      "year": "2003",
+      "url_or_doi": "10.1038/nmat1022"
+     },
+     {
+      "title": "Anionic surfactant templated mesoporous silicas (AMSs)",
+      "authors_or_publisher": "Han L., Che S., Chemical Society Reviews",
+      "year": "2013",
+      "url_or_doi": "10.1039/c2cs35297d"
+     },
+     {
+      "title": "Characterization of Large-Pore MCM-41 Molecular Sieves Obtained via Hydrothermal Restructuring",
+      "authors_or_publisher": "Sayari A. et al., Chemistry of Materials",
+      "year": "1997",
+      "url_or_doi": "10.1021/cm970128o"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "récipient fermé (ou reflux) pour les étapes à 100 °C",
+    "pH du mélange après l'ajout d'APTES et pureté du DSDA",
+    "géométrie du ballon et du barreau pour 500 tr/min",
+    "température et durée du séchage sous vide, nombre de lavages, rendement en solide",
+    "mesurer la texture aussi sur le matériau non calciné ou extrait"
+   ]
+  },
+  {
+   "label": "Cilastatin-C18@MSN-1",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "APTMS : quantité et rapport N/COOH",
+     "inputs": "3,3 equiv. × 0,35 mmol ; M(APTMS) = 179,29 g/mol",
+     "formula": "n ; n(N)/(2·n(DSDA))",
+     "result": "1,16 mmol ; ≈ 207 mg ; N/COOH = 1,65",
+     "compared_to": "volume d'APTMS non donné par l'article",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Les méthoxysilanes s'hydrolysent plus vite que les éthoxysilanes ; l'explication des auteurs (polymérisation rapide de l'APTMS → agrégation) est plausible.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Kinetics of Alkoxysilanes and Organoalkoxysilanes Polymerization: A Review",
+      "authors_or_publisher": "Issa A.A., Luyt A.S., Polymers",
+      "year": "2019",
+      "url_or_doi": "10.3390/polym11030537"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "4V/S = 4·0,42/606 = 2,77 nm contre un maximum NLDFT de 4,5 nm : une part importante de la surface vient de pores plus petits que le mode (microporosité ou distribution large), compatible avec un matériau agrégé et désordonné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "MSN-1 et MSN-2 sont agitées 5 min après le co-agent, MSN-3 3 min : le passage APTMS → APTES change aussi la durée d'agitation. Effet probablement mineur, mais l'essai n'isole pas la nature du silane.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Excès d'aminosilane à hydrolyse rapide : condensation précoce de l'APTMS en oligomères qui pontent les micelles et les particules, d'où l'agrégation.",
+    "sources": [
+     {
+      "title": "Kinetics of Alkoxysilanes and Organoalkoxysilanes Polymerization: A Review",
+      "authors_or_publisher": "Issa A.A., Luyt A.S., Polymers",
+      "year": "2019",
+      "url_or_doi": "10.3390/polym11030537"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'APTMS (non donné)"
+   ]
+  },
+  {
+   "label": "Cilastatin-C18@MSN-2",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "S = 375 m2/g ; V = 0,26 cm3/g",
+     "formula": "4V/S",
+     "result": "2,77 nm",
+     "compared_to": "NLDFT 4,7 nm (plage 2,5–5,5)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Moins d'APTMS donne une surface plus faible (375 contre 606 m2/g) et une distribution très large (2,5–5,5 nm) : cohérent avec une mésostructure mal formée ; les auteurs ne commentent pas cette baisse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que MSN-1, avec moins d'aminosilane : agrégation réduite mais structuration incomplète.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durée d'agitation après l'APTMS (5 min supposées)"
+   ]
+  },
+  {
+   "label": "Cilastatin-C18@MSN-4",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "S = 1073 m2/g ; V = 0,83 cm3/g",
+     "formula": "4V/S",
+     "result": "3,09 nm",
+     "compared_to": "NLDFT 4,1 nm (plage 3,0–4,5)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "écart de taille MSN-4 contre MSN-3",
+     "inputs": "744 ± 165 nm contre 373 ± 75 nm",
+     "formula": "(d4/d3)^3",
+     "result": "rapport de volume ≈ 7,9",
+     "compared_to": "les auteurs écrivent « very similar both in shape and size »",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Sans vieillissement à 100 °C : surface plus grande (1073 contre 685 m2/g) et pore plus petit (4,1 contre 4,9 nm). Sens attendu : le traitement hydrothermal élargit les pores, épaissit les parois et réduit la surface spécifique.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Characterization of Large-Pore MCM-41 Molecular Sieves Obtained via Hydrothermal Restructuring",
+      "authors_or_publisher": "Sayari A. et al., Chemistry of Materials",
+      "year": "1997",
+      "url_or_doi": "10.1021/cm970128o"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence texte/tableau : le texte dit MSN-4 « very similar both in shape and size » à MSN-3 alors que le tableau 2 donne 744 ± 165 nm contre 373 ± 75 nm (volume × 8). MSN-3 et MSN-4 sont identiques jusqu'à la fin de l'étape à 60 °C ; un vieillissement à 100 °C ne réduit pas un diamètre de moitié (il faudrait dissoudre 87 % de la silice). L'écart reflète donc la variabilité d'un lot à l'autre (ou un comptage TEM sur peu de particules), ce qui contredit « a high degree of reproducibility » et rend fragile toute tendance de taille tirée d'un seul lot. Même constat pour C10 (MSN-5 553 nm, MSN-6 406 nm, sens inverse).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Sans traitement hydrothermal, la paroi reste moins condensée et plus microporeuse : surface plus élevée, pores plus étroits.",
+    "sources": [
+     {
+      "title": "Characterization of Large-Pore MCM-41 Molecular Sieves Obtained via Hydrothermal Restructuring",
+      "authors_or_publisher": "Sayari A. et al., Chemistry of Materials",
+      "year": "1997",
+      "url_or_doi": "10.1021/cm970128o"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "répéter la synthèse au moins trois fois et mesurer la taille sur ≥ 100 particules avant de conclure sur l'effet du vieillissement"
+   ]
+  },
+  {
+   "label": "Cilastatin-C10@MSN-5",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration massique du DSDA C10",
+     "inputs": "0,35 mmol × 512,7 g/mol ; 15 g d'eau",
+     "formula": "w = m/(m + 15 000 mg)",
+     "result": "179 mg ; 1,18 % m (1,5 % m demanderait 0,45 mmol)",
+     "compared_to": "Méthodes : « About 0.35 mmol … to obtain a concentration of 1.5 wt% » pour C10 et C18",
+     "source": "arithmétique"
+    },
+    {
+     "what": "bilan du solide et teneur maximale en DSDA",
+     "inputs": "SiO2 248 mg + aminopropylsilice 65 mg + DSDA C10 179 mg",
+     "formula": "fraction",
+     "result": "DSDA ≤ 36 % ; organique ≤ 43 %",
+     "compared_to": "ATG 28–41 %",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "S = 496 m2/g ; V = 0,35 cm3/g",
+     "formula": "4V/S",
+     "result": "2,82 nm",
+     "compared_to": "NLDFT 2,0 nm (plage 1,5–2,5)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "taille de micelle (Tanford)",
+     "inputs": "décanoyle : 9 carbones dans la queue",
+     "formula": "2·(0,154 + 0,1265·9)",
+     "result": "2,6 nm",
+     "compared_to": "pores de 2,0 à 3,1 nm pour la série C10 : cohérent",
+     "source": "chimie générale (formule de Tanford)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Pour C10, 0,35 mmol et 1,5 % m ne sont pas compatibles (1,18 % m) : l'une des deux valeurs est approximative. Le rapport molaire 1/1,65/11,8/2360 suppose 0,35 mmol ; c'est la quantité à retenir.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Maximum de pore à 2,0 nm, distribution 1,5–2,5 nm : à la limite micro/mésopore de l'IUPAC (2 nm) ; une partie de la porosité est microporeuse. Le mot « mesopores » est à nuancer et le modèle NLDFT cylindrique est à sa limite de validité.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Légende de la figure 3 : « Cilastatin-C18@MSN-5, Cilastatin-C18@MSN-6 » alors que ce sont des matériaux C10 (tableau 1).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même voie AMS ; chaîne plus courte, micelles plus petites, pores ≈ 2 nm.",
+    "sources": [
+     {
+      "title": "A novel anionic surfactant templating route for synthesizing mesoporous silica with unique structure",
+      "authors_or_publisher": "Che S. et al., Nature Materials",
+      "year": "2003",
+      "url_or_doi": "10.1038/nmat1022"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité réelle de DSDA C10 (0,35 ou 0,45 mmol)"
+   ]
+  },
+  {
+   "label": "Cilastatin-C10@MSN-6",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "S = 632 m2/g ; V = 0,32 cm3/g",
+     "formula": "4V/S",
+     "result": "2,03 nm",
+     "compared_to": "NLDFT 2,8 nm",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Sans vieillissement, le pore C10 passe de 2,0 à 2,8 nm, sens inverse de la série C18 (4,9 → 4,1 nm) et de l'effet connu du traitement hydrothermal ; la surface augmente bien (496 → 632 m2/g). Avec la variabilité de taille notée pour MSN-4, ces écarts de pore entre lots uniques ne sont pas démonstratifs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Characterization of Large-Pore MCM-41 Molecular Sieves Obtained via Hydrothermal Restructuring",
+      "authors_or_publisher": "Sayari A. et al., Chemistry of Materials",
+      "year": "1997",
+      "url_or_doi": "10.1021/cm970128o"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme MSN-4.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "répétabilité de la distribution de pores"
+   ]
+  },
+  {
+   "label": "Cilastatin-C18@MSN-7",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "S = 383 m2/g ; V = 0,35 cm3/g",
+     "formula": "4V/S",
+     "result": "3,66 nm",
+     "compared_to": "NLDFT 5,0 nm",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre sections : le texte dit « the same conditions as cilastatin-C18@MSN-3 but with an increased stirring rate » (donc avec vieillissement à 100 °C), le tableau 1 donne « 60 °C o.n. » sans vieillissement ; la légende de la figure 2G écrit « Cilastatin-C10@MSN-7 » alors que le tableau donne C18. On ne sait pas quel protocole a donné les particules de 50 nm.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« increasing the stirring rate … would reduce the size of the micelles » : la taille d'une micelle est fixée par la thermodynamique (chaîne, tête, force ionique), pas par l'agitation. L'agitation agit sur la dispersion du DSDA émulsionné et sur le nombre de germes de silice ; 800 tr/min sans volume ni géométrie de barreau n'est pas transposable. Le pore de 5,0 nm, égal à celui de MSN-3, confirme que les micelles ne rapetissent pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Particules de 50 nm mais surface de 383 m2/g et volume de 0,35 cm3/g seulement, plus faibles que MSN-3 (685 m2/g) : inhabituel pour des MSN plus petites (porosité interparticulaire attendue plus grande) ; non commenté.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Plus forte agitation → émulsion de DSDA plus fine et nucléation plus nombreuse de la silice autour des agrégats → particules plus petites, à pore inchangé (la taille de micelle ne dépend pas de l'agitation).",
+    "sources": [
+     {
+      "title": "Anionic surfactant templated mesoporous silicas (AMSs)",
+      "authors_or_publisher": "Han L., Che S., Chemical Society Reviews",
+      "year": "2013",
+      "url_or_doi": "10.1039/c2cs35297d"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "vieillissement à 100 °C ou non (texte contre tableau 1)",
+    "volume du ballon, taille du barreau, étapes concernées par les 800 tr/min"
+   ]
+  },
+  {
+   "label": "Cilastatin-C10@MSN-8",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "charge maximale de DSDA déduite des pourcentages",
+     "inputs": "160 mg ↔ 62 % ; 190 mg ↔ 73 %",
+     "formula": "m/pourcentage",
+     "result": "258 ; 260 mg/g ; 80 % ↔ 208 mg/g",
+     "compared_to": "cohérent avec le maximum théorique de 36 % m (calcul de MSN-5) et l'ATG",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "S = 673 m2/g ; V = 0,47 cm3/g",
+     "formula": "4V/S",
+     "result": "2,79 nm",
+     "compared_to": "NLDFT 3,1 nm (concorde)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Libération plus rapide que C18@MSN-3 : attendue pour une chaîne plus courte et des particules de 69 nm, mais la comparaison change cinq variables à la fois (voir Cilastatin-C18@MSN-3). Les Conclusions donnent 64 % à 4 h contre 62 % dans les Résultats.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme MSN-7, avec le DSDA C10.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "agitation et récipient, comme MSN-7"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse en deux temps cohérente dans son principe : N-acylation de Schotten–Baumann de la cilastatine (bilan et base corrects), puis MSN par la voie AMS (tensioactif anionique + aminosilane co-structurant), quantités et rapports molaires vérifiés à 1–5 % près. Les réserves portent sur la reproductibilité (récipient à 100 °C, pH non mesuré, pureté du DSDA, agitation non transposable) et sur l'interprétation : tailles de particules variant d'un facteur 2 entre lots identiques présentées comme semblables, protocole de MSN-7 contradictoire, comparaison de libération qui change cinq variables, coupure de l'amide supposée sans preuve.",
+  "author_errors_suspected": [
+   "FTIR : élongations C–H placées entre 3000 et 4000 cm−1 (section 3.1) au lieu de 2850–3000 cm−1",
+   "« 3.5 mmol » de NaOH au lieu de 3,5 equiv.",
+   "MSN-4 dite « very similar … in size » à MSN-3 malgré 744 contre 373 nm",
+   "MSN-7 : « same conditions as MSN-3 » (texte) contre « 60 °C o.n. » (tableau 1) ; légende 2G « C10@MSN-7 »",
+   "légende de la figure 3 : « C18@MSN-5 et -6 » au lieu de C10",
+   "« lower hydrophobicity » de C18 au lieu de plus forte hydrophobie",
+   "Conclusions : 64 % (4 jours, C18) et 64 % (4 h, C10) contre 68 % et 62 % dans les Résultats ; « all nanomaterials … good sphericity » alors que MSN-1 est amorphe et agrégé",
+   "0,35 mmol de DSDA C10 ne fait pas 1,5 % m (1,18 % m)"
+  ],
+  "comparison_with_database": "Seule voie AMS (tensioactif anionique + co-structurant) de la base ; les autres silices mésoporeuses (PMC10888240, MCM-41 au CTAB, 1032 m2/g, pore BJH 4,1 nm ; PMC10200858, SBA-15, 504 m2/g) sont faites avec des tensioactifs cationiques ou neutres. Les surfaces de 375 à 1073 m2/g sont dans la gamme habituelle."
+ },
+ "sources_not_found": [
+  "aucune source trouvée sur l'activité inhibitrice de la DHP-I d'une cilastatine N-acylée ni sur sa coupure enzymatique in vivo (recherche non faite au-delà de la référence 38 des auteurs, non consultée)",
+  "solubilité de la cilastatine dans le THF : aucune valeur trouvée ; seule la fiche Cayman (DMF, DMSO) a servi"
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "pmcid": "PMC3330020",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "annotation comparaison_branches, phrase sur la teneur en carbone",
+   "extracted": "La teneur en carbone suit l'ordre des constantes de stabilité (2,3 ; 3,2 ; 4,8 ; 5,1 wt.%), sauf l'acide acétique, dont la capacité contredit la règle générale.",
+   "article_says": "The carbon content of LiFePO4/C had a direct ratio to the stability constant of Fe2+ with various complexing agents.",
+   "fix": "Reformuler : la suite 2,3 ; 3,2 ; 4,8 ; 5,1 wt.% correspond à SGAc, SGOc, SGEg, SGEn, dont les logβ (8,3 ; 5,22 ; 9,67 ; 9,70) ne sont pas croissants ; l'acide acétique est donc aussi hors tendance pour le carbone (la proportionnalité affirmée par les auteurs ne vaut que pour oxalate, éthanediol, éthylènediamine). Ajouter un doute ou un point dans tendance_observee.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Cell_LiFePO4C, caractérisation cyclic voltammetry, conditions (fenêtre 2.0 V à 4.5 V)",
+   "extracted": "scanning rate of 0.05 mV·s-1 from 2.0 V to 4.5 V",
+   "article_says": "Cyclic voltammetry [CV] was performed at a scanning rate of 0.05 mV·s-1 from 2.0 V to 4.5 V.",
+   "fix": "Conserver la valeur du texte, mais ajouter un doute : l'axe de la figure 3 ne va que de 2,8 V à 4,2 V (courbes tracées de 2,8 à ≈ 4,0 V), fenêtre tracée différente de la fenêtre annoncée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "SGAc, SGEg, SGOc, SGEn : positions des pics de CV (figure 3)",
+   "extracted": "CV : « sharp and of better symmetry », écart de pics plus petit, sans valeur chiffrée",
+   "article_says": "The difference between the anodic and cathodic peaks was smaller compared to others.",
+   "fix": "Optionnel : lire sur la figure 3 les pics anodique et cathodique (SGAc ≈ 3,5 V et ≈ 3,23 V ; SGEn, SGEg et SGOc plus écartés, ≈ 3,55–3,6 V et ≈ 3,1–3,15 V), `from_figure: Fig. 3`, ou le déclarer comme limite de lecture ; le doute actuel ne cite que les figures 1 à 4 « qualitatives ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Cell_LiFePO4C outcome cell_voltage_window",
+   "extracted": "cell_voltage_window = 2.5 and 4.3 V vs. Li+/Li",
+   "article_says": "between 2.5 and 4.3 V vs. Li+/Li at room temperature",
+   "fix": "C'est une condition de mesure déjà portée par `characterizations.conditions` de la même voie, pas un résultat ; retirer des outcomes ou le noter comme condition (doublon).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 60,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "aucune quantité de LiNO3, Fe(NO3)3·9H2O, NH4H2PO4, d'agent complexant, d'acide ascorbique, d'ammoniaque ni d'eau (« stoichiometrically », « saturated solution »)",
+  "température et durée d'évaporation, durée d'agitation à 75 °C, durée d'ajout ou d'agitation avant l'acide ascorbique non données",
+  "pression de pastillage, vitesse de montée en température, four et débit d'azote non donnés",
+  "électrode : quantité de solvant, durée de mélange, méthode et épaisseur d'enduction, charge en matière active ; cellule : type, volume d'électrolyte, régime de courant (C-rate) du cyclage et du CV non précisés",
+  "méthode de mesure de la densité de tassement et de l'analyse élémentaire du carbone non décrite ; pureté des agents complexants, acide ascorbique et ammoniaque non données",
+  "équations de CFSE absentes du texte (formules non reprises), sans effet sur la synthèse"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Lecture indépendante : 4 échantillons (SGAc, SGEg, SGOc, SGEn), tous dans sample_inventory avec voie ; pas d'annexe, pas de renvoi de méthode ([[B1]]–[[B11]] de contexte uniquement, method_sources vide correct). Tableau 1 : les 16 valeurs sont rangées sur le bon agent. Figure 5 relue : SGOc ≈ 134 (extrait 130), SGEg ≈ 112 (110), SGEn ≈ 117 (120), écarts < 3 %, premiers cycles concordants avec le tableau 1. Fragile : l'ordre « ascorbique ajouté après 1 h à 55 °C » est ambigu (doute déjà consigné) ; l'héritage des étapes par les trois branches repose sur un protocole unique (acceptable, doute consigné) ; logβ de Fe2+/agent rangé en outcome du matériau alors que c'est une propriété du complexe (choix signalé par l'extracteur, non faux)."
+}

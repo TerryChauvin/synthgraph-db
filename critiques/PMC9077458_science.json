@@ -1,0 +1,677 @@
+{
+ "pmcid": "PMC9077458",
+ "routes": [
+  {
+   "label": "seed_gel",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "eau apportée par la solution de TPAOH",
+     "inputs": "0,35 mol TPAOH (M = 203,37 g/mol) par mol SiO2 ; solution commerciale 25 % ou 40 % en masse (concentration non donnée)",
+     "formula": "m(sol) = 0,35 × 203,37 / w ; n(H2O) = m(sol) × (1 − w) / 18,015",
+     "result": "25 % : 284,8 g de solution, 11,9 mol H2O ; 40 % : 178,0 g, 5,9 mol H2O par mol SiO2",
+     "compared_to": "H2O/SiO2 visé = 20 : atteignable dans les deux cas par ajout d'eau après évaporation de l'éthanol",
+     "source": "valeurs de l'article ; masse molaire PubChem"
+    },
+    {
+     "what": "éthanol libéré par l'hydrolyse du TEOS",
+     "inputs": "1 mol TEOS par mol SiO2",
+     "formula": "Si(OEt)4 + 2 H2O → SiO2 + 4 EtOH",
+     "result": "4 mol EtOH par mol SiO2, à évaporer à 80 °C (éb. EtOH 78 °C)",
+     "compared_to": "composition finale annoncée sans éthanol : quantité évaporée non donnée",
+     "source": "stœchiométrie"
+    },
+    {
+     "what": "pression dans l'autoclave à 100 °C",
+     "inputs": "eau à 100 °C",
+     "formula": "pression de vapeur saturante",
+     "result": "≈ 0,101 MPa (1 bar)",
+     "compared_to": "autoclave PTFE : aucune contrainte",
+     "source": "NIST WebBook, propriétés de saturation de l'eau"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Évaporation de l'éthanol à 80 °C en récipient ouvert (éb. éthanol 78 °C) : cohérent ; une partie de l'eau part aussi, d'où l'ajout d'eau pour fixer H2O/SiO2 = 20. Traitement à 100 °C, 24 h en autoclave : pression ≈ 1 bar (calcul « pression dans l'autoclave à 100 °C »), conditions classiques des sols colloïdaux de silicalite-1 au TPAOH (la référence de l'article est Schoeman 1998).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "TPAOH/SiO2 = 0,35 et H2O/SiO2 = 20 : composition de sol limpide riche en TPAOH typique des germes colloïdaux de silicalite-1 ; l'eau visée est atteignable quelle que soit la concentration commerciale du TPAOH (calcul « eau apportée par la solution de TPAOH »). Concentration de la solution de TPAOH et quantité d'éthanol évaporée non données : sans effet sur la composition finale déclarée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le germe n'est caractérisé que par une image MET (Fig. 5L) et des particules de 80–100 nm visibles au MEB à 0 h ; ni DRX ni rendement : on ne sait pas s'il est cristallin (silicalite-1) ou encore en grande partie amorphe après 24 h à 100 °C. Majano 2009 utilisait des germes de silicalite-1 de 80 nm à 0,1–3 % en masse dans des gels sans gabarit, ce qui est l'ordre de grandeur repris ici.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Seed-Induced Crystallization of Nanosized Na-ZSM-5 Crystals",
+      "authors_or_publisher": "Majano, Darwiche, Mintova, Valtchev, Ind. Eng. Chem. Res.",
+      "year": "2009",
+      "url_or_doi": "10.1021/ie8017252"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : TPAOH en solution concentrée est une base forte corrosive (hydroxyde d'ammonium quaternaire) ; TEOS inflammable ; vapeurs d'éthanol à 80 °C (sorbonne, pas de flamme).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse du TEOS par le TPAOH en sol limpide, condensation autour des cations TPA+ en nanoparticules précurseurs (≈ 5 nm) puis, à 100 °C, cristallisation lente en colloïdes de silicalite-1 de quelques dizaines de nanomètres contenant le TPA+ occlus.",
+    "sources": [
+     {
+      "title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time",
+      "authors_or_publisher": "Cundy & Cox, Chem. Rev.",
+      "year": "2003",
+      "url_or_doi": "10.1021/cr020060i"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration de la solution de TPAOH utilisée",
+    "contrôler par DRX la cristallinité du germe après 24 h à 100 °C",
+    "garder le germe non lavé (le protocole l'utilise tel quel, TPAOH libre compris)"
+   ]
+  },
+  {
+   "label": "HZ5-A",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "sodium apporté par le métasilicate",
+     "inputs": "Na2SiO3·9H2O : Na2O/SiO2 = 1 ; gel final annoncé Na2O/SiO2 = 0,1",
+     "formula": "fraction de Na à éliminer = 1 − 0,1/1",
+     "result": "90 % du sodium doit partir (neutralisé par HCl et Al2(SO4)3 puis éliminé dans le filtrat) ; la quantité d'HCl et l'éventuel lavage qui fixent ce reste ne sont pas donnés",
+     "compared_to": "Na2O/SiO2 = 0,1 identique pour A à F",
+     "source": "stœchiométrie ; valeurs de l'article"
+    },
+    {
+     "what": "alcalinité libre du gel",
+     "inputs": "Na2O 0,1 ; Al2O3 0,033 (A) — Na+ compensant Al : Na/Al = 1",
+     "formula": "OH−/SiO2 ≈ 2 × (Na2O − Al2O3)",
+     "result": "≈ 0,13 (A) ; 0,17 (C, Al2O3 0,0167) ; 0,18 (D)",
+     "compared_to": "ordre de grandeur des synthèses de ZSM-5 sans gabarit (OH−/SiO2 ≈ 0,1–0,3) — seulement si le Na restant est bien sous forme de silicate/hydroxyde et non de NaCl",
+     "source": "stœchiométrie"
+    },
+    {
+     "what": "TPA apporté par le germe",
+     "inputs": "germe = 1,5 % de la silice (Table 2 : 0,015 « based on the total SiO2 ») ; TPAOH/SiO2 du germe = 0,35",
+     "formula": "TPA/SiO2 = 0,35 × 0,015 ; saturation MFI = 4 TPA par maille de 96 T = 0,042",
+     "result": "0,0053 TPA/SiO2, soit ≈ 13 % de la saturation des intersections (B : 0,0175, ≈ 42 %)",
+     "compared_to": "« organic-template-free » ; si 1,5 % est la masse du gel de germe et non sa silice : 0,0018 mol SiO2 et 0,0006 TPA par mol SiO2",
+     "source": "valeurs de l'article ; 4 TPA+ par maille MFI (Cundy & Cox 2003)"
+    },
+    {
+     "what": "pression dans l'autoclave à 175 °C",
+     "inputs": "eau, 175 °C",
+     "formula": "pression de vapeur saturante (tables IAPWS-95 ; 0,552 MPa à 155,6 °C lu sur NIST, 175 °C valeur de table)",
+     "result": "≈ 0,89 MPa (≈ 9 bar)",
+     "compared_to": "autoclave à chemise PTFE (< 200 °C) : acceptable ; remplissage non donné",
+     "source": "NIST WebBook, propriétés de saturation de l'eau (IAPWS-95)"
+    },
+    {
+     "what": "aluminium par gramme et acidité totale",
+     "inputs": "SiO2/Al2O3 produit = 28,4 → Si/Al = 14,2 ; maille H-ZSM-5 : SiO2 60,08 g/mol, AlO2H 59,99 g/mol ; NH3-TPD 0,69 + 0,19 + 0,16",
+     "formula": "n(Al) = 1 / (14,2 × 60,08 + 59,99)",
+     "result": "1,10 mmol Al/g contre 1,04 mmol NH3/g au total, dont 0,16 en sites forts",
+     "compared_to": "un site de Brønsted par Al de charpente ; le pic « fort » (le seul habituellement assimilé aux sites de Brønsted) ne vaut que 15 % de l'Al",
+     "source": "stœchiométrie ; Table 1"
+    },
+    {
+     "what": "surface externe géométrique de cristaux de 50–80 nm",
+     "inputs": "sphères, ρ(MFI) ≈ 1,8 g/cm3",
+     "formula": "S = 6 / (ρ d)",
+     "result": "67 m2/g (50 nm), 51 m2/g (65 nm), 42 m2/g (80 nm)",
+     "compared_to": "S_ext mesurée 64 m2/g : cohérent",
+     "source": "géométrie ; masse volumique de charpente approximative"
+    },
+    {
+     "what": "diamètre moyen des mésopores 4V/S",
+     "inputs": "V_méso = 0,24 cm3/g ; S_ext = 64 m2/g",
+     "formula": "4V/S",
+     "result": "≈ 15 nm",
+     "compared_to": "vides intercristallins entre particules de 50–80 nm : plausible ; hystérésis fermée vers P/P0 = 0,5",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport molaire du test catalytique",
+     "inputs": "0,47 g phénol (94,11) ; 0,74 g tert-butanol (74,12) ; 7,78 g cyclohexane (84,16 ; d 0,779)",
+     "formula": "m/M",
+     "result": "phénol 4,99 mmol ; t-BuOH 9,98 mmol (2,0 éq.) ; cyclohexane 92,4 mmol ≈ 10,0 mL, 86 % de la masse du mélange",
+     "compared_to": "ballon de 50 mL avec réfrigérant, bain à 125 °C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "position de la raie principale du quartz α",
+     "inputs": "d(101) ≈ 3,34 Å ; λ = 1,5405 Å",
+     "formula": "2θ = 2 asin(λ / 2d)",
+     "result": "26,6°",
+     "compared_to": "plage mesurée 5–40° : le quartz est bien détectable",
+     "source": "loi de Bragg ; d(101) du quartz α valeur de manuel"
+    },
+    {
+     "what": "angle Al–O–Si tiré du déplacement 27Al",
+     "inputs": "δ 54,6 → 53,8 ppm ; Lippmaa δ = −0,50 θ + 132",
+     "formula": "Δθ = −Δδ / 0,50",
+     "result": "θ ≈ 154,8° → 156,4°, soit +1,6°",
+     "compared_to": "texte : « increase » puis « decrease in the average Al–O–Si angles » pour le même déplacement",
+     "source": "Lippmaa, Samoson, Mägi 1986"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le gel principal est donné seulement en rapports molaires (1 SiO2 : 0,033 Al2O3 : 0,1 Na2O : 24 H2O) et la seule source de Na est le métasilicate (Na2O/SiO2 = 1). Pour arriver à 0,1 Na2O, 90 % du sodium doit être éliminé par neutralisation (HCl, Al2(SO4)3) puis filtration (calcul « sodium apporté par le métasilicate »), sans que la quantité ni la concentration d'HCl, le pH de précipitation ni un lavage du solide soient donnés. Le Na2O du gel, et donc son alcalinité (calcul « alcalinité libre du gel »), qui est LE paramètre d'une synthèse de ZSM-5 sans gabarit, n'est ni contrôlé ni mesuré : la composition annoncée n'est pas reproductible telle qu'écrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Rapport SiO2/Al2O3 du produit 28,4 pour 30 dans le gel : ≈ 95 % de la silice retrouvée si tout l'Al est retenu ; cohérent. Pour C et D la proportion tombe à 65 % (39,1/60 et 65,7/100) : une partie importante de la silice reste en solution aux rapports élevés, donc le rapport du gel ne se transpose pas au produit.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "175 °C statique en autoclave PTFE : pression ≈ 0,89 MPa (calcul « pression dans l'autoclave à 175 °C »), compatible ; remplissage de l'autoclave non donné. Séchage 100 °C, échange NH4NO3 à 80 °C et calcination 550 °C sous air : usuels.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Saturation Properties for Water (IAPWS-95), NIST Chemistry WebBook, SRD 69",
+      "authors_or_publisher": "NIST",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Test catalytique annoncé « à 125 °C » dans un ballon équipé d'un réfrigérant, à pression atmosphérique : le mélange contient 86 % en masse de cyclohexane (éb. 80,7 °C) et du tert-butanol (éb. 82 °C) (calcul « rapport molaire du test catalytique »). Le liquide ne peut pas dépasser ≈ 81–85 °C : 125 °C est la consigne du bain d'huile, pas la température de réaction. Les conversions (31,4 %) correspondent donc à un reflux vers 82 °C ; refaire le test à 125 °C réels exige un réacteur fermé.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Cyclohexane — Normal boiling point",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C110827&Mask=400"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La durée de cristallisation de HZ5-A (et de B à F) n'est jamais écrite (« prescribed time (0–168 h) »). La série en temps montre une cristallinité de 100 % de 8 à 168 h, donc toute durée ≥ 8 h donne de la MFI ; mais la taille des particules primaires et l'apparition de quartz pour C et D dépendent de la durée. Cristallisation complète en 5–8 h à 175 °C : rapide mais plausible avec des germes colloïdaux (Majano 2009 : germes de 80 nm à 0,1–3 %, gels sans gabarit).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Seed-Induced Crystallization of Nanosized Na-ZSM-5 Crystals",
+      "authors_or_publisher": "Majano, Darwiche, Mintova, Valtchev, Ind. Eng. Chem. Res.",
+      "year": "2009",
+      "url_or_doi": "10.1021/ie8017252"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "« Organic-template-free » : le germe apporte du TPA (TPA/SiO2 ≈ 0,005 pour 1,5 % de germe, ≈ 0,018 pour 5 %, soit 13 % et 42 % de la saturation des intersections MFI ; calcul « TPA apporté par le germe »). C'est un système à très peu de gabarit, pas sans gabarit, au moins pour HZ5-B. Par ailleurs la base de « 1,5 wt% » est ambiguë (silice du germe ou masse de gel de germe, ce qui changerait la quantité d'un facteur ≈ 8) : la Table 2 (0,015 « based on the total SiO2 ») suggère la silice du germe.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time",
+      "authors_or_publisher": "Cundy & Cox, Chem. Rev.",
+      "year": "2003",
+      "url_or_doi": "10.1021/cr020060i"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction entre sections : les Méthodes et la conclusion disent que l'échange se fait « without calcination » et que la méthode évite « the consequent calcination step », mais le protocole calcine ensuite à 550 °C sous air pendant 6 h (nécessaire pour passer de NH4+ à H+ et pour brûler le TPA occlus venu du germe). Seule la calcination avant échange est supprimée. Deux protocoles d'échange (« 2 h » une fois ; « 4 times » 1 h) : à préciser.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Textures cohérentes : BET 364 m2/g, V_micro 0,14 cm3/g, S_ext 64 m2/g en accord avec la surface géométrique de cristaux de 50–80 nm (calcul « surface externe géométrique ») ; 4V/S des mésopores ≈ 15 nm (vides intercristallins). Hystérésis fermant vers P/P0 ≈ 0,5 : désorption par cavitation, comme le disent les auteurs (Thommes 2015). BET comparable aux ZSM-5 de la base (PMC8941405 390 m2/g ; PMC9056161 390 m2/g ; PMC7759625 354 m2/g).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Acidité : total NH3-TPD 1,04 mmol/g ≈ Al attendu 1,10 mmol/g (calcul « aluminium par gramme et acidité totale »), mais 66 % de ce total est dans le pic « faible » (110–250 °C, adsorption à 80 °C), qui contient d'ordinaire de l'NH3 physisorbé ou lié par liaison H ; le pic fort (0,16 mmol/g) ne représente que 15 % de l'Al. Le classement « faible/moyen/fort » ne mesure donc pas directement les sites de Brønsted ; la corrélation conversion–acidité reste qualitative.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "RMN 27Al : le texte dit d'abord que le déplacement 54,6 → 53,8 ppm signifie une augmentation des angles Al–O–Si, puis que le même déplacement est « down-field » et signifie une diminution. 54,6 → 53,8 ppm est un déplacement vers les champs forts (blindage accru) et, par la corrélation de Lippmaa, correspond à une augmentation de ≈ 1,6° de l'angle moyen (calcul « angle Al–O–Si tiré du déplacement 27Al ») : la seconde phrase est fausse sur le mot et sur la conclusion. De même, la largeur à mi-hauteur « decreased rapidly » de 5 à 168 h alors que les valeurs (820 → 780 Hz) baissent à peine ; la chute nette a lieu entre 3,5 et 5 h.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "High-resolution 27Al NMR of aluminosilicates",
+      "authors_or_publisher": "Lippmaa, Samoson, Mägi, J. Am. Chem. Soc.",
+      "year": "1986",
+      "url_or_doi": "10.1021/ja00268a002"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "RMN 29Si : épaulement à −100 ppm attribué à Q3(0Al) ou Q4(2Al). À Si/Al ≈ 14, les Si(2Al) sont rares ; dans la MFI, Si(1Al) apparaît vers −106 ppm et les silanols Q3 vers −100/−102 ppm : l'attribution Q3 (défauts, surface des nanocristaux) est la plus probable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : autoclave à ≈ 9 bar à 175 °C ; HCl et NaOH corrosifs ; HF pour dissoudre les échantillons avant ICP-AES (très toxique, gluconate de calcium à disposition) ; résidus de NH4NO3 (comburant) à laver avant la calcination à 550 °C, qui dégage NH3 et NOx ; poudres de nanocristaux de zéolithe inhalables ; test catalytique : cyclohexane très inflammable (point d'éclair ≈ −20 °C) chauffé par un bain à 125 °C, phénol toxique par voie cutanée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dans le gel Na-aluminosilicate peu alcalin (OH−/SiO2 ≈ 0,13 si le Na restant est basique), les germes colloïdaux de silicalite-1 se dissolvent en partie dès la montée en température et libèrent des fragments à unités de construction MFI (avec un peu de TPA+), qui servent de noyaux très nombreux ; la cristallisation se fait ensuite dans les grumeaux d'alumino-silice eux-mêmes (transformation du gel), d'où des agrégats polycristallins de 50–80 nm dont la taille (0,5–0,8 µm) reflète celle des grumeaux. Plus de germe = plus de noyaux = cristaux plus petits (HZ5-B). Au-delà de SiO2/Al2O3 ≈ 60, hors du domaine de la MFI sans gabarit, le quartz α concurrence la ZSM-5. Le mécanisme des auteurs (dissolution du germe, sous-nanocristaux MFI, nucléation secondaire) est compatible ; l'argument « forme des vides de désilication différente de celle des germes » ne départage pas nucléation secondaire et croissance sur germe, puisque les germes ont déjà disparu à 1,5 h.",
+    "sources": [
+     {
+      "title": "A working hypothesis for broadening framework types of zeolites in seed-assisted synthesis without organic structure-directing agent",
+      "authors_or_publisher": "Itabashi, Kamimura, Iyoki, Shimojima, Okubo, J. Am. Chem. Soc.",
+      "year": "2012",
+      "url_or_doi": "10.1021/ja3022335"
+     },
+     {
+      "title": "Seed-Induced Crystallization of Nanosized Na-ZSM-5 Crystals",
+      "authors_or_publisher": "Majano, Darwiche, Mintova, Valtchev, Ind. Eng. Chem. Res.",
+      "year": "2009",
+      "url_or_doi": "10.1021/ie8017252"
+     },
+     {
+      "title": "US20090053135A1 — Process for the preparation of ZSM-5 zeolites (domaine SiO2/Al2O3 20–60 sans ammonium quaternaire ; quartz et mordénite comme phases concurrentes)",
+      "authors_or_publisher": "brevet US (USPTO)",
+      "year": "2009",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20090053135"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer et mesurer Na2O/SiO2 du gel (quantité d'HCl, pH de précipitation, lavage ou non du précipité, analyse du Na du solide filtré)",
+    "choisir et noter la durée de cristallisation (≥ 8 h à 175 °C d'après la série en temps)",
+    "définir la quantité de germe sur la silice du germe",
+    "remplissage de l'autoclave",
+    "température réelle du test catalytique (reflux ≈ 82 °C, pas 125 °C)",
+    "protocole d'échange (4 × 1 h) et lavage avant calcination"
+   ]
+  },
+  {
+   "label": "HZ5-B",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "TPA apporté par 5 % de germe",
+     "inputs": "0,05 × 0,35",
+     "formula": "TPA/SiO2",
+     "result": "0,0175, ≈ 42 % de la saturation MFI (0,042)",
+     "compared_to": "« organic-template-free »",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface externe géométrique de cristaux de 40–50 nm",
+     "inputs": "ρ ≈ 1,8 g/cm3",
+     "formula": "6/(ρ d)",
+     "result": "67–83 m2/g",
+     "compared_to": "S_ext mesurée 42 m2/g (HZ5-A : 64 m2/g pour des cristaux plus gros)",
+     "source": "géométrie"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Plus de germe → particules primaires plus petites (40–50 nm) et agrégats plus petits : attendu (plus de noyaux ; Majano 2009). Mais S_ext (42 m2/g) et V_total (0,26 cm3/g) sont plus faibles que pour HZ5-A alors que les cristaux sont plus petits (calcul « surface externe géométrique de cristaux de 40–50 nm ») : les cristaux sont donc fortement intercroissés ou la taille lue au MEB surestime les domaines séparés. À vérifier par MET.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Seed-Induced Crystallization of Nanosized Na-ZSM-5 Crystals",
+      "authors_or_publisher": "Majano, Darwiche, Mintova, Valtchev, Ind. Eng. Chem. Res.",
+      "year": "2009",
+      "url_or_doi": "10.1021/ie8017252"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Avec 5 % de germe, le TPA apporté atteint ≈ 42 % de la saturation des intersections MFI (calcul « TPA apporté par 5 % de germe ») : effet de gabarit possible, l'échantillon n'est plus « sans gabarit » au sens strict.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que HZ5-A ; densité de noyaux plus élevée, d'où des cristaux plus petits.",
+    "sources": [
+     {
+      "title": "Seed-Induced Crystallization of Nanosized Na-ZSM-5 Crystals",
+      "authors_or_publisher": "Majano, Darwiche, Mintova, Valtchev, Ind. Eng. Chem. Res.",
+      "year": "2009",
+      "url_or_doi": "10.1021/ie8017252"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mêmes points que HZ5-A",
+    "MET pour la taille réelle des domaines"
+   ]
+  },
+  {
+   "label": "HZ5-C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Al2O3/SiO2 de la Table 2",
+     "inputs": "Table 2 : 0,067 ; texte et Méthodes : SiO2/Al2O3 = 60",
+     "formula": "1/60 ; 1/0,067",
+     "result": "attendu 0,0167 ; 0,067 correspond à SiO2/Al2O3 = 15",
+     "compared_to": "produit 39,1 (> 30) : le gel était bien plus pauvre en Al que A, donc 0,067 est une coquille",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "aluminium par gramme et acidité",
+     "inputs": "SiO2/Al2O3 produit 39,1 → Si/Al 19,6",
+     "formula": "1/(19,6 × 60,08 + 59,99)",
+     "result": "0,81 mmol Al/g contre 0,72 mmol NH3/g mesurés",
+     "compared_to": "cohérent",
+     "source": "Table 1"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La Table 2 donne Al2O3 = 0,067 pour HZ5-C, soit SiO2/Al2O3 = 15, alors que le texte, la formule des Méthodes (1/x, x = 60) et le produit (39,1) imposent 60 (0,0167) : un chimiste qui suit la Table 2 ferait un gel deux fois plus riche en Al que HZ5-A au lieu de deux fois plus pauvre (calcul « Al2O3/SiO2 de la Table 2 »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Quartz α à SiO2/Al2O3 = 60 : attendu, cette valeur est à la limite haute du domaine de la ZSM-5 sans ammonium quaternaire (20–60 ; quartz et mordénite comme phases concurrentes) ; l'introduction de l'article note déjà l'absence de ZSM-5 pure à 50. Seuls 65 % de la silice se retrouvent dans le solide (39,1 pour 60).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "US20090053135A1 — Process for the preparation of ZSM-5 zeolites (domaine SiO2/Al2O3 20–60 sans ammonium quaternaire ; quartz et mordénite comme phases concurrentes)",
+      "authors_or_publisher": "brevet US (USPTO)",
+      "year": "2009",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20090053135"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Moins d'Al dans un gel sans gabarit : la MFI est moins stabilisée (moins de Na+ compensateurs, nucléation plus lente), cristaux un peu plus gros et cristallisation concurrente du quartz, phase dense stable.",
+    "sources": [
+     {
+      "title": "US20090053135A1 — Process for the preparation of ZSM-5 zeolites (domaine SiO2/Al2O3 20–60 sans ammonium quaternaire ; quartz et mordénite comme phases concurrentes)",
+      "authors_or_publisher": "brevet US (USPTO)",
+      "year": "2009",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20090053135"
+     },
+     {
+      "title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time",
+      "authors_or_publisher": "Cundy & Cox, Chem. Rev.",
+      "year": "2003",
+      "url_or_doi": "10.1021/cr020060i"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "utiliser Al2O3/SiO2 = 0,0167 et non 0,067 (coquille de la Table 2)",
+    "quantifier le quartz (DRX à 26,6°)"
+   ]
+  },
+  {
+   "label": "HZ5-D",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction de microporosité MFI conservée",
+     "inputs": "V_micro 0,08 (D) contre 0,14 (A) ; BET 226 contre 364",
+     "formula": "rapport",
+     "result": "57 % du volume microporeux, 62 % de la surface BET",
+     "compared_to": "« small amount of low surface area material (α-quartz) »",
+     "source": "Table 1"
+    },
+    {
+     "what": "aluminium par gramme et acidité",
+     "inputs": "SiO2/Al2O3 produit 65,7 → Si/Al 32,9",
+     "formula": "1/(32,9 × 60,08 + 59,99)",
+     "result": "0,49 mmol Al/g contre 0,16 mmol NH3/g mesurés au total",
+     "compared_to": "un tiers de l'Al seulement vu par NH3",
+     "source": "Table 1"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "SiO2/Al2O3 = 100 est hors du domaine de la ZSM-5 sans gabarit (≈ 20–60) : le quartz est attendu. Mais la perte de 43 % du volume microporeux (calcul « fraction de microporosité MFI conservée ») indique jusqu'à ≈ 40 % de phase non zéolithique, pas « a small amount ». L'acidité totale (0,16 mmol/g) ne représente qu'un tiers de l'Al du solide (calcul « aluminium par gramme et acidité ») : Al hors charpente ou non échangé probable, non examiné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "US20090053135A1 — Process for the preparation of ZSM-5 zeolites (domaine SiO2/Al2O3 20–60 sans ammonium quaternaire ; quartz et mordénite comme phases concurrentes)",
+      "authors_or_publisher": "brevet US (USPTO)",
+      "year": "2009",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20090053135"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme HZ5-C, en plus marqué : gel trop siliceux pour une MFI sans gabarit, quartz abondant.",
+    "sources": [
+     {
+      "title": "US20090053135A1 — Process for the preparation of ZSM-5 zeolites (domaine SiO2/Al2O3 20–60 sans ammonium quaternaire ; quartz et mordénite comme phases concurrentes)",
+      "authors_or_publisher": "brevet US (USPTO)",
+      "year": "2009",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20090053135"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantifier le quartz et la cristallinité MFI",
+    "RMN 27Al de la forme H"
+   ]
+  },
+  {
+   "label": "HZ5-E",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration du gel",
+     "inputs": "H2O/SiO2 = 13 contre 24",
+     "formula": "rapport",
+     "result": "gel 1,8 fois plus concentré",
+     "compared_to": "agrégats plus petits (0,3–0,4 µm)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Gel plus concentré (calcul « concentration du gel ») : sursaturation et densité de noyaux plus fortes, agrégats plus petits et plus compacts ; cohérent avec S_ext plus faible (33 m2/g) et V_total 0,26 cm3/g. Même incertitude sur Na2O que HZ5-A.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que HZ5-A, nucléation plus dense en gel concentré.",
+    "sources": [
+     {
+      "title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time",
+      "authors_or_publisher": "Cundy & Cox, Chem. Rev.",
+      "year": "2003",
+      "url_or_doi": "10.1021/cr020060i"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mêmes points que HZ5-A"
+   ]
+  },
+  {
+   "label": "HZ5-F",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "dilution du gel",
+     "inputs": "H2O/SiO2 = 50 contre 24",
+     "formula": "rapport",
+     "result": "gel 2,1 fois plus dilué ; OH−/H2O divisé par ≈ 2",
+     "compared_to": "particules en bâtonnets",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Gel dilué (calcul « dilution du gel ») : moins de noyaux, croissance plus lente et anisotrope (allongement selon c), forme en bâtonnets classique de la MFI ; surface et acidité inchangées : cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que HZ5-A, croissance favorisée par rapport à la nucléation en milieu dilué.",
+    "sources": [
+     {
+      "title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time",
+      "authors_or_publisher": "Cundy & Cox, Chem. Rev.",
+      "year": "2003",
+      "url_or_doi": "10.1021/cr020060i"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mêmes points que HZ5-A"
+   ]
+  },
+  {
+   "label": "HZ5-A_NaOH-0.2M-0.5h",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "silice extraite d'après l'ICP",
+     "inputs": "SiO2/Al2O3 28,4 → 7,1 (Al supposé conservé)",
+     "formula": "1 − 7,1/28,4",
+     "result": "75 % de la silice dissoute",
+     "compared_to": "Groen 2005 : à Si/Al < 25 l'Al de charpente freine l'extraction du Si",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Température, rapport liquide/solide, forme (brute ou H) de l'échantillon traité et lavage non donnés : la désilication dépend fortement de ces paramètres, le traitement n'est pas reproductible tel quel.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'ICP donne SiO2/Al2O3 28,4 → 7,1 « after the desilication process », sans dire quel traitement : 75 % de la silice dissoute (calcul « silice extraite d'après l'ICP »), énorme pour un solide à Si/Al ≈ 14, que Groen 2005 décrit comme peu sensible à la désilication (Al freinant l'extraction, optimum Si/Al 25–50). Explication possible : silice amorphe résiduelle ou cœurs pauvres en Al. Le zonage « extérieur riche en Al » invoqué est compatible avec Groen 2005, mais pas démontré ici (ni profil EDX, ni XPS).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent",
+      "authors_or_publisher": "Groen, Peffer, Moulijn, Pérez-Ramírez, Chem. Eur. J.",
+      "year": "2005",
+      "url_or_doi": "10.1002/chem.200500045"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse basique des liaisons Si–O–Si, plus rapide dans les zones pauvres en Al (l'Al tétraédrique chargé protège ses voisins), d'où des vides intracristallins si l'extérieur est plus riche en Al.",
+    "sources": [
+     {
+      "title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent",
+      "authors_or_publisher": "Groen, Peffer, Moulijn, Pérez-Ramírez, Chem. Eur. J.",
+      "year": "2005",
+      "url_or_doi": "10.1002/chem.200500045"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température et rapport liquide/solide du traitement NaOH",
+    "forme de HZ5-A traitée"
+   ]
+  },
+  {
+   "label": "HZ5-A_NaOH-0.4M-4h",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "excès de base",
+     "inputs": "NaOH 0,4 M, 4 h ; masse de solide non donnée",
+     "formula": "n(NaOH) = 0,4 × V",
+     "result": "non calculable (V et masse de zéolithe non donnés)",
+     "compared_to": "destruction complète des agrégats rapportée",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Destruction des agrégats à 0,4 M, 4 h : attendu pour une désilication sévère. L'argument que la forme des vides diffère de celle des germes ne prouve pas une nucléation secondaire : les germes ont déjà disparu à 1,5 h d'après les propres images MEB des auteurs ; il faudrait un germe marqué (autre composition, p. ex. sans Al ou au Ti) pour trancher.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A working hypothesis for broadening framework types of zeolites in seed-assisted synthesis without organic structure-directing agent",
+      "authors_or_publisher": "Itabashi, Kamimura, Iyoki, Shimojima, Okubo, J. Am. Chem. Soc.",
+      "year": "2012",
+      "url_or_doi": "10.1021/ja3022335"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Désilication poussée, dissolution massive de la silice et effondrement des agrégats.",
+    "sources": [
+     {
+      "title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent",
+      "authors_or_publisher": "Groen, Peffer, Moulijn, Pérez-Ramírez, Chem. Eur. J.",
+      "year": "2005",
+      "url_or_doi": "10.1002/chem.200500045"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mêmes points que le traitement 0,2 M"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse de ZSM-5 en agrégats de nanocristaux par ensemencement (silicalite-1 colloïdale au TPAOH) d'un gel Na-aluminosilicate précipité, à 175 °C. La chimie est cohérente avec la littérature des synthèses de MFI sans gabarit ensemencées (Majano 2009) et le quartz aux rapports SiO2/Al2O3 élevés est attendu. Trois problèmes : le Na2O du gel (0,1) n'est ni fixé ni mesuré par le protocole (HCl, pH, lavage non donnés), alors que c'est le paramètre clé ; la Table 2 donne Al2O3 = 0,067 pour HZ5-C (SiO2/Al2O3 = 15) contre 60 partout ailleurs ; le test catalytique « à 125 °C » sous réfrigérant dans 86 % de cyclohexane se fait en réalité au reflux vers 82 °C. Interprétation RMN 27Al contradictoire (même déplacement présenté comme augmentation puis diminution de l'angle Al–O–Si, et dit « down-field » alors qu'il va vers les champs forts). Réserves : durée de cristallisation de A–F non écrite ; TPA apporté par le germe non négligeable à 5 % ; « sans calcination » alors que le protocole calcine à 550 °C ; désilication sans température ni rapport liquide/solide.",
+  "author_errors_suspected": [
+   "Table 2 : Al2O3 = 0,067 pour HZ5-C au lieu de 0,0167 (SiO2/Al2O3 = 60)",
+   "réaction d'alkylation annoncée à 125 °C alors que le mélange (cyclohexane, éb. 80,7 °C) reflue sous réfrigérant vers 82 °C",
+   "RMN 27Al : 54,6 → 53,8 ppm qualifié de « down-field » et associé à une diminution de l'angle Al–O–Si, en contradiction avec la phrase précédente et avec la corrélation de Lippmaa",
+   "« circumventing ... consequent calcination step » alors que le protocole calcine à 550 °C, 6 h",
+   "deux protocoles d'échange NH4NO3 (2 h ; 4 × 1 h)"
+  ],
+  "comparison_with_database": "Surface BET de HZ5-A (364 m2/g) dans la plage des ZSM-5 de la base : PMC8941405 (ensemencée, 170 °C 48 h, 390 m2/g, S_ext 25 m2/g), PMC9056161 (390 m2/g), PMC7759625 (354 m2/g), PMC6960519 (425 m2/g, commerciale). Cristallisation complète en 5–8 h à 175 °C, plus rapide que les 48–72 h des autres synthèses de la base (PMC8941405, PMC9056161, PMC7759625), ce qu'explique l'ensemencement par des germes colloïdaux. S_ext de HZ5-A (64 m2/g) plus élevée que la ZSM-5 ensemencée de PMC8941405 (25 m2/g), cohérent avec des cristaux de 50–80 nm."
+ },
+ "sources_not_found": [
+  "composition exacte des sols de silicalite-1 de Schoeman 1998 (référence de l'article, non ouverte) : comparaison faite sans chiffres",
+  "source primaire pour la position Q3/Si(1Al) en RMN 29Si de la MFI : valeurs données de mémoire (chimie générale), non vérifiées en ligne"
+ ]
+}

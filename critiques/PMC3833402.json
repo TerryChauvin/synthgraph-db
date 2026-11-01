@@ -1,0 +1,79 @@
+{
+ "pmcid": "PMC3833402",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "annotation pourquoi_ces_donnees (route null)",
+   "extracted": "L'ATG sert à justifier le choix de la température : la décomposition en CdS se termine vers 233 °C et commence à l'état liquide après la fusion à 145 °C, d'où une injection à 150 °C.",
+   "article_says": "HDA-capped CdS nanoparticles were synthesized at 150°C using the cadmium complex.",
+   "fix": "retirer le lien causal « d'où une injection à 150 °C » : l'article ne dit nulle part que l'ATG motive le choix de 150 °C (et 150 °C est sous la fin de décomposition de 233 °C) ; reformuler en simple constat ou marquer comme hypothèse de l'annotateur",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "annotation mecanisme_auteurs rattachée à CdS-HDA-150",
+   "extracted": "Les auteurs déduisent de l'ATG/ATD que la décomposition du complexe en CdS commence en phase liquide après la fusion de l'échantillon",
+   "article_says": "Comparing the TG curve with the DTA, it could be inferred that the second decomposition which gave CdS commenced in the liquid phase after the melting of the sample.",
+   "fix": "cette inférence porte sur l'ATG/ATD du complexe solide seul (route Cd-detu-complex) ; la rattacher à cette voie (ou à aucune) et non à la thermolyse dans HDA, où les auteurs ne l'affirment pas",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cd-detu-complex outcomes / TGA characterization",
+   "extracted": "seuls 71 % (stade 2), 145 °C et 182 °C sont en résultats ; pics DTG et masse de résidu absents",
+   "article_says": "The DTG peak temperature, for each of the decomposition stages are 61°C and 186°C, respectively.",
+   "fix": "ajouter en résultats les pics DTG 61 et 186 °C, la perte de 3,5 % (24–78 °C), et le résidu CdS 3,68 mg calculé contre 3,65 mg attendu (« Here, the weight of the residue calculated for CdS (3.68 mg) agrees favourably with the expected (3.65 mg). ») ; les plages 24–78 et 114–233 °C sont déjà dans le résultat de la caractérisation",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Cd-detu-complex outcomes (maille cristalline)",
+   "extracted": "unit_cell_a = 11.755 Å seulement",
+   "article_says": "b (Å) | 12.262(4)",
+   "fix": "b = 12.262(4), c = 16.609(5) Å, β = 108.071(5)° sont donnés dans le résumé de la caractérisation mais pas en résultats ; ajouter ou retirer unit_cell_a pour rester cohérent (donnée de structure, non de synthèse)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS-HDA-150 step 5 (ajout de méthanol)",
+   "extracted": "not_stated: volume ; aucun paramètre",
+   "article_says": "an excess of methanol was added",
+   "fix": "enregistrer la quantité qualitative « excess » en value_text avec cette citation (le volume reste non cité)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Cd-detu-complex step 5 (cristallisation) et doutes",
+   "extracted": "cristaux obtenus directement par évaporation lente du filtrat",
+   "article_says": "Recrystallization of the complex yielded well-defined crystals characterized by FTIR",
+   "fix": "la conclusion parle de recristallisation alors que 2.2 décrit une évaporation du filtrat de réaction ; ajouter un doute ou une annotation limite_reproductibilite : une étape de recristallisation séparée n'est pas décrite (solvant, quantité)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS-HDA-150 crystal_phase (doute XRD)",
+   "extracted": "phase « hexagonal phase » retenue, doute consigné seulement dans doubts",
+   "article_says": "The cadmium complex produced particles in the hexagonal phase with XRD patterns (Figure 5) indexed to 111, 200, 220, 311, and 331",
+   "fix": "ajouter une annotation limite_reproductibilite : indexation (111)(200)(220)(311)(331) typique de la blende cubique, contradictoire avec « hexagonal » ; de plus la figure 5 montre deux pics marqués d'un astérisque (≈ 41,5° et ≈ 48° en 2θ) que le texte n'explique pas",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 2,
+  "branches_extracted": 2,
+  "not_stated_checked": 31,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "rendement du complexe et des nanoparticules non cités",
+  "température de reflux, vitesse d'agitation, température de filtration et atmosphère non cités ; « few days » pour la cristallisation",
+  "atmosphère (inerte ou air) de l'injection et de la thermolyse, vitesse de chauffe, vitesse d'injection non citées",
+  "volume de méthanol (« excess »), vitesse et durée de centrifugation, volume de toluène, température et durée de l'évaporation non cités",
+  "« trinoctylphosphine » sans pureté (grade technique ou non) : la trioctylphosphine commerciale est souvent à 90 %",
+  "taille moyenne et distribution des nanoparticules non données (seulement la plage 5–19 nm) ; l'EDX annoncé en 2.5 n'a aucun résultat dans l'article",
+  "aucune annexe (Supporting Information) disponible"
+ ],
+ "mechanism_check": "à revoir : l'annotation pourquoi_ces_donnees établit un lien ATG vers 150 °C que l'article ne fait pas, et mecanisme_auteurs est rattaché à la mauvaise voie (voir constats 1 et 2) ; le reste (hypothèses mecanisme_analyse) est bien marqué comme hypothèse",
+ "notes": "Extraction globalement fidèle : toutes les quantités et conditions des sections 2.2 et 2.4 recopiées sont exactes (2 mmol Cd(OAc)2·2H2O = 0,533 g et 4 mmol detu = 0,529 g cohérents ; analyse élémentaire calculée vérifiée sur C14H32CdN4O5S2). Aucune valeur n'est tirée d'une figure. Le doute texte/Table 2 sur C–S–Cd (111,59 contre 115,59°) est réel et sans lien avec la synthèse. Les figures : le TEM (fig. 6) montre des particules en bâtonnets à côté de particules sphériques, ce que « almost spherical » ne reflète pas ; le texte est cependant clair et l'extraction le recopie fidèlement. Le pic PL de la fig. 4 saturé vers 565 nm, l'article donne 559 nm : je garde le texte. Le « Figure 3 » du texte sert à la fois pour l'IR et l'ATG, incohérence des auteurs. Pas de method_sources : les renvois B16/B17 (logiciels), B20/B21 (interprétation) et B22 (contexte) ne sont pas des sources de méthode, donc liste vide correcte."
+}

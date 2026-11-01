@@ -1,0 +1,122 @@
+{
+ "pmcid": "PMC6474109",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "t2h, t3h, t4h, t6h : température de l'étape 4 (série en durée)",
+   "extracted": "130 °C hérité de y-SiQDs (seule la durée est variée)",
+   "article_says": "On fixing the other synthesis parameters, the increased reaction time from 2 h to 6 h enhanced the fluorescence intensity",
+   "fix": "Aucune température n'est écrite pour cette série. L'héritage de 130 °C est cohérent (QY 29,4 % à 5 h, λem 535-546 nm comme y-SiQDs à 538 nm) mais reste une déduction : le déclarer explicitement (annotation limite_reproductibilite ou not_stated sur la température de ces branches) en gardant le doute ; ne pas présenter 130 °C comme cité pour cette série.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "NaSulfite_CC, VitC_CC, Thiourea_CC, Urea_CC (étape 1), NaCit_VitC, NaCit_VitC-Na (étape 3), SiQDs_CC_only (étape 1) : étapes héritées",
+   "extracted": "Ces 7 branches héritent littéralement de y-SiQDs l'étape 1 « Dissolve sodium citrate in water » ou l'étape 3 « Add catechol », alors que le réactif concerné est remplacé ou absent (la variation le dit, mais load.py ne retire aucune étape).",
+   "article_says": "The same concentration of sodium sulfite, ascorbic acid, thiourea, or urea was used instead of Na-citrate",
+   "fix": "Règle RUNBOOK « pas d'héritage non fondé » : donner à ces branches leurs propres steps (étape 1 : dissoudre le réducteur de remplacement dans l'eau ; étape 3 pour NaCit_VitC et NaCit_VitC-Na : ajouter VitC ou VitC-Na à la place du catéchol, quantité non citée), ou déclarer l'étape dans not_stated. Pour SiQDs_CC_only, l'étape 1 n'existe pas (le doute est déjà noté, mais l'étape reste héritée).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "y-SiQDs reagents : rapport molaire et concentration de DAMO",
+   "extracted": "Seule la quantité incohérente « 9.24 × 10−5 mol·L−1 » de citrate est enregistrée ; le rapport 1:0.11:0.47 et cDAMO = 8.29 × 10−2 mol·L−1 n'apparaissent que dans une citation de conclusion et dans des doutes en français, pas comme quantité structurée.",
+   "article_says": "n(DAMO):n(CC):n(Na-Citrate) = 1:0.11:0.47 (cDAMO = 8.29 × 10−2 mol·L−1)",
+   "fix": "Ajouter en amount_text des réactifs du y-SiQDs (DAMO, catéchol, citrate) le rapport « n(DAMO):n(CC):n(Na-citrate) = 1:0.11:0.47 » et cDAMO = 8.29 × 10−2 mol·L−1, avec cette phrase en citation ; c'est la seule description cohérente des quantités relatives.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "g-SiQDs : absorption UV-visible (annexe, Figure S2)",
+   "extracted": "Aucune caractérisation d'absorption pour g-SiQDs",
+   "article_says": "ultraviolet light is located at 430 nm",
+   "fix": "Ajouter une caractérisation UV-visible de g-SiQDs : pic d'absorption principal à 430 nm (annexe Fig. S2, λex 420 nm, émission 520 nm), et noter que le spectre de g-SiQDs n'a pas l'allure asymétrique à deux pics de y-SiQDs.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "y-SiQDs : seconde population de particules (Fig. S4a) et explication",
+   "extracted": "Absente des résultats et du mécanisme de y-SiQDs (seuls diamètre moyen 12 nm et plage 10-13 nm sont gardés).",
+   "article_says": "the number of particles around ~5 nm is also higher than the normal level",
+   "fix": "Ajouter un résultat de taille : population autour de ~5 nm en plus des grosses particules (Fig. S4a), et, dans mecanisme_auteurs, l'hypothèse des auteurs d'une compétition entre les deux réducteurs (« likely to originate from the presence of two types of SiQDs in the sample ») ainsi que l'effet de taille (« the increase of particle size could effectively make the emission peak redshift »).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "y-SiQDs / g-SiQDs FT-IR : nombres d'onde",
+   "extracted": "Résultat « N–H, O–H, –CH=N–, CH3, Si–O bands » sans aucun nombre d'onde sauf 1663 cm−1",
+   "article_says": "at 3277 cm−1 and 3367 cm−1, and the stretching vibrations of –CH=N– [] at 1595 cm−1",
+   "fix": "Ajouter les bandes écrites : N–H/O–H à 3277 et 3367 cm−1, –CH=N– à 1595 cm−1, méthyle à 2935 et 1462 cm−1, Si–O à 1310 cm−1 et Si–O–Si à 1130–1010 cm−1.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "y-SiQDs FTIR_carbonyl_band et g-SiQDs FT-IR : citation",
+   "extracted": "« However, the spectra of b-SiQDs do not exhibit carbonyl groups » (soutient l'absence pour b-SiQDs, pas la présence pour y et g)",
+   "article_says": "absorption peak at 1663 cm−1 as is the case with both y-SiQDs and g-SiQDs",
+   "fix": "Remplacer la citation des valeurs « présent à 1663 cm−1 » de y-SiQDs et g-SiQDs par « absorption peak at 1663 cm−1 as is the case with both y-SiQDs and g-SiQDs » (le crochet vide [] du texte empêche une citation continue depuis « carbonyl groups »).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "g-SiQDs et 17 branches : material.phase",
+   "extracted": "« cubic diamond silicon (111) lattice, 0.31 nm » recopié sur g-SiQDs, les séries, les remplacements de réducteur, SiQDs(CC), etc.",
+   "article_says": "the lattice plane of two kinds of SiQDs corresponds to the d-spacing of the cubic diamond structure of silicon",
+   "fix": "Cette lecture HRTEM ne porte que sur y-SiQDs et b-SiQDs (Fig. S4 et S5). Mettre phase à null (ou « not given ») pour les autres échantillons, comme déjà fait pour la morphologie de g-SiQDs.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "NaCit13.6mg : parent_value et statut de branche",
+   "extracted": "Branche distincte, parent_value « 9.24 × 10−5 mol·L−1 » (autre unité que 13.6 mg, comparaison impossible)",
+   "article_says": "When the addition mass of Na-citrate was raised to 13.6 mg, the fluorescence intensity of the prepared SiQDs reached a maximum.",
+   "fix": "13.6 mg est le maximum de la série et le rapport molaire catéchol 1,1 mg / citrate 13,6 mg (≈ 0,22, sel dihydraté) est voisin de 0,11/0,47 = 0,23 : cette masse est très probablement la quantité de la voie de base, dont la masse n'est jamais écrite. Le noter dans le doute (et dans limite_reproductibilite) ; la branche reste utile pour le résultat « λem inchangé ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Voie SiQDs_CC_only : rendement quantique et couleur de la réduction par un seul réducteur",
+   "extracted": "QY ≈ 7 % lu sur Fig. 1 (barre « CC ») et λem 550 nm, sans mention du désaccord avec le texte",
+   "article_says": "but the QYs of the production were quite low (<5%)",
+   "fix": "Le §3.1.1 dit que la préparation avec un seul des trois réducteurs (VitC, VitC-Na, CC) donne des SiQDs verts (λem ~ 520 nm) de QY < 5 %, alors que la figure 1 donne ≈ 7 % pour CC seul et le §3.2.1 une émission à 550 nm. Ajouter cette contradiction aux doutes. Les essais à réducteur unique VitC et VitC-Na ne sont pas dans l'inventaire (non décrits comme échantillons propres).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Séries T110, T120, T140, t3h, t4h, t5h, CC0.55mg, CC1.1mg, CC2.2mg : λem",
+   "extracted": "Seuls les λem des bornes (518/546 nm ; 546/535 nm ; 520/545 nm) sont extraits ; QY lus sur figure pour tous les points",
+   "article_says": "the drop of reaction temperature from 150 °C to 110 °C renders λem red shifts from 520 nm to 545 nm",
+   "fix": "Le sujet central de l'article est le déplacement de λem. Les maxima des spectres intermédiaires sont lisibles sur Fig. 2b, 3a et 3b (ex. 3b : 110 °C ≈ 546, 130 °C ≈ 540, 150 °C ≈ 520 nm) et pourraient être ajoutés en from_figure (±5 nm).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "y-SiQDs étape 6 (acétonitrile) : description et rôle",
+   "extracted": "« Add four volumes of acetonitrile ... to precipitate the raw material », rôle antisolvant",
+   "article_says": "four volumes of acetonitrile were added to the obtained solution and the mixture was centrifuged at 8000 rpm for 15 min to remove raw material",
+   "fix": "L'article ne dit pas que l'acétonitrile précipite quelque chose ni ce qui est conservé après centrifugation ; écrire la description avec les mots de l'article (« to remove raw material ») et garder le rôle d'antisolvant comme interprétation seulement.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 22,
+  "branches_extracted": 22,
+  "not_stated_checked": 35,
+  "not_stated_wrong": 0,
+  "figure_values_checked": 35,
+  "figure_values_off_by_more_than_10_percent": 0
+ },
+ "reproducibility_gaps": [
+  "Quantité de citrate : concentration 9,24 × 10−5 mol·L−1 incompatible avec 10 mL, 0,2 mL de DAMO, 1,1 mg de CC et 13,6 mg de citrate ; 1,1 mg de CC et 0,2 mL de DAMO ne donnent pas le rapport 0,11 annoncé (≈ 10 fois trop peu de CC)",
+  "Quantités de VitC, de VitC-Na et de tous les réducteurs de remplacement (« same concentration » renvoie à la concentration incohérente du citrate)",
+  "Protocole de SiQDs(CC) (quantité de catéchol, étapes) et de b-SiQDs (solvant, quantités ; seule la condition 200 °C 15 min figure sur le schéma Fig. 8A, renvoi à la réf. B13)",
+  "Série en masse de citrate : seule la masse 13,6 mg est connue, la figure 2a du dépôt reproduit la série en durée",
+  "Température de la série en durée (non écrite), volume et taux de remplissage de l'autoclave, type de four, rampe, température d'agitation, vitesse d'agitation",
+  "Après centrifugation : surnageant ou culot conservé, purification, séchage, stockage, concentration finale, rendement massique",
+  "Mesure du QY : longueur d'onde d'excitation, absorbance et dilution (« according to the literature » sans renvoi)",
+  "Spectres des figures S1 à S8 de l'annexe (graphiques) non exploitables en texte"
+ ],
+ "mechanism_check": "à revoir : mecanisme_auteurs de y-SiQDs omet l'effet de taille (§3.2.2) et l'hypothèse des deux populations par compétition entre réducteurs (§3.2.1) ; le reste (citrate qui hydrolyse et réduit, catéchol qui forme un fluorophore à C=O, structure du catéchol détruite à haute température) est fidèle au §3.2.5.",
+ "notes": "Les 35 valeurs from_figure (Fig. 1, 2b, 3a, 3b, 7, 8A, 9) ont été relues sur les images : aucun écart supérieur à 10 % (Fig. 1 : sulfite 21,5 lu 22, urée 22,6 lu 23 ; Fig. 3b : 120 °C 15,5 lu 16, 140 °C 23,5 lu 24 ; Fig. 7 et Fig. 8A : valeurs imprimées, exactes). La figure 2a du dépôt montre bien la série en durée, comme dit l'extracteur. Héritage de la durée 5 h pour la série en température : fondé (« reaction time at 5 h ... insert of Figure 3b » et §3.2.5 « same reactants ratio and reaction time (5 h) »), pas de constat. Le doute sur B13 de b-SiQDs dit « renvoi non explicite » : le renvoi [B13] suit pourtant « to form b-SiQDs » dans le texte ; method_sources est donc correct. B16 (Han, DAMO + catéchol) pourrait être la source du protocole de SiQDs(CC) mais le texte ne le dit pas : non retenu. Les annotations de résumé, objectif, comparaison et tendance sont fidèles. Citation d'emission_color « yellow » de y-SiQDs (QY 29,4 % / 150 °C) ne contient pas le mot yellow : à améliorer avec « the prepared SiQDs emitted yellow fluorescence with Na-citrate/CC as reducing reagent pair »."
+}

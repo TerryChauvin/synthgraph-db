@@ -1,0 +1,14 @@
+# PMC9063653 — critique scientifique (journal de décisions)
+
+- Précurseur « Co(CH3COO)3·4H2O » jugé coquille pour l'acétate de cobalt(II) tétrahydraté (249,08 g/mol, PubChem CID 61372) : 308,1 contre 249,1 g/mol, soit 24 % d'écart de pesée. Mis en `reserve`, pas en `probleme`, car la synthèse marche avec l'un ou l'autre.
+- « 0.1 mol L−1 Co3O4 precursor solution » : facteur 3 possible (0,1 ou 0,3 mol/L de Co). Signalé, sans trancher : l'article ne permet pas de choisir.
+- Fig. 1 relue : Pt(111) sature 37,5–45° ; CoO(200) à 42,4°, CoO(111) à 36,5° et Co(111) à 44,2° (Bragg avec λ = 1,54056 Å) y sont invisibles, donc « no Co or CoO » n'est pas démontré. C'est le cœur de la critique du film azote.
+- Stabilité sous azote : van 't Hoff ancré sur la décomposition de Co3O4 vers 1173 K sous air (Pöyhtäri 2025), avec ΔrH ≈ 355 kJ/mol O2 tiré de ΔfH de manuel non revérifiées en ligne. On obtient ≈ 650 °C à 10 ppm d'O2 et ≈ 600 °C à 1 ppm. Estimation d'ordre de grandeur, d'où `reserve` et non `probleme`.
+- Carbone résiduel (cuisson de 5 min à 300 °C) proposé comme réducteur possible sous N2 ; appui : sels de Co + charbon sous argon → Co + CoO (J. Therm. Anal. Calorim. 2001, titre tronqué dans la notice, auteurs non relevés) et acétate de Co(II) → CoO sous argon (Ingier-Stocka 1998). Hypothèse, pas un constat.
+- XPS O 1s à 531,6 eV classée `probleme` (et non `reserve` comme dans PMC8132056) : ici toute la conclusion de l'article (lacunes → formation, endurance, aimantation) repose sur ce taux. Même choix que PMC9866506. Source : Idriss 2021.
+- Aimantation : 140,5 emu/cm3 / 6,11 g/cm3 = 23 emu/g, contre 0,14–0,33 emu/g pour des nanoparticules de Co3O4 (J. Nanostruct. Chem. 2013 ; auteurs non lisibles, page bloquée) ; cela équivaut à ≈ 10 % en volume de Co métallique (Ms ≈ 1420 emu/cm3). `probleme`.
+- Surface commutée : une électrode de 300 μm couvre 0,28 % d'un substrat de 5 × 5 mm (taille supposée, non donnée). Une variation de Ms de tout le film entre fresh, HRS et LRS est donc incompatible avec une commutation locale : `probleme` sur les trois piles. Sources sur les artefacts SQUID : Sawicki 2011 (DOI vérifié par la recherche) et Garcia 2009 (cité par son arXiv 0811.1127, DOI J. Appl. Phys. non confirmé, donc non donné).
+- Endurance « four times » : Fig. 5a–b s'arrêtent à 200 cycles sans défaillance ; comparaison jugée non probante (`reserve`, contrôle 5).
+- Coefficient α de la LRS (7,8×10^−4 K−1) : ne distingue pas un filament de lacunes d'un filament de Co métallique (contrôle 7) ; `reserve`.
+- Verdict des voies de film O2 et air : `coherente`, car la chimie de la synthèse tient ; le `probleme` XPS porte sur l'interprétation, pas sur le protocole. Film N2 et piles : `douteuse`.
+- Recherches web : 9 (Parallel Search) ; 3 lectures de pages échouées (sciencedirect, arxiv, springer injoignables par DNS). Comparaison avec la base : seules des poudres de Co3O4 (PMC3274459, PMC10350639), sans recuit sous azote.

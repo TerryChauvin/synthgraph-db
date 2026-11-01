@@ -1,0 +1,72 @@
+{
+ "pmcid": "PMC6960519",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "PP, PP+zeo1, PP+zeo2, PP+zeo3, PP+sil (voies sans APP/PER, parent PP+IF) : étapes d'extrusion et de pressage héritées",
+   "extracted": "voies enfants de PP+IF sans étapes propres, donc extrusion à 90–190 °C, granulation, pressage à 220 °C et pressage à froid appliqués au PP seul et aux mélanges PP + zéolithe",
+   "article_says": "Table 2 presents the results obtained for polypropylene composites with and without the intumescent formulation.",
+   "fix": "garder les branches (les tableaux 2 et 3 les traitent comme des échantillons de même série), mais déclarer explicitement dans not_stated de ces cinq voies que l'article ne dit pas qu'elles ont suivi l'extrusion et le pressage de PP+IF (aujourd'hui seule une annotation limite_reproductibilite le dit) ; l'héritage reste une hypothèse, pas une valeur citée",
+   "confidence": "probable"
+  },
+  {
+   "severity": "faux",
+   "where": "method_sources, route PP+IF, ref B32-polymers-11-02110 (role autre)",
+   "extracted": "B32 enregistré comme source de méthode pour le rapport APP/PER 3:1",
+   "article_says": "The polymer composites contained 30% (w/w) of formulation with APP/PER mass ratio of 3:1",
+   "fix": "retirer l'entrée : la phrase donne elle-même le rapport 3:1, le renvoi B32 (Wei et al., TGA-XPS de zéolithes avec APP-PER) est un renvoi de contexte, pas un protocole nécessaire pour refaire la préparation (règle du 2026-10-13)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "zeo3 mesopore_micropore_volume_ratio = 5.0 (Tableau 1) et annotations",
+   "extracted": "5.0 (valeur du tableau recopiée) sans annotation de limite pour le lecteur",
+   "article_says": "zeo3 | 369 | 0.11 | 0.40 | 5.00 | 11.46",
+   "fix": "valeur à garder telle quelle (la citation fait foi), mais ajouter une annotation limite_reproductibilite sur zeo3 : 0.40 / 0.11 = 3,6 et non 5,00 (zeo2 : 0.46 / 0.10 = 4,60 est cohérent) ; le texte s'appuie sur ce rapport (« Zeo3 had a ratio of mesopore and micropore volumes similar to that of zeo2 »), la tendance accessibilité des sites perd donc de sa force. Le DOUTE existe mais aucune annotation ne le porte dans la fiche",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "zeo3 crystallinity_XRD = 50 % (from_figure Fig. 1) contre CARAC XRD « au-dessus de 50 % »",
+   "extracted": "RESULTAT 50 % (étiquette de la Fig. 1) alors que la caractérisation de la même voie écrit « encore au-dessus de 50 % de zeo1 »",
+   "article_says": "In sample zeo3, the increase in treatment time led to a lower final crystallinity, but this was still above 50% of the initial (zeo1) value.",
+   "fix": "valeur de figure confirmée (étiquette « 50% » lue sur g001 ; zeo2 75 %, sil 80 %, zeo1 100 % confirmés aussi) ; harmoniser le texte du résultat de caractérisation et signaler par une annotation que figure (50 %) et texte (« above 50% ») ne coïncident pas tout à fait",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "N2 physisorption conditions (toutes les voies de matériau)",
+   "extracted": "dégazage à 300 °C sous vide",
+   "article_says": "Prior to each measurement, all samples were degassed at 300 °C under vacuum until a minimum degassing rate of 2 µm Hg min−1.",
+   "fix": "compléter les conditions par le critère de fin de dégazage (« jusqu'à une vitesse de dégazage minimale de 2 µm Hg min−1 »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "PP+IF+zeo1, PP+IF+zeo3 (et PP+IF+zeo2 pour 850 °C) : microscopie chauffante",
+   "extracted": "seul le volume de PP+IF+zeo2 (« slightly smaller ») est saisi ; rien pour zeo1 et zeo3, ni la stabilité à 850 °C des composites avec zéolithe",
+   "article_says": "In Figure 5 it can be seen that the volume of the PP + APP/PER + zeo2 specimen was slightly smaller than the composites containing zeo1 and zeo3.",
+   "fix": "ajouter pour PP+IF+zeo1 et PP+IF+zeo3 un résultat heating_microscopy_volume (« slightly larger than zeo2 ») et, pour les trois composites avec zéolithe H-ZSM-5, heating_microscopy_850C (« higher thermal stability » que PP+APP/PER, citation « At 850 °C, PP was completely degraded and the PP + APP/PER showed a very small and poorly structured residue, different from the composites containing zeolite, which exhibited a higher thermal stability. ») ; résultats qualitatifs, en value_text",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 14,
+  "branches_extracted": 14,
+  "not_stated_checked": 55,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "température de la désilication par NaOH (30 min / 2 h), agitation, séparation et lavage du solide avant les échanges NH4Cl, séchage avant calcination : absents du texte",
+  "masse de zéolithe engagée dans les trois échanges NH4Cl et durée de chaque échange (3 h par échange ou au total) non précisées",
+  "vitesse de montée en température et atmosphère des calcinations de zeo1 et de silicalite non données ; four non décrit",
+  "silicalite : concentration de la solution de TPAOH non donnée (le rapport molaire 1:0.36 et les masses indiquent environ 20 % en masse, 12.917 g de solution = 12.7 mmol pour 35.3 mmol de TEOS, mais l'article ne le dit pas) ; récupération, lavage et séchage du solide après 7 jours à 170 °C absents ; pureté et fournisseurs de TPAOH, NaOH, TEOS absents",
+  "composites : fraction massique de PP inconnue (les 3 % de zéolithe sont-ils inclus dans les 30 % de formulation ?), pureté, séchage et prémélange de PP/APP/PER, débit d'alimentation de l'extrudeuse, taille de grain des zéolithes non donnés",
+  "l'article ne dit pas que le PP seul et les mélanges sans APP/PER ont suivi la même extrusion et le même pressage",
+  "éprouvettes : plaques pressées de 100 × 100 × 3 mm, mais éprouvette de fil incandescent 70 × 7 × 7 mm (impossible à découper dans une plaque de 3 mm, préparation non décrite) ; dimensions de l'éprouvette UL-94 non données ; nombre d'essais LOI et UL-94 non donné",
+  "mesure d'acidité : le texte donne un total de NH3 désorbé mais ni le détail par pic, ni la méthode de quantification (étalonnage, intégration)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs s'appuie sur des passages réels (catalyse de l'estérification APP/PER, espèces aluminosilicophosphoriques) ; les annotations mecanisme_analyse sont marquées comme hypothèses ; le calcul de l'Al maximal pour SAR 50 (≈ 650 µmol g−1) est exact. Aucun danger évident omis (soude, TPAOH, TEOS, autoclave à 170 °C, fumées d'extrusion).",
+ "notes": "Extraction globalement très fidèle : les 142 valeurs de tableaux et de texte contrôlées (Tableaux 1 à 4, résidus TGA, acidités) sont justes, aucune branche manquante (15 échantillons de ma liste = 15 de l'inventaire, dont le NH4+-ZSM-5 commercial). Points prioritaires : (a) rattachement des 5 voies sans APP/PER au protocole de PP+IF : déclaré dans les doutes et une annotation, mais non cité par l'article, d'où le constat deduit ; (b) cristallinités lues sur la Fig. 1 : 100/80/75/50 % confirmées exactement, écart 0 % ; l'étiquette zeo3 à 50 % contredit légèrement le texte « above 50% » ; (c) zeo2 voie séparée (parent None) partant de zeo1 comme réactif intermédiaire, zeo3 branche de zeo2 avec une variation de durée : structure correcte puisque l'article dit que zeo3 part aussi de zeo1 (« treating H-ZSM-5 zeolite (zeo1) with NaOH solution for 2 h ») ; (d) rapport 5.00 de zeo3 : incohérent avec 0.40/0.11 dans l'article, recopié fidèlement, il manque l'annotation. Autres écarts de l'article, non imputables à l'extraction : « nitrogen at 196 °C » sans signe moins ; UL-94 cité avec la norme ANSI/ASTM D 635-77 (essai horizontal) alors que le texte décrit une éprouvette verticale ; TGA : le texte dit une perte de masse dès 180 °C, la Fig. 4 la montre commencer vers 250–300 °C (valeur du texte recopiée, fidèle). Fig. 2, 3, 4 ouvertes : isothermes et acidités (502, 1674, 3131, sil n.d.) conformes au texte ; résidus à 750 °C lus sur la Fig. 4 (≈ 6,5 / 13 / 10,5 / 13 / 8,8 %) conformes. Figure 5 (heating microscopy) non ouverte, qualitative."
+}

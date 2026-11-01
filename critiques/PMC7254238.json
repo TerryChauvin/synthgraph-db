@@ -1,0 +1,87 @@
+{
+ "pmcid": "PMC7254238",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "LaFeO3-550 average_crystallite_size = 17.5 nm (et LaFeO3-800 = 36.7 nm), comparés à LaFeO3-600/700 lus sur Fig. 4b",
+   "extracted": "17.5 nm (550 °C) et 36.7 nm (800 °C) tirés du texte ; 19 nm (600 °C) et 27 nm (700 °C) lus sur la Fig. 4b",
+   "article_says": "varying from 17.5 nm for the LaFeO3 powder calcined at 550 °C to 36.7 nm in the case of the powder calcined at 800 °C",
+   "fix": "Garder les valeurs citées du texte (la citation fait foi), mais noter dans une annotation limite_reproductibilite que la Fig. 4b (triangles rouges, <D>) se lit environ 14,5 nm à 550 °C (écart de 17 % avec le texte) et 38,5 nm à 800 °C (5 %), alors que 17,5 et 36,7 correspondent à la cristallinité de la Fig. 4a (≈ 17,7 % et ≈ 36,5 %) ; la série 17,5 / 19 / 27 / 36,7 mélange deux sources. Le doute existe déjà dans le JSON mais pas dans les annotations visibles.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "LaFeO3-500, étape 1 (durée, vitesse de montée, atmosphère héritées de LaFeO3-550) et succeeded=false",
+   "extracted": "branche 500 °C qui hérite de l'étape de calcination du parent (1 h, 10 °C min−1, air) ; succeeded=false",
+   "article_says": "the as-prepared precursor, as well as the powder that resulted after calcination at 500 °C, are amorphous",
+   "fix": "L'article ne décrit nulle part la préparation à 500 °C (la plage des Méthodes est 550–800 °C, la phrase DRX est la seule mention). Marquer durée, vitesse de montée et atmosphère de cette branche comme non citées (ou garder l'héritage mais avec une annotation explicite) ; « succeeded=false » est une lecture (amorphe = pas de pérovskite), pas une affirmation des auteurs.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "LaFeO3-700 results agglomerate_size_FE-SEM = 300–500 nm et nanoparticle_size_FE-SEM = 25–35 nm (réponse au point supplémentaire de l'orchestrateur)",
+   "extracted": "valeurs rangées sur LaFeO3-700, citation « the aggregates of the powder calcined at 600 °C seems to consist of porous agglomerates of 300–500 nm … (Figure 5f) »",
+   "article_says": "the aggregates of the powder calcined at 600 °C seems to consist of porous agglomerates of 300–500 nm, inside which nanometric particles (of 25–35 nm), linked together by necks and form 3D networks are observed (Figure 5f)",
+   "fix": "La citation seule dit 600 °C ; elle ne soutient donc pas le rattachement à 700 °C. Ce rattachement est pourtant le bon : la légende « Figure 5 … (e,f)—700 °C » désigne 5f comme 700 °C, la phrase précédente écrit « the powders that resulted after annealing at 600 and especially at 700 °C (Figure 5d,f) », et la phrase fautive est en « while » avec la phrase sur 600 °C (« amorphous phase is still noticed … 600 °C (Figure 5d) »), donc elle ne peut pas porter sur 600 °C. Garder les valeurs sur LaFeO3-700, ajouter la légende de la Fig. 5 (« (e,f)—700 °C ») comme seconde citation de ces deux résultats et une annotation limite_reproductibilite signalant la coquille 600/700 de l'article. Ne pas les dupliquer sur 600 °C.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "LaFeO3-550, 600, 700, 800 résultats FE-SEM et MET : taille des agrégats",
+   "extracted": "aucun résultat pour les agrégats de quelques dizaines de microns (FE-SEM, Fig. 5a,c,e,g) ni pour les agrégats submicroniques de forme irrégulière (MET, Fig. 6a et 7a)",
+   "article_says": "the FE-SEM analyses showed the clear tendency of the LaFeO3 particles to form large (of few tens of microns), non-uniform (as shape and size) aggregates, with a spongeous aspect",
+   "fix": "Ajouter un résultat « aggregate_size_FE-SEM = few tens of microns, spongeous » sur les quatre branches (le texte dit « for all the powders ») et, pour 550 et 700 °C, « submicronic aggregates of various sizes and with irregular shapes » (« the lower magnification TEM images of Figure 6a and Figure 7a clearly indicate the presence of the submicronic aggregates »).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "LaFeO3-BDD_electrode, résultats du tableau 2 : notes de bas de tableau",
+   "extracted": "LOD, LQ et RSD sans leur définition ni le nombre de répétitions",
+   "article_says": "* The limit of detection was measured under 3 Sb/m. ** relative standard deviation was determined for three replicates.",
+   "fix": "Ajouter la définition de la LOD (3 Sb/m) et « RSD sur trois répétitions » aux résultats LOD_* et RSD_* (champ de condition ou annotation) ; la mention n = 3 est utile à la reproductibilité de la mesure.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "LaFeO3-BDD_electrode, résultats : plages linéaires DPV et essais de techniques écartés",
+   "extracted": "plage linéaire CV (2,5–22,5 µM) présente ; plages linéaires DPV absentes ; DPV en balayage anodique et chronoampérométrie absentes",
+   "article_says": "The cathodic peak current increased linearly with CCB concentration for two concentration ranges below 2.5 µM CCB and ranged from 2.5 µM to 17 µM CCB (see inset of Figure 10).",
+   "fix": "Ajouter le résultat « DPV linear range: < 2.5 µM et 2.5–17 µM » (il explique les deux lignes DPV du tableau 2). Ajouter aussi, en texte, « No reproducible results were achieved for anodic scanning » (DPV anodique) et « A very low signal was achieved (the results are not shown here) » (chronoampérométrie), qui sont des variations de mesure comparées par les auteurs.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources, voie LaFe-oxalate-precursor : seul B41 est listé",
+   "extracted": "une seule source de méthode : B41-materials-13-02061 (role autre)",
+   "article_says": "This consists of a redox reaction of 1,2-ethanediol with metallic nitrates, in the presence of nitric acid, which was suitable for synthesis of other metallic oxides precursors",
+   "fix": "Le même renvoi groupé cite aussi B37, B42, B43, B44, B45, B46 (oxalates de Co, Zn, etc. obtenus par la même réaction diol + nitrate). B42 (oxalate de cobalt par 1,2-éthanediol et Co(NO3)2·6H2O) est le plus proche de la préparation décrite ; ajouter au moins B42, et B37, B43–B46 si l'orchestrateur juge qu'un renvoi groupé de ce type est une source de méthode et non un renvoi de contexte. Les renvois de 3.1 (B43–B46, décomposition thermique) et B56, B59 sont de contexte et n'ont pas à figurer.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "LaFe-oxalate-precursor résultats d'analyse thermique",
+   "extracted": "mass_loss_25-160C = 11.1 %, 160-280C = 10.4 %, 280-550C = 34.03 % (valeurs trouvées seulement)",
+   "article_says": "In the temperature range of 550–700 °C, the mass loss corresponds to the removal of carbon dioxide.",
+   "fix": "Ajouter les valeurs calculées (10,53 %, 10,92 %, 34,32 %) en complément des valeurs trouvées, et le résultat « 550–700 °C : élimination de CO2 » (perte non chiffrée) ; sans cela le chimiste ne voit pas l'écart trouvé/calculé.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 7,
+  "branches_extracted": 7,
+  "not_stated_checked": 32,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Aucune quantité absolue de La(NO3)3·6H2O, Fe(NO3)3·9H2O, 1,2-éthanediol ni volume de solution ou d'HNO3 2 M : seulement le rapport molaire 1:1:3:2",
+  "Ordre d'addition, agitation et durée du mélange non donnés ; « pH of 3 » présenté comme conséquence du rapport, sans dire s'il est mesuré ou ajusté",
+  "Séparation du précipité (filtration, centrifugation), volume et nombre de lavages à l'acétone, température et durée de séchage « in air » non donnés",
+  "Masse de précurseur calcinée, four, creuset, refroidissement non donnés ; conditions de l'essai à 500 °C absentes",
+  "Suspension de LaFeO3 pour l'électrode : solvant, durée d'immersion, séchage non donnés ; nettoyage préalable de l'électrode BDD absent ; teneur en bore « about 0.1 » sans unité",
+  "Section 2.1 dit que le précurseur a été « obtained previously » alors que 2.2 le décrit comme synthétisé ici ; les équations de décomposition annoncées en 3.1 manquent au texte",
+  "Coquille 600/700 °C à propos de la Fig. 5f ; valeurs de taille de cristallite du texte (17,5 ; 36,7 nm) qui ne correspondent pas à la Fig. 4b"
+ ],
+ "mechanism_check": "ok : mécanisme_auteurs limité à ce que l'article affirme (oxydation du diol par les nitrates, décomposition en trois étapes avec intermédiaire carbonate) ; mecanisme_analyse introduit par « Probablement » et séparé.",
+ "notes": "Vérifié sur figures : Fig. 4a cristallinité 17,7 / 33,5 / 35,7 / 36,5 % (extrait 18/34/36/37, écarts <= 1 point) ; Fig. 4b microdéformation 0,60 / 0,46 / 0,325 / 0,23 % (extrait 0,6/0,46/0,32/0,23) ; taille <D> 600 °C ≈ 19 nm et 700 °C ≈ 27 nm (extrait 19 et 27), 550 °C ≈ 14,5 nm et 800 °C ≈ 38,5 nm (voir constat 1). Les 32 valeurs du tableau 1 (quatre températures) et les 30 valeurs numériques du tableau 2 sont conformes, y compris le rattachement par position des secondes lignes CV, DPV et MPA. Fig. 5 vue : ne permet pas de trancher 600/700 pour 5f (texture plus fine que 5d, compatible avec 700). LQ/LOD = 25 pour la ligne DPV < 2,5 µM (0,250 / 0,010) alors que les lignes DPV > 2,5 µM, CV 0,40 V et MPA sont à environ 3,3 : possible coquille de l'article, à voir par la critique scientifique ; non retenu comme constat de fidélité."
+}

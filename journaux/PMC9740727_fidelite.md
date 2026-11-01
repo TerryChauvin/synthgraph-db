@@ -1,0 +1,16 @@
+# Journal de la critique de fidélité, PMC9740727
+
+- Ma liste d'échantillons avant ouverture de l'extraction : ZIF-67 (1 mmol, 86 %), ZIF-67 ×10 (78 %), cinq mélanges à 2 % en masse (RDX, HMX, CL-20, DAP-4, AP), les cinq matières seules (témoins DSC de la Fig. 6), et l'essai MS « HMX ajouté dans la cellule HMX+ZIF-67 » (§2.4). Seul ce dernier manque à `sample_inventory` : constat `manquant`, `sure`, car la phrase est explicite et décrit un échantillon distinct avec une observation propre (double pic).
+- Les vitesses de chauffe 2,5, 5, 10 et 20 K·min−1 ne sont pas des échantillons ni des branches de synthèse : elles sont des conditions de mesure, correctement rangées en résultats par route. Pas de constat.
+- Table 1 : les quatre rangées (RDX, HMX, CL-20, DAP-4) ont été recomparées colonne à colonne (Ea Kissinger, logA, r, Ea Friedman, r, m, n, Ea combinée) ; aucune permutation.
+- Températures de pic §2.5 : l'ordre « [RDX], [HMX], [CL-20], [DAP-4] » correspond bien aux routes ; confirmé sur Fig. 9 (étiquettes de pic par couleur), y compris 209,9 °C identique à 2,5 et 5 K·min−1 pour RDX.
+- Valeurs `from_figure` : huit valeurs de Fig. 6 ouvertes avec Read, étiquettes imprimées identiques (écart 0 %, pas une lecture graphique). RMN Fig. 3 : 11,5 / 10,7 / 6,0 ppm et intégrales 1,86 / 2,00 / 3,02 exactes.
+- DAP-4 : 401,6 − 390,1 = 11,5 °C alors que texte et figure impriment 10,5 °C. L'extracteur l'a vu (doute) ; je ne signale que l'annotation `comparison_branches` qui écrit « 10,5 °C (de 401,6 à 390,1) » sans réserve : `mineur`, `sure`.
+- Étape 4 (24 h) : `not_stated: temperature` jugé `probable` seulement, car le texte ne donne 25 °C que pour l'agitation de 0,5 h ; le schéma 1 affiche « 25 °C / EtOH » pour la réaction entière. Je laisse à l'orchestrateur le choix (déclarer le schéma comme source ou conserver le manque).
+- Les autres `not_stated` (séchage, activation, solvant de lavage, vitesse de centrifugation, ordre d'ajout, vitesse d'agitation) vérifiés dans le texte et il n'y a pas d'annexe : justes.
+- Ethanol 25 mL par solution : lecture de l'extracteur raisonnable (« separately »), déjà en doute ; écartée comme constat, reprise en lacune de reproductibilité.
+- Contradiction Ea de DAP-4 (211,74 > 205,4 littérature) contre l'affirmation « reduced for the four » : `mineur`, `probable` ; c'est une incohérence de l'article, à noter en `limite_reproductibilite`, jamais à corriger dans les valeurs.
+- Résultat de tête du résumé (« ≈ 190 kJ·mol−1 lower ») et Ea de référence B31 à B33 : `manquant` `probable` ; je demande de les reprendre en texte des auteurs, sans calcul de différence.
+- `method_sources` : seul B13 (essais de sensibilité) est un protocole. B26 à B29 (Kissinger, Friedman, méthode combinée), B35 à B37 (Fraser–Suzuki) et B18, B19 écartés selon la règle du 2026-10-13 (formules d'analyse, comparaison de spectres).
+- Fig. 8 : les pics MS de HMX+ZIF-67 sont tracés vers 266 et 279 °C, pas aux 235 à 255 °C du texte ; je n'ai pas fait de constat (le texte tranche, interprétation des auteurs), seulement une réserve dans `mechanism_check`.
+- Écarté : surface spécifique 1500 m2·g−1 et morphologie, donnés en introduction comme propriétés de la littérature (B14) ; leur absence des résultats est justifiée.

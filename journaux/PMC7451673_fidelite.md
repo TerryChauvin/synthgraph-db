@@ -1,0 +1,16 @@
+# Journal critique de fidélité, PMC7451673
+
+- Ma liste avant lecture de l'extraction : une extraction Soxhlet (graines, éthanol 70 %), une réduction verte (5 mL d'extrait + 50 mL AgNO3 1 mM, 120 rpm, 100 °C), AgNPs chimiques (renvoi Lee et Meisel, sans détail) et cinq groupes animaux. Identique à `sample_inventory` : aucun échantillon manquant.
+- Groupe 3 (AgNPs chimiques) sans voie : accepté, le texte n'a aucune quantité (« as reported by [[b0195]] ») ; `method_sources` b0195 avec route null est cohérent avec le RUNBOOK. Pas un constat.
+- b0170 (Kokate) suit la phrase « changes from yellow to brown ... shows the formation of AgNPs » : renvoi d'interprétation, pas de méthode ; son absence de `method_sources` est correcte. b0150 (extrait) présent.
+- Citations : toutes les clés `quote` de l'extraction sont des sous-chaînes exactes du texte (contrôle par script).
+- Fig. A (gr1.jpg) : maximum de la courbe vers 350 nm (≈ 1,35), trait vertical à 415 nm où la courbe vaut ≈ 0,92. Le `from_figure` 350 nm est correct ; constat `mineur`/`probable` seulement sur la formulation « absorption band at 415 nm » et l'absorbance 1,2 du tableau non retrouvée sur la courbe (le doute existe déjà côté extracteur).
+- Fig. B (gr2.jpg) : deux panneaux, légende de droite seule mentionnant N. sativa ; 25,2 nm vient du texte, aucune mesure possible sans barre d'échelle. Pas de constat.
+- Lectures de figure sur la barre grise « DN+ combination » (gr3 à gr6) : glycémie ≈ 188, insuline ≈ 15, aldose réductase ≈ 3,0, AGEs ≈ 0,99, TNF-α ≈ 18, NF-kB ≈ 0,48, S-100B ≈ 42, MDA ≈ 26,5, NO ≈ 0,88, SOD ≈ 38,5, GSH ≈ 22,5, NGF ≈ 1950, trkA ≈ 96, nitrotyrosine ≈ 40. Tous à moins de 10 % de l'extraction (écart maximal ≈ 3 %). Aucun constat de valeur fausse.
+- NGF : l'axe est titré « Nerve growth factor at 100 ng/ml », donc l'unité ng/ml est douteuse ; constat `mineur`/`probable` (pas `sure` : le titre d'axe n'est pas dans le texte de l'article).
+- Condition UV-Vis : « 5, 10, 20 min after extracting step, AgNO3 solution was added » est ambigu ; l'extracteur a tranché en « after the AgNO3 solution was added ». Classé `deduit`/`probable`, car je ne peux pas prouver l'autre lecture.
+- Étape manquante : la couleur était « checked from time to time » ; aucun critère de fin n'est dans l'étape 3. `manquant`/`probable`, l'article ne donne pas de durée.
+- Asymétrie des résultats : seules les barres de la combinaison sont lues sur gr3 à gr6 ; la barre « DN+ Nigella S » (route NS_extract) et le témoin DN ne le sont pas. `manquant`/`probable` : le choix est documenté dans un doute de l'extracteur, mais il prive la voie NS_extract de ses résultats et les valeurs de leur référence.
+- `not_stated` vérifiés (24 cases : pureté, fournisseur, volume d'éthanol, durée, atmosphère, vitesse, etc.) : aucune n'est renseignée dans le texte ni dans une annexe (aucune annexe n'existe).
+- Écarté : « aqueous extract » contre extraction éthanolique ; déjà en `doubts` et `limite_reproductibilite`, traité honnêtement, pas de désaccord avec le texte. Écarté aussi : « Mm » (recopié tel quel, doute présent) et la contradiction « five groups » / « Groups (3-6) » du résumé (non synthèse).
+- Mécanisme : `mecanisme_auteurs` reste prudent, `mecanisme_analyse` est étiqueté hypothèse ; calcul 0,05 mmol Ag+ ≈ 5,4 mg exact.

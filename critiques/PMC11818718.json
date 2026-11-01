@@ -1,0 +1,104 @@
+{
+ "pmcid": "PMC11818718",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "faux",
+   "where": "annotation comparaison_branches (route null), plage de taille TEM",
+   "extracted": "taille TEM de 16,27 à 17,30 nm",
+   "article_says": "Thin nanorods, rectangular, cubic, and irregular shapes (17.64 nm) were obtained with 7.5% Ba-doped CuS nanoparticles",
+   "fix": "écrire « de 16,27 à 17,64 nm » : le maximum est l'échantillon 7.5 % Ba (17,64), pas le 10 % (17,30) ; les valeurs des outcomes TEM sont correctes",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "voies Pure et 4 branches : conditions du test MTT (aucune entrée characterizations ni condition rattachée aux outcomes IC50)",
+   "extracted": "aucune condition du test cellulaire ; seul le nom de propriété IC50_A549_MTT_72h les évoque",
+   "article_says": "In the growth medium, eight concentrations (300, 100, 30, 10, 3, 1, 0.3, and 0.1 μg ml−1) of each compound were prepared. The cells were then treated for 72 hours.",
+   "fix": "ajouter une caractérisation « MTT assay » par voie avec conditions : lignée A549, 2–2.5 ×10^4 cellules/puits (plaque 96 puits, 180 μl de milieu, 24 h), 20 μl de dilutions (stock dans le DMSO), 8 concentrations 300 à 0.1 μg ml−1, 72 h, MTT 5 mg ml−1, 200 μl DMSO 60 min, lecture 590 nm, triplicat, IC50 par GraphPad Prism (ajustement non linéaire)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "outcomes IC50_A549_MTT_72h (5 voies), nom de propriété",
+   "extracted": "IC50_A549_MTT_72h avec citation « Pure | 19.10 »",
+   "article_says": "Following a 72 hours treatment period, the effects of each sample on cell viability were measured at concentrations of 300, 100, 30, 10, 3, 1, 0.3, and 0.1 μg ml−1.",
+   "fix": "la rangée de tableau citée ne contient ni A549, ni MTT, ni 72 h (règle RUNBOOK : le nom ne contient que les conditions que la citation écrit) ; soit citer la phrase qui donne ces conditions en plus de la rangée, soit renommer la propriété IC50 et porter les conditions dans la caractérisation MTT",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Pure, étapes 2 (mix), 3 (add) et 5 (age), not_stated temperature",
+   "extracted": "temperature déclarée non citée aux étapes 2, 3 et 5",
+   "article_says": "Pure and barium (Ba)-doped copper sulfide nanostructures were synthesized by the chemical co-precipitation method at room temperature.",
+   "fix": "l'article dit que toute la synthèse (résumé) est à température ambiante et la voie porte déjà method = « at room temperature » ; documenter à ces étapes une temperature = « room temperature » citée du résumé, ou garder non citée mais l'indiquer dans une annotation (la phrase est globale, pas propre à l'étape)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Pure, étape 5 (age) duration et étape 8 (dry) duration ; étape 7 repetitions",
+   "extracted": "value_text « two hours », « three hours »",
+   "article_says": "it was then dried for three hours at 100 °C in the oven",
+   "fix": "« two hours » et « three hours » sont des nombres écrits en toutes lettres (2 h, 3 h) : les porter en value_num 2/3 unit h comme 20 minutes et 1 hour des étapes voisines ; « many times » reste en value_text",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Table 2 (TXRF), colonne Cl, P, Ca (traces), pour les 5 échantillons",
+   "extracted": "absente des outcomes (seuls Cu, S, Ba sont extraits)",
+   "article_says": "Pure | 55.25 | 44.39 | — | 0.36",
+   "fix": "ajouter l'outcome TXRF_traces_Cl_P_Ca = 0.36 / 0.32 / 0.32 / 0.34 / 0.36 % (Pure, 2.5, 5, 7.5, 10 % Ba) ; la colonne rend compte de la somme à 100 % et signale des chlorures résiduels (pertinent pour le lavage)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "caractérisations SAED des 5 échantillons (Fig. 4 f–j)",
+   "extracted": "aucune entrée SAED",
+   "article_says": "The sample's polycrystalline nature is indicated by well-defined diffraction rings in the SAED pattern, which is consistent with the XRD observation.",
+   "fix": "ajouter une caractérisation SAED par voie (anneaux nets, polycristallin, plans indexés (102), (006), (110), (116) ; instrument JEM-2100, déjà cité pour le TEM)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "résultats optiques qualitatifs par échantillon (Fig. 5, 6, 8, 9)",
+   "extracted": "aucun outcome sur réflectance, coefficient d'absorption, extinction K, indice de réfraction n ; seul Eg est extrait",
+   "article_says": "Additionally, as the amount of Ba dopants rises, the refractive index value does as well.",
+   "fix": "ajouter en outcomes texte par voie : réflectance plus haute avec le dopage ; coefficient d'absorption plus bas que Pure sauf 5 % Ba (le plus bas à 10 %) ; K plus bas que Pure sauf 5 % Ba ; n croît avec la teneur en Ba. Aucune valeur numérique n'est donnée, ne pas lire de chiffres sur les figures",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "caractérisation DRS, conditions de l'extraction de Eg",
+   "extracted": "« Eg = 1.38 eV (Tauc, Kubelka–Munk) »",
+   "article_says": "where E is the incident photon energy, A is a constant, Eg is the band gap energy of CuS, and n equals 1/2 for the allowed direct transition.",
+   "fix": "préciser dans conditions que Eg est tiré de (F(R)E)^2 en fonction de E, extrapolation du domaine linéaire, transition directe permise (n = 1/2) ; sans cela les 1.38–1.82 eV ne sont pas comparables à des Eg indirects",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_analyse (Pure), phrase sur la teneur en Ba TXRF",
+   "extracted": "« une teneur en Ba mesurée par TXRF inférieure à la teneur nominale pour tous les échantillons dopés »",
+   "article_says": "2.5% Ba | 53.40 | 44.23 | 2.05 | 0.32",
+   "fix": "affirmation non soutenue : l'article ne compare pas TXRF et x et n'indique pas si les % sont massiques ou atomiques (la conclusion s'inverse : en % atomique, Ba/(Cu+Ba+S) nominal de Cu1−xBaxS = x/2 = 1.25 % pour x = 0.025 contre 2.05 % mesuré). Retirer la phrase ou la formuler conditionnellement à l'unité",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 5,
+  "branches_extracted": 5,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "quantité de BaCl2·2H2O absente (seul x = 0.025 à 0.1 est donné) et on ne sait pas si CuCl2 est diminué de x (substitution) ou si BaCl2 est ajouté en plus",
+  "valeur de x dans Na2S·xH2O absente (la quantité réelle de S2− dépend de l'hydratation ; pureté ≥ 65 %)",
+  "« 2 M » ne dit pas si c'est la concentration de la solution finale ou de la solution de départ ; aucune masse ni nombre de moles ; rapport S/Cu = 2.5 si les molarités désignent les solutions finales",
+  "fournisseurs des trois réactifs absents ; pureté de l'eau distillée absente",
+  "vitesse d'agitation, vitesse ou débit d'ajout goutte à goutte, températures des étapes de dissolution B, d'ajout et de vieillissement non écrites (la synthèse est dite globalement à température ambiante)",
+  "volumes de lavage, nombre exact de lavages (« many times »), type de papier filtre, séchage sous air présumé (« in the oven ») sans atmosphère, rendement absents",
+  "unité (% atomique ou massique) des teneurs TXRF absente ; instrument d'ajustement de Eg et plages d'extrapolation non données",
+  "pas de supporting information dans le dépôt"
+ ],
+ "mechanism_check": "à revoir : mecanisme_auteurs est soutenu par sa citation (substitution ou site interstitiel) ; mecanisme_analyse affirme sans appui que la teneur TXRF en Ba est inférieure à la teneur nominale pour tous les échantillons (voir constat 10)",
+ "notes": "Lecture : article court, une seule série (x = 0 à 0.1), 5 échantillons dans les Tableaux 1 à 4, tous présents dans sample_inventory ; doxorubicine correctement exclue des voies. Valeurs des Tableaux 1 à 4 comparées une par une : aucune erreur d'attribution de rangée ; recalcul de D (Scherrer, λ = 1.54056 Å, k = 0.9), de δ = 1/D² et de V = 0.866 a² c cohérent avec les tableaux (V écarts ≤ 0.4 unité, arrondis de l'article). Figures : Fig. 10 relue, pics à 826 nm ≈ 512 (Pure), 300, 420, 465, 293 u.a. pour 2.5, 5, 7.5, 10 % : extraits 510/300/420/460/290, écart < 2 % ; Fig. 2 relue, marqueur # (BaS) et ⊙ (BaCu4S3) présents pour les quatre échantillons dopés et absents du pur, comme extrait (le # de 2.5 % est unique et vers 26°, les autres en double vers 24.5 et 26.5°). method_sources vide : justifié, les renvois cit13 à cit18 (co-précipitation en général), cit20 (Scherrer), cit21 à cit27 (formules d'analyse) ne portent pas sur la préparation. Fragile : le lien x → « 2.5 % Ba » repose sur les noms d'échantillons des tableaux ; le constat 4 (température) dépend d'une phrase globale du résumé."
+}

@@ -1,0 +1,16 @@
+# PMC6614408 — critique scientifique (Opus)
+
+- **Unité de D (Table 1) → `probleme`** : D lu en Å impose β ≈ 3,2–4,4° sur (101), incompatible avec un diffractogramme indexé. En prenant β = Kλ/(D cos θ) avec D en nm, puis ε = β/(4 tan θ), on retrouve la microdéformation de la Table 1 à 2 % près (4,28 contre 4,22 ×10⁻³). Le diamètre BET (49–27 nm) et le TEM (40 et 31 nm) vont dans le même sens. Conclusion : unité nm, et ε n'apporte aucune information indépendante de D.
+- **a et c (Table 1) → `probleme`** : ils redonnent exactement d(101), une seule raie pour deux inconnues. La contraction de c de 2,4 % à 0,5 % de Pd est environ 100 fois au-dessus de Vegard et de signe contraire à un ion plus gros.
+- **Réponse de l'échantillon à 0,5 % → `probleme`** : j'ai ouvert les Fig. 8 et 13. La Fig. 8a donne un palier d'environ 35 et la Fig. 8b log(S−1) = 1,56 (S ≈ 37), contre 123,8 imprimé sur la Fig. 13. Le doute de l'extracteur est confirmé ; la contradiction vient de l'article.
+- Fig. 8b : les abscisses (−0,69 à 0,12) ne sont pas log10(10…40 ppm) et leurs écarts ne correspondent pas non plus. Classé en `reserve` (voie dispositif), pas en problème de synthèse.
+- **Pd0 majoritaire après recuit sous air → `reserve`, pas `probleme`** : PdO est stable jusqu'à 800 °C sous air (NBS 1968) et Pd0 s'oxyde dès 300 °C (PubMed 21279224), mais l'XPS peut réduire PdO (Thermo Fisher), et 335,9 eV est trop haut pour du Pd massif. C'est une attribution douteuse, pas une impossibilité.
+- O2/O1 comme mesure des « lacunes » : appuyé sur Idriss 2021 (Surf. Sci.) et Frankcombe et Liu 2023 (Chem. Mater., ZnO), deux sources trouvées par la même recherche. Classé en réserve parce que l'article attribue aussi O2 aux OH.
+- Excès de NaOH (OH:Zn = 3,7–4,4) et lavage à l'heptane : sels sodés de 2 à 3 fois la masse de ZnO, qui ne se dissolvent pas dans l'heptane. Pas de source chiffrée pour la solubilité de NaOAc dans l'éthanol, donc constat qualitatif (`reserve`).
+- Forme de l'acétate non précisée : j'ai fait tous les calculs en fourchette anhydre/dihydrate plutôt que de choisir une forme.
+- PdCl2 « soluble dans l'éthanol » : PubChem (CRC) le dit. Je n'en fais pas un problème de solubilité, mais je signale l'hydrolyse dans le milieu très basique (Pd ≤ 27 µmol contre 4,5–5,4 mmol d'OH⁻ libre).
+- Rayons de Shannon : la copie OCR du tableau ne laisse lire que Pd2+ VI 0,86 Å. Les valeurs de Zn2+ (IV 0,60, VI 0,74) sont données de mémoire et signalées dans `sources_not_found`.
+- Mécanisme retenu : variante de Meulenkamp 1998 (hydroxyacétate → nuclei de ZnO, croissance au recuit). Pour le Pd, dépôt en surface par hydrolyse et réduction partielle, puis PdO au recuit, plutôt que le « dopage du réseau » des auteurs.
+- Comparaison avec la base : PMC10585300 (ZnO chauffé 2 h à 500 °C, 34 nm par Scherrer) soutient la lecture en nm.
+- « Surface fortement réduite » pour l'échantillon qui a le plus de Pd2+ : contresens de vocabulaire (contrôle 4), classé en réserve.
+- Recherches web : 6 recherches et 2 lectures de page (la page de rayons de Rennes était vide). Crossref bloqué ; DOI relevés sur les pages des éditeurs, non vérifiés sur Crossref. Rien n'a été ajouté à fondateurs.md ni à constantes.md.

@@ -1,0 +1,16 @@
+# Journal de la critique de fidélité, PMC5978183
+
+- Ma liste d'échantillons avant l'extraction : LNMO (polyol, broyage, 250 puis 800 °C), LMO de comparaison (renvoi à Yang et al.), 2 particules LNMO analysées en TEM (Table 1), 20 particules de Table S1 (11 octaédriques, 9 irrégulières), cathode LNMO, pile ECC-Std. Seule différence avec `sample_inventory` : les 20 particules de Table S1 sont inventoriées mais n'ont aucun résultat dans les routes. Constat `manquant` sure.
+- Table S1 : les cellules sont éclatées une par ligne dans le texte, mais les rangées sont lisibles (particule, morphologie, Mn, Ni, Mn:Ni). La particule 1 de Table S1 vaut 80/20 et la 2 vaut 81/19, l'inverse de Table 1 ; l'extracteur l'avait vu en doute, je ne le recompte pas comme erreur.
+- C-rate : l'extraction écrit « C-rate based on 146.7 mAh/g » pour tous les essais. Le texte (section 2.4) dit que les C-rates sont recalculés avec la capacité mesurée pour le cyclage et le test de puissance. Constat `faux` sure, citation exacte.
+- « 13 retained particles » : nombre calculé (19 - 6), absent de l'article. `deduit` sure, correction triviale.
+- Cooling rate 1 °C/min : la citation retenue décrit le matériau de Zheng et al. ; seule la fin de phrase « which was also applied in this work » le rattache aux auteurs. `deduit` probable (la valeur est défendable, la citation ne la soutient pas seule).
+- Substrat de dépôt pour la mesure de conductivité : Méthodes = wafers Si avec 100 nm de SiO2 ; annexe = grilles TEM à fenêtres SiO2 de 20 nm. L'extraction a pris les Méthodes sans signaler l'écart. `mineur` probable, car l'article se contredit peut-être seulement par raccourci.
+- Conditions de dérivation de σ (U = ±0,315 V, surface de contact 1,6·10-10 cm-2, pointes Pt/Ir, Shapiro-Wilk) : dans l'annexe et les Méthodes, absentes de la caractérisation. `manquant` probable, car hors synthèse, mais utile à qui voudrait refaire la mesure.
+- Figure 11 ouverte : LMO 5C ≈ 96, 10C ≈ 93, 20C ≈ 86, retour C/20 ≈ 96 % ; écart avec l'extraction inférieur à 1 point, aucun constat. LNMO lu ≈ 91,5 et ≈ 83,5 contre 91 et 84 du texte : cohérent.
+- Figures 9 et 10 ouvertes : capacité ≈ 97 mAh/g au 10e cycle, rétention ≈ 95 % et rendement coulombique ≈ 95 % à 100 cycles : conformes au texte.
+- Écarté comme non-constat : « Li:Mn = 2,12 » douteux (stœchiométrie attendue 0,67) ; l'article l'écrit ainsi, l'extracteur l'a recopié avec un doute, c'est une affaire pour la critique scientifique et pour `reproducibility_gaps`.
+- Écarté : paramètres DFT non repris (Ueff, coupure, maille k, supercellule) ; ce sont des données de calcul, pas de synthèse ; noté dans `notes` pour l'orchestrateur.
+- Écarté : EG sans fournisseur déclaré non cité : correct, « Steinheim, Germany » ne nomme pas de société. Les 62 cases `not_stated` vérifiées contre le texte, l'annexe et les légendes ; aucune à tort.
+- `method_sources` : B45 (LNMO adapté, LMO, cathode), B30 (dispositif de mesure) et B22 (vitesse de refroidissement) sont justifiés. B48 (Shapiro-Wilk) et B49 (JEMS) exclus par la règle du 2026-10-13 ; les renvois VASP/PAW/PBE de la DFT ne sont pas des protocoles de préparation.
+- Verdict `corrections_mineures` : aucune valeur de synthèse fausse, une erreur de condition d'essai (C-rate), un manque de données (Table S1).

@@ -1,0 +1,69 @@
+{
+ "pmcid": "PMC11989644",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "ZXRS1_12H material.phase (« mélange FAU / GIS / LTA / SOD »)",
+   "extracted": "mélange FAU / GIS / LTA / SOD",
+   "article_says": "In XRD analysis (Figure 1B), the greater RCFAU percentage was only 24 h of synthesis in which a phase competition between Na-X and Na-P1",
+   "fix": "retirer la phase du matériau ZXRS1_12H (l'article ne donne pas la composition en phases à 12 h) ; la compétition FAU/GIS avec LTA et SOD est décrite pour l'échantillon à 24 h (déjà dans l'outcome « phases » de ZXRS1_24H). À 12 h, ne garder que RCFAU = 8 % (tableau 3)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZXRS1_48H outcomes (phases)",
+   "extracted": "seulement RCFAU = 12 %",
+   "article_says": "only after 48 h of synthesis does the intensity of the peaks related to LTA decrease, revealing a greater presence of the FAU and GIS structures",
+   "fix": "ajouter à ZXRS1_48H un outcome « phases » (pics LTA en baisse, FAU et GIS plus présents ; FAU vers 2θ = 6.18°, 10.07° et 11.80°, Na-P1 vers 12.50°, 21.70° et 28.12°) avec cette citation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZXTRS1_12H à ZXTRS1_48H (phases)",
+   "extracted": "seulement RCFAU ; aucune annotation de tendance pour la série lixiviée à 1 % de germes",
+   "article_says": "reveal that at all crystallization times showed the faujasite phase as the main and predominant one, with the diffractogram profile similar to that of the NaX zeolite standard sample, and a secondary phase relative to Na-P1 zeolite without the presence of LTA and SOD structures (Figure 1E)",
+   "fix": "ajouter une annotation tendance_observee (comme pour ZXTRS0) : FAU majoritaire à tous les temps, Na-P1 secondaire, sans LTA ni SOD, et « longer times lead to the formation of the GIS structure »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "ZXRS0_12H, ZXRS0_24H, ZXRS0_36H succeeded=false (contre ZXRS0_48H et ZXRS1_* à true)",
+   "extracted": "succeeded: false pour trois échantillons ZXRS0, true pour les autres synthèses à faible RCFAU (3 à 15 %)",
+   "article_says": "These results are consistent with zeolite production that does not use seeds to direct the growth of the desired structure and from RGP containing impurities and residual amorphous material.",
+   "fix": "les auteurs ne parlent pas d'échec ; le critère RCFAU = 0 % ne se retrouve pas dans une règle de l'article (ZXRS1 à 8 % est jugé de « poor degree of structural arrangement » mais laissé true). Soit mettre succeeded cohérent (tout RCFAU faible = false, ou tout true avec la phase GIS dans les résultats), soit laisser true et noter la phase majoritaire. Le doute existe déjà ; à trancher",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources : B39 rattachée seulement à la voie ZX",
+   "extracted": "{route: ZX, ref_id: B39, protocole_adapte}",
+   "article_says": "The synthesis methodologies described in this work were performed based on a standardized synthesis of zeolite X-type faujasite (FAU) obtained from the International Zeolite Association (IZA), with adaptations",
+   "fix": "la phrase vise « the synthesis methodologies described in this work » : ajouter B39 (même citation) aux voies ZXRS0_12H et ZXTRS0_12H au moins ; la phrase de 3.2.3 « the adapted methodology from 24 h to 12 h » cite aussi B39",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "RGP : préparation absente comme étape (voies TRGP01_25C, TRGP02_1, ZXRS0_12H)",
+   "extracted": "séchage à 150 °C et tamisage à 300 μm seulement dans le nom du réactif RGP",
+   "article_says": "The starting material for the zeolite syntheses was dried at 150 °C and sieved to obtain a grain size of around 300 μm.",
+   "fix": "ajouter une étape dry (150 °C, durée non citée) et une étape de tamisage (~300 μm) en tête de la voie de base qui utilise RGP, ou déclarer la durée dans not_stated ; le séchage est actuellement non vérifiable par le contrôle de grille",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 35,
+  "branches_extracted": 35,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masses de NaOH, NaAlO2 et d'eau des synthèses à partir de RGP/TRGP absentes (seulement « 0.846 g of SiO2 per autoclave » et une composition molaire « maintenue » non répétée) ; masse de poudre de verre et de germes en g non données",
+  "préparation du gel à partir des résidus non décrite (durée, ordre, vitesse d'agitation) : renvoi à « the aforementioned synthesis »",
+  "durée du séchage de RGP à 150 °C, volume des autoclaves et taux de remplissage, vitesse de chauffe, nombre de lavages, mode de filtration",
+  "agitation pendant la lixiviation de la série TRGP02 non écrite",
+  "Table S1 (XRF des TRGP02), Table S2 (XRF et Si/Al des zéolites), Figure S1 (XRD, MEB de ZX) et Figure S2 (TG) absentes du dépôt"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Les 35 échantillons nommés (RGP, TRGP01_25C/80C, TRGP02_1 à 8, ZX, 24 échantillons ZX[TR]RS{0,1,5}_{12,24,36,48}H) sont dans l'inventaire et en voies ; seul RGP est null avec raison valable. Tableaux 1 à 4 relus ligne par ligne contre les voies : aucune valeur fausse. Colonnes du tableau 3 (RGP/TRGP × 0/1/5 %) bien attribuées ; tableau 2 : combinaisons de variations correctes pour les 7 branches. Aucune valeur from_figure ; Figure 1 (phases par échantillon, symboles Δ/∗/o) ouverte : cohérente avec le texte, mais les phases de plusieurs échantillons (ZXRS5_24-48H, ZXRS0_24-36H) ne sont lisibles que sur la figure ; Figure 4 : plateaux et pics de distribution de pores cohérents avec le tableau 4. B40 (ASTM D3906-19 « with adaptations ») est un protocole de mesure : l'entrée role=autre est défendable, pas signalée. Gabarit 'reflux à 25 °C' est écrit tel quel dans l'article (déjà en doute). L'annotation comparaison_branches dit que RCFAU « baisse avec le temps (52 à 42 %) » alors que la série ZXTRS1 est 52, 49, 51, 42 (non monotone) : formulation des auteurs, non signalée comme constat."
+}

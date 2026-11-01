@@ -1,0 +1,87 @@
+{
+ "pmcid": "PMC8309541",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "faux",
+   "where": "ZC3 outcome HCHO_sensing_response_1000ppm_RT_Fig6_first_cycle_peak (from_figure Fig. 6)",
+   "extracted": "15 (étiquette « first_cycle_peak »)",
+   "article_says": "Figure 6 Response curves of ZC with different Cu2+ content to 1000 ppm HCHO, C2H6O, NH3 and C3H6O vapors at room temperature.",
+   "fix": "Figure 6, colonne HCHO, ligne ZC3 : le premier pic vaut environ 11-12, les deux suivants environ 15 et 16,5. 15 n'est pas la valeur du premier cycle (écart supérieur à 10 %). Corriger à environ 11,5 ou renommer la propriété (pic maximal ≈ 16,5, ou moyenne des trois cycles ≈ 14) ; le doute de l'extracteur lui-même dit que le premier pic est à ≈ 11.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZC2 outcome HCHO_sensing_response_1000ppm_RT : valeur de la figure absente",
+   "extracted": "about 16,200 (texte seul)",
+   "article_says": "Among all the gas tests, ZC2 had the largest response to HCHO at a concentration of 1000 ppm, with a response value of about 16,200.",
+   "fix": "Ajouter pour ZC2 la lecture de la figure 6 (colonne HCHO, ZC2) ≈ 300 (pic ≈ 290-300), confirmée par la figure 7a (≈ 305), avec from_figure, pour que la comparaison avec ZnO (4,5), ZC1 (≈ 28) et ZC3 lues sur la même figure soit possible ; la valeur du texte (16 200) est incompatible avec la figure (rapport ≈ 50) : garder la citation du texte mais ajouter une annotation limite_reproductibilite explicite sur cette incohérence interne de l'article.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Résultats de sélectivité, branches ZnO, ZC1, ZC2, ZC3 (figure 6 et figure 7a)",
+   "extracted": "seule la réponse au HCHO est extraite ; rien pour C2H6O, NH3, C3H6O",
+   "article_says": "Figure 6 shows three successive cycles of response curves of ZnO and ZC sensors when used to detect 1000 ppm target gases of HCHO, C2H6O, NH3, or C3H6O at RT.",
+   "fix": "Ajouter des résultats from_figure par branche pour les trois autres gaz (figure 6, premiers pics : ZnO ≈ 1,7 / 8,5 / 3 ; ZC1 ≈ 4 / 33 / 4 ; ZC2 ≈ 8 / 42 / 6,5 ; ZC3 ≈ 2 / 22 / 4 pour C2H6O / NH3 / C3H6O), car la sélectivité est une conclusion centrale (« ZC2 sensor has good selectivity for HCHO gas »). Le texte ne donne aucun de ces chiffres ; ce sont des lectures de figure (± 10 %).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Caractérisation FTIR (ZnO, ZC1, ZC2, ZC3) absente de toutes les voies",
+   "extracted": "aucune entrée FTIR ni résultat de bande ; l'inventaire cite pourtant Fig. 5 pour chaque échantillon",
+   "article_says": "The peaks at 1554.6, 1548.5, 1547.7, and 1546.7 cm−1 correspond to the in-plane bending vibrations of the amino group (N–H) [], which are increased significantly with the increase in CuO content.",
+   "fix": "Ajouter une caractérisation FTIR (Bruker Vertex 70) avec les bandes OH 3200–3600 cm−1 (intensité croissante avec CuO), N–H 1554,6/1548,5/1547,7/1546,7 cm−1, CH3 1464,803/1463,9/1435,5/1433,8 cm−1, Cu–O/Zn–O 400–510 cm−1 ; l'ordre ZnO, ZC1, ZC2, ZC3 n'est pas écrit explicitement dans le texte pour ces listes (l'ordre « respectively » des échantillons est donné à la phrase précédente, « FTIR spectra of ZnO, ZC1, ZC2, and ZC3 »), donc ne pas attribuer chaque valeur à un échantillon sans mention.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Sensor route, protocole d'essai d'humidité et définition des temps de réponse (caractérisation)",
+   "extracted": "une seule caractérisation « gas sensing measurement » ; rien sur la génération d'humidité ni sur les définitions des temps",
+   "article_says": "The different humidity environments of 95%, 85%, 75%, 54%, 33%, and 11% RH were controlled by super saturated aqueous solutions of KNO3, KCl, NaCl, Mg(NO3)2, MgCl2, and LiCl, respectively.",
+   "fix": "Ajouter une caractérisation d'humidité à la voie capteur (ou ZC2) : solutions sursaturées KNO3 95 %, KCl 85 %, NaCl 75 %, Mg(NO3)2 54 %, MgCl2 33 %, LiCl 11 % RH ; Ib = courant à 11 % RH ; et la définition « reaching 90% of the stable value … returning to 10% of the stable value » pour les temps 1,78/2,90 s. Ces conditions conditionnent la lecture des résultats déjà extraits (0,042…0,071 ; 6,81…7,17).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "ZC2 caractérisation XPS Cu 2p (952,15 / 932,17 eV) et XRD « all ZC samples »",
+   "extracted": "rattaché à ZC2 seul",
+   "article_says": "Figure 4b shows that the binding energies of Cu 2p1/2 and Cu 2p3/2 are 952.15 eV and 932.17 eV, respectively.",
+   "fix": "Le texte ne dit pas à quel échantillon ZC correspond cette valeur (légende : « XPS spectra of Cu 2p for ZC ») ; l'attribution à ZC2 est une déduction (déjà signalée en doute). Même remarque pour les pics XRD du CuO, donnés « for all ZC samples » et attribués à la seule voie ZC2 : soit répéter la caractérisation sur ZC1 et ZC3, soit mettre l'échantillon à « ZC (non précisé) » dans le résultat.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO outcomes/caractérisation XPS Zn 2p",
+   "extracted": "Zn 2p1/2 1020,36 eV ; Zn 2p3/2 1043,45 eV (recopié tel quel)",
+   "article_says": "In Figure 4a, the XPS peaks of Zn 2p1/2 and Zn 2p3/2 in ZnO are at 1020.36 eV and 1043.45 eV, respectively.",
+   "fix": "Fidèle au texte ; la permutation 2p1/2 / 2p3/2 est une erreur d'attribution probable des auteurs (2p3/2 ≈ 1021 eV) : ajouter une annotation limite_reproductibilite, ne pas corriger la valeur. Constat d'information, pas de correction de valeur.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Résumé / limite_reproductibilite : lacunes d'essai non listées",
+   "extracted": "annotation limite_reproductibilite centrée sur la synthèse et la pâte",
+   "article_says": "Figure 6 shows three successive cycles of response curves of ZnO and ZC sensors when used to detect 1000 ppm target gases of HCHO, C2H6O, NH3, or C3H6O at RT.",
+   "fix": "Ajouter aux lacunes : mode de génération et de dosage des vapeurs (HCHO, 1000 ppm… 0,5 ppm), chambre d'essai, débit, dimensions de l'électrode Ag–Pd et du dépôt, définition du bruit (SD) pour le calcul de LOD, et incohérence interne entre les plages de concentration de la figure 7 (150 ppm) et du texte (« from 0.5 ppm to 90 ppm »).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 19,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantité d'acétate de cuivre absente (seulement 10/30/50 mol% par rapport à Zn2+)",
+  "volume de NaOH 0,5 M (« a certain amount ») et vitesse d'addition absents",
+  "atmosphère, vitesse de chauffe et de refroidissement du recuit à 400 °C non donnés",
+  "aucun lavage, filtration ni séchage du gel autre que 60 °C 2 h ; rendement non donné",
+  "masse de poudre, volume d'eau, épaisseur et méthode de dépôt de la pâte sur l'électrode Ag–Pd non donnés",
+  "génération et dosage des vapeurs de HCHO (1000 à 0,5 ppm), chambre d'essai et débit non décrits",
+  "incohérence interne : réponse de ZC2 à 1000 ppm « about 16,200 » dans le texte, ≈ 300 sur les figures 6 et 7a ; plage 0,5–90 ppm dans le texte, jusqu'à 150 ppm sur la figure 7"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs porte bien sur la détection (transfert d'électrons ZnO vers CuO, O*, réaction avec HCHO), cohérent avec la section 3.3 ; mecanisme_analyse est marqué comme hypothèse de chimiste. Pas de danger oublié dans securite_analyse.",
+ "notes": "Aucune annexe dans le texte. Pas de method_sources : le seul renvoi de la phrase de méthode (B35) porte sur une formule d'analyse (LOD = 3SD/m) et sur la formule de variation d'humidité, donc exclu par la règle ; method_sources vide est correct. Valeurs figure 6 relues sur l'image : ZnO ≈ 4,5 et ZC1 ≈ 27-28 correspondent à l'extraction ; ZC3 : premier pic ≈ 11,5. Les valeurs XPS O2/O3, les rapports Cu2+/Zn2+ (ordre ZnO, ZC1, ZC2, ZC3 = 0/10/30/50 mol%), les quantités de la synthèse (2,1 g, 0,5 g, 100 mL, 0,5 M, pH 10, 5 min, 48 h, 60 °C 2 h, 400 °C 5 h) et les chiffres du LOD, du temps de réponse et de l'humidité sont corrects. Les 19 cases not_stated vérifiées sont justifiées par le texte. Figures 8 et 9 non ouvertes : leurs valeurs sont dans le texte."
+}

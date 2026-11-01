@@ -1,0 +1,585 @@
+{
+ "pmcid": "PMC6474109",
+ "routes": [
+  {
+   "label": "y-SiQDs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de DAMO",
+     "inputs": "0,2 mL ; d = 1,028 g/mL ; M = 222,36 g/mol ; pureté 95 %",
+     "formula": "V × d × pureté / M",
+     "result": "0,2056 g → 0,925 mmol (brut) ; 0,878 mmol (corrigé de la pureté)",
+     "compared_to": "cDAMO = 8,29 × 10−2 mol/L annoncé, soit 0,829 mmol dans 10 mL (écart 5–10 %, acceptable ; 0,829 mmol correspondraient à 0,189 mL à 95 %)",
+     "source": "https://www.sigmaaldrich.com/US/en/product/aldrich/440302 (fiche fournisseur)"
+    },
+    {
+     "what": "catéchol attendu pour 0,11 équivalent",
+     "inputs": "n(DAMO) = 0,829 mmol (cDAMO × 10 mL) ; M(catéchol) = 110,11 g/mol",
+     "formula": "0,11 × 0,829 mmol × 110,11",
+     "result": "0,0912 mmol = 10,0 mg",
+     "compared_to": "1,1 mg écrit en 2.2 (9,99 µmol, soit n(CC)/n(DAMO) = 0,012) : facteur ≈ 9 entre la masse et le rapport annoncé",
+     "source": "valeurs de l'article ; masse molaire IUPAC"
+    },
+    {
+     "what": "citrate attendu pour 0,47 équivalent",
+     "inputs": "n(DAMO) = 0,829 mmol ; M(citrate trisodique dihydraté) = 294,10 ; anhydre 258,07 g/mol",
+     "formula": "0,47 × 0,829 mmol × M",
+     "result": "0,390 mmol = 114,6 mg (dihydrate) ou 100,6 mg (anhydre)",
+     "compared_to": "13,6 mg (maximum d'intensité, §3.1.2) = 0,0462 mmol (dihydrate), soit 0,056 équivalent ; facteur ≈ 8 avec 0,47",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "citrate écrit en concentration",
+     "inputs": "9,24 × 10−5 mol/L ; 10 mL",
+     "formula": "c × V",
+     "result": "0,924 µmol = 0,27 mg de dihydrate ; n(cit)/n(DAMO) = 0,0011",
+     "compared_to": "0,47 annoncé (facteur ≈ 420) et 13,6 mg (facteur ≈ 50)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "lecture alternative : 9,24 × 10−5 mol (quantité, et non concentration)",
+     "inputs": "9,24 × 10−5 mol ; n(DAMO) = 0,829 mmol",
+     "formula": "9,24 × 10−5 / 8,29 × 10−4",
+     "result": "0,111, soit exactement le « 0,11 » du rapport ; 27,2 mg de dihydrate",
+     "compared_to": "le rapport 1:0,11:0,47 attribue 0,11 au catéchol et 0,47 au citrate : inversion ou mélange d'unités possible, à demander aux auteurs (hypothèse, non prouvée)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "série en masse de catéchol en équivalents",
+     "inputs": "0,275 ; 0,55 ; 1,1 ; 2,2 ; 3,3 mg ; n(DAMO) = 0,829 mmol",
+     "formula": "m / 110,11 / 0,829",
+     "result": "0,003 ; 0,006 ; 0,012 ; 0,024 ; 0,036 équivalent",
+     "compared_to": "§3.1.2 : série en citrate faite en « fixant c(DAMO):c(CC) à 1:0,11 », valeur que n'atteint aucun point de la série",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "méthanol libéré par l'hydrolyse",
+     "inputs": "0,878 mmol DAMO × 3 OCH3 ; M(MeOH) = 32,04 ; d = 0,792",
+     "formula": "3 n × M / d",
+     "result": "2,64 mmol ≈ 0,107 mL de méthanol dans ≈ 10,2 mL",
+     "compared_to": "pression partielle négligeable devant celle de l'eau ; toxique",
+     "source": "stœchiométrie de l'hydrolyse Si(OMe)3 + 3 H2O"
+    },
+    {
+     "what": "pression dans l'autoclave",
+     "inputs": "eau saturée à 130, 150 et 200 °C",
+     "formula": "Psat(T) (tables de vapeur)",
+     "result": "≈ 2,7 bar (130 °C) ; ≈ 4,8 bar (150 °C) ; ≈ 15,5 bar (200 °C)",
+     "compared_to": "autoclave téflon/acier usuel (≤ 30 bar) : sans danger si le taux de remplissage (inconnu, 10,2 mL) reste ≤ 70–80 %",
+     "source": "https://webbook.nist.gov/chemistry/fluid/"
+    },
+    {
+     "what": "énergie d'émission et taille d'un cœur Si confiné",
+     "inputs": "E = 1,12 + 3,73/d^1,39 eV (relation de Delerue, d en nm) ; λ = 1239,84/E",
+     "formula": "d = (3,73/(E − 1,12))^(1/1,39)",
+     "result": "538 nm (2,30 eV) → d ≈ 2,3 nm ; 453 nm (2,74 eV) → d ≈ 1,8 nm ; inversement d = 12 nm → ≈ 1 000 nm, d = 2,8 nm → ≈ 616 nm",
+     "compared_to": "TEM : 12 nm (y-SiQDs, 538 nm) et 2,8 nm (b-SiQDs, 453 nm) : désaccord d'un facteur 5 en taille pour y-SiQDs",
+     "source": "relation de Delerue et al. (Phys. Rev. B 1993) citée dans Gupta et al., J. Optoelectron. Adv. Mater. 12, 518 (2010), https://www.uni-due.de/imperia/md/content/cenide/3gupta.pdf"
+    },
+    {
+     "what": "distance réticulaire Si(111)",
+     "inputs": "a(Si) = 5,431 Å (diamant cubique)",
+     "formula": "d = a/√3",
+     "result": "3,136 Å = 0,314 nm",
+     "compared_to": "0,31 nm annoncé : cohérent, mais une seule frange ne distingue pas Si d'autres phases (graphitique 0,34 nm, etc.)",
+     "source": "chimie générale (paramètre de maille du silicium)"
+    },
+    {
+     "what": "rapports EDS (y-SiQDs)",
+     "inputs": "C 73,7 ; O 12,4 ; N 3,8 ; Si 8,9 (Fig. 7)",
+     "formula": "C/Si ; N/Si ; O/C ; somme",
+     "result": "C/Si = 8,3 ; N/Si = 0,43 ; O/C = 0,168 ; somme 98,8",
+     "compared_to": "chaîne aminoéthylaminopropyle du DAMO : C/Si = 5, N/Si = 2 ; un cœur Si(0) donnerait Si majoritaire",
+     "source": "valeurs de l'article ; formule du DAMO"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Quantités incohérentes entre elles (voir calculs « catéchol attendu pour 0,11 équivalent », « citrate attendu pour 0,47 équivalent », « citrate écrit en concentration ») : 1,1 mg de catéchol = 0,012 équivalent et non 0,11 (facteur ≈ 9) ; le citrate vaut 0,0011 équivalent d'après 9,24 × 10−5 mol/L, 0,056 d'après 13,6 mg et 0,47 d'après le rapport (facteurs 8 à 420). Lire 9,24 × 10−5 comme une quantité en mol donne exactement 0,11 équivalent, ce qui suggère une inversion d'unité ou de colonne dans le rapport. La recette de référence ne peut pas être refaite sans choisir arbitrairement une des trois valeurs.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La série en citrate est dite faite « en fixant c(DAMO):c(CC) à 1:0,11 », alors que la masse de catéchol de référence (1,1 mg) correspond à 0,012 et qu'aucun point de la série en catéchol (0,003–0,036 équivalent) n'atteint 0,11 (calcul « série en masse de catéchol en équivalents »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Réduire Si(IV) d'un alcoxysilane en Si(0) demande un réducteur très fort (couple SiO2/Si, E° ≈ −0,86 V/ESH) ; le citrate, le catéchol, l'urée ou le sulfite à 130 °C dans l'eau n'en sont pas capables, et un cœur de Si(0) de quelques nm s'oxyde et se dissout en milieu aqueux basique (pH ≈ 11 ici, DAMO 88 mM) en dégageant H2. Deux études critiques de cette famille de synthèses (aminosilane + citrate, micro-ondes ou hydrothermal) concluent à l'absence de nanoparticules de Si(0).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Shedding light on the aqueous synthesis of silicon nanoparticles by reduction of silanes with citrates",
+      "authors_or_publisher": "Ddungu J. L. Z., Silvestrini S., Tassoni A., De Cola L. — Faraday Discuss. 222, 350–361",
+      "year": "2020",
+      "url_or_doi": "10.1039/c9fd00127a"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille et couleur incompatibles avec un confinement quantique dans Si : 12 nm devraient émettre vers 1 000 nm et 2,8 nm vers 620 nm (calcul « énergie d'émission et taille d'un cœur Si confiné ») ; l'émission de cœur des nanocristaux de Si ne dépasse pas ≈ 2,1 eV (590 nm), le bleu-vert venant d'états de surface ou d'espèces moléculaires. La conclusion « l'augmentation de taille décale l'émission vers le rouge » (§3.2.2) ne peut pas s'appuyer sur un effet de taille du cœur Si.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Tunability Limit of Photoluminescence in Colloidal Silicon Nanocrystals",
+      "authors_or_publisher": "Wen X., Zhang P., Smith T. A., Anthony R. J., Kortshagen U. R. et al. — Sci. Rep. 5, 12469",
+      "year": "2015",
+      "url_or_doi": "10.1038/srep12469"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve non discriminante : ni DRX, ni XPS Si 2p (Si0 ≈ 99 eV contre Si4+ ≈ 103 eV), ni Raman (520 cm−1) ; une seule frange à 0,31 nm (cohérente avec Si(111), 0,314 nm, mais non exclusive) ; EDS dominé par le carbone (C/Si = 8,3, calcul « rapports EDS (y-SiQDs) ») ; aucune dialyse ni chromatographie : le précipité à l'acétonitrile est éliminé et le surnageant, qui contient les espèces moléculaires solubles, est mesuré. Les fluorophores moléculaires sont alors indiscernables des « points » (cas décrit pour les points de carbone).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al. — Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le DAMO porte un groupe éthylènediamine ; le catéchol, à pH ≈ 11 (pKa1 ≈ 9,4) et en présence de l'air du ciel de l'autoclave, s'oxyde en o-quinone qui se condense avec l'éthylènediamine. Cette condensation est la base de la méthode fluorimétrique classique des composés catéchol (« ethylenediamine condensation method ») et donne des produits excités vers 400–420 nm émettant vers 505–510 nm, soit précisément la fenêtre de y- et g-SiQDs (λex 420 nm, λem 520–538 nm). Explication plus simple que le « fluorophore conjugué greffé sur un cœur Si ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Spectrofluorimetric estimation of norepinephrine using ethylenediamine condensation method",
+      "authors_or_publisher": "Karim M. M., Alam S. M., Lee S. H. — J. Fluoresc. 17(4), 427–436",
+      "year": "2007",
+      "url_or_doi": "10.1007/s10895-007-0188-y"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "y-SiQDs présentent deux émissions (395 et 540 nm) pour λex 330–370 nm et deux populations en taille : mélange d'émetteurs (type citrate–amine bleu et type catéchol–amine jaune). Le rendement quantique d'un mélange dépend de λex, qui n'est pas donnée pour la mesure ; la Rhodamine 6G (référence choisie, absorption maximale vers 530 nm) absorbe peu à 420 nm, ce qui impose des absorbances très faibles et accroît l'erreur. Le 29,4 % est à prendre comme un ordre de grandeur.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M. — Pure Appl. Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "130–150 °C en autoclave fermé : pression de vapeur ≈ 2,7–4,8 bar (calcul « pression dans l'autoclave »), sans difficulté ; volume de l'autoclave et taux de remplissage non donnés pour 10,2 mL de liquide. Le méthanol libéré (≈ 0,11 mL) ne change pas la pression.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Tous les réactifs sont solubles dans l'eau aux quantités en jeu (≤ 115 mg de citrate, ≤ 3,3 mg de catéchol dans 10 mL) ; le DAMO s'hydrolyse et peut former un gel de polysiloxane si la condensation est poussée, mais 88 mM restent en solution colloïdale à ces durées.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Résumé : « By controlling the reaction time, yellow… and green… were synthesized », alors que les Méthodes et le §3.1.2 obtiennent y- et g-SiQDs par la température (130 contre 150 °C, 5 h tous deux). Le §3.1.2 dit aussi que l'intensité augmente de 2 à 6 h alors que le rendement quantique passe par un maximum à 5 h (≈ 22 % à 6 h). Incohérence entre sections, sans conséquence sur la recette si l'on suit les Méthodes.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Autres incohérences entre sections : rendement quantique de g-SiQDs 38,3 % (résumé, conclusion) et 39,3 % (§3.1.2) ; absorption de y-SiQDs à 233 et 254 nm (texte) contre pic principal à 438 nm (annexe) ; annexe S2 qui attribue 520 nm à « y-SiQDs » pour g-SiQDs ; « VitC, VitC-Na et CC seuls donnent < 5 % » alors que la figure 1 donne ≈ 7 % pour CC seul et que l'introduction cite 7,1 % et 21 %.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : la bande à 1663 cm−1 n'est pas « basse » pour un carbonyle conjugué ou une amide I (1650–1680 cm−1) et ne prouve pas un « grand système conjugué » ; la bande à 1595 cm−1 attribuée à –CH=N– recouvre la déformation N–H des amines primaires du DAMO (≈ 1590–1600 cm−1) et ne prouve pas l'imine. EDS : « atomic weight % » ne dit pas si ce sont des % atomiques ou massiques ; sur grille de TEM carbonée, la teneur en C est surestimée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non mentionnée par l'article : le catéchol est classé Carc. 1B (H350), Muta. 2 (H341) et Acute Tox. 3 par voie orale et cutanée (classification harmonisée UE) — à manipuler en gants nitrile sous sorbonne, plus que « irritant » ; DAMO corrosif pour les yeux et sensibilisant cutané ; méthanol libéré ; acétonitrile inflammable et toxique (4 volumes, ≈ 40 mL par lot) ; autoclave à refroidir avant ouverture.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Règlement délégué (UE) 2018/1480 (ATP 13 du CLP), entrée 604-016-00-4 : pyrocatéchol, Carc. 1B H350, Muta. 2 H341, Acute Tox. 3 H301/H311, Skin Irrit. 2, Eye Irrit. 2",
+      "authors_or_publisher": "Commission européenne, JO L 251",
+      "year": "2018",
+      "url_or_doi": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32018R1480"
+     }
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "choisir et noter la quantité de citrate réellement utilisée (0,27 mg, 13,6 mg, 27 mg ou 115 mg selon la lecture) et celle de catéchol (1,1 mg ou ≈ 10 mg)",
+    "volume de l'autoclave et taux de remplissage",
+    "phase récupérée après centrifugation (surnageant attendu) et purification par dialyse avant toute mesure",
+    "XPS Si 2p, DRX ou Raman pour prouver un cœur Si(0) ; comparer à un témoin catéchol + éthylènediamine sans silane",
+    "longueur d'onde d'excitation de la mesure de rendement quantique et référence absorbant à cette longueur d'onde"
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hypothèse sourcée : en milieu basique (pH ≈ 11, apporté par les amines du DAMO), le DAMO s'hydrolyse en silanols (libération de méthanol) qui se condensent en oligomères ou nanoparticules de polysiloxane portant des chaînes aminoéthylaminopropyle ; le silicium reste Si(IV). Le citrate se condense avec le motif éthylènediamine pour donner des fluorophores de type IPCA (émission bleue ≈ 440–455 nm, rendement élevé), et le catéchol, autoxydé en o-quinone, se condense avec ce même motif pour donner les produits jaune-vert de la méthode à l'éthylènediamine (λex ≈ 420 nm, λem ≈ 505–540 nm). Ces fluorophores, libres ou greffés sur le polysiloxane, expliquent les deux émissions de y-SiQDs (395 et 540 nm), le rapport C/Si élevé en EDS et la bande à 1663 cm−1 (quinone ou amide). Le cœur Si(0) cristallin invoqué par les auteurs n'est pas démontré.",
+    "sources": [
+     {
+      "title": "Shedding light on the aqueous synthesis of silicon nanoparticles by reduction of silanes with citrates",
+      "authors_or_publisher": "Ddungu J. L. Z., Silvestrini S., Tassoni A., De Cola L. — Faraday Discuss. 222, 350–361",
+      "year": "2020",
+      "url_or_doi": "10.1039/c9fd00127a"
+     },
+     {
+      "title": "Are Fluorescent Silicon Nanoparticles Formed in a One-Pot Aqueous Synthesis?",
+      "authors_or_publisher": "Oliinyk B. V., Korytko D., Lysenko V., Alekseev S. — Chem. Mater. 31(18), 7167–7172",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.chemmater.9b01067"
+     },
+     {
+      "title": "The fluorimetric estimation of catechol compounds by the ethylenediamine condensation method",
+      "authors_or_publisher": "Weil-Malherbe H. — Pharmacol. Rev. 11(2, Part 2), 278–288 (PMID 13667407)",
+      "year": "1959",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/13667407"
+     },
+     {
+      "title": "Spectrofluorimetric estimation of norepinephrine using ethylenediamine condensation method",
+      "authors_or_publisher": "Karim M. M., Alam S. M., Lee S. H. — J. Fluoresc. 17(4), 427–436",
+      "year": "2007",
+      "url_or_doi": "10.1007/s10895-007-0188-y"
+     },
+     {
+      "title": "Investigation from chemical structure to photoluminescent mechanism: a type of carbon dots from the pyrolysis of citric acid and an amine",
+      "authors_or_publisher": "Song Y., Zhu S., Zhang S., Fu Y., Wang L., Zhao X., Yang B. — J. Mater. Chem. C",
+      "year": "2015",
+      "url_or_doi": "10.1039/C5TC00813A"
+     }
+    ]
+   }
+  },
+  {
+   "label": "b-SiQDs",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rapports EDS (b-SiQDs)",
+     "inputs": "C 81,0 ; O 4,4 ; N 3,5 ; Si 3,3 (Fig. 7)",
+     "formula": "C/Si ; N/Si ; O/C ; somme",
+     "result": "C/Si = 24,5 ; N/Si = 1,06 ; O/C = 0,054 ; somme 92,2 (le Na, visible en Fig. S7, n'est pas dans le tableau)",
+     "compared_to": "DAMO : C/Si = 5, N/Si = 2 : matériau très majoritairement carboné (ou carbone de la grille de TEM)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression à 200 °C",
+     "inputs": "eau saturée à 200 °C",
+     "formula": "Psat(200 °C)",
+     "result": "≈ 15,5 bar",
+     "compared_to": "autoclave usuel : acceptable ; mais 15 min de palier à 200 °C est très court pour un autoclave en acier (montée en température plus longue que le palier)",
+     "source": "https://webbook.nist.gov/chemistry/fluid/"
+    },
+    {
+     "what": "taille attendue pour 453 nm (cœur Si)",
+     "inputs": "E = 2,74 eV ; relation de Delerue",
+     "formula": "d = (3,73/(E − 1,12))^(1/1,39)",
+     "result": "≈ 1,8 nm (et 2,8 nm → ≈ 616 nm attendus)",
+     "compared_to": "TEM 2,8 nm ; au-dessus de 2,1 eV l'émission n'est plus celle du cœur (Wen 2015)",
+     "source": "Delerue via Gupta 2010 ; 10.1038/srep12469"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité, aucun solvant, aucun traitement : seuls les réactifs (§3.2.1) et la condition 200 °C, 15 min du schéma de la figure 8A sont connus. Le rendement quantique de 73,3 % est cité dans le §3.1.1 comme résultat connu (« The prepared SiQDs exhibit QYs as high as 73.3 % »), probablement de travaux antérieurs de l'équipe.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "15 min à 200 °C est une durée typique d'un réacteur micro-ondes (synthèses APTES/APTMS + citrate) ; dans un autoclave en acier, la montée en température dure plus longtemps que le palier. Mode de chauffage à confirmer dans la référence d'origine.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Shedding light on the aqueous synthesis of silicon nanoparticles by reduction of silanes with citrates",
+      "authors_or_publisher": "Ddungu J. L. Z., Silvestrini S., Tassoni A., De Cola L. — Faraday Discuss. 222, 350–361",
+      "year": "2020",
+      "url_or_doi": "10.1039/c9fd00127a"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Excitation maximale à 370 nm, émission fixe à 453 nm indépendante de λex, rendement quantique très élevé (73 %) : signature des fluorophores moléculaires formés par condensation d'un acide citrique (ou citrate) avec une amine 1,2-diamine (type IPCA, acide imidazo[1,2-a]pyridine-7-carboxylique), bien plus que d'un cœur de Si(0) de 2,8 nm qui émettrait vers 620 nm (calcul « taille attendue pour 453 nm (cœur Si) »).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Investigation from chemical structure to photoluminescent mechanism: a type of carbon dots from the pyrolysis of citric acid and an amine",
+      "authors_or_publisher": "Song Y., Zhu S., Zhang S., Fu Y., Wang L., Zhao X., Yang B. — J. Mater. Chem. C",
+      "year": "2015",
+      "url_or_doi": "10.1039/C5TC00813A"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Même objection que pour y-SiQDs : le citrate ne réduit pas Si(IV) en Si(0) ; l'étude critique des synthèses APTMS + citrate trisodique (Zhong et al. 2013) conclut que ces particules fluorescentes ne sont pas du silicium.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Are Fluorescent Silicon Nanoparticles Formed in a One-Pot Aqueous Synthesis?",
+      "authors_or_publisher": "Oliinyk B. V., Korytko D., Lysenko V., Alekseev S. — Chem. Mater. 31(18), 7167–7172",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.chemmater.9b01067"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDS : C/Si = 24,5, N/Si = 1,06 (calcul « rapports EDS (b-SiQDs) »), somme 92,2 % ; incompatible avec un cœur Si et même avec le DAMO pur (C/Si = 5) ; le carbone est surtout organique ou vient de la grille.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "200 °C : pression de vapeur ≈ 15,5 bar, acceptable pour un autoclave téflon/acier si le remplissage reste modéré ; le téflon PTFE est utilisable jusqu'à ≈ 220–250 °C.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "protocole complet dans la référence d'origine (quantités, solvant, micro-ondes ou autoclave)",
+    "origine du rendement quantique de 73,3 %",
+    "nature du cœur (XPS Si 2p) et purification par dialyse"
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hydrolyse–condensation du DAMO en polysiloxane aminé et condensation citrate–diamine en fluorophore moléculaire de type IPCA ; pas de réduction de Si(IV).",
+    "sources": [
+     {
+      "title": "Investigation from chemical structure to photoluminescent mechanism: a type of carbon dots from the pyrolysis of citric acid and an amine",
+      "authors_or_publisher": "Song Y., Zhu S., Zhang S., Fu Y., Wang L., Zhao X., Yang B. — J. Mater. Chem. C",
+      "year": "2015",
+      "url_or_doi": "10.1039/C5TC00813A"
+     },
+     {
+      "title": "Shedding light on the aqueous synthesis of silicon nanoparticles by reduction of silanes with citrates",
+      "authors_or_publisher": "Ddungu J. L. Z., Silvestrini S., Tassoni A., De Cola L. — Faraday Discuss. 222, 350–361",
+      "year": "2020",
+      "url_or_doi": "10.1039/c9fd00127a"
+     }
+    ]
+   }
+  },
+  {
+   "label": "g-SiQDs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pression à 150 °C",
+     "inputs": "eau saturée à 150 °C",
+     "formula": "Psat(150 °C)",
+     "result": "≈ 4,8 bar",
+     "compared_to": "autoclave usuel : sans difficulté",
+     "source": "https://webbook.nist.gov/chemistry/fluid/"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Même recette que y-SiQDs, donc mêmes quantités incohérentes de citrate et de catéchol.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'émission plus courte à 150 °C est attribuée à la destruction du catéchol ; elle s'explique aussi par une part croissante du fluorophore citrate–amine (formé plus vite à haute température) dans un mélange d'émetteurs. Aucune mesure (spectre résolu, séparation) ne départage les deux hypothèses.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Investigation from chemical structure to photoluminescent mechanism: a type of carbon dots from the pyrolysis of citric acid and an amine",
+      "authors_or_publisher": "Song Y., Zhu S., Zhang S., Fu Y., Wang L., Zhao X., Yang B. — J. Mater. Chem. C",
+      "year": "2015",
+      "url_or_doi": "10.1039/C5TC00813A"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique donné à 38,3 % et à 39,3 % selon la section ; morphologie et taille non mesurées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "mêmes points que y-SiQDs",
+    "rendement quantique exact (38,3 ou 39,3 %)"
+   ]
+  },
+  {
+   "label": "NaCit13.6mg",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "13,6 mg de citrate en équivalents",
+     "inputs": "13,6 mg ; M = 294,10 (dihydrate) ou 258,07 g/mol (anhydre) ; n(DAMO) = 0,829 mmol",
+     "formula": "m / M / n(DAMO)",
+     "result": "0,0462 mmol (0,056 éq.) ou 0,0527 mmol (0,064 éq.) ; 4,6 mM dans 10 mL",
+     "compared_to": "0,47 éq. (0,39 mmol) et 9,24 × 10−5 mol/L annoncés ailleurs",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "13,6 mg ne correspond ni au rapport 0,47 ni à la concentration des Méthodes (calcul « 13,6 mg de citrate en équivalents ») ; on ne sait pas si cette masse est la condition de référence ou un point différent de la série. La figure 2a du dépôt montrant la série en temps, la série en citrate n'est pas vérifiable.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« λem inchangée quelle que soit la quantité de citrate » est cohérent avec un émetteur jaune qui ne dépend que du catéchol (hypothèse catéchol–diamine).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "masse de citrate de la condition de référence",
+    "hydrate utilisé (dihydrate ou anhydre)"
+   ]
+  },
+  {
+   "label": "VitC_CC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« Même concentration » que le citrate, concentration elle-même incohérente (voir y-SiQDs). L'acide ascorbique (pKa1 ≈ 4,1) neutralise une partie des amines alors que le citrate trisodique est basique : le témoin change à la fois le réducteur et le pH ; un témoin ascorbate de sodium serait nécessaire pour isoler l'effet du réducteur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "quantité d'acide ascorbique",
+    "pH avant et après traitement"
+   ]
+  },
+  {
+   "label": "Urea_CC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "L'urée n'est pas un réducteur ; à 130 °C elle s'hydrolyse lentement en NH3 et CO2 (source d'azote et de base). Le rendement quantique de 23 % ne peut donc pas être attribué à une « synergie de deux réducteurs » ; il montre plutôt qu'un additif quelconque modifie le milieu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "quantité d'urée",
+    "pH"
+   ]
+  },
+  {
+   "label": "Thiourea_CC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "securite",
+     "finding": "La thiourée est un cancérogène suspecté et un toxique pour la reproduction suspecté (classification harmonisée UE, à vérifier sur ECHA) ; à chaud, elle peut libérer H2S et apporter du soufre aux fluorophores. Quantité non donnée (« même concentration » que le citrate).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "quantité de thiourée",
+    "dégagement de H2S à l'ouverture de l'autoclave"
+   ]
+  },
+  {
+   "label": "NaSulfite_CC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Quantité de sulfite non définie (« même concentration » qu'un citrate incohérent). Le sulfite est un réducteur doux et un piège de quinones (addition sur l'o-quinone) : il modifie la chimie du catéchol, ce qui explique un effet sur l'émission sans faire intervenir le silicium.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "quantité de sulfite"
+   ]
+  },
+  {
+   "label": "NaCit_VitC",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Quantités d'acide ascorbique non données ; seule la couleur (≈ 500 nm) et le rendement quantique (5,5 %) sont connus.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "quantités d'acide ascorbique et de citrate"
+   ]
+  },
+  {
+   "label": "NaCit_VitC-Na",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "L'ascorbate de sodium n'est pas dans la liste des réactifs ; quantités non données.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "fournisseur et quantité d'ascorbate de sodium"
+   ]
+  },
+  {
+   "label": "SiQDs_CC_only",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Protocole non décrit (masse de catéchol supposée 1,1 mg). Le rendement ≈ 7 % (figure 1) contredit le « < 5 % » du §3.1.1 et rejoint les 7,1 % de Han et al. cités en introduction. C'est pourtant le témoin clé de la « synergie » : sans conditions identiques à y-SiQDs (même pH, même force ionique), la comparaison 7 % contre 29,4 % mélange l'effet du citrate et celui du pH.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "what_to_verify_before_repeating": [
+    "conditions exactes du témoin catéchol seul"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse hydrothermale simple (DAMO + catéchol + citrate, 130–150 °C, 5 h) sans difficulté thermique, mais recette de référence incohérente : la quantité de citrate (9,24 × 10−5 mol/L, 13,6 mg, 0,47 équivalent) varie d'un facteur 8 à 420 selon la section, et 1,1 mg de catéchol vaut 0,012 équivalent et non 0,11. Surtout, l'identité « boîtes quantiques de silicium » n'est pas démontrée : aucun réducteur présent ne réduit Si(IV), les tailles (12 nm, 2,8 nm) sont incompatibles avec l'émission jaune et bleue d'un cœur Si confiné, la seule preuve cristalline est une frange à 0,31 nm, l'EDS est dominé par le carbone et le produit n'est pas dialysé. L'émission jaune-verte correspond à celle des produits de condensation catéchol–éthylènediamine, et la bleue à celle des fluorophores citrate–amine (IPCA).",
+  "author_errors_suspected": [
+   "citrate donné en 9,24 × 10−5 mol/L (0,27 mg dans 10 mL), incohérent avec 13,6 mg et avec 0,47 équivalent ; lu comme 9,24 × 10−5 mol, il vaudrait 0,11 équivalent (inversion possible des colonnes du rapport)",
+   "1,1 mg de catéchol = 0,012 équivalent, environ 9 fois moins que le rapport 1:0,11 annoncé ; aucun point de la série 0,275–3,3 mg n'atteint 0,11",
+   "résumé : couleurs obtenues « en contrôlant la durée » alors que c'est la température (130 contre 150 °C)",
+   "rendement quantique de g-SiQDs 38,3 % contre 39,3 % ; absorption 233/254 nm (texte) contre 438 nm (annexe)",
+   "relation taille–couleur attribuée au confinement quantique du silicium (12 nm émettant à 538 nm) physiquement impossible"
+  ],
+  "comparison_with_database": "Seules autres voies de nanocristaux de Si dans la base : PMC8474143 (QDs-TES, QDs-HSQ, QDs-SiO) : recuit de précurseurs à 920–1200 °C sous Ar/H2, gravure HF, hydrosilylation ; émission 820–850 nm (rouge-proche IR) avec 15–40 % de rendement quantique, conforme au confinement. Le contraste (130 °C dans l'eau, émission 450–540 nm) appuie la réserve sur la nature du matériau de PMC6474109."
+ },
+ "sources_not_found": [
+  "aucune source vérifiée donnant les longueurs d'onde exactes du produit de condensation catéchol (non substitué) + éthylènediamine ; la méthode est documentée pour les catécholamines (Weil-Malherbe 1959, Karim 2007) et étendue aux « catechol compounds » par le titre de Weil-Malherbe",
+  "relation de Delerue (Phys. Rev. B 1993) citée de seconde main (Gupta et al. 2010), DOI d'origine non vérifié ici",
+  "classification CLP de la thiourée non vérifiée en ligne (donnée de mémoire, marquée « à vérifier »)"
+ ]
+}

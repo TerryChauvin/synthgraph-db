@@ -1,0 +1,567 @@
+{
+ "pmcid": "PMC11197016",
+ "routes": [
+  {
+   "label": "NiFe2O4",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire Fe:Ni",
+     "inputs": "Fe(NO3)3 0,4 M et Ni(NO3)2 0,2 M à volumes égaux V",
+     "formula": "n(Fe)/n(Ni) = 0,4V/0,2V",
+     "result": "2:1",
+     "compared_to": "NiFe2O4 : Fe/Ni = 2",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "NaOH stœchiométrique",
+     "inputs": "par litre de chaque solution : 0,4 mol Fe3+ (3 OH−) + 0,2 mol Ni2+ (2 OH−) ; NaOH 3 M",
+     "formula": "n(OH−) = 3 n(Fe) + 2 n(Ni) ; V = n/3",
+     "result": "1,6 mol OH−, soit ≈ 0,53 L de NaOH 3 M par litre de chaque solution, + ≈ 0,03 L pour neutraliser l'acidité initiale (pH 1,34 sur 2 L : 0,091 mol H+)",
+     "compared_to": "volume de NaOH non donné ; l'ajout goutte à goutte jusqu'à pH 11 représente un volume voisin de la moitié du volume de chaque solution de nitrate",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pH initial attendu du mélange",
+     "inputs": "Fe3+ 0,2 M après mélange ; pKa1 de Fe(H2O)6 3+ ≈ 2,2 (ordre de grandeur de manuel)",
+     "formula": "[H+] = (−Ka + √(Ka² + 4KaC))/2",
+     "result": "pH ≈ 1,5",
+     "compared_to": "pH mesuré 1,34 : cohérent (sels commerciaux légèrement acides)",
+     "source": "chimie générale (pKa non vérifié dans cette session)"
+    },
+    {
+     "what": "positions de Bragg attendues pour NiFe2O4",
+     "inputs": "a = 8,339 Å ; Cu Kα1 = 1,54056 Å ; (111) (220) (311) (222) (400) (422) (511) (440)",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 arcsin(λ/2d)",
+     "result": "18,41 ; 30,29 ; 35,68 ; 37,32 ; 43,37 ; 53,81 ; 57,37 ; 63,00°",
+     "compared_to": "angles de l'article 17,99 ; 30,10 ; 34,94 ; 37,01 ; 42,86 ; 54,05 ; 57,01 ; 61,89° : écarts de −1,11° à +0,24°, de signe variable",
+     "source": "paramètre de maille : Šepelák 2007 (10.1021/jp067620s) ; λ : NIST X-ray Transition Energies (references/constantes.md)"
+    },
+    {
+     "what": "paramètre de maille recalculé raie par raie",
+     "inputs": "angles de l'article, λ = 1,54056 Å",
+     "formula": "a = λ√(h²+k²+l²) / (2 sin θ)",
+     "result": "8,533 ; 8,390 ; 8,510 ; 8,407 ; 8,433 ; 8,305 ; 8,387 ; 8,474 Å (dispersion 0,23 Å)",
+     "compared_to": "une seule phase cubique donnerait la même valeur à ±0,01 Å ; un décalage d'échantillon donnerait des écarts de même signe décroissant avec l'angle",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "largeur de raie (311) impliquée par Scherrer",
+     "inputs": "K = 0,9 ; λ = 0,154 nm ; 2θ = 34,94° ; D = 46, 22, 27 nm",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "0,18° (46 nm), 0,38° (22 nm), 0,31° (27 nm)",
+     "compared_to": "largeurs mesurables sur un diffractomètre de laboratoire, mais 0,18° approche l'élargissement instrumental (souvent ≈ 0,05–0,1°), non corrigé selon l'article",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse volumique théorique et surface géométrique",
+     "inputs": "M(NiFe2O4) = 234,38 g/mol ; Z = 8 ; a = 8,339 Å ; sphères de 45, 22, 27 nm",
+     "formula": "ρ = 8M/(N_A a³) ; S = 6/(ρ d)",
+     "result": "ρ = 5,37 g/cm³ ; S ≈ 25 (45 nm), 51 (22 nm), 41 (27 nm) m²/g",
+     "compared_to": "aucune mesure BET dans l'article alors que la conclusion invoque une « larger surface area »",
+     "source": "a : Šepelák 2007 ; masses atomiques : chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Fe:Ni = 2:1 (calcul « rapport molaire Fe:Ni ») conforme à NiFe2O4 ; NaOH 3 M en quantité non bornée (ajout jusqu'à pH 11) donc suffisant ; tous les éléments du produit sont apportés.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "85 °C dans un ballon tricol : sous l'ébullition de l'eau (100 °C) ; pas de reflux nécessaire, pertes d'eau faibles en 90 min. Séchage à 65 °C sans risque.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "pH initial 1,34 cohérent avec l'hydrolyse de Fe3+ 0,2 M (calcul « pH initial attendu du mélange »). Addition goutte à goutte de la base dans les cations : Fe(III) précipite dès pH ≈ 2–3 et Ni(II) seulement vers pH 7–8, d'où un risque de précipitation séquentielle et d'hétérogénéité (oxyde de fer ou hydroxyde de nickel séparés) ; l'addition inverse (cations dans la base) est la façon usuelle de coprécipiter ensemble.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Identification de phase non démontrée telle qu'écrite : la fiche citée, JCPDS 22-1086, est celle de CoFe2O4 et non de NiFe2O4 (10-0325, 54-0964…) ; et les huit angles annoncés ne s'indexent pas sur une seule maille cubique (calcul « paramètre de maille recalculé raie par raie » : 8,305 à 8,533 Å, écarts de signe variable, (440) à 61,89° au lieu de 63,00°). Soit les angles sont mal recopiés, soit le diffractogramme contient d'autres phases.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and characterization of NiFe2O4, CoFe2O4 and CuFe2O4 thin films for anode material in Li-ion batteries",
+      "authors_or_publisher": "N. Karthigayan, P. Manimuthu, M. Priya, S. Sagadevan (SAGE, Nanomaterials and Nanotechnology)",
+      "year": "2017",
+      "url_or_doi": "10.1177/1847980417711084"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Cristallites de 46 nm (Scherrer) et « sharp XRD peaks » après seulement 90 min à 85 °C, sans calcination. Les coprécipitations de NiFe2O4 non calcinées donnent d'ordinaire 5–6 nm (Zalite 2017) ; avec nitrates + NaOH, une autre équipe obtient brut un mélange avec oxyde de fer et impuretés, la spinelle n'apparaissant qu'après 600 °C (Adv. Mater. Proc. 2017, 10.5185/amp.2017/108). Une taille de 45–50 nm identique en DRX, AFM et DLS est donc inhabituelle pour ce protocole.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Properties of nanosized ferrite powders and sintered materials prepared by the co-precipitation technology, combined with the spray-drying method",
+      "authors_or_publisher": "I. Zalite, G. Heidemane, E. Palcevskis, M. Maiorov (Key Engineering Materials 721, 295–299, Trans Tech)",
+      "year": "2017",
+      "url_or_doi": "10.4028/www.scientific.net/KEM.721.295"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DLS 48 nm, PDI 0,28, égale à la taille de cristallite, alors que les auteurs décrivent des particules « suffering from agglomeration » : une poudre magnétique agglomérée redispersée donne en général un diamètre hydrodynamique bien supérieur à la taille de cristallite. Milieu, concentration et dispersion de la mesure DLS non donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR enregistrée sur 4000–500 cm−1 : la bande métal–oxygène annoncée à 508 cm−1 est au bord de la plage, et la bande octaédrique ν2 des ferrites (vers 400 cm−1) est hors plage ; la bande tétraédrique ν1 de NiFe2O4 est attendue vers 590–600 cm−1. Une seule bande à 508 cm−1 ne peut pas représenter à la fois les sites Th et Oh.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Infrared Spectra of Ferrites",
+      "authors_or_publisher": "R. D. Waldron (Phys. Rev. 99, 1727)",
+      "year": "1955",
+      "url_or_doi": "10.1103/PhysRev.99.1727"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : sels de nickel (cancérogènes, sensibilisants), NaOH 3 M corrosif, nanopoudre magnétique à manipuler sous protection respiratoire. Rien de spécifique au protocole (pas d'autoclave, pas de gaz).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Fe(III) précipite d'abord en ferrihydrite vers pH 2–3, puis Ni(OH)2 vers pH 7–8 pendant l'ajout goutte à goutte ; à pH 11 et 85 °C, la ferritisation (dissolution–reprécipitation) Ni2+ + 2 Fe3+ + 8 OH− → NiFe2O4 + 4 H2O donne une spinelle de quelques nanomètres, souvent incomplète sans recuit (oxyde de fer résiduel). Le bilan est juste, mais la cristallinité et la taille annoncées (46 nm) dépassent ce que ce mécanisme donne d'ordinaire sans calcination.",
+    "sources": [
+     {
+      "title": "Properties of nanosized ferrite powders and sintered materials prepared by the co-precipitation technology, combined with the spray-drying method",
+      "authors_or_publisher": "I. Zalite, G. Heidemane, E. Palcevskis, M. Maiorov (Key Engineering Materials 721, 295–299, Trans Tech)",
+      "year": "2017",
+      "url_or_doi": "10.4028/www.scientific.net/KEM.721.295"
+     },
+     {
+      "title": "Synthesis of nickel ferrite nanoparticles via chemical co-precipitation method",
+      "authors_or_publisher": "Advanced Materials Proceedings 2(1) 32–34, VBRI Press (IIT Kanpur)",
+      "year": "2017",
+      "url_or_doi": "10.5185/amp.2017/108"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes des solutions de nitrates et de NaOH (seules les concentrations sont données)",
+    "ordre d'addition (base dans les cations ou l'inverse) et vitesse d'ajout",
+    "pureté de phase par DRX contre une fiche NiFe2O4 (10-0325) et recherche des raies d'α-Fe2O3 / NiO",
+    "nécessité d'un recuit (400–600 °C) si la spinelle est mal cristallisée",
+    "mode de séparation du précipité (filtration, aimant, centrifugation)"
+   ]
+  },
+  {
+   "label": "NiFe2O4@CTAB",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité de tensioactif",
+     "inputs": "8–10 gouttes de solution 0,04 M ; goutte ≈ 0,05 mL (hypothèse, volume non donné)",
+     "formula": "n = N × 0,05 mL × 0,04 mol/L",
+     "result": "16–20 µmol",
+     "compared_to": "rapport aux métaux inconnu faute de volumes ; pour 50 mL de chaque nitrate (hypothèse) : 10 mmol NiFe2O4, soit ≈ 0,2 % molaire de tensioactif",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration du tensioactif dans le réacteur",
+     "inputs": "≈ 18 µmol dans ≈ 0,127 L (50 + 50 mL de nitrates + ≈ 27 mL de NaOH 3 M, hypothèse)",
+     "formula": "c = n/V",
+     "result": "≈ 0,14 mM",
+     "compared_to": "CMC du CTAB 0,92–1,0 mM ; du SDS ≈ 8,2 mM : bien en dessous de la CMC",
+     "source": "CMC : fiche Sigma-Aldrich H5882 ; Chenyakin 2025"
+    },
+    {
+     "what": "taux de recouvrement possible",
+     "inputs": "2,34 g de NiFe2O4 (hypothèse 50 mL) à 22 nm : 51 m²/g → 119 m² ; aire par tête ≈ 0,5 nm² (ordre de grandeur)",
+     "formula": "n(monocouche) = S/(a N_A)",
+     "result": "≈ 0,40 mmol pour une monocouche ; 18 µmol couvrent ≈ 5 % de la surface",
+     "compared_to": "un effet de taille d'un facteur 2 attribué à un « capping » couvrant quelques pour-cent de la surface est peu probable, sauf volumes de nitrate beaucoup plus petits",
+     "source": "aire par tête : ordre de grandeur non sourcé (voir sources_not_found)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "16–20 µmol de CTAB (calcul « quantité de tensioactif »), ≈ 0,14 mM dans le réacteur, soit environ 7 fois sous la CMC (0,92–1,0 mM) : pas de micelles, seule une adsorption sur une petite fraction de la surface est possible (calcul « taux de recouvrement possible » : ≈ 5 % d'une monocouche dans l'hypothèse de 50 mL de nitrates).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hexadecyltrimethylammonium bromide (H5882), Product Information Sheet (CMC 0,92–1,0 mM dans l'eau ; M = 364,5 g/mol ; complexes insolubles avec le SDS)",
+      "authors_or_publisher": "Sigma-Aldrich / Merck (fiche fournisseur)",
+      "year": "2016",
+      "url_or_doi": "https://www.merckmillipore.com/deepweb/assets/sigmaaldrich/product/documents/220/630/h5882pis.pdf"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change deux variables : le natif est chauffé à 85 °C, les échantillons avec tensioactif à 80 °C (« increased to 80 °C »). Une baisse de 5 °C ralentit aussi la ferritisation et la croissance ; la réduction de taille (46 → 22 nm) ne peut pas être attribuée au seul CTAB. Témoin nécessaire : natif à 80 °C, ou tensioactif à 85 °C, avec les mêmes volumes.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bandes FTIR attribuées à « C–O » dans 1000–1400 cm−1 : le CTAB ne contient aucune liaison C–O (C–N+ et C–H seulement). Le nitrate résiduel (bande vers 1384 cm−1, fréquente après coprécipitation de nitrates) est une alternative non écartée ; 850 cm−1 n'est pas une bande caractéristique de –CH2 (rocking vers 720 cm−1).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TEM 21 nm, DRX 22 nm, DLS 24 nm, AFM 20 nm : cohérence interne entre techniques. La « larger surface area » invoquée n'est pas mesurée (pas de BET) ; la surface géométrique serait ≈ 51 m²/g (calcul « masse volumique théorique et surface géométrique » de la voie de base).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "L'adsorption électrostatique du CTAB sur des particules chargées négativement à pH 11 est plausible (au-dessus du point de charge nulle des ferrites), mais la quantité (≈ 5 % d'une monocouche, sous la CMC) et le changement simultané de température (80 contre 85 °C) rendent l'effet du tensioactif non démontré ; les auteurs confondent aussi « nucleation and growth » et mûrissement d'Ostwald, qui est la croissance des gros grains aux dépens des petits.",
+    "sources": [
+     {
+      "title": "Hexadecyltrimethylammonium bromide (H5882), Product Information Sheet (CMC 0,92–1,0 mM dans l'eau ; M = 364,5 g/mol ; complexes insolubles avec le SDS)",
+      "authors_or_publisher": "Sigma-Aldrich / Merck (fiche fournisseur)",
+      "year": "2016",
+      "url_or_doi": "https://www.merckmillipore.com/deepweb/assets/sigmaaldrich/product/documents/220/630/h5882pis.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume exact de solution de CTAB (gouttes non calibrées) et moment de l'ajout par rapport à NaOH",
+    "témoin sans tensioactif à 80 °C",
+    "lavage suffisant pour retirer le CTAB (cytotoxique) avant usage"
+   ]
+  },
+  {
+   "label": "NiFe2O4@SDS",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité de tensioactif (SDS ou SDBS)",
+     "inputs": "8–10 gouttes de 0,04 M ; goutte ≈ 0,05 mL (hypothèse) ; M(SDS, C12H25NaO4S) = 288,4 g/mol ; M(SDBS, C18H29NaO3S) = 348,5 g/mol",
+     "formula": "n = N × 0,05 mL × 0,04 mol/L ; m = nM",
+     "result": "16–20 µmol, soit 4,6–5,8 mg de SDS ou 5,6–7,0 mg de SDBS",
+     "compared_to": "concentration ≈ 0,14 mM, environ 60 fois sous la CMC du SDS (8,2 mM)",
+     "source": "masses molaires : chimie générale ; CMC : Chenyakin 2025"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Identité du tensioactif ambiguë : le résumé dit « sodium dodecyl sulphate » (SDS, C12H25NaO4S, sulfate), l'introduction et les Méthodes disent « sodium dodecylbenzene sulphonate » (SDBS, C18H29NaO3S, sulfonate) tout en l'abrégeant SDS. Ce sont deux réactifs différents (têtes polaires et CMC différentes) ; un chimiste ne sait pas lequel acheter.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Même confusion de variables que pour NiFe2O4@CTAB (80 contre 85 °C). De plus, un tensioactif anionique à ≈ 0,14 mM, environ 60 fois sous la CMC du SDS, sur des particules chargées négativement à pH 11, devrait s'adsorber très peu : la réduction 46 → 27 nm est donc plus probablement due à la température ou au mode opératoire qu'au tensioactif.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of Critical Micelle Concentration of Ionic and Non-Ionic Surfactants (CMC du SDS 8,18 mM, du CTAB 0,93 mM à 25 °C)",
+      "authors_or_publisher": "Y. Chenyakin et al. (Electrophoresis, Wiley)",
+      "year": "2025",
+      "url_or_doi": "10.1002/elps.8145"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bandes FTIR attribuées à C–O et C–H : pour un sulfate ou un sulfonate, les bandes S=O/S–O (≈ 1050–1250 cm−1) sont attendues dans la même zone ; l'attribution « C–O » est imprécise et le nitrate résiduel n'est pas exclu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Adsorption faible d'un anion amphiphile sur une surface négative à pH 11 ; effet limité au plus à une adsorption via des cations pontants (Na+, Ni2+ résiduel). L'écart de taille avec le natif reste confondu avec la baisse de température de 5 °C.",
+    "sources": [
+     {
+      "title": "Determination of Critical Micelle Concentration of Ionic and Non-Ionic Surfactants (CMC du SDS 8,18 mM, du CTAB 0,93 mM à 25 °C)",
+      "authors_or_publisher": "Y. Chenyakin et al. (Electrophoresis, Wiley)",
+      "year": "2025",
+      "url_or_doi": "10.1002/elps.8145"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quel tensioactif (SDS ou SDBS) a réellement été utilisé",
+    "volume de goutte et moment de l'ajout",
+    "témoin à 80 °C sans tensioactif"
+   ]
+  },
+  {
+   "label": "electrode_NiFe2O4",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fenêtre de potentiel implicite",
+     "inputs": "capacité 99.8 C/g ; capacitance 199.6 F/g",
+     "formula": "ΔV = Q/C",
+     "result": "0,5 V",
+     "compared_to": "fenêtre CV 0–0,6 V ; fenêtre GCD non donnée (0,5 V pour le natif, 0,45 V pour CTAB et SDS d'après ce calcul)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie spécifique recalculée",
+     "inputs": "C = 199.6 F/g ; ΔV = 0,5 V",
+     "formula": "E = C ΔV² / 7,2",
+     "result": "6,93 W h/kg",
+     "compared_to": "6.93 W h/kg annoncés : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "puissance spécifique à 2 A/g",
+     "inputs": "E = 6,93 W h/kg ; Δt = Q/I = 99,8/2 = 49,9 s",
+     "formula": "P = 3600 E/Δt (= I ΔV/2)",
+     "result": "500 W/kg",
+     "compared_to": "1200 W/kg annoncés « at a current density of 2 A g−1 » : facteur 2,4 ; ordre de grandeur retrouvé à 6 A/g (≈ 1400–1450 W/kg avec les valeurs lues sur la Fig. 5E–F), comme l'indique l'en-tête du Tableau 2",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Puissance spécifique incompatible avec la condition annoncée : à 2 A/g, l'énergie de 6,93 W h/kg et la décharge de 49,9 s donnent 500 W/kg (calcul « puissance spécifique à 2 A/g »), pas 1200 W/kg. Les puissances du Tableau 2 (en-tête « at 6 A g−1 », unité erronée « W h kg−1 ») correspondent à 6 A/g ; le texte et la conclusion les associent à tort à 2 A/g et à l'énergie maximale. Même facteur ≈ 3 pour les trois électrodes.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Ni charge massique, ni surface d'électrode, ni témoin de mousse de nickel nue : en KOH 1 M sur 0–0,6 V contre Ag/AgCl, la mousse de nickel décapée à HCl forme Ni(OH)2/NiOOH et apporte un courant faradique propre, qui peut gonfler fortement les F/g quand la masse active est faible. 199,6–593,6 F/g ne sont pas interprétables sans la masse déposée et le blanc de la mousse.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Exaggerated capacitance using electrochemically active nickel foam as current collector in electrochemical measurement",
+      "authors_or_publisher": "W. Xing et al. (pages 4123–4127 ; notice EPA HERO)",
+      "year": "2011",
+      "url_or_doi": "https://hero.epa.gov/reference/4803395"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Exposants b de 0,53 à 0,61 et plateaux de GCD : stockage limité par la diffusion, de type batterie. La capacitance en F/g n'a alors pas de sens physique, seule la capacité en C/g (ou mA h/g) convient ; les qualificatifs « pseudocapacitive » et « excellent rate capability » ne sont pas justifiés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "T. Brousse, D. Bélanger, J. W. Long (J. Electrochem. Soc. 162, A5185–A5189)",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Couples redox annoncés « Fe2+/Fe3+ and Ni2+/Ni+ » : en KOH, dans cette fenêtre positive, le couple actif du nickel est Ni2+/Ni3+ (Ni(OH)2/NiOOH), pas Ni2+/Ni+. Ni+ n'est pas accessible dans ce domaine de potentiel en milieu aqueux.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of Coprecipitated Metal Ions on the Electrochemistry of Nickel Hydroxide Thin Films: Cyclic Voltammetry in 1M KOH",
+      "authors_or_publisher": "D. A. Corrigan (J. Electrochem. Soc. 136, 723)",
+      "year": "1989",
+      "url_or_doi": "10.1149/1.2096717"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage de l'encre au NMP à 40 °C pendant 4 h : le NMP bout vers 202 °C et s'évapore lentement ; à 40 °C sans vide, du solvant résiduel peut rester dans le film (adhérence et masse faussées). Le séchage usuel se fait à 80–120 °C sous vide.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NMP (reprotoxique), HCl 3 M et KOH 1 M corrosifs : aucune précaution indiquée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "En KOH, la surface de NiFe2O4 (et celle de la mousse de nickel) s'hydroxyle ; le stockage passe par Ni(OH)2 + OH− ⇌ NiOOH + H2O + e− (Ni2+/Ni3+), avec une contribution Fe3+/Fe2+ de FeOOH. C'est une réaction faradique de type batterie limitée par la diffusion (b ≈ 0,55), et non une pseudocapacité.",
+    "sources": [
+     {
+      "title": "Effect of Coprecipitated Metal Ions on the Electrochemistry of Nickel Hydroxide Thin Films: Cyclic Voltammetry in 1M KOH",
+      "authors_or_publisher": "D. A. Corrigan (J. Electrochem. Soc. 136, 723)",
+      "year": "1989",
+      "url_or_doi": "10.1149/1.2096717"
+     },
+     {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "T. Brousse, D. Bélanger, J. W. Long (J. Electrochem. Soc. 162, A5185–A5189)",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "charge massique et surface géométrique de l'électrode",
+    "blanc de mousse de nickel nue traitée de la même façon",
+    "fenêtre de potentiel de la GCD (0,5 ou 0,45 V selon le calcul)",
+    "séchage sous vide à température plus haute pour retirer le NMP",
+    "rapport 80:10:10 en masse ou non"
+   ]
+  },
+  {
+   "label": "electrode_NiFe2O4@CTAB",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fenêtre de potentiel implicite",
+     "inputs": "capacité 267.1 C/g ; capacitance 593.6 F/g",
+     "formula": "ΔV = Q/C",
+     "result": "0,45 V",
+     "compared_to": "fenêtre CV 0–0,6 V ; fenêtre GCD non donnée (0,5 V pour le natif, 0,45 V pour CTAB et SDS d'après ce calcul)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie spécifique recalculée",
+     "inputs": "C = 593.6 F/g ; ΔV = 0,45 V",
+     "formula": "E = C ΔV² / 7,2",
+     "result": "16,70 W h/kg",
+     "compared_to": "16.69 W h/kg annoncés : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "puissance spécifique à 2 A/g",
+     "inputs": "E = 16,69 W h/kg ; Δt = Q/I = 267,1/2 = 133,6 s",
+     "formula": "P = 3600 E/Δt (= I ΔV/2)",
+     "result": "450 W/kg",
+     "compared_to": "1420 W/kg annoncés « at a current density of 2 A g−1 » : facteur 3,2 ; ordre de grandeur retrouvé à 6 A/g (≈ 1400–1450 W/kg avec les valeurs lues sur la Fig. 5E–F), comme l'indique l'en-tête du Tableau 2",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Puissance à 2 A/g recalculée : 450 W/kg contre 1420 W/kg annoncés (facteur 3,2) ; la valeur correspond à 6 A/g (≈ 1410 W/kg avec Q = 160 C/g et C = 340 F/g lus sur la Fig. 5E–F).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La fenêtre implicite de la GCD est 0,45 V ici contre 0,5 V pour le natif (calcul « fenêtre de potentiel implicite ») : les F/g et W h/kg ne sont pas comparés à fenêtre égale ; la comparaison en C/g (267,1 contre 99,8) est la seule valide. Le gain reste confondu avec une éventuelle différence de masse déposée (non donnée).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "593,6 F/g dépasse les valeurs citées par les auteurs eux-mêmes pour NiFe2O4 (120–277 F/g) ; sans masse ni blanc de mousse de nickel, la part de la mousse ne peut pas être exclue.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Exaggerated capacitance using electrochemically active nickel foam as current collector in electrochemical measurement",
+      "authors_or_publisher": "W. Xing et al. (pages 4123–4127 ; notice EPA HERO)",
+      "year": "2011",
+      "url_or_doi": "https://hero.epa.gov/reference/4803395"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même stockage faradique de type batterie (Ni2+/Ni3+) que l'électrode native ; un CTAB résiduel isolant pourrait d'ailleurs gêner le transfert, ce qui ne cadre pas avec la Rct plus faible annoncée sans contrôle de lavage.",
+    "sources": [
+     {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "T. Brousse, D. Bélanger, J. W. Long (J. Electrochem. Soc. 162, A5185–A5189)",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse active déposée identique entre les trois électrodes",
+    "fenêtre GCD utilisée"
+   ]
+  },
+  {
+   "label": "electrode_NiFe2O4@SDS",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fenêtre de potentiel implicite",
+     "inputs": "capacité 203.7 C/g ; capacitance 452.3 F/g",
+     "formula": "ΔV = Q/C",
+     "result": "0,45 V",
+     "compared_to": "fenêtre CV 0–0,6 V ; fenêtre GCD non donnée (0,5 V pour le natif, 0,45 V pour CTAB et SDS d'après ce calcul)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie spécifique recalculée",
+     "inputs": "C = 452.3 F/g ; ΔV = 0,45 V",
+     "formula": "E = C ΔV² / 7,2",
+     "result": "12,72 W h/kg",
+     "compared_to": "12.73 W h/kg annoncés : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "puissance spécifique à 2 A/g",
+     "inputs": "E = 12,73 W h/kg ; Δt = Q/I = 203,7/2 = 101,8 s",
+     "formula": "P = 3600 E/Δt (= I ΔV/2)",
+     "result": "450 W/kg",
+     "compared_to": "1350 W/kg annoncés « at a current density of 2 A g−1 » : facteur 3,0 ; ordre de grandeur retrouvé à 6 A/g (≈ 1400–1450 W/kg avec les valeurs lues sur la Fig. 5E–F), comme l'indique l'en-tête du Tableau 2",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Puissance à 2 A/g recalculée : 450 W/kg contre 1350 W/kg annoncés (facteur 3,0) ; la valeur correspond à 6 A/g (≈ 1390 W/kg avec Q = 130 C/g et C = 280 F/g lus sur la Fig. 5E–F).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fenêtre implicite 0,45 V comme pour CTAB, contre 0,5 V pour le natif ; mêmes réserves sur la masse et la mousse de nickel.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Identique à l'électrode native (stockage faradique Ni2+/Ni3+, diffusion limitante).",
+    "sources": [
+     {
+      "title": "Effect of Coprecipitated Metal Ions on the Electrochemistry of Nickel Hydroxide Thin Films: Cyclic Voltammetry in 1M KOH",
+      "authors_or_publisher": "D. A. Corrigan (J. Electrochem. Soc. 136, 723)",
+      "year": "1989",
+      "url_or_doi": "10.1149/1.2096717"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "identité du tensioactif (SDS ou SDBS) du matériau déposé",
+    "masse active déposée"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Coprécipitation simple et bien équilibrée en Fe:Ni (2:1), mais volumes absents. Trois points fragiles : (1) la phase est identifiée avec une fiche JCPDS de CoFe2O4 (22-1086) et des angles qui ne s'indexent pas sur une seule maille ; (2) l'effet des tensioactifs est confondu avec une baisse de température de 85 à 80 °C, pour des quantités infimes (≈ 18 µmol, sous la CMC) ; (3) les puissances spécifiques sont attribuées à 2 A/g alors qu'elles valent environ 3 fois la valeur calculable à 2 A/g et correspondent à 6 A/g. Électrochimie : pas de masse active ni de blanc de mousse de nickel, stockage de type batterie (b ≈ 0,55) présenté comme pseudocapacitif.",
+  "author_errors_suspected": [
+   "fiche JCPDS 22-1086 (CoFe2O4) citée pour NiFe2O4",
+   "angles DRX non indexables sur une seule maille cubique (a de 8,31 à 8,53 Å)",
+   "puissances spécifiques données « at 2 A g−1 » au lieu de 6 A/g ; unité « W h kg−1 » pour la puissance dans le Tableau 2",
+   "tensioactif nommé SDS (sulfate) dans le résumé et SDBS (sulfonate) dans les Méthodes",
+   "couple Ni2+/Ni+ au lieu de Ni2+/Ni3+",
+   "bande « C–O » attribuée au CTAB, qui n'en a pas",
+   "« larger surface area » sans mesure BET",
+   "fenêtres GCD implicites différentes (0,5 et 0,45 V) entre natif et échantillons avec tensioactif"
+  ],
+  "comparison_with_database": "NiFe2O4 dans la base : PMC10574157 (synthèse verte, recuit 600 °C) et PMC8708305 (film recuit 600 °C, cristallites 17 nm). Les deux passent par un traitement thermique ≥ 600 °C. Ici, des cristallites de 45–46 nm sont annoncés après 85 °C seulement, ce qui est éloigné des autres voies de la base comme de la littérature (5–6 nm sans recuit)."
+ },
+ "sources_not_found": [
+  "point de charge nulle de NiFe2O4 (valeur typique pH 6–8 citée de mémoire, non sourcée)",
+  "aire par tête du CTAB adsorbé (≈ 0,5 nm², ordre de grandeur non sourcé)",
+  "pKa1 de Fe(H2O)6 3+ (≈ 2,2, valeur de manuel non vérifiée dans cette session)",
+  "point d'ébullition du NMP (≈ 202 °C) : PubChem non consulté dans cette session",
+  "aucune source trouvée qui donne la taille de cristallite de NiFe2O4 brut après coprécipitation à 80–85 °C pendant 90 min exactement ; les comparaisons s'appuient sur Zalite 2017 et Adv. Mater. Proc. 2017",
+  "DOI non vérifiés sur Crossref (bloqué dans le cloud) : 10.1177/1847980417711084, 10.1021/jp067620s, 10.4028/www.scientific.net/KEM.721.295, 10.5185/amp.2017/108, 10.1149/2.0201505jes, 10.1103/PhysRev.99.1727, 10.1149/1.2096717, 10.1002/elps.8145 ; Xing 2011 cité par la notice EPA HERO sans DOI"
+ ]
+}

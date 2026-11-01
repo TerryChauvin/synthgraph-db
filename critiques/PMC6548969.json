@@ -1,0 +1,144 @@
+{
+ "pmcid": "PMC6548969",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "PSC_vapor_IPNC (base = 5 couches) : PCE_champion 16.4 %, Jsc 23.31, FF 68.9, Voc 1.02, 110 nm, 82 % apres 100 h UV, VTFL 0.48, pente 1.30, Rrec 1800",
+   "extracted": "Tous les resultats du dispositif champion sont portes par la voie de base a spin_coating_times = « five times », qui porte aussi PCE_mean_layers_series = 14 %",
+   "article_says": "PCE values exhibit a significant increase as the IPNCs spin‐coating time increases from one to four.",
+   "fix": "Le texte dit que PCE augmente de 1 a 4 couches puis diminue ; la fig. 3a (relue) donne ≈14,1 % a 5 couches (sous le temoin) et le maximum ≈16,1 % a 4 couches ; la fig. 3c place S1 entre ≈15 et 16,5 %. Les « 110 nm = five times » (S4) et « 4 layer » (S5) se contredisent. Les resultats du champion ne peuvent pas etre rattaches avec certitude a 5 couches : ajouter une annotation limite_reproductibilite (le doute existe mais pas l'annotation) et eventuellement un doute sur chaque resultat champion.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "PSC_vapor_IPNC : citation de spin_coating_times = five times",
+   "extracted": "five times",
+   "article_says": "corresponding to five times spin‐coating of CsPbBr3 solution",
+   "fix": "Citation exacte mais en contradiction avec le reste de l'article (voir constat precedent) ; a signaler dans l'annotation de limite de reproductibilite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PSC_vapor_control : heritage de la voie de base (reactif CsPbBr3_IPNC et etape 6)",
+   "extracted": "Le temoin herite du reactif CsPbBr3_IPNC (role intermediate) et de l'etape 6 « Spin-coat the purified CsPbBr3 IPNC solution », avec spin_coating_times = « without CsPbBr3 IPNCs modification » ; les voies PSC_vapor_control_IPNC_out et PSC_vapor_SiO2_inside heritent a leur tour de ces elements",
+   "article_says": "Figure 2d shows two devices with and without CsPbBr3 IPNCs modification under UV light irradiation.",
+   "fix": "Ajouter a PSC_vapor_control une variation parameter=CsPbBr3_IPNC value_text=absent (regle RUNBOOK « reactif retire »), et soit donner au temoin ses propres etapes sans l'etape 6, soit declarer l'etape 6 « absente » sans valeur numerique heritee. L'article ne dit pas non plus que le temoin a suivi les etapes spiro-OMeTAD et Au (doute deja note).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PSC_vapor_control_IPNC_out et PSC_solution_IPNC_out : depot de CsPbBr3@SiO2 sur la face avant",
+   "extracted": "Seulement une variation uv_downshifting_coating (parent_value « none ») et un reactif CsPbBr3_SiO2, aucune etape de depot",
+   "article_says": "The air‐stable CsPbBr3@SiO2 layer was coated on the front side (transparent side) of the device as shown in the schematic diagram for estimating the influence of UV blocking for the devices",
+   "fix": "Ajouter une etape deposit/coat propre a chaque branche (methode de depot, nombre de couches : « six » seulement pour la cellule en solution, vitesse, solvant, recuit non cites) avec cases not_stated ; une variation sans etape ne dit pas comment le revetement est applique.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PSC_vapor_IPNC step 9 (ajout Li-TFSI et tBP)",
+   "extracted": "paramètres : duration = 30 min seulement (atmosphere seulement dans la description)",
+   "article_says": "Then, 17.5 µL of Li‐bis(trifluoromethanesulfonyl) imide (Li‐TFSI) (520 mg mL−1 in acetonitrile) and 28.3 µL of 4‐tert‐butylpyridine (t‐BP) were added to the solution in a nitrogen‐filled glove box and stirred for 30 min until used for coating.",
+   "fix": "Ajouter le parametre atmosphere = nitrogen-filled glove box, cite dans la phrase deja utilisee.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "CsPbBr3_IPNC : reactifs",
+   "extracted": "reagents = toluene et ethyl acetate seulement ; missing_fields = precursors, ligands... ; l'annotation de limite cite CsBr, CsI, PbI2, PbBr2, CsCO3, oleylamine, ODE mais pas HI ni HBr",
+   "article_says": "Hydroiodic Acid (HI, 57%) and Hydrobromic acid (HBr, 48%) were obtained from Aladdin Reagents Co., Ltd. (Shanghai, China).",
+   "fix": "Completer l'annotation limite_reproductibilite (CsPbBr3_IPNC) : HI (57 %) et HBr (48 %) figurent aussi dans la liste de produits de la section Materiaux sans etre rattaches a une voie. Ne pas les ajouter comme reactifs de la synthese (l'article ne le dit pas).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources : voie CsPbBr3_IPNC (purification a l'acetate d'ethyle)",
+   "extracted": "aucune entree pour la voie CsPbBr3_IPNC",
+   "article_says": "In the purification process, the surface ligands such as oleic acid and ammonia groups can be eliminated by ethyl acetate. These ligands block the transport of photo‐generated carrier, leading to enhanced electron mobility and improved device performance.",
+   "fix": "Dans corpus/refs la phrase est suivie de [[advs1029-bib-0020]] (Swarnkar et al., Science 2016) ; renvoi plausiblement necessaire pour la purification (retrait des ligands a l'acetate d'ethyle) : ajouter method_sources route=CsPbBr3_IPNC ref_id=advs1029-bib-0020, role autre, ou le refuser avec raison. La meme reference suit la phrase FTIR « different purification time ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "sample_inventory / characterizations : dispositif a IPNC seul (sans CH3NH3PbI3) et film FTO/cp-TiO2/CsPbBr3 sans perovskite",
+   "extracted": "absent de l'inventaire ; seule la fluorescence rouge du dispositif complet est notee",
+   "article_says": "Green color fluorescence is shown for the device with IPNCs only but without CH3NH3PbI3 layer.",
+   "fix": "Ajouter l'echantillon a l'inventaire (route null, why : protocole non decrit) ; noter la fluorescence verte en caracterisation de la voie CsPbBr3_IPNC ou du dispositif, la rouge etant deja liee a PSC_vapor_IPNC.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PSC_vapor_IPNC : caracterisations absentes (SEM, AFM, EIS, SCLC)",
+   "extracted": "characterizations = XRD, EDX, PL, J-V, IPCE ; pas de SEM, AFM, impedance ni SCLC, alors que Rrec, VTFL et conductivite sont dans outcomes",
+   "article_says": "The surface morphology of the films was characterized by a Sirion field‐emission scanning electron microscope.",
+   "fix": "Ajouter SEM (Sirion field-emission), conductivite (Keithley 2400, courant-tension de +3 V a -3 V : citer « The electrical conductivity was measured by a Keithley 2400 as a source-meter, with current-voltage traces from +3 V to -3 V. »), impedance (circuit Rs(Rrec Crec), eclairement 10 mW/cm2 d'apres la legende S9) et AFM ; au moins SEM et conductivite ont une phrase d'instrument.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PSC_vapor_IPNC : rugosite AFM et epaisseurs",
+   "extracted": "pas de resultat RMS ; epaisseur de TiO2 (45 nm) absente des etapes et des outcomes",
+   "article_says": "The root‐mean‐square (RMS) values from AFM image were calculated to be 7.8, 10.2, and 14.1 nm, revealing the enhanced surface roughness by increasing the layers.",
+   "fix": "Ajouter en caracterisation (AFM) les RMS 7.8, 10.2 et 14.1 nm avec la note que l'article ne dit pas a quel nombre de couches chacune correspond (fig. S3 absente) ; ajouter cp-TiO2 = 45 nm (« The thicknesses of each constituent layer in the PSCs are measured to be 45, 110, and 470 nm for TiO2, CsPbBr3, and CH3NH3PbI3, respectively. ») comme resultat de l'etape 4.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PSC_solution_control step 3 : duration = 15 s",
+   "extracted": "duration = 15 s attribuee a l'ajout d'ether diethylique",
+   "article_says": "The second spin‐coating process was for 15 s.",
+   "fix": "L'article parle de la duree du « second spin-coating process », pas de l'ajout d'antisolvant, et l'etape 2 donne 40 s pour ce palier : la valeur est reinterpretee. Soit la deplacer sur l'etape 2 en conflit declare (doute), soit la garder avec un doute explicite sur la contradiction 15 s / 40 s (le doute existe mais le parametre garde le nom duration de l'etape 3). Egalement « 600 mL diethyl ether » recopie tel quel (probablement 600 µL).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PSC_solution_control et PSC_solution_IPNC_out : PCE_retained_after_1000_h_ambient_storage (64 % et 92 %)",
+   "extracted": "nom de propriete « ambient_storage »",
+   "article_says": "It can be found that the CsPbBr3@SiO2‐coated PSCs device could retainan average of 92% values (maximum at 98%) of its initial PCE after 1000 h irradiation under simulated light, while the bare device exhibits a dramatically decreased PCE to 64%",
+   "fix": "Les citations (« after 1000 h irradiation under simulated light », « decreased PCE to 64% ») ne disent pas « ambient storage » ; la phrase precedente dit stockage ambiant sans encapsulation puis J-V sous AM 1.5G. Renommer sans condition non citee (ex. PCE_retained_after_1000_h) et garder la condition en doute ; noter aussi « maximum at 98% » pour la cellule revetue.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PSC_vapor_SiO2_inside : PCE = 6.7 % rattache a « four layers »",
+   "extracted": "PCE 6.7 % et spin_coating_times = four layers",
+   "article_says": "As the CsPbBr3@SiO2 nanocomposites were introduced, the PCE dropped sharply to 6.7% (Figure S14, Supporting Information)",
+   "fix": "Le nombre de couches vient de la legende S14a (« J-V curves of PSCs based four layers ») mais la legende S14b parle de « different layers » : 6.7 % peut etre le meilleur de la serie et non la valeur a 4 couches. Ajouter un doute sur ce rattachement (annexe absente).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PSC_vapor_*layers et PSC_vapor_control : PCE_mean_layers_series arrondie a l'entier",
+   "extracted": "0 : 14 ; 1, 2, 3, 4 : 16 ; 5 : 14 ; 6 : 13 ; 7 : 12 %",
+   "article_says": "PCE values decrease with further increasing times of spin‐coating.",
+   "fix": "Lecture fig. 3a (relue) : 0 ≈14,1 ; 1 ≈15,5 ; 2 ≈15,8 ; 3 ≈15,9 ; 4 ≈16,1 ; 5 ≈14,1 ; 6 ≈12,5 ; 7 ≈11,7 %. Aucun ecart > 10 %, mais l'arrondi cache l'ordre 1<2<3<4 et le maximum a 4 couches que decrit le texte ; ecrire une decimale. Le mot « mean » est une lecture : la legende ne dit pas moyenne ou maximum (barres d'erreur visibles).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Fournisseur MACKLIN des reactifs non nommes (HCl, Zn, TTIP, butanol, MAI, chlorobenzene, Li-TFSI, tBP, DMSO, DMF, ether)",
+   "extracted": "supplier = MACKLIN Co., Ltd (China) pour chacun",
+   "article_says": "The other materials and chemicals were purchased from MACKLIN Co., Ltd (China)",
+   "fix": "L'article ne nomme pas ces produits un par un ; l'attribution repose sur « the other materials ». Acceptable si le doute existant est conserve ; sinon declarer supplier not_stated pour les reactifs jamais cites nommement (Li-TFSI et tBP sont pourtant decrits avec leur concentration).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 15,
+  "branches_extracted": 14,
+  "not_stated_checked": 45,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Synthese des nanocristaux CsPbBr3 renvoyee a « previous reports » sans reference identifiable : precurseurs, quantites, ligands (oleylamine/acide oleique), temperature et conditions d'injection absents de l'article",
+  "Silane et protocole d'enrobage CsPbBr3@SiO2 absents ; mode de depot du revetement exterieur (vitesse, nombre de couches pour la cellule evaporee) absent",
+  "Depot des IPNC par centrifugation (vitesse, duree, concentration de la dispersion, volume, recuit) absent ; nombre de couches optimal contradictoire (4 ou 5)",
+  "Depot du spiro-OMeTAD et de l'electrode d'or (epaisseur, methode, pression) absents ; duree totale d'evaporation de CH3NH3PbI3 et quantites de PbI2 et CH3NH3I evaporees absentes ; unite « A s-1 » des vitesses (Angstrom ?) ambigue",
+  "Voie en solution : volume total de solvant DMSO:DMF (ratio seul) ; « 600 mL » d'ether probablement 600 µL ; pas de HTL ni d'electrode decrits ; duree de la seconde etape (40 s ou 15 s)",
+  "Duree et conditions de gravure HCl/Zn du FTO, temps de nettoyage, puissance du plasma",
+  "Annexe : seules les legendes S1-S17 sont disponibles ; les valeurs de S3, S5-S7, S9, S13-S17 ne sont pas lisibles",
+  "Contradiction interne sur la conductivite : le texte dit les films modifies plus conducteurs mais donne 3.07e-4 (modifie) contre 2.36e-3 S m-1 (temoin)"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Extraction globalement fidele : chaque valeur numerique du texte et des tableaux est correcte et bien rangee (Jsc, FF, Voc, PCE champion et temoin, 5f verifie sur l'image : 19.7/79.7/23.3/1.06 et 20.8/79.6/24.6/1.06 ; 3b verifie). Lectures de figure verifiees sur images : fig. 3a (ecart < 4 % sur chaque point), fig. 4c (temoin ≈1600 Ω, modifie ≈1780 Ω, OK). Points fragiles : (1) la voie de base a 5 couches porte le champion alors que la figure 3a place le maximum a 4 couches ; (2) en fig. 5b la courbe du dispositif modifie est lisible vers 20 mA cm-2, pas 22.60 comme dans le texte, ecart de l'article, non d'extraction ; (3) l'attribution de 14 → 16 → 14 % en fig. 3a est ‘mean’ par interpretation ; (4) dans la fig. 4d le courant ohmique du trace noir (temoin) semble superieur a celui du trace rouge, ce qui irait dans le sens de la valeur litterale du texte (temoin plus conducteur) mais l'ecart visuel est bien inferieur au rapport 7,7 annonce ; (5) ref advs1029-bib-0048 (mesure au point de puissance maximale) et 0041 (comparaison de conductivite) laissees de cote comme renvois de contexte/mesure faibles ; (6) aucune case not_stated verifiee n'est fausse (gravure, TiO2, evaporation, etalement : les phrases « All device fabrication was carried out in glove » et les 45 min / un jour de la fig. 1e ne donnent ni atmosphere precise ni duree de depot)."
+}

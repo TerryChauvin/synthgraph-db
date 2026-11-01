@@ -1,0 +1,61 @@
+{
+ "pmcid": "PMC7660179",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "TN0, TN05, TN1, TN2 outcomes H2_response_rate_10000ppm_600C unit",
+   "extracted": "valeur seule (0.45, 1.2, 1.06, 0.98), sans unité ; doute 'unité vide'",
+   "article_says": "the best response rate of 1.2 s−1",
+   "fix": "renseigner l'unité s^-1 : l'axe de la Fig. 6 est 'Response rate (s-1)' pour les quatre échantillons et la Conclusion donne 1.2 s−1 pour TN05 ; lever le doute sur l'unité (0.9 S/tres est un taux par seconde)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "TN0 variations[nickel acetate] value_text",
+   "extracted": "absent",
+   "article_says": "would contain 0.0, 0.5, 1.0 and 2.0 mol.% of nickel dopant in TiO2",
+   "fix": "l'article écrit 0.0 mol.% : mettre value_num 0.0, unit mol.% (comme TN1 = 1.0 et TN2 = 2.0) au lieu de 'absent', qui est une paraphrase",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "TN0 (hérite de TN05 l'étape 1 et les réactifs nickel acetate / acetic acid)",
+   "extracted": "TN0 branche de TN05 : étape 1 'Dissolve nickel acetate in acetic acid' et solvant acide acétique conservés",
+   "article_says": "The starting precursor solutions were first prepared by dissolving nickel acetate in acetic acid while pure ethanol was used separately to dissolve titanium iso-propoxide (TTIP).",
+   "fix": "pour 0.0 mol.% de Ni l'article n'attribue pas la dissolution de l'acétate de nickel à TN0 ; supprimer ou neutraliser l'étape 1 (et l'acétate de nickel) dans TN0, ou la marquer explicitement non décrite (l'usage d'acide acétique pour TN0 est inconnu)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "TN05/TN0/TN1/TN2 : conditions du test capteur rattachées aux résultats",
+   "extracted": "conditions de mesure (400 sccm, 1 µA, 1 V, air synthétique sec) seulement dans la caractérisation de la route Sensor_film ; aucune caractérisation 'gas sensing' dans les routes TN* qui portent les réponses",
+   "article_says": "The sensing properties of the undoped and doped TiO2 with different Ni-contents to 10,000 ppm H2 were investigated at 600 °C using dry synthetic air as the carrier gas.",
+   "fix": "ajouter à chaque route TN* une caractérisation de détection de H2 (600 °C, 10 000 ppm, air synthétique sec, 400 sccm) ou relier explicitement Sensor_film aux quatre poudres ; sinon les résultats de réponse n'ont pas leurs conditions côté échantillon",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TN0/TN05/TN1/TN2 outcomes EDX",
+   "extracted": "seul le rapport Ni/Ti (0.48, 0.97, 1.98) est repris",
+   "article_says": "TN05 | 33.12 | 0.16 | 66.73 | 0.48 | 0.5",
+   "fix": "les % atomiques Ti, Ni, O de la Table 2 (et le rapport attendu) pourraient être ajoutés en résultats ; le doute O/Ti > 3 pour TN1/TN2 s'y appuie déjà",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantités de TTIP, d'acide acétique, d'éthanol (deux volumes) et d'acide oxalique absentes (seule la teneur en Ni est en mol.%)",
+  "pureté et fournisseur de tous les réactifs",
+  "volumes/concentrations des solutions, température de dissolution et d'addition, vitesse d'agitation, durée du séchage à 80 °C, vitesse de chauffe de la calcination, rendement",
+  "volume d'une goutte d'encre, séchage du film après dépôt, temps de mélange de l'encre",
+  "durée de l'exposition à H2 et de la stabilisation avant chaque essai (seul l'intervalle de 8 min est donné pour la Fig. 5)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (Ti4+ remplacé par Ni3+, lacunes d'oxygène, jonctions n-n) suit le texte ; mecanisme_analyse signale à juste titre que l'acétate apporte Ni2+ ; securite_analyse couvre H2/air à 600 °C",
+ "notes": "Valeurs de Fig. 7 (86, 84, 72, ~11, 4 %) et Fig. 9 (70, 64, 55, 54 s ; 329, ~331, ~334, 491 s) relues sur les images : écart < 3 %, conformes ; Fig. 4, 5, 6, 8, 10 concordent avec le texte (réponse TN1 ~71 sur la Fig. 4 contre 70 dans le texte). method_sources vide : correct (Spurr et Myers = formule d'analyse, renvois aux travaux antérieurs = contexte). Citations toutes présentes dans le texte. Incohérences internes de l'article, sans erreur d'extraction : le texte dit que le rutile est la seule phase de TN2 alors que la Table 1 donne 1 % d'anatase ; tres 23 s à 600 °C (essai en température) contre 54 s à 10 000 ppm (Fig. 9a) ; réponse 72 % contre 73 % pour TN05 à 10 000 ppm. Le doute sur l'héritage de TN0 est repris en constat 3."
+}

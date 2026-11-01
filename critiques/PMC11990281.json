@@ -1,0 +1,72 @@
+{
+  "pmcid": "PMC11990281",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "Test catalytique (caractérisations des deux voies, conditions) : réactifs du test, α-pinène et O2",
+      "extracted": "Aucune pureté ni aucun fournisseur de l'α-pinène et de l'oxygène nulle part dans le JSON (seul « 99,99 % » d'O2 apparaît dans une annotation de sécurité, sans fournisseur).",
+      "article_says": "α-pinene (98%, Sigma Aldrich, Poznań, Poland) and oxygen (99.99%, Messer, Szczecin, Poland)",
+      "fix": "ajouter dans les `conditions` du test catalytique de chaque voie : α-pinène 98 %, Sigma Aldrich ; O2 99,99 %, Messer ; la section 3.1 n'est reprise nulle part.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "Ti-SBA-15 réactif hydrochloric acid, amount_text « 10.5 (unit not given in the text ...) » ; doute et limite_reproductibilite disant que l'unité manque",
+      "extracted": "10.5 (unit not given in the text; 37% aqueous solution)",
+      "article_says": "Ti-SBA-15 | 18.04 | 37.20 | 1.80 | 10.51 | 376.04 | -",
+      "fix": "l'en-tête du tableau 3 est « HCl [mL] » (et la branche aux écorces dit « 4.72 cm3 of HCl », 4.72 mL au tableau 3) : l'unité est donc écrite par l'article (mL, valeur du tableau 10.51 contre 10.5 du texte). Corriger l'amount_text et les deux annotations (« unité absente »), garder le doute sur l'écart de valeur.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Ti-SBA-15_orange peels, outcomes : essais à 0.025 et 0.05 wt% de catalyseur",
+      "extracted": "oxidation_activity_cat_below_0.1wt% = no oxidation reaction observed for catalyst content lower than 0.1 wt% (pas de résultat pour 0.025 ni 0.05 wt%)",
+      "article_says": "At very low contents of this catalyst (0.025 and 0.05 wt%), the reaction did not occur.",
+      "fix": "ajouter deux résultats « pas de réaction » pour 0.025 et 0.05 wt% (conclusion) ; noter dans un doute que la section 2.2 donne la plage testée 0.1–1.5 wt% (« The range of catalyst content was 0.1–1.5 wt%, and the reaction time amounted to 1 h. ») alors que la conclusion cite les deux valeurs inférieures.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Tableau 2, séries aux mêmes conditions nominales : standard 120 °C / 0.05 wt% / 1 h (conversion 24 en série teneur, 14 en série durée) ; écorces 130 °C / 0.25 wt% / 1 h (conversion 26 contre 10, sélectivité en oxyde 31 contre 27, verbénol 15 contre 19, verbénone 11 contre 7)",
+      "extracted": "Les deux jeux de valeurs sont extraits sous des noms différents (cat0.05wt% / T120C_cat0.05wt%_t1h ; cat0.25wt% / t1h) sans doute ni annotation signalant la divergence.",
+      "article_says": "about 10 g for testing the effect of temperature and content of the catalyst and about 20 g for testing the effect of the reaction time",
+      "fix": "ajouter un doute (et une mention dans limite_reproductibilite) : la série en durée est faite sur environ 20 g d'α-pinène contre environ 10 g pour les deux autres, ce qui explique probablement l'écart de conversion pour des conditions nominales identiques ; l'article ne le dit pas. Les valeurs elles-mêmes sont justes (tableau 2 et étiquettes des figures 9, 10, 12, 13 concordent).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ti-SBA-15_orange peels, outcomes : liquid_to_peel_waste_mass_ratio = 15:1",
+      "extracted": "rangé en RESULTAT (outcome) de la voie",
+      "article_says": "the mass ratio of liquid to peel waste was 15:1",
+      "fix": "c'est une donnée de recette (rapport liquide/écorces), pas un résultat : la déplacer en paramètre de l'étape 3 (ajout des écorces) ou la retirer des outcomes ; la masse de 13.33 g est déjà en réactif.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_auteurs, route Ti-SBA-15 (mécanisme d'oxydation)",
+      "extracted": "texte : centre Ti hydraté puis structure diradicalaire donnant l'oxyde d'α-pinène, et radicaux hydroxyle pour verbénol et verbénone ; citation : « In the formation of verbenol and verbenone hydroxyl radicals play a key role (Figure 15). »",
+      "article_says": "Figure 14 shows the way of formation to a diradical structure in a titanium silicate catalyst.",
+      "fix": "la citation n'appuie que la moitié verbénol/verbénone ; citer plutôt (ou aussi, via une seconde annotation) la phrase de la figure 14 pour la partie diradical et l'oxyde d'α-pinène (« Figure 15 shows a probable way of α-pinene oxide formation, during which a diradical structure is formed. »).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 2,
+    "branches_extracted": 2,
+    "not_stated_checked": 38,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "pureté et fournisseur de P123, TEOS, TiPOT, HCl (fournisseur) et eau : absents de l'article (la section 3.1 ne couvre que α-pinène, O2 et étalons de GC)",
+    "écart de masse de TEOS du témoin entre le texte (39.0 g) et le tableau 3 (37.20 g) ; HCl 10.5 (texte) contre 10.51 mL (tableau 3)",
+    "teneur de 0,5 % massique de Ti incompatible avec la charge de TiPOT (environ 2,6 % massique de Ti par rapport à la silice formée) : l'article ne dit pas si 0,5 % est nominal ou mesuré (le tableau 1 l'attribue à l'EDX)",
+    "origine, variété, granulométrie des écorces ; durée et température du premier séchage ; volume d'eau et durée du broyage ; type de broyeur",
+    "vitesse d'agitation du témoin et de la branche aux écorces ; température des 24 h de repos de la branche aux écorces ; nombre et volume des lavages ; atmosphère et vitesse de chauffe de la calcination",
+    "base de la teneur en catalyseur en % massique (par rapport à l'α-pinène supposé, non dit) ; absence de répétitions et d'incertitudes sur les tests catalytiques ; masse d'α-pinène différente selon la série (10 g contre 20 g)",
+    "méthodes de GC (colonne, programme de température) renvoyées à une publication antérieure (B58) ; sélectivités des produits minoritaires (campholénique, pinocarvéol, myrténal, myrténol, carvéol, carvone, pinanediol) lisibles seulement sur les figures 8 à 13",
+    "instruments d'UV-Vis et d'IRTF et conditions de mesure non donnés"
+  ],
+  "mechanism_check": "ok : les annotations de mécanisme sont soit des citations d'auteurs (avec réserves : « most likely », « it is difficult to describe precisely »), soit des hypothèses clairement rédigées comme telles ; seule la citation du mécanisme d'oxydation est partielle (voir constat 6)",
+  "notes": "Tableaux 1 à 3 lus rangée par rangée et comparés aux 260 valeurs de l'extraction : aucune valeur fausse ni mal attribuée (les 20 rangées de la série standard, les 21 de la série aux écorces et les rangées de chaque bloc du tableau 2 correspondent). Les 41 sélectivités « others » lues sur les figures 8 à 13 sont toutes à moins de 1 mol% de ma lecture (précision annoncée de 2 mol% respectée). Fragile : la lecture du bloc « première rangée = trois conditions, rangées suivantes = valeur variable » du tableau 2 est correcte et bien documentée par un doute. L'héritage de pureté « 37 % aqueous solution » du HCl vers la branche aux écorces (qui dit seulement « HCl ») n'est pas écrit par l'article ; je ne le retiens pas comme constat vu la règle d'héritage de la grille. L'essai d'hydrodistillation de 236.6 g d'écorces (2.34 g d'huile à ≈97 % de limonène) est correctement laissé sans voie. method_sources complet (B32 pour les deux synthèses, B50 appareillage, B58 analyses GC) ; les autres renvois sont des renvois de contexte ou d'interprétation."
+}

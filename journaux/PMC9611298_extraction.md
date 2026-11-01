@@ -1,0 +1,17 @@
+# Journal d'extraction PMC9611298
+
+- Découpage : un protocole unique (section 2.1) avec x = 0, 0,01, 0,02, 0,03. Voie de base = LiCoPO4@C (x = 0, référence sans Y) ; trois branches Y où seuls le dopant et le rapport de cobalt changent. L'article dit « synthesized by a one-step method » pour toute la série, donc héritage de toutes les étapes accepté.
+- Variation « dopant » (parent_value none) plutôt que choisir x = 0,02 comme base : x = 0 est l'échantillon de comparaison des auteurs ; cela déclenche 3 avertissements de nom, acceptés (règle RUNBOOK sur les réactifs ajoutés).
+- Quantités : l'article ne donne que le rapport molaire nLi:nCo:nY:nP:nCA = 1.05:1-1.5x:x:1:2. Aucune masse ni volume, donc `amount_text` et non `amount` ; ne pas calculer de quantités. Le « 1 » du cobalt à x = 0 vient de la formule 1-1.5x, signalé en doute.
+- Pureté et fournisseur : donnés entre parenthèses dans la phrase de dissolution pour les cinq réactifs (Sinopharm, ≥99,0 % à ≥99,9 %) ; l'eau déionisée n'a ni l'un ni l'autre, déclarée non citée.
+- Acide citrique : rôle `carbon_source` par déduction (carbone @C obtenu en une étape) ; l'article ne l'écrit pas, doute posé.
+- Calcination en deux étapes distinctes (400 °C air, 700 °C Ar) : deux étapes `calcine`, chacune avec sa grille ; montée en température, débit de gaz et mode de bascule air→Ar non cités.
+- Tableaux 1, 2, 4 : une rangée = un échantillon, rattachée par la formule (le tableau 1 écrit « @C », les tableaux 2 et 4 « /C »). Tableau 2 : deux valeurs sous « Oxidation Potential » lues comme deux pics (le texte donne 4.796 V et 4.892 V pour x = 0,02).
+- Cyclage et « respectively » : ordre « four electrodes » = x = 0, 0,01, 0,02, 0,03, confirmé par 148 mAh g−1 et 75 % pour x = 0,02 (résumé, tableau 3) et par la cohérence rétention = capacité à 80 cycles / capacité initiale.
+- Régime : x = 0 et x = 0,02 en texte (« about » pour x = 0). Pour x = 0,01 et 0,03, seule la valeur à 1 C est lue sur Fig. 9b (≈ 70 et ≈ 85 mAh g−1, ±5) ; les autres paliers sont illisibles car les courbes se recouvrent. 2 valeurs lues sur figure, 1 figure ouverte (Fig. 9) ; les autres figures ne portent pas de résultat absent du texte ou des tableaux.
+- Morphologie (≈ 200 nm) et couche de carbone de 5 nm : résultats de groupe donnés pour les quatre échantillons, rangés en une annotation `tendance_observee` et non copiés sur chaque voie. Idem pour la structure olivine Pnma (texte « all four »).
+- x = 0,03 : impureté YPO4 → `succeeded: false` selon la règle « phase impure », avec doute (les auteurs testent quand même l'échantillon).
+- FTIR : 979 cm−1 (x = 0,02) et 984 cm−1 (x = 0,03) extraits ; 987 cm−1 non attribué à x = 0 car le texte ne le dit pas explicitement.
+- Électrode et pile : voie `device` unique (pas de différence de préparation entre échantillons) ; seul le séchage 120 °C 12 h sous vide est décrit, la pâte (liant, additif, collecteur) n'est pas citée. Le séchage est placé avant l'assemblage car la phrase d'assemblage parle de « dried » cathode. Plage de fréquence EIS « 0.1 MHz to 10 MHz » reprise telle quelle (ordre inversé).
+- method_sources : B39 (Cr-LiCoPO4@C, mêmes auteurs) suit la phrase de calcination ; rôle `protocole_adapte` par prudence, sans compléter la voie. B14 et B25 sont des renvois de contexte (études antérieures sur l'effet du carbone) : non retenus.
+- Inventaire : 5 entrées, dont LiCoPO4 JCPDS 89-6192 (fiche de référence du tableau 1) sans voie.

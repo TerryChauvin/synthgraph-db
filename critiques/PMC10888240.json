@@ -1,0 +1,101 @@
+{
+ "pmcid": "PMC10888240",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "pH5 10, reagents 'sodium metasilicate nonahydrate' et 'nickel chloride hexahydrate', champ supplier_quote",
+   "extracted": "supplier_quote de 17 845 caractères : toute la fin de l'introduction, les Résultats, les Conclusions et le début des Méthodes (citation à ellipse mal bornée), identique pour les deux réactifs",
+   "article_says": "Chemically pure nickel chloride, NiCl2·6H2O, and oligomeric species of silicon(IV) oxide in the form of sodium metasilicate, Na2SiO3·9H2O, with a SiO2 content of 5.5 mass %, were used as starting materials (Sigma Aldrich, St. Louis, MO, USA).",
+   "fix": "remplacer les deux supplier_quote par cette seule phrase de 4.1 (elle donne « Chemically pure », la teneur 5.5 mass % et Sigma Aldrich)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "pH5 10, étapes 1 à 5 (température) ; annotation limite_reproductibilite manquante",
+   "extracted": "étapes 1 à 4 à 313 K (citées du protocole détaillé) ; étape 5 (ajout de NH3·H2O) : temperature not_stated ; aucun doute ni limite ne signale que l'article dit aussi température ambiante",
+   "article_says": "Chemically pure nickel chloride, NiCl2·6H2O, and sodium metasilicate, Na2SiO3·9H2O, with a SiO2 content of 5.5 mass %, were used as starting materials, and the sol-gel reaction was carried out at room temperature.",
+   "fix": "garder 313 K (cité, protocole détaillé) mais ajouter un doute et une annotation limite_reproductibilite : le résumé (« room-temperature processing »), l'introduction et les conclusions disent température ambiante, le protocole 313 K ; la température des étapes 5 à 8 (précipitation, lavages) est peut-être l'ambiante, laissée not_stated",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "pH3 10, pH5 10, pH8 10 : caractérisation IR après adsorption du bleu de méthylène",
+   "extracted": "présent seulement dans sample_inventory (route null, « no new preparation ») ; aucune caractérisation ni annotation ne porte le résultat",
+   "article_says": "The disappearance of the free silanol vibrations at 3750 cm−1 testifies to the involvement of the surface hydroxyl groups in the adsorption process.",
+   "fix": "ajouter une caractérisation FT-IR « après sorption de MB » (disparition de la bande des silanols libres à 3750 cm−1, aucune bande du MB visible : « No visible traces of bands associated with MB molecules can be seen. ») sur les routes pH3 10, pH5 10 et pH8 10, ou à défaut une annotation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Essai préliminaire de sorption (Fig. 8a pH de la solution, Fig. 8b dose), échantillons « 0/100 » et « 50/50 »",
+   "extracted": "valeurs de la figure seulement résumées dans deux annotations (pH 5 et pH 9 ; dose 2 g/L) ; pH 7 et doses 1, 3 et 4 g/L absents ; aucun résultat structuré",
+   "article_says": "Figure 8 Effect of the solution pH (a) and adsorbent dose (b) on methylene blue adsorption capacity on mesoporous Ni–silica samples.",
+   "fix": "lecture sur la figure (précision ≈ 2 mg/g) : Fig. 8a, 0/100 : 24 (pH 5), 40 (pH 7), 63,5 (pH 9) ; 50/50 : 19, 47,5, 60,5 mg/g. Fig. 8b, 0/100 : 32 (1 g/L), 51 (2), 47,5 (3), 51 (4) ; 50/50 : 34, 54, 52,5, 54 mg/g. À consigner dans l'annotation tendance_observee (ou en résultats from_figure sur une route rattachée si l'orchestrateur l'admet) avec la mention que 1 à 2 g/L donne ×1,6 comme le dit le texte",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "pH8 10 et pH8 50 : histogrammes de taille de particules (Fig. 3c, 3d)",
+   "extracted": "doute seulement (« modes autour de 150–250 nm ») ; aucune valeur en résultat",
+   "article_says": "Figure 3 SEM images of the studied xerogels and calculated particle size distributions: (a,c) sample “pH8 10”; (b,d) sample “pH8 50”.",
+   "fix": "lecture de la figure : pH8 10, classe la plus peuplée 150–200 nm (≈ 63 particules), queue jusqu'à ≈ 970 nm ; pH8 50, classe la plus peuplée 200–250 nm (≈ 33), queue jusqu'à ≈ 870 nm ; à noter en from_figure « Fig. 3c/3d » (mode) ou en annotation, avec le texte « typical size of 200–400 nm » pour tous les échantillons",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TGA_final_mass_at_end_of_curve (6 valeurs) et doute Figure 7",
+   "extracted": "atmosphère « non précisée dans la légende » ; la caractérisation TG-DSC cite azote et air sans dire lequel a servi à la Fig. 7",
+   "article_says": "Thermogravimetric analyses in synthetic air were performed on selected samples with 10:90 and 50:50 Ni/Si ratios",
+   "fix": "préciser « synthetic air » (section 2.6) dans la caractérisation TG-DSC et corriger le doute ; valeurs de la Fig. 7 relues : 95, 83, 96, 89, 88, 92 % à la fin des courbes (≈ 780 °C), identiques à l'extraction à ±1 point ; la perte d'eau initiale de 2 à 14 % (« The amount of water lost in this region is between 2 and 14%. ») n'est reprise nulle part",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "sample_inventory, results_in",
+   "extracted": "Fig. 4 (IR) listée pour pH5 10 seulement (la figure montre aussi pH3/5/8 00, 05, 10) ; Fig. 3 (MEB) absente pour pH8 10 et pH8 50",
+   "article_says": "Spectra for samples “pH3 10”, “pH5 10”, and “pH8 10” after methylene blue sorption are shown by blue line.",
+   "fix": "Fig. 4 montre pH3/5/8 00, 05 et 10 (plus 10 après MB) : l'ajouter à results_in de ces neuf échantillons ; ajouter Fig. 3 à pH8 10 et pH8 50. Fig. 5 (DRX) ne montre que 05, 15, 25, 50 : exact dans l'inventaire",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "pH5 05 et pH3 05 (noms contre colonne pH du tableau 1)",
+   "extracted": "colonne pH retenue (3 pour « pH5 05 », 5 pour « pH3 05 ») ; labels des auteurs gardés ; le doute envisage déjà l'autre lecture",
+   "article_says": "pH5 05 | 5 | 3 | 1074 | 0.32 | 5.5 | 0.66 | 2.5",
+   "fix": "ajouter au doute et à la limite de reproductibilité un indice que l'extracteur n'a pas noté : dans les figures 1, 4, 5 et 6, les panneaux sont titrés « pH 3 », « pH 5 », « pH 8 » (légende : « prepared in different pH conditions ») et « pH3 05 » est dans le panneau pH 3, « pH5 05 » dans le panneau pH 5. Les figures soutiennent donc le nom comme pH de synthèse ; les valeurs 1074 et 912 pourraient être permutées. Rien ne tranche : ne pas changer les données, enrichir le doute",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotations limite_reproductibilite : température de sorption",
+   "extracted": "conditions de sorption à 35 °C (Méthodes) ; rien ne relève que les conclusions écrivent « ambient temperature »",
+   "article_says": "Adsorption tests for methylene blue show sorption capacities reaching 39–42 mg/g at ambient temperature and alkaline pH.",
+   "fix": "noter l'écart (35 °C en 4.2.7 et Tableau 3, « ambient temperature » en conclusion) dans la limite de reproductibilité ; garder 35 °C, valeur citée",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 21,
+  "branches_extracted": 21,
+  "not_stated_checked": 30,
+  "not_stated_wrong": 0,
+  "table_values_checked": 114,
+  "table_values_wrong": 0,
+  "from_figure_checked": 6,
+  "from_figure_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masse de NiCl2·6H2O de tous les échantillons autres que pH5 10 (le tableau ne donne que Ni/Si en %, calculé ici ≈ 10 % de Ni/(Ni+Si) pour 1,21 g ; pas écrit dans l'article)",
+  "température réelle de la synthèse : 313 K (protocole détaillé) contre « room temperature » (résumé, introduction, conclusions) ; température des étapes 5 à 8 non donnée",
+  "concentration et volume de la solution de NH3·H2O ; concentration et volume de la solution de (NH4)2SO4 ; nombre exact de lavages (une lecture probable seulement)",
+  "durées de séchage (température ambiante, à l'air), agitation (vitesse, durée de la dissolution du tensioactif), méthode de séparation du précipité",
+  "atmosphère et vitesse de montée en température de la calcination (four à moufle à 923 K, 2 h)",
+  "nature exacte du métasilicate : « SiO2 content of 5.5 mass % » incompatible avec Na2SiO3·9H2O pur (≈ 21 % SiO2) ; solution ou solide ? Fournisseur et pureté du tensioactif, de l'acide et de l'ammoniaque ; rendement",
+  "procédure du Ni-free (0/100) et des échantillons 1/99 non décrite ; volume de la solution de MB non écrit (V = 50 mL se déduit seulement du tableau 3 : m = 0,1 g, V/m = 0,5 L/g)",
+  "incohérence interne des sorptions : qeq = α·C0/dose donnerait 0,931 × 160 mg/L / 2,0 g/L ≈ 74,5 mg/g pour pH3 00, contre 39,5 mg/g au tableau 2 (rapport qeq/α ≈ 0,42, soit C0 ≈ 85 mg/L) ; et Fig. 8 donne ≈ 51–63 mg/g à pH 9 : les conditions annoncées (0,5 mM, 2 g/L, V/m 0,5 L/g) ne reproduisent pas le tableau 2. À signaler par la critique scientifique et en limite de reproductibilité",
+  "pH de synthèse des échantillons 0/100 et 50/50 de l'essai préliminaire (Fig. 8) non donné"
+ ],
+ "mechanism_check": "ok : les trois mecanisme_auteurs sont dans le texte ; mecanisme_analyse est bien étiqueté hypothèse ; calcul vérifié (1,21 g NiCl2·6H2O = 5,09 mmol ; 13,01 g Na2SiO3·9H2O = 45,8 mmol Si ; Ni/(Ni+Si) = 10,0 %). securite_analyse suffisante (NiCl2 cancérogène par inhalation, acide, ammoniaque, calcination)",
+ "notes": "Les 21 échantillons, les 114 valeurs des tableaux 1 et 2 et les 6 valeurs de la Fig. 7 correspondent à l'article. method_sources (B64 seul) conforme à la règle du 2026-10-13 (B59/B60 Gurvich, B61–B63 instrument et logiciel exclus). Fragile : l'ambiguïté des noms pH5 05 / pH3 05, que rien dans l'article ne tranche ; la signification de « Ni/Si, % » (Ni/(Ni+Si) d'après le calcul) ; la citation à ellipse de 17 845 caractères, seule défaillance de forme sérieuse. La seconde étape de séchage et le lavage en une étape unique reflètent bien les deux descriptions de l'article ; je ne les conteste pas."
+}

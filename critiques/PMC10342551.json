@@ -1,0 +1,96 @@
+{
+ "pmcid": "PMC10342551",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "TiN_30min step 6 (deposit) parameters base_pressure et working_pressure; ordre avec l'étape 5",
+   "extracted": "base_pressure 0.75 mTorr et working_pressure 500 mTorr rangées dans l'étape 6 (dépôt, après introduction de N2)",
+   "article_says": "After the furnace was switched on, the base pressure and working pressure were set as t 0.75 mTorr and 500 m Torr, respectively.",
+   "fix": "L'article place le réglage des pressions après la mise en route du four, donc avant l'atteinte de 900 °C et l'introduction de N2 : les rattacher à l'étape 5 (chauffage) ou créer une étape distincte « régler pression de base et de travail » avant le dépôt ; ne pas affirmer qu'elles valent pendant le dépôt sans le dire (doute déjà noté sur leur incohérence avec 760 Torr).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TiN_30min reagent nitrogen gas, role",
+   "extracted": "role = gas",
+   "article_says": "N2 gas was used as precursor gas for the deposition of TiN coating over the Si substrate.",
+   "fix": "L'article appelle N2 « precursor gas » (source d'azote du TiN) : role `precursor` plutôt que `gas`. Le rôle `gas` reste admis par le RUNBOOK, d'où la gravité mineure.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiN_120min / toutes branches, outcomes qualitatifs de la conclusion et de 4.3-4.4 (épaisseur, densité de particules, limite d'élasticité)",
+   "extracted": "aucun résultat « épaisseur augmente avec la durée », « densité de particules augmente », « limite d'élasticité diminue » ; l'épaisseur est seulement dans missing_fields",
+   "article_says": "The coating thickness was also found to be increased.",
+   "fix": "Ajouter à chaque branche (ou en annotation tendance_observee) les tendances écrites par les auteurs : épaisseur en hausse avec la durée (conclusion), densité de distribution des particules en hausse (4.3 : « The increase in deposition time also resulted in an enhancement in particle distribution density. ») et réduction consécutive de la limite d'élasticité (« An increase in deposition time also resulted in the consecutive reduction in yield strength of the coating. »), en signalant que la courbe H3/E2 de la Fig. 7 n'est pas monotone (0,084 ; 0,072 ; 0,076 ; 0,062) alors que le texte écrit « consecutive reduction in H3/E2 ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "characterizations nanoindentation, conditions (constantes d'analyse de H et E)",
+   "extracted": "conditions : charge max 3 mN, 10 % de l'épaisseur, vitesse 0.67 mN/s, 50 m ns−1, déformation 0.011 s−1, dwell 2 s ; pas de constantes de calcul",
+   "article_says": "Young’s modulus and Poisson’s ratio of the indenter as 1141 GPa and 0.07",
+   "fix": "Ajouter aux conditions les constantes qui servent à calculer H et E : module et coefficient de Poisson de l'indenteur (1141 GPa, 0.07), β = 1.034 (Berkovich), coefficient de Poisson du film pris à 0.30 (l'article écrit « for TiCN thin film », probable reste d'un autre article : le signaler). Même chose pour la contrainte : seuls E et ν du substrat sont repris, ce qui est correct.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations pourquoi_ces_donnees (route null)",
+   "extracted": "« température (900 °C), débit d'azote (10 sccm), pression de travail et position du substrat sont maintenus constants »",
+   "article_says": "The deposition temperature for all sets of experiments was kept at 900 °C.",
+   "fix": "L'article dit constants la température (« for all sets of experiments ») et le débit de N2 (« During all sets of experiments, the flow rate of N2 gas kept constant at 10 sccm »). La pression de travail et la position du substrat ne sont pas dites identiques d'une durée à l'autre : retirer ces deux éléments de l'annotation ou écrire « supposées identiques, non précisé ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "doubts « Phase du matériau » (rapport Ti/N)",
+   "extracted": "« rapport Ti/N proche de 2,3 à 2,7 »",
+   "article_says": "N (at. %) | 9.63 ± 1.67 | 10.32 ± 1.17 | 10.98 ± 1.12 | 11.31 ± 0.76",
+   "fix": "Avec le tableau 2 (Ti 24.15, 25.22, 25.98, 26.12 ; N 9.63, 10.32, 10.98, 11.31) le rapport Ti/N vaut 2,51 ; 2,44 ; 2,37 ; 2,31 à 30, 60, 90, 120 min : écrire « 2,3 à 2,5 », pas 2,7. Aucune conséquence sur les données, seulement sur le texte du doute.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations limite_reproductibilite / tendance_observee : conflits tableau–conclusion non annotés",
+   "extracted": "Ra 120 min = 29.28 nm et H 120 min = 13.57 GPa retenus (tableau) ; les écarts avec la conclusion ne figurent que dans `doubts`",
+   "article_says": "The surface roughness of the coating evaluated using AFM was observed in the range of 21.26 to 29.68 nm.",
+   "fix": "Ajouter une annotation limite_reproductibilite : la conclusion donne Ra jusqu'à 29,68 nm (le tableau 3 répète 29.28 ± 0.63 à 90 et 120 min) et H jusqu'à 13,97 GPa (« 11.29 to 13.97 GPa », tableau et Fig. 8 : 13.57). Un lecteur de la fiche, qui ne voit pas les doutes, ne saura pas que ces deux valeurs sont douteuses.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TiN_30min CARAC EDS, résultat « traces of oxygen »",
+   "extracted": "Si (substrate) maximum, followed by Ti and N, with traces of oxygen",
+   "article_says": "with very few traces of oxygen",
+   "fix": "La phrase des auteurs est reprise fidèlement, mais elle contredit le tableau 2 (O = 16.96, 14.22, 13.09, 13.41 at. %, soit autant que N). Le résumé de la caractérisation EDS devrait le dire, ou renvoyer à l'annotation limite_reproductibilite (qui le dit déjà pour 13 à 17 at. %).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations / outcomes surface_morphology, contradiction interne du texte MEB",
+   "extracted": "120 min : « smoother surface morphology » ; rugosité qui augmente avec la durée (tendance_observee) sans signaler que le texte MEB dit les deux",
+   "article_says": "The TiN coating that was prepared at 120 min deposition time exhibited smoother surface morphology",
+   "fix": "Signaler dans une annotation que la même section 4.2 écrit aussi « with the increase in deposition time, the coating surface subsequently achieved higher roughness » et que l'AFM donne Rq et Rz maximaux à 120 min : le « plus lisse » du MEB (moins de piqûres) n'est pas la rugosité AFM.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "épaisseurs des films : profilomètre cité mais aucune valeur ; les cotes 16,8 et 18,23 µm de la Fig. 4 ne sont pas rattachées à une durée",
+  "montée en température, vitesse de chauffe, refroidissement après dépôt et sa durée absents",
+  "durée et moyen de purge, gaz de purge absents ; le procédé est dit APCVD (760 Torr) mais avec pression de base 0,75 mTorr et pression de travail 500 mTorr (incohérent)",
+  "composition, températures et durées du nettoyage RCA absentes ; renvoi vers un article de dépôt TiAlN (B19)",
+  "fournisseur de TiO2 et de Si, pureté de N2, forme de la poudre (« powder » dans le texte, « granules form » sur la Fig. 1) absents",
+  "position exacte du substrat dans le tube et sens du flux (Fig. 1 : gaz de droite à gauche, TiO2 en amont du substrat, ce que « 6 cm behind » ne dit pas), modèle et dimensions du four absents",
+  "aucune DRX : phase TiN non confirmée alors que l'EDS donne 13 à 17 at. % d'oxygène",
+  "durée de maintien en nanoindentation : 2 s (Méthodes) contre 10 s (4.4)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs reprend les quatre étapes de l'article ; l'analyse Opus-style de plausibilité est signalée comme hypothèse. Noter que la Fig. 1 étiquette l'évaporation thermique de TiO2 (« Thermal Evaporation ») alors que le texte parle de décomposition.",
+ "notes": "Extraction globalement très fidèle : les 4 échantillons (30, 60, 90, 120 min) sont tous présents, les 74 valeurs des tableaux 2 à 4, des paires AFM (« respectively ») et des phrases de résultats sont bien attribuées ; j'ai recalculé H3/E2 = H^3/E^2 à partir du tableau 4 (0,0843 ; 0,0720 ; 0,0759 ; 0,0618) : les lectures de la Fig. 7 (0,084 ; 0,072 ; 0,076 ; 0,062) sont justes à moins de 1 %. Fig. 8 : contrainte lue 0,52 / 0,63 / 0,65 / 0,81 GPa, conforme aux valeurs extraites ; dureté de la Fig. 8 conforme au tableau 4. Fig. 6 : déplacement max 125 nm (30 min) et ~123 nm (60 min) conformes. La Fig. 6 montre de petites marches sur la courbe rouge (60 min) près de 2000 et 3000 µN, alors que le texte dit qu'aucun pop-in n'est observé à 60 min : non signalé comme constat (désaccord figure-texte, le texte fait foi), à garder en tête. Fig. 5 : les échelles de hauteur AFM (30,3/−20,6 ; 26,0/−21,9 ; 55,7/−40,5 ; 72,7/−52,2 nm) ne sont pas extraites ; non signalées faute de texte. Pas de Supporting Information. method_sources : seul renvoi de méthode = RCA [B19], présent ; Oliver–Pharr (B26), Sneddon, Stoney sont des équations, exclues à bon droit. La durée de dépôt = durée du flux de N2 à 900 °C est en fait appuyée par 4.3 (« the higher duration of N2 low in the CVD chamber during deposition »), ce qui peut clore le premier doute. Quote d'unité : H et E du tableau 4 n'ont pas d'unité dans la citation, GPa vient de la conclusion (déjà en doute)."
+}

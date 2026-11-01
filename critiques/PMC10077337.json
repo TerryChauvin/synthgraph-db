@@ -1,0 +1,57 @@
+{
+ "pmcid": "PMC10077337",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "N,S-CDs outcome quantum_yield (conditions de mesure)",
+   "extracted": "quantum_yield = 0.2, sans condition ni référence ; aucune caractérisation « quantum yield » ; échantillon de référence absent de sample_inventory",
+   "article_says": "The reference quinine sulfate sample is prepared in 0.1 M sulfuric acid, where its quantum yield is 0.54 at 350 nm.",
+   "fix": "ajouter une entrée characterizations (technique « quantum yield », conditions : référence sulfate de quinine dans H2SO4 0,1 M, Φ = 0,54 à 350 nm, méthode relative ; longueur d'onde d'excitation de l'échantillon non citée) et, si voulu, la solution de référence à l'inventaire (route null)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "N,S-CDs outcomes (performances du capteur absentes alors que LOD/LOQ sont extraits)",
+   "extracted": "detection_limit_betrixaban 0.33 µM, quantification_limit 0.99 µM, optima pH 12 / 2 mL / 0.7 mL ; rien sur le temps d'incubation, la force ionique ni la plage linéaire",
+   "article_says": "the reaction was completed within one minute and remained stable for more than half an hour.",
+   "fix": "soit ajouter des outcomes (temps d'incubation : réaction complète en 1 min, stable > 30 min ; force ionique 0,1–2,0 M sans effet sur F0/F ; plage linéaire 1,0–100,0 µM), soit dire dans pourquoi_ces_donnees que seuls certains résultats du dosage sont repris et pourquoi (traitement incohérent LOD/LOQ repris, le reste non)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation pourquoi_ces_donnees / outcome optimum_cds_working_solution_volume (plage de volumes)",
+   "extracted": "« volume de solution de points de 0,3 à 1 mL » (reprend le texte)",
+   "article_says": "Different volumes of N,S-CDs solution were tried in the range of 0.3–1 mL to reach the highest F0/F value.",
+   "fix": "ajouter un doute ou une phrase de limite_reproductibilite : la Fig. 6c ne montre que 0,3 / 0,5 / 0,7 / 0,8 mL (aucun point à 1 mL), et la Fig. 6a a son maximum le plus haut à pH 12,2 (≈1,395) à côté de 12,0 (≈1,39), écart dans la précision de lecture ; ne pas changer la valeur 0,7 mL ni pH 12, que le texte donne",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs N,S-CDs (citation)",
+   "extracted": "quote « Doping nitrogen or sulfur atoms into the CDs leads to enhance the optical and electrical properties. » pour un texte qui parle aussi de formation de petits amas de carbone en quelques minutes",
+   "article_says": "All these defects were overcome by the utility of microwave, where the reaction was completed and the dots were formed within few minutes.",
+   "fix": "soit restreindre le texte de l'annotation à l'effet du dopage (ce que la citation soutient), soit citer la phrase ci-contre ; l'idée « petits amas de carbone » vient de la phrase HR-TEM, non citée dans cette annotation",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 0,
+  "branches_extracted": 0,
+  "samples_in_my_list": 7,
+  "samples_in_inventory": 6,
+  "not_stated_checked": 27,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "récipient de chauffage au micro-ondes : nature, volume, couvercle (la Fig. 2 dessine un bécher, schéma non cité dans le texte)",
+  "température atteinte ou réglage de puissance du four autre que le « 700 W » nominal ; critère « complete charring » non quantifié",
+  "durée de refroidissement, durée et méthode du mélange avec les 200 mL d'eau, type et porosité de la première filtration",
+  "volume final et concentration de la solution mère de points, durée de stockage permise ; la dilution de la solution de travail se fait à partir d'une « stock solution » jamais définie",
+  "rendement ou masse de points obtenue ; pureté des réactifs (saccharose, thiourée, eau distillée)",
+  "excitation et conditions du rendement quantique (longueur d'onde d'excitation, absorbance) non données",
+  "composition EDX (N 36,68 % pour S 1,83 %, somme 100,00 %) difficile à concilier avec 15 g de saccharose pour 3 g de thiourée ; pas de précision pondérale ou atomique"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs est honnête sur l'absence de mécanisme de formation ; mecanisme_analyse est étiqueté hypothèse. Seule la citation de mecanisme_auteurs ne couvre pas tout le texte (constat 4).",
+ "notes": "Extraction très fidèle : toutes les quantités, durées, vitesses, tailles, pics et pourcentages EDX vérifiés mot pour mot dans le texte, 27 cases not_stated recherchées sans en trouver une à tort. Choix d'extraction non contesté : pas de branche (aucun paramètre de synthèse varié ; pH, volumes de tampon et de points, force ionique relèvent du dosage), pas de voie device, method_sources vide (cit23 équation de rendement quantique, cit24 tampon Britton-Robinson crédité sans formule « according to », cit25-31 interprétation/équations, cit4 méthode HPLC de comparaison). Cas limite : cit24 (recette du tampon pH 2,5–12,2) pourrait être vue comme source de protocole d'essai ; je ne l'ai pas signalée car la recette est donnée en entier. Aucune valeur from_figure dans l'extraction. Figures ouvertes : Fig. 2 (cohérente avec le texte : 30 mL d'eau, 7 min, 200 mL d'eau, filtration, centrifugation, filtre seringue), Fig. 3 (histogramme de taille : mode vers 2–2,5 nm, borne 1,7–3,7 nm cohérente), Fig. 6."
+}

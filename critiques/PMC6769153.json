@@ -1,0 +1,72 @@
+{
+  "pmcid": "PMC6769153",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "CQD_300C outcome FTIR_CH2_peaks_incomplete_pyrolysis, et variation duration = '1 to 5 hours'",
+      "extracted": "Résultat du seul essai « 300 °C pendant 3 heures » (Fig. S5) rangé dans une branche dont la durée est « 1 to 5 hours ».",
+      "article_says": "QDs synthesis trial at 300 ºC for 3 hours. The presence of CH2 peaks in FTIR at 2921 and 2851 cm-1 shows incomplete pyrolysis of ground fennel powder.",
+      "fix": "La légende S5 donne explicitement 300 ºC et 3 h pour cet essai. Créer une branche CQD_300C_3h (parent CQD_500C_3h, temperature = 300 °C, duration = 3 hours citée de la légende S5) portant ce résultat, ou au minimum mettre la durée 3 hours dans CQD_300C. Sinon le résultat est rattaché à une plage de durées qu'il ne représente pas. Garder les branches 200/400 °C en plage 1 à 5 h sans résultat.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "CQD_500C_3h step 9 (collect / stockage) : conditions de stockage absentes",
+      "extracted": "Étape 9 sans paramètre ni not_stated ; seul le flacon en verre est noté.",
+      "article_says": "Storage of C-QDs at room temperature even after 15 month shows no sign of turbidity",
+      "fix": "Ajouter à l'étape 9 un paramètre storage_temperature = room temperature (value_text) avec cette citation (l'annexe S4 dit « ambient condition » pour la même série), ou le déclarer. La durée de stockage avant caractérisation n'est pas donnée : à mettre en not_stated.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "CQD_500C_3h outcomes PL_emission_peak_vs_pH / PL_excitation_dependence : nuance sur le décalage à pH 3 et 13 omise",
+      "extracted": "broad emission peak centered at 419 nm, independent of pH (pH 3 to 13)",
+      "article_says": "the emission PL peak of C-QDs in strong acidic (pH = 3) and basic media (pH = 13) shift towards the shorter and longer wavelength, respectively, however, the wavelength shift of as-synthesized C-QDs is not very significant",
+      "fix": "Compléter la valeur de PL_emission_peak_vs_pH (ou ajouter un outcome) : pic indépendant du pH, mais léger décalage vers le bleu à pH 3 et vers le rouge à pH 13 (Fig. S8), « not very significant ». Sinon « independent of pH » est plus fort que l'article.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "CQD_500C_3h characterizations TEM : conditions null alors que l'article donne l'échantillonnage",
+      "extracted": "conditions: null",
+      "article_says": "For the precise size distribution measurement, one hundred forty-eight (148) C-QDs nano-particles were taken into account, in total, forty-two high-resolution TEM images of C-QDs were recorded by scanning the random positions on to the TEM grid.",
+      "fix": "Renseigner conditions TEM : 148 particules mesurées, 42 images haute résolution, positions aléatoires sur la grille ; le diamètre moyen 3,90 ± 0,91 nm repose sur ce comptage.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "CQD_200C et CQD_400C material (name « fennel-seed pyrolysis product at … », family quantum_dot)",
+      "extracted": "family: quantum_dot pour des produits d'essais sans description ni résultat",
+      "article_says": "trials were done with temperature ranging from 200-, 300-, 400- to 500 °C for 1 to 5 hours.",
+      "fix": "L'article ne dit pas que des C-QDs se forment à 200, 300 ou 400 °C ; il dit même qu'une carbonisation insuffisante laisse un produit à mauvaise photoluminescence. Prudence sur la famille (autre/carbone ou garder en indiquant un doute) ; ces branches n'ont aucun résultat propre.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "CQD_longer_than_3h variation duration = « longer » (température 500 °C héritée)",
+      "extracted": "duration = longer, parent 3 hours, température 500 °C héritée du parent",
+      "article_says": "The fennel seed sample was fully carbonized at 500 °C for 3 hours, and keeping it longer has not resulted in any significant change in either PL or crystallinity.",
+      "fix": "Aucune durée ni température n'est chiffrée pour « longer » : branche sans valeur citée. Soit la garder avec doute déjà inscrit, soit transformer en résultat de la voie de base (outcome « durée plus longue sans changement de PL ni de cristallinité ») plutôt qu'en branche à part.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 5,
+    "branches_extracted": 5,
+    "not_stated_checked": 22,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "atmosphère de la pyrolyse (air libre, creuset couvert ou non), vitesse de chauffe, matière du creuset ; plaque chauffante : température de consigne vs température réelle de l'échantillon",
+    "masse initiale de graines broyées et taille de grain de la poudre ; durée du broyage ; un seul lot de graines commerciales (Swati, Inde), l'article note lui-même la variabilité saisonnière des sources naturelles",
+    "volume d'eau de dissolution, concentration, type de sonicateur (bain ou sonde), puissance",
+    "centrifugation : pas de force centrifuge relative ni de rotor ni de température",
+    "dialyse : seuil de coupure (MWCO) de la membrane, durée, milieu et volume, nombre de changements ; Float-A-Lyzer G2 existe en plusieurs seuils",
+    "rendement massique absent ; concentration finale de la dispersion absente",
+    "essais d'optimisation (200–500 °C, 1–5 h) décrits en une phrase : combinaisons température-durée réellement essayées et spectres FTIR (seule Fig. S5 donnée, pour 300 ºC / 3 h)",
+    "conditions de mesure : éluant de la TLC, méthode du rendement quantique (absolue ou relative), paramètres XPS/DLS non détaillés"
+  ],
+  "mechanism_check": "ok",
+  "notes": "Le texte principal ne décrit qu'une seule synthèse ; tout le reste (PL à pH 3-13 et excitations 200-340 nm, PCA, MCR-ALS, NMF) est de la caractérisation et de l'analyse de données, correctement exclu des branches. Aucun renvoi de méthode ([[CRn]]) dans une phrase de préparation de corpus/refs : method_sources vide est correct (les renvois portent sur des attributions de bandes, des comparaisons de littérature et des algorithmes). Les 22 cases not_stated vérifiées sont toutes bien déclarées. Fragile dans ma lecture : le découpage des essais de la phrase « 200-, 300-, 400- to 500 °C for 1 to 5 hours » (branche par température listée, durée en plage) respecte la règle 31 du RUNBOOK ; le doute porte seulement sur la branche 300 °C / 3 h de la légende S5. Les doutes de l'extraction mentionnent encore CQD_1h et CQD_5h (retirées par l'orchestrateur), c'est cohérent avec la note entre crochets. L'annotation mecanisme_analyse suppose probablement une pyrolyse à l'air libre, formulée comme hypothèse, ce qui est acceptable."
+}

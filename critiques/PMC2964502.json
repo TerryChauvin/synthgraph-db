@@ -1,0 +1,105 @@
+{
+  "pmcid": "PMC2964502",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "mineur",
+      "where": "TiO2_HCl_0.1-1M / TiO2_HCl_2-7M contre TiO2_HCl_0.1M, 0.5M, 1M, 2M, 3M, 4M, 5M, 6M, 7M (doublon de branches)",
+      "extracted": "Deux branches de plage (0.1 to 1 M ; 2 to 7 M) coexistent avec les dix branches de valeur ; les résultats phase et anatase_content des branches 0.1, 0.5, 1 M (et phase de 2, 3, 4, 5, 6, 7 M) recopient mot pour mot la même citation de plage que la branche de plage",
+      "article_says": "Figure 3 XRD patterns of hydrothermally synthesized TiO2 products in different HCl solutions. a 0.1 M b 0.5 M c 1 M d 2 M e 3 M f 4 M g 5 M h 6 M i 7 M j 8 M",
+      "fix": "Les dix concentrations sont listées par la légende de la figure 3 : ce sont les vraies conditions. Les deux branches de plage ne sont pas une condition distincte (RUNBOOK : une branche par valeur listée, jamais pour une plage). Garder les branches de valeur ; ne laisser les résultats de plage que sur un seul niveau (soit déplacer sur les branches de valeur les résultats de plage que le texte donne explicitement pour toute la plage, soit garder les branches de plage uniquement comme porteuses de résultats de plage sans recopier phase et anatase_content sur les deux niveaux). À défaut, au minimum signaler dans la comparaison que 0.1-1M et 0.1M/0.5M/1M ne sont pas des échantillons différents (compare.py les compterait deux fois).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "TiO2_HCl_3M, TiO2_HCl_4M, TiO2_HCl_5M, TiO2_HCl_7M morphology",
+      "extracted": "morphology: null sur les branches 3, 4, 5 et 7 M",
+      "article_says": "Figure 6b–6e shows the TiO2 nanostructures composed of aligned nanorods and irregular nanoparticles obtained with further increase in the HCl concentration from 2 to 7 M.",
+      "fix": "La légende de la figure 6 dit « a 1 M b 3 M c 4 M d 5 M e 7 M f 8 M » : les images 6b-6e sont précisément les échantillons 3, 4, 5 et 7 M. Donner à ces quatre branches la morphologie « aligned nanorods and irregular nanoparticles » (résultat morphology, même citation). Les échantillons 2 et 6 M n'ont pas d'image dans la figure 6 : ne rien leur attribuer par la figure (seule la phrase de plage 2 à 7 M les couvre).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "attribution",
+      "where": "TiO2_HCl_2-7M outcome band_gap = 2.94 eV",
+      "extracted": "band_gap 2.94 eV attaché à la branche 2 à 7 M",
+      "article_says": "The band gap of TiO2 decreased to about 2.94 eV resulting from mixture anatase and rutile phase by increasing HCl concentration from 1 to 6 M.",
+      "fix": "La plage du texte pour 2,94 eV est 1 à 6 M, pas 2 à 7 M (1 M est pourtant décrit ailleurs comme anatase pure, 7 M exclu). Ne pas présenter 2,94 eV comme valeur de la plage 2-7 M : soit le passer en value_text « about 2.94 eV (1 to 6 M) » sans le rattacher à une valeur de concentration, soit le retirer de la branche et le garder dans les doutes ; la citation actuelle est juste mais le rattachement à 7 M (et l'exclusion de 1 M) est une lecture. Le doute existant en parle déjà.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "TiO2_HCl_1M outcome particle_diameter = 18 nm (et material.morphology)",
+      "extracted": "particle_diameter 18 nm sur la branche 1 M, avec la citation de plage « range below 1 M »",
+      "article_says": "First, irregular size of aggregated nanoparticles with a mean particle diameter of 18 nm was observed in Fig. 6a for HCl concentration range below 1 M.",
+      "fix": "La valeur n'est liée à 1 M que par la légende de la figure 6 (« a 1 M »), alors que la phrase dit « range below 1 M » ; elle n'est pas donnée pour 0.1 ni 0.5 M. Le rattachement à 1 M est donc raisonnable (l'image 6a est l'échantillon 1 M) mais il vient de deux passages, pas de la citation. Garder la valeur sur 1 M et sur la plage 0.1-1 M, ajouter la mention de la légende dans le doute existant et ne pas la copier sur 0.1 M et 0.5 M. La citation seule ne prouve pas « 1 M ».",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "TiO2_HCl_0.1-1M et TiO2_HCl_2-7M characterizations HRTEM/SAED (rattachement à la plage)",
+      "extracted": "HRTEM 0.352 nm, HRTEM 0.354/0.325 nm et SAED rattachés aux branches de plage",
+      "article_says": "Images of ghi are the HRTEM images for 1 M, 4 M, 8 M sample, respectively",
+      "fix": "La légende donne l'échantillon de chaque image : 6g = 1 M, 6h = 4 M, 6i = 8 M ; l'inset SAED de 6a est 1 M, celui de 6d est 5 M. Le HRTEM 0.352 nm et la SAED de 6a devraient figurer aussi sur la branche 1 M (absentes), le HRTEM 6h sur la branche 4 M et la SAED de 6d sur la branche 5 M. Aujourd'hui ces observations sont seulement sur les branches de plage.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "method_sources B16, B22, B23 (role)",
+      "extracted": "role: protocole_complet pour les trois renvois",
+      "article_says": "CTAB/TiO2 hexagonal structures were prepared in the following procedures",
+      "fix": "Les renvois B16, B22, B23 suivent la phrase d'introduction du protocole, mais l'article écrit ensuite lui-même toutes les quantités, la température et les durées (2.4 g, 25 mL, 60 mM, 12 h à 50 °C, 120 °C). Il ne renvoie donc pas le protocole : « protocole_complet » (protocole entièrement délégué) est excessif. Mettre role « autre » (publications antérieures de la même préparation), sans rien ajouter de ce qu'elles contiennent. Les trois renvois sont bien des renvois de méthode et il n'en manque aucun pour la préparation (les autres renvois B13, B18, B19, B20, B21, B26-B29 sont dans l'introduction ou le mécanisme, pas dans une phrase de préparation de cet article).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "method_sources B5 et B25 (route TiO2_HCl_protocol), doublon B25",
+      "extracted": "B5 (équation de la teneur en anatase) et B25 (Scherrer) en role autre, B25 saisi deux fois pour la même voie",
+      "article_says": "Average crystallite sizes of all the products were estimated using Scherrer equation",
+      "fix": "B5 et B25 portent sur des calculs de caractérisation, pas sur la préparation : au sens strict du point 8 ce sont des entrées « faux » (renvoi qui ne porte pas sur la méthode de synthèse). Au minimum supprimer le doublon B25 (deux entrées, même route, même ref_id) ; décider avec l'orchestrateur si les renvois d'analyse restent.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "TiO2_HCl_2-7M outcome crystallite_size = « increased slightly »",
+      "extracted": "crystallite_size: increased slightly (citation « for the HCl concentration >1 M »)",
+      "article_says": "increased slightly for the HCl concentration >1 M",
+      "fix": "La citation parle de toutes les concentrations > 1 M, 8 M compris, où la taille retombe à 14.5 nm (même paragraphe) ; elle n'est donc pas propre à la plage 2-7 M. Soit la retirer de cette branche, soit en faire une tendance (annotation), pas un résultat de branche.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "résultats par concentration des figures 4, 5 et 7 (anatase %, taille de cristallite, bande interdite)",
+      "extracted": "pas de valeur propre pour 0.1, 0.5, 1, 2, 3, 6, 7 M ; 4, 5 et 8 M partiels",
+      "article_says": "Figure 5 shows the average grain sizes of the TiO2 samples hydrothermally synthesized with increased HCl concentrations.",
+      "fix": "Les valeurs par échantillon n'existent que sur des figures (4 : fraction d'anatase, 5 : taille, 7 : spectres avec bandes interdites calculées en inset, échantillons 1, 3, 5, 7, 8 M d'après la légende). corpus/fig/PMC2964502 est absent : ce n'est un défaut d'extraction que si les figures sont récupérées (enrich.py figs) ; sinon à noter dans limite_reproductibilite, ce qui est déjà fait en partie.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation resume (texte)",
+      "extracted": "« squelette hexagonal de titane nanocristallin »",
+      "article_says": "hexagonal-structured assemblies of nanocrystalline titiania templated by cetyltrimethylammonium bromide",
+      "fix": "Il s'agit de titania (oxyde de titane nanocristallin), pas de titane métallique : écrire « de dioxyde de titane (titania) nanocristallin ».",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 11,
+    "branches_extracted": 14,
+    "not_stated_checked": 33,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "concentration de l'HCl concentré de départ (jamais donnée) et pureté de HCl",
+    "teneur réelle en TiO2 / stœchiométrie de TiOSO4 · xH2SO4 · xH2O (x inconnu, pureté non citée) : la quantité de titane n'est pas connue à partir de 2,4 g",
+    "durée de dissolution de TiOSO4 et vitesse d'agitation ; vitesse d'agitation de la dispersion de 0,5 h",
+    "durée et vitesse de centrifugation, volume et nombre de lavages (« several times »), méthode de filtration",
+    "durée « overnight » du séchage à 120 °C et à 60 °C, pression du four sous vide",
+    "taux de remplissage de l'autoclave (30 mL dans un récipient de 50 mL, jamais écrit comme taux), vitesse de chauffe et de refroidissement",
+    "rendement des deux étapes, quantité de CTAB en masse (seule la solution à 60 mM est donnée), pureté de CTAB",
+    "valeurs par échantillon des figures 4, 5 et 7 (seulement graphiques) ; pas d'image MET pour les échantillons 2 et 6 M",
+    "aucun Supporting Information : rien à vérifier côté annexe"
+  ],
+  "mechanism_check": "ok : les trois mecanisme_auteurs sont appuyés par une citation de l'article (hydrolyse promue par les micelles de CTAB, transformation in situ de 0.1 à 7 M, dissolution-recristallisation à 8 M) ; le mecanisme_analyse est rédigé comme hypothèse. Le résumé « titane » est à corriger en titania.",
+  "notes": "Réponses aux points demandés. (1) Phases des 7 branches ajoutées : écrites par l'article mais pas échantillon par échantillon. Elles viennent de deux phrases de plage (« from 0.1 to 1 M ... pure anatase phase in Fig. 3a–3c » ; « from 2 to 7 M, a mixture of anatase and rutile ... Fig. 3d–3i ») combinées à la légende de la figure 3 qui donne les lettres a-j = 0,1 ; 0,5 ; 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 M. Ce rattachement lettre-concentration est cohérent (3a-3c = 0,1/0,5/1 M ; 3d-3i = 2 à 7 M) donc pas de valeur fausse ; mais la citation de chaque branche ne contient pas sa propre concentration. Point de tension : « decreases to zero with further increasing HCl concentration from 6 to 8 M » et « the content of anatase decreased and the content of rutile increased in the range of 1–5 M » laissent 1 M et 6 M moins nets que 0,1/0,5 M, mais la phrase de plage 2-7 M les couvre explicitement ; 1 M est classé anatase pure par « 0.1 to 1 M » et par « those treated with 1 and 8 M HCl ». (2) Doublon : confirmé, voir le premier constat (mêmes citations recopiées sur deux niveaux). Les branches 4 M et 5 M sont les seules à porter un résultat propre au texte (19 nm, rutile maximal). (3) 18 nm sur la branche 1 M : lié à 1 M par la légende de la figure 6 (a = 1 M), pas par la phrase (« range below 1 M ») ; le texte est lui-même ambigu sur l'inclusion de 1 M (« below 1 M » contre « 0.1–1 M »). (4) B16, B22, B23 : vrais renvois de méthode (la préparation du squelette) mais le rôle « protocole_complet » n'est pas juste puisque l'article donne lui-même toutes les quantités. Fragile dans ma lecture : l'affectation par la légende (lettres des figures) dépend d'un texte où la phrase dit « below 1 M » alors que la légende place 6a à 1 M ; je n'ai pas pu consulter les figures (absentes du dossier corpus/fig). Fill fraction : 30 mL dans 50 mL est déduisible (60 %) mais non écrit, donc à juste titre déclaré non cité."
+}

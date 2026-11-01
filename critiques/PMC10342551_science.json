@@ -1,0 +1,388 @@
+{
+ "pmcid": "PMC10342551",
+ "routes": [
+  {
+   "label": "TiN_30min",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "moles de TiO2 dans la nacelle",
+     "inputs": "20 g TiO2 ; M = 79,87 g/mol (Ti 47,867 ; O 15,999)",
+     "formula": "n = m / M",
+     "result": "0,250 mol",
+     "compared_to": "source de Ti largement en excès vis-à-vis d'un film de quelques µm sur 1 cm² (quantité de matière non limitante ; c'est le transport qui l'est)",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "débit molaire de N2",
+     "inputs": "10 sccm ; volume molaire normal 22 414 cm³/mol (0 °C, 1 atm)",
+     "formula": "n' = Q / Vm ; n = n' × t",
+     "result": "4,46 × 10⁻⁴ mol/min ; 13,4 mmol en 30 min ; 53,5 mmol en 120 min",
+     "compared_to": "N2 non limitant en quantité ; le blocage est thermodynamique (voir ΔrG)",
+     "source": "valeurs de l'article ; définition du sccm"
+    },
+    {
+     "what": "ΔrG de la réaction écrite par les auteurs TiO2 + ½ N2 → TiN + O2 à 298 K",
+     "inputs": "ΔfG°(TiO2, rutile, 298 K) = −889,4 kJ/mol ; ΔfG°(TiN, 298 K) ≈ −336 + 298,15 × 0,0957 = −307,5 kJ/mol",
+     "formula": "ΔrG = ΔfG(TiN) − ΔfG(TiO2)",
+     "result": "+582 kJ/mol",
+     "compared_to": "réaction très défavorable",
+     "source": "NIST-JANAF (TiO2, O-043) ; webqc.org pour TiN (source secondaire)"
+    },
+    {
+     "what": "ΔrG et constante d'équilibre de TiO2 + ½ N2 → TiN + O2 à 900 °C",
+     "inputs": "approximation d'Ellingham (ΔH, ΔS constants) : ΔfH(TiO2) = −944,7 kJ/mol et ΔfS(TiO2) = −185,3 J/(mol·K) (S° TiO2 50,6 ; Ti 30,7 ; O2 205,2, valeurs de manuel) ; ΔfH(TiN) ≈ −336 kJ/mol, ΔfS(TiN) ≈ −95,7 J/(mol·K) ; T = 1173 K",
+     "formula": "ΔfG(T) = ΔfH − TΔfS ; ΔrG = ΔfG(TiN) − ΔfG(TiO2) ; K = exp(−ΔrG/RT) = p(O2)/p(N2)^½",
+     "result": "ΔfG(TiO2) ≈ −727 kJ/mol ; ΔfG(TiN) ≈ −224 kJ/mol ; ΔrG ≈ +504 kJ/mol ; K ≈ 4 × 10⁻²³ → p(O2) d'équilibre ≈ 4 × 10⁻²³ bar sous 1 bar de N2",
+     "compared_to": "« TiO2 →(N2, 900 °C) TiN + O2 » écrit dans les Méthodes : impossible sans réducteur ; une erreur de ±30 kJ/mol sur les données ne change pas la conclusion",
+     "source": "NIST-JANAF (TiO2) ; webqc.org (TiN) ; arithmétique"
+    },
+    {
+     "what": "pression d'O2 d'équilibre de la « décomposition » TiO2 → Ti + O2 à 900 °C",
+     "inputs": "ΔfG(TiO2, 1173 K) ≈ −727 kJ/mol",
+     "formula": "p(O2) = exp(ΔfG / RT)",
+     "result": "≈ 4 × 10⁻³³ bar",
+     "compared_to": "« TiO2 decomposes to form titanium (Ti) and oxygen (O) atoms » à 900 °C : exclu, même sous la pression de base annoncée (0,75 mTorr ≈ 1 × 10⁻⁶ bar)",
+     "source": "NIST-JANAF (TiO2) ; arithmétique"
+    },
+    {
+     "what": "conversion des pressions annoncées",
+     "inputs": "760 Torr ; 0,75 mTorr ; 500 mTorr ; 1 Torr = 1,333 mbar",
+     "formula": "p(bar) = p(Torr) × 1,01325 / 760",
+     "result": "760 Torr = 1,013 bar ; 0,75 mTorr = 1,0 × 10⁻⁶ bar ; 500 mTorr = 6,7 × 10⁻⁴ bar",
+     "compared_to": "« APCVD » (pression atmosphérique) contre pression de travail 1500 fois plus basse : basse pression (LPCVD), pas APCVD",
+     "source": "valeurs de l'article ; conversion d'unités"
+    },
+    {
+     "what": "composition EDS à 30 min : rapports atomiques",
+     "inputs": "Si 49,26 ; Ti 24,15 ; N 9,63 ; O 16,96 at. %",
+     "formula": "N/Ti ; (N+O)/Ti ; Ti restant après TiO2 si tout O est dans TiO2 = Ti − O/2",
+     "result": "N/Ti = 0,40 ; (N+O)/Ti = 1,10 ; Ti restant = 15,67 at. % pour 9,63 N (rapport 1,63)",
+     "compared_to": "TiN stœchiométrique N/Ti = 1 ; le film est au mieux un oxynitrure Ti(O,N) ou un mélange riche en O ; N sous-stœchiométrique même si tout l'O était lié à Ti",
+     "source": "valeurs du tableau 2 de l'article"
+    },
+    {
+     "what": "profondeur de pénétration électronique dans TiN (Kanaya–Okayama)",
+     "inputs": "E0 = 20 kV supposé (tension non donnée) ; TiN : A moyen ≈ 31 g/mol, Z moyen ≈ 14,5, ρ = 5,4 g/cm³",
+     "formula": "R(µm) = 0,0276 A E0^1,67 / (Z^0,89 ρ)",
+     "result": "R ≈ 2,2 µm",
+     "compared_to": "Si à 49–50 at. % dans tous les échantillons : incompatible avec un film continu de 16,8–18,2 µm (fig. 4) ; le film est mince (< ~2 µm) ou discontinu",
+     "source": "formule de Kanaya–Okayama (manuels de microanalyse) ; ρ(TiN) ≈ 5,4 g/cm³ valeur de manuel"
+    },
+    {
+     "what": "vitesse de croissance impliquée par la coupe MEB",
+     "inputs": "18,23 µm (fig. 4) ; durée maximale 120 min",
+     "formula": "v = e / t",
+     "result": "≥ 0,15 µm/min soit ≥ 9 µm/h",
+     "compared_to": "vitesse élevée pour une source de Ti sans espèce volatile ; à rapprocher de l'absence de transport en phase gazeuse (p(O2) ≈ 10⁻³³ bar)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "épaisseur minimale imposée par la règle des 10 %",
+     "inputs": "déplacement maximal 125,22 nm (30 min) ; pénétration ≤ 10 % de l'épaisseur",
+     "formula": "e ≥ h_max / 0,10",
+     "result": "e ≥ 1,25 µm",
+     "compared_to": "compatible avec la fig. 4 mais non vérifiable : aucune épaisseur par échantillon n'est donnée",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "indice H³/E² recalculé à 30 min",
+     "inputs": "H = 11,29 GPa ; E = 130,63 GPa",
+     "formula": "H³/E²",
+     "result": "0,0843 GPa ; H/E = 0,086",
+     "compared_to": "0,084 lu sur la fig. 7 : cohérent",
+     "source": "valeurs du tableau 4"
+    },
+    {
+     "what": "module biaxial du substrat pour Stoney",
+     "inputs": "Es = 127 GPa ; νs = 0,27 (valeurs de l'article)",
+     "formula": "Es / (1 − νs)",
+     "result": "174 GPa",
+     "compared_to": "module biaxial de Si(100) ≈ 180 GPa (valeur de manuel) : ordre de grandeur correct ; mais ni courbures ni épaisseurs ne sont données, la contrainte n'est pas recalculable",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "La réaction écrite par les auteurs (TiO2 + N2 → TiN + O2 à 900 °C) exige de réduire Ti(IV) en Ti(III) sans aucun réducteur : ΔrG ≈ +504 kJ/mol à 1173 K, K ≈ 4 × 10⁻²³ (calcul « ΔrG et constante d'équilibre… à 900 °C »). N2 n'est pas un réducteur. La nitruration de TiO2 en TiN demande NH3 (TiN dès 800 °C, pur à 1000 °C en 5 h) ou un réducteur carboné/H2 ; la CVD classique de TiN part de TiCl4 + N2 + H2.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Nitruration sous NH3/Ar de nano-TiO2 (synthèse hydrothermale en flux continu) : TiN dès 800 °C, TiN pur à 1000 °C en 5 h (titre exact non relu, résumé seulement)",
+      "authors_or_publisher": "Z. Zhang, J. A. Darr, Journal of the European Ceramic Society (dépôt ORCA Cardiff)",
+      "year": "2009",
+      "url_or_doi": "https://orca.cardiff.ac.uk/6180"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La « décomposition de TiO2 en atomes de Ti et O » à 900 °C est exclue : p(O2) d'équilibre ≈ 4 × 10⁻³³ bar (calcul « pression d'O2 d'équilibre… »). TiO2 fond vers 1843 °C (valeur de manuel) : la « fusion et évaporation soudaine des particules de poudre » invoquée en conclusion pour expliquer les agglomérats est impossible à 900 °C. Aucune espèce volatile de Ti n'existe dans ce système ; le transport de Ti sur 6 cm « par diffusion de molécules de TiN » n'a pas de sens physique (TiN n'est pas une molécule gazeuse à 900 °C).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "NIST-JANAF Thermochemical Tables, TiO2 (rutile) — ΔfG°(298,15 K) = −889,406 kJ/mol",
+      "authors_or_publisher": "NIST (M. W. Chase, NIST-JANAF Tables, 4e éd.)",
+      "year": "1998",
+      "url_or_doi": "https://janaf.nist.gov/tables/O-043.html"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Pressions contradictoires : procédé dit APCVD (pression atmosphérique), « purge » en maintenant la chambre à 760 Torr (ce qui n'évacue rien), puis pression de base 0,75 mTorr (1 × 10⁻⁶ bar) et de travail 500 mTorr (6,7 × 10⁻⁴ bar) (calcul « conversion des pressions »). Un dépôt à 500 mTorr est une CVD basse pression ; on ne sait pas lequel des deux régimes a été utilisé, ce qui change le libre parcours moyen et tout transport éventuel.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le bilan EDS ne correspond pas à TiN : N/Ti = 0,40 à 30 min (0,43 à 120 min), O à 13–17 at. %, (N+O)/Ti ≈ 1,0–1,1 (calcul « composition EDS à 30 min »). Le dépôt est au mieux un oxynitrure Ti(O,N) ou un mélange TiO2/TiOx avec peu d'azote ; aucune DRX ne permet de trancher.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : la raie N-K (392 eV) recouvre la raie Ti-Ll (395 eV) ; sans déconvolution ni étalons, l'EDS surestime l'azote dans les nitrures de titane avec une grande dispersion entre laboratoires. Les 9–11 at. % de N peuvent donc être en partie un artefact du Ti. Il faudrait DRX (rocksalt TiN, a ≈ 4,24 Å, contre rutile/anatase), XPS (Ti 2p, N 1s) ou WDS avec étalons.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "An interlaboratory comparison of energy dispersive X-ray microanalysis (EDX) of titanium and zirkonium nitrides",
+      "authors_or_publisher": "M. Procop, A. Röder, Mikrochimica Acta 125, 33–39",
+      "year": "1997",
+      "url_or_doi": "10.1007/BF01246159"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Dureté 11,3–13,6 GPa et module 131–201 GPa : ce sont les valeurs du silicium monocristallin (H ≈ 12,2 GPa, module effectif ≈ 173 GPa en Berkovich ; l'article prend lui-même Es = 127 GPa pour Si), et très loin de TiN CVD (27–30 GPa, 355–472 GPa d'après le tableau 1 de l'article). Le pop-in à 30 min est la signature classique de la transformation de phase Si-I → Si-II sous l'indenteur, que les auteurs évoquent sans la relier au substrat. Les mesures décrivent probablement le substrat ou un film poreux/discontinu, pas un TiN dense.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Simplified calculation of indentation contact deformation of monocrystalline silicon",
+      "authors_or_publisher": "Ge, Wang, Zhang, Optics and Precision Engineering 30(11), 1317",
+      "year": "2022",
+      "url_or_doi": "10.37188/OPE.20223011.1317"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : Si reste à 49–50 at. % de 30 à 120 min alors que la conclusion affirme que l'épaisseur augmente et que la fig. 4 montre 16,8–18,2 µm ; avec une pénétration électronique ≈ 2 µm (calcul Kanaya–Okayama), un film continu de cette épaisseur masquerait totalement Si. Soit le film est mince ou discontinu, soit la coupe de la fig. 4 ne montre pas le film.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire et logique mécanique : H³/E² est un indice de résistance à la déformation plastique, pas une grandeur proportionnelle à la limite d'élasticité ; celle-ci suit H (relation de Tabor, H ≈ 3σy). Conclure à une « baisse de la limite d'élasticité » alors que H augmente de 11,3 à 13,6 GPa est contradictoire. Le texte annonce aussi une « réduction consécutive » de H³/E² alors que la valeur recalculée remonte de 0,072 à 0,076 entre 60 et 90 min. Le coefficient de Poisson « du film TiCN » (0,30) est celui d'un autre matériau.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contrainte résiduelle par Stoney : ni rayons de courbure avant/après, ni méthode de mesure de la courbure, ni épaisseur de film par échantillon ne sont donnés ; les valeurs 0,52–0,81 GPa ne sont pas recalculables. L'explication « augmentation du % massique de Ti » n'est pas un mécanisme de contrainte (les contraintes thermiques TiN/Si au refroidissement depuis 900 °C seraient l'explication habituelle).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Une croissance ≥ 9 µm/h (calcul « vitesse de croissance ») serait élevée même pour une CVD TiCl4–N2–H2 ; ici il n'existe pas de précurseur volatil de Ti. Ce chiffre renforce l'hypothèse d'un dépôt de particules de poudre transportées mécaniquement (agglomérats, piqûres, fissures décrits au MEB) plutôt que d'une croissance CVD.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Dépôt CVD de TiN non stœchiométrique à partir de TiCl4–N2–H2 (rapport N/Ti minimal 0,63)",
+      "authors_or_publisher": "F. Teyssandier, C. Bernard, M. Ducarroir, J. Mater. Sci. 23, 135–140",
+      "year": "1988",
+      "url_or_doi": "10.1007/BF01174044"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "900 °C dans un tube céramique est compatible avec le substrat Si (fusion 1414 °C, valeur de manuel) ; montée, refroidissement et atmosphère de refroidissement non donnés : à 500 mTorr, l'O2 résiduel et les fuites suffisent à oxyder Ti, ce qui peut expliquer 13–17 at. % d'O.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dangers non écrits : nettoyage RCA (SC-1 NH4OH/H2O2 vers 75–80 °C, décomposition exothermique de H2O2 ; SC-2 HCl/H2O2 ; bain HF souvent associé), four tubulaire à 900 °C, poudre fine de TiO2 (inhalation ; classée cancérogène possible par inhalation, CIRC groupe 2B), N2 asphyxiant en local confiné. Risques modérés, équipement standard.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le mécanisme des auteurs (décomposition de TiO2 en atomes, réaction gaz–solide avec N2, diffusion de « molécules de TiN ») est thermodynamiquement exclu à 900 °C sans réducteur. Mécanisme le plus probable, à vérifier : aucune espèce de Ti n'est transportée en phase gazeuse ; des grains de la poudre de TiO2 atteignent le substrat de façon mécanique (entraînement par le flux ou lors du pompage et de la remise à l'air), d'où les agglomérats, piqûres et fissures ; sous faible p(O2) le TiO2 peut être légèrement sous-stœchiométrique (TiO2−x), mais pas nitruré. L'« azote » mesuré provient en grande partie du recouvrement N-K/Ti-Ll en EDS, et les propriétés mécaniques mesurées sont dominées par le substrat Si. Un vrai TiN par voie thermique demanderait NH3 (nitruration de TiO2 à 800–1000 °C) ou une CVD TiCl4–N2–H2.",
+    "sources": [
+     {
+      "title": "Nitruration sous NH3/Ar de nano-TiO2 (synthèse hydrothermale en flux continu) : TiN dès 800 °C, TiN pur à 1000 °C en 5 h (titre exact non relu, résumé seulement)",
+      "authors_or_publisher": "Z. Zhang, J. A. Darr, Journal of the European Ceramic Society (dépôt ORCA Cardiff)",
+      "year": "2009",
+      "url_or_doi": "https://orca.cardiff.ac.uk/6180"
+     },
+     {
+      "title": "Dépôt CVD de TiN non stœchiométrique à partir de TiCl4–N2–H2 (rapport N/Ti minimal 0,63)",
+      "authors_or_publisher": "F. Teyssandier, C. Bernard, M. Ducarroir, J. Mater. Sci. 23, 135–140",
+      "year": "1988",
+      "url_or_doi": "10.1007/BF01174044"
+     },
+     {
+      "title": "An interlaboratory comparison of energy dispersive X-ray microanalysis (EDX) of titanium and zirkonium nitrides",
+      "authors_or_publisher": "M. Procop, A. Röder, Mikrochimica Acta 125, 33–39",
+      "year": "1997",
+      "url_or_doi": "10.1007/BF01246159"
+     },
+     {
+      "title": "Résumé EMC2012-496 (European Microscopy Congress 2012) : recouvrement N-K (392 eV) / Ti-Ll (395 eV), déconvolution nécessaire",
+      "authors_or_publisher": "European Microscopy Congress 2012 (Copernicus Meeting Organizer)",
+      "year": "2012",
+      "url_or_doi": "https://meetingorganizer.copernicus.org/EMC2012/EMC2012-496.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "Faire une DRX (ou GIXRD) du dépôt : TiN rocksalt contre rutile/anatase/TiOx ; sans elle la phase n'est pas établie.",
+    "Doser N par XPS ou WDS avec étalons, pas par EDS standardless (recouvrement N-K/Ti-Ll).",
+    "Établir le régime de pression réel (atmosphérique ou 500 mTorr) et l'atmosphère de refroidissement.",
+    "Mesurer l'épaisseur de chaque échantillon (profilomètre) et la comparer au signal Si en EDS ; indenter le Si nu avec le même protocole comme témoin.",
+    "Pour obtenir TiN, prévoir un réducteur (NH3, H2 avec précurseur halogéné) : N2 seul sur TiO2 à 900 °C ne donne pas TiN."
+   ]
+  },
+  {
+   "label": "TiN_60min",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "indice H³/E² recalculé à 60 min",
+     "inputs": "H = 12.22 GPa ; E = 159.17 GPa",
+     "formula": "H³/E²",
+     "result": "0,0720 GPa",
+     "compared_to": "0,072 lu sur la fig. 7 : cohérent",
+     "source": "valeurs du tableau 4"
+    },
+    {
+     "what": "rapports EDS à 60 min",
+     "inputs": "Si 50.24 ; Ti 25.22 ; N 10.32 ; O 14.22 at. %",
+     "formula": "N/Ti ; (N+O)/Ti",
+     "result": "N/Ti = 0,41 ; (N+O)/Ti = 0,97",
+     "compared_to": "TiN : N/Ti = 1 ; Si quasi constant (≈ 49–50 at. %) malgré la durée plus longue",
+     "source": "valeurs du tableau 2"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Même chimie que TiN_30min, seule la durée change (60 min) : les objections thermodynamiques de la voie de base s'appliquent. H = 12.22 GPa et E = 159.17 GPa restent dans la plage du silicium et loin de TiN dense ; Si en EDS ne baisse pas avec la durée, contrairement à une épaisseur croissante.",
+     "status": "probleme",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir TiN_30min : dépôt de particules d'oxyde plutôt que croissance CVD de TiN ; la durée augmente au plus la quantité de particules déposées.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "DRX et épaisseur pour cet échantillon",
+    "Valeurs lues sur figure (H³/E², contrainte) à confirmer"
+   ]
+  },
+  {
+   "label": "TiN_90min",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "indice H³/E² recalculé à 90 min",
+     "inputs": "H = 12.85 GPa ; E = 167.25 GPa",
+     "formula": "H³/E²",
+     "result": "0,0759 GPa",
+     "compared_to": "0,076 lu sur la fig. 7 : cohérent, mais supérieur à 60 min alors que le texte annonce une baisse continue",
+     "source": "valeurs du tableau 4"
+    },
+    {
+     "what": "rapports EDS à 90 min",
+     "inputs": "Si 49.95 ; Ti 25.98 ; N 10.98 ; O 13.09 at. %",
+     "formula": "N/Ti ; (N+O)/Ti",
+     "result": "N/Ti = 0,42 ; (N+O)/Ti = 0,93",
+     "compared_to": "TiN : N/Ti = 1 ; Si quasi constant (≈ 49–50 at. %) malgré la durée plus longue",
+     "source": "valeurs du tableau 2"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Même chimie que TiN_30min, seule la durée change (90 min) : les objections thermodynamiques de la voie de base s'appliquent. H = 12.85 GPa et E = 167.25 GPa restent dans la plage du silicium et loin de TiN dense ; Si en EDS ne baisse pas avec la durée, contrairement à une épaisseur croissante.",
+     "status": "probleme",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir TiN_30min : dépôt de particules d'oxyde plutôt que croissance CVD de TiN ; la durée augmente au plus la quantité de particules déposées.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "DRX et épaisseur pour cet échantillon",
+    "Valeurs lues sur figure (H³/E², contrainte) à confirmer"
+   ]
+  },
+  {
+   "label": "TiN_120min",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "indice H³/E² recalculé à 120 min",
+     "inputs": "H = 13.57 GPa ; E = 201.13 GPa",
+     "formula": "H³/E²",
+     "result": "0,0618 GPa",
+     "compared_to": "0,062 lu sur la fig. 7 : cohérent ; Ra identique à 90 min au centième et à l'écart-type près (29,28 ± 0,63), probable recopie ; la conclusion donne 29,68 nm et H max 13,97 GPa contre 13,57 au tableau",
+     "source": "valeurs du tableau 4"
+    },
+    {
+     "what": "rapports EDS à 120 min",
+     "inputs": "Si 49.16 ; Ti 26.12 ; N 11.31 ; O 13.41 at. %",
+     "formula": "N/Ti ; (N+O)/Ti",
+     "result": "N/Ti = 0,43 ; (N+O)/Ti = 0,95",
+     "compared_to": "TiN : N/Ti = 1 ; Si quasi constant (≈ 49–50 at. %) malgré la durée plus longue",
+     "source": "valeurs du tableau 2"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Même chimie que TiN_30min, seule la durée change (120 min) : les objections thermodynamiques de la voie de base s'appliquent. H = 13.57 GPa et E = 201.13 GPa restent dans la plage du silicium et loin de TiN dense ; Si en EDS ne baisse pas avec la durée, contrairement à une épaisseur croissante.",
+     "status": "probleme",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir TiN_30min : dépôt de particules d'oxyde plutôt que croissance CVD de TiN ; la durée augmente au plus la quantité de particules déposées.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "DRX et épaisseur pour cet échantillon",
+    "Valeurs lues sur figure (H³/E², contrainte) à confirmer"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le protocole est physiquement incohérent : TiO2 ne se décompose pas et ne se nitrure pas sous N2 seul à 900 °C (ΔrG ≈ +504 kJ/mol), aucune espèce de Ti n'est volatile, et le régime de pression est contradictoire (APCVD contre 500 mTorr). Les preuves de TiN sont absentes (pas de DRX) ou non discriminantes (EDS avec recouvrement N-K/Ti-Ll, N/Ti ≈ 0,4, O 13–17 at. %), et les duretés/modules mesurés sont ceux du silicium substrat. Le dépôt obtenu est probablement un oxyde de titane particulaire sur Si ; les tendances avec la durée ne renseignent pas sur un film de TiN.",
+  "author_errors_suspected": [
+   "Réaction TiO2 + N2 → TiN + O2 à 900 °C présentée comme le mécanisme de croissance, thermodynamiquement impossible sans réducteur.",
+   "« Fusion et évaporation » de la poudre de TiO2 à 900 °C (fusion vers 1843 °C).",
+   "APCVD annoncée mais pressions de base 0,75 mTorr et de travail 500 mTorr ; « purge » à 760 Torr.",
+   "Dureté et module attribués à TiN alors qu'ils correspondent au silicium ; pop-in typique de Si.",
+   "H³/E² présenté comme proportionnel à la limite d'élasticité ; « baisse de la limite d'élasticité » alors que H augmente.",
+   "Coefficient de Poisson « du film TiCN » utilisé pour TiN ; temps de maintien 2 s (Méthodes) contre 10 s (Résultats).",
+   "Ra identique à 90 et 120 min ; conclusion 29,68 nm et 13,97 GPa contre 29,28 nm et 13,57 GPa dans les tableaux ; texte « Ti et O augmentent » contre O qui baisse au tableau 2.",
+   "Épaisseur dite croissante et coupe de 16,8–18,2 µm, contre Si constant à ~50 at. % en EDS."
+  ],
+  "comparison_with_database": "Aucune autre voie de TiN dans la base (compare.py « TiN » : seule PMC10342551) ; comparaison faite avec le tableau 1 de l'article (TiN CVD : H 27–30 GPa, E 355–472 GPa) et avec la littérature."
+ },
+ "sources_not_found": [
+  "Table NIST-JANAF de TiN (ΔfG en température) : site non joignable depuis cette session ; valeur prise d'une source secondaire (webqc.org).",
+  "Source primaire de la température de carboréduction-nitruration de TiO2 : non cherchée, non utilisée.",
+  "Texte intégral de Zhang & Darr 2009 et de Ge et al. 2022 non lus (résumés seulement) ; DOI non vérifiés sur Crossref (bloqué)."
+ ]
+}

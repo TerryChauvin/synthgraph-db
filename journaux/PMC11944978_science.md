@@ -1,0 +1,16 @@
+# PMC11944978 — critique scientifique (Opus)
+
+- Verdict « coherente » pour la synthèse elle-même : quantités, milieu, 220 °C / 6 h et purification ne posent pas de contradiction chimique. Les deux `probleme` portent sur l'application analytique (dosage de l'hémine), rangés en `resultats` de la seule voie.
+- Bilan : EDA 2,99 mmol (200 μL × 0,899 g/mL / 60,10) contre mélamine 0,396 mmol ; l'EDA apporte 83 % du carbone. « Carbon sources » pour la mélamine est impropre, noté en `ok` (vocabulaire sans conséquence sur le protocole).
+- N/C des précurseurs 1,17 contre 0,43 en XPS, et O/C 0,35 sans oxygène dans les précurseurs : cohérent avec une désamination (NH3) et une hydrolyse partielle de la triazine. Je n'en fais pas un problème.
+- Mélamine à 9,6 g/L, au-dessus de 3,24 g/L à 20 °C : suspension au chargement. `reserve` seulement. La valeur vient de Wikipedia (source secondaire), car PubChem est bloqué par le proxy (403).
+- PTFE à 220 °C : la fiche Parr 4749 (250 °C, 1800 psig) est retenue comme source. Le seuil de 200 °C pour les chemises non chargées vient d'un résumé de recherche (fournisseur non nommé), donc pas cité comme source.
+- LOD : le `probleme` repose sur un calcul. Ordonnée à l'origine 0,0124 / pente 0,0897 = 0,138 μM, soit 14 fois le signal du premier point de gamme. Une LOD de 9 nM demande σ = 2,7 × 10−4 sur F/F0. Le bruit de 0,5 % d'un F-2500 est un ordre de grandeur non sourcé, signalé comme tel.
+- Tableau 2 : « Labeled Amount 0.6 g/piece » est identique à la masse du comprimé de la section 3.8. Le `probleme` vient de cette identité, avec en plus le « spiked samples » sans dopage décrit et la dilution circulaire jusqu'à 0,5 μM.
+- Effet de filtre interne : 10 % d'extinction à 1 μM demande A = 0,047 sur 0,5 cm, donc ε ≈ 9,4 × 10^4. C'est compatible avec ε(hémine) = 5,84 × 10^4 à 385 nm (NaOH, Kirschner-Zilber 1982, lu seulement par un brevet). Le calcul tranche le doute de l'extraction sur la dilution : si les concentrations n'étaient que le dixième dans la cuve, il faudrait ε ≈ 9,4 × 10^5, impossible. Je reste en `reserve` car la durée de vie n'exclut pas l'extinction statique (Lakowicz, DOI non vérifié par Crossref).
+- XPS : O 1s à 530,4 eV attribué à C=O. Thermo Fisher (oxydes 529–530 eV ; C=O organique 531,5–532 eV) est retenu. Cardiff (C=O 532–533 eV) va dans le même sens, non cité pour ne pas multiplier les sources. Attributions N 1s inversées : appui sur l'usage (pyridinique 398,4–398,8 ; amine 399,5), vu dans le résumé de recherche, sans source primaire citée.
+- Raman sur nanoparticules d'argent (section 3.1, SERS) : bande G à 1557 cm−1, basse. Bande D dite « sp3 » : Ferrari & Robertson 2000 (fondateurs.md). `reserve`.
+- Carboxyles affirmés sans pic O–C=O (≈ 288,5–289 eV) ni bande vers 1700 cm−1 : contrôle 7, `reserve`.
+- Mécanisme : `a_revoir`, au profit de points de polymère carbonisé riches en azote, en citant Essner 2018 (fondateurs.md). Hydrolyse des triazines : seulement des brevets en milieu acide (US 4,013,757), son ampleur dans l'eau basique reste inconnue (dans `sources_not_found`).
+- La revue Chen–Yu–Wang 2018 sur l'effet de filtre interne n'a pas été retrouvée par la recherche : non citée.
+- 9 recherches web, une lecture de page échouée (rsc.org) et un appel PubChem bloqué. Rien n'est ajouté à fondateurs.md ni à constantes.md (Crossref bloqué).

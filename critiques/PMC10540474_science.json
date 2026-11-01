@@ -1,0 +1,375 @@
+{
+ "pmcid": "PMC10540474",
+ "routes": [
+  {
+   "label": "Extract_polar",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport poudre/eau de macération",
+     "inputs": "5 g de poudre de racine ; 100 mL d'eau",
+     "formula": "m/V",
+     "result": "50 g/L (1:20 m/v)",
+     "compared_to": "macérations aqueuses courantes 1:10 à 1:20",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement en extrait",
+     "inputs": "5 g de poudre ; masse d'extrait sec non donnée",
+     "formula": "m(extrait)/m(poudre)",
+     "result": "incalculable",
+     "compared_to": "17,0 mg utilisés par synthèse",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Séchage à l'ombre à 25 °C (10 j), macération à température ambiante (5 h), séchage de la phase aqueuse à 45 °C (24 h) : températures douces, compatibles avec la conservation des composés thermolabiles. L'évaporation complète d'une phase aqueuse (jusqu'à ~100 mL) en 24 h à 45 °C dépend de la surface de la boîte de Petri, non donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "La phase aqueuse sort d'un lavage à l'hexane (Téb ≈ 69 °C, point éclair très bas, vapeurs plus lourdes que l'air) et part directement dans une étuve à air à 45 °C : de l'hexane résiduel dissous ou en gouttelettes peut s'y évaporer. Laisser dégazer sous hotte avant l'étuve, ou utiliser une étuve sans source d'ignition.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "A. lycoctonum (aconit tue-loup) contient des alcaloïdes diterpéniques de type lycoctonine (lycaconitine, méthyllycaconitine), neurotoxiques à faible dose, y compris par contact cutané selon DocCheck ; rien n'est dit dans l'article. Gants, masque anti-poussière au broyage et au tamisage. La fraction d'alcaloïdes extraite par l'eau à pH neutre n'est pas connue : elle se retrouve dans l'extrait puis dans la suspension d'AgNPs testée en biologie.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Aconitum lycoctonum ; Lycaconitin",
+      "authors_or_publisher": "Wikipedia (en) ; DocCheck Flexikon (de)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Aconitum_lycoctonum ; https://flexikon.doccheck.com/de/Lycaconitin (sources secondaires)"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le partage eau/hexane d'un macérat aqueux filtré retire peu de matière (les lipides sont peu passés dans l'eau) : étape inoffensive mais d'effet limité. Aucun volume d'hexane, nombre de lavages ni masse d'extrait sec ne sont donnés : la composition de l'extrait, qui sert de réducteur, ne peut pas être reproduite à l'identique (plante sauvage, pas de numéro d'herbier, rendement inconnu).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Macération dans une fiole jaugée de 250 mL agitée 5 h : verrerie inadaptée (fiole de mesure, pas de mélange), sans conséquence chimique ; un erlenmeyer convient.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Extraction physique : l'eau dissout les composés polaires de la racine (sucres, glycosides, polyphénols, acides organiques, sels minéraux dont K+ et Cl− visibles en EDX sur l'extrait, alcaloïdes partiellement protonés) ; l'hexane retire les traces apolaires ; le séchage concentre le tout en un résidu solide. Aucun dosage (phénols totaux, sucres réducteurs, chlorures) ne caractérise ce réducteur.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masse d'extrait sec obtenue à partir de 5 g de poudre (rendement)",
+    "teneur de l'extrait en phénols totaux et sucres réducteurs (pouvoir réducteur réel)",
+    "teneur en chlorures de l'extrait (formation d'AgCl à l'étape suivante)",
+    "élimination de l'hexane résiduel avant l'étuve",
+    "identité botanique (numéro d'herbier) et toxicité de la poudre"
+   ]
+  },
+  {
+   "label": "AgNPs_Aconitum",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de AgNO3",
+     "inputs": "17,0 mg AgNO3 ; M(AgNO3) = 169,87 g/mol ; 100 mL",
+     "formula": "m/M/V",
+     "result": "0,1001 mmol ; 1,00 mM",
+     "compared_to": "« 1 mM » annoncé : exact",
+     "source": "masse molaire PubChem (AgNO3), arithmétique"
+    },
+    {
+     "what": "« 1 mM » d'extrait",
+     "inputs": "17,0 mg d'extrait dans 100 mL, dit 1 mM",
+     "formula": "M implicite = m/(C·V)",
+     "result": "170 g/mol, soit la masse molaire de AgNO3",
+     "compared_to": "un extrait végétal est un mélange sans masse molaire : la molarité est recopiée de AgNO3, le mot « équimolaire » n'a pas de sens",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Ag+ et extrait dans le mélange 1:1",
+     "inputs": "100 mL + 100 mL (volumes supposés, non écrits)",
+     "formula": "n/V_total ; m/V_total",
+     "result": "Ag+ 0,50 mM ; extrait 0,085 g/L",
+     "compared_to": "1 mM de AgNO3 habituel pour les synthèses par extrait (PMC4043712, PMC3700086)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "argent maximal par lot",
+     "inputs": "0,1001 mmol Ag ; M(Ag) = 107,87 g/mol ; 200 mL",
+     "formula": "n·M ; n·M/V",
+     "result": "10,8 mg d'Ag par lot ; 0,054 mg/mL dans le mélange",
+     "compared_to": "suspensions testées à 1 mg/mL (antibactérien) et 10–30 mg/mL (α-amylase, DNS)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "facteur de concentration requis pour les essais",
+     "inputs": "0,054 mg/mL dans le mélange ; 1 et 30 mg/mL demandés",
+     "formula": "C_essai/C_mélange",
+     "result": "×18,5 pour 1 mg/mL ; ×556 pour 30 mg/mL ; 250 µL à 30 mg/mL = 7,5 mg, soit ≈ 0,7 lot entier à rendement 100 %",
+     "compared_to": "aucune étape d'isolement ni de concentration décrite",
+     "source": "arithmétique"
+    },
+    {
+     "what": "capacité réductrice de l'extrait",
+     "inputs": "0,100 mmol e− nécessaires (Ag+ → Ag0) ; 17,0 mg d'extrait ; hypothèses : polyphénol catéchol M ≈ 300 g/mol, 2 e− ; glucose M = 180,16 g/mol, 2 e−",
+     "formula": "m/M × 2",
+     "result": "0,11 mmol e− si l'extrait était 100 % polyphénol catéchol ; 0,19 mmol e− si 100 % sucre réducteur",
+     "compared_to": "il faudrait que l'extrait soit presque entièrement réducteur et réagisse à fond en 15 min pour réduire tout Ag+ ; un extrait brut contient aussi sels, polysaccharides, protéines",
+     "source": "arithmétique ; hypothèses de composition du critique"
+    },
+    {
+     "what": "rapport molaire Cl/Ag nécessaire à la précipitation d'AgCl",
+     "inputs": "Ks(AgCl) ≈ 1,8 × 10⁻¹⁰ à 25 °C ; [Ag+] = 5 × 10⁻⁴ M",
+     "formula": "[Cl−]min = Ks/[Ag+]",
+     "result": "≈ 3,6 × 10⁻⁷ M",
+     "compared_to": "Cl présent dans l'extrait (EDX Fig. 5A) : quelques µg/L de chlorure suffisent pour précipiter AgCl",
+     "source": "chimie générale (produit de solubilité de AgCl, tables CRC)"
+    },
+    {
+     "what": "cohérence PdI et largeur du pic DLS",
+     "inputs": "pic 65,9 nm, écart-type 42,22 nm ; PdI 0,067 ; Z-average 80,87 nm",
+     "formula": "(σ/d)²",
+     "result": "0,41",
+     "compared_to": "PdI imprimé 0,067 et courbe tracée de 62 à 71 nm seulement (largeur ≈ 4 nm) : trois indicateurs de largeur incompatibles entre eux",
+     "source": "valeurs de la Fig. 6"
+    },
+    {
+     "what": "recalcul du tableau 1 (dénaturation)",
+     "inputs": "Ac = 0,3126 ; As = 0,154 / 0,089 / 0,077 / 0,054 / 0,25",
+     "formula": "(Ac − As)/Ac × 100",
+     "result": "50,74 / 71,53 / 75,37 / 82,73 / 20,03 %",
+     "compared_to": "tableau : 50,73 / 71,24 / 75,23 / 82,72 / 91,87 % ; 91,87 % exigerait As ≈ 0,025",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "recalcul du tableau 2 (α-amylase sur gélose)",
+     "inputs": "témoin 32 mm ; acarbose 20 et 21 mm ; AgNPs 27 et 24 mm",
+     "formula": "(32 − z)/32 × 100",
+     "result": "acarbose 37,5 et 34,4 % ; AgNPs 15,6 et 25,0 %",
+     "compared_to": "tableau : 33,0 ; 34,3 ; 16,6 ; 25,0 % (deux valeurs sur quatre ne se recalculent pas)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de DPPH",
+     "inputs": "4 mg/100 mL ; M(DPPH) = 394,32 g/mol ; 3 mL portés à 10 mL",
+     "formula": "m/M/V × dilution",
+     "result": "0,10 mM en solution mère ; 0,030 mM dans le mélange",
+     "compared_to": "gamme usuelle 0,05–0,1 mM : un peu basse, mais mesurable à 517 nm",
+     "source": "masse molaire PubChem (DPPH), arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "AgNO3 17,0 mg dans 100 mL = 1,00 mM (calcul « concentration de AgNO3 ») : exact. En revanche « solution d'A. lycoctonum (1 mM) » et « mélange équimolaire » n'ont pas de sens : la masse molaire implicite est 170 g/mol, celle de AgNO3 (calcul « « 1 mM » d'extrait »). Seule la concentration massique compte : 0,17 g/L avant mélange, 0,085 g/L après. Les volumes mélangés (« 1:1 ») ne sont pas écrits.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Pour réduire 0,100 mmol d'Ag+, 17,0 mg d'extrait brut ne fournissent au mieux que 0,11–0,19 mmol d'électrons s'ils étaient entièrement polyphénols ou sucres réducteurs (calcul « capacité réductrice de l'extrait ») ; un extrait aqueux de racine contient aussi sels, polysaccharides non réducteurs, protéines. La réduction complète annoncée est donc limite en stœchiométrie et n'est pas mesurée (ni Ag+ résiduel, ni ICP, ni rendement).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Trois affirmations incompatibles : « en moins de 60 s … tout l'Ag+ a été réduit » ; « le temps minimum pour la réduction complète est 15 min » ; Fig. 2, absorbance encore croissante entre 10 et 15 min (≈ 1,3 puis ≈ 1,5), donc pas de plateau. Rien ne démontre une conversion complète ; la durée d'irradiation optimale n'est pas établie.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les « électrons hydrogénés » (sans doute électrons hydratés e−aq) produits en exposant AgNO3 à la lumière solaire diffuse sont physiquement exclus : la photo-ionisation de l'eau demande des photons de plus de ~6,5 eV (λ < ~190 nm), Ag+ aqueux n'absorbe qu'en dessous de ~230 nm, et le rayonnement solaire au sol s'arrête vers 295 nm. Une solution de AgNO3 seule reste incolore au soleil sur cette durée (témoin noté dans PMC7760056). La photoréduction passe par les composés organiques : transfert de charge ligand → métal dans les complexes Ag+–matière organique et excitation des phénols, comme pour la matière organique naturelle.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Sunlight-driven reduction of silver ions by natural organic matter: formation and transformation of silver nanoparticles",
+      "authors_or_publisher": "Hou W.-C., Stuart B., Howes R., Zepp R. G. (Environ. Sci. Technol. 47, 7713-7721)",
+      "year": "2013",
+      "url_or_doi": "10.1021/es400802w (DOI repris de la critique PMC5388254, titre, auteurs, volume et pages confirmés par recherche web, DOI non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Phase non démontrée : pas de DRX ni de SAED. L'EDX des AgNPs (Fig. 5B) montre un pic Cl de l'ordre des deux tiers du pic Ag ; l'extrait contient Cl et K (Fig. 5A). Avec Ks(AgCl) ≈ 1,8 × 10⁻¹⁰, 0,4 µM de chlorure suffit à précipiter AgCl en présence de 0,5 mM d'Ag+ (calcul « rapport molaire Cl/Ag nécessaire à la précipitation d'AgCl ») : le produit est probablement un mélange Ag/AgCl, comme dans d'autres synthèses par extraits où le chlorure de l'extrait donne AgCl visible en DRX. La bande FTIR à 576 cm−1 attribuée par les auteurs à Ag–O irait, si elle était réelle, vers un oxyde et non vers Ag0. Les auteurs n'ont pas l'outil qui tranche (DRX : Ag cfc 38,1° contre AgCl 27,8° et 32,2°, Cu Kα).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Utilizing waste corn-cob in biosynthesis of noble metallic nanoparticles for antibacterial effect and catalytic degradation of contaminants",
+      "authors_or_publisher": "Đoàn V. Đ., Luc V.-S., Nguyễn T. L. H., Nguyễn T. D., Bảo Đ. G. (notice FAO AGRIS)",
+      "year": "2020",
+      "url_or_doi": "https://agris.fao.org/search/en/records/65df81c463b8185d9cad0c34 (journal et DOI non trouvés)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Même constat ailleurs : pour un extrait de spathes de maïs, le pH décide entre AgCl et Ag pur (Villanueva-Ibáñez 2015). Le pH du mélange n'est pas donné ici. Dans la base, PMC9908928 (extrait d'ail) a trouvé par DRX un mélange Ag/AgO, ce que l'EDX seule n'aurait pas montré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Aqueous corn husk extract-mediated green synthesis of AgCl and Ag nanoparticles",
+      "authors_or_publisher": "Villanueva-Ibáñez M. et al. (Materials Letters 152, 166-169)",
+      "year": "2015",
+      "url_or_doi": "https://ipn.elsevierpure.com/en/publications/aqueous-corn-husk-extract-mediated-green-synthesis-of-agcl-and-ag (DOI non trouvé)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plasmon à 460 nm (lu plutôt vers 440–450 nm sur la Fig. 2) pour des sphères de ~67 nm : plausible, le plasmon de l'argent se décale vers le rouge et s'élargit au-delà de 50 nm (Agnihotri 2014). Dans la base : PMC4973716 (Eucalyptus) 438 nm pour 50–70 nm en MEB et 63 nm en DLS ; PMC7760056 (camomille, soleil) 450 nm pour 26 nm ; PMC4735866 455 nm. Ordre de grandeur cohérent. La courbe 15 min de la Fig. 2 présente des marches vers 370 et 425 nm (raccord de spectres ou artefact) non commentées.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Size-controlled silver nanoparticles synthesized over the range 5–100 nm using the same protocol and their antibacterial efficacy",
+      "authors_or_publisher": "Agnihotri S., Mukherji S., Mukherji S. (RSC Adv.)",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ra44507k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DLS (Fig. 6) incohérente en elle-même : Z-average 80,87 nm, PdI 0,067, pic à 65,9 nm d'écart-type 42,22 nm ((σ/d)² ≈ 0,41), alors que la distribution tracée ne s'étend que de 62 à 71 nm (calcul « cohérence PdI et largeur du pic DLS »). Le texte prend la position du pic pour le Z-average. Un pic aussi étroit qu'il est dessiné serait exceptionnel pour un sol par extrait végétal (PMC8477989 : PdI 0,28). Données brutes à redemander avant de s'en servir.",
+     "status": "probleme",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : les « bandes » à 2318 et 2314 cm−1 tombent dans la zone du CO2 atmosphérique (élongation asymétrique ≈ 2349 cm−1), artefact classique de compensation, pas une fonction de l'extrait ; les « changements importants vers 2350 cm−1 » ne prouvent rien. L'argent métallique n'a pas de vibration IR propre ; une bande Ag–O à 576 cm−1 est à la limite basse de la plage annoncée (4000–500 cm−1), alors que la figure va jusqu'à ~400 cm−1. Les deux spectres sont presque superposables : la participation de groupes précis n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : « signal à 3 keV dû à la SPR » (EDX) est faux : c'est la raie d'émission X Ag Lα (≈ 2,98 keV), sans lien avec la résonance plasmon optique. Les pics Si et Al de la Fig. 5B viennent probablement du support, pas de la plante. Conséquence : l'EDX montre de l'argent, pas son état chimique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Aucun isolement n'est décrit (centrifugation, lavage, séchage), alors que les essais demandent 1 mg/mL (antibactérien) puis 10–30 mg/mL (DNS) d'« AgNPs ». Un lot ne contient au plus que 10,8 mg d'Ag, soit 0,054 mg/mL dans le mélange : il faut concentrer ×18,5 à ×556 (calculs « argent maximal par lot » et « facteur de concentration requis pour les essais »). On ne sait pas si « mg/mL » désigne l'argent ou le solide sec (argent + extrait + éventuellement AgCl). Les doses des essais biologiques ne sont pas reproductibles telles qu'écrites.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Essais biologiques incohérents entre sections : tableau 1 recalculé, 50 ppm donne 20,0 % et non 91,87 % (As 0,25 au lieu de ~0,025), et 71,24 et 75,23 % ne se recalculent pas exactement ; concentrations 10–50 ppm au tableau contre 100–500 µg/mL dans le texte (facteur 10) ; tableau 2, acarbose 20 µL 37,5 % au lieu de 33,0 % et AgNPs 20 µL 15,6 % au lieu de 16,6 % ; FRAP 10–50 µg/L en Méthodes contre 50–90 ppm en Résultats (facteur 1000 et autre gamme) ; DNS 10–30 mg/mL dans le texte contre 1, 3, 5 mg/mL sur la Fig. 10 ; gélose amidon « 25 °C pendant 3 jours » puis « 72 h à 37 °C ». Le résumé écrit « 91,78 % de dénaturation » pour une inhibition de la dénaturation. La conclusion « aussi efficace que la ceftriaxone » contredit les zones mesurées (15–19 mm contre 22–23 mm, lues sur la Fig. 7).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le test appelé FRAP « selon Benzie et Strain » est en réalité le pouvoir réducteur au ferricyanure d'Oyaizu (tampon phosphate pH 6,6, K3Fe(CN)6 1 %, 50 °C 20 min, TCA, FeCl3, lecture vers 700 nm), alors que le FRAP de Benzie et Strain utilise le complexe Fe(III)-TPTZ en milieu acide et une lecture à 593 nm. Exprimer ce test en « RSA % » (activité anti-radicalaire) et le DPPH en « % GAE » mélange des unités sans sens. K3Fe(CN)6 est le ferricyanure, pas le « ferrocyanure ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The ferric reducing ability of plasma (FRAP) as a measure of \"antioxidant power\": the FRAP assay",
+      "authors_or_publisher": "Benzie I. F. F., Strain J. J. (Anal. Biochem. 239, 70-76)",
+      "year": "1996",
+      "url_or_doi": "10.1006/abio.1996.0292 (DOI lu dans la notice Wikipedia « Ferric reducing ability of plasma », non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Source du protocole réellement suivi (pouvoir réducteur au ferricyanure).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Studies on products of browning reaction: antioxidative activities of products of browning reaction prepared from glucosamine",
+      "authors_or_publisher": "Oyaizu M. (Otemae College of Nutrition) ; protocole repris sur protocols.io « Reducing power »",
+      "year": "1986",
+      "url_or_doi": "https://www.protocols.io/view/reducing-power-bda2i2ge.html (revue et DOI de l'article original non confirmés)"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoins manquants : la suspension « AgNPs » contient l'extrait non consommé (0,085 g/L au départ), lui-même réducteur ; FRAP, DPPH et DNS mesurent un pouvoir réducteur ou une absorbance, et les AgNPs absorbent et diffusent à 517, 540, 660 et 700–711 nm (bande plasmon large, Fig. 2). Sans blanc échantillon (AgNPs sans réactif) ni extrait à la même concentration, l'activité « des AgNPs » ne se distingue ni de celle de l'extrait libre ni d'une interférence optique. Le témoin extrait n'existe que pour l'antibactérien et la gélose amidon (1 mg/mL, sans lien avec la teneur en extrait de la suspension).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Lumière solaire « diffuse » : ni éclairement, ni heure, ni température du mélange, ni récipient. La vitesse de photoréduction dépend directement du flux UV-A et bleu ; l'exposition au soleil peut aussi chauffer le mélange. Reproductible seulement avec une lampe de spectre et de puissance connus, ou en mesurant l'éclairement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3 : oxydant, corrosif, tache la peau, toxique pour le milieu aquatique (déchets argent à collecter). La suspension finale contient l'extrait d'aconit (alcaloïdes non dosés), ce qui compte pour toute application « thérapeutique » revendiquée. Rien n'est écrit dans l'article hors la hotte à flux laminaire de l'essai antibactérien.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Aconitum lycoctonum ; Lycaconitin",
+      "authors_or_publisher": "Wikipedia (en) ; DocCheck Flexikon (de)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Aconitum_lycoctonum ; https://flexikon.doccheck.com/de/Lycaconitin (sources secondaires)"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À l'ajout de l'extrait, Ag+ se complexe aux phénolates, carboxylates et hydroxyles des métabolites, et le chlorure de l'extrait précipite tout de suite une partie de l'argent en AgCl (Ks ≈ 1,8 × 10⁻¹⁰). Sous la lumière solaire (UV-A et bleu), les complexes Ag+–ligand organique subissent un transfert de charge ligand → métal et les phénols excités cèdent des électrons : Ag+ est réduit en Ag0 et le ligand oxydé (quinones, acides), sans électrons hydratés. AgCl, photosensible, se décompose en partie en Ag0 à sa surface (hétérostructures Ag/AgCl). Les germes Ag0 croissent par réduction autocatalytique à leur surface, accélérée par l'excitation plasmonique ; les biomolécules adsorbées limitent l'agrégation. Taille ~50–70 nm et plasmon large vers 440–460 nm compatibles avec une croissance rapide sous faible rapport réducteur/Ag+. Produit le plus probable : Ag0 mêlé d'AgCl dans une matrice organique, à confirmer par DRX.",
+    "sources": [
+     {
+      "title": "Sunlight-driven reduction of silver ions by natural organic matter: formation and transformation of silver nanoparticles",
+      "authors_or_publisher": "Hou W.-C., Stuart B., Howes R., Zepp R. G. (Environ. Sci. Technol. 47, 7713-7721)",
+      "year": "2013",
+      "url_or_doi": "10.1021/es400802w (DOI repris de la critique PMC5388254, titre, auteurs, volume et pages confirmés par recherche web, DOI non vérifié sur Crossref)"
+     },
+     {
+      "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+      "authors_or_publisher": "Raveendran P., Fu J., Wallen S. L. (J. Am. Chem. Soc.)",
+      "year": "2003",
+      "url_or_doi": "10.1021/ja029267j"
+     },
+     {
+      "title": "Utilizing waste corn-cob in biosynthesis of noble metallic nanoparticles for antibacterial effect and catalytic degradation of contaminants",
+      "authors_or_publisher": "Đoàn V. Đ., Luc V.-S., Nguyễn T. L. H., Nguyễn T. D., Bảo Đ. G. (notice FAO AGRIS)",
+      "year": "2020",
+      "url_or_doi": "https://agris.fao.org/search/en/records/65df81c463b8185d9cad0c34 (journal et DOI non trouvés)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "DRX (ou SAED) du produit séché pour distinguer Ag cfc d'AgCl et d'Ag2O",
+    "Ag+ résiduel après irradiation (électrode Ag+/ISE ou ICP du surnageant après ultracentrifugation) et rendement en Ag0",
+    "volumes réellement mélangés (100 + 100 mL ?) et pH du mélange",
+    "éclairement, température et récipient pendant l'irradiation ; témoins AgNO3 seul au soleil et mélange à l'obscurité",
+    "protocole d'isolement et de concentration (centrifugation, lavage, séchage) et base de « mg/mL » des essais",
+    "données DLS brutes (Z-average, PdI, distribution) et histogramme de taille MEB avec nombre de particules",
+    "blancs échantillon (AgNPs sans réactif) et témoin extrait à concentration égale pour FRAP, DPPH, DNS et dénaturation"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse verte simple (AgNO3 1 mM et extrait aqueux de racine d'A. lycoctonum à 0,17 g/L, mélangés 1:1 sous soleil diffus 15 min) dont la chimie de base est plausible, mais le produit n'est pas identifié (pas de DRX, chlore abondant en EDX : Ag/AgCl probable), la réduction complète n'est pas démontrée, aucun isolement n'est décrit alors que les essais biologiques demandent 18 à 556 fois la concentration du mélange, et les résultats biologiques contiennent de nombreuses incohérences de calcul et d'unités entre Méthodes, tableaux, figures et texte. Le mécanisme des auteurs (électrons hydratés produits par le soleil) est physiquement exclu.",
+  "author_errors_suspected": [
+   "extrait végétal exprimé en « 1 mM » et mélange dit « équimolaire » (masse molaire de AgNO3 recopiée)",
+   "« électrons hydrogénés » générés par la lumière solaire dans AgNO3 : physiquement impossible au sol",
+   "réduction complète annoncée en < 60 s puis en 15 min alors que l'absorbance croît encore à 15 min",
+   "pic EDX à 3 keV attribué à la SPR (c'est la raie Ag Lα)",
+   "DLS : PdI 0,067, écart-type 42 nm et distribution tracée de 62 à 71 nm incompatibles ; Z-average du texte = position du pic",
+   "tableau 1 : 50 ppm, As 0,25 donne 20 % et non 91,87 % ; concentrations ×10 entre tableau et texte",
+   "tableau 2 : 2 pourcentages sur 4 ne se recalculent pas",
+   "FRAP de Benzie et Strain annoncé, pouvoir réducteur au ferricyanure (Oyaizu) réalisé ; concentrations ×1000 entre Méthodes et Résultats",
+   "« ferrocyanure » pour K3Fe(CN)6 ; « RSA % » pour un pouvoir réducteur ; « % GAE » pour une inhibition DPPH",
+   "conclusion « aussi efficace que la ceftriaxone » contredite par les zones d'inhibition"
+  ],
+  "comparison_with_database": "Plasmon (460 nm) et taille (67 nm MEB, 66–81 nm DLS) dans la fourchette des autres AgNPs par extrait de la base : PMC4973716 (438 nm, 50–70 nm, DLS 63 nm), PMC4043712 (440 nm, DLS 64 nm), PMC4735866 (455 nm), PMC7760056 (450 nm, sous soleil). Durée de 15 min courte mais comparable à PMC7760056 (bande nette en 5 min au soleil) ; PMC5388254 (hydrogel de lin, soleil diffus) demande 10 h. PMC9908928 montre par DRX un mélange Ag/AgO que l'EDX seule n'aurait pas révélé, ce qui appuie la demande de DRX ici."
+ },
+ "sources_not_found": [
+  "journal et DOI de Đoàn et al. 2020 (corn-cob, AgCl attribué au chlorure de l'extrait) : notice AGRIS seulement",
+  "DOI de Villanueva-Ibáñez et al. 2015 (Materials Letters 152, 166-169) non trouvé",
+  "revue et DOI de l'article original d'Oyaizu 1986 non confirmés (pages d'OpenAlex et de PMC injoignables depuis le cloud)",
+  "aucune DL50 publiée trouvée pour la lycaconitine ou la méthyllycaconitine",
+  "aucune revue trouvée sur la photo-ionisation de l'eau par la lumière solaire dans les synthèses vertes : seuils d'énergie donnés de chimie générale"
+ ]
+}

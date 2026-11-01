@@ -1,0 +1,16 @@
+# PMC7178313 — critique scientifique (journal de décisions)
+
+- Une seule voie de base jugée (BMW_5Eu) : les six branches ne changent que la teneur en Eu (0,1 à 7 %), sans autre changement de chimie ; leurs écarts sont traités dans les contrôles de la voie de base (phases, maille, τavg).
+- Verdict « douteuse » et non « coherente » : la chimie de synthèse tient, mais quatre `probleme` touchent ce que l'article affirme du matériau (site unique Oh, Ωλ).
+- Problème 5D0 → 7F0 : la raie à 585 nm est nette à 10 K (Fig. 5, inset) ; elle n'est permise qu'en Cn, Cnv et Cs (Binnemans 2015). Je n'ai pas conclu à une erreur d'attribution (Table S1 la donne seule à 17 094 cm−1) mais à la présence d'un centre de basse symétrie (paire Eu–Li probable, ou Eu dans une phase parasite).
+- Problème U(λ) : l'article écrit 0,0035 / 0,003 / 0,0005 « d'après Binnemans ». Les valeurs usuelles 0,0032 / 0,0023 / 0,0002 sont confirmées par deux articles PMC (PMC4201743 pour U2 et U4, PMC8755767 pour U6) ; la source primaire (Carnall 1968) n'a pas été ouverte. Calcul : Ω ∝ 1/U à intensité fixée, donc Ω6 × 2,5 ; A0J, τrad, η inchangés (le produit Ω·U est fixé par la mesure).
+- Problème 5D0 → 7F6 : spectres arrêtés à 750 nm (Fig. 4) et 760 nm (Fig. 5, Table S1) ; position attendue ≈ 810–830 nm (17 094 − ≈ 5 000 cm−1). J'ai vérifié que 9,61 s−1 est bien recalculable à partir de Ω6 = 2,5 et U6 = 0,0005 (≈ 10 s−1 à 12 100 cm−1) : la valeur est cohérente avec leur formule, mais son intensité d'origine n'est pas montrée.
+- Problème phases parasites : contradiction relevée par l'extracteur (doute « Phases secondaires ») confirmée sur la Fig. 2a ouverte ; classé `probleme` car l'article en tire une tendance avec Eu.
+- Arithmétique des tableaux 1 et 2 refaite entièrement : tout concorde (A01 = 14,65 n³ = 96,4 s−1 avec n = 1,874).
+- Vegard : Δa observé 0,019 Å contre 0,037 Å attendu (rayons de Shannon, Δr = x(rEu + rLi − 2rMg)) ; la différence CR/IR s'annule dans Δr. Classé `reserve` (V lu sur figure à ± 0,3 Å3, pas d'affinement).
+- Excès de Mg : la justification par « évaporation du magnésium » est contredite par le même groupe (PMC8538543 : 10 % d'excès « to suppress the formation of BaWO4 ») ; pas trouvé de source sur la volatilité de MgO à 1150 °C, argument de chimie générale seulement.
+- Hydratation de l'APT : la fiche Sigma-Aldrich 510114 donne « ·xH2O » et une masse sur base anhydre ; déficit en W de 2,3 à 5,6 % selon l'hydrate, compatible avec Ba2WO5/Ba3WO6. Hypothèse, d'où `reserve`.
+- Solubilité de l'APT : deux sources discordantes (< 2 g/100 g Chinatungsten ; 4 g/100 mL fiche Niagara Refining) ; j'ai donné la fourchette des deux.
+- Mécanisme : je remplace « Mg volatil » de l'annotation par un rôle d'excès qui déplace l'équilibre vers la double pérovskite ; le précipité initial est probablement un paratungstate de Ba (pH ≈ 6), pas BaWO4 (qui demande WO4^2−), et ne retient qu'≈ 21 % du Ba : « co-précipitation » est donc un abus de mot.
+- Sécurité : ajout de la toxicité de l'acétate de baryum (H302, H332, PubChem CID 10980), absente de l'annotation de l'extraction.
+- Recherches web : 6 (5 recherches, 1 lecture de page). Aucun ajout à fondateurs.md ni constantes.md (Crossref bloqué). DOI cités non vérifiés sur Crossref : 10.1016/j.ccr.2015.02.015, 10.3390/ma14205996 (vus sur ScienceDirect et PMC).

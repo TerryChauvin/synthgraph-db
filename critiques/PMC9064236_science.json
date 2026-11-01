@@ -1,0 +1,673 @@
+{
+ "pmcid": "PMC9064236",
+ "routes": [
+  {
+   "label": "Mo-glass",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "résistivité du Mo",
+     "inputs": "Rsq = 0,16 Ω/sq ; e = 800 nm = 8,0e-5 cm",
+     "formula": "ρ = Rsq × e",
+     "result": "1,28e-5 Ω·cm = 12,8 μΩ·cm",
+     "compared_to": "Mo massif ≈ 5,3 μΩ·cm (valeur de manuel) : facteur 2,4, habituel pour du Mo pulvérisé dense",
+     "source": "valeurs de l'article ; résistivité du Mo massif : chimie générale"
+    },
+    {
+     "what": "vitesse de dépôt du Mo",
+     "inputs": "800 nm ; 40 min",
+     "formula": "e / t",
+     "result": "20 nm/min",
+     "compared_to": "ordre de grandeur courant en pulvérisation DC magnétron à quelques W/cm²",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression de travail en unités usuelles",
+     "inputs": "0,0006 mbar",
+     "formula": "1 mbar = 100 Pa ; 1 mTorr = 0,1333 Pa",
+     "result": "0,06 Pa = 0,45 mTorr",
+     "compared_to": "domaines publiés pour le Mo de contact arrière : ≈ 0,75–11 mTorr, couche supérieure dense ≈ 0,13 Pa (≈ 1 mTorr)",
+     "source": "conversion d'unités ; domaines : extraits de recherche (KoreaScience 2000, Scofield 1995)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Pulvérisation DC à 120 °C sur verre sodocalcique : aucun problème thermique.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "ρ = 12,8 μΩ·cm (calcul « résistivité du Mo ») : cohérent avec un Mo pulvérisé à basse pression, dense et conducteur ; la littérature montre que la résistivité monte de 1e-5 à ~1e-2 Ω·cm quand la pression d'argon augmente.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "The Correlation Properties between Substrate and Molybdenum Back Contacts Fabricated by DC Magnetron Sputtering",
+      "authors_or_publisher": "KoreaScience (auteurs non relevés dans l'extrait)",
+      "year": "2000",
+      "url_or_doi": "https://koreascience.kr/article/JAKO200011919586692.pub?lang=en"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "0,0006 mbar (0,06 Pa, 0,45 mTorr, calcul « pression de travail ») est en dessous des pressions de travail habituelles pour le Mo de contact arrière (≈ 1–10 mTorr ; bicouche haute pression pour l'adhérence puis basse pression pour la conductivité). Valeur possible avec une cathode puissante, mais il faut vérifier qu'il s'agit bien de la pression de travail et non de la pression de base. Un Mo monocouche à très basse pression est en forte compression et adhère mal au verre.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Sputtered molybdenum bilayer back contact for copper indium diselenide-based polycrystalline thin-film solar cells",
+      "authors_or_publisher": "Scofield J. H. et al. (Thin Solid Films 260, 26–31)",
+      "year": "1995",
+      "url_or_doi": "Thin Solid Films 260 (1995) 26 — DOI non relevé"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Pulvérisation physique d'une cible de Mo par un plasma d'argon ; à basse pression, les atomes arrivent avec une énergie élevée (peu de collisions), d'où un film colonnaire dense, en compression, de faible résistivité.",
+    "sources": [
+     {
+      "title": "The Correlation Properties between Substrate and Molybdenum Back Contacts Fabricated by DC Magnetron Sputtering",
+      "authors_or_publisher": "KoreaScience (auteurs non relevés dans l'extrait)",
+      "year": "2000",
+      "url_or_doi": "https://koreascience.kr/article/JAKO200011919586692.pub?lang=en"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pression de travail (0,0006 mbar) contre pression de base",
+    "adhérence du Mo monocouche sur le verre (test au ruban adhésif)",
+    "type de verre et nettoyage du verre (non donnés)"
+   ]
+  },
+  {
+   "label": "am-TiOx-FTO",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'isopropoxyde de titane",
+     "inputs": "370 μL ; densité 0,955 g/mL ; pureté 97 % ; M(Ti(OiPr)4) = 284,22 g/mol",
+     "formula": "n = V × d × p / M",
+     "result": "1,206 mmol",
+     "compared_to": "—",
+     "source": "densité : PubChem (titanium isopropoxide) ; masses atomiques IUPAC"
+    },
+    {
+     "what": "moles de HCl",
+     "inputs": "35 μL de HCl 2 M",
+     "formula": "n = c × V",
+     "result": "0,070 mmol",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "eau apportée par HCl 2 M",
+     "inputs": "35 μL ; d ≈ 1,03 g/mL ; moins 2,6 mg HCl",
+     "formula": "(V × d − m(HCl)) / 18,015",
+     "result": "≈ 1,86 mmol H2O",
+     "compared_to": "rapport H2O/Ti ≈ 1,5 (< 2 nécessaire pour TiO2 complet : hydrolyse partielle, sol stable)",
+     "source": "arithmétique ; densité de HCl 2 M estimée (chimie générale)"
+    },
+    {
+     "what": "concentrations du sol",
+     "inputs": "1,206 mmol Ti ; 0,070 mmol HCl ; V ≈ 2,5 + 2,5 + 0,370 + 0,035 = 5,41 mL",
+     "formula": "c = n/V",
+     "result": "[Ti] = 0,223 mol/L ; [HCl] = 0,0130 mol/L ; HCl/Ti = 0,058",
+     "compared_to": "recette « c-TTIP » courante des couches compactes de TiO2 : 0,23 M Ti(OiPr)4 et 0,013 M HCl dans l'isopropanol (identique)",
+     "source": "valeurs de l'article ; recette : Qin et al. 2017"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Les quantités donnent exactement la recette standard des couches compactes de TiO2 pour cellules pérovskites (0,23 M Ti, 0,013 M HCl dans l'isopropanol ; calcul « concentrations du sol »). L'acide freine la condensation et l'eau (H2O/Ti ≈ 1,5) ne suffit pas à une hydrolyse complète : sol stable, gélification sur le substrat avec l'humidité de l'air.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Article comparant des précurseurs de couche compacte de TiO2 pour cellules pérovskites (recette c-TTIP : 0,23 M d'isopropoxyde de titane et 0,013 M HCl dans l'isopropanol) — titre exact non relevé",
+      "authors_or_publisher": "Qin et al., Nanoscale Research Letters (PMC5747562)",
+      "year": "2017",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5747562"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Recuit à 150 °C : bien en dessous de la cristallisation de l'anatase (habituellement ≥ 300–450 °C pour un sol-gel) ; l'absence de raies anatase/rutile en DRX est attendue. À 150 °C, la couche garde des résidus organiques et des OH (TiOx hydraté), ce qui justifie le nom « TiOx ».",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Épaisseur ~20 nm pour trois cycles : la méthode de mesure n'est pas donnée (pas de coupe MEB de la seule couche) ; sur un FTO TEC 7 rugueux, une couche de 20 nm peut ne pas couvrir les pointes de SnO2 (trous). Ambiguïté de l'article : on ne sait pas si seul le recuit ou le cycle spin + recuit est répété 3 fois.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs affirment que le TiOx amorphe conduit les trous (appui : TiO2 amorphe ALD « leaky », Hu 2014). Ce résultat concerne du TiO2 ALD de 4–143 nm, avec défauts électroniques et catalyseur de Ni ; il ne se transpose pas directement à un sol-gel séché à 150 °C. La seule preuve donnée (cellules C et F produisent du photocourant) ne distingue pas une conduction par les défauts d'un contact direct SnS/FTO à travers les trous d'une couche de 20 nm sur un FTO rugueux. Il faudrait une mesure de résistance série ou une cellule témoin avec une couche de TiOx dense et cristallisée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Amorphous TiO2 coatings stabilize Si, GaAs, and GaP photoanodes for efficient water oxidation",
+      "authors_or_publisher": "Hu S., Shaner M. R., Beardslee J. A., Lichterman M., Brunschwig B. S., Lewis N. S. (Science 344, 1005)",
+      "year": "2014",
+      "url_or_doi": "10.1126/science.1251428"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse partielle de Ti(OiPr)4 freinée par HCl (sol de petits oligomères Ti–O–Ti), dépôt par centrifugation, puis condensation à l'air et séchage à 150 °C en TiOx(OH)y amorphe contenant des résidus organiques ; pas de cristallisation à cette température.",
+    "sources": [
+     {
+      "title": "Article comparant des précurseurs de couche compacte de TiO2 pour cellules pérovskites (recette c-TTIP : 0,23 M d'isopropoxyde de titane et 0,013 M HCl dans l'isopropanol) — titre exact non relevé",
+      "authors_or_publisher": "Qin et al., Nanoscale Research Letters (PMC5747562)",
+      "year": "2017",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5747562"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "répétition de 3 fois : cycle complet ou recuit seul",
+    "durée du recuit à 150 °C (non donnée)",
+    "mesure de l'épaisseur (ellipsométrie ou coupe MEB)",
+    "humidité ambiante pendant le dépôt"
+   ]
+  },
+  {
+   "label": "alpha-SnS_Mo",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse molaire du précurseur (1)",
+     "inputs": "monomère Sn(NMe2)(PhNC(S)NMe2) = C11H17N3SSn",
+     "formula": "somme des masses atomiques",
+     "result": "342,05 g/mol (monomère) ; 684,10 g/mol (dimère)",
+     "compared_to": "—",
+     "source": "masses atomiques IUPAC (arithmétique) ; formule du schéma S1"
+    },
+    {
+     "what": "concentration massique de la solution 0,08 M",
+     "inputs": "0,08 mol/L ; 342,05 ou 684,10 g/mol",
+     "formula": "c × M",
+     "result": "27,4 g/L si 0,08 M en monomère ; 54,7 g/L si 0,08 M en dimère",
+     "compared_to": "l'article ne dit pas si la molarité porte sur le dimère ou sur le monomère : facteur 2 sur la quantité d'étain",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport Sn:S du précurseur",
+     "inputs": "1 Sn et 1 S par unité monomère",
+     "formula": "n(Sn)/n(S)",
+     "result": "1:1",
+     "compared_to": "SnS : 1:1 ; Sn(II) dans le précurseur = Sn(II) dans SnS (aucun redox nécessaire)",
+     "source": "formule du schéma S1"
+    },
+    {
+     "what": "bilan de décomposition proposé",
+     "inputs": "Sn(NMe2)[PhN–C(S)–NMe2] = C11H17N3SSn",
+     "formula": "C11H17N3SSn → SnS + PhN=C(NMe2)2",
+     "result": "équilibré : C11H17N3 = tétraméthyl-phénylguanidine",
+     "compared_to": "hypothèse ; produits de décomposition non mesurés dans l'article",
+     "source": "arithmétique (hypothèse de l'agent)"
+    },
+    {
+     "what": "vitesse de croissance de α-SnS",
+     "inputs": "épaisseurs 1 μm (Mo), 1,3 μm (FTO), 1,8 μm (am-TiOx) ; 100 min au total",
+     "formula": "e / t",
+     "result": "10 ; 13 ; 18 nm/min",
+     "compared_to": "rapport 1,8 entre am-TiOx et Mo, comme le disent les auteurs",
+     "source": "valeurs de l'article (Fig. 4)"
+    },
+    {
+     "what": "Bragg α-SnS (111)",
+     "inputs": "a = 4,33 ; b = 11,20 ; c = 3,98 Å (Pbnm) ; λ = 1,54 Å",
+     "formula": "1/d² = h²/a² + k²/b² + l²/c² ; 2θ = 2 asin(λ/2d)",
+     "result": "d(111) = 2,835 Å ; 2θ = 31,52° ; d(040) = 2,80 Å, 2θ = 31,92°",
+     "compared_to": "raie principale de α-SnS vers 31,5° (fiche 39-0354 citée)",
+     "source": "valeurs de l'article ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Sélection du polymorphe par la seule température (α à 375 °C, π à 300 °C) avec le même précurseur : conforme à l'article fondateur du même groupe (températures optimisées 375 et 300 °C). L'étape finale de 10 min à 400 °C reste en dessous du seuil de conversion π → α annoncé (≥ 400 °C pendant longtemps) : elle sert à rendre les zones froides du tube assez chaudes pour α, ce qui est plausible.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorph-Selective Deposition of High Purity SnS Thin Films from a Single Source Precursor",
+      "authors_or_publisher": "Ahmet I. Y., Hill M. S., Johnson A. L., Peter L. M. (Chem. Mater. 27(22))",
+      "year": "2015",
+      "url_or_doi": "10.1021/acs.chemmater.5b03220"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Toluène (point d'ébullition 110,6 °C, NIST) : les gouttelettes s'évaporent avant d'atteindre le substrat à 375–400 °C, comme dans tout AA-CVD. Le précurseur est choisi pour sa solubilité, pas pour sa volatilité.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Aerosol-assisted delivery of precursors for chemical vapour deposition: expanding the scope of CVD for materials fabrication",
+      "authors_or_publisher": "Marchand P., Hassan I. A., Parkin I. P., Carmalt C. J. (Dalton Trans. 42, 9406–9422)",
+      "year": "2013",
+      "url_or_doi": "10.1039/c3dt50607j"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Sn:S = 1:1 dans le précurseur et Sn déjà à +2 (calcul « rapport Sn:S du précurseur ») : un précurseur unique adapté à SnS, sans réducteur ni source de soufre en plus. La molarité 0,08 M ne dit pas si elle porte sur le dimère (calcul « concentration massique ») ; le volume de solution, le débit d'argon et le débit d'aérosol manquent, donc la quantité de précurseur réellement envoyée est inconnue.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "« pressure = 5 bar » est rangé dans l'extraction comme pression de l'étape de dépôt. L'article dit que l'argon est réglé à 5 bar « until it reached the atomizer » : c'est la pression d'alimentation de l'atomiseur. Un réacteur AA-CVD en tube de quartz fonctionne près de la pression atmosphérique (les gaz s'évacuent par la sortie du tube). Mettre un tube de quartz à 375–400 °C sous 5 bar serait dangereux. L'attribution est à corriger dans l'extraction : c'est un paramètre de l'atomiseur, pas du dépôt. L'annotation de sécurité (« aérosol sous 5 bar d'argon dans un réacteur à quartz chauffé ») est à corriger aussi.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Aerosol-assisted delivery of precursors for chemical vapour deposition: expanding the scope of CVD for materials fabrication",
+      "authors_or_publisher": "Marchand P., Hassan I. A., Parkin I. P., Carmalt C. J. (Dalton Trans. 42, 9406–9422)",
+      "year": "2013",
+      "url_or_doi": "10.1039/c3dt50607j"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres de maille des Résultats (a = 4,33, b = 11,20, c = 3,98 Å, maille Pbnm) cohérents avec la raie (111) à 31,5° (calcul « Bragg α-SnS (111) ») et avec la fiche 39-0354. L'introduction donne une autre série (a = 11,44, b = 4,03, c = 4,40 Å en Pnma) : axes permutés et valeurs plus grandes de 1 à 2 %, sans source dans le texte. C'est une petite incohérence entre les sections ; les valeurs mesurées sont celles des Résultats.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Gap direct optique 1,28 eV et gap PV 1,3 eV, contre 1,34 eV dans l'article fondateur (même précurseur) : ordre de grandeur cohérent pour α-SnS (gap indirect ~1,1 eV, direct ~1,3 eV).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorph-Selective Deposition of High Purity SnS Thin Films from a Single Source Precursor",
+      "authors_or_publisher": "Ahmet I. Y., Hill M. S., Johnson A. L., Peter L. M. (Chem. Mater. 27(22))",
+      "year": "2015",
+      "url_or_doi": "10.1021/acs.chemmater.5b03220"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire : les auteurs écrivent que la structure anisotrope en couches de α-SnS « directs the isotropic growth » des grains. Il faut lire « anisotropic growth » : c'est précisément la croissance anisotrope qui donne les plaquettes. Le texte se contredit lui-même.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le précurseur est un amidure d'étain(II) sensible à l'air et à l'humidité : son hydrolyse libère de la diméthylamine (gaz inflammable et toxique). Toluène inflammable nébulisé dans un tube à 400 °C : il faut une sortie vers une hotte ou un piège. Les films sont « stored in air » sans durée, alors que l'introduction rappelle que 24 h à l'air oxydent la surface de SnS. La durée d'exposition à l'air avant le CdS est une variable non contrôlée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Aérosol de la solution toluénique porté par l'argon ; le solvant s'évapore dans la zone chaude et le précurseur, adsorbé sur le substrat, se décompose de façon intramoléculaire sans redox. Bilan plausible : migration du soufre du thiouréide vers Sn(II) et élimination de la guanidine PhN=C(NMe2)2 (bilan équilibré, calcul « bilan de décomposition proposé »). À 375–400 °C, la mobilité de surface suffit à la phase stable α (orthorhombique, en couches) ; sa croissance anisotrope donne des plaquettes. La densité de nucléation dépend de la surface (oxydes hydroxylés contre Mo).",
+    "sources": [
+     {
+      "title": "Polymorph-Selective Deposition of High Purity SnS Thin Films from a Single Source Precursor",
+      "authors_or_publisher": "Ahmet I. Y., Hill M. S., Johnson A. L., Peter L. M. (Chem. Mater. 27(22))",
+      "year": "2015",
+      "url_or_doi": "10.1021/acs.chemmater.5b03220"
+     },
+     {
+      "title": "Aerosol-assisted delivery of precursors for chemical vapour deposition: expanding the scope of CVD for materials fabrication",
+      "authors_or_publisher": "Marchand P., Hassan I. A., Parkin I. P., Carmalt C. J. (Dalton Trans. 42, 9406–9422)",
+      "year": "2013",
+      "url_or_doi": "10.1039/c3dt50607j"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "synthèse et pureté du précurseur (1) selon Ahmet 2015, manipulation en boîte à gants",
+    "0,08 M exprimé en dimère ou en monomère",
+    "volume de solution, débit d'argon et débit d'aérosol (non donnés)",
+    "les 5 bar sont la pression d'alimentation de l'atomiseur : le tube reste à la pression atmosphérique",
+    "profil de température le long du tube (zones froides qui donnent π)",
+    "durée d'exposition à l'air avant la fabrication de la cellule"
+   ]
+  },
+  {
+   "label": "pi-SnS_Mo",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration massique de la solution 0,08 M",
+     "inputs": "comme pour alpha-SnS_Mo",
+     "formula": "c × M",
+     "result": "27,4 g/L (monomère) ou 54,7 g/L (dimère)",
+     "compared_to": "ambiguïté de facteur 2",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Bragg π-SnS",
+     "inputs": "a = 11,6 Å (cubique) ; λ = 1,54 Å",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 asin(λ/2d)",
+     "result": "(222) : d = 3,349 Å, 2θ = 26,59° ; (400) : 2,900 Å, 30,80° ; (410) : 2,813 Å, 31,77°",
+     "compared_to": "raies caractéristiques de π-SnS vers 26,6 ; 30,8 ; 31,8° ; a = 11,595–11,60 Å publiés",
+     "source": "valeurs de l'article ; a de référence : Abutbul 2016"
+    },
+    {
+     "what": "vitesse de croissance de π-SnS",
+     "inputs": "≈ 800 nm (Mo) et ≈ 1,8 μm (FTO, am-TiOx) ; 100 min",
+     "formula": "e / t",
+     "result": "8 et 18 nm/min (facteur 2,25)",
+     "compared_to": "taille de grains 100–300 nm (Mo) contre 700–1000 nm (oxydes)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "300 °C pour π-SnS : conforme à l'article fondateur (300 °C pour la phase cubique). π-SnS est métastable mais cinétiquement stable sous ~400 °C, donc compatible avec un dépôt à 300 °C et avec les recuits ultérieurs des cellules à 150–200 °C.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorph-Selective Deposition of High Purity SnS Thin Films from a Single Source Precursor",
+      "authors_or_publisher": "Ahmet I. Y., Hill M. S., Johnson A. L., Peter L. M. (Chem. Mater. 27(22))",
+      "year": "2015",
+      "url_or_doi": "10.1021/acs.chemmater.5b03220"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "a = 11,6 Å : accord avec la valeur affinée de π-SnS (11,595 Å) et avec 11,600 ± 0,025 Å sur des films ; les positions de Bragg calculées (calcul « Bragg π-SnS ») tombent sur les raies caractéristiques. Gap direct de 1,7 eV et gap PV de 1,75–1,79 eV : cohérents avec les 1,78 eV de l'article fondateur. Point non discriminant : la raie (410) de π à 31,8° côtoie la raie (111)/(040) de α à 31,5–31,9° ; une petite fraction de α ne se voit bien qu'en Raman (96 cm⁻¹), et le Raman n'est montré que pour les films sur FTO.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Article sur la structure de π-SnS en films (a = 11,600 ± 0,025 Å, 64 atomes par maille) — titre exact non relevé",
+      "authors_or_publisher": "Abutbul R. E., Garcia-Angelmo A. R., Burshtein Z., Nair M. T. S., Nair P. K., Golan Y. (CrystEngComm 18, 5188)",
+      "year": "2016",
+      "url_or_doi": "10.1039/c6ce00647g"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs proposent que les grains plus gros de π-SnS sur FTO et am-TiOx viennent d'un bon accord de maille avec la surface d'oxyde. C'est incompatible avec leur propre conclusion que le TiOx est amorphe (pas de maille, donc pas d'accord de maille possible). Pour le FTO, aucun rapport de maille simple n'est montré (SnO2 rutile a ≈ 4,74 Å contre 11,6 Å). De plus, ils attribuent aussi la croissance plus rapide à une plus forte densité de sites de nucléation, ce qui donnerait à épaisseur égale des grains plus petits, pas plus gros. Explication plus simple et cohérente avec leurs chiffres : le film est 2,25 fois plus épais sur oxyde (calcul « vitesse de croissance de π-SnS ») et, en croissance colonnaire, la taille latérale des grains augmente avec l'épaisseur (sélection évolutive des grains). Un témoin à épaisseur égale (durée de dépôt ajustée) trancherait.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« Comparaison » entre substrats : changer de substrat change en même temps l'épaisseur (0,8 contre 1,8 μm), la taille de grain et la rugosité. Les différences entre cellules D, E et F ne peuvent donc pas être attribuées au seul substrat, et les auteurs eux-mêmes invoquent l'épaisseur pour D. Témoin nécessaire : des absorbeurs d'épaisseur égale.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même décomposition du précurseur que pour α-SnS, mais à 300 °C : la nucléation de la phase cubique métastable π (64 atomes, P213) l'emporte cinétiquement, et la conversion vers α est bloquée sous ~400 °C. La croissance isotrope de la maille cubique donne des grains cubiques compacts. La taille des grains suit surtout l'épaisseur du film (croissance colonnaire, sélection évolutive des grains), elle-même liée à une nucléation plus rapide sur les oxydes hydroxylés ; aucun accord de maille n'est nécessaire, ni possible avec du TiOx amorphe.",
+    "sources": [
+     {
+      "title": "Polymorph-Selective Deposition of High Purity SnS Thin Films from a Single Source Precursor",
+      "authors_or_publisher": "Ahmet I. Y., Hill M. S., Johnson A. L., Peter L. M. (Chem. Mater. 27(22))",
+      "year": "2015",
+      "url_or_doi": "10.1021/acs.chemmater.5b03220"
+     },
+     {
+      "title": "Article sur la phase π-SnS cubique (affinement a = 11,595 Å) — titre exact non relevé",
+      "authors_or_publisher": "Abutbul R. E., Segev E., Zeiri L., Ezersky V., Makov G., Golan Y. (RSC Adv. 6, 5848)",
+      "year": "2016",
+      "url_or_doi": "10.1039/c5ra23092f"
+     },
+     {
+      "title": "Article sur la structure de π-SnS en films (a = 11,600 ± 0,025 Å, 64 atomes par maille) — titre exact non relevé",
+      "authors_or_publisher": "Abutbul R. E., Garcia-Angelmo A. R., Burshtein Z., Nair M. T. S., Nair P. K., Golan Y. (CrystEngComm 18, 5188)",
+      "year": "2016",
+      "url_or_doi": "10.1039/c6ce00647g"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température réelle du substrat (pas seulement la consigne) : la fenêtre π/α est étroite",
+    "Raman à 96 cm⁻¹ sur chaque substrat pour exclure une petite fraction de α",
+    "épaisseur à durée égale selon le substrat, et taille de grain à épaisseur égale"
+   ]
+  },
+  {
+   "label": "Device_A",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport thiourée/Cd du bain CdS",
+     "inputs": "CdSO4 0,12 M ; thiourée 0,3 M",
+     "formula": "c(TU)/c(Cd)",
+     "result": "2,5",
+     "compared_to": "les bains CdS ammoniacaux usuels sont millimolaires en Cd2+ avec un large excès de thiourée ; 0,12 M sont probablement les concentrations des solutions mères (volumes non donnés)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "résistivité de l'ITO",
+     "inputs": "Rsq = 10 Ω/sq ; e = 200 nm",
+     "formula": "ρ = Rsq × e",
+     "result": "2,0e-4 Ω·cm",
+     "compared_to": "bon ITO ; à température ambiante sans recuit, valeur à la limite basse de ce qu'on obtient habituellement",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement de la cellule A telle que fabriquée",
+     "inputs": "Voc 170 mV ; Jsc 3,81 mA cm⁻² ; FF 45 % ; 100 mW cm⁻²",
+     "formula": "η = Voc × Jsc × FF / Pin",
+     "result": "0,291 %",
+     "compared_to": "0,29 % (Tableau S2)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement de la cellule D (Jsc 5,93 contre 5,96)",
+     "inputs": "Voc 133 mV ; FF 27 % ; Jsc 5,93 (S2) ou 5,96 (Tableau 1)",
+     "formula": "η = Voc × Jsc × FF / Pin",
+     "result": "0,213 % ou 0,214 %",
+     "compared_to": "0,21 % dans les deux tables : écart de recopie sans conséquence",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement de la cellule C",
+     "inputs": "85 mV ; 3,74 mA cm⁻² ; 31 %",
+     "formula": "η = Voc × Jsc × FF / Pin",
+     "result": "0,099 %",
+     "compared_to": "0,1 %",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Pulvérisation de i-ZnO et ITO : « DC-sputtering » dans les Méthodes, « RF sputtering » dans les Résultats. Le ZnO intrinsèque est très résistif (quasi isolant) : une cible céramique d'i-ZnO se charge sous une décharge DC, d'où l'usage presque universel de la pulvérisation RF pour i-ZnO (ou d'une pulvérisation DC réactive depuis une cible de Zn métallique, non mentionnée). L'ITO, conducteur, peut être pulvérisé en DC. La version la plus plausible est donc i-ZnO en RF et ITO en DC ou RF. La valeur « DC » retenue par l'extraction pour i-ZnO est douteuse : c'est une incohérence de l'article, à signaler en limite de reproductibilité.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Bain CdS : « 0.12 M CdSO4 and 0.3 M thiourea » sans volumes ni concentration d'ammoniaque, à pH 9,7. Si ces concentrations étaient celles du bain, Cd2+ serait environ 100 fois plus concentré que dans les bains usuels, avec une précipitation homogène rapide de CdS (et de Cd(OH)2). Ce sont presque sûrement les solutions mères, mais les dilutions ne sont pas données. pH 9,7 est bas pour le procédé ammoniac–thiourée habituel (pH ≈ 11) : l'hydrolyse de la thiourée, qui fournit S2−, y est plus lente. Il faut reprendre la recette de Neuschitzer et al. (cité) plutôt que les chiffres de cet article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Mechanism of chemical bath deposition of cadmium sulfide thin films in the ammonia-thiourea system: in situ kinetic study and modelization",
+      "authors_or_publisher": "Ortega-Borges R., Lincot D. (J. Electrochem. Soc. 140(12), 3464)",
+      "year": "1993",
+      "url_or_doi": "J. Electrochem. Soc. 140 (1993) 3464 — DOI non relevé"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Gravure (NH4)2S 10 % pendant 30 s : le sulfure d'ammonium dissout les oxydes et le SnS2 de surface en thiostannates. La dissolution de SnS lui-même demande des polysulfures, présents dans les solutions commerciales jaunies. L'effet « enlever une couche de SnS » dépend donc de l'âge de la solution ; il est plausible mais non quantifié.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendements recalculés (Voc × Jsc × FF) en accord avec les tables à l'arrondi près (calculs « rendement… »). L'écart de Jsc de D (5,93 contre 5,96 mA cm⁻²) est sans effet sur η.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Voc de 85 à 217 mV et FF de 27 à 48 % : très en dessous des records SnS (Voc ≈ 300–490 mV) que les auteurs citent eux-mêmes. Les tables S1 montrent jusqu'à 15 pixels court-circuités sur 21 : la résistance parallèle domine, ce qui est cohérent avec la morphologie en plaquettes et les trous signalés.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dangers non écrits : sulfate de cadmium (cancérogène, toxique) et thiourée (cancérogène suspectée) dans le bain chimique, avec bains usés à traiter comme déchets de Cd ; sulfure d'ammonium (dégagement de H2S très toxique, à manipuler sous hotte) ; ammoniaque ; soudure à l'indium.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CAMEO Chemicals (fiches cadmium sulfate, thiourea, ammonium sulfide, toluene)",
+      "authors_or_publisher": "NOAA",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le Cd2+ complexé en [Cd(NH3)4]2+ réagit en surface avec la thiourée hydrolysée en milieu basique (libération lente de S2−) pour former CdS par croissance ion par ion sur l'absorbeur. i-ZnO, très résistif, limite les courts-circuits à travers les trous de l'absorbeur et protège la jonction pendant la pulvérisation de l'ITO.",
+    "sources": [
+     {
+      "title": "Mechanism of chemical bath deposition of cadmium sulfide thin films in the ammonia-thiourea system: in situ kinetic study and modelization",
+      "authors_or_publisher": "Ortega-Borges R., Lincot D. (J. Electrochem. Soc. 140(12), 3464)",
+      "year": "1993",
+      "url_or_doi": "J. Electrochem. Soc. 140 (1993) 3464 — DOI non relevé"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mode de pulvérisation de i-ZnO (RF probable) et puissances et pressions",
+    "recette réelle du bain CdS : volumes, concentration d'ammoniaque, concentrations dans le bain (Neuschitzer et al.)",
+    "âge et teneur en polysulfure de la solution de (NH4)2S",
+    "durée à l'air entre le dépôt de SnS et la gravure"
+   ]
+  },
+  {
+   "label": "Anneal_A_200C_20min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rendement après 20 min à 200 °C (A)",
+     "inputs": "135 mV ; 12,96 mA cm⁻² ; 47 %",
+     "formula": "η = Voc × Jsc × FF / 100 mW cm⁻²",
+     "result": "0,822 %",
+     "compared_to": "0,82 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement de B après 20 min à 200 °C",
+     "inputs": "144 mV ; 12,78 mA cm⁻² ; 48 %",
+     "formula": "idem",
+     "result": "0,883 %",
+     "compared_to": "0,88 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement de F après 240 min à 150 °C",
+     "inputs": "217 mV ; 5,40 mA cm⁻² ; 34 %",
+     "formula": "idem",
+     "result": "0,398 %",
+     "compared_to": "0,41 % (tables) ; 0,47 % (conclusion) ; avec le Voc de 0,135 V du résumé : 0,248 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement de E après 240 min à 150 °C",
+     "inputs": "113 mV ; 3,40 mA cm⁻² ; 42 %",
+     "formula": "idem",
+     "result": "0,161 %",
+     "compared_to": "0,15 % (léger écart d'arrondi)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Jsc intégré de l'EQE / Jsc de la courbe J–V",
+     "inputs": "B : 4,95/4,26 ; 11,8/12,78 ; 7,56/7,91 — F : 4,84/2,50 ; 5,35/3,50 ; 6,88/5,40 mA cm⁻²",
+     "formula": "Jsc(EQE)/Jsc(J–V)",
+     "result": "B : 1,16 ; 0,92 ; 0,96 — F : 1,94 ; 1,53 ; 1,27",
+     "compared_to": "un accord à ±10 % est attendu ; F s'en écarte de 27 à 94 %",
+     "source": "valeurs de l'article (Fig. 8 et Tableau S2)"
+    },
+    {
+     "what": "part du photocourant maximal théorique de π-SnS",
+     "inputs": "≈ 11 mA cm⁻² sous polarisation ; Jsc max 21,7 mA cm⁻² (Nair, cité)",
+     "formula": "11 / 21,7",
+     "result": "51 %",
+     "compared_to": "« 45 % » écrit (correspondrait à un maximum de 24,4 mA cm⁻²)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pour la cellule F (π-SnS), le Jsc intégré de l'EQE dépasse le Jsc de la courbe J–V de 27 à 94 % (calcul « Jsc intégré de l'EQE / Jsc de la courbe J–V » : 4,84 contre 2,50 mA cm⁻² telle que fabriquée). Pour B, l'écart reste dans ±16 %. Un tel écart vient d'une aire mal définie (pixels de 0,1 cm² délimités au scribe, faisceau EQE plus large), d'une collecte qui dépend de l'intensité lumineuse (EQE sans lumière de polarisation sur une cellule à faible résistance parallèle) ou d'un étalonnage. Les Jsc des cellules π et les gains attribués au recuit sont donc à prendre avec prudence.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Valeurs contradictoires pour la meilleure cellule π (F) : η = 0,47 % dans la conclusion et Voc = 0,135 V dans le résumé, alors que les tables et le calcul donnent 0,40–0,41 % et 217 mV (calcul « rendement de F après 240 min à 150 °C »). Ce sont des erreurs de l'article ; les valeurs des tables sont les seules cohérentes.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« 45 % of the maximum theoretical photocurrent » pour ≈ 11 mA cm⁻² : avec les 21,7 mA cm⁻² cités, on obtient 51 % (calcul « part du photocourant maximal théorique »). Petite erreur d'arithmétique ou autre référence non dite. Sens de la polarisation : « +2 V » dans le texte, « 0 V to −2 V » dans la légende S4 ; seule la notion de polarisation inverse est cohérente.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'amélioration de Jsc avec baisse de Voc est attribuée à l'élargissement de la zone de charge d'espace, par analogie avec des mesures EBIC sur CIGS. Aucune mesure sur ces cellules (C–V, EBIC) ne le montre. Alternatives aussi plausibles à 150–200 °C à l'air : interdiffusion Cd/Sn/S à l'interface SnS/CdS, oxydation ou passivation de la surface de SnS, recuit de l'ITO et de l'i-ZnO pulvérisés à température ambiante (hausse de conductivité et de transparence). La preuve ne départage pas ces hypothèses.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "150–200 °C à l'air : bien en dessous de la conversion π → α (≥ 400 °C) ; le polymorphe est conservé. L'article ne dit pas si les durées (20 puis 40 min ; 120 puis 240 min) sont cumulatives sur la même cellule. La formulation « successive annealing times » et « with each annealing step » suggère des recuits cumulés sur le même pixel, ce qui veut dire que la valeur « 40 min » correspond probablement à 20 + 20 min et non à un recuit unique de 40 min.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Recuit de cellules contenant CdS à l'air sur plaque chauffante : pas de risque particulier à 200 °C. Les dangers sont ceux de la fabrication (Cd, H2S).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hypothèse la plus probable sans mesure discriminante : un recuit modéré à l'air guérit les défauts de l'interface SnS/CdS (interdiffusion limitée, passivation par l'oxygène) et améliore les couches d'oxyde transparentes pulvérisées à froid, d'où un Jsc plus élevé. Le recuit prolongé (≥ 40 min à 200 °C) fait diffuser les espèces et ouvre des chemins de court-circuit à travers les plaquettes et les trous, d'où la chute de Voc puis le court-circuit. L'élargissement de la zone de charge d'espace proposé par les auteurs reste à démontrer par des mesures C–V.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "recuits cumulatifs ou indépendants",
+    "aire éclairée en J–V (masque) et en EQE ; EQE sous lumière de polarisation",
+    "mesure C–V avant et après recuit pour tester l'hypothèse de la zone de charge d'espace",
+    "rendement de F : 0,41 % (tables) et non 0,47 %"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie des dépôts est cohérente : un précurseur Sn(II) thiouréide unique (Sn:S = 1:1, sans redox) et la sélection du polymorphe par la seule température (300 °C → π, 375–400 °C → α) reproduisent l'article fondateur du même groupe ; les paramètres de maille et les positions de Bragg recalculées concordent avec α-SnS (Pbnm) et π-SnS (a ≈ 11,6 Å). La sol de TiOx correspond exactement à la recette standard de 0,23 M Ti et 0,013 M HCl. Les faiblesses sont du côté de la fabrication des cellules et de l'interprétation : pulvérisation de i-ZnO dite DC (physiquement improbable pour un isolant) contre RF dans les Résultats ; concentrations du bain CdS sans dilutions ; « 5 bar » qui sont la pression d'alimentation de l'atomiseur et non celle du réacteur ; Jsc intégrés de l'EQE jusqu'à 1,9 fois plus grands que les Jsc J–V pour la cellule F ; valeurs contradictoires de la meilleure cellule π (0,47 % et 0,135 V contre 0,41 % et 217 mV) ; et une hypothèse d'accord de maille entre π-SnS et un TiOx amorphe qui n'a pas de maille.",
+  "author_errors_suspected": [
+   "i-ZnO et ITO : « DC-sputtering » dans les Méthodes contre « RF sputtering » dans les Résultats ; i-ZnO isolant est normalement pulvérisé en RF",
+   "Conclusion : η = 0,47 % pour FTO/am-TiOx/π-SnS alors que les tables donnent 0,41 % (recalculé 0,40 %)",
+   "Résumé : Voc = 0,135 V pour la meilleure cellule π alors que les tables donnent 217 mV",
+   "Jsc de D : 5,93 (Tableau S2) contre 5,96 mA cm⁻² (Tableau 1, Fig. 7d), sans effet sur η",
+   "11 mA cm⁻² présentés comme 45 % de 21,7 mA cm⁻² (en réalité 51 %)",
+   "« 514.5 nm Ag+ laser » : la raie de 514,5 nm est celle du laser à ions argon (Ar+) ; et « energy density 30 kW cm⁻² » est une densité de puissance",
+   "« anisotropic crystal structure … directs the isotropic growth » : lire croissance anisotrope",
+   "Accord de maille invoqué entre π-SnS et un TiOx que les auteurs disent amorphe",
+   "Paramètres de maille de α-SnS de l'introduction (11,44/4,03/4,40 Å) différents de ceux des Résultats (11,20/3,98/4,33 Å)"
+  ],
+  "comparison_with_database": "compare.py « SnS » : PMC8433875 (CVD à précurseur unique [Sn(SBut)(tfb-dmeda)], α-SnS à 350 °C sur FTO, orientation (040), flocons) est cohérent avec α-SnS en plaquettes obtenu ici à 375–400 °C. PMC5327880 (nanoparticules de SnS orthorhombique à température ambiante) et PMC13333848 (sonochimie, SnS2 majoritaire) ne sont pas comparables (voies en solution). Aucune autre voie π-SnS dans la base."
+ },
+ "sources_not_found": [
+  "Fiche technique TSI 3076 (pression d'alimentation nominale) : page du fabricant non joignable depuis cet environnement",
+  "Recette détaillée du bain CdS de Neuschitzer et al. 2015 (Prog. Photovolt. 23, 1660) : texte intégral non accessible, concentrations dans le bain non vérifiées",
+  "Produits de décomposition du précurseur (1) : non vérifiés dans Ahmet 2015 (texte intégral non accessible) ; le bilan avec élimination de guanidine est une hypothèse",
+  "Source dédiée établissant l'impossibilité de la pulvérisation DC d'une cible céramique d'i-ZnO : non trouvée ; les extraits de recherche décrivent des i-ZnO pulvérisés en RF sans source attribuable avec certitude"
+ ]
+}

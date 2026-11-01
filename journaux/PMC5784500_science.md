@@ -1,0 +1,16 @@
+# PMC5784500 — critique scientifique (journal de décisions)
+
+- **Tableau 1 (EDS)** : recalcul des fractions atomiques depuis les % massiques. O, Na et Si concordent à ± 0,01 ; seule la colonne Al atomique est fausse (A : 0,058 publié contre 0,021 recalculé). Si:Al réels ≈ 15 / 27 / 18 / 25 au lieu de 5 / 81 / 4,6 / 91 → `probleme` : la preuve EDS du cœur–coque repose sur cette colonne.
+- **Table 2 contre Fig. 6** : lecture de l'isotherme de SYS2 (≈ 100 cm3 STP/g au genou, ≈ 260 à P/P0 0,99) → S ≈ 400–450 m2/g, V ≈ 0,40 cm3/g. La somme des deux rangées (≈ 900 m2/g, 0,573 cm3/g) est incompatible → `probleme`. J'en conclus que la rangée « mesoporous » est probablement la surface BET totale, sans pouvoir l'affirmer.
+- **Fig. 1b, SYS6** : raies FAU nombreuses et intenses contre « very weak peaks » dans le texte → `probleme` sur la branche SYS6 (la figure est l'observation, le texte l'interprétation).
+- **Consigne pH 2** : 0,3 mmol de H+ libre contre ≈ 58 mmol consommables par la désalumination de 4 g de HY (3 H+ par Al, 19,4 mmol d'Al). Le pH n'est pas une consigne reproductible sans le volume d'acide → `probleme` (bilan).
+- **Mécanisme** : les « micelles négatives » de P123 sont fausses (copolymère non ionique, voie S0H+X−I+ de Zhao 1998) → `probleme`. RMN 27Al : l'attribution hexa/tétracoordiné est inversée par rapport à la Fig. 11b → `probleme`. Masses de la Fig. 12 recalculées : 30,7 et 75 sont faux et hors du domaine m/z déclaré → `probleme`.
+- **Gel de NaY** : démonstration par bilan Na/Si que le gel ne peut atteindre 10 SiO2:Al2O3 sans verre soluble (germes seuls : x = 0,67 d'Al exigé → Na2O ≥ 10,7) → `probleme` d'omission, mais voie jugée reproductible avec la recette IZA.
+- **SYS1, raie à 31,7°** : coïncidence avec NaCl (200) à 31,70° et (220) à 45,45° ; lecture de figure approximative, gardée en `reserve` comme hypothèse.
+- **Concentration de P123** : 4 g dans 30 g d'eau (≈ 12 %) contre ≈ 2,6 % chez Zhao ; seuil de 6 % pris dans un extrait de la famille de brevets Stucky (US 6 592 764 et suivants), texte du brevet non ouvert en entier → `reserve`, pas `probleme`.
+- **Recherches web : 5** (Zhao/pH, recette IZA ×2, RMN 27Al, craquage du PS) ; 3 lectures de pages échouées (IZA PDF, page IZA, POSTECH : DNS injoignable). Recette IZA prise dans l'extrait du moteur de recherche (gel global 4,62:1:10:180, germes 5 % d'Al) ; je n'ai pas cité la composition des germes IZA dont je me souvenais, faute de l'avoir lue.
+- **Source Cui 2005** (SBA-15 à pH 2–5 avec préhydrolyse du TEOS) écartée : notice injoignable, et l'article ne préhydrolyse pas.
+- **Source RMN** : document ETH lu seulement par extrait, auteurs non relevés ; l'attribution 60 / 0 ppm est de toute façon standard.
+- **Source sur le craquage du PS** : fiche ORNL (USY, benzène et éthylbenzène majoritaires vers 650 °C), auteurs et année non relevés ; sert seulement d'ordre de grandeur.
+- **DOI non vérifiés** (Crossref bloqué) : 10.1126/science.279.5350.548 (Zhao 1998). Rien d'ajouté à fondateurs.md ni à constantes.md.
+- **Verdicts** : SYS2 `douteuse` plutôt qu'`incoherente`, car la synthèse peut s'exécuter et donne vraisemblablement un composite HY désaluminée + SBA-15 ; c'est la preuve d'une structure cœur–coque qui est fragile. SYS7 `invérifiable` (jamais caractérisé).

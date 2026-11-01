@@ -1,0 +1,15 @@
+# Journal critique de fidélité PMC11989644
+
+- Ma liste d'échantillons avant ouverture de l'extraction : RGP (brut), TRGP01_25C et _80C, TRGP02_1 à 8 (TRGP = TRGP02_6), ZX, et 24 échantillons ZX[TR]R S{0,1,5}_{12,24,36,48}H. Identique à l'inventaire de l'extracteur (RGP en route null, justifié : matière première non synthétisée). Aucun constat « manquant » de branche.
+- Tableau 3 : les rangées ne portent que le temps ; j'ai refait l'attribution par l'en-tête (RGP, TRGP à 0 %, puis 1 %, puis 5 %) et vérifié les 24 valeurs. Toutes justes, y compris ZXRS0_48H = 3 % et ZXTRS1_48H = 42 %.
+- Tableau 2 : j'ai recalculé quelles variables changent par rapport à TRGP02_1 (0.5 mol L−1, 20 mL, 60 min) pour chaque branche ; les 7 combinaisons de variations sont correctes. Le texte « +15.84 % » et « +18.06 % » est cohérent avec les rangées.
+- Tableau 4 : les 18 valeurs (ZX, ZXTRS5_12H, ZXRS5_12H) sont sur la bonne voie ; colonne Vmeso (c) et (d) bien distinguées.
+- Constat 1 (attribution, probable) : la phase « mélange FAU / GIS / LTA / SOD » de ZXRS1_12H vient de la phrase sur l'échantillon à 24 h (« the greater RCFAU percentage was only 24 h »). Probable et non sûr, car la Figure 1B montre bien des pics de GIS à 12 h, mais LTA et SOD ne sont pas affirmés pour cet échantillon par le texte.
+- Constats 2 et 3 (manquants, probables) : phases de ZXRS1_48H (LTA en baisse) et série ZXTRS1 (FAU principale, Na-P1 secondaire) sont écrites dans l'article et absentes des résultats ; seule la série ZXTRS0 a son annotation de tendance.
+- Constat 4 (deduit, probable) : succeeded=false posé par l'extracteur sur RCFAU = 0 % seulement ; les auteurs ne parlent pas d'échec. Le doute existe côté extracteur, je le rends visible à l'orchestrateur.
+- Constat 5 (method_sources) : B39 est attaché à ZX seule alors que la phrase vise « the synthesis methodologies described in this work ». B40 (ASTM D3906) gardée : protocole de mesure adapté, pas une simple formule. B41 à B44 (t-plot, BJH, Tarazona) correctement écartées (modèles d'analyse).
+- Constat 6 (mineur) : séchage à 150 °C et tamisage de RGP seulement dans le nom du réactif, pas en étape.
+- Écarté : amounts « non cités » de NaOH, NaAlO2, H2O pour les synthèses à partir de RGP. L'article dit « maintaining the molar composition of FAU-X zeolite synthesis gel » sans la répéter ; l'interprétation est ambiguë, l'extracteur l'a signalée en doute ; pas de texte pour trancher, donc pas de constat.
+- Écarté : stirring de la série TRGP02 ; l'article écrit « stirring » seulement en 2.1.1, déclaré non cité à juste titre.
+- Figures : Figure 1 (XRD) ouverte, cohérente avec les phases du texte (Δ FAU, ∗ GIS, o LTA) ; aucune valeur numérique à lire. Figure 4 : plateaux d'adsorption (~235, ~175, ~85 cm3 g−1 STP) et maxima de distribution (0.67, 0.52, 0.63 nm) en accord avec le tableau 4. Aucune valeur from_figure dans l'extraction, donc aucun écart à mesurer.
+- not_stated vérifiés (≈ 40 cases : purity/supplier/temps/vitesse/répétitions) : aucun trouvé dans l'article, ses légendes ou l'annexe (annexes S1, S2, Fig. S1, S2 absentes du dépôt, signalées par l'extracteur).

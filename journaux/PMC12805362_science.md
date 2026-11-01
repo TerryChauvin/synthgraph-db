@@ -1,0 +1,16 @@
+# PMC12805362 — critique scientifique (journal de décisions)
+
+- Éq. 6 recomptée élément par élément : équilibrée (O 74,5 = 74,5 à φ = 5). Mais l'O2 extérieur s'annule à φ = 2/3 : le φ de l'article vaut 2/3 du φ de Jain (φ_Jain = 7,5). Classé `reserve` (convention, pas une erreur de bilan) ; utile pour recalculer la masse de CTAB (1,144 mol/mol LFP).
+- Aucune masse dans l'article : j'ai pris un lot hypothétique de 10 mmol pour juger les solubilités ; c'est dit dans `calculs` comme hypothèse du critique.
+- `probleme` NH4H2PO4 « dissolved » dans l'éthanol et le méthanol purs : appui sur l'infobox Wikipedia (insoluble dans l'éthanol, CID 24402) et sur l'étude JCED 2016 (solubilité qui décroît avec l'éthanol). Fisher dit « soluble in ethanol » : écarté comme valeur isolée de fiche commerciale. PubChem non ouvert (pages injoignables).
+- `probleme` « 93 % de tenue en puissance à 10C » : 57/130 = 44 % et 57/107 = 53 % avec les chiffres du même article. Je signale une lecture possible (capacité récupérée au retour à 0,1C) sans la retenir.
+- `probleme` cyclage W/E : moyenne de 35 mAh/g pour W alors que W ne donne que 29 mAh/g à 10C dans l'essai de puissance → étiquettes W/E du texte très probablement inversées (rapproche aussi le texte de la fig. 7D). Hypothèse, pas correction.
+- `probleme` contribution capacitive 84,6–93,9 % : plafond de double couche 20 µF/cm2 × 87,5 m2/g = 17,5 F/g → ≈ 10 mAh/g sur 2 V ; ordre de grandeur de C_dl pris en chimie générale (10–40 µF/cm2), sans source web. Cadre de Dunn : Augustyn, Simon, Dunn 2014 (DOI vu sur la page RSC).
+- `probleme` XPS C 1s : C–O à 283,3 eV sous le sp2 (283,7) est impossible ; probablement une coquille (≈ 286,3), mais la preuve « carbone graphitique majoritaire » repose dessus ; 35 % de carbone oxygéné non « minor ».
+- `probleme` masse active supposée (2 mg/cm2) et teneur en carbone jamais mesurée : rangé sur LFP-W (vaut pour toutes les poudres) ; c'est la variable cachée qui peut expliquer à elle seule les écarts de capacité.
+- Mécanisme des auteurs (tension superficielle + point d'ébullition) jugé `a_revoir` : dans le mélange eau-éthanol en récipient ouvert l'éthanol part en premier, le liquide final est aqueux ; et l'écart méthanol/éthanol (0,6 mN/m) est négligeable. Mécanisme préféré : homogénéité du précurseur et carbone résiduel.
+- Volume de maille : écarts ≤ 0,1 % sans écart-type, donc non discriminants ; l'idée que les antisites contractent la maille va contre ce que je connais (dilatation dans les LFP hydrothermaux riches en antisites), mais la recherche web n'a pas donné de source décisive → `reserve`, sans citer de chiffre.
+- Randles–Sevcik : D/S² identique pour les trois poudres (7,14 × 10−9) → tableau 3 cohérent en interne ; A·C0 implicite (0,029 mol/cm3) proche de C(Li) dans LiFePO4 (0,023). Jugé `reserve` seulement pour la comparaison entre méthodes (facteur 34) et la validité GITT/CV en biphasé (Zhu & Wang 2010, DOI non vérifié).
+- 20C avec 3,08 mg demanderait 10,5 mA > calibre 10 mA du testeur : indice que 2 mg/cm2 est la masse totale d'enduit, ou que 1C n'est pas 170 mA/g ; `reserve`.
+- Séchage d'électrode à 75 °C sans vide : comparé aux trois autres LiFePO4 de la base (100–120 °C, vide).
+- Recherches web : 8 (2 lectures de pages échouées, hôtes injoignables). Rien ajouté à fondateurs.md ni constantes.md (Crossref bloqué).

@@ -1,0 +1,144 @@
+{
+  "pmcid": "PMC4725629",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "Glycine_NaClO et Glycine_alt_chloride_sources, parent",
+      "extracted": "parent = AgNP_Glycine (glycine 14 mM, PVP 150 mg/100 mL conservés ; seul Tris-HCl remplacé)",
+      "article_says": "Glycine was tested in subsequent experiments as its addition produced the highest yield of nanoparticles.",
+      "fix": "L'article ne dit pas dans quel mélange (LB, PVP seul, glycine) sont testés HCl, NaCl, KCl et NaClO ; le parent glycine est une lecture plausible (ordre du texte) mais déduite. Garder le parent mais le déclarer explicitement dans les doutes et dans value_text (« mélange non précisé »), ou ne pas affirmer que glycine et PVP 150 mg restent présents.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Glycine_NaClO et Glycine_alt_chloride_sources, étapes héritées 4 à 6 (filtration 0,2 μm, centrifugation, remise en suspension)",
+      "extracted": "branches sans étapes propres, héritant de AgNP_Glycine les étapes 4, 5 et 6",
+      "article_says": "Prior to testing the samples for in vitro activity and characterizing the scanning electron microscopy (SEM)/transmission electron microscopy (TEM) parameters, the nanoparticles were filtered through a 0.2 μm mixed cellulose-ester syringe filter and concentrated by centrifugation (15,000 rcf, 30 minutes).",
+      "fix": "Ces deux branches ne rapportent qu'une couleur ou « similar results » observés pendant l'irradiation ; l'article ne dit pas qu'elles ont été filtrées et concentrées. Même remarque pour les branches LB (longueurs d'onde, sans LB, peptone, acides aminés) qui héritent de l'étape 3 de centrifugation prévue pour l'ICP-AES. Leur donner leurs propres étapes (mélange, ajout, irradiation) ou déclarer ces étapes non citées avec un doute (règle « pas d'héritage non fondé »).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Glycine_NaClO, succeeded = true et matériau « silver nanoparticles (NaClO as chlorine compound) »",
+      "extracted": "succeeded: true ; matériau = nanoparticules d'argent",
+      "article_says": "The addition of NaClO changed the solution from colorless to violet as a result of irradiation. This was due to the dissolution of the ClO− ion, which we confirmed by obtaining similar results using NaCl with hydrogen peroxide.",
+      "fix": "L'article ne dit pas que des nanoparticules se forment dans cet essai ; il attribue la couleur violette à ClO−. Ne pas affirmer la réussite ni le matériau : succeeded non renseigné (ou false/inconnu), nom du matériau neutre, et ajouter la phrase sur ClO− comme résultat.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "AgNP_PVP_NaClO (parent AgNP_Glycine) puis AgNP_SDS_NaClO (parent PVP)",
+      "extracted": "PVP = branche de Glycine avec 5 variations simultanées (AgNO3, PVP, glycine absente, Tris-HCl absent, NaClO ajouté) ; étape 2 héritée « Add the chloride source (Tris-HCl, pH 8.5) »",
+      "article_says": "The use of defined concentrations of chemicals and compounds enabled the formation of specific types of nanoparticles (Table 1).",
+      "fix": "La Table 1 présente trois formulations indépendantes côte à côte ; l'article ne dit pas qu'elles suivent le même protocole l'une que l'autre. Les attributions de colonnes sont correctes, mais la chaîne Glycine > PVP > SDS est une construction : PVP (4 mM AgNO3, 200 mg, NaClO) a peu en commun avec la voie glycine et l'étape 2 héritée parle encore de Tris-HCl. Option : PVP et SDS en voies de base avec leurs propres étapes (mélange AgNO3 + PVP ou SDS, ajout de NaClO avant irradiation), ou garder la chaîne en l'écrivant dans un doute. Le lien PVP > SDS est mieux fondé (« replacing the capping agent »).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "alanine, leucine, et résultat « glycine = meilleur rendement »",
+      "extracted": "inventaire : alanine et leucine route null ; AgNP_Glycine sans résultat de rendement",
+      "article_says": "Further studies revealed that glycine, alanine, and leucine present within the peptone fraction were key amino acids leading to the formation of AgNPs.",
+      "fix": "Trois acides aminés sont déclarés actifs, avec un classement (« Glycine was tested in subsequent experiments as its addition produced the highest yield of nanoparticles »). Ajouter au moins un résultat « highest yield among the tested amino acids » sur AgNP_Glycine avec cette citation, et soit des branches alanine et leucine (valeur de l'acide aminé non chiffrée, en value_text), soit une annotation tendance_observee expliquant pourquoi elles ne le sont pas.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "essais d'autres composés chlorés : NaCl + H2O2, NaClO3, NaClO4, acide trichloracétique",
+      "extracted": "inventaire : route null, « aucun résultat »",
+      "article_says": "which we confirmed by obtaining similar results using NaCl with hydrogen peroxide.",
+      "fix": "NaCl + H2O2 est une condition testée avec un résultat écrit (même virage au violet que NaClO) : branche manquante. NaClO3, NaClO4 et l'acide trichloracétique sont des conditions testées sans résultat écrit : branches sans résultat, ou mention explicite dans une annotation tendance_observee.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Glycine_alt_chloride_sources",
+      "extracted": "une branche : « replaced by hydrochloric acid, sodium chloride or potassium chloride »",
+      "article_says": "The source of the chloride ion seemed to be irrelevant for the initiation of the reaction as our research involving hydrochloric acid, sodium chloride (NaCl), potassium chloride, and Tris-HCl (pH 8.5) yielded similar results.",
+      "fix": "HCl, NaCl et KCl sont trois conditions testées (« une branche = une condition ») regroupées en une seule branche sans quantité ; au minimum, le nommer dans le doute. Le résultat commun « similar results » peut être répété sur chacune.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "LB_single_amino_acids, résultat « no nanoparticle formation »",
+      "extracted": "succeeded: false ; aucun mot sur le chlorure",
+      "article_says": "We discovered that the addition of chloride ions was required for the initiation of the reaction.",
+      "fix": "Le texte dit à la fois que les acides aminés isolés ne forment pas de nanoparticules et que glycine, alanine et leucine sont les acides clés : les deux ne se concilient que par la présence de chlorure, que l'article ne précise pas pour cet essai. Ajouter un doute (ou une annotation) sur cette contradiction apparente ; ne pas affirmer l'absence de chlorure.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "lampe LED, caractéristiques de l'équipement (étapes d'irradiation)",
+      "extracted": "équipement « home-built, 5 LEDs per radiator plate, 1 W per LED » ; distance 60 mm",
+      "article_says": "radiator plate dimensions: 70×70 mm; diagonal between LEDs placed on opposite edges of the plate: 50 mm; voltage (per LED): 3.2 V; current (per LED): 350 mA; luminosity (per LED): 20–25 lm; LED viewing angle: 140°",
+      "fix": "Pour qu'un chimiste reconstruise la lampe : ajouter dimensions de la plaque (70×70 mm), diagonale entre LED (50 mm), tension 3,2 V, courant 350 mA, flux 20–25 lm et angle 140° dans le détail de l'équipement ou en paramètres, avec la citation. Seuls 5 LED, 1 W et 60 mm sont repris.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "AgNP_LB_PVP_420nm étape 2, température",
+      "extracted": "temperature déclarée non citée",
+      "article_says": "exposed for a defined time to artificial or natural light at room temperature",
+      "fix": "L'article écrit « room temperature » pour l'exposition à la lumière du mélange LB + 1 mM AgNO3 (observation qui motive tout l'essai). La température de la réaction sous LED n'est pas redite ; selon la règle du RUNBOOK, soit value_text « room temperature » avec cette citation et un doute (observation préliminaire, pas la LED), soit garder non cité et expliquer. Lecture prudente de l'extracteur défendable.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "PVP_Fig2B_200mg et AgNP_PVP_NaClO (200 mg PVP/100 mL), résultat",
+      "extracted": "aucun résultat sur Fig2B ; plage seulement en annotation",
+      "article_says": "PVP levels between 100 and 200 mg/100 mL were optimal for obtaining nanoparticles below 50 nm in diameter.",
+      "fix": "200 mg/100 mL est explicitement dans la plage « optimale » ; la Fig. 2B porte cette valeur. Rattacher le résultat « below 50 nm (optimal) » à PVP_Fig2B_200mg (et à AgNP_PVP_NaClO) en value_text, avec la citation, au lieu de l'annotation seule. Sur la Fig. 2B, de nombreux cubes dépassent visiblement 50 nm (barre 0,5 μm) : le constat est celui des auteurs, à signaler en doute plutôt qu'à corriger.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "sample_inventory : séries de SDS au-dessus de 2,5 mM et de PVP au-dessus de 200 mg/100 mL",
+      "extracted": "absentes de l'inventaire (seules la Fig. 3 à 5 mM et la Fig. 2A à 400 mg y sont)",
+      "article_says": "SDS concentration above 2.5 mM prompted the selective production of small nanoparticles as we observed a positive correlation between the amount of SDS added and the count of particles which were 0.6 nm in diameter (Figure 3).",
+      "fix": "Ajouter à l'inventaire « séries SDS > 2,5 mM » et « PVP > 200 mg/100 mL » avec route null et la raison (valeurs intermédiaires non listées) ; le résultat « 0,6 nm » est rangé sur SDS_Fig3_5mM (5 mM, donc au-dessus de 2,5 mM) : rattachement acceptable, mais la citation parle d'une série de concentrations, pas de l'échantillon de la Fig. 3 seul.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "LB_other_wavelengths, LB_mixture_alone, LB_single_amino_acids : matériau",
+      "extracted": "formule « Ag », famille nanoparticule_metallique (matériaux « insoluble silver salts », « no nanoparticles »)",
+      "article_says": "Any other wavelength failed to promote synthesis of nanoparticles leaving the reaction mixture a white-to-cream colored colloid due to the formation of insoluble silver salts.",
+      "fix": "Pour les essais ratés, le matériau n'est pas de l'argent métallique : « insoluble silver salts » (l'article ne nomme pas AgCl) et « no nanoparticles » ne sont pas des nanoparticules d'argent. Mettre formule null et famille adaptée, ou laisser le nom du produit sans formule.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "AgNP_PVP_NaClO, résultat P_aeruginosa_TEM_effect_at_2xMIC",
+      "extracted": "« no disruption of the outer membrane, condensation of bacterial DNA » sans temps d'incubation",
+      "article_says": "Figure 4 TEM images of Pseudomonas aeruginosa PAK: (A) control, (B) after 9 hours incubation with 2 MIC PVP-capped nanoparticles.",
+      "fix": "L'image (Fig. 4B) correspond à 9 h d'incubation à 2 MIC ; le résultat n'indique ni la durée ni la dose de 4,0 μL pour 3 mL (Méthodes). Ajouter la légende comme citation complémentaire ou une condition dans le nom de propriété.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "AgNP_PVP_NaClO, résultat de dispersibilité",
+      "extracted": "absent",
+      "article_says": "Additionally, we observed that our PVP-capped nanoparticles may easily be dispersed in methanol or acetic acid, which is desired in applications requiring a nonaqueous environment such as sanitary silicones.",
+      "fix": "Ajouter un résultat « dispersible in methanol or acetic acid » sur AgNP_PVP_NaClO (propriété du matériau fini utile à un chimiste).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 22,
+    "branches_extracted": 13,
+    "not_stated_checked": 47,
+    "not_stated_wrong": 1
+  },
+  "reproducibility_gaps": [
+    "Volume de référence de la Table 1 : « per 100 mL » alors que le volume final est de 200 mL ; l'article ne dit pas si les masses et volumes (PVP, NaClO, Tris-HCl) sont doublés pour 200 mL",
+    "Les conditions des Fig. 2 et 3 (1 mM AgNO3 et 1 mL NaClO pour la Fig. 2 ; 2 mM AgNO3 et 5 mM SDS pour la Fig. 3) diffèrent de la Table 1 (4 mM AgNO3 et 0,5 mL ; 8 mM AgNO3 et 2,5 mM SDS) ; l'article ne dit pas laquelle fait foi",
+    "Concentration de la solution de NaClO : 5,25 % (Table 1) contre 5 % (légendes), sans fournisseur",
+    "Aucun fournisseur, pureté, masse moléculaire de PVP (hors mélange LB) ni lot ; pas de température, d'agitation, d'ordre d'addition ni de pH final pour les formulations de la Table 1",
+    "Quantité de LB, de peptone, de chaque acide aminé et de chaque source de chlorure (HCl, NaCl, KCl, NaClO3, NaClO4, TCA) non données ; concentration de NaClO du test de la couleur violette absente",
+    "Aucune taille de particule chiffrée ni rendement pour les formulations de la Table 1 ; concentration de la suspension concentrée (utilisée en μg/mL pour les essais biologiques) non donnée",
+    "Durées testées de 1 à 30 min et longueurs d'onde de 395 à 620 nm : valeurs intermédiaires non listées, seul le meilleur résultat est donné",
+    "Pas d'annexe (aucune section Supporting Information)"
+  ],
+  "mechanism_check": "ok : l'extraction rapporte seulement ce que disent les auteurs (chlorure indispensable, acides aminés clés) et marque ses hypothèses comme analyse ; la citation de mecanisme_auteurs ne soutient que la phrase sur le chlorure, les acides aminés clés sont portés par une autre phrase",
+  "notes": "Aucune valeur numérique fausse : toutes les citations sont des sous-chaînes du texte, les colonnes de la Table 1 sont bien attribuées (AgNO3 1/4/8 mM ; PVP 150/200 mg ; SDS 2,5 mM ; NaClO 0,5 mL ; glycine 14 mM ; Tris-HCl 20 μL), et les 5 valeurs de la Fig. 5 (95, 91, 90, 88, 63 %) correspondent à ma lecture à moins de 3 points. Fragile : (1) le texte HaCaT dit « 63% and 88% decrease » à 2 et 4 μg/mL alors que la Fig. 5 s'arrête à 2 μg/mL avec 63 % de viabilité et 88 % à 1 μg/mL ; le doute existe déjà, l'extraction recopie correctement l'article, pas de constat. (2) « those using NaClO were cubical » : la formulation SDS utilise aussi NaClO, mais la Fig. 1E montre des particules arrondies hétérogènes ; l'attribution du cubique à la voie PVP (Fig. 1C) est correcte. (3) Les essais biologiques sont bien rangés en résultats de AgNP_PVP_NaClO et non en branches ; l'attribution à la formulation PVP est fondée sur « Figure 1C and D ». (4) Les unités PBMC sont cohérentes avec les Méthodes (volume en μL = concentration en μg/mL pour 2 mL de milieu). (5) La concentration en argent attendue après remise en suspension dans 2 mL (plusieurs mg/mL) ne correspond pas à la correspondance 1 μL = 2 μg des Méthodes biologiques ; non retenu comme constat (aucun passage ne le dit), mais à garder à l'esprit pour la reproductibilité."
+}

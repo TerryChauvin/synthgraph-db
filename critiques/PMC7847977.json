@@ -1,0 +1,112 @@
+{
+ "pmcid": "PMC7847977",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "PL step list (absence de l'étape de sonication)",
+   "extracted": "PL : 6 étapes (dissolve, add liquide ionique, stir, deposit, dry, store), sans sonication ni variation « sonication absente »",
+   "article_says": "PL (without LLZO) was also obtained using the same method.",
+   "fix": "Lecture la plus littérale (RUNBOOK, règle 4) : « same method » inclut la sonication d'1 h (« The mixture was sonicated for 1 h ... to improve the dispersion of LLZO »). Soit rétablir l'étape sonicate dans PL, soit garder son absence mais l'écrire comme variation explicite (parameter = sonication, value_text = absent) avec la citation « same method » et le doute déjà rédigé ; l'absence de sonication est une déduction (motif : la sonication sert à disperser le LLZO), pas un énoncé de l'article. La présence du liquide ionique dans PL est, elle aussi, impliquée seulement par « without LLZO » : bien la laisser dans les écarts de reproductibilité.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "LLZO-1000 material.morphology",
+   "extracted": "particules agglomérées de taille micrométrique (hypothèse des auteurs)",
+   "article_says": "At elevated temperatures, the formation of agglomerated particles of micron size could be the result of transformation from the cubic phase into the tetragonal phase of LLZO.",
+   "fix": "La phrase vise « elevated temperatures » en général, ne nomme pas 1 000 °C, et aucune image MEB de l'échantillon à 1 000 °C n'existe (Fig. 1B,C = 800 °C seulement). Mettre morphology = null pour LLZO-1000 ou la déplacer en annotation _auteurs rattachée à cette phrase, sans la présenter comme propriété de l'échantillon.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PL outcome stripping_plating_voltage_window_0.3_mA_cm-2_first_120_cycles value_text",
+   "extracted": "−1,6 à 1,6 V (texte) ; critique après 120 cycles",
+   "article_says": "For the first 120 cycles, the voltage windows range from −1.6 to 1.6 V which is more than double compared to that of the cell with the PLL electrolyte.",
+   "fix": "value_text doit reprendre les mots de la citation : « −1,6 à 1,6 V » ; « critique après 120 cycles » vient de la phrase suivante (« after 120 cycles, the reaction within this cell became critical »), absente de la citation. Retirer ce segment ou ajouter une valeur distincte avec sa propre citation.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations (absence de limite_reproductibilite pour PL, fenêtre de tension)",
+   "extracted": "contradiction texte/figure seulement dans les doubts",
+   "article_says": "For the first 120 cycles, the voltage windows range from −1.6 to 1.6 V which is more than double compared to that of the cell with the PLL electrolyte.",
+   "fix": "Ajouter une annotation limite_reproductibilite (route PL) : le texte donne ±1,6 V, mais la Fig. 4A montre ≈ ±0,16 V au début, ≈ ±0,23 V vers 200 h (mesuré sur l'image, courbe grise), et « more than double » n'est cohérent qu'avec ≈ ±0,16 V face à ±0,07 V de PLL ; probable faute de frappe des auteurs (1,6 pour 0,16). La valeur extraite reste celle du texte, l'amplitude lue sur figure (0,2 V) est correcte à 10 % près.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "PL et PLL outcomes : Table S3 (conductivité Li-ion, cellules Li/SPE/Li), non extraite",
+   "extracted": "seules les énergies d'activation 0,26 et 0,13 eV du texte",
+   "article_says": "PL | 100 | 1698.0 | 2.95 ×10-6 | 799.3 | 6.26 ×10-6 | 175.9 | 2.84 ×10-5 | 97.8 | 5.15 ×10-5 | PLL | 100 | 788.6 | 6.34 ×10-6 | 294.7 | 1.70 ×10-5 | 71.2 | 7.02 ×10-5 | 29.4 | 1.70 ×10-4",
+   "fix": "Les deux rangées sont citables telles quelles (espaces normalisés, la suite de cellules est contiguë dans le texte) : épaisseur 100 µm, R puis σ à 25, 40, 60, 80 °C. Ajouter pour PL et PLL des outcomes « Li_ion_conductivity_25C/40C/60C/80C » (S cm−1) avec la rangée de son échantillon en citation (PL : 2,95e-6 ; 6,26e-6 ; 2,84e-5 ; 5,15e-5 ; PLL : 6,34e-6 ; 1,70e-5 ; 7,02e-5 ; 1,70e-4), et noter dans l'annotation que l'épaisseur de PL est 90 µm en Table 1 mais 100 µm en Table S3. L'annotation de Cell_Li_PLL_LFP dit déjà que les valeurs viennent des Tables S1 à S3 alors que S3 n'est pas utilisée.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "PL et PLL outcomes : résistances R de la Table 1",
+   "extracted": "conductivités seules (25, 40, 60, 80 °C), pas les résistances",
+   "article_says": "PL | 90 | 200.2 | 2.25 × 10−5 | 120.2 | 3.74 × 10−5 | 37 | 1.21 × 10−4 | 15.4 | 2.92 × 10−4",
+   "fix": "Ajouter, s'il y a un outcome pour R, les résistances de l'électrolyte aux quatre températures (PL : 200.2 ; 120.2 ; 37 ; 15.4 ; PLL : 165.3 ; 62.5 ; 24.5 ; 7.3 ; l'unité n'est pas écrite dans le tableau, les Nyquist de la Fig. 3B sont en Ω). Faible importance pour refaire le matériau : la conductivité est déjà là.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PLL reagent « poly(ethylene oxide) (PEO) » : masse molaire absente de la fiche",
+   "extracted": "name = poly(ethylene oxide) (PEO), pas de masse molaire (seulement dans quote et supplier_quote)",
+   "article_says": "First, PEO (MW = 4 × 105 g, Sigma) and LiTFSI (99%, Sigma) were dissolved in acetonitrile",
+   "fix": "La masse molaire du PEO conditionne la reproductibilité de la membrane : la porter dans le nom du réactif (« PEO, MW = 4 × 105 g », tel qu'écrit, l'exposant est aplati dans le texte source, l'unité g de l'article est à signaler en annotation) ou dans amount_text/purity selon le champ prévu.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "PLL et PL characterization LSV : conditions",
+   "extracted": "électrode de référence en lithium, électrode de travail en acier inoxydable, 3 V à 6 V, 1 mV s−1 (sans température)",
+   "article_says": "FIGURE S4 | LSV of solid polymer electrolyte at 60 oC",
+   "fix": "Ajouter « 60 °C » aux conditions de la LSV (légende de la Fig. S4, annexe). Même ajout pour PL.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Cell_Li_PLL_LFP et Cell_Li_PL_LFP missing_fields : voltage_window",
+   "extracted": "voltage_window déclaré absent",
+   "article_says": "Figure 5 (A) Long cycle performances of the PLL and PL electrolytes in full-cell tests (LiFePO4/PLL/Li and LiFePO4/PL/Li) at 50 mA g−1 current density and 60°C for 100 cycles.",
+   "fix": "Le texte ne donne pas la fenêtre de cyclage, mais les axes des Fig. 5B et 5D, ouvertes ici, s'étendent de 2,5 à 4,2 V (charge coupée vers 4,2 V, décharge vers 2,5 V). Soit l'extraire en outcome/condition from_figure (« ≈ 2,5–4,2 V, lu sur Fig. 5B/5D », citation = légende), soit garder le manque dans l'annotation en précisant « non écrit, lisible sur les figures ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "LLZO-800 / LLZO-1000 outcomes particle_size_XRD_Scherrer_TableS1 (et résultat 30,9 nm)",
+   "extracted": "30.9 nm et 42.16 nm repris tels quels",
+   "article_says": "D average | - | - | 11.9 | - | - | 30.9 | - | - | 42.16",
+   "fix": "L'attribution par ordre de colonnes est correcte (600 °C : 3 raies, 28,66 / 47,53 / 56,34° comme sur la Fig. 1A ; 800 °C : 7 raies ; 1 000 °C : 8 raies). Mais les « D average » de 800 et 1 000 °C ne sont pas les moyennes des D listés : 35,88 ; 29,49 ; 27,35 ; 25,91 ; 23,8 ; 23,34 ; 21,22 donnent 26,7 nm (pas 30,9) ; les huit valeurs de 1 000 °C donnent 39,1 nm (pas 42,16) ; seule la moyenne de 600 °C (11,89) concorde. Les D par raie recalculés par Scherrer (K 0,89, λ 0,15418 nm) concordent, donc la moyenne imprimée est en cause. Ajouter une annotation limite_reproductibilite ; ne pas corriger les valeurs.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (LLZO-800)",
+   "extracted": "« la fenêtre étroite autour de 800 °C donne le LLZO cubique »",
+   "article_says": "Cubic LLZO was prepared at a low temperature of 800°C without any impurities and formed a homogeneous structure.",
+   "fix": "L'annotation est présentée « selon les auteurs » mais les auteurs ne parlent pas de fenêtre étroite : seuls trois points (600, 800, 1 000 °C) sont testés. Reformuler (« parmi les trois températures testées, seule 800 °C donne le grenat cubique sans impureté »).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 34,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "masses de PEO, de LiTFSI, de Pyr1,3TFSI et de LLZO absentes (rapport molaire 18:1 sans précision EO:Li ou PEO:Li ; « 10 wt% » et « 10% » sans base de référence)",
+  "volume d'acétonitrile absent",
+  "température de calcination du LLZO utilisé dans la membrane non écrite (800 °C supposé)",
+  "source et teneur en aluminium du LLZO « Al-doped » absentes (seule la nacelle d'alumine est citée)",
+  "température et durée de la dissolution sous agitation/chauffage du sol, vitesse de chauffe et four de calcination, rendement",
+  "sonication et liquide ionique pour PL non écrits (« same method »)",
+  "collecteur de courant, solvant, séchage et mode de mélange de la cathode LFP ; fenêtre de tension de cyclage (lisible seulement sur les Fig. 5B,D), diamètre de la membrane, pression de sertissage",
+  "unités et valeurs incohérentes dans l'article : fenêtre de PL (±1,6 V vs ≈ ±0,2 V sur Fig. 4A), 50 cycles par condition (Méthodes) contre plus de 200 cycles (Fig. 4A), épaisseur de PL 90 µm (Table 1) vs 100 µm (Table S3) et « ~100 µm », conductivité de PL à 25 °C 2,24 (texte) vs 2,25 (Table 1), 100,3 vs 100,8 mAh g−1 à 200 mA g−1 (Résultats vs Résumé), moyennes D de la Table S1 inexactes"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (LLZO-800) suit la phrase sur la décomposition incomplète de Li2CO3 à 600 °C et l'évaporation du lithium à 1 000 °C ; les mecanisme_analyse n'ont pas de citation, comme prévu. Seule réserve : l'annotation tendance_observee (voir constats).",
+ "notes": "Points demandés : (a) 800 °C comme base de la série en calcination est cohérent : c'est la condition qui donne le LLZO cubique pur et sert ensuite de charge ; 600 et 1 000 °C sont des branches propres ; l'étape de calcination est citée avec la phrase commune aux trois températures. Pas de constat. (b) succeeded=false pour LLZO-600 (mélange La2Zr2O7 + Li2CO3, pas de LLZO) et LLZO-1000 (cubique + impuretés La2Zr2O7) : conforme à la règle du RUNBOOK (phase impure = échec) et au texte (« without any impurities » réservé à 800 °C) ; pas de constat. (c) Table S1 : attribution des colonnes vérifiée par le nombre de raies (3, 7, 8) et par les positions 2θ comparées à la Fig. 1A ; correcte. (d) PL : liquide ionique gardé acceptable (nom PLL = PEO-LiTFSI-10 wt% Pyr1,3TFSI-10 wt% LLZO et « PL (without LLZO) ») ; sonication non gardée = lecture moins littérale que « same method » (constat probable). (e) Table S3 : les rangées sont citables en continu (constat manquant). (f) Fig. 4A ouverte : PL ≈ ±0,16 V au début, ≈ ±0,23 V à ≈ 200 h, PLL ≈ ±0,07 V ; l'amplitude 0,2 V de l'extraction est juste, le −1,6/1,6 V du texte est contredit par la figure. Fig. 4B (PL à 0,5 mA cm−2 : ±0,55–0,6 V, court-circuit après ≈ 5 cycles), 4C (PLL ±0,1 V), 4D (0,1 mA cm−2 : ≈ ±0,02 V ; extraction 0,02 V, juste) concordent avec les valeurs extraites. Fig. 3A relue : les logσ concordent avec Table 1 (PL −4,65 / −3,92 ; PLL −4,52 / −3,69 à 25 / 60 °C). Fig. 5A,C : 137 et 111 mAh g−1 maximum, ≈ 100 mAh g−1 à 200 mA g−1, conformes. Non vérifié par moi : valeurs des Fig. S1–S4 (images absentes). Je n'ai pas fait de constat sur Ea (0,35 / 0,25 eV) mais note que la pente de la Table S2 (−0,17631) ne redonne pas 0,35 eV avec la formule du SI et que l'Arrhenius de la Table 1 donnerait ≈ 0,42 eV (PL) et ≈ 0,51 eV (PLL) : à confier à la critique scientifique. Le rattachement du LLZO de PLL à la voie LLZO-800 est une inférence déjà signalée par l'extracteur (doubts et missing_fields)."
+}

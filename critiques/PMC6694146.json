@@ -1,0 +1,125 @@
+{
+ "pmcid": "PMC6694146",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "method_sources MgAC (ref CR58)",
+   "extracted": "absent de method_sources",
+   "article_says": "The resultant suspension was then centrifuged and washed with ethanol (3 × 50 mL) before being dried at 40 °C and ground into powder.",
+   "fix": "ajouter {route: MgAC, ref_id: CR58, role: protocole_adapte} : le renvoi [[CR58]] (Patil, Mann et al., Nano Lett. 2007, aminoclay) clôt la phrase de préparation de MgAC dans corpus/refs",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources MgAC-Fe3O4 (ref CR29)",
+   "extracted": "absent de method_sources",
+   "article_says": "calcinated at 500 °C for 3 hours in a furnace (FU-100TG, Samheung Energy, Korea) under 4% H2/Ar (flow rate: 0.15 L/min) to produce MgAC-Fe3O4 nanocomposites.",
+   "fix": "ajouter {route: MgAC-Fe3O4, ref_id: CR29 (Bui, Pham, Lee, one-pot MgAC-iron oxide), role: protocole_adapte}",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources MgAC-Fe3O4 [0.05 g]/TiO2 synthèse (ref CR28)",
+   "extracted": "CR28 présent seulement pour le réacteur pilote et pour MgAC-TiO2, pas pour la synthèse du composite",
+   "article_says": "The resultant products were then ground and consequently calcinated at 350 °C for 3 hours under air in a muffle furnace to produce MgAC-Fe3O4/TiO2 hybrid nanocomposites.",
+   "fix": "ajouter {route: MgAC-Fe3O4 [0.05 g]/TiO2, ref_id: CR28, role: protocole_adapte} : le renvoi [[CR28]] suit cette phrase dans corpus/refs",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources essai photo-Fenton batch (ref CR28)",
+   "extracted": "absent",
+   "article_says": "the MB concentration was observed under UV-Vis spectroscopy (Cary 50-UV Vis Spectrophotometers, Varian Inc., USA) at a wavelength of 664 nm.",
+   "fix": "ajouter CR28 (renvoi de la phrase de mesure, protocole d'essai) pour la voie testée",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources essais phénol : HPLC (CR59) et recyclage (CR53) ; conception du réacteur pilote (CR29)",
+   "extracted": "absents ; seul CR28 est cité pour le réacteur pilote",
+   "article_says": "This method was repeated for 5 times.",
+   "fix": "ajouter CR53 (protocole de recyclage, phrase « This method was repeated for 5 times »), CR59 (conditions HPLC : « mobile phase of water and acetonitrile in a ratio of 40:60 (v/v) ») et CR29 en plus de CR28 pour « we used a design of pilot reactor that has been introduced in previous reports » (refs : [[CR28]],[[CR29]])",
+   "confidence": "probable"
+  },
+  {
+   "severity": "faux",
+   "where": "MgAC-Fe3O4 [0.05 g]/TiO2 outcomes pilot_photocatalytic_phenol_rate_constant et pilot_photo_Fenton_phenol_rate_constant",
+   "extracted": "0.0032 h−1 et 0.0036 h−1 (Tableau 2)",
+   "article_says": "After 30 hours, phenol had been nearly completely removed from the aqueous solution at a constant rate of 0.032 (h−1)",
+   "fix": "la Fig. 2 (ouverte) est une décroissance presque linéaire de C/Co de 1 à 0 en 30 h (photocatalyse) et 27 h (photo-Fenton), soit ≈ 0,033 et ≈ 0,037 h−1, cohérent avec le texte (0,032 ; 0,036) et dix fois plus que le Tableau 2 (0,0032 ; 0,0036). Le doute existant garde le tableau ; garder les deux valeurs en outcomes (texte et tableau) avec un doute qui cite la Fig. 2, ou retenir le texte. Valeur d'outcome actuelle probablement fausse d'un facteur 10",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MgAC-Fe3O4 [0.05 g]/TiO2 outcome photocatalytic_phenol_removal_after_5_cycles = 80 %",
+   "extracted": "80 % (nom : « removal after 5 cycles »)",
+   "article_says": "After 5 times recycle, the MgAC-Fe3O4 [0.05 g]/TiO2 sample still remained ~80% of its initial removal efficiencies against phenol (Fig. S3).",
+   "fix": "80 % est la part de l'efficacité initiale conservée, pas un taux d'élimination du phénol (l'élimination initiale est ≈ 80 % à 180 min, donc ≈ 64 % après 5 cycles). Renommer en retained_fraction_of_initial_removal_efficiency_after_5_cycles",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "not_stated wash_volume : MgAC étape 5, MgAC-Fe3O4 étape 5, hybride étape 4",
+   "extracted": "wash_volume déclaré non cité",
+   "article_says": "washed with ethanol (3 × 50 mL)",
+   "fix": "le volume de chaque lavage est donné (50 mL par lavage, 3 lavages ; DI water 3 × 50 mL pour MgAC-Fe3O4) : le retirer de not_stated et le mettre en paramètre wash_volume = 50 mL, ou le dire dans la description (il n'est aujourd'hui que dans le réactif de lavage, en texte)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "conditions des essais photo-Fenton, photocatalyse, pilote et écotoxicité (aucune structure : ni voie, ni outcome, ni caractérisation)",
+   "extracted": "aucun de : 0,1 g de catalyseur dans 100 mL, MB 10 ppm, 1 mL de H2O2 35 %, UV 365 nm 24 W ; phénol 5 ppm, ~610 µW/cm2 ; pilote 30 L de eau du robinet, phénol 3 ppm, 3 agitateurs à 145 rpm, 18 lampes",
+   "article_says": "A total of 0.1 g of MgAC-Fe3O4/TiO2 hybrid nanocomposites was loaded into 100 mL of methylene blue (MB; Sigma-Aldrich, St. Louis, MO, USA) at a concentration of 10 ppm.",
+   "fix": "ajouter ces conditions (par exemple dans les noms de propriété ou en annotation limite_reproductibilite/protocole d'essai) ; autres phrases : « 1 mL of H2O2 (35%) was added, and a 365 nm (24 W) UV light source was turned on » ; « stirred with 3 stirrers (GGM speed control motor, Korea) at 145 rpm » ; « To shorten the reaction time, we added 50 mL of H2O2 to obtain ~15 ppm peroxide in the reactor while reducing the dosage of MgAC-Fe3O4 [0.05 g]/TiO2 from 1 g/L to 0.5 g/L » ; instruments ICP-AES Optima 7300 DV et TOC Vario TOC Cube, HPLC Waters Alliance 2695. Seuls 30 g, 50 mL et 365 sont présents (dans des citations d'autres champs)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MgAC-Fe3O4 et hybrides, caractérisation PL, conditions",
+   "extracted": "conditions : null",
+   "article_says": "ex = 365 nm).",
+   "fix": "renseigner conditions = « excitation 365 nm » (légende de la Fig. S5 de l'annexe, spectres de MgAC-Fe3O4 et des hybrides) pour la caractérisation PL",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Table S1 (XRF, compositions en % massique) et Table S3 (coûts) non extraites en outcomes",
+   "extracted": "aucune valeur de Table S1 ; une seule valeur de coût (hybride 0,05 g)",
+   "article_says": "Table S1. Elemental compositions (wt. %) of as-prepared samples by X-ray fluorescence (XRF)",
+   "fix": "les valeurs sont dans l'annexe, une par ligne (colonnes 0,05 g, 0,1 g, 0,2 g, MgAC-Fe3O4 : p. ex. TiO2 88.1 / 81.5 / 74.3 / 0.01 ; Fe3O4 7.48 / 14.4 / 21.2 / 90.8) ; non citables ligne par ligne, mais lisibles : les extraire avec la légende pour citation et un doute sur la mise en forme, ou corriger la limite_reproductibilite qui dit les tables « non citables ». Le Tableau S3 donne aussi 583.45 USD/kg (MgAC-Fe3O4) et 389.80 (MgAC)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation limite_reproductibilite / doutes : incohérence phénol non signalée",
+   "extracted": "aucun doute sur la cohérence constante de vitesse / pourcentage",
+   "article_says": "~80% of phenol having been removed after 180 min at a constant rate of 0.0039 min−1",
+   "fix": "avec une cinétique d'ordre 1 (équation des Méthodes), 80 % à 180 min donnerait k ≈ 0,0089 min−1, et 40 % / 27 % donneraient 0,0028 / 0,0017 min−1 au lieu de 0,0012 / 0,0006 du Tableau 1 ; pour le MB (92 % et 17 % à 180 min) les constantes 0,0130 et 0,0011 sont cohérentes. Signaler en doute ou limite_reproductibilite (les valeurs extraites restent celles de l'article)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations mecanisme_auteurs (MgAC-Fe3O4 [0.05 g]/TiO2) et tendance_observee",
+   "extracted": "texte de l'annotation plus large que sa citation",
+   "article_says": "We offered some great bridges at the interface of the TiO2 NPs and Fe3O4",
+   "fix": "la citation n'appuie que les ponts interfaciaux ; la synergie photocatalyse/photo-Fenton et le rôle d'adsorption de MgAC sont dans « The photocatalytic and photo-Fenton activities of MgAC-Fe3O4/TiO2 hybrid nanocomposites can be additionally supported by the presence of MgAC » : ajouter cette citation ou scinder l'annotation. Pour tendance_observee, l'argument d'agrégation (« Excess loading of Fe3O4 NPs promotes cluster aggregation ») est celui de Sun et al. repris par les auteurs, pas une observation propre : écrire « les auteurs reprennent de Sun et al. »",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 3,
+  "branches_extracted": 3,
+  "not_stated_checked": 45,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "vitesse et température d'agitation, vitesse et durée de centrifugation, durée de séchage (MgAC et MgAC-Fe3O4), température et durée de séchage du composite hybride, vitesses de chauffe des calcinations, rendement massique des trois synthèses",
+  "quantité d'eau d'hydrolyse du butoxyde de titane : 0.25 µL contre 1 mL de TB, probablement une erreur d'unité (mL ?), non vérifiable dans l'article",
+  "synthèse du lot « mass produced » de 30 g pour l'essai pilote non décrite ; protocole de MgAC-TiO2 (échantillon de comparaison) seulement renvoyé à CR28",
+  "Tableau S2 donne 1.98 eV pour MgAC-Fe3O4 [0.2 g]/TiO2 contre 1.95 eV dans le texte ; constantes de vitesse du pilote : 0.032/0.036 (texte) contre 0.0032/0.0036 (tableau 2)",
+  "figures d'annexe S1 à S13 (cinétiques d'inhibition, recyclage, piégeurs, TOC) absentes du dépôt : résultats non vérifiables"
+ ],
+ "mechanism_check": "ok : mecanisme_analyse stœchiométriquement cohérent (8,3 mmol Mg, 8,5 mmol APTES, 11,1 mmol Fe, 100 mmol NaOH, 2,9 mmol Ti recalculés) ; seul le mecanisme_auteurs est sous-cité (voir constats)",
+ "notes": "Lecture indépendante. Valeurs de Tableaux 1, 3 et du texte (BET, rendements en %, travaux de sortie) toutes conformes ; Fig. 1 relue : MgAC-Fe3O4 C/Co ≈ 0,46 (MB) et ≈ 0,83 (phénol) à 180 min, 0,05 g ≈ 0 à 60 min, valeurs from_figure exactes à moins de 0,02. À 20 min la Fig. 1a donne ≈ 0,09 (soit ≈ 91 %) contre « ~93% » dans le texte : écart sous le seuil, non signalé. Fig. 1b : 0,05 g ≈ 0,20 à 180 min, 0,1 g ≈ 0,61, 0,2 g ≈ 0,73, conformes à 80 / 40 / 27 %. Fig. 3 : le pic d'anatase du 0,1 g semble aussi intense que celui du 0,05 g, alors que le texte dit « reduced » : écart article/figure, non signalé comme constat. Le résultat de la voie MgAC-TiO2 (BET 87.822 m2/g, travail de sortie 1.56 eV) est dans le Tableau 3 mais sans voie (route null, acceptable). Un rendement n'est pas donné ; la Discussion donne 4.4 g de produit par g de MgAC-Fe3O4, extrait comme outcome : acceptable, mais yield reste déclaré non cité. Famille « silice_mesoporeuse » pour MgAC discutable (argile en feuillets) : interprétation, pas constat."
+}

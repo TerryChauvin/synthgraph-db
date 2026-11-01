@@ -1,0 +1,113 @@
+{
+ "pmcid": "PMC6722878",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "UiO-66, résultat : dégradation par la N-éthylmorpholine (Fig. S2b), absent des outcomes et de l'inventaire",
+   "extracted": "aucun outcome ni échantillon pour l'UiO-66 plongé dans la N-EM ; la caractérisation PXRD ne mentionne que le diagramme « pristine »",
+   "article_says": "In this study, UiO-66 particles were degraded by co-catalyst (N-EM) (see Figure S2).",
+   "fix": "ajouter à la voie UiO-66 un outcome (stabilité en milieu N-EM : particules dégradées, UiO-66 immergé 24 h dans une solution aqueuse de N-éthylmorpholine à 0,45 mol/L, citation de la légende Fig. S2 : « (b) immersed in 0.45 mol/L N-ethyl morpholine ») et l'ajouter à sample_inventory ; ajouter une annotation tendance_observee sur la baisse de vitesse de conversion du MPO après 6 h attribuée par les auteurs à cette dégradation (« After 6 h reaction, the MPO conversion rates of all composite films decreased »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Constantes de vitesse pseudo-premier ordre (Fig. S4) de chaque film, absentes des outcomes",
+   "extracted": "non extraites (doute : ordre des cinq valeurs incertain)",
+   "article_says": "k= 0.000086",
+   "fix": "attribuer par ordre croissant de teneur en UiO-66, ce que le texte impose (« The pseudo-first-order rate constant, k, is also increased by the amount of UiO-66 in the composite films. ») : 0 wt.% (DSPD1) 0.000086, 6.5 wt.% 0.00133, 15.3 wt.% 0.00161, 32.4 wt.% 0.00232, 49.5 wt.% 0.0032 (unité min-1 d'après l'axe en minutes de la Fig. S4 ; l'unité n'est pas écrite, la donner en value_text ou ne pas la convertir). Contrôle de plausibilité : 0,0032 min-1 × 200 min = 0,64 = −ln(0,55), cohérent avec 45 % de conversion à 3 h de la Fig. 7 pour 49,5 wt.%. L'ordre des cinq étiquettes dans le texte (0.0032, 0.00232, 0.00133, 0.00161, 0.000086) n'est pas monotone : à signaler dans le doute existant si l'orchestrateur retient l'attribution",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "UiO66+DSPD2_mix, UiO66+DSPD3_gelled, UiO66+DSPD4_gelled : réactif UiO-66 (10 wt.%) et MEK hérités de UiO66-DSPD_6.5",
+   "extracted": "les trois essais de gélification héritent du parent le réactif UiO-66 à 10 wt.%, la prédispersion dans la MEK et le film pulvérisé, alors que leur propre étape déclare « UiO-66_amount » non cité",
+   "article_says": "When UiO-66 particles were dispersed in a DSPD solution, only DSPD containing 2.5 and 4.9 wt.% of APTES did not induce an abrupt viscosity increase and gelation.",
+   "fix": "l'article ne donne ni teneur en UiO-66 ni solvant pour ces essais : ajouter une variation du réactif « UiO-66 » avec value_text « not stated for this test » (ou en faire des voies de base indépendantes), et ne pas laisser hériter les 10 wt.% ni la prédispersion dans la MEK ; sinon la fiche affirme une teneur contredite par not_stated",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "DSPD1 à DSPD4 : étape de formation du film absente alors que tensile, fraction de gel et pelage sont des propriétés de film",
+   "extracted": "les voies s'arrêtent à la dispersion (étape 13 « adjust » à 35 wt.%) ; les outcomes film_gel_fraction, film_tensile_strength, peel_strength sont rangés dessus sans étape de mise en film",
+   "article_says": "Films were dried at room temperature for 48 h and extracted with tetrahydrofuran for 48 h using a Soxhlet extractor.",
+   "fix": "ajouter à DSPD1 une étape de mise en film avec la durée de séchage de la légende de la Fig. 2 (48 h à température ambiante) ; pour le pelage, citer « DSPD and UiO-66/DSPD films were prepared on glass and PET substrates by the spray-coating method. » ; déclarer en not_stated la méthode de dépôt des éprouvettes de traction (épaisseur 0,25 mm, différente des 150 ± 20 μm pulvérisés) ; les branches DSPD2 à DSPD4 héritent de l'étape",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "UiO66-DSPD_6.5 et UiO66-DSPD_15.3, pelage sur verre sans glycérol",
+   "extracted": "seuls 32.4 (3.1) et 49.5 (0.2 N/25 mm) ont une valeur ; rien pour 6.5 et 15.3",
+   "article_says": "Although it was difficult to peel off the composite films with a low amount of UiO-66 from the glass substrate",
+   "fix": "ajouter à 6.5 et 15.3 un outcome peel_strength_glass_without_glycerol en value_text « difficult to peel off from the glass substrate » (Fig. 9b n'a aucun point verre sans glycérol à ces teneurs ; la citation est la conclusion)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "UiO66-DSPD_15.3, trempage dans la solution MPO ou l'eau (Fig. 10) : 3 temps sur 6",
+   "extracted": "valeurs à 1, 5 et 30 min (solution MPO) et à 5 et 30 min (eau DI)",
+   "article_says": "Dumbbell-shaped UiO-66/DSPD composite films were immersed in the test solution for 0.5, 1, 3, 5, 10 and 30",
+   "fix": "ajouter, lus sur la Fig. 10, solution MPO : 0,5 min ≈ 10,8 MPa ; 3 min ≈ 9,8 ; 10 min ≈ 9,5 ; eau DI : 0,5 min ≈ 12,4 ; 1 min ≈ 12,5 ; 3 min ≈ 12,65 ; 10 min ≈ 11,1 (les valeurs déjà extraites, 14 / 9,9 / 9,7 / 9,0 / 12,8 / 9,7, sont conformes à la figure à moins de 3 %)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Conversion du MPO au cours du temps (Fig. 7) : seules les valeurs à 24 h sont extraites",
+   "extracted": "MPO_conversion_after_24h pour les cinq films",
+   "article_says": "After 6 h reaction, the MPO conversion rates of all composite films decreased",
+   "fix": "optionnel : ajouter les conversions à 6 h et 12 h lues sur la Fig. 7 (6 h ≈ 32, 42, 45, 56 % pour 6.5, 15.3, 32.4, 49.5 wt.% ; 12 h ≈ 35,5, 46, 57, 62,5 %) pour porter le ralentissement après 6 h dont parlent les auteurs ; les valeurs à 24 h extraites sont conformes (36, 48, 62, 63,2, film nu 6,5 %)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "DSPD1 étape 6 « cool » : deux opérations fusionnées",
+   "extracted": "« Decrease the reaction temperature to 40 °C and add acetone » en une étape de type cool ; l'acétone (200 mL) n'a pas d'étape d'ajout",
+   "article_says": "Reaction temperature was decreased to 40 °C, and acetone (200 mL) was added.",
+   "fix": "séparer en une étape cool (40 °C) et une étape add (acétone 200 mL)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "UiO-66 étape 3 : fill_fraction déclaré non cité",
+   "extracted": "fill_fraction dans not_stated",
+   "article_says": "ZrCl4 (200.00 g, 0.86 mol) and TPA (142.48 g, 0.86 mol) were dissolved in DMF (6 L) in a 10 L bottle",
+   "fix": "le volume de DMF (6 L) et la capacité du flacon (10 L) sont écrits : retirer fill_fraction de not_stated et le noter dans l'annotation de reproductibilité (≈ 61 % de remplissage avec les 95 mL de HCl, valeur calculée, non citée comme telle)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotation resume : « Seule la matrice à 2,5 % … sans gélifier »",
+   "extracted": "« Seule la matrice à 2,5 % de silane supporte jusqu'à 49,5 % d'UiO-66 sans gélifier »",
+   "article_says": "only DSPD containing 2.5 and 4.9 wt.% of APTES did not induce an abrupt viscosity increase and gelation.",
+   "fix": "reformuler : les liants à 2,5 et 4,9 % ne gélifient pas ; seul celui à 2,5 % a été utilisé pour les films (aucun film à 4,9 %), et il n'est testé que jusqu'à 49,5 % d'UiO-66 ; « seule » n'est pas dans l'article",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotation securite_analyse : ZrCl4 non mentionné",
+   "extracted": "DMF, HCl, IPDI, NMP, TEA, APTES, acétone, MPO cités ; pas ZrCl4",
+   "article_says": "ZrCl4 (200.00 g, 0.86 mol) and TPA (142.48 g, 0.86 mol) were dissolved in DMF (6 L)",
+   "fix": "ajouter que ZrCl4 (200 g) est corrosif et s'hydrolyse à l'humidité en libérant de l'HCl ; l'ajout de 95 mL d'HCl à 37 % dans 6 L de DMF puis le chauffage à 120 °C d'un flacon de 10 L exigent un récipient résistant à la pression (l'article ne dit pas si le flacon était fermé)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 13,
+  "branches_extracted": 13,
+  "not_stated_checked": 46,
+  "not_stated_wrong": 1,
+  "figure_values_checked": 58,
+  "figure_values_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "images des Figures S1 à S6 absentes du dépôt (isotherme N2, PXRD avant/après N-EM, spectres UV-Vis, tracés ln(Ct/C0))",
+  "essai de décomposition du MPO : concentration de MPO, volume et composition de la solution, concentration de N-EM, température, agitation, tout renvoyé à « previous research » (réf. B3, Katz et al.)",
+  "pulvérisation : pression, distance, nombre de passes, volumes de MEK et de DSPD, masse d'UiO-66 introduite (seule la teneur de 10 à 60 wt.% de la solution est donnée, sans dire par rapport à quoi)",
+  "température des étapes de synthèse du PU après l'IPDI (75 °C seulement pour le chargement initial, 40 °C après l'acétone), conditions de la rotavap, température de refroidissement avant l'eau",
+  "teneur en glycérol des points « Glass w/ Glycerol » des Fig. 9a et 9b autres que le film DSPD2 (5 wt.%) ; séchage du film au glycérol",
+  "recette du DSPD sans APTES (0 wt.%) tracé sur les Fig. 1 à 3 ; teneur en UiO-66 des essais de gélification ; vitesse et durée de centrifugation de l'UiO-66",
+  "HCl 0,86 mol annoncé pour 94,94 mL de HCl à 37 % (≈ 72 mL attendus) ; rendement de 58 % difficile à rapprocher de 200 g pour 0,86 mol de Zr (≈ 238 g attendus pour Zr6O4(OH)4(BDC)6 à 100 %) : valeurs de l'article, déjà au doute de l'extraction"
+ ],
+ "mechanism_check": "ok : le mécanisme des auteurs (condensation des silanols accélérée par l'acidité apportée par l'UiO-66) est appuyé par la citation ; les annotations mecanisme_analyse sont marquées « probablement » et ne sont pas présentées comme citées",
+ "notes": "Extraction globalement fidèle : 58 valeurs lues sur Fig. 1, 2, 3b, 4b, 6, 7, 9a, 9b et 10 relues sur les images, écart maximal observé ≈ 4 % (traction de DSPD2, 13,5 lu pour 14 extrait), donc aucune valeur fausse. Les tableaux 1 sont bien attribués : les rangées DSPD2 à DSPD4 n'ont que six cellules (polyol, DMPA, IPDI fusionnés avec DSPD1) et l'héritage est justifié ; le rapport EG/APTES (2 ; 0,75 ; 0,33 ; 0,125) et la stœchiométrie NCO/OH ont été recalculés et sont cohérents. L'attribution des masses molaires 8800, 6900, 5200, 4700 dans l'ordre DSPD1 à DSPD4 n'a pas de « respectively » mais est la seule lecture compatible avec le texte (la masse décroît quand le rapport EG/silane diminue) ; l'attribution de 91,8 % à DSPD4 est confirmée par la Fig. 2. Les températures des étapes 3, 5, 10, 11 de DSPD1 sont laissées non citées par l'extracteur : défendable (règle du RUNBOOK sur l'implicite) bien que « maintained at 75 °C » laisse penser à 75 °C. Les valeurs de la Fig. 3b et de la Fig. 4b pour le même film DSPD1 diffèrent (allongement 820 contre 780 %), c'est l'article qui est incohérent entre figures, pas l'extraction. Fig. 9a/9b : le glycérol des points autres que DSPD2 est supposé 5 wt.% par analogie, rien ne l'écrit ; l'extraction ne le suppose pas, ce qui est correct. method_sources : le seul renvoi de méthode du corps (B3) est présent ; B24 (« our previous results ») est un renvoi de contexte, non retenu à raison. L'abstract et le texte divergent sur DSPD3 (« more than 7.2 wt.% » contre « only 2.5 and 4.9 »), traité au doute par l'extracteur."
+}

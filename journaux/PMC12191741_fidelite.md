@@ -1,0 +1,15 @@
+# Journal de la critique de fidélité, PMC12191741
+
+- Ma liste d'échantillons avant ouverture de l'extraction : calcinations à 500, 600, 700, 800 °C (10 h), pastille frittée (diélectrique/électrique), poudre libre pour le magnétisme, trois lots de synthèse indépendants. Identique à `sample_inventory` : aucun échantillon manquant. Les 500/600/800 n'ont aucun résultat dans l'article, l'extracteur l'a bien dit (« pourquoi_ces_donnees »).
+- Branches 500/600/800 : seule la température de l'étape 8 change (« different temperatures of 500 °C, 600 °C, 700 °C, and 800 °C for 10 h each »). Pas d'héritage abusif, pas d'étape inventée. Baseline 700 °C justifiée par la légende de la Fig. 1 et la section 3.2.
+- Cases `not_stated` vérifiées une à une (étapes 1 à 9, réactifs, pastille, frittage) : 34 contrôlées, 0 à tort. « dilute nitric acid » sans concentration, pas de rampe, four ni creuset, pas de pression de pressage : bien absents du texte (pas d'annexe dans le dépôt).
+- `method_sources` vide : j'ai vérifié `corpus/refs` ; la section 2.1 n'a aucun renvoi, B57/B58 (2.2) portent sur les formules de permittivité, B61 sur l'équation de Williamson–Hall : pas des sources de méthode selon la règle du 2026-10-13.
+- Constat 1 (sure) : le résumé écrit « gélifiés à 70 °C ». Le texte met 70 °C / 5 h sur le mélange des nitrates avant l'ajout d'éthylène glycol et d'acide citrique ; la gélification n'a ni température ni durée. Le résumé contredit aussi la ligne limite_reproductibilite de l'extracteur.
+- Constat 2 (sure) : MEB, seule la Fig. 3a est rapportée alors que le texte décrit 3b et 3c avec résultats distincts.
+- Constat 3 (probable) : impédance Z′/Z″ (3.5) non extraite ; probable car la section est qualitative et le pic de Z″ se déplace comme celui de M″.
+- Constat 4 (probable, mineur) : tableau 1 non extrait ligne par ligne. Écarté comme erreur : choix assumé par l'extracteur (doute documenté sur l'incohérence FWHM/tailles).
+- Constats 5 et 6 (probable) : lecture de la Fig. 7, pente basse température ≈ −0,95 par 1000/T, soit Ea ≈ 0,08 eV contre 0,18 écrit ; haute température ≈ 0,35 eV, cohérent avec 0,36. Fig. 2 : pente négative et ordonnée à l'origine ≈ 0,0035–0,004 rad, D ≈ 36–40 nm contre 65,3 nm. Valeurs extraites correctes (recopiées) : je demande seulement une annotation. Lecture à la règle sur image, donc « probable ».
+- Valeurs `from_figure` : Fig. 5a 20,7 lu pour 21 et 9 pour 9 ; Fig. 5b 3,75 pour 3,8 ; Fig. 6 1,47e-5 pour 1,5e-5 ; Fig. 10 maximum ≈ 0,0058 emu/g. Tous sous 10 % d'écart, aucun constat.
+- Non-constat noté seulement : Méthodes (poudre libre pour le magnétisme) vs phrase « pellets … prepared for electrical and magnetic measurements » vs « vibrating sample magnetometry » dans les Résultats et Fig. 10 limitée à ±10 Oe. Déjà en doute chez l'extracteur ; pas de passage tranchant, donc pas de constat.
+- Non-constat : unité de ε′ laissée vide (axe « Fm−1 » aberrant pour une valeur ≈ 9–21) ; choix prudent.
+- Non-constat : la pastille sans `parent` malgré « the BiBaO3 powder » ; l'article ne dit pas quelle calcination, donc ne pas la rattacher à 700 est correct.

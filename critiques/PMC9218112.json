@@ -1,0 +1,77 @@
+{
+ "pmcid": "PMC9218112",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "AuNPs (sans GA) : branche héritant des étapes de la voie GA-AuNPs (étape 1 de dissolution de la GA, 10 mL)",
+   "extracted": "branche sans étapes propres : hérite de l'étape 1 (dissolution de GA, 200 rpm, 30 min, 55 °C) et de 10 mL de milieu ; seul le réactif GA est marqué absent",
+   "article_says": "Gold nanoparticles are synthesized via laser ablation in DI water in the absence, and presence of GA under the same parameters separately.",
+   "fix": "donner à la branche AuNPs ses propres étapes (nettoyage, rinçage, ablation dans l'eau DI seule) sans étape de dissolution, et marquer le volume d'eau et l'ordre des opérations comme non cités (« same parameters » seulement) ; ou annoter l'héritage comme déduit",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Fantôme CT témoin 0 ppm (agar sans nanoparticules) : pas de voie ni de résultat, seulement une ligne d'inventaire sans route",
+   "extracted": "route null ; HU du témoin non extrait",
+   "article_says": "The same procedures are repeated for AuNPs phantoms at concentrations of (0, 6, 11, 21, 42) ppm.",
+   "fix": "créer la branche témoin (0 ppm) avec CT_number_HU lu sur la Fig. 8c (environ 650 HU, from_figure) ; le témoin sert de zéro à la comparaison GA-AuNPs / AuNPs",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "AuNPs, peak_absorbance (Fig. 1c)",
+   "extracted": "aucun peak_absorbance pour AuNPs (alors qu'il existe pour GA-AuNPs et les branches GA)",
+   "article_says": "On the other hand, the spectrum of AuNPs has a lower height of absorption peak at λ = 521 nm and a little red shift towards higher wavelengths.",
+   "fix": "ajouter peak_absorbance lu sur la Fig. 1c (courbe rouge, environ 0,97 a.u., from_figure) ; sur la même figure l'échantillon GA-AuNPs est à environ 1,6 a.u., ce qui recoupe le Tableau 1 (1,614) et non les 1,8 lus sur la Fig. 3b",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Branches en énergie 50, 100, 200, 500 mJ : solution_colour absent",
+   "extracted": "seul plasmon_peak_wavelength (et AAS pour 200, 500) ; aucune couleur",
+   "article_says": "it is noticed that the colour of all samples of GA-AuNPs is roughly the same dark purplish-red and no remarkable change in the colour or the concentrations of the particles by AAS measurements (M ~ 52–54 ppm).",
+   "fix": "ajouter solution_colour = dark purplish-red (énoncé de groupe, à signaler comme tel) sur les branches 50 à 500 mJ ; l'AAS « ~52–54 ppm » est aussi un énoncé de groupe, à garder en annotation pour 50 et 100 mJ (Tableau S4 sans valeur)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Branches en énergie : hauteur du pic plasmon (Fig. 6b)",
+   "extracted": "peak_absorbance absent pour 50, 100, 200, 500, 1000 mJ ; doute disant que les hauteurs se chevauchent",
+   "article_says": "At low energies (50, 100 mJ), Fig. 6b shows a slight increase in the height of absorption peak with raising the laser energy.",
+   "fix": "lire les sommets sur la Fig. 6b (environ 1,5 à 50 mJ, 1,6 à 100 mJ, 1,42 à 200 et à 500 mJ, 1,62 à 1000 mJ, ±0,05 ; l'encart agrandi aide) et les ajouter en from_figure, ou garder le doute si le chevauchement empêche l'attribution",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Gum Arabic : formule",
+   "extracted": "formula null",
+   "article_says": "GA is a polymeric material that is mostly composed of a long chain of glycoprotein, and polysaccharides, as well as greater amounts of magnesium, potassium, and calcium salts with a molecular formula of [C15H20NNaO4].",
+   "fix": "la formule est donnée par les auteurs (douteuse pour un polymère) : soit la reporter avec cette citation, soit garder null en le justifiant dans un doute",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotation mecanisme_auteurs (GA-AuNPs) et résumé : rôle de la GA",
+   "extracted": "la GA enveloppe et protège de l'agrégation (stabilisant et revêtement) ; rôle de réducteur non mentionné côté auteurs",
+   "article_says": "It can be concluded that there is a positive and significant influence of GA as a reducing agent for AuNPs, and a contrast agent for CT imaging which highlights its superiority in future medical applications.",
+   "fix": "ajouter à mecanisme_auteurs que les auteurs présentent aussi la GA comme réducteur (« One commonly used as a green stabilizer, and a reducing agent is Gum Arabic (GA) ») ; mecanisme_analyse la contredit déjà, mais l'affirmation des auteurs doit figurer dans leur propre annotation",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 22,
+  "branches_extracted": 20,
+  "not_stated_checked": 16,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "durée d'irradiation, durée d'impulsion, diamètre et focalisation du faisceau, hauteur de liquide au-dessus de la cible, marque et modèle du laser : absents de l'article et de l'annexe",
+  "séparation, purification et stockage du colloïde après ablation non décrits",
+  "préparation de l'échantillon AuNPs sans GA : seulement « under the same parameters » (volume d'eau, ordre des opérations non écrits)",
+  "fantômes CT : « 20% of the agar solution » (20 % de 50 mL = 10 mL) plus 1 mL de colloïde donnerait une teneur finale d'environ 5 ppm, pas 55 ppm ; l'obtention des colloïdes à 28, 14, 7 ppm (dilution ?) et à 6, 11, 21, 42 ppm n'est pas décrite ; température du gel au mélange (« cooled to 100 °C »), durée de mélange et température du réfrigérateur absentes",
+  "valeurs AAS à 50 et 100 mJ : « - » dans le Tableau S4, alors que le texte donne « ~52–54 ppm » pour toutes les énergies"
+ ],
+ "mechanism_check": "à revoir : mecanisme_auteurs ne mentionne pas que les auteurs donnent aussi à la GA un rôle de réducteur (résumé, introduction, conclusion) ; le reste (liaisons hydrogène, fragmentation par chauffage) suit l'article",
+ "notes": "Lecture des figures : Fig. 3b (514 nm vert 20 mg, 520 noir 15 mg, 523 rouge 30 mg, 525 bleu 40 mg), Fig. 6b (514 vert 1000 mJ, 523 noir 50, 524 rouge 100, 516 bleu 200, 515 magenta 500), Fig. 2, 5, 7 (écarts-types 0,99, 0,94, 3,97, 9) et Fig. 8c (HU) concordent avec l'extraction à moins de 10 % (point 28 ppm lu vers 1030 contre 1000 ; hauteur 20 mg lue 1,75 contre 1,8). Incohérences propres à l'article, non attribuables à l'extraction mais à annoter en limite_reproductibilite : (1) hauteur du pic à 20 mg environ 1,75 sur la Fig. 3b contre environ 1,6 sur la Fig. 1c et 1,614 au Tableau 1 pour le même échantillon ; (2) Tableau S1 : valeurs 54,68 et 54,28 présentées avec la moyenne 54,57 (leur moyenne est 54,48) alors que le Tableau S2 donne 54,40 et 54,75 pour 54,57 ; (3) le texte parle d'un décalage vers le bleu avec le nombre d'impulsions alors que le Tableau 1 donne 513,63, 515,18, 513,63 puis 521,0 nm (déplacement vers le rouge à 2000 impulsions) ; (4) plaque d'or de 5 mm de diamètre et 0,5 mm d'épaisseur annoncée à 0,5 g (masse attendue environ 0,19 g) ; (5) « pulses/s » dans les Résultats contre un nombre total d'impulsions dans les Méthodes (doute déjà posé) ; (6) étiquette 41 ppm de la Fig. 8b contre 42 ppm du texte (doute déjà posé). method_sources vide : correct (le seul renvoi des Méthodes, CR43, porte sur le plan d'étude, pas sur une préparation). Inventaire complet par rapport à ma liste (AuNPs, GA 15/20/30/40, impulsions 200/500/1000/2000, énergies 50 à 1000 mJ, 2000 mJ sans résultat, fantômes GA 55/28/14/7 et AuNPs 6/11/21/42 ppm) sauf le témoin 0 ppm sans voie."
+}

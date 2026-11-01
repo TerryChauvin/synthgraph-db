@@ -1,0 +1,16 @@
+# PMC10556056 — critique scientifique (journal de décisions)
+
+- Aucune quantité dans l'article : les calculs de gaz (≈ 40 bar en borne haute) et de HCl (≈ 3 mmol) reposent sur des concentrations **hypothétiques** (Zn 0,1 mol/L, goutte de 0,05 ml de HCl 37 %), signalées comme telles dans `calculs` ; ils ne fondent que des `reserve`, jamais un `probleme`.
+- Voies : la voie de base ZnS1 porte tous les calculs communs ; les quatre branches sont jugées car le rapport S/Zn change la chimie (réactif en excès, NH3 libéré, pH final). Verdict `douteuse` partout : la synthèse de ZnS cubique est plausible, ce sont les interprétations et plusieurs grandeurs dérivées qui ne tiennent pas.
+- Faisabilité `reproductible_avec_reserves` et non `non_reproductible` : ZnS cubique s'obtient sûrement par ce protocole ; ce qui n'est pas reproductible, ce sont les tailles et « défauts » de chaque échantillon (concentrations absentes).
+- Problème ICP : S/Zn = 0,22–0,38 (ZnS0.67, ZnS1) veut dire 62–78 % du Zn hors sulfure, incompatible avec la DRX monophasée ; S/Zn = 1,89 (ZnS3) ne peut pas venir d'une perte de H2S (qui l'abaisse). Jugé `probleme` sur ZnS1, ZnS0.67 et ZnS3.
+- Problème confinement : Brus avec me* 0,28, mh* 0,59, εr 8,1 (Ogbu 2025) donne +0,7 eV pour R = 1,45 nm ; j'ai noté que Brus surestime et gardé « ≥ +0,3 eV » comme seuil prudent. Eg 3,32 eV (2,9 nm) ≈ 3,30 eV (27 nm) : la contradiction tient même avec ce seuil.
+- Source d'Eg massif : PMC9101784 (≈ 3,6 eV à l'ambiante ; 3C expérimental 3,45–3,59 eV). Je n'ai pas retenu la page ScienceDirect Topics (3,2–4,4 eV, trop vague). Phys. Rev. 153, 913 (me = 0,28) vue mais auteurs non relevés : non citée.
+- PL 365 nm = 3,40 eV > Eg de ZnS1/ZnS1.5/ZnS2 : `probleme` (cohérence entre sections) ; j'en tire que le gap réel est probablement ≥ 3,4 eV et que les Tauc sont sous-estimés.
+- UDEDM recalculé par u = εσ/2 avec les ε et σ du Tableau 2 : accord ±7 % pour 3 échantillons, facteur 10,0 exact pour ZnS1.5 et ZnS2 → erreur de recopie probable des auteurs. σ UDSM de ZnS3 (0,01 GPa) donne Y = 6,5 GPa contre ≈ 85 ailleurs.
+- HRTEM 0,209 nm : aucun plan de ZnS (cubique ou hexagonal) ; coïncidence avec Zn métal (101) notée mais jugée improbable, donc formulée comme « étalonnage ou attribution à revoir ».
+- XPS : le décalage commun Zn 2p et S 2p (+1,1 à +1,4 eV) est lu comme un artefact de charge probable → `reserve`, pas `probleme`. Position S8/polysulfures (≈ 163,5–164 eV) donnée de mémoire de manuel, non ouverte : mise dans `sources_not_found`.
+- Photocatalyse : appui sur Rochkind et al. 2015 (revue critique des tests aux colorants) plutôt que Barbero & Vione 2016 (seulement l'extrait vu) ; le lux comme mesure aveugle à l'UV est de la chimie générale.
+- Autoclave : 220 °C est la limite des chemises PTFE courantes (fiche Techinstro ; fluage > 150 °C selon Parr) → `reserve`. Classement CLP de la thiourée pris sur la FDS de l'EDQM (pas d'accès ECHA direct).
+- Mécanisme : je préfère « ZnS quasi stœchiométrique, réactif en excès lavé ou dégazé, taille pilotée par le pH final (NH3 contre HCl fixe) » à celui des auteurs (lacunes proportionnelles au rapport) ; le saut 2,9 → 27 nm entre S/Zn 1 et 1,5 est l'indice principal.
+- 5 recherches web ; aucun ajout à fondateurs.md ni constantes.md (Crossref bloqué).

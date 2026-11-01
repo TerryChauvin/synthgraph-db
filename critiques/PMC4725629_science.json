@@ -1,0 +1,741 @@
+{
+ "pmcid": "PMC4725629",
+ "routes": [
+  {
+   "label": "AgNP_LB_PVP_420nm",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "argent engagé",
+     "inputs": "AgNO3 1 mM ; 200 mL ; M(AgNO3) = 169,87 g/mol",
+     "formula": "n = C × V ; m = n × M",
+     "result": "0,20 mmol ; 34,0 mg d'AgNO3",
+     "compared_to": "base des rapports suivants",
+     "source": "valeurs de l'article ; masse molaire, chimie générale"
+    },
+    {
+     "what": "chlorure apporté par 10 mL de LB",
+     "inputs": "LB Miller 10 g/L NaCl (Lennox 5 g/L) ; 10 mL dans 200 mL ; M(NaCl) = 58,44 g/mol",
+     "formula": "n(Cl−) = 10 mL × 10 g/L / 58,44 ; C = n / 0,2 L",
+     "result": "1,71 mmol ; 8,6 mM de Cl− (4,3 mM en Lennox) ; Cl−/Ag+ = 8,6 (4,3)",
+     "compared_to": "Ag+ 1 mM : chlorure en large excès, l'argent est entièrement précipité en AgCl avant l'irradiation",
+     "source": "Sezonov et al. 2007, 10.1128/JB.01368-07 (recette LB) ; valeurs de l'article"
+    },
+    {
+     "what": "produit ionique Ag+ × Cl− dans le mélange LB",
+     "inputs": "[Ag+]0 = 1 × 10−3 M ; [Cl−]0 = 8,6 × 10−3 M ; Ksp(AgCl) = 1,77 × 10−10",
+     "formula": "Q = [Ag+][Cl−] ; [Ag+]libre ≈ Ksp / ([Cl−]0 − [Ag+]0)",
+     "result": "Q = 8,6 × 10−6 ≫ Ksp ; [Ag+] libre ≈ 2 × 10−8 M (≈ 0,002 % de l'argent, complexes AgCl2− non comptés)",
+     "compared_to": "« white-to-cream colored colloid … insoluble silver salts » aux autres longueurs d'onde : c'est l'AgCl",
+     "source": "periodni.com, Ksp(AgCl) = 1,77 × 10−10, https://www.periodni.com/solubility_product_constants.html"
+    },
+    {
+     "what": "donneur d'électrons disponible",
+     "inputs": "tryptone 10 g/L × 10 mL = 100 mg ; masse moyenne d'un résidu ≈ 110 g/mol ; PVP 300 mg, unité 111,14 g/mol",
+     "formula": "n(résidus) ≈ 0,100 / 110 ; n(unités PVP) = 0,300 / 111,14",
+     "result": "≈ 0,9 mmol de résidus d'acides aminés ; 2,7 mmol d'unités PVP (13,5 mM)",
+     "compared_to": "0,2 mmol d'e− nécessaires pour 0,2 mmol d'Ag+ : donneurs en excès",
+     "source": "valeurs de l'article ; recette LB (Sezonov 2007)"
+    },
+    {
+     "what": "sédimentation à 15 000 g pendant 30 min (loi de Stokes)",
+     "inputs": "Δρ(Ag–eau) = 9 490 kg/m3 ; a = 15 000 × 9,81 m/s2 ; η = 0,89 mPa·s",
+     "formula": "v = 2 r2 Δρ a / (9 η) ; parcours = v × 1 800 s",
+     "result": "d = 0,6 nm : 0,06 mm ; d = 10 nm : 16 mm ; d = 20 nm : 63 mm",
+     "compared_to": "tube de centrifugeuse de plusieurs cm : les particules de moins de ≈ 10 nm restent dans le surnageant, l'AgCl colloïdal (Δρ ≈ 4 560 kg/m3, centaines de nm) sédimente",
+     "source": "chimie générale (Stokes) ; masses volumiques Ag 10,49 et AgCl 5,56 g/cm3, viscosité de l'eau 0,89 mPa·s à 25 °C (NIST WebBook)"
+    },
+    {
+     "what": "énergie d'un photon à 420 nm et flux photonique de la lampe",
+     "inputs": "h = 6,626 × 10−34 J·s ; c = 2,998 × 108 m/s ; 5 LED de 1 W électrique (3,2 V × 0,35 A = 1,12 W) ; rendement optique supposé ≈ 30 % (≈ 0,35 W optique par LED, hypothèse non donnée par l'article) ; 600 s",
+     "formula": "E = hc/λ ; n = P × t / (E × NA)",
+     "result": "E = 4,73 × 10−19 J (2,95 eV) ; ≈ 3,7 mmol de photons en 10 min pour 5 LED",
+     "compared_to": "0,2 mmol d'Ag+ dans 200 mL à 1 mM : rendement quantique apparent ≥ 0,05 si tous les photons sont absorbés ; plausible pour une photoréduction autocatalysée",
+     "source": "constantes CODATA ; valeurs de l'article (tension, courant)"
+    },
+    {
+     "what": "flux radiant correspondant à « 20–25 lm » par LED à 420 nm",
+     "inputs": "V(420 nm) = 0,0040 ; V(400 nm) = 0,000396 ; V(390 nm) = 0,00012 ; Km = 683 lm/W ; 20 lm",
+     "formula": "Φe = Φv / (683 × V(λ))",
+     "result": "420 nm : 7,3 W optique pour 20 lm ; 395 nm (V ≈ 0,00025 par interpolation) : ≈ 117 W",
+     "compared_to": "1,12 W électrique par LED : 20–25 lm est impossible pour une LED à 395 ou 420 nm (une LED violette de 1 W donne de l'ordre de 1 lm) ; la valeur ne peut valoir que pour les LED vertes à rouges",
+     "source": "HyperPhysics, table de V(λ) (Williamson & Cummins 1983), http://hyperphysics.phy-astr.gsu.edu/hbase/vision/efficacy.html"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Avec 10 mL de LB (8,6 mM de Cl− en recette Miller, 4,3 mM en Lennox ; le type de LB n'est pas donné) pour 1 mM d'Ag+, tout l'argent est précipité en AgCl dès le mélange (voir « chlorure apporté par 10 mL de LB » et « produit ionique »). La réaction réelle est la photoréduction d'un colloïde d'AgCl par les peptides, ce que confirme le colloïde blanc-crème obtenu aux autres longueurs d'onde.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Escherichia coli Physiology in Luria-Bertani Broth (recette LB : 10 g/L tryptone, 5 g/L extrait de levure, 10 g/L NaCl ; Lennox 5 g/L NaCl)",
+      "authors_or_publisher": "Sezonov G., Joseleau-Petit D., D'Ari R., J. Bacteriol.",
+      "year": "2007",
+      "url_or_doi": "10.1128/JB.01368-07"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'« efficacité de 96,3 % » est la part d'argent qui ne reste pas dans le surnageant après 15 000 g × 30 min (ICP-AES). Or l'AgCl formé dès le mélange sédimente aussi : sans réduction, le surnageant ne garderait que ≈ 2 × 10−8 M d'Ag+ (≈ 0,002 %). La mesure ne distingue donc pas Ag0 de AgCl et ne prouve pas la réduction ; aucun témoin à l'obscurité ni aucune mesure de phase (DRX, UV-visible) ne sont rapportés. Inversement, les particules de moins de ≈ 10 nm ne sédimentent pas (calcul de Stokes) et comptent comme « non converties ».",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Température d'irradiation non donnée (seule l'observation préalable est « at room temperature ») ; LED de 1 W à 60 mm d'un flacon de 200 mL pendant 10 min : échauffement de quelques degrés au plus, sans conséquence attendue.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "≈ 3,7 mmol de photons en 10 min pour 0,2 mmol d'Ag+ (voir « énergie d'un photon ») : une conversion quasi complète en 10 min demande un rendement quantique apparent ≥ 0,05, plausible pour une photoréduction autocatalysée sur AgCl.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Photoréduction d'Ag+ par la matière organique sous lumière : connue en eaux naturelles, avec un rôle actif des espèces Ag–Cl (AgCl(aq) espèce la plus photoactive en eau douce) ; le LB joue ici le rôle de la matière organique dissoute.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Roles of Silver-Chloride Complexations in Sunlight-Driven Formation of Silver Nanoparticles",
+      "authors_or_publisher": "Singh A., Hou W.-C., Lin T.-F., Zepp R. G., Environ. Sci. Technol.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.est.9b02115"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison avec la base : PMC10540474 (extrait de racine, lumière solaire diffuse, 15 min) et PMC5388254 (hydrogel de lin, soleil) photoréduisent aussi l'Ag+ en quelques minutes ; 10 min sous LED est du même ordre.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3 corrosif et tachant ; LED violette de 420 nm à ne pas regarder (risque de lumière bleue) ; centrifugation de 200 mL à 15 000 g : rotor et tubes adaptés à la vitesse et à la masse, équilibrage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Ag+ + Cl− (LB) → AgCl colloïdal (quantitatif, Cl− en excès). Sous 420 nm, AgCl (gap indirect 3,25 eV, ≈ 380 nm) absorbe peu ; la réduction démarre sur des défauts ou des amas Ag0 en surface d'AgCl, puis les amas d'Ag (plasmon vers 400–420 nm) absorbent la lumière et rendent la réduction autocatalytique (système Ag@AgCl). Les peptides du LB (et le PVP) captent les trous ou les atomes de chlore et fournissent les électrons ; le PVP stabilise les particules. Le produit final peut rester un mélange Ag/AgCl tant que la phase n'est pas vérifiée.",
+    "sources": [
+     {
+      "title": "Ag@AgCl: A Highly Efficient and Stable Photocatalyst Active under Visible Light",
+      "authors_or_publisher": "Wang P., Huang B., Qin X. et al., Angew. Chem. Int. Ed.",
+      "year": "2008",
+      "url_or_doi": "10.1002/anie.200802483"
+     },
+     {
+      "title": "Roles of Silver-Chloride Complexations in Sunlight-Driven Formation of Silver Nanoparticles",
+      "authors_or_publisher": "Singh A., Hou W.-C., Lin T.-F., Zepp R. G., Environ. Sci. Technol.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.est.9b02115"
+     },
+     {
+      "title": "Physics of silver halides and their applications (tableau 3 : AgCl, gap direct 5,15 eV, indirect 3,25 eV)",
+      "authors_or_publisher": "Bull. Mater. Sci. 2(4), 221–231, Indian Academy of Sciences",
+      "year": "1980",
+      "url_or_doi": "https://www.ias.ac.in/article/fulltext/boms/002/04/0221-0231"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "type de LB (Miller 10 g/L ou Lennox 5 g/L de NaCl) : le chlorure fixe la quantité d'AgCl",
+    "mesurer la phase du produit (DRX ou UV-visible : plasmon vers 400–420 nm ; AgCl sans bande visible) au lieu de l'argent du surnageant",
+    "faire un témoin à l'obscurité avec la même centrifugation pour isoler la part de l'AgCl dans l'« efficacité »",
+    "flux radiant réel de la lampe (mW/cm2 au flacon) et nombre de plaques de LED",
+    "température pendant l'irradiation"
+   ]
+  },
+  {
+   "label": "LB_other_wavelengths",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "énergie d'un photon à 420 nm et flux photonique de la lampe",
+     "inputs": "h = 6,626 × 10−34 J·s ; c = 2,998 × 108 m/s ; 5 LED de 1 W électrique (3,2 V × 0,35 A = 1,12 W) ; rendement optique supposé ≈ 30 % (≈ 0,35 W optique par LED, hypothèse non donnée par l'article) ; 600 s",
+     "formula": "E = hc/λ ; n = P × t / (E × NA)",
+     "result": "E = 4,73 × 10−19 J (2,95 eV) ; ≈ 3,7 mmol de photons en 10 min pour 5 LED",
+     "compared_to": "0,2 mmol d'Ag+ dans 200 mL à 1 mM : rendement quantique apparent ≥ 0,05 si tous les photons sont absorbés ; plausible pour une photoréduction autocatalysée",
+     "source": "constantes CODATA ; valeurs de l'article (tension, courant)"
+    },
+    {
+     "what": "flux radiant correspondant à « 20–25 lm » par LED à 420 nm",
+     "inputs": "V(420 nm) = 0,0040 ; V(400 nm) = 0,000396 ; V(390 nm) = 0,00012 ; Km = 683 lm/W ; 20 lm",
+     "formula": "Φe = Φv / (683 × V(λ))",
+     "result": "420 nm : 7,3 W optique pour 20 lm ; 395 nm (V ≈ 0,00025 par interpolation) : ≈ 117 W",
+     "compared_to": "1,12 W électrique par LED : 20–25 lm est impossible pour une LED à 395 ou 420 nm (une LED violette de 1 W donne de l'ordre de 1 lm) ; la valeur ne peut valoir que pour les LED vertes à rouges",
+     "source": "HyperPhysics, table de V(λ) (Williamson & Cummins 1983), http://hyperphysics.phy-astr.gsu.edu/hbase/vision/efficacy.html"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La spécification « luminosity (per LED): 20–25 lm » ne peut pas s'appliquer aux LED de 395 et 420 nm : à 420 nm, 20 lm correspondent à 7,3 W optiques pour une LED de 1,12 W électrique ; à 395 nm à ≈ 117 W (voir « flux radiant correspondant »). Le flux radiant des LED comparées n'est donc pas connu, et la comparaison entre longueurs d'onde ne se fait pas à flux photonique égal.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Luminous Efficacy (table de V(λ) photopique, d'après Williamson & Cummins 1983) ; jeu de données CIE 018:2019",
+      "authors_or_publisher": "HyperPhysics, Georgia State University ; CIE",
+      "year": "2019",
+      "url_or_doi": "http://hyperphysics.phy-astr.gsu.edu/hbase/vision/efficacy.html ; 10.25039/CIE.DS.dktna2s3"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'échec à 395 nm est surprenant : un photon de 395 nm (3,14 eV) est plus proche du gap indirect d'AgCl (3,25 eV) qu'un photon de 420 nm (2,95 eV), et le plasmon des petites particules d'Ag absorbe aussi vers 400 nm. La sélectivité « seul 420 nm marche » peut venir d'un flux plus faible des autres LED plutôt que de la longueur d'onde (témoin qui change deux variables). Il faudrait comparer à flux photonique mesuré égal.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physics of silver halides and their applications (tableau 3 : AgCl, gap direct 5,15 eV, indirect 3,25 eV)",
+      "authors_or_publisher": "Bull. Mater. Sci. 2(4), 221–231, Indian Academy of Sciences",
+      "year": "1980",
+      "url_or_doi": "https://www.ias.ac.in/article/fulltext/boms/002/04/0221-0231"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le colloïde blanc-crème est l'AgCl non réduit ; aux autres longueurs d'onde (ou à flux plus faible) la réduction autocatalytique Ag@AgCl ne démarre pas en 10 min.",
+    "sources": [
+     {
+      "title": "Ag@AgCl: A Highly Efficient and Stable Photocatalyst Active under Visible Light",
+      "authors_or_publisher": "Wang P., Huang B., Qin X. et al., Angew. Chem. Int. Ed.",
+      "year": "2008",
+      "url_or_doi": "10.1002/anie.200802483"
+     },
+     {
+      "title": "Physics of silver halides and their applications (tableau 3 : AgCl, gap direct 5,15 eV, indirect 3,25 eV)",
+      "authors_or_publisher": "Bull. Mater. Sci. 2(4), 221–231, Indian Academy of Sciences",
+      "year": "1980",
+      "url_or_doi": "https://www.ias.ac.in/article/fulltext/boms/002/04/0221-0231"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer le flux radiant de chaque LED au flacon (radiomètre) et comparer à nombre de photons égal",
+    "spectre d'émission réel des LED (largeur à mi-hauteur)"
+   ]
+  },
+  {
+   "label": "AgNP_Glycine",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapports molaires de la formulation glycine (Table 1)",
+     "inputs": "AgNO3 1 mM ; glycine 14 mM ; PVP 150 mg/100 mL, unité 111,14 g/mol",
+     "formula": "glycine/Ag ; n(unités PVP)/V",
+     "result": "glycine/Ag = 14 ; PVP 13,5 mM d'unités (13,5 par Ag)",
+     "compared_to": "oxydation de la glycine à 2 e− (en formaldéhyde ou glyoxylate + NH3) : 0,5 glycine par Ag suffit, excès d'un facteur 28",
+     "source": "valeurs de l'article ; chimie générale"
+    },
+    {
+     "what": "chlorure apporté par 20 µL de Tris-HCl 1 M pH 8,5 pour 100 mL",
+     "inputs": "20 µmol de Tris pour 100 mL ; pKa(TrisH+) = 8,07 à 25 °C ; tampon préparé en titrant le Tris base par HCl jusqu'à pH 8,5",
+     "formula": "fraction TrisH+ = 1 / (1 + 10^(8,5 − 8,07)) ; [Cl−] = 0,271 × 0,2 mM",
+     "result": "[Cl−] ≈ 0,054 mM (0,2 mM si « Tris-HCl 1 M » désigne le sel) ; Cl−/Ag+ = 0,05 à 0,2",
+     "compared_to": "Ksp(AgCl) = 1,77 × 10−10 : Q = 5 × 10−8 à 2 × 10−7 ≫ Ksp ; 5 à 20 % de l'argent passe en AgCl, le reste reste en Ag+ (complexé par la glycine)",
+     "source": "periodni.com (Ksp AgCl) ; pKa du Tris, chimie générale"
+    },
+    {
+     "what": "pH réel du mélange",
+     "inputs": "glycine 14 mM (pKa 2,34 et 9,60) ; Tris total 0,2 mM, dont 0,054 mM protoné (Cl−) ; AgNO3 neutre",
+     "formula": "électroneutralité résolue numériquement (scratchpad calc_PMC4725629.py)",
+     "result": "pH ≈ 7,5 (≈ 6,0 si le Tris est entièrement en TrisH+Cl−)",
+     "compared_to": "« pH 8.5 » du tampon : 0,2 mM de Tris ne tamponne pas 14 mM de glycine ; le pH de réaction n'est ni 8,5 ni mesuré",
+     "source": "valeurs de l'article ; pKa de la glycine et du Tris, chimie générale"
+    },
+    {
+     "what": "quantités pour le volume final de 200 mL",
+     "inputs": "Table 1 « per 100 mL » ; mélange LB : 300 mg de PVP dans 200 mL",
+     "formula": "masses et volumes × 2 ; concentrations inchangées",
+     "result": "300 mg de PVP, 40 µL de Tris-HCl, AgNO3 1 mM (34 mg), glycine 14 mM (210 mg)",
+     "compared_to": "300 mg/200 mL du mélange LB = 150 mg/100 mL de la Table 1 : la lecture « doubler pour 200 mL » est cohérente",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie d'un photon à 420 nm et flux photonique de la lampe",
+     "inputs": "h = 6,626 × 10−34 J·s ; c = 2,998 × 108 m/s ; 5 LED de 1 W électrique (3,2 V × 0,35 A = 1,12 W) ; rendement optique supposé ≈ 30 % (≈ 0,35 W optique par LED, hypothèse non donnée par l'article) ; 600 s",
+     "formula": "E = hc/λ ; n = P × t / (E × NA)",
+     "result": "E = 4,73 × 10−19 J (2,95 eV) ; ≈ 3,7 mmol de photons en 10 min pour 5 LED",
+     "compared_to": "0,2 mmol d'Ag+ dans 200 mL à 1 mM : rendement quantique apparent ≥ 0,05 si tous les photons sont absorbés ; plausible pour une photoréduction autocatalysée",
+     "source": "constantes CODATA ; valeurs de l'article (tension, courant)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Glycine 14 fois plus abondante que l'Ag+ : donneur d'électrons largement suffisant (voir « rapports molaires »). Le chlorure est sous-stœchiométrique (Cl−/Ag+ = 0,05–0,2) : il ne sert pas à précipiter l'argent mais à former quelques germes d'AgCl photosensibles, ce qui explique qu'il soit « requis » en quantité minime et que sa source soit indifférente (HCl, NaCl, KCl, Tris-HCl).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« 1 M Tris-HCl (pH 8.5) » à 20 µL/100 mL donne 0,2 mM de Tris : le tampon ne fixe pas le pH (pH calculé ≈ 7,5 ou ≈ 6,0 selon la lecture, voir « pH réel du mélange »). Or la photoproduction d'AgNP dépend fortement du pH ; le pH de réaction devrait être mesuré et donné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Roles of Silver-Chloride Complexations in Sunlight-Driven Formation of Silver Nanoparticles",
+      "authors_or_publisher": "Singh A., Hou W.-C., Lin T.-F., Zepp R. G., Environ. Sci. Technol.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.est.9b02115"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Rôle du chlorure : AgCl(s ou aq) est l'espèce photoactive ; la photoréduction d'Ag+ en AgNP croît avec Cl− tant que l'AgCl domine. Ici 5 à 20 % de l'argent est en AgCl : germes photosensibles, puis croissance par réduction de l'Ag+ restant par la glycine sur les amas d'Ag (plasmon vers 400–420 nm, d'où l'efficacité de la lumière violette).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Roles of Silver-Chloride Complexations in Sunlight-Driven Formation of Silver Nanoparticles",
+      "authors_or_publisher": "Singh A., Hou W.-C., Lin T.-F., Zepp R. G., Environ. Sci. Technol.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.est.9b02115"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Aucune taille chiffrée, aucun spectre UV-visible, aucune DRX : la nature métallique et la taille des sphères reposent sur des images TEM/SEM sans distribution ; avec 5–20 % de l'argent en AgCl, un mélange Ag/AgCl n'est pas exclu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Pas de danger particulier hors AgNO3 et lumière violette ; mélange aqueux à température ambiante.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Ag+ forme un peu d'AgCl (Cl− sous-stœchiométrique) et des complexes glycinate. La lumière à 420 nm réduit l'AgCl en amas Ag0 (germes) ; ces amas absorbent par plasmon et transfèrent des électrons ; la glycine (donneur, oxydée en aldéhyde/glyoxylate, NH3 et CO2) réduit l'Ag+ restant sur les germes ; le PVP stabilise des sphères polydisperses. Le chlorure agit comme sensibilisateur photographique, pas comme réactif stœchiométrique.",
+    "sources": [
+     {
+      "title": "Roles of Silver-Chloride Complexations in Sunlight-Driven Formation of Silver Nanoparticles",
+      "authors_or_publisher": "Singh A., Hou W.-C., Lin T.-F., Zepp R. G., Environ. Sci. Technol.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.est.9b02115"
+     },
+     {
+      "title": "Ag@AgCl: A Highly Efficient and Stable Photocatalyst Active under Visible Light",
+      "authors_or_publisher": "Wang P., Huang B., Qin X. et al., Angew. Chem. Int. Ed.",
+      "year": "2008",
+      "url_or_doi": "10.1002/anie.200802483"
+     },
+     {
+      "title": "Sunlight-driven reduction of silver ions by natural organic matter: formation and transformation of silver nanoparticles",
+      "authors_or_publisher": "Hou W.-C., Stuart B., Howes R., Zepp R. G., Environ. Sci. Technol.",
+      "year": "2013",
+      "url_or_doi": "10.1021/es400802w"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "préparation du « 1 M Tris-HCl pH 8.5 » (sel ou tampon titré) : elle change d'un facteur 4 le chlorure apporté",
+    "mesurer le pH du mélange avant irradiation",
+    "doubler masses et volumes de la Table 1 pour 200 mL (lecture cohérente avec le mélange LB)",
+    "phase (DRX ou plasmon UV-visible) et distribution de taille"
+   ]
+  },
+  {
+   "label": "Glycine_NaClO",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La quantité de NaClO de cet essai n'est pas donnée : la voie ne peut pas être refaite telle quelle.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'explication « dissolution of the ClO− ion » n'a pas de sens chimique : ClO− est déjà dissous. L'hypochlorite chlore rapidement la glycine (N-chloroglycine, puis aldéhyde, NH3, CO2) et peut graver oxydativement l'argent en AgCl ; le témoin NaCl + H2O2 qui donne le même violet va dans le sens d'une gravure oxydante en présence de chlorure (comme Cl−/O2 dans la synthèse polyol), qui fait croître des particules plus grosses ou facettées absorbant dans le vert (couleur violette).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Large-Scale Synthesis of Silver Nanocubes: The Role of HCl in Promoting Cube Perfection and Monodispersity",
+      "authors_or_publisher": "Im S. H., Lee Y. T., Wiley B., Xia Y., Angew. Chem. Int. Ed.",
+      "year": "2005",
+      "url_or_doi": "10.1002/anie.200462208"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "NaClO + glycine (et + Tris, amine) forme des chloramines organiques, irritantes ; ne jamais acidifier un mélange contenant NaClO (dégagement de Cl2).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "ClO− oxyde une partie de la glycine et grave les germes multimaclés (Ag → AgCl, re-réduit sous lumière) ; la couleur violette indique des particules plus grosses ou anisotropes, pas une « dissolution » de ClO−.",
+    "sources": [
+     {
+      "title": "Large-Scale Synthesis of Silver Nanocubes: The Role of HCl in Promoting Cube Perfection and Monodispersity",
+      "authors_or_publisher": "Im S. H., Lee Y. T., Wiley B., Xia Y., Angew. Chem. Int. Ed.",
+      "year": "2005",
+      "url_or_doi": "10.1002/anie.200462208"
+     },
+     {
+      "title": "Shape-Controlled Synthesis of Gold and Silver Nanoparticles",
+      "authors_or_publisher": "Sun Y., Xia Y., Science",
+      "year": "2002",
+      "url_or_doi": "10.1126/science.1077229"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume et titre du NaClO ajouté",
+    "ordre d'ajout NaClO / glycine (la glycine est consommée par ClO−)"
+   ]
+  },
+  {
+   "label": "AgNP_PVP_NaClO",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "hypochlorite, chlorure et soude apportés par 0,5 mL de NaClO 5,25 % pour 100 mL",
+     "inputs": "densité 1,09 ; 5,25 % NaOCl en masse ; M(NaOCl) = 74,44 g/mol ; NaCl ≈ équimolaire (fabrication Cl2 + 2 NaOH) ; NaOH ≈ 1,0 % (fiche fournisseur)",
+     "formula": "n = 0,5 × 1,09 × 0,0525 / 74,44 ; n(NaOH) = 0,5 × 1,09 × 0,010 / 40,00",
+     "result": "ClO− 3,84 mM ; Cl− ≥ 3,84 mM ; OH− ≈ 1,4 mM (pH ≈ 11)",
+     "compared_to": "Ag+ 4 mM : Cl−/Ag+ ≥ 0,96 et ClO−/Ag+ = 0,96",
+     "source": "fiche fournisseur NaOCl 5,25 % (densité, NaOH) ; Chlorine Institute, Pamphlet 96 (réaction de fabrication)"
+    },
+    {
+     "what": "bilan d'électrons",
+     "inputs": "Ag+ 4 mM (1 e− chacun) ; ClO− 3,84 mM (ClO− + 2 e− + H2O → Cl− + 2 OH−)",
+     "formula": "e− nécessaires = [Ag+] + 2 [ClO−]",
+     "result": "4 mM pour l'argent + 7,7 mM consommés par l'hypochlorite = 11,7 mM d'électrons à fournir",
+     "compared_to": "aucun réducteur ajouté ; seul le PVP peut donner des électrons",
+     "source": "chimie générale"
+    },
+    {
+     "what": "bouts de chaîne du PVP 40 000",
+     "inputs": "PVP 200 mg/100 mL = 2 g/L ; Mw 40 000 g/mol ; ≈ 1 bout réducteur (OH/aldéhyde) par chaîne ; unité 111,14 g/mol",
+     "formula": "n(chaînes) = 2 / 40 000 ; n(unités) = 2 / 111,14",
+     "result": "0,05 mM de chaînes (≈ 1,3 % de l'Ag+) ; 18,0 mM d'unités",
+     "compared_to": "4 mM d'Ag+ : les bouts de chaîne ne réduisent qu'une petite fraction ; le reste suppose la dégradation oxydante du squelette du PVP",
+     "source": "valeurs de l'article ; Washio et al. 2006 et Hoppe et al. 2006 (PVP réducteur)"
+    },
+    {
+     "what": "argent attendu dans le concentré (2 mL)",
+     "inputs": "4 mM × 200 mL × 107,87 g/mol ; concentré de 2 mL ; correspondance des Méthodes 0,1 µL/mL ↔ 0,2 µg/mL",
+     "formula": "m = C × V × M ; c(stock) = 0,2 µg / 0,1 µL",
+     "result": "86,3 mg d'Ag au plus, soit 43 mg/mL dans 2 mL ; stock annoncé 2,0 mg/mL (≈ 4,6 % de récupération)",
+     "compared_to": "aucune mesure de la concentration massique du concentré n'est décrite (ICP sur le seul surnageant)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "dose dans l'essai TEM sur P. aeruginosa",
+     "inputs": "4,0 µL du stock à 2,0 µg/µL dans 3 mL ; CMI 1,0 µg/mL",
+     "formula": "4 × 2 / 3",
+     "result": "2,67 µg/mL",
+     "compared_to": "« MIC = 2 » soit 2,0 µg/mL : écart de 33 %",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Avec 0,5 mL d'eau de Javel pour 100 mL, le chlorure (≥ 3,84 mM) est équimolaire de l'Ag+ (4 mM) : la quasi-totalité de l'argent précipite en AgCl dès le mélange, avec un peu d'Ag2O vu la soude (pH ≈ 11) (voir « hypochlorite, chlorure et soude »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Sodium Hypochlorite Manual, Pamphlet 96 (Cl2 + 2 NaOH → NaOCl + NaCl + H2O ; stabilité à pH 11,9–13)",
+      "authors_or_publisher": "The Chlorine Institute",
+      "year": "2006",
+      "url_or_doi": "https://files.dep.state.pa.us/water/bpnpsm/WastewaterOperations_Assistance/WastewaterOperatorResources/CourseMaterials/RespCWProf_7122/Resources/Chlorine/Pamphlet096Edition3April2006FinalWebsite.pdf"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le milieu est oxydant : l'hypochlorite consomme 7,7 mM d'électrons, plus que les 4 mM nécessaires à l'argent, et il n'y a pas de réducteur ajouté (voir « bilan d'électrons »). Les bouts de chaîne du PVP ne couvrent que ≈ 1,3 % de l'Ag+ ; la réduction complète demanderait la dégradation du squelette du PVP. Aucune mesure de rendement n'est donnée pour cette formulation : la quantité d'Ag0 réellement formée est inconnue.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "One-Step Synthesis of Gold and Silver Hydrosols Using Poly(N-vinyl-2-pyrrolidone) as a Reducing Agent",
+      "authors_or_publisher": "Hoppe C. E., Lazzari M., Pardiñas-Blanco I., López-Quintela M. A., Langmuir",
+      "year": "2006",
+      "url_or_doi": "10.1021/la060885d"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve discriminante absente : AgCl cristallise en sel gemme et forme couramment des cubes (cubes d'Ag@AgCl décrits), et ici Cl−/Ag ≈ 1 en milieu oxydant. Sans DRX, diffraction électronique, EDX ni plasmon UV-visible, les « nanocubes d'argent » peuvent être des cubes d'AgCl ou d'Ag@AgCl. L'activité antimicrobienne (CMI 1–2 µg/mL) ne tranche pas, AgCl et Ag+ étant aussi biocides.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile solvothermal synthesis of cube-like Ag@AgCl: a highly efficient visible light photocatalyst",
+      "authors_or_publisher": "Han L., Wang P., Zhu C., Zhai Y., Dong S., Nanoscale",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1nr10247h"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Si le produit est bien de l'argent, la forme cubique s'explique par la gravure oxydante des germes maclés (Cl− + oxydant) et par l'adsorption sélective du chlorure et du PVP sur les faces {100}, comme dans la synthèse polyol HCl/O2 et la synthèse aqueuse passant par des octaèdres d'AgCl réduits sous lumière.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile Synthesis of Silver Nanocubes with Sharp Corners and Edges in an Aqueous Solution",
+      "authors_or_publisher": "Zhou S., Li J., Gilroy K. D., Tao J., Zhu C., Yang X., Sun X., Xia Y., ACS Nano",
+      "year": "2016",
+      "url_or_doi": "10.1021/acsnano.6b05776"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections (cytotoxicité HaCaT) : les Méthodes testent 0,2 à 2,0 µg/mL, mais les Résultats parlent de « 2 and 4 µg/mL » avec « 63% and 88% decrease » ; la Figure 5 (lue par l'extracteur) montre ≈ 88 % de viabilité à 1 µg/mL et ≈ 63 % à 2 µg/mL. Le texte double les concentrations (conversion µL/mL → µg/mL appliquée deux fois) et appelle « baisse » ce qui est la viabilité restante. La baisse réelle à 2 µg/mL est ≈ 37 %. La Discussion (« up to … 2 µg/mL are not cytotoxic toward … keratinocytes ») contredit la Figure 5.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Conclusion « MIC values … were not cytotoxic toward human keratinocytes and PBMCs » contredite par les données : CMI 1,0–2,0 µg/mL, alors que 0,5 µg/mL laisse 12,75 % de PBMC Annexine V+ et 84,4 % Annexine V+/7-AAD+ (97 % de cellules non viables) et que 2 µg/mL fait perdre ≈ 37 % de viabilité aux HaCaT.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Concentration massique du concentré (2,0 mg/mL d'après les correspondances µL ↔ µg) non mesurée par une méthode décrite et ≈ 20 fois inférieure à l'argent engagé (voir « argent attendu dans le concentré ») : toutes les doses biologiques (CMI, cytotoxicité) dépendent de cette valeur non justifiée ; l'essai TEM à « 2 CMI » donne en fait 2,67 µg/mL.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« 5.25% NaClO » (Table 1) et « 5% NaClO » (légendes) désignent très probablement la même eau de Javel : 5,25 % en masse de NaOCl = 5,00 % de chlore disponible. Le titre réel d'une eau de Javel baisse avec le stockage ; à doser (iodométrie) avant usage.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Sodium Hypochlorite Handbook (5,25 % en masse de NaOCl = 5,00 % de chlore disponible)",
+      "authors_or_publisher": "OxyChem",
+      "year": "sans date",
+      "url_or_doi": "https://files.engineering.com/files/1c61bdeb-9cc0-4b94-9ffb-cdebce0842d4/bleach.pdf"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Eau de Javel : corrosive, oxydante, dégagement de Cl2 si acidifiée (ne pas la mélanger avec les essais HCl), chloramines avec amines (Tris) ; AgNO3 + hypochlorite + soude : précipité AgCl/Ag2O. Nanoparticules d'Ag cytotoxiques dès 0,5 µg/mL sur PBMC (données de l'article).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Material Safety Data Sheet, Sodium hypochlorite 5.25 % (bleach) : densité 1,09 à 20 °C, NaOH 1,0 %, NaCl 0–10 %, pH 11",
+      "authors_or_publisher": "All Pure Chemical Company (fiche fournisseur)",
+      "year": "sans date",
+      "url_or_doi": "https://ocsd62-or.safeschoolssds.com/document/repo/6523ea85-abe9-4adb-81c1-17bf7761abd9"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Ag+ + Cl− (de l'eau de Javel) → AgCl quasi quantitatif, avec Ag2O minoritaire (pH ≈ 11). Sous 420 nm, réduction photo-amorcée de l'AgCl en Ag0 en surface (Ag@AgCl), avec le PVP comme seul donneur (bouts de chaîne puis dégradation radicalaire) ; l'hypochlorite réoxyde les germes maclés et le chlorure et le PVP bloquent les faces {100}, d'où des cubes. Vu le bilan d'électrons défavorable, le produit est probablement de l'Ag@AgCl, voire de l'AgCl cubique, tant que la phase n'est pas mesurée.",
+    "sources": [
+     {
+      "title": "Facile Synthesis of Silver Nanocubes with Sharp Corners and Edges in an Aqueous Solution",
+      "authors_or_publisher": "Zhou S., Li J., Gilroy K. D., Tao J., Zhu C., Yang X., Sun X., Xia Y., ACS Nano",
+      "year": "2016",
+      "url_or_doi": "10.1021/acsnano.6b05776"
+     },
+     {
+      "title": "Large-Scale Synthesis of Silver Nanocubes: The Role of HCl in Promoting Cube Perfection and Monodispersity",
+      "authors_or_publisher": "Im S. H., Lee Y. T., Wiley B., Xia Y., Angew. Chem. Int. Ed.",
+      "year": "2005",
+      "url_or_doi": "10.1002/anie.200462208"
+     },
+     {
+      "title": "One-Step Synthesis of Gold and Silver Hydrosols Using Poly(N-vinyl-2-pyrrolidone) as a Reducing Agent",
+      "authors_or_publisher": "Hoppe C. E., Lazzari M., Pardiñas-Blanco I., López-Quintela M. A., Langmuir",
+      "year": "2006",
+      "url_or_doi": "10.1021/la060885d"
+     },
+     {
+      "title": "Ag@AgCl: A Highly Efficient and Stable Photocatalyst Active under Visible Light",
+      "authors_or_publisher": "Wang P., Huang B., Qin X. et al., Angew. Chem. Int. Ed.",
+      "year": "2008",
+      "url_or_doi": "10.1002/anie.200802483"
+     },
+     {
+      "title": "Facile solvothermal synthesis of cube-like Ag@AgCl: a highly efficient visible light photocatalyst",
+      "authors_or_publisher": "Han L., Wang P., Zhu C., Zhai Y., Dong S., Nanoscale",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1nr10247h"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "titre réel du NaClO (iodométrie) et teneur en NaOH et NaCl de l'eau de Javel employée",
+    "phase du produit : DRX ou diffraction électronique (Ag cfc contre AgCl sel gemme), EDX Ag/Cl, plasmon UV-visible",
+    "rendement de cette formulation (aucun n'est donné)",
+    "concentration massique d'argent du concentré de 2 mL mesurée par ICP après dissolution dans HNO3, avant de fixer les doses biologiques",
+    "relire les doses HaCaT : 0,2–2,0 µg/mL selon les Méthodes, pas 2 et 4 µg/mL"
+   ]
+  },
+  {
+   "label": "PVP_Fig2B_200mg",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapports avec 1 mL de NaClO 5 % pour 100 mL et 1 mM d'Ag+",
+     "inputs": "1 mL × 1,09 × 0,05 / 74,44 ; NaCl ≈ équimolaire",
+     "formula": "C = n / 0,1 L",
+     "result": "ClO− 7,3 mM ; Cl− ≥ 7,3 mM ; ClO−/Ag+ = 7,3 ; Cl−/Ag+ ≥ 7,3 ; électrons consommés par ClO− : 14,6 mM pour 1 mM d'Ag+",
+     "compared_to": "Table 1 (PVP) : ClO−/Ag+ = 0,96 ; rapport multiplié par 7,6 entre la Table 1 et la Figure 2",
+     "source": "fiche fournisseur NaOCl (densité 1,09) ; valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Avec ClO−/Ag+ = 7,3 et Cl−/Ag+ ≥ 7, le milieu est encore plus oxydant que la Table 1 : l'argent devrait rester en AgCl ou être réoxydé, sauf dégradation importante du PVP. Les images de la Figure 2 ne sont donc pas des échantillons de la formulation de la Table 1, et les deux compositions ne peuvent pas donner la même chimie.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« PVP levels between 100 and 200 mg/100 mL were optimal for … below 50 nm » sans distribution ni comptage ; tailles non vérifiables.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même schéma que la voie PVP, avec un fort excès d'oxydant qui favorise AgCl et la gravure ; l'agrégation au-dessus de 200 mg/100 mL est cohérente avec un pontage par le polymère.",
+    "sources": [
+     {
+      "title": "Large-Scale Synthesis of Silver Nanocubes: The Role of HCl in Promoting Cube Perfection and Monodispersity",
+      "authors_or_publisher": "Im S. H., Lee Y. T., Wiley B., Xia Y., Angew. Chem. Int. Ed.",
+      "year": "2005",
+      "url_or_doi": "10.1002/anie.200462208"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quelle composition (Table 1 ou légende de la Figure 2) a donné les cubes testés en biologie",
+    "phase du produit à 1 mL de NaClO pour 100 mL"
+   ]
+  },
+  {
+   "label": "AgNP_SDS_NaClO",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapports de la formulation SDS (Table 1)",
+     "inputs": "AgNO3 8 mM ; SDS 2,5 mM (M = 288,38 g/mol) ; NaClO 5,25 % 0,5 mL/100 mL → 3,84 mM ; Cl− ≥ 3,84 mM",
+     "formula": "rapports molaires",
+     "result": "Cl−/Ag+ ≥ 0,48 ; ClO−/Ag+ = 0,48 ; SDS 72 mg/100 mL ; aucun réducteur",
+     "compared_to": "CMC du SDS ≈ 8,2 mM à 25 °C : 2,5 mM est sous la CMC (pas de micelles)",
+     "source": "valeurs de l'article ; CMC du SDS, chimie générale"
+    },
+    {
+     "what": "diamètre de 0,6 nm",
+     "inputs": "rayon atomique de l'Ag 0,144 nm (diamètre 0,29 nm)",
+     "formula": "0,6 / 0,29",
+     "result": "≈ 2 atomes de diamètre : amas Ag4–Ag10",
+     "compared_to": "Philips CM100 à 80 kV sur film de collodion : résolution pratique de l'ordre de 0,5 nm et bruit du film du même ordre",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Formulation sans réducteur : le SDS n'est pas un réducteur usuel et l'hypochlorite est oxydant. Seule une photolyse d'AgCl (≈ 48 % de l'argent) avec le dodécylsulfate comme capteur de radicaux peut produire de l'Ag0 ; l'Ag+ restant (≈ 52 %) n'a pas de donneur identifié. Rendement non donné.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Des « particules de 0,6 nm » (≈ 2 atomes d'Ag de diamètre) comptées sur un TEM CM100 à 80 kV et film de collodion sont à la limite de résolution et du bruit du support ; ce seraient des amas moléculaires (fluorescents, sans plasmon), pas des nanoparticules. La valeur n'est pas établie par la méthode décrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "SDS à 2,5 et 5 mM : sous la CMC (≈ 8,2 mM), un peu abaissée par la force ionique ; l'effet « plus de SDS → plus de petites particules » n'est donc pas lié à des micelles-réacteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Ag+ partiellement précipité en AgCl ; photolyse de l'AgCl en surface sous 420 nm ; le dodécylsulfate adsorbé limite la croissance. La source d'électrons pour l'argent restant n'est pas identifiable dans le protocole écrit.",
+    "sources": [
+     {
+      "title": "Ag@AgCl: A Highly Efficient and Stable Photocatalyst Active under Visible Light",
+      "authors_or_publisher": "Wang P., Huang B., Qin X. et al., Angew. Chem. Int. Ed.",
+      "year": "2008",
+      "url_or_doi": "10.1002/anie.200802483"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "phase et rendement du produit",
+    "méthode de mesure des tailles (HRTEM, distribution) avant de retenir 0,6 nm"
+   ]
+  },
+  {
+   "label": "SDS_Fig3_5mM",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapports de la légende de la Figure 3",
+     "inputs": "AgNO3 2 mM ; SDS 5 mM ; NaClO 5 % 0,5 mL/100 mL → 3,66 mM ; Cl− ≥ 3,66 mM",
+     "formula": "rapports molaires",
+     "result": "Cl−/Ag+ ≥ 1,8 ; ClO−/Ag+ = 1,8 ; SDS/Ag+ = 2,5",
+     "compared_to": "Table 1 (SDS) : Cl−/Ag+ ≥ 0,48 : ici tout l'argent est en AgCl et l'oxydant est en excès",
+     "source": "fiche fournisseur NaOCl (densité 1,09) ; valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Chlorure et hypochlorite en excès sur l'argent, sans réducteur : le produit attendu est AgCl ; la présence d'argent métallique demande une preuve de phase absente.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "AgCl quantitatif, photolyse partielle en surface ; les « particules de 0,6 nm » peuvent être des amas Ag sur AgCl ou un artefact d'imagerie.",
+    "sources": [
+     {
+      "title": "Ag@AgCl: A Highly Efficient and Stable Photocatalyst Active under Visible Light",
+      "authors_or_publisher": "Wang P., Huang B., Qin X. et al., Angew. Chem. Int. Ed.",
+      "year": "2008",
+      "url_or_doi": "10.1002/anie.200802483"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "phase du produit (AgCl contre Ag)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Photoréduction d'AgNO3 sous LED de 420 nm en 10 min, avec LB, glycine + traces de chlorure, ou PVP/SDS + eau de Javel. La chimie de la voie glycine est cohérente : le chlorure sous-stœchiométrique (Cl−/Ag 0,05–0,2) forme des germes d'AgCl photosensibles et la glycine (14 équivalents) réduit l'argent. Dans la voie LB, le chlorure du milieu (≈ 8,6 mM) précipite tout l'argent en AgCl, et l'« efficacité de 96,3 % » (argent sorti du surnageant) ne distingue pas Ag de AgCl. Dans les voies à l'eau de Javel, Cl−/Ag ≈ 1 et l'hypochlorite consomme plus d'électrons que l'argent n'en demande, sans réducteur ajouté ; faute de DRX, d'EDX ou de plasmon UV-visible, les « nanocubes d'argent » peuvent être de l'AgCl ou de l'Ag@AgCl. La lampe est mal caractérisée (20–25 lm impossibles à 395–420 nm), donc la sélectivité en longueur d'onde n'est pas établie à flux égal. Côté biologie, les doses HaCaT du texte (2 et 4 µg/mL) sont doublées par rapport aux Méthodes et à la Figure 5, et la conclusion de non-cytotoxicité aux CMI contredit les données PBMC (97 % de cellules non viables à 0,5 µg/mL).",
+  "author_errors_suspected": [
+   "Section HaCaT : « 2 and 4 µg/mL … 63% and 88% decrease » pour des doses de 1 et 2 µg/mL (Méthodes, Figure 5) et des viabilités de ≈ 88 % et 63 % : facteur 2 sur les concentrations et « baisse » mis pour « viabilité ».",
+   "Conclusion « MIC values … not cytotoxic toward … PBMCs » contredite par les CMI (1–2 µg/mL) supérieures à la dose qui tue 97 % des PBMC (0,5 µg/mL).",
+   "Spécification « luminosity (per LED): 20–25 lm » incompatible avec des LED de 1 W à 395–420 nm (7 à 117 W optiques requis).",
+   "« dissolution of the ClO− ion » : explication sans sens chimique de la couleur violette.",
+   "Compositions des Figures 2 et 3 (1 mM Ag, 1 mL NaClO ; 2 mM Ag, 5 mM SDS) différentes de la Table 1 (4 mM Ag, 0,5 mL ; 8 mM Ag, 2,5 mM SDS), avec des rapports ClO−/Ag de 0,5 à 7,3.",
+   "Table 1 « per 100 mL » pour un volume final de 200 mL : les masses et volumes sont à doubler (lecture cohérente avec les 300 mg de PVP du mélange LB) ; 5,25 % NaClO et « 5% » sont le même produit (5,25 % NaOCl = 5,00 % de chlore disponible)."
+  ],
+  "comparison_with_database": "Ag photoréduit en minutes aussi dans PMC10540474 (extrait végétal, soleil diffus, 15 min) et PMC5388254 (hydrogel de lin, soleil) ; aucune autre voie de la base n'utilise une LED monochromatique ni l'eau de Javel comme source de chlorure. Les autres voies Ag de la base caractérisent le plasmon (SPR 412–460 nm, ex. PMC3407523, PMC3107715, PMC10540474), ce qui manque ici."
+ },
+ "sources_not_found": [
+  "Aucune source primaire trouvée pour la photoréduction d'Ag+ par la glycine seule sous lumière visible ; le rôle de donneur de la glycine est proposé en chimie générale.",
+  "Rendement optique (W optiques par W électrique) des LED de 395–420 nm : non recherché, hypothèse de 30 % signalée dans le calcul de flux photonique."
+ ]
+}

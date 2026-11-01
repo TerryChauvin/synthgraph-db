@@ -1,0 +1,20 @@
+# Journal d'extraction PMC9865864 (CDs@r-GO)
+
+- Découpage : 8 voies. Deux voies de base de matériau comparées (rGO_ascorbate, 3.3) et la série CDs@r-GO ; CDs en `intermediate` (3.2, réutilisé comme réactif) ; un témoin GO_heated_90C_6h en voie de base avec ses propres étapes (une seule étape de chauffage), car l'article ne dit pas qu'il a subi dialyse ni lyophilisation et « same conditions » ne vise que 90 °C / 6 h.
+- Voie de base de la série : CDs@r-GO-1 (durée listée en premier, « 1 h, 4 h and 6 h, respectively ») ; -4 et -6 sont des branches avec variation `duration` à l'étape 5. Le protocole 3.4 est unique et dit « heated … for 1 h, 4 h and 6 h, respectively », donc l'héritage complet est fondé.
+- Variation de durée citée avec la phrase de définition des échantillons (« Here we define… as the heating lasted for 1 h, 4 h and 6 h, respectively »), pas avec 3.4, parce que c'est elle qui associe 1, 4 et 6 h aux noms.
+- GO : 3.1 le donne acheté chez Gaoxi Tech, les Résultats disent « prepared from the modified Hummer’s method » sans protocole. Lecture littérale retenue : réactif du commerce, `route: null` dans l'inventaire, doute posé. Fournisseur extrait avec la phrase de 3.1 ; pureté non citée.
+- Eau : 3.2 et 3.4 écrivent « water » (non « deionized ») ; pureté et fournisseur déclarés non cités pour ces deux eaux. Dans rGO_ascorbate (« deionized water ») la pureté « resistance of 18.2 MΩ cm » est extraite avec la phrase de 3.1.
+- Dialyse de 3.4 : la phrase mentionne l'« unreacted sodium ascorbate » alors qu'il n'y en a pas dans cette voie (copier-coller de 3.3). Étape gardée, ascorbate non ajouté aux réactifs, doute.
+- 3.4 « sonicated for 15 min and stirred continuously » : deux étapes (sonicate 15 min, stir sans durée) pour que la grille des durées soit honnête ; ordre non précisé.
+- Rangées de Table 1 attribuées par nom d'échantillon (rangée entière en citation). La ligne GO de Table 1 n'est rattachée à aucune voie (réactif).
+- « respectively » de la rétention (72 % et 67 %) : ordre de la phrase CDs@r-GO-1 puis CDs@r-GO-4, d'où 72 → -1 et 67 → -4 ; 85 % → -6 d'après la proposition précédente.
+- Fig. 3f lue en zoom : capacité à 100 A g−1 pour r-GO (≈ 30), -1 (≈ 140), -4 (≈ 130) ; -6 = 230 du texte, qui concorde avec la courbe verte. Valeurs à 2 A g−1 de -1 et -4 non lisibles (points superposés) : non extraites. Valeurs de la Fig. 3f au-delà de 100 A g−1 non extraites (texte muet).
+- Fig. 4c–f : pourcentages N-6/N-5/N-Hx/N-O imprimés sur la figure, extraits avec `from_figure` et la légende ; N-5 de CDs (73,5 %) aussi dans le texte, cité depuis le texte. N-Hx absent du texte : doute.
+- Pentes b de la Fig. 3b,c : attribuées à CDs@r-GO-6 d'après les étiquettes « peak 1 / peak 2 » sur la courbe verte de la Fig. 3a (le texte ne nomme pas l'échantillon) ; doute posé. Capacité de 290 F g−1 à 1 A g−1 : tirée du résumé et attribuée à -6 d'après la courbe verte de la Fig. 3f ; doute posé.
+- Potentiel zêta : −13 mV laissé de côté (« r-GO » non défini : ascorbate ou composite). −24 mV extrait pour les CDs.
+- Électrode (3.5) et pile bouton (3.6) : voies `device` distinctes ; une seule électrode pour tous les échantillons (« all of the as-prepared electrodes »), pas de branche par échantillon. La phrase de la pâte est incomplète : solvant déclaré non cité. Les résultats électrochimiques des matériaux restent dans les voies matériaux ; les résultats propres à la pile (15 000 cycles, Fig. S9) sont dans la voie du dispositif.
+- Fenêtre de potentiel : texte −0,3 à 0,7 V, figure 3a jusqu'à ≈ 0,8 V ; valeur du texte retenue.
+- `method_sources` : B13 et B27 pour le chauffage à 90 °C (rôle « autre », car le protocole est écrit en 3.4). Aucune référence pour GO ni pour les CDs. Aucune formule d'analyse (b = pentes, ID/IG) retenue comme source de méthode.
+- Annexes : aucune section `## Supporting Information` dans le fichier ; Fig. S1–S9, Tables S1–S2 signalées par une annotation « Annexe absente du dépôt : ».
+- Inventaire : GO et carbone actif poreux sans voie (raison dans `why`).

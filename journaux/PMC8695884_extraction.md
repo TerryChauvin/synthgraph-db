@@ -1,0 +1,14 @@
+# Journal d'extraction PMC8695884 (N,S-CDs et détection du nitrite)
+
+- Deux voies seulement : `CDs` (voie de base, seule synthèse décrite en détail) et `MC_CDs_film` (voie `device`, film méthylcellulose/CDs, avec son propre protocole d'une phrase). Aucune branche : l'article ne décrit aucune variation de synthèse chiffrée.
+- Série d'optimisation (masse de précurseur, rapport eau/éthanol, « Fig. S1 ») : le texte ne liste aucune valeur testée et l'annexe ne contient que les légendes (images absentes). Pas de branche créée, échantillon laissé à `route: null` dans `sample_inventory`, annexe signalée en `limite_reproductibilite` (« Annexe absente du dépôt : »). Seule la condition optimale (0.6 g, 1 : 1, 200 °C, 4 h) est extraite, voie `CDs`.
+- « 25 ml of deionized water and ethanol » : total ou chacun ? Je n'ai donné aucun nombre à l'eau ni à l'éthanol (`amount_text` + doute) ; le rapport 1 : 1 vient de la section Optimization.
+- Pureté et fournisseur : la phrase « The reagents used in the synthesis were obtained from Sinopharm… » suivie de la liste « analytical reagents » est citée d'un seul tenant (passage contigu). Fournisseur attribué à l'acide p-aminobenzènesulfonique et à l'éthanol, qui sont dans la liste. Pour la méthylcellulose du film, j'ai gardé la pureté mais déclaré le fournisseur non cité, la phrase visant « the synthesis ».
+- Eau déionisée : pureté et fournisseur déclarés non cités (« all experiments were performed in deionized water » ne donne ni l'un ni l'autre).
+- Étape « diluted for later use » : étape `add` sans paramètre, diluant et facteur déclarés non cités ; pas de purification (les auteurs disent « does not require any posttreatment »).
+- Essais sur le matériau fini (dilution, pH, solvants, NaCl, température, irradiation, 0–0.5 mM de nitrite, anions interférents, TGA) : rangés en `outcomes` de la voie `CDs`, pas en branches (règle des tests du matériau fini).
+- Contradiction Fig. 2A : l'étiquette dit λem = 447 nm, le texte et les Fig. 2B/4/5 donnent environ 480 nm. Valeur du texte retenue, doute écrit, aucune valeur de 447 nm extraite.
+- Figures lues : Fig. 5B (F/F0 ≈ 0.44 à 0.5 mM, seule valeur numérique), Fig. 2D (étendue de l'histogramme 0.4–1.9 nm), Fig. 4B et 4D (lectures qualitatives). Légende citée pour chaque valeur ; Fig. 3 et Fig. 6 non lues hors du texte.
+- Renvoi cit24 (une étape solvothermale en une étape, même groupe d'auteurs) en `method_sources` avec le rôle `autre` : le renvoi est dans l'introduction, l'article ne dit pas que le protocole en est repris.
+- Fraction « volume mass fraction of methylcellulose was 3% » : conservée en `amount_text` sans nombre, car la base de calcul (volume de solution de CDs) n'est pas donnée.
+- Bande d'énergie XPS (C1s, O1s, N1s, S) non extraites : l'article les attribue de façon incohérente (S1s pour 169 eV contre S2p dans la légende ; « four types » annoncés pour deux listés) ; seules les teneurs élémentaires sont reprises.

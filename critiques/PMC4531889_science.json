@@ -1,0 +1,134 @@
+{
+  "pmcid": "PMC4531889",
+  "routes": [
+    {
+      "label": "Substrate-Wch10",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "pression de pulvérisation en Pa", "inputs": "6 mTorr ; 1 Torr = 133,322 Pa", "formula": "6e-3 × 133,322", "result": "0,80 Pa", "compared_to": "pulvérisation RF magnétron usuelle : 0,1 à 2 Pa", "source": "conversion d'unités (définition du torr)"},
+        {"what": "libre parcours moyen de l'Ar à 6 mTorr", "inputs": "T ≈ 300 K ; diamètre cinétique Ar ≈ 0,36 nm (ordre de grandeur) ; p = 0,80 Pa", "formula": "λ = kT / (√2 π d² p)", "result": "≈ 9 mm", "compared_to": "écart masque-substrat d'un masque d'ombre posé à la main (dizaines à centaines de μm) et largeurs de canal 5–30 μm", "source": "théorie cinétique des gaz ; diamètre de l'Ar en ordre de grandeur"}
+      ],
+      "checks": [
+        {"aspect": "redox", "finding": "Le film de ZnO est pulvérisé « under Ar environment » sans oxygène ; cela ne donne de l'oxyde que si la cible est une céramique ZnO. Avec une cible de zinc métallique, il faudrait un mélange Ar/O2 (pulvérisation réactive), sinon on dépose du zinc. La cible n'est pas nommée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Ti 5 nm (couche d'accroche) / Au 300 nm par évaporation e-beam puis lift-off : empilement standard ; aucun recuit du film de ZnO n'est décrit, ce qui est courant pour une couche de germination (texture (002) obtenue à froid).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Masque d'ombre aligné « manuellement sous microscope » au-dessus d'écarts de 5 à 30 μm : la zone couverte de germes déborde forcément sur les électrodes et varie d'un dispositif à l'autre (pénombre du masque, et libre parcours de ≈ 9 mm à 0,8 Pa qui laisse les atomes diffusés se déposer sous les bords du masque, voir calcul « libre parcours moyen »). L'aire réelle de ZnO en contact avec les électrodes n'est ni mesurée ni donnée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Rien de particulier hors salle blanche : vide, haute tension RF, solvants et résines de lift-off.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Sans objet chimique : dépôt physique. Le film de ZnO pulvérisé, polycristallin et généralement texturé (002), sert de germes orientés pour la croissance épitaxiale locale des bâtonnets.", "sources": [{"title": "Hydrothermal growth of ZnO nanostructures", "authors_or_publisher": "S. Baruah, J. Dutta, Sci. Technol. Adv. Mater.", "year": "2009", "url_or_doi": "10.1088/1468-6996/10/1/013001"}]},
+      "what_to_verify_before_repeating": ["nature de la cible (ZnO céramique, sinon ajouter O2)", "durée ou vitesse de dépôt pour obtenir 50 nm", "longueur des électrodes en regard et dimensions de l'ouverture du masque (aire active)", "alignement du masque : mesurer la zone réellement couverte de germes"]
+    },
+    {
+      "label": "ZnO-NRA-25mM",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "quantités de précurseurs à 25 mM", "inputs": "25 mM × 200 mL ; M Zn(NO3)2·6H2O = 297,49 g/mol ; M HMTA (C6H12N4) = 140,19 g/mol", "formula": "n = c × V ; m = n × M", "result": "5,0 mmol chacun ; 1,487 g de nitrate de zinc hexahydraté et 0,701 g d'HMTA", "compared_to": "solubilités (nitrate de zinc très soluble, > 1 kg/L ; HMTA ≈ 670 g/L) : dissolution complète", "source": "masses molaires PubChem (https://pubchem.ncbi.nlm.nih.gov/)"},
+        {"what": "réserve de base apportée par l'HMTA", "inputs": "C6H12N4 + 6 H2O → 6 HCHO + 4 NH3 ; Zn2+ + 2 OH− → Zn(OH)2/ZnO ; HMTA:Zn = 1:1", "formula": "4 NH3 par HMTA / 2 OH− par Zn", "result": "jusqu'à 2 fois la base nécessaire si l'hydrolyse était complète ; elle reste partielle et lente à 90 °C", "compared_to": "rapport équimolaire de la recette de Vayssieres et de Greene, la plus utilisée", "source": "stœchiométrie de l'hydrolyse de l'HMTA (Baruah & Dutta 2009)"},
+        {"what": "Bragg (002)", "inputs": "2θ = 34,4° ; λ supposée Cu Kα1 = 1,540 56 Å (la longueur d'onde n'est pas donnée par l'article)", "formula": "d = λ / (2 sin θ) ; c = 2 d(002)", "result": "d(002) = 2,605 Å ; c = 5,210 Å", "compared_to": "ZnO wurtzite c = 5,207 Å (fiche JCPDS 36-1451, valeur couramment citée) : écart 0,06 %", "source": "NIST X-ray Transition Energies Database (λ Cu Kα1)"},
+        {"what": "vitesse de croissance axiale", "inputs": "hauteur 1350 nm en 5 h", "formula": "H / t", "result": "270 nm/h", "compared_to": "ordre de grandeur des bains nitrate de zinc/HMTA à 90 °C (quelques centaines de nm/h)", "source": "valeurs de l'article ; Baruah & Dutta 2009"},
+        {"what": "énergie des photons de la LED", "inputs": "λ = 365 nm", "formula": "E = 1239,84 / λ(nm)", "result": "3,40 eV", "compared_to": "gap de ZnO 3,37 eV à 300 K : photons absorbés", "source": "constante hc"},
+        {"what": "longueur d'absorption à 365 nm", "inputs": "indice complexe donné par les auteurs 2,1 + i0,5", "formula": "α = 4πk/λ ; R(incidence normale, matériau massif) = ((n−1)² + k²)/((n+1)² + k²)", "result": "α = 1,7 × 10^5 cm−1 (1/α ≈ 58 nm) ; R ≈ 15 % pour un film plein", "compared_to": "absorptions RCWA de 91–93,5 % pour des bâtonnets de 0,57–1,7 μm : plausibles (tout ce qui n'est pas réfléchi est absorbé, et le réseau réduit la réflexion)", "source": "valeurs de l'article ; optique de base"},
+        {"what": "surface latérale des bâtonnets par unité d'aire de substrat (D = 0,7 fixé comme dans le calcul RCWA)", "inputs": "W/H = 30/573, 45/1350, 270/1700 nm ; P² = W²/D", "formula": "S_lat / S_sub = π W H / P² = π H D / W", "result": "42 (5 mM) ; 66 (25 mM) ; 13,8 (50 mM)", "compared_to": "photocourants à 10 V : 1,34 ; 1,91 ; 1,04 × 10−4 A (même classement)", "source": "valeurs de l'article"},
+        {"what": "rapports photocourant contre rapports d'absorption RCWA", "inputs": "photocourants 1,34 / 1,91 / 1,04 × 10−4 A ; absorptions 92,8 / 93,4 / 91,3 %", "formula": "I(25)/I(5), I(25)/I(50) contre A(25)/A(5), A(25)/A(50)", "result": "photocourant ×1,43 et ×1,84 ; absorption ×1,006 et ×1,023", "compared_to": "« This absorption trend … well agrees with the device characteristics »", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "90 °C dans une étuve, sous pression atmosphérique (eau : Téb = 100 °C) : ce n'est pas une synthèse hydrothermale au sens strict (récipient fermé au-dessus de 100 °C) mais un dépôt en bain chimique (CBD). Le récipient n'est pas décrit : 200 mL à 90 °C pendant 5 h dans un bécher ouvert perdent une part notable d'eau et d'ammoniac, ce qui change concentration et pH ; il faut un flacon fermé (bouchon à vis, verre ou PP).", "status": "reserve", "basis": "chimie_generale", "source": {"title": "NIST Chemistry WebBook, Water", "authors_or_publisher": "NIST", "year": "2023", "url_or_doi": "https://webbook.nist.gov/chemistry/"}},
+        {"aspect": "bilan", "finding": "Nitrate de zinc et HMTA équimolaires (5 mmol chacun à 25 mM, voir calcul « quantités de précurseurs à 25 mM ») : recette standard ; Zn apporté en très large excès par rapport au ZnO déposé sur un dispositif de quelques mm², l'essentiel précipite en volume. Pas de problème de bilan.", "status": "ok", "basis": "litterature", "source": {"title": "Growth of Arrayed Nanorods and Nanowires of ZnO from Aqueous Solutions", "authors_or_publisher": "L. Vayssieres, Adv. Mater. 15, 464–466", "year": "2003", "url_or_doi": "10.1002/adma.200390108"}},
+        {"aspect": "resultats", "finding": "Pic (002) à 2θ = 34,4° : c = 5,210 Å avec Cu Kα1 (calcul « Bragg (002) »), conforme à ZnO wurtzite ; la longueur d'onde du diffractomètre n'est pas écrite. Diamètres 30–45 nm et hauteurs 0,57–1,35 μm à 5–25 mM, 90 °C, 5 h : ordres de grandeur habituels.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Les auteurs écrivent que des bâtonnets de Zn(OH)2 croissent puis se transforment en ZnO « after dehydration in air ». À 90 °C dans ce bain, ZnO cristallise directement à partir de [Zn(H2O)6]2+ sans intermédiaire Zn(OH)2 durable (XANES in situ) ; le séchage à l'air ne joue aucun rôle dans la formation de la phase. Erreur de mécanisme des auteurs, sans conséquence sur le protocole.", "status": "reserve", "basis": "litterature", "source": {"title": "In Situ X-ray Absorption Near-Edge Structure Spectroscopy of ZnO Nanowire Growth During Chemical Bath Deposition (K. M. McPeak et al., Chem. Mater. 22, 6162–6170, 2010) — résumé par l'APS : « Revealing the Secrets of Chemical Bath Deposition »", "authors_or_publisher": "Argonne National Laboratory, Advanced Photon Source", "year": "2010", "url_or_doi": "https://aps.anl.gov/APS-Science-Highlight/2010/revealing-secrets-chemical-bath-deposition"}},
+        {"aspect": "resultats", "finding": "Les auteurs disent que la tendance d'absorption RCWA « well agrees » avec les photocourants : l'absorption ne varie que de 0,6 à 2,3 % alors que le photocourant varie d'un facteur 1,43 à 1,84 (calcul « rapports photocourant contre rapports d'absorption RCWA »). L'absorption ne peut pas expliquer l'écart ; la surface latérale (calcul « surface latérale … », 42/66/13,8) suit mieux le classement, en accord avec le gain par pièges de surface. De plus D = W²/(PxPy) = 0,7 est un taux de couverture de section carrée (cylindres : πW²/4PxPy ≈ 0,55) et la densité réelle n'est pas mesurée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "Solution « stirred … for 2 h » à température ambiante avant immersion : sans effet chimique (l'HMTA s'hydrolyse peu à 20 °C) mais inoffensif. Position de l'échantillon (face vers le bas ou non) non donnée ; face vers le haut, le ZnO précipité en volume se dépose sur les bâtonnets.", "status": "reserve", "basis": "litterature", "source": {"title": "Hydrothermal growth of ZnO nanostructures", "authors_or_publisher": "S. Baruah, J. Dutta, Sci. Technol. Adv. Mater.", "year": "2009", "url_or_doi": "10.1088/1468-6996/10/1/013001"}},
+        {"aspect": "resultats", "finding": "« dried by flowing DI water » : un rinçage n'est pas un séchage ; l'étape de séchage réelle (azote, air, température) manque.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "L'HMTA chauffé en solution aqueuse s'hydrolyse en formaldéhyde (cancérogène) et ammoniac : ouvrir le flacon sous hotte ; le nitrate de zinc est comburant et nocif pour le milieu aquatique (eaux de bain à collecter). Non mentionné par les auteurs, déjà noté dans l'extraction.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "L'HMTA s'hydrolyse lentement à 90 °C (C6H12N4 + 6 H2O → 6 HCHO + 4 NH3), l'ammoniac libère progressivement OH− et maintient une faible sursaturation ; ZnO wurtzite cristallise directement depuis les ions Zn2+ hydratés sur les grains texturés (002) de la couche de germination, sans Zn(OH)2 intermédiaire durable ; la croissance rapide selon [0001] (face polaire Zn) et le blocage partiel des faces latérales {10-10} par l'HMTA donnent des bâtonnets verticaux. Une concentration plus élevée accroît la sursaturation, ce qui élargit les bâtonnets (croissance latérale et coalescence), comme observé à 50 mM.", "sources": [{"title": "Hydrothermal growth of ZnO nanostructures", "authors_or_publisher": "S. Baruah, J. Dutta, Sci. Technol. Adv. Mater.", "year": "2009", "url_or_doi": "10.1088/1468-6996/10/1/013001"}, {"title": "Growth of Arrayed Nanorods and Nanowires of ZnO from Aqueous Solutions", "authors_or_publisher": "L. Vayssieres, Adv. Mater.", "year": "2003", "url_or_doi": "10.1002/adma.200390108"}, {"title": "Revealing the Secrets of Chemical Bath Deposition (résumé de McPeak et al., Chem. Mater. 22, 6162, 2010)", "authors_or_publisher": "Argonne National Laboratory, Advanced Photon Source", "year": "2010", "url_or_doi": "https://aps.anl.gov/APS-Science-Highlight/2010/revealing-secrets-chemical-bath-deposition"}]},
+      "what_to_verify_before_repeating": ["récipient fermé pour 5 h à 90 °C (perte d'eau et d'ammoniac)", "orientation de l'échantillon dans le bain (face vers le bas)", "séchage après rinçage", "longueur d'onde du diffractomètre (Cu Kα supposée)", "travail sous hotte (formaldéhyde)"]
+    },
+    {
+      "label": "ZnO-NRA-50mM",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "quantités de précurseurs à 50 mM", "inputs": "50 mM × 200 mL ; M = 297,49 et 140,19 g/mol", "formula": "n = c × V ; m = n × M", "result": "10 mmol chacun ; 2,975 g de nitrate de zinc hexahydraté et 1,402 g d'HMTA", "compared_to": "solubles sans difficulté", "source": "masses molaires PubChem"},
+        {"what": "pas du réseau RCWA à D = 0,7", "inputs": "W = 270 nm (lu sur la Fig. 4b)", "formula": "P = W / √D", "result": "P ≈ 323 nm, soit 53 nm d'espace entre bâtonnets", "compared_to": "bâtonnets de 270 nm presque jointifs : à cette densité le réseau tend vers un film continu", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Diamètre ×6 (45 → ≈270 nm) pour une hauteur ×1,26 en doublant la concentration : forte croissance latérale, cohérente avec une sursaturation plus haute ; l'explication des auteurs (« high growth rate of facets due to the induced isotropic growth ») est vague mais va dans le bon sens. Valeurs lues sur figure (±30 nm, ±0,1 μm).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "La baisse du photocourant à 50 mM est attribuée à une surface plus faible ; le calcul de surface latérale (13,8 contre 66) le soutient, mais la « crystallinité un peu dégradée » invoquée n'est appuyée par aucune mesure montrée (pas de largeur de raie XRD par concentration).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Sursaturation plus forte : nucléation secondaire et croissance latérale, coalescence des bâtonnets voisins.", "sources": [{"title": "Hydrothermal growth of ZnO nanostructures", "authors_or_publisher": "S. Baruah, J. Dutta, Sci. Technol. Adv. Mater.", "year": "2009", "url_or_doi": "10.1088/1468-6996/10/1/013001"}]},
+      "what_to_verify_before_repeating": ["même récipient et même durée qu'à 25 mM (non écrit)", "mesure directe du diamètre sur MEB plutôt que lecture sur la carte d'absorption"]
+    },
+    {
+      "label": "ZnO-NRA-5mM",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "quantités de précurseurs à 5 mM", "inputs": "5 mM × 200 mL ; M = 297,49 et 140,19 g/mol", "formula": "n = c × V ; m = n × M", "result": "1,0 mmol chacun ; 0,297 g de nitrate de zinc hexahydraté et 0,140 g d'HMTA", "compared_to": "solubles", "source": "masses molaires PubChem"},
+        {"what": "vitesse de croissance axiale à 5 mM", "inputs": "573 nm en 5 h", "formula": "H / t", "result": "115 nm/h", "compared_to": "270 nm/h à 25 mM : croissance plus lente à faible concentration, attendu", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "cinetique", "finding": "Bâtonnets de ~30 nm sur 573 nm à 5 mM : cohérent avec une sursaturation faible ; à 5 mM le bain peut s'appauvrir en fin de croissance (précipitation homogène en volume), ce qui limite la hauteur.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Même mécanisme qu'à 25 mM, croissance limitée par la faible sursaturation.", "sources": []},
+      "what_to_verify_before_repeating": ["même récipient et même durée qu'à 25 mM (non écrit)"]
+    },
+    {
+      "label": "ZnO-NRA-25mM-Wch15",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "photocourant à 10 V, 15 μm contre 10 μm", "inputs": "3,93 × 10−4 A (Wch = 15 μm, réponse transitoire) ; 1,91 × 10−4 A (Wch = 10 μm, I-V)", "formula": "I(15)/I(10) comparé à L(15)/L(10) et à L(10)/L(15)", "result": "×2,06 pour un écart ×1,5", "compared_to": "photoconducteur ohmique à tension fixe : aire éclairée ∝ L mais gain ∝ 1/L², donc photocourant ∝ 1/L (attendu ×0,67) ; courant d'obscurité ∝ 1/L (R = ρL/S)", "source": "loi d'Ohm ; gain = durée de vie / temps de transit, temps de transit = L²/(μV)"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Les auteurs trouvent que photocourant ET courant d'obscurité augmentent avec l'écart entre électrodes, et expliquent le courant d'obscurité par « more thermally excited carriers » dans un canal plus long. Pour un canal homogène à tension fixe, la résistance croît comme L (R = ρL/S) : plus de porteurs sur une longueur plus grande ne donne pas plus de courant, le courant d'obscurité doit baisser ; le photocourant d'un photoconducteur à gain par pièges de surface baisse aussi (aire ∝ L, gain ∝ 1/L²). La hausse observée (×2,06 pour ×1,5, calcul « photocourant à 10 V… ») indique qu'une autre variable change avec Wch : aire de germes réellement déposée par le masque posé à la main, recouvrement sur les électrodes (contacts Schottky Au/ZnO), longueur des électrodes, ou dispersion entre dispositifs (un seul dispositif par largeur, aucune barre d'erreur). L'optimum à 15 μm (rapport on-off 37,4) n'est donc pas attribuable à la seule largeur de canal.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Gain élevé et réponse lente (temps de retour 26,1 s) expliqués par l'adsorption-désorption d'O2 en surface et le piégeage des trous : interprétation établie pour ZnO.", "status": "ok", "basis": "litterature", "source": {"title": "ZnO Nanowire UV Photodetectors with High Internal Gain", "authors_or_publisher": "C. Soci, A. Zhang, B. Xiang et al., Nano Lett. 7, 1003–1009", "year": "2007", "url_or_doi": "10.1021/nl070111x"}},
+        {"aspect": "resultats", "finding": "Incohérences de texte : le Résumé donne le rapport on-off de 37,4 « at the same applied bias » (le 10 V cité juste avant) alors que les Résultats le donnent à 5 V ; le texte renvoie à « the inset of Fig. 4a » alors que l'encart est dans la Fig. 5a selon la légende. Le photocourant de 3,93 × 10−4 A à 15 μm vient de la mesure transitoire (Fig. 5b), pas de la courbe I-V de la Fig. 5a.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Sensibilité non calculable : l'aire éclairée active (longueur des électrodes) n'est pas donnée ; avec 2,8 mW/cm², 3,93 × 10−4 A correspondrait à des centaines d'A/W pour une aire de l'ordre de 10−4 cm² (ordre de grandeur des gains photoconducteurs de ZnO, Soci 2007), mais rien ne permet de le vérifier.", "status": "reserve", "basis": "litterature", "source": {"title": "ZnO Nanowire UV Photodetectors with High Internal Gain", "authors_or_publisher": "C. Soci et al., Nano Lett.", "year": "2007", "url_or_doi": "10.1021/nl070111x"}}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Photoconduction à gain par pièges de surface (O2− adsorbé capturant les trous) ; à tension fixe, un canal plus long devrait réduire photocourant et courant d'obscurité : la tendance observée relève plus probablement de la géométrie réelle de la couche de germination (masque manuel) et des contacts que de la largeur du canal.", "sources": [{"title": "ZnO Nanowire UV Photodetectors with High Internal Gain", "authors_or_publisher": "C. Soci et al., Nano Lett.", "year": "2007", "url_or_doi": "10.1021/nl070111x"}]},
+      "what_to_verify_before_repeating": ["plusieurs dispositifs par largeur de canal, avec dispersion", "mesurer l'aire de germes et le recouvrement sur les électrodes de chaque dispositif", "longueur des électrodes en regard", "tension à laquelle le rapport on-off est donné (5 V ou 10 V)"]
+    },
+    {
+      "label": "ZnO-NRA-25mM-Wch5",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [],
+      "checks": [
+        {"aspect": "resultats", "finding": "Même réserve que ZnO-NRA-25mM-Wch15 : la variation du rapport on-off avec Wch n'isole pas la largeur du canal (masque d'ombre manuel, un dispositif par largeur) ; un écart de 5 μm aligné à la main sous microscope est le cas le plus sensible au débordement des germes. Valeur lue sur l'encart (≈9,5, tension non précisée).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Voir ZnO-NRA-25mM-Wch15.", "sources": []},
+      "what_to_verify_before_repeating": ["aire de germes réellement déposée", "tension de mesure de l'encart"]
+    },
+    {
+      "label": "ZnO-NRA-25mM-Wch30",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [],
+      "checks": [
+        {"aspect": "resultats", "finding": "Même réserve que ZnO-NRA-25mM-Wch15 : courant d'obscurité plus élevé à 30 μm contraire à la loi d'Ohm pour un canal homogène ; la tendance reflète probablement une autre variable géométrique. Valeur lue sur l'encart (≈27).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Voir ZnO-NRA-25mM-Wch15.", "sources": []},
+      "what_to_verify_before_repeating": ["aire de germes réellement déposée", "tension de mesure de l'encart"]
+    }
+  ],
+  "article_level": {
+    "summary": "La croissance des bâtonnets (nitrate de zinc/HMTA équimolaires, 5–50 mM, 90 °C, 5 h, sur germes de ZnO pulvérisés) est la recette standard de Vayssieres et Greene, chimiquement cohérente : quantités, Bragg (c = 5,210 Å avec Cu Kα supposé), tailles et vitesses de croissance sont dans les ordres de grandeur connus. Le procédé est un dépôt en bain chimique à pression atmosphérique, pas une synthèse hydrothermale ; récipient, position de l'échantillon, cible de pulvérisation et séchage manquent. Le mécanisme des auteurs (Zn(OH)2 déshydraté à l'air) est à revoir : ZnO cristallise directement dans le bain. La partie dispositif est plus fragile : photocourant et courant d'obscurité qui augmentent avec l'écart entre électrodes contredisent la loi d'Ohm pour un canal homogène, et la comparaison absorption RCWA/photocourant sur-interprète un écart d'absorption de 0,6–2,3 %.",
+    "author_errors_suspected": [
+      "Mécanisme : Zn(OH)2 transformé en ZnO « after dehydration in air », alors que ZnO se forme directement dans le bain à 90 °C.",
+      "Procédé appelé « hydrothermal » alors qu'il s'agit d'un bain chimique à 90 °C en étuve, sous pression atmosphérique.",
+      "Courant d'obscurité expliqué par plus de porteurs thermiques dans un canal plus long : à tension fixe, R ∝ L, le courant devrait baisser ; la tendance observée trahit une autre variable (aire de germes, contacts, un seul dispositif).",
+      "Accord absorption RCWA/photocourant revendiqué alors que l'absorption varie de 0,6–2,3 % et le photocourant d'un facteur 1,4–1,8.",
+      "Rapport on-off de 37,4 donné « at the same applied bias » (10 V) dans le Résumé, à 5 V dans les Résultats ; encart attribué à la Fig. 4a au lieu de la Fig. 5a.",
+      "« dried by flowing DI water » : rinçage, pas séchage."
+    ],
+    "comparison_with_database": "Aucune autre voie nitrate de zinc/HMTA sur germes dans la base (compare.py « ZnO » : PMC3477086 sol-gel, PMC3497326 hydrothermal CTAB/SDS à 120 °C, PMC4923881 sol-gel, PMC8159122 solvothermal à 140 °C) ; pas de comparaison directe possible."
+  },
+  "sources_not_found": [
+    "DOI de McPeak et al., Chem. Mater. 22, 6162–6170 (2010) non trouvé (citée via le résumé de l'APS).",
+    "Article McPeak et al., Langmuir 2011, sur le rôle de l'HMTA : DOI non trouvé, non utilisé.",
+    "Pas de source dédiée trouvée pour la loi gain ∝ 1/L² d'un photoconducteur ; l'argument repose sur la loi d'Ohm (chimie_generale).",
+    "Valeur de c de ZnO (JCPDS 36-1451) et identité de la fiche JCPDS 89-1397 non vérifiées en ligne."
+  ]
+}

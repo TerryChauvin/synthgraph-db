@@ -1,0 +1,817 @@
+{
+ "pmcid": "PMC7550332",
+ "routes": [
+  {
+   "label": "silver_oleate",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'AgNO3",
+     "inputs": "50 mL de solution 0,2 M",
+     "formula": "C × V",
+     "result": "10,0 mmol",
+     "compared_to": "NaOH 10 mmol ; acide oléique 10 mmol",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport NaOH : acide oléique : AgNO3",
+     "inputs": "10 ; 10 (pureté 90 %) ; 10 mmol",
+     "formula": "n/n",
+     "result": "1 : 1 : 1 (1 : 0,9 : 1 si les 10 mmol sont pesées sur le produit technique à 90 %)",
+     "compared_to": "métathèse RCOONa + AgNO3 → RCOOAg + NaNO3 : 1:1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de NaOH dans 5 mL d'eau",
+     "inputs": "10 mmol ; 5 mL",
+     "formula": "n/V",
+     "result": "2 mol/L (0,40 g dans 5 mL)",
+     "compared_to": "très soluble, aucun problème",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse théorique d'oléate d'argent",
+     "inputs": "10 mmol ; M(C18H33AgO2) = 389,3 g/mol",
+     "formula": "n × M",
+     "result": "3,89 g",
+     "compared_to": "Ag1 n'en consomme qu'environ 2 mmol (0,78 g), soit ~20 % du lot",
+     "source": "masses atomiques (arithmétique)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport 1:1:1 conforme à la métathèse (calcul « rapport NaOH : acide oléique : AgNO3 ») ; si l'acide oléique technique (90 %) est dosé en masse brute, l'Ag+ est en léger excès (~10 %), sans conséquence pour un précipité lavé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Oléate de sodium 10 mmol dans 35 mL eau/éthanol (≈ 0,29 M) : soluble à chaud et en milieu hydroalcoolique ; l'oléate d'argent est insoluble dans l'eau et précipite. Aucun lavage du précipité n'est décrit : le NaNO3 (≈ 10 mmol) et l'éventuel excès d'Ag+ restent si le filtre n'est pas rincé à l'eau.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Les carboxylates d'argent sont photosensibles (noircissement) : séchage à 30 °C pendant deux jours sans mention d'obscurité ; AgNO3 corrosif et oxydant, NaOH 2 M corrosif.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Saponification de l'acide oléique par NaOH (oléate de sodium), puis métathèse en solution hydroalcoolique : C17H33COO− + Ag+ → C17H33COOAg↓ (blanc), NaNO3 restant en solution.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "laver le précipité à l'eau puis à l'éthanol pour éliminer NaNO3",
+    "sécher à l'abri de la lumière",
+    "peser le rendement (≤ 3,89 g)"
+   ]
+  },
+  {
+   "label": "Ag1",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles et concentration d'argent",
+     "inputs": "≈ 2 mmol d'oléate d'argent (≈ 0,78 g) dans 200 mL d'acide oléique",
+     "formula": "n/V",
+     "result": "≈ 10 mmol/L d'Ag",
+     "compared_to": "Xu & Hu 2012 : même principe (oléate d'argent réduit dans l'acide oléique)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport acide oléique / Ag",
+     "inputs": "200 mL × 0,89 g/mL × 0,90 / 282,5 g/mol ; 2 mmol Ag",
+     "formula": "n(AO)/n(Ag)",
+     "result": "≈ 570 mmol / 2 mmol ≈ 285",
+     "compared_to": "réducteur (1 e− par Ag+) et ligand en très large excès",
+     "source": "densité 0,89 (CAMEO Chemicals, oléique) ; arithmétique"
+    },
+    {
+     "what": "masse maximale d'argent par lot",
+     "inputs": "2 mmol × 107,87 g/mol",
+     "formula": "n × M",
+     "result": "216 mg d'Ag (≈ 250 mg de NP recouvertes si ~13 % d'oléate)",
+     "compared_to": "12 hétérostructures + Ag2 à 25 mg = 325 mg : au moins deux lots de germes nécessaires",
+     "source": "arithmétique ; fraction d'oléate estimée (sphère de 7 nm, ~3,5 oléates/nm², non mesurée par l'article)"
+    },
+    {
+     "what": "Bragg : paramètre a par raie (tableau 2S)",
+     "inputs": "λ = 1,5418 Å ; 2θ = 38,6 / 42,5 / 64,7 / 76,7 / 80,4°",
+     "formula": "d = λ/(2 sin θ) ; a = d √(h²+k²+l²)",
+     "result": "a = 4,040 / 4,254 / 4,075 / 4,121 / 4,137 Å",
+     "compared_to": "tableau 2S : 4,04 / 4,26 / 4,08 / 4,12 / 4,14 Å : recalcul conforme",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "décalage des raies par rapport à l'argent massif",
+     "inputs": "a(Ag) = 4,0862 Å (valeur de manuel, fiche Ag COD 9008459 citée par l'article, non revérifiée en ligne) ; λ = 1,5418 Å",
+     "formula": "2θ = 2 asin(λ√N/(2a))",
+     "result": "{111} 38,15° ; {200} 44,34° → décalages +0,45° et −1,84°",
+     "compared_to": "texte : +0,5° et ~2° : conforme",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Scherrer par raie (K = 0,9, FWHM brute)",
+     "inputs": "FWHM 2,3 / 5,1 / 5,6 / 5,1° à 38,6 / 42,5 / 64,7 / 76,7°",
+     "formula": "D = 0,9 λ / (β cos θ)",
+     "result": "3,7 / 1,7 / 1,7 / 2,0 nm",
+     "compared_to": "tableau 2S : 3,6 / 2,0 / 2,1 / 2,5 nm ; rapport D111/D200 = 2,2 recalculé contre 1,8 annoncé",
+     "source": "arithmétique"
+    },
+    {
+     "what": "écart du paramètre de maille Rietveld–Warren à l'argent massif",
+     "inputs": "a = 4,145 Å (tableau 3S, modèle Warren) ; 4,165 Å (fcc seul) ; 4,0862 Å massif",
+     "formula": "(a − a0)/a0",
+     "result": "+1,4 % (Warren) ; +1,9 % (fcc seul)",
+     "compared_to": "les NP d'argent de quelques nm ont plutôt un paramètre égal ou contracté",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taille de cristallite Rietveld contre taille de particule",
+     "inputs": "D = 14 nm (Warren, tableau 3S) ; hcp : D = 55 nm ; DTEM_V = 7 ± 1 nm",
+     "formula": "comparaison",
+     "result": "D(XRD) = 2 × DTEM_V ; hcp 8 × DTEM_V",
+     "compared_to": "une cristallite ne peut pas dépasser la particule",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "170 °C dans 200 mL d'acide oléique : sous le point d'éclair (189 °C, 372 °F) et loin de l'ébullition ; balayage d'azote indispensable, comme dit l'article. Volume de 200 mL d'huile chaude : risque de brûlure et d'inflammation si l'azote est coupé.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Oleic acid – Chemical Datasheet (flash point 372 °F, autoignition 685 °F)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/report?key=CH8962"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Ag+ → Ag0 par l'acide oléique (oxydation de la double liaison selon les auteurs) avec un excès de ~285 (calcul « rapport acide oléique / Ag ») : réducteur et ligand surabondants ; atmosphère inerte cohérente avec l'état métallique.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Simple and green synthesis of monodisperse silver nanoparticles and surface-enhanced Raman scattering activity",
+      "authors_or_publisher": "Xu Z., Hu G., RSC Advances 2, 11404–11409",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2ra21745g"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille de 7 ± 1 nm en MET, du même ordre que les 4–5 nm de Xu & Hu 2012 avec le même principe ; plasmon à ~410 nm cohérent avec de petites NP d'argent sphériques.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Simple and green synthesis of monodisperse silver nanoparticles and surface-enhanced Raman scattering activity",
+      "authors_or_publisher": "Xu Z., Hu G., RSC Advances 2, 11404–11409",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2ra21745g"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'affinement Rietveld–Warren retenu (Rwp 3,6 %) donne une cristallite de 14 nm pour des particules de 7 nm et un paramètre a = 4,145 Å (+1,4 % sur l'argent massif) ; l'affinement fcc + hcp donne une phase hcp de 55 nm (calculs « taille de cristallite Rietveld contre taille de particule » et « écart du paramètre de maille »). Ces valeurs sont physiquement impossibles ou très improbables : le modèle compense la largeur et le décalage des raies par des paramètres corrélés. La probabilité de faute intrinsèque α' = 0,14, qui fonde tout le mécanisme « assisté par les défauts », est donc mal contrainte.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les positions et paramètres par raie du tableau 2S se recalculent exactement (calcul « Bragg ») ; en revanche les tailles par raie ne se retrouvent pas avec Scherrer K = 0,9 (2,0 contre 1,7 nm pour {200}) et le rapport D111/D200 recalculé est 2,2, hors de la plage 1,7–2,0 invoquée par les auteurs (calcul « Scherrer par raie »). Correction instrumentale ou forme de raie non dites.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Les plans manquants les plus probables sont A ou B plutôt que C » : dans un empilement fcc ABC, les trois positions sont équivalentes par symétrie ; l'étiquette du plan retiré n'a pas de sens physique. Une faute intrinsèque se définit par la séquence locale (…ABCACABC…), pas par la lettre retirée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Séparation « par centrifugation » directement dans 200 mL d'acide oléique (visqueux) de NP de 7 nm stabilisées par l'oléate : sans antisolvant (éthanol, acétone) la sédimentation est quasi nulle. Le protocole d'origine et les protocoles voisins précipitent par ajout d'éthanol ; le volume d'antisolvant, la vitesse et la durée ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Un lot fournit au plus ~0,22 g d'argent (calcul « masse maximale d'argent par lot ») alors que 13 synthèses de 25 mg sont décrites : au moins deux lots de germes ; la reproductibilité des défauts d'un lot à l'autre n'est pas vérifiée alors que le mécanisme proposé en dépend.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence interne : la discussion UV–Vis parle d'un argent passant « de 5 à 20 nm », alors que les germes mesurent 7 nm (MET) partout ailleurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dissolution de l'oléate d'argent dans l'acide oléique à 100 °C, puis thermolyse/réduction de Ag(I) vers 150–170 °C (l'acide oléique, en excès ~285, sert de réducteur et de ligand) : nucléation en bouffée puis croissance limitée par l'oléate, d'où des NP de quelques nm. L'argent, à faible énergie de faute d'empilement, forme facilement macles et fautes lors d'une croissance rapide ; leur quantité exacte reste incertaine vu les incohérences de l'affinement.",
+    "sources": [
+     {
+      "title": "Simple and green synthesis of monodisperse silver nanoparticles and surface-enhanced Raman scattering activity",
+      "authors_or_publisher": "Xu Z., Hu G., RSC Advances 2, 11404–11409",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2ra21745g"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ajouter un antisolvant (éthanol) avant centrifugation et noter vitesse et durée",
+    "peser le rendement et la fraction organique (ATG) des germes pour connaître les moles d'Ag réellement introduites",
+    "préparer un lot de germes suffisant pour toute la série, ou contrôler par DRX chaque lot",
+    "ne pas reprendre α' = 0,14 comme valeur fiable sans affinement contraint (taille ≤ taille MET, a proche de 4,086 Å)"
+   ]
+  },
+  {
+   "label": "Ag2",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration d'argent",
+     "inputs": "25 mg de germes (≤ 0,23 mmol Ag) dans 20 mL toluène/pentanol",
+     "formula": "n/V",
+     "result": "≤ 11,6 mmol/L",
+     "compared_to": "identique aux hétérostructures à 20 mL (Ag@Co6–9)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression de vapeur à 200 °C",
+     "inputs": "Antoine NIST : toluène et 1-pentanol, T = 473,15 K",
+     "formula": "log10 P = A − B/(T + C)",
+     "result": "toluène 7,5 bar ; pentanol 5,1 bar ; mélange équimolaire ≈ 6,3 bar (Raoult) + air ≈ 1,6 bar",
+     "compared_to": "DAB-2 : 200 bar max, 250 °C max",
+     "source": "NIST WebBook (Antoine)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "200 °C en autoclave DAB-2 : pression ≈ 8 bar (calcul « pression de vapeur à 200 °C »), très en dessous des 200 bar et des 250 °C admis par le fabricant.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "digestec DAB – technical specifications (DAB-2 : TFM-PTFE insert approx. 25 ml / approx. 50 ml, 250 °C, 200 bar)",
+      "authors_or_publisher": "Berghof Products + Instruments GmbH (fiche fabricant)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.berghof-instruments.com/en/products/digestec-dab/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin mal apparié : Ag2 est traité à 200 °C dans 20 mL, mais les auteurs l'opposent à Ag@Co1 (140 °C, 10 mL) pour conclure que l'oléate métallique freine le mûrissement de l'argent. La comparaison valable est Ag2 contre Ag@Co8 (200 °C, 20 mL) : 44 nm contre 29 nm (DRX), qui soutient bien l'effet inhibiteur. Il manque un Ag2 à 140 °C / 10 mL.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rwp = 20,0 % pour Ag2 (tableau 3S) alors que le texte dit l'affinement « satisfaisant » ; les deux lignes Ag2 (avec et sans Warren) ont le même Rwp. Conclusion « absence de défauts » plausible pour 44 nm, mais la qualité de l'affinement n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "L'argent seul n'est pas magnétique : la séparation à l'aimant du protocole des hétérostructures ne s'applique pas ; la récupération d'Ag2 n'est pas décrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Mûrissement d'Ostwald et coalescence des germes de 7 nm à 200 °C en l'absence de précurseur métallique : dissolution des plus petites particules, croissance au-delà de 40 nm et recuit des fautes.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "préciser la récupération (centrifugation avec antisolvant)",
+    "faire le témoin aux mêmes conditions que la voie comparée (140 °C, 10 mL)"
+   ]
+  },
+  {
+   "label": "Ag@Co1",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'argent des germes",
+     "inputs": "25 mg de germes recouverts d'oléate ; M(Ag) = 107,87",
+     "formula": "m/M",
+     "result": "≤ 0,232 mmol (≈ 0,20 mmol si ~13 % d'oléate)",
+     "compared_to": "tableau 1 : « silver seeds 0.2 mmol » : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse et fraction de CoFe2O4 attendues (lecture a : mmol = métal total)",
+     "inputs": "0,5 / 0,25 / 0,125 mmol de métal ; 1/3 → CoFe2O4 (234,6 g/mol) ; 25 mg de germes",
+     "formula": "m(fer) = n/3 × 234,6 ; f = m/(m + 25 mg)",
+     "result": "39 / 20 / 10 mg → 61 / 44 / 28 % (64 / 47 / 31 % avec 22 mg d'Ag net)",
+     "compared_to": "Rietveld : 76 / 48 / 25 % (Ag@Co1/2/3)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse et fraction de CoFe2O4 attendues (lecture b : mmol = unité CoFe2(oléate)8)",
+     "inputs": "0,5 / 0,25 / 0,125 mmol de CoFe2O4 possible",
+     "formula": "m = n × 234,6 ; f = m/(m + 25 mg)",
+     "result": "117 / 59 / 29 mg → 82 / 70 / 54 %",
+     "compared_to": "Rietveld : 76 / 48 / 25 % : la lecture a convient à Ag@Co2–3, la lecture b à Ag@Co1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "eau apportée par les solvants (10 mL)",
+     "inputs": "5 mL toluène à 0,02 % ; 5 mL pentanol à 0,5 %",
+     "formula": "v/v : V × x / 18,015 µL/µmol ; m/m : V × ρ × x / 18,015",
+     "result": "1,44 mmol (v/v) ; 1,17 mmol (m/m)",
+     "compared_to": "article : 1,4 mmol (10 mL), 2,9 mmol (20 mL) : calcul en v/v, conforme",
+     "source": "densités 0,867 et 0,811 g/mL (valeurs de manuel, non revérifiées) ; arithmétique"
+    },
+    {
+     "what": "eau nécessaire à l'hydrolyse complète",
+     "inputs": "CoFe2(RCOO)8 + 4 H2O → CoFe2O4 + 8 RCOOH",
+     "formula": "4 H2O par CoFe2O4",
+     "result": "Ag@Co1 : 0,67 mmol (lecture a) ou 2,0 mmol (lecture b) ; Ag@Co3 : 0,17 ou 0,50 mmol",
+     "compared_to": "1,4 mmol disponibles (10 mL) : suffisant en lecture a, insuffisant pour Ag@Co1 en lecture b",
+     "source": "stœchiométrie (arithmétique)"
+    },
+    {
+     "what": "désaccord de maille spinelle / argent",
+     "inputs": "a(CoFe2O4) ≈ 8,39 Å (tableau 1 : 8,39–8,47 Å) ; 2 × a(Ag) = 2 × 4,0862 Å",
+     "formula": "(a_sp − 2a_Ag) / 2a_Ag",
+     "result": "+2,7 %",
+     "compared_to": "faible désaccord, épitaxie {111}/{111} possible sans invoquer de défaut",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression dans l'autoclave à 140 °C",
+     "inputs": "Antoine NIST, T = 413 K : toluène ; pentanol (extrapolé)",
+     "formula": "log10 P = A − B/(T + C)",
+     "result": "toluène 2,2 bar ; pentanol ≈ 1,0 bar ; + air ≈ 1,4 bar",
+     "compared_to": "200 bar admis",
+     "source": "NIST WebBook (Antoine)"
+    },
+    {
+     "what": "taux de remplissage",
+     "inputs": "10 mL de liquide ; insert DAB-2 d'environ 25 ou 50 mL (fabricant)",
+     "formula": "V liquide / V insert",
+     "result": "40 % (25 mL) ou 20 % (50 mL) ; à 20 mL : 80 % ou 40 %",
+     "compared_to": "même groupe : 25 mL de liquide dans un DAB-2 (Sanna Angotzi 2021) → insert de 50 mL",
+     "source": "Berghof ; Sanna Angotzi 2021"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La composition de l'oléate Co-Fe (rapport Co:Fe, formule) et le sens de « mmol d'oléate métallique » ne sont pas donnés. Selon la lecture, la fraction de ferrite attendue pour Ag@Co1 va de 61 à 82 % (calculs « lecture a » et « lecture b ») ; les 76 % mesurés dépassent le maximum de la lecture a, ce qui n'est possible que si de l'argent non magnétique part avec le surnageant (séparation à l'aimant). Les fractions Rietveld sont donc celles du solide récupéré, pas un bilan de matière.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "L'hydrolyse repose sur l'eau présente comme impureté, évaluée à partir des teneurs maximales du fournisseur (0,02 % et 0,5 %) et non mesurée (pas de Karl Fischer). La quantité suffit en lecture a, pas en lecture b pour Ag@Co1 (calcul « eau nécessaire »). Le procédé dépend donc d'une variable non contrôlée : la teneur en eau réelle du pentanol d'un lot à l'autre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "140 °C en autoclave fermé : pentanol au voisinage de son ébullition (138 °C), pression ≈ 4–5 bar au total (calcul « pression dans l'autoclave à 140 °C »), sans risque pour un DAB-2 (200 bar, 250 °C). Le taux de remplissage n'est pas donné ; le même groupe met 25 mL dans un DAB-2, donc l'insert de 50 mL est probable (20 à 40 % de remplissage).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "digestec DAB – technical specifications (DAB-2 : TFM-PTFE insert approx. 25 ml / approx. 50 ml, 250 °C, 200 bar)",
+      "authors_or_publisher": "Berghof Products + Instruments GmbH (fiche fabricant)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.berghof-instruments.com/en/products/digestec-dab/"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le mécanisme « assisté par les défauts » n'est pas démontré : aucune expérience ne compare des germes avec et sans défauts (Ag2, sans défauts, aurait pu servir de germe témoin). La croissance d'oxyde spinelle sur un métal noble à faible désaccord de maille (+2,7 %, calcul « désaccord de maille ») est connue sans invoquer de faute d'empilement (Au–Fe3O4 épitaxié, Yu et al. 2005). Les macles visibles en HRMET dans Ag@Co8 sont celles d'un décaèdre, structure maclée par construction, pas forcément héritée des germes. Et la densité de fautes des germes est elle-même mal établie (voir Ag1).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Dumbbell-like Bifunctional Au–Fe3O4 Nanoparticles",
+      "authors_or_publisher": "Yu H., Chen M., Rice P.M., Wang S.X., White R.L., Sun S., Nano Letters 5, 379–382",
+      "year": "2005",
+      "url_or_doi": "10.1021/nl047955q"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Dans le 1-pentanol, la formation d'oxyde à partir de carboxylates métalliques ne demande pas forcément d'eau : l'alcoolyse/estérification (RCOO–M + R'OH → RCOOR' + M–OH, puis condensation M–O–M) est une voie non aqueuse connue (élimination d'ester). Elle relativise l'argument des auteurs selon lequel l'eau en impureté « devrait assurer » la formation de la ferrite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Support de cours « nonaqueous metal oxide nanoparticles » (voies de condensation non aqueuses : élimination d'halogénure d'alkyle, d'éther, d'ester, condensation aldolique)",
+      "authors_or_publisher": "Universität Siegen, chimie inorganique (document de cours, source secondaire)",
+      "year": "2011",
+      "url_or_doi": "https://www.chemie-biologie.uni-siegen.de/ac/be/lehre/ss11/uebungen-solidstate/nonaqueous_metal_oxid_nanoparticle.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Dans les affinements de Ag@Co1 (tableau 3S), changer seulement le modèle de l'argent fait passer la microdéformation de la ferrite de 1·10−2 à 1·10−6 et la fraction d'argent de 14 à 24 % : forte corrélation des paramètres, donc fractions et tailles à ±10 points environ. Les microdéformations de 10−6 à 10−8 du tableau 1 sont des valeurs plancher sans sens physique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètre de la ferrite de 8,45–8,47 Å pour Ag@Co2 et Ag@Co6, contre ≈ 8,39 Å pour CoFe2O4 massif (valeur de manuel, non revérifiée en ligne) : +0,7 à +1 %, plus que la magnétite. Pour 5–6 nm de ferrite à 25 % m/m, c'est probablement un effet de corrélation dans l'affinement ; pas d'interprétation chimique possible sans analyse élémentaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Autoclave avec toluène et pentanol inflammables au-dessus de leur ébullition, nanopoudres d'oxyde de cobalt-fer (Co : sensibilisant, cancérogène présumé) : refroidir complètement avant ouverture, sous hotte. Article muet.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans l'autoclave, les oléates Co(II)/Fe(III) se transforment en oxyde par hydrolyse (eau en impureté) et probablement par alcoolyse/estérification avec le 1-pentanol (oléate de pentyle + M–OH), puis par condensation M–O–M jusqu'au spinelle CoFe2O4 recouvert d'acide oléique. Quand la sursaturation est faible (peu d'oléate, solution diluée, température haute), la nucléation hétérogène sur l'argent l'emporte : le désaccord de maille de ~2,7 % permet une croissance épitaxiale des domaines spinelle sur les facettes {111} de l'argent. Pendant ce temps, l'argent mûrit (Ostwald, coalescence en décaèdres maclés), de façon d'autant plus forte que la température est haute ou que de l'eau est ajoutée. Le rôle propre des fautes d'empilement des germes reste une hypothèse non testée.",
+    "sources": [
+     {
+      "title": "Dumbbell-like Bifunctional Au–Fe3O4 Nanoparticles",
+      "authors_or_publisher": "Yu H., Chen M., Rice P.M., Wang S.X., White R.L., Sun S., Nano Letters 5, 379–382",
+      "year": "2005",
+      "url_or_doi": "10.1021/nl047955q"
+     },
+     {
+      "title": "Support de cours « nonaqueous metal oxide nanoparticles » (voies de condensation non aqueuses : élimination d'halogénure d'alkyle, d'éther, d'ester, condensation aldolique)",
+      "authors_or_publisher": "Universität Siegen, chimie inorganique (document de cours, source secondaire)",
+      "year": "2011",
+      "url_or_doi": "https://www.chemie-biologie.uni-siegen.de/ac/be/lehre/ss11/uebungen-solidstate/nonaqueous_metal_oxid_nanoparticle.pdf"
+     },
+     {
+      "title": "On the synthesis of bi-magnetic manganese ferrite-based core–shell nanoparticles",
+      "authors_or_publisher": "Sanna Angotzi M. et al., Nanoscale Advances (RSC)",
+      "year": "2021",
+      "url_or_doi": "10.1039/d0na00967a"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "obtenir la composition et la préparation de l'oléate Co-Fe (rapport Co:Fe, formule, sens de « mmol »)",
+    "mesurer l'eau des solvants (Karl Fischer) ou l'ajouter de façon contrôlée",
+    "connaître le volume de l'insert (25 ou 50 mL) et le taux de remplissage",
+    "germe témoin sans défauts (Ag2) dans les mêmes conditions pour tester le mécanisme",
+    "peser le solide récupéré et analyser le surnageant pour un vrai bilan"
+   ]
+  },
+  {
+   "label": "Ag@Co6",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pression de vapeur à 140–220 °C",
+     "inputs": "Antoine NIST, toluène (420–580 K) et 1-pentanol (437–514 K)",
+     "formula": "log10 P = A − B/(T + C)",
+     "result": "toluène 2,2 / 5,2 / 7,5 / 10,5 bar ; pentanol ≈ 1,0 / 3,2 / 5,1 / 7,8 bar à 140 / 180 / 200 / 220 °C",
+     "compared_to": "indépendantes du volume de liquide tant que liquide et vapeur coexistent",
+     "source": "NIST WebBook (Antoine)"
+    },
+    {
+     "what": "pression partielle de l'air piégé",
+     "inputs": "1 bar à 25 °C ; T = 473 K ; insert de 50 mL ; espace libre 40 mL (10 mL) ou 30 mL (20 mL)",
+     "formula": "P = 1 × 473/298 × V0/V(T)",
+     "result": "≈ 1,6 bar dans les deux cas ; seule la dilatation du liquide réduit l'espace libre, de quelques dixièmes de bar au plus",
+     "compared_to": "pression totale ≈ 8 bar à 200 °C : écart entre 10 et 20 mL de l'ordre de quelques %",
+     "source": "loi des gaz parfaits (arithmétique)"
+    },
+    {
+     "what": "rapport eau / métal",
+     "inputs": "eau 1,4 mmol (10 mL) contre 2,9 mmol (20 mL) ; 0,125 mmol de métal dans les deux cas",
+     "formula": "n(H2O)/n(M)",
+     "result": "11 contre 23",
+     "compared_to": "le doublement du solvant double aussi l'eau disponible par métal",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration en métal",
+     "inputs": "0,125 mmol dans 10 ou 20 mL",
+     "formula": "n/V",
+     "result": "12,5 contre 6,25 mmol/L",
+     "compared_to": "facteur 2",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs attribuent l'homogénéité accrue à « la dilution et l'augmentation correspondante de la pression ». À température donnée, la pression dans l'autoclave est fixée par la pression de vapeur des solvants (≈ 6–8 bar à 200 °C), qui ne dépend pas du volume de liquide ; l'air piégé ne change que de quelques dixièmes de bar (calculs « pression de vapeur » et « pression partielle de l'air piégé »). La pression n'est pas une variable de cette série ; l'effet vient de la concentration.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Toluene – Antoine Equation Parameters (420–580 K : A 4.54436, B 1738.123, C 0.394 ; Ambrose et al. 1967)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C108883&Mask=4&Type=ANTOINE&Plot=on"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin à plusieurs variables : doubler le solvant divise par deux la concentration en métal et en germes, mais double aussi l'eau disponible par métal (11 → 23, calcul « rapport eau / métal ») et le taux de remplissage. L'effet de la dilution ne peut pas être séparé de celui de l'eau. Il faudrait un essai à 20 mL avec des solvants séchés, ou à 10 mL avec 1,5 mmol d'eau ajoutée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "20 mL de liquide : 40 % de remplissage dans l'insert de 50 mL, mais 80 % dans l'insert de 25 mL du même modèle DAB-2. La dilatation du toluène et du pentanol vers 200 °C (de l'ordre de 20 % ou plus, estimation non sourcée) rendrait alors l'insert presque plein de liquide. L'article ne dit pas quel insert est utilisé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "digestec DAB – technical specifications (DAB-2 : TFM-PTFE insert approx. 25 ml / approx. 50 ml, 250 °C, 200 bar)",
+      "authors_or_publisher": "Berghof Products + Instruments GmbH (fiche fabricant)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.berghof-instruments.com/en/products/digestec-dab/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "La dilution abaisse la sursaturation en monomères de ferrite et favorise la nucléation hétérogène sur l'argent au détriment de la nucléation homogène (moins de ferrite libre). La pression n'y joue pas de rôle mesurable.",
+    "sources": [
+     {
+      "title": "Toluene – Antoine Equation Parameters (420–580 K : A 4.54436, B 1738.123, C 0.394 ; Ambrose et al. 1967)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C108883&Mask=4&Type=ANTOINE&Plot=on"
+     },
+     {
+      "title": "1-Pentanol – Antoine Equation Parameters (437.79–513.79 K : A 3.97383, B 1106.11, C −134.578 ; Ambrose et al. 1975)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C71410&Mask=4&Type=ANTOINE&Plot=on"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "choisir l'insert de 50 mL pour 20 mL de liquide",
+    "contrôler l'eau indépendamment de la dilution"
+   ]
+  },
+  {
+   "label": "Ag@Co8",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre magnétique recalculé",
+     "inputs": "μm = 2,13·10³ μB ; μuc = 33,6 μB ; a = 8,418 Å",
+     "formula": "N = μm/μuc ; V = N a³ ; D = (6V/π)^(1/3)",
+     "result": "N = 63,4 mailles ; V = 37,8 nm³ ; D = 4,16 nm",
+     "compared_to": "tableau 2 : DMAG = 4,2 nm : conforme",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taille de cristallite contre taille de particule (argent)",
+     "inputs": "DXRD = 29 nm ; DTEM_V = 20 nm ; argent décaédrique (HRMET)",
+     "formula": "comparaison",
+     "result": "DXRD/DTEM_V = 1,45",
+     "compared_to": "un décaèdre est formé de 5 domaines maclés plus petits que la particule : DXRD devrait être < DTEM",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression à 200 °C",
+     "inputs": "Antoine NIST ; mélange 1:1 en volume (≈ 0,5 / 0,5 en moles)",
+     "formula": "Raoult + air",
+     "result": "≈ 6,3 + 1,6 ≈ 8 bar",
+     "compared_to": "200 bar admis par le DAB-2",
+     "source": "NIST WebBook (Antoine)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "200 °C, ≈ 8 bar (calcul « pression à 200 °C ») : dans les limites du DAB-2 (250 °C, 200 bar).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "digestec DAB – technical specifications (DAB-2 : TFM-PTFE insert approx. 25 ml / approx. 50 ml, 250 °C, 200 bar)",
+      "authors_or_publisher": "Berghof Products + Instruments GmbH (fiche fabricant)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.berghof-instruments.com/en/products/digestec-dab/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Argent : DXRD 29 nm > DTEM_V 20 nm pour des particules décaédriques, donc maclées ; la correction de Warren gonfle la taille (sans elle : 9 nm, tableau 3S). Les tailles DRX de l'argent après correction de Warren ne sont pas fiables.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Magnétisme : DMAG recalculé 4,16 nm (conforme) ; Mr/Ms = 0,51 à 10 K, champ coercitif de 1 T et HK de 3,4 T sont des ordres de grandeur habituels pour CoFe2O4 de quelques nm bloqué. L'en-tête du tableau 2 dit « Ms/Mr » dans la légende et « Mr/Ms » dans la colonne : c'est Mr/Ms (≤ 1).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mössbauer : sextet Bhf = 46,0 T, δ = 0,28 mm/s à température ambiante, proche de l'échantillon de référence CoB (46,1 T) du même groupe : cohérent pour une ferrite de cobalt nanométrique partiellement bloquée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La légende de la figure 5 dit « en comparaison avec Ag@Co9 » alors que le texte part de Ag@Co8 : incohérence interne de l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que Ag@Co1 ; à 200 °C et en solution diluée, la nucléation hétérogène sur l'argent est presque totale (pas de ferrite libre) tandis que l'argent mûrit jusqu'à ~20 nm en décaèdres maclés.",
+    "sources": [
+     {
+      "title": "Dumbbell-like Bifunctional Au–Fe3O4 Nanoparticles",
+      "authors_or_publisher": "Yu H., Chen M., Rice P.M., Wang S.X., White R.L., Sun S., Nano Letters 5, 379–382",
+      "year": "2005",
+      "url_or_doi": "10.1021/nl047955q"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "comparer les tailles d'argent DRX avec et sans correction de Warren à la distribution MET"
+   ]
+  },
+  {
+   "label": "Ag@Co9",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pression à 220 °C",
+     "inputs": "Antoine NIST, T = 493 K",
+     "formula": "log10 P = A − B/(T + C)",
+     "result": "toluène 10,5 bar ; pentanol 7,8 bar ; mélange ≈ 9 bar + air ≈ 1,7 bar ≈ 11 bar",
+     "compared_to": "DAB-2 : 200 bar et 250 °C",
+     "source": "NIST WebBook (Antoine)"
+    },
+    {
+     "what": "cristallite contre particule (argent)",
+     "inputs": "DXRD = 80 nm ; DTEM_V = 30 nm (dispersion 24 %)",
+     "formula": "rapport",
+     "result": "2,7",
+     "compared_to": "DXRD ≤ DTEM attendu",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "220 °C : ≈ 11 bar (calcul « pression à 220 °C ») et 30 °C sous la température maximale de 250 °C du DAB-2 ; au-delà de 200 °C, le fluage du PTFE vieillit plus vite l'insert.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "digestec DAB – technical specifications (DAB-2 : TFM-PTFE insert approx. 25 ml / approx. 50 ml, 250 °C, 200 bar)",
+      "authors_or_publisher": "Berghof Products + Instruments GmbH (fiche fabricant)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.berghof-instruments.com/en/products/digestec-dab/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille de cristallite d'argent de 80 nm pour des particules de 30 nm en volume (calcul « cristallite contre particule ») : impossible pour une seule population. Soit la DRX voit une petite fraction de très grosses particules absente du comptage MET (mûrissement d'Ostwald marqué à 220 °C), soit le modèle de Warren surestime la taille. Dans les deux cas, DTEM_V = 30 nm ne décrit pas tout l'argent.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "À 220 °C, le mûrissement d'Ostwald de l'argent s'accélère et élargit la distribution (une queue de grosses particules), tandis que la ferrite grossit peu.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "distribution de taille MET complète (recherche de grosses particules)",
+    "affinement de l'argent sans correction de Warren pour comparaison"
+   ]
+  },
+  {
+   "label": "Ag@Co10",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'eau ajoutée",
+     "inputs": "0,1 mL ; 18,015 g/mol ; 1 g/mL",
+     "formula": "m/M",
+     "result": "5,55 mmol",
+     "compared_to": "article : 5,6 mmol : conforme",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport eau ajoutée / eau en impureté",
+     "inputs": "5,55 mmol ; 2,9 mmol (20 mL)",
+     "formula": "rapport",
+     "result": "1,9 ; eau totale ≈ 8,5 mmol, soit 2,9 fois l'eau initiale et 68 H2O par métal",
+     "compared_to": "texte : « plus du double » de l'eau présente : 1,9 fois, pas plus du double",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« 5,6 mmol, plus du double de l'eau déjà présente » : 5,6/2,9 = 1,9 (calcul « rapport eau ajoutée / eau en impureté ») ; l'eau totale est 2,9 fois l'eau initiale. Imprécision mineure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Argent de ~100 nm en présence d'eau : cohérent avec le choix des auteurs d'exclure l'eau ; mais le témoin n'est qu'un seul point, et les synthèses habituelles du groupe emploient 5 mL d'eau (≈ 280 mmol) pour quelques mmol d'oléate. L'effet de l'eau est donc établi qualitativement, pas sa dose seuil.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "On the synthesis of bi-magnetic manganese ferrite-based core–shell nanoparticles",
+      "authors_or_publisher": "Sanna Angotzi M. et al., Nanoscale Advances (RSC)",
+      "year": "2021",
+      "url_or_doi": "10.1039/d0na00967a"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'eau ajoutée accélère l'hydrolyse des oléates et, probablement, le déplacement de l'oléate à la surface de l'argent (désorption, solubilité accrue d'Ag+ oxydé en surface), ce qui accélère le mûrissement et la coalescence de l'argent jusqu'à ~100 nm.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "balayer la quantité d'eau (0 à 0,1 mL) pour trouver le seuil"
+   ]
+  },
+  {
+   "label": "Ag@Fe1",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "oxydant nécessaire pour Fe(II) → Fe3O4",
+     "inputs": "0,125 mmol de Fe(II) ; 2/3 des Fe à oxyder en Fe(III) ; O2 = 4 e−",
+     "formula": "n(O2) = 0,125 × 2/3 / 4",
+     "result": "0,021 mmol d'O2",
+     "compared_to": "air de l'espace libre (30 mL à 21 % O2, 24,45 L/mol) : 0,26 mmol d'O2",
+     "source": "arithmétique"
+    },
+    {
+     "what": "paramètre de maille de la phase spinelle",
+     "inputs": "a = 8,397 Å (tableau 1)",
+     "formula": "comparaison",
+     "result": "8,397 Å",
+     "compared_to": "magnétite ≈ 8,396 Å ; maghémite ≈ 8,35 Å (valeurs de manuel, non revérifiées en ligne)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Le spinelle Fe3O4 demande d'oxyder les deux tiers du Fe(II) ; l'air piégé dans l'autoclave apporte environ 12 fois l'O2 nécessaire (calcul « oxydant nécessaire »), et l'eau peut aussi oxyder Fe(II) à chaud. Bilan redox possible ; l'atmosphère n'est pas contrôlée, donc le rapport Fe2+/Fe3+ dépend du remplissage.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "a = 8,397 Å plus proche de la magnétite que de la maghémite (calcul « paramètre de maille ») ; l'article parle prudemment de « magnétite/maghémite », ce qui est juste sans Mössbauer sur cet échantillon.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse/alcoolyse de l'oléate Fe(II), oxydation partielle par l'O2 piégé (ou par l'eau) et nucléation hétérogène d'un spinelle Fe3O4/γ-Fe2O3 sur l'argent, comme pour la ferrite de cobalt.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "dégazer ou non selon le rapport Fe2+/Fe3+ visé",
+    "Mössbauer ou XANES pour trancher magnétite/maghémite"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse en deux temps chimiquement cohérente : germes d'argent par réduction de l'oléate d'argent dans l'acide oléique (Xu & Hu 2012), puis croissance solvothermale de ferrite spinelle à partir d'oléates métalliques dans toluène/pentanol en autoclave DAB-2 (≤ 11 bar, ≤ 220 °C, dans les limites du fabricant). Trois limites pour refaire la synthèse : composition et quantité réelle de l'oléate Co-Fe non définies ; hydrolyse confiée à une eau d'impureté non mesurée ; volume de l'insert non dit. Côté interprétation : le mécanisme « assisté par les défauts » n'a pas d'expérience discriminante et repose sur des affinements Rietveld–Warren qui donnent des cristallites plus grandes que les particules (Ag1 : 14 contre 7 nm ; Ag@Co9 : 80 contre 30 nm) et un paramètre de l'argent de +1,4 % ; l'effet de la dilution est attribué à tort à la pression.",
+  "author_errors_suspected": [
+   "Ag1 : affinement Warren retenu avec D = 14 nm > DTEM_V = 7 nm et a = 4,145 Å (+1,4 %) ; phase hcp de 55 nm dans l'autre modèle",
+   "Ag@Co9 : DXRD(Ag) = 80 nm contre DTEM_V = 30 nm",
+   "« dilution et augmentation correspondante de la pression » : la pression ne dépend pas du volume de liquide à T fixée",
+   "rapport D111/D200 = 1,8 non retrouvé avec Scherrer (2,2)",
+   "« plans manquants A ou B plutôt que C » sans sens dans un empilement fcc",
+   "UV–Vis : argent « de 5 à 20 nm » contre 7 nm ailleurs ; légende de la figure 5 (Ag@Co9) contre texte (Ag@Co8)",
+   "eau ajoutée « plus du double » : 1,9 fois",
+   "Ag2 (200 °C, 20 mL) comparé à Ag@Co1 (140 °C, 10 mL) comme témoin du mûrissement"
+  ],
+  "comparison_with_database": "Aucune autre voie solvothermale à base d'oléates pour CoFe2O4 dans la base : les voies CoFe2O4 existantes sont sol-gel (PMC3088885, 5,9 nm après 400 °C), imprégnation-calcination (PMC8495851) ou hydrothermale à pH 12 (PMC9057400) ; les tailles de 5–12 nm sont du même ordre. Aucune autre synthèse d'argent par oléate d'argent dans l'acide oléique."
+ },
+ "sources_not_found": [
+  "Article de méthode du groupe (Sanna Angotzi et al., ACS Nano 2017, 10.1021/acsnano.7b02349) : texte intégral non accessible (iris.unica.it et pubs.rsc.org bloqués) ; préparation de l'oléate Co-Fe et sens de « mmol » non vérifiés",
+  "Revue de référence sur les voies non aqueuses (Niederberger & Garnweitner) : non trouvée par la recherche ; remplacée par un support de cours de l'université de Siegen (source secondaire)",
+  "Densité du toluène et du pentanol vers 200 °C (dilatation) : non obtenue (NIST WebBook injoignable en lecture directe) ; estimation non sourcée signalée comme telle",
+  "Paramètres de maille de référence (Ag 4,0862 Å, CoFe2O4 ≈ 8,39 Å, Fe3O4 8,396 Å, γ-Fe2O3 ≈ 8,35 Å) : valeurs de manuel non revérifiées en ligne"
+ ]
+}

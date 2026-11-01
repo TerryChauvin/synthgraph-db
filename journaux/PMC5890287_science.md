@@ -1,0 +1,18 @@
+# PMC5890287 — critique scientifique (journal de décisions)
+
+- Fe2O3-RGO, « 20 mM … 40 mM … dissolved in 30 ml » : les deux lectures sont calculées (0,60 mmol de Fe, 119 mg, contre 20 mmol, 3,98 g). La lecture « concentration » sert de base aux autres calculs ; l'ambiguïté reste en `reserve` et non en `probleme`, car les deux lectures sont physiquement possibles.
+- `probleme` pH ≥ 11 : une solution d'acétate 40 mM plafonne à pH ≈ 8,7 (pKa 4,76, [OH−] = √(Kb·C)), avant même l'hydrolyse de Fe2+ et l'acidité du GO.
+- `probleme` équations 2, 3, 5 : 4 Fe à gauche contre 8 FeOOH à droite, 5 O2. Équation juste donnée : 4 Fe2+ + O2 + 6 H2O → 4 FeOOH + 8 H+.
+- Bilan d'oxydant dans l'autoclave fermé : environ 0,39 mmol d'O2 dans 45 mL d'air, pour 0,15 mmol nécessaires (lecture mM) ou 5 mmol (lecture mmol). Ajouté à l'oxydation de Fe2+ par le GO (Wu 2018), cela rend plausible une part de magnétite. Seulement `reserve`, faute de preuve directe.
+- `probleme` Raman : 669, 540 et 309 cm−1 correspondent exactement à la magnétite de Shebanova & Lazor 2003 (668, 538, 306). Les auteurs le disent eux-mêmes (« magnetite A1g »), puis décrivent l'hématite comme une spinelle. Contradiction DRX/Raman sur la phase.
+- `probleme` frange HRTEM de 0,326 nm attribuée à Au(110) : (110) est éteinte en cfc et d(111) = 0,2355 nm. Ce calcul ne demande aucune source (règle d'extinction). Je rapproche 0,326 nm de d(002) du RGO, comme hypothèse seulement.
+- `probleme` paramètres a = 0,24 et c = 0,56 nm : je les ai recalculés par Bragg sur les raies des auteurs (a ≈ 0,505 nm), puis confrontés à la fiche du Handbook of Mineralogy (ICDD 24-72, a = 5,038 Å, c = 13,772 Å). Le décalage systématique d'environ −0,3° des raies est attribué au déplacement de l'échantillon (non retenu comme problème).
+- `probleme` or : 50 mM × 10 mL = 0,5 mmol, soit ≈ 50 % en masse d'or sur 100 mg de support, incompatible avec des « nanodots » et une raie Au(111) faible. Classé `probleme` (incohérence quantité/résultat) même si l'extracteur l'avait déjà signalé en doute.
+- `probleme` mécanisme de la chlorophylle et témoin noChl : l'extrait brut contient des réducteurs (Iravani 2011 de fondateurs.md, Shankar 2004). La chlorophylle (≈ 2–5 µmol, ordre de grandeur non sourcé, noté dans sources_not_found) est trop peu abondante pour 1,5 mmol d'électrons, et le témoin retire aussi 5 mL de solvant. Je propose un mécanisme à donneur sacrificiel (éthanol, métabolites).
+- Plasmon : la relation de Haiss 2007 (d > 35 nm, dans l'eau) donne ≈ 72 nm pour 543 nm. Seulement `reserve` : l'indice local de l'hématite décale vers le rouge, donc la relation ne s'applique pas directement. Le pic à 500 nm, sous la plage 520–580 nm de Haiss, est aussi en `reserve`.
+- Chlorophylles a et b inversées par les auteurs : Lichtenthaler 1987, éthanol 95 % (chl a 664,2 nm, chl b 648,6 nm). Les valeurs viennent d'un article de PMC qui applique la méthode ; le chapitre lui-même n'a pas été relu.
+- Satellite Fe 2p à 718,7 eV : signature de Fe3+ (Yamashita & Hayes 2008, URL ScienceDirect ; DOI présumé non vérifié). `reserve`, car cela ne change pas la synthèse.
+- RGO : bandes C–H à 2928/2865 cm−1 sans source d'hydrogène organique, interprétées comme une contamination probable. `reserve`, sans source.
+- Zhou 2009 : le DOI que j'avais en tête (cm900906v) était faux ; la recherche donne 10.1021/cm9006603, seul DOI retenu.
+- Recherches web : 10 (3 WebSearch, 7 Parallel Search). WebFetch est bloqué (doi.org injoignable), donc aucune page DOI n'a été ouverte directement. Rien n'est ajouté à fondateurs.md ni à constantes.md (Crossref bloqué).
+- Pression de vapeur de l'eau à 180 °C (≈ 1,0 MPa) donnée d'après les tables de vapeur, sans consultation en ligne du NIST WebBook.

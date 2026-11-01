@@ -1,0 +1,96 @@
+{
+ "pmcid": "PMC9080747",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "CDs_PEI-CA (témoin PEI + CA) : étapes et conditions héritées de CDs_AA-PEI-CA",
+   "extracted": "branche enfant de CDs_AA-PEI-CA, sans étape propre : hérite de 150 °C, 1 h, des quantités (CA 0,8 g, PEI 0,18 g) et de la purification au méthanol ; hypothèse du doute : même échantillon que Table 1 no.1",
+   "article_says": "Under the same reaction condition, the products of AA and CA exhibit no fluorescence, but PEI and CA produce CDs with blue fluorescence",
+   "fix": "Le schéma Fig. 7 (corpus/fig/PMC9080747/c8ra03353f-f7.jpg) et le résumé graphique (c8ra03353f-ga.jpg) indiquent pour le côté PEI + CA « 200℃,40min Water heat » (vial bleu « strong ») et pour AA + PEI « 100℃,60min » (vial « weak »), et 150 ℃, 60 min pour les trois réactifs. Les conditions du témoin PEI + CA lues sur figure (200 °C, 40 min) diffèrent donc de celles héritées (150 °C, 1 h) ; ce n'est probablement pas Table 1 no.1 (150 °C, 60 min, 474 nm). Donner à CDs_PEI-CA ses propres valeurs de température et durée (from_figure Fig. 7) ou les déclarer non citées, ne pas hériter de la purification, et corriger le doute « même échantillon » ; CDs_AA-PEI (100 °C, 60 min) est, lui, cohérent avec la figure.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CDs_AA-PEI : réactif PEI (Mw = 1.8 k), fournisseur « Aladdin » et pureté « 99% » ; idem réactif PEI (Mw = 1800) de CDs_AA-PEI-CA",
+   "extracted": "supplier = Aladdin, purity = 99 % (citation : achat de PEI Mw = 6 k, 8 k, 10 k)",
+   "article_says": "Polyethylenimine (PEI, Mw = 6 k, 8 k, 10 k, 99%) was purchased from Aladdin (Shanghai, China).",
+   "fix": "La phrase ne couvre pas la PEI de Mw 1800 (ni 0,6 k) utilisée dans la synthèse. Fournisseur et pureté de la PEI utilisée sont déduits : les passer en not_stated (l'annotation limite_reproductibilite existe déjà et le dit) ou les marquer explicitement comme supposés.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CDs_AA-PEI_140C et CDs_AA-PEI_80min : étape 1 héritée de CDs_AA-PEI (AA 0,2 g, PEI 0,18 g, pH 5, autres paramètres) ; AA_only_control : conditions héritées (pH 5, 100 °C, 60 min)",
+   "extracted": "branches enfants de CDs_AA-PEI sans étape propre, un seul paramètre varié (140 °C ou 80 min) ; résultat « black CDs solution with weak fluorescence » attribué à chacune des deux branches",
+   "article_says": "the mere presence of PEI with AA would produce black CDs solvent with weak fluorescence under high temperature (140 °C) or longer reaction time (80 min)",
+   "fix": "L'article donne seulement 140 °C et 80 min, sans quantité d'AA ni pH (renvoi aux Fig. S3 et S4, non lisibles) ; l'héritage des conditions optimales de CDs(AA–PEI) est une hypothèse. Ajouter une annotation limite_reproductibilite sur ces deux branches (et sur AA_only_control, « same reaction environment ») disant que quantités et pH ne sont pas cités, ou marquer les paramètres hérités comme non cités. Aussi : la phrase dit « or », l'article ne précise pas si l'effet noir/faible vaut pour chaque variable seule ; le résultat est donc commun aux deux branches par défaut.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "AA-CA_control et CDs_PEI-CA : héritage de la purification (étapes 4 à 6 : méthanol, centrifugation 8000 rpm, séchage sous vide)",
+   "extracted": "branches héritant de toutes les étapes de CDs_AA-PEI-CA, y compris la purification",
+   "article_says": "Then the turbid dispersion was centrifuged (8000 rpm) for 10 min.",
+   "fix": "« Under the same reaction condition » ne vise que les conditions de réaction ; l'article ne dit pas que ces deux témoins ont été purifiés au méthanol. Retirer la purification de l'héritage ou le signaler en annotation (l'extracteur le note dans un doute, pas dans une annotation).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CDs_EDA et CDs_AA-PEI-CA : emission_wavelength_fig2a_comparison = 512 nm (PEI) / 488 nm (EDA), doute Fig. 2a non reporté en annotation",
+   "extracted": "512 nm attribué à la PEI et 488 nm à l'EDA, d'après le texte",
+   "article_says": "the fluorescence intensity and the emission wavelength (λem ≈ 512 nm) of CDs prepared with PEI are better than those prepared with EDA (λem ≈ 488 nm)",
+   "fix": "Dans corpus/fig/PMC9080747/c8ra03353f-f2.jpg (a), la légende associe la courbe rouge, maximum ≈ 512 nm et ≈ 920 u.a., à CDs(AA-EDA-CA), et la noire, ≈ 488 nm et ≈ 540, à CDs(AA-PEI-CA) : l'inverse du texte. Garder les valeurs du texte (la citation fait foi) mais ajouter une annotation limite_reproductibilite sur CDs_EDA ; le doute existe seulement dans `doubts`. La longueur d'onde de la référence est par ailleurs 504 nm (Table 1 no.3), 512 nm n'étant pas celle de l'échantillon de référence.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CDs_AA-PEI : ligne de Table 2 étiquetée CDs(PEI–CA), attribuée à CDs(AA–PEI)",
+   "extracted": "τ1 = 0,3446 ns, τ2 = 3,614 ns, moyenne 2,914 ns rattachés à CDs_AA-PEI, citation = la ligne « CDs(PEI–CA) »",
+   "article_says": "CDs(PEI–CA) | 481 | 535 | 0.3446 | 21.4 | 3.614 | 78.6 | — | — | 2.914",
+   "fix": "L'attribution à CDs(AA–PEI) est soutenue par le texte (« The average fluorescence lifetimes of CDs(AA–PEI–CA) and CDs(AA–PEI) are 4.349 ns and 2.914 ns » ; « CDs(AA–PEI) has two fluorescence lifetimes (τ1, τ2) ») et par la légende de Fig. S10, mais le tableau écrit CDs(PEI–CA) ; une coquille est probable, sans certitude (CDs(PEI–CA) est un échantillon réel de l'article). Transformer le doute en annotation limite_reproductibilite. Les amplitudes A1–A3 (70,75 / 18,89 / 10,36 % ; 21,4 / 78,6 %) de la même table ne sont pas enregistrées.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CDs_PEI0.6k : résultat du décalage en longueur d'onde",
+   "extracted": "seuls QY = 22,5 % et pl_peak_intensity ≈ 750 enregistrés",
+   "article_says": "and wavelength red-shifting 15 nm",
+   "fix": "Ajouter à CDs_PEI0.6k (ou à la référence, relativement à 0,6 k) le résultat « émission décalée de 15 nm vers le rouge avec PEI de 1,8 k par rapport à 0,6 k » ; la figure 2b est cohérente (pics ≈ 488 nm pour 0,6 k, ≈ 503 nm pour 1,8 k).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "CDs_AA-PEI-CA outcomes : couleurs d'émission selon la lumière d'excitation",
+   "extracted": "fluorescence_colour_under_UV = strong green fluorescence seulement",
+   "article_says": "yellow-green fluorescence under purple light (400–425 nm), and bright yellow fluorescence under blue light (465–475 nm)",
+   "fix": "Ajouter deux résultats qualitatifs (fluorescence jaune-vert sous lumière violette 400–425 nm, jaune vif sous lumière bleue 465–475 nm), présents dans la même phrase que la citation de la couleur sous UV.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CDs_AA-PEI-CA reagent citric acid (CA) : formule C6H8O7",
+   "extracted": "formule C6H8O7 (anhydre, 192,1 g/mol), 0,8 g",
+   "article_says": "0.8 g (3.8 mmol) of CA",
+   "fix": "0,8 g correspond à 3,8 mmol avec M ≈ 210 g/mol, soit l'acide citrique monohydraté, et non l'anhydre (0,8 g = 4,2 mmol). Ne pas modifier la valeur ; ajouter une note de reproductibilité (forme hydratée probable, non écrite par l'article). AA (0,85 mmol) et PEI (0,1 mmol pour Mw 1800) sont cohérents.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 30,
+  "branches_extracted": 30,
+  "not_stated_checked": 16,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Volume de l'autoclave, remplissage, vitesse d'agitation, vitesses de chauffe et de refroidissement non cités",
+  "Volume de méthanol, température et durée de séchage sous vide, masse de produit isolé non cités",
+  "CDs(AA–PEI) : solvant, volume, base ou acide utilisé pour fixer pH = 5 et purification non cités",
+  "Fournisseur et pureté de la PEI Mw 1800 (et 0,6 k) non établis : l'article ne cite que PEI Mw = 6 k, 8 k, 10 k (Aladdin)",
+  "Quantité et conditions des témoins AA + CA, PEI + CA (température et durée, 200 °C et 40 min selon Fig. 7 seulement), quantité d'EDA non citées",
+  "Fig. S1 à S5, S7, S8 (courbes d'optimisation CDs(AA–PEI), quantité de PEI, durée 40–80 min) : seules les légendes sont dans l'annexe du dépôt",
+  "Eau « distilled » (préparation) contre « Milli-Q » (section Chemicals)",
+  "Les intensités PL en u.a. de la référence diffèrent d'une figure à l'autre (≈ 870 Fig. 3a, ≈ 570 Fig. 2b, ≈ 500 Fig. 1c, ≈ 920 Fig. 4b) : échelles non comparables"
+ ],
+ "mechanism_check": "ok : les annotations mecanisme_auteurs reprennent l'article (CA protège AA, PEI squelette et passivation, amides) ; mecanisme_analyse (fluorophores de type pyridone) est présenté comme probable et vient de l'orchestrateur, pas de l'article",
+ "notes": "Extraction très complète : toutes les voies et variations du texte, de Table 1, des légendes Fig. 1, 3 et 2b sont présentes ; valeurs de Table 1 et de Table 2, QY, diamètre, FTIR vérifiés. Valeurs lues sur Fig. 1c (810, 670, 350), Fig. 2b (750, 570, 470) et Fig. 3a (80, 190, 720, 870, 580, 100) vérifiées sur les images : écarts inférieurs à 5 %. Fig. 1b (série CA, 9 courbes) : je n'ai pas pu attribuer les couleurs aux teneurs non plus, donc pas de constat ; à noter que les courbes décroissent d'un bout à l'autre de la légende (0,1 g CA le plus intense) alors que le texte parle d'un maximum puis d'une baisse à 0,8 g, et que la référence à 0,8 g CA y semble bien plus faible que 870 (Fig. 3a) : incohérence de l'article. Série durée 40–80 min et quantité de PEI (Fig. S7, S8) : valeurs seulement dans des figures d'annexe absentes, inventaire correct. Aucun renvoi de méthode manquant : seul cit28 (QY, rhodamine 6G) est un protocole de mesure et il est présent. coverage_check : 30 = voies lisibles dans le texte et les figures du dépôt ; les séries Fig. S1–S5, S7, S8 sont hors décompte (valeurs absentes)."
+}

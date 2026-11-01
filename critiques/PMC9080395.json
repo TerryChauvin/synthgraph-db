@@ -1,0 +1,114 @@
+{
+  "pmcid": "PMC9080395",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "faux",
+      "where": "method_sources[0] (ref_id cit35, route null)",
+      "extracted": "cit35, role autre, quote sur l'accord des pics avec la fiche JCPDS-36-1451",
+      "article_says": "The peaks observed in pure as well as in rare earth metal-doped ZnO nanoparticles are in accordance with the standard sample of the hexagonal ZnO as reported earlier (JCPDS-36-1451).",
+      "fix": "supprimer l'entrée : le renvoi cit35 (Okte) accompagne une fiche de référence (JCPDS) utilisée pour l'interprétation du DRX, pas une préparation, un traitement ou un protocole d'essai (règle du 2026-10-13)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "faux",
+      "where": "method_sources[1] (ref_id cit68, route Nd-ZnO)",
+      "extracted": "cit68, role autre, quote sur les piégeurs IPA, BQ, EDTA-2Na",
+      "article_says": "different scavengers such as isopropyl alcohol (IPA), benzoquinone (BQ) and disodium ethylenediaminetetraacetate (EDTA-2Na) have been used to trap HO˙, O2˙−and holes formed during the photo-oxidation process",
+      "fix": "supprimer l'entrée : le renvoi cit68 est un appui de contexte sur le rôle des piégeurs ; le protocole d'essai (3 mM de piégeur, 2 g L−1, 180 mL de MB à 10 ppm, 25 min) est écrit dans l'article sans renvoi. Après suppression des deux entrées, method_sources doit être une liste vide : aucun renvoi de refs/PMC9080395.txt ne porte sur une méthode (les autres renvois sont du contexte, de l'équation de Tauc cit8 ou de l'interprétation)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "annotation comparaison_branches et outcomes MB_photodegradation de P-ZnO (52,4 %) et Nd-ZnO (98 %)",
+      "extracted": "« le ZnO pur dégrade 52,4 % du colorant et le Nd-ZnO 98 % » présentés côte à côte, sans durée ni conditions dans les outcomes",
+      "article_says": "pure ZnO affords 52.4 ± 4% degradation",
+      "fix": "les deux pourcentages sont comparés comme s'ils étaient obtenus au même temps d'irradiation ; l'article ne donne cette durée pour aucun des deux (seuls 38 % pour C-ZnO sont datés, « within 25 min »). Ajouter aux deux outcomes les conditions écrites (légende de la Fig. 8 : « catalyst used 2 g L−1, pH = 10 ») et déclarer la durée d'irradiation non citée ; nuancer la phrase de comparaison_branches (les 25 min se déduisent des constantes k, pas du texte)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "P-ZnO (voie de base) : étape 1 et réactifs zinc acetate / water",
+      "extracted": "étape 1 : description « the doped samples also contain the rare earth nitrate at this stage », citation qui contient « containing the metal nitrates (RE3+ = 1 at%) » ; quantités 5 g / 20 mL, 80 °C, NaOH, 500 °C attribuées au ZnO pur",
+      "article_says": "Pure ZnO was prepared under analogous conditions as mentioned above except the addition of dopants.",
+      "fix": "choix du ZnO pur comme base défendable (RUNBOOK : dopant absent du parent, parent_value none), mais toutes les valeurs de P-ZnO viennent du paragraphe écrit pour les dopés et ne valent pour le ZnO pur que par cette phrase. Le conserver dans doubts (déjà fait) et ne pas écrire dans la citation de l'étape 1 de la base un nitrate que le ZnO pur n'a pas ; ajouter à la branche un step_order de 1 à la variation « dopant » pour indiquer où le nitrate entre (dissous avec l'acétate dans les 20 mL d'eau avant l'agitation de 30 min)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "attribution",
+      "where": "La-ZnO / Sm-ZnO / Dy-ZnO / Nd-ZnO outcomes MB_reusability_five_cycles (et RhB trend, absorption_shift, PL, activity_order recopiés)",
+      "extracted": "même phrase de groupe recopiée sur les quatre branches dopées (7 outcomes identiques par branche), avec la mention « stated for ... together » pour la plupart",
+      "article_says": "No significant loss in the photocatalytic efficiency was observed in the case of RE-doped ZnO nanoparticles after five successive runs, as depicted in Fig. S9.",
+      "fix": "la mention de groupe est honnête, mais l'article ne dit pas quels échantillons dopés ont été recyclés ni avec quelle valeur ; ranger ces résultats de groupe une seule fois (annotation tendance_observee ou comparaison_branches) plutôt que sur chaque branche, ou ne les garder que sur Nd-ZnO. Les classements (activity_order, absorption_shift_order) n'ont pas besoin d'être répétés par branche",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "P-ZnO outcomes MB_photodegradation 52.4",
+      "extracted": "value_num 52.4 %, sans l'incertitude",
+      "article_says": "pure ZnO affords 52.4 ± 4% degradation",
+      "fix": "ajouter l'incertitude « ± 4 » (value_text ou champ dédié) ; elle est dans la citation",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "P-ZnO characterizations photoluminescence result",
+      "extracted": "« spectre de référence pour les échantillons dopés »",
+      "article_says": "the PL spectra of all RE-doped ZnO are comparatively lower than that of the pure ZnO nanoparticles",
+      "fix": "remplacer par un résultat de l'article : émission PL du ZnO pur plus intense que celle de tous les ZnO dopés ; « spectre de référence » est une lecture de l'extracteur, et la citation de cette ligne (conditions d'enregistrement) ne la soutient pas",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Nd-ZnO material.morphology",
+      "extracted": "rough-surfaced nearly spherical nanoparticles covered by a layer of neodymium particles",
+      "article_says": "Nearly spherical shape with irregular size of nanoparticles could be seen for pure ZnO as indicated in Fig. 3a and b.",
+      "fix": "« nearly spherical » est dit du ZnO pur ; pour Nd-ZnO l'article dit seulement que la surface devient rugueuse et que la structure reste la même. Retirer « nearly spherical » ou le formuler comme héritage du pur",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_analyse (P-ZnO)",
+      "extracted": "« comme le suggère la perte de masse jusqu'à 400 °C en ATG » pour la combustion des résidus d'acétate",
+      "article_says": "slight weight loss in both materials were observed up to 400 °C, which may be due to the loss of water molecule adsorbed on the surface of ZnO nanoparticles",
+      "fix": "l'ATG porte sur les poudres déjà calcinées et les auteurs l'attribuent à l'eau adsorbée, pas aux résidus d'acétate ; retirer ce renvoi à l'ATG de l'hypothèse de formation (ou écrire que les auteurs l'attribuent à l'eau adsorbée)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Reusability : protocole de régénération du catalyseur (absent de toutes les voies)",
+      "extracted": "seul le résultat « no significant loss » est gardé",
+      "article_says": "Before applying for next cycle, the catalysts were thoroughly washed with water followed by ethanol to remove the impurities and then dried at 100 °C for 4 h.",
+      "fix": "ajouter ce traitement de régénération (lavage eau puis éthanol, séchage 100 °C pendant 4 h, cinq cycles) en caractérisation/essai de Nd-ZnO ou en voie post_treatment ; il est écrit dans l'article et n'apparaît nulle part",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation securite_analyse",
+      "extracted": "dangers cités : NaOH, HNO3, nitrates de terres rares, nanopoudre, éthanol, lampe Hg, MB, RhB, BQ",
+      "article_says": "The effect of oxidants on the degradation of MB was studied at fixed concentration of (NH4)2S2O8, KBrO3 (2 mM) and H2O2 (10 mM), respectively.",
+      "fix": "ajouter les oxydants des essais : le bromate de potassium est cancérogène suspecté, le persulfate d'ammonium est sensibilisant et oxydant, H2O2 oxydant",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 5,
+    "branches_extracted": 5,
+    "not_stated_checked": 16,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "volume de NaOH 1 M ajouté, et température de la solution à ce moment (80 °C ou ambiante), non donnés",
+    "durée de l'hydrolyse à température ambiante jusqu'au gel non donnée",
+    "base du pourcentage atomique (La/Zn ou La/(La+Zn)), masses de nitrates de terres rares et leur état d'hydratation non donnés (1 at% seulement)",
+    "nombre de lavages, volumes de solvant, type de filtre non donnés",
+    "vitesse de montée, atmosphère et type de four pour la calcination à 500 °C non donnés ; durée du séchage seulement « overnight »",
+    "rendement non donné",
+    "durée d'irradiation associée aux 98 % (Nd-ZnO) et 52,4 % (ZnO pur) non donnée ; plage de temps de l'ajustement cinétique des constantes du tableau S1 non donnée",
+    "concentrations de colorant et temps de mesure du TOC réduits à « 50, 100 ppm » et « 64–68 ± 6% » sans valeur par concentration ; concentration de l'acide téréphtalique non donnée",
+    "masse de la poudre et conditions de dégazage avant la mesure BET non données",
+    "valeurs numériques des essais de pH, dose, concentration, oxydants, anions, recyclage et RhB seulement sur des figures de l'annexe (S2 à S9)"
+  ],
+  "mechanism_check": "à revoir : l'hypothèse de formation du ZnO pur s'appuie à tort sur l'ATG (calcinée, attribuée à l'eau adsorbée par les auteurs) ; mecanisme_auteurs est bien cité (grains de joints) et celui de Nd-ZnO est signalé comme photocatalytique, pas formation",
+  "notes": "Tableau S1 : le PDF aplati alterne nom et valeur ligne à ligne (C-ZnO 0.018, P-ZnO 0.032, La-ZnO 0.053, Dy-ZnO 0.075, Sm-ZnO 0.099, Nd-ZnO 0.158) ; l'attribution de l'extraction aux cinq échantillons est exacte et l'ordre des valeurs suit celui du texte (Nd > Sm > Dy > La > pur). Contrôle croisé personnel : 1 − exp(−k·25) donne 98 % pour Nd (k = 0.158) et 55 % pour le pur (k = 0.032), cohérent avec 98 % et 52,4 %, mais c'est un calcul, pas un texte de l'article. Les valeurs du tableau 1 (position du pic 101, cristallites, bande interdite) et du tableau 2 (BET) sont toutes attribuées au bon échantillon. Les citations de rangée du tableau S1 (« P-ZnO 0.032 ») recollent deux lignes consécutives du texte aplati : valables seulement si load.py normalise les blancs. Le ZnO commercial (C-ZnO, 0.018 min-1, 38 % en 25 min) n'est acheté, pas synthétisé : pas de voie, il n'apparaît que dans une annotation, ce qui est acceptable. Je n'ai pas pu lire l'annexe au format PDF d'origine (absent du corpus) pour vérifier l'ordre des colonnes de Table S1."
+}

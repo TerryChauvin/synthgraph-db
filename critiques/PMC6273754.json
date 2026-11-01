@@ -1,0 +1,111 @@
+{
+ "pmcid": "PMC6273754",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "CdS-120 step 4 temperature (voie de base) = 120 °C",
+   "extracted": "temperature = 120 °C, citation : « similar experiments were carried out using different solvothermal temperature: 120, 150 and 190 °C. »",
+   "article_says": "heated in an oven at the selected temperature for 12 h",
+   "fix": "La synthèse « typique » ne donne aucune température ; 120 °C n'est déduit que de « CdS-120 and CdS-2.0 are the same sample ». Soit déclarer `temperature` non citée sur l'étape 4 de la base et porter 120 °C comme variation (comme 150 et 190), soit garder 120 °C avec le doute déjà posé et une annotation limite_reproductibilite. La citation actuelle liste trois valeurs, elle ne désigne pas 120 pour la base.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CdS-1.3 et CdS-3.0 : héritage des étapes de CdS-120, dont 120 °C et les 12 h",
+   "extracted": "branches filles de CdS-120, seule variation = quantité d'eau ; aucune température propre",
+   "article_says": "The effect of the generation of sulfide ions by hydrolysis of thiourea on the structure, morphology and photoactivity of CdS photocatalysts was analogously investigated.",
+   "fix": "L'article ne dit ni la température ni la durée de la série en rapport eau/thiourée (seulement « analogously »). L'identité CdS-2.0 = CdS-120 rend 120 °C très probable mais ce n'est pas écrit : le signaler par une annotation limite_reproductibilite (déjà présent en doute) ou déclarer temperature et duration non citées sur ces deux branches.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS-1.3 / CdS-3.0 variation `water`",
+   "extracted": "value 1.3 (ou 3.0) « water/thiourea ratio », parent_value « 0.0208 mol »",
+   "article_says": "Finally, 0.0208 mol of water was added to perform total hydrolysis of the thiourea.",
+   "fix": "La variation compare un rapport à une quantité en mol (grandeurs non commensurables) : le parent_value devrait dire que la base est le rapport 2,0 (« CdS-120 and CdS-2.0 are the same sample »). En outre 0,0208 mol / (3 × 0,0104 mol de thiourée) = 0,67, pas 2,0 : l'incohérence de l'article est bien en doute, mais la fiche juxtapose deux valeurs incompatibles ; ajouter la précision dans l'annotation limite_reproductibilite pour les deux branches.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources, ref B41 (route CdS-120, role autre)",
+   "extracted": "B41 retenu comme source de méthode d'essai",
+   "article_says": "an aqueous solution (150 mL) containing 0.05 M Na2S and 0.02 M Na2SO3 as sacrificial electron-donor agents",
+   "fix": "Le renvoi [B41] (Tsuji et al., autre matériau) est placé après l'énumération des donneurs sacrificiels, sans « according to » ni « as described » : renvoi de contexte, pas de protocole à refaire (règle du 2026-10-13). Retirer l'entrée ; aucun autre renvoi de méthode dans les Méthodes (B40 = formule d'énergie, B42 = mécanisme).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CdS-120 caractérisation « photocatalytic H2 evolution » conditions",
+   "extracted": "room temperature, Ar 0.1 bar ; 0.05 g ; Na2S/Na2SO3 pH 12.5 ; prélèvements toutes les 1 h pendant 5 h",
+   "article_says": "Before measurement, the solution was purged several times with Ar to ensure complete air removal.",
+   "fix": "Ajouter le dégazage à l'argon (plusieurs purges) avant mesure aux conditions de l'essai.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "CdS-120 caractérisation XRD, conditions (crystallite_size_Dp de toutes les branches)",
+   "extracted": "« crystallite sizes by the Debye-Scherrer equation »",
+   "article_says": "has been calculated from the broadening of the (002) reflection of CdS phase (at 2θ angle of 26.5°)",
+   "fix": "Préciser dans les conditions XRD que Dp est calculé sur la réflexion (002) à 2θ = 26,5°.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "CdS-1.3 et CdS-3.0, résultats MEB (Fig. 4)",
+   "extracted": "seulement Table 3 (morphologie et taille 0,3–4,0 et 0,7–8,0 µm)",
+   "article_says": "The samples show incipient formation of nanorods on the surface of irregular nanosheet structures with a diameter of ca. 1.5–3 micrometers.",
+   "fix": "Ajouter une observation MEB (feuillets de ca. 1,5–3 µm portant des nanobâtonnets naissants) pour CdS-1.3 et CdS-3.0 (légende Fig. 4 : (a,b) CdS-1.3 ; (c,d) CdS-3.0) ou un doute sur l'écart avec la Table 3.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Fig. 9, aire f(R) (absorbance intégrée sous 500 nm) par échantillon",
+   "extracted": "non repris (doute explicite : grandeur sans unité)",
+   "article_says": "Comparison of hydrogen evolution from CdS samples with the integration of absorbance below 500 nm from UV-Vis data (Figure 9) indicated that absorbance capacity of samples is a key parameter in photoactivity",
+   "fix": "Mesure par échantillon utilisée dans la Discussion ; lecture sur Fig. 9 : CdS-120 ≈ 5800, CdS-150 ≈ 2500, CdS-190 ≈ 2400 ; CdS-1.3 ≈ 6450, CdS-2.0 (=120) ≈ 5800, CdS-3.0 ≈ 5500 (unités arbitraires). À ajouter en `from_figure` si l'orchestrateur veut les garder ; sinon laisser en note.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS-120 caractérisation photocatalyse, lampe : « UV + visible »",
+   "extracted": "lampe UV + visible (valeur juste)",
+   "article_says": "The reactor was irradiated with a Xe arc lamp (150 W, ozone free, LOT Oriel GmbH & CO KG, Darmstadt, Germany) which includes both UV and visible light.",
+   "fix": "Le titre et l'introduction annoncent « under visible light » alors que la Méthode n'indique aucun filtre coupe-bande : contradiction interne non signalée en doute. Ajouter un doute et, dans limite_reproductibilite, l'absence de filtre, de distance lampe-réacteur et d'intensité lumineuse.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (série eau/thiourée), dernière phrase",
+   "extracted": "« ce que les auteurs attribuent à une moindre coordination du soufre en surface »",
+   "article_says": "could be the origin of the low photoactivity of this sample",
+   "fix": "Les auteurs formulent une hypothèse (« could be », « may play a role », « will be the objective of a further research ») : écrire « ce que les auteurs avancent comme hypothèse ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation securite_analyse",
+   "extracted": "toxicité Cd, EDA, thiourée, H2S/NH3, surpression, Na2S, H2",
+   "article_says": "Subsequently, ethylenediamine (EDA) was added to 80% volume capacity of the autoclave to dissolve the precursors inside.",
+   "fix": "Non signalé : nitrate de cadmium comburant au contact d'une amine et de thiourée (réductrices) dans un autoclave fermé jusqu'à 190 °C, avec remplissage de 80 % (EDA d'ébullition 117 °C : pression autogène). À ajouter à la ligne sécurité.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 5,
+  "not_stated_checked": 22,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantité de thiourée non écrite (1:3 par rapport à 0,0104 mol de Cd = 0,0312 mol) et incohérente avec 0,0208 mol d'eau pour un rapport eau/thiourée de 2,0 (0,67)",
+  "quantités d'eau des échantillons CdS-1.3 et CdS-3.0 non données (seulement le rapport), température et durée de cette série non écrites",
+  "volume d'éthylènediamine (80 % de 125 mL, eau comprise ou non ?), ordre et temps de dissolution, agitation, vitesse de chauffe",
+  "vitesse et durée de centrifugation, nombre de lavages (eau : « several times », éthanol : non dit), rendement",
+  "pureté et fournisseur de tous les réactifs",
+  "essai photocatalytique : pas de filtre coupe-bande ni d'intensité ni de distance lampe-réacteur ; étalonnage de la GC et cocatalyseur (aucun cité) non précisés ; la vitesse en µmol/h n'est lue que sur figure (pas de tableau)",
+  "aucune annexe dans l'article"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs cite la phrase des étapes (1) à (4) ; mecanisme_analyse est étiqueté analyse sans citation. Réserve : l'équation (2) donne NH3 + H2S + CO2 et non S2− directement.",
+ "notes": "Tables 1 à 4 relues rangée par rangée (6 échantillons, 4 tableaux) : aucune valeur fausse, CdS-2.0 identique à CdS-120 dans chaque tableau. Figures 8 et 11 lues : écarts maximaux 0,05 µmol/h (1,4 extrait contre 1,45 lu sur Fig. 9a/11a/9b/11b, soit 3 %, pas de constat) ; Fig. 8 : 7,25 / 4,6 / 2,4 / 6,5 / 4,8 µmol conformes ; Fig. 11 par surface 0,38 / 0,37 / 0,37 / 0,33 / 0,26 conformes ; recoupement 1,45 µmol/h ÷ (0,05 g × 75,5 m2/g) = 0,384 µmol/(h m2). Fragile dans ma lecture : l'identité CdS-120 = CdS-2.0 fixe la base à 120 °C et à rapport 2,0, mais la phrase 'Cd:thiourea = 1:3' contredit le rapport eau/thiourée de 2,0 ; j'ai laissé l'extracteur à sa lecture littérale. Valeur des bords d'absorption (511 → 505 nm) non attribuable par échantillon (annotation de tendance suffisante)."
+}

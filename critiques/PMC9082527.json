@@ -1,0 +1,84 @@
+{
+  "pmcid": "PMC9082527",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "x = 0.1, Table 2, occupation du Fe octaédrique (rangée Fe, 2e ligne)",
+      "extracted": "non extrait (douté et écarté parce que « incohérent »)",
+      "article_says": "Fe | 0.5000 | 1.2999 (2) | 0.5000 | 1.2750 (2) | 0.5000 | 1.2500 (2) | 0.5000 | 1.2250 (2) | 0.5000 | 1.9895 (5)",
+      "fix": "extraire la valeur telle qu'écrite (1.9895, ±5 sur le dernier chiffre) pour x = 0.1 avec cette rangée en citation et un doute : la somme des occupations octaédriques de x = 0.1 vaut 0.7 + 0.0999 + 1.9895 = 2.79 au lieu de 2.00 (les quatre autres échantillons donnent 1.9999, 1.9999, 1.9998, 1.9999 ; avec 1.1995 on retrouverait 1.9994, mais cette lecture est une hypothèse et ne doit pas être extraite). Ajouter aussi une annotation limite_reproductibilite : la valeur du tableau est incohérente avec la stœchiométrie Fe1.9 et avec les quatre autres colonnes ; la règle est de recopier l'incohérence de l'article, pas de la taire.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Table 2, toutes les rangées sauf Gd, pour les 5 échantillons",
+      "extracted": "seule l'occupation de Gd est extraite (gd_occupancy_octahedral_site_rietveld, x = 0.025 à 0.1)",
+      "article_says": "Zn | 0.1250 | 0.3000 (1) | 0.1250 | 0.3000 (1) | 0.1250 | 0.3000 (1) | 0.1250 | 0.3000 (1) | 0.1250 | 0.3000 (1)",
+      "fix": "ajouter en outcomes de chaque voie les occupations Zn (0.3000 partout), Fe du site à coordonnée 0.1250 (0.6988, 0.6986, 0.6988, 0.6988, 0.6995), Co (0.7000 partout) et Fe du site à coordonnée 0.5000 (1.2999, 1.2750, 1.2500, 1.2250, 1.9895), chaque rangée entière en citation, rangée attribuée à l'échantillon par sa colonne (cinq paires « x = y = z | Occ (g) », dans l'ordre x = 0.0, 0.025, 0.05, 0.075, 0.1). Le tableau ne nomme pas le site (A ou B) : n'écrire A ou B que dans le nom de la propriété si la coordonnée 0.1250 / 0.5000 est citée (Zn et Fe à 0.1250, Co et Gd à 0.5000) ; sinon laisser l'attribution de site dans value_text. Gd = 0.0000 pour x = 0.0 est aussi absent.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Table 1 (Rwp, Rexp, χ2) et Table 4 (distances et angles), tous échantillons ; valeurs de u et de distances du texte",
+      "extracted": "Table 1 : seule la taille t_xrd est extraite ; Table 4 et la valeur de u absentes",
+      "article_says": "b (Å) | 3.0106 | 3.0138 | 3.0170 | 3.0202 | 3.0233",
+      "fix": "ajouter les facteurs d'affinement de Table 1 (rangée entière par échantillon : x = 0.0 : 8.38, 8.38, 1.00 ; 0.025 : 8.25, 8.72, 1.12 ; 0.05 : 8.69, 9.37, 1.16 ; 0.075 : 7.89, 8.03, 1.04 ; 0.1 : 7.49, 7.49, 1.00) et, au choix de l'orchestrateur (valeurs calculées par les auteurs, utiles surtout pour la comparaison de branches), les 13 lignes de Table 4 (b à f, p à s, θ1 à θ5) par échantillon. Texte : « the oxygen positional parameter u ... decreased value of the u parameter from 0.3882 Å (x = 0.0) to 0.3876 (x = 0.1) » (u donné en Å par l'article), distances B–B 2.9731 Å et A–A 3.6413 Å pour x = 0.1 (« a smaller distance between the B site ions (2.9731 Å, x = 0.1) than that for the A site ions (3.6413 Å, x = 0.1) »). Fig. 6 : a_th lu d'environ 8.515, 8.524, 8.533, 8.542, 8.551 Å et rB d'environ 0.696 à 0.710 Å pour x = 0 à 0.1 ; rA constant vers 0.718 Å. Ces séries comparent les échantillons et ne sont écrites que dans la figure et Table 4.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "Température de blocage des échantillons x = 0.025, 0.05, 0.075 ; Fig. 9 non lue",
+      "extracted": "blocking_temperature seulement pour x = 0.0 (280 K) et x = 0.1 (298 K) ; le doute dit que Fig. 9 n'a pas été lue",
+      "article_says": "It is observed that the blocking temperature of Co–Zn spinel ferrite is modified from 280 K (x = 0.0) to 298 K (x = 0.1) with the Gd3+ substitution.",
+      "fix": "la Fig. 9 porte les courbes ZFC/FC des cinq échantillons (légende « Variation of magnetization (M) with temperature (T) measured in field cooled (FC) and zero field cooled (ZFC) modes at 500 Oe »). Les maxima ZFC sont plats entre 270 et 310 K et se lisent à ±15 K près ; sur l'image, le maximum de x = 0.0 est vers 295–300 K, et non 280 K comme le texte : ajouter une note de lecture ou une annotation limite_reproductibilite plutôt que des valeurs chiffrées si la lecture est jugée trop imprécise (règle RUNBOOK : une figure qui porte des résultats et qu'on ne lit pas est citée en limite_reproductibilite).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "XRD, caractérisation : conditions de l'affinement de Rietveld (Supporting Information) et échantillons affinés",
+      "extracted": "result : « Rietveld refinement (FullProf) for x = 0.0, 0.05, 0.1 » ; conditions : rayonnement seul",
+      "article_says": "Program refinement of the first samples was started with the space group Fd3m",
+      "fix": "compléter conditions avec la description de l'annexe : groupe d'espace Fd3m, origine en 3̄m, O en 32e, site A en 8f, site B en 16c, ordre d'affinement (zéro 2θ et fond, puis maille, coordonnées et occupations), critères d'ajustement (χ2 proche de 1, Rexp et Rwp proches de 10 % ou moins). Les affinements portent sur les cinq compositions (Table 1 et Table 2 donnent cinq colonnes) ; seule la Fig. 2 en montre trois (« with x = 0.0, 0.05 and x = 0.1 are shown in Fig. 2 »). Le résultat « pour x = 0.0, 0.05, 0.1 » est donc trop étroit.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "x = 0.025 / 0.05 / 0.075 / 0.1, variation « iron nitrate nonahydrate » = Fe2−x, parent_value Fe2",
+      "extracted": "value_text « Fe2−x », parent_value « Fe2 », citation = phrase générale de la formule",
+      "article_says": "The Gd3+ substituted Co–Zn ferrite with the formula Co0.7Zn0.3GdxFe2−xO4 was prepared by a sol–gel auto combination method.",
+      "fix": "« Fe2 » n'est écrit nulle part comme valeur du parent, et « Fe2−x » est la formule générique identique pour les quatre branches : elle ne dit pas la quantité de nitrate de fer de la branche. Retirer cette variation (la quantité de Fe(NO3)3 reste non citée dans not_stated) ou la remplacer par la formule de la branche telle que le texte la permet. La variation « dopant » de ces branches cite une rangée de Table 1 (Rwp, Rexp, χ2, taille) : elle ne soutient que le nom de l'échantillon ; mieux vaut citer la formule générique ci-dessus.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "annotation pourquoi_ces_donnees : « Les conditions de procédé ... sont identiques pour tous les échantillons »",
+      "extracted": "identité des conditions affirmée sans réserve",
+      "article_says": "The Gd3+ substituted Co–Zn ferrite with the formula Co0.7Zn0.3GdxFe2−xO4 was prepared by a sol–gel auto combination method.",
+      "fix": "l'article ne décrit qu'un protocole pour la formule générique et ne dit jamais que les cinq échantillons ont suivi des conditions identiques ; reformuler en « supposées identiques (l'article ne décrit qu'un protocole pour la formule générique) », comme le fait déjà l'annotation limite_reproductibilite.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "sample_inventory : champs results_in et défini dans",
+      "extracted": "x = 0.0 sans Fig. 4 ; x = 0.1 sans Supplementary Fig. 1 ; Fig. 6 et Fig. 7 absentes de tous les échantillons",
+      "article_says": "Supplementary Fig. 1: TEM images of typical samples (x = 0.1) of Co0.7Zn0.3GdxFe2-xO4.",
+      "fix": "ajouter Fig. 4 (SEM de x = 0.0, 0.075, 0.1) à x = 0.0, Supplementary Fig. 1 (TEM de x = 0.1, annexe) à x = 0.1, Fig. 6 aux cinq échantillons, Fig. 7 à x = 0.0 et x = 0.1 (« Configurations of ion pairs ... for x = 0.0 and x = 0.1 »). Les échantillons eux-mêmes sont complets : cinq, aucun manquant.",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {"branches_in_article": 5, "branches_extracted": 5, "not_stated_checked": 24, "not_stated_wrong": 0},
+  "reproducibility_gaps": [
+    "aucune masse ni quantité de nitrate, d'acide citrique ou d'eau : seuls la formule visée et le rapport nitrates métalliques / acide citrique 1 : 3 (non précisé : rapport molaire ou massique, nitrates totaux ou chaque nitrate) permettent de les recalculer ; taille du lot non donnée",
+    "volume d'eau, concentration et volume de la solution d'ammoniaque, ordre d'ajout et vitesse d'ajout ; pH 7 mesuré comment et avant ou après dissolution complète",
+    "température de dissolution, vitesse d'agitation, matériel de chauffe (plaque, bain) et récipient pour l'étape à 100 °C ; « then stirred » : l'agitation commence-t-elle avant ou après l'arrivée à 100 °C",
+    "compartiment étanche de 24 h : volume, récipient, atmosphère (air ?) non précisés",
+    "durée de l'auto-combustion à 150 °C, appareil, récipient, évolution de gaz non décrite",
+    "recuit : atmosphère, vitesse de montée et de descente, four, nacelle non cités ; 650 °C pour 5 h (Experimental) contre « sintered at ... 600 °C » (discussion) : valeur réelle non tranchée par l'article",
+    "l'échantillon x = 0 n'a pas de protocole propre : on suppose, sans que l'article le dise, qu'il suit le même protocole sans nitrate de gadolinium",
+    "rendement non donné ; pureté et fournisseur de l'eau et de l'ammoniaque non cités",
+    "Table 2 : valeur 1.9895 d'occupation du Fe octaédrique de x = 0.1 incohérente avec la stœchiométrie ; Fig. 6 : a_th d'environ 8.52–8.55 Å contre a expérimental de 8.403–8.409 Å, alors que les auteurs écrivent « The theoretical and experimental lattice constants match well with each other » ; Table 1 : χ2 de 1.12, 1.16 et 1.04 alors que Rwp est inférieur ou égal à Rexp pour ces échantillons ou très proche (χ2 = (Rwp/Rexp)2 attendu inférieur à 1 pour x = 0.025 et 0.05)"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs (température de combustion qui loge Gd3+, 24 h de repos du gel) est appuyé par « the heat generated during the combustion process was mainly responsible for producing the single phase » et « delaying the combustion to allow sufficient time for the elements to react properly » ; mecanisme_analyse est rédigé comme hypothèse ; securite_analyse (NOx, combustion, nitrates oxydants, sels de cobalt, poudres nanométriques) suffisant. L'article ne contient aucune précaution, donc l'absence de securite_auteurs est correcte.",
+  "notes": "(a) x = 0 comme voie de base : l'héritage me paraît fondé. L'unique paragraphe Experimental décrit la préparation de « Co0.7Zn0.3GdxFe2−xO4 » avec nitrates de Co, Zn, Fe, Gd et acide citrique ; x = 0.0 est un membre de la même série (Table 1, Fig. 2, Fig. 8 à 10) et l'extraction omet bien le nitrate de gadolinium pour lui, ce qui est la lecture littérale de la formule avec x = 0. Le doute et l'annotation limite_reproductibilite le disent ; je n'ai pas fait de constat. (c) Attributions « de ... à ... » : 34 → 25 nm (txrd, Table 1), 8.403 → 8.409 Å, 40 → 27 nm (TEM, Fig. 5 = x = 0.0, Supplementary Fig. 1 = x = 0.1), 45.02 → 46.03 T (spectres pour x = 0.0, 0.05, 0.1), 280 → 298 K (x indiqués entre parenthèses) sont tous correctement placés aux extrémités x = 0.0 et x = 0.1 ; Ms 300 K et 10 K portent leur x dans la phrase. (d) Les 11 valeurs lues sur Fig. 8d (panneau d) concordent à moins de 10 % avec mon propre relevé : Ms 300 K environ 61, 66.5, 69 ; Ms 10 K environ 79.5, 84.5, 86 ; Hc 10 K environ 1100, 2900, 3300, 3400, 3500 Oe (le panneau (c), croisements de M = 0 vers −1100 Oe pour x = 0.0 et vers −3000 Oe pour x = 0.025, confirme les deux premières). Le point de Hc de x = 0 est la lecture la moins sûre à cause de l'axe droit décalé (750 à 3750 Oe), mais l'écart reste inférieur à 10 % sur panneau (c). Les valeurs Rwp, Rexp, χ2 de Table 1 sont correctement attribuées (non vérifié sur image : Table 1 existe dans le fichier texte et j'ai lu la rangée par x). Fig. 5 (TEM de x = 0.0) : particules visuellement plus larges que 40 nm vers 50–70 nm sur la barre de 100 nm ; je n'ai pas fait de constat car l'article ne dit pas comment la taille a été mesurée. Table 2 : lecture de Table 2 faite sur le fichier texte ; l'image c8ra04282a-t2.jpg est en réalité une équation (a_th), pas le tableau."
+}

@@ -1,0 +1,151 @@
+{
+ "pmcid": "PMC5369406",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "method_sources ZM-2to1 (renvoi cit1)",
+   "extracted": "aucune entrée pour cit1 (method_sources ne contient que cit36, cit3, cit41)",
+   "article_says": "For comparative purposes, copper–zinc hydroxycarbonates were also made as follows by the conventional co-precipitation procedure.",
+   "fix": "ajouter {route: ZM-2to1 (et ZM-1to1), ref_id: cit1, role: protocole_adapte, quote: cette phrase} : la voie classique nitrates/Na2CO3 est présentée comme la procédure conventionnelle de la référence cit1 (Behrens et Schlögl 2013)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "faux",
+   "where": "annotation tendance_observee (ZG-AC), 2e phrase : température de décomposition du carbonate de haute température",
+   "extracted": "« Pour les matériaux au (NH4)2CO3, la température de décomposition complète du carbonate de haute température est la même (440 °C), lavés ou non. »",
+   "article_says": "In comparison, the highest temperature for total HT-CO3 removal for the (NH4)2CO3 prepared materials was also 440 °C.",
+   "fix": "l'article ne dit pas « lavés ou non » ; il dit au contraire que le matériau (NH4)2CO3 non lavé n'a aucune étape de décomposition HT-CO3 (« there was no HT-CO3 decomposition step, with total decomposition apparent after 245 °C »). Réécrire : 440 °C pour les matériaux au (NH4)2CO3 lavés (Fig. 8A), pas d'étape HT-CO3 pour le non lavé ; et ajouter 440 °C comme résultat de ZG-AC (lavé), absent des résultats",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Calc_ZG-AC caractérisation TGA/EGA, résultat « ca. 12% residual mass after 300 °C » ; annotation tendance_observee (ZG-AC) « environ 12 % de masse résiduelle après 300 °C »",
+   "extracted": "masse résiduelle de ca. 12 % après 300 °C",
+   "article_says": "Total mass losses measured for zincian georgeite by TGA were between 29–32% with ca. 12% residual mass retained after 300 °C (Fig. 8A).",
+   "fix": "la Fig. 8A (ouverte) montre ≈ 80–82 % de masse restante à 300 °C pour les courbes lavées et ≈ 70 % à 600 °C : les « 12 % » sont la perte de masse entre 300 et 600 °C (HT-CO3), pas une masse résiduelle. Garder la citation mais ne pas écrire « masse résiduelle de 12 % » en annotation ; signaler l'ambiguïté dans un doute. De plus, la perte de 29–32 % n'est pas donnée par précipitant ni pour « les trois précipitants » (la Fig. 8A n'en montre que deux, (NH4)HCO3 est en Fig. S7)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "ZG-AC_nowash, ZG-ABC_nowash, ZG-SC_nowash (étapes 1 à 6 propres, copiées du parent)",
+   "extracted": "étapes de co-précipitation, vieillissement 15 min à 40 °C et filtration citées avec les phrases des échantillons lavés",
+   "article_says": "so MP-AES analysis was used to determine the effect of both the precipitant and the washing procedure directly after co-precipitation on the amount of residual Na+ (Table 3).",
+   "fix": "aucun protocole n'est décrit pour les non lavés (rangées « N/A » de Table 3, « no wash » de la Fig. 6, TGA « unwashed »). Le fait que seul le lavage change est une lecture raisonnable mais non écrite : elle est dans les doutes, pas dans les annotations. Ajouter à l'annotation limite_reproductibilite que tout le protocole des non lavés (précipitation, vieillissement, filtration, séchage) est supposé identique à celui des lavés ; le séchage est déjà déclaré non cité, ce qui est bien. Pour ZG-ABC_nowash et ZG-SC_nowash, les citations de variation sont la légende de la Fig. 6 (matériaux calcinés), non une phrase sur le précurseur",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Calc_ZG-ABC, Calc_ZG-SC, Calc_ZG-AC_nowash, Calc_ZG-ABC_nowash, Calc_ZG-SC_nowash, Calc_ZM-1to1 (héritage de l'étape 1 de Calc_ZG-AC : 300 °C, 1 °C min–1, 4 h, air)",
+   "extracted": "calcination de ces échantillons à 300 °C, 1 °C min–1, 4 h",
+   "article_says": "The microstructural characteristics of the zincian georgeite and zincian malachite/aurichalcite hydroxycarbonates used in the catalyst tests were then examined, as well as after calcination (300 °C, 1 °C min–1, 4 h)",
+   "fix": "ces conditions sont données pour les deux précurseurs testés en catalyse (georgeite (NH4)2CO3 lavée, malachite 2 : 1) ; l'article ne dit pas que les échantillons au bicarbonate, au Na2CO3, non lavés ou la malachite 1 : 1 (Tables 3 et 4, Fig. 6) ont subi la même calcination. Déclarer la température, la durée et la vitesse de chauffe « non citées » pour ces voies, ou ajouter un doute et une annotation limite_reproductibilite",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "ZG-AC yield = 92.5 % (et yield_Cu_column_Table1, yield_Zn_column_Table1 = 0 %)",
+   "extracted": "rendement de la voie ZG-AC = 92.5 %",
+   "article_says": "(NH4)2CO3 | 64 | 36 | 1.8 : 1 | 430.5 | 0 | 92.5 | 0",
+   "fix": "l'en-tête est « Yield (%) Cu | Zn » : 92.5 est une colonne Cu, non un rendement du solide ; la colonne Zn à 0 est incohérente avec une perte de Zn nulle ; la perte de Cu déduite (7,5 %) ne colle pas avec « ca. 10 at% of the initial Cu content was lost ». Le doute existe mais la valeur est quand même portée dans `yield` de la voie (alors que ZG-ABC, même tableau, n'a pas de yield de voie : incohérent). Garder les deux résultats par colonne, retirer `yield` de la voie et déclarer `yield` non cité",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZM-2to1 étape 7 (wash volume = 6 L) ; contradiction non consignée en doute",
+   "extracted": "volume de lavage 6 L à 65 °C (Méthodes)",
+   "article_says": "Na2CO3 | 1 L water (65 °C) | 0.07 a | 695 a",
+   "fix": "Table 3 donne « 1 L water (65 °C) » pour la malachite/aurichalcite, alors que les Méthodes donnent « ca. 6 L, 65 °C » ; la valeur des Méthodes est bien retenue mais le désaccord n'est pas dans `doubts`. L'ajouter (la quantité de sodium résiduel de 695 mg kg–1 dépend du lavage)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Calc_ZM-2to1 étape de calcination (héritée : 4 h) ; contradiction non consignée en doute",
+   "extracted": "calcination 4 h (texte principal)",
+   "article_says": "calcination at 300 °C for 2 h.",
+   "fix": "la légende de la Fig. S5 (annexe) dit que le précurseur de malachite est calciné « at 300 °C for 2 h », le texte principal « 300 °C, 1 °C min–1, 4 h » ; à ajouter aux doutes, valeur du texte principal gardée",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Calc_ZG-AC caractérisation CO2-TPD (conditions : exposition au CO2 à 50 ml min–1) ; contradiction non consignée en doute",
+   "extracted": "CO2 (50 ml min–1) pendant 30 min (texte principal)",
+   "article_says": "then exposed to an excess quantity of CO2 (80 ml/min) for 30 min",
+   "fix": "l'annexe donne 80 ml/min de CO2, le texte principal 50 ml min–1 (« before being exposed to CO2 (50 ml min–1) for 30 min ») ; consigner le désaccord en doute et le dire dans les conditions de la caractérisation",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Calc_ZG-AC étape 1 calcine, paramètre atmosphere = « air »",
+   "extracted": "air",
+   "article_says": "which had been calcined (300 °C, 1 °C/min, 4 h in static air)",
+   "fix": "l'annexe précise « static air » (sans flux) pour les catalyseurs testés ; un chimiste en a besoin pour refaire la calcination. Remplacer par « static air » avec cette citation (le doute actuel écarte la précision à tort : il ne s'agit pas d'une contradiction)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Calc_ZG-AC : activation du catalyseur (pastillage, tamisage, réduction in situ) rangée dans les « conditions » des caractérisations, sans étape",
+   "extracted": "réduction décrite seulement dans conditions des essais catalytiques, du Cu surface area et du CO2-TPD",
+   "article_says": "Catalysts were produced by in situ reduction by heating to 225 °C at 1 °C min–1 using a 2% H2/N2 gas mixture (60 ml min–1).",
+   "fix": "la réduction (2 % H2/N2, 60 ml min–1, 225 °C, 1 °C min–1 ; ou 10 % H2/Ar, 30 ml min–1, 140 °C puis 225 °C à 1 °C min–1, 20 min, pour les mesures de surface et de TPD) est une opération décrite qui produit le « final state catalyst » sur lequel sont mesurées les surfaces de Cu, le TPD et l'activité. Créer une voie post_treatment « réduction » (étapes pastillage/tamisage 0,6–1,0 mm puis réduction) avec ses paramètres et y ranger Cu surface area, TPD et les essais, ou au moins déclarer les étapes. Choix du découpage laissé à l'orchestrateur",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZG-SC et ZM-2to1 résultats EDX (teneurs atomiques)",
+   "extracted": "seul le rapport Cu : Zn 2 : 1 est extrait",
+   "article_says": "Na2CO3 | 67 | 33 | 2 : 1 | — | — | — | —",
+   "fix": "Table 1 donne 67 at% Cu et 33 at% Zn pour la georgeite au Na2CO3 et pour la malachite/aurichalcite 2 : 1 (deux rangées identiques, d'où la citation de phrase) : ajouter Cu_content_EDX = 67 et Zn_content_EDX = 33 sur ZG-SC et ZM-2to1, comme pour les autres branches",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZG-AC (résultats TGA/EGA/TPD) : décomposition HT-CO3, EGA, pics de CO2-TPD",
+   "extracted": "aucun résultat EGA ; aucun pic CO2-TPD commun ; 440 °C du (NH4)2CO3 lavé absent",
+   "article_says": "The majority of profiles display a low temperature peak centred at 96 °C, and a much broader doublet centred at 331 and 380 °C.",
+   "fix": "résultats chiffrés du texte non repris : EGA (« first weight loss ... between 100–200 °C ... CO2 (m/z = 44) and H2O (m/z = 18) » ; perte >350 °C = CO2 seul ; NOx m/z 30 et 46 avec (NH4)2CO3), pics de TPD à 96, 331 et 380 °C (la plupart des profils, à noter comme tendance de groupe), 440 °C pour les (NH4)2CO3 lavés. Attention : la légende de la Fig. S6 (annexe) dit que l'EGA a été faite sur le (NH4)2CO3 non lavé, alors que le texte principal parle d'une perte HT-CO3 > 350 °C absente du non lavé : contradiction à consigner en doute",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation limite_reproductibilite (annexe absente) : « le tableau S1 ... est aplati dans le fichier texte et n'est pas repris »",
+   "extracted": "Table S1 non reprise car illisible",
+   "article_says": "Slightly higher ppm levels were obtained for the zincian georgeite derived catalyst as it produced more CO2 from the LTS process, which subsequently pushes the equilibrium towards methanol formation.",
+   "fix": "le tableau S1 est lisible dans `corpus/text` (rangées « zincian georgeite derived | 67.5 | 461 | 0.0997 | 30.234 | 0.33 », « zincian malachite derived | 67.5 | 140 | ... », « LTS standard | 67.5 | 236 | ... », et à 91.5 h 480, 108, 227 ppm de méthanol). Seule la colonne « MeOH (ppm) » est sans ambiguïté ; l'ajouter en résultats de Calc_ZG-AC et Calc_ZM-2to1 (méthanol en LTS, ppm à 67,5 h et 91,5 h) et corriger l'annotation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "étalons commerciaux (route null) : résultats de Table 2 et de la Fig. 4 perdus",
+   "extracted": "aucune valeur des étalons commerciaux",
+   "article_says": "Commercial standard c | 3.64 | 6.01 | 7.58 | 12.51",
+   "fix": "choix assumé dans l'inventaire (échantillon acheté), mais la comparaison « presque aussi actif que l'étalon industriel » n'est plus vérifiable dans la base ; ajouter une annotation comparaison_branches ou tendance_observee citant la rangée de l'étalon (3.64 / 6.01 / 7.58 / 12.51) ; noter aussi la contradiction de composition (Table 2 note c 60 : 30 : 10 contre Fig. 4 50 : 33 : 17)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "SAS-ZG étape 5 dry, paramètre temperature",
+   "extracted": "system temperature maintained (set at 40 °C earlier)",
+   "article_says": "The system pressure and temperature were maintained",
+   "fix": "la valeur value_text contient « 40 °C » que la phrase n'écrit pas (déduit d'une autre phrase) ; mettre `temperature` en non cité pour cette étape, ou value_text = « maintained » seul. Lacunes SAS non déclarées : diamètre du capillaire et volume de l'enceinte absents",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 17,
+  "branches_extracted": 17,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "volumes ou quantités absolues de solutions de métaux et de carbonate (seules des concentrations) et masse de georgeite obtenue par co-précipitation",
+  "vitesse d'addition, régulation du pH (comment le pH est maintenu), vitesse d'agitation, température et durée du préchauffage",
+  "type de filtre, nombre de lavages ; séchage des échantillons non lavés ; protocole complet des échantillons non lavés (non décrit)",
+  "calcination des échantillons autres que (NH4)2CO3 lavé et malachite 2 : 1 ; quantité calcinée pour les caractérisations ; refroidissement",
+  "réduction et passivation du catalyseur, pastillage ; composition et origine des étalons commerciaux (renvoyés à cit3 et cit41)",
+  "SAS : diamètre du capillaire, volume de l'enceinte, température de séchage ; préparation du catalyseur à partir du précurseur SAS non répétée",
+  "figures de l'annexe (S1 à S8) non disponibles en image ; figures 1, 2, 3, 6, 7, 9 non quantifiées"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (complexe cuivre-amine, dissolution-recristallisation) est soutenu par le texte ; la phrase « lavés ou non » de tendance_observee est à corriger (voir constats)",
+ "notes": "Lecture vérifiée : Table 3 et Table 4 (cellules fusionnées) attribuées correctement par position ; contrôle croisé avec le texte (« 7 to 0.6% », « 16 to 56 m2 g–1 », « 3 to 21 m2 g–1 », « 6 to 16 m2 g–1 », 148 contre 695 mg kg–1) : aucune erreur de rangée trouvée, y compris pour les rangées « N/A » = non lavé. Valeurs lues sur figure : Fig. 8A (69, 68, 65, 70, 71 % à 600 °C) et Fig. 4 (94/92, 85/69 %) conformes à ±1 point. Non-constats : TGA à 1 et 5 °C min–1 traitée comme condition de mesure (les comparaisons lavé/non lavé de HT-CO3 se font à des vitesses différentes, 1 et 5 °C min–1 pour Na2CO3 : à garder en tête, l'article ne le commente pas) ; résultats catalytiques du catalyseur SAS rangés sur la voie du précurseur SAS-ZG (propriétés nommées catalyst_derived, acceptable). Écart non tranché : baisse de conversion LTS de 3,6 % (texte) contre 2,7 points lus sur la Fig. 4 ; l'extraction le consigne déjà en doute."
+}

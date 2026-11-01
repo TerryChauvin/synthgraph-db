@@ -1,0 +1,95 @@
+{
+ "pmcid": "PMC12505225",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "annotation tendance_observee (46,71 %) et doute associé ; routes SiO2-900 et ZnO-SiO2-900",
+   "extracted": "hausse de 46,71 % rattachée à aucune voie ; « la température de recuit des spectres comparés n'est pas précisée »",
+   "article_says": "Fig. 5 Increase in absorption intensity on incorporation of Zn into the SiO2 matrix.",
+   "fix": "La légende de la courbe de corpus/fig/PMC12505225/d5na00612k-f5.jpg indique « SiO2 at 900 °C » (minimum à 1075.54 cm-1) et « SiO2-ZnO at 900 °C » (minimum à 1098.21 cm-1) : les deux spectres sont à 900 °C. Rattacher la valeur (from_figure Fig. 5, quote = légende) à ZnO-SiO2-900 (comparée à SiO2-900) et corriger l'annotation et le doute qui disent le contraire.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "SiO2-900 : EDS (pic de carbone) ; SiO2-800 et SiO2-900 : caractérisation EDS",
+   "extracted": "pic de carbone rangé seulement sur SiO2-700 (≈ 0,2 keV, Fig. S1) et SiO2-800 ; rien sur SiO2-900 ; doute qui oppose 0,28 keV (Fig. 6b) et 0,2 keV (Fig. S1) comme s'il s'agissait du même échantillon",
+   "article_says": "We see a minor carbon peak at ∼0.28 keV in the EDS spectrum.",
+   "fix": "La Fig. 6b est l'EDS de SiO2 recuit à 900 °C (légende « Fig. 6 (a) SEM image of SiO2 annealed 900 °C (b) EDS mapping of SiO2 annealed at 900 °C »). Ajouter à SiO2-900 un résultat eds_minor_carbon_peak_energy = 0.28 keV (citation ci-dessus) et une caractérisation EDS ; corriger le doute (0,28 keV pour 900 °C, 0,2 keV pour 700 °C : pas de contradiction sur le même échantillon). Ajouter aussi la caractérisation EDS de SiO2-800 (Fig. S2).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources, voie SiO2-700 (et ZnO-SiO2-700 pour le recuit « layered »)",
+   "extracted": "seules cit30, cit31 et cit39 sont listées ; cit33 et cit34 absentes",
+   "article_says": "a sequence that was designed to minimize structural collapse as depicted from ref.",
+   "fix": "Le renvoi [[cit33]] et [[cit34]] (Livage & Sanchez 1988 ; Hench & West 1990) est placé sur le régime thermique par étapes (gélification 75 °C, séchage 120 °C, recuit 700–900 °C) : ajouter deux entrées method_sources (role protocole_adapte ou autre) pour SiO2-700. cit33 est aussi cité pour « A layered annealing protocol, spanning 700–900 °C » (composite) et pour la gélification à 75 °C.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources ZnO-450, ref cit39 (role « autre »)",
+   "extracted": "entrée Hasnidawani et al. conservée comme source de méthode",
+   "article_says": "This approach aligns with Hasnidawani et al., who demonstrated that ethanol enables the controlled nucleation of rod-like ZnO structures.",
+   "fix": "La phrase invoque la référence pour justifier le choix de l'éthanol (contexte d'interprétation), pas pour une étape à refaire ; envisager de la retirer (règle du 2026-10-13 : un renvoi de contexte n'est pas une source de méthode) ou de la garder en « autre » en le disant.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "characterizations SEM (toutes les voies) : mode d'acquisition",
+   "extracted": "secondary electron mode, 5, 10 et 20 kV, spots 2.5 et 3.5, recopiés pour toutes les voies",
+   "article_says": "SEM images were acquired in secondary electron mode at accelerating voltages of 5 kV, 10 kV, and 20 kV, with spot sizes of 2.5 and 3.5 adjusted according to sample requirements.",
+   "fix": "Les bandeaux des images montrent des conditions propres à chaque figure : Fig. 6a (SiO2 900 °C) 10 kV, spot 3.5, détecteur BSED ; Fig. 7a (ZnO) 5 kV, spot 3.5, CBS, ×50 000 ; Fig. 8a-b (composite 700 et 800 °C) 5 kV, spot 2.5, ETD, ×400 ; Fig. 8c (900 °C) 10 kV, spot 2.5, ETD. Le détecteur BSED/CBS contredit « secondary electron mode » pour SiO2 et ZnO. Ajouter ces conditions par échantillon (from_figure) et un doute sur le mode.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO-SiO2-900 caractérisation EDS « pas de carbone résiduel »",
+   "extracted": "seuls pics Si, Zn, O ; pas de carbone résiduel",
+   "article_says": "A homogeneous ZnO–SiO2 matrix with no discernible residual carbon or other impurities is qualitatively consistent with the relative intensities of the O, Zn, and Si signals.",
+   "fix": "Sur corpus/fig/PMC12505225/d5na00612k-f8.jpg (Fig. 8d) un petit pic apparaît vers 0,28 keV à gauche du pic O, comme sur l'EDS de SiO2 (Fig. 6b). La citation des auteurs est bien recopiée, mais ajouter une annotation limite_reproductibilite : l'absence de carbone résiduel affirmée par les auteurs n'est pas nette sur la figure.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO-SiO2-700, 800, 900 : bande FTIR à 579 cm-1 et ZnO-450 : liste des pics DRX",
+   "extracted": "rangés dans characterizations (texte libre) seulement, sans entrée outcomes",
+   "article_says": "At the wavenumber 579 cm−1, a smaller absorption peak emerges and becomes increasingly defined with rising annealing temperature.",
+   "fix": "Ajouter des résultats ftir_si_o_zn_band = 579 cm-1 pour les trois voies du composite (confirmé sur Fig. 4c, trait à 579 cm-1) et, si utile, xrd_zno_peaks_2theta de ZnO-450 (32.2, 34.85, 36.7… °) pour permettre la comparaison avec 31.7, 34.4, 36.2 ° du composite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "material.phase / morphology des voies ZnO-SiO2-700 et ZnO-SiO2-800",
+   "extracted": "predominantly amorphous silica matrix with nanocrystalline wurtzite ZnO at 900 °C / angular blocky shards (700 °C), coalesced particles (900 °C)",
+   "article_says": "Upon annealing at 700 °C (black curve), there is a subtle sharpening of the background, yet no distinct peaks emerge, suggesting that the material remains largely amorphous at this temperature.",
+   "fix": "Le champ matériau de chaque branche reprend la description des trois températures ; pour 700 et 800 °C il affirme du ZnO nanocristallin qui n'est visible qu'à 900 °C. Mettre la phase et la morphologie propres à chaque température.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "SiO2-700 résultat eds_minor_carbon_peak_energy et caractérisation EDS : citation tronquée",
+   "extracted": "« Along with this, we see that a minor peak at around 0.2 keV which »",
+   "article_says": "Along with this, we see that a minor peak at around 0.2 keV which\ncorresponds to carbon.",
+   "fix": "La citation s'arrête au milieu de la phrase (coupure de ligne de l'annexe) : prendre « A smooth topology is observed in the sample, along with sharp edges. EDS spectrum shows the characteristic peaks of O and Si. » ou la phrase complète sans la coupure, pour que la citation dise « carbon ».",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 7,
+  "branches_extracted": 7,
+  "as_synthesized_states_without_data": 3,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantités absolues de TEOS, éthanol, eau et acide acétique pour SiO2 (rapports molaires seulement) ; durées de gélification et de séchage ; température de vieillissement",
+  "composite : masses de TEOS et d'acétate de zinc, volume d'eau et de HCl 0,03 M, solvant éventuel ; gélification et séchage non décrits ; base du « 10 % en masse » (ZnO final ou précurseurs) non dite",
+  "ZnO : volume de NaOH 1 M, durée et température de l'addition, séparation, lavage et séchage du précipité avant recuit",
+  "tous les recuits (SiO2, ZnO, composite) : durée, atmosphère, vitesse de chauffe et de refroidissement ; un échantillon par température ou recuit successif (« layered annealing protocol »)",
+  "états « as-synthesized » annoncés pour la DRX des trois matériaux mais jamais montrés ni décrits",
+  "pureté et fournisseur d'aucun réactif ; annexe limitée aux Fig. S1-S3 (MEB et EDS), pas de tableau de valeurs DRX ni FTIR"
+ ],
+ "mechanism_check": "ok : les annotations mecanisme_auteurs reprennent les phrases de l'article (éthanol, acide acétique, vieillissement, HCl contre Zn(OH)2) ; les mecanisme_analyse sont formulés comme hypothèses.",
+ "notes": "Valeurs numériques du texte (300 et 500 rpm, 3 h, 30 min, 18 h, 24 h, 25/75/120/450/700/800/900 °C, 0,03 M, 1 M, 10 g/100 mL, 18,4 nm, 31,7/34,4/36,2°, 579 cm-1) toutes contrôlées : aucune valeur fausse. Fig. 1, 2, 3, 4 et 5 ouvertes : pics DRX lus (SiO2 900 °C ≈ 27°, ZnO 450 °C conforme aux indices cités, composite 900 °C ≈ 31.8/34.3/36.5° et tridymite ≈ 21°) en accord avec le texte à moins de 10 % ; aucune valeur from_figure dans l'extraction. Le trait « 36.2° » de la Fig. 3 est tracé vers 36.5°, écart sans conséquence. Fig. 4b (ZnO) porte des bandes O–H, C=O et C–O non citées dans le texte (acétate résiduel possible), laissé de côté faute de passage. La Fig. 3 à 800 °C montre un très petit pic vers 36.4° que le texte appelle « incipient minor peaks » : l'extraction le rend fidèlement. Les échantillons « as-synthesized » (route null) sont bien justifiés dans sample_inventory. La longueur d'onde « 1.54 nm » est une erreur des auteurs correctement signalée en doute. Les particules des Fig. 6 et 8 font plusieurs dizaines de µm (barre 100 µm) alors que l'article parle de nanocomposite : constat d'interprétation, hors fidélité."
+}

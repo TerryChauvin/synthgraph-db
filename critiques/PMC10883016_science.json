@@ -1,0 +1,525 @@
+{
+ "pmcid": "PMC10883016",
+ "routes": [
+  {
+   "label": "Bio-Hap",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration molaire NaOH 5 % w/v",
+     "inputs": "50 g/L ; M(NaOH) = 40,00 g/mol",
+     "formula": "c = 50/40,00",
+     "result": "1,25 mol/L",
+     "compared_to": "traitement alcalin usuel des écailles : NaOH 5 % w/v (≈ 1,25 M) à 60–70 °C",
+     "source": "masse molaire : PubChem (NaOH)"
+    },
+    {
+     "what": "acide disponible HCl 0,1 M contre minéral",
+     "inputs": "HAp Ca10(PO4)6(OH)2, M = 1004,6 g/mol ; dissolution en H2PO4– : 14 H+ par formule",
+     "formula": "n(H+) pour 1 g de HAp = 14 / 1004,6",
+     "result": "13,9 mmol H+ par g de HAp, soit 139 mL de HCl 0,1 M par g de HAp",
+     "compared_to": "volumes et masse d'écailles non donnés : la fraction de minéral dissoute en 1 h est inconnue",
+     "source": "masse molaire calculée (Ca 40,08 ; P 30,97 ; O 16,00 ; H 1,008)"
+    },
+    {
+     "what": "positions DRX attendues de l'hydroxyapatite (Cu Kα)",
+     "inputs": "λ = 1,5406 Å (Cu Kα, déclarée) ; maille hexagonale a = 9,418 Å, c = 6,884 Å",
+     "formula": "1/d² = 4/3·(h²+hk+k²)/a² + l²/c² ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(111) 22,86° ; (002) 25,86° ; (210) 28,94° ; (211) 31,78° ; (112) 32,19° ; (300) 32,92° ; (202) 34,06° ; (310) 39,82° ; (222) 46,70° ; (213) 49,48° ; (004) 53,18°",
+     "compared_to": "pics déclarés 22,84 ; 25,76 ; 29,12 ; 32,22 ; 33,98 ; 39,86 ; 46,72 ; 49,44 ; 53,24° : écarts ≤ 0,18°",
+     "source": "paramètres de maille : valeurs usuelles de la fiche JCPDS 09-0432 (a = 9,41–9,43 Å, c = 6,88–6,89 Å selon les sources, cf. arXiv physics/0402002)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le minéral des écailles (hydroxyapatite carbonatée + collagène I) apporte Ca et P ; aucun réactif ne doit les fournir. Les pics DRX déclarés tombent à ≤ 0,2° des positions calculées pour l'hydroxyapatite (calcul « positions DRX attendues ») ; la raie (211) à 31,8°, la plus intense de l'HAp, n'est pas citée pour Bio-Hap (elle l'est pour les billes) : probablement fondue avec (112) dans un pic large d'apatite biologique non calcinée.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Structural, Vibrational and Mechanical Studies of Hydroxyapatite produced by wet-chemical methods",
+      "authors_or_publisher": "arXiv physics/0402002",
+      "year": "2004",
+      "url_or_doi": "https://arxiv.org/pdf/physics/0402002"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Pas de changement d'état d'oxydation (Ca2+, PO4 3–) : séchage à l'air à 100 °C compatible.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "HCl 0,1 M pendant 1 h est présenté comme éliminant « les substances organiques » : un acide dilué dissout d'abord le minéral (déminéralisation, comme dans l'extraction du collagène des écailles), pas les protéines ; c'est NaOH chaud qui hydrolyse le collagène. Chaque gramme d'HAp consomme jusqu'à 13,9 mmol de H+ (calcul « acide disponible ») : selon le volume (non donné), une part du minéral peut être perdue à cette étape. Le mot « précipité blanc » est aussi impropre : le solide est le résidu minéral des écailles, rien ne précipite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M. et al. (Acta Biomater.)",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "NaOH 1,25 M à 60 °C pendant 12 h, puis séchage à 100 °C sans calcination : conditions douces, sous le point d'ébullition de la solution (≈ 100 °C). Le protocole classique d'« alkaline heat treatment » des écailles utilise NaOH 5 % w/v à 60–70 °C ; le produit non calciné garde du carbonate (bandes 1462 et 1423 cm–1 observées) et éventuellement des résidus organiques.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydroxyapatite extracted from fish scale: Effects on MG63 osteoblast-like cells",
+      "authors_or_publisher": "Huang Y.-C., Hsiao P.-C., Chai H.-J. (Ceram. Int. 37, 1825–1831)",
+      "year": "2011",
+      "url_or_doi": "10.1016/j.ceramint.2011.01.018"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : la bande à 875 cm–1 est attribuée à P–O(H) de HPO4 2– ; dans une apatite biologique qui montre aussi les bandes ν3 du carbonate à 1462/1423 cm–1, 875 cm–1 est d'abord la bande ν2 du carbonate de type B. Les bandes 605 et 567 cm–1 sont toutes deux ν4 PO4 (pas P–O(H) puis PO4). Les bandes OH propres à l'HAp (≈ 3570 et 630 cm–1) ne sont pas citées : la phase est une apatite carbonatée, la formule stœchiométrique Ca10(PO4)6(OH)2 n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Risques modérés : HCl dilué, NaOH 1,25 M à 60 °C (corrosif), déchets biologiques odorants.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Les écailles sont un composite collagène I / apatite carbonatée. HCl dilué attaque d'abord le minéral (et les carbonates de surface), pas la matière organique ; NaOH 1,25 M à 60 °C hydrolyse et solubilise le collagène, laissant les cristallites d'apatite biologique (carbonatée de type B, Ca/P > 1,67) comme résidu solide, qui n'est ni dissous ni reprécipité. Sans calcination, la cristallinité reste faible et des résidus organiques peuvent subsister.",
+    "sources": [
+     {
+      "title": "Hydroxyapatite extracted from fish scale: Effects on MG63 osteoblast-like cells",
+      "authors_or_publisher": "Huang Y.-C., Hsiao P.-C., Chai H.-J. (Ceram. Int. 37, 1825–1831)",
+      "year": "2011",
+      "url_or_doi": "10.1016/j.ceramint.2011.01.018"
+     },
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M. et al. (Acta Biomater.)",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse d'écailles et volumes de HCl et de NaOH (la perte de minéral à l'étape HCl en dépend)",
+    "rendement et teneur en matière organique résiduelle (ATG ou perte au feu)",
+    "rapport Ca/P et teneur en carbonate du produit (bandes OH de l'HAp à 3570 et 630 cm–1)"
+   ]
+  },
+  {
+   "label": "Chitosan",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de HCl « 7 % v/v »",
+     "inputs": "HCl 37 % : densité 1,18, M = 36,46 g/mol → 11,97 mol/L ; 7 mL de solution mère pour 100 mL",
+     "formula": "c = 0,07 × 11,97",
+     "result": "0,84 mol/L (1,9 mol/L si 7 % était w/v)",
+     "compared_to": "déminéralisation usuelle : HCl 0,25–2 M, température ambiante",
+     "source": "densité et teneur : fiche fournisseur HCl 37 % ; Younes & Rinaudo 2015 pour la plage"
+    },
+    {
+     "what": "concentration NaOH 10 % (déprotéinisation)",
+     "inputs": "100 g/L ; 40,00 g/mol",
+     "formula": "c = 100/40,00",
+     "result": "2,5 mol/L",
+     "compared_to": "déprotéinisation usuelle : NaOH ≈ 1 M, souvent à 65–100 °C",
+     "source": "Younes & Rinaudo 2015"
+    },
+    {
+     "what": "concentration NaOH 50 % w/v (désacétylation)",
+     "inputs": "500 g/L ; 40,00 g/mol",
+     "formula": "c = 500/40,00",
+     "result": "12,5 mol/L (≈ 36–38 % en masse vu une densité ≈ 1,4)",
+     "compared_to": "désacétylation hétérogène usuelle : NaOH 40–50 %, 100–120 °C, 1–4 h",
+     "source": "Younes & Rinaudo 2015"
+    },
+    {
+     "what": "raie DRX à 29,42° contre calcite",
+     "inputs": "λ = 1,5406 Å ; calcite d(104) = 3,035 Å",
+     "formula": "d = λ/(2 sin θ) ; 2θ(calcite 104) = 2 arcsin(1,5406/(2×3,035))",
+     "result": "2θ = 29,42° ↔ d = 3,034 Å ; raie (104) de la calcite attendue à 29,41°",
+     "compared_to": "chitosane : raies attendues vers 10–11° et 19–20° seulement",
+     "source": "d(104) de la calcite : valeur de manuel (fiche calcite) ; arithmétique"
+    },
+    {
+     "what": "distances DRX des deux autres raies",
+     "inputs": "13,02° et 20,11° ; λ = 1,5406 Å",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "6,79 Å et 4,41 Å",
+     "compared_to": "chitosane hydraté : raies vers 10° (≈ 8,8 Å) et 20° (≈ 4,4 Å)",
+     "source": "arithmétique ; plage de référence : PMC5450547"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La troisième raie DRX « du chitosane » à 29,42° (d = 3,034 Å) coïncide avec la raie la plus intense de la calcite (104), calculée à 29,41° (calcul « raie DRX à 29,42° contre calcite ») ; le chitosane n'a pas de raie notable à cette position. Lecture la plus simple : déminéralisation incomplète (CaCO3 résiduel), d'autant que la température de l'étape HCl et le rapport solide/liquide ne sont pas donnés. La « structure semicristalline » repose en partie sur une impureté minérale. Aucun taux de cendres n'est mesuré.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation and Characterization of Chitosan Obtained from Shells of Shrimp (Litopenaeus vannamei Boone)",
+      "authors_or_publisher": "Marine Drugs (PMC5450547)",
+      "year": "2017",
+      "url_or_doi": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5450547/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le taux de désacétylation n'est ni mesuré ni estimé (FTIR A1655/A3450, titrage, RMN) : rien ne distingue la chitine partiellement désacétylée du chitosane. Seule preuve indirecte : la dissolution de 1 g dans l'acide acétique à 2 % (exige un DD supérieur à ≈ 50 %). Les attributions FTIR sont par ailleurs fausses dans les mots : la bande à 1660 cm–1 (amide I) est l'élongation C=O, non une « flexion C–H », et 1595 cm–1 est la flexion NH2 de l'amine libre, pas l'amide II (≈ 1555 cm–1).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chitin and Chitosan Preparation from Marine Sources. Structure, Properties and Applications",
+      "authors_or_publisher": "Younes I., Rinaudo M. (Mar. Drugs 13, 1133–1174)",
+      "year": "2015",
+      "url_or_doi": "10.3390/md13031133"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Désacétylation : NaOH 12,5 M à 110 °C pendant 4 h. Une solution de NaOH à ≈ 37 % en masse bout vers 125–130 °C : 110 °C est sous l'ébullition, mais l'évaporation en récipient ouvert sur 4 h concentre la soude ; aucun reflux ni atmosphère inerte n'est indiqué (la désacétylation à l'air dépolymérise aussi la chaîne). Conditions dans la plage usuelle (40–50 %, 100–120 °C).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chitin and Chitosan Preparation from Marine Sources. Structure, Properties and Applications",
+      "authors_or_publisher": "Younes I., Rinaudo M. (Mar. Drugs 13, 1133–1174)",
+      "year": "2015",
+      "url_or_doi": "10.3390/md13031133"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Déminéralisation 24 h et déprotéinisation 24 h sans température : la déprotéinisation par NaOH à température ambiante est lente et souvent incomplète ; la plupart des protocoles chauffent (65–100 °C).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chitin and Chitosan Preparation from Marine Sources. Structure, Properties and Applications",
+      "authors_or_publisher": "Younes I., Rinaudo M. (Mar. Drugs 13, 1133–1174)",
+      "year": "2015",
+      "url_or_doi": "10.3390/md13031133"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Granulométrie « less than 80 mm » : 80 mm n'est pas une poudre ; l'unité est vraisemblablement µm ou le tamis est mal décrit. La surface spécifique, donc l'efficacité de la déminéralisation, en dépend.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NaOH 50 % w/v à 110 °C : très corrosif, projections et brûlures graves ; dissolution de la soude très exothermique. Déminéralisation : dégagement de CO2 (moussage) par CaCO3 + 2 HCl. Éthanol 95 % inflammable. Rien de cela n'est écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Déminéralisation : CaCO3 + 2 HCl → CaCl2 + CO2 + H2O ; déprotéinisation par hydrolyse alcaline des protéines liées ; désacétylation hétérogène de la chitine par NaOH concentré chaud (attaque nucléophile de OH– sur l'acétamide → amine libre + acétate), accompagnée d'une dépolymérisation partielle. Le produit est un chitosane de DD inconnu, avec probablement de la calcite résiduelle.",
+    "sources": [
+     {
+      "title": "Chitin and Chitosan Preparation from Marine Sources. Structure, Properties and Applications",
+      "authors_or_publisher": "Younes I., Rinaudo M. (Mar. Drugs 13, 1133–1174)",
+      "year": "2015",
+      "url_or_doi": "10.3390/md13031133"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "taux de cendres et absence de la raie de la calcite à 29,4° après déminéralisation",
+    "taux de désacétylation et masse molaire du chitosane obtenu",
+    "rapport solide/liquide, températures des étapes HCl et NaOH 10 %, granulométrie réelle (µm ?)"
+   ]
+  },
+  {
+   "label": "BioHapCs_beads",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport massique et molaire Bio-Hap / chitosane",
+     "inputs": "1 g chitosane (unité C6H11NO4, 161,16 g/mol) ; 1 g Bio-Hap (1004,6 g/mol)",
+     "formula": "n = m/M",
+     "result": "6,21 mmol d'unités glucosamine ; 0,995 mmol de formule HAp ; 50 % en masse d'HAp",
+     "compared_to": "—",
+     "source": "masses molaires calculées"
+    },
+    {
+     "what": "acide acétique à 2 % v/v",
+     "inputs": "acide acétique glacial : 1,049 g/mL, 60,05 g/mol",
+     "formula": "c = 0,02 × 1049 / 60,05",
+     "result": "0,35 mol/L ; 17,5 mmol pour 50 mL (volume hypothétique, non donné)",
+     "compared_to": "amines du chitosane (DD 80 % supposé) : ≈ 4,7 mmol à protoner",
+     "source": "arithmétique ; volume supposé"
+    },
+    {
+     "what": "acide nécessaire pour dissoudre l'HAp ajoutée",
+     "inputs": "Ca10(PO4)6(OH)2 + 14 H+ → 10 Ca2+ + 6 H2PO4– + 2 H2O ; 0,995 mmol",
+     "formula": "n(H+) = 14 × 0,995",
+     "result": "13,9 mmol H+",
+     "compared_to": "excès d'acide acétique après protonation des amines ≈ 12,8 mmol pour 50 mL : du même ordre que la demande de l'HAp",
+     "source": "stœchiométrie ; volume supposé"
+    },
+    {
+     "what": "composition EDS attendue pour 50 % en masse d'HAp",
+     "inputs": "C6 N1 O4 par unité de chitosane ; Ca10 P6 O26 par formule HAp ; H non compté",
+     "formula": "pourcentages atomiques sur C, N, O, Ca, P",
+     "result": "C 33,8 ; N 5,6 ; O 46,1 ; Ca 9,0 ; P 5,4 % ; Ca/P = 1,67",
+     "compared_to": "mesuré : C 41,74 ; N 1,27 ; O 51,06 ; Ca 3,80 ; P 2,13 % ; Ca/P = 1,78 ; Ca mesuré = 0,42 × attendu",
+     "source": "arithmétique"
+    },
+    {
+     "what": "NaOH 2 % w/v (bain de gélification)",
+     "inputs": "20 g/L ; 40,00 g/mol",
+     "formula": "c = 20/40,00",
+     "result": "0,50 mol/L",
+     "compared_to": "neutralise l'acide acétique apporté par la goutte",
+     "source": "arithmétique"
+    },
+    {
+     "what": "ΔG recalculé à partir de ΔH et ΔS du tableau 3",
+     "inputs": "ΔH = −61,572 kJ/mol ; ΔS = −162,435 J/(mol·K)",
+     "formula": "ΔG = ΔH − TΔS",
+     "result": "298 K : −13,166 ; 308 K : −11,542 ; 318 K : −9,918 kJ/mol",
+     "compared_to": "déclarés −13,017 ; −11,862 ; −9,748 (écarts 0,15–0,32 kJ/mol, compatibles avec une droite de régression) ; avec ΔS en kJ (texte) : ΔG(298) = +48 344 kJ/mol, absurde",
+     "source": "arithmétique"
+    },
+    {
+     "what": "demi-temps PSO en batch",
+     "inputs": "k2 = 8,991 (unité écrite kg g–1 min–1, lue g mg–1 min–1) ; Qe = 23,003 mg/g",
+     "formula": "t½ = 1/(k2·Qe)",
+     "result": "0,0048 min (0,3 s)",
+     "compared_to": "PFO même jeu : k1 = 0,019 min–1 → t½ = 36 min ; équilibre déclaré à 180 min ; colonne : k2 = 0,003 → t½ = 49 min",
+     "source": "arithmétique"
+    },
+    {
+     "what": "plafond de capacité en batch à 20 mg/L",
+     "inputs": "20 mg de billes dans 20 mL ; C0 = 20 mg/L",
+     "formula": "Qe,max possible = C0·V/m",
+     "result": "20,0 mg/g ; 19,944 mg/g = 99,7 % d'élimination ; 18,46 mg/g = 92,3 %",
+     "compared_to": "« capacité maximale » 19,944 mg/g du résumé et du tableau 6",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Qe pendant l'effet de dose (si C0 = 20 mg/L)",
+     "inputs": "68 % à 0,25 g/L ; 99,71 % à 3 g/L",
+     "formula": "Qe = C0·R/dose",
+     "result": "54,4 mg/g à 0,25 g/L ; 6,6 mg/g à 3 g/L",
+     "compared_to": "texte : « la capacité d'adsorption augmente » avec la dose ; « maximum » déclaré 19,944 mg/g",
+     "source": "arithmétique ; C0 de la série non écrit, 20 mg/L supposé (seule concentration batch donnée)"
+    },
+    {
+     "what": "isothermes batch au haut de la gamme",
+     "inputs": "Langmuir Qmax 63,572, KL 0,041 ; Freundlich KF 11,385, n 3,133 ; C0 jusqu'à 220 mg/L",
+     "formula": "Q = Qmax·KL·Ce/(1+KL·Ce) ; Q = KF·Ce^(1/n)",
+     "result": "à Ce = 200 mg/L : Langmuir 56,7 mg/g ; Freundlich 61,8 mg/g",
+     "compared_to": "QExp = 19,944 mg/g (tableau 5)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rapport V/m implicite en colonne",
+     "inputs": "5 mg/L, 98,66 %, 1,31 mg/g ; 80 mg/L, 44,85 %, 9,49 mg/g",
+     "formula": "V/m = Qe/(C0·R)",
+     "result": "0,266 L/g et 0,264 L/g (cohérents) ; à 20 mg/L, Qe 5,098 mg/g ↔ 96,2 % d'élimination",
+     "compared_to": "96 % lu sur la figure 5b à 3 mL/min : cohérent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "volume de lit et temps de contact en fût vide",
+     "inputs": "colonne Ø 1,5 cm ; lit 1, 3, 5 cm ; 3 mL/min",
+     "formula": "V = π·0,75²·h ; EBCT = V/Q",
+     "result": "1,77 ; 5,30 ; 8,84 mL ; EBCT (3 cm, 3 mL/min) = 1,8 min par passage",
+     "compared_to": "masse de billes et volume recirculé non donnés",
+     "source": "arithmétique"
+    },
+    {
+     "what": "moyenne de régénération",
+     "inputs": "barres de la figure 5d : 96, 93, 89, 85 %",
+     "formula": "moyenne simple ; moyenne relative au cycle 1",
+     "result": "90,8 % ; 94,5 % (100 ; 96,9 ; 92,7 ; 88,5)",
+     "compared_to": "95,19 % annoncés",
+     "source": "arithmétique"
+    },
+    {
+     "what": "valeurs p de l'ANOVA (tableau 8) recalculées depuis les F",
+     "inputs": "F(1,10), 20 essais − 10 termes = 10 ddl résiduels",
+     "formula": "p = P(F1,10 > F)",
+     "result": "X1 (F 11,37) → 0,0071 ; X2 (3,54) → 0,089 ; X3 (0,54) → 0,48 ; X1² (11,64) → 0,0066 ; X1X2 (0,01) → 0,92 ; X1X3 (0,15) → 0,71 ; modèle F 10,74 (9,10) → 0,0005",
+     "compared_to": "p déclarés : X1 < 0,0001 ; X2 0,0071 ; X3 0,0895 ; X1X2 0,4778 ; X1X3 0,9253 ; X2X3 0,7081 : colonne des p décalée d'une ligne ; ce sont des fractions, pas des %",
+     "source": "intégration numérique de la loi de Fisher"
+    },
+    {
+     "what": "optimum du plan composite",
+     "inputs": "a0 82,03 ; X1 18,65 ; X1² −7,67 ; x1 = +1, x2 = x3 = 0",
+     "formula": "Y = a0 + a1 + a11",
+     "result": "93,0 %",
+     "compared_to": "optimum déclaré 93 % à 20 (niveau +1 de la dose), 20 ppm, 150 min : cohérent si la dose est 20 mg dans 20 mL, soit 1 g/L et non 20 g/L",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "L'HAp est agitée 6 h dans la solution de chitosane à l'acide acétique 2 % (≈ 0,35 M, pH ≈ 4). L'hydroxyapatite n'est pas stable sous pH ≈ 4–5 et se dissout en Ca2+ et H2PO4– ; 1 g en consommerait 13,9 mmol de H+, soit l'ordre de grandeur de l'excès d'acide d'un volume de 50 mL (calculs « acide nécessaire » et « acide acétique à 2 % »). Une part de la charge minérale peut donc se dissoudre puis reprécipiter (phosphate de calcium mal cristallisé) au contact de NaOH ; la teneur réelle en HAp des billes est inconnue. L'EDS montre Ca et P à environ 0,4 fois la valeur attendue pour 50 % d'HAp (calcul « composition EDS »), ce qui peut aussi venir de la surface riche en chitosane.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Calcium orthophosphates (CaPO4): occurrence and properties",
+      "authors_or_publisher": "Dorozhkin S.V. (Prog. Biomater.)",
+      "year": "2015",
+      "url_or_doi": "10.1007/s40204-015-0045-z"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le volume d'acide acétique, le volume et la concentration du bain de glutaraldéhyde (seule la solution mère à 25 % est citée), le diamètre de l'aiguille et la base de masse des billes (gel humide ou sec) ne sont pas donnés : le taux de réticulation et toutes les capacités en mg/g sont irreproductibles en l'état.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le titre et le résumé disent le chitosane « réticulé avec la bio-hydroxyapatite » : le glutaraldéhyde réticule les amines du chitosane entre elles (bases de Schiff) ; l'HAp est encapsulée, non réticulée. Le décalage 1595 → 1556 cm–1 attribué à la réticulation n'est pas discriminant : une imine C=N absorbe vers 1630–1660 cm–1, et 1556 cm–1 correspond aussi à l'amide II des acétamides résiduels ou aux NH3+ ; la raie DRX à 13,1° est attribuée à « la liaison hydrogène », alors qu'elle est une réflexion de la maille hydratée du chitosane.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chitin and Chitosan Preparation from Marine Sources. Structure, Properties and Applications",
+      "authors_or_publisher": "Younes I., Rinaudo M. (Mar. Drugs 13, 1133–1174)",
+      "year": "2015",
+      "url_or_doi": "10.3390/md13031133"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raie à 64,09° citée pour les billes alors que le balayage déclaré va de 5 à 60° 2θ. La position correspond à la réflexion (304) de l'HAp (63,97° calculé), donc la raie est plausible mais hors de la plage annoncée : plage de mesure ou liste de raies erronée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Capacité maximale » 19,944 mg/g (batch) : avec 20 mg de billes dans 20 mL à 20 mg/L, le plafond physique est 20,0 mg/g ; 19,944 mg/g n'est donc qu'une élimination de 99,7 % à 20 mg/L, pas une capacité de saturation (calcul « plafond de capacité »). Le tableau 6 compare cette valeur à des Qmax de Langmuir d'autres auteurs : comparaison non homogène. Les isothermes du tableau 5 prédisent 57–62 mg/g au haut de la gamme 20–220 mg/L (calcul « isothermes batch »), trois fois QExp : les paramètres et QExp ne décrivent pas les mêmes données.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Effet de dose : passer de 0,25 à 3 g/L augmente le pourcentage éliminé (68 → 99,71 %) mais fait baisser la capacité par gramme (≈ 54 → 6,6 mg/g si C0 = 20 mg/L, calcul « Qe pendant l'effet de dose ») ; le texte affirme l'inverse. À 0,25 g/L, Qe ≈ 54 mg/g dépasserait la « capacité maximale » de 19,944 mg/g.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "k2 (PSO, batch) = 8,991 donne un demi-temps de 0,3 s (calcul « demi-temps PSO »), incompatible avec un équilibre à 180 min et avec k1 = 0,019 min–1 (t½ 36 min) du même jeu ; la valeur colonne (0,003, t½ 49 min) est cohérente. Faute de frappe probable (puissance de 10 manquante) ; l'unité « kg g–1 min–1 » est aussi fausse (g mg–1 min–1). Le PSO surestime Qe (23,0 contre 18,46 mg/g), alors que le PFO le retrouve (18,42) : le choix du PSO sur un R² de 0,982 contre 0,971 ne prouve rien, et en déduire une chimisorption est un raisonnement réfuté.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "On the comparison of pseudo-first order and pseudo-second order rate laws in the modeling of adsorption kinetics",
+      "authors_or_publisher": "Simonin J.-P. (Chem. Eng. J. 300, 254–263)",
+      "year": "2016",
+      "url_or_doi": "https://phenix.cnrs.fr/en/chemical-engineering-journal-2016-modeling-of-adsorption-kinetics/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Thermodynamique : signe cohérent (ΔH < 0, ΔS < 0, ΔG moins négatif quand T monte) et ΔG recalculé à 0,3 kJ/mol près (calcul « ΔG recalculé »). Mais le texte écrit ΔS en kJ mol–1 K–1 (le tableau en J), les températures 298–318 K n'apparaissent pas dans les Méthodes, et Kd (L/g, dimensionné) est utilisé dans la loi de van 't Hoff, ce qui rend ΔH et ΔS dépendants des unités choisies.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A critical review of the estimation of the thermodynamic parameters on adsorption equilibria. Wrong use of equilibrium constant in the Van't Hoff equation for calculation of thermodynamic parameters of adsorption",
+      "authors_or_publisher": "Lima E.C., Hosseini-Bandegharaei A., Moreno-Piraján J.C., Anastopoulos I. (J. Mol. Liq. 273, 425–434)",
+      "year": "2019",
+      "url_or_doi": "10.1016/j.molliq.2018.10.048"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le résumé dit que l'élimination « augmente avec le pH » ; les résultats montrent l'inverse (99 % à pH 3, 20 % à pH 12), cohérent avec un pHPZC de 5,5 et des amines protonées attirant un colorant disulfonaté.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plan composite : les doses du tableau 7 sont en g/L (6,59–23,41) alors que le texte parle de 7 à 23 mg et que l'optimum est « 20 mg de billes » ; avec 20 mL, 20 mg = 1 g/L. Le modèle redonne bien 93 % au niveau +1 (calcul « optimum du plan composite »), donc l'unité du tableau est fausse, pas l'optimum. Le tableau 8 est incohérent : les valeurs p ne correspondent pas aux F (décalage d'une ligne, calcul « valeurs p de l'ANOVA ») et sont des fractions notées « % » ; la concentration (p ≈ 0,09) et le temps (p ≈ 0,48) ne sont alors pas significatifs ; le défaut d'ajustement est très significatif (F = 862,95) et R²pred = 0,29 contre R²adj = 0,82 : le modèle ne prédit pas, contrairement à « l'accord robuste » annoncé.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Colonne : les couples (5 mg/L, 98,66 %, 1,31 mg/g) et (80 mg/L, 44,85 %, 9,49 mg/g) donnent le même V/m ≈ 0,265 L/g, et Qe 5,098 mg/g à 20 mg/L correspond à 96 % (figure 5b) : série interne cohérente. 9,49 mg/g ≈ Qmax Langmuir 9,472 : cohérent. Mais la masse de billes et le volume recirculé ne sont pas donnés, et le temps de passage dans un lit de 3 cm à 3 mL/min est de 1,8 min seulement : les résultats dépendent du volume recirculé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Régénération : la moyenne des barres de la figure 5d est 90,8 % ; 95,19 % n'est approché (94,5 %) qu'en rapportant chaque cycle au premier. Définition de la « rétention » non donnée ; la baisse régulière (−3 à −4 points par cycle) n'est pas commentée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Glutaraldéhyde (solution mère 25 %) : toxique par inhalation, irritant sévère des yeux et de la peau, pénètre la peau, sensibilisant ; polymérise à chaud. Hotte, gants nitrile, lunettes ; bains de réticulation et eaux de lavage à traiter comme déchets chimiques. Non écrit dans l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Glutaraldehyde solution — Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/8707"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le chitosane dissous dans l'acide acétique est polycationique (–NH3+) ; une partie de l'HAp en suspension se dissout à pH ≈ 4. La goutte tombant dans NaOH 0,5 M est neutralisée de l'extérieur vers l'intérieur : le chitosane déprotoné précipite en gel physique (coagulation par neutralisation) en piégeant les particules d'HAp, et les ions Ca2+/phosphate dissous reprécipitent en phosphate de calcium. Le glutaraldéhyde forme ensuite des bases de Schiff (et des oligomères aldoliques) avec les amines libres, réticulant le réseau et le rendant insoluble en milieu acide, au prix d'une partie des amines qui servent à fixer le colorant anionique.",
+    "sources": [
+     {
+      "title": "Chitin and Chitosan Preparation from Marine Sources. Structure, Properties and Applications",
+      "authors_or_publisher": "Younes I., Rinaudo M. (Mar. Drugs 13, 1133–1174)",
+      "year": "2015",
+      "url_or_doi": "10.3390/md13031133"
+     },
+     {
+      "title": "Calcium orthophosphates (CaPO4): occurrence and properties",
+      "authors_or_publisher": "Dorozhkin S.V. (Prog. Biomater.)",
+      "year": "2015",
+      "url_or_doi": "10.1007/s40204-015-0045-z"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'acide acétique, pH de la suspension et perte de minéral pendant les 6 h de mélange (doser Ca dans le surnageant ou faire une ATG des billes)",
+    "concentration et volume du bain de glutaraldéhyde, température de réticulation",
+    "masse de billes exprimée en sec ou en humide pour toutes les capacités",
+    "refaire l'isotherme avec un plafond C0·V/m bien au-dessus de la capacité visée avant de comparer à la littérature",
+    "volume recirculé et masse de billes en colonne"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Trois voies chimiquement classiques (apatite par traitement alcalin d'écailles, chitosane par déminéralisation/déprotéinisation/désacétylation, billes par coagulation dans NaOH puis réticulation au glutaraldéhyde). La chimie de synthèse est plausible mais sous-décrite (aucun volume, concentration du glutaraldéhyde absente, DD inconnu). Les problèmes réels sont dans la caractérisation et l'exploitation des essais d'adsorption : raie de la calcite comptée comme raie du chitosane, capacité « maximale » égale au plafond C0·V/m d'un essai à 20 mg/L, k2 PSO aberrant, capacité qui « augmente » avec la dose alors qu'elle baisse, résumé contraire aux résultats pour le pH, ANOVA aux p décalés et unités du plan composite fausses.",
+  "author_errors_suspected": [
+   "raie DRX à 29,42° du chitosane = calcite (104) résiduelle",
+   "raie à 64,09° hors de la plage 5–60° déclarée",
+   "ΔS en kJ mol–1 K–1 dans le texte (J au tableau 3)",
+   "k2 PSO batch 8,991 (t½ 0,3 s) et unité kg g–1 min–1",
+   "résumé : élimination « croissante avec le pH » contre 99 → 20 % de pH 3 à 12",
+   "« capacité maximale » 19,944 mg/g = élimination de 99,7 % à 20 mg/L, comparée à des Qmax de Langmuir",
+   "capacité par gramme annoncée croissante avec la dose",
+   "doses du tableau 7 en g/L au lieu de mg (20 mg dans 20 mL = 1 g/L)",
+   "tableau 8 : valeurs p décalées d'une ligne par rapport aux F et notées en %",
+   "QExp batch 18,46 (tableau 4) contre 19,944 (tableau 5) sans explication",
+   "attributions FTIR : amide I appelée « flexion C–H », 1595 cm–1 appelé amide II, 875 cm–1 attribué à HPO4 plutôt qu'au carbonate"
+  ],
+  "comparison_with_database": "compare.py « hydroxyapatite » : seules voies biosourcées comparables PMC7014116 (os bovin calciné à 1200 °C) et PMC9036687 (coquilles d'huître dissoutes puis hydrothermal 160 °C) ; ici aucune calcination, d'où une apatite carbonatée peu cristalline, attendue. compare.py « chitosan » : PMC9777915 (zéolite/chitosane/Fe3+) et PMC9043336 (GO–chitosane) dissolvent un chitosane commercial dans l'acide acétique et coagulent par NaOH, comme ici ; aucune autre voie de la base n'extrait le chitosane des carapaces."
+ },
+ "sources_not_found": [
+  "protocole exact de la référence 20 (préparation antérieure de Bio-Hap par les auteurs) : non retrouvé",
+  "source primaire pour d(104) de la calcite = 3,035 Å et pour la fiche JCPDS 09-0432 de l'HAp : valeurs usuelles, fiches non consultées",
+  "DOI non vérifiés sur Crossref (bloqué) : 10.1016/j.molliq.2018.10.048, 10.3390/md13031133, 10.1007/s40204-015-0045-z, 10.1016/j.ceramint.2011.01.018 (conditions de Huang 2011 non lues dans l'original)"
+ ]
+}

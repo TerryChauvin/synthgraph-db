@@ -1,0 +1,553 @@
+{
+ "pmcid": "PMC9419793",
+ "routes": [
+  {
+   "label": "GO-0",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de carbone et de KMnO4, rapport oxydant/carbone",
+     "inputs": "1 g de graphite (M(C) = 12,011 g/mol) ; 6 g de KMnO4 (M = 158,03 g/mol)",
+     "formula": "n = m/M ; n(KMnO4)/n(C)",
+     "result": "C 83,3 mmol ; KMnO4 38,0 mmol ; KMnO4/C = 0,46 (6 équivalents en masse)",
+     "compared_to": "Marcano 2010 : 3 g de graphite, 18 g de KMnO4 (6 équivalents en masse), soit le même rapport",
+     "source": "valeurs de l'article ; masses molaires IUPAC ; Marcano et al. 2010 (references/fondateurs.md)"
+    },
+    {
+     "what": "acides du mélange 9:1",
+     "inputs": "120 mL H2SO4 95–97 % (ρ ≈ 1,84 g/mL, 96 % pris) ; 13,4 mL H3PO4 85 % (ρ ≈ 1,685 g/mL)",
+     "formula": "n = V × ρ × w / M ; rapport des volumes",
+     "result": "H2SO4 ≈ 2,16 mol ; H3PO4 ≈ 0,196 mol ; rapport des volumes 120/13,4 = 8,96",
+     "compared_to": "Marcano 2010 : 360:40 mL pour 3 g de graphite, soit 120:13,3 mL par gramme : même recette ramenée à 1 g",
+     "source": "densités usuelles des acides commerciaux (fiches fournisseur), valeurs de l'article"
+    },
+    {
+     "what": "H2O2 de la trempe contre manganèse engagé",
+     "inputs": "3 mL H2O2 35 % (ρ ≈ 1,13 g/mL, M = 34,01 g/mol) ; 38,0 mmol de Mn",
+     "formula": "n(H2O2) = 3 × 1,13 × 0,35 / 34,01 ; MnO2 + H2O2 + 2 H+ → Mn2+ + O2 + 2 H2O (1:1) ; MnO4− → Mn2+ : 2,5 H2O2 par Mn",
+     "result": "H2O2 ≈ 35 mmol : assez pour ramener ≈ 35 mmol de Mn(IV) en Mn2+, pas assez si du Mn(VII) restait (95 mmol nécessaires)",
+     "compared_to": "Marcano 2010 : 3 mL de H2O2 30 % pour 18 g de KMnO4 (3 fois moins par Mn) ; donc dose par Mn plus généreuse ici",
+     "source": "stœchiométrie ; Marcano et al. 2010"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Recette de Tour reprise exactement à l'échelle de 1 g (voir calcul « moles de carbone et de KMnO4 » et « acides du mélange 9:1 ») : 6 équivalents massiques de KMnO4, H2SO4/H3PO4 9:1, 50 °C, 12 h. Rien d'incohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D. C. et al., ACS Nano",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "La trempe (400 mL de glace puis ≈ 3 mL H2O2 35 %) apporte ≈ 35 mmol de H2O2 pour 38 mmol de Mn : suffisant pour dissoudre MnO2 si l'essentiel du Mn(VII) a déjà été consommé par le graphite, comme dans la recette de Tour ; en pratique ajouter H2O2 jusqu'au virage jaune de la suspension plutôt que de s'en tenir à 3 mL (calcul « H2O2 de la trempe »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "50 °C dans H2SO4 concentré (ébullition ≈ 337 °C) : pas de problème de solvant. Mais KMnO4 dans H2SO4 concentré forme Mn2O7, qui se décompose de façon explosive au-dessus d'environ 55 °C (et dont CAMEO rapporte une explosion vers 70 °C) : la consigne de 50 °C pendant 12 h laisse peu de marge ; régulation de la température du bain et sonde dans le milieu indispensables, l'addition lente de KMnO4 (seule précaution écrite) ne suffit pas.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Potassium permanganate — Reactivity profile",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/report?key=CH4324"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : Mn2O7 (seuil d'explosion ≈ 55 °C, contact avec matières organiques — ne pas laver le ballon à l'éthanol avant trempe complète) ; trempe très exothermique avec dégagement d'O2 ; lavage HCl puis éthanol d'un solide encore acide et oxydant. Source secondaire pour le seuil de 55 °C : Wikipedia « Manganese heptoxide » (https://en.wikipedia.org/wiki/Manganese_heptoxide).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Manganese heptoxide",
+      "authors_or_publisher": "Wikipedia (source secondaire)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Manganese_heptoxide"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Distances DRX : le texte donne « d-spacing equals 9.39, 9.50 and 10.11 Å » pour GO-2, GO-0, GO-1. Or la Fig. 4b place les pics à 2θ ≈ 9,4°, 9,5° et 10,1° (relu sur l'image). Avec Cu Kα1 (λ = 1,54056 Å, longueur d'onde non déclarée, D8 Advance supposé au cuivre), ces nombres sont des angles 2θ ; les distances réelles sont 9,41, 9,30 et 8,74 Å. Seule cette lecture rend vraie la phrase des auteurs « GO-2 has a slightly higher degree than GO-0, followed by GO-1 » : avec les nombres en Å, GO-1 aurait la plus grande distance donc la plus forte oxydation, à l'inverse de leur conclusion. Erreur d'unité des auteurs (calcul « Bragg » de la voie GO-1).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement « en monocouches » de ∼80 % : il est défini comme le volume du surnageant divisé par le volume total après centrifugation à 2000 rpm. Ce rapport de volumes n'est pas une fraction massique (le culot est un gel compacté de concentration inconnue) et rien ne montre que le surnageant ne contient que des monocouches (une seule image AFM « typique », Fig. S8). Les 80 / 87 / 98 % ne sont comparables ni entre eux ni à un rendement de la littérature ; il faudrait doser la masse de GO du surnageant et du culot (pesée après filtration ou ATG) et compter les épaisseurs par AFM sur un échantillon de feuillets.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Absorbance à 229 nm de 1,5 (GO-0) contre 2,9 et 2,8 (GO-1, GO-2) à 50 µg/mL, soit un coefficient massique de 30 contre 58 mL mg−1 cm−1 (calcul de la voie GO-1) pour des C/O XPS presque identiques (2,39 ; 2,41 ; 2,35). Deux réserves : une absorbance de 2,8–2,9 est au-delà du domaine linéaire de la plupart des spectrophotomètres (lumière parasite), et la concentration repose sur la pesée d'un film filtré séché 1 jour au dessiccateur, dont l'eau résiduelle (le GO en garde plusieurs %, voir ATG Fig. S7c) n'est pas corrigée. Le facteur 2 entre GO-0 et GO-1/GO-2 est donc à confirmer à plus faible concentration.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "RMN 13C : 81 % de carbone oxydé pour GO-0 (83 % pour GO-2), calculé à partir des seuls pics à ∼130, 60 et 70 ppm. L'XPS du même échantillon (Tableau S1) ne donne que 58,2 % de carbone oxydé (100 − 41,78 % de C=C/C–C). L'écart de 23 points n'est pas discuté ; un spectre en polarisation croisée (CP-MAS, la séquence n'est pas dite) n'est pas quantitatif, et les signaux carbonyle/carboxyle et lactol connus dans le GO (Cai et al. 2008) sont absents du calcul. Les pourcentages RMN ne sont pas des teneurs absolues.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and solid-state NMR structural characterization of 13C-labeled graphite oxide",
+      "authors_or_publisher": "Cai W., Piner R. D., Stadermann F. J., …, Ruoff R. S., Science 321, 1815–1817",
+      "year": "2008",
+      "url_or_doi": "10.1126/science.1162369"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Bain à ultrasons 74 W/L pendant 10 min sans température ni durée de pause : effet de coupure des feuillets dépendant de l'échauffement ; noter la température en fin de sonication.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison avec la base : PMC9061730 (Marcano légèrement modifié) emploie exactement 50 °C pendant 12 h ; les distances DRX des GO de la base vont de 0,75 à 1,08 nm (PMC4164668 à 2θ = 10,56°) ; les deux lectures des nombres de l'article (Å ou 2θ) tombent dans cette plage, la base ne tranche pas, la Fig. 4b si.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dans H2SO4 concentré, le graphite forme d'abord en quelques minutes un composé d'intercalation de stade 1 (bisulfate de graphite) avec l'oxydant ; l'espèce active du manganèse (MnO3+/Mn2O7) convertit ensuite lentement, par diffusion depuis les bords, ce composé en oxyde de graphite « vierge », étape limitée par la diffusion de l'oxydant entre les couches ; l'exfoliation en GO n'a lieu qu'au contact de l'eau (trempe, lavages). H3PO4 limite la formation de trous dans le plan basal selon Tour. Le mécanisme de l'extraction (annotation mecanisme_analyse) est compatible.",
+    "sources": [
+     {
+      "title": "Mechanism of Graphene Oxide Formation",
+      "authors_or_publisher": "Dimiev A. M., Tour J. M., ACS Nano 8, 3060–3068",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn500606a"
+     },
+     {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D. C. et al., ACS Nano",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température réelle du milieu à 50 °C (sonde interne), marge vis-à-vis de la décomposition de Mn2O7",
+    "ajouter H2O2 jusqu'au virage jaune, pas une dose fixe",
+    "nombre de lavages HCl/éthanol/eau et concentration de HCl (non donnés)",
+    "vitesse et durée de la centrifugation « à grande vitesse » (non données)",
+    "position 2θ du pic DRX et longueur d'onde : recalculer d soi-même"
+   ]
+  },
+  {
+   "label": "EG",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition de 100 mL de piranha 9:1 avec H2O2 35 %",
+     "inputs": "90 mL H2SO4 95–97 % (ρ ≈ 1,84 g/mL) ; 10 mL H2O2 35 % (ρ ≈ 1,13 g/mL, M = 34,01 g/mol)",
+     "formula": "n = V × ρ × w / M",
+     "result": "H2SO4 ≈ 1,62 mol ; H2O2 ≈ 116 mmol ; eau apportée ≈ 7,3 g",
+     "compared_to": "1 g de graphite = 83,3 mmol de C : H2O2 en excès d'un facteur ≈ 1,4 sur le carbone, alors que l'intercalation n'en consomme qu'une petite fraction (½ O par C24n)",
+     "source": "densités usuelles (fiches fournisseur), valeurs de l'article"
+    },
+    {
+     "what": "oxydant consommé par l'intercalation",
+     "inputs": "24n C + m H2SO4 + ½ [O] → C24n+ HSO4− (m − 1) H2SO4 + ½ H2O ; stade 1 (n = 1) au plus ; 83,3 mmol de C",
+     "formula": "n([O]) = ½ × n(C)/24",
+     "result": "≈ 1,7 mmol d'oxygène actif au plus pour un stade 1, soit < 2 % des 116 mmol de H2O2 apportés",
+     "compared_to": "le reste du peroxyde (et l'acide de Caro H2SO5 formé dans le piranha) demeure dans le liquide ou se décompose en O2",
+     "source": "équation des auteurs, stœchiométrie"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "L'équation des auteurs écrit « C24n+(H2SO4)− » : l'anion intercalé est HSO4− (bisulfate de graphite), pas H2SO4−. L'oxydant réel du piranha est l'acide peroxymonosulfurique (acide de Caro) formé à partir de H2SO4 et H2O2. L'O2 ne s'intercale pas : c'est le dégagement gazeux dans les galeries qui gonfle les couches. L'intercalation du graphite par un mélange H2SO4/H2O2 est connue (brevet cité), le gonflement ×4 est modeste à côté d'un graphite expansé thermiquement et correspond à un composé d'intercalation gonflé par le gaz, pas à une exfoliation.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Scalable fabrication of pristine holey graphene nanoplatelets via dry microwave irradiation (brevet US 11 377 356, intercalation du graphite par piranha H2SO4/H2O2 15:1)",
+      "authors_or_publisher": "USPTO",
+      "year": "année non vérifiée (vers 2022 d après le numéro)",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11377356"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La quantité d'EG obtenue n'est pas dite, ni ce que devient le piranha : « without washing and drying ». Calcul « oxydant consommé par l'intercalation » : moins de 2 % du peroxyde est consommé, donc après une nuit le liquide peut encore contenir du H2O2/H2SO5 si sa décomposition n'est pas complète. Voir la conséquence pour GO-1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Absence de hausse de la bande D en Raman : compatible avec une intercalation non covalente. Mais un composé d'intercalation de stade bas déplace aussi la bande G (≈ 1580 → ≈ 1600 cm−1) ; l'état de l'échantillon mesuré (mouillé d'acide ou séché à l'air, donc désintercalé) n'est pas dit, ce qui limite la portée de la mesure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : la solution piranha dégage de l'O2 en continu ; ne jamais boucher le récipient pendant la nuit, préparer en ajoutant H2O2 à l'acide froid, aucune trace de solvant organique. L'affirmation « no toxic gases are released » est vraie, mais le risque est la surpression et la projection, pas la toxicité.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "« Overnight » (Fig. 1 : 16 h d'après le doute de l'extracteur) : la durée totale du procédé enrichi (prétraitement ≥ 16 h + 30 min de préparation de l'oxydant + 6 h) dépasse les 12 h du témoin ; l'annonce « oxidation time reduced by half » ne vaut que pour l'étape d'oxydation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "H2SO4 + H2O2 → H2SO5 (acide de Caro) + H2O ; cet oxydant retire des électrons au graphite et l'anion HSO4−, accompagné de H2SO4 neutre, s'intercale (composé de stade bas, bisulfate de graphite), comme dans la première étape de la méthode de Hummers ; la décomposition du peroxyde en O2, en partie dans les galeries ouvertes, gonfle mécaniquement les empilements (structure en accordéon). Il n'y a pas d'oxydation covalente du plan basal à ce stade, d'où l'absence de bande D.",
+    "sources": [
+     {
+      "title": "Mechanism of Graphene Oxide Formation",
+      "authors_or_publisher": "Dimiev A. M., Tour J. M., ACS Nano 8, 3060–3068",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn500606a"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "séparer ou non l'EG du piranha avant l'oxydation (non écrit), et combien de liquide il retient",
+    "tester le peroxyde résiduel (bandelette ou titrage KMnO4) après la nuit",
+    "récipient ouvert, sous hotte",
+    "granulométrie du graphite (+100 mesh, Sigma 332461) : l'expansion en dépend"
+   ]
+  },
+  {
+   "label": "GO-1",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Bragg : distances réelles si les nombres de l'article sont des 2θ",
+     "inputs": "2θ = 9,39° (GO-2), 9,50° (GO-0), 10,11° (GO-1), lus aussi sur la Fig. 4b ; λ(Cu Kα1) = 1,54056 Å (supposée, non déclarée)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "GO-2 : 9,41 Å ; GO-0 : 9,30 Å ; GO-1 : 8,74 Å",
+     "compared_to": "texte : 9,39 / 9,50 / 10,11 Å ; seul l'ordre GO-2 > GO-0 > GO-1 issu des 2θ concorde avec la conclusion des auteurs (GO-1 le moins oxydé)",
+     "source": "NIST X-ray Transition Energies Database (λ Cu Kα1), references/constantes.md ; valeurs de l'article"
+    },
+    {
+     "what": "inverse : angle attendu si les distances en Å étaient justes",
+     "inputs": "d = 9,39 ; 9,50 ; 10,11 Å ; λ = 1,54056 Å",
+     "formula": "2θ = 2 arcsin(λ / 2d)",
+     "result": "9,41° ; 9,30° ; 8,74°",
+     "compared_to": "Fig. 4b : pic de GO-1 à ≈ 10,1°, pas à 8,7° : la lecture en Å est contredite par la figure",
+     "source": "calcul ; Fig. 4b de l'article"
+    },
+    {
+     "what": "liquide et oxydant du milieu d'oxydation si le piranha est gardé",
+     "inputs": "120 mL H2SO4 + 13,4 mL H3PO4 + 6 g KMnO4 (38,0 mmol) ; piranha : 90 mL H2SO4 + 10 mL H2O2 35 % (116 mmol H2O2 au départ)",
+     "formula": "rapport H2SO4/H3PO4 = (120 + 90)/13,4 ; 2 MnO4− + 5 H2O2 + 6 H+ → 2 Mn2+ + 5 O2 + 8 H2O : H2O2 nécessaire = 2,5 × 38,0",
+     "result": "rapport des acides 15,7:1 au lieu de 9:1 ; volume ≈ 234 mL au lieu de 133 ; 95 mmol de H2O2 suffiraient à détruire tout le KMnO4 (116 mmol apportés au départ)",
+     "compared_to": "recette de Tour annoncée « same recipe » : 9:1, 133 mL",
+     "source": "stœchiométrie ; valeurs de l'article"
+    },
+    {
+     "what": "coefficient d'extinction massique à 229 nm",
+     "inputs": "absorbances lues sur la Fig. 4a : 1,5 (GO-0), 2,9 (GO-1), 2,8 (GO-2) ; 50 µg/mL ; trajet 1 cm supposé",
+     "formula": "α = A / (c × l)",
+     "result": "30 ; 58 ; 56 mL mg−1 cm−1 (3000 ; 5800 ; 5600 L g−1 m−1)",
+     "compared_to": "C/O XPS 2,39 ; 2,41 ; 2,35 presque identiques",
+     "source": "valeurs lues par l'extracteur sur la Fig. 4a"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« same recipe as the improved method … but using fresh EG » et un EG fait « without washing and drying » : ni la masse d'EG engagée ni le sort des 100 mL de piranha ne sont dits. Si l'EG est oxydé dans son piranha, le milieu n'est plus celui de Tour (calcul « liquide et oxydant du milieu », acides 15,7:1, 234 mL, ≈ 7 g d'eau en plus) et tout peroxyde ou acide de Caro restant consomme du KMnO4 (116 mmol de H2O2 au départ, 95 mmol suffisent à détruire les 38 mmol de KMnO4). La dose réelle d'oxydant de GO-1 et GO-2 n'est donc pas connue, et un autre laboratoire n'obtiendra pas le même degré d'oxydation sans savoir s'il faut égoutter l'EG.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "La solution oxydante froide (KMnO4 dans H2SO4/H3PO4, agitée 30 min sans substrat) accumule l'espèce Mn(VII) acide (Mn2O7/MnO3+) avant d'être versée sur un EG imbibé de piranha : Mn(VII) et H2O2 réagissent vivement (O2 et chaleur). Le maintien sous 10 °C et l'addition en 15 min limitent le risque, mais l'article ne le signale pas : contrôler l'absence de peroxyde avant l'addition, additionner par petites portions, écran de protection.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Potassium permanganate — Reactivity profile",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/report?key=CH4324"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin qui change plusieurs variables : GO-0 diffère de GO-1/GO-2 par le prétraitement, mais aussi par la température (50 °C contre < 10 °C ou < 10 puis 35 °C), la durée (12 h contre 24 ou 6 h), l'ordre d'addition (KMnO4 ajouté au graphite contre oxydant préformé ajouté à l'EG), l'agitation (magnétique 300 rpm contre mécanique) et peut-être le volume d'acide (piranha). Attribuer au seul prétraitement les feuillets plus grands, le rendement et les films plus résistants n'est pas démontré ; il manque l'essai graphite brut traité exactement comme GO-2 (< 10 °C 2 h puis 35 °C, 6 h, oxydant préformé), ou EG oxydé à 50 °C pendant 12 h.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Erreur d'unité DRX (voir calculs Bragg) : la distance de GO-1 est 8,74 Å et non 10,11 Å ; c'est le GO le moins espacé, cohérent avec « GO-1 still has a low oxidation level ». La lecture « distance proportionnelle au degré d'oxydation » est par ailleurs approximative : la distance d'un film de GO dépend surtout de l'eau intercalée (humidité, durée au dessiccateur).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Oxydation de GO-1 jugée « faible » mais C/O XPS 2,41 contre 2,39 pour GO-0 et carbone oxydé XPS 59,1 % contre 58,2 % (Tableau S1) : les écarts sont dans l'incertitude d'une analyse XPS (quelques %). L'ordre d'oxydation annoncé repose surtout sur la DRX ; l'XPS ne le confirme pas au sens strict.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "24 h sous 10 °C pour un degré d'oxydation encore plus bas que le témoin : cohérent avec une conversion du composé d'intercalation en oxyde de graphite limitée par la diffusion de l'oxydant entre les couches, lente à basse température.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Mechanism of Graphene Oxide Formation",
+      "authors_or_publisher": "Dimiev A. M., Tour J. M., ACS Nano 8, 3060–3068",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn500606a"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Coefficient d'extinction doublé (calcul « coefficient d'extinction massique ») pour un C/O identique : réserve sur la linéarité à A ≈ 2,9 et sur la concentration obtenue par pesée d'un film non corrigé de l'eau (voir GO-0).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'EG, déjà intercalé par l'acide et ouvert par le gaz, offre à l'espèce Mn(VII) un accès plus court entre les couches : la conversion en oxyde de graphite se fait avec moins de coupure des feuillets ; à < 10 °C, la vitesse de cette étape limitée par la diffusion reste faible, d'où un degré d'oxydation un peu plus bas après 24 h. Le mécanisme des auteurs est compatible, sous réserve que la dose d'oxydant soit bien celle de Tour.",
+    "sources": [
+     {
+      "title": "Mechanism of Graphene Oxide Formation",
+      "authors_or_publisher": "Dimiev A. M., Tour J. M., ACS Nano 8, 3060–3068",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn500606a"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse d'EG engagée et piranha égoutté ou non",
+    "peroxyde résiduel avant l'ajout de la solution de KMnO4",
+    "recalculer d à partir de 2θ et de λ déclarée",
+    "concentration des dispersions corrigée de l'eau du film (ATG)",
+    "témoin : graphite brut traité exactement comme GO-2"
+   ]
+  },
+  {
+   "label": "GO-2",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "durée et profil thermique",
+     "inputs": "< 10 °C pendant 2 h, puis 35 °C, total 6 h",
+     "formula": "6 − 2",
+     "result": "4 h à 35 °C au plus, rampe non donnée",
+     "compared_to": "témoin GO-0 : 12 h à 50 °C",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "35 °C dans le milieu de Tour : en dessous du seuil de Mn2O7 (≈ 55 °C), plus sûr que le témoin. La montée de < 10 à 35 °C n'est pas décrite (rampe, temps pour atteindre 35 °C) ; sur 4 h, ce temps compte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mêmes réserves que GO-1 : dose d'oxydant inconnue (piranha), témoin à plusieurs variables, distance DRX réelle 9,41 Å (2θ = 9,39°) et non 9,39 Å — numériquement presque égale par coïncidence, d'où la confusion possible. L'énoncé de l'introduction « resulted in GO with a higher degree of oxidation » contredit les Résultats (« GO-2 has a similar degree of oxidation to GO-0 ») et le résumé (« without reducing the degree of high oxidation ») : C/O 2,35 contre 2,39 ne permet que « semblable ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement en monocouches de 98 % : rapport de volumes, pas de masses (voir GO-0) ; une seule image MET (« monolayer ») ne fait pas une statistique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Phase froide : diffusion de l'oxydant entre les couches de l'EG sans réaction rapide ; phase à 35 °C : accélération de la conversion en oxyde de graphite. Hypothèse des auteurs plausible, non testée séparément (pas d'essai 35 °C direct sans phase froide).",
+    "sources": [
+     {
+      "title": "Mechanism of Graphene Oxide Formation",
+      "authors_or_publisher": "Dimiev A. M., Tour J. M., ACS Nano 8, 3060–3068",
+      "year": "2014",
+      "url_or_doi": "10.1021/nn500606a"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "rampe de < 10 à 35 °C",
+    "mêmes points que GO-1 (EG égoutté ou non, peroxyde résiduel)"
+   ]
+  },
+  {
+   "label": "rGO-0",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "cohérence contrainte, déformation, module et ténacité (rGO-0, rGO-1, rGO-2)",
+     "inputs": "rGO-0 : 28 MPa, 1,9 % ; rGO-1 : 103 MPa, 3,6 %, E 1,3 GPa ; rGO-2 : 97 MPa, 2,8 %, E 2,2 GPa (déformations lues sur Fig. 9b)",
+     "formula": "module sécant σ/ε ; énergie d'une courbe linéaire ½ σ ε ; contrainte linéaire E × ε",
+     "result": "sécants 1,5 / 2,9 / 3,5 GPa ; ½σε = 0,27 / 1,85 / 1,36 MJ m−3 contre 0,3 / 1,4 / 1,1 annoncés ; E × ε = 47 et 62 MPa pour rGO-1 et rGO-2",
+     "compared_to": "courbes de la Fig. 9b concaves vers le haut (raidissement) : module initial < module sécant et ténacité < ½σε, ce qui est observé ; ensemble cohérent",
+     "source": "valeurs de l'article et Fig. 9b"
+    },
+    {
+     "what": "vitesse de déformation",
+     "inputs": "0,3 mm min−1 ; longueur utile 10 mm (fenêtre du cadre)",
+     "formula": "v / L0",
+     "result": "0,03 min−1 = 5 × 10−4 s−1",
+     "compared_to": "les auteurs écrivent « strain rate of 0.3 mm min−1 » : c'est une vitesse de traverse",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Modules de 1,3–2,2 GPa : un ordre de grandeur sous ceux des papiers de GO mesurés dans la littérature (dizaines de GPa, ≈ 40 GPa dans le résumé APS 2007 du groupe de Dikin et Ruoff). Les courbes en J de la Fig. 9b (redressement des plis) et une déformation déduite du déplacement de la traverse avec mors pneumatiques et cadres en papier abaissent le module apparent ; résistance et conductivité sont, elles, dans les valeurs usuelles des films réduits par HI.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation and characterization of graphene oxide paper",
+      "authors_or_publisher": "Dikin D. A. et al., Nature 448, 457–460 ; module ≈ 40 GPa d'après le résumé APS March Meeting 2007 du même groupe (https://meetings.aps.org/Meeting/MAR07/Event/61942)",
+      "year": "2007",
+      "url_or_doi": "10.1038/nature06016"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : les auteurs lisent un ID/IG plus élevé pour rGO-1 et rGO-2 comme une plus grande distance entre défauts (stade II, juste), puis lisent un rapport A(tous pics D)/AG plus élevé pour rGO-0 (3,0 contre 2,1 et 2,4, Tableau S2, recalculés 2,95 / 2,14 / 2,42) comme plus de défauts, logique du stade I. Ce rapport est dominé par la bande D (54,9 % de l'aire pour rGO-0) : les deux lectures de la même bande se contredisent. La conclusion (rGO-0 plus désordonné) reste soutenue par les bandes D* et D** plus grandes (4,8 et 8,8 % contre 1,2–4,9 %) et par l'XPS, pas par le rapport global.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A. C., Robertson J., Phys. Rev. B",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Réduction par HI 57 % pendant 3 h sans température, volume ni lavage décrits : la température change fortement la vitesse de réduction (les protocoles de référence de réduction de films par HI chauffent le bain) ; à préciser avant de comparer les conductivités.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Direct reduction of graphene oxide films into highly conductive and flexible graphene films by hydrohalic acids",
+      "authors_or_publisher": "Pei S., Zhao J., Du J., Ren W., Cheng H.-M., Carbon 48, 4466–4474",
+      "year": "2010",
+      "url_or_doi": "Carbon 48 (2010) 4466–4474 — DOI non trouvé"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "HI 57 % : corrosif, vapeurs d'iodure d'hydrogène, libère I2 (taches, vapeurs) ; manipuler sous hotte, rincer à l'éthanol et à l'eau jusqu'à disparition de la coloration de l'iode ; acide stabilisé qui jaunit à l'air.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Film obtenu par filtration de 15 mL (5 mL de solution mère diluée) : cette filtration est décrite pour doser la concentration ; que les films des essais mécaniques soient faits de même (surface, masse, épaisseur) n'est pas écrit. L'épaisseur de rGO-0, rGO-1, rGO-2 n'est pas donnée alors que résistance et conductivité en dépendent.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "HI réduit les époxydes et hydroxyles par ouverture nucléophile (iodure) puis élimination de HI/I2, en rétablissant des domaines sp2 ; les carbonyles et carboxyles résistent davantage, ce qui explique que le GO-0, plus riche en C=O/O=C–O (22 % contre 11–12 %), donne un film plus défectueux et moins résistant.",
+    "sources": [
+     {
+      "title": "Direct reduction of graphene oxide films into highly conductive and flexible graphene films by hydrohalic acids",
+      "authors_or_publisher": "Pei S. et al., Carbon 48, 4466–4474",
+      "year": "2010",
+      "url_or_doi": "Carbon 48 (2010) 4466–4474 — DOI non trouvé"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume, température et durée exacts du bain HI, lavage",
+    "masse de GO par film et surface filtrée",
+    "épaisseur de chaque film mesurée de la même façon (micromètre et MEB)",
+    "déformation mesurée par extensomètre ou vidéo plutôt que par la traverse"
+   ]
+  },
+  {
+   "label": "rGO-2′",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "conversion des propriétés selon l'épaisseur",
+     "inputs": "σ = 470 S/cm, 190 MPa, 5,7 MJ m−3 pour t = 5,2 µm ; t(MEB) = 3,6 µm",
+     "formula": "Rs = 1/(σ t) ; σ' = 1/(Rs t') ; X' = X × t/t'",
+     "result": "Rs ≈ 4,09 Ω/□ ; 679 S/cm ; 274 MPa ; 8,2 MJ m−3",
+     "compared_to": "annoncé : ≈ 680 S/cm, ≈ 275 MPa, 8 MJ m−3 : cohérent",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "ténacité contre ½ σ ε",
+     "inputs": "190 MPa ; 7 % de déformation à rupture",
+     "formula": "½ σ ε",
+     "result": "6,65 MJ m−3 contre 5,7 annoncés",
+     "compared_to": "courbe concave vers le haut (Fig. 9c) : aire < ½σε, cohérent",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Traitement de la dispersion de GO à 1,45 % en masse à 70 °C pendant 36 h sans dire si le récipient est fermé : ouvert, l'eau s'évapore et la concentration de coulée change ; fermé, gel. 36 h à 70 °C dans l'eau peuvent aussi amorcer une légère désoxygénation du GO. À préciser.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Doublement des propriétés par rapport à rGO-2 attribué à l'alignement par la racle, mais rGO-2′ change aussi la concentration (centrifugation à 10 000 rpm), ajoute le traitement à 70 °C pendant 36 h et le séchage lent : trois variables à la fois. Il faudrait un film filtré de la solution chauffée, ou une coulée sans chauffage, pour isoler l'effet de l'alignement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Valeurs (190 MPa, 470 S/cm ; 275 MPa et 680 S/cm sur l'épaisseur MEB) dans les ordres de grandeur des films de GO réduits par HI ; les auteurs donnent honnêtement les deux bases d'épaisseur. La viscosité « à cisaillement nul » est en fait la viscosité au plus faible taux mesuré (0,01 s−1) : la Fig. 9a ne montre pas de plateau, comportement de fluide à seuil ; le terme est impropre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Une dispersion concentrée de grands feuillets forme une phase nématique ; le cisaillement de la racle aligne les feuillets dans le plan, le séchage lent conserve cet ordre, ce qui augmente le transfert de charge entre feuillets (rupture par glissement et arrachement des couches, Fig. 10c).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "écart de la lame, vitesse de coulée, masse coulée",
+    "récipient du traitement à 70 °C (fermé ou ouvert) et concentration après traitement",
+    "conditions HI comme pour rGO-0"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Variante de la méthode de Tour avec un prétraitement du graphite par piranha froide. La voie témoin est la recette de Tour exacte (rapports vérifiés). Trois points sérieux : (1) les distances DRX données en Å sont en fait les angles 2θ de la Fig. 4b (vraies distances 9,41 / 9,30 / 8,74 Å) ; (2) le sort des 100 mL de piranha et la masse d'EG ne sont pas dits, si bien que la dose réelle de KMnO4 et la composition du milieu de GO-1/GO-2 sont inconnues (le peroxyde restant peut consommer le permanganate et réagit vivement avec lui) ; (3) le témoin GO-0 diffère de GO-1/GO-2 par cinq variables, l'effet propre du prétraitement n'est pas isolé. Le « rendement en monocouches » est un rapport de volumes, pas un rendement. Calculs mécaniques et électriques internes cohérents ; modules bas, probablement dus à la mesure de déformation par la traverse.",
+  "author_errors_suspected": [
+   "distances DRX 9.39, 9.50, 10.11 Å = angles 2θ en degrés (Fig. 4b) ; d réelles 9,41 ; 9,30 ; 8,74 Å",
+   "anion intercalé écrit H2SO4− au lieu de HSO4− dans l'équation de l'expansion",
+   "introduction : « higher degree of oxidation » contre « similar degree » dans les Résultats",
+   "« strain rate of 0.3 mm min−1 » : vitesse de traverse, pas vitesse de déformation",
+   "« zero-shear viscosity » lue à 0,01 s−1 sans plateau",
+   "lecture contradictoire de la bande D Raman (stade II pour ID/IG, stade I pour A(D)/AG)"
+  ],
+  "comparison_with_database": "PMC9061730 (méthode de Marcano légèrement modifiée) : mêmes 50 °C et 12 h que GO-0. Distances DRX des GO de la base (PMC4164668 et autres) entre 0,75 et 1,08 nm : compatibles avec les deux lectures des nombres de l'article ; la figure tranche pour 2θ."
+ },
+ "sources_not_found": [
+  "DOI de Pei et al., Carbon 2010, 48, 4466–4474 (référence confirmée par plusieurs listes bibliographiques, DOI non trouvé)",
+  "texte original de la fiche CAMEO du permanganate de potassium (site injoignable depuis le cloud ; contenu lu dans l'extrait de recherche)",
+  "source primaire sur la cinétique de décomposition du piranha 9:1 en une nuit à 25–30 °C (non cherchée faute de budget de recherche)",
+  "Gao et al., Nature Chemistry 2009 (RMN quantitative du GO) : DOI non confirmé, non cité"
+ ]
+}

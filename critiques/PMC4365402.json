@@ -1,0 +1,118 @@
+{
+ "pmcid": "PMC4365402",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "S540 (échantillon nommé, sans voie)",
+   "extracted": "S540 dans sample_inventory avec route null (« sans protocole ni indication d'avec ou sans GO »)",
+   "article_says": "Based on TG/DTG analysis and the XRD pattern of sample S540 (α-Fe2O3, Supplementary Figure S1), a mixture of α-Fe2O3 and γ- Fe2O3 was observed at the temperatures between 540°C and 700°C.",
+   "fix": "créer une branche S540 (parent S500, variation temperature = 540 °C, phase α-Fe2O3 d'après l'article) : la règle d'étiquetage « SX, where X denotes the treating temperature » (avec GO) vs « S0X » (témoin sans GO) en fait un échantillon de la série avec GO ; ajouter un doute sur le rattachement à la Fig. S1 des témoins (annexe absente)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "S0X step 1 anneal : not_stated duration, atmosphere, heating_rate",
+   "extracted": "durée, atmosphère et vitesse de chauffe déclarées non citées",
+   "article_says": "The control samples were prepared by directly heating FeSO4·7H2O powders in furnace with the same procedure without GO.",
+   "fix": "« with the same procedure » vise le programme de four décrit juste avant (purge Ar 500 sccm 10 min, 3 °C/min, 1 h, refroidissement sous gaz protecteur) : donner à S0X ces étapes (ou les hériter de S500) avec cette phrase en citation ; ne garder en not_stated que ce que l'article n'écrit vraiment pas (masse de poudre, températures du témoin)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "S0X step 1 temperature (value_text « at every temperature point »)",
+   "extracted": "temperature = at every temperature point",
+   "article_says": "In contrast, treating FeSO4·7H2O powders without the aid of rGO under the same conditions generated α-Fe2O3 at every temperature point.",
+   "fix": "ce n'est pas une température : l'article ne liste pas les températures des témoins S0X ; déclarer temperature dans not_stated de l'étape (et garder la phrase dans le résultat phase)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "S700-10%GO material (name « Fe3O4/reduced graphene oxide composite (10% GO in starting materials) »)",
+   "extracted": "matériau nommé Fe3O4/rGO",
+   "article_says": "Figure 3 shows the relationship between the RL and frequency for sample S600, S700, S800 and the sample with 10% GO annealed at 700°C at different thickness.",
+   "fix": "l'article ne donne aucune phase pour l'échantillon à 10 % de GO ; renommer sans « Fe3O4 » (iron oxide/rGO composite, 10 % GO, recuit à 700 °C), phase = null",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "S700-10%GO héritage des étapes de S700 (recuit sous Ar, 3 °C/min, 1 h)",
+   "extracted": "branche de S700, une seule variation go_dosage 10 % (parent 5 %)",
+   "article_says": "When the GO dosage in the starting materials is increased from 5% to 10%, the microwave absorption performance of the sample annealed at 700°C is further improved, with RL value of −20.8 d B at 6 GHz (Figure 3d).",
+   "fix": "aucune phrase « same procedure » : l'héritage (atmosphère, vitesse, durée, volume de GO et de FeSO4) est supposé ; garder le doute déjà écrit et ajouter les cases de l'étape de recuit dans not_stated de la branche, ou nommer clairement l'héritage comme non confirmé ; la variation go_dosage cite aussi une teneur « 5% » qui n'est pas rattachée à un réactif",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "S500 step 3 anneal temperature (citation)",
+   "extracted": "temperature = 500 °C, citation « Figure 1b shows the XRD patterns of samples S500, S600, S700 and S800. »",
+   "article_says": "After heating, the products were grounded in an agate mortar, annealed at a certain temperature and labeled as SX, where X denotes the treating temperature.",
+   "fix": "la citation actuelle ne contient que l'étiquette « S500 », pas « 500 °C » ; la remplacer par la phrase de la règle d'étiquetage ou par « when the temperature was increased from 500°C to 800°C »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "S700 / S800 Table 1 contre texte (non signalé dans doubts)",
+   "extracted": "Table 1 : S700 ε′ 7.74–11.16, ε″ 1.44–4.08 ; S800 ε′ 6.92–8.18, ε″ 0.44–2.35 (rangées correctes)",
+   "article_says": "On the other hand, the ε′ of S700 and S800 are about 8 and 11 at 2 GHz, respectively and stay constant up to 8 GHz and show a small fluctuation between 8 and 18 GHz, indicating a resonance behavior.",
+   "fix": "le texte donne ε′ ≈ 11 pour S800 (et ε″ ≈ 0,5 pour S700) alors que le tableau borne ε′(S800) à 8,18 et ε″(S700) à ≥ 1,44 : contradiction interne à consigner dans doubts (texte « respectively » à l'envers pour au moins un des deux couples) ; ne rien changer aux valeurs du tableau",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "S600 characterizations (FT-IR)",
+   "extracted": "pas de FT-IR pour S600 (présent pour S700 et S800)",
+   "article_says": "This was confirmed in our FT-IR study, which showed that only epoxide and hydroxyl groups remained after annealing at 600°C.",
+   "fix": "ajouter à S600 une caractérisation FT-IR : seuls les groupes époxyde et hydroxyle restent (instrument VERTEX 80+HYPERION2000, Bruker Optics) ; l'échantillon n'est pas nommé « S600 » dans la phrase, d'où un doute à noter",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "S0X / FeSO4·7H2O pur : TG/DTG",
+   "extracted": "510 °C et 578 °C (FeSO4·7H2O pur) seulement dans l'annotation tendance_observee ; S90 : 430 et 538 °C en résultats",
+   "article_says": "Compared with pure FeSO4·7H2O, the introduction of graphite oxide into S90 greatly reduces the starting decomposition temperature and the maximum weight loss temperature (510°C vs 430°C, 578°C vs 538°C).",
+   "fix": "ajouter les deux valeurs de FeSO4·7H2O pur en résultats (TG/DTG) de la voie témoin ou d'un échantillon de référence, avec la même citation, pour que la comparaison avec S90 soit lisible ; l'ordre « pur d'abord » est la lecture retenue, correcte vu « reduces »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "S500 step 3 anneal : not_stated incomplet (gas_flow)",
+   "extracted": "not_stated = ['pressure'] ; débit 500 sccm seulement à l'étape purge",
+   "article_says": "A protective gas of high purity argon (99.999%) was passed through the quartz tube at a rate of 500 standard cubic centimeters per minute (sccm) for 10 min to purge the air in the tube.",
+   "fix": "le débit pendant le palier de recuit n'est pas écrit (500 sccm ne vaut que pour la purge de 10 min) : ajouter gas_flow à not_stated de l'étape 3",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "S90 step 2 mix : not_stated stirring_speed",
+   "extracted": "stirring_speed déclaré non cité",
+   "article_says": "63 mL GO aqueous solution was mixed with 20 mL FeSO4·7H2O aqueous solution with ultrasonication for 30 min and vigorous stirring for 1 h.",
+   "fix": "« vigorous » est une indication qualitative donnée : stirring_speed = value_text « vigorous » avec cette citation (pas de valeur en tr/min, qui reste absente)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Comparaison [Fe,Ni] commercial (annotation tendance_observee) : texte contre Fig. 5b/5c",
+   "extracted": "−7 dB à 3,5 mm puis −5 dB après chauffage (valeurs du texte, en annotation)",
+   "article_says": "The RL of the as-obtained [Fe,Ni] is only −7 dB at 3.5 mm thickness.",
+   "fix": "la Fig. 5b montre un minimum d'environ −6,3 dB à 3,5 mm et la Fig. 5c environ −4,5 dB (lecture d'image, ±0,3 dB) : écart d'environ 10 % avec le texte ; garder le texte, ajouter un doute ou une phrase dans l'annotation",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 8,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 3
+ },
+ "reproducibility_gaps": [
+  "rendement, masse de S90 chargée dans la nacelle, modèle du four tubulaire, vitesse de refroidissement : absents",
+  "préparation du GO (méthode de Hummers modifiée, réf. b42) renvoyée ; base de la teneur « 5 % de GO » non écrite (63 mL × 4,0 mg mL−1 = 252 mg de GO pour 5,04 g de FeSO4·7H2O, soit 5 % en masse : cohérent mais non écrit dans l'article)",
+  "pureté et fournisseur de FeSO4·7H2O, eau distillée, argon (fournisseur)",
+  "températures et durées exactes des témoins S0X et de S540 ; atmosphère, durée et vitesse de chauffe du recuit de S90 broyé à 800 °C ; existence et protocole du broyage « After heating, the products were grounded in an agate mortar » (contradiction Résultats / Discussion)",
+  "protocole du mélange Fe3O4 (co-précipitation, réf. b41) et du mélange paraffine/composite (outil de pressage, pression)",
+  "annexe absente : Fig. S1 à S11 (témoins, Raman, TG/DTG, BET, S9) ; phases de S700 en Raman et TEM (Fe3O4 seul) contre DRX (un peu d'hématite)"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Sources de méthode : b43, b42, b41 présentes ; aucun renvoi de méthode manquant (b29, b30 sont des équations de ligne de transmission, exclus). Fig. 3d lue : pic rose (4 mm) à 6 GHz ≈ −20,8 dB, conforme ; Fig. 3a-c conformes aux valeurs du texte (−13,6 ; −17,1 ; −15,2). Fig. 1a (encart) écrit Fe(OH)SO4·2H2O contre Fe(OH)SO4·7H2O dans le texte : doute déjà signalé, valeur du texte à garder. Contradiction Résultats/Méthodes sur le broyage correctement notée par l'extracteur. Les courbes à 2, 3 et 4 mm des Fig. 3a-d ne sont pas reprises (épaisseur d'essai, pas paramètre de synthèse) : choix acceptable, non signalé en constat."
+}

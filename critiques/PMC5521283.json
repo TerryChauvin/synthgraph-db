@@ -1,0 +1,73 @@
+{
+  "pmcid": "PMC5521283",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "method_sources (liste vide) : renvoi B30-B31 sur le procédé d'ajustement des constantes optiques",
+      "extracted": "method_sources = [] ; la limite_reproductibilite dit pourtant que le procédé d'ajustement est renvoyé à des travaux antérieurs",
+      "article_says": "The detailed fitting process can be founded in our previous work",
+      "fix": "ajouter {route: TiO2_400C, ref_id: B30-materials-06-02819 puis B31-materials-06-02819, role: autre, quote: la phrase}, ou rejeter l'entrée et corriger la limite_reproductibilite : le renvoi porte sur un protocole d'analyse de données (cas limite de la règle du 2026-10-13, ni équation ni fiche de référence). Les autres renvois ([[B22]], [[B27]], [[B28]], [[B29]] Cauchy, [[B34]], [[B35]], [[B38]], [[B39]]) ne sont pas des sources de méthode.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_auteurs (TiO2_sol), citation d'appui",
+      "extracted": "citation : « These two solutions were then mixed and stirred for 2 h to achieve hydrolysis and condensation. » ; le texte de l'annotation avance aussi la chélation par l'acétylacétone et l'estérification responsable de la croissance lente des particules",
+      "article_says": "This kind of gradual evolution can be attributed partly to the esterification reaction, which allows slow continuing further hydrolysis to occur and helps combine the particles with time",
+      "fix": "l'estérification n'est pas couverte par la citation de l'annotation ; scinder en deux annotations mecanisme_auteurs (hydrolyse-condensation d'une part, estérification au stockage d'autre part, avec cette phrase en citation), la chélation étant appuyée par « to achieve a complete chelation between the alkoxide and AcAc »",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "TiO2_700C outcomes (indice 633 nm) : valeur 2,26 non attribuée",
+      "extracted": "700 °C : refractive_index_633nm = 2.3 (lu sur la Fig. 4) ; 2,26 non rattaché à une voie (doute de l'extracteur)",
+      "article_says": "The highest refractive index of anatase TiO2 coating reaches to 2.26, which was close to the bulk anatase TiO2.",
+      "fix": "2,26 est l'indice le plus haut des couches d'anatase seule, donc 700 °C (dernière couche sans rutile d'après la Fig. 2). Recalcul avec la ligne 700 °C du tableau 1 : n(633) = 2,127 + 0,051×10^6/633² + 1,255×10^-3×10^12/633^4 = 2,26. Ajouter l'outcome 2,26 à TiO2_700C avec cette phrase en citation (ou garder en doute, la valeur 2,3 de la figure restant compatible).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "TiO2_400C et TiO2_900C refractive_index_633nm (1,98 et 2,57)",
+      "extracted": "1.98 (400 °C) et 2.57 (900 °C), citation « from 1.98 to 2.57 at He-Ne laser wavelength of 633 nm »",
+      "article_says": "The data show that the refractive index increases with annealing temperature, from 1.98 to 2.57 at He-Ne laser wavelength of 633 nm.",
+      "fix": "la phrase ne nomme pas les échantillons : l'attribution aux bornes de la série est une déduction. Elle est juste (recalcul avec le tableau 1 et l'éq. 1 : 400 °C donne 1,985 ; 900 °C donne 2,571 ; Fig. 4 cohérente). À garder, en précisant dans la note que l'attribution est déduite de l'ordre croissant avec la température.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "doutes, entrée « TiO2_sol, fraction d'éthanol et rôle des réactifs »",
+      "extracted": "L'eau a été rangée sous le rôle 'reducing_agent' faute de rôle 'hydrolysant'",
+      "article_says": "deionized water for hydrolysis",
+      "fix": "le JSON porte bien le rôle hydrolysis_agent pour l'eau : retirer la phrase obsolète du doute (elle est fausse par rapport au fichier)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "variations de température des branches TiO2_500C à TiO2_900C, citation",
+      "extracted": "citation = rangée du tableau 1, par exemple « 500 °C | 1.958 | 0.040 | … »",
+      "article_says": "then heat-treated in a muffle furnace for 2 h at different temperatures, ranging from 300 to 900 °C.",
+      "fix": "la rangée ne dit pas que 500 °C est une température de recuit ; la citation de la variation serait plus solide avec la phrase du § 2.2 (comme pour la branche 300 °C), la rangée restant la citation des résultats",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 8,
+    "branches_extracted": 8,
+    "not_stated_checked": 40,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "quantités absolues (masse ou volume) de TBOT, d'éthanol, d'eau, d'acétylacétone et d'acide acétique : seul le rapport molaire 1:30:3:2:1 est donné, ni volume de sol préparé",
+    "pureté et fournisseur de tous les réactifs et des substrats (silicium, silice) ; qualité de l'eau déionisée",
+    "ordre et vitesse d'addition des deux solutions, température et vitesse d'agitation des étapes du sol (seul le vieillissement donne 20~25 °C, humidité < 30 %)",
+    "âge du sol au moment du dépôt (le sol évolue de 7,4 à 14 nm en 90 jours) et sol identique ou non pour tous les recuits",
+    "nettoyage des substrats (agent, méthode, durée), vitesse de retrait réellement utilisée (seule la plage 0~12 inch/min de l'appareil est écrite), temps d'immersion, nombre de couches (« After each coating » suggère plusieurs trempages), atmosphère de l'étape de séchage",
+    "atmosphère, rampe de chauffe et refroidissement du four à moufle ; l'épaisseur de couche varie de 96 à 61 nm sans que le nombre de couches soit donné",
+    "substrat des mesures Raman et AFM non précisé (silicium ou silice) ; mode et paramètres de l'AFM, conditions de la DLS (température, dilution)",
+    "procédé d'ajustement des constantes optiques renvoyé à deux travaux antérieurs sur ZrO2 (B30, B31) ; pas de spectre Raman à 600 °C",
+    "aucune annexe Supporting Information dans le texte et l'article n'en renvoie aucune : rien d'absent à signaler"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs reprend bien chélation, hydrolyse-condensation et estérification de l'article, mais la citation n'appuie que l'hydrolyse-condensation (voir constat mineur) ; mecanisme_analyse est rédigé comme hypothèse",
+  "notes": "Lecture indépendante : 8 voies attendues (sol + recuits 300, 400, 500, 600, 700, 800, 900 °C), toutes présentes ; les 4 âges du sol (0, 30, 60, 90 jours) sont des mesures de stabilité et non des branches, rangés à juste titre en outcomes. Valeurs de tableaux 1 et 2 vérifiées rangée par rangée sur les 6 températures : aucune erreur. Figures ouvertes : Fig. 3 (transmittance à 633 nm lue 66, 62, 60, 52, 41, 40 % pour 400 à 900 °C : écart < 2 points, conforme), Fig. 4 (indice à 633 nm lu 2,07 / 2,08 / 2,26 / 2,52 de 500 à 800 °C contre 2,1 / 2,1 / 2,3 / 2,5 : écart < 3 %, conforme), Fig. 6 (Rq imprimées 0,214, 0,464, 1,356 et 3,509 nm ; extraites 0,21, 0,46, 1,4 et 3,509 : exactes à l'arrondi près, on pourrait garder les trois décimales imprimées), Fig. 2 (confirme l'absence de spectre à 600 °C, anatase seule jusqu'à 700 °C, rutile seul à 900 °C, bosse amorphe à 300 °C), Fig. 1 et 7 cohérentes avec le texte. Les 40 cases not_stated environ ont été cherchées dans le texte : aucune n'est à tort (retrait, nombre de couches, atmosphère, rampe, quantités ne sont nulle part). Fragile : la phase anatase à 400 °C (§ 3.1 dit « higher than 400 °C », conclusion et Fig. 2 disent anatase à 400 °C ; l'extracteur a signalé le doute) ; la transmittance « about 80 % » du texte contre 66 % à 633 nm sur la Fig. 3 est une différence de référence (substrat nu) et de bande moyennée, pas une erreur. Les résultats « pinholes » à 900 °C et « densité accrue » à 700 °C ne sont qu'en annotation et dans le champ morphologie, sans outcome propre : à l'appréciation de l'orchestrateur (aucun nombre en jeu)."
+}

@@ -1,0 +1,162 @@
+{
+  "pmcid": "PMC9181868",
+  "routes": [
+    {
+      "label": "MgFe2O4-500",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de Fe(NO3)3·9H2O", "inputs": "1,6 g ; M = 404,00 g/mol", "formula": "m/M", "result": "3,960 mmol Fe", "compared_to": "—", "source": "masse molaire calculée (formule Fe(NO3)3·9H2O)"},
+        {"what": "moles de Mg(NO3)2·6H2O", "inputs": "0,5 g ; M = 256,41 g/mol", "formula": "m/M", "result": "1,950 mmol Mg", "compared_to": "—", "source": "masse molaire calculée (formule Mg(NO3)2·6H2O)"},
+        {"what": "rapport molaire Fe:Mg", "inputs": "3,960 mmol Fe ; 1,950 mmol Mg", "formula": "n(Fe)/n(Mg)", "result": "2,03", "compared_to": "MgFe2O4 : 2,00", "source": "valeurs de l'article"},
+        {"what": "moles d'acide citrique monohydraté et rapport citrate/métaux", "inputs": "1,8 g ; M = 210,14 g/mol ; métaux 5,910 mmol", "formula": "m/M ; n(CA)/(n(Fe)+n(Mg))", "result": "8,566 mmol ; CA/M = 1,45", "compared_to": "voies citrate usuelles : CA/M de 1 à 1,5", "source": "valeurs de l'article"},
+        {"what": "masse maximale de MgFe2O4 par lot", "inputs": "n(Mg) = 1,950 mmol ; M(MgFe2O4) = 199,99 g/mol", "formula": "n(Mg) × M", "result": "0,390 g (0,396 g si limité par Fe)", "compared_to": "1,5 g de MgFe2O4 par fonctionnalisation (section 2.3), et 3 températures de calcination", "source": "valeurs de l'article"},
+        {"what": "NaOH minimal pour amener la solution à pH 7", "inputs": "8,566 mmol d'acide citrique ; pKa 3,128 / 4,761 / 6,396 (25 °C)", "formula": "nombre moyen de protons cédés à pH 7 = Σ i·αi = 2,80 ; n(NaOH) ≥ 2,80 × n(CA)", "result": "≥ 24,0 mmol NaOH (≈ 0,96 g), soit Na/Fe ≈ 6 ; borne basse (l'hydrolyse et la complexation de Fe3+ libèrent des protons en plus)", "compared_to": "aucune quantité de NaOH donnée par l'article", "source": "pKa : Bates & Pinching, J. Am. Chem. Soc. 71, 1274 (1949), cités par Merck Index en ligne https://www.drugfuture.com/chemdata/citric-acid.html ; LibreTexts E1 (3,13 / 4,76 / 6,40)"},
+        {"what": "masse de sels sodés résiduels après calcination", "inputs": "≥ 24,0 mmol Na ; 15,78 mmol NO3- ; Na2CO3 105,99 g/mol ; NaNO3 84,99 g/mol", "formula": "n(Na)/2 × M(Na2CO3) ou n(NO3-) × M(NaNO3)", "result": "≈ 1,3 g de Na2CO3 ou NaNO3 pour ≤ 0,39 g de ferrite (ferrite ≈ 25 % en masse si rien n'est lavé)", "compared_to": "aucun lavage décrit entre le gel et la poudre calcinée", "source": "arithmétique sur les valeurs de l'article"},
+        {"what": "rapport combustible/oxydant (Jain) du gel nitrate-citrate", "inputs": "valences : C6H8O7 +18 ; Fe(NO3)3 −15 ; Mg(NO3)2 −10 ; 8,566 / 3,960 / 1,950 mmol", "formula": "φ = 18 n(CA) / (15 n(Fe) + 10 n(Mg))", "result": "φ = 1,95 (gel riche en combustible)", "compared_to": "φ = 1 stœchiométrique ; gels nitrate-citrate auto-inflammables vers 200–300 °C", "source": "valeurs de l'article ; méthode des valences de propergol"},
+        {"what": "concentration des métaux dans le sol", "inputs": "5,910 mmol dans 80 mL", "formula": "n/V", "result": "0,074 mol/L", "compared_to": "solubilité des nitrates de Fe et Mg > 1 mol/L : solution limpide attendue", "source": "valeurs de l'article"},
+        {"what": "bord d'absorption correspondant au gap", "inputs": "Eg = 2,05 eV ; hc = 1239,84 eV·nm", "formula": "λ = 1239,84 / Eg", "result": "604,8 nm", "compared_to": "gap de MgFe2O4 : 1,7–2,4 eV (≈ 2,0 eV par Tauc)", "source": "OSTI 1829041"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Fe:Mg = 2,03 (voir « rapport molaire Fe:Mg ») : conforme à MgFe2O4. Citrate/métaux = 1,45 : complexation complète possible, excès non expliqué mais habituel.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Un lot tel que décrit donne au plus 0,39 g de MgFe2O4 (voir « masse maximale de MgFe2O4 par lot »), alors que la section 2.3 fonctionnalise 1,5 g de ferrite par échantillon, pour trois températures, et que les essais d'adsorption consomment 0,25 g par essai (cinétiques et isothermes pour trois métaux et trois températures). Il faut au moins 4 lots par température, ou des quantités multipliées : l'échelle réelle de la synthèse n'est pas donnée.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Le pH est amené à 7 par NaOH, sans quantité ni lavage avant ou après calcination. Neutraliser 8,57 mmol d'acide citrique à pH 7 demande au moins 24 mmol de NaOH (voir « NaOH minimal… ») : le gel calciné contient alors environ 1,3 g de sels sodés (Na2CO3, NaNO3, voir « masse de sels sodés… ») pour au plus 0,39 g de ferrite. La poudre « pristine » caractérisée (FTIR, TGA, UV) est donc probablement un mélange riche en sodium, voire contenant des phases sodées ; les voies citrate de ferrites utilisent en général l'ammoniaque, qui part à la calcination. Aucune DRX ni analyse élémentaire ne permet de le vérifier.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Gel formé en 3 h d'agitation à 60 °C dans un récipient ouvert à partir de 80 mL d'eau : l'évaporation à 60 °C est lente (pression de vapeur de l'eau ≈ 0,2 bar à 60 °C), et un gel en 3 h est peu probable sans température plus élevée (80–100 °C dans les voies citrate usuelles). La température réelle du chauffage et l'état du gel sont à vérifier. Séchage à 90 °C pendant 7 h : sous le point d'ébullition de l'eau (100 °C), cohérent.", "status": "reserve", "basis": "litterature", "source": {"title": "Structure, Morphology and Chemical Synthesis of Mg-Zn Fe2O4 Nano-Ferrites Prepared by Citrate-Gel Auto Combustion Method (gel obtenu à ≈ 100 °C)", "authors_or_publisher": "D. Ravikumar et al., Int. J. Eng. Res. Appl. (IJERA)", "year": "2014", "url_or_doi": "https://www.ijera.com/papers/Vol4_issue4/Version%205/I044054351.pdf"}},
+        {"aspect": "thermique", "finding": "Calcination à 500 °C : la cristallisation d'un spinelle à partir d'un gel nitrate-citrate est rapportée dès 300–500 °C. La température est plausible ; la durée, l'atmosphère et la rampe ne sont pas données, et aucune DRX ne montre que la phase obtenue est MgFe2O4 pure (hématite et MgO possibles à basse température).", "status": "reserve", "basis": "litterature", "source": {"title": "Composition, Microstructure, and Electrical Properties Control of the Powders Synthesized by Sol–Gel Auto-Combustion Method Using Citric Acid as the Fuel", "authors_or_publisher": "B. K. Ostafiychuk, L. S. Kaykan, J. S. Kaykan, B. Ya. Deputat, O. V. Shevchuk, Nanoscale Res. Lett.", "year": "2017", "url_or_doi": "10.1186/s11671-017-1976-1"}},
+        {"aspect": "securite", "finding": "Gel nitrate-citrate riche en combustible (φ = 1,95, voir « rapport combustible/oxydant ») : ces gels s'enflamment spontanément vers 200–300 °C avec un fort dégagement de gaz (NOx, CO2). Placer le gel sec dans un four à 500 °C peut provoquer une combustion brutale et des projections ; la présence de nitrate de sodium (oxydant) l'aggrave. À faire sous hotte, dans un creuset large et peu rempli, avec une montée lente. L'article n'en dit rien.", "status": "reserve", "basis": "litterature", "source": {"title": "Structure, Morphology and Chemical Synthesis of Mg-Zn Fe2O4 Nano-Ferrites Prepared by Citrate-Gel Auto Combustion Method (auto-combustion du gel vers 180–200 °C)", "authors_or_publisher": "D. Ravikumar et al., Int. J. Eng. Res. Appl. (IJERA)", "year": "2014", "url_or_doi": "https://www.ijera.com/papers/Vol4_issue4/Version%205/I044054351.pdf"}},
+        {"aspect": "resultats", "finding": "Le spectromètre FTIR est déclaré sur 4000–500 cm−1 (section 2.2), mais la bande octaédrique du spinelle est annoncée à 450 cm−1, hors de la plage mesurée. La « confirmation » du spinelle par FTIR repose donc sur une seule bande (≈ 570 cm−1), qui ne distingue pas MgFe2O4 de γ-Fe2O3, de Fe3O4 ou d'un mélange hématite + MgO. Sans DRX, la phase n'est pas démontrée.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les auteurs attribuent un épaulement à Fe2+ octaédrique et à un effet Jahn–Teller. Après calcination sous air d'un précurseur Fe3+, la présence de Fe2+ n'est pas attendue et n'est pas mesurée (ni XPS ni Mössbauer) ; Fe2+ haut spin (t2g4 eg2) n'a qu'un effet Jahn–Teller faible. Interprétation non étayée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Gap 2,05 eV (bord à 605 nm, voir « bord d'absorption ») : dans la plage connue pour MgFe2O4 (1,7–2,4 eV). Mais l'article appelle « relation de Tauc » la formule Eg = hc/λmax, qui n'est pas une analyse de Tauc ((αhν)^n contre hν) ; mesure faite sur suspension, sans réflectance diffuse : valeurs approximatives.", "status": "reserve", "basis": "litterature", "source": {"title": "Microwave Synthesis of Spinel MgFe2O4 Nanoparticles and the Ef[fect…] (titre tronqué dans la notice ; gap de MgFe2O4 1,7–2,4 eV, ≈ 2,0 eV par Tauc)", "authors_or_publisher": "OSTI, U.S. Department of Energy (auteurs non relevés)", "year": "non relevée", "url_or_doi": "https://www.osti.gov/servlets/purl/1829041"}},
+        {"aspect": "resultats", "finding": "Taille moyenne 527 nm appelée « nanoparticules » : au-delà de 100 nm, ce sont des particules submicroniques ou des agrégats (mesure SEM/STEM, pas de taille de cristallite). L'argument de superparamagnétisme sous 25 nm de l'introduction ne s'applique pas à ces poudres.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Les nitrates de Fe3+ et Mg2+ sont complexés par le citrate (CA/M = 1,45) ; NaOH déprotone le citrate (pH 7), ce qui stabilise les complexes Fe(III)-citrate et évite la précipitation de Fe(OH)3. L'évaporation donne un gel de citrates mixtes de Na, Fe, Mg et de nitrate de sodium. À la calcination, le gel riche en combustible (φ ≈ 1,95) peut s'enflammer vers 200–300 °C ; il se forme un oxyde mixte amorphe qui cristallise en spinelle MgFe2O4 entre 400 et 600 °C par diffusion des cations, avec risque d'hématite à basse température. Le sodium reste sous forme de Na2CO3/NaNO3 (ou de phases sodées) tant que la poudre n'est pas lavée. L'analyse de l'extraction omet le sodium et la combustion.",
+        "sources": [
+          {"title": "Composition, Microstructure, and Electrical Properties Control of the Powders Synthesized by Sol–Gel Auto-Combustion Method Using Citric Acid as the Fuel", "authors_or_publisher": "B. K. Ostafiychuk et al., Nanoscale Res. Lett.", "year": "2017", "url_or_doi": "10.1186/s11671-017-1976-1"},
+          {"title": "Brevet US 3 330 697 (voie citrate)", "authors_or_publisher": "M. P. Pechini", "year": "1967", "url_or_doi": "https://patents.google.com/patent/US3330697"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "quantité de NaOH ajoutée, et lavage des sels sodés (ou remplacer NaOH par l'ammoniaque)",
+        "phase obtenue par DRX (MgFe2O4 seule, ou hématite, MgO, phases sodées)",
+        "nombre de lots nécessaire : 0,39 g par lot contre 1,5 g par fonctionnalisation",
+        "température réelle du chauffage pour obtenir le gel en 3 h",
+        "durée, atmosphère et rampe de calcination ; risque d'auto-combustion du gel nitrate-citrate"
+      ]
+    },
+    {
+      "label": "MgFe2O4-600",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bord d'absorption correspondant au gap", "inputs": "Eg = 2,03 eV", "formula": "λ = 1239,84 / Eg", "result": "610,8 nm", "compared_to": "2,05 eV à 500 °C", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Taille de particule qui croît de 527 à 620 nm et gap qui baisse de 2,05 à 2,03 eV avec la température : tendance cohérente avec le frittage et la croissance cristalline. Les réserves de la voie de base (sodium, absence de DRX) s'appliquent.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Même voie qu'à 500 °C ; la température plus élevée améliore la cristallinité et fait croître les grains.", "sources": []},
+      "what_to_verify_before_repeating": ["mêmes points que MgFe2O4-500"]
+    },
+    {
+      "label": "MgFe2O4-700",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bord d'absorption correspondant au gap", "inputs": "Eg = 2,00 eV", "formula": "λ = 1239,84 / Eg", "result": "619,9 nm", "compared_to": "2,05 eV à 500 °C", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Taille 762 nm et gap 2,00 eV : suite cohérente de la série. À 700 °C, la réaction des sels sodés résiduels avec l'oxyde de fer (phases Na–Fe–O) devient plus probable ; non vérifiable sans DRX.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Même voie qu'à 500 °C ; frittage et croissance des grains.", "sources": []},
+      "what_to_verify_before_repeating": ["mêmes points que MgFe2O4-500", "phases sodées à 700 °C"]
+    },
+    {
+      "label": "MgFe2O4-NH2-500",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles d'éthanolamine et concentration", "inputs": "2 mL ; densité 1,012 g/mL ; M = 61,08 g/mol ; 20 mL d'eau", "formula": "V·ρ/M ; n/V", "result": "33,1 mmol ; ≈ 1,5 mol/L ; 22 mmol par g de ferrite", "compared_to": "amine greffée ≈ 0,25 mmol/g (TGA) : très large excès", "source": "densité et masse molaire : PubChem CID 700, https://pubchem.ncbi.nlm.nih.gov/compound/Ethanolamine"},
+        {"what": "quantité d'amine greffée d'après la TGA", "inputs": "1,5 % en masse (différence 6,2 − 4,7 %) ; ethanolamine 61,08 g/mol", "formula": "15 mg/g / 61,08", "result": "≤ 0,25 mmol/g (borne haute : la différence inclut l'eau liée, d'après les auteurs)", "compared_to": "capacités de Langmuir 0,70 mmol/g (Pb) et 0,88 mmol/g (Cu)", "source": "valeurs de l'article"},
+        {"what": "quantités de métaux dans l'essai d'adsorption", "inputs": "0,02 g Pb(NO3)2 (331,2) ; 0,02 g CuCl2·2H2O (170,48) ; 0,02 g Zn(CH3COO)2·2H2O (219,50) ; 50 mL", "formula": "m/M ; n/V", "result": "Pb 0,0604 mmol (250 mg/L, 1,21 mM) ; Cu 0,117 mmol (149 mg/L, 2,35 mM) ; Zn 0,0911 mmol (119 mg/L, 1,82 mM)", "compared_to": "—", "source": "valeurs de l'article"},
+        {"what": "charge maximale possible dans l'essai décrit", "inputs": "0,25 g d'adsorbant ; masses de métal ci-dessus", "formula": "m(métal)/m(adsorbant) à 100 % d'élimination", "result": "Pb 50,0 mg/g ; Cu 29,8 mg/g ; Zn 23,8 mg/g", "compared_to": "qm Pb 145,04 mg/g, qm Cu 55,7 mg/g, qe Cu 149,25 mg/g annoncés", "source": "valeurs de l'article"},
+        {"what": "charge correspondant aux éliminations annoncées à 500 °C", "inputs": "Pb 73 %, Cu 59 %, Zn 62 %", "formula": "q = r × m(métal)/0,25 g", "result": "Pb 36,5 mg/g (0,176 mmol/g) ; Cu 17,6 mg/g (0,277 mmol/g) ; Zn 14,8 mg/g (0,226 mmol/g) ; total 0,68 mmol/g", "compared_to": "amine ≤ 0,25 mmol/g", "source": "valeurs de l'article"},
+        {"what": "capacités de Langmuir en mmol/g", "inputs": "qm Pb 145,04 mg/g (207,2 g/mol) ; qm Cu 55,7 mg/g (63,546 g/mol) ; qe Cu 149,25 mg/g", "formula": "q/M", "result": "Pb 0,700 mmol/g ; Cu 0,877 mmol/g ; qe Cu 2,35 mmol/g", "compared_to": "« highest adsorption capacity of 0.7 mmol/g » (résumé et conclusion)", "source": "valeurs de l'article"},
+        {"what": "sursaturation des hydroxydes à pH 7", "inputs": "[OH−] = 1e−7 M ; Ksp Cu(OH)2 2,2e−20 à 1,6e−19 ; Zn(OH)2 3e−17 à 4,5e−17 ; Pb(OH)2 1,4e−20 à 2,8e−16 selon les tables", "formula": "[M2+]sat = Ksp/[OH−]² ; Q/Ksp = c0/[M2+]sat", "result": "Cu : [Cu]sat 2e−6 à 2e−5 M, Q/Ksp 150 à 1070 (précipitation attendue) ; Zn : Q/Ksp 0,4 à 0,6 (sous saturation) ; Pb : Q/Ksp 0,04 à 840 (selon la valeur de Ksp, indéterminé)", "compared_to": "les auteurs écrivent eux-mêmes que M(OH)2 se forme au-dessus de pH 6,5", "source": "LibreTexts E3 (CRC Handbook 84e éd.) ; table UMass OWL ; table WebAssign"},
+        {"what": "variation de taille après fonctionnalisation", "inputs": "527,41 → 428,14 nm ; 620,5 → 458,1 nm ; 762,32 → 628,9 nm", "formula": "(d0 − d1)/d0", "result": "−19 %, −26 %, −18 %", "compared_to": "un greffage de surface augmente légèrement la taille (même groupe, CoFe2O4 : hausse après fonctionnalisation)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Les capacités annoncées dépassent la charge que permet l'essai décrit (section 2.4) : au plus 50 mg/g pour Pb et 29,8 mg/g pour Cu même à 100 % d'élimination (voir « charge maximale possible »), contre qm 145,04 mg/g (Pb), 55,7 mg/g (Cu) et qe 149,25 mg/g (Cu). Les isothermes ont donc été faites à d'autres concentrations, jamais données. De plus, qe (Cu, pseudo-second ordre) = 149,25 mg/g dépasse de 2,7 fois qm (Cu, Langmuir) = 55,7 mg/g, ce qui est impossible pour le même système.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "« Highest adsorption capacity of 0.7 mmol/g » correspond à Pb (145,04/207,2 = 0,700 mmol/g) ; mais Cu, 55,7 mg/g, fait 0,877 mmol/g, plus que Pb en moles (voir « capacités de Langmuir en mmol/g »). L'affirmation du résumé et de la conclusion est fausse en base molaire.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "L'amine greffée vaut au plus 0,25 mmol/g (TGA, voir « quantité d'amine greffée »), alors que les éliminations de l'essai à 500 °C fixent 0,68 mmol/g de métaux et que qm atteint 0,70–0,88 mmol/g. Même à un métal par amine, les groupes –NH2 ne peuvent fixer qu'un tiers environ des métaux retirés : la coordination métal–amine ne peut pas être le mécanisme principal. Les hydroxyles de surface du ferrite et la précipitation d'hydroxydes doivent contribuer.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Essais à pH 7 : Cu(OH)2 est sursaturé 150 à 1000 fois (voir « sursaturation des hydroxydes ») et les auteurs écrivent que M(OH)2 se forme au-dessus de pH 6,5. Les solutions sont filtrées, donc un précipité compte comme « éliminé ». Aucun témoin sans adsorbant ni avec le ferrite non fonctionnalisé n'est décrit : l'élimination ne peut pas être attribuée à l'amine. Témoins à faire : même solution à pH 7 sans solide, puis avec MgFe2O4 nu. Le réactif qui maintient le pH à 7 n'est pas donné.", "status": "probleme", "basis": "litterature", "source": {"title": "E3: Solubility Constants for Compounds at 25°C (données du CRC Handbook of Chemistry and Physics, 84e éd.)", "authors_or_publisher": "Chemistry LibreTexts", "year": "2014", "url_or_doi": "https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Equilibrium_Constants/E3._Solubility_Constants_for_Compounds_at_25C"}},
+        {"aspect": "mecanisme", "finding": "Les auteurs concluent à une chimisorption parce que le modèle de pseudo-second ordre s'ajuste mieux. Ce critère n'est pas probant : la linéarisation t/qt contre t favorise systématiquement le pseudo-second ordre, quel que soit le mécanisme.", "status": "reserve", "basis": "litterature", "source": {"title": "On the comparison of pseudo-first order and pseudo-second order rate laws in the modeling of adsorption kinetics", "authors_or_publisher": "J.-P. Simonin, Chemical Engineering Journal 300, 254–263", "year": "2016", "url_or_doi": "10.1016/j.cej.2016.04.079"}},
+        {"aspect": "bilan", "finding": "Les Résultats (3.1) décrivent une silanisation au TEOS puis une amination de la surface silicée (Fe–O–Si « masqué »), mais les Méthodes (2.3) ajoutent directement l'éthanolamine au ferrite, sans TEOS. Une couche de silice donnerait une bande Si–O–Si intense vers 1080 cm−1 ; la bande à 1040 cm−1 est attribuée à un mode « C–N–C » que l'éthanolamine (HOCH2CH2NH2, amine primaire) ne possède pas : elle correspond plutôt à l'élongation C–O de l'éthanolamine, ou à Si–O–Si s'il y a bien eu du TEOS. Les deux descriptions sont incompatibles.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "La méthode est dite suivre le procédé « sans catalyseur » de Nonkumwong et al. Or, d'après les reprises publiées, ce procédé est une co-précipitation en une étape dans l'éthylène glycol avec l'éthanolamine, à reflux à 200 °C pendant 12 h, et non un traitement de 30 min d'un ferrite calciné dans l'eau. Le protocole de l'article n'est pas celui de la référence citée ; le taux de greffage attendu n'est donc pas transposable.", "status": "reserve", "basis": "litterature", "source": {"title": "An Innovative Bioremediation Approach to Heavy Metal Removal: Combined Application of Chlorella vulgaris and amin functionalized MgFe2O4 Nanoparticles in Industrial Wastewater Treatment (section 4.2, méthode de Nonkumwong et al., RSC Adv. 2016, 6, 47382–47393)", "authors_or_publisher": "Preprints.org", "year": "2025", "url_or_doi": "https://www.preprints.org/manuscript/202505.0828"}},
+        {"aspect": "thermique", "finding": "« Stirring and heating » pendant 30 min sans température ; éthanolamine à 1,5 mol/L dans l'eau (pH ≈ 11–12, pKa ≈ 9,5). Un ancrage covalent M–O–C de l'éthanolamine sur un oxyde calciné, en milieu aqueux et en 30 min, est peu probable ; l'adsorption par coordination de l'azote ou de l'alcoolate aux sites Fe3+ de surface et par liaisons hydrogène est plus plausible, et un lavage prolongé à l'eau (jusqu'à pH 7) en retire une partie. Cohérent avec la faible teneur mesurée (≤ 0,25 mmol/g).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "La taille baisse de 18 à 26 % après « fonctionnalisation » (voir « variation de taille »), alors qu'un greffage ajoute une couche ; le même groupe rapporte une hausse de taille après fonctionnalisation d'un CoFe2O4. Une baisse s'explique mieux par la désagglomération ou par la dissolution, au lavage, des sels sodés résiduels de la calcination. Les N–H à 3415/3473 cm−1 se superposent à l'O–H de l'eau et des hydroxyles : ils ne prouvent pas seuls le greffage.", "status": "reserve", "basis": "litterature", "source": {"title": "Study of Kinetics and the Working Mechanism of Silica-Coated Amino-Functionalized CoFe2O4 Ferrite Nanoparticles to Treat Wastewater for Heavy Metals", "authors_or_publisher": "ACS Omega", "year": "2024", "url_or_doi": "10.1021/acsomega.3c07200"}},
+        {"aspect": "resultats", "finding": "L'échantillon de 500 °C élimine le plus de métaux, alors que les auteurs disent que le nombre de groupes –NH2 croît avec la température : leurs deux affirmations se contredisent. La plus petite taille à 500 °C (plus grande surface) explique mieux le classement que la teneur en amine.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Éthanolamine corrosive ; solutions de Pb2+, Cu2+ et Zn2+ toxiques (déchets de métaux lourds). Aucun danger particulier non signalé par l'extraction.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "L'éthanolamine s'adsorbe sur le ferrite par coordination de l'azote ou de l'oxygène aux cations Fe3+/Mg2+ de surface et par liaisons hydrogène avec les hydroxyles (≤ 0,25 mmol/g restent après lavage) ; aucune étape TEOS n'est décrite dans les Méthodes. À pH 7, les métaux sont retirés surtout par complexation de surface sur les hydroxyles du ferrite et, pour Cu2+ (et peut-être Pb2+), par précipitation d'hydroxydes retenus au filtre ; la coordination aux amines ne peut porter qu'environ un tiers des métaux retirés. Le meilleur résultat à 500 °C suit la plus grande surface (plus petites particules).",
+        "sources": [
+          {"title": "On the comparison of pseudo-first order and pseudo-second order rate laws in the modeling of adsorption kinetics", "authors_or_publisher": "J.-P. Simonin, Chem. Eng. J.", "year": "2016", "url_or_doi": "10.1016/j.cej.2016.04.079"},
+          {"title": "E3: Solubility Constants for Compounds at 25°C", "authors_or_publisher": "Chemistry LibreTexts (CRC Handbook 84e éd.)", "year": "2014", "url_or_doi": "https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Equilibrium_Constants/E3._Solubility_Constants_for_Compounds_at_25C"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "y a-t-il une étape TEOS (Résultats) ou non (Méthodes) ?",
+        "température du chauffage avec l'éthanolamine, nombre de lavages, température de séchage",
+        "teneur réelle en amine (analyse élémentaire CHN) plutôt que différence de TGA",
+        "témoins d'adsorption : solution à pH 7 sans solide, et ferrite non fonctionnalisé",
+        "concentrations initiales des isothermes (non données), réactif qui maintient le pH à 7"
+      ]
+    },
+    {
+      "label": "MgFe2O4-NH2-600",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bord d'absorption correspondant au gap", "inputs": "Eg = 2,08 eV", "formula": "λ = 1239,84 / Eg", "result": "596,1 nm", "compared_to": "ferrite nu à 600 °C : 2,03 eV (610,8 nm)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Même procédé que MgFe2O4-NH2-500 ; taille 458 nm (−26 % par rapport au ferrite nu) et gap 2,08 eV. Les éliminations de métaux sont dans le Tableau 8, absent. Mêmes réserves que la voie de base.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Comme MgFe2O4-NH2-500.", "sources": []},
+      "what_to_verify_before_repeating": ["mêmes points que MgFe2O4-NH2-500"]
+    },
+    {
+      "label": "MgFe2O4-NH2-700",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bord d'absorption correspondant au gap", "inputs": "Eg = 2,06 eV", "formula": "λ = 1239,84 / Eg", "result": "601,9 nm", "compared_to": "ferrite nu à 700 °C : 2,00 eV (619,9 nm)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Même procédé ; taille 628,9 nm (−18 %) et gap 2,06 eV. Hausse du gap de 0,06 eV après traitement à l'éthanolamine : une couche organique ne modifie pas le gap du cœur ; l'écart relève plutôt de la diffusion par des suspensions différentes. Mêmes réserves que la voie de base.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Comme MgFe2O4-NH2-500.", "sources": []},
+      "what_to_verify_before_repeating": ["mêmes points que MgFe2O4-NH2-500"]
+    }
+  ],
+  "article_level": {
+    "summary": "Le ferrite est préparé par une voie citrate classique avec un rapport Fe:Mg juste (2,03), mais le pH est fixé par NaOH sans quantité ni lavage : au moins 24 mmol de Na pour 0,39 g de ferrite au plus par lot, donc une poudre « pristine » probablement riche en sels sodés. La phase n'est pas démontrée (pas de DRX ; bande à 450 cm−1 hors de la plage FTIR déclarée). La fonctionnalisation est décrite de deux façons incompatibles (TEOS dans les Résultats, absent des Méthodes) et ne suit pas la méthode citée. Les capacités annoncées (qm 145 mg/g Pb, qe 149 mg/g Cu) dépassent la charge que permet l'essai décrit, qe Cu dépasse qm Cu, et la capacité « maximale de 0,7 mmol/g » est inférieure à celle de Cu en moles. L'amine mesurée (≤ 0,25 mmol/g) ne peut porter qu'un tiers des métaux retirés, et à pH 7 sans témoin la précipitation d'hydroxydes ne peut pas être exclue.",
+    "author_errors_suspected": [
+      "bande octaédrique à 450 cm−1 annoncée alors que le FTIR couvre 4000–500 cm−1",
+      "qe(Cu) = 149,25 mg/g supérieur à qm(Cu) = 55,7 mg/g ; capacités supérieures à la charge possible dans l'essai de la section 2.4",
+      "« highest adsorption capacity 0.7 mmol/g » alors que Cu atteint 0,88 mmol/g",
+      "silanisation au TEOS dans les Résultats, absente des Méthodes ; mode « C–N–C » attribué à l'éthanolamine, qui n'en a pas",
+      "« relation de Tauc » pour Eg = hc/λ",
+      "« Fe2+ » et effet Jahn–Teller affirmés sans mesure, après calcination sous air",
+      "« MnFe2O4 and MnFe2O4 » (comparaison avec Ren et al.), « heavy water » pour l'eau chargée en métaux, « dehydrate » pour « dihydrate »",
+      "méthode attribuée à Nonkumwong et al. alors que celle-ci est une co-précipitation dans l'éthylène glycol à 200 °C"
+    ],
+    "comparison_with_database": "compare.py « MgFe2O4 » ne trouve que cette publication (PMC9181868) : pas de comparaison possible dans la base."
+  },
+  "sources_not_found": [
+    "DOI de Nonkumwong, Ananta, Srisombat, RSC Adv. 2016, 6, 47382–47393 non trouvé : la méthode est connue par une reprise (Preprints.org 202505.0828), pas par l'article original",
+    "auteurs et année de la notice OSTI 1829041 (gap de MgFe2O4) non relevés"
+  ]
+}

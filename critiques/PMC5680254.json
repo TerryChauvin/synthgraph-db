@@ -1,0 +1,57 @@
+{
+ "pmcid": "PMC5680254",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "ZnO_0mM (et branches héritières) step 2 temperature = 358 K",
+   "extracted": "value_num 358 K, citation « At this pH and temperature range (358 K), there are very few positively charges Zn (II) complex species present in the growth solution. »",
+   "article_says": "At this pH and temperature range (358 K), there are very few positively charges Zn (II) complex species present in the growth solution",
+   "fix": "La section Experimental part ne donne aucune température de four (« placed in a preheated convection oven for 15 hours »). 358 K n'apparaît que dans la discussion du mécanisme, à propos de la solution à 10 mM de NH4OH, comme « temperature range ». Soit la ranger en non cité (temperature) avec la valeur 358 K en doute/annotation limite_reproductibilite, soit la garder en la marquant explicitement comme tirée de la discussion ; dans tous les cas, ne pas la présenter dans l'annotation resume (« 358 K, 15 h ») comme condition de l'Experimental part de tous les échantillons, et ne pas la rattacher à la baseline 0 mM sans réserve.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "NWFET_0mM/20mM/40mM outcomes on_off_current_ratio et free_charge_density, value_text",
+   "extracted": "value_text « 106–107 », « 105–106 », « 105–107 », « 4.3 ± 3.9 × 1016 », « 8.3 ± 4 × 1016 », « 2 ± 1 × 1017 » (exposants aplatis tels que dans le texte)",
+   "article_says": "0 | −5.4 ± 4.7 | 106–107 | 3.8 ± 3.3 | 4.3 ± 3.9 × 1016",
+   "fix": "Le XML source confirme des exposants (10^6–10^7, 10^5–10^6, 10^5–10^7 ; ×10^16, ×10^16, ×10^17), cohérents avec l'axe de la Fig. 6. Garder la citation telle quelle, mais écrire le value_text avec exposants lisibles (« 10^6–10^7 », « 4.3 ± 3.9 × 10^16 ») pour que la fiche ne se lise pas « 106 à 107 » ou « 1016 ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "NWFET_* outcomes field_effect_mobility et threshold_voltage_variation (value_num seul)",
+   "extracted": "mobilité 3.8, 2, 0.35 cm2/Vs et VTH −5.4, −20.7, −13 V sans dispersion (alors que Table 1 garde « 22 ± 6 » en value_text)",
+   "article_says": "20 | −20.7 ± 18 | 105–106 | 2 ± 2 | 8.3 ± 4 × 1016",
+   "fix": "Ajouter value_text « 3.8 ± 3.3 », « 2 ± 2 », « 0.35 ± 0.3 » et « −5.4 ± 4.7 », « −20.7 ± 18 », « −13 ± 18 » : les auteurs insistent sur la grande dispersion d'appareil à appareil (±18 V sur VTH, 2 ± 2 cm2/Vs), qui change la portée de la tendance annoncée.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "annotation pourquoi_ces_donnees (voie générale)",
+   "extracted": "« Un seul paramètre de croissance est balayé : la concentration de NH4OH [...], les autres conditions étant constantes. »",
+   "article_says": "In the experiments, the concentration of NH4OH is varied from 0 to 40 mM.",
+   "fix": "L'article ne dit nulle part que les autres paramètres de croissance (température, durée, concentrations Zn/HMTA, substrat) sont identiques pour les cinq échantillons ; seule la fabrication des transistors est déclarée identique (« all the fabrication steps for different devices are performed under identical conditions »). Reformuler : « seule variable annoncée, les autres conditions de croissance ne sont pas dites identiques mais supposées telles ». L'héritage des étapes par ZnO_10–40mM reste raisonnable via la phrase de l'Experimental part, mais il est déduit.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 9,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "température du four de croissance absente de l'Experimental part (358 K seulement dans la discussion, « preheated convection oven ») ; pas de vitesse de chauffe",
+  "concentrations de Zn(NO3)2·6H2O et de HMTA absentes (seulement « 1:1 ratio », molaire ou massique non dit) ; solvant (eau ?) et volume de solution non donnés",
+  "NH4OH : concentration de la solution mère, pureté, mode et moment d'ajout non dits ; les « mM » se rapportent à la solution de croissance sans autre précision ; aucune mesure de pH décrite pour 0, 20 et 30 mM",
+  "volume du flacon en Téflon, taux de remplissage de l'autoclave, position et taille du substrat",
+  "pulvérisation Au et Ti : puissance, pression, durée, vitesse de dépôt non donnés ; ordre réel de dépôt (Ti sous Au) non écrit",
+  "images AFM du film d'or « not shown here »",
+  "nanofils sur autre substrat pour le rapport d'aspect : mode de dispersion et nombre de nanofils mesurés non donnés",
+  "transistors : résine EBL, dose, développement, longueur de canal L et rayon r des nanofils mesurés non donnés (nécessaires aux équations 9–11) ; fournisseurs de tous les réactifs absents sauf pureté du nitrate de zinc (98 %)",
+  "conditions des balayages de sortie de la Fig. 5 (valeurs de VGS différentes selon l'échantillon) non reprises dans le texte"
+ ],
+ "mechanism_check": "ok : les annotations mecanisme_auteurs reprennent les équations 1 à 8 et l'argument pH/solubilité/sursaturation du texte ; mecanisme_analyse est étiqueté hypothèse et signale que l'article n'explique pas la densité plus haute à 0 mM qu'à 10 mM. Seul réserve : le resume affirme « 358 K, 15 h » sans nuance (voir constat 1).",
+ "notes": "Points demandés : (a) 358 K signalé en constat 1 ; (b) densités Fig. 1f relues sur l'image agrandie (décade ≈ 127 px) : 0 mM ≈ 4,1e8, 10 mM ≈ 1,95e7, 20 mM ≈ 3,0e8, 30 mM ≈ 5,9e8, 40 mM ≈ 1,0e9 /cm2 ; les cinq valeurs extraites (4e8, 2e7, 3e8, 6e8, 1e9) sont à moins de 5 % de ma lecture et lisibles à 1 chiffre significatif, donc à garder ; (c) pH « around 7 » rattaché à 40 mM : lecture raisonnable (borne haute de « from 10 to 40 mM »), doute déjà déclaré, pas de constat ; reste que 6,8 et ~7 sont affirmés sans mesure décrite (peut-être modélisation de la réf. CR20) ; (d) exposants aplatis de la Table 2 : confirmés dans le XML (10<sup>6</sup>, 10<sup>16</sup>, 10<sup>17</sup>), l'extraction les lit correctement dans ses doutes, seul le value_text reste en forme aplatie (constat 2). Attribution des rangées Tables 1 et 2 vérifiée ligne par ligne : correcte. Aucune section Supporting Information ni renvoi de méthode dans corpus/refs (method_sources vide correct ; les [[CR6]] des équations 9-10 sont des formules d'analyse, exclues par la règle). Fig. 3a montre un petit pic ZnO (10-10) à ~31,8° (20 mM) : (10-10) est une réflexion wurtzite, et l'article ne le commente pas : pas de constat. Branches 10 à 40 mM sans caractérisation propre (XRD, Raman, SEM donnés pour l'ensemble) : choix d'héritage acceptable."
+}

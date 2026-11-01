@@ -1,0 +1,14 @@
+# Journal de la critique de fidélité, PMC8184743
+
+- Ma liste d'échantillons avant ouverture de l'extraction : ZnO (0 mol.%), Ni 1, 3, 5 mol.%, Ag 1, 3, 5 mol.%, soit 7. L'inventaire de l'extracteur a les mêmes 7, avec les bons tableaux et figures de résultats : aucun échantillon manquant.
+- Table 3 recopiée contre les 7 rangées des outcomes (taille, FWHM, bande interdite, dislocation, a, c, c/a) : aucune erreur d'attribution, y compris 0.0020 pour 3 mol.% Ag.
+- Seuils d'absorption : les phrases « respectively » (374/377/376 nm pour 1/3/5 Ni ; 379/387/390 pour 1/3/5 Ag) sont attribuées dans le bon ordre.
+- Constat 1 (Ni2O3, `sure`, attribution) : le doute de l'extracteur dit que l'incohérence du tableau 1 concerne un échantillon incertain, « 5 mol.% Ni ». La figure 1 (ouverte) porte les étiquettes « Ni2O3 (202) / ZnO (110) » et « Ni2O3 (004) / ZnO (103) » sur les trois spectres Ni, donc les trois voies Ni sont concernées. Le texte dit pourtant « no other crystalline phase was detected » : contradiction interne de l'article, à garder en limite de reproductibilité, pas à trancher. Je ne propose pas de retirer la valeur du texte.
+- Constat 2 (bande interdite 1 mol.% Ag, `sure`, mineur) : le texte (« 2.8 eV, 2 eV and 1.8 eV »), la figure 9 et l'intersection de la droite de Tauc sur la figure 8 donnent 2,8 ; le tableau 3 et l'insert de la figure 8 donnent 2,9. L'extracteur n'a gardé que 2,90. Le doute est bon ; je demande seulement d'ajouter la valeur du texte comme second résultat.
+- Constat 3 (3 mol.% Ag absorption) : la citation dit « 3 and 5 mol.% Ag », la valeur extraite dit « (with 5 mol.% Ag) » ; erreur de recopie sûre.
+- Constat 4 (« calcination à l'air ») : l'atmosphère est dans `not_stated` de l'étape 10 mais l'annotation mecanisme_analyse l'affirme ; classé `deduit`.
+- Constats 5 et 6 (`probable`) : tendance d'intensité des raies Ag et résultats de transmittance de groupe non rendus ; l'article les écrit en toutes lettres, mais ils ne figurent pas comme résultats par voie.
+- Écartés comme non-constats : (a) extension du protocole au ZnO pur, appuyée par « molar ratios (0, 1, 3 and 5 mol.%) » et déjà en doute et en limite ; (b) tailles de cristallites par raie des tableaux 1 et 2 (en-tête brouillé, moyennes dans le tableau 3) ; (c) valeurs de bande interdite 2,00 et 1,80 eV contre seuils ≈ 387 et 390 nm : incohérence de l'article, déjà en annotation.
+- `method_sources` vide : vérifié dans refs, tous les renvois (CR24, CR35, CR36, CR37) portent sur des formules d'analyse.
+- Aucune valeur `from_figure` dans l'extraction : rien à mesurer à 10 %. Figures 1, 2, 8, 9 ouvertes pour la phase et la bande interdite.
+- Cases `not_stated` : les 20 vérifiées, toutes justes (AgNO3 sans pureté ni fournisseur ; calcination sans atmosphère ni vitesse de chauffe ; rendement absent).

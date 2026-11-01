@@ -1,0 +1,13 @@
+# Journal de fidélité PMC3330020
+
+- Ma liste d'échantillons avant ouverture de l'extraction : SGAc, SGEg, SGOc, SGEn (Experiment, un seul protocole), plus électrode et cellule décrites à part. Identique à `sample_inventory` : aucun échantillon manquant, pas d'annexe, pas de SI.
+- Tableau 1 : j'ai relu les quatre rangées contre les noms d'agent (Acetic acid, Ethanediol, Oxalic acid, Ethylenediamine) ; les 16 valeurs (logβ, capacité, densité de tassement, carbone) sont sur la bonne voie. Les carbones « 2.3, 4.8, 3.2, 5.1 … respectively » suivent l'ordre SGAc, SGEg, SGOc, SGEn, conforme à la rangée correspondante.
+- Fautes SCAc/SCOc/SCEg/SCEn des Résultats : lecture SG confirmée par la légende de la figure 2 ((a) SGAc, (b) SGOc, (c) SGEg, (d) SGEn), cohérente avec « Figure 2b » pour l'oxalate. Pas un constat.
+- Figure 5 ouverte : à 30 cycles SGOc ≈ 134, SGEg ≈ 112, SGEn ≈ 117 contre 130, 110, 120 extraits (écarts 3 %, 2 %, 3 %), sous le seuil de 10 % ; premiers cycles ≈ 142, 133, 127, concordants avec le tableau 1. Aucun constat.
+- Figure 4 : plateaux ≈ 3,49 V (charge) et ≈ 3,37 V (décharge) visibles, capacités initiales cohérentes ; confirme l'annotation de groupe, non retranscrite par voie (règle du groupe).
+- Figure 3 : la fenêtre tracée (axe 2,8–4,2 V, courbes jusqu'à ≈ 4,0 V) ne correspond pas à « 2.0 V to 4.5 V » du texte : constat mineur `probable` (la fenêtre de mesure peut être plus large que la fenêtre tracée), valeur du texte à garder.
+- Pics de CV lisibles sur la figure 3 mais seulement décrits qualitativement dans le texte : constat `manquant` mineur et optionnel ; la lecture est sans conséquence pour la synthèse.
+- Carbone et constante de stabilité : l'annotation comparaison_branches affirme que le carbone « suit l'ordre des constantes » ; or logβ (8,3 ; 5,22 ; 9,67 ; 9,70) et carbone (2,3 ; 3,2 ; 4,8 ; 5,1) ne sont proportionnels que hors acide acétique. L'article le prétend (« direct ratio ») ; je signale l'annotation (mineur, `probable`), pas la donnée.
+- Case `not_stated` vérifiées par recherche dans le texte (montants, évaporation, pression de pastillage, vitesse de montée, débit de gaz, volumes, C-rate) : aucune n'est dans l'article ; 0 « non cité » à tort. Pureté A.R et fournisseur justement limités aux trois précurseurs nommés par la phrase.
+- Écarté comme non-constat : héritage des étapes par SGEg/SGOc/SGEn (un seul protocole, doute déjà écrit) ; logβ en outcome (choix assumé par l'extracteur) ; ordre « ascorbique / 1 h à 55 °C » (doute déjà écrit) ; résumé 200 nm et < 6,8 wt.% (doutes déjà écrits).
+- Outcome cell_voltage_window : doublon d'une condition de mesure déjà dans `characterizations` ; mineur.

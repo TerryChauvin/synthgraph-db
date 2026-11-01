@@ -1,0 +1,16 @@
+# Journal d'extraction PMC5452327
+
+- **Découpage en quatre voies de base, zéro branche.** GO (Hummers), Fe3O4 (Massart), mGOp et mGOi sont des préparations indépendantes (« deux matériaux préparés indépendamment = deux voies de base »). GO et Fe3O4 sont des voies `intermediate` parce que mGOp réutilise GO et mGOi réutilise GO et Fe3O4 (réactifs de rôle `intermediate`, avec le nom de la voie).
+- **Variations de température, concentration, temps, pH : pas des branches.** Elles portent sur l'adsorption du colorant RB5 (« Methods 2.5 », Tables 1 à 3), c'est-à-dire sur des tests du matériau fini. Elles sont rangées en `outcomes` de mGOi et mGOp, une rangée de tableau = une citation, nommée par T ou C0 (ex. `Langmuir_Qmax_45C`, `Kc_C0_100mgL_T_318K`).
+- **Table 3 : cellules fusionnées perdues dans le texte.** Les rangées « | 318 | 12.01 | 0.43 | -2.24 » ne portent ni C0 ni ΔH0. J'ai attribué C0 par groupes de trois rangées (298, 318, 338 K) ; ΔH0 et ΔS0 sont rangés sous le groupe C0 avec la rangée à 298 K en citation. Un doute le signale.
+- **Table 3, signe de ΔG0 : valeur non corrigée.** Kc = 0,82 à 298 K donnerait ΔG0 = +0,49 kJ/mol alors que la table écrit −0,50. Recopié tel quel, doute écrit (la vérification revient au critique scientifique).
+- **Taille 18,4 nm rangée sur mGOi.** Le paragraphe s'ouvre par « For the mGOi » ; le pic cité (35.56°) diffère de la liste des pics (35.4°) : doute.
+- **22 % d'oxyhydroxydes rangé sur mGOp.** Le paragraphe dit « For this sample » ; le précédent écrit « mGOs » (faute). Lecture mGOp, car la formation d'oxyhydroxydes est liée à la co-précipitation.
+- **GO : deux positions du pic (001)**, 10,9° puis 10,3° dans le texte ; retenu 10,9° (avec d = 0,81 nm, même phrase). Je n'ai pas extrait 10,3°.
+- **Figures lues** (5 valeurs) : aimantation de mGOp (Fig. 6, axe de droite, ≈ 7,7 emu/g), masse restante à 900 °C (Fig. 4, mGOp ≈ 41 %, mGOi ≈ 94 %), concentration résiduelle en fin de cinétique (Fig. 8, mGOi ≈ 153, mGOp ≈ 128 mg/L). La Fig. 4 a un axe étiqueté « dérivée » mais des courbes de masse : lue comme masse, précisé en doute.
+- **Texte préféré à la figure** pour l'aimantation de mGOi (65 emu/g dans le texte, la courbe plafonne vers 62-63).
+- **Températures non attribuées.** « maintained for an additional 30 min » (Fe3O4) et « after stirring for about 45 min » (mGOp) ne donnent pas la température : `temperature` déclarée non citée (étape `react` pour Fe3O4, étape `stir` pour mGOp). Le 80 °C de mGOp est « The temperature of the solution rose to 80 °C » : température observée, pas consigne.
+- **Pureté et fournisseur.** Section 2.1 : phrase générale « all other reagents were purchased from Sigma-Aldrich » + « analytical grade » : appliquée à tous les réactifs chimiques ; pas à l'eau (non nommée), déclarée non citée.
+- **Sources de méthode** : Hummers (B23), Massart (B24), co-précipitation du mélange (B25). Exclus : Debye–Scherrer, Langmuir, Freundlich, Van't Hoff, JCPDS (formules ou fiches).
+- **Échantillons sans voie** : graphite (commercial), GO/mGOi/mGOp chargés en colorant (spectres IR B, D, F de la Fig. 7).
+- **Bioprocédé / annexes** : sans objet ; aucune annexe citée dans l'article, `data not shown` signalé (effet du pH, tracé van't Hoff).

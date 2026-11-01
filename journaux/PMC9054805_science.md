@@ -1,0 +1,18 @@
+# PMC9054805 — critique scientifique (journal de décisions)
+
+- Problème central fondé sur un calcul : bilan O de l'EDX. Pour FGS1, Si 7,3 % × 1,139 = 8,32 % d'O requis par SiO2 contre 8,3 % mesuré : tout l'oxygène est porté par la silice, il ne reste rien pour les fonctions d'un « oxyde de graphène ». En % atomiques le déficit est pire (14,6 % requis). Ce point compte plus que le C/O annoncé (10,22, recalculé 10,18).
+- Bragg avec λ Cu Kα (non déclarée dans S-1, XRD-7000 supposé au cuivre) : 26,2° → d = 3,40 Å, distance de graphite turbostratique et non de GO (8–9,5 Å, Marcano 2010 de fondateurs.md). Le balayage commence à 5°, un pic de GO vers 10° aurait été vu. La raie (110) du graphite est à 77,5°, donc 43,3° est (10).
+- Smicro et L0 non définis : j'ai supposé un formalisme de Dubinin–Stoeckli (pores en fente, S = 2V/L, d'où W0 = Smicro·L0/2000). W0 = 3,2 ; 4,4 ; 1,9 cm3/g : invraisemblable. Même sans cette hypothèse, Smicro > SBET et L0 > 2 nm suffisent à fonder le `probleme`. Source primaire de Stoeckli non relue : consigné dans sources_not_found.
+- Surface d'un empilement de 10–11 feuillets ≈ 2630/n ≈ 240–260 m2/g (Stoller 2008) contre SBET 1390–1768 : la surface vient de la microporosité d'activation, pas d'une exfoliation en GO.
+- Autoclave inox à 850 °C : calcul de pression sur un volume libre supposé de 100 mL (non donné) avec H2 (n(KOH)/2) et l'eau des 15 % non-KOH (supposée eau) : ≈ 220 bar. Classé `probleme` sécurité parce que l'article ne dit ni fermeture, ni soupape, ni atmosphère, et que du K métallique est lavé à l'eau sans précaution.
+- « Potassium melts above 800 °C » : laissé en `reserve` (mot faux, fusion 63,5 °C, ébullition 759 °C, source RSC) car le mécanisme d'intercalation par la vapeur de K reste valable.
+- Thermodynamique : ΔG = ΔH − TΔS recalculé = tableau 4 au dix-millième. ΔS recalculé depuis 93,61 % et une dose de 0,24 g/L = −298,7 J/mol/K, identique à l'article : Kc = qe/Ce en L/g est bien utilisé, donc dimensionnel (Tran 2022). Avec ΔG(TB, 323 K) = +1,63 kJ/mol, contraire au texte, c'est un `probleme`.
+- ΔH recalculé sur deux points (Kc ∝ R/(1−R), la dose s'élimine) : −99 kJ/mol (TB) et −6,7 kJ/mol (BPA), proches de l'article ; avec les valeurs BPA de la figure 12a (74/66 %), −12 kJ/mol : la contradiction texte/figure notée par l'extracteur change ΔH d'un facteur 1,8.
+- Raman : interprétation inversée de ID/IG (Ferrari & Robertson 2000, fondateurs.md), classée `probleme` car la conclusion « FGS2 le plus graphitisé » sert à choisir le meilleur échantillon.
+- IR : 2349 cm−1 = CO2 (les auteurs le disent eux-mêmes pour les cendres) ; classé `probleme` parce que c'est leur preuve d'une liaison C–Si.
+- Étape « OH → COOH avant activation » de la section Growth mechanism : absente des Méthodes ; classée `probleme` (cohérence entre sections), probablement un texte repris d'un autre travail.
+- Agitation à 300 rpm : q = 486 et 548 mg/g > qm Langmuir ; laissé en `reserve` (essais d'adsorption, hors synthèse).
+- Solubilité du BPA : PubChem donne 120 et 300 mg/L à 25 °C ; 150 mg/L entre les deux, d'où `reserve` et non `probleme`.
+- Cristobalite pour RHA2 à 500 °C : `reserve`, la silice de balle reste amorphe sous ≈ 800 °C (revue Hybrid Advances 2023, auteurs non relevés dans l'extrait).
+- Comparaison base : activations KOH sous N2 (PMC8838941, PMC11001879), NaOH sur char de balle (PMC10754887) : surfaces compatibles ; l'atmosphère manque ici.
+- Recherche web : 9 recherches. Crossref bloqué : DOI de Muramatsu 2014, Stoller 2008, Wang & Kaskel 2012, Stoeckli & Centeno 2005, Tran 2022, Hossain 2018 lus sur les pages éditeur ou PubMed, non vérifiés sur Crossref. Rien ajouté à fondateurs.md ni à constantes.md (consigne).

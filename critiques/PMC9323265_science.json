@@ -1,0 +1,253 @@
+{
+ "pmcid": "PMC9323265",
+ "routes": [
+  {
+   "label": "NFCDs",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "masses molaires des précurseurs",
+     "inputs": "lévofloxacine C18H20FN3O4 ; acide DL-malique C4H6O5 ; masses atomiques IUPAC",
+     "formula": "somme des masses atomiques",
+     "result": "lévofloxacine 361,37 g/mol ; acide malique 134,09 g/mol",
+     "compared_to": "les quantités ne sont pas données : aucun nombre de moles ni rapport N/C, F/C calculable",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "énergie micro-ondes contre évaporation de l'eau",
+     "inputs": "600 W × 300 s ; 10 g d'eau de 20 à 100 °C (4,18 J/g/K) puis vaporisation (2257 J/g)",
+     "formula": "P·t contre m(cp·ΔT + Lv)",
+     "result": "180 kJ nominaux contre 25,9 kJ nécessaires",
+     "compared_to": "l'eau est évaporée si plus de ~15 % de la puissance nominale est absorbée : le mélange passe à sec avant la fin des 5 min, puis la température n'est plus contrôlée",
+     "source": "chaleur massique et enthalpie de vaporisation de l'eau, valeurs de manuel (arithmétique)"
+    },
+    {
+     "what": "Bragg : d du pic DRX à 23°",
+     "inputs": "2θ = 23° ; λ(Cu Kα1) = 1,54056 Å (constantes.md, NIST)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 0,386 nm",
+     "compared_to": "frange HRTEM annoncée 0,32 nm « (002) du graphite » ; d002 du graphite 0,335 nm (2θ = 26,6°) ; 0,32 nm correspondrait à 2θ = 27,9°",
+     "source": "valeurs de l'article ; λ NIST"
+    },
+    {
+     "what": "constante de désactivation kq (Fe3+)",
+     "inputs": "Ksv = 0,0318 µM−1 = 3,18 × 10^4 M−1 ; τ0 = 7,69 ns",
+     "formula": "kq = Ksv / τ0",
+     "result": "4,14 × 10^12 M−1 s−1",
+     "compared_to": "valeur de l'article 4,14 × 10^12 : calcul juste",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Ksv implicite pour l'acide ascorbique",
+     "inputs": "kq = 7,72 × 10^11 M−1 s−1 ; τ0 = 7,69 ns",
+     "formula": "Ksv = kq · τ0",
+     "result": "5,9 × 10^3 M−1 = 0,0059 µM−1",
+     "compared_to": "pente de F/F0 du domaine linéaire 0,0039 µM−1 (texte) / 0,0038 (légende) : ordre de grandeur cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "absorbance de l'acide ascorbique à 500 µM",
+     "inputs": "ε(265 nm) ≈ 1,4–1,65 × 10^4 M−1 cm−1 ; c = 500 µM ; trajet 1 cm",
+     "formula": "A = ε·c·l",
+     "result": "A(265) ≈ 7–8 ; même avec ε(280) trois à cinq fois plus faible, A(280) ≥ 1,4",
+     "compared_to": "facteur d'effet de filtre interne primaire (1 − 10^−A)/(A ln 10) : 0,39 pour A = 1, 0,21 pour A = 2 → l'effet de filtre seul peut expliquer une extinction de 80 % sous excitation à 280 nm",
+     "source": "ε de l'ascorbate : valeurs de manuel (E1%1cm ≈ 940 à 265 nm, pH 6,4), non revérifiées sur source primaire"
+    },
+    {
+     "what": "seuil EPA du fer en µM",
+     "inputs": "300 ppb = 0,3 mg/L ; M(Fe) = 55,845 g/mol",
+     "formula": "c = m/M",
+     "result": "5,37 µM",
+     "compared_to": "LOD 1,03 µM et domaine linéaire 5–30 µM : la sonde couvre le seuil",
+     "source": "valeurs de l'article (arithmétique)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "status": "probleme",
+     "basis": "litterature",
+     "finding": "Preuve discriminante absente (contrôle 7) : la signature optique attribuée aux « NFCDs » est celle de la lévofloxacine elle-même. La lévofloxacine possède une fluorescence verte intrinsèque à ≈ 493 nm (Abubakr 2025), excitée vers 290 et 330 nm (bandes d'absorption de la quinolone, qui coïncident avec les excitations 280/330 nm de l'article) ; l'ofloxacine (racémique de la lévofloxacine) a un rendement quantique de 0,17 à pH 7 et deux pKa d'état excité vers 2 et 8,5 (Navaratnam 2000), ce qui reproduit le rendement de 21 %, l'émission indépendante de l'excitation et la chute de fluorescence au-dessus de pH 8. Aucune expérience ne distingue un point de carbone d'un fluorophore moléculaire (lévofloxacine libre ou greffée par estérification sur des oligomères de l'acide malique) : pas de spectre de la lévofloxacine seule à la même concentration, pas de témoin acide malique seul, pas de RMN, de CCM ou de HPLC du produit dialysé. C'est le piège décrit par Essner 2018 pour les synthèses « bottom-up ».",
+     "source": {
+      "title": "Dual-emission nitrogen-doped carbon dots for ratiometric and smartphone-based detection of levofloxacin",
+      "authors_or_publisher": "Abubakr, S. A.; Mohammed, S. J.; Alshatteri, A. H., RSC Adv.",
+      "year": "2025",
+      "url_or_doi": "10.1039/D5RA05645D (PMC12538674)"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "status": "reserve",
+     "basis": "litterature",
+     "finding": "Complément au point précédent : la référence d'appui générale sur les fluorophores moléculaires confondus avec des points de carbone est Essner 2018 ; les propriétés photophysiques de la quinolone (rendement 0,17, pKa d'état excité) sont dans Navaratnam 2000.",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner, J. B. et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "status": "reserve",
+     "basis": "litterature",
+     "finding": "La même équipe d'éléments (acide malique + lévofloxacine, micro-ondes) donne chez Pei et al. 2023 des points à émission bleue (rendement 18,9 %), et l'article lui-même rappelle que ses points N-dopés antérieurs issus de l'acide DL-malique émettaient en bleu (9,8 %). La couleur dépend donc des quantités, du rapport et de la température atteinte, qui ne sont pas donnés ici : ils sont indispensables pour reproduire l'émission verte. L'émission verte est aussi compatible avec une part plus grande de lévofloxacine non carbonisée.",
+     "source": {
+      "title": "One-step synthesis of self-quenching-resistant carbon dot phosphors and their application in fingerprint identification and anti-counterfeiting",
+      "authors_or_publisher": "Pei, L.; Zhang, W.; Yang, S.; Wang, X.; Liu, A.; Chen, K.; Zhao, Y.; Han, S., New J. Chem. 47(27), 12926-12933",
+      "year": "2023",
+      "url_or_doi": "10.1039/d3nj01684f"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "finding": "Mécanisme d'extinction par l'acide ascorbique (contrôle 7) : la « nouvelle bande à 250 nm » qui croît avec la concentration en AA est l'absorption propre de l'acide ascorbique (≈ 245 nm sous forme acide, ≈ 265 nm sous forme ascorbate, ε ≈ 1,4–1,65 × 10^4 M−1 cm−1), pas la preuve d'un complexe NFCDs/AA. À 500 µM, A(265) ≈ 7 (voir calcul « absorbance de l'acide ascorbique à 500 µM ») : sous excitation à 280 nm, l'effet de filtre interne suffit à expliquer 83 % d'extinction, et la durée de vie inchangée (8,04 contre 7,69 ns) l'appuie. L'argument kq > 10^10 M−1 s−1 → extinction statique n'est valable qu'après correction de l'effet de filtre interne, non faite. Il faudrait corriger les intensités de l'absorbance (Aex, Aem) avant le tracé de Stern-Volmer."
+    },
+    {
+     "aspect": "resultats",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "Fe3+ : le calcul kq = 4,14 × 10^12 M−1 s−1 est juste (voir calcul « constante de désactivation kq (Fe3+) »), mais il porte sur des intensités non corrigées de l'effet de filtre interne que les auteurs reconnaissent eux-mêmes (absorption de Fe3+ à 280 nm) ; la conclusion « statique » repose donc surtout sur la durée de vie non raccourcie (8,29 ns). Le pH des essais n'est pas donné : FeCl3 à 300–500 µM dans l'eau s'hydrolyse et forme de l'hydroxyde ferrique colloïdal au-dessus de pH ≈ 3, qui absorbe et diffuse. La chélation de Fe3+ par le motif céto-carboxylique des fluoroquinolones, qui éteint leur fluorescence (étude spectrofluorimétrique des fluoroquinolones, Current Drug Therapy 2015), explique aussi la sélectivité pour Fe3+ sans faire appel au cœur carboné.",
+     "source": {
+      "title": "Investigation of the metal bonding properties of fluoroquinolone type antibiotics using spectrofluorimetric method",
+      "authors_or_publisher": "Current Drug Therapy (Bentham) ; auteurs non relevés (notice du dépôt de l'université Selçuk)",
+      "year": "2015",
+      "url_or_doi": "https://acikerisim.selcuk.edu.tr/items/1bcbf898-3388-4287-8bff-a93fa1916fa5"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "La lévofloxacine (C18H20FN3O4) n'a aucune liaison N–H : ses trois azotes sont tertiaires (N1 de la quinolone dans le cycle oxazine, N de la pipérazine lié au cycle aromatique, N-méthyle de la pipérazine). La formation d'amides avec « la fonction amine de la pipérazine » (mecanisme_analyse de l'extraction) est impossible sans dégradation préalable (N-déméthylation ou ouverture de la pipérazine). De même, l'attribution par les auteurs de la bande à 3400 cm−1 à N–H et de groupes « amide » n'est pas étayée par les précurseurs ; l'acide malique n'apporte pas d'azote. Liaisons plausibles : esters (OH de l'acide malique + COOH de la lévofloxacine ou de l'acide malique)."
+    },
+    {
+     "aspect": "resultats",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "Contradictions entre DRX et HRTEM (contrôle 3 et 6) : le pic à 23° donne d = 0,386 nm (voir calcul « Bragg : d du pic DRX à 23° »), alors que la frange HRTEM de 0,32 nm est attribuée au plan (002) du graphite (d002 = 0,335 nm) ; une distance plus courte que celle du graphite n'est pas attendue pour du carbone turbostratique. Le texte parle de « carbone désordonné », la légende de la figure 1c de « nature graphitique » confirmée par le pic 002. Une frange isolée dans une particule de 5,5 nm ne prouve pas un cœur graphitique."
+    },
+    {
+     "aspect": "resultats",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "XPS : la composante C–F du C1s placée à 290,3 eV est dans la zone des CF2 et des carbones fluorés ; une liaison C–F aromatique isolée, comme celle de la lévofloxacine, est attendue plus bas. Valeur de référence d'un C–F aromatique non retrouvée (voir sources_not_found) : à vérifier dans la base NIST XPS. Le pic F1s à 687 eV est compatible avec un C–F covalent conservé, c'est-à-dire avec la lévofloxacine intacte."
+    },
+    {
+     "aspect": "resultats",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "La taille 5,5 ± 0,1 nm sur 83 particules : ± 0,1 nm est l'incertitude sur le centre de la gaussienne, pas la dispersion des tailles, qui n'est pas donnée. La conclusion écrit 5,49 nm."
+    },
+    {
+     "aspect": "thermique",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "Four à micro-ondes domestique, 600 W, 5 min, 10 mL d'eau : l'énergie nominale (180 kJ) dépasse largement celle qu'il faut pour évaporer l'eau (25,9 kJ, voir calcul « énergie micro-ondes contre évaporation de l'eau »), donc le mélange passe à sec et chauffe ensuite sans contrôle. La température finale (fusion de l'acide DL-malique vers 130 °C, déshydratation en acides fumarique/maléique au-delà, lévofloxacine qui fond en se décomposant vers 225 °C) dépend de la masse, du récipient et du four, aucun n'étant donné. Cinq minutes sur un solide peu absorbant laissent probablement une carbonisation partielle seulement, ce qui va dans le sens d'un produit riche en lévofloxacine intacte."
+    },
+    {
+     "aspect": "solubilite",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "Dialyse : seuil écrit « MDCO 34-1000 Da » (illisible : 1000 Da ou 3400 Da ?), 24 h, sans milieu ni renouvellements. La lévofloxacine libre (361 g/mol) traverse une membrane de 1000 Da, mais son élimination complète en 24 h n'est pas montrée, et les oligoesters lévofloxacine–acide malique au-dessus du seuil restent. L'étape de redissolution sous ultrasons pendant 24 h, sans température, chauffe le bain (40 kHz) : la température est à noter."
+    },
+    {
+     "aspect": "bilan",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "Bilan de matière invérifiable : les quantités d'acide DL-malique et de lévofloxacine (« the desired amounts ») et le rendement manquent. Seuls F et N de la lévofloxacine peuvent apporter le dopage ; aucune analyse élémentaire ne donne les teneurs (F pèse 5,3 % de la lévofloxacine)."
+    },
+    {
+     "aspect": "resultats",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "Section 2.4 : le pH est ajusté avec « NaH2PO3 » (dihydrogénophosphite, un réducteur) ; il s'agit très probablement de NaH2PO4. À confirmer avant de refaire les mesures, surtout pour les essais Fe3+ où un phosphite pourrait réduire le fer."
+    },
+    {
+     "aspect": "resultats",
+     "status": "reserve",
+     "basis": "litterature",
+     "finding": "Rendement quantique absolu de 21,03 % en sphère d'intégration : la concentration, l'absorbance et la longueur d'onde d'excitation de la mesure ne sont pas données ; les quatre chiffres significatifs ne sont pas justifiés (incertitude usuelle de plusieurs %).",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer, A. M., Pure Appl. Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "finding": "Le seuil de l'EPA (300 ppb de fer) vaut 5,37 µM (voir calcul « seuil EPA du fer en µM ») : la limite de détection de 1,03 µM et le domaine 5–30 µM sont cohérents avec cet usage."
+    },
+    {
+     "aspect": "securite",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "finding": "Sécurité non écrite (contrôle 8) : chauffage à sec dans un four domestique d'un composé fluoré et azoté → fumées pouvant contenir HF et NOx ; opérer sous hotte, récipient ouvert adapté aux micro-ondes, ne pas utiliser un four de cuisine. La lévofloxacine est un antibiotique : les dialysats en contiennent et doivent être éliminés comme déchets pharmaceutiques. Poudre lyophilisée nanométrique : éviter l'inhalation."
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sous micro-ondes, l'eau s'évapore en 1 à 2 min ; l'acide DL-malique fondu se déshydrate (acides fumarique/maléique) et se condense en oligoesters, et la fonction acide carboxylique de la lévofloxacine peut s'estérifier sur les OH de l'acide malique. La lévofloxacine n'ayant pas de N–H, aucune amide ne se forme sans dégradation. En 5 min, la carbonisation est vraisemblablement partielle : le produit dialysé est probablement un mélange de petits domaines carbonés et d'unités quinolone intactes (libres ou greffées), et l'émission verte à 490 nm, son rendement de 21 %, son indépendance vis-à-vis de l'excitation, sa dépendance au pH et son extinction sélective par Fe3+ (chélation céto-carboxylique) sont tous ceux du chromophore fluoroquinolone. Hypothèse à trancher par le spectre de la lévofloxacine seule, un témoin acide malique seul, et une analyse RMN/HPLC du produit.",
+    "sources": [
+     {
+      "title": "Dual-emission nitrogen-doped carbon dots for ratiometric and smartphone-based detection of levofloxacin",
+      "authors_or_publisher": "Abubakr, S. A.; Mohammed, S. J.; Alshatteri, A. H., RSC Adv.",
+      "year": "2025",
+      "url_or_doi": "10.1039/D5RA05645D (PMC12538674)"
+     },
+     {
+      "title": "Primary photophysical properties of ofloxacin",
+      "authors_or_publisher": "Navaratnam, S.; Claridge, J., Photochem. Photobiol. 72(3), 283",
+      "year": "2000",
+      "url_or_doi": "10.1562/0031-8655(2000)072<0283:PPPOO>2.0.CO;2"
+     },
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner, J. B. et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     },
+     {
+      "title": "One-step synthesis of self-quenching-resistant carbon dot phosphors and their application in fingerprint identification and anti-counterfeiting",
+      "authors_or_publisher": "Pei, L.; Zhang, W.; Yang, S.; Wang, X.; Liu, A.; Chen, K.; Zhao, Y.; Han, S., New J. Chem. 47(27), 12926-12933",
+      "year": "2023",
+      "url_or_doi": "10.1039/d3nj01684f"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses d'acide DL-malique et de lévofloxacine et leur rapport (la même paire donne des points bleus chez Pei 2023)",
+    "température réelle atteinte au four (thermocouple ou sonde IR), nature et taille du récipient, moment où le mélange passe à sec",
+    "seuil de coupure exact de la membrane de dialyse, volume de dialysat, nombre de renouvellements",
+    "spectres d'excitation et d'émission de la lévofloxacine seule à concentration comparable, au même pH, et témoin acide malique seul sous micro-ondes",
+    "teneur en lévofloxacine libre du produit (HPLC ou RMN 19F)",
+    "pH des essais de détection et nature du tampon (NaH2PO3 ou NaH2PO4)",
+    "correction de l'effet de filtre interne avant les tracés de Stern-Volmer",
+    "travail sous hotte : fumées fluorées et azotées au chauffage à sec"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse en une étape, au four à micro-ondes domestique, de « points de carbone co-dopés N et F » à partir d'acide DL-malique et de lévofloxacine, sans quantités ni température. La chimie de la préparation est plausible, mais l'identité de l'émetteur n'est pas établie : toutes les propriétés optiques annoncées (excitation 280/330 nm, émission verte 490 nm indépendante de l'excitation, rendement ≈ 20 %, chute au-dessus de pH 8, extinction par Fe3+) sont celles de la lévofloxacine elle-même, et aucun témoin ne les sépare. Le mécanisme d'extinction par l'acide ascorbique repose sur l'absorption propre de l'AA prise pour un complexe.",
+  "author_errors_suspected": [
+   "absence de témoin lévofloxacine seule : émission attribuée aux points de carbone sans exclure la fluorescence intrinsèque de la fluoroquinolone (≈ 493 nm)",
+   "bande à 250 nm attribuée à un complexe NFCDs/AA alors que c'est l'absorption de l'acide ascorbique ; kq calculé sans correction de l'effet de filtre interne",
+   "frange HRTEM de 0,32 nm attribuée au (002) du graphite (0,335 nm) alors que le pic DRX à 23° donne 0,386 nm ; « carbone désordonné » dans le texte, « nature graphitique » dans la légende",
+   "groupes N–H et amide revendiqués alors que la lévofloxacine n'a aucun N–H",
+   "NaH2PO3 probablement écrit pour NaH2PO4",
+   "Méthodes : Fe3+ de 5 à 500 µM ; Résultats et légende : 5 à 300 µM"
+  ],
+  "comparison_with_database": "Dans la base (compare.py « carbon dots »), seule PMC8255795 (acide citrique, micro-ondes 8 min) utilise aussi le micro-ondes ; sa distance d002 DRX (0,34 nm) est cohérente avec sa frange HRTEM (0,35 nm), contrairement à PMC9323265 (DRX 0,386 nm contre HRTEM 0,32 nm). Les rendements quantiques de la base vont de 7 à 35 % (PMC11840780, PMC9054292, PMC9370708) : 21 % n'est pas hors norme, mais il est ici aussi celui attendu pour la lévofloxacine seule. Hors base, Pei et al. 2023 (mêmes précurseurs, micro-ondes) obtiennent une émission bleue."
+ },
+ "sources_not_found": [
+  "énergie de liaison C1s d'une liaison C–F aromatique isolée (pour juger la composante à 290,3 eV) : non trouvée, à prendre dans la base NIST XPS",
+  "coefficient d'absorption molaire de l'ascorbate à 280 nm sur source primaire (Karayannis et al. 1977, Anal. Chim. Acta 93, 275, cité mais non lu)",
+  "longueurs d'onde d'absorption de la lévofloxacine (≈ 290 et 330 nm) sur une source primaire lue : valeurs usuelles des dosages UV, non relues ici"
+ ]
+}

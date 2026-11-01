@@ -1,0 +1,87 @@
+{
+ "pmcid": "PMC11891312",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "CTM (15%) outcomes, 20 essais du plan composite centré (Table 3) : valeurs des facteurs A, B, C de chaque essai absentes",
+   "extracted": "20 résultats MB_degradation_CCD_run_N_30min_two_60W_lamps (Y seul ; citation = rangée Y de la Table 3 transposée) ; les conditions pH, débit d'air et rapport MB/CTM de chaque essai ne figurent nulle part dans l'extraction",
+   "article_says": "A | 10.4 | 7 | 5 | 7 | 7 | 5 | 7 | 9 | 7 | 7 | 7 | 9 | 9 | 7 | 3.6 | 7 | 5 | 7 | 5 | 9",
+   "fix": "Attribution des Y vérifiée colonne par colonne : les 20 Y sont à la bonne position (essai 1 = 45.87 … essai 20 = 43.75). Mais un chimiste ne peut pas savoir quel pH, débit ou rapport donne quel Y. Ajouter pour chaque essai les trois conditions (rangées A, B, C de la même colonne) : citation = les quatre rangées A, B, C, Y de la Table 3 ; nom de propriété ou conditions portant pH, airflow, ratio de l'essai N (ex. essai 13 : pH 9, 1 mL/min, rapport 133.33 → 50.02 %). Points : 8 factoriels (essais 3, 6, 8, 12, 13, 17, 19, 20), 6 axiaux (1 et 15 : pH 10.4 et 3.6 ; 4 et 16 : débit 0.49 et 3.01 ; 7 et 18 : rapport 73.74 et 148.49), 6 centraux (2, 5, 9, 10, 11, 14 : pH 7, 1.75, 111.11).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources, route CTM (15%) : renvoi CR20 absent",
+   "extracted": "method_sources : CR18 (MCM-41), CR19 (CdS), CR10 (CT), CR17 (pHpzc) ; aucune entrée pour la préparation de CTM",
+   "article_says": "CdS/TiO2/MCM-41 (CTM) nanocomposite was produced via a solid dispersion technique to create a library of different compositions.",
+   "fix": "Ajouter {route: 'CTM (15%)', ref_id: 'CR20', role: 'protocole_adapte', quote: la phrase ci-dessus}. Dans corpus/refs, la phrase porte le renvoi [[CR20]] (Chen et al., CdS/TiO2/SBA-15@carbon paper, Chem. Eng. J. 316, 2017).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "MCM-41 characterization XRD (petits angles) conditions",
+   "extracted": "Nickel filtered CuK radiation; Cu Kα radiation (λ = 1.5406 Å), 2θ range 15 to 85°",
+   "article_says": "Small-angle XRD patterns in Fig. 3b suggested a hexagonal mesoporous structure for MCM-41, indicated by a sharp d100 peak observed in both the unloaded and CT-loaded samples.",
+   "fix": "La plage 2θ de 15 à 85° est donnée pour les diagrammes de la Fig. 3a (grands angles) ; le pic d100 du petit angle est à 1.7–2°, hors de cette plage. Retirer « 2θ range 15 to 85° » des conditions de l'entrée petits angles (garder le rayonnement) ou la déclarer non citée.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Table S1 (EDS complet) : éléments Al, Mg, Ca non extraits",
+   "extracted": "EDS extrait pour C, O, Si, S, Ti, Cd seulement",
+   "article_says": "Table S1. Complete EDS results",
+   "fix": "Table S1 transposée, colonnes MCM-41 | CdS-TiO2 (CT) | CTM5% | CTM15% (confirmées par les encarts de la Fig. 6 : MCM-41 O 41.60 / Al 0.81 / Si 57.59). Ajouter : Al W%/A% = 0.81/0.64 (MCM-41), 0.90/0.71 (CTM 5%), 0.94/0.60 (CTM 15%) ; Mg = 3.69/3.79 et Ca = 4.46/2.78 (CT seul). Mg et Ca à 3.7 et 4.5 W% dans CT sont des impuretés notables à signaler (aucune origine donnée). Les 6 autres éléments ont été revérifiés : tous bien attribués (C, O, Si, S, Ti, Cd, MCM-41 / CT / CTM5 / CTM15).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation limite_reproductibilite : contradiction du séchage de CTM non annotée",
+   "extracted": "séchage de CTM : 70 °C pendant 8 h (texte) ; contradiction avec la Fig. 1 consignée seulement dans les doutes",
+   "article_says": "The solutions were stirred for 2 h at room temperature and then dried at 70 °C for 8 h.",
+   "fix": "L'organigramme de la Fig. 1 (relu) indique « Oven 8 hr / 60 °C » pour CTM. Valeur du texte conservée, mais ajouter la contradiction (70 °C texte, 60 °C Fig. 1) à l'annotation limite_reproductibilite, comme pour la calcination 5 h.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CTM (15%) essai avec piégeurs : conditions null",
+   "extracted": "conditions null (20 mM / 10 mL seulement dans la description)",
+   "article_says": "Also, the effective oxidizing agent of the best photocatalyst (CTM (15%)) was investigated under optimal conditions (according to Table 7).",
+   "fix": "Renseigner conditions : « 10 ml of 20 mM scavenger added to the mixture of MB and catalyst ; optimal conditions (according to Table 7) ». Signaler en limite_reproductibilite que les conditions optimales du Table 7 (ratio = 133.3) diffèrent de celles de la conclusion (ratio 110).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CTM (5%) BET : résultats sans entrée de caractérisation",
+   "extracted": "CTM (5%) : outcomes BET (892.98 m2/g, 1.2761, 5.716) mais characterizations = FTIR, DRS, PL seulement",
+   "article_says": "Degassing process of CT and CTM (x%) samples at 120 ℃ for 2 h",
+   "fix": "Ajouter une caractérisation BET (N2) à CTM (5%) avec les conditions de dégazage (120 °C, 2 h ; « CTM (x%) » couvre les CTM) et l'instrument BELSORP MINI II, comme pour CTM (15%).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CTM (15%) TEM : attribution de la taille 98.34 nm",
+   "extracted": "CARAC TEM « échantillon non nommé dans la phrase, voir doutes » ; valeur non rangée en résultat",
+   "article_says": "The TEM results (Fig. 6e, f) showed clusters of well-ordered mesoporous structures with near-spherical shapes, relatively uniform surfaces, and a particle size of 98.34 nm",
+   "fix": "Les panneaux 6e et 6f de la figure (relue) portent l'étiquette « CTM (15%) » : l'attribution est confirmée, le doute peut être clos. Ajouter si voulu un résultat particle_size_TEM = 98.34 nm sur CTM (15%).",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 51,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masses de CT et de MCM-41 de chaque échantillon CTM jamais données (« different weights »), base du pourcentage w/w non dite, rendements absents",
+  "vitesses d'agitation (CdS, CT, CTM), durée de centrifugation du CdS, nombre et volume des lavages, vitesses de chauffe de la calcination, atmosphère de séchage, puissance des ultrasons non donnés",
+  "durée de calcination de MCM-41 (5 h) et séchage de CTM (60 °C) seulement sur l'organigramme Fig. 1, ce dernier contredisant le texte (70 °C)",
+  "dose de catalyseur contradictoire (0.1 g/L texte ; 1 g L-1 légende Fig. 9) et incompatible avec un rapport MB/CTM de 88.89 à 133.33 pour du MB à 20 ppm",
+  "conditions de la comparaison de la Fig. 9 (pH, débit d'air) et agent d'ajustement du pH (NaOH/HCl) non précisés ; conditions optimales Table 7 (ratio = 133.3) contre conclusion (110)",
+  "protocoles de pHpzc (renvoi CR17), de TOC (appareil, 90 min) et du dosage UV (longueur d'onde) non décrits ; plan composite : essais centraux (31–35 %) très inférieurs à la prédiction de 44.61 % à pH 7",
+  "Mg (3.69 W%) et Ca (4.46 W%) dans CT (Table S1) sans origine dite"
+ ],
+ "mechanism_check": "ok : mécanismes de formation en 'mecanisme_analyse' (prudents, « probablement »), aucun mecanisme_auteurs sans appui ; sécurité cadmium, H2S, butoxyde signalée",
+ "notes": "Toutes les valeurs numériques vérifiées sont justes : Tables 3 (20 Y bien placés), 4, 5, Table S1 (colonnes confirmées par les encarts EDS de la Fig. 6), 6 coefficients du texte, Fig. 9 (écart 0). Fragilités de ma lecture : (1) Fig. 8c a pour ordonnée (F(R)hν)^1/2 et ses intersections (≈2.4–2.6 eV) ressemblent aux lignes n = 2 du Table 5 plutôt qu'à n = 1/2 ; l'extraction suit les étiquettes du tableau, ce n'est pas un constat. (2) Table 1 attribue « TESCAN MIRA III FESEM and Zeiss EM900 » à FESEM/EDS/TEM par cellule fusionnée : l'extraction recopie la cellule pour les trois techniques sans pouvoir séparer l'instrument TEM. (3) Fig. 8a contredit le texte sur la PL (CT la plus basse, CTM au-dessus de CT) : déjà en doute. (4) Table 7 : rangée à 6 cellules pour 7 colonnes, lecture « ratio = 133.3 » en colonne concentration incertaine, traitée correctement par deux résultats distincts."
+}

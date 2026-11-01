@@ -1,0 +1,14 @@
+# PMC3414225 — critique scientifique (journal)
+
+- Excès de Cd vérifié par le calcul : 190 mg de Cd(NO3)2 = 0,804 mmol (anhydre, 236,42 g/mol) ou 0,616 mmol (4 H2O, 308,48 g/mol) contre 2 mL × 0,01 M = 0,020 mmol de S2− → Cd:S = 40 ou 31. Constat `probleme` (bilan) : coquille probable sur 0,01 M ou excès non expliqué ; ≤ 2,9 mg de CdS par lot.
+- Coque : (35–40 − 4–5)/2 = 15–18 nm, contre « 20 nm » annoncés dans la section in vivo → `reserve` (arrondi probable), pas `probleme` : l'écart ne change pas la reproduction, qui se règle sur le diamètre total TEM.
+- Constat `probleme` le plus lourd : toxicité comparée à masse de particules égale. Fraction massique de CdS dans une sphère de 37,5 nm à cœur de 4,5 nm ≈ 0,4 % (ρ 4,82 et 2,0) → 1 mg/mL enrobé ≈ 4 µg/mL de CdS ; HUVEC 60 % contre 55 % pour 1 µg/mL de nu. La conclusion « la silice bloque le Cd2+ » n'est pas démontrée.
+- Photophysique : 600 nm = 2,07 eV, sous le gap massif de CdS (2,42 eV) → émission de pièges ; QY 0,02 % contre « highly luminescent » → `probleme`. Imagerie à 488 nm avec filtre vert pour un émetteur à 600 nm, sans témoin d'autofluorescence → `probleme` (preuve discriminante).
+- Taille contre absorption : courbe de Yu et al. 2003 → 3,4 nm à 400 nm ; 4–5 nm ↔ 425–445 nm. PDF original inaccessible (404) ; coefficients pris dans arXiv 2403.10122 et recoupés par un point 443 nm → 5,02 nm cité ailleurs. Laissé en `reserve` (spectre non montré). PMC3211467 (3,6 nm ↔ 425 nm) va dans le même sens.
+- DRX : Bragg avec Cu Kα1 supposé (λ non déclarée) → a ≈ 5,70 Å contre 5,818 Å (hawleyite, Handbook of Mineralogy). Écart croissant avec l'angle, donc pas un décalage d'échantillon. `reserve` ; un index JCPDS (OSTI) liste un CdS cubique à 5,72 Å dont je n'ai pas pu vérifier la nature : non utilisé.
+- Single core : ≈ 1,3e16 points contre ≈ 4,9e15 sphères à conversion totale du TEOS (rapport ≈ 2–3) → `reserve` (ordre de grandeur, dépend des densités et du titre réel de S2−).
+- NH3 (≈ 2,96 mmol) contre Cd2+ libre (0,6–0,8 mmol, 4 NH3 par Cd) : l'ammoniaque est en grande partie complexée, `reserve` ; absence de Cd en EDS sur les enrobés montre que l'excès n'est pas piégé (≈ 25 % en masse sinon).
+- CD31 : rapport anticorps/particule calculé avec une concentration SUPPOSÉE (0,2–1 mg/mL, non donnée) → 0,2–1,1 par particule ; hypothèse écrite dans `calculs`. Imine non réduite → `reserve`.
+- Type d'IGEPAL non donné : w0 calculé pour CO-520 (≈ 6) et CO-630 (≈ 8) avec les fiches Sigma-Aldrich.
+- Source Selvan 2005 envisagée puis écartée : le DOI vu dans une liste de références ne correspondait pas à ce titre. Darbandi 2005 et Koole 2008 retenus (DOI lus sur ACS et dans des listes PMC), non vérifiés sur Crossref.
+- Recherches web : 9 (dont 2 lectures de PDF échouées). Rien ajouté à fondateurs.md ni constantes.md (Crossref bloqué).

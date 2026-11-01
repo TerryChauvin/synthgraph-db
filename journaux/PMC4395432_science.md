@@ -1,0 +1,18 @@
+# PMC4395432, critique scientifique
+
+- **0,52 nm attribué à d(0002), classé `probleme`** : pour le ZnO wurtzite, c ≈ 5,205 Å (Özgür 2005), donc d(0002) = 0,26 nm et 0,52 nm = c = d(0001). Sur la Fig 1d, la flèche [001] confirme qu'il s'agit de franges espacées de c. La conclusion « croissance selon c » reste juste ; c'est l'indexation qui est fausse.
+- **110 °C en solution aqueuse, classé `probleme`** : la pression de vapeur de l'eau à 110 °C vaut ≈ 143 kPa (NIST). Une « electrochemical cell » sans fermeture décrite ne peut donc pas tenir 110 °C. Deux lectures sont possibles : cellule close sous pression, ou consigne d'étuve. L'article ne permet pas de trancher.
+- **Densité de courant non chiffrée** : `probleme` sur la branche nanocônes (c'est la seule variable qui la définit, d'où `non_reproductible`), `reserve` sur la voie de base. Ordre de grandeur pris dans une thèse USM du même groupe (Dalvand : 0,5 mA/cm2 pour les tiges, 0,65 mA/cm2 pour des têtes coniques). Ces valeurs viennent du résumé du moteur de recherche, car erepo.usm.my est injoignable (DNS). Le texte n'a donc pas été lu directement : je l'ai cité comme ordre de grandeur seulement.
+- **Réf. 29 (Rouhi, Ceram. Int. 2014)** : deux recherches sans DOI ni texte, consigné dans `sources_not_found`.
+- **Scherrer 2,7 nm** : une telle taille demande une FWHM ≈ 3,0° à 28,6°. Sur la Fig 2, la bosse ZnS paraît large de ≈ 1,2–1,5°, soit ≈ 5,5–7 nm. Classé `reserve` et non `probleme`, parce que la lecture sur la figure est imprécise.
+- **Polytype du ZnS** : 3,12 Å (Bragg, Cu Kα1 supposé) convient aussi bien à la blende (111) qu'à la wurtzite (0002). `reserve`.
+- **Fig 1** : l'horodatage du MEB 1c (24/03/2014) est antérieur à celui de 1a et 1b (09/07/2014). L'échantillon cœur–coquille imagé n'est donc pas le gabarit montré. Sur l'objet TEM 1d (≈ 45 nm de large), la coquille paraît ≈ 10 nm, et non « plusieurs dizaines ». `reserve`.
+- **Bilan de conversion** : rapport des volumes molaires ZnS/ZnO = 1,64. Une coquille de 30 nm consomme ≈ 18 nm de rayon de ZnO, ce qui convertirait entièrement les pointes de 15 nm. C'est cohérent avec les sommets émoussés de la Fig 1c, mais contraire au discours « cœur ZnO pointu ».
+- **Absorption à 600 nm** : je préfère la diffusion par la surface rugueuse à la bande interfaciale de type II de Schrier 2007, qui suppose une interface épitaxiée. Les Méthodes ne décrivent qu'une transmittance, sans sphère d'intégration.
+- **Mécanisme de la cellule** : contradiction relevée entre « le ZnS supprime l'effet tunnel » et une injection à travers une coquille de plusieurs dizaines de nm. Classé `reserve`, en `mecanisme`.
+- **Rendements recalculés** (FF × Jsc × Voc / 100) : 0,927, 2,087 et 4,065 %, exacts. Le texte dit « almost two times higher than both » : le rapport vaut 1,90 face aux nanotiges, mais 2,32 face aux nanocônes.
+- **Thioacétamide** : solubilité 16,3 g/100 mL (ICSC 0579), confirmée par les fiches des fabricants. CAMEO dit « slightly soluble », valeur écartée au profit de l'ICSC, qui est chiffrée.
+- **Sources** : Ali et al. (arXiv 1806.08509) est cité pour la passivation de surface du ZnO par ZnS, sans certitude que leur source de soufre soit la thioacétamide. Le résumé ne le dit pas, et la page arXiv est injoignable (DNS).
+- **DOI tirés de ma mémoire, non revérifiés** (Crossref bloqué) : Vayssieres 2003, Law 2005, Zhang 2009. Izaki 1996 n'est vu que dans des listes de références secondaires.
+- **Fichiers non modifiés** : rien d'ajouté à fondateurs.md ni à constantes.md, comme demandé.
+- 9 recherches web, 0 page lue directement (WebFetch en échec DNS sur usm.my et arxiv.org).

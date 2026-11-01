@@ -1,0 +1,14 @@
+# Journal de la critique de fidélité PMC5521324
+
+- Ma liste d'échantillons avant ouverture de l'extraction : amidon 3,5 mg/mL avec 0, 0,5, 1,0, 1,5, 2,0, 2,5 mg/mL de NP (Fig. 6a-f ; Fig. 3 sans point à 0), cellulose 3,5 mg/mL avec 0, 1,0, 3,5, 7,5 (Fig. 7a-d ; Fig. 4a-c sans point à 0), NP seules 3,5 mg/mL (Fig. 5), sans germes (Fig. 2). Identique à `sample_inventory` ; aucun échantillon manquant, aucune branche inventée.
+- Attribution des lettres de figures vérifiée : Fig. 3d = 2,0 mg/mL, Fig. 4c = 7,5, Fig. 7c = 3,5, Fig. 9a amidon 2,0 et 9b cellulose 7,5 (« respectively » : 382 nm amidon, 385 nm cellulose, confirmé sur la figure). Aucune erreur de ce côté.
+- Constat « cellulose absente des réactifs » en `sure` : le RUNBOOK dit que le nouveau réactif d'un remplacement va dans `reagents` de la branche ; Cellulose_ZnO-7.5 n'a pas de clé `reagents`, donc 3,5 mg/mL de cellulose n'existe que dans la citation de la variation.
+- Constat « 12,2 nm » en `sure` : la phrase du § 3.1 n'est reprise nulle part comme donnée (grep sur « 12.2 » ne trouve que « 12,2 nm » des annotations en français).
+- Héritage des branches « sans nanoparticules » en `probable` et non `sure` : les doutes de l'extracteur couvrent l'héritage global, pas l'étape 1 elle-même, et le § 3.1 décrit bien 0 mg/mL pour la cellulose (donc la solution existe) ; mais la règle « sans X » du RUNBOOK s'applique à l'étape de dissolution de X.
+- Paramètres d'étape non surchargés (2,0 mg/mL, « starch ») : classé `mineur`/`probable` car la variation sur le nom du réactif est la forme prévue par le RUNBOOK ; je ne sais pas si `load.py` répercute la variation sur l'étape.
+- Écarté comme non-constat : diamètre 100–200 nm contre barres d'échelle de 2 µm. J'ai ouvert les Fig. 6 et 7 : les hexagones de 6e et 7d font bien de l'ordre de 0,5 à 1 µm, l'extracteur a raison de garder la valeur du texte en annotation avec un doute (résultat de groupe, pas de valeur par voie).
+- Écarté : `method_sources` vide. Les seuls renvois sont B33 (« according to the reported work », indexation DRX) et la carte JCPDS : contexte et fiche de référence, pas des méthodes selon la règle du 2026-10-13.
+- Écarté : cases `not_stated` (≈ 65 vérifiées, 0 fausse). « Starch is not easily soluble in water at room temperature, but by heating the water » est dans l'introduction, sans température ni durée, donc `temperature` et `dissolution_time` restent non cités à juste titre.
+- Fig. 2 montre un pic (Au) : le substrat sans germes était donc bien recouvert d'or ; je le note dans `notes` mais ce n'est pas un constat (la copie des étapes Ti/Au pour No_seed est correcte).
+- Pics PL de la Fig. 9 : 529/672 nm (amidon) et 524/676 nm (cellulose) contre 530/670 dans le texte, écart < 2 % : sous le seuil de 10 %, donc `mineur` seulement.
+- `succeeded: false` : classé `deduit`/`probable` car aucun échec de synthèse n'est rapporté, seul l'alignement est moins bon ; décision laissée à l'orchestrateur.

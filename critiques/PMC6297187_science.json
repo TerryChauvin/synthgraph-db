@@ -1,0 +1,484 @@
+{
+ "pmcid": "PMC6297187",
+ "routes": [
+  {
+   "label": "Extrait_Ar",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport feuille/eau et feuille par lot de synthèse",
+     "inputs": "10 g de poudre dans 100 mL ; 1 mL d'extrait par lot",
+     "formula": "m/V",
+     "result": "100 g/L, soit l'extrait de 100 mg de feuille sèche par lot (masse extraite réellement dissoute non mesurée)",
+     "compared_to": "besoin en réducteur : ≈ 0,77 mg d'équivalent acide gallique par lot (voie AgNP_Ar)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Extraction aqueuse à température ambiante sous agitation, puis centrifugation à 4 °C et filtration sur toile de nylon : rien d'incompatible. Une toile de nylon laisse passer les particules fines, mais la centrifugation préalable les retire en grande partie.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Durée d'extraction, vitesse d'agitation, durée et température du stockage au réfrigérateur non dites. Un extrait aqueux non stérile change en quelques jours (fermentation, oxydation des polyphénols) et son pouvoir réducteur avec lui : utiliser un extrait frais, ou fixer et noter l'âge de l'extrait.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Matière végétale variable (lieu, saison ; les auteurs attribuent eux-mêmes à l'origine des plantes l'écart avec une autre étude sur la même espèce). Aucun dosage (phénols totaux, matière sèche, pH tampon) ne permet de normaliser l'extrait d'un lot à l'autre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Poudre végétale : broyage sous hotte ou avec masque anti-poussières ; pas d'autre danger.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'eau à température ambiante solubilise les polyphénols, les flavonoïdes glycosylés, les tanins, les sucres, les protéines et les sels (dont les chlorures). Ce sont les réducteurs, les agents de coiffage et la source possible d'AgCl de l'étape suivante.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée d'extraction et âge de l'extrait au moment de l'emploi",
+    "matière sèche et phénols totaux de l'extrait (Folin), pour normaliser",
+    "teneur en chlorure de l'extrait"
+   ]
+  },
+  {
+   "label": "AgNP_Ar",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "argent apporté par lot et concentration dans le mélange",
+     "inputs": "9 mL d'AgNO3 1 mM ; 1 mL d'extrait ; M(Ag) = 107,87 g/mol",
+     "formula": "n = C × V ; C(mélange) = n / 10 mL ; m(Ag) = n × M",
+     "result": "9 µmol Ag+ ; 0,90 mM dans 10 mL ; au plus 0,97 mg d'Ag (97 µg/mL) par lot",
+     "compared_to": "masse de poudre nécessaire aux essais (entrée suivante)",
+     "source": "valeurs de l'article ; masse molaire IUPAC"
+    },
+    {
+     "what": "masse d'AgNP nécessaire aux essais larvicide et Chironomus",
+     "inputs": "150 + 250 + 500 + 700 + 1000 µg par gobelet de 50 mL ; 5 répétitions ; même série pour C. costatus",
+     "formula": "Σ doses × 5 × 2 essais ; nombre de lots = masse / 0,97 mg",
+     "result": "13 mg par essai, 26 mg pour les deux, soit au moins 27 lots de 10 mL à rendement 100 % (sans compter CMI, puits et hémolyse)",
+     "compared_to": "un seul lot de 10 mL décrit, aucun rendement ni passage à l'échelle",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "électrons à fournir par l'extrait",
+     "inputs": "9 µmol Ag+ (1 e− chacun) ; donneur phénolique à 2 e− (catéchol/galloyle → quinone) ; M(acide gallique) = 170,12 g/mol ; 1 mL d'extrait = 100 mg de feuille sèche (10 g/100 mL)",
+     "formula": "n(donneur) = n(Ag)/2 ; m = n × M",
+     "result": "≈ 4,5 µmol de donneur à 2 e−, ≈ 0,77 mg en équivalent acide gallique, soit ≥ 0,8 % de la masse de feuille extraite en phénols réducteurs",
+     "compared_to": "teneur en phénols de l'extrait non mesurée (« data not shown ») ; ordre de grandeur plausible pour des feuilles",
+     "source": "calcul ; masse molaire IUPAC"
+    },
+    {
+     "what": "H+ libéré par la réduction contre OH− présent à pH 9,8",
+     "inputs": "ArOH → quinone + 2 H+ + 2 e− : 1 H+ par Ag+ réduit, 9 µmol dans 10 mL ; [OH−] = 10^(9,8−14)",
+     "formula": "[H+]libéré = 9 µmol / 10 mL ; [OH−] = 10^(pH−14)",
+     "result": "0,9 mM d'H+ libéré contre 0,063 mM d'OH− libre à pH 9,8 (14 fois moins) ; NaOH 2 M nécessaire pour porter 10 mL non tamponnés à pH 9,8 : ≈ 0,3 µL",
+     "compared_to": "pH 9,8 donné comme condition de la synthèse : ce ne peut être qu'un pH initial ; le pH final dépend du pouvoir tampon de l'extrait, non mesuré",
+     "source": "chimie générale (Kw = 1e−14 à 25 °C)"
+    },
+    {
+     "what": "dilution du pH si seul l'extrait est porté à 9,8",
+     "inputs": "1 mL d'extrait à pH 9,8 dans 9 mL d'AgNO3 non tamponné",
+     "formula": "[OH−] / 10 en l'absence de tampon",
+     "result": "pH ≈ 8,8 sans tampon ; entre 8,8 et 9,8 selon le pouvoir tampon de l'extrait",
+     "compared_to": "« pH 9,8 » et « pH range from 9.8 to 11.0 » de l'article",
+     "source": "chimie générale"
+    },
+    {
+     "what": "sursaturation vis-à-vis d'AgOH/Ag2O",
+     "inputs": "[Ag+] = 0,9 mM ; pH 9,8 ([OH−] = 6,3e−5 M) et pH 11 ([OH−] = 1e−3 M) ; Ksp(AgOH) = 1,5–2,0 × 10−8",
+     "formula": "Q = [Ag+][OH−] ; Q/Ksp",
+     "result": "Q = 5,7e−8 à pH 9,8 (≈ 3 × Ksp) ; Q = 9e−7 à pH 11 (≈ 45 × Ksp)",
+     "compared_to": "précipitation d'Ag2O brun possible avant réduction, surtout vers pH 11",
+     "source": "Ksp : Cengage, tableau des Ksp à 25 °C ; chemeurope « Silver oxide »"
+    },
+    {
+     "what": "Bragg : pics de DRX contre l'argent cfc de référence",
+     "inputs": "2θ = 37,56 ; 43,25 ; 64,10° ; λ non déclarée, Cu Kα1 = 1,5406 Å supposée ; a(Ag) = 4,0862 Å (COD 9008459)",
+     "formula": "d = λ / (2 sin θ) ; a = d √(h²+k²+l²) ; 2θ calc = 2 arcsin(λ √(h²+k²+l²) / 2a)",
+     "result": "d = 2,393 / 2,090 / 1,452 Å → a = 4,144 / 4,180 / 4,106 Å ; 2θ attendus 38,11 / 44,30 / 64,44° ; écarts −0,56 / −1,05 / −0,34°",
+     "compared_to": "écarts non monotones : ni dilatation uniforme de maille, ni décalage d'échantillon (qui varie en cos θ, presque constant entre 19 et 32°) ; valeurs « approximately » des auteurs",
+     "source": "COD 9008459 ; λ Cu Kα1 de constantes.md (NIST)"
+    },
+    {
+     "what": "frange de réseau contre d(111)",
+     "inputs": "0,236 nm mesuré ; a = 4,0862 Å",
+     "formula": "d(111) = a/√3",
+     "result": "0,2359 nm",
+     "compared_to": "0,236 nm : accord",
+     "source": "COD 9008459"
+    },
+    {
+     "what": "sédimentation d'une AgNP de 8 nm à 15 000 rpm, 15 min, 4 °C",
+     "inputs": "rayon de rotor non donné, 7,5 cm supposé ; ρ(Ag) = 10,49 g/cm3 ; ρ(eau) = 1,00 ; η(4 °C) = 1,567 mPa·s ; r = 4 nm",
+     "formula": "RCF = 1,118e−5 × r(cm) × rpm² ; v = (2/9) r² Δρ (RCF·g) / η ; distance = v × 900 s",
+     "result": "≈ 18 900 g ; v ≈ 4,0 µm/s ; ≈ 3,6 mm parcourus en 15 min (moins encore avec une coquille organique moins dense)",
+     "compared_to": "hauteur de liquide de plusieurs centimètres pour 10 mL : des particules isolées de 8 nm ne culotent pas ; seul l'agrégat est récupéré",
+     "source": "Stokes ; viscosité : HyperPhysics (IAPWS 2008) ; densité de l'argent : COD 9008459 (10,50 calculée)"
+    },
+    {
+     "what": "sédimentation des AgNP pendant le test d'hémolyse (2000 rpm, 10 min)",
+     "inputs": "RCF ≈ 18 900 × (2000/15000)² ≈ 340 g ; η ≈ 0,9 mPa·s à température ambiante",
+     "formula": "v ∝ RCF/η, même formule",
+     "result": "≈ 0,1 µm/s, < 0,1 mm en 10 min : les AgNP restent dans le surnageant lu à 540 nm",
+     "compared_to": "absorbance de l'hémoglobine à 540 nm ; aucun témoin AgNP sans globules décrit",
+     "source": "calcul (Stokes)"
+    },
+    {
+     "what": "écarts types du test larvicide",
+     "inputs": "10 larves par gobelet, 5 répétitions : chaque mortalité est un multiple de 10 % ; moyennes 26, 60, 86, 98 % ; écarts types publiés 0,54 / 0,70 / 0,54 / 0,44",
+     "formula": "écart type d'échantillon de jeux compatibles : {30,30,30,20,20} ; {50,60,70,60,60} ; {90,90,90,80,80} ; {100,100,100,100,90}",
+     "result": "5,48 / 7,07 / 5,48 / 4,47 % : exactement 10 fois les valeurs publiées ; 29 % (texte) impossible, la moyenne de 5 multiples de 10 % étant un multiple de 2 %",
+     "compared_to": "Tableau 1 : 26 ± 0,54 ; 60 ± 0,70 ; 86 ± 0,54 ; 98 ± 0,44",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "concentrations du test larvicide",
+     "inputs": "150, 250, 500, 700, 1000 µg dans 50 mL",
+     "formula": "C = m/V",
+     "result": "3 ; 5 ; 10 ; 14 ; 20 µg/mL",
+     "compared_to": "Tableau 1 et Résultats : 3, 5, 10, 15, 20 µg/mL",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "ajustement probit recalculé",
+     "inputs": "CL50 = 4,43 ; CL90 = 13,96 µg/mL",
+     "formula": "pente b = 1,2816 / log10(CL90/CL50) ; mortalité = Φ(b log10(C/CL50))",
+     "result": "b = 2,57 ; mortalités prédites 33 / 55 / 82 / 91 / 95 % à 3, 5, 10, 15, 20 µg/mL",
+     "compared_to": "observées 26 / 60 / 86 / 98 / 100 % : accord raisonnable ; χ² = 0,134 avec 2 ddl donne p = 0,94 (pas 0,824) et 5 doses − 2 paramètres = 3 ddl",
+     "source": "calcul"
+    },
+    {
+     "what": "série de dilutions de la CMI",
+     "inputs": "Méthodes : 512 → 1 µg/mL (facteur 2) ; Résultats : « range of 1 mg/mL » ; légende Fig. 6 : « 10 fold serial dilution »",
+     "formula": "1000 / 2^n",
+     "result": "500 ; 250 ; 125 ; 62,5 ; 31,25 µg/mL : les CMI publiées (125 ; 62,5 ; 31,25) viennent d'une série partant de 1 mg/mL, pas de la série 512 → 1 décrite",
+     "compared_to": "série des Méthodes : 128 ; 64 ; 32",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "classe hémolytique selon ASTM F756",
+     "inputs": "13,8 % à 500 µg/mL ; ≈ 5 % à 250 ; ≈ 2,5 % à 125 ; ≈ 1,5 % à 62,5 ; 0,87 % à 31,25 µg/mL",
+     "formula": "0–2 % non hémolytique ; 2–5 % légèrement ; > 5 % hémolytique",
+     "result": "hémolytique à 500 µg/mL, limite à 250, légèrement hémolytique à 125, non hémolytique ≤ 62,5 µg/mL",
+     "compared_to": "conclusion des auteurs : « safe » et « nontoxic » sans limite de dose",
+     "source": "ASTM F756-17"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ag est le seul élément du produit et il est apporté par AgNO3 (9 µmol, 0,90 mM dans le mélange : voir « argent apporté par lot »). Un lot de 10 mL contient au plus 0,97 mg d'Ag, alors que les seuls tests larvicide et Chironomus demandent 26 mg de poudre (« masse d'AgNP nécessaire ») : la synthèse a forcément été répétée ou agrandie, sans que l'échelle, le nombre de lots ni le rendement soient dits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les doses biologiques (µg/mL) sont des masses de poudre lyophilisée qui contient l'enrobage organique de l'extrait ; la teneur en argent (ATG, ICP ou AAS) n'est pas mesurée. Les CL50, CMI et taux d'hémolyse ne sont donc pas comparables à d'autres études exprimées en Ag.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Réduction d'Ag+ par les phénols de l'extrait : 9 µmol d'électrons, soit ≈ 0,77 mg d'équivalent acide gallique pour 100 mg de feuille extraite (« électrons à fournir par l'extrait ») : plausible, mais la teneur en phénols n'est pas mesurée. Obscurité : évite la photoréduction de l'Ag+, cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le pH est flou : Méthodes muettes sur NaOH ; Résultats disent « pH range from 9.8 to 11.0 » puis « altered to 9.8 by using 2 M NaOH » ; l'objet ajusté (extrait ou mélange) n'est pas dit. Si seul l'extrait est porté à 9,8, la dilution au 1/10 donne un pH entre 8,8 et 9,8 (« dilution du pH ») ; la réduction libère 0,9 mM d'H+, 14 fois l'OH− libre à pH 9,8 (« H+ libéré ») : 9,8 n'est au mieux qu'un pH initial. Il faut mesurer le pH du mélange au départ et à 2 h.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "À pH 9,8–11 et 0,9 mM d'Ag+, le produit ionique dépasse le Ksp d'AgOH (1,5–2,0 × 10−8) de 3 à 45 fois (« sursaturation vis-à-vis d'AgOH/Ag2O ») : de l'Ag2O brun peut précipiter avant réduction. La couleur brune ne distingue pas Ag2O, Ag colloïdal et polyphénols oxydés ; seuls le plasmon à 416 nm et la DRX montrent l'Ag0.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Solubility Product Constants (Ksp at 25 °C) — AgOH 2.0 × 10−8",
+      "authors_or_publisher": "Cengage (tables de chimie générale OWL)",
+      "year": "s.d.",
+      "url_or_doi": "https://cxp.cengage.com/contentservice/assets/owms01h/references/chemtables/gen_chem/ksp.html"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Un extrait de feuilles contient en général des chlorures : dans plusieurs synthèses vertes, ils donnent un mélange Ag/AgCl, qui se voit en DRX par des pics vers 27,8°, 32,2° et 46,2° (Okaiyeto 2019, extrait de feuilles d'Oedera genistifolia). Ici, ni le domaine de 2θ balayé ni l'EDX ne sont donnés ; la bande à 618 cm−1 attribuée à « C—X chloride » ne prouve rien. L'absence d'AgCl n'est donc pas démontrée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Phytofabrication of Silver/Silver Chloride Nanoparticles Using Aqueous Leaf Extract of Oedera genistifolia: Characterization and Antibacterial Potential",
+      "authors_or_publisher": "Okaiyeto K., Ojemaye M.O., Hoppe H., Mabinya L.V., Okoh A.I., Molecules",
+      "year": "2019",
+      "url_or_doi": "10.3390/molecules24234382"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les phénols de type caféique, chlorogénique et gallique s'oxydent de façon irréversible à pH élevé (Friedman et Jürgens 2000) : l'extrait alcalinisé brunit seul. Il manque le témoin « extrait + NaOH sans AgNO3 » pour attribuer la couleur et une part de l'absorption UV-vis aux AgNP.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of pH on the stability of plant phenolic compounds",
+      "authors_or_publisher": "Friedman M., Jürgens H.S., J. Agric. Food Chem.",
+      "year": "2000",
+      "url_or_doi": "10.1021/jf990489j"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Tout se fait à température ambiante, dans l'eau, en récipient ouvert. L'extraction à température ambiante, la centrifugation à 4 °C et la lyophilisation ne posent pas de problème de température contre récipient.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "15 000 rpm pendant 15 min (rotor non donné, ≈ 18 900 g si r = 7,5 cm) ne déplacent une particule isolée de 8 nm que de ≈ 3,6 mm (« sédimentation d'une AgNP de 8 nm ») : le culot recueilli est fait d'agrégats ou de grosses particules, et une partie des particules vues en MET reste sans doute dans le surnageant « clair ». Rendement et représentativité de la poudre inconnus ; préciser le g, le rotor et le volume par tube.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plasmon à 416 nm pour des sphères d'≈ 8 nm : dans la plage attendue (≈ 400–420 nm) pour de petites AgNP dans l'eau, avec un léger décalage vers le rouge cohérent avec un enrobage organique (relation plasmon–taille d'Agnihotri 2014 ; base : 413 nm pour 5 nm PMC5364236, 420 nm PMC3833323).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Size-controlled silver nanoparticles synthesized over the range 5–100 nm using the same protocol and their antibacterial efficacy",
+      "authors_or_publisher": "Agnihotri S., Mukherji S., Mukherji S., RSC Adv.",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ra44507k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX : les trois pics sont 0,34 à 1,05° en dessous des positions de l'Ag (38,11 / 44,30 / 64,44° pour Cu Kα1) et donnent des paramètres incompatibles entre eux, 4,106 à 4,180 Å (« Bragg »). Ce n'est ni une dilatation ni un décalage d'échantillon : positions mal lues ou appareil non étalonné ; la longueur d'onde n'est pas déclarée. L'identification de l'Ag cfc reste vraisemblable (frange de 0,236 nm = d(111) de 0,2359 nm ; anneaux SAED).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Crystallography Open Database, entry 9008459 : Silver, Fm-3m, a = 4.0862 Å (Wyckoff, Crystal Structures 1, 1963)",
+      "authors_or_publisher": "COD",
+      "year": "1963 (données) ",
+      "url_or_doi": "http://www.crystallography.net/cod/9008459.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "MET : 7,67 ± 1,2, 8,02 ± 0,59 et 8,34 ± 0,18 nm, mesurés sur trois micrographies à trois grossissements, sans nombre de particules. Un écart type de 0,18 nm (2 %) est improbable pour une synthèse verte, et d'autant plus sur l'image au plus faible grossissement (barre de 100 nm), où il est sous le pixel. Il faudrait un histogramme sur ≥ 200 particules, toutes images confondues.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les écarts types du Tableau 1 sont exactement 10 fois trop petits : avec 10 larves × 5 répétitions, 26, 60, 86 et 98 % imposent des écarts types de 5,48, 7,07, 5,48 et 4,47 % (« écarts types du test larvicide ») ; ils ont été calculés sur le nombre de larves mortes, pas sur les pourcentages. La valeur de 29 % du texte est impossible ; 26 % (tableau) est la seule compatible.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Test larvicide : 700 µg dans 50 mL donnent 14 µg/mL, pas 15 (« concentrations du test larvicide ») ; « p ≥ 0,05 considered significant » est inversé (la note du tableau dit p < 0,05) ; χ² = 0,134 avec 2 ddl donne p = 0,94 et non 0,824, et 5 doses moins 2 paramètres font 3 ddl. L'ajustement probit lui-même reste cohérent avec les mortalités (« ajustement probit recalculé »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "CMI impossible à refaire telle qu'écrite : série 512 → 1 µg/mL, incubation de 12 h et lecture au MTT dans les Méthodes ; « range of 1 mg/mL », lecture visuelle à 24 h dans les Résultats ; « 10 fold serial dilution » dans la légende de la Fig. 6. Les CMI publiées (125, 62,5, 31,25 µg/mL) ne viennent que d'une série 1000/2^n (« série de dilutions de la CMI »). Les antibiotiques témoins sont inversés entre les Méthodes et la légende du Tableau 2. Enfin, 100 µL de DMSO à 2 % ne dissolvent pas le formazan : on emploie normalement du DMSO pur.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hémolyse : 13,8 % à 500 µg/mL et ≈ 5 % à 250 µg/mL classent les AgNP comme hémolytiques au-delà de ≈ 250 µg/mL selon ASTM F756 (> 5 %) ; la conclusion « safe » et « nontoxic », sans limite de dose, contredit les données (« classe hémolytique »). Triton X-100 est appelé témoin « négatif » et le PBS « positif », à l'inverse de l'usage ; la formule du % d'hémolyse manque.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "ASTM F756-17 Standard Practice for Assessment of Hemolytic Properties of Materials (classes 0–2 % non hémolytique, 2–5 % légèrement, > 5 % hémolytique, reprises p. ex. dans PMC7546337) ; ASTM E2524 pour les nanoparticules",
+      "authors_or_publisher": "ASTM International",
+      "year": "2017",
+      "url_or_doi": "https://www.astm.org/f0756-17.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hémolyse : centrifugées à 2000 rpm pendant 10 min, des AgNP de 8 nm restent dans le surnageant lu à 540 nm (« sédimentation des AgNP pendant le test d'hémolyse »). Leur absorption et leur diffusion s'ajoutent à celle de l'hémoglobine. Sans témoin « AgNP dans le PBS sans globules », les pourcentages peuvent être surestimés. ASTM E2524 traite de ces interférences propres aux nanoparticules.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "ASTM F756-17 Standard Practice for Assessment of Hemolytic Properties of Materials (classes 0–2 % non hémolytique, 2–5 % légèrement, > 5 % hémolytique, reprises p. ex. dans PMC7546337) ; ASTM E2524 pour les nanoparticules",
+      "authors_or_publisher": "ASTM International",
+      "year": "2017",
+      "url_or_doi": "https://www.astm.org/f0756-17.html"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoins manquants dans les essais biologiques : ni AgNO3 à argent égal (Ag+ libre ou relargué), ni extrait alcalinisé aux mêmes masses (l'extrait n'est testé seul qu'en CMI, à 1 mg/mL). L'activité larvicide et antimicrobienne ne peut donc pas être attribuée à l'état nanoparticulaire plutôt qu'aux ions Ag+ ou aux composés de l'extrait.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire des auteurs : « reduce silver salt to silver ions » au lieu de Ag+ → Ag0 ; 1395 cm−1 « CH2–CH3 stretching » (c'est une déformation, et la bande du nitrate résiduel à ≈ 1384 cm−1 ou du carboxylate y tombe aussi) ; 1053 cm−1 « C–O bending of anhydrides » (c'est une élongation C–O) ; « strong band shift at 1622 » alors que les deux spectres ont des pics identiques ; AgNP « dissolved in PBS » (dispersées, et le chlorure du PBS peut former AgCl). L'IR ne distingue pas les attributions proposées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Rien n'est écrit sur la sécurité. AgNO3 est oxydant, corrosif et très toxique pour la vie aquatique ; NaOH 2 M est corrosif ; le MTT est toxique ; la poudre de nanoparticules lyophilisée est inhalable. Les essais emploient des pathogènes de niveau 2 (S. aureus, P. aeruginosa, C. albicans), du sang humain prélevé sur volontaire et un rat pour nourrir les moustiques, sans mention d'accord éthique ni de biosécurité. Les déchets argentés vont en filière dédiée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison dans la base : les autres AgNP vertes demandent de chauffer (Aloe vera à 80 °C, PMC4735866 ; Vernonia à 50 °C, PMC10293723) ou plusieurs jours à température ambiante (Ganoderma, 7–10 j, PMC3833323). Ici, 2 h à température ambiante suffisent, ce qui va avec l'activation alcaline (cf. amidon à pH 11, PMC3920662). Taille (≈ 8 nm) et plasmon (416 nm) sont dans la fourchette des petites AgNP de la base (413–420 nm).",
+     "status": "ok",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "À pH ≥ 9,8, une partie des OH phénoliques (pKa ≈ 9–10) passe en phénolates, bien plus réducteurs. Ag+ (éventuellement via Ag2O ou un complexe Ag(I)–phénolate) est réduit en Ag0 tandis que les phénols s'oxydent en quinones et libèrent des H+, ce qui fait baisser le pH. Les clusters d'Ag0 nucléent, croissent en sphères cfc d'≈ 8 nm et se couvrent de protéines et de produits d'oxydation des polyphénols. En parallèle, deux réactions peuvent se produire : l'autoxydation alcaline des phénols (brunissement sans argent) et la précipitation d'AgCl par les chlorures de l'extrait. L'explication des auteurs (« ionization by electron transfer », « protonated molecules ») va dans le même sens mais reste vague. L'analyse de l'extraction est juste ; il faut y ajouter la libération d'H+ et la voie AgCl.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     },
+     {
+      "title": "Effect of pH on the stability of plant phenolic compounds",
+      "authors_or_publisher": "Friedman M., Jürgens H.S., J. Agric. Food Chem.",
+      "year": "2000",
+      "url_or_doi": "10.1021/jf990489j"
+     },
+     {
+      "title": "Phytofabrication of Silver/Silver Chloride Nanoparticles Using Aqueous Leaf Extract of Oedera genistifolia: Characterization and Antibacterial Potential",
+      "authors_or_publisher": "Okaiyeto K., Ojemaye M.O., Hoppe H., Mabinya L.V., Okoh A.I., Molecules",
+      "year": "2019",
+      "url_or_doi": "10.3390/molecules24234382"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "objet du réglage du pH (extrait ou mélange), volume de NaOH 2 M, pH du mélange au départ et après 2 h",
+    "absence d'Ag2O et d'AgCl : DRX de 20 à 80° en 2θ avec λ déclarée, EDX (Cl)",
+    "g réel de la centrifugation, rotor, volume par tube, rendement en masse et teneur en Ag de la poudre (ATG ou ICP)",
+    "nombre de lots réunis pour les essais biologiques",
+    "distribution de taille MET sur ≥ 200 particules",
+    "témoins des essais biologiques : AgNO3 à Ag égal, extrait alcalinisé seul, AgNP sans globules à 540 nm",
+    "protocole CMI unique (série, durée, lecture) et attribution des antibiotiques témoins"
+   ]
+  },
+  {
+   "label": "AgNP_Ar_pH_initial",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire d'OH− entre les deux pH",
+     "inputs": "pH 6,5–7,3 contre 9,8",
+     "formula": "10^(9,8−pH)",
+     "result": "[OH−] 300 à 2000 fois plus faible sans NaOH ; phénols (pKa ≈ 9–10) presque entièrement protonés",
+     "compared_to": "réduction lente attendue à pH neutre",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "« Pas de formation » sans NaOH est plausible sur 2 h à température ambiante (phénols protonés, moins réducteurs). Mais la durée d'observation n'est pas dite et les auteurs citent eux-mêmes une synthèse sur la même espèce sans ajustement du pH : il s'agit sans doute d'une réduction plus lente plutôt que nulle. Il faudrait suivre l'UV-vis sur 24 h.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin propre sur une variable (le pH, avec Na+ en plus) ; la conclusion « la formation dépend du pH » est donc fondée, à durée égale seulement.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "À pH neutre, les phénols protonés réduisent Ag+ trop lentement pour qu'un plasmon apparaisse en 2 h.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée d'observation et spectre UV-vis à 2 h et 24 h sans NaOH"
+   ]
+  },
+  {
+   "label": "AgNP_Ar_24h",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Une couleur qui s'intensifie entre 2 et 24 h va avec une réduction qui se poursuit et une croissance ou agrégation. L'article ne donne ni spectre, ni taille, ni information sur l'emploi de cet échantillon. « From transparent to dark brown » contredit « yellowish to brown » de la voie de base (couleur de départ de l'extrait).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Poursuite de la réduction d'Ag+ résiduel et mûrissement ou agrégation des particules ; l'oxydation alcaline des phénols contribue aussi au brunissement.",
+    "sources": [
+     {
+      "title": "Effect of pH on the stability of plant phenolic compounds",
+      "authors_or_publisher": "Friedman M., Jürgens H.S., J. Agric. Food Chem.",
+      "year": "2000",
+      "url_or_doi": "10.1021/jf990489j"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "spectre UV-vis et taille à 24 h ; cet échantillon a-t-il servi aux essais ?"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse verte (AgNO3 1 mM, extrait aqueux de feuilles d'A. reticulata, pH alcalin, 2 h à température ambiante, à l'obscurité) est chimiquement plausible, et le plasmon à 416 nm, la frange de 0,236 nm et le SAED vont avec de petites AgNP cfc. Quatre points la rendent difficile à refaire : le réglage du pH est mal défini (9,8 ou 9,8–11, objet et volume non dits, et la réduction libère plus d'H+ qu'il n'y a d'OH−) ; l'échelle ne colle pas (≤ 0,97 mg d'Ag par lot contre ≥ 26 mg de poudre pour deux essais) ; la récupération par centrifugation de particules de 8 nm est douteuse ; la teneur en Ag de la poudre dosée n'est pas mesurée. Les essais biologiques contiennent des erreurs démontrables : écarts types larvicides divisés par 10, protocole CMI contradictoire, conclusion « non toxique » contredite par 13,8 % d'hémolyse à 500 µg/mL.",
+  "author_errors_suspected": [
+   "écarts types du Tableau 1 calculés sur le nombre de larves (10 fois trop petits) ; 29 % du texte impossible",
+   "700 µg/50 mL = 14 et non 15 µg/mL",
+   "série CMI des Méthodes (512 → 1) incompatible avec les CMI publiées (1000/2^n) et la légende (dilution au 1/10) ; 12 h contre 24 h",
+   "antibiotiques témoins inversés entre Méthodes et légende du Tableau 2",
+   "témoins de l'hémolyse inversés (Triton « négatif », PBS « positif ») ; conclusion « safe » contredite par > 5 % au-delà de 250 µg/mL",
+   "« p ≥ 0,05 significatif » ; p = 0,824 incompatible avec χ² = 0,134 (2 ddl)",
+   "pics de DRX décalés de façon non cohérente (a = 4,106 à 4,180 Å)",
+   "pH de synthèse donné à la fois comme 9,8 et comme 9,8–11,0"
+  ],
+  "comparison_with_database": "Avec les synthèses vertes d'Ag de la base (PMC4735866, PMC10293723, PMC3833323, PMC3920662, PMC5364236) : synthèse plus rapide à température ambiante grâce au pH alcalin ; taille et plasmon dans la fourchette des petites AgNP. Rien d'aberrant côté matériau."
+ },
+ "sources_not_found": [
+  "source primaire (CRC, Martell–Smith) du Ksp d'AgOH : seules des tables secondaires (Cengage, chemeurope) ont été lues",
+  "teneur en chlorure ou en phénols totaux des feuilles d'Annona reticulata : non cherchée (hors budget), non donnée par l'article"
+ ]
+}

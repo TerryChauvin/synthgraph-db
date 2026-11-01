@@ -1,0 +1,80 @@
+{
+  "pmcid": "PMC2893540",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "non_cite_a_tort",
+      "where": "NW_spin_seed step 7 (react), not_stated 'substrate_orientation_angle' (idem NW_dip_seed step 7 et NW_TiO2FTO_40h step 8)",
+      "extracted": "substrate_orientation_angle déclaré non cité",
+      "article_says": "ZnO nanowire arrays were grown by placing vertically the ZnO-seeded FTO substrates in solutions with 25 mM Zn(NO3)2",
+      "fix": "ajouter à l'étape de croissance un paramètre d'orientation du substrat en value_text « vertically » (citation ci-contre) et retirer la clé de not_stated ; seul le mode de fixation reste non cité (déjà dans limite_reproductibilite)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "NW_dip_seed variation 'ethanolamine' = absent",
+      "extracted": "ethanolamine: value_text « absent », avec la citation du trempage",
+      "article_says": "The FTO substrates were dip-coated in a 2.5 mM ethanolic solution of zinc acetate dehydrate.",
+      "fix": "la phrase ne mentionne pas l'éthanolamine : l'absence est une déduction (solution « ethanolic » de seul acétate de zinc). Garder la variation mais la signaler en doute comme lecture littérale non écrite, ou la retirer",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "DSSC_assembly, réactif 'dry ethanol (dye solution)' : not_stated purity, supplier",
+      "extracted": "pureté et fournisseur non cités",
+      "article_says": "Other chemicals (Beijing Chemical Co.) used in our experiments were of analytical reagent grade without further purification.",
+      "fix": "traitement incohérent : l'éthanol de la voie NW_dip_seed reçoit « analytical reagent grade / Beijing Chemical Co. » par cette phrase, l'éthanol « dry » de la solution de colorant non. Aligner les deux (ou déclarer les deux non cités) ; idem l'éthanol/acétone de nettoyage s'il devait être traité",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "NW_spin_seed réactif 'FTO substrate' (et copies dans les autres voies)",
+      "extracted": "nom « FTO substrate », sans référence ni fabricant",
+      "article_says": "Fluorine-doped tin oxide substrates (FTO TEC-8, LOF)",
+      "fix": "nommer « FTO TEC-8 » et renseigner supplier « LOF » avec supplier_quote (le rôle substrate dispense de la grille mais l'information est écrite)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "NW_bareFTO_40h et NW_TiO2FTO_40h outcome 'zno_buffer_layer_thickness_six_films_C_and_D' = ~500 nm",
+      "extracted": "même valeur de groupe recopiée sur deux voies",
+      "article_says": "The six ZnO nanowire films had a similar thickness of ZnO buffer layer (~500 nm).",
+      "fix": "résultat donné pour le groupe des six films : une annotation tendance_observee (règle du groupe du RUNBOOK), ou une seule voie ; la valeur est juste, seul le rangement est discutable",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "DSSC_assembly (voie device) sans outcomes ; Isc, Voc, ff, η rangés sur NW_spin_seed, NW_dip_seed, NW_bareFTO_40h, NW_TiO2FTO_40h",
+      "extracted": "performances des cellules en outcomes des voies matériau, aucune sur la voie device",
+      "article_says": "The parameters of the cells are summarized in Table 4.",
+      "fix": "RUNBOOK : les résultats d'une voie device vont sur elle. Une seule voie device sert quatre photoanodes, donc le rangement actuel (par échantillon nommé) est défendable ; à trancher par l'orchestrateur, sans changer les valeurs. Les 24 valeurs de Tables 2 et 4 vérifiées une à une, toutes justes",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "doute « Résumé et Conclusion contre Résultats » et annotation tendance_observee",
+      "extracted": "le doute dit que l'inversion est notée dans l'annotation de tendance ; l'annotation ne la mentionne pas",
+      "article_says": "improved by 3.9–12.5 and 2.4–41.7%, respectively",
+      "fix": "ajouter une phrase à tendance_observee (ou corriger le doute) : Résultats et Table 4 donnent Voc +3,9–12,5 % et η +2,4–41,7 %, l'ordre est inversé dans le résumé et la conclusion (vérifié : 0,53/0,51 = +3,9 %, 0,54/0,48 = +12,5 % ; 1,02/0,72 = +41,7 %)",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 4,
+    "branches_extracted": 4,
+    "not_stated_checked": 97,
+    "not_stated_wrong": 1
+  },
+  "reproducibility_gaps": [
+    "nombre, durée et volume des enductions centrifuges (« several times ») et des trempages (durée, vitesse de retrait, nombre) de la couche de germes",
+    "récipient, volume de solution, fixation et orientation des substrats, agitation de la croissance ; protocole « described elsewhere »",
+    "durée de croissance absente des Méthodes (30 h et 40 h seulement dans les Résultats, 30 h pour « two samples » mais appliquée à six)",
+    "pulvérisation du TiO2 : cible, gaz, pression, puissance, durée, ordre par rapport au nettoyage du FTO ; recuit éventuel de la couche",
+    "recuit final à 400 °C : atmosphère et vitesse de chauffe ; nombre de rinçages",
+    "cellule : surface active, volume d'électrolyte, rinçage après colorant, simulateur solaire non nommé",
+    "ce qui distingue A1, A2, A3 (idem B, C, D) : aucune condition écrite, probablement des répétitions non déclarées",
+    "pureté du N719, du PEI et des réactifs de l'électrolyte"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs limité à la citation sur le nombre de germes ; mecanisme_analyse formulé en hypothèses",
+  "notes": "Découpage par condition (A, B, C, D) avec résultats nommés par échantillon : correct, mon inventaire (12 échantillons : A1–A3, B1–B3, C1–C3, D1–D3, sans autre échantillon ni témoin) est identique à sample_inventory ; aucune variation écrite entre A1, A2, A3 (idem B, C, D), donc 12 voies auraient été inventées. Héritage de « Hydrothermal Deposition » par B, C, D : fondé, c'est le seul protocole de croissance de l'article (25 mM Zn(NO3)2, 25 mM HMT, 7.3 mM PEI, 92.5 °C, turnover 2.5 h, lavage, recuit 400 °C) ; seule la durée change (30 h A/B, 40 h C/D), correctement portée par la variation de durée de C. Fragile : le 30 h n'est écrit que pour « two samples » (Fig. 1 en montre douze panneaux, soit six échantillons), la légende de la Fig. 1 écrit (g–k) pour g à l. Tables 1 à 4 : les 72 valeurs comparées rangée par rangée, 0 écart ; rendements recalculés par Isc×Voc×ff (0,69 ; 0,64 ; 0,57 ; 0,72 ; 0,73 ; 0,80 ; 0,72 ; 0,86 ; 1,01), cohérents. Figures : Fig. 1 et 4 (MEB) ouvertes, aucune valeur chiffrée hors barres d'échelle ; Fig. 3 et 5 (courbes J–V, fichiers BMP à extension .jpg, convertis pour la lecture) : Isc à V=0 et Voc lus concordent avec les tables à moins de 5 % ; aucune valeur from_figure dans l'extraction, donc rien à contester. Une seule source de méthode réelle (B4) ; B10–B14 sont du contexte, bien écartés. Pas d'annexe, pas de renvoi à une annexe."
+}

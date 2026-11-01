@@ -1,0 +1,63 @@
+{
+  "pmcid": "PMC7033158",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "faux",
+      "where": "annotation comparaison_branches (article) : « seul AgNPs-Fe2O3 dépasse le P25 sous visible »",
+      "extracted": "L'argent est donc le meilleur dopant sur tous les critères, et seul AgNPs-Fe2O3 dépasse le P25 sous visible.",
+      "article_says": "while under the same conditions, the TiO2-P25 commercial catalyst showed a degradation of 61.5% (k = 0.0078 min−1) and 44.5% (k = 0.0044 min−1), respectively.",
+      "fix": "Sous visible, TiNPs-Fe2O3 (48,36 %, Results) dépasse aussi le P25 (44,5 %) ; seul Fe2O3 nu (38,03 %) reste en dessous. Corriger la phrase (« AgNPs-Fe2O3 et TiNPs-Fe2O3 dépassent le P25 sous visible ; les trois dépassent le P25 sous UV »).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation comparaison_branches : « meilleur dopant sur tous les critères »",
+      "extracted": "L'argent est donc le meilleur dopant sur tous les critères",
+      "article_says": "TiNPs- Fe2O3 | 304 | 0.02 | 2.9 | 2.0 | −11.5",
+      "fix": "« Tous les critères » n'est pas soutenu : le diamètre de pore (3,5 nm pour Ag contre 2,9 nm pour Ti, 22,6 nm pour Fe2O3) n'est pas présenté comme meilleur ou moins bon par les auteurs. Limiter à surface BET, volume poreux, bande interdite et activité photocatalytique.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Fe2O3 / TiNPs-Fe2O3 / AgNPs-Fe2O3 outcomes RhB_adsorption_percentage_at_equilibrium_60min (conditions de l'essai préliminaire)",
+      "extracted": "pourcentages 4.71 / 8.70 / 10.32 % sans les conditions d'essai ; 0 occurrence de 4.03, 0.7 g L−1, 20 mg L−1 ou 90 min dans le JSON",
+      "article_says": "were carried out preliminary tests (time = 90 min, pH ≈ 4.03, [Fe2O3] = 0.7 g L−1 and [RhB] = 20 mg L−1) in dark (without irradiation) conditions",
+      "fix": "Ajouter ces conditions (durée 90 min, pH ≈ 4,03, catalyseur 0,7 g L−1, RhB 20 mg L−1, obscurité) à la propriété d'adsorption de chaque voie (ou dans une caractérisation « adsorption à l'obscurité »), car elles diffèrent des conditions optimales du test photocatalytique (1,41 g L−1 ; 24,25 mg L−1 ; pH 9,97) auxquelles un lecteur les rattacherait. Même remarque pour la photolyse (RhB 20 mg L−1, 61,8 W m−2 UV, 202 W m−2 visible, 60 min), seulement en annotation sans ses conditions.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Fe2O3 plan CRCD (Table 1) : niveaux du plan non extraits",
+      "extracted": "seul le nombre d'expériences (17) et l'optimum sont notés ; 52.5 absent du JSON",
+      "article_says": "0 | 52.5 | 2.75 | 7",
+      "fix": "Extraire les cinq niveaux de Table 1 pour les trois facteurs : [RhB] 5 / 24.25 / 52.5 / 80.74 / 100 mg L−1 ; [Fe2O3] 0.5 / 1.41 / 2.75 / 4.08 / 5 g L−1 ; pH 2 / 4.03 / 7 / 9.97 / 12 (niveaux −1.68, −1, 0, +1, +1.68). Cela montre aussi que l'optimum retenu est le niveau −1 pour RhB et Fe2O3 et le niveau +1 pour le pH.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "TiNPs-Fe2O3 characterization FTIR (bande des TiNPs)",
+      "extracted": "aucune caractérisation FTIR sur TiNPs-Fe2O3 ni sur AgNPs-Fe2O3 ; seule la voie Fe2O3 porte 3394, 1620 et 611 cm−1",
+      "article_says": "TiNPs showed at 590 cm−1 due to the vibration of the TiO-O bond",
+      "fix": "Ajouter à TiNPs-Fe2O3 une caractérisation FTIR : bande à 590 cm−1 attribuée à la vibration Ti–O des TiNPs (la phrase vise les TiNPs, pas explicitement l'hybride : le dire dans le résultat).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 3,
+    "branches_extracted": 3,
+    "not_stated_checked": 24,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "Fe2O3 : volumes des solutions de NaBH4 (0,2 mol/L) et de FeCl3 (0,05 mol/L), donc rapport molaire NaBH4/Fe3+ et quantité de produit, absents de l'article (pas d'annexe dans le fichier)",
+    "Fe2O3 : solvant, ordre et vitesse d'addition, nombre et volume des lavages, séchage, rendement non donnés ; formule du précurseur incohérente (nom hexahydrate, formule FeCl3∙H2O)",
+    "Fe2O3 nu : l'article ne dit pas s'il a été calciné à 450 °C, broyé et tamisé comme les hybrides (écarts Fe2O3/hybrides non attribuables à la seule hybridation)",
+    "Hybridation : masses de Fe2O3 et de NPs (teneur en Ti ou Ag), milieu d'imprégnation, séparation et séchage avant calcination, atmosphère et refroidissement de la calcination, protocole de broyage non donnés ; renvoi à « the literature » (CR19, qui traite de la préparation d'AgNPs et pas d'imprégnation)",
+    "AgNPs : solvant, sens d'addition (ambigu), stirring après ou pendant l'addition, isolement et séchage, quantité utilisée pour l'imprégnation non donnés",
+    "Test photocatalytique : lampes UV et visible (type, puissance, distance), volume du réacteur, agitation, ajustement du pH (acide/base) non précisés ; équations 1 à 8 absentes du fichier texte",
+    "Plan CRCD : seuls les niveaux (Table 1), l'optimum et le diagramme de Pareto sont donnés ; les résultats des 17 expériences ne sont écrits nulle part"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs porte sur l'amélioration photocatalytique (piégeage des électrons), la citation le soutient ; mecanisme_analyse reste en hypothèses sans citation. Seule la phrase de comparaison sur le P25 est à corriger (voir constats).",
+  "notes": "Lecture indépendante : 3 voies synthétisées (Fe2O3, AgNPs en intermédiaire, TiNPs-Fe2O3/AgNPs-Fe2O3), 2 échantillons sans voie légitimes (TiO2 P25 commercial, essai de photolyse) ; l'inventaire de l'extraction est complet. Toutes les valeurs de Table 2, Table 3, du « respectively » (adsorption, dégradation, k) et du résumé sont bien attribuées. Fig. 4 : les 9 effets normalisés correspondent à l'image (écart < 2 %, arrondis à 2 chiffres) ; Fig. 5 : les valeurs à 120 min (Fe2O3 0,23 UV / 0,62 visible ; TiNPs 0,12 / 0,52 ; Ag 0,06 / 0,42) concordent avec le texte (écart < 5 %). Les 24 cases not_stated vérifiées dans le texte et les légendes : aucune n'est renseignée dans l'article ; pas d'annexe dans le fichier. method_sources (CR18, CR19) complet : CR20 et CR21 (modèle cinétique) et les autres renvois sont des équations ou du contexte, à exclure. Fragile : CR19 est rattaché à l'imprégnation (lecture littérale de la phrase) alors que son titre vise la préparation de nanoparticules d'argent (doute déjà noté par l'extracteur) ; les résultats du TiO2 P25 (Table 2 : 56 m²/g, 0,07, 4,8 nm, 3,2 eV, −24,0 mV ; résumé : 61,5 % et 44,5 %, k = 0,0078 et 0,0044) ne sont dans aucune voie, seulement partiellement en annotation : à garder au moins dans l'annotation de comparaison. Aucune ambiguïté de découpage : AgNPs-Fe2O3 hérite à bon droit des étapes de TiNPs-Fe2O3 (« the impregnation methodology was used with TiNPs and AgNPs »)."
+}

@@ -1,0 +1,14 @@
+# PMC9374656 — critique scientifique (Opus, 2026-10-14)
+
+- Seul `probleme` : l'ordre des modes Raman. L'article écrit « Si–Si, Si–Ge, Ge–Ge … 300, 400 et 500 cm⁻¹ respectively » ; c'est l'inverse (Ge–Ge ≈ 300, Si–Ge ≈ 400, Si–Si ≈ 500–520). Source : Alonso & Winer 1989, citée par plusieurs travaux trouvés en ligne, DOI non vérifié (Crossref bloqué). L'extraction recopie l'ordre faux dans CARAC de `Anode_Si0.7Ge0.3` : à corriger en annotation `limite_reproductibilite`, sans toucher à la citation.
+- Masses de SiGe sur Mo : recalculées à partir de 500 nm × disque de 10 mm, avec ρ(x) tiré du paramètre de maille de Vegard corrigé (Dismukes 1964, de mémoire, DOI non vérifié). On obtient un rapport de 0,91 à 1,10 : cohérent, donc toute la matière reste après HF. Les écarts de ±10 % ne sont pas réguliers en x, ce qui laisse penser à une pesée, pas à un calcul.
+- Rapport a-SiGe/Al = 2 : je l'ai classé `reserve` et non `probleme`. Le même groupe fait de l'échange avec Al sur ~1000 nm (Ozawa 2022), et les masses montrent que la matière reste. L'étude d'Isomura (Al ≥ a-SiGe pour un échange complet) vient d'un extrait de recherche sans citation complète : je ne la cite pas comme source, elle est listée en `sources_not_found`.
+- Eutectiques : Song & Hellawell 1990 donnent Al–Ge ≈ 424 °C et Al–Si ≈ 578 °C. J'ai gardé ces valeurs plutôt que 420 et 577 (valeurs de l'annotation `mecanisme_analyse`) : l'écart est sans conséquence.
+- Polyimide : la fiche Kapton HN donne une Tg entre 360 et 410 °C et un retrait de 1,25 % après 2 h à 400 °C. 20 h à 375–400 °C est dans la zone de transition, d'où une `reserve`. Le type de polyimide n'est pas écrit, et la fiche est une copie de distributeur.
+- Témoin à deux variables : le point Si (400 °C) change aussi la température, et les auteurs disent qu'une température plus haute donne des grains plus petits. Classé `reserve` sur la branche `Si`.
+- Capacité à 1 C (fig. 5b) > capacité à 0,1 C (fig. 6a) pour x = 0,6 et Ge, de 14 à 19 %. Calcul fait sur les lectures de figure de l'extraction (±50 mAh/g), donc seulement une `reserve` : cela indique des cellules différentes et pas de répétition.
+- « Approached theoretical » : de 65 à 98 % de la théorie selon x. Le pire cas est Ge sur la base de 1625 mAh/g, choisie par les auteurs eux-mêmes.
+- σ mesurée sur polyimide et utilisée pour expliquer le comportement en régime sur Mo, où les grains sont plus petits : c'est un argument transposé, `reserve`. Sur substrat conducteur, l'alternative serait une mesure de résistance de contact ou d'impédance.
+- La solubilité numérique de l'Al dans Si/Ge (Trumbore 1960) n'a pas été trouvée : je ne donne aucun chiffre, seulement la tendance.
+- Recherches web : 10. WebFetch n'aboutit pas ici (DNS ncbi et arxiv) : les sources reposent sur les extraits de recherche.
+- Rien n'est ajouté à fondateurs.md ni à constantes.md (consigne : Crossref bloqué).

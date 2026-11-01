@@ -1,0 +1,71 @@
+{
+  "pmcid": "PMC4726031",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "échantillon MMT (témoin, route null) : résultats de comparaison non enregistrés nulle part",
+      "extracted": "aucune valeur MMT dans les outcomes ni les caractérisations (MMT sans voie dans sample_inventory)",
+      "article_says": "The adsorption efficiencies of MMT, LaFeO3 and LaFeO3/MMT were 16.83%, 1.39% and 10.38% for RhB, respectively.",
+      "fix": "conserver les valeurs du témoin MMT (adsorption RhB 16.83 %, élimination totale 19.29 %, BET 38.02 m2/g, bande interdite 3.86 eV, d001 1.217 nm, pores ≈ 3 nm), par exemple dans une annotation de comparaison ou une caractérisation de la voie de base ; seules les valeurs LaFeO3/MMT et LaFeO3 sont reprises",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "LaFeO3/MMT reagent Na-montmorillonite (MMT) : composition chimique",
+      "extracted": "purity >97 %, sans composition",
+      "article_says": "The compositions of montmorillonite were determined by chemical analysis, which consisted of 61.53% SiO2, 19.25% Al2O3, 3.48% MgO, 1.41% Fe2O3, 2.83% Na2O, 2.52% CaO, 0.55% K2O, and 8.43% loss on ignition.",
+      "fix": "ajouter la composition (et l'impureté de quartz) au réactif MMT ou en caractérisation ; utile pour refaire le matériau avec une argile équivalente (le Fe2O3 de l'argile compte dans le bilan Fe)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "La(FeCo)O3/MMT, La(FeNi)O3/MMT, La(CoNi)O3/MMT outcome band_gap",
+      "extracted": "seule la cristallinité est enregistrée pour ces trois voies",
+      "article_says": "The band gap energies of La(FeCo)O3/MMT, La(FeNi)O3/MMT and La(CoNi)O3/MMT were between that of LaFeO3/MMT and LaCoO3/MMT",
+      "fix": "ajouter un résultat qualitatif de bande interdite (comprise entre celles de LaFeO3/MMT et de LaCoO3/MMT, valeur dans la Figure S4b absente) aux trois voies ; il n'est que dans l'annotation tendance_observee",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "LaCoO3/MMT et LaNiO3/MMT outcome adsorption dans le noir",
+      "extracted": "aucun résultat d'adsorption pour ces deux voies",
+      "article_says": "Adsorption measurements for RhB showed that All LaMO3/MMT samples exhibited similar adsorption efficiencies ranging from 10% to 15%.",
+      "fix": "ajouter à LaCoO3/MMT et LaNiO3/MMT un résultat RhB_dark_adsorption_efficiency en value_text « 10 à 15 % (Fig. S5) » ; la phrase ne vise nommément que M = Fe, Co, Ni (pas les mélanges)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "LaFeO3 (pur) caractérisation FTIR et absorption visible",
+      "extracted": "pas de caractérisation FTIR ni UV-vis DRS pour la voie LaFeO3",
+      "article_says": "Meanwhile, the Fe–O stretching vibration at 559 cm−1 appeared in LaFeO3, which was characteristic of the octahedral FeO6 group in the perovskite compounds.",
+      "fix": "ajouter à la voie LaFeO3 une caractérisation FTIR (Fe–O 559 cm−1 ; O–H 3402 cm−1 ; bandes 1485 et 1384 cm−1 de carbonates de La en surface) et l'absorption large 400–620 nm ; mineur, ces données ne servent pas à refaire la synthèse",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "La(FeCo)O3/MMT, La(FeNi)O3/MMT, La(CoNi)O3/MMT material.name",
+      "extracted": "LaFe0.5Co0.5O3-type, LaFe0.5Ni0.5O3-type, LaCo0.5Ni0.5O3-type mixed perovskite",
+      "article_says": "it might be because all LaMO3 phase possessed perovskite structure, and Fe, Co and Ni could replace with each other in crystal structure.",
+      "fix": "les compositions x = 0,5 sont déduites des rapports de Table S1 (Fe 0,0025 / Co 0,0025 mol) ; l'article n'écrit que La(FeCo)O3 et ne donne aucune analyse de phase pour ces mélanges : indiquer dans le nom ou une annotation que la formule est celle de la charge, non mesurée",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 9,
+    "branches_extracted": 9,
+    "not_stated_checked": 19,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "atmosphère de calcination (air statique ? flux ?), nature du creuset et du four, refroidissement : absents de l'article et de l'annexe (l'air n'est cité que pour l'ATG-DSC)",
+    "vitesse d'agitation, puissance et fréquence de la sonication, température de dissolution, état de l'argile avant emploi (séchée ? tamisée ?)",
+    "volume de solvant pour LaFeO3/MMT-0.5 et -2 et pour les variantes Co/Ni : l'article dit « prepared in the same way » et le Tableau S1 ne donne que des moles, donc concentration inconnue pour -0.5 et -2",
+    "masse de produit et rendement, absents ; seule la fraction 36,37 % de LaFeO3 est donnée sans calcul",
+    "valeurs numériques des variantes LaMO3/MMT et des rapports -0.5/-2 : seulement dans les figures S4 à S6 de l'annexe, absentes du dépôt",
+    "essai photocatalytique : distance lampe-échantillon, type et température du réacteur, agitation sous lumière, moment exact d'ajout de H2O2 (ajouté « to initiate the reaction ») non précisés",
+    "Co(NO3)3·6H2O et Ni(NO3)3·6H2O, formules écrites par l'article, sont inhabituelles (sels stables en M(NO3)2) : le chimiste ne sait pas quel sel a réellement été pesé"
+  ],
+  "mechanism_check": "ok",
+  "notes": "Lecture : texte entier, Tableau S1 aplati (ordre des colonnes vérifié : La, Fe, Co, Ni, acide citrique, MMT ; les 8 rangées recopiées correspondent). Valeurs principales contrôlées une à une (EDS, XPS, FTIR, ATG, BET, bande interdite, adsorption, élimination) : aucune fausse. Figure 3c ouverte : LaFeO3/MMT ≈ 56 % et LaFeO3 ≈ 29 % à 15 min, courbes à 81 et 59 % à 30 min, conformes au texte et aux valeurs from_figure (écart < 3 points). Aucune source de méthode à signaler (les seuls renvois sont dans l'introduction, pour des généralités). Non-constats : étape de chauffage de la voie LaFeO3 écrite « solution » alors que l'article parle de « mixture suspension » (déjà au doute, héritage voulu par « same way without montmorillonite ») ; « at room temperature » appliqué à l'agitation et à la sonication (ambigu, déjà au doute) ; 15 min lu sur figure ne précise pas si la courbe inclut l'adsorption initiale, mais 81,16 % à 30 min la comprend, donc cohérent."
+}

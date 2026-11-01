@@ -1,0 +1,78 @@
+{
+ "pmcid": "PMC11012633",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "CsPbBr3_150C reagent ZnBr2 0.17 g (série en température de la figure 1)",
+   "extracted": "ZnBr2 0.17 g dans la voie de base 150 °C, série de la figure 1, avec citation « When the molar ratio of Br:Pb = 6:1, ZnBr2 (0.17 g) was required »",
+   "article_says": "comparing Figure S1 and Figure 1, it can be found that as the molar ratio of bromine to lead increases from Br: Pb = 6:1 to Br: Pb = 10:1",
+   "fix": "garder la valeur (lecture la plus naturelle du texte) mais dire dans une annotation ou un doute que l'article n'écrit jamais « la figure 1 correspond à Br:Pb = 6:1 » ni que les Méthodes donnent 0,17 g pour cette série ; c'est déjà dit en limite_reproductibilite, le marquer aussi sur le réactif",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CsPbBr3_Br10 variation temperature (étape 3) = « same reaction temperature »",
+   "extracted": "value_text « same reaction temperature », parent_value « 150 °C »",
+   "article_says": "at the same reaction temperature become smaller",
+   "fix": "la branche regroupe sans le dire une série de la figure S1 (absente) dont les températures ne sont pas citées ; préciser en note que ce ne sont pas des échantillons à 150 °C seulement, ou ne pas porter de variation de température (l'article n'en change aucune pour cette branche)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CsPbBr3_90C outcomes : couleur d'émission",
+   "extracted": "aucun résultat de couleur pour la branche à 90 °C (la couleur est donnée pour 150 °C seulement)",
+   "article_says": "to 464 nm (deep blue light)",
+   "fix": "ajouter à CsPbBr3_90C un résultat emission_color (deep blue light), avec cette citation et la phrase de la figure 3 ; PL 464 nm",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "échantillon de comparaison « méthode générale » (figure S2), route null dans sample_inventory",
+   "extracted": "absent des voies ; seule l'annotation limite_reproductibilite le mentionne",
+   "article_says": "compared with the monodisperse CsPbBr3 QDs synthesized by the general method, they show a chaotic arrangement (Figure S2)",
+   "fix": "ajouter, dans la caractérisation TEM de la voie de base, le contraste qualitatif avec les QDs de méthode générale (arrangement désordonné, sans ZnBr2) ; ne pas créer de voie, le protocole n'est pas donné",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CsPbBr3_150C caractérisation photocurrent response, conditions",
+   "extracted": "conditions : 0.5 M Na2SO4, cellule à trois électrodes comme pour l'EIS (potentiel appliqué absent)",
+   "article_says": "(B) Instantaneous photocurrent response of CsPbBr3 QDs in neutral water (0.5 M Na2SO4) at −0.1 V vs. NHE.",
+   "fix": "ajouter « −0,1 V vs NHE » aux conditions du photocourant",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CsPbBr3_150C step 4 : température du Cs-oléate injecté",
+   "extracted": "step 4 sans température ni mention du préchauffage (« preheated » seulement dans la description)",
+   "article_says": "The Cs-oleate precursor solution was preheated to 120 °C before injection.",
+   "fix": "ajouter à l'étape 4 un paramètre température de la solution injectée = 120 °C (citation ci-contre) au lieu de la laisser dans la seule voie CsOA_precursor",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CsOA_precursor : concentration finale de la solution",
+   "extracted": "aucun résultat ni paramètre ; la concentration 0,125 M n'apparaît qu'à l'étape 4 de la voie de base",
+   "article_says": "the Cs-oleate solution (0.8 mL, 0.125 M in ODE) was quickly injected in",
+   "fix": "consigner 0,125 M comme concentration de la solution de Cs-oléate dans la voie CsOA_precursor (résultat ou paramètre de sortie)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 5,
+  "branches_extracted": 5,
+  "not_stated_checked": 22,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "température du ballon avant injection : les Méthodes n'écrivent que « the temperature was set to a different temperature » (valeurs 150, 130, 110, 90 °C seulement dans les Résultats)",
+  "rapport Br:Pb de la série de la figure 1 non écrit ; masse de ZnBr2 pour 10:1 donnée seulement comme « twice as much »",
+  "températures et tailles de la série à Br:Pb = 10:1 : figure S1 absente du dépôt",
+  "méthode générale (sans ZnBr2) de comparaison de la figure S2 non décrite",
+  "vitesses et durées des centrifugations (sauf la dernière), volume de solution clarifiée prélevé, agitation, pression du vide, température pendant les 30 s, durée de montée en température, rendement",
+  "préparation de l'électrode de travail pour EIS et photocourant non décrite ; échantillon utilisé en DRX et XPS non précisé"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Valeurs de taille (5,7 ± 0,1 ; 4,9 ± 0,05 ; 3,9 ± 0,1 ; 3,5 ± 0,11 nm) et pics Abs/PL relus sur les figures 1E–H et 3A–D : identiques au texte et bien rangés par température décroissante. Photocourant lu sur la figure 4B : premier palier ≈ 0,355, sixième ≈ 0,285 µA cm−2, soit 0,35 et 0,28 extraits, écart inférieur à 2 %. Pas de renvoi de méthode dans corpus/refs : method_sources vide est correct (les [[B38]]–[[B44]] portent sur la théorie de LaMer, l'interprétation DRX/optique/XPS et la résistance aux radiations). Non constats : (1) la figure 2A étiquette un pic (110) vers 21° et l'ICSD#01-075-0412, alors que le texte annonce « only two highly intense peaks » et l'ICSD 029073 ; le doute est déjà consigné par l'extracteur. (2) La figure 2B porte deux fois l'étiquette 3d5/2 (erreur de la figure), le texte est cohérent. (3) Phrase sur l'absence de « white spots » au TEM, ambiguë (pas de mesure par échantillon), non retenue comme résultat. (4) Fig. 4A : le demi-cercle atteint ≈ 8000 kΩ en Z', mais aucune valeur de résistance n'est écrite dans le texte, extraction correcte de ne pas en lire. Calcul de stœchiométrie de l'annotation mecanisme_analyse refait : PbBr2 0,376 mmol, ZnBr2 0,755 mmol, Br/Pb = 6,0 ; Cs 0,1 mmol ; Cs-oléate ≈ 0,123 M ; exact."
+}

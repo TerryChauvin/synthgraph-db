@@ -1,0 +1,13 @@
+# Journal de la critique de fidélité, PMC5238663
+
+- Ma liste avant lecture de l'extraction : graphite (matière première), GO, ZnO NR, CdS NP, CdS–ZnO, CdS–ZnO–RGO, plus quatre essais de photocatalyse (2 catalyseurs x 2 sources de lumière). Identique à `sample_inventory` ; les essais sont rangés en résultats des deux composites (Fig. 9b,d et 9a,c), ce que je juge correct : aucune variation de synthèse, pas de branche.
+- Valeurs lues sur figure, toutes ouvertes : Fig. 3 (g004) Eg 3,23 ; 2,20 ; 2,21 et 3,18 ; 2,11 et 3,01 eV, identiques aux valeurs extraites (écart 0). Fig. 10 (g011) : 29 et 32 % (binaire), 7 et 6 % (ternaire), écart inférieur à 1 point. Fig. 11 (g012) : 98, 70, 98 (97,5), 69 %, cohérent avec le texte.
+- Fig. 9 (g010) : l'absorbance à 460 nm passe de 0,225 à 0,005 (ternaire, simulateur) soit 98 %, ce qui contredit la Fig. 10 (93 %). L'extracteur a vu l'écart et gardé le texte ; constat `mineur`/`sure` seulement pour l'ajouter aux limites de reproductibilité, pas pour changer une valeur.
+- Fig. 1 (g002) : les pics se lisent 3 à 4° plus bas que dans le texte (ZnO (100) vers 28° contre 31,67° ; CdS (111) vers 23° contre 26,8°). Lecture sur image réduite, d'où `probable` ; l'extraction suit le texte, donc pas d'erreur d'extraction.
+- Cases `not_stated` (13 vérifiées : rendement partout, volumes de ZnCl2, NaOH et acétate de Cd du binaire, volume d'autoclave du ternaire) : aucune n'est dans l'article. J'ai écarté « ZnCl2 volume » comme faux positif : les 40 mL d'eau sont le solvant, le volume de solution de ZnCl2 n'est pas donné autrement.
+- Les 4 constats `manquant` (FTIR du binaire, UV–vis de CdS/binaire/ternaire, EDAX du ternaire, TEM du GO) sont `sure` : phrases exactes dans les sections FTIR, UV–vis, TEM, absentes des caractérisations.
+- FTIR du ZnO (3454 et 1424 cm-1 omis) : `probable`, car l'extraction a gardé la bande Zn–O, la seule structurale ; l'article écrit « ZnO NP » pour les bâtonnets.
+- Sources de méthode : R36, R34, R37, R38, R39 présentes et correctement rattachées ; les renvois de la photocatalyse (équation, ordre zéro) sont exclus par la règle du 2026-10-13.
+- Écarté : le spectrophotomètre de suivi « non précisé ». L'article cite un Shimadzu UV-2450 en Caractérisations sans le relier à la photocatalyse ; l'extracteur a raison de ne pas l'affirmer (noté en lacune de reproductibilité).
+- Écarté : le volume 40 mL de l'étape 4 du binaire. L'ambiguïté est déjà au doute de l'extracteur avec la lecture littérale ; pas de texte pour trancher.
+- Pas de constat sur le 1 wt % contre 5 % : déjà consigné par l'extracteur en limite_reproductibilite.

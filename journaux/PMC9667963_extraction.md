@@ -1,0 +1,21 @@
+# Journal d'extraction PMC9667963 (TS-1 assistée par PAM)
+
+- **Voie de base** : P-10-80-120, seul protocole détaillé (SI « Syntheses of PAM-assisted TS-1 zeolites »). Deux autres voies de base : micro-TS-1 (préparée indépendamment, 170 °C 36 h, Table S1) et P-10-80-120-HCl (post-traitement du matériau fini, `kind: post_treatment`, parent null).
+- **Quantités** : l'article ne donne que des rapports molaires (« SiO2: 0.033 TiO2: 0.27 TPAOH: 30 H2O: 0.1 PAM »). Je les ai extraits tels quels (unité « mol per mol SiO2 »), TEOS = 1 via la rangée P-10-80-120 de la Table S1 (rapport implicite dans le texte, explicite dans le tableau). Aucune masse n'est inventée ; l'absence est notée dans `limite_reproductibilite`.
+- **PAM** : rapport 0,1 sans base de calcul (monomère ou chaîne ?), masse molaire en plage chez le fournisseur Guangfu (8 000 000-15 000 000) ; recopié, doute écrit.
+- **Table S1 aplatie** : une rangée = un échantillon, citée sur plusieurs lignes contiguës (« P-5-80-120 1 0.033 PAMb 0.05 80 ℃ (3 h) + 120 ℃ (3 h) »). Les durées par échantillon viennent de là, pas de la position.
+- **P1800-10-80-120** : Table S1 = 120 °C 8 h, Table S3 = 6 h. Table S1 retenue pour le protocole (tableau de synthèse), Si/Ti = 59 pris de la Table S3 ; doute écrit.
+- **Témoin P-0-80-120** : étapes propres (pas d'héritage) car l'article ne le décrit que par « same molar composition ... without adding PAM » ; les étapes « ajout du PAM » et « agitation de 24 h après PAM » sont omises, le reste du protocole est repris du protocole PAM (`not_stated: post_hydrolysis_stirring`, doute). Durée à 120 °C = 6 h (SI et Table S1).
+- **Séries en temps** (Fig. 2 pour P-10 : 0 ; 0,5 ; 1,0 ; 1,5 ; 2,0 ; 2,5 h ; Fig. S10 / Fig. 1 pour P-0 : 8 et 12 h) : une branche par durée listée, avec étapes propres (protocole jusqu'au chauffage puis étape `collect`), car les solides sont « extracted solids » sans lavage ni calcination dits. 3,0 h = voie de base. 24 h pour P-0 (borne de « 6–24 h ») : pas de branche, noté dans l'inventaire.
+- **Valeur 0 h** : durée écrite `value_text: "0 h"` (le contrôle refuse une durée nulle en nombre).
+- **Contradiction texte / Fig. 1b** : texte « finished after ca. 2.5 h, RC 100 % » pour P-10, figure ≈ 50 % à 2,5 h et 100 % à 4 h. Les deux sont gardés (texte en `value_num` avec citation, figure en `from_figure` à ±3 points) ; doute écrit.
+- **Si 2p** : « shifts to lower » mais 103,9 > 103,1 ; valeurs recopiées en `value_text` sans interpréter l'ordre.
+- **Si/Ti du témoin** : 106 dans une phrase, 107 partout ailleurs (Table S2 et texte) ; 107 retenu.
+- **Séries en une étape (P-10-120, P-0-120, P-10-170, P-0-170)** : Table S1 donne une seule durée, les Fig. S3 et S4 des séries ; je garde la durée du tableau et les périodes d'induction du texte (6→2 h, 2→1 h). Étapes propres (un seul palier) pour ne pas hériter du palier à 80 °C.
+- **P-S-10-80-120** (sans TBOT, TiO2 = 0 en Table S1) : étapes propres, parce que l'étape 2 du parent (« TBOT and TEOS were added ») concerne le réactif absent ; la citation reste celle du parent.
+- **micro-TS-1** : aucune procédure, sources de Si et Ti non nommées ; réactifs déclarés « silica source / titanium source (not named) » plutôt que TEOS/TBOT par déduction ; TPAOH/SiO2 = 0,27 vient d'une note de table (doute).
+- **Table S4** : aplatie en une valeur par ligne ; colonnes lues dans l'ordre de l'en-tête (conversion max, sélectivité, conversion de H2O2, efficacité), confirmées par le texte pour P-10-80-120.
+- **Conditions d'essai contradictoires** : hexène (méthanol 10 mL et H2O2 30 wt% en Méthodes contre 8,0 g et 35 wt% en note de la Table S4) et DBT (n-octadécane en Méthodes, n-hexadécane dans la liste des réactifs) : valeurs des Méthodes, doute écrit.
+- **Figures lues** : Fig. 7a (conversion du DBT à 120 min, 6 échantillons) et Fig. 1b (6 valeurs de cristallinité relative) ; le reste des figures principales (TEM, spectres, schémas) ne porte pas de valeur supplémentaire. Figures S1-S36 : images absentes du dépôt, seules les légendes et les tableaux S1-S4 sont lus.
+- **TiO2 anatase commercial** : échantillon de référence sans voie (inventaire, `route: null`) ; DBT 8,8 % et hexène 1,01 % notés dans la raison.
+- **Sources de méthode** : aucune (les renvois [[cit40-44]] sont des références d'interprétation, rien pour refaire une préparation) ; `method_sources` vide.

@@ -1,0 +1,15 @@
+# Journal critique de fidélité, PMC9063653
+
+- Ma liste d'échantillons avant ouverture de l'extraction : trois films Co3O4 (recuit O2, air, N2, 600 °C, 1 h), trois empilements Pt/Co3O4/Pt correspondants, plus le substrat nu Pt/Ti/SiO2/Si (simple référence XRD). Identique à `sample_inventory` ; aucun échantillon manquant.
+- Les états « fresh / HRS / LRS » (Fig. 9) sont des états de mesure d'une même cellule, pas des échantillons : leur rangement en résultats des voies Stack_* est correct, pas de constat.
+- Valeurs `from_figure` vérifiées en ouvrant les images : Fig. 4a (boîtes ≈ 5,1 / 4,2 / 2,7 V, écart < 0,2 V), Fig. 5a–c (HRS ~2×10^5, ~10^4, ~8×10^3 Ω ; LRS ~30, ~20, ~30 Ω ; axes 200 / 200 / 800 cycles), Fig. 6b (8 kΩ, 30 Ω, axe jusqu'à 10^4 s). Aucun écart > 10 %.
+- Fig. 9 : les douze valeurs Ms imprimées dans les encarts (in-plane et perpendiculaire) sont toutes identiques à l'extraction ; 64 % = (140,5 − 50,4)/140,5 vérifié.
+- Fig. 2 (20 / 15 / 8 nm), Fig. 3 (trois pics O 1s), Fig. 6a (plages Vset/Vreset), Fig. 7a (pente 1,04) et Fig. 8c (α = 7,8×10^-4 K^-1, pente recalculée ≈ 7,8e-4) : conformes.
+- Constat 1 (nom « cobalt(III) acetate ») : classé `deduit`/`probable`. L'article n'écrit que la formule Co(CH3COO)3·4H2O ; l'extracteur en a tiré un nom en Co(III) alors que son étape 1 dit « cobalt acetate tetrahydrate ». Probable plutôt que sûr, car la formule écrite par les auteurs est bien celle du Co(III) ; la vraisemblance d'une coquille est une interprétation, donc remise en doute et non en correction de valeur.
+- Constat 2 (XRD de l'air) `sure` : la phrase « oxygen and air annealed … higher peak intensity » n'est reportée que sur Co3O4_O2 ; omission vérifiable dans le JSON.
+- Constats 3 à 5 (anisotropie, pente Schottky 2,84 de la Fig. 7b, pics (111)/(220)/(511)) : informations présentes dans l'article ou sur ses figures et absentes de l'extraction ; `mineur`-type, sans valeur fausse.
+- Constat 7 (Fig. 8a) : à 300 K la LRS lue vaut ≈ 20,5 Ω contre ≈ 30 Ω aux Fig. 5c et 6b, pour la même série azote. Je ne tranche pas l'origine (cellules différentes) ; signalé comme limite de reproductibilité.
+- Écarté comme non-constat : « 104 s » (déjà en doute, 10^4 s sur l'axe) ; « >800 » du résumé contre « up to 800 » du corps (déjà en doute) ; fenêtre SQUID ±2 T contre ±10 000 Oe (déjà en doute).
+- `method_sources` vide jugé correct : le paragraphe expérimental n'a aucun renvoi ; [[cit3]] (« our previous Pt/NiFe2O4/Pt ») soutient l'interprétation de α, pas une méthode ; Scherrer et Schottky sont des équations d'analyse.
+- Les `not_stated` des étapes (durée et température de dissolution, volume, atmosphère de cuisson, rampes, débit, four, méthode et épaisseur du Pt) ont tous été recherchés dans le texte, les légendes et les figures : aucun n'est indiqué à tort comme non cité (22 vérifiés, 0 faux).
+- Pas d'annexe (`## Supporting Information` absente) : aucune information complémentaire possible, donc les manques de reproductibilité (épaisseur, nombre de couches, dépôt du Pt) viennent bien de l'article.

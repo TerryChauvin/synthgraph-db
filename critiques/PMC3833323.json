@@ -1,0 +1,112 @@
+{
+  "pmcid": "PMC3833323",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "AgNPs-Ganoderma reagents : souche du champignon absente",
+      "extracted": "aucun réactif ni paramètre ne porte la souche ; seules les étapes parlent de « Ganoderma neo-japonicum mycelia »",
+      "article_says": "The culture of G. neo-japonicum Imazeki KUM61076 was obtained from the Mushroom Research Centre, University of Malaya.",
+      "fix": "ajouter la souche (G. neo-japonicum Imazeki KUM61076, Mushroom Research Centre, University of Malaya) comme réactif du mycélium, ou au moins dans la description de l'étape 1 et dans limite_reproductibilite : c'est la matière biologique qui fait le réducteur",
+      "confidence": "sure"
+    },
+    {
+      "severity": "faux",
+      "where": "method_sources entrée 1 (b46-ijn-8-4399, role autre, quote glucose yeast malt peptone broth)",
+      "extracted": "b46 enregistré comme source de méthode (role autre)",
+      "article_says": "The mycelia were then transferred to glucose yeast malt peptone broth.",
+      "fix": "la phrase ne contient aucun marqueur de méthode (ni according to, ni as described) ; b46 (Lin et Chen, culture submergée d'Antrodia cinnamomea en milieux complexes) est un champignon différent, cité en appui du milieu de culture, pas comme protocole de la voie. C'est du contexte : retirer l'entrée (le milieu non détaillé reste dans missing_fields) ou, si l'orchestrateur veut garder le pointeur vers la composition du milieu, la garder en autre sans la compter comme source de méthode",
+      "confidence": "probable"
+    },
+    {
+      "severity": "faux",
+      "where": "method_sources entrées 5 et 6 (b48 et b49, quote du calcul de l'IC50)",
+      "extracted": "b48 et b49 enregistrés avec la phrase du calcul de l'IC50",
+      "article_says": "Concentrations of AgNPs showing a 50% reduction in cell viability (ie, half-maximal inhibitory concentration [IC50] values) were then calculated.",
+      "fix": "phrase sans marqueur de méthode et qui porte sur le traitement des données d'un essai MTT, pas sur une préparation : contexte, retirer ces deux entrées. Les entrées 7 à 9 (b48 et b49 pour la LDH « as described earlier », b49 pour la ROS « as previously described ») ont un vrai marqueur et peuvent rester en autre, mais elles concernent des essais biologiques, pas la voie de synthèse",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "AgNPs-Ganoderma step 8 (mix) : durée de 24 h rattachée à l'action mix",
+      "extracted": "une seule étape mix avec duration = 24 hours et temperature = room temperature ; not_stated sans la durée du mélange",
+      "article_says": "1 mg/mL of freeze-dried hot aqueous mushroom mycelia extract was mixed with an aqueous solution of 1 mM AgNO3 solution and kept at room temperature for 24 hours.",
+      "fix": "deux opérations fusionnées : mélange (durée et agitation non citées) puis maintien à température ambiante 24 h (action age ou react). Découper en deux étapes, la température et les 24 h allant à la seconde",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "AgNPs-Ganoderma step 6 (filter) : refroidissement fusionné à la filtration",
+      "extracted": "une étape filter, description « Cool the mixture and filter it »",
+      "article_says": "left to cool and filtered through grade 4 Whatman filter paper",
+      "fix": "deux opérations : une étape cool (durée et température finale non citées) puis filter. Faible enjeu mais l'ordre des opérations de l'article est cool puis filter",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "AgNPs-Ganoderma : extrait lyophilisé non isolé en voie intermédiaire",
+      "extracted": "étapes 1 à 7 (culture, extraction, lyophilisation) dans la voie du matériau, kind = material",
+      "article_says": "The hot aqueous extract was then freeze-dried at −50°C ± 2°C for 48 hours and stored at 4°C in airtight containers.",
+      "fix": "l'extrait est isolé, lyophilisé, stocké à 4 °C puis réutilisé comme réducteur : le RUNBOOK demande dans ce cas une voie kind = intermediate (étapes 1 à 7) et, dans la voie des AgNPs, un réactif de rôle intermediate qui la nomme. Découpage laissé à l'orchestrateur ; l'extraction signale déjà le choix dans ses doutes",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "doubts, taille 10–70 nm : élément de preuve non utilisé",
+      "extracted": "doute : la phrase 10–70 nm « ressemble à la valeur citée pour G. lucidum dans l'introduction » ; valeur non retenue (juste)",
+      "article_says": "The G. neo-japonicum-synthesized NPs revealed polydispersity and sizes between 10 and 70 nm, with an average size of 45 nm.",
+      "fix": "la décision de ne pas extraire 10–70 nm / 45 nm est correcte. Renforcer le doute : dans corpus/refs cette phrase porte le renvoi [[b21-ijn-8-4399]] (Karwa et al. 2011, mycosynthèse d'AgNPs par Ganoderma lucidum) et les mêmes chiffres sont donnés dans l'introduction pour G. lucidum avec b20 et b21. C'est donc une valeur de la littérature mal attribuée par les auteurs, pas un résultat de G. neo-japonicum (confiance haute)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "AgNPs-Ganoderma outcomes : taille moyenne globale de 5 nm absente",
+      "extracted": "outcomes : DLS 5 nm, DLS 2 à 10 nm, MET 5–8 nm, DRX <6 nm ; pas de taille globale",
+      "article_says": "Overall analysis of DLS and TEM suggests that the average size of AgNPs derived from Ganoderma spp. mushroom extract was 5 nm.",
+      "fix": "ajouter un résultat particle_size_overall = 5 nm (cette phrase, reprise par la conclusion « mean size of 5 nm »). Il tranche, pour les auteurs, entre 5–8 nm du texte MET et 5 nm « maximum » de la légende de la figure 5 (déjà en doute)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "AgNPs-Ganoderma outcomes : changement de couleur et délai",
+      "extracted": "aucun résultat de couleur ni de délai d'apparition",
+      "article_says": "The color change to reddish brown in the presence of silver nitrate took place within 12 hours.",
+      "fix": "ajouter l'observation (brun rougeâtre en moins de 12 h) : c'est le seul repère temporel de la synthèse, utile au chimiste qui refait la voie. Noter aussi que les autres passages disent « brownish », « yellowish-brown » et, pour la légende de la figure 1, « colorless to brown » alors que l'extrait est dit « pale-yellow » : désaccord interne mineur à mettre en doute",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "AgNPs-Ganoderma characterizations XRD : affirmation de monocristallinité",
+      "extracted": "XRD : pics (111) et (200), Ag cubique à faces centrées, taille <6 nm ; rien sur « single-crystalline »",
+      "article_says": "The X-ray diffraction analysis confirmed that the synthesized AgNPs were single-crystalline, corresponding with the result of transmission electron microscopy.",
+      "fix": "ajouter cette affirmation de l'abstract au résultat XRD (ou en outcome) ; elle n'est pas démontrée par le corps du texte (aucune donnée de diffraction électronique ni de HRTEM), à signaler comme réserve",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "annotation conclusion_auteurs AgNPs-Ganoderma",
+      "extracted": "« car l'intensité du pic plasmon n'augmente plus au-delà »",
+      "article_says": "Maximum intensity was achieved after 24 hours of the reaction, which indicates the complete reduction of the Ag+ ions.",
+      "fix": "l'article ne dit pas que l'intensité cesse d'augmenter après 24 h et ne donne aucune mesure au-delà ; reformuler : « l'intensité maximale est atteinte après 24 h, ce qui, selon les auteurs, indique la réduction complète »",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 1,
+    "branches_extracted": 1,
+    "not_stated_checked": 24,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "volumes des solutions d'extrait et de AgNO3, rapport de mélange, et si 1 mg/mL et 1 mM sont les concentrations finales ou celles des solutions de départ (l'article ne le dit pas)",
+    "masse de mycélium lyophilisé et volume d'eau de l'extraction (seul un rapport « 1:20 » sans unité : m/m, m/v ou v/v), température réelle de l'étape « double-boiled », type de bain-marie",
+    "composition des milieux potato dextrose agar et glucose yeast malt peptone broth, volume de milieu, mode de récolte du mycélium, nombre de lavages",
+    "pression et instrument de lyophilisation (mycélium et extrait), pureté et fournisseur de AgNO3, qualité de l'eau",
+    "agitation, pH et exposition à la lumière pendant la réaction à température ambiante ; durée du mélange",
+    "purification, séparation et séchage des AgNPs : aucun passage ne dit comment la masse de nanoparticules exprimée en μg/mL pour les essais a été obtenue",
+    "rendement non donné ; le suivi UV en fonction du temps n'a ni durées ni valeurs (seulement la figure 2 pour le spectre final)",
+    "souche G. neo-japonicum KUM61076 : l'article la donne, mais les conditions d'inoculation (quantité, volume de milieu) manquent"
+  ],
+  "mechanism_check": "ok : les deux annotations mecanisme_auteurs sont citées et fidèles (extrait réducteur et stabilisant ; protéines possibles agents de coiffage avec « may be due ») ; mecanisme_analyse est rédigée au conditionnel et sans citation, conforme au RUNBOOK ; securite_analyse couvre AgNO3 et déchets d'argent",
+  "notes": "Taille : l'extraction garde 5 nm (DLS, texte), 2 à 10 nm, 5–8 nm (MET) et <6 nm (DRX) et laisse de côté 10–70 nm / 45 nm, à juste titre (renvoi b21 sur G. lucidum). Reste fragile pour un lecteur : une taille hydrodynamique DLS égale au diamètre MET et à la taille de cristallite est physiquement peu probable, et la légende de la figure 5 (« maximum size ... 5 nm ») est incompatible avec « 5–8 nm » (déjà en doute) ; interprétation de chimiste sans passage, donc pas un constat. Autres incohérences de l'article déjà relevées par l'extraction (3 kW contre 40 kV x 40 mA ; 300 kV pour un JEM-1200EX) ou à noter : la partie ROS parle de « apoptosis in yeast cells » alors que la lignée utilisée est MDA-MB-231. Références de l'article manifestement erronées (b24 est un article sur un luminophore Zn3V2O8 cité pour A. terreus ; b25 un article sur TRAIL et le cancer buccal cité pour A. flavus) : sans effet sur l'extraction mais à ne pas utiliser pour compléter les données. Sources de méthode : aucun renvoi de méthode manquant dans corpus/refs (b47, b9, b38, b48, b49 couverts) ; b47 et b9 concernent d'autres organismes (Hericium erinaceus, Escherichia coli), donc protocole_adapte est le bon rôle. Le contrôle de coverage vient de ma lecture ; je n'ai pas lancé review.py ni fiche.py."
+}

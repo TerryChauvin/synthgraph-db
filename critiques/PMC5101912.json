@@ -1,0 +1,90 @@
+{
+ "pmcid": "PMC5101912",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Filtre_Au-RGO step 2 filter, not_stated dye_concentration_in_device / missing_fields dye_concentration",
+   "extracted": "concentration du colorant dans le dispositif déclarée non citée",
+   "article_says": "The desired dye concentration used in this study was 10 μM, obtained by diluting the stock solution in accurate proportions.",
+   "fix": "la concentration 10 μM est écrite pour « this study » sans restriction aux essais en cuve : l'enregistrer pour le filtre avec un doubt (lecture non garantie), au lieu de la déclarer simplement non citée",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Au-RGO / RGO résultats d'adsorption : protocole d'essai en cuve absent de l'extraction",
+   "extracted": "aucun champ ne porte la masse d'adsorbant, le volume d'essai, ni l'ajustement du pH (seulement 'pH 6' dans une citation)",
+   "article_says": "In each case the equal amount of adsorbent (0.5 mg ml–1) were added.",
+   "fix": "ajouter ces conditions d'essai (adsorbant 0,5 mg ml–1, volume total 2 ml, colorant 10 μM, pH ajusté par HCl/NaOH 0,01 N, ou 1 N pour la série de pH, 5 températures à pH 6) dans une annotation ou une caractérisation d'essai de la voie Au-RGO, avec citations",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Au-RGO outcomes : recouvrement spectral Rh123 / Au-RGO",
+   "extracted": "absent (FRET 36,3 nm et NSET 7,4 nm sont extraits, pas J(λ))",
+   "article_says": "the remarkable spectral overlap (J(λ)=2.04X1020 M–1 cm–1 nm4) of the Au-RGO absorption spectrum with that of the emission spectrum of Rh123",
+   "fix": "ajouter J(λ) = 2,04×10^20 M–1 cm–1 nm4 en résultat de la voie Au-RGO (value_text), sur lequel reposent les distances FRET/NSET",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "RGO characterizations : XRD, TGA, Raman, UV-vis, FTIR absents (seuls SEM et XPS)",
+   "extracted": "RGO.characterizations = [SEM, XPS] ; les valeurs XRD (24º), TGA (500 °C), Raman (1,01), UV-vis (306 nm), FTIR (1725 cm–1) n'existent qu'en outcomes ; la perte de masse 160–220 °C est donnée pour Au-RGO seulement",
+   "article_says": "Thermogravimetry analysis (TGA) curves of both RGO and Au-RGO shows an obvious weight loss between 160 and 220°C",
+   "fix": "ajouter à RGO les entrées de caractérisation correspondantes (TGA perte 160–220 °C commune aux deux, XRD, Raman, UV-vis, FTIR) avec leurs conditions d'appareil déjà extraites pour Au-RGO",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "RGO steps 1 à 3 (sonicate, react, dry)",
+   "extracted": "trois étapes décrites en détail (« Disperse and exfoliate GO in 2-propanol », « Drying of the RGO ») toutes citées sur la même phrase",
+   "article_says": "Reduced GO was obtained using similar procedure without using metal salts.",
+   "fix": "l'article ne décrit aucune étape pour RGO : les étapes (dont le séchage) sont reconstituées à partir d'Au-RGO ; le dire dans la description de chaque étape (« reconstitué d'après Au-RGO, non écrit ») ou ne garder qu'une étape de réaction avec le doubt, sans présenter le séchage ni la sonication comme cités",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Au-RGO Table 6 : durée de vie moyenne 825 ps contre composantes",
+   "extracted": "Rh123_adsorbed_average_fluorescence_lifetime = 825 ps ; composantes 60 ps (53 %), 546 ps (27 %), 3850 ps (20 %)",
+   "article_says": "Rh123-Au-RGO | 375 | 525 | 60 (53%) | 546 (27%) | 3850 (20%) | 825",
+   "fix": "la moyenne pondérée des composantes donne ≈ 949 ps (0,53×60 + 0,27×546 + 0,20×3850), pas 825 ps ; pour RGO le calcul donne 1879 ps contre 1874 (cohérent) ; copier les valeurs de l'article, mais ajouter un doubt et une annotation limite_reproductibilite sur cette incohérence interne",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Au-RGO capacités d'adsorption par colorant (Fig. 5b) contre texte",
+   "extracted": "éosine 7, bleu de méthylène 19, Rh123 17, coumarine 5 μmol g–1 (texte)",
+   "article_says": "The results indicate that adsorption capacity for crystal violet, methylene blue, Rh123, eosin, and coumarin were 31, 19, 17, 7 and 5 μmol g–1 respectively at pH 6.",
+   "fix": "valeurs du texte correctes et à garder ; la figure 5b montre aux plateaux ≈ 31,5 (violet de cristal), ≈ 20 (bleu de méthylène), ≈ 16 (Rh123), ≈ 8,3 (éosine) et ≈ 4,5 (coumarine) : l'éosine s'écarte de ≈ 18 % ; le noter dans un doubt (écart texte/figure de l'article)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Au-RGO Langmuir_Q0, Langmuir_KL, Freundlich_n, Freundlich_KF : conditions absentes de la citation",
+   "extracted": "citations « 38.71 | 0.227 » et « 2.39 | 34.1 » sans température ni pH",
+   "article_says": "303 | 6 | Qo (μmol g−1) | KL (μmol g–1)",
+   "fix": "joindre aux citations (ou au nom de la propriété) les conditions du tableau 4 : 303 K, pH 6, afin que la valeur soit interprétable hors contexte",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 2,
+  "branches_extracted": 2,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 1,
+  "from_figure_checked": 9,
+  "from_figure_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "synthèse du GO renvoyée à un travail antérieur (réf. CIT0032) : aucune quantité de graphite ni d'oxydant",
+  "source UV : longueur d'onde, puissance, distance, type de réacteur et de lampe non donnés pour une irradiation de 5 h",
+  "volume de la dispersion GO / 2-propanol et masse de GO non donnés (seulement 1 mg ml–1 et 3 mM d'acétate d'or), donc quantité absolue d'Au et rapport Au/GO inconnus",
+  "durée de dissolution de l'acétate d'or, durée et débit de la désoxygénation par N2 ; irradiation menée ou non sous N2 non précisé",
+  "température et durée du séchage au four ; absence de lavage ou de séparation mentionnée ; rendement absent",
+  "RGO témoin : seulement « similar procedure » (N2, durées non confirmés)",
+  "filtre : matériau et fabricant du filtre de 0,22 μm, mode de dépôt des 10 mg d'Au-RGO, concentration des colorants dans le dispositif (probablement 10 μM, non confirmé)",
+  "table 4 : température et pH de l'isotherme donnés, mais gamme des concentrations de Rh123 absente ; unité de KL douteuse"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs se limite au rôle d'espaceur des nanoparticules d'or, appuyé par « Au NPs successfully incorporated between RGO layers and act as a spacer » ; le mécanisme de photoréduction est correctement présenté comme analyse (probablement) et non comme propos des auteurs",
+ "notes": "Extraction globalement fidèle : toutes les valeurs de tableaux (1, 3, 4, 5, 6) et de texte contrôlées sont justes, ΔH ambigu 8,33 (tableau 5) / 8,72 (texte) bien gardé en double. Valeurs from_figure vérifiées sur les images : 5a RGO ≈ 15,7–16 (extrait 16), 5c pH 4 ≈ 16,8 et pH 8 ≈ 17,1 (extrait 17), 5d 30 °C ≈ 18,7 / 40 °C ≈ 19,9 / 50 °C ≈ 20,0 (extrait 19, 20, 20), 9b/9c cycle 1 ≈ 100, cycle 10 ≈ 82 (Rh123) et ≈ 89–90 (violet de cristal), témoin ≈ 19 % et ≈ 12 % au cycle 1 : aucun écart au-dessus de 10 %. Écarts texte/figure non retenus comme constats de valeur : TGA Au-RGO 420 °C (texte) contre pic dérivé ≈ 435 °C (fig. 2b) ; pic plasmon 540 nm (texte) contre maximum ≈ 550 nm (fig. 7a) ; pH 2 à 10 min ≈ 16 sur la figure contre 15,3 dans le texte. Le découpage en branches est correct : une seule synthèse (Au-RGO) et un témoin RGO ; les séries de colorant, de pH et de température sont des essais du matériau fini. Aucun renvoi de méthode manquant dans corpus/refs (CIT0032 pour le GO, CIT0033 pour la fluorescence résolue en temps ; CIT0035 et la note NSET sont des formules d'analyse, exclues par la règle). Non vérifié : figures 1, 3, 4 et 6, dont aucune valeur n'est marquée from_figure."
+}

@@ -1,0 +1,81 @@
+{
+ "pmcid": "PMC7962968",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "ZnO, NZnO, NZnO-CNT characterizations XRD result (tendance par échantillon)",
+   "extracted": "XRD : seulement « hexagonal wurtzite structure (JCPDS No. 01-075-0576) » (+ pics CNT pour NZnO-CNT) ; aucune différence de cristallinité ni de position de pic entre les trois films",
+   "article_says": "The diffraction peaks of the pure ZnO are sharp and intense, revealing the highly crystalline character of the ZnO sample, while the diffraction peaks of the N-doped ZnO and N-doped ZnO/CNT are broad and weak",
+   "fix": "compléter le résultat XRD de ZnO (pics fins et intenses, pic le plus intense à 36,29°), de NZnO et de NZnO-CNT (pics larges et faibles, pic principal décalé vers les 2θ plus grands), ou une annotation tendance_observee sur la série",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "témoins blank et dye solution (inventaire, route null) : aucun résultat rangé",
+   "extracted": "rien (l'inventaire cite les témoins mais ni outcome, ni annotation ne porte leur résultat)",
+   "article_says": "For both studies, no appreciable changes were observed due to adsorption and self photodegradation of the MB dye.",
+   "fix": "ajouter une annotation tendance_observee ou un résultat sur NZnO-CNT (ou la voie de base) : photolyse et adsorption sans effet notable sur 4 h (la Fig. 6 montre environ 3 % pour le blanc et 5 % pour la solution de colorant à 240 min)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "NZnO-CNT characterization « photocatalyst reuse test » conditions",
+   "extracted": "conditions : lavage à l'eau distillée, séchage, 500 °C 1 h entre cycles ; aucune condition d'essai",
+   "article_says": "MB concentration: 5 ppm; photocatalyst: N-doped ZnO/CNT; solution pH 6.4; irradiation time: 4 h",
+   "fix": "ajouter aux conditions du test de recyclage : UV, MB 5 ppm, pH de la solution 6,4, 4 h par cycle ; ajouter aussi une entrée de caractérisation pour le test H2O2 (UV, 5 à 30 mmol, 60 min) qui n'a aucune condition décrite",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "NZnO-CNT step 6 grind (dimension de la lame) et résultat film_thickness",
+   "extracted": "dimensions de la lame seulement dans la citation (aucun paramètre) ; film_thickness = 4 µm sans le tilde ; épaisseur par couche non extraite",
+   "article_says": "Coated thin film could cover approximately 2 µm on the above estimated area of abrasive glass substrate.",
+   "fix": "ajouter un paramètre dimensions = 10 mm × 60 mm × 1.5 mm à l'étape de ponçage ; noter film_thickness en value_text « ~4 µm » ; ajouter le résultat « environ 2 µm par couche » (citation ci-contre)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "NZnO et ZnO : quantités des réactifs (0,7316 g, 0,4 mL, 9,6 mL) et étape age héritées du parent ; NZnO-CNT step 11 (rechauffage entre couches)",
+   "extracted": "NZnO et ZnO reprennent les quantités de NZnO-CNT et les citations qui parlent du sol « N-doped ZnO/CNT » ; step 11 « repeated twice » sans dire si l'étape à 80 °C est refaite à chaque couche",
+   "article_says": "Finally, pure ZnO thin film was prepared using the same procedure.",
+   "fix": "le doute existe déjà ; ajouter en plus dans not_stated de NZnO et ZnO la mention que les quantités ne sont pas redonnées pour ces films, et déclarer non citée la répétition du chauffage à 80 °C entre couches (step 11)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Table 4, ligne « 200 W Tungsten » (résultats de ce travail) non rangée en résultat",
+   "extracted": "70 % (NZnO-CNT) et 25 % (ZnO) cités seulement dans un doute, pas en outcome",
+   "article_says": "N-ZnO/CNT | MB | 5 mg | 200 W Tungsten | 240 | 70 | Pure ZnO, 25 | | This work",
+   "fix": "ajouter un outcome distinct (par ex. MB_degradation_visible_240min_table4 = 70 % sur NZnO-CNT, 25 % sur ZnO) en conservant les valeurs du texte, ou annoter l'incohérence en limite_reproductibilite (déjà fait en partie)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs (NZnO-CNT)",
+   "extracted": "citation unique sur l'hétérojonction CNT/N-ZnO ; le texte de l'annotation ajoute le rôle de TEA et de la fonctionnalisation acide, que la citation ne soutient pas",
+   "article_says": "Functionalization of CNT leads to the oxygenated polar functional groups on its surface.",
+   "fix": "séparer : garder mecanisme_auteurs pour le mécanisme photocatalytique (citation actuelle) et mettre les rôles de TEA (« stabilizing agent ») et de la fonctionnalisation dans une annotation distincte avec leurs propres citations (3.1 et 3.2)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 3,
+  "branches_extracted": 3,
+  "not_stated_checked": 37,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "référence de masse des « 5wt% » d'azote et de CNT : 5 mg de CNT ne font qu'environ 1,8 % de ZnO attendu (0,7316 g d'acétate dihydraté ≈ 0,27 g de ZnO), 28 mg d'urée ≈ 4,8 % N",
+  "nombre de couches ambigu (« repeated twice ») et chauffage à 80 °C entre couches non précisé ; calcination une seule fois à la fin",
+  "atmosphère (air ?), vitesse de montée et de descente en température de la calcination non donnés",
+  "vitesse et durée de centrifugation des CNT, durée de séchage des CNT et des lames, température de vieillissement du sol (24 h)",
+  "quantités et conditions exactes des films ZnO et N-ZnO seulement par « Similarly » et « same procedure »",
+  "masse ou surface de film dans l'essai photocatalytique, longueur d'onde de la lampe UV, distance lampe-solution, ce que veut dire « 5 mg » du tableau 4",
+  "pureté de l'acétate de zinc, de l'urée et des acides ; fournisseur de l'éthanol, du dichromate et du dichlorométhane",
+  "concentration de H2O2 en mmol sans volume ni molarité (5 à 30 mmol) et pas de valeur pour les doses intermédiaires",
+  "incohérences de l'article : 65 % (résumé) contre ≈ 78 % (Fig. 6B) pour N-ZnO sous UV ; 16,66 % (texte) contre ≈ 10 % (Fig. 6B) pour ZnO à 60 min ; 70 %/25 % (tableau 4) contre 63,69 %/23,41 % (texte) sous lumière visible"
+ ],
+ "mechanism_check": "ok : l'annotation distingue bien le mécanisme photocatalytique des auteurs de l'analyse (marquée « Probablement ») ; seul le rattachement de la citation est faible (constat 7)",
+ "notes": "Extraction globalement fidèle : toutes les citations sont des sous-chaînes du texte, les rangées des tableaux 1 à 3 sont attribuées au bon échantillon, aucune valeur numérique fausse trouvée. Figures lues : Fig. 8 (99,4 / 97,4 / 96,3 / 95,0 / 94,8 % contre 99/97/96/95/95 extraits), Fig. 6B (ZnO à 60 min ≈ 10-11 % contre 10, N-ZnO à 240 min ≈ 78 % contre 78) : écarts inférieurs à 2 points, aucun constat. Les références DFT (B58 Payne, B59 Xu pour les U de Hubbard, B60 VASP) ne sont pas listées dans method_sources : je les ai jugées hors du périmètre synthèse/essai (calcul), à trancher par l'orchestrateur. Le tableau 3 parle de « différentes concentrations initiales de MB » alors que ses lignes sont des photocatalyseurs : incohérence de l'article, sans effet sur l'extraction."
+}

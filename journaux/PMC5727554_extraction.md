@@ -1,0 +1,16 @@
+# Journal d'extraction PMC5727554
+
+- Découpage : une seule préparation, divisée en trois portions recuites. Voie de base = TiO2NT-400 (protocole complet à 8 étapes, échantillon d, c'est aussi celui de la DRS) ; TiO2NT-600 et TiO2NT-800 ne changent que la température de l'étape 8 (Méthodes : « annealed at 400 °C, 600 °C and 800 °C for 2 hours, respectively »).
+- Échantillon (c) « acid washing » : branche TiO2NT-AW avec ses propres étapes 1 à 7 (pas de recuit), variation température/durée de l'étape 8 en « no annealing ». Citation = rangée 2c du Tableau 2. La légende de la Fig. 2 le dit « annealed nanotubes after acid washing », contradiction notée en doute ; lecture retenue : non recuit, car d, e, f portent les recuits.
+- Échantillon (b) après hydrothermal : branche TiO2NS-HT avec les étapes 1 à 3 seulement ; variations « HCl absent » et « eau distillée absente » (règle réactif retiré). L'isolement de l'échantillon n'est pas décrit (doute). Le texte le nomme « nanotubes structure » mais la MET (Fig. 5) montre des nanofeuillets : lecture MET retenue.
+- Précurseur P25 (échantillon a) : sans voie (produit commercial) ; ses résultats (88/12 %, 24 nm DRX, 25 nm MET, σ 2,83 nm) vont dans l'annotation comparaison_branches, pas dans une voie.
+- Pureté et fournisseur : le contrôle exige que la valeur soit dans `quote` ou `supplier_quote`, une seule citation. J'ai pris la phrase contiguë « All chemical reagents ... analytical grade ... Aeroxide / J.T. Baker » : pureté = « analytical grade ». Les puretés chiffrées du Tableau 1 (≥ 99,5 ; 99,1 ; 99,7) ne sont pas reprises (doute et limite). HCl à 99,7 % est suspect.
+- NaOH et HCl modélisés comme solutions (10 M, 30 ml ; 0,1 M, 200 ml), car l'article ne donne aucune masse de NaOH ; solvant de la solution de NaOH déclaré non cité.
+- Atmosphère du recuit : « in air » n'existe que dans les Résultats / légende Fig. 2, pas dans les Méthodes ; valeur retenue avec cette citation (« nanotubes after annealing treatment in air for 2 h at 400 °C, 600 °C, and 800 °C »). Température et durée citées depuis les Méthodes.
+- Centrifugation : aucune vitesse ni durée (not_stated « speed », « duration ») ; lavage : critère « jusqu'à pH 6,7 » donné en `final_wash_ph`, nombre de lavages non cité.
+- Figures lues (6) : σ imprimés sur les histogrammes Fig. 8 (2,01), 10a (2,73), 10b (2,02), 12 (18,5), lisibles sans estimation ; EDS Fig. 6a/6b, lecture qualitative du pic Na (intense / très réduit). Fig. 4 non reprise (σ 2,83 déjà dans le texte). Fig. 13 (DRS) non ouverte : valeurs 378 nm et 3,28 eV dans le texte.
+- 800 °C marqué `succeeded: false` : les auteurs rapportent l'effondrement des tubes ; l'échantillon reste décrit (nanoparticules de 116 nm).
+- Le Tableau 2 donne 30 nm comme « taille moyenne » des nanofeuillets (b), valeur absente du texte ; reprise telle quelle depuis la rangée 2b.
+- method_sources : Kasuga (bib0050, protocole adapté) et Nada et al. (bib0080, lavage acide 0,1 M HCl 3 h). Les renvois Le Bail, FULLPROF, JCPDS, Scherrer sont de l'analyse de données : exclus.
+- Équations (2) à (4) absentes du texte extrait : réaction exacte non citable ; mécanisme cité sur les phrases qui l'entourent.
+- Aucune annexe (Supporting Information) ni renvoi à une annexe dans l'article.

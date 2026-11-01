@@ -1,0 +1,636 @@
+{
+ "pmcid": "PMC8717625",
+ "routes": [
+  {
+   "label": "Cs-oleate",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [
+    {
+     "what": "moles de Cs2CO3",
+     "inputs": "101,7 mg ; M(Cs2CO3) = 2×132,905 + 12,011 + 3×15,999 = 325,82 g/mol",
+     "formula": "m/M",
+     "result": "0,3121 mmol (0,6243 mmol de Cs)",
+     "compared_to": "-",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "moles d'acide oléique",
+     "inputs": "312,5 µL ; densité 0,895 g/mL ; M = 282,46 g/mol ; pureté 90 %",
+     "formula": "V×ρ/M",
+     "result": "0,990 mmol (0,891 mmol en corrigeant la pureté de 90 %)",
+     "compared_to": "-",
+     "source": "densité de l'acide oléique 0,895 g/mL (valeur de manuel, PubChem) ; M arithmétique"
+    },
+    {
+     "what": "rapport OA/Cs et OA/Cs2CO3",
+     "inputs": "0,990 mmol OA ; 0,624 mmol Cs ; 0,312 mmol Cs2CO3",
+     "formula": "n(OA)/n(Cs)",
+     "result": "OA/Cs = 1,59 (1,43 avec la pureté) ; OA/Cs2CO3 = 3,17",
+     "compared_to": "il faut OA/Cs ≥ 1 (Cs2CO3 + 2 RCOOH → 2 RCOOCs + H2O + CO2) ; recette d'origine 0,407 g Cs2CO3 / 1,25 mL OA, soit le même rapport 3,17 : ici exactement un quart de cette recette",
+     "source": "valeurs de l'article ; recette Protesescu reprise par Bekenstein 2015 (SI) et d2cc05150h"
+    },
+    {
+     "what": "concentration en Cs de la solution",
+     "inputs": "0,624 mmol Cs dans ≈ 5,31 mL (5 mL ODE + 0,3125 mL OA, volumes supposés additifs)",
+     "formula": "n/V",
+     "result": "≈ 0,118 mol/L",
+     "compared_to": "0,125 mol/L annoncés dans les recettes dérivées de Protesescu (Bekenstein 2015 SI)",
+     "source": "Bekenstein et al. 2015 SI"
+    },
+    {
+     "what": "CO2 dégagé",
+     "inputs": "0,312 mmol Cs2CO3 → 0,312 mmol CO2",
+     "formula": "n × 22,4 L/mol",
+     "result": "≈ 7 mL de gaz à TPN",
+     "compared_to": "volume du ballon 50 mL, pompé sous vide",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "OA/Cs = 1,59 (voir calcul « rapport OA/Cs et OA/Cs2CO3 ») : assez d'acide pour convertir tout le carbonate en oléate, avec un léger excès d'acide libre. Rapport identique à la recette de référence.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Highly luminescent colloidal nanoplates of perovskite cesium lead halide and their oriented assemblies (Supporting Information)",
+      "authors_or_publisher": "Bekenstein et al., J. Am. Chem. Soc.",
+      "year": "2015",
+      "url_or_doi": "https://nanowires.berkeley.edu/wp-content/uploads/2016/01/ja5b11199_si_001.pdf"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "120 °C sous vide puis 160 °C sous Ar dans l'octadécène (bp 315 °C, point d'éclair 154 °C en coupelle fermée) : bien sous l'ébullition ; 160 °C dépasse le point d'éclair mais sous argon, pratique standard.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Safety Data Sheet, 1-Octadecene for synthesis (8.22112)",
+      "authors_or_publisher": "Millipore / Sigma-Aldrich (fiche fournisseur)",
+      "year": "2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/sds/mm/8.22112"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "L'oléate de césium précipite dans l'ODE à température ambiante ; le maintien à 120 °C sous Ar avant injection, écrit par les auteurs, est la pratique habituelle (préchauffage à 100–120 °C).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I): Novel Optoelectronic Materials Showing Bright Emission with Wide Color Gamut",
+      "authors_or_publisher": "Protesescu et al., Nano Lett.",
+      "year": "2015",
+      "url_or_doi": "10.1021/nl5048779"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le dégagement de CO2 est faible (≈ 7 mL, voir calcul « CO2 dégagé ») et se fait sous vide : pas de risque de surpression ; l'annotation de sécurité de l'extraction surestime ce point. Le risque réel est la mousse au début du chauffage sous vide (H2O + CO2) : monter la température progressivement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Neutralisation acide-base : Cs2CO3 + 2 C17H33COOH → 2 C17H33COOCs + H2O + CO2 ; l'eau et le CO2 sont pompés à 120 °C, le palier à 160 °C sous Ar achève la réaction (solution limpide).",
+    "sources": [
+     {
+      "title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I): Novel Optoelectronic Materials Showing Bright Emission with Wide Color Gamut",
+      "authors_or_publisher": "Protesescu et al., Nano Lett.",
+      "year": "2015",
+      "url_or_doi": "10.1021/nl5048779"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "que la solution soit limpide à 160 °C (tout le carbonate a réagi) avant de la garder à 120 °C",
+    "la concentration réelle (≈ 0,12 mol/L en Cs) si l'on change le volume d'ODE"
+   ]
+  },
+  {
+   "label": "CsPbBr3",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbBr2",
+     "inputs": "69 mg ; M(PbBr2) = 207,2 + 2×79,904 = 367,01 g/mol",
+     "formula": "m/M",
+     "result": "0,1880 mmol",
+     "compared_to": "0,188 mmol dans la recette de Protesescu (69 mg)",
+     "source": "Akkerman et al. 2015 (PMC4543997)"
+    },
+    {
+     "what": "moles de Cs injecté",
+     "inputs": "0,4 mL de Cs-oleate à ≈ 0,118 mol/L",
+     "formula": "C×V",
+     "result": "0,0470 mmol",
+     "compared_to": "-",
+     "source": "calcul de la voie Cs-oleate"
+    },
+    {
+     "what": "rapport Cs:Pb:Br",
+     "inputs": "0,0470 mmol Cs ; 0,188 mmol Pb ; 0,376 mmol Br",
+     "formula": "n(Cs):n(Pb):n(Br)",
+     "result": "0,25 : 1 : 2",
+     "compared_to": "CsPbBr3 : 1:1:3 ; Cs limitant, Pb en excès ×4, Br suffisant (0,141 mmol nécessaires sur 0,376)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse maximale de CsPbBr3",
+     "inputs": "Cs limitant 0,0470 mmol ; M(CsPbBr3) = 579,82 g/mol",
+     "formula": "n(Cs) × M",
+     "result": "≈ 27 mg",
+     "compared_to": "rendement non donné par les auteurs",
+     "source": "arithmétique"
+    },
+    {
+     "what": "moles de ligands",
+     "inputs": "OA 0,5 mL × 0,895 g/mL / 282,46 ; OLA 0,5 mL × 0,813 g/mL / 267,49",
+     "formula": "V×ρ/M",
+     "result": "OA 1,58 mmol ; OLA 1,52 mmol (avant correction de pureté 90 % et 70 %)",
+     "compared_to": "OA:OLA ≈ 1:1 comme chez Protesescu ; ligands/Pb ≈ 8",
+     "source": "densités de manuel (PubChem) ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Recette de Protesescu à l'identique (5 mL ODE, 0,188 mmol PbBr2, 0,5 mL OA + 0,5 mL OLA, 0,4 mL de Cs-oleate) ; Cs limitant, Pb ×4 (voir « rapport Cs:Pb:Br ») : c'est voulu dans cette méthode, l'excès de Pb reste en complexes oléate/halogénure.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Tuning the Optical Properties of Cesium Lead Halide Perovskite Nanocrystals by Anion Exchange Reactions",
+      "authors_or_publisher": "Akkerman et al., J. Am. Chem. Soc. (PMC4543997)",
+      "year": "2015",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4543997/"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "180 °C dans l'ODE (bp 315 °C) sous Ar, dans la plage 140–200 °C de Protesescu ; au-dessus du point d'éclair (154 °C) : manipulation sous gaz inerte obligatoire, ce que l'article écrit.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Safety Data Sheet, 1-Octadecene for synthesis (8.22112)",
+      "authors_or_publisher": "Millipore / Sigma-Aldrich (fiche fournisseur)",
+      "year": "2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/sds/mm/8.22112"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Trempe 25 s après l'injection contre 5 s chez Protesescu : la nucléation et la croissance sont achevées en quelques secondes (métathèse ionique), donc l'écart change peu la taille mais peut élargir la distribution par mûrissement. La taille (5,9 nm à 180 °C) paraît petite pour cette température dans la recette d'origine (4–15 nm sur 140–200 °C), à vérifier ; l'article ne dit pas si le lot a été trié en taille (réf. 11, « size-selected »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I): Novel Optoelectronic Materials Showing Bright Emission with Wide Color Gamut",
+      "authors_or_publisher": "Protesescu et al., Nano Lett.",
+      "year": "2015",
+      "url_or_doi": "10.1021/nl5048779"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Purification par centrifugation du brut sans antisolvant puis redispersion : seule la fraction qui sédimente à 6000 rpm est gardée, ce qui fait un tri en taille et un rendement inconnu ; le volume de toluène de redispersion n'est pas donné, alors qu'il conditionne la suite (voie CsPbBr3_NH4BF4).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Highly Dynamic Ligand Binding and Light Absorption Coefficient of CsPbBr3 Nanocrystals",
+      "authors_or_publisher": "De Roo et al., ACS Nano",
+      "year": "2016",
+      "url_or_doi": "10.1021/acsnano.5b06295"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Phase non mesurée par DRX dans l'article ; CsPbBr3 colloïdal est orthorhombique à température ambiante (et non cubique) : aucune conclusion de phase n'est à tirer de l'article.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Plomb (PbBr2) reprotoxique ; injection d'un liquide à 120 °C dans un ballon à 180 °C sous Ar ; ODE au-dessus de son point d'éclair (154 °C) : écran, seringue en verre, pas d'ouverture du ballon à chaud.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Safety Data Sheet, 1-Octadecene for synthesis (8.22112)",
+      "authors_or_publisher": "Millipore / Sigma-Aldrich (fiche fournisseur)",
+      "year": "2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/sds/mm/8.22112"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipitation contrôlée par métathèse ionique (Protesescu 2015) : PbBr2 est solubilisé sous forme de complexes oléate/oléylammonium-bromure ; l'injection de Cs-oleate crée une sursaturation brutale de CsPbBr3, nucléation en rafale (LaMer) et croissance achevée en quelques secondes ; la taille est fixée surtout par la température et par l'équilibre acide-base OA/OLA (Almeida 2018), la trempe à la glace arrête le mûrissement.",
+    "sources": [
+     {
+      "title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I): Novel Optoelectronic Materials Showing Bright Emission with Wide Color Gamut",
+      "authors_or_publisher": "Protesescu et al., Nano Lett.",
+      "year": "2015",
+      "url_or_doi": "10.1021/nl5048779"
+     },
+     {
+      "title": "Role of Acid–Base Equilibria in the Size, Shape, and Phase Control of Cesium Lead Bromide Nanocrystals",
+      "authors_or_publisher": "Almeida et al., ACS Nano",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsnano.7b08357"
+     },
+     {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer & Dinegar, J. Am. Chem. Soc.",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "la taille obtenue (≈ 6 nm attendus) par absorption ou MET, car la recette d'origine donne plutôt des cubes plus gros à 180 °C",
+    "le volume de toluène de redispersion (non écrit), nécessaire pour reproduire le traitement NH4BF4",
+    "le rendement"
+   ]
+  },
+  {
+   "label": "CsPbBr3_NH4BF4",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de NH4BF4",
+     "inputs": "10 mg ; M(NH4BF4) = 14,007 + 4×1,008 + 10,81 + 4×18,998 = 104,84 g/mol",
+     "formula": "m/M",
+     "result": "0,0954 mmol",
+     "compared_to": "-",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "concentration maximale de NH4BF4 dans le toluène",
+     "inputs": "0,0954 mmol dans 2 mL si tout était dissous",
+     "formula": "n/V",
+     "result": "≤ 47,7 mmol/L (borne haute)",
+     "compared_to": "le sel non dissous est jeté : la concentration réelle (« saturée ») est très inférieure et inconnue ; sel ionique quasi insoluble dans un solvant apolaire",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "rapport solution saturée / dispersion de NC",
+     "inputs": "1 mL de solution saturée ; 25 mL (texte principal) ou 0,25 mL (annexe S2) de NC dans le toluène",
+     "formula": "V(sel)/V(NC)",
+     "result": "1:25 (texte) contre 4:1 (annexe), facteur 100",
+     "compared_to": "les deux sections doivent donner le même rapport",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie par pixel et plage du détecteur (CsPbBr3)",
+     "inputs": "pas 1,5 nm à λ = 1239,84/2,44 = 508,1 nm ; 30 pixels",
+     "formula": "ΔE = 1239,84×Δλ/λ² ; 30 × ΔE",
+     "result": "7,2 meV/pixel ; 216 meV pour 30 pixels",
+     "compared_to": "annexe S4 : ≈ 7 meV/pixel et plage 2,32–2,53 (0,21 eV, donc en eV et non en meV)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "cohérence des fenêtres temporelles avec les durées de vie",
+     "inputs": "fenêtre BX haute 1 ns ; τBX annoncé 234 (ps ou ns) ; fenêtre 1X haute 30 ns ; τ1X 5,9 ns",
+     "formula": "fenêtre / τ",
+     "result": "1 ns / 0,234 ns = 4,3 ; 30/5,9 = 5,1 ; si τBX = 234 ns : 1/234 = 0,004",
+     "compared_to": "annexe S4 : chaque fenêtre est au moins 3 fois la durée de vie ; seul τBX = 234 ps est compatible",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "probabilité d'absorber 3 photons ou plus",
+     "inputs": "⟨N⟩ = 0,13 (Poisson)",
+     "formula": "p(≥3)/p(≥2) = [1 − e^−N(1+N+N²/2)] / [1 − e^−N(1+N)]",
+     "result": "p(≥2) = 0,0078 ; p(≥3)/p(≥2) = 0,043",
+     "compared_to": "annexe S3 : p(≥3) ≪ p(≥2)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "conversion de l'énergie d'émission et de l'excitation",
+     "inputs": "2,44 eV ; laser 470 nm",
+     "formula": "λ = 1239,84/E",
+     "result": "2,44 eV = 508 nm ; 470 nm = 2,64 eV",
+     "compared_to": "excitation au-dessus de la bande interdite : correct",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport entre la solution saturée de NH4BF4 et la dispersion de nanocristaux : 1 mL pour 25 mL dans les Méthodes, 1 mL pour 0,25 mL dans l'annexe S2 (voir « rapport solution saturée / dispersion de NC »), soit un facteur 100 sur la dose de BF4− par nanocristal. La concentration des nanocristaux n'étant donnée nulle part, aucune des deux lectures ne permet de refaire le traitement à dose égale. L'annexe (0,25 mL, « precipitation in toluene ») est la plus vraisemblable car 25 mL dépasse 4 fois le volume total de la synthèse, mais c'est un choix du lecteur.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Solution « saturée » de NH4BF4 dans le toluène : sel ionique très peu soluble dans un solvant apolaire, la quantité réellement dissoute est inconnue et dépend des traces d'eau et de la température (voir « concentration maximale de NH4BF4 ») ; la dose effective de BF4− n'est donc pas maîtrisée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique ≈ 100 % après traitement par un sel de tétrafluoroborate : ordre de grandeur annoncé par la méthode citée (Ahmed 2018, réf. 12). Taille 5,9 nm, émission 2,44 eV (508 nm) : cohérent avec des nanocristaux de CsPbBr3 faiblement confinés (bande interdite du massif ≈ 2,36–2,4 eV).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Boosting the Photoluminescence of CsPbX3 (X = Cl, Br, I) Perovskite Nanocrystals Covering a Wide Wavelength Range by Postsynthetic Treatment with Tetrafluoroborate Salts",
+      "authors_or_publisher": "Ahmed, Seth, Samanta, Chem. Mater. 30, 3633–3637 (réf. 12 de l'article ; texte non relu, DOI non relevé)",
+      "year": "2018",
+      "url_or_doi": "réf. 12 de l'article (Chem. Mater. 2018, 30, 3633)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Durée de vie du biexciton « 234±44 ns » (annexe S5) : incompatible avec le reste de l'article (fenêtre BX de −0,5 à 1 ns choisie à au moins 3 fois τBX, mesure de 190 ps sur la particule de la Fig. 2, 306 ps pour CsPbI3, borne liée à une réponse instrumentale de 180 ps) et avec la littérature (35–200 ps pour CsPbBr3, croissant avec la taille). Voir « cohérence des fenêtres temporelles ». Faute d'unité des auteurs : lire 234 ± 44 ps.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Size-Dependent Biexciton Spectrum in CsPbBr3 Perovskite Nanocrystals",
+      "authors_or_publisher": "Ashner et al., ACS Energy Lett.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acsenergylett.9b02041"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plages d'énergie des pixels « 2.32 meV to 2.53 meV » (CsPbBr3) et « 1.76 meV to 1.93 meV » (CsPbI3) dans l'annexe S4 : unités fausses, ce sont des eV (30 × 7,2 meV = 0,22 eV ≈ 2,53 − 2,32 ; voir « énergie par pixel et plage du détecteur »). Faute de frappe sans effet sur la synthèse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Biexciton liant de 10 ± 6 meV mesuré avec un pas de 7 meV/pixel et une erreur d'ajustement moyenne de 3,1 meV : la différence de deux pics lorentziens se mesure sous le pas du détecteur, mais la dispersion (± 6 meV) est du même ordre que le pas ; ⟨N⟩ = 0,13 rend les triexcitons négligeables (voir « probabilité d'absorber 3 photons ou plus »). Valeur dans le bas des valeurs publiées ; Ashner 2019 conclut à une interaction nette répulsive à température ambiante par absorption transitoire : la différence de méthode (bord de bande contre exciton chaud) est discutée par les auteurs.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Size-Dependent Biexciton Spectrum in CsPbBr3 Perovskite Nanocrystals",
+      "authors_or_publisher": "Ashner et al., ACS Energy Lett.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acsenergylett.9b02041"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les résultats sont rangés sur les nanocristaux traités, ce que l'article implique sans le dire ; aucun témoin non traité n'est mesuré en spectroscopie héraldée, donc l'effet du traitement BF4− sur εb n'est pas connu (non revendiqué par les auteurs).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NH4BF4 : au contact d'acides ou d'eau chaude, libération possible de HF ; le toluène est inflammable et toxique ; manipulation des nanocristaux au plomb sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Passivation de surface post-synthèse : les ions BF4− (pseudo-halogénure) se fixent sur les sites de plomb sous-coordinés ou les lacunes de bromure et remplacent une partie des oléates labiles (liaison dynamique des ligands OA/OLA, De Roo 2016), ce qui supprime les pièges non radiatifs et porte le rendement quantique vers 100 % (méthode d'Ahmed 2018). Le mécanisme exact n'est pas discuté par l'article.",
+    "sources": [
+     {
+      "title": "Boosting the Photoluminescence of CsPbX3 (X = Cl, Br, I) Perovskite Nanocrystals Covering a Wide Wavelength Range by Postsynthetic Treatment with Tetrafluoroborate Salts",
+      "authors_or_publisher": "Ahmed, Seth, Samanta, Chem. Mater. 30, 3633–3637 (réf. 12 de l'article ; texte non relu, DOI non relevé)",
+      "year": "2018",
+      "url_or_doi": "réf. 12 de l'article (Chem. Mater. 2018, 30, 3633)"
+     },
+     {
+      "title": "Highly Dynamic Ligand Binding and Light Absorption Coefficient of CsPbBr3 Nanocrystals",
+      "authors_or_publisher": "De Roo et al., ACS Nano",
+      "year": "2016",
+      "url_or_doi": "10.1021/acsnano.5b06295"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "le volume de dispersion de nanocristaux traité (0,25 ou 25 mL) et sa concentration",
+    "la quantité de NH4BF4 réellement dissoute (dépend de l'eau résiduelle du toluène)",
+    "le rendement quantique avant et après traitement"
+   ]
+  },
+  {
+   "label": "CsPbI3",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbI2",
+     "inputs": "86,7 mg (annexe) ou 87 mg (texte) ; M(PbI2) = 207,2 + 2×126,904 = 461,01 g/mol",
+     "formula": "m/M",
+     "result": "0,1881 mmol (86,7 mg) ; 0,1887 mmol (87 mg) ; écart 0,35 %",
+     "compared_to": "0,188 mmol de la recette de Protesescu (87 mg PbI2) : les deux valeurs sont des arrondis l'une de l'autre",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "moles de TDPA",
+     "inputs": "120 mg ; M(C14H31O3P) = 278,37 g/mol",
+     "formula": "m/M",
+     "result": "0,431 mmol ; TDPA/Pb = 2,3",
+     "compared_to": "-",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "moles de TOPO",
+     "inputs": "1,5 mg (texte) ou 1,47 mg (annexe) ; M(C24H51OP) = 386,64 g/mol",
+     "formula": "m/M",
+     "result": "3,9 µmol ; TOPO/Pb = 0,021 ; écart texte/annexe 2 %",
+     "compared_to": "les voies à l'oxyde de phosphine emploient TOPO en grand excès (1,0 g, 2,6 mmol, pour 0,16 mmol de PbBr2) ; 1,5 mg ne fait que 1/50 de Pb",
+     "source": "Almeida et al. 2018, JACS, 10.1021/jacs.8b08978 (TOPO 1,0 g = 2,59 mmol pour PbBr2 0,16 mmol)"
+    },
+    {
+     "what": "moles d'oléylamine",
+     "inputs": "1 mL × 0,813 g/mL / 267,49 g/mol",
+     "formula": "V×ρ/M",
+     "result": "3,04 mmol (≈ 2,1 mmol d'amine en C18 pour une pureté de 70 %)",
+     "compared_to": "OLA/Pb ≈ 11–16 ; amine/acide (TDPA, diacide : 0,86 mmol H+) ≈ 2,5–3,5",
+     "source": "densité de manuel (PubChem) ; arithmétique"
+    },
+    {
+     "what": "rapport Cs:Pb:I et masse maximale",
+     "inputs": "0,0470 mmol Cs ; 0,188 mmol Pb ; 0,376 mmol I ; M(CsPbI3) = 720,82 g/mol",
+     "formula": "n(Cs):n(Pb):n(I) ; n(Cs)×M",
+     "result": "0,25 : 1 : 2 ; ≤ 34 mg de CsPbI3",
+     "compared_to": "CsPbI3 1:1:3, Cs limitant comme pour CsPbBr3",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie par pixel (CsPbI3)",
+     "inputs": "pas 1,5 nm à λ = 1239,84/1,84 = 673,8 nm ; 43 pixels",
+     "formula": "ΔE = 1239,84×Δλ/λ² ; 43 × ΔE",
+     "result": "4,1 meV/pixel ; 176 meV",
+     "compared_to": "annexe S4 : ≈ 4 meV et plage 1,76–1,93 (0,17 eV)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "probabilité d'absorber 3 photons ou plus",
+     "inputs": "⟨N⟩ = 0,28 (Poisson)",
+     "formula": "p(≥3)/p(≥2)",
+     "result": "p(≥2) = 0,033 ; p(≥3)/p(≥2) = 0,091",
+     "compared_to": "annexe S3 : « p(≥3) ≪ p(≥2) » : 9 %, à peine négligeable",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "TOPO 1,5 mg (1,47 mg dans l'annexe) soit 3,9 µmol, 2 % du plomb (voir « moles de TOPO ») : à cette dose TOPO ne peut jouer aucun rôle de ligand ni de solubilisant, alors que les synthèses à l'oxyde de phosphine en emploient de l'ordre du gramme. Une erreur d'unité (1,5 g ?) est possible mais non démontrable : la recette source (Pan et al. 2020, réf. 13) n'a pas pu être consultée. Les écarts texte/annexe (87/86,7 mg ; 1,5/1,47 mg) sont de simples arrondis.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Phosphine Oxide Route toward Lead Halide Perovskite Nanocrystals",
+      "authors_or_publisher": "Almeida et al., J. Am. Chem. Soc.",
+      "year": "2018",
+      "url_or_doi": "10.1021/jacs.8b08978"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "280 °C dans l'ODE (bp 315 °C, point d'éclair 154 °C) sous Ar : sous l'ébullition mais 35 °C seulement en dessous ; bien au-dessus de la plage 140–200 °C de Protesescu. Les synthèses de CsPbI3 à ≈ 260 °C sont publiées et donnent des nanocristaux plus stables en phase (Dutta 2018), donc la température n'est pas aberrante.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Phase-Stable CsPbI3 Nanocrystals: The Reaction Temperature Matters",
+      "authors_or_publisher": "Dutta, Dutta, Das Adhikari, Pradhan, Angew. Chem. Int. Ed.",
+      "year": "2018",
+      "url_or_doi": "10.1002/anie.201803701"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "À 280 °C l'octadécène polymérise de façon notable ; le poly(1-octadécène) a la taille et la solubilité des nanocristaux et n'est pas éliminé par précipitation/redispersion : avec une seule étape de lavage à l'hexane, le produit en contient probablement (sans effet sur la spectroscopie de nanocristaux isolés, mais sur toute mesure de masse ou de rendement).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Trouble with ODE: Polymerization during Nanocrystal Synthesis",
+      "authors_or_publisher": "Dhaene, Billet, Bennett, Van Driessche, De Roo, Nano Lett.",
+      "year": "2019",
+      "url_or_doi": "10.1021/acs.nanolett.9b03088"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Purification décrite de deux façons : « two-step centrifugation in hexane » (Méthodes) et centrifugation du brut puis lavage du culot à l'hexane et seconde centrifugation (annexe) ; la fraction gardée après la seconde centrifugation (culot ou surnageant) n'est pas dite. Dans l'hexane, les gros nanocristaux de 15 nm sédimentent plus vite : le choix de la fraction change la proportion des deux populations.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Deux populations (7,2 ± 1,9 nm, ≈ 80 %, et 15,4 ± 3,3 nm) et émission d'ensemble à 1,84 eV (674 nm), au-dessus de la bande interdite du massif α-CsPbI3 (≈ 1,73 eV) : cohérent avec un confinement faible des petits nanocristaux. Les nanocristaux de 15 nm émettent près du massif et tombent dans la fenêtre de 1,76–1,93 eV ; la sélection par ĝ(2)(0) n'exclut pas un gros nanocristal isolé. Les εb négatifs, trouvés pour un pic 1X sous 1,845 eV, peuvent donc venir de la population de grande taille plutôt que d'un effet de surface : l'article ne mesure pas la taille des particules individuelles et ne discute pas ce mélange.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique de 42 % et dégradation sous mesure : attendus pour α-CsPbI3, métastable à température ambiante (transformation vers la phase δ non pérovskite), surtout pour les gros nanocristaux.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Quantum dot-induced phase stabilization of α-CsPbI3 perovskite for high-efficiency photovoltaics",
+      "authors_or_publisher": "Swarnkar et al., Science",
+      "year": "2016",
+      "url_or_doi": "10.1126/science.aag2700"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "⟨N⟩ = 0,28 ± 0,18 : p(≥3)/p(≥2) ≈ 9 % (voir « probabilité d'absorber 3 photons ou plus »), et jusqu'à ≈ 15 % pour la borne haute 0,46 ; « négligeable » repose surtout sur le faible rendement des triexcitons, ce que les auteurs disent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Plomb ; injection à 280 °C, 125 °C au-dessus du point d'éclair de l'ODE, qui forme des mélanges explosifs avec l'air quand il est fortement chauffé (fiche fournisseur) : argon impératif, aucune entrée d'air pendant l'injection, écran ; trempe dans la glace d'un ballon à 280 °C : risque de choc thermique de la verrerie.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Safety Data Sheet, 1-Octadecene for synthesis (8.22112)",
+      "authors_or_publisher": "Millipore / Sigma-Aldrich (fiche fournisseur)",
+      "year": "2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/sds/mm/8.22112"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même métathèse ionique que pour CsPbBr3, avec PbI2 solubilisé par l'oléylamine et l'acide tétradécylphosphonique (le phosphonate se lie fortement au plomb de surface). À 280 °C la croissance est très rapide et la sursaturation retombe en quelques secondes : le mûrissement d'Ostwald pendant les 15 s et la trempe produisent une seconde population de gros nanocristaux. La haute température favorise une passivation plus solide et retarde la transformation α → δ (Dutta 2018). La dose de TOPO écrite est trop faible pour participer.",
+    "sources": [
+     {
+      "title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I): Novel Optoelectronic Materials Showing Bright Emission with Wide Color Gamut",
+      "authors_or_publisher": "Protesescu et al., Nano Lett.",
+      "year": "2015",
+      "url_or_doi": "10.1021/nl5048779"
+     },
+     {
+      "title": "Phase-Stable CsPbI3 Nanocrystals: The Reaction Temperature Matters",
+      "authors_or_publisher": "Dutta, Dutta, Das Adhikari, Pradhan, Angew. Chem. Int. Ed.",
+      "year": "2018",
+      "url_or_doi": "10.1002/anie.201803701"
+     },
+     {
+      "title": "Quantum dot-induced phase stabilization of α-CsPbI3 perovskite for high-efficiency photovoltaics",
+      "authors_or_publisher": "Swarnkar et al., Science",
+      "year": "2016",
+      "url_or_doi": "10.1126/science.aag2700"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "la quantité de TOPO dans la recette source (Pan et al. 2020, ACS Appl. Nano Mater. 3, 9260) : mg ou g",
+    "quelle fraction est gardée après le lavage à l'hexane",
+    "la présence de poly(octadécène) si l'on pèse le produit",
+    "la phase (α, γ ou δ) par DRX juste après synthèse"
+   ]
+  },
+  {
+   "label": "NC_PMMA_film",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration massique de PMMA",
+     "inputs": "3 % en masse dans le toluène ; ρ(toluène) = 0,867 g/mL",
+     "formula": "0,03/0,97 × ρ",
+     "result": "≈ 27 mg de PMMA par mL de toluène",
+     "compared_to": "solution courante pour films de quelques dizaines à centaines de nm à la tournette",
+     "source": "densité de manuel (PubChem) ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Isolement de nanocristaux uniques dans le PMMA : principe standard ; la dilution n'est pas chiffrée, mais elle est vérifiée a posteriori pour chaque particule par ĝ(2)(0) < 0,2, ce qui rend la voie fonctionnelle même sans recette exacte.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Les nanocristaux de CsPbI3 et de CsPbBr3 supportent le toluène ; PMMA dissous dans le toluène ne dégrade pas la pérovskite. Vitesse, durée de rotation et séchage absents.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Pas de chimie : dispersion physique des nanocristaux dans une matrice polymère qui les sépare et les protège de l'air pendant la mesure.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "la dilution des nanocristaux (densité de particules par champ du microscope)",
+    "les paramètres de rotation"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèses de référence (recette de Protesescu pour Cs-oleate et CsPbBr3, à l'identique ; CsPbI3 à 280 °C avec OLA/TDPA) chimiquement cohérentes, le Cs étant limitant et le plomb en excès ×4 comme dans la méthode d'origine. Les faiblesses sont des incohérences d'écriture : volume de nanocristaux traités par NH4BF4 (25 contre 0,25 mL, facteur 100), durée de vie du biexciton en ns au lieu de ps, plages des pixels en meV au lieu d'eV, et une dose de TOPO (1,5 mg, 2 % du plomb) qui ne peut pas jouer de rôle. Le mélange de deux populations de taille dans CsPbI3 fragilise l'interprétation des εb négatifs.",
+  "author_errors_suspected": [
+   "« 234±44 ns » pour la borne de durée de vie du biexciton de CsPbBr3 (annexe S5) : 234 ± 44 ps",
+   "« 2.32 meV to 2.53 meV » et « 1.76 meV to 1.93 meV » (annexe S4) : eV",
+   "25 mL (Méthodes) contre 0,25 mL (annexe S2) de nanocristaux traités par 1 mL de solution saturée de NH4BF4",
+   "TOPO 1,5 mg (1,47 mg) : quantité sans rôle chimique possible, erreur d'unité possible mais non démontrée"
+  ],
+  "comparison_with_database": "CsPbBr3 par injection à chaud dans la base : PMC10870029 (170 °C, trempe 5 s), PMC10148794 NC5 (170 °C, 15 s, ZnBr2), PMC11012633 (150 °C, 30 s) : la présente voie (180 °C, 25 s) est dans la même plage. CsPbI3 : seule synthèse colloïdale de la base (les autres voies CsPbI3, PMC10219592, sont des films) ; 280 °C est plus chaud que toutes les injections CsPbX3 de la base."
+ },
+ "sources_not_found": [
+  "Pan et al., ACS Appl. Nano Mater. 2020, 3, 9260 (réf. 13, recette CsPbI3 avec TDPA/TOPO) : partie expérimentale non trouvée en accès libre, quantité de TOPO non vérifiable",
+  "Ahmed, Seth, Samanta, Chem. Mater. 2018 (réf. 12) : protocole et rapport sel/nanocristaux non relus",
+  "Courbe taille → énergie d'émission chiffrée pour CsPbBr3 de 6 nm : non trouvée dans les extraits lus (Brennan 2017 donne le décalage de Stokes, pas la valeur directement)"
+ ]
+}

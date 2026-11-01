@@ -1,0 +1,792 @@
+{
+ "pmcid": "PMC10754887",
+ "routes": [
+  {
+   "label": "Inactivated_carbon",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "classe IUPAC du pore moyen du char",
+     "inputs": "Tableau 1 : « average pore radius » 1,4 nm (le texte dit « pore size »)",
+     "formula": "diamètre = 2 × rayon si l'en-tête est juste",
+     "result": "diamètre 2,8 nm (rayon) ou 1,4 nm (si c'est un diamètre)",
+     "compared_to": "micropore < 2 nm, mésopore 2–50 nm (IUPAC)",
+     "source": "Thommes et al. 2015, 10.1515/pac-2014-1117"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Carbonisation à 400 °C pendant 3 h : température habituelle pour un char de biomasse lignocellulosique (cellulose et hémicellulose décomposées entre ~250 et 400 °C). L'atmosphère n'est pas donnée : à 400 °C sous air la balle de riz brûle en grande partie en cendre siliceuse ; il faut un four sous N2 ou un creuset fermé pour obtenir un char.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "117 m²/g et isotherme de type I (microporeux) : plausible pour un char à 400 °C. Mais un « rayon moyen » de 1,4 nm (diamètre 2,8 nm, mésopore) cadre mal avec une isotherme de type I purement microporeuse ; si 1,4 nm est un diamètre, c'est cohérent. L'en-tête du Tableau 1 (radius) et le texte (size) se contredisent : voir calcul « classe IUPAC du pore moyen du char ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem. 87, 1051–1069",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Pyrolyse de biomasse : dégagement de goudrons, CO et composés organiques volatils ; four ventilé ou sous hotte. Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Pyrolyse de la balle de riz : déshydratation et dépolymérisation de l'hémicellulose et de la cellulose (≈ 250–350 °C), dégradation partielle de la lignine, départ des volatils ; il reste un char aromatique désordonné contenant ~15–20 % de silice amorphe de la balle (bandes Si–O à 1076, 800 et 448 cm⁻¹ observées).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère de carbonisation (inerte ou creuset fermé)",
+    "rendement massique du char",
+    "signification de 1,4 nm : rayon ou diamètre"
+   ]
+  },
+  {
+   "label": "RHAC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration molaire de NaOH 13 %",
+     "inputs": "13 % m/m ; masse volumique d'une solution de NaOH à 13 % ≈ 1,14 g/mL (ordre de grandeur des tables de densité) ; M(NaOH) = 40,00 g/mol",
+     "formula": "c = 0,13 × 1140 / 40,00",
+     "result": "≈ 3,7 mol/L",
+     "compared_to": "aucun rapport NaOH/char donné : la masse de NaOH réellement retenue par le char est inconnue",
+     "source": "arithmétique ; densité approximative, à vérifier sur table CRC"
+    },
+    {
+     "what": "classe IUPAC du pore moyen du carbone activé",
+     "inputs": "Tableau 1 : rayon moyen 2,0 nm",
+     "formula": "diamètre = 2 × rayon",
+     "result": "4,0 nm (mésopore) si rayon ; 2,0 nm (limite micro/méso) si diamètre",
+     "compared_to": "isotherme mixte I + IV avec hystérésis rapportée",
+     "source": "Thommes et al. 2015"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Activation à 850 °C pendant 2 h : l'atmosphère n'est pas écrite. Sous air, un carbone imprégné de NaOH brûle à 850 °C ; l'activation alcaline se fait sous gaz inerte. La réaction principale 6 NaOH + 2 C → 2 Na + 3 H2 + 2 Na2CO3 libère H2 et du sodium métallique (Na bout à 883 °C : vapeur de Na possible à 850 °C).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Understanding chemical reactions between carbons and NaOH and KOH: An insight into the chemical activation mechanism",
+      "authors_or_publisher": "Lillo-Ródenas M. A., Cazorla-Amorós D., Linares-Solano A., Carbon 41, 267–275",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0008-6223(02)00279-8"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Ni la masse de char, ni le volume de NaOH 13 % (≈ 3,7 mol/L, voir calcul), ni le rapport NaOH/char après trempage, ni l'égouttage ou le séchage avant le four ne sont donnés. Or le rapport hydroxyde/carbone est le paramètre principal de l'activation alcaline (surface et distribution de pores). La surface obtenue (469 m²/g) n'est donc pas reproductible à coup sûr.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Understanding chemical reactions between carbons and NaOH and KOH: An insight into the chemical activation mechanism",
+      "authors_or_publisher": "Lillo-Ródenas M. A., Cazorla-Amorós D., Linares-Solano A., Carbon 41, 267–275",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0008-6223(02)00279-8"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La « neutralisation (pH 6–7) » n'indique ni l'acide ni le lavage. NaOH dissout la silice de la balle en silicate de sodium et forme Na2CO3 ; ces sels doivent être lavés (eau puis acide dilué, typiquement HCl) pour libérer la porosité. Sans lavage complet, des sels de sodium restent dans le carbone puis dans la cathode NMC.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "469 m²/g : plausible pour un carbone activé au NaOH à faible rapport, mais bas par rapport aux carbones de balle de riz activés aux hydroxydes à fort rapport (souvent > 1000 m²/g). La conclusion dit le carbone « semi crystalline » alors qu'aucune DRX ni Raman du carbone n'est présentée : affirmation sans preuve.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le spectre FTIR « sans absorbance » du carbone activé est donné comme preuve que la silice et les groupes fonctionnels sont éliminés. Un carbone noir dans KBr absorbe sur tout le domaine IR et donne souvent un spectre plat : l'absence de bandes ne prouve pas l'absence de silice. Une teneur en cendres ou une EDS du carbone serait discriminante.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NaOH 13 % corrosif ; à 850 °C, dégagement de H2 (inflammable) et formation de sodium métallique pyrophorique en contact avec l'air et réactif avec l'eau lors du lavage ; four tubulaire sous gaz inerte avec évent. Non mentionné.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Understanding chemical reactions between carbons and NaOH and KOH: An insight into the chemical activation mechanism",
+      "authors_or_publisher": "Lillo-Ródenas M. A., Cazorla-Amorós D., Linares-Solano A., Carbon 41, 267–275",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0008-6223(02)00279-8"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "NaOH fondu (fusion 318 °C) réagit avec le carbone au-dessus d'environ 600–700 °C : 6 NaOH + 2 C → 2 Na + 3 H2 + 2 Na2CO3 ; le carbone consommé et l'intercalation du sodium créent la microporosité, la décomposition de Na2CO3 et la gazéification par CO2 élargissent les pores. NaOH dissout aussi la silice de la balle (silicate de sodium), ce qui libère une porosité supplémentaire après lavage. L'explication des auteurs (« départ des volatils ») est incomplète : la porosité vient surtout de la réaction redox carbone-hydroxyde et de l'élimination de la silice.",
+    "sources": [
+     {
+      "title": "Understanding chemical reactions between carbons and NaOH and KOH: An insight into the chemical activation mechanism",
+      "authors_or_publisher": "Lillo-Ródenas M. A., Cazorla-Amorós D., Linares-Solano A., Carbon 41, 267–275",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0008-6223(02)00279-8"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère d'activation (N2 ou Ar)",
+    "rapport massique NaOH/char et séchage avant le four",
+    "acide et protocole de lavage, teneur en cendres résiduelle",
+    "rayon ou diamètre de pore"
+   ]
+  },
+  {
+   "label": "NMC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan atomique de l'équation (1)",
+     "inputs": "LiNO3 + 0,8 Ni(NO3)2·6H2O + 0,1 Mn(NO3)2·4H2O + 0,1 Co(NO3)2·6H2O + 2 glycine + O2",
+     "formula": "N : 3,0 + 2 = 5 → 2,5 N2 ; C : 4 → 4 CO2 ; H : 9,6 + 0,8 + 1,2 + 10 = 21,6 → 10,8 H2O ; O : 3 + 9,6 + 1,0 + 1,2 + 4 + 2 = 20,8 = 2 + 8 + 10,8",
+     "result": "équation équilibrée",
+     "compared_to": "équation (1) de l'article",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport glycine/nitrate et richesse",
+     "inputs": "3,0 NO3⁻ par formule (1 + 1,6 + 0,2 + 0,2) ; 2 glycine (équation 1) ; valences de Jain : M(NO3)2 = −10, LiNO3 = −5, glycine = +9",
+     "formula": "G/N = 2/3 ; glycine stœchiométrique = 15/9 = 1,667 ; φ = 2/1,667",
+     "result": "G/N = 0,67 ; φ ≈ 1,2 (mélange riche en combustible, consommation d'O2 de l'air, conforme au terme +O2 de l'équation 1)",
+     "compared_to": "G/N stœchiométrique 0,56 pour des nitrates de cations divalents",
+     "source": "arithmétique ; méthode des valences propulsives décrite dans Varma et al. 2016"
+    },
+    {
+     "what": "masse molaire de LiNi0.8Mn0.1Co0.1O2",
+     "inputs": "Li 6,941 ; Ni 58,693 ; Mn 54,938 ; Co 58,933 ; O 15,999 g/mol",
+     "formula": "6,941 + 0,8×58,693 + 0,1×54,938 + 0,1×58,933 + 2×15,999",
+     "result": "97,28 g/mol",
+     "compared_to": "—",
+     "source": "masses atomiques IUPAC (chimie générale)"
+    },
+    {
+     "what": "composition théorique sans Li comparée à l'EDS (Tableau 4)",
+     "inputs": "NMC 811 sans Li : Ni 51,98 ; Mn 6,08 ; Co 6,52 ; O 35,42 % m ; EDS NMC : Ni 60,00 ; Mn 7,44 ; Co 8,55 ; O 23,95",
+     "formula": "fractions molaires métalliques = (w/M) / Σ(w/M)",
+     "result": "EDS : Ni 0,785 ; Mn 0,104 ; Co 0,111 (métaux conformes à 8:1:1) ; O 23,95 % contre 35,42 % attendu",
+     "compared_to": "Ni:Mn:Co = 0,8:0,1:0,1",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse volumique et concentration en Li de NMC 811",
+     "inputs": "a ≈ 2,872 Å, c ≈ 14,20 Å (d003 = 0,473 nm mesuré par Park et al. 2022 → c = 14,19 Å), Z = 3, M = 97,28 g/mol",
+     "formula": "V = (√3/2) a² c = 101,4 Å³ ; ρ = 3M / (N_A V) ; C_Li = ρ / M",
+     "result": "ρ ≈ 4,78 g/cm³ ; C_Li ≈ 4,9 × 10⁻² mol/cm³",
+     "compared_to": "C = 4,37 × 10⁻³ mol/cm³ utilisé par l'article dans l'équation (7) : 11 fois plus faible",
+     "source": "arithmétique ; c tiré de Park et al. 2022"
+    },
+    {
+     "what": "diamètre équivalent BET",
+     "inputs": "S = 11,89 m²/g ; ρ = 4,78 g/cm³",
+     "formula": "d = 6 / (ρ S)",
+     "result": "≈ 106 nm",
+     "compared_to": "PSA 370,3 nm (agglomérats) ; particules micrométriques sur MEB",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg (003) et (104)",
+     "inputs": "λ = 1,5406 Å ; a = 2,872 Å ; c = 14,20 Å",
+     "formula": "d003 = c/3 ; 1/d104² = 4/(3a²) + 16/c² ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(003) 18,73° ; (104) 44,44°",
+     "compared_to": "article : 18° et 44° (valeurs arrondies) ; épaulement attribué à Li2SnO3 à 44,8°",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Les équations (1) à (4) sont équilibrées en atomes (voir calcul « bilan atomique de l'équation (1) »). Le mélange est riche en combustible (φ ≈ 1,2, voir calcul « rapport glycine/nitrate et richesse ») et consomme de l'O2 de l'air, ce qui est normal pour le procédé glycine-nitrate. En revanche aucune quantité réelle n'est donnée (masses, volume d'eau) : « stoichiometric amount » ne dit ni s'il y a un excès de Li, ni la richesse réellement utilisée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Solution Combustion Synthesis of Nanoscale Materials",
+      "authors_or_publisher": "Varma A., Mukasyan A. S., Rogachev A. S., Manukyan K. V., Chem. Rev. 116, 14493–14586",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.chemrev.6b00279"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Lithium strictement stœchiométrique (LiNO3 : 1 par formule) puis 4 h à 800 °C : les synthèses de NMC 811 ajoutent en général 1 à 7 % de Li en excès pour compenser la volatilisation ; un déficit en Li favorise Ni2+ dans le feuillet Li (mélange cationique).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemical Performance of Layer-Structured Ni0.8Co0.1Mn0.1O2 Cathode Active Materials Synthesized by Carbonate Co-Precipitation",
+      "authors_or_publisher": "Park B. H. et al., Nanomaterials 12(20), 3610 (MDPI)",
+      "year": "2022",
+      "url_or_doi": "https://www.mdpi.com/2079-4991/12/20/3610 (texte lu sur https://pmc.ncbi.nlm.nih.gov/articles/PMC9611263)"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Atmosphère de frittage non indiquée (vraisemblablement l'air). NMC 811 demande l'oxydation de Ni2+ en Ni≈2,9+ ; la littérature calcine les Ni-riches sous flux d'oxygène, typiquement 10 à 25 h. 4 h sous air à 800 °C laisse beaucoup de Ni2+ et de mélange Li/Ni, ce qui est cohérent avec I003/I104 = 0,59 (voir contrôle résultats) et avec une capacité de 84,6 mAh/g.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "High-Energy Lithium-Ion Batteries (note technique : production de NCM811, lithiation et calcination 650–950 °C sous oxygène)",
+      "authors_or_publisher": "Sigma-Aldrich / Merck, article technique",
+      "year": "2015",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/technical-documents/technical-article/materials-science-and-engineering/batteries-supercapacitors-and-fuel-cells/lib-couette-taylor-flow-reactor"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire : l'article écrit que pendant la combustion « the metal cations reduced into metal oxides ». Les cations ne sont pas réduits : Ni2+ et Co2+ sont oxydés (Ni≈2,9+, Co3+, Mn4+ dans NMC 811) ; c'est la glycine qui est oxydée par les nitrates, dont l'azote est réduit en N2. L'introduction intervertit aussi les rayons ioniques : Li+ (coordinence VI) = 0,76 Å et Ni2+ (VI) = 0,69 Å (Shannon), et non l'inverse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "« Heated at 185 °C until self-combustion » : il s'agit de la consigne de la plaque ; l'eau s'évapore d'abord à 100 °C, puis le gel nitrate-glycine s'enflamme typiquement vers 180–250 °C et la flamme dépasse localement 1000 °C. Récipient, volume et durée non donnés. Cohérent avec le procédé glycine-nitrate.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Glycine-nitrate combustion synthesis of oxide ceramic powders",
+      "authors_or_publisher": "Chick L. A., Pederson L. R., Maupin G. D., Bates J. L., Thomas L. E., Exarhos G. J., Materials Letters 10, 6–12",
+      "year": "1990",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/pii/0167577X90900035"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "I003/I104 vaut 0,50 à 0,88 pour tous les échantillons synthétisés (commercial 1,15). Une NMC 811 bien ordonnée a un rapport > 1,2 (1,6 à 1,9 après 800–900 °C sous O2 chez Park et al.). Un rapport < 1 signale un très fort mélange cationique Li/Ni, voire une phase de type sel gemme ; c'est la cause probable de la faible capacité (84,6 mAh/g contre ~160–200 mAh/g habituels) et de la grande polarisation en CV (ΔE 640–950 mV à 0,1 mV/s).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemical Performance of Layer-Structured Ni0.8Co0.1Mn0.1O2 Cathode Active Materials Synthesized by Carbonate Co-Precipitation",
+      "authors_or_publisher": "Park B. H. et al., Nanomaterials 12(20), 3610 (MDPI)",
+      "year": "2022",
+      "url_or_doi": "https://www.mdpi.com/2079-4991/12/20/3610 (texte lu sur https://pmc.ncbi.nlm.nih.gov/articles/PMC9611263)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "LiNiO2 « également détecté » : LiNiO2 et NMC 811 ont la même structure R-3m avec des paramètres de maille très proches. Une différence d'intensité relative ne permet pas de les distinguer ; l'affirmation n'est pas étayée (affinement de Rietveld nécessaire).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surface BET de 11,89 m²/g après 4 h à 800 °C : diamètre équivalent ≈ 106 nm (voir calcul « diamètre équivalent BET »), alors que le MEB montre des agglomérats micrométriques et que la PSA donne 370 nm. Une poudre frittée à 800 °C a d'habitude moins de 1–2 m²/g. La valeur est possible pour une poudre de combustion très poreuse, mais à vérifier (dégazage, masse d'échantillon).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDS : les rapports Ni:Mn:Co (0,785:0,104:0,111) collent à 8:1:1, mais O mesuré 23,95 % m contre 35,4 % attendu sans Li (voir calcul « composition théorique sans Li »). L'EDS sous-dose l'oxygène et ne voit pas Li : « in accordance with the stoichiometric amount » ne vaut que pour les rapports entre métaux.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Combustion glycine-nitrate riche en combustible : réaction vive avec projection de poudre, dégagement de NOx, CO et CO2 ; les nitrates de Ni et de Co et les poudres d'oxydes de Ni sont cancérogènes (inhalation). Faire de petits lots sous hotte, dans un récipient haut et largement dimensionné. Non mentionné dans l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Solution Combustion Synthesis of Nanoscale Materials",
+      "authors_or_publisher": "Varma A., Mukasyan A. S., Rogachev A. S., Manukyan K. V., Chem. Rev. 116, 14493–14586",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.chemrev.6b00279"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "La glycine (zwitterion) complexe Ni2+, Co2+ et Mn2+ et évite la précipitation sélective pendant l'évaporation. Le gel se déshydrate puis s'enflamme : la réaction redox nitrate–glycine produit N2, CO2 et H2O et une poudre d'oxydes mixtes très divisée (sel gemme Ni1−xMxO avec Li2O/Li2CO3/LiNO3 résiduels). Le frittage à 800 °C fait diffuser Li et oxyde Ni2+ en Ni3+, ce qui forme la phase lamellaire R-3m. Sous air et en 4 h, cette oxydation reste incomplète : beaucoup de Ni2+ reste dans les sites Li, d'où I003/I104 < 1 et la faible capacité.",
+    "sources": [
+     {
+      "title": "Solution Combustion Synthesis of Nanoscale Materials",
+      "authors_or_publisher": "Varma A., Mukasyan A. S., Rogachev A. S., Manukyan K. V., Chem. Rev. 116, 14493–14586",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.chemrev.6b00279"
+     },
+     {
+      "title": "Glycine-nitrate combustion synthesis of oxide ceramic powders",
+      "authors_or_publisher": "Chick L. A., Pederson L. R., Maupin G. D., Bates J. L., Thomas L. E., Exarhos G. J., Materials Letters 10, 6–12",
+      "year": "1990",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/pii/0167577X90900035"
+     },
+     {
+      "title": "Nickel-Rich Layered Cathode Materials for Automotive Lithium-Ion Batteries: Achievements and Perspectives",
+      "authors_or_publisher": "Myung S.-T., Maglia F., Park K.-J., Yoon C. S., Lamp P., Kim S.-J., Sun Y.-K., ACS Energy Lett. 2, 196–223",
+      "year": "2017",
+      "url_or_doi": "10.1021/acsenergylett.6b00594"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses de chaque nitrate et de glycine, volume d'eau",
+    "excès de LiNO3 (souvent 3–5 %)",
+    "atmosphère de frittage : O2 conseillé pour Ni 0,8 ; durée probablement trop courte",
+    "affinement de Rietveld (occupation Ni dans le site Li) plutôt que le seul rapport I003/I104",
+    "conditions de mesure BET (dégazage)"
+   ]
+  },
+  {
+   "label": "NMC-3",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "wt% de Sn correspondant à x = 0,01 ; 0,03 ; 0,05 (Sn remplaçant Co)",
+     "inputs": "M(LiNi0.8Mn0.1Co0.1−xSnxO2) = 97,28 − 58,933x + 118,71x",
+     "formula": "wt% Sn = 100 × 118,71x / M",
+     "result": "x = 0,01 → 1,21 % ; x = 0,03 → 3,59 % ; x = 0,05 → 5,92 %",
+     "compared_to": "1, 3 et 5 wt% annoncés",
+     "source": "arithmétique"
+    },
+    {
+     "what": "x correspondant à 1, 3, 5 wt% de Sn dans le produit",
+     "inputs": "wt% = 1, 3, 5 ; même masse molaire",
+     "formula": "x = (wt%/100) × M(x) / 118,71, résolu par itération",
+     "result": "x = 0,0082 ; 0,025 ; 0,042",
+     "compared_to": "x = 0,01 ; 0,03 ; 0,05 des équations (2)–(4) et du résumé",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fractions molaires métalliques tirées de l'EDS (Tableau 4)",
+     "inputs": "NMC-1 : Ni 66,80 ; Mn 8,19 ; Co 7,97 ; Sn 1,46 — NMC-3 : 59,52 ; 7,44 ; 5,60 ; 3,90 — NMC-5 : 59,66 ; 7,53 ; 4,44 ; 6,45 (% m)",
+     "formula": "n_i = w_i/M_i ; f_i = n_i/Σn",
+     "result": "NMC-1 : Co 0,094, Sn 0,0086, Co+Sn 0,103 ; NMC-3 : Co 0,074, Sn 0,026, Co+Sn 0,100 ; NMC-5 : Co 0,059, Sn 0,042, Co+Sn 0,101 (NMC sans Sn : Co 0,111)",
+     "compared_to": "Co+Sn = 0,10 si Sn remplace Co ; Sn = 0,0082/0,025/0,042 pour des % massiques",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Incohérence entre sections sur la teneur en Sn : Méthodes « 1, 3, and 5 wt% » de poudre de Sn ajoutée, sans dire que le nitrate de Co est réduit ; résumé et équations (2)–(4) : x = 0,01/0,03/0,05 en substitution de Co. Les deux ne coïncident pas (3 wt% ≈ x = 0,025 ; x = 0,03 ≈ 3,59 wt%). L'EDS tranche plutôt pour une substitution réelle de Co (Co+Sn ≈ 0,10 dans les trois échantillons) avec Sn proche de la lecture « wt% du produit » (0,026 pour NMC-3) : voir calcul « fractions molaires métalliques tirées de l'EDS ». L'EDS reste semi-quantitative, mais un chimiste qui ajoute Sn sans retirer Co n'obtiendra pas les échantillons décrits.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La source d'étain est de la poudre de Sn métallique, insoluble dans l'eau ; elle reste en suspension dans la solution de nitrates (au mieux une attaque partielle par le milieu nitrate acide en acide métastannique SnO2·xH2O, insoluble aussi). Le dopage n'est donc pas « en solution » : il dépend de la diffusion à l'état solide pendant la combustion et les 4 h à 800 °C. Cela favorise une répartition hétérogène et la ségrégation de Li2SnO3. Les synthèses de Ni-riches dopés Sn utilisent d'ordinaire un sel soluble (SnCl4, acétate) ou SnO2 finement divisé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Sn métal (0) doit s'oxyder en Sn4+ : 4 électrons par Sn fournis par les nitrates ou l'O2 de l'air ; les équations (2)–(4) en tiennent compte (O2 1,03/1,09/1,15). Sn4+ remplaçant Co3+ impose, à O2 fixe, une baisse de la valence moyenne de Ni (2,875 → 2,825 pour x = 0,03), donc plus de Ni2+ et a priori plus de mélange cationique, ce qui va contre l'interprétation des auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La « conductivité » du Tableau 5 est calculée par σ = l/(Rct·A). En recalculant l = σ·Rct·A pour les six échantillons on trouve partout 0,0150 cm (épaisseur de 150 µm non écrite). σ n'est donc que 1/Rct multiplié par une constante. Rct est une résistance de transfert de charge à l'interface électrolyte/électrode, pas une résistance volumique : appeler σ une « conductivité électronique » du matériau est physiquement faux. Les comparaisons de σ entre échantillons ne disent rien de plus que celles de Rct.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Coefficient de diffusion (équation 7) calculé avec C = 4,37 × 10⁻³ mol/cm³, alors que la concentration de Li dans NMC 811 est ≈ 4,9 × 10⁻² mol/cm³ (voir calcul « masse volumique et concentration en Li » de la voie NMC). Comme D ∝ 1/C², toutes les valeurs de D sont surestimées d'un facteur ≈ 126 ; l'ordre entre échantillons est conservé. La formule imprimée est aussi tronquée (RT manquant).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "I003/I104 de NMC-3 (0,76) plus élevé que NMC (0,59), mais NMC-1 (0,57) est plus bas : il n'y a pas de tendance monotone avec Sn, et tous restent < 1 (fort mélange cationique). L'effet « Sn réduit le mélange cationique » n'est pas démontré par ces seules intensités (orientation préférentielle possible) ; il faudrait un affinement de Rietveld.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemical Performance of Layer-Structured Ni0.8Co0.1Mn0.1O2 Cathode Active Materials Synthesized by Carbonate Co-Precipitation",
+      "authors_or_publisher": "Park B. H. et al., Nanomaterials 12(20), 3610 (MDPI)",
+      "year": "2022",
+      "url_or_doi": "https://www.mdpi.com/2079-4991/12/20/3610 (texte lu sur https://pmc.ncbi.nlm.nih.gov/articles/PMC9611263)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surface BET non monotone (NMC 11,89 ; NMC-1 37,07 ; NMC-3 11,54 ; NMC-5 46,81 m²/g ; diamètres équivalents ≈ 106, 34, 109, 27 nm) alors que la PSA augmente (370 → 533 nm). Les auteurs écrivent que l'agglomération donne à la fois des particules plus grosses et une surface plus grande « à cause des pores » : une agglomération réduit normalement la surface. Les variations d'un facteur 4 entre lots ressemblent plus à une dispersion de mesure ou de lot qu'à un effet du dopage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre sections : la conclusion dit que le dopage Sn « increased the conductivity » à toutes les teneurs, mais le Tableau 5 donne pour NMC-1 (1,67 × 10⁻⁵) et NMC-5 (1,38 × 10⁻⁵) une valeur plus basse que NMC (1,88 × 10⁻⁵ S/cm) ; seul NMC-3 est plus haut.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "La poudre de Sn s'oxyde en SnO2 pendant la combustion, puis réagit à 800 °C avec le lithium et les oxydes de métaux de transition. Une partie de Sn4+ (rayon VI 0,69 Å, proche de Ni2+) entre dans les sites octaédriques du feuillet de métaux de transition, et le reste forme Li2SnO3 en surface quand la solubilité est dépassée. Rien dans l'article ne montre que Sn remplace spécifiquement Co plutôt que Ni ; c'est seulement l'hypothèse de formulation.",
+    "sources": [
+     {
+      "title": "Sn-Doping and Li2SnO3 Nano-Coating Layer Co-Modified (cathode Ni-riche) — notice PubMed 32365929",
+      "authors_or_publisher": "Zhu H. et al.",
+      "year": "2020",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/32365929"
+     },
+     {
+      "title": "Nickel-Rich Layered Cathode Materials for Automotive Lithium-Ion Batteries: Achievements and Perspectives",
+      "authors_or_publisher": "Myung S.-T., Maglia F., Park K.-J., Yoon C. S., Lamp P., Kim S.-J., Sun Y.-K., ACS Energy Lett. 2, 196–223",
+      "year": "2017",
+      "url_or_doi": "10.1021/acsenergylett.6b00594"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base de calcul des wt% de Sn et réduction effective de la quantité de Co(NO3)2",
+    "source d'étain soluble ou SnO2 plutôt que Sn métal",
+    "épaisseur l de l'électrode utilisée dans σ = l/(Rct·A)",
+    "concentration C de Li utilisée pour D"
+   ]
+  },
+  {
+   "label": "NMC-1",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "wt% de Sn correspondant à x = 0,01 ; 0,03 ; 0,05 (Sn remplaçant Co)",
+     "inputs": "M(LiNi0.8Mn0.1Co0.1−xSnxO2) = 97,28 − 58,933x + 118,71x",
+     "formula": "wt% Sn = 100 × 118,71x / M",
+     "result": "x = 0,01 → 1,21 % ; x = 0,03 → 3,59 % ; x = 0,05 → 5,92 %",
+     "compared_to": "1, 3 et 5 wt% annoncés",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fractions molaires métalliques tirées de l'EDS (Tableau 4)",
+     "inputs": "NMC-1 : Ni 66,80 ; Mn 8,19 ; Co 7,97 ; Sn 1,46 — NMC-3 : 59,52 ; 7,44 ; 5,60 ; 3,90 — NMC-5 : 59,66 ; 7,53 ; 4,44 ; 6,45 (% m)",
+     "formula": "n_i = w_i/M_i ; f_i = n_i/Σn",
+     "result": "NMC-1 : Co 0,094, Sn 0,0086, Co+Sn 0,103 ; NMC-3 : Co 0,074, Sn 0,026, Co+Sn 0,100 ; NMC-5 : Co 0,059, Sn 0,042, Co+Sn 0,101 (NMC sans Sn : Co 0,111)",
+     "compared_to": "Co+Sn = 0,10 si Sn remplace Co ; Sn = 0,0082/0,025/0,042 pour des % massiques",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La rangée EDS de NMC-1 (Ni 66,80 ; O 15,58 % m) s'écarte des autres (Ni 59–60, O 22–24), mais les rapports entre métaux restent normaux (Ni 0,793 ; Mn 0,104 ; Co 0,094 ; Sn 0,0086) : c'est l'oxygène qui est sous-dosé, probablement un artefact de mesure EDS et non une composition différente.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mêmes réserves que NMC-3 sur la base de calcul des wt% de Sn, la « conductivité » tirée de Rct et le facteur ≈ 126 sur D. NMC-1 a Rct plus grand et « σ » plus petit que NMC : ce dopage ne montre pas d'amélioration, contrairement à la conclusion.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir NMC-3 : incorporation de Sn4+ par diffusion à l'état solide à partir de Sn métal oxydé.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "base de calcul du wt% de Sn",
+    "réduction ou non de la quantité de Co"
+   ]
+  },
+  {
+   "label": "NMC-5",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "wt% de Sn correspondant à x = 0,01 ; 0,03 ; 0,05 (Sn remplaçant Co)",
+     "inputs": "M(LiNi0.8Mn0.1Co0.1−xSnxO2) = 97,28 − 58,933x + 118,71x",
+     "formula": "wt% Sn = 100 × 118,71x / M",
+     "result": "x = 0,01 → 1,21 % ; x = 0,03 → 3,59 % ; x = 0,05 → 5,92 %",
+     "compared_to": "1, 3 et 5 wt% annoncés",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fractions molaires métalliques tirées de l'EDS (Tableau 4)",
+     "inputs": "NMC-1 : Ni 66,80 ; Mn 8,19 ; Co 7,97 ; Sn 1,46 — NMC-3 : 59,52 ; 7,44 ; 5,60 ; 3,90 — NMC-5 : 59,66 ; 7,53 ; 4,44 ; 6,45 (% m)",
+     "formula": "n_i = w_i/M_i ; f_i = n_i/Σn",
+     "result": "NMC-1 : Co 0,094, Sn 0,0086, Co+Sn 0,103 ; NMC-3 : Co 0,074, Sn 0,026, Co+Sn 0,100 ; NMC-5 : Co 0,059, Sn 0,042, Co+Sn 0,101 (NMC sans Sn : Co 0,111)",
+     "compared_to": "Co+Sn = 0,10 si Sn remplace Co ; Sn = 0,0082/0,025/0,042 pour des % massiques",
+     "source": "arithmétique"
+    },
+    {
+     "what": "distance réticulaire de l'épaulement attribué à Li2SnO3",
+     "inputs": "2θ = 44,8° ; λ = 1,5406 Å",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 2,021 Å",
+     "compared_to": "(104) de NMC 811 : 44,44° (d = 2,037 Å)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Ségrégation de Li2SnO3 au-delà d'environ 3 % de Sn : cohérent avec la littérature sur le Sn dans les cathodes Ni-riches (Sn dopé dans le volume, excès en Li2SnO3 de surface).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Sn-Doping and Li2SnO3 Nano-Coating Layer Co-Modified (cathode Ni-riche) — notice PubMed 32365929",
+      "authors_or_publisher": "Zhu H. et al.",
+      "year": "2020",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/32365929"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve peu discriminante : un épaulement à 44,8° (d = 2,021 Å) contre le pic (104) de NMC à 44,4° peut venir aussi d'un dédoublement, d'une seconde phase lamellaire ou d'un sel gemme. Les phases Li2MO3 en nid d'abeilles (Li2SnO3 monoclinique) donnent aussi des raies propres hors de cette zone (raies de surstructure vers 20–23°) ; elles ne sont pas discutées. L'identification de Li2SnO3 est plausible mais non prouvée ; un affinement multiphasé est à faire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Li2SnO3 consomme du Li : avec un Li strictement stœchiométrique, sa formation laisse la phase lamellaire déficitaire en Li et augmente le mélange cationique. L'article attribue au contraire à Li2SnO3 la hausse de D (2,09 × 10⁻¹⁴ cm²/s, valeur surestimée d'un facteur ≈ 126 comme pour toutes les voies).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Au-delà de la limite de solubilité de Sn4+ dans la phase lamellaire, l'excès réagit avec le lithium pour former Li2SnO3 en petites particules de surface (visibles en MEB).",
+    "sources": [
+     {
+      "title": "Sn-Doping and Li2SnO3 Nano-Coating Layer Co-Modified (cathode Ni-riche) — notice PubMed 32365929",
+      "authors_or_publisher": "Zhu H. et al.",
+      "year": "2020",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/32365929"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "affinement de Rietveld multiphasé",
+    "bilan Li (excès de LiNO3 à prévoir)"
+   ]
+  },
+  {
+   "label": "NMC/C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "épaisseur d'une couche de carbone uniforme",
+     "inputs": "5 % m de carbone (0,05/0,95 = 0,0526 g par g de NMC) ; ρ(carbone) ≈ 2,0 g/cm³ ; S(NMC) = 11,89 m²/g",
+     "formula": "e = (m_C/ρ_C) / S",
+     "result": "≈ 2,2 nm",
+     "compared_to": "0,55 nm mesurés en MET, soit 1 à 2 couches de graphène (0,335 nm d'interplan)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "épaisseur l implicite dans σ = l/(Rct·A)",
+     "inputs": "σ = 1,46 × 10⁻⁴ S/cm ; Rct = 48,02 Ω ; A = 2,1372 cm²",
+     "formula": "l = σ·Rct·A",
+     "result": "0,0150 cm",
+     "compared_to": "même l = 0,0150 cm pour tous les échantillons",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Calcination 3 h à 300 °C, atmosphère non écrite. Sous air, un carbone activé de 469 m²/g au contact d'oxydes de Ni (catalyseurs d'oxydation) peut commencer à brûler vers 300–400 °C ; sous inerte, risque faible de réduction de surface de NMC à cette température. L'EDS indique encore 6,1 % m de C, donc la combustion n'a pas été totale, mais l'atmosphère doit être précisée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Couche » de carbone amorphe de 0,55 nm : un broyage de 1 h avec 5 % de carbone activé particulaire ne donne pas une couche continue de 1 à 2 plans atomiques ; le MEB montre d'ailleurs des particules de carbone distinctes à la surface. Avec 5 % m, une couche uniforme ferait ≈ 2,2 nm (voir calcul « épaisseur d'une couche de carbone uniforme »). Mesurer 0,55 nm d'amorphe en MET est à la limite de la résolution et du contraste.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "I003/I104 passe de 0,59 (NMC) à 0,50 (NMC/C) : un broyage de 1 h et 300 °C ne changent pas l'ordre cationique en volume ; ces écarts relèvent de l'orientation préférentielle ou de la statistique de comptage, et le texte dit à tort que la modification au carbone augmente le rapport (vrai seulement pour NMC-Sn/C).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin manquant : NMC/C diffère de NMC par l'ajout de carbone et aussi par un broyage à billes de 1 h et une calcination à 300 °C. Le MEB montre des particules moins agglomérées, ce que le broyage seul peut expliquer. La baisse de Rct (373 → 48 Ω) peut venir du carbone conducteur ajouté à l'électrode (qui contient déjà 10 % de super P) autant que d'un revêtement. Il faudrait une NMC broyée et calcinée de la même façon sans carbone, ou avec la même masse de super P.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Broyage à billes de poudres de Ni/Co et de carbone fin : poussières inhalables cancérogènes ; ouvrir la jarre sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Mélange mécanique : le broyage disperse les particules de carbone activé et désagglomère NMC ; à 300 °C il n'y a ni graphitisation ni réaction chimique notable entre carbone et oxyde. Le carbone se trouve surtout en particules accrochées à la surface plutôt qu'en couche conforme continue ; l'effet électrochimique vient vraisemblablement d'un meilleur réseau conducteur et de la désagglomération.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère de calcination à 300 °C",
+    "témoin NMC broyée et calcinée sans carbone",
+    "nature réelle du dépôt (particules ou couche), MET à plusieurs endroits",
+    "taille et masse des billes de zircone, volume de la jarre"
+   ]
+  },
+  {
+   "label": "NMC-Sn/C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rétention de capacité",
+     "inputs": "84,5956 mAh/g (cycle 1) ; 63,90 mAh/g (cycle 50)",
+     "formula": "63,90 / 84,5956",
+     "result": "75,5 %",
+     "compared_to": "75 % annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "conductivité de la conclusion recalculée",
+     "inputs": "Rct = 40,37 Ω ; A = 2,1372 cm² ; l = 0,0150 cm (déduit du Tableau 5)",
+     "formula": "σ = l/(Rct·A)",
+     "result": "1,74 × 10⁻⁴ S/cm",
+     "compared_to": "Tableau 5 : 1,73 × 10⁻⁴ ; conclusion : 1,7546 × 10⁻⁴ S/cm (demande l = 0,01514 cm)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Capacité initiale de 84,6 mAh/g à 1C et 75 % de rétention après 50 cycles : moins de la moitié de la capacité habituelle de NMC 811 (~160–200 mAh/g) et une tenue médiocre (Park et al. : 65 % après 100 cycles à 0,5C pour une NMC 811 mal stabilisée). Ces chiffres sont cohérents avec le fort mélange cationique (I003/I104 < 1). Ils ne montrent pas une amélioration.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemical Performance of Layer-Structured Ni0.8Co0.1Mn0.1O2 Cathode Active Materials Synthesized by Carbonate Co-Precipitation",
+      "authors_or_publisher": "Park B. H. et al., Nanomaterials 12(20), 3610 (MDPI)",
+      "year": "2022",
+      "url_or_doi": "https://www.mdpi.com/2079-4991/12/20/3610 (texte lu sur https://pmc.ncbi.nlm.nih.gov/articles/PMC9611263)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin absent : seul NMC-Sn/C est cyclé, mais l'article conclut que « Sn doping into NMC provide longer cycle life ». Sans cyclage de NMC, NMC-3 et NMC/C dans les mêmes conditions, cette conclusion n'est pas étayée. La masse active, la fenêtre de potentiel et la définition de 1C ne sont pas données.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "CV : les auteurs attribuent les pics de réduction sous 3,5 V à « reduction of Mn3+ to Mn4+ », ce qui est une oxydation, et Mn4+ est électrochimiquement inactif dans NMC 811 entre 2,5 et 4,4 V. Le couple principal est Ni2+/Ni4+ (et Co3+/Co4+), avec un pic de réduction habituel vers 3,6–3,7 V. Des pics à 3,18–3,45 V et des ΔE de 640–950 mV à 0,1 mV/s traduisent une forte polarisation (électrode épaisse, mélange cationique), pas une réduction du Mn.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Comparison of the structural and electrochemical properties of layered Li[NixCoyMnz]O2 (x = 1/3, 0.5, 0.6, 0.7, 0.8 and 0.85) cathode material for lithium-ion batteries",
+      "authors_or_publisher": "Noh H.-J., Youn S., Yoon C. S., Sun Y.-K., J. Power Sources 233, 121–130",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.jpowsour.2013.01.063"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "I003/I104 = 0,88 pour NMC-Sn/C contre 0,76 pour NMC-3 de départ : un broyage d'une heure et 300 °C ne réduisent pas le mélange cationique en volume. La hausse, présentée comme un effet de la double modification, n'est pas physiquement attribuable au revêtement.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EIS faite à « applied voltage of 100 mV » : si c'est l'amplitude du signal alternatif, elle sort du domaine linéaire (habituellement 5–10 mV) ; si c'est un potentiel continu, il n'a pas de sens pour une cellule NMC/Li (~3 V en circuit ouvert). Les Rct ajustés peuvent en être faussés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Combinaison des deux voies : NMC-3 (Sn partiellement incorporé, mélange cationique encore élevé) broyée avec 5 % de carbone activé. La baisse de Rct et de ΔE vient le plus probablement du réseau conducteur ajouté et de la désagglomération ; l'effet protecteur d'une couche de carbone continue n'est pas démontré.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "cyclage de tous les échantillons dans les mêmes conditions",
+    "masse active par électrode et fenêtre de potentiel du cyclage",
+    "amplitude AC de l'EIS"
+   ]
+  },
+  {
+   "label": "Coin_cell_cathode",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "aire du disque d'électrode",
+     "inputs": "diamètre 1,65 cm (« circular area of 1.65 cm »)",
+     "formula": "A = π (d/2)²",
+     "result": "2,138 cm²",
+     "compared_to": "A = 2,1372 cm² dans l'équation (7) : cohérent, 1,65 cm est donc un diamètre",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "épaisseur l implicite",
+     "inputs": "Tableau 5 : σ, Rct ; A = 2,1372 cm²",
+     "formula": "l = σ·Rct·A pour les six échantillons",
+     "result": "0,01493–0,01500 cm (150 µm)",
+     "compared_to": "épaisseur non écrite dans l'article",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport 8:1:1 (matière active : PVDF : super P) : formulation standard de demi-pile. Le PVDF se dissout dans la NMP ; la matière active et le super P y sont dispersés (« dissolved » est impropre). Masse active surfacique, épaisseur (150 µm d'après le calcul « épaisseur l implicite », ce qui est épais) et rapport EC/DMC non donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage 2 h à 70 °C : insuffisant pour éliminer la NMP (ébullition ≈ 202 °C) ; on sèche d'ordinaire sous vide à 100–120 °C pendant plusieurs heures avant l'assemblage. La NMP et l'eau résiduelles dégradent LiPF6 (HF) et augmentent l'impédance, ce qui peut contribuer aux Rct élevés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Lithium métal réactif à l'eau, LiPF6 qui libère HF à l'humidité, NMP reprotoxique (CLP Repr. 1B) : boîte à gants sous argon, gants et hotte pour l'enduction. Seule la boîte à gants est mentionnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme d'électrode et assemblage de pile).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masse active par électrode (mg/cm²)",
+    "séchage sous vide avant assemblage",
+    "proportions EC/DMC"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le protocole de combustion glycine-nitrate est chimiquement correct (équations (1)–(4) équilibrées, φ ≈ 1,2), mais la synthèse est sous-décrite (aucune quantité, atmosphères absentes) et les conditions de frittage (4 h, probablement sous air, Li sans excès) expliquent un fort mélange cationique (I003/I104 de 0,50 à 0,88 < 1) et une capacité faible (84,6 mAh/g). Les grandeurs électrochimiques dérivées sont mal fondées : la « conductivité » n'est que 1/Rct multiplié par une épaisseur constante de 150 µm, et D est surestimé d'un facteur ≈ 126 par une concentration de Li 11 fois trop faible. La teneur en Sn est donnée de deux façons incompatibles (wt% et x), et l'EDS montre que Co a bien été réduit. Plusieurs conclusions (Sn augmente la conductivité, Sn allonge la durée de vie, la couche de carbone réduit le mélange cationique) ne sont pas soutenues par les données ou n'ont pas de témoin.",
+  "author_errors_suspected": [
+   "σ = l/(Rct·A) appelée conductivité : Rct est une résistance d'interface ; σ est proportionnel à 1/Rct avec l = 0,0150 cm constant non écrit",
+   "C = 4,37 × 10⁻³ mol/cm³ dans l'équation (7), contre ≈ 4,9 × 10⁻² mol/cm³ pour Li dans NMC 811 : D surestimé ≈ 126 fois",
+   "Teneur en Sn : 1/3/5 wt% (Méthodes) contre x = 0,01/0,03/0,05 en substitution de Co (résumé, équations) ; les deux ne coïncident pas",
+   "Pics de réduction attribués à « Mn3+ to Mn4+ » (une oxydation ; Mn4+ inactif)",
+   "« Metal cations reduced into metal oxides » pendant la combustion : les cations sont oxydés",
+   "Rayons ioniques Li+ et Ni2+ intervertis dans l'introduction (Li+ 0,76 Å, Ni2+ 0,69 Å)",
+   "Conclusion « Sn doping increased the conductivity » contredite par le Tableau 5 pour NMC-1 et NMC-5",
+   "Conductivité de NMC-Sn/C : 1,73 × 10⁻⁴ (Tableau 5) contre 1,7546 × 10⁻⁴ S/cm (conclusion)",
+   "Carbone activé dit « semi crystalline » sans DRX ni Raman",
+   "Tableau 1 : « average pore radius » dans l'en-tête contre « average pore size » dans le texte"
+  ],
+  "comparison_with_database": "Aucune autre voie de NMC 811 ni de carbone activé de biomasse dans la base (compare.py « NMC », « LiNi0.8Mn0.1Co0.1O2 », « activated carbon » ne renvoient que PMC10754887)."
+ },
+ "sources_not_found": [
+  "Fiche de diffraction de Li2SnO3 (positions des raies avec Cu Kα) : non trouvée dans les recherches faites ; la discussion de l'épaulement à 44,8° repose sur l'arithmétique de Bragg et la structure générale des phases Li2MO3",
+  "Masse volumique tabulée de NaOH à 13 % : valeur ≈ 1,14 g/mL donnée de mémoire, non vérifiée sur une table",
+  "Rayons ioniques de Shannon (1976) cités sans vérification en ligne du DOI"
+ ]
+}

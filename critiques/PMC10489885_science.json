@@ -1,0 +1,540 @@
+{
+ "pmcid": "PMC10489885",
+ "routes": [
+  {
+   "label": "MCSe-0",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles, masses et concentrations du bain",
+     "inputs": "1,5 mmol MnCl2·4H2O (M = 197,90 g/mol) ; 1,5 mmol CoCl2·6H2O (237,93) ; 6 mmol SeO2 (110,97) ; 15 mmol LiCl·H2O (60,41) ; 100 mL d'eau",
+     "formula": "m = n × M ; C = n / V",
+     "result": "0,297 g ; 0,357 g ; 0,666 g ; 0,906 g → [Mn2+] = [Co2+] = 15 mM ; [H2SeO3] = 60 mM ; [LiCl] = 0,15 M",
+     "compared_to": "solubilités très supérieures (SeO2, LiCl et chlorures très solubles) : bain limpide cohérent avec « clear pink solution »",
+     "source": "valeurs de l'article ; masses molaires calculées à partir des masses atomiques IUPAC"
+    },
+    {
+     "what": "rapport (Mn+Co):Se et Mn:Co dans le bain",
+     "inputs": "Mn 1,5 ; Co 1,5 ; Se 6 mmol",
+     "formula": "n(Se)/(n(Mn)+n(Co)) ; n(Mn)/n(Co)",
+     "result": "Se/(Mn+Co) = 2,0 ; Mn:Co = 1:1",
+     "compared_to": "CoSe2 / (Mn,Co)Se2 : M:Se = 1:2 ; la composition du dépôt n'est pas fixée par le bain (codéposition induite) et n'est pas mesurée (pas d'EDS quantitative)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pH du bain (H2SeO3 seul, chlorures neutres)",
+     "inputs": "C = 0,060 M ; pKa1(H2SeO3) = 2,62",
+     "formula": "x² / (C − x) = Ka1",
+     "result": "[H+] ≈ 0,011 M, pH ≈ 1,96",
+     "compared_to": "pH non donné par l'article ; Zhang 2015 travaille à pH 3,4 (KCl)",
+     "source": "LibreTexts, Acid Dissociation Constants (voir checks)"
+    },
+    {
+     "what": "potentiel appliqué contre ESH et potentiels d'équilibre à pH ≈ 2",
+     "inputs": "−0,7 V vs Ag/AgCl (KCl saturé supposé : +0,197 V vs ESH) ; E°(H2SeO3/Se) = +0,74 V ; E°(Se/H2Se) = −0,40 V ; E°(Co2+/Co) = −0,28 V ; E°(Mn2+/Mn) = −1,19 V ; [M2+] = 15 mM",
+     "formula": "E = E° − 0,0591 pH (couples à H+) ; E = E° + 0,0296 log[M2+]",
+     "result": "E appliqué ≈ −0,50 V vs ESH ; H2SeO3/Se ≈ +0,62 V ; Se/H2Se ≈ −0,52 V ; Co2+/Co ≈ −0,33 V ; Mn2+/Mn ≈ −1,24 V ; H+/H2 ≈ −0,12 V",
+     "compared_to": "Se et Co (ou CoSex) déposables ; Mn métallique impossible (≈ 0,74 V trop négatif) ; formation de H2Se et dégagement de H2 possibles",
+     "source": "valeurs de manuel (H2SeO3/Se, Se/H2Se, Ag/AgCl : chimie générale) ; Co, Mn : LibreTexts Standard Reduction Potentials"
+    },
+    {
+     "what": "apport de Co2+ par diffusion en 5 min (ordre de grandeur, bain non agité)",
+     "inputs": "C(Co2+) = 1,5 × 10−5 mol/cm³ ; D ≈ 7 × 10−6 cm²/s (valeur typique d'un cation divalent, non sourcée) ; t = 300 s ; M(CoSe2) = 216,88 g/mol",
+     "formula": "N = 2 C √(D t / π) (Cottrell intégré, électrode plane)",
+     "result": "≈ 0,78 µmol Co/cm² → ≈ 0,17 mg CoSe2 par cm² de face ; ≈ 0,34 mg pour les deux faces d'une mousse de 1 cm²",
+     "compared_to": "charge implicite ≈ 1,5 mg/cm² si 1 A/g ↔ 1,5 mA/cm² (voir MCSe-400) ; l'agitation n'est pas décrite",
+     "source": "calcul sur valeurs de l'article ; D supposé"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le bain apporte Se/(Mn+Co) = 2,0 et Mn:Co = 1:1 (calcul « rapport (Mn+Co):Se »), compatible avec (Mn,Co)Se2. Mais la composition du dépôt n'est jamais mesurée (cartographie EDS seulement, pas de pourcentages), alors que le titre parle de « MnCo selenide ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "À −0,7 V vs Ag/AgCl (≈ −0,50 V vs ESH, calcul « potentiel appliqué ») : H2SeO3 → Se est très favorable (+0,62 V à pH 2), Co2+ → Co est possible (−0,33 V), mais Mn2+ → Mn est impossible (−1,24 V). Le Mn ne peut entrer que par réaction chimique (H2Se/Se2− + Mn2+) ou comme hydroxyde par hausse locale du pH due au dégagement d'H2. À pH ≈ 2, les séléniures de Mn sont les plus solubles de la série : la teneur en Mn est probablement faible et n'est pas chiffrée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "12.4: Standard Reduction Potentials (Co2+/Co −0,28 V ; Mn2+/Mn −1,19 V ; Ni2+/Ni −0,26 V)",
+      "authors_or_publisher": "Chemistry LibreTexts, University of Toronto",
+      "year": "2026",
+      "url_or_doi": "https://chem.libretexts.org/Courses/University_of_Toronto/Chemistry%3A_Physical_Principles/12%3A_Reference/12.04%3A_Standard_Reduction_Potentials"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Bain acide (pH ≈ 1,96 calculé, non écrit par l'article ; calcul « pH du bain »). La mousse de nickel nue y est corrodée et réduit spontanément H2SeO3 en Se (Ni2+/Ni −0,26 V contre H2SeO3/Se +0,62 V) dès l'immersion : un NiSex de déplacement galvanique peut se former avant la polarisation. Ni ne figure pas dans la cartographie EDS ; le prétraitement de la mousse et le délai d'immersion ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "12.3: Acid Dissociation Constants (H2SeO3 pKa1 = 2,62 ; pKa2 = 8,32 ; H2Se pKa1 = 3,89)",
+      "authors_or_publisher": "Chemistry LibreTexts, University of Toronto",
+      "year": "2025",
+      "url_or_doi": "https://chem.libretexts.org/Courses/University_of_Toronto/Chemistry%3A_Physical_Principles/12%3A_Reference/12.03%3A_Acid_Dissociation_Constants"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le texte dit que H2SeO3 est réduit en « Sex2− », puis que H2SeO3 est réduit en Sex2− « via a hydrolysis reaction ». Une hydrolyse ne réduit pas ; à pH ≈ 2, le Se(−II) existe sous forme H2Se (pKa1 3,89), pas Se2− ni polyséléniure. Le schéma admis pour ces bains est la codéposition induite : Se0 déposé (4 e−) puis réaction avec Co (ou Co2+ + 2 e−) pour donner CoSex amorphe, et H2Se formé près de −0,52 V qui précipite les cations. Zhang 2015 obtient exactement un CoSex amorphe par la même voie (CoCl2 + SeO2, −0,7 V vs ECS).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "5 min de dépôt. Si 1 A/g correspond à 1,5 mA/cm² (charge ≈ 1,5 mg/cm², voir MCSe-400), l'apport de Co2+ par diffusion dans un bain non agité ne fournit qu'environ 0,3 mg de CoSe2 (calcul « apport de Co2+ par diffusion »). La masse déposée, l'agitation et la charge passée ne sont pas données. Or toutes les capacités en C g−1 en dépendent.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "SeO2 est très toxique (aiguë, voie orale et inhalation). Au potentiel appliqué (≈ −0,50 V vs ESH), la formation de H2Se (≈ −0,52 V à pH 2), gaz très toxique, n'est pas exclue : cellule sous hotte. Dégagement de H2 à la cathode. CoCl2 est classé cancérogène et sensibilisant. L'article n'indique aucune précaution.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Toxicological Profile for Selenium, Table 4-2 Physical and Chemical Properties of Selenium and Selenium Compounds",
+      "authors_or_publisher": "ATSDR (US DHHS), NCBI Bookshelf",
+      "year": "2003",
+      "url_or_doi": "https://www.ncbi.nlm.nih.gov/books/NBK600369/table/ch4.tab2"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "MCSe-0 amorphe (aucune raie DRX) : cohérent avec les CoSex électrodéposés de Zhang 2015, amorphes avant recuit.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le témoin est une mousse de nickel nue non traitée. Or l'électrode réelle a subi le bain acide au sélénite et, pour les branches, un recuit sous N2 : la surface de Ni peut devenir un NixSey électroactif dans KOH 6 M. Le bon témoin serait une mousse passée dans le même bain sans Co ni Mn (ou à circuit ouvert), puis recuite (contrôle 5).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Bain acide (pH ≈ 2) : H2SeO3 + 4 H+ + 4 e− → Se (contrôle par le transport) ; Co2+ se codépose avec Se par codéposition induite (Kröger), formant un CoSex amorphe ; une partie de Se est réduite en H2Se près de −0,5 V vs ESH et précipite Co2+ (et peu de Mn2+) ; Mn s'incorpore surtout chimiquement ou comme hydroxyde (pH local relevé par le dégagement d'H2), jamais par réduction en Mn0. Le dépôt brut est amorphe ; le recuit le cristallise en CoSe2.",
+    "sources": [
+     {
+      "title": "Article de F. A. Kröger sur le dépôt cathodique de composés binaires (théorie de la codéposition induite) — titre exact non confirmé",
+      "authors_or_publisher": "Kröger F. A., J. Electrochem. Soc. 125, 2028 ; référence relevée dans Staikov (éd.), Electrocrystallization in Nanotechnology, Wiley-VCH, ch. 1",
+      "year": "1978",
+      "url_or_doi": "https://application.wiley-vch.de/books/sample/3527315152_c01.pdf (DOI de l'article non relevé)"
+     },
+     {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pH du bain (≈ 2 attendu), agitation, température",
+    "électrode de référence (KCl saturé ou 3 M) et conversion du potentiel",
+    "charge passée et masse déposée (pesée avant et après dépôt, mousse séchée)",
+    "composition Mn:Co:Se:Ni du dépôt (EDS quantitative ou ICP)",
+    "prétraitement de la mousse de nickel et durée d'immersion avant polarisation",
+    "hotte (SeO2, H2Se possible)"
+   ]
+  },
+  {
+   "label": "MCSe-300",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Bragg, CoSe2 orthorhombique (marcasite) : positions calculées",
+     "inputs": "λ Cu Kα1 = 1,54056 Å (longueur d'onde non écrite dans l'article, supposée) ; a = 4,918, b = 5,837, c = 3,631 Å (JARVIS-DFT) ; contrôle avec a = 4,85, b = 5,83, c = 3,63 Å (valeurs approchées de mémoire)",
+     "formula": "1/d² = h²/a² + k²/b² + l²/c² ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(011) 28,9° ; (101) 30,6–30,7° ; (111) 34,3–34,5° ; (120) 35,8–35,9° ; (211) 47,2–47,7° ; (130) 50,4–50,6° ; (310) 58,4–59,3° ; (122) 63,2–63,3° ; (121) d = 2,058–2,065 Å",
+     "compared_to": "article : (011) à 30,7° pour MCSe-300 mais à 28,9° pour MCSe-400 ; 30,7° correspond à (101), 28,9° à (011)",
+     "source": "JARVIS-DFT JVASP-17856 ; calcul"
+    },
+    {
+     "what": "masse de matière recuite et perte de Se",
+     "inputs": "recuit 300 °C, 2 h, N2 ; Se : fusion 221 °C, ébullition 685 °C",
+     "formula": "comparaison directe",
+     "result": "à 300 °C le Se élémentaire en excès est liquide et volatil sous balayage d'azote",
+     "compared_to": "composition et masse après recuit non mesurées",
+     "source": "ATSDR, Toxicological Profile for Selenium, Table 4-2"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pics à 30,7°, 34,5° et 35,9° attribués à (011), (111), (120) de CoSe2 orthorhombique. Le calcul de Bragg (« Bragg, CoSe2 orthorhombique ») place (011) à 28,9° et (101) à 30,7° : la raie à 30,7° est (101), et l'article indexe (011) à 28,9° pour MCSe-400 (incohérence entre les deux paragraphes, contrôle 6). La phase reste plausible, mais 30,7° coïncide aussi avec c-CoSe2 (200) à 30,5° et 34,5° avec c-(210) à 34,2° : seule 35,9° est propre à la phase orthorhombique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "JVASP-17856 CoSe2 (Pnnm, marcasite), paramètres de maille DFT optB88-vdW",
+      "authors_or_publisher": "NIST, base JARVIS-DFT",
+      "year": "s.d.",
+      "url_or_doi": "https://www.ctcms.nist.gov/~knc6/jsmol/JVASP-17856.html"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Cristallisation d'un CoSex amorphe dès 300 °C : cohérent avec Zhang 2015 (amorphe à 250 °C, cristallisé à 300 °C). Zhang obtient toutefois un mélange orthorhombique + cubique dès 300 °C, contre un orthorhombique pur ici.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Recuit d'un dépôt riche en Se au-delà de la fusion de Se (221 °C) : vapeurs de Se et, avec des traces d'O2, de SeO2 (volatil). Évacuer le gaz du four vers une hotte ou un piège.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Toxicological Profile for Selenium, Table 4-2 Physical and Chemical Properties of Selenium and Selenium Compounds",
+      "authors_or_publisher": "ATSDR (US DHHS), NCBI Bookshelf",
+      "year": "2003",
+      "url_or_doi": "https://www.ncbi.nlm.nih.gov/books/NBK600369/table/ch4.tab2"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Cristallisation à l'état solide du CoSex amorphe en CoSe2 marcasite (forme métastable de basse température), avec départ du Se en excès.",
+    "sources": [
+     {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     },
+     {
+      "title": "In situ electron microscopy study of structural transformations in 2D CoSe2",
+      "authors_or_publisher": "npj 2D Materials and Applications (Nature Portfolio)",
+      "year": "2021",
+      "url_or_doi": "10.1038/s41699-021-00206-3"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "indexation complète du diagramme DRX (plage de mesure tronquée dans l'article)",
+    "vitesse de chauffe, débit et pureté de N2",
+    "perte de masse au recuit"
+   ]
+  },
+  {
+   "label": "MCSe-400",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Bragg, CoSe2 cubique (pyrite) et franges HRTEM",
+     "inputs": "a = 5,859 Å (valeur de mémoire pour PDF 09-0234, non vérifiée en ligne) ; λ = 1,54056 Å",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(200) 30,5° ; (210) 34,2° ; (211) 37,6° (d = 2,392 Å) ; (220) 43,7° (d = 2,072 Å) ; (311) 51,7° ; (230) 56,6° ; (421) 74,1°",
+     "compared_to": "article : 37,6 ; 43,6 ; 51,7 ; 56,4 ; 73,9° (accord ≤ 0,2°) ; franges 0,238 nm = c-(211) (2,392 Å) mais aussi o-(200) 2,425 Å (écart 2 %) ; 0,205 nm = o-(121) (2,058 Å) mais aussi c-(220) (2,072 Å, écart 1 %)",
+     "source": "calcul ; paramètre de maille cubique à confirmer sur la fiche"
+    },
+    {
+     "what": "rétention à 10 A/g",
+     "inputs": "509 C/g à 1 A/g ; rétention 68,6 %",
+     "formula": "509 × 0,686",
+     "result": "349 C/g",
+     "compared_to": "350 C/g lu sur la Fig. 5c par l'extracteur : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "charge massique implicite et fenêtre de potentiel",
+     "inputs": "509 C/g à 1 A/g ; 1572 mF/cm² à 1,5 mA/cm² (Fig. S1, absente) ; hypothèse : 1,5 mA/cm² est la même mesure que 1 A/g",
+     "formula": "m = j/I_m ; ΔV = (q × m)/C_A",
+     "result": "m ≈ 1,5 mg/cm² ; ΔV ≈ 0,49 V",
+     "compared_to": "fenêtre de 0–0,6 V de la Fig. 7b : vraisemblable ; la masse n'est pas écrite",
+     "source": "calcul sur valeurs de l'article ; hypothèse notée"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les raies cubiques annoncées (37,6 ; 43,6 ; 51,7 ; 56,4 ; 73,9°) concordent à 0,2° près avec le pyrite CoSe2 (calcul « Bragg, CoSe2 cubique »), et les raies orthorhombiques (28,9 → 63,2°) avec la marcasite. L'identification des deux phases par DRX est cohérente.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les franges HRTEM ne distinguent pas les deux phases : 0,238 nm vaut c-(211) (0,239) mais aussi o-(200) (0,243, à 2 % près) ; 0,205 nm vaut o-(121) (0,206) mais aussi c-(220) (0,207). La coexistence repose sur la DRX, pas sur la HRTEM (contrôle 7).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Successful incorporation of Mn into the CoSe2 lattice » : appuyé seulement sur Mn 2p (Mn2+) et l'absence de phase Mn en DRX. Cela ne distingue pas un Mn substitué d'un MnOx/Mn(OH)2 ou MnSe amorphe en surface. Il faudrait un déplacement des raies DRX (MnSe2 pyrite a ≈ 6,4 Å > CoSe2 5,86 Å) ou une EDS quantitative par grain.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : « specific capacitance (509 C g−1) » est une capacité (C/g), pas une capacitance (F/g). L'article dit aussi que le comportement « pseudocapacitif » est surtout limité par la diffusion (b = 0,58), avec plateaux en GCD : c'est la signature d'une électrode de type batterie, pour laquelle seule la capacité en C/g ou mAh/g a un sens. Les 1572 mF cm−2 de la Fig. S1 ne sont donc pas comparables à des capacitances vraies.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J. W. — J. Electrochem. Soc. 162, A5185–A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« With an increasing scan rate, the ion diffusion rate decreases » : le coefficient de diffusion ne dépend pas de la vitesse de balayage. L'écartement des pics vient de la polarisation (chute ohmique et cinétique de transfert).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Energy Storage in Nanomaterials – Capacitive, Pseudocapacitive, or Battery-like?",
+      "authors_or_publisher": "Gogotsi Y., Penner R. M. — ACS Nano 12, 2081–2083",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsnano.8b01914"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "509 C/g à 1 A/g et 94,3 % après 5000 cycles : ordre de grandeur usuel pour des séléniures de cobalt sur mousse de Ni. La valeur dépend toutefois entièrement d'une masse active non donnée (calcul « charge massique implicite »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Recuit à 400 °C : mélange o + c cohérent avec la transformation marcasite → pyrite, qui s'active entre environ 300 et 450 °C sur des CoSex électrodéposés (Zhang 2015 : mixte à 300 °C, cubique à 450 °C).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le CoSe2 marcasite formé à basse température se transforme en partie en pyrite cubique (rotation des chaînes Co–Se, même stœchiométrie). À 400 °C, la conversion est incomplète, d'où le mélange de phases.",
+    "sources": [
+     {
+      "title": "In situ electron microscopy study of structural transformations in 2D CoSe2",
+      "authors_or_publisher": "npj 2D Materials and Applications (Nature Portfolio)",
+      "year": "2021",
+      "url_or_doi": "10.1038/s41699-021-00206-3"
+     },
+     {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse active pesée (1 A/g ↔ 1,5 mA/cm² supposé)",
+    "déplacement des raies DRX pour prouver la substitution de Mn",
+    "fenêtre de potentiel de la GCD (non écrite)",
+    "témoin : mousse de Ni passée dans le bain et recuite à 400 °C"
+   ]
+  },
+  {
+   "label": "MCSe-500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de matière recuite et perte de Se",
+     "inputs": "recuit 500 °C, 2 h, N2 ; Se : fusion 221 °C, ébullition 685 °C",
+     "formula": "comparaison directe",
+     "result": "à 500 °C le Se élémentaire en excès est liquide et volatil sous balayage d'azote",
+     "compared_to": "composition et masse après recuit non mesurées",
+     "source": "ATSDR, Toxicological Profile for Selenium, Table 4-2"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "À 500 °C l'article ne trouve que du CoSe2 orthorhombique, après un mélange o + c à 400 °C. Cela va contre le sens connu de la transformation : la marcasite CoSe2 est la forme métastable de basse température, et elle se convertit en pyrite cubique en chauffant. Zhang 2015 trouve du cubique pur à 450 °C (puis CoSe à 600 °C) sur un CoSex électrodéposé de la même façon, et la phase cubique reste stable jusqu'à environ 740–860 °C en microscopie in situ. Un retour au tout orthorhombique à 500 °C n'est pas expliqué ; aucune position de raie n'est donnée pour MCSe-500. Une perte de Se (CoSe, Co9Se8) ou une réaction avec la mousse (NixSey) est plus probable.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "À 500 °C sous N2, le Se libre (fusion 221 °C) a une pression de vapeur notable : une perte de Se et une diffusion de Se dans la mousse de nickel (formation de séléniures de Ni à l'interface) sont attendues, mais ni la masse ni la composition après recuit ne sont mesurées.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Toxicological Profile for Selenium, Table 4-2 Physical and Chemical Properties of Selenium and Selenium Compounds",
+      "authors_or_publisher": "ATSDR (US DHHS), NCBI Bookshelf",
+      "year": "2003",
+      "url_or_doi": "https://www.ncbi.nlm.nih.gov/books/NBK600369/table/ch4.tab2"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Effondrement de la morphologie à 500 °C : cohérent avec un frittage et le départ de Se.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le chauffage à 500 °C devrait pousser la conversion vers le pyrite cubique ou, avec une perte de Se, vers CoSe/Co9Se8 (Zhang 2015 : CoSe à 600 °C). L'attribution « orthorhombique seul » doit être vérifiée par une indexation complète.",
+    "sources": [
+     {
+      "title": "Polymorphic CoSe2 with Mixed Orthorhombic and Cubic Phases for Highly Efficient Hydrogen Evolution Reaction",
+      "authors_or_publisher": "Zhang H., Yang B., Wu X., Li Z., Lei L., Zhang X. — ACS Appl. Mater. Interfaces (article et Supporting Information lus)",
+      "year": "2015",
+      "url_or_doi": "10.1021/am507373g"
+     },
+     {
+      "title": "In situ electron microscopy study of structural transformations in 2D CoSe2",
+      "authors_or_publisher": "npj 2D Materials and Applications (Nature Portfolio)",
+      "year": "2021",
+      "url_or_doi": "10.1038/s41699-021-00206-3"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "diagramme DRX indexé raie par raie (CoSe, Co9Se8, NiSe, NiSe2 à exclure)",
+    "rapport Co:Se après recuit (EDS ou ICP)",
+    "perte de masse au recuit"
+   ]
+  },
+  {
+   "label": "ASC_MCSe-400_AC",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "équilibrage des charges avec le rapport massique annoncé",
+     "inputs": "q+ = 509 C/g (MCSe-400, 1 A/g) ; m(MCSe-400)/m(AC) = 2,01 ; Q+ = Q−",
+     "formula": "m+ q+ = m− q− → q− = q+ × m+/m−",
+     "result": "q(AC) exigé ≈ 1023 C/g, soit ≈ 1020 F/g sur 1 V (−1 à 0 V)",
+     "compared_to": "charbon actif dans KOH 6 M : ≈ 130 F/g (129 F/g à 0,5 A/g, RSC Adv. 2015) ; quelques centaines de F/g au plus",
+     "source": "calcul sur valeurs de l'article ; référence AC : RSC Adv. 2015 (dépôt Univ. Pretoria)"
+    },
+    {
+     "what": "rapport inverse et capacité maximale du dispositif",
+     "inputs": "m(AC)/m(MCSe-400) = 2,01 (hypothèse d'une inversion) ; q+ = 509 C/g",
+     "formula": "q(AC) = q+/2,01 ; q_dispositif max (masse totale) = q+ × m+/(m+ + m−)",
+     "result": "q(AC) ≈ 253 C/g (plausible) ; mais q_dispositif max ≈ 169 C/g < 208 C/g annoncés. Avec le rapport écrit (2,01) : max ≈ 340 C/g",
+     "compared_to": "208 C/g annoncés à 1 A/g ; base massique non dite",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "énergie et puissance spécifiques",
+     "inputs": "Q = 208 C/g à 1 A/g et 120 C/g à 20 A/g ; ΔV = 1,6 V",
+     "formula": "E = Q ΔV / (2 × 3,6) ; P = I ΔV / 2",
+     "result": "E = 46,2 et 26,7 Wh/kg ; P = 800 et 16 000 W/kg",
+     "compared_to": "46,2 Wh/kg à 800 W/kg et 26,6 Wh/kg à 16 000 W/kg annoncés : calcul cohérent (formule linéaire Q·V/2, approximative pour un dispositif à plateaux)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport massique MCSe-400:AC = 2,01, issu de Q+ = Q−, impose au charbon actif environ 1020 C/g sur 1 V (calcul « équilibrage des charges »). C'est 4 à 8 fois la capacité d'un AC dans KOH 6 M (≈ 130 F/g). Le rapport est vraisemblablement inversé (AC:MCSe-400 ≈ 2, soit q(AC) ≈ 250 C/g). Mais avec l'inversion, 208 C/g rapportés à la masse totale dépassent le plafond de 169 C/g (calcul « rapport inverse »). Dans les deux lectures, une des trois grandeurs (rapport, 208 C/g, base massique) est incohérente ; les formules sont dans l'annexe absente.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Investigation of different aqueous electrolytes on the electrochemical performance of activated carbon-based supercapacitors",
+      "authors_or_publisher": "RSC Advances, copie du dépôt institutionnel de l'Université de Pretoria (auteurs non relevés)",
+      "year": "2015",
+      "url_or_doi": "https://repository.up.ac.za/server/api/core/bitstreams/32890d5e-89b4-4ffb-b0dd-f00bf8bbe49d/content"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Énergie et puissance recalculées à partir de 208 et 120 C/g sur 1,6 V : identiques aux valeurs annoncées (calcul « énergie et puissance »). Elles héritent donc de l'incertitude sur la base massique.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : MCSe-400, électrode positive (0 à 0,6 V), est appelée « anode », et le charbon actif « cathode ». Pour un dispositif rechargeable, on parle d'électrode positive et négative (la positive est la cathode en décharge). Le dispositif est hybride (électrode de type batterie + EDLC), et sa « capacitance » en C g−1 est une capacité.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J. W. — J. Electrochem. Soc. 162, A5185–A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Coulombic efficiency « close to 100 % » et 89,2 % après 5000 cycles à 5 A/g : plausible pour un hybride aqueux KOH. Liant, collecteur, séparateur et électrolyte du dispositif ne sont pas décrits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Hybride : stockage faradique OH− sur le séléniure de Co (Co2+/Co3+, et Co3+/Co4+ après oxydation de surface en oxyhydroxyde) à l'électrode positive, double couche sur le charbon actif à l'électrode négative.",
+    "sources": [
+     {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J. W. — J. Electrochem. Soc. 162, A5185–A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     },
+     {
+      "title": "Energy Storage in Nanomaterials – Capacitive, Pseudocapacitive, or Battery-like?",
+      "authors_or_publisher": "Gogotsi Y., Penner R. M. — ACS Nano 12, 2081–2083",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsnano.8b01914"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses réelles des deux électrodes et sens du rapport 2,01",
+    "base massique de 208 C/g et du diagramme de Ragone (masse totale ou électrode positive)",
+    "capacité du charbon actif mesurée en trois électrodes",
+    "préparation de l'électrode AC (liant, collecteur), séparateur, électrolyte"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Électrodéposition à −0,7 V vs Ag/AgCl, 5 min, d'un CoSex (avec Mn) amorphe sur mousse de Ni dans un bain SeO2/CoCl2/MnCl2/LiCl acide (pH ≈ 2 calculé), puis recuit sous N2. Bain et potentiel cohérents avec la littérature (Zhang 2015, même procédé), et DRX de MCSe-400 bien indexée. Problèmes : (1) rapport massique MCSe-400:AC = 2,01 incompatible avec Q+ = Q− (AC à ≈ 1020 F/g exigé) ; (2) retour à du CoSe2 orthorhombique pur à 500 °C, contraire au sens marcasite → pyrite ; (3) mécanisme « Sex2− par hydrolyse » faux à pH 2. Réserves : Mn incorporé non démontré (Mn2+ non réductible à −0,5 V vs ESH), masse active jamais donnée, témoin de mousse nue non équivalent, vocabulaire capacité/capacitance et pseudocapacitif/diffusion, (011) indexé à 30,7° puis à 28,9°.",
+  "author_errors_suspected": [
+   "rapport massique MCSe-400:AC = 2,01 probablement inversé, ou base massique de 208 C/g non dite",
+   "(011) de CoSe2 orthorhombique indexé à 30,7° (MCSe-300) alors qu'il est à 28,9° (raie à 30,7° = (101))",
+   "H2SeO3 « réduit en Sex2− via une hydrolyse » ; Se2− et polyséléniures n'existent pas à pH ≈ 2",
+   "phase orthorhombique seule à 500 °C après mélange o + c à 400 °C, non expliqué",
+   "« specific capacitance » en C g−1 et comportement « pseudocapacitif » limité par la diffusion (électrode de type batterie)"
+  ],
+  "comparison_with_database": "Aucune autre voie CoSe2 ou séléniure de Co/Mn dans la base (compare.py « CoSe2 » : 0 ; « selenide » : seulement ZnSe/GO PMC6678425 et un polymère PMC7285084, non comparables)."
+ },
+ "sources_not_found": [
+  "Potentiels standard H2SeO3/Se (+0,74 V) et Se/H2Se (−0,40 V) et Ag/AgCl KCl saturé (+0,197 V) : valeurs de manuel non vérifiées en ligne (absentes de la table LibreTexts consultée)",
+  "Paramètres de maille expérimentaux de la fiche PDF 53-0449 (marcasite) et 09-0234 (pyrite) : non trouvés en accès libre ; calcul fait avec JARVIS-DFT et des valeurs de mémoire",
+  "Fiche NOAA CAMEO de SeO2 : URL essayée en erreur 404",
+  "Simon & Gogotsi 2008 (10.1038/nmat2297) consulté mais la plage de capacité des charbons actifs n'apparaît pas dans l'extrait ; source AC retenue : RSC Adv. 2015, auteurs non relevés",
+  "DOI non vérifiés sur Crossref (bloqué) : 10.1021/am507373g ; 10.1038/s41699-021-00206-3 ; 10.1149/2.0201505jes ; 10.1021/acsnano.8b01914 ; DOI de Kröger 1978 non relevé"
+ ]
+}

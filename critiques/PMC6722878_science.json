@@ -1,0 +1,726 @@
+{
+ "pmcid": "PMC6722878",
+ "routes": [
+  {
+   "label": "UiO-66",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de ZrCl4",
+     "inputs": "200,00 g ; M(ZrCl4) = 233,04 g/mol",
+     "formula": "m/M",
+     "result": "0,858 mol",
+     "compared_to": "0,86 mol annoncé : concordant",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "moles de TPA",
+     "inputs": "142,48 g ; M(C8H6O4) = 166,13 g/mol",
+     "formula": "m/M",
+     "result": "0,858 mol (Zr:BDC = 1,00:1,00)",
+     "compared_to": "UiO-66 Zr6O4(OH)4(BDC)6 : Zr:BDC = 1:1 ; Katz 2013 utilise 1:1,4",
+     "source": "masses atomiques IUPAC ; Katz 2013, 10.1039/C3CC46105J"
+    },
+    {
+     "what": "moles d'HCl dans 94,94 mL d'HCl à 37 %",
+     "inputs": "94,94 mL ; masse volumique 1,18–1,19 g/mL ; 37 % m/m ; M(HCl) = 36,46 g/mol",
+     "formula": "V·ρ·0,37/M",
+     "result": "1,14–1,15 mol (HCl:Zr = 1,33)",
+     "compared_to": "0,86 mol annoncé ; 0,86 mol d'HCl à 37 % = 71,2 mL",
+     "source": "masse volumique usuelle de l'HCl à 37 % (arithmétique)"
+    },
+    {
+     "what": "eau apportée par l'HCl",
+     "inputs": "94,94 mL × 1,19 g/mL × 0,63 ; M(H2O) = 18,015",
+     "formula": "m(eau)/M",
+     "result": "≈ 3,95 mol (4,6 H2O par Zr)",
+     "compared_to": "Zr6O4(OH)4 demande 8 O pour 6 Zr, soit 1,33 H2O par Zr : eau en excès suffisant",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentration en Zr",
+     "inputs": "0,858 mol dans 6 L de DMF",
+     "formula": "n/V",
+     "result": "0,143 mol/L",
+     "compared_to": "Katz 2013 : 0,54 mmol dans 15 mL ≈ 0,036 mol/L avec ≈ 12 mmol d'HCl (≈ 22 HCl par Zr) : ici 4 fois plus concentré et 17 fois moins d'HCl par Zr",
+     "source": "Katz 2013, 10.1039/C3CC46105J"
+    },
+    {
+     "what": "solubilité du TPA dans le DMF",
+     "inputs": "142,48 g dans 6 L × 0,944 g/mL = 5,66 kg de DMF",
+     "formula": "m(TPA)/m(DMF)",
+     "result": "2,5 g/100 g",
+     "compared_to": "solubilité ≈ 6,7 g/100 g à 25 °C : solution limpide possible",
+     "source": "BenchChem (secondaire), voir checks"
+    },
+    {
+     "what": "masse théorique d'UiO-66 et rendement",
+     "inputs": "M(Zr6O4(OH)4(BDC)6) = 1664,06 g/mol, soit 277,34 g par Zr ; n(BDC) limitant = 0,8576 mol ; 200 g obtenus",
+     "formula": "n·M/6 ; 200/m(théo)",
+     "result": "237,9 g théoriques ; rendement 84 %",
+     "compared_to": "58 % annoncé ; 200/(200,00 + 142,48) = 58,4 % : le « rendement » de l'article est la masse de produit rapportée à la masse totale de ZrCl4 + TPA, pas un rendement chimique",
+     "source": "arithmétique"
+    },
+    {
+     "what": "pression dans la bouteille à 120 °C",
+     "inputs": "DMF : téb = 153 °C, ΔHvap ≈ 47,5 kJ/mol (Clausius-Clapeyron) ; air de l'espace de tête 20 → 120 °C",
+     "formula": "P = exp[−ΔH/R (1/393 − 1/426)] ; T2/T1",
+     "result": "P(DMF) ≈ 0,32 atm ; air ×1,34 (+0,34 atm) : ≈ 0,6–0,7 bar au-dessus de l'atmosphère si la bouteille est fermée, plus HCl et eau",
+     "compared_to": "bouteille de verre de 10 L non conçue pour la pression (état fermé ou non non dit)",
+     "source": "chimie générale (estimation ; NIST WebBook pour une valeur exacte)"
+    },
+    {
+     "what": "Bragg (111) et (200)",
+     "inputs": "a ≈ 20,75 Å (maille cubique UiO-66) ; λ Cu Kα = 1,5406 Å (anode non précisée par l'article)",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 asin(λ/2d)",
+     "result": "2θ(111) = 7,37° ; 2θ(200) = 8,52°",
+     "compared_to": "Fig. S2 : (111) et (200) indexées dans la plage 5–40° ; cohérent",
+     "source": "Cavka 2008, 10.1021/ja8057953 (structure)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le texte donne « HCl (94,94 mL, 0,86 mol) » : 94,94 mL d'HCl à 37 % contiennent 1,14–1,15 mol d'HCl, et 0,86 mol correspondrait à 71 mL (calcul « moles d'HCl »). L'un des deux chiffres est faux ; or la quantité de modulateur règle la taille et la densité de défauts de l'UiO-66 : un chimiste ne sait pas lequel suivre.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le rendement de 58 % n'est pas un rendement chimique : 200 g correspondent à 84 % de la masse théorique de Zr6O4(OH)4(BDC)6 (237,9 g), et 58 % est exactement 200/(200 + 142,48), c'est-à-dire la masse de produit sur la masse des deux réactifs (calcul « masse théorique d'UiO-66 et rendement »). De plus, un produit séché à 80 °C sans activation garde DMF et eau dans les pores, donc même 84 % est surestimé.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "120 °C est sous le point d'ébullition du DMF (153 °C), mais la bouteille de 10 L en verre contient 6 L de DMF + HCl ; l'article ne dit pas si elle est fermée. Fermée, la surpression atteint ≈ 0,6–0,7 bar (calcul « pression dans la bouteille ») ; ouverte, l'HCl et l'eau s'évaporent et changent la composition. 6 L dans une étuve à convection mettent plusieurs heures à atteindre 120 °C : la durée de 24 h inclut une longue montée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "2,5 g de TPA pour 100 g de DMF, sous la solubilité de 6,7 g/100 g à 25 °C : la « solution limpide » avant HCl est plausible. ZrCl4 à 0,14 mol/L dans le DMF se dissout de façon exothermique avec dégagement d'HCl.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Technical Support Center: Addressing Poor Solubility of Terephthalic Acid (table : DMF 6,7 g/100 g à 25 °C) — source secondaire",
+      "authors_or_publisher": "BenchChem (fiche fournisseur)",
+      "year": "2025",
+      "url_or_doi": "https://www.benchchem.com/pdf/Technical_Support_Center_Addressing_Poor_Solubility_of_Terephthalic_Acid_in_Reactions.pdf"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Concentration 4 fois plus élevée et rapport HCl:Zr ≈ 1–1,3 (contre ≈ 22 chez Katz 2013, 80 °C) : conditions proches des synthèses concentrées à l'échelle (Ragon 2014 étudie 0 à 10 équivalents d'HCl par Zr). 24 h à 120 °C suffisent à la cristallisation de l'UiO-66 dans ces conditions.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "In Situ Energy-Dispersive X-ray Diffraction for the Synthesis Optimization and Scale-up of the Porous Zirconium Terephthalate UiO-66",
+      "authors_or_publisher": "Ragon, Horcajada, Chevreau, Hwang, Lee, Miller, Devic, Chang, Serre — Inorg. Chem. 53, 2491",
+      "year": "2014",
+      "url_or_doi": "10.1021/ic402514n"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "1466 m2/g est dans la plage connue de l'UiO-66 (Katz 2013 rapporte des surfaces élevées avec HCl ; valeur idéale ≈ 1100–1200, plus haute avec des défauts). Le « pore size 1,82 nm » dépasse les cages octaédriques (≈ 1,1 nm) et tétraédriques (≈ 0,8 nm) de la structure : soit défauts de type « cluster manquant », soit méthode inadaptée (BJH n'est pas valable sous 2 nm). La méthode n'est pas donnée ; c'est un micropore au sens IUPAC (< 2 nm).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "190 nm est une taille hydrodynamique (ELS-Z2plus = diffusion dynamique de la lumière), qui mesure des agrégats autant que des cristallites ; à confirmer par la MEB de la Fig. S1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "pH 2,5 d'une dispersion à 5 % dans l'eau : compatible avec l'acidité de Brønsted de l'UiO-66 (μ3-OH, Zr–OH2 aux défauts) et surtout avec l'HCl résiduel et les chlorures d'un produit lavé au DMF et à l'éthanol sans lavage à l'eau ; un lavage plus poussé changerait ce pH, donc la gélification des liants.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dissolution de 200 g de ZrCl4 dans le DMF : exothermique, dégage du HCl (ZrCl4 réagit violemment avec l'humidité). DMF reprotoxique (CLP Repr. 1B) chauffé en grand volume ; HCl + DMF à 120 °C hydrolysent partiellement le DMF en diméthylamine et acide formique. Bouteille en verre sous légère pression : écran et récipient adapté. Rien n'est dit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "ZrCl4 se solvate dans le DMF et s'hydrolyse avec l'eau de l'HCl à 37 % pour former les clusters Zr6O4(OH)4 ; l'HCl protone le téréphtalate (modulation par l'acidité), ralentit l'échange carboxylate et favorise des cristaux mieux formés ; à 120 °C le DMF s'hydrolyse lentement en diméthylamine, qui déprotone progressivement le H2BDC. Le réseau fcu précipite en cristallites submicroniques. Avec un rapport HCl:Zr proche de 1, des défauts de lieur (Cl−/OH− terminaux) sont attendus, cohérents avec la surface élevée et le pH acide de la poudre.",
+    "sources": [
+     {
+      "title": "A facile synthesis of UiO-66, UiO-67 and their derivatives",
+      "authors_or_publisher": "Katz, Brown, Colón, Siu, Scheidt, Snurr, Hupp, Farha — Chem. Commun. 49, 9449",
+      "year": "2013",
+      "url_or_doi": "10.1039/C3CC46105J"
+     },
+     {
+      "title": "A New Zirconium Inorganic Building Brick Forming Metal Organic Frameworks with Exceptional Stability",
+      "authors_or_publisher": "Cavka et al., J. Am. Chem. Soc.",
+      "year": "2008",
+      "url_or_doi": "10.1021/ja8057953"
+     },
+     {
+      "title": "In Situ Energy-Dispersive X-ray Diffraction for the Synthesis Optimization and Scale-up of the Porous Zirconium Terephthalate UiO-66",
+      "authors_or_publisher": "Ragon, Horcajada, Chevreau, Hwang, Lee, Miller, Devic, Chang, Serre — Inorg. Chem. 53, 2491",
+      "year": "2014",
+      "url_or_doi": "10.1021/ic402514n"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité réelle d'HCl : 71 mL (0,86 mol) ou 94,94 mL (1,15 mol)",
+    "bouteille fermée ou non, et sa tenue à 120 °C sous légère pression",
+    "calculer le rendement sur la formule de l'UiO-66 après activation (poudre dégazée), pas sur la masse des réactifs",
+    "lavage à l'eau éventuel avant usage (pH de la poudre)",
+    "méthode du diamètre de pore (NLDFT plutôt que BJH)"
+   ]
+  },
+  {
+   "label": "DSPD1",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de réactifs",
+     "inputs": "PTMG 224,32 g / 2000 ; DMPA 12 g / 134,13 ; IPDI 66,76 g / 222,29 ; EG 4,96 g / 62,07 ; APTES 8,84 g / 221,37 ; TEA 9,05 g / 101,19",
+     "formula": "m/M",
+     "result": "PTMG 0,1122 ; DMPA 0,0895 ; IPDI 0,3003 ; EG 0,0799 ; APTES 0,0399 ; TEA 0,0894 mol",
+     "compared_to": "0,112 / 0,089 / 0,3 / 0,08 / 0,04 / 0,089 mol annoncés : concordant",
+     "source": "masses molaires PubChem (arithmétique)"
+    },
+    {
+     "what": "NCO/OH du prépolymère",
+     "inputs": "NCO = 2 × 0,3003 = 0,6007 mol ; OH = 2 × (0,1122 + 0,0895) = 0,4033 mol",
+     "formula": "n(NCO)/n(OH)",
+     "result": "1,49 ; NCO en excès 0,1974 mol",
+     "compared_to": "rapport usuel 1,3–2 pour un prépolymère de PUD",
+     "source": "arithmétique"
+    },
+    {
+     "what": "NCO résiduel après EG et rapport APTES/NCO",
+     "inputs": "0,1974 − 2 × 0,0799 = 0,0376 mol ; APTES 0,0399 mol (1 NH2)",
+     "formula": "n(NH2)/n(NCO résiduel)",
+     "result": "1,06",
+     "compared_to": "coiffage stœchiométrique attendu ≈ 1 : concordant ; bilan global NCO/(OH+NH2) = 0,996",
+     "source": "arithmétique"
+    },
+    {
+     "what": "neutralisation",
+     "inputs": "TEA 0,0894 mol ; COOH de DMPA 0,0895 mol",
+     "formula": "n(TEA)/n(COOH)",
+     "result": "1,00 (100 %)",
+     "compared_to": "neutralisation complète usuelle",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Mn théorique avant EG",
+     "inputs": "masse 303,08 g ; molécules initiales 0,5020 mol − 0,4033 liaisons uréthane",
+     "formula": "m/(n0 − n(liaisons))",
+     "result": "≈ 3070 g/mol",
+     "compared_to": "3800 g/mol mesuré (méthode non dite, probablement GPC en équivalents polystyrène) : même ordre",
+     "source": "arithmétique (Carothers)"
+    },
+    {
+     "what": "Mn théorique après EG",
+     "inputs": "308,04 g ; 0,0987 + 0,0799 − 0,1598 = 0,0188 mol",
+     "formula": "m/n",
+     "result": "≈ 16 400 g/mol",
+     "compared_to": "8800 g/mol mesuré : facteur 2 (réaction incomplète, NCO consommé par l'humidité, étalonnage GPC)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "APTES dans l'alimentation",
+     "inputs": "8,84 g sur 316,88 g (PTMG+DMPA+IPDI+EG+APTES) ; ou sur 325,93 g avec TEA",
+     "formula": "m(APTES)/m(total)",
+     "result": "2,79 % ; 2,71 % avec TEA",
+     "compared_to": "Tableau 1 : 2,79 % ; résumé : « 2,7 wt.% » ; TGA : 2,50 %",
+     "source": "arithmétique"
+    },
+    {
+     "what": "eau pour 35 % de solide",
+     "inputs": "solide 316,88 g (sans TEA ni NMP)",
+     "formula": "316,88/0,35 − 316,88",
+     "result": "588,49 g",
+     "compared_to": "588,49 mL d'eau : exactement concordant ; avec TEA (9,05 g) et NMP (≈ 41 g, non éliminée à l'évaporateur) l'extrait sec réel vaut ≈ 34 %",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Bilan NCO/OH/NH2 fermé : NCO/OH = 1,49 au prépolymère, l'EG consomme l'excès sauf 0,0376 mol de NCO, coiffé par 0,0399 mol d'APTES (1,06 ; calcul « NCO résiduel après EG »). Formulation cohérente avec un PU coiffé silane.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Aucun catalyseur (DBTDL ou autre) n'est indiqué : l'IPDI (NCO secondaire cycloaliphatique peu réactif) à 75 °C pendant 3 h + 2 h peut ne pas réagir complètement. La Mn après EG (8800 g/mol) est la moitié de la valeur théorique (≈ 16 400, calcul « Mn théorique après EG ») ; aucun dosage du NCO (dibutylamine) avant l'APTES n'est décrit, alors que le rapport APTES/NCO en dépend.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "75 °C sous argon dans un réacteur à double enveloppe : sous l'ébullition de la NMP (202 °C) ; acétone ajoutée à 40 °C (téb 56 °C) : correct.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tendance des Mn mesurées (8800 → 4700) concordante avec les Mn théoriques après EG (16 400 → 7900 → 5200 → 3900) : l'explication des auteurs (plus d'excès NCO avant coiffage quand l'EG baisse) est juste.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs attribuent l'augmentation de taille des particules à des liaisons urée « moins hydrophiles que l'uréthane ». Ce n'est pas l'explication la plus simple : l'urée est au moins aussi polaire que l'uréthane ; la teneur en DMPA rapportée au solide baisse de 3,79 à 3,53 % de DSPD1 à DSPD4 et les extrémités triéthoxysilyle sont hydrophobes. La taille des particules d'une PUD anionique dépend d'abord de la densité de carboxylates. À vérifier par une série à DMPA constant rapporté au solide.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Advances in Waterborne Polyurethane and Polyurethane-Urea Dispersions and Their Eco-friendly Derivatives: A Review",
+      "authors_or_publisher": "Polymers (MDPI), article PMC7865350",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7865350"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« APTES by TGA » : la TGA ne mesure que le résidu de silice (APTES → SiO2, facteur 60,08/221,37 = 0,27, soit ≈ 0,76 % de résidu pour DSPD1) ; la conversion du résidu en teneur en APTES n'est pas décrite et l'éthoxy perdu à l'hydrolyse fausse la base. Les valeurs TGA (2,50 ; 4,90 ; 7,20 ; 9,41) sont proches de l'alimentation et doivent être lues comme des teneurs nominales.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "IPDI : sensibilisant respiratoire ; NMP : reprotoxique (Repr. 1B) et non éliminée par l'évaporateur rotatif (téb 202 °C) : elle reste à ≈ 4 % dans la dispersion et dans le revêtement pelable. Groupes triéthoxysilyle en milieu aqueux : libération d'éthanol et vieillissement de la dispersion (stabilité au stockage non étudiée, reconnue par les auteurs).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Polyaddition des OH de PTMG et DMPA sur l'IPDI en excès (NCO/OH 1,49), allongement par l'EG, neutralisation des COOH par TEA, coiffage des NCO terminaux par l'amine de l'APTES (urée), puis inversion de phase dans l'eau ; au séchage, hydrolyse des Si–OEt en Si–OH et condensation en Si–O–Si (auto-réticulation), d'où la fraction de gel croissante avec l'APTES.",
+    "sources": [
+     {
+      "title": "Advances in Waterborne Polyurethane and Polyurethane-Urea Dispersions and Their Eco-friendly Derivatives: A Review",
+      "authors_or_publisher": "Polymers (MDPI), article PMC7865350",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7865350"
+     },
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench & West, Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "présence ou non d'un catalyseur d'uréthanisation",
+    "dosage du NCO avant l'ajout d'APTES",
+    "méthode de mesure des masses molaires",
+    "quantité d'eau pour DSPD2–4 (588,49 mL vaut pour DSPD1 seulement)",
+    "NMP résiduelle dans le film"
+   ]
+  },
+  {
+   "label": "DSPD2",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "NCO résiduel et rapport APTES/NCO",
+     "inputs": "EG 3,72 g (0,0599 mol) ; APTES 17,68 g (0,0799 mol) ; NCO en excès avant EG 0,1974 mol",
+     "formula": "0,1974 − 2·n(EG) ; n(APTES)/NCO résiduel",
+     "result": "NCO résiduel 0,0775 mol ; APTES/NCO = 1,03",
+     "compared_to": "coiffage stœchiométrique ≈ 1 : concordant",
+     "source": "arithmétique"
+    },
+    {
+     "what": "APTES dans l'alimentation",
+     "inputs": "APTES 17,68 g (0,0799 mol) sur PTMG+DMPA+IPDI+EG+APTES",
+     "formula": "m(APTES)/m(total)",
+     "result": "5,45 %",
+     "compared_to": "Tableau 1 : 5,45 % ; concordant",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Mn théorique après EG",
+     "inputs": "molécules restantes après réaction de tous les OH",
+     "formula": "m/n",
+     "result": "≈ 7900 g/mol",
+     "compared_to": "6900 g/mol mesuré",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le Tableau 1 ajuste EG et APTES pour garder NCO ≈ OH + NH2 (rapport APTES/NCO résiduel 1,03) ; rapport EG/APTES recalculé conforme. Seul l'EG et l'APTES changent : branche bien construite. La quantité d'eau de dispersion n'est donnée que pour DSPD1.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même chimie que DSPD1 ; plus d'APTES = chaînes plus courtes et plus de nœuds siloxane, d'où fraction de gel plus élevée et allongement plus faible.",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench & West, Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité d'eau pour 35 % d'extrait sec"
+   ]
+  },
+  {
+   "label": "DSPD3",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "NCO résiduel et rapport APTES/NCO",
+     "inputs": "EG 2,48 g (0,0400 mol) ; APTES 26,52 g (0,1198 mol) ; NCO en excès avant EG 0,1974 mol",
+     "formula": "0,1974 − 2·n(EG) ; n(APTES)/NCO résiduel",
+     "result": "NCO résiduel 0,1175 mol ; APTES/NCO = 1,02",
+     "compared_to": "coiffage stœchiométrique ≈ 1 : concordant",
+     "source": "arithmétique"
+    },
+    {
+     "what": "APTES dans l'alimentation",
+     "inputs": "APTES 26,52 g (0,1198 mol) sur PTMG+DMPA+IPDI+EG+APTES",
+     "formula": "m(APTES)/m(total)",
+     "result": "7,99 %",
+     "compared_to": "Tableau 1 : 7,99 % ; concordant",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Mn théorique après EG",
+     "inputs": "molécules restantes après réaction de tous les OH",
+     "formula": "m/n",
+     "result": "≈ 5200 g/mol",
+     "compared_to": "5200 g/mol mesuré",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le Tableau 1 ajuste EG et APTES pour garder NCO ≈ OH + NH2 (rapport APTES/NCO résiduel 1,02) ; rapport EG/APTES recalculé conforme. Seul l'EG et l'APTES changent : branche bien construite. La quantité d'eau de dispersion n'est donnée que pour DSPD1.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même chimie que DSPD1 ; plus d'APTES = chaînes plus courtes et plus de nœuds siloxane, d'où fraction de gel plus élevée et allongement plus faible.",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench & West, Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité d'eau pour 35 % d'extrait sec"
+   ]
+  },
+  {
+   "label": "DSPD4",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "NCO résiduel et rapport APTES/NCO",
+     "inputs": "EG 1,24 g (0,0200 mol) ; APTES 35,36 g (0,1597 mol) ; NCO en excès avant EG 0,1974 mol",
+     "formula": "0,1974 − 2·n(EG) ; n(APTES)/NCO résiduel",
+     "result": "NCO résiduel 0,1575 mol ; APTES/NCO = 1,01",
+     "compared_to": "coiffage stœchiométrique ≈ 1 : concordant",
+     "source": "arithmétique"
+    },
+    {
+     "what": "APTES dans l'alimentation",
+     "inputs": "APTES 35,36 g (0,1597 mol) sur PTMG+DMPA+IPDI+EG+APTES",
+     "formula": "m(APTES)/m(total)",
+     "result": "10,41 %",
+     "compared_to": "Tableau 1 : 10,41 % ; concordant",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Mn théorique après EG",
+     "inputs": "molécules restantes après réaction de tous les OH",
+     "formula": "m/n",
+     "result": "≈ 3900 g/mol",
+     "compared_to": "4700 g/mol mesuré",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le Tableau 1 ajuste EG et APTES pour garder NCO ≈ OH + NH2 (rapport APTES/NCO résiduel 1,01) ; rapport EG/APTES recalculé conforme. Seul l'EG et l'APTES changent : branche bien construite. La quantité d'eau de dispersion n'est donnée que pour DSPD1.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même chimie que DSPD1 ; plus d'APTES = chaînes plus courtes et plus de nœuds siloxane, d'où fraction de gel plus élevée et allongement plus faible.",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench & West, Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité d'eau pour 35 % d'extrait sec"
+   ]
+  },
+  {
+   "label": "DSPD2_glycerol",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le glycérol (5 % massiques, base non précisée : solide ou dispersion) n'est testé que sur le film DSPD2 sans UiO-66 (3,77 → 0,77 N/25 mm). La conclusion étend l'effet aux films composites à faible teneur en UiO-66 (liant DSPD1), ce qui n'est pas démontré dans l'article. Le glycérol, triol, peut aussi plastifier le film.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Migration du glycérol hydrophile vers l'interface film/verre, qui écrante les liaisons hydrogène et Si–O–Si avec les silanols du verre.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "base du pourcentage de glycérol",
+    "conditions de séchage du film"
+   ]
+  },
+  {
+   "label": "UiO66-DSPD_6.5",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction d'UiO-66 retenue dans le film",
+     "inputs": "introduit 10 / 20 / 40 / 60 % ; mesuré (TGA) 6,5 / 15,3 / 32,4 / 49,5 %",
+     "formula": "mesuré/introduit",
+     "result": "65 % / 76,5 % / 81 % / 82,5 %",
+     "compared_to": "texte : « 76.5–82.5% of input amount » : la plage omet le film à 10 % (65 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "résidu de ZrO2 attendu en TGA",
+     "inputs": "Zr6O4(OH)4(BDC)6 → 6 ZrO2 ; M = 1664,06 et 6 × 123,22",
+     "formula": "6·M(ZrO2)/M(UiO-66)",
+     "result": "44,4 % de résidu par gramme d'UiO-66 sec",
+     "compared_to": "méthode de conversion résidu → teneur non décrite ; le liant laisse aussi de la silice",
+     "source": "arithmétique"
+    },
+    {
+     "what": "pH d'une solution d'essai à 0,45 mol/L de N-éthylmorpholine",
+     "inputs": "Kb = 4,0 × 10−7 (pKa ≈ 7,6–7,7) ; C = 0,45 mol/L",
+     "formula": "pH = 14 + log √(Kb·C)",
+     "result": "≈ 10,6 (base seule) ; 10,2 mesuré dans la méthode de Katz",
+     "compared_to": "« pH = 12 » écrit à la section 3.3",
+     "source": "MIT OCW 5.111 ; Katz 2015 Chem. Sci."
+    },
+    {
+     "what": "masse d'UiO-66 dans l'éprouvette d'essai MPO",
+     "inputs": "1 × 1 × 0,015 cm3 ; masse volumique ≈ 1,1 g/cm3 (estimation) ; 6,5–49,5 % d'UiO-66",
+     "formula": "V·ρ·w",
+     "result": "≈ 16 mg de film ; ≈ 1–8 mg d'UiO-66",
+     "compared_to": "quantité de MPO non donnée (renvoi à l'article précédent) : conversion par masse d'UiO-66 incalculable",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : la plage « 76,5–82,5 % » d'UiO-66 retrouvée ne couvre que les films à 20, 40 et 60 % ; le film à 10 % n'en garde que 65 % (calcul « fraction d'UiO-66 retenue »). La méthode TGA (résidu ZrO2 de 44 % pour l'UiO-66 sec, plus la silice du liant) n'est pas décrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La section 3.3 attribue la baisse d'activité après 6 h au « high pH of the test solution (pH = 12) ». Une solution de N-éthylmorpholine à 0,45 mol/L (concentration de la Fig. S2) a un pH ≈ 10,2–10,6 (calcul « pH d'une solution d'essai ») ; la méthode de Katz que les auteurs disent suivre est à pH 10,2. pH 12 suppose une autre base non décrite, ou est une erreur. Le pH conditionne à la fois l'hydrolyse de fond du MPO et la dégradation de l'UiO-66.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Exploiting parameter space in MOFs: a 20-fold enhancement of phosphate-ester hydrolysis with UiO-66-NH2",
+      "authors_or_publisher": "Katz et al. (groupe Hupp/Farha), Chem. Sci. 6, 2286",
+      "year": "2015",
+      "url_or_doi": "https://chemgroups.northwestern.edu/hupp/Publications/ChemSci-2015-6-2286.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Conversions à 24 h (36–63 %) et constantes pseudo-premier ordre (0,000086 à 0,0032 min−1) cohérentes entre elles avec la désactivation annoncée : k = 0,0032 min−1 donnerait 99 % en 24 h sans désactivation ; le film sans UiO-66 (k = 8,6 × 10−5) donnerait ≈ 12 % contre 6,5 % lus. Activité nettement plus faible que l'UiO-66 en poudre (demi-vies de quelques minutes dans les essais de référence), attendue pour un MOF noyé dans le liant.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Engineering the defects of UiO-66 MOF for an improved catalytic detoxification of CWA simulant: methyl paraoxon",
+      "authors_or_publisher": "article PMC (RSC)",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11450554"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Dégradation de l'UiO-66 par la N-éthylmorpholine (Fig. S2) : conforme à la littérature, qui montre que les tampons aminés et basiques dégradent l'UiO-66.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Metal–organic frameworks vs. buffers: case study of UiO-66 stability",
+      "authors_or_publisher": "Bůžek et al., Inorg. Chem. Front. 8, 720",
+      "year": "2021",
+      "url_or_doi": "https://pubs.rsc.org/qi/article/8/3/720/698919/Metal-organic-frameworks-vs-buffers-case-study-of"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les éprouvettes de traction font 0,25 mm d'épaisseur alors que les films pulvérisés font 150 ± 20 μm : on ne sait pas si les éprouvettes viennent de films plus épais ou si 0,25 mm est la cote nominale de l'emporte-pièce ; la contrainte calculée en dépend (facteur 1,7).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le méthyl paraoxon est un inhibiteur puissant de l'acétylcholinestérase (métabolite actif du méthyl-parathion) : manipulation sous hotte, gants, neutralisation des solutions. La pulvérisation de particules d'UiO-66 submicroniques dans la MEK (inflammable) produit un aérosol inhalable : cabine de pulvérisation et protection respiratoire, non mentionnées.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Paraoxon methyl, CID 13708 (classification GHS) ; Methyl Parathion CID 4130 : « its active metabolite, methyl paraoxon, is a potent » inhibiteur de cholinestérase",
+      "authors_or_publisher": "PubChem (NIH)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Paraoxon-methyl"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Base des « 10, 20, 40, 60 wt.% » non dite (solide total UiO-66 + PU d'après la TGA), ni masse de DSPD, ni volume de MEK, ni pression de pulvérisation : la composition de la solution pulvérisée n'est pas reconstituable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le MPO diffuse dans le film poreux (vides visibles en MEB à forte charge) et s'adsorbe sur les Zr insaturés de l'UiO-66 ; l'hydroxyde Zr–OH voisin attaque le phosphore (hydrolyse, libération du p-nitrophénolate suivi à 407 nm), comme proposé pour le DMMP. La base (N-EM) régénère les sites mais dégrade aussi le MOF, d'où le ralentissement après 6 h.",
+    "sources": [
+     {
+      "title": "Exploiting parameter space in MOFs: a 20-fold enhancement of phosphate-ester hydrolysis with UiO-66-NH2",
+      "authors_or_publisher": "Katz et al. (groupe Hupp/Farha), Chem. Sci. 6, 2286",
+      "year": "2015",
+      "url_or_doi": "https://chemgroups.northwestern.edu/hupp/Publications/ChemSci-2015-6-2286.pdf"
+     },
+     {
+      "title": "Metal–organic frameworks vs. buffers: case study of UiO-66 stability",
+      "authors_or_publisher": "Bůžek et al., Inorg. Chem. Front. 8, 720",
+      "year": "2021",
+      "url_or_doi": "https://pubs.rsc.org/qi/article/8/3/720/698919/Metal-organic-frameworks-vs-buffers-case-study-of"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pH réel de la solution d'essai (10,2 ou 12) et sa composition",
+    "quantité de MPO et volume de solution",
+    "base des pourcentages d'UiO-66 et masse de DSPD",
+    "épaisseur des éprouvettes de traction",
+    "méthode TGA de dosage de l'UiO-66"
+   ]
+  },
+  {
+   "label": "UiO66+DSPD3_gelled",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carboxylates du liant contre acidité apportée par l'UiO-66",
+     "inputs": "DSPD : 0,0895 mol COO− pour ≈ 330 g de solide, soit ≈ 0,27 mmol/g ; UiO-66 : 3,6 mmol Zr/g (1/277,34), 0,67 μ3-OH par Zr + sites de défaut et HCl résiduel",
+     "formula": "n/m",
+     "result": "à 10–60 % d'UiO-66, l'UiO-66 apporte plusieurs mmol de sites acides ou de Zr par gramme de liant, contre 0,27 mmol/g de carboxylates",
+     "compared_to": "une PUD anionique typique est à pH 8–9 et se déstabilise quand ses carboxylates sont protonés (pKa ≈ 4–5)",
+     "source": "arithmétique ; PMC7694149 pour le pH des PUD"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs attribuent la gélification à une condensation des silanols accélérée par le pH acide. Deux réserves : (1) le pH 2,5 a été mesuré pour l'UiO-66 dans l'eau, pas dans le mélange liant + MEK, qui contient le tampon carboxylate/TEA ; (2) près du point isoélectrique de la silice (pH ≈ 2), la condensation des silanols est au plus lent, tandis que l'hydrolyse des Si–OEt est rapide. Alternative non écartée : protonation des carboxylates de DMPA (perte de la stabilisation électrostatique) et pontage des carboxylates et silanols par les sites Zr de l'UiO-66 (liaisons Zr–O–Si). La dépendance à la teneur en APTES va dans le sens d'un rôle du silane, mais l'essai ne discrimine pas les deux voies.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench & West, Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : le résumé parle de gélification « au-dessus de 7,2 % » de silane, les Résultats disent que seuls 2,5 et 4,9 % ne gélifient pas (7,2 % gélifie donc), la conclusion dit que des films ont été faits avec 2,5 et 4,9 % alors qu'aucun film à 4,9 % n'est caractérisé. La teneur en UiO-66 de ces essais de gélification n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Plus probablement une déstabilisation colloïdale combinée : l'UiO-66 acide (HCl résiduel, Zr–OH2) protone une partie des carboxylates de DMPA et les sites Zr accrochent carboxylates et silanols, pontant les particules ; plus il y a de groupes silyle (DSPD3, DSPD4), plus ces ponts Si–O–Zr et Si–O–Si se forment vite, d'où la gélification. Mesurer le pH et le potentiel zêta du mélange, et faire un essai avec un UiO-66 lavé à l'eau jusqu'à pH neutre, trancherait.",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench & West, Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     },
+     {
+      "title": "Structure–Properties Relationship in Waterborne Poly(Urethane-Urea)s Synthesized with DMPA Internal Emulsifier Added before, during and after Prepolymer Formation",
+      "authors_or_publisher": "Polymers (MDPI), article PMC7694149",
+      "year": "2020",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7694149"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pH du mélange UiO-66 + DSPD",
+    "teneur en UiO-66 de l'essai",
+    "essai avec UiO-66 lavé à l'eau ou neutralisé"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Formulation du liant polyuréthane silylé cohérente (bilan NCO/OH/NH2 fermé pour les quatre DSPD, eau calculée exactement pour 35 % d'extrait sec). La synthèse de l'UiO-66 à 6 L est plausible mais porte deux erreurs de chiffres : 94,94 mL d'HCl à 37 % font 1,15 mol et non 0,86 mol, et le « rendement de 58 % » est une masse de produit sur la masse des réactifs (rendement réel ≈ 84 % au mieux). Le pH 12 de la solution d'essai du MPO est incompatible avec un tampon N-éthylmorpholine à 0,45 mol/L (pH ≈ 10,2). Le mécanisme de gélification (condensation des silanols par le pH acide) n'est pas discriminé d'une déstabilisation colloïdale du liant anionique.",
+  "author_errors_suspected": [
+   "HCl : 94,94 mL d'HCl à 37 % = 1,15 mol, pas 0,86 mol",
+   "rendement de 58 % = 200/(200 + 142,48) : rapport de masses, pas rendement chimique",
+   "pH 12 de la solution d'essai à la N-éthylmorpholine (≈ 10,2 attendu)",
+   "plage de 76,5–82,5 % d'UiO-66 retenu qui omet le film à 10 % (65 %)",
+   "éprouvettes de traction de 0,25 mm contre films de 150 μm",
+   "« polyethylene (PET) » pour le poly(téréphtalate d'éthylène) ; « polyoxometrics » pour polyoxométallates ; résumé à 2,7 % de silane contre 2,5 % (TGA) ou 2,79 % (alimentation)"
+  ],
+  "comparison_with_database": "compare.py « UiO-66 » : PMC12552603 (UiO-66-NH2, DMF/HCl, 80 °C, 24 h, BET 1123 m2/g, pore 1,97 nm). La présente voie (120 °C, 1466 m2/g, 1,82 nm) est dans le même ordre ; dans les deux cas un « diamètre de pore » proche de 2 nm dépasse la taille des cages de la structure, ce qui suggère une méthode de calcul inadaptée aux micropores."
+ },
+ "sources_not_found": [
+  "pKa de la N-éthylmorpholine sur PubChem (page non lisible : valeur prise dans MIT OCW et cohérente avec le pH 10,2 de Katz 2015)",
+  "DOI des articles Katz 2015 Chem. Sci., Bůžek 2021 Inorg. Chem. Front. et des revues PUD (Polymers) non vérifiés : URL données à la place"
+ ]
+}

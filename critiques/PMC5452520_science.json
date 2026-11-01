@@ -1,0 +1,584 @@
+{
+ "pmcid": "PMC5452520",
+ "routes": [
+  {
+   "label": "BZS_sol",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration en Zr après mélange",
+     "inputs": "ZrOCl2 1,5 mol/L ajouté à H2SO4 1,5 mol/L jusqu'à ZrOCl2:H2SO4 = 15:1 (concentrations égales, donc 15 volumes de solution de Zr pour 1 volume d'acide)",
+     "formula": "[Zr] = 1,5 × 15/16",
+     "result": "1,41 mol/L",
+     "compared_to": "0,5 mol/L annoncé avant évaporation : facteur 2,8 de dilution ou de perte de Zr pendant la dialyse",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport SO4/Zr du sol",
+     "inputs": "ZrOCl2:H2SO4 = 15:1",
+     "formula": "1/15",
+     "result": "SO4/Zr = 0,067",
+     "compared_to": "sulfates basiques de zirconium usuels : SO4:ZrO2 de 0,2 à 1, préféré 0,5–0,6 (US3672825A) ; Zr5O8(SO4)2 : 0,4",
+     "source": "valeurs de l'article ; brevet US3672825A"
+    },
+    {
+     "what": "facteur de concentration à l'évaporateur rotatif",
+     "inputs": "0,5 → 3,5 mol/L de Zr",
+     "formula": "3,5/0,5",
+     "result": "×7 : il faut évaporer 6/7 (86 %) du volume",
+     "compared_to": "durée et pression non données",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "teneur en ZrO2 du sol concentré",
+     "inputs": "3,5 mol/L ; M(ZrO2) = 123,22 g/mol",
+     "formula": "3,5 × 123,22",
+     "result": "431 g d'équivalent ZrO2 par litre",
+     "compared_to": "sol très concentré, proche de la limite de stabilité ; masse volumique non donnée (hypothèse 1,4–1,8 g/mL dans les calculs suivants)",
+     "source": "valeurs de l'article ; masse molaire (Zr 91,22 + 2 × 16,00)"
+    },
+    {
+     "what": "masse de ZrOCl2·8H2O pour la solution 1,5 mol/L",
+     "inputs": "M(ZrOCl2·8H2O) = 322,25 g/mol",
+     "formula": "1,5 × 322,25",
+     "result": "483 g/L",
+     "compared_to": "sel très soluble dans l'eau : aucune difficulté ; l'article dit « zirconium oxychloride 98 % » sans préciser l'hydrate",
+     "source": "valeurs de l'article ; masse molaire calculée"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport ZrOCl2:H2SO4 de 15:1 donne SO4/Zr = 0,067 (calcul « rapport SO4/Zr du sol »), soit 6 à 9 fois moins de sulfate que les sulfates basiques de zirconium courants. C'est cohérent avec la suite du protocole (l'ajout d'acide pour atteindre Zr/SO4 = 3:1 suppose qu'on part plus pauvre en sulfate), mais l'article ne dit pas si le rapport est molaire ni ce qu'il reste de sulfate et de chlorure après dialyse. Le protocole renvoie à Chiavacci et al. 2004, qui décrit des domaines de composition (RS = [Zr]/[SO4], RCl = [Zr]/[Cl]) donnant gel thermoréversible, sol stable ou précipité : la composition exacte compte et doit être reprise de cette source.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "US3672825A, Process for preparing basic zirconium sulfates and other zirconium compounds (rapport SO4:ZrO2 de 0,2:1 à 1:1, préféré 0,5–0,6:1)",
+      "authors_or_publisher": "Google Patents (brevet américain)",
+      "year": "1972",
+      "url_or_doi": "https://patents.google.com/patent/US3672825A/en"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Après mélange, le Zr est à 1,41 mol/L (calcul « concentration en Zr après mélange ») ; l'article annonce 0,5 mol/L avant évaporation. La dialyse contre 10 volumes d'eau pendant 24 h peut diluer le sol par entrée osmotique d'eau, ou laisser passer des oligomères de Zr ; un facteur 2,8 n'est ni expliqué ni mesuré, et la membrane (seuil de coupure) n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Ajout à 80 °C en récipient ouvert : sous le point d'ébullition de l'eau (100 °C) ; évaporation à 55 °C sous vide à l'évaporateur rotatif : compatible. Mais les sols de Chiavacci sont thermoréversibles (gélification au chauffage selon la composition) : un chauffage à 55 °C pendant la concentration ×7 (calcul « facteur de concentration à l'évaporateur rotatif ») peut gélifier le sol si la composition dérive.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Role of the Surface State and Structural Feature in the Thermoreversible Sol-Gel Transition of a Zirconyl Aqueous Precursor Modified by Sulfuric Acid",
+      "authors_or_publisher": "L. A. Chiavacci, C. V. Santilli, S. H. Pulcinelli, C. Bourgaux, V. Briois, Chem. Mater.",
+      "year": "2004",
+      "url_or_doi": "10.1021/cm035258d"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Solutions de ZrOCl2 très acides (dégagement de HCl à 80 °C), dilution de H2SO4 96 % (exothermique : verser l'acide dans l'eau), à faire sous hotte avec gants et lunettes ; rien n'est écrit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "ZrOCl2 en solution contient des tétramères [Zr4(OH)8(H2O)16]8+ ; à 80 °C ils s'hydrolysent et se condensent en oligomères oxo-hydroxo dont la surface est complexée par des sulfates (Chiavacci 2004 : cœur Zr–O/OH entouré de sulfates complexants). La dialyse retire Cl− et H+ libres et pousse l'hydrolyse ; l'adsorption spécifique des sulfates abaisse la répulsion de double couche, d'où la gélification quand on ajoute plus de sulfate ou quand on chauffe. L'hypothèse de l'extraction (mecanisme_analyse) est compatible.",
+    "sources": [
+     {
+      "title": "Role of the Surface State and Structural Feature in the Thermoreversible Sol-Gel Transition of a Zirconyl Aqueous Precursor Modified by Sulfuric Acid",
+      "authors_or_publisher": "L. A. Chiavacci, C. V. Santilli, S. H. Pulcinelli, C. Bourgaux, V. Briois, Chem. Mater.",
+      "year": "2004",
+      "url_or_doi": "10.1021/cm035258d"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "reprendre dans Chiavacci et al. 2004 la composition exacte (RS, RCl) du sol, la nature du rapport 15:1 et la membrane de dialyse",
+    "doser le Zr après dialyse (0,5 mol/L annoncé contre 1,41 attendu) et le sulfate restant, pour calculer l'acide à ajouter à la gélification",
+    "surveiller la viscosité pendant la concentration à 55 °C (risque de gel thermoréversible)",
+    "masse volumique du sol à 3,5 mol/L (nécessaire pour convertir le % de SDS en moles)"
+   ]
+  },
+  {
+   "label": "SDS-10_600C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "SDS par litre de sol et rapport SDS/Zr à 10 %",
+     "inputs": "%SDS = m(SDS)/m(total) = 10 %, total lu comme sol + SDS ; sol à 3,5 mol/L de Zr ; masse volumique du sol supposée 1,4–1,8 g/mL (non donnée) ; M(SDS) = 288,38 g/mol",
+     "formula": "n(SDS) = (0,10/0,90) × ρ × 1000 / 288,38 ; SDS/Zr = n(SDS)/3,5",
+     "result": "0,54–0,69 mol SDS par litre de sol ; SDS/Zr = 0,15–0,20",
+     "compared_to": "Na/Zr = 0,15–0,20 apporté par le SDS (1 Na par molécule)",
+     "source": "valeurs de l'article ; masse molaire du SDS (C12H25NaO4S)"
+    },
+    {
+     "what": "sulfate de sodium attendu dans la mousse calcinée",
+     "inputs": "Na/Zr = 0,15–0,20 ; Na2SO4 142,04 g/mol ; ZrO2 123,22 g/mol ; tout le Na retenu en Na2SO4",
+     "formula": "m(Na2SO4)/[m(Na2SO4)+m(ZrO2)] par mole de Zr",
+     "result": "8 à 10 % en masse de Na2SO4",
+     "compared_to": "l'article ne parle ni de sodium ni de lavage ; dit « all the sulfate groups had been eliminated » à 800 °C",
+     "source": "valeurs de l'article ; masses molaires PubChem"
+    },
+    {
+     "what": "acide sulfurique à ajouter pour la gélification",
+     "inputs": "[Zr] = 3,5 mol/L ; SO4 initial = 3,5/15 = 0,233 mol/L (si le rapport 15:1 survit à la dialyse) ; cible Zr/SO4 = 3:1 ; H2SO4 96 % = 1,84 × 1000 × 0,96 / 98,08 = 18,0 mol/L",
+     "formula": "Δn = 3,5/3 − 3,5/15 ; V = Δn / C",
+     "result": "0,93 mol par litre de sol, soit 52 mL d'acide à 96 % ou 622 mL d'acide à 1,5 mol/L",
+     "compared_to": "concentration et volume de l'acide de gélification non donnés : selon l'acide choisi, la mousse est diluée de 5 % ou de 60 %",
+     "source": "valeurs de l'article ; densité de H2SO4 96 % (1,84) de manuel"
+    },
+    {
+     "what": "« compositions molaires » de SDS contre fraction massique",
+     "inputs": "5, 7, 10, 15, 20 % ; valeurs de l'article 3,4 ; 4,9 ; 7,2 ; 14 ; 16 × 10−4",
+     "formula": "k × w/(1−w), k fixé sur 5 % (k = 6,46 × 10−3)",
+     "result": "3,4 ; 4,86 ; 7,18 ; 11,4 ; 16,1 × 10−4",
+     "compared_to": "accord à 1 % pour 5, 7, 10 et 20 % ; 15 % donne 11,4 × 10−4 et non 14 × 10−4 (coquille probable). La loi w/(1−w) confirme que la « masse totale » inclut le SDS. Fraction molaire de SDS dans l'eau pure : 3,3 × 10−3 à 5 %, soit 10 fois plus : l'unité des valeurs de l'article reste inconnue",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "masse volumique du squelette tirée de P et ρb",
+     "inputs": "ρb = 0,292 g/cm3 ; P = 94 %",
+     "formula": "ρs = ρb/(1 − P)",
+     "result": "4,87 g/cm3",
+     "compared_to": "ZrO2 tétragonale ≈ 6,1 g/cm3 : écart attendu (sulfates, Na2SO4 de masse volumique 2,68, porosité fermée)",
+     "source": "valeurs de l'article ; masse volumique de Na2SO4 (NIST WebBook, fiche PNNL)"
+    },
+    {
+     "what": "volume poreux total tiré de P et ρb contre Hg",
+     "inputs": "ρb = 0,292 ; P = 0,94 ; V(Hg) = 3,19 cm3/g",
+     "formula": "V = P/ρb",
+     "result": "3,22 cm3/g",
+     "compared_to": "3,19 cm3/g par Hg : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre 4V/S (échantillon à 7 % de SDS)",
+     "inputs": "V(Hg) = 2,82 cm3/g ; S(BET) ≈ 7 m2/g",
+     "formula": "4V/S",
+     "result": "1,6 μm",
+     "compared_to": "macropores 29,5 μm et pores secondaires 0,96 μm : surface BET faible cohérente avec des pores micrométriques, sans mésoporosité notable",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface géométrique des deux familles de pores (10 % de SDS)",
+     "inputs": "pores secondaires 0,71 cm3/g, 1,3 μm ; macropores (3,19 − 0,71) cm3/g, 13,6 μm",
+     "formula": "S ≈ 4V/d par famille",
+     "result": "≈ 2,2 + 0,7 ≈ 3 m2/g",
+     "compared_to": "≈ 7 m2/g mesuré : même ordre, la surface vient d'une rugosité modeste des parois",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "position des raies de ZrO2 tétragonale",
+     "inputs": "maille t-ZrO2 a ≈ 3,60 Å, c ≈ 5,18 Å (P42/nmc, valeurs de manuel) ; Cu Kα1 = 1,540 56 Å",
+     "formula": "1/d² = (h²+k²)/a² + l²/c² ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(101) 2,956 Å → 30,2° ; (112) 1,815 Å → 50,2° ; (211) 1,537 Å → 60,1°",
+     "compared_to": "« peaks centered at about 30° and 50° » et figure 6b (30,2 ; 50,3 ; 60) : cohérent",
+     "source": "longueur d'onde : NIST X-ray Transition Energies (constantes.md) ; maille de manuel, non relue sur la fiche PDF-79-1771"
+    },
+    {
+     "what": "cohérence de la TG avec la composition",
+     "inputs": "figure 5 lue : ≈ 72 % à 150 °C, ≈ 43 % de résidu à 1000 °C ; composition par mole de Zr : ZrO2 123,2 g + SO3 (1/3 × 80,06 = 26,7 g) + SDS (0,15–0,20 × 288,4 = 44–57 g) ; résidu ZrO2 + Na2SO4",
+     "formula": "résidu/masse sèche",
+     "result": "attendu 66–69 % ; lu 43/72 = 60 %",
+     "compared_to": "cohérent à l'eau de constitution près : la perte de 23 % entre 500 et 650 °C peut contenir à la fois SO3 et la matière organique",
+     "source": "valeurs de l'article ; lecture de la figure 5"
+    },
+    {
+     "what": "eau d'un vrai gel humide",
+     "inputs": "sol : 431 g/L d'équivalent ZrO2, masse 1400–1800 g/L ; + SDS 155–200 g ; + acide ≥ 95 g",
+     "formula": "résidu attendu = (ZrO2 + Na2SO4)/masse du gel humide",
+     "result": "23 à 29 % de résidu, perte d'eau ≥ 50 %",
+     "compared_to": "TG du « wet gel » : 25 % de perte jusqu'à 140 °C et 43 % de résidu : l'échantillon de TG était déjà en grande partie séché",
+     "source": "valeurs de l'article ; hypothèse de masse volumique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le SDS apporte du sodium : Na/Zr = 0,15–0,20 à 10 % de SDS (calcul « SDS par litre de sol et rapport SDS/Zr à 10 % »). Rien ne l'élimine (pas de lavage). Au chauffage, ce sodium se retrouve sous forme de Na2SO4, soit 8 à 10 % en masse de la mousse calcinée (calcul « sulfate de sodium attendu »). Le produit n'est donc pas de la zircone sulfatée pure, et l'acidité annoncée pour la catalyse peut être affaiblie par ces ions alcalins. L'article ne donne aucune analyse élémentaire (Na, S).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Cuisson par paliers (90, 350, 600 °C) au four à moufle, sous air implicite, vitesse de chauffe non donnée. La TG (10 °C/min sous O2) place le départ du carbone et des sulfates entre 500 et 650 °C ; un palier isotherme de 3 h à 600 °C en élimine probablement davantage que ne le suggère la TG dynamique, ce qui rend la quantité de sulfate restant à 600 °C (base de l'acidité annoncée) incertaine. Les gaz dégagés (SO2/SO3) imposent un four ventilé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Sulfated zirconia catalysts: characterization by TGA/DTA mass spectrometry (référence [26] de l'article, non relue ici)",
+      "authors_or_publisher": "R. Srinivasan, R. A. Keogh, D. R. Milburn, B. H. Davis, J. Catal.",
+      "year": "1995",
+      "url_or_doi": "10.1006/jcat.1995.1114"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "SDS à 10 % ≈ 0,54–0,69 mol/L, très au-dessus de sa concentration micellaire critique (≈ 8 mmol/L dans l'eau pure, plus basse encore en milieu salin) : le tensioactif est en large excès pour couvrir l'interface air-liquide. Dans un sol à 3,5 mol/L de Zr fortement chargé (oligomères zirconyle cationiques), l'anion dodécylsulfate peut aussi s'associer aux particules et précipiter. Ce point n'est pas discuté, et il pèse sur la stabilité de la mousse et sur la texture des parois.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La gélification par ajout d'acide sulfurique à une mousse déjà formée n'est pas décrite : ni la concentration de l'acide, ni son volume, ni le temps de gel. Or il faut 0,93 mol d'acide par litre de sol, soit 52 mL d'acide à 96 % ou 622 mL d'acide à 1,5 mol/L (calcul « acide sulfurique à ajouter pour la gélification »). L'acide concentré chauffe et gélifie localement ; l'acide dilué noie la mousse. Le temps entre la fin de l'aération (2 min) et la prise du gel détermine pourtant la taille des bulles (mûrissement, coalescence).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Volume poreux 3,19 cm3/g, porosité 94 %, masse volumique 0,29 g/cm3 : valeurs cohérentes entre elles (calcul « volume poreux total tiré de P et ρb contre Hg »). Masse volumique du squelette recalculée à 4,87 g/cm3, sous les 6,1 g/cm3 de t-ZrO2, ce qui est plausible avec sulfate, Na2SO4 et pores fermés. Surface BET ≈ 7 m2/g cohérente avec des pores micrométriques (calculs « diamètre 4V/S » et « surface géométrique »). Elle est cependant 10 à 20 fois plus faible que celle des zircones sulfatées catalytiques (≈ 90 m2/g chez Platero 1996) : l'usage comme support de catalyseur, avancé par les auteurs, n'est pas soutenu par la surface mesurée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "FTIR studies on the acidity of sulfated zirconia prepared by thermolysis of zirconium sulfate (zircone sulfatée de 90 m2/g)",
+      "authors_or_publisher": "E. Escalona Platero, M. Peñarroya Mentruit, C. Otero Areán, A. Zecchina, J. Catal.",
+      "year": "1996",
+      "url_or_doi": "10.1006/jcat.1996.0284"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : les « supermésopores » de 0,4 à 2,3 μm (400 à 2300 nm) sont des macropores au sens de l'IUPAC (au-dessus de 50 nm). Les deux familles sont donc macroporeuses ; un lecteur qui chercherait des mésopores ne les trouverait pas, et la BET (≈ 7 m2/g) le confirme. Par ailleurs, l'hystérèse « type H1, pores cylindriques » est rattachée par les auteurs à des fentes nées de l'empilement de plaquettes ; selon l'IUPAC 2015, les agrégats de particules en plaquettes donnent une boucle de type H3, pas H1.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "M. Thommes et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : le résumé annonce des macropores « d'environ 30 μm », le texte « autour de 20 μm », alors que le tableau 1 donne 13,6 à 29,5 μm (5–15 %). La conclusion cite 0,28 g/cm3 (échantillon à 5 %) comme masse volumique de la mousse la plus poreuse (10 %, 0,292). Le texte de la partie 3.2 donne « environ 93 % » de porosité à 600 °C, le tableau 2 donne 94 %. Les « compositions molaires » de SDS n'ont pas d'unité, et la valeur à 15 % (1,4 × 10−3) sort de la loi suivie par les quatre autres (11,4 × 10−4 attendu ; calcul « compositions molaires de SDS »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TG du « wet gel » : 25 % de perte jusqu'à 140 °C pour un gel issu d'un sol à 3,5 mol/L, alors qu'un gel réellement humide devrait perdre au moins 50 % d'eau (calcul « eau d'un vrai gel humide »). L'échantillon analysé était probablement déjà séché, et la figure 5 ne renseigne pas sur l'eau du gel. Le bilan de matière de la perte entre 500 et 650 °C reste plausible (calcul « cohérence de la TG avec la composition »). Le tensioactif ne part pas vers 200–300 °C comme le SDS libre : il reste lié au solide jusqu'à 500 °C, ce que l'article ne discute pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le mécanisme des auteurs ne tient pas sur deux points. (1) Figure 1 : des micelles « gonflées par l'air » formeraient les grands pores. Or une micelle de SDS mesure environ 4 nm et ne peut pas contenir une bulle de 10 à 100 μm : les bulles sont stabilisées par une couche de tensioactif adsorbée à l'interface air-eau. (2) Les pores secondaires viendraient de « l'excès de SDS ». Or le témoin sans SDS en a aussi, et même de plus grands (1,83 μm, tableau 1). Ils naissent donc du gel lui-même : fentes entre plaquettes de BZS au séchage, que les auteurs citent aussi, ou retrait. Le SDS ne fait au plus que les moduler.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : SO2/SO3 dégagés au-dessus de 550 °C (four ventilé ou sous hotte) ; acide sulfurique et sol acide projetés par l'agitateur à 2000 rpm (écran, lunettes) ; dilution exothermique de H2SO4 concentré ; poudre de SDS irritante ; mercure de la porosimétrie (déchets spécifiques) ; fragments de mousse céramique friables, poussières à ne pas inhaler.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "L'agitation à 2000 rpm piège de l'air ; les bulles (10–30 μm) sont stabilisées par le dodécylsulfate adsorbé à l'interface air-eau, et sans doute par des complexes entre dodécylsulfate et oligomères zirconyle cationiques (cas des mousses TiO2 de Carn et al. 2005). L'acide ajouté apporte des sulfates qui s'adsorbent sur les particules de BZS, réduisent la répulsion de double couche et font prendre le réseau (Chiavacci 2004) : les bulles sont figées et deviennent les macropores. Les pores de 0,4–2 μm des parois viennent de l'empilement désordonné des plaquettes de BZS et du retrait au séchage (Alves-Rosa 2008), puisqu'ils existent sans SDS. Au chauffage, l'eau part sous 150 °C ; la matière organique liée et les sulfates partent entre 500 et 650 °C, ce qui ouvre les pores fermés à 500 °C. Les sulfates restants stabilisent t-ZrO2 en petits cristallites à 600 °C ; leur départ au-dessus de 700 °C libère la transformation en m-ZrO2. Le sodium du SDS reste probablement sous forme de Na2SO4, qui fond à 884 °C : sa présence à 1000 °C peut contribuer à la densification des parois observée.",
+    "sources": [
+     {
+      "title": "Anatase and rutile TiO2 macrocellular foams: air-liquid foaming sol-gel process towards controlling cell sizes, morphologies, and topologies (référence [18] de l'article, non relue ici)",
+      "authors_or_publisher": "F. Carn, A. Colin, M.-F. Achard, H. Deleuze, C. Sanchez, R. Backov, Adv. Mater.",
+      "year": "2005",
+      "url_or_doi": "10.1002/adma.200401080"
+     },
+     {
+      "title": "Role of the Surface State and Structural Feature in the Thermoreversible Sol-Gel Transition of a Zirconyl Aqueous Precursor Modified by Sulfuric Acid",
+      "authors_or_publisher": "L. A. Chiavacci, C. V. Santilli, S. H. Pulcinelli, C. Bourgaux, V. Briois, Chem. Mater.",
+      "year": "2004",
+      "url_or_doi": "10.1021/cm035258d"
+     },
+     {
+      "title": "Stimuli-responsive controlled growth of mono- and bidimensional particles from basic zirconium sulfate hydrosols (référence [24] de l'article, non relue ici)",
+      "authors_or_publisher": "M. A. Alves-Rosa, C. S. S. Sanhueza, C. V. Santilli, S. H. Pulcinelli, V. Briois, J. Phys. Chem. B",
+      "year": "2008",
+      "url_or_doi": "10.1021/jp803039p"
+     },
+     {
+      "title": "Sulfated zirconia and its modified versions as promising catalysts for industrial processes (référence [28] de l'article, non relue ici)",
+      "authors_or_publisher": "G. D. Yadav, J. J. Nair, Microporous Mesoporous Mater.",
+      "year": "1999",
+      "url_or_doi": "10.1016/S1387-1811(99)00147-X"
+     },
+     {
+      "title": "Sodium Sulfate, CID 24436 (Chemical and Physical Properties : point de fusion 884 °C, source CRC Handbook 95e éd.)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026 (consulté)",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Sulfate"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer la masse de sol, de SDS et d'acide de gélification (concentration et volume) : l'article ne les donne pas",
+    "doser Na et S dans la mousse calcinée (ICP ou EDX) ; laver ou échanger le sodium si l'on vise une zircone sulfatée acide",
+    "faire la TG sur un gel réellement humide et sur le gel séché, séparément",
+    "mesurer l'acidité (NH3-TPD, pyridine en IR) avant de parler de catalyse ; surface BET par échantillon",
+    "atmosphère et vitesse de chauffe du four ; garder les paliers 90/350 °C",
+    "travailler sous hotte (SO2/SO3, H2SO4, Hg)"
+   ]
+  },
+  {
+   "label": "SDS-0",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume spécifique maximal d'un monolithe",
+     "inputs": "ρb = 1,628 g/cm3 ; P = 64,5 % ; V(Hg) = 0,70 cm3/g",
+     "formula": "V ≤ 1/ρb ; V(pores) = P/ρb",
+     "result": "1/ρb = 0,614 cm3/g ; P/ρb = 0,396 cm3/g",
+     "compared_to": "V(Hg) = 0,70 cm3/g dépasse le volume total de l'échantillon par gramme (0,614) et vaut 1,8 fois le volume poreux tiré de la pycnométrie",
+     "source": "valeurs de l'article (tableau 1)"
+    },
+    {
+     "what": "masse volumique du squelette",
+     "inputs": "ρb = 1,628 ; P = 0,645",
+     "formula": "ρs = ρb/(1 − P)",
+     "result": "4,59 g/cm3",
+     "compared_to": "du même ordre que les mousses (4,4–4,9) : la pycnométrie est cohérente, c'est le volume Hg qui ne l'est pas",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Volume poreux Hg de 0,70 cm3/g impossible pour un monolithe de masse volumique apparente 1,628 g/cm3 : un gramme n'occupe que 0,614 cm3 en tout (calcul « volume spécifique maximal d'un monolithe »). Le volume Hg compte donc des vides entre fragments, ou un défaut de conformation au remplissage. La famille de « supermésopores » de 1,83 μm de ce témoin, qui contredit l'origine « excès de SDS », peut elle-même être en partie un vide entre grains. Pour les mousses, V(Hg) ≈ P/ρb, ce qui est cohérent.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "<267> Porosimetry by Mercury Intrusion (les vides entre particules d'un lit ou d'un agrégat sont comptés comme des pores)",
+      "authors_or_publisher": "United States Pharmacopeial Convention",
+      "year": "2011",
+      "url_or_doi": "https://www.usp.org/sites/default/files/usp/document/harmonization/gen-chapter/m99026267porosimetrybymercury_intrusion.pdf"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le témoin sans SDS supprime à la fois la mousse, le sodium et le carbone organique. Pour la porosité, c'est un témoin correct de « non moussé ». En revanche, il ne permet pas d'attribuer au SDS les pores secondaires, puisqu'il en a aussi. L'article ne dit pas non plus s'il a été agité 2 min à 2000 rpm comme les autres.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sans tensioactif, l'air incorporé coalesce et s'échappe avant la prise : gel dense dont la seule porosité est faite de fentes entre plaquettes et de fissures de retrait au séchage, ce qui correspond à une porosité de 64,5 % et à l'absence de macropores.",
+    "sources": [
+     {
+      "title": "Stimuli-responsive controlled growth of mono- and bidimensional particles from basic zirconium sulfate hydrosols (référence [24] de l'article, non relue ici)",
+      "authors_or_publisher": "M. A. Alves-Rosa, C. S. S. Sanhueza, C. V. Santilli, S. H. Pulcinelli, V. Briois, J. Phys. Chem. B",
+      "year": "2008",
+      "url_or_doi": "10.1021/jp803039p"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "porosimétrie Hg sur un morceau monolithique unique, avec correction du remplissage entre grains",
+    "dire si le témoin a été agité comme les mousses"
+   ]
+  },
+  {
+   "label": "SDS-15",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition molaire de SDS attendue à 15 %",
+     "inputs": "loi k × w/(1−w) ajustée sur 5, 7, 10, 20 % (k = 6,46 × 10−3)",
+     "formula": "k × 0,15/0,85",
+     "result": "1,14 × 10−3",
+     "compared_to": "1,4 × 10−3 dans l'article (coquille probable)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse volumique du squelette",
+     "inputs": "ρb = 0,338 ; P = 0,91",
+     "formula": "ρb/(1 − P)",
+     "result": "3,76 g/cm3 (3,4–4,2 avec ± 1 % sur P)",
+     "compared_to": "plus basse que pour 5–10 % (4,4–4,9) : plus de pores fermés ou de résidus",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La « composition molaire » de 1,4 × 10−3 donnée pour 15 % de SDS ne suit pas la loi que vérifient les quatre autres valeurs (1,14 × 10−3 attendu) : probable coquille. Les propriétés du tableau 1 sont cohérentes entre elles (P/ρb = 2,69 contre 2,70 cm3/g par Hg).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme que la voie de base ; l'excès de SDS commence à déstabiliser la mousse (mûrissement, coalescence), d'où des bulles plus grandes (22 μm) et un volume poreux plus faible.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "redemander aux auteurs l'unité des « compositions molaires » et la valeur à 15 %"
+   ]
+  },
+  {
+   "label": "SDS-10_500C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse volumique du squelette",
+     "inputs": "ρb = 0,358 ; P = 0,901",
+     "formula": "ρb/(1 − P)",
+     "result": "3,62 g/cm3",
+     "compared_to": "faible : solide amorphe chargé en sulfate et en matière organique, pores fermés (MEB)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "État amorphe à 500 °C, porosité plus faible et pores fermés : cohérent avec la TG (organiques et sulfates encore présents, départ entre 500 et 650 °C) et avec le retard de cristallisation qu'imposent les sulfates. La pycnométrie à l'hélium compte les pores fermés comme du solide, d'où ρs = 3,62 g/cm3.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le gel sulfaté reste amorphe tant que les sulfates et les résidus organiques couvrent les particules ; les pores restent fermés par ces résidus.",
+    "sources": [
+     {
+      "title": "Sulfated zirconia catalysts: characterization by TGA/DTA mass spectrometry (référence [26] de l'article, non relue ici)",
+      "authors_or_publisher": "R. Srinivasan, R. A. Keogh, D. R. Milburn, B. H. Davis, J. Catal.",
+      "year": "1995",
+      "url_or_doi": "10.1006/jcat.1995.1114"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "paliers et durée du traitement (non dits pour cette série)"
+   ]
+  },
+  {
+   "label": "SDS-10_800C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Na2SO4 attendu après 800 °C",
+     "inputs": "Na/Zr = 0,15–0,20 (voie de base)",
+     "formula": "voir voie de base",
+     "result": "8–10 % en masse de Na2SO4",
+     "compared_to": "Na2SO4 fond à 884 °C et ne se décompose qu'à bien plus haute température",
+     "source": "valeurs de l'article ; PubChem (Na2SO4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "« Only the monoclinic phase ... since all the sulfate groups had been eliminated » : le passage t → m après départ des sulfates est conforme à la littérature des zircones sulfatées. En revanche, l'élimination de tout le sulfate n'est pas prouvée : le sodium du SDS (Na/Zr ≈ 0,15–0,20) doit retenir du sulfate sous forme de Na2SO4. Ce sel est stable à 800 °C (point de fusion 884 °C ; les sulfates alcalins comptent parmi les plus stables au chauffage). Aucune analyse du soufre n'est donnée, et une phase minoritaire de Na2SO4 pourrait se cacher sous les raies de m-ZrO2 (28–32°).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "High temperature properties and decomposition of inorganic salts, part 1. Sulfates (NSRDS-NBS 7)",
+      "authors_or_publisher": "K. H. Stern, E. L. Weise, National Bureau of Standards",
+      "year": "1966",
+      "url_or_doi": "10.6028/NBS.NSRDS.7"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le volume poreux baisse de 3,19 à 2,71 cm3/g et la masse volumique du squelette recalculée vaut 4,73 g/cm3 (m-ZrO2 : ≈ 5,68). Ces chiffres s'accordent avec un début de frittage et la présence de résidus. L'article ne dit pas si les paliers à 90 et 350 °C et la durée de 3 h sont conservés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Départ des sulfates de surface (500–700 °C), puis croissance des cristallites au-delà de la taille critique de t-ZrO2 et transformation martensitique t → m au refroidissement.",
+    "sources": [
+     {
+      "title": "Sulfated zirconia and its modified versions as promising catalysts for industrial processes (référence [28] de l'article, non relue ici)",
+      "authors_or_publisher": "G. D. Yadav, J. J. Nair, Microporous Mesoporous Mater.",
+      "year": "1999",
+      "url_or_doi": "10.1016/S1387-1811(99)00147-X"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dosage du soufre et du sodium après 800 °C",
+    "vitesse de chauffe et paliers"
+   ]
+  },
+  {
+   "label": "SDS-10_1000C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse volumique du squelette",
+     "inputs": "ρb = 0,35 ; P = 0,91",
+     "formula": "ρb/(1 − P)",
+     "result": "3,89 g/cm3",
+     "compared_to": "m-ZrO2 ≈ 5,68 g/cm3 ; même avec 10 % de Na2SO4 (2,68), un mélange compact ferait ≈ 5,1 g/cm3 : il reste environ 25 % de porosité fermée dans les parois",
+     "source": "valeurs de l'article ; masse volumique de Na2SO4 (NIST WebBook, fiche PNNL)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "À 1000 °C, le Na2SO4 attendu (8–10 % en masse) est fondu (point de fusion 884 °C). Un sel fondu favorise le frittage en phase liquide, ce qui peut expliquer les parois plus denses et les pores fermés que montre le MEB, ainsi que la masse volumique de squelette basse (3,89 g/cm3, calcul ci-dessus). Les auteurs attribuent la densification au seul frittage de ZrO2 et ne mentionnent pas ce sel.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Sodium Sulfate, CID 24436 (Chemical and Physical Properties : point de fusion 884 °C, source CRC Handbook 95e éd.)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026 (consulté)",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Sulfate"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Porosité 91 ± 4 % et volume poreux 2,6 cm3/g cohérents entre eux (P/ρb = 2,60). La masse volumique du squelette (3,89 g/cm3) est très inférieure à celle de m-ZrO2 : il reste de la porosité fermée, que la pycnométrie à l'hélium compte comme du solide.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme à 800 °C, avec en plus le frittage des parois, possiblement aidé par Na2SO4 fondu.",
+    "sources": [
+     {
+      "title": "Sodium Sulfate, CID 24436 (Chemical and Physical Properties : point de fusion 884 °C, source CRC Handbook 95e éd.)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026 (consulté)",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-Sulfate"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dosage du sodium et du soufre ; DRX attentive aux raies de Na2SO4",
+    "porosité fermée par comparaison avec la masse volumique théorique"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La voie sol-gel avec mousse liquide (sol de BZS, SDS, aération, gélification par H2SO4, séchage, calcination par paliers) est chimiquement plausible et peut être refaite, mais sous-déterminée : aucune masse ni aucun volume, acide de gélification non défini, composition du sol renvoyée à Chiavacci 2004, et une concentration en Zr après dialyse (0,5 mol/L) qui ne découle pas du mélange (1,41 mol/L). Trois points de fond : (1) le sodium du SDS (Na/Zr ≈ 0,15–0,20) n'est jamais éliminé et doit rester sous forme de Na2SO4 (8–10 % en masse), ce qui contredit « all the sulfate groups had been eliminated » à 800–1000 °C et pèse sur l'acidité visée ; (2) le volume Hg du témoin sans SDS (0,70 cm3/g) dépasse le volume total possible (0,614 cm3/g) ; (3) le mécanisme des auteurs (micelles « gonflées d'air », pores secondaires dus à l'excès de SDS) est contredit par la taille des micelles et par le témoin, qui a lui aussi des pores secondaires. Les propriétés des mousses (P, ρb, V) sont cohérentes entre elles, et la séquence de phases amorphe → t → m suit la littérature des zircones sulfatées.",
+  "author_errors_suspected": [
+   "V(Hg) = 0,70 cm3/g pour le témoin à 0 % de SDS, supérieur à 1/ρb = 0,614 cm3/g : vides entre fragments comptés comme pores",
+   "« composition molaire » de SDS à 15 % : 1,4 × 10−3 au lieu de ≈ 1,14 × 10−3 attendu par la loi des quatre autres valeurs ; unité non donnée",
+   "résumé « macropores ≈ 30 μm », texte « ≈ 20 μm », tableau 13,6–29,5 μm ; conclusion « 0,28 g/cm3 » (5 %) attribuée à la mousse la plus poreuse (10 %, 0,292)",
+   "« supermésopores » de 0,4–2,3 μm : ce sont des macropores selon l'IUPAC ; boucle « H1 » attribuée à des fentes entre plaquettes (H3 selon l'IUPAC 2015)",
+   "TG dite du « wet gel » : 25 % de perte d'eau seulement, incompatible avec un gel humide issu d'un sol à 3,5 mol/L",
+   "sulfate « totalement éliminé » à 800 °C sans analyse de S, alors que le Na du SDS doit en retenir sous forme de Na2SO4",
+   "concentration en Zr de 0,5 mol/L après dialyse contre 1,41 mol/L attendu après mélange, sans explication"
+  ],
+  "comparison_with_database": "compare.py « zircon » et « ZrO2 » : aucune autre voie de zircone dans la base, pas de comparaison possible."
+ },
+ "sources_not_found": [
+  "composition exacte (RS = [Zr]/[SO4], RCl) du sol de Chiavacci et al. 2004 : seul le résumé a été lu, sans les valeurs ; le rapport 15:1 n'a pas pu être confronté à la source",
+  "aucune étude trouvée sur l'effet d'une contamination au sodium (ou d'un tensioactif sodé) sur l'acidité et la teneur en sulfate des zircones sulfatées ; l'argument repose sur la stabilité de Na2SO4 (PubChem, Stern et Weise 1966)",
+  "paramètres de maille de t-ZrO2 (a ≈ 3,60 Å, c ≈ 5,18 Å) et masses volumiques théoriques de t- et m-ZrO2 (6,1 et 5,68 g/cm3) pris comme valeurs de manuel, non relus sur COD ni sur les fiches PDF-79-1771 et PDF-83-0943",
+  "Crossref injoignable depuis le cloud : DOI non vérifiés par references/verif_doi.py : 10.6028/NBS.NSRDS.7 (vu sur la page NIST), 10.1021/cm035258d (page ACS lue), 10.1006/jcat.1996.0284 (vu sur OSTI) ; 10.1016/S1387-1811(99)00147-X, 10.1002/adma.200401080, 10.1021/jp803039p et 10.1006/jcat.1995.1114 sont repris de la bibliographie de l'article sans avoir été ouverts. Rien n'a été ajouté à fondateurs.md ni à constantes.md"
+ ]
+}

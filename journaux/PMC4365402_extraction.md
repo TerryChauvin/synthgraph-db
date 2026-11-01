@@ -1,0 +1,16 @@
+# Journal d'extraction PMC4365402
+
+- Découpage : S90 est une voie `intermediate` (dissolution FeSO4, mélange avec GO, séchage à 90 °C à l'air) car l'article lui donne un nom, un résultat DRX et des valeurs TG ; la série S500–S800 en dérive (réactif S90 de rôle `intermediate`, amont non renseigné en masse). Voie de base de la série : S500 (premier de la série, label SX = température de traitement).
+- Température de S500 : citée par « Figure 1b shows the XRD patterns of samples S500, S600, S700 and S800 » (le nombre vient du nom d'échantillon, défini par « SX, where X denotes the treating temperature ») ; aucune autre phrase n'écrit « recuit à 500 °C » pour S500.
+- Broyage : les Résultats (« the products were grounded in an agate mortar, annealed ... ») contredisent les Méthodes (bloc noir mis directement dans la nacelle) et la Discussion (broyer S90 nuit à Fe3O4). Méthodes retenues (plus détaillées), contradiction en doute ; le broyage n'est pas une étape de S500–S800.
+- S90 broyé puis recuit à 800 °C : branche de S800 avec ses propres étapes (grind, anneal) ; durée, atmosphère et vitesse de chauffe non citées car la phrase ne les donne pas.
+- Témoin S0X : une seule voie pour les S0X (températures non listées, « at every temperature point »), rattachée à S500 avec réactif S90 « replaced by FeSO4·7H2O powders » ; « same procedure / same conditions » traité comme implicite, donc durée, atmosphère et vitesse de chauffe en `not_stated`.
+- Échantillon à 10 % de GO : branche de S700, variation `go_dosage` 10 % (parent_value 5 % tiré de « increased from 5% to 10% ») ; hérite des étapes de S700 sans que l'article le dise : doute écrit. Une seule valeur lue sur figure : l'épaisseur de la courbe RL à 6 GHz (Fig. 3d, 4 mm).
+- Table 1 : une rangée par échantillon, six grandeurs recopiées en `value_text` (plages ; pas de valeur numérique unique). La rangée ne dit pas l'épaisseur (3 mm vient de la phrase qui présente Fig. 4 et Table 1), mise dans les conditions de caractérisation.
+- « respectively » : S700/S800 (−17.1 et −15.2 dB ; 6.72 et 7.68 GHz) et bandes passantes S600/S700/S800 (0.96, 1.84, 2.35 GHz) attribuées dans l'ordre écrit ; l'épaisseur des bandes passantes n'est pas écrite (doute). Aimantation : l'ordre de la phrase est « ground sample and S800 », donc 1.93 puis 80.4 emu/g.
+- TG/DTG : (510 vs 430, 578 vs 538) lu comme « FeSO4·7H2O pur vs S90 » ; mis sur S90 (430 et 538 °C) ; valeurs du FeSO4·7H2O pur seulement dans l'annotation.
+- Échantillons sans voie : GO (Hummers modifié, non décrit), S540 (ni protocole ni indication avec/sans GO), mélange Fe3O4 + rGO (protocole renvoyé à b41), [Fe,Ni] commercial avant/après chauffage. Leurs valeurs (−6, −7, −5 dB) sont en annotation de tendance, pas en résultats de voie.
+- Contradiction S700 : DRX = Fe3O4 + un peu d'hématite ; Raman et MET = Fe3O4 seul. Les deux gardés, chacun dans sa caractérisation.
+- « under the same conditions is −17 dB » pour S700 : ambiguïté (chauffé ou non) ; non extrait comme résultat.
+- Annexes : aucune section Supporting Information dans le fichier texte ; Fig. S1–S11 citées et signalées en `limite_reproductibilite` d'article (annexe absente du dépôt).
+- Fig. 3 et Fig. 5 : seules les valeurs écrites dans le texte sont reprises ; les courbes à 2, 3 et 3.5 mm ne comparent que l'épaisseur du test.

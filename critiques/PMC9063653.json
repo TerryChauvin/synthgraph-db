@@ -1,0 +1,88 @@
+{
+  "pmcid": "PMC9063653",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "Co3O4_O2 reagent 1 name 'cobalt(III) acetate tetrahydrate' (l'étape 1 dit 'cobalt acetate tetrahydrate')",
+      "extracted": "cobalt(III) acetate tetrahydrate",
+      "article_says": "The Co(CH3COO)3·4H2O was dissolved in 2-methoxyethanol and acetic acid",
+      "fix": "L'article ne donne que la formule Co(CH3COO)3·4H2O, sans nom ni degré d'oxydation. Nommer le réactif d'après la formule écrite (ou 'cobalt acetate tetrahydrate') et ajouter un doute : la formule avec Co(III) est inhabituelle pour un sel hydraté commercial, il peut s'agir d'une coquille pour l'acétate de cobalt(II) ; un chimiste doit vérifier avant de commander.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Co3O4_air et Co3O4_O2 : caractérisation XRD et résultat de cristallinité",
+      "extracted": "résultat 'higher peak intensity and narrower FWHM' rangé seulement dans la caractérisation XRD de Co3O4_O2 ; résultat 'crystallinity' présent seulement sur Co3O4_N2 ; rien de tel sur Co3O4_air",
+      "article_says": "oxygen and air annealed Co3O4 films show higher peak intensity and narrower full width at half maximum (FWHM)",
+      "fix": "Ajouter à Co3O4_air le même constat XRD (intensité plus haute et FWHM plus étroite que l'azote) ; éventuellement un résultat 'crystallinity' explicite pour O2 et air (plus cristallins que l'azote).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Stack_O2 / Stack_air / Stack_N2 outcomes : anisotropie magnétique (Fig. 9d–f)",
+      "extracted": "valeurs Ms perpendiculaires seules ; aucun résultat texte sur l'anisotropie",
+      "article_says": "which demonstrates that the magnetization is anisotropic compared with in-plane M–H loops, being lower when the magnetic field is applied perpendicularly to the surface of Co3O4 thin film than when it is applied in the parallel direction",
+      "fix": "Ajouter un résultat 'magnetic_anisotropy' (value_text) sur les trois voies stack avec cette citation ; les valeurs perpendiculaires (28,7/35,2/97,6 ; 35,3/44,7/118,3 ; 45,7/85,2/125,9 emu/cc) sont déjà justes (vérifiées sur la Fig. 9).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Stack_N2 outcomes : pente Schottky (Fig. 7b)",
+      "extracted": "HRS_high_voltage_conduction = 'Schottky emission', sans la pente ; la pente ohmique 1,04 est, elle, extraite",
+      "article_says": "We found linear curve fitting with Schottky emission, as shown in Fig. 7(b).",
+      "fix": "Ajouter la pente 2,84 de ln(I) vs sqrt(V), imprimée sur la Fig. 7b (from_figure), avec la plage de tension de l'ajustement lue sur l'axe (sqrt V ≈ 0,67–1,05) ; Fig. 8b : droites ln(I/T²) vs 1/T à 0,4, 0,5 et 0,6 V.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Co3O4_O2/air/N2 XRD : réflexions utilisées pour Scherrer",
+      "extracted": "taille de cristallite sans indication des pics utilisés",
+      "article_says": "By calculating the average value of grain size from the (111), (220), and (511) diffraction peaks.",
+      "fix": "Ajouter aux conditions XRD (ou à un paramètre du résultat crystallite_size_XRD) : moyenne sur les pics (111), (220), (511), formule de Scherrer D = 0,9λ/β cos θ.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Stack_O2 step 1, paramètre mask_aperture = 300 μm",
+      "extracted": "mask_aperture 300 μm ; morphology '300 μm top electrode'",
+      "article_says": "to define the cell size of the MIM structure, 300 μm metal shadow mask were used.",
+      "fix": "L'article dit 'a 300 μm metal shadow mask' sans préciser que 300 μm est le diamètre d'ouverture ni la taille de l'électrode. Renommer le paramètre 'mask_size' et garder la citation ; la dimension de la cellule reste à confirmer.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Stack_N2 outcomes : résistances HRS/LRS en fonction de la température (Fig. 8a)",
+      "extracted": "HRS ~8×10^3 Ω et LRS ~30 Ω (Fig. 6b), sans les valeurs de la Fig. 8a",
+      "article_says": "Fig. 8(a) shows the temperature dependence of the high and low resistance states of nitrogen annealed Pt/Co3O4/Pt stack.",
+      "fix": "Sur la Fig. 8a (lue à 0,1 V), HRS vaut environ 13 kΩ à 200 K et 7 kΩ à 300 K ; LRS environ 19 Ω à 200 K et 20,5 Ω à 300 K, soit moins que les ~30 Ω des Fig. 5c et 6b à température ambiante (cellules ou mesures différentes). Ajouter ces valeurs (from_figure) ou une annotation limite_reproductibilite sur cet écart.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Stack_O2/Stack_air endurance_cycles_measured (200 cycles, Fig. 5a/5b)",
+      "extracted": "citation = légende de la Fig. 5, qui ne contient pas le nombre",
+      "article_says": "It is worth mentioning that four times repeatable number of cycles increased in nitrogen annealed Pt/Co3O4/Pt stack as compared to other air and oxygen annealed Pt/Co3O4/Pt stacks.",
+      "fix": "Valeur 200 juste (axe de la Fig. 5a et 5b vérifié) ; ajouter cette phrase comme second appui de la citation (cohérente avec 800/4 = 200).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 6,
+    "branches_extracted": 6,
+    "not_stated_checked": 22,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "volume de solution, durée d'agitation ou de vieillissement du sol, température de dissolution, pureté et fournisseur de l'acétate de cobalt, du 2-méthoxyéthanol et de l'acide acétique",
+    "nombre de couches (« several times ») et épaisseur du film : mesurée au MEB (« film thickness ») mais jamais donnée ; elle est aussi nécessaire pour convertir l'aimantation en emu/cc",
+    "atmosphère et rampe de la cuisson à 300 °C ; rampe de montée et de descente, débit de gaz, type de four et pureté des gaz du recuit à 600 °C (O2, air, N2)",
+    "composition et épaisseurs du substrat Pt/Ti/SiO2/Si, fournisseur, nettoyage préalable",
+    "méthode de dépôt (pulvérisation, évaporation), épaisseur, pureté et conditions de l'électrode supérieure de Pt ; matériau du masque",
+    "protocole de préparation des états fresh, HRS et LRS avant les mesures SQUID (nombre de cycles, courant de limitation), nombre de cellules mesurées, traitement de la contribution du substrat dans les boucles M–H",
+    "fenêtre de champ SQUID : −2 à +2 T dans les méthodes, boucles tracées à ±10 000 Oe",
+    "formule du précurseur : Co(CH3COO)3·4H2O (Co(III)) à confirmer"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs cite bien les passages (filaments de lacunes d'oxygène, formation puis rupture par effet Joule ; perte d'oxygène en surface sous azote) ; mecanisme_analyse est signalé comme hypothèse de chimiste ; sécurité plausible, pas de danger évident omis.",
+  "notes": "Extraction globalement fidèle : toutes les valeurs numériques vérifiées contre le texte et les figures (Fig. 2 tailles de particule 20/15/8 nm, Fig. 3, Fig. 4a forming 5,1/4,2/2,7 V à ±0,2 V, Fig. 5 résistances et 200/200/800 cycles, Fig. 6a plages Vset/Vreset, Fig. 6b retention 8 kΩ / 30 Ω jusqu'à 10^4 s, Fig. 8c α = 7,8e-4 K-1, Fig. 9 toutes les Ms imprimées dans les encarts). Aucune erreur de valeur ni d'attribution. Inventaire d'échantillons identique au mien (3 films, 3 empilements, substrat nu). Les trois états fresh/HRS/LRS comme résultats et non branches est correct. method_sources vide : correct, aucune phrase de méthode n'a de renvoi (le renvoi cit3 'our previous Pt/NiFe2O4/Pt' sert l'interprétation de α). Le '104 s' du texte (10^4 s sur l'axe de la Fig. 6b) est déjà en doute chez l'extracteur."
+}

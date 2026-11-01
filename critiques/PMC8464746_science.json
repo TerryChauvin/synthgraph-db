@@ -1,0 +1,625 @@
+{
+ "pmcid": "PMC8464746",
+ "routes": [
+  {
+   "label": "MSN-NH2",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'APTES écrites (700 mL)",
+     "inputs": "700 mL ; d = 0,946 g/mL ; M = 221,37 g/mol",
+     "formula": "V·d / M",
+     "result": "662 g, soit 2,99 mol d'APTES pour 0,2 g de MSN (≈ 15 mol/g)",
+     "compared_to": "greffage usuel : quelques mmol de silane par g de silice",
+     "source": {
+      "title": "APTES ((3-Aminopropyl)triethoxysilane) Chemical Approval (reprend la FDS Sigma-Aldrich 440140 : d = 0,946 g/cm3, Eb 217 °C, H302, H314, H317)",
+      "authors_or_publisher": "IIT Bombay Nanofabrication Facility (fiche interne citant la FDS Sigma-Aldrich)",
+      "year": "2019",
+      "url_or_doi": "https://www.iitbnf.iitb.ac.in/chemical_approval/policy/528_policy.pdf"
+     }
+    },
+    {
+     "what": "moles d'APTES si l'unité est le µL",
+     "inputs": "700 µL ; d = 0,946 g/mL ; M = 221,37 g/mol",
+     "formula": "V·d / M",
+     "result": "0,662 g = 2,99 mmol, soit 15 mmol/g de MSN",
+     "compared_to": "silanols d'une silice de ≈ 1000 m2/g à 4,6 OH/nm2 ≈ 7,6 mmol/g : excès d'environ 2, habituel",
+     "source": "chimie_generale (densité : FDS Sigma-Aldrich reprise par IIT Bombay)"
+    },
+    {
+     "what": "silanols de surface d'une MSN de 1000 m2/g",
+     "inputs": "4,6 OH/nm2 (valeur de Zhuravlev, ordre de grandeur) ; 1000 m2/g supposé (surface de MSN non donnée dans le texte, Tableau S1 absent)",
+     "formula": "4,6e18 OH/m2 × 1000 m2/g / 6,022e23",
+     "result": "≈ 7,6 mmol OH/g",
+     "compared_to": "APTES 15 mmol/g (lecture µL)",
+     "source": "chimie_generale, ordre de grandeur"
+    },
+    {
+     "what": "volume total du mélange écrit",
+     "inputs": "200 mL d'éthanol + 700 mL d'APTES",
+     "formula": "somme",
+     "result": "900 mL dont 78 % d'APTES (Eb 217 °C) : un « reflux à 70–80 °C » n'est plus possible, le mélange bout bien au-dessus",
+     "compared_to": "reflux de l'éthanol pur : 78 °C",
+     "source": "valeurs de l'article ; Eb APTES : FDS"
+    },
+    {
+     "what": "bilan de masse MSN-NH2 → MSN-COOH",
+     "inputs": "0,2 g de MSN aminées (2.2) ; 2 g de MSN-COOH engagées ensuite (2.2)",
+     "formula": "2 / 0,2",
+     "result": "facteur 10 : un seul lot de 0,2 g ne peut pas fournir 2 g de MSN-COOH",
+     "compared_to": "prise de masse par greffage : quelques dizaines de % au plus",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« 700 mL of APTSES » pour 0,2 g de MSN dans 200 mL d'éthanol représente 2,99 mol d'APTES (voir calculs « moles d'APTES écrites ») : environ 2000 fois les silanols disponibles, 660 g de réactif pour 0,2 g de support. C'est presque sûrement 700 µL (2,99 mmol, ≈ 2 équivalents de silanols, proportion habituelle). À refaire en µL, en le signalant comme correction du lecteur.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Reflux à 70–80 °C cohérent avec l'éthanol (Eb 78,3 °C, NIST WebBook) si l'éthanol est le solvant majoritaire (lecture µL). Avec 700 mL d'APTES (Eb 217 °C) le mélange ne refluerait pas à 80 °C (calcul « volume total du mélange écrit »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "0,2 g de MSN aminées ici, 2 g de MSN-COOH engagées à l'étape suivante (calcul « bilan de masse ») : soit plusieurs lots réunis, soit une erreur d'un facteur 10 sur l'une des deux masses. L'article ne le dit pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La teneur en eau de l'éthanol n'est pas donnée : l'APTES s'hydrolyse et se polycondense en solution en présence d'eau (oligomères, multicouches). Pour un greffage reproductible, éthanol absolu ou toluène sec ; le greffage n'est pas quantifié (pas d'ATG, ni de titrage des amines).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La synthèse de MSN est renvoyée à la littérature (TEOS, CTAB, diéthanolamine en Matériels) ; l'élimination du CTAB (extraction acide ou calcination) n'est pas écrite. Du CTAB résiduel bouche les pores et dénature les enzymes ; il faut le vérifier (IR à 2850–2920 cm−1, ATG) avant le greffage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La carboxylation MSN-NH2 → MSN-COOH n'est pas décrite (réactif, solvant, durée). Voie usuelle : anhydride succinique dans le DMF ou le DMSO à température ambiante. Un chimiste ne peut pas refaire MSN-COOH tel qu'écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "APTES : H302, H314 (corrosif cutané 1B), H317 (sensibilisant), inflammable (point éclair 93 °C) ; reflux d'éthanol sous hotte sans flamme ; méthanol toxique au lavage ; poudre nanométrique lyophilisée à manipuler masquée.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "APTES ((3-Aminopropyl)triethoxysilane) Chemical Approval (reprend la FDS Sigma-Aldrich 440140 : d = 0,946 g/cm3, Eb 217 °C, H302, H314, H317)",
+      "authors_or_publisher": "IIT Bombay Nanofabrication Facility (fiche interne citant la FDS Sigma-Aldrich)",
+      "year": "2019",
+      "url_or_doi": "https://www.iitbnf.iitb.ac.in/chemical_approval/policy/528_policy.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse partielle des groupes éthoxy de l'APTES (eau adsorbée ou résiduelle), condensation des silanols de l'APTES avec les Si–OH de surface (liaisons Si–O–Si), l'amine propyle restant libre en surface ; une condensation en solution (oligomères) devient d'autant plus probable que l'éthanol contient de l'eau. La carboxylation suivante (non décrite) se fait typiquement par ouverture de l'anhydride succinique par l'amine (amide + acide terminal).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "lire 700 µL et non 700 mL d'APTES (≈ 15 mmol/g de MSN)",
+    "masse réelle de MSN par lot (0,2 g ici contre 2 g de MSN-COOH ensuite)",
+    "élimination du CTAB des MSN et surface BET des MSN (Tableau S1 absent)",
+    "éthanol absolu, atmosphère sèche",
+    "protocole de carboxylation (non écrit) et dosage des amines puis des carboxyles"
+   ]
+  },
+  {
+   "label": "MSN-NAD",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'EDC",
+     "inputs": "50 mg ; M(EDC·HCl) = 191,70 g/mol ; 30 mL",
+     "formula": "m/M ; n/V",
+     "result": "0,261 mmol ; 8,7 mM",
+     "compared_to": "carboxyles de 2 g de MSN-COOH (non dosés ; 1–2 mmol/g usuels, soit 2–4 mmol) : EDC ≈ 0,07–0,13 équivalent",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "concentration de MSN-COOH",
+     "inputs": "2 g dans 30 mL",
+     "formula": "m/V",
+     "result": "67 mg/mL (suspension épaisse)",
+     "compared_to": "dispersion de nanoparticules usuelle : 1–10 mg/mL",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La quantité de NAD+ (« a certain amount ») et la teneur en COOH ne sont pas données ; l'EDC (0,261 mmol, calcul « moles d'EDC ») est sous-stœchiométrique par rapport aux carboxyles probables de 2 g de MSN-COOH. Le taux de NAD+ greffé n'est pas mesuré (pas d'A260 sur les eaux de lavage, pas d'ATG) : le rendement et la charge en coenzyme ne peuvent pas être reproduits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Couplage carbodiimide d'un carboxyle de support sur le NAD+ : décrit dans la littérature (NAD+ greffé sur l'acide alginique par EDC, 3,4–17,6 % des carboxyles couplés, activité de coenzyme 80–90 %). Le seul nucléophile azoté du NAD+ est l'amine N6 de l'adénine, peu nucléophile (conjuguée au cycle) ; la littérature passe souvent par un ester NHS ou un dérivé N6-aminoalkyle. Sans NHS, l'O-acylisourée s'hydrolyse vite dans l'eau : un rendement de greffage faible est attendu. L'EDC peut aussi activer le pyrophosphate du NAD+ (réactions parasites).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Electron-transfer function of NAD+-immobilized alginic acid",
+      "authors_or_publisher": "PubMed 8600977 (couplage EDC du NAD+ sur les carboxyles de l'acide alginique)",
+      "year": "1996",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/8600977"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "pH 4,8 ajusté à l'HCl 0,5 M sans tampon : compatible avec l'activation EDC (optimum pH 4,5–6) et avec la stabilité du NAD+ (stable en milieu acide, labile en milieu alcalin). Le pH dérive pendant 28 h sans tampon (MES conseillé).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "28 h à 28 °C : bien plus long que la durée de vie de l'O-acylisourée (minutes en milieu aqueux) ; l'EDC est consommé par hydrolyse dans les premières heures, la prolongation n'apporte rien sans nouvel ajout d'EDC.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Lavage au NaCl 0,2 M jusqu'à disparition du NAD+ : bon critère pour éliminer le NAD+ adsorbé, mais la méthode de détection (A260, test enzymatique) n'est pas écrite. Point clé pour la suite : si du NAD+ adsorbé reste et se libère pendant la réaction, la cascade fonctionne avec du coenzyme libre et non immobilisé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "EDC·HCl : sensibilisant cutané et irritant oculaire ; HCl 0,5 M irritant. Rien d'inhabituel.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Activation du carboxyle de surface par l'EDC en O-acylisourée (favorisée à pH 4,5–5), attaque lente par l'amine N6 de l'adénine du NAD+ (faible nucléophile) donnant un amide ; compétition forte avec l'hydrolyse de l'intermédiaire et le réarrangement en N-acylurée. Le greffage attendu est faible ; une partie du NAD+ retenu peut être adsorbée et non liée.",
+    "sources": [
+     {
+      "title": "Electron-transfer function of NAD+-immobilized alginic acid",
+      "authors_or_publisher": "PubMed 8600977 (couplage EDC du NAD+ sur les carboxyles de l'acide alginique)",
+      "year": "1996",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/8600977"
+     },
+     {
+      "title": "A novel method for preparation of MNP@CS-tethered coenzyme for coupled oxidoreductase system",
+      "authors_or_publisher": "PubMed 25617681 (Elsevier)",
+      "year": "2015",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/25617681"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité de NAD+ engagée (non écrite) et dosage du NAD+ greffé (A260 des eaux de lavage)",
+    "teneur en COOH de MSN-COOH",
+    "ajouter NHS ou sulfo-NHS et un tampon MES si l'on veut un greffage reproductible",
+    "contrôle de relargage du NAD+ dans le tampon de réaction"
+   ]
+  },
+  {
+   "label": "ZIF@ADH/NAD-MSN/LDH",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire 2-méthylimidazole / Zn écrit",
+     "inputs": "10 mL × 40 mM d'acétate de zinc = 0,40 mmol ; 10 mL × 2,8 mM de 2-méthylimidazole = 0,028 mmol",
+     "formula": "n(HmIm)/n(Zn)",
+     "result": "0,07",
+     "compared_to": "ZIF-8 = Zn(mIm)2 : 2 au minimum ; 4 en minéralisation biomimétique (160 mM/40 mM) ; 70 en synthèse aqueuse (Pan 2011) ; base : 4 (PMC5438438, 1,25 M/310 mM), 70 (PMC11302435), 8 (PMC12624334)",
+     "source": {
+      "title": "Biomimetic mineralization of metal-organic frameworks as protective coatings for biomacromolecules",
+      "authors_or_publisher": "K. Liang, R. Ricco, C. M. Doherty, … C. J. Doonan, P. Falcaro (Nature Communications)",
+      "year": "2015",
+      "url_or_doi": "10.1038/ncomms8240"
+     }
+    },
+    {
+     "what": "hypothèse 2,8 M au lieu de 2,8 mM",
+     "inputs": "40 mM × 70",
+     "formula": "c(Zn) × 70",
+     "result": "2,8 M exactement, soit le rapport 70:1 de Pan et al. 2011",
+     "compared_to": "valeur écrite 2,8 mM",
+     "source": {
+      "title": "Rapid synthesis of zeolitic imidazolate framework-8 (ZIF-8) nanocrystals in an aqueous system",
+      "authors_or_publisher": "Y. Pan, Y. Liu, G. Zeng, L. Zhao, Z. Lai (Chemical Communications, RSC)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C0CC05002D"
+     }
+    },
+    {
+     "what": "masse maximale de ZIF-8 avec 2,8 mM",
+     "inputs": "0,028 mmol HmIm (réactif limitant, 2 par Zn) ; M(Zn(C4H5N2)2) = 65,38 + 2 × 81,10 = 227,6 g/mol",
+     "formula": "n(HmIm)/2 × M",
+     "result": "0,014 mmol, soit 3,2 mg de ZIF-8 au plus",
+     "compared_to": "4 mg d'enzymes et de MSN-NAD à enrober",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "masse de composite déduite de la charge annoncée",
+     "inputs": "2 mg d'enzymes × 92,65 % = 1,853 mg immobilisés ; 40 µg d'enzyme par mg de composite",
+     "formula": "1,853 mg / 0,040",
+     "result": "≈ 46 mg de composite",
+     "compared_to": "≤ 7,2 mg possibles avec 2,8 mM (3,2 + 4) ; ≤ 95 mg avec 2,8 M (0,40 mmol Zn × 227,6 = 91 mg + 4 mg), soit ≈ 47 % de rendement en ZIF-8",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration et masse de 2-méthylimidazole à 2,8 M",
+     "inputs": "2,8 mol/L × 82,10 g/mol ; 10 mL",
+     "formula": "c·M ; c·M·V",
+     "result": "230 g/L ; 2,30 g par lot",
+     "compared_to": "solubilité dans l'eau ≈ 780 g/L (fiche fournisseur)",
+     "source": {
+      "title": "2-Methylimidazole, CAS 693-98-1 — propriétés (solubilité 780 g/L ; pH 10,5–11,5 à 100 g/L)",
+      "authors_or_publisher": "ChemicalBook (fiche fournisseur, source secondaire)",
+      "year": "s.d.",
+      "url_or_doi": "https://www.chemicalbook.com/ChemicalProductProperty_EN_CB6146227.htm"
+     }
+    },
+    {
+     "what": "conversion du pyruvate",
+     "inputs": "124,605 µg/mL d'acide lactique ; M = 90,08 g/mol ; pyruvate 2 mM",
+     "formula": "c/M ; / 2 mM",
+     "result": "1,383 mM, soit 69,2 % du pyruvate",
+     "compared_to": "« more than 70 % » et 70,10 % annoncés : cohérent à 1 % près",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapports au témoin",
+     "inputs": "124,605 ; 58,850 ; 46,235 µg/mL",
+     "formula": "124,605/58,850 ; 124,605/46,235",
+     "result": "2,12 et 2,70",
+     "compared_to": "2,82 annoncé (à 40 °C, condition différente du test à pH 7,4)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "éthanol consommé contre lactate formé",
+     "inputs": "20 mM d'éthanol × 46,07 g/mol = 921 µg/mL au départ ; ≈ 700 µg/mL restants à 3,5 h (lecture de figure)",
+     "formula": "(921 − 700)/46,07",
+     "result": "≈ 4,8 mM d'éthanol consommés pour 1,38 mM de lactate",
+     "compared_to": "cycle du coenzyme : 1 éthanol oxydé par pyruvate réduit (rapport 1:1)",
+     "source": "valeurs de l'article et lecture de figure"
+    },
+    {
+     "what": "nombre de cycles du NAD+ immobilisé",
+     "inputs": "100 µg/mL × 200 µL = 20 µg de composite ; fraction de MSN-NAD ≤ 2 mg / 46 mg = 4,3 % → ≤ 0,87 µg ; borne haute absurde « MSN-NAD = 100 % NAD+ » (663,4 g/mol) → 1,3 nmol ; lactate : 1,383 mM × 200 µL = 277 nmol",
+     "formula": "n(lactate)/n(NAD+)",
+     "result": "≥ 210 cycles en 3 h, et plutôt plusieurs milliers pour une charge réaliste (≈ 50 µmol/g, soit 0,04 nmol)",
+     "compared_to": "un NAD+ fixé sur une particule de silice rigide doit atteindre les sites actifs des deux enzymes",
+     "source": "valeurs de l'article ; charge de 50 µmol/g d'après MNP@CS (PubMed 25617681)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport HmIm/Zn écrit = 0,07 (calcul « rapport molaire 2-méthylimidazole / Zn écrit ») : 30 fois moins que la stœchiométrie de Zn(mIm)2. Au plus 3,2 mg de ZIF-8 pourraient se former, ce qui contredit la charge annoncée de 40 µg/mg (≈ 46 mg de composite, calcul « masse de composite ») et la surface BET de 1118 m2/g. 2,8 M (= 70 × 40 mM, rapport de Pan et al. 2011) rend tout cohérent (≈ 47 % de rendement en ZIF-8) ; 160 mM (protocole Liang 2015) est l'autre lecture possible. La valeur écrite est fausse ; la bonne n'est pas dans l'article.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Rapid synthesis of zeolitic imidazolate framework-8 (ZIF-8) nanocrystals in an aqueous system",
+      "authors_or_publisher": "Y. Pan, Y. Liu, G. Zeng, L. Zhao, Z. Lai (Chemical Communications, RSC)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C0CC05002D"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le solvant des deux solutions n'est pas écrit en 2.3 (eau d'après 3.2). Acétate de zinc 40 mM soluble sans difficulté ; 2-méthylimidazole à 2,8 M = 230 g/L, sous la solubilité d'environ 780 g/L (calcul « concentration et masse de 2-méthylimidazole à 2,8 M »). Une telle solution est à pH ≈ 11 : les enzymes y passent la nuit.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "2-Methylimidazole, CAS 693-98-1 — propriétés (solubilité 780 g/L ; pH 10,5–11,5 à 100 g/L)",
+      "authors_or_publisher": "ChemicalBook (fiche fournisseur, source secondaire)",
+      "year": "s.d.",
+      "url_or_doi": "https://www.chemicalbook.com/ChemicalProductProperty_EN_CB6146227.htm"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Aucune DRX : la phase « ZIF-8 » est déduite de la morphologie (dodécaèdres en MEB) et de l'IR. En minéralisation biomimétique dans l'eau, le produit peut être sod (ZIF-8), dia, ZIF-L, ZIF-C (carbonate) ou amorphe selon le rapport HmIm/Zn et la concentration ; les phases denses (dia) n'ont pas de porosité. La phase doit être prouvée par DRX.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Control of Structure Topology and Spatial Distribution of Biomacromolecules in Protein@ZIF-8 Biocomposites",
+      "authors_or_publisher": "W. Liang, R. Ricco, N. K. Maddigan, … C. J. Doonan (Chemistry of Materials, ACS)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04977"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire IR : la bande de 1090 cm−1 du composite est attribuée à « Zn–O–Zn ». Le ZIF-8 n'a pas de pont Zn–O–Zn ; ses vibrations métal-ligand sont vers 421–426 cm−1 (Zn–N). La bande vers 1090–1100 cm−1 est l'élongation asymétrique Si–O–Si de la silice (les auteurs la donnent eux-mêmes à 1100 cm−1 pour MSN) : c'est la trace des MSN encapsulées, pas d'une liaison Zn–O.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Influence of the 2-methylimidazole/zinc nitrate hexahydrate molar ratio on the synthesis of zeolitic imidazolate framework-8 crystals at room temperature",
+      "authors_or_publisher": "Scientific Reports (Springer Nature), article PMC6018639",
+      "year": "2018",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6018639"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Porosité incohérente : le ZIF-8 est microporeux (cages de 11,6 Å, fenêtres de 3,4 Å) et donne une isotherme de type I. Les auteurs annoncent pour le ZIF-8 un diamètre moyen de 17–22 nm et une isotherme « Langmuir IV », et pour le composite une isotherme de type III avec 1118 m2/g. Une isotherme de type III (interaction adsorbant–adsorbat faible, pas de monocouche identifiable) est incompatible avec une surface BET élevée, et la méthode BET n'y est pas applicable. Les « pores de 3 nm » ne sont pas les pores du ZIF-8. Les données de l'annexe (Tableau S1, Figure S2) sont absentes du dépôt et ne peuvent pas être vérifiées.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "M. Thommes, K. Kaneko, A. V. Neimark, … K. S. W. Sing (Pure and Applied Chemistry, IUPAC)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Stabilité dans le tampon phosphate : toutes les réactions se font dans du PB 100 mM à pH 7,4 (3 h), le recyclage lave au PBS, et le stockage de trois semaines est fait « in PBS » (légende Fig. 7B). Le ZIF-8 se dégrade dans le PBS dès 10 mM de phosphate (le phosphate déplace le 2-méthylimidazolate et forme un phosphate de zinc), d'autant plus vite que les particules sont petites et diluées (ici 100 µg/mL). Avec 10 fois plus de phosphate, la coque est probablement attaquée pendant le test. Les enzymes peuvent donc être libérées, et la « protection » au stockage et au recyclage n'est pas démontrée. Aucun contrôle (Zn2+ dissous, DRX ou MEB après réaction) n'est montré.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Degradation of ZIF-8 in phosphate buffered saline media",
+      "authors_or_publisher": "M. de J. Velásquez-Hernández, R. Riccò, F. Carraro, … C. J. Doonan, P. Falcaro (CrystEngComm, RSC)",
+      "year": "2019",
+      "url_or_doi": "10.1039/c9ce00757a"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction dans les solvants (section 3.3) : le texte dit que le DMF est plus gros que l'acétonitrile et que l'acétonitrile, en entrant dans les pores, détruit l'activité, alors que l'activité résiduelle est de 76,89 % dans l'acétonitrile et de 27,42 % dans le DMF. L'explication donne la conclusion inverse des mesures. De plus, les deux molécules (≈ 4–5 Å) dépassent l'ouverture rigide de 3,4 Å, mais le réseau flexible les admet toutes deux.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "CLSM : avec une résolution latérale d'environ 200–250 nm (limite de diffraction à 488–543 nm), une particule de 400–500 nm fait deux pixels optiques. On ne peut pas distinguer une enzyme dans la particule d'une enzyme à sa surface. De plus, la rhodamine B n'a pas de groupe réactif (il faudrait de l'isothiocyanate de rhodamine B) : elle s'adsorbe sur le ZIF-8 sans marquer la LDH. Enfin Méthodes et Résultats inversent les couleurs (RhB = LDH en 2.4, rouge = ADH en 3.1). L'image ne prouve pas le confinement ; il faudrait un test de digestion par une protéase ou un relargage par EDTA.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Éthanol consommé (≈ 4,8 mM, lecture de figure) très supérieur au lactate formé (1,38 mM, calcul « éthanol consommé contre lactate formé »). Avec régénération du coenzyme, le rapport devrait être de 1:1. L'écart vient probablement de l'évaporation de l'éthanol (et de l'acétaldéhyde, Eb 20 °C) dans 200 µL à 37–40 °C, ou d'une imprécision de dosage. La consommation d'éthanol ne mesure donc pas l'avancement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Cycle du coenzyme : ≥ 210 cycles, et plutôt plusieurs milliers (calcul « nombre de cycles du NAD+ immobilisé »), pour un NAD+ fixé par un bras court sur des MSN de 70–90 nm, elles-mêmes noyées dans un cristal de ZIF-8 avec deux enzymes de ≈ 140 kDa. Le coenzyme ne peut servir qu'aux enzymes en contact avec la silice. Ces chiffres s'expliquent plus simplement par du NAD+ adsorbé ou libéré (lavage insuffisant, dégradation de la coque dans le phosphate). Il faut doser le NAD(H) libre dans le surnageant de réaction.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Activité de l'enzyme immobilisée 1,72 fois celle de l'enzyme libre : inhabituel pour une encapsulation dans le ZIF-8, où l'accès au substrat est freiné (la HRP/ZIF-8 de PMC5438438 garde 12 % de l'activité native). Possible si l'enzyme libre se dénature pendant l'essai, mais la condition du test (37 °C, durée) n'est pas assez décrite pour le juger.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Conversion du pyruvate de 69,2 % (calcul « conversion du pyruvate »), cohérente avec « > 70 % » et 70,10 % ; plateau après 3 h compatible avec une inhibition par l'acétaldéhyde ou avec l'équilibre de la LDH. La baisse à pH 9 (réaction inverse lactate → pyruvate favorisée en milieu alcalin) est plausible. En revanche le phosphate ne tamponne pas à pH 9 (pKa2 = 7,2) ; le tampon des séries en pH n'est pas écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Section 3.2 : erreurs de biochimie dans le texte. La LDH est décrite comme « ADH… NAD-dependent kinase » à sous-unités LDHA/B/C, et la LDH serait « zinc-containing ». Les sous-unités LDHA/LDHB/LDHC sont celles de la LDH, ce n'est pas une kinase, et la LDH ne contient pas de zinc (c'est l'ADH qui en contient). C'est sans effet sur le protocole, mais ce passage n'est pas fiable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le 2-méthylimidazole est classé Repr. 1B (H360Df) en harmonisé CLP, substance extrêmement préoccupante (SVHC), et corrosif. À 2,8 M, on manipule 2,3 g par lot de 10 mL. Gants, hotte, pas de manipulation par une personne enceinte. Le DMF des tests de stabilité est lui aussi Repr. 1B. Poudre lyophilisée nanométrique : masque FFP3.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "2-methylimidazole — Annex XV report, support document for identification as SVHC (Repr. 1B, H360Df ; index 613-330-00-0)",
+      "authors_or_publisher": "ECHA (European Chemicals Agency)",
+      "year": "s.d.",
+      "url_or_doi": "https://echa.europa.eu/documents/10162/03e937e3-2f19-ad9d-6bd5-ab9ceae0d0c6"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Minéralisation biomimétique : les surfaces chargées négativement (carboxylates de MSN-COOH, résidus acides des enzymes) concentrent Zn2+ et 2-méthylimidazolate. Il se forme un précurseur amorphe Zn–mIm–protéine qui cristallise en ZIF-8 sod autour des enzymes et des MSN, à condition que le rapport HmIm/Zn soit élevé (≥ 4, et plutôt ≥ 35–70 pour une sodalite pure). Avec le rapport écrit (0,07), on attendrait au mieux un précipité amorphe ou un sel basique de zinc, et non des dodécaèdres de ZIF-8. L'attribution de l'occlusion à une « coordination Zn2+–liaison amide » est moins probable que l'interaction électrostatique et carboxylate–Zn2+ établie par Liang et al. En tampon phosphate, la coque se convertit partiellement en phosphate de zinc.",
+    "sources": [
+     {
+      "title": "Biomimetic mineralization of metal-organic frameworks as protective coatings for biomacromolecules",
+      "authors_or_publisher": "K. Liang, R. Ricco, C. M. Doherty, … C. J. Doonan, P. Falcaro (Nature Communications)",
+      "year": "2015",
+      "url_or_doi": "10.1038/ncomms8240"
+     },
+     {
+      "title": "Control of Structure Topology and Spatial Distribution of Biomacromolecules in Protein@ZIF-8 Biocomposites",
+      "authors_or_publisher": "W. Liang, R. Ricco, N. K. Maddigan, … C. J. Doonan (Chemistry of Materials, ACS)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04977"
+     },
+     {
+      "title": "Degradation of ZIF-8 in phosphate buffered saline media",
+      "authors_or_publisher": "M. de J. Velásquez-Hernández, R. Riccò, F. Carraro, … C. J. Doonan, P. Falcaro (CrystEngComm, RSC)",
+      "year": "2019",
+      "url_or_doi": "10.1039/c9ce00757a"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration réelle du 2-méthylimidazole (2,8 M probable, 160 mM possible ; 2,8 mM impossible)",
+    "solvant des deux solutions (eau d'après 3.2)",
+    "DRX du produit (sod contre dia, ZIF-L, ZIF-C ou amorphe)",
+    "isothermes et Tableau S1 (absents) : type I attendu pour le ZIF-8",
+    "stabilité dans le PB 100 mM : Zn2+ dissous et DRX après 3 h, ou passer à un tampon sans phosphate (HEPES, Tris)",
+    "NAD(H) libre dans le surnageant de réaction",
+    "quantités réelles d'enzymes et de MSN-NAD (1 mg chacune et 2 mg en 2.3 ; 1 mg et 1 mg dans la note du Tableau 1)",
+    "températures et tampons des séries en pH et en température"
+   ]
+  },
+  {
+   "label": "ZIF@ADH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Sans coenzyme (ni MSN-NAD ni NAD+ libre), l'ADH ne peut pas oxyder l'éthanol : « No reaction » est attendu. Le témoin ne montre pas que l'ADH reste active dans le ZIF (il faudrait ajouter du NAD+ libre).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantités propres non données. La note 1 du Tableau 1 fixe 1 mg d'enzymes au total et 1 mg de MSN-NAD+, alors que la section 2.3 donne 1 + 1 mg d'enzymes et 2 mg de MSN-NAD+. Une branche à une seule enzyme a donc deux fois plus de cette enzyme ou une enzyme de moins à masse égale. Comme le témoin est qualitatif, cela ne change pas la conclusion, mais il hérite du problème de rapport HmIm/Zn de la voie de base.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Témoin d'abandon : même minéralisation que la voie de base sans le ou les composants retirés.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masses d'enzymes et de MSN-NAD par branche"
+   ]
+  },
+  {
+   "label": "ZIF@LDH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Sans NADH, la LDH ne réduit pas le pyruvate : « No reaction » est attendu, et l'acétaldéhyde ne peut pas apparaître sans ADH.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantités propres non données. La note 1 du Tableau 1 fixe 1 mg d'enzymes au total et 1 mg de MSN-NAD+, alors que la section 2.3 donne 1 + 1 mg d'enzymes et 2 mg de MSN-NAD+. Une branche à une seule enzyme a donc deux fois plus de cette enzyme ou une enzyme de moins à masse égale. Comme le témoin est qualitatif, cela ne change pas la conclusion, mais il hérite du problème de rapport HmIm/Zn de la voie de base.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Témoin d'abandon : même minéralisation que la voie de base sans le ou les composants retirés.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masses d'enzymes et de MSN-NAD par branche"
+   ]
+  },
+  {
+   "label": "ZIF@LDH/NAD-MSN",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Le coenzyme greffé est sous forme oxydée (NAD+) ; sans ADH pour le réduire, la LDH n'a pas de NADH : « No reaction » est cohérent. Cela prouve aussi qu'il n'y a pas de NADH résiduel sur MSN-NAD.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantités propres non données. La note 1 du Tableau 1 fixe 1 mg d'enzymes au total et 1 mg de MSN-NAD+, alors que la section 2.3 donne 1 + 1 mg d'enzymes et 2 mg de MSN-NAD+. Une branche à une seule enzyme a donc deux fois plus de cette enzyme ou une enzyme de moins à masse égale. Comme le témoin est qualitatif, cela ne change pas la conclusion, mais il hérite du problème de rapport HmIm/Zn de la voie de base.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Témoin d'abandon : même minéralisation que la voie de base sans le ou les composants retirés.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masses d'enzymes et de MSN-NAD par branche"
+   ]
+  },
+  {
+   "label": "ZIF@ADH/NAD-MSN",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "ADH + NAD+ immobilisé : l'éthanol est oxydé en acétaldéhyde, mais la quantité est limitée au stock de NAD+ (pas de régénération sans LDH). Le produit est donc cohérent ; un dosage de l'acétaldéhyde aurait donné la quantité de NAD+ accessible, que l'article ne mesure pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantités propres non données. La note 1 du Tableau 1 fixe 1 mg d'enzymes au total et 1 mg de MSN-NAD+, alors que la section 2.3 donne 1 + 1 mg d'enzymes et 2 mg de MSN-NAD+. Une branche à une seule enzyme a donc deux fois plus de cette enzyme ou une enzyme de moins à masse égale. Comme le témoin est qualitatif, cela ne change pas la conclusion, mais il hérite du problème de rapport HmIm/Zn de la voie de base.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Témoin d'abandon : même minéralisation que la voie de base sans le ou les composants retirés.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masses d'enzymes et de MSN-NAD par branche"
+   ]
+  },
+  {
+   "label": "ZIF@ADH/LDH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Sans coenzyme, aucune des deux enzymes ne fonctionne : « No reaction » est attendu. C'est le meilleur témoin du rôle de MSN-NAD. Il faudrait aussi le témoin ZIF@ADH/LDH + NAD+ libre en solution, pour séparer l'effet du coenzyme immobilisé de celui du simple confinement.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantités propres non données. La note 1 du Tableau 1 fixe 1 mg d'enzymes au total et 1 mg de MSN-NAD+, alors que la section 2.3 donne 1 + 1 mg d'enzymes et 2 mg de MSN-NAD+. Une branche à une seule enzyme a donc deux fois plus de cette enzyme ou une enzyme de moins à masse égale. Comme le témoin est qualitatif, cela ne change pas la conclusion, mais il hérite du problème de rapport HmIm/Zn de la voie de base.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Témoin d'abandon : même minéralisation que la voie de base sans le ou les composants retirés.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masses d'enzymes et de MSN-NAD par branche"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie générale (greffage APTES, couplage EDC, minéralisation biomimétique de ZIF-8 et cascade ADH/LDH avec cycle du NAD+) est classique, et les témoins du Tableau 1 sont logiques. Mais plusieurs quantités écrites sont impossibles : 700 mL d'APTES pour 0,2 g de MSN, et surtout 2,8 mM de 2-méthylimidazole pour 40 mM de zinc (rapport 0,07), incompatible avec la masse de composite que suppose la charge annoncée (≈ 46 mg contre ≤ 7 mg possibles). Les caractérisations ne discriminent pas : pas de DRX, bande « Zn–O–Zn » qui est Si–O–Si, isotherme de type III avec 1118 m2/g, CLSM sous la résolution utile. Toutes les mesures se font en tampon phosphate, qui dégrade le ZIF-8. Enfin l'explication de la tenue aux solvants contredit les chiffres. Le matériau est probablement refaisable en corrigeant les concentrations (2,8 M), mais les conclusions sur le confinement et la protection restent à démontrer.",
+  "author_errors_suspected": [
+   "700 mL d'APTES (probablement 700 µL)",
+   "2-méthylimidazole 2,8 mM (probablement 2,8 M = 70 × 40 mM, ou 160 mM)",
+   "0,2 g de MSN aminées contre 2 g de MSN-COOH engagées",
+   "bande IR de 1090 cm−1 attribuée à Zn–O–Zn (c'est Si–O–Si)",
+   "ZIF-8 décrit avec des pores de 17–22 nm et une isotherme de type IV, composite de type III à 1118 m2/g",
+   "explication des solvants inversée (acétonitrile dit destructeur alors qu'il conserve 76,89 % contre 27,42 % pour le DMF)",
+   "couleurs du marquage CLSM inversées entre Méthodes et Résultats ; rhodamine B non réactive",
+   "LDH décrite comme une « ADH… kinase » contenant du zinc",
+   "quantités d'enzymes et de MSN-NAD différentes entre 2.3 et la note du Tableau 1"
+  ],
+  "comparison_with_database": "Dans la base, les ZIF-8 aqueux ont un rapport HmIm/Zn de 4 (HRP/ZIF-8, PMC5438438 : 1,25 M/310 mM), 70 (ZIF8_H2O_RT, PMC11302435) ou 8 avec triéthylamine (ZIF-8, PMC12624334), contre 0,07 écrit ici. Les surfaces BET de ZIF-8 de la base (1325 m2/g pour PMC10326808, 1338 m2/g pour PMC10964133) encadrent 1298 m2/g, valeur plausible. La HRP/ZIF-8 de PMC5438438 garde 12 % de l'activité native, contre 172 % annoncés ici."
+ },
+ "sources_not_found": [
+  "aucune source trouvée qui utilise exactement 40 mM d'acétate de zinc et 2,8 mM de 2-méthylimidazole pour une encapsulation d'enzyme",
+  "Crossref inaccessible : DOI non vérifiés par verif_doi.py (10.1038/ncomms8240, 10.1021/acs.chemmater.7b04977, 10.1039/c9ce00757a lus sur PMC, OpenAlex ou le site de l'éditeur ; les autres DOI viennent de fondateurs.md)"
+ ]
+}

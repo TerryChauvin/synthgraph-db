@@ -1,0 +1,15 @@
+# PMC8199406 — critique scientifique (journal de décisions)
+
+- Capacités de premier cycle (2.3) : jugé `probleme` sur sCCSi-15 et sCCSi-12. Calcul : Si:PAN 1:5 et rendement carbone 0,4–0,6 → 25–33 % de Si → au plus ≈ 1170–1440 mAh/g hors SEI ; 3084,1 mAh/g est impossible pour sCCSi-15. 1131,9 × 68,5 % ≈ 775 mAh/g colle au maximum de 726,7 ; 3084,1 × 57,6 % ≈ 1776 colle à ≈ 50 % de Si. Inversion du texte, comme le doute de l'extracteur le soupçonnait d'après les figures.
+- Rendement en carbone du PAN pris à ≈ 50 % (extrait lu de 10.1002/app.53515, titre non relevé) et encadré 0,4–0,6 dans les calculs pour ne pas dépendre de ce seul chiffre.
+- « silicon-to-carbon ratio » 1:5 et 1:2 : retenu comme rapport Si:PAN (section 4.1 dit « mass ratio » entre Si et PAN) ; signalé en erreur d'auteur, le Si:C réel est ≈ 1:2,5 et ≈ 1:1.
+- BET 108 m2/g : `probleme` (interprétation). Surface géométrique de pores de 191 nm ≈ 16 m2/g, de 8,3 µm ≈ 0,4 m2/g, contre ≈ 86 m2/g pour des grains de Si nus de 30 nm : la porosité en éponge ne peut pas porter la surface.
+- XPS Si–C à 99,5 eV : `probleme`. Tables NIST SRD 20 (via xpsdatabase.com, xpsfitting.com) : SiC Si 2p ≈ 100,4–100,8 eV ; écart de 0,5 eV avec Si–Si, inférieur au doublet 2p3/2–2p1/2 (0,6 eV). Source sur la formation de SiC (≥ 1200 °C) trouvée seulement pour un système Si3N4/carbone : utilisée comme indication, pas comme preuve.
+- CCSi-v / CCSi-o : `probleme` de témoin multi-variables (température 200 contre 280 °C, vitesse non contrôlée, atmosphère sans O2 pour CCSi-v). Hypothèse préférée à celle des auteurs : PAN insuffisamment stabilisé à 200 °C (Rahaman 2007 : stabilisation sous air 200–300 °C), d'où fusion ou emballement à la carbonisation.
+- Branches HT/RT : `probleme` porté sur CCSi-RT-U seulement (conclusion « ultrasons → pores plus petits » fondée sur RT-U contre HT-M, deux variables) ; `reserve` sur HT-M et HT-U pour ne pas tripler le même constat.
+- Atmosphère non écrite : laissée en `reserve` (et non `probleme`) car le résultat (carbone présent, Si–Si) impose un gaz inerte à 800 °C ; déjà en limite_reproductibilite dans l'extraction.
+- Mécanisme : NIPS (Guillen 2011) préférée à l'explication des auteurs (pores créés par évaporation à 280 °C) ; l'opposition CCSi-w compact / sCCSi éponge cadre avec démixtion instantanée contre démixtion retardée.
+- Raman 506 cm−1 : `reserve` ; décalage de −14 cm−1 attribué à l'échauffement laser (notice Technion 2003, Nanomaterials 2015) plutôt qu'au confinement, non pertinent à 30 nm.
+- ID/IG 0,944 : Ferrari & Robertson 2000 (fondateurs.md) : stade 2, carbone très désordonné ; mot des auteurs « few disordered » relevé.
+- Recherches web : 7 appels (6 Parallel, dont un refusé pour quota, et 1 TinyFish), soit 6 abouties. Sources non vérifiées sur Crossref (bloqué) : 10.1016/j.polymdegradstab.2007.03.023, 10.1021/ie101928r, 10.1021/cr500207g, 10.1002/app.53515. Rien ajouté à fondateurs.md ni constantes.md (consigne de l'orchestrateur).
+- DMF reprotoxique 1B : cité de mémoire, signalé dans sources_not_found.

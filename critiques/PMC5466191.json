@@ -1,0 +1,90 @@
+{
+ "pmcid": "PMC5466191",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "GNP_HAuCl4_0.2ml, GNP_HAuCl4_0.3ml, GNP_HAuCl4_0.4ml, GNP_HAuCl4_0.5ml, héritage de l'étape 2 (react) de GNP_laccase_RT : température ambiante, 90 min",
+   "extracted": "4 branches (parent GNP_laccase_RT) sans étape propre ni variation de température ou de durée : elles héritent de « température ambiante » et « 90 min »",
+   "article_says": "and different concentrations of tetrachloroauric acid (0.1, 0.2, 0.3, 0.4 and 0.5 ml of 10 mg/ml solution) were assessed to study their effect on the formation of GNPs",
+   "fix": "l'article ne dit ni la température ni la durée de la série en volume de HAuCl4 (la température ambiante et 90 min sont celles de la préparation de base). Ajouter à chaque branche deux variations temperature et duration (step_order 2) avec value_text « not stated in the series » ou déclarer ces deux cases non citées sur une étape propre, au lieu d'hériter. Le doute existant le reconnaît mais la structure continue d'affirmer la valeur.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "SSF_banana_peelings, étape de séchage de la matière carbonée absente (aucune étape propre, seulement la variation de réactif)",
+   "extracted": "branche sans étape ; le séchage n'apparaît que dans la citation de la variation « replaced by banana peelings »",
+   "article_says": "Banana peelings (dried in oven at 55 °C for 36 h)",
+   "fix": "donner à SSF_banana_peelings une étape propre de séchage à l'étuve (dry, 55 °C, 36 h, étuve) avant l'ajout d'eau, ou la déclarer dans les paramètres de la variation ; seul le substrat banane est séché d'après l'article",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "SSF_N_malt_extract, SSF_N_yeast_extract, SSF_N_tryptone, SSF_N_ammonium_sulphate, SSF_N_urea, SSF_N_ammonium_chloride : substrat carboné hérité de SSF_wheat_bran (5 g de son de blé)",
+   "extracted": "les 6 branches héritent du son de blé comme source de carbone (parent SSF_wheat_bran) ; et les branches de carbone héritent d'un milieu sans azote ajouté",
+   "article_says": "Wheat bran and malt extract were both used to support growth of Pleurotus ostreatus.",
+   "fix": "la phrase est placée après les deux criblages et ne dit pas que le criblage de l'azote s'est fait sur du son de blé. Déjà signalé en doute par l'extracteur ; garder la structure mais ajouter une variation « carbon source = not stated » ou une note de limite dans la branche, car l'ordre des criblages n'est pas écrit",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Run_01 à Run_32 (sauf Run_28), variations : valeurs codées « -1 » / « 1 » sans niveau réel",
+   "extracted": "variations de type dl-methionine = -1 (parent_value 1), resorcinol = -1, etc.",
+   "article_says": "resorcinol (10 mg or 20 mg), dl-Methionine (5 mg or 10 mg) and tannic acid (2.5 mg or 5 mg)",
+   "fix": "le codage -1 = niveau bas, 1 = niveau haut est exact (les coefficients de l'équation de régression de l'article, 7460, 2207, 1397, 1590, 1054, −2197, sont retrouvés exactement en ajustant les 32 lignes de l'annexe avec ce codage ; et la ligne 28 est la seule à avoir tous les facteurs hauts sauf l'acide tannique). Un chimiste ne peut cependant pas lire « -1 » : ajouter à chaque variation le niveau réel (par ex. dl-methionine 5 mg, malt extract 1 % nitrogen content, tannic acid 5 mg pour +1) en value_text, avec en citation la phrase des deux niveaux de la section Experimental factorial design",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Laccase_partial_purification / dyes : conditions de l'essai de décoloration absentes de toutes les voies",
+   "extracted": "résultats « dye_decolorization_within_3h » et « dye_decolorization_extremes » sans volume ni concentration ; seule l'activité 417 U/ml est enregistrée",
+   "article_says": "A volume of 0.1 ml of the stock solution (20 ppm) was added to 2 ml distilled water and 2 ml of the partially purified enzyme extract with activity 417 U/ml respectively",
+   "fix": "ajouter ces quantités (0,1 ml de solution mère à 20 ppm, 2 ml d'eau distillée, 2 ml d'extrait, suivi sur 3 h, longueur d'onde propre à chaque colorant) dans une caractérisation d'essai ou une annotation limite_reproductibilite ; aucune valeur chiffrée par colorant n'existe dans l'article (pas de figure ni tableau)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources, entrée Run_28 / bib0075 (rôle autre)",
+   "extracted": "renvoi bib0075 retenu comme source de méthode pour la phrase de définition de l'unité d'activité",
+   "article_says": "Enzyme activity was expressed in units (U); one unit was defined as 1 μmol of syringaldazine oxidized per min",
+   "fix": "la phrase définit une unité, elle ne décrit pas comment refaire le dosage (le protocole du dosage est écrit en entier juste au-dessus, sans renvoi). Plutôt un renvoi d'interprétation que de méthode d'après la règle du 2026-10-13 ; à retirer ou à garder en connaissance de cause. Appréciation limite, d'où probable",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "rôle des réactifs du plan factoriel et des criblages (malt extract, CuSO4, resorcinol, dl-methionine, tannic acid, wheat bran) : role « precursor »",
+   "extracted": "role = precursor pour les inducteurs et nutriments",
+   "article_says": "consequently, resorcinol and tannic acid were chosen.",
+   "fix": "ce ne sont pas des précurseurs d'un matériau mais des inducteurs ou nutriments du milieu de culture ; le vocabulaire n'a pas de rôle « inducer » : choisir au plus proche (modulator pour résorcinol, acide tannique, CuSO4, méthionine ; precursor tolérable pour le substrat carboné) et signaler le choix en doute, pour que la fiche ne laisse pas croire à une stœchiométrie de précurseurs",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "GNP_blank_irradiated_before_HAuCl4 : parent GNP_gamma_5kGy et succeeded=false",
+   "extracted": "parent GNP_gamma_5kGy (dose 5 kGy héritée par la lecture comparative), succeeded=false",
+   "article_says": "No color was detected in blank sample (radiation before mixing with HAuCl4).",
+   "fix": "l'article ne dit pas à quelle dose le blanc a été irradié : rattacher le blanc à GNP_laccase_RT (ou le rendre indépendant) pour ne pas suggérer 5 kGy, et noter que c'est un témoin négatif prévu et non un essai raté de synthèse",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 64,
+  "branches_extracted": 64,
+  "not_stated_checked": 113,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "plan factoriel : numéros d'essai absents de l'annexe (colonne « Sample number » perdue), numérotation par ordre des lignes, un seul recoupement texte (essai 28) ; le codage -1/+1 n'est pas défini dans l'annexe",
+  "plan factoriel : à quoi se rapportent les quantités en mg et en % (par flacon ? par 5 g de substrat ?), volume et mode d'ajout des solutions d'inducteurs, ordre d'ajout, ni pureté ni fournisseur d'aucun réactif",
+  "criblages carbone et azote : quantité des 6 sources d'azote, présence d'inducteurs, source de carbone du criblage de l'azote, origine et prétraitement des substrats (seule la banane est séchée)",
+  "souche : pas de numéro de collection, préparation de la suspension de spores à ~8 × 10^6 spores/ml (milieu de la pente, temps de croissance), préparation de la gélose PDA non écrite",
+  "autoclave : pression, temps de refroidissement, humidité d'incubation, utilisation et réglage de la presse (tincture press)",
+  "purification partielle : masse de sulfate d'ammonium et volume de filtrat (« U/1500 ml » seulement dans les résultats), tampon, coupure de membrane et durée de la dialyse",
+  "irradiation gamma du champignon : durée d'exposition (déductible de la dose et du débit de 10,28 kGy/h mais non écrite), atmosphère, température",
+  "GNP : l'état de la laccase utilisée (brute ou partiellement purifiée, de quelle production), unités incohérentes (417 IU/mg, 417 U/ml, 204 U/mg), vitesse d'agitation, mode d'isolement des particules, rendement, fournisseur de HAuCl4",
+  "GNP, séries : la température et la durée de la série en volume de HAuCl4 ; pour la série gamma le volume de HAuCl4, la source et la durée d'irradiation ; pour la série en température les 6 valeurs entre 40 et 90 °C et leurs résultats ; aucun spectre UV-visible, DLS ou TEM dans les figures du dépôt (Fig. 9 et 10 sont des FTIR)",
+  "essai de décoloration : longueur d'onde par colorant et pourcentages chiffrés par colorant absents"
+ ],
+ "mechanism_check": "ok : les annotations mecanisme_auteurs (laccase réductrice et coiffante par ses acides aminés, rôle de l'acide tannique, radiolyse par électrons solvatés) correspondent à la Discussion ; les mecanisme_analyse sont rédigés comme des hypothèses. Aucun danger évident omis (60Co, HAuCl4, autoclave, sels de Cd/Co/Ba signalés).",
+ "notes": "Lecture indépendante faite article, annexe et figures d'abord. (1) Plan factoriel : les 32 lignes ont été comparées par script puis à la main (lignes 1, 5, 9, 14, 19, 24, 28 et 32 relues dans le texte brut) : facteurs, variations par rapport à Run_28 et activités sont tous exacts. Les ajustements par moindres carrés des 32 lignes (codage ±1) redonnent exactement l'équation de l'article (8511 + 7460, 2207, 1397, 1590, 1054, −2197), et les moyennes par niveau redonnent la Fig. 1 : les valeurs et le codage sont donc sûrs ; seule la numérotation des essais repose sur l'ordre des lignes (recoupée par la seule ligne 28 = « run number 28 »). Déclaré en doute et en limite_reproductibilite par l'extracteur, pas un constat. (2) Figures : Fig. 3 (17200/16500/9100/8000/7250/~200/0 contre 17000/16000/9100/8000/7200 extraits : écarts < 4 %), Fig. 4, 5, 6, 7, 8 relues : toutes les valeurs extraites sont à moins de 10 % de la lecture, aucun constat. Fig. 3 : 1,5 kGy montre ~200 U/gfs, le texte dit « complete loss », déjà en doute. (3) Périmètre : les voies kind=intermediate pour la production de laccase sont défendables (condition comparée par les auteurs, laccase réutilisée pour les GNP et les colorants) mais seule Laccase_partial_purification est réellement un intermédiaire réutilisé ; les 49 autres voies (criblages, 32 essais, 7 doses) sont des optimisations de milieu dont le produit est une activité enzymatique, pas un matériau, et rien ne dit que la laccase des GNP vienne de Run_28 ou de la purification. L'extraction ne prétend d'ailleurs pas ce lien (réactif « preparation stage not stated »). À l'orchestrateur de décider si 50 voies de culture dans une base de matériaux est voulu ; je n'en fais pas un constat. (4) Le critère « 10 % » n'a aucun cas ; la valeur 17000 de la fig. 3 pour 0,1 kGy aurait pu prendre le 17,200 du texte, écart de 1 %. (5) Tables 3 et 4 (T, P, ANOVA) et équation de régression non extraites : analyse statistique, non synthèse, laissé de côté à bon droit. (6) method_sources : tous les renvois de méthode du corps de refs (bib0070, 0075, 0085, 0090, 0095) sont présents ; bib0080 (choix des variables), bib0100 (Myers, coefficient t), bib0060, bib0065, bib0300 sont des renvois de contexte, absence correcte. (7) Attention : le dossier scratchpad de la session est partagé avec d'autres sessions ; mon premier fichier de sortie de review.py a été écrasé par une autre session, relu ensuite sous un nom propre : aucun mélange dans ce rapport. (8) Couverture : 32 essais contrôlés ; les 32 essais du plan factoriel ont été recontrôlés (facteurs et activité) contre l'annexe ligne par ligne ; 0 écart. Série 40 à 90 °C pour les GNP : 6 températures non listées, absentes de l'extraction et de l'inventaire (route null avec raison), conformes à la règle des plages."
+}

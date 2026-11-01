@@ -1,0 +1,18 @@
+# Journal d'extraction PMC9061730
+
+- Découpage : quatre voies de base, aucune branche. GO, rGO, CuNP et rGO|CuNP sont quatre matériaux préparés indépendamment, chacun avec son protocole ; l'article ne balaye aucun paramètre de synthèse (« Deux matériaux différents préparés indépendamment = deux voies de base »).
+- GO en `intermediate` : GO sert de réactif à rGO et à rGO|CuNP (rôle `intermediate` dans leurs réactifs), mais l'article le teste aussi comme catalyseur de l'AP ; ses résultats DSC restent sur cette voie.
+- Mélanges AP + catalyseur à 1, 3 et 5 % en masse : traités comme tests du matériau fini (outcomes), pas comme branches ni voies `device`. Le texte ne décrit aucune préparation du mélange (« adding the catalysts to AP (20 μm size) in 1, 3 and 5% wt. ») ; noté dans `limite_reproductibilite`.
+- Pureté et fournisseur : phrase « Reagents were of analytical grade or the highest commercially available purity... » suivie de la liste achetée chez Merck, citée en bloc dans `supplier_quote`. L'éther n'est pas dans la liste Merck : pureté par la phrase générale, fournisseur non cité. La glace n'a ni l'un ni l'autre. L'eau milli-Q : pureté « resistivity not less than 18 MΩ cm », fournisseur « in-house ».
+- Énergies de la Fig. 6 : lues sur les étiquettes imprimées sur chaque courbe (J g−1), rangée par panneau (a GO, b rGO, c CuNP, d CuNP|rGO) et par taux de charge. Recoupées avec le texte : 3559/1016 = 3,5 (« increased 3.5 times »), 1948 pour CuNP à 3 % (« almost duplicated ... (1.9 kJ g−1) »), et rGO < GO aux trois taux (« the released energy amount diminished »). L'AP seul (1016 J g−1) n'est pas extrait faute de voie.
+- Phrase « 1.8 times » (rGO|CuNP à 1 %) contredit « 3.5 times » du même article et l'étiquette de la figure : non extraite, mise en doute.
+- « 1.9 kJ g−1 » : phrase ambiguë (énergie du mélange ou de l'AP seul) ; l'étiquette 1948 J g−1 de la Fig. 6c tranche pour le mélange CuNP à 3 %, mais je n'ai extrait que l'étiquette, pas la valeur du texte.
+- HTD absolues (Fig. 6c/7) : seuls 318 °C (CuNP 3 %) et 347 °C (rGO|CuNP 1 %) sont pris, parce qu'ils concordent avec les diminutions écrites dans le texte (97 et 68 °C). Les pics intermédiaires de la Fig. 6 ne sont pas attribués (étiquettes sans légende de pic).
+- Fig. 7 : barres lues sans estimation graphique pour GO (403), rGO (410) ; ces valeurs correspondent à des taux de charge non précisés dans la légende.
+- Unités : le résumé écrit « 6 to 2 Å » et « 0.212 Å » ; je garde l'unité écrite dans la phrase citée (Å pour 0.212, nm pour 6 et 2 dans le corps) et signale l'incohérence en doute plutôt que de convertir.
+- Deux tailles de CuNP (6 nm TEM, 4,8 ± 1,2 nm HAADF-STEM) : les deux extraites, avec leur technique.
+- Produit de CuNP : « centrifuged ... washed ... The supernatant was diluted to 50 mL » ; ordre littéral conservé, doute posé sur ce qui est le produit.
+- Ordre du pH : pour rGO, le texte dit « kept at 10 » sans moment ; étape placée après le chauffage. Pour rGO|CuNP, le pH est ajusté après les 12 h (ordre du texte).
+- Résultats DFT : Table 1 est un calcul, non une synthèse ; trois résultats gardés en outcomes de rGO|CuNP (site le plus stable, écart de 11.3 kcal mol−1, valeur −Eint corrigée BSSE du site IV). La rangée du site (I) contient du SVG dans le fichier texte et n'est pas citable proprement, donc non extraite.
+- Annexe : le fichier ne contient que les légendes de Fig. S1 à S4 (pas les images) ; annotation « Annexe absente du dépôt ».
+- Sources de méthode : cit37 (Marcano, adapté), cit39 (rGO, « according to a reported method », protocole complet), cit40 (Xiong, adapté). Hummers (cit38) est cité en comparaison seulement ; cit39 en méthodes de calcul n'est pas une source de synthèse.

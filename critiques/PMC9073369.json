@@ -1,0 +1,78 @@
+{
+ "pmcid": "PMC9073369",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "Fe:Ni=5:5 et Fe:Ni=3:7 : rattachement à la voie de base Fe2Ni MOF/NF (parent) et héritage des étapes 1 à 10, de la TPA 1 mmol, de DMF/eau/éthanol, de 125 °C 12 h, du lavage et du séchage",
+   "extracted": "branches de Fe2Ni MOF/NF avec deux variations (sel de fer, NiCl2·6H2O) « Fe : Ni = 5 : 5 » / « Fe : Ni = 3 : 7 » ; aucun step ni réactif propre, route-level not_stated vide (seul missing_fields signale « confirmation que le protocole est celui de Fe2Ni MOF/NF », et un doubt le dit)",
+   "article_says": "And the samples with different ratios of Ni to Fe",
+   "fix": "L'article ne décrit aucune préparation de ces deux échantillons (ni « same procedure », ni quantités, ni solvants, ni température) ; il ne donne que leur SEM (Fig. S4) et leurs courbes (Fig. 5, Tableau S2). Selon RUNBOOK (« Pas d'héritage non fondé »), ne pas leur laisser hériter silencieusement tout le protocole : soit leur donner une route sans étapes avec route-level not_stated (ex. « protocol », « metal_salt_amounts », « solvent_volumes », « temperature », « duration », « washing », « drying ») et une annotation limite_reproductibilite rattachée à ces deux voies, soit garder le parent pour la comparaison mais déclarer ces cases non citées. Dans les deux cas le doubt existant reste valable.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fe:Ni=5:5 et 3:7 : variations sur « iron(III) nitrate nonahydrate » et « nickel(II) chloride hexahydrate » (value_text « Fe : Ni = 5 : 5 », parent_value « Fe : Ni = 7 : 3 »)",
+   "extracted": "deux variations identiques par branche, citation = phrase de la Fig. 5 (« Fig. 5a–d expressed … »)",
+   "article_says": "the MOF of Fe : Ni = 7 : 3 performed as the best OER activity compared to Fe : Ni = 3 : 7 and Fe : Ni = 5 : 5",
+   "fix": "La citation établit un rapport Fe : Ni, pas que les deux sels aient été modifiés ni de quelle manière (quantité totale de métal conservée à 1 mmol ? article muet). Le parent_value « Fe : Ni = 7 : 3 » est déduit de 0,7/0,3 mmol (identité 7:3 = Fe2Ni non écrite, déjà en doubt). Remplacer par une seule variation de rapport (nom explicite, par ex. `metal_ratio_Fe_Ni`, parent_value « none » ou 7 : 3 avec doubt) citant « the samples with different ratios of Ni to Fe », ou ne pas présenter de quantité de sel pour ces branches.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Fe MOF/NF et Ni MOF/NF : étape héritée 2 « Dissolve the iron(III) nitrate and nickel(II) chloride salts in DMF » (et description du parent)",
+   "extracted": "branches sans steps propres : elles héritent de l'étape 2 qui cite les deux sels, alors que chacune n'en contient qu'un",
+   "article_says": "Fe MOF/NF and Ni MOF/NF could be synthesized in the same way without adding NiCl2·6H2O or Fe(NO)3·9H2O, respectively.",
+   "fix": "Cas « branche sans X » du RUNBOOK (vu au palier 3) : donner à chaque branche ses propres steps (copie des étapes 1 à 10 du parent, avec l'étape 2 limitée au seul sel présent : Fe(NO3)3·9H2O seul pour Fe MOF/NF, NiCl2·6H2O seul pour Ni MOF/NF), ou déclarer l'étape 2 dans not_stated avec doubt. Les réactifs hérités (les deux sels) sont déjà corrigés par la variation « absent ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Fe MOF/NF (0,7 mmol Fe(NO3)3·9H2O hérité) et Ni MOF/NF (0,3 mmol NiCl2·6H2O hérité)",
+   "extracted": "quantité du sel restant héritée du parent et affichée comme valeur citée ; seule la liste missing_fields (et un doubt) signale que l'article ne dit pas si elle est conservée",
+   "article_says": "Fe MOF/NF and Ni MOF/NF could be synthesized in the same way without adding NiCl2·6H2O or Fe(NO)3·9H2O, respectively.",
+   "fix": "« in the same way without adding … » est une formule du type « mêmes conditions » : le RUNBOOK la classe comme non citée. La lecture 0,7 mmol / 0,3 mmol (rapport TPA : métal passant de 1:1 à 1:0,7 et 1:0,3) est plausible mais pas écrite ; l'alternative 1 mmol de métal n'est pas exclue. Déclarer la quantité du sel conservé non citée au niveau de chaque branche (route-level not_stated, ex. « amount_of_retained_metal_salt ») plutôt que de la laisser héritée, et ajouter à l'annotation limite_reproductibilite que cette quantité est supposée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Fe MOF/NF et Ni MOF/NF : résultats XPS (Fig. 3a et 3b), lus sur figure",
+   "extracted": "aucun résultat XPS sur ces deux branches ; seuls les pics de Fe2Ni MOF/NF (714 / 725.5 eV et 856.3 / 874.1 eV) sont extraits, et le décalage vers les pics des deux autres est cité sans valeur",
+   "article_says": "In comparison with Fe MOF/NF and Ni MOF/NF, the Fe 2p spectrum shifted to higher binding energy and Ni 2p spectrum shifted to lower binding energy.",
+   "fix": "Fig. 3 (corpus/fig/PMC9073369/c9ra07499f-f3.jpg), étiquettes imprimées sur la figure : Fe 2p de Fe MOF/NF = 712.4 eV (2p3/2) et 724.0 eV (2p1/2) ; Ni 2p de Ni MOF/NF = 856.5 eV (2p3/2) et 874.4 eV (2p1/2). Les valeurs de Fe2Ni lues sur la figure (714.0, 725.5, 856.3, 874.1) concordent avec le texte. Ajouter un résultat XPS_Fe_2p_peaks = « 712.4 eV and 724.0 eV » (from_figure) à Fe MOF/NF et XPS_Ni_2p_peaks = « 856.5 eV and 874.4 eV » (from_figure) à Ni MOF/NF, avec la phrase ci-dessus en citation et la légende de la Fig. 3 comme appui, et une caractérisation XPS sur chacune.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fe2Ni MOF/NF characterizations « LSV (OER) » : conditions « scan rate 2 mV s−1 » pour le surpotentiel de 222 mV",
+   "extracted": "technique « LSV (OER) », conditions « 1.0 M KOH ; … scan rate 2 mV s−1 ; iR-corrected » associées au surpotentiel de 222 mV",
+   "article_says": "There was an oxidation peak in the process of the rising LSV curve. So we select the data of the inverse curve of CV.",
+   "fix": "Le surpotentiel (et la pente de Tafel de la Fig. 4b) est lu sur la courbe retour d'un CV (légende de la Fig. 4a : « CV curves » ; Fig. S5a/S6a), dont la vitesse de balayage n'est pas donnée ; les 2 mV s−1 sont ceux du LSV de la section Méthodes. Renommer la technique « LSV/CV (OER), courbe retour du CV » et déclarer la vitesse du CV non citée, ou qualifier la condition (« 2 mV s−1 pour le LSV ; vitesse du CV non citée »). Le doubt existant couvre le point mais pas la fiche.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fe2Ni MOF/NF outcome current_density_change_after_50_h_stability_test = 3.7 % et caractérisation chronopotentiometry « current density increased by only 3.7% »",
+   "extracted": "propriété nommée « current_density_change » ; résultat de caractérisation « current density increased by only 3.7% after 50 h »",
+   "article_says": "the achieved current densities increased by only 3.7% compared with the initial after a 50 h continuous operation (Fig. 4d)",
+   "fix": "Fig. 4d (c9ra07499f-f4.jpg) : essai à courant constant de 10 mA cm−2, ordonnée = potentiel (mV vs RHE, ≈ 230 puis ≈ 240 mV), mention « 3.7% increase @ after 50h » : l'augmentation porte sur le potentiel, pas sur la densité de courant (impossible en chronopotentiométrie). Le doubt le note déjà ; la valeur 3,7 % est juste. Nommer la propriété de façon neutre (`change_after_50_h_stability_test`) ou noter dans value_text « 3.7 % increase (texte : current density ; Fig. 4d : potentiel à 10 mA cm−2) » pour que la fiche ne laisse pas croire à une hausse de courant.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 5,
+  "branches_extracted": 5,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "volume de DMF absent (seuls 2,5 mL d'eau et 2,5 mL d'éthanol sont donnés)",
+  "préparation complète de Fe:Ni=5:5 et 3:7 absente (quantités, solvants, température, durée, lavage, séchage), ni dans le texte ni dans l'annexe",
+  "quantité du sel restant dans Fe MOF/NF et Ni MOF/NF non écrite",
+  "pureté et fournisseur de tous les réactifs, vitesse d'agitation, taux de remplissage de l'autoclave, vitesse de chauffe, durée et nombre des lavages de la mousse et du produit, concentration de HCl",
+  "vitesse de balayage du CV dont la courbe retour donne le surpotentiel de 222 mV ; référence de la mousse de nickel (porosité, épaisseur, fournisseur) absente",
+  "masse de MOF déposée sur la mousse et rendement non donnés ; formule du sel de fer écrite « Fe(NO)3·9H2O » (0,2828 g = 0,7 mmol de Fe(NO3)3·9H2O)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs limité à la citation sur Ni2+ et la cristallinité ; mecanisme_analyse et securite_analyse sont présentés comme hypothèses de chimiste",
+ "notes": "Valeurs numériques des Tableaux S1 et S2 et du texte toutes conformes (aucune valeur fausse trouvée) ; Fig. 5d (236, 231, 222, 327, 268, 494 mV) et Fig. 4b / 5b (Tafel) lues sur image concordent avec les tableaux. method_sources vide : correct, aucun renvoi [[cit]] ne figure dans une phrase de préparation (cit27, cit28 portent sur l'attribution XRD). Écarté comme non-constat : l'étape 4 « stir 30 min » (lecture « After 30 minutes » = durée d'agitation, déjà en doubt) ; les valeurs de la mousse nue (494 mV, 206.4 mV dec−1) laissées en annotation faute de voie (inventaire : route null, justifié) ; les pics XPS C 1s / O 1s et le détail EIS non attribuables échantillon par échantillon (« respectively » sans ordre explicite). Le numéro des figures d'annexe cités par le texte (S3a/b, S4, S5a) ne correspond pas à l'annexe : traité à raison par l'extraction."
+}

@@ -1,0 +1,489 @@
+{
+ "pmcid": "PMC9464223",
+ "routes": [
+  {
+   "label": "NS",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de P123 par mole de TEOS",
+     "inputs": "0,017 mol P123 par mol TEOS ; Mn(P123) ≈ 5 800 g/mol (Sigma-Aldrich 435465) ; M(TEOS) = 208,33 g/mol",
+     "formula": "0,017 × 5 800 ; puis / 208,33",
+     "result": "98,6 g de P123 par mol de TEOS, soit un rapport massique P123/TEOS = 0,47",
+     "compared_to": "recette SBA-15 de Zhao et al. 1998 (4 g P123 pour 8,5 g TEOS, soit 0,47) : identique",
+     "source": "Mn : fiche Sigma-Aldrich 435465 ; recette : Zhao et al., Science 1998"
+    },
+    {
+     "what": "concentration et pH de HCl dans le mélange",
+     "inputs": "5,68 mol HCl et 197 mol H2O par mol TEOS ; M(HCl) = 36,46 ; M(H2O) = 18,015 ; masse volumique ≈ 1 g/mL",
+     "formula": "V ≈ (197 × 18,015 + 5,68 × 36,46) g / 1 000 ; [HCl] = 5,68 / V ; pH = −log[HCl]",
+     "result": "V ≈ 3,76 L par mol TEOS ; [HCl] ≈ 1,5 mol/L ; pH ≈ −0,2",
+     "compared_to": "SBA-15 classique : HCl ≈ 1,6–2 M, sous le point isoélectrique de la silice (pH ≈ 2) : régime S0H+X−I+",
+     "source": "arithmétique ; Zhao et al., JACS 1998"
+    },
+    {
+     "what": "eau apportée par l'acide concentré",
+     "inputs": "5,68 mol HCl = 207,1 g ; HCl concentré à 37 % (en masse, et non v/v)",
+     "formula": "m(solution) = 207,1/0,37 ; n(H2O) = (m − 207,1)/18,015",
+     "result": "560 g de solution, dont 19,6 mol d'eau ; le reste (≈ 177 mol) est de l'eau distillée ajoutée, si 197 mol est le total",
+     "compared_to": "l'article ne dit pas si les 197 H2O comprennent l'eau de l'acide",
+     "source": "arithmétique"
+    },
+    {
+     "what": "teneur en P123 dans le liquide",
+     "inputs": "98,6 g P123 ; 3 549 g d'eau ; 207 g HCl",
+     "formula": "98,6 / (3 549 + 207 + 98,6)",
+     "result": "≈ 2,6 % en masse",
+     "compared_to": "SBA-15 de Zhao (4 g P123 dans 150 g de liquide ≈ 2,6 %) : identique",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg du pic aux petits angles (2θ = 2,02°)",
+     "inputs": "λ(Cu Kα) = 0,15406 nm ; θ = 1,01°",
+     "formula": "d = λ / (2 sin θ) ; hexagonal 2D : a0 = 2 d100 / √3",
+     "result": "d = 4,37 nm. Si (200) : d100 = 8,74 nm, a0 = 10,09 nm, et (100) attendu à 2θ = 1,01°. Si (100) : a0 = 5,05 nm",
+     "compared_to": "SBA-15 de la base (PMC6812203) : (100) à 0,96° ; Zhao 1998 : a0 ≈ 10–12 nm",
+     "source": "λ : NIST X-ray Transition Energies (voir constantes.md)"
+    },
+    {
+     "what": "épaisseur de paroi déduite",
+     "inputs": "a0 = 10,09 nm (indexation (200)) ou 5,05 nm (indexation (100)) ; D(DFT) = 6,66 nm (NS), 7,14 nm (NSG-1 %)",
+     "formula": "e = a0 − D",
+     "result": "indexation (200) : 3,4 nm (NS), 3,0 nm (NSG-1 %) ; indexation (100) : −1,6 et −2,1 nm (impossible)",
+     "compared_to": "parois de SBA-15 : 3,1–6,4 nm (Zhao 1998)",
+     "source": "arithmétique ; Zhao et al., Science 1998"
+    },
+    {
+     "what": "diamètre moyen 4V/S",
+     "inputs": "Table 2 : NS 0,599 cc/g et 484,05 m2/g ; NSG-1 % 0,685 et 528,82 ; NSG-2 % 0,676 et 512,21 ; NSG-4 % 0,626 et 479,10",
+     "formula": "4 Vtotal / SBET",
+     "result": "NS 4,95 nm ; NSG-1 % 5,18 nm ; NSG-2 % 5,28 nm ; NSG-4 % 5,23 nm",
+     "compared_to": "D(DFT) 6,55–7,14 nm : 4V/S plus petit, normal pour une distribution bimodale avec micropores ; écart NS/NSG-1 % de 0,23 nm seulement",
+     "source": "arithmétique"
+    },
+    {
+     "what": "bilan Vmicro + Vmeso contre Vtotal",
+     "inputs": "Table 2",
+     "formula": "Vmicro + Vmeso",
+     "result": "NS 0,599 (=) ; NSG-1 % 0,680 contre 0,685 ; NSG-2 % 0,676 (=) ; NSG-4 % 0,626 (=)",
+     "compared_to": "Vtotal : cohérent sauf écart de 0,005 cc/g pour NSG-1 %",
+     "source": "arithmétique"
+    },
+    {
+     "what": "position du halo amorphe",
+     "inputs": "2θ = 22,9° ; λ = 0,15406 nm",
+     "formula": "d = λ / (2 sin 11,45°)",
+     "result": "0,388 nm",
+     "compared_to": "halo de la silice amorphe vers 2θ ≈ 21–23° : cohérent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "capacité maximale possible dans le test standard",
+     "inputs": "C0 = 50 mg/L ; V = 200 mL ; m = 50 mg",
+     "formula": "qe(100 %) = C0 V / m",
+     "result": "200 mg/g ; qe de NS 78,36 mg/g ↔ 39,2 % de retrait",
+     "compared_to": "Fig. 7b (≈ 39 %) : cohérent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "constante k2 du pseudo-second ordre",
+     "inputs": "Table 3 : k2 = 0,5023 ; 0,356 ; 0,564 ; 0,678 ; qcal = 1,99 ; 2,81 ; 1,77 ; 1,47 mg/g",
+     "formula": "1 / k2",
+     "result": "1,99 ; 2,81 ; 1,77 ; 1,47 = qcal exactement : la colonne « k2 » est la pente 1/qe de t/qt = f(t), pas une constante de vitesse",
+     "compared_to": "Ho et McKay 1999 : k2 en g mg−1 min−1, obtenu par pente²/ordonnée à l'origine",
+     "source": "arithmétique ; Ho et McKay 1999"
+    },
+    {
+     "what": "surface occupée par le bleu de méthylène adsorbé (NS)",
+     "inputs": "qe = 78,36 mg/g ; M(MB, chlorure anhydre) = 319,85 g/mol ; empreinte à plat ≈ 1,43 × 0,60 = 0,86 nm2",
+     "formula": "n = qe / M ; S = n NA × 0,86 nm2",
+     "result": "0,245 mmol/g ; ≈ 127 m2/g, soit 26 % de SBET (484 m2/g)",
+     "compared_to": "NSG-1 % : 0,526 mmol/g, ≈ 272 m2/g, 51 % de SBET (529 m2/g) : capacité × 2,1 pour SBET × 1,09",
+     "source": "empreinte : arXiv:1308.5652 ; M(MB) : valeur de manuel (C16H18ClN3S)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapports molaires 1 TEOS : 0,017 P123 : 5,68 HCl : 197 H2O identiques à ceux des SBA-15 publiées (P123/TEOS massique 0,47, 2,6 % de P123 dans le liquide, HCl ≈ 1,5 M ; calculs « masse de P123 par mole de TEOS », « teneur en P123 », « concentration et pH de HCl »). Le Si est entièrement apporté par le TEOS ; la recette est reproductible à partir des rapports, mais aucune masse absolue n'est donnée.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Triblock Copolymer Syntheses of Mesoporous Silica with Periodic 50 to 300 Angstrom Pores",
+      "authors_or_publisher": "Zhao D., Feng J., Huo Q., Melosh N., Fredrickson G. H., Chmelka B. F., Stucky G. D. — Science 279, 548",
+      "year": "1998",
+      "url_or_doi": "10.1126/science.279.5350.548 (DOI non vérifié sur Crossref ; notice : https://research.monash.edu/en/publications/triblock-copolymer-syntheses-of-mesoporous-silica-with-periodic-5/)"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "« concentrated hydrochloric acid (37% v/v) » : l'acide concentré commercial titre 37 % en masse (≈ 12 M), pas en volume. Il n'est pas dit si les 197 H2O comprennent les ≈ 19,6 mol d'eau apportées par l'acide (calcul « eau apportée par l'acide concentré »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "40 °C pour dissoudre le P123 (Tm DSC 39 °C, fiche Sigma-Aldrich) puis 24 h à 40 °C, autoclave à 100 °C (pression de vapeur de l'eau 1,01 bar à 100 °C : faible) et calcination à 550 °C : conditions standard des SBA-15 (35–40 °C, puis 80–100 °C). Volume d'autoclave et taux de remplissage non donnés, sans conséquence de pression à 100 °C.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Nonionic Triblock and Star Diblock Copolymer and Oligomeric Surfactant Syntheses of Highly Ordered, Hydrothermally Stable, Mesoporous Silica Structures",
+      "authors_or_publisher": "Zhao D., Huo Q., Feng J., Chmelka B. F., Stucky G. D. — J. Am. Chem. Soc. 120, 6024",
+      "year": "1998",
+      "url_or_doi": "10.1021/ja974025i (DOI non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination à 550 °C (5 h) dans les Méthodes, à 500 °C dans la discussion FTIR ; ni rampe ni atmosphère. À 500 comme à 550 °C sous air le P123 est brûlé ; l'écart n'a pas d'effet attendu sur la phase mais doit être levé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le texte affirme que le P123 « déplace C2H5O− sur SiO4− » et « empêche l'hydrolyse en SiO2 » : en milieu HCl ≈ 1,5 M, le TEOS s'hydrolyse vite et l'assemblage se fait par interaction coopérative (S0H+)(X−I+) entre têtes PEO protonées/hydratées, Cl− et espèces silicatées cationiques ; le P123 n'empêche pas l'hydrolyse. L'ion « SiO4− » n'existe pas à pH ≈ −0,2.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Nonionic Triblock and Star Diblock Copolymer and Oligomeric Surfactant Syntheses of Highly Ordered, Hydrothermally Stable, Mesoporous Silica Structures",
+      "authors_or_publisher": "Zhao D., Huo Q., Feng J., Chmelka B. F., Stucky G. D. — J. Am. Chem. Soc. 120, 6024",
+      "year": "1998",
+      "url_or_doi": "10.1021/ja974025i (DOI non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pic unique à 2θ = 2,02° indexé (200) avec symétrie p6mm affirmée : d = 4,37 nm. Si c'est (200), la raie (100), la plus intense d'une SBA-15, devrait apparaître à 1,01°, dans la plage mesurée (0,1–5° ou 0,5–6°), et n'est pas rapportée ; si c'est (100), a0 = 5,05 nm est plus petit que le diamètre de pore (6,66–7,14 nm), paroi négative impossible (calculs « Bragg » et « épaisseur de paroi »). Une seule raie ne prouve pas la symétrie p6mm. La SBA-15 de la base (PMC6812203) a sa raie (100) à 0,96°.",
+     "status": "probleme",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SBET 484 m2/g, Vtotal 0,60 cc/g, D(DFT) 6,7 nm : texture d'une SBA-15 un peu moins poreuse que l'habituel (PMC6812203 : 675 m2/g) ; 4V/S = 4,95 nm cohérent avec une distribution bimodale. Hystérésis à P/P0 0,4–0,8 compatible avec des mésopores de 5–7 nm (classe IUPAC mésopore).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bandes FTIR : 1075 cm−1 est l'élongation ASYMÉTRIQUE de Si–O–Si (l'élongation symétrique est vers 800 cm−1, que l'article appelle « network SiO2 »). Les auteurs parlent de « crystalline framework » et de « crystallinity » pour une silice amorphe (halo à 22,9°, d = 0,388 nm).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Table 1 : fréquences IR et Raman de la silice (attribution 800 cm−1 = élongation symétrique Si–O–Si ; ~1080 cm−1 = élongation asymétrique)",
+      "authors_or_publisher": "Progress in Earth and Planetary Science (SpringerOpen), article 10.1186/s40645-025-00756-w",
+      "year": "2025",
+      "url_or_doi": "https://progearthplanetsci.springeropen.com/articles/10.1186/s40645-025-00756-w/tables/1"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Test au bleu de méthylène : 20 min d'agitation dans les Méthodes alors que l'équilibre n'est atteint qu'après 50 min (Résultats) ou 70 min (résumé) et que la Fig. 7a va jusqu'à 300 min : la durée réelle du test et donc le sens de « qe » sont incertains. qe et taux de retrait sont cohérents entre eux (calcul « capacité maximale possible »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cinétique : la colonne k2 de la Table 3 vaut exactement 1/qcal (calcul « constante k2 ») : c'est la pente de t/qt contre t, pas une constante de vitesse (unité g mg−1 min−1 selon Ho et McKay, pas min−1). qcal du pseudo-second ordre (1,5–2,8 mg/g) est 50 à 60 fois plus petit que qe (78–168 mg/g) : l'ajustement est faux (mauvaise unité de qt ou mauvais tracé). La conclusion « pseudo-premier ordre, R2 = 0,93 » repose sur NS seul ; pour NSG-1 % R2 = 0,813 et qcal = 188,65 > qe = 168,1.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Pseudo-second order model for sorption processes",
+      "authors_or_publisher": "Ho Y.-S., McKay G., Process Biochemistry 34, 451–465",
+      "year": "1999",
+      "url_or_doi": "https://elmi.hbku.edu.qa/en/publications/pseudo-second-order-model-for-sorption-processes/ (DOI 10.1016/S0032-9592(98)00112-5 non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non mentionnée par l'article : HCl concentré (vapeurs corrosives, hotte), TEOS inflammable et irritant qui libère 4 éthanol par Si, autoclave fermé à 100 °C à ouvrir froid, fumées de décomposition du P123 à la calcination, poudre de silice fine (inhalation). Risques ordinaires, déjà résumés dans l'annotation securite_analyse.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Probablement mécanisme SBA-15 classique : en HCl ≈ 1,5 M (pH < point isoélectrique de la silice), le TEOS s'hydrolyse rapidement en espèces silicatées cationiques (≡Si–OH2+) qui s'assemblent avec les couronnes PEO hydratées des micelles de P123 par l'intermédiaire de Cl− (S0H+)(X−I+) ; mésophase hexagonale formée à 40 °C, condensation renforcée et pores élargis par le traitement à 100 °C (déshydratation partielle du PEO), puis calcination qui brûle le P123 et libère mésopores et micropores (pénétration des chaînes PEO dans les parois). Le P123 n'empêche pas l'hydrolyse ; il n'y a pas d'ion SiO4− dans ce milieu.",
+    "sources": [
+     {
+      "title": "Triblock Copolymer Syntheses of Mesoporous Silica with Periodic 50 to 300 Angstrom Pores",
+      "authors_or_publisher": "Zhao D., Feng J., Huo Q., Melosh N., Fredrickson G. H., Chmelka B. F., Stucky G. D. — Science 279, 548",
+      "year": "1998",
+      "url_or_doi": "10.1126/science.279.5350.548 (DOI non vérifié sur Crossref ; notice : https://research.monash.edu/en/publications/triblock-copolymer-syntheses-of-mesoporous-silica-with-periodic-5/)"
+     },
+     {
+      "title": "Nonionic Triblock and Star Diblock Copolymer and Oligomeric Surfactant Syntheses of Highly Ordered, Hydrothermally Stable, Mesoporous Silica Structures",
+      "authors_or_publisher": "Zhao D., Huo Q., Feng J., Chmelka B. F., Stucky G. D. — J. Am. Chem. Soc. 120, 6024",
+      "year": "1998",
+      "url_or_doi": "10.1021/ja974025i (DOI non vérifié sur Crossref)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer une échelle absolue à partir des rapports (par ex. 4 g P123, 8,5 g TEOS, comme Zhao 1998) et préciser si les 197 H2O comprennent l'eau de l'acide",
+    "HCl concentré à 37 % en masse (≈ 12 M), pas v/v",
+    "température de calcination (550 °C ou 500 °C), rampe et atmosphère",
+    "mesurer les petits angles en partant de 0,5° pour voir la raie (100) vers 1,0° avant d'affirmer p6mm",
+    "durée réelle du test au bleu de méthylène (20 min ou jusqu'à l'équilibre) et pH de la solution",
+    "ne pas réutiliser la Table 3 : refaire l'ajustement pseudo-second ordre avec qt en mg/g"
+   ]
+  },
+  {
+   "label": "NSG-1%",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de gélatine par rapport au mélange",
+     "inputs": "P123 : 98,6 g par mol TEOS ; gélatine = 1, 2, 4 % de la masse de P123 ; SiO2 formé : 60,08 g par mol TEOS",
+     "formula": "x × 98,6 ; rapporté à (98,6 + 60,08)",
+     "result": "0,99 / 1,97 / 3,94 g de gélatine par mol de TEOS, soit 0,6 / 1,2 / 2,5 % de la masse (P123 + SiO2) ; pour une recette de 4 g de P123 : 40, 80, 160 mg de gélatine",
+     "compared_to": "quantité très faible devant le P123 : un effet de « co-gabarit » mesurable n'est pas attendu sans preuve",
+     "source": "arithmétique ; Mn P123 : Sigma-Aldrich 435465"
+    },
+    {
+     "what": "variation de texture NS → NSG-1 %",
+     "inputs": "Table 2 : SBET 484,05 → 528,82 m2/g ; D(DFT) 6,66 → 7,14 nm ; Vmeso 0,537 → 0,646 cc/g",
+     "formula": "écarts relatifs",
+     "result": "SBET +9 % ; D +0,48 nm (+7 %) ; Vmeso +20 % ; 4V/S +0,23 nm",
+     "compared_to": "résumé : D de 3,5 à 6,0 nm (+2,5 nm) et SBET de 467 à 510 m2/g ; texte : expansion de « ~1–2 nm »",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rapport capacité / surface NS → NSG-1 %",
+     "inputs": "qe 78,36 → 168,1 mg/g ; SBET 484,05 → 528,82 m2/g",
+     "formula": "qe/SBET",
+     "result": "0,162 → 0,318 mg/m2 : la capacité par m2 double",
+     "compared_to": "l'explication par la texture seule (pores +0,5 nm, surface +9 %) ne rend pas compte d'un facteur 2,1 ; empreinte MB 1,43 × 0,60 nm ≪ pores de 6–7 nm",
+     "source": "arithmétique"
+    },
+    {
+     "what": "série en dose : retrait et Ce",
+     "inputs": "C0 = 50 mg/L ; V = 0,2 L ; m = 5, 10, 25, 50, 70 mg ; qe Table 5 = 330,98 ; 325,61 ; 239,45 ; 168,49 ; 135,45 mg/g",
+     "formula": "retrait = qe m/(C0 V) ; Ce = C0 (1 − retrait)",
+     "result": "retraits 16,5 / 32,6 / 59,9 / 84,2 / 94,8 % (cohérents avec la Fig. 11) ; Ce = 41,7 / 33,7 / 20,1 / 7,9 / 2,6 mg/L",
+     "compared_to": "isotherme des auteurs (qmax 200 mg/g, KL 0,2174) à Ce = 41,7 mg/L : qe = 180 mg/g, contre 331 mg/g mesuré",
+     "source": "arithmétique"
+    },
+    {
+     "what": "série en concentration : Ce et refit des isothermes",
+     "inputs": "C0 = 10, 20, 50, 100, 125 mg/L ; qe Table 5 = 35 ; 65 ; 168,45 ; 177 ; 181 mg/g ; m/V = 0,25 g/L",
+     "formula": "Ce = C0 − qe × 0,25 ; Langmuir linéaire Ce/qe = f(Ce) ; Freundlich ln qe = f(ln Ce)",
+     "result": "Ce = 1,25 / 3,75 / 7,89 / 55,75 / 79,75 mg/L ; Langmuir : qmax = 192 mg/g, KL = 0,21 L/mg, R2 = 0,996 ; Freundlich : n = 2,69, KF = 42,6 (mg/g)(L/mg)^1/n, R2 = 0,78",
+     "compared_to": "auteurs : Langmuir qmax 200, KL 0,2174 « g/mg », R2 0,999 (cohérent) ; Freundlich n = 10,4, KF = 1,312 (incohérent : prédit qe ≈ 1,9 mg/g à Ce = 55,75 mg/L contre 177 mesuré)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "recouvrement de surface par le MB à qmax",
+     "inputs": "qmax = 200 mg/g ; M(MB) 319,85 g/mol ; empreinte 0,86 nm2 (à plat) ; SBET NSG-1 % 528,82 m2/g",
+     "formula": "S = qmax/M × NA × 0,86 nm2",
+     "result": "0,625 mmol/g ; ≈ 324 m2/g, soit 61 % de SBET",
+     "compared_to": "monocouche plausible ; avec 1,6 nm2 par molécule (valeur souvent citée), 114 % de SBET : limite haute",
+     "source": "empreinte : arXiv:1308.5652"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Gélatine à 1 % de la masse de P123 : ≈ 1 g par mole de TEOS, 0,6 % de la masse (P123 + SiO2) (calcul « masse de gélatine »). Seule la gélatine change entre NS et NSG-x % : témoin correct sur le principe, mais une si faible quantité rend douteux un rôle de « co-gabarit ». Type de gélatine (A ou B, Bloom) non donné, alors que son point isoélectrique va de 4,7 à 9 selon le procédé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interface properties (point isoélectrique des gélatines de type A, pH 7–9, et de type B, pH 4,7–5,4)",
+      "authors_or_publisher": "GELITA AG (fabricant de gélatine) — page technique",
+      "year": "consultée 2026",
+      "url_or_doi": "https://gelita.com/en/node/76"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Mécanisme des auteurs incompatible avec le milieu : à pH ≈ −0,2, les carboxyles de la gélatine sont protonés (pKa des chaînes latérales Asp/Glu ≈ 4), il n'y a pas de « –COO− » ; une estérification avec les deux seuls OH terminaux du P123 (≈ 0,34 mmol/g) dans une solution à ≈ 50 M d'eau est défavorisée à l'équilibre ; une gélatine chargée positivement ne fait pas un « tensioactif anionique ». La gélatine est un polycation dans ce milieu.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La gélatine subit 27 h à 40 °C puis 24 h à 100 °C dans HCl ≈ 1,5 M : conditions d'hydrolyse acide partielle des liaisons peptidiques (l'hydrolyse totale des protéines se fait à 6 M HCl, 110 °C, 24 h). Ce qui reste au moment de la condensation hydrothermale est probablement un mélange de peptides, pas la gélatine intacte invoquée (gonflement, réseau micellaire).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Effet de la gélatine faible et non monotone : NS → NSG-1 % : SBET +9 %, D(DFT) +0,48 nm, 4V/S +0,23 nm ; NSG-4 % (479 m2/g, 6,55 nm) est en dessous de NS. Le résumé annonce 467 → 510 m2/g, 0,64 → 0,72 cc/g et 3,5 → 6,0 nm, valeurs absentes de la Table 2, et une expansion « avec l'augmentation du rapport P123:gélatine » que la Table 2 contredit. Aucun essai répété : un écart de 0,5 nm et de 9 % est de l'ordre de la variation d'un lot à l'autre d'une SBA-15. L'effet « pore expander » n'est pas démontré.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Capacité MB × 2,1 (78 → 168 mg/g) pour SBET × 1,09 : la capacité par m2 double (calcul « rapport capacité / surface »). Les pores de 6,7 nm de NS ne limitent pas l'accès d'une molécule de 1,43 × 0,60 nm ; l'explication par l'élargissement des pores n'est pas discriminante. Alternatives à tester : densité de silanols (bande à 981 cm−1 plus forte à 1–2 %), résidus azotés de gélatine après calcination (analyse élémentaire C/N, ATG), pH final de la solution de MB.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and properties of Co-doped titanate nanotubes and their optical sensitization with methylene blue (empreinte du bleu de méthylène ≈ 1,43 × 0,60 nm)",
+      "authors_or_publisher": "arXiv:1308.5652",
+      "year": "2013",
+      "url_or_doi": "https://arxiv.org/pdf/1308.5652"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Série en dose contradictoire avec l'isotherme : à 5 mg, qe = 331 mg/g pour Ce ≈ 41,7 mg/L, alors que l'isotherme mesurée au même adsorbant donne 177 mg/g à Ce ≈ 56 mg/L et que le Langmuir des auteurs plafonne à qmax = 200 mg/g (180 mg/g prédits à Ce = 41,7). À l'équilibre et à température fixe, qe ne dépend que de Ce. La colonne « qmax » de la Table 5 n'est pas un qmax (calcul « série en dose »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Langmuir recalculé sur la Table 5 : qmax 192 mg/g, KL 0,21 L/mg, R2 0,996, proche des valeurs publiées ; l'unité de KL est L/mg et non g/mg. Freundlich publié (n = 10,4, KF = 1,312) incompatible avec les données (refit : n = 2,69, KF = 42,6, R2 = 0,78) : avec les paramètres publiés, qe ≈ 1,9 mg/g à Ce = 55,75 mg/L (calcul « série en concentration »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Interaction MB–silice : le bleu de méthylène n'a ni « NH2+ » ni groupe amine N–H ; sa charge est délocalisée sur les groupes =N+(CH3)2 et le cycle phénothiazinium. Il peut seulement accepter une liaison H (azote du cycle) ; l'interaction principale attendue est électrostatique avec Si–O− (silice chargée négativement au-dessus de pH ≈ 2), pH de la solution non donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Petits angles : même position de raie (2,02°) pour NS et NSG-1 %, donc même paramètre de maille ; un pore plus grand de 0,48 nm à maille constante implique une paroi plus mince (3,4 → 3,0 nm avec l'indexation (200)), pas un « élargissement de la structure ». L'intensité plus forte n'indique pas « plus de mésopores ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans HCl ≈ 1,5 M, la gélatine est un polycation (amines et guanidiniums protonés, carboxyles protonés), probablement partiellement hydrolysée en peptides pendant 27 h à 40 °C puis 24 h à 100 °C. Son rôle le plus probable est secondaire : liaisons hydrogène avec les couronnes PEO et avec les silanols, léger changement de la courbure ou de l'hydratation des micelles, puis combustion à la calcination (résidus azotés possibles). Une liaison ester PEO–gélatine et un « tensioactif anionique » sont exclus par le pH. Les effets de texture mesurés (+0,5 nm, +9 %) sont compatibles avec une perturbation mineure ou avec la variabilité d'un lot à l'autre.",
+    "sources": [
+     {
+      "title": "Nonionic Triblock and Star Diblock Copolymer and Oligomeric Surfactant Syntheses of Highly Ordered, Hydrothermally Stable, Mesoporous Silica Structures",
+      "authors_or_publisher": "Zhao D., Huo Q., Feng J., Chmelka B. F., Stucky G. D. — J. Am. Chem. Soc. 120, 6024",
+      "year": "1998",
+      "url_or_doi": "10.1021/ja974025i (DOI non vérifié sur Crossref)"
+     },
+     {
+      "title": "Interface properties (point isoélectrique des gélatines de type A, pH 7–9, et de type B, pH 4,7–5,4)",
+      "authors_or_publisher": "GELITA AG (fabricant de gélatine) — page technique",
+      "year": "consultée 2026",
+      "url_or_doi": "https://gelita.com/en/node/76"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "type, origine et Bloom de la gélatine (point isoélectrique 4,7–9 selon le procédé)",
+    "répéter NS et NSG-1 % au moins trois fois : l'écart publié (+9 % de surface, +0,5 nm) est de l'ordre de la variabilité d'un lot à l'autre",
+    "doser C et N après calcination (résidus de gélatine) et les silanols (ATG) pour expliquer la capacité MB doublée",
+    "refaire isothermes et série en dose au même temps de contact, à l'équilibre, et vérifier qe(Ce) commun aux deux séries",
+    "l'adsorbant « NSG » des Tables 4–5 n'est pas nommé (NSG-1 % probable)"
+   ]
+  },
+  {
+   "label": "NSG-2%",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de gélatine et texture",
+     "inputs": "2 % de 98,6 g P123 par mol TEOS ; Table 2 : 512,21 m2/g ; 0,676 cc/g ; D 7,14 nm",
+     "formula": "0,02 × 98,6 ; 4V/S",
+     "result": "1,97 g de gélatine par mol TEOS ; 4V/S = 5,28 nm",
+     "compared_to": "NS : 4,95 nm ; NSG-1 % : 5,18 nm",
+     "source": "arithmétique"
+    },
+    {
+     "what": "cohérence qe / retrait",
+     "inputs": "qe = 144,0 mg/g ; C0 50 mg/L ; V 0,2 L ; m 50 mg",
+     "formula": "qe m /(C0 V)",
+     "result": "72 %",
+     "compared_to": "Fig. 7b ≈ 72 % : cohérent",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Mêmes réserves que NSG-1 % (mécanisme, hydrolyse de la gélatine, absence de répétitions). Le taux de retrait baisse de 84 % (1 %) à 72 % (2 %) alors que le texte écrit « increased from 67 to 84% with increasing the gelatin concentration » : la tendance réelle est inverse au-delà de 1 %. R2 du pseudo-second ordre 0,003 : ajustement non significatif, ne peut fonder aucune conclusion.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir NSG-1 % : gélatine polycationique, probablement hydrolysée en partie, rôle secondaire.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "comme NSG-1 %",
+    "particules de 6–9 µm (SEM) contre histogrammes gradués en nm (Fig. 2)"
+   ]
+  },
+  {
+   "label": "NSG-4%",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de gélatine et texture",
+     "inputs": "4 % de 98,6 g P123 par mol TEOS ; Table 2 : 479,10 m2/g ; 0,626 cc/g ; D 6,55 nm",
+     "formula": "0,04 × 98,6 ; 4V/S",
+     "result": "3,94 g de gélatine par mol TEOS ; 4V/S = 5,23 nm",
+     "compared_to": "NS : 484,05 m2/g, D 6,66 nm : NSG-4 % est en dessous de NS en surface et en diamètre DFT",
+     "source": "arithmétique"
+    },
+    {
+     "what": "cohérence qe / retrait",
+     "inputs": "qe = 134,0 mg/g ; C0 50 mg/L ; V 0,2 L ; m 50 mg",
+     "formula": "qe m /(C0 V)",
+     "result": "67 %",
+     "compared_to": "Fig. 7b ≈ 67 % : cohérent",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "NSG-4 % a une surface (479 m2/g) et un diamètre DFT (6,55 nm) inférieurs à NS : contredit le résumé (« expansion des mésopores avec l'augmentation du rapport P123:gélatine ») ; la capacité MB reste pourtant 1,7 fois celle de NS, ce qui confirme que la texture n'explique pas l'adsorption.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Voir NSG-1 %.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "comme NSG-1 %"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse de base est une SBA-15 classique (rapports molaires identiques à Zhao et al. 1998), cohérente et reproductible une fois une échelle choisie. Les conclusions sur la gélatine sont mal étayées : quantité infime (0,6–2,5 % des solides), effet textural faible et non monotone sans répétitions, mécanisme (ester, « –COO− », tensioactif anionique) incompatible avec un milieu à pH ≈ −0,2, indexation (200) d'une raie unique sans la raie (100). Le traitement des données d'adsorption contient plusieurs erreurs : k2 = 1/qcal, qcal du pseudo-second ordre 50 fois trop petit, Freundlich incompatible avec les données, série en dose (331 mg/g) contradictoire avec l'isotherme (qmax 200 mg/g).",
+  "author_errors_suspected": [
+   "résumé (467–510 m2/g, 0,64–0,72 cc/g, 3,5–6,0 nm) en désaccord avec la Table 2",
+   "HCl « 37 % v/v » au lieu de 37 % en masse",
+   "calcination 550 °C (Méthodes) contre 500 °C (FTIR)",
+   "raie à 2,02° indexée (200) sans (100) ; plage de mesure 0,1–5° (Méthodes) contre 0,5–6° (Résultats)",
+   "bande à 1075 cm−1 appelée « symmetric » (elle est asymétrique)",
+   "colonne k2 de la Table 3 = 1/qcal ; qcal pseudo-second ordre 1,5–2,8 mg/g contre qe 78–168 mg/g",
+   "paramètres de Freundlich (n = 10,4, KF = 1,312) incompatibles avec la Table 5",
+   "colonne « qmax » de la Table 5 pour la série en dose ; qe = 331 mg/g > qmax de Langmuir",
+   "KL en g/mg au lieu de L/mg ; R2 de Langmuir 0,990 (texte) contre 0,999 (Table 4)",
+   "test d'adsorption de 20 min contre équilibre à 50–70 min",
+   "« NH2+ » et groupes amine attribués au bleu de méthylène",
+   "taux de retrait dit croissant avec la gélatine alors qu'il décroît de 1 à 4 %",
+   "BET calculée entre P/P0 0,05–0,2 (Méthodes) contre < 0,3 (note de la Table 2) ; BJH annoncé, DFT dans la Table 2"
+  ],
+  "comparison_with_database": "PMC6812203 (SBA-15, P123/HCl, 35 °C puis 100 °C, 550 °C) : raie (100) à 0,96°, SBET 675 m2/g ; l'article a une surface plus basse (479–529 m2/g) et ne rapporte pas la raie (100), attendue vers 1,0°. PMC8495851 (SBA-15 à canaux courts, 308 K puis 373 K, 823 K) : protocole thermique semblable."
+ },
+ "sources_not_found": [
+  "aucune source trouvée donnant la cinétique d'hydrolyse de la gélatine dans HCl ≈ 1,5 M à 100 °C (argument fondé sur les conditions d'hydrolyse totale des protéines, 6 M HCl, 110 °C, 24 h, valeur de manuel)",
+  "aucune source primaire vérifiée pour l'aire occupée par une molécule de bleu de méthylène (valeurs de 0,86 à 1,97 nm2 selon l'orientation ; seule l'empreinte 1,43 × 0,60 nm d'arXiv:1308.5652 est retenue)",
+  "DOI 10.1126/science.279.5350.548, 10.1021/ja974025i et 10.1016/S0032-9592(98)00112-5 non vérifiés sur Crossref (bloqué dans le cloud)"
+ ]
+}

@@ -1,0 +1,16 @@
+# PMC5407272 — critique scientifique (journal de décisions)
+
+- Volume de solution métallique absent : je l'ai reconstruit (Au 0,278 mmol / 5,0 mM = 55,6 mL ; Pd 0,197 mmol / 3,3 mM = 59,8 mL) en supposant un dépôt total. C'est une borne basse, présentée comme telle, pas une valeur de l'article.
+- NaOH : 1,5 mmol annoncée = 1,51 mmol calculée pour HAuCl4 → Au(OH)3 (4 OH− par Au) + Pd(II) → Pd(OH)2 (2 OH−). Rien pour la surface de TiO2 ni pour Au(OH)4− : classé `reserve` (titrer au pH-mètre), pas `probleme`, car le « ca. » et le volume inconnu laissent de la marge.
+- Mécanisme du dépôt mis à `a_revoir` : l'annotation de l'extraction parle d'« hydroxydes d'Au(III) qui se déposent », alors qu'à pH 10 l'or est surtout anionique et la surface de TiO2 négative. Source retenue : Zanella 2002 (DP NaOH, dépôt d'or incomplet, ≈ 3 % en masse maximum, cohérent avec 2,64 % ici).
+- XPS : j'ai relevé que le décalage Au 4f compare des particules de 3,3 nm (Au–Pd) et 1,9 nm (Au seul). Le sens de l'effet de taille (énergie de liaison plus haute pour les petites particules, Peters 2013 ; dépendance au support, Radnik 2003) produit un décalage de même signe : `reserve` (preuve non discriminante), pas `probleme`, car l'alliage reste plausible.
+- Effet électronique contre effet d'ensemble : appui sur le résumé de J. Phys. Chem. C 2007 (10.1021/jp067177l), lu seulement en résumé ; auteurs non relevés, signalé dans `sources_not_found`.
+- `probleme` n°1 (Au–Pd/SiO2) : Au 19 % et Pd 51 % des teneurs visées, rapport 35/65, 6,4 nm, 3,1 fois plus de solide dans l'essai. La conclusion « acidic supports are not suitable » change plusieurs variables (contrôle 5) ; de plus Al2O3 (Lewis acide) donne 44 %.
+- `probleme` n°2 (réaction) : bilan 2 C9H19N → C18H23N + NH3 + 6 H2. H2 attendu 2,78 mmol (mesuré 2,8, accord) ; NH3 attendu 0,46 mmol, mesuré 0,3, que les auteurs appellent « ca. one-half equivalents ». J'attribue l'écart à une rétention de NH3 (TiO2, solvant), sans pouvoir le prouver.
+- Pd/TiO2 contre alliage : à Pd constant, le TiO2 passe de 42 à 108 mg. J'ai classé en `reserve` (et non `probleme`) parce que la Fig. 12d (mélange physique ≈ Pd/TiO2 pour 3b malgré plus de TiO2) atténue le biais sur l'étape limitante.
+- Au/TiO2 : 34–44 % de conversion de 1a sans produit identifié (≈ 1/3 du substrat non retrouvé) ; « completely inactive » n'est vrai que pour 2a. `reserve`.
+- Recyclage : récupération > 90 % par cycle → 0,9³ ≈ 73 % de catalyseur au 3e recyclage si la charge de 1a n'est pas ajustée, du même ordre que la perte de surface par frittage (≈ 0,75). Cause non séparée : `reserve`.
+- Montage : 2,8 mmol H2 + 0,3 mmol NH3 dans ≈ 18 mL à 433 K → ≈ 6 atm + Ar + mésitylène ≈ 8,5 atm si fermé. Le dosage par volume de gaz implique un montage ouvert non décrit : `reserve` sécurité. Pression de vapeur de la mésitylène à 160 °C estimée par Clausius-Clapeyron avec ΔvapH ≈ 39 kJ/mol (ordre de grandeur, non lu sur NIST) ; Téb 437,8 K lue sur NIST.
+- MgO sans NaOH : pH de Mg(OH)2 saturé ≈ 10,3 (Ksp 5,6 × 10⁻¹², valeur de manuel non relue) → omission cohérente.
+- Dispersion D ≈ 1,1/d utilisée comme ordre de grandeur, sans source lue ; ne fonde aucun `probleme`.
+- Recherches web : 5 recherches et 2 lectures de page. Rien ajouté à fondateurs.md ni constantes.md (Crossref bloqué, consigne).

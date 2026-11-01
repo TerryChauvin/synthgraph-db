@@ -1,0 +1,433 @@
+{
+ "pmcid": "PMC9929317",
+ "routes": [
+  {
+   "label": "E. alata extract",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport poudre végétale / eau",
+     "inputs": "45 g de poudre ; 120 ml d'eau distillée",
+     "formula": "m/V",
+     "result": "0,375 g/mL",
+     "compared_to": "rapport élevé : une part de l'eau reste dans la poudre et dans le papier filtre ; le volume d'extrait récupéré n'est pas donné, et la concentration en polyphénols non plus",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Infusion d'une semaine à température ambiante, en eau non stérile et sans conservateur : la composition de l'extrait (polyphénols, sucres) peut évoluer par oxydation à l'air et fermentation microbienne ; la couleur rouge brique est le seul contrôle. Variable non maîtrisée qui pèse directement sur la voie Bio-CuO.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Ni la masse sèche de l'extrait, ni son pH, ni sa teneur en phénols totaux (Folin) ne sont donnés : on ne peut pas fixer le rapport extrait/Cu de la voie Bio-CuO (calcul 'rapport poudre végétale / eau').",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Extraction aqueuse à froid des composés hydrosolubles (polyphénols, flavonoïdes glycosylés, acides organiques) ; rien de plus à juger, l'extrait n'étant pas caractérisé hors FTIR.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'extrait récupéré et masse sèche par mL",
+    "pH de l'extrait",
+    "teneur en phénols totaux",
+    "conservation (réfrigération) pendant et après la semaine d'infusion"
+   ]
+  },
+  {
+   "label": "Bio-CuO",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de cuivre",
+     "inputs": "1 g CuSO4·5H2O ; M = 249,69 g/mol",
+     "formula": "n = m/M",
+     "result": "4,00 mmol Cu",
+     "compared_to": "masse théorique de CuO = 4,00 mmol × 79,545 g/mol = 0,319 g ; rendement jamais donné",
+     "source": "M de PubChem CID 24463 ; M(CuO) des masses atomiques IUPAC"
+    },
+    {
+     "what": "concentration de la solution de cuivre",
+     "inputs": "4,00 mmol dans 10 ml, puis 30 ml d'extrait ajoutés",
+     "formula": "c = n/V",
+     "result": "0,40 mol/L (100 g/L de pentahydrate) avant mélange ; 0,10 mol/L après mélange (40 ml)",
+     "compared_to": "solubilité de CuSO4·5H2O 317 g/L à 20 °C : solution limpide, aucun problème",
+     "source": "PubChem CID 24463 (ICSC)"
+    },
+    {
+     "what": "pH de début de précipitation de Cu(OH)2 et effet de l'hydrolyse sans base",
+     "inputs": "Ksp(Cu(OH)2) ≈ 2,2 × 10^-20 (valeur de manuel, CRC, citée de mémoire) ; [Cu2+] = 0,10 mol/L ; 4,00 mmol dans 40 ml",
+     "formula": "pH = 14 + log √(Ksp/[Cu2+]) ; précipiter 1 % du Cu libère 2 × 0,040 mmol H+ dans 40 ml",
+     "result": "précipitation à partir de pH ≈ 4,7 ; précipiter seulement 1 % du cuivre libère 2 mmol/L de H+ (pH ≈ 2,7), ce qui arrête la précipitation",
+     "compared_to": "aucune base n'est ajoutée dans la voie verte : sauf si l'extrait est basique ou tamponné (pH non donné), seule une petite fraction du Cu peut précipiter en hydroxyde ; le solide récupéré doit venir surtout de complexes Cu–polyphénols",
+     "source": "calcul ; Ksp de manuel signalé comme tel"
+    },
+    {
+     "what": "microdéformation recalculée à partir de D (Eq. 2 et 4 de l'article)",
+     "inputs": "D = 15,21 nm ; k = 0,9 ; λ = 0,154 nm ; Eq. 2 : β cosθ = kλ/D ; Eq. 4 : ε = β cosθ/4",
+     "formula": "ε = kλ/(4D)",
+     "result": "ε = 2,28 × 10^-3",
+     "compared_to": "Table 1 : 1,03 × 10^-3, soit 2,21 fois moins ; même facteur 2,21 pour Chem-CuO (3,75 contre 1,7 × 10^-3) : ε·D vaut 0,0157 nm dans la Table 1 pour les deux échantillons, contre kλ/4 = 0,0347 nm attendu",
+     "source": "équations et valeurs de l'article"
+    },
+    {
+     "what": "densité de dislocations recalculée",
+     "inputs": "D = 15,21 nm",
+     "formula": "δ = 1/D²",
+     "result": "4,32 × 10^15 m^-2",
+     "compared_to": "Table 1 : 4,32 × 10^15 (unité non écrite ; m^-2, lignes/m²) : cohérent",
+     "source": "équation de l'article"
+    },
+    {
+     "what": "composition atomique EDX recalculée et rapport Cu/O",
+     "inputs": "Cu 77,22 ; O 21,68 ; C 1,1 % massiques",
+     "formula": "x_i = (w_i/M_i)/Σ(w_j/M_j)",
+     "result": "Cu 45,65 ; O 50,91 ; C 3,44 % at. (identique à l'article) ; Cu/O = 0,90",
+     "compared_to": "CuO pur : 79,9 % massiques de Cu, Cu/O = 1 ; O légèrement en excès (hydroxyles, carbonates, semi-quantitatif)",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "position des raies et largeur attendue",
+     "inputs": "λ Cu Kα = 1,5406 Å ; 2θ = 35,55° ; D = 15,21 nm",
+     "formula": "d = λ/(2 sinθ) ; β = kλ/(D cosθ)",
+     "result": "d = 2,523 Å (CuO (-111)) ; β ≈ 0,55° en 2θ",
+     "compared_to": "CuO monoclinique (-111) d ≈ 2,52 Å : cohérent ; l'article écrit λ = « 1542 Å » dans les Méthodes (coquille pour 1,542 Å)",
+     "source": "calcul ; λ de la NIST X-ray Transition Energies (référence de constantes.md)"
+    },
+    {
+     "what": "cinétique du premier ordre recalculée sur les points de Fig. 11",
+     "inputs": "R = 64,8 ; 75,1 ; 82 ; 86,6 ; 93,4 % à 30, 60, 90, 120, 180 min",
+     "formula": "ln(C0/Ct) = -ln(1 - R/100) ; régression linéaire",
+     "result": "sans le point t = 0 : pente 0,0111 min^-1, ordonnée à l'origine 0,71, R² = 0,999 ; avec t = 0 : R² = 0,94 ; k = 0,01 min^-1 seul donnerait 83,5 % à 180 min et non 93,4 %",
+     "compared_to": "k = 0,01 min^-1 et R² = 0,9989 de l'article : reproduits seulement si le point initial est exclu ; ≈ 50 % de la décoloration a lieu avant 30 min et n'est pas décrite par k",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "charge de catalyseur et quantité de colorant",
+     "inputs": "20 mg dans 25 ml ; MB 10 mg/L, M = 319,85 g/mol (Table S1)",
+     "formula": "m/V ; n = c·V/M",
+     "result": "0,8 g/L de CuO ; 0,78 µmol de MB",
+     "compared_to": "charge usuelle pour ce type d'essai",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Les auteurs présentent l'extrait comme « reducing agent » qui réduit « le sel métallique en oxyde métallique » : Cu(II) dans CuSO4 et Cu(II) dans CuO ont le même degré d'oxydation, aucune réduction n'est nécessaire. Le rôle plausible des polyphénols est la complexation (chélation) de Cu2+, puis la décomposition du complexe en CuO à la calcination ; toute réduction partielle en Cu(I) ou Cu(0) serait réoxydée en CuO à 400 °C sous air. L'affirmation « réducteur » n'est pas soutenue ; à ne pas reprendre comme mécanisme.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Plant extract-mediated green-synthesized CuO nanoparticles for environmental and microbial remediation: a review covering basic understandings to mechanistic study",
+      "authors_or_publisher": "Mobarak M. B. et al., Nanoscale Advances (RSC)",
+      "year": "2025",
+      "url_or_doi": "10.1039/D5NA00035A"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Sans base ajoutée, l'hydrolyse de Cu2+ s'auto-limite (calcul 'pH de début de précipitation de Cu(OH)2') : la fraction du cuivre récupérée par centrifugation dépend du pH de l'extrait et de sa teneur en polyphénols, deux grandeurs non données. Le rendement n'est pas donné (0,319 g de CuO au maximum) ; une partie importante du cuivre peut partir dans le surnageant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "L'EDX ne montre pas de soufre après 400 °C. Un hydroxysulfate (brochantite) ou CuO·CuSO4 ne perd son sulfate qu'à plus haute température (décomposition étudiée vers 600–650 °C) ; l'absence de S plaide donc pour un précurseur organométallique lavé de ses sulfates, pas pour un hydroxysulfate.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Kinetics of Thermal Decomposition of Copper (II) Sulfate and Copper (II) Oxysulfate",
+      "authors_or_publisher": "Shah I. D., Khalafalla S. E., US Bureau of Mines (CDC Stacks)",
+      "year": "s.d. (rapport d'investigation)",
+      "url_or_doi": "https://stacks.cdc.gov/view/cdc/237848"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "« Boiled at 90 °C » : l'eau bout à 100 °C sous 1 atm (Mednine est près du niveau de la mer) ; il s'agit d'un chauffage à 90 °C, sans ébullition. Deux heures à 90 °C en récipient ouvert font évaporer une partie des 40 ml : volume final et concentration non maîtrisés (couvrir ou travailler à reflux).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination à 400 °C, 4 h, sous air (atmosphère non écrite) : suffisante pour brûler l'essentiel de la matière organique et pour oxyder Cu2O en CuO (Cu2O → CuO au-dessus d'environ 320–350 °C à l'air). La température est cohérente avec la phase CuO pure observée.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Oxidation mechanism of thin Cu films: A gateway towards the formation of single oxide phase",
+      "authors_or_publisher": "AIP Advances 8, 055114 (AIP Publishing)",
+      "year": "2018",
+      "url_or_doi": "https://pubs.aip.org/aip/adv/article/8/5/055114/923119/Oxidation-mechanism-of-thin-Cu-films-A-gateway"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Microdéformation : avec les équations 2 et 4 de l'article, ε = kλ/(4D) = 2,28 × 10^-3 pour D = 15,21 nm, et non 1,03 × 10^-3 (calcul 'microdéformation recalculée'). Le même facteur 2,21 se retrouve pour Chem-CuO, ce qui indique une erreur de calcul systématique. Par ailleurs, l'équation 4 écrite (ε = β cosθ/4) n'est pas la relation de Stokes–Wilson utilisée par Williamson–Hall (ε = β/(4 tanθ)). Comme ε est tiré du même β que D, il ne contient aucune information indépendante : la conclusion « l'extrait réduit la microdéformation » ne repose sur rien d'autre que D. δ = 1/D² est, lui, cohérent.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "X-ray line broadening from filed aluminium and wolfram",
+      "authors_or_publisher": "Williamson G. K., Hall W. H., Acta Metallurgica",
+      "year": "1953",
+      "url_or_doi": "10.1016/0001-6160(53)90006-6"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin à plusieurs variables (contrôle 5) : Bio-CuO et Chem-CuO diffèrent par l'agent (extrait ou KOH), mais aussi par la concentration en cuivre pendant le mélange (0,40 mol/L dans 10 ml versés sur l'extrait contre 0,10 mol/L dans 40 ml), le pH (non donné contre 10), l'ordre d'addition (Cu versé dans l'extrait chaud contre KOH versé goutte à goutte), et le séchage (40 °C 24 h contre 80 °C 18 h). Les écarts de taille, de gap et d'activité ne peuvent pas être attribués à l'extrait seul. Il faudrait un témoin identique où l'extrait est remplacé par de l'eau au même pH, et une voie KOH au même volume et à la même température.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : les bandes de vibration de réseau de CuO monoclinique se trouvent entre environ 420 et 610 cm^-1. La bande de 452,3 cm^-1 est compatible avec Cu–O. En revanche, les bandes de 718, 1052,6 et 1113,1 cm^-1 attribuées à « CuO » ou à « M–O » ne sont pas des modes de CuO : la région 1050–1120 cm^-1 correspond à des vibrations C–O ou à des sulfates résiduels. La présence de phénols et de flavonoïdes greffés après 4 h à 400 °C à l'air est peu probable. Les bandes C–H (2898, 2980 cm^-1) sont faibles et peuvent venir d'une contamination.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Vibrational Properties of CuO and Cu4O3 from First-Principles Calculations, and Raman and Infrared Spectroscopy",
+      "authors_or_publisher": "Debbichi L. et al., J. Phys. Chem. C (ACS)",
+      "year": "2012",
+      "url_or_doi": "10.1021/jp303096m"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le carbone EDX est plus élevé dans Chem-CuO (1,77 % massique), qui n'a jamais vu d'extrait, que dans Bio-CuO (1,1 %). Ce carbone vient donc surtout du ruban carbone, de la métallisation ou de la contamination, et ne prouve pas une couche organique issue de l'extrait (preuve non discriminante, contrôle 7).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le « pic d'absorption vers 272 nm » (4,56 eV) est présenté comme preuve de la pureté de CuO, alors que le gap annoncé est de 1,77 eV (seuil vers 700 nm). Une absorption à 272 nm ne caractérise pas CuO : elle peut venir de résidus organiques ou de diffusion. Elle ne prouve pas la pureté de phase, que seule la DRX établit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Gap de 1,77 eV et taille de cristallite de 15 nm : dans la plage rapportée pour CuO nanométrique (environ 1,2–1,9 eV). Bragg cohérent avec CuO monoclinique (calcul 'position des raies'). La DRX est le seul argument solide de phase.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Photocatalyse : k = 0,01 min^-1 et R² = 0,9989 ne se retrouvent qu'en excluant t = 0. Environ 50 % de la décoloration a lieu dans les 30 premières minutes et n'est pas décrite par k (calcul 'cinétique du premier ordre'). Aucun blanc n'est montré : ni photolyse du MB sans catalyseur au soleil (les auteurs admettent pourtant que le MB absorbe), ni catalyseur à l'obscurité au-delà de 2 h. L'irradiance solaire n'est pas mesurée, ce qui rend la comparaison entre essais de jours différents fragile.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Explication de l'effet du pH contradictoire : le texte dit qu'en dessous du pHpzc, la surface positive repousse le MB cationique, puis invoque une « force attractive » entre le MB et la surface chargée positivement. Le MB est un cation thiazinium à tout pH usuel ; son pKa ≈ 3,8 concerne une seconde protonation, pas un passage à une forme « neutre ». L'optimum à pH 7 n'est pas expliqué par ce raisonnement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "S. aureus et B. subtilis sont des bactéries Gram-positives, et non « Gram-negative » comme l'écrit l'article (deux fois). Aucune souche Gram-négative n'est testée. La diffusion sur disque d'une suspension insoluble dans le DMSO (0,18 mg par disque) mesure mal l'activité des nanoparticules et ne vaut que comme comparaison qualitative.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : nanopoudre de CuO, à peser sous hotte ou sous protection respiratoire (fines inhalables). CuSO4 est nocif et très toxique pour le milieu aquatique : les surnageants chargés en cuivre, probablement abondants dans cette voie (voir le bilan), doivent être récupérés. Calciner sous hotte une poudre chargée de matière organique (fumées). Les essais microbiens sur S. aureus relèvent d'un laboratoire de niveau 2.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Les polyphénols et flavonoïdes de l'extrait (catéchols, carboxylates) complexent Cu2+ à 90 °C, avec au plus une hydrolyse partielle, que l'absence de base limite. Le solide centrifugé est un complexe Cu–organique, peut-être mêlé d'un peu d'hydroxyde. La calcination à 400 °C sous air brûle la partie organique et donne CuO monoclinique ; tout Cu(I) ou Cu(0) formé par les phénols est réoxydé à cette température. Il n'y a pas de « réduction » de Cu(II) en CuO. La taille plus grande (15 nm) peut venir de la combustion exothermique locale de la matière organique pendant la calcination plutôt que d'un effet de l'extrait sur la maille.",
+    "sources": [
+     {
+      "title": "Plant extract-mediated green-synthesized CuO nanoparticles for environmental and microbial remediation: a review covering basic understandings to mechanistic study",
+      "authors_or_publisher": "Mobarak M. B. et al., Nanoscale Advances (RSC)",
+      "year": "2025",
+      "url_or_doi": "10.1039/D5NA00035A"
+     },
+     {
+      "title": "Oxidation mechanism of thin Cu films: A gateway towards the formation of single oxide phase",
+      "authors_or_publisher": "AIP Advances 8, 055114 (AIP Publishing)",
+      "year": "2018",
+      "url_or_doi": "https://pubs.aip.org/aip/adv/article/8/5/055114/923119/Oxidation-mechanism-of-thin-Cu-films-A-gateway"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pH de l'extrait et du mélange réactionnel",
+    "masse de solide récupérée (rendement par rapport à 0,319 g de CuO) et teneur en Cu du surnageant",
+    "rapport extrait/Cu (masse sèche ou phénols totaux)",
+    "récipient couvert ou à reflux pendant 2 h à 90 °C",
+    "atmosphère et rampe de calcination",
+    "témoin sans extrait (eau au même pH) pour attribuer les effets à l'extrait",
+    "blanc de photolyse du MB et mesure de l'irradiance"
+   ]
+  },
+  {
+   "label": "Chem-CuO",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de cuivre et de KOH",
+     "inputs": "1 g CuSO4·5H2O (249,69 g/mol) ; 1 g KOH (56,106 g/mol)",
+     "formula": "n = m/M ; OH/Cu",
+     "result": "4,00 mmol Cu ; 17,8 mmol KOH ; OH/Cu disponible = 4,45 (2 nécessaires pour Cu(OH)2)",
+     "compared_to": "KOH suffisant ; pH 10 atteint peu après l'équivalence",
+     "source": "M de PubChem ; M(KOH) des masses atomiques IUPAC"
+    },
+    {
+     "what": "volume de solution de KOH nécessaire",
+     "inputs": "17,8 mmol dans 90 ml (0,198 mol/L) ; 2 × 4,00 mmol de OH- consommés",
+     "formula": "V = 2 n(Cu)/c(KOH)",
+     "result": "≈ 40,4 ml pour précipiter tout le cuivre ; un excès infime amène à pH 10 ; environ la moitié de la solution de KOH reste donc inutilisée",
+     "compared_to": "volume versé non donné (MANQUE KOH_volume_added) ; volume total vers 80–85 ml",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse théorique de CuO",
+     "inputs": "4,00 mmol Cu ; M(CuO) = 79,545 g/mol",
+     "formula": "m = n × M",
+     "result": "0,319 g",
+     "compared_to": "rendement non donné",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "position attendue des raies de Cu2O et de Cu",
+     "inputs": "Cu2O cubique a = 4,2696 Å ; Cu cfc a = 3,615 Å ; λ = 1,5406 Å",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 arcsin(λ/2d)",
+     "result": "Cu2O (111) 36,42° (I = 100) ; (200) 42,30° (I = 37) ; (220) 61,37° ; Cu (111) 43,32°",
+     "compared_to": "pic de l'article à 42,5° (d = 2,125 Å) : proche de Cu2O (200), mais la raie la plus intense, (111) à 36,4°, n'est pas signalée ; elle tomberait dans l'aile de CuO (-111) à 35,55°, avec une largeur attendue de 0,90° pour D = 9,23 nm",
+     "source": "paramètre de maille de cuprite (webmineral) ; calcul"
+    },
+    {
+     "what": "composition atomique EDX recalculée",
+     "inputs": "Cu 73,4 ; O 24,83 ; C 1,77 % massiques",
+     "formula": "x_i = (w_i/M_i)/Σ(w_j/M_j)",
+     "result": "Cu 40,47 ; O 54,37 ; C 5,16 % at. (identique à l'article) ; Cu/O = 0,74",
+     "compared_to": "CuO : Cu/O = 1 (79,9 % massiques de Cu) ; Cu2O : Cu/O = 2 (88,8 %). L'échantillon est plus riche en O que CuO, ce qui va à l'encontre d'une impureté de Cu2O",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "microdéformation recalculée",
+     "inputs": "D = 9,23 nm ; k = 0,9 ; λ = 0,154 nm",
+     "formula": "ε = kλ/(4D)",
+     "result": "3,75 × 10^-3",
+     "compared_to": "Table 1 : 1,7 × 10^-3 (facteur 2,21, le même que pour Bio-CuO) ; δ = 1/D² = 11,74 × 10^15 m^-2, cohérent avec 11,7",
+     "source": "équations de l'article"
+    },
+    {
+     "what": "cinétique du premier ordre recalculée sur Fig. 11",
+     "inputs": "R = 59,6 ; 60,4 ; 67 ; 72,8 ; 80,2 % à 30–180 min",
+     "formula": "ln(C0/Ct) ; régression",
+     "result": "sans t = 0 : pente 0,0051 min^-1, ordonnée 0,69, R² = 0,971 ; avec t = 0 : R² = 0,83",
+     "compared_to": "k = 0,005 min^-1 et R² = 0,9797 de l'article : reproduits seulement en excluant t = 0 ; près de 60 % de décoloration dans les 30 premières minutes, puis un plateau (59,6 puis 60,4 %)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le KOH apporte 4,45 OH par Cu (calcul 'moles de cuivre et de KOH') ; environ 40 ml des 90 ml suffisent pour atteindre pH 10. L'ajout goutte à goutte de base dans un excès de Cu2+ forme d'abord un hydroxysulfate basique, puis Cu(OH)2 à pH élevé. À 90 °C, Cu(OH)2 se déshydrate en CuO noir, ce qui correspond au « dark-colored precipitate » décrit.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La voie est appelée « hydrothermal method » alors qu'il n'y a ni autoclave ni récipient fermé : c'est une précipitation suivie d'un mûrissement à 90 °C sous agitation, à pression atmosphérique. Le mot est faux, mais le protocole reste réalisable. Comme pour Bio-CuO, l'évaporation pendant 2 h à 90 °C n'est pas maîtrisée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Attribution du petit pic à 42,5° à Cu2O : la voie ne contient aucun réducteur (KOH, CuSO4, air), et la poudre est calcinée 4 h à 400 °C, très probablement sous air (atmosphère non écrite). Dans ces conditions, Cu2O s'oxyde en CuO au-dessus d'environ 320–350 °C. La raie la plus intense de Cu2O, (111) à 36,4°, n'est pas signalée, et l'EDX donne un échantillon plus riche en O que CuO (Cu/O = 0,74). La preuve ne distingue donc pas Cu2O d'un artefact (porte-échantillon, raie Kβ ou W-Lα d'un pic intense, autre impureté). Il est paradoxal que la voie « sans réducteur » montre du Cu(I) alors que la voie « avec réducteur » n'en montre pas. Vérifier par un affinement de Rietveld complet, par XPS (satellites de Cu2+) ou par spectroscopie Raman.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Crystallization and electrical resistivity of Cu2O and CuO … (titre complet non lu ; extrait : « with increasing calcination temperature, Cu2O easily oxidizes to CuO »)",
+      "authors_or_publisher": "Valladares L. D. L. S. et al., Thin Solid Films (Elsevier)",
+      "year": "2012",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S0040609012007535"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : aucune des trois bandes (3505, 1102, 809 cm^-1) ne tombe dans la région des modes de réseau de CuO (environ 420–610 cm^-1), alors que la mesure descend à 400 cm^-1. La « forte bande à 1102,4 cm^-1 attribuée aux vibrations de CuO » n'est pas un mode de CuO : sa position est typique du mode ν3 de SO4²⁻, ce qui pourrait trahir un sulfate résiduel (hydroxysulfate ou K2SO4 mal lavé), même si l'EDX ne montre pas de S. Le FTIR ne confirme donc pas CuO ici ; seule la DRX le fait.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CuO Nanoparticles and Microaggregates: An Experimental and Computational Study of Structure and Electronic Properties",
+      "authors_or_publisher": "Materials (MDPI), article en accès libre PMC10343626",
+      "year": "2023",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10343626"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande UV-Vis large entre 280 et 410 nm attribuée à Cu2O : le gap de Cu2O (environ 2,1 eV, soit près de 590 nm) ne correspond pas à cette région. L'argument n'est pas discriminant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Microdéformation de la Table 1 (1,7 × 10^-3) incohérente avec les équations 2 et 4, du même facteur 2,21 que pour Bio-CuO (voir Bio-CuO, calcul 'microdéformation recalculée'). Gap de 1,92 eV : dans la plage haute de CuO nanométrique. La conclusion intervertit les gaps des deux voies (« 1.77 to 1.92 eV for chemically and green ») par rapport à la Table 1 (1,92 eV pour la voie chimique, 1,77 eV pour la voie verte).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : la dissolution de KOH est exothermique et la solution est corrosive (gants, lunettes). Une nanopoudre de CuO est produite. Les eaux de lavage contiennent K2SO4 et des traces de Cu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "La base est versée goutte à goutte dans CuSO4. On forme d'abord un hydroxysulfate basique bleu-vert (Cu4(OH)6SO4), puis Cu(OH)2 bleu quand le pH dépasse 7 environ. À 90 °C, Cu(OH)2 se déshydrate en CuO noir (Cu(OH)2 → CuO + H2O) : c'est le précipité sombre observé. La calcination à 400 °C fait croître les cristallites. Rien ne réduit Cu(II) dans cette voie : un Cu2O authentique ne pourrait venir que d'une atmosphère de calcination non oxydante, ce qui n'est pas décrit.",
+    "sources": [
+     {
+      "title": "Oxidation mechanism of thin Cu films: A gateway towards the formation of single oxide phase",
+      "authors_or_publisher": "AIP Advances 8, 055114 (AIP Publishing)",
+      "year": "2018",
+      "url_or_doi": "https://pubs.aip.org/aip/adv/article/8/5/055114/923119/Oxidation-mechanism-of-thin-Cu-films-A-gateway"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de KOH réellement versé pour atteindre pH 10 (≈ 40 ml attendus)",
+    "récipient couvert pendant 2 h à 90 °C",
+    "atmosphère de calcination (air)",
+    "nombre de lavages et test des sulfates dans l'eau de lavage (BaCl2)",
+    "phase réelle de l'impureté à 42,5° (DRX lente vers 36,4°, XPS ou Raman)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les deux voies sont des préparations classiques de CuO, réalisables avec un équipement courant ; la voie KOH est chimiquement claire, la voie verte l'est moins : sans base, la quantité de cuivre récupérée dépend du pH et de la composition de l'extrait, jamais donnés, et aucun rendement n'est publié. Les conclusions comparatives sont plus fragiles que les synthèses : le rôle « réducteur » de l'extrait est chimiquement inutile pour CuO ; la comparaison entre voies change plusieurs variables à la fois ; l'impureté Cu2O de la voie chimique est mal étayée (pas de réducteur, calcination à l'air à 400 °C, raie principale absente, EDX riche en O) ; la microdéformation de la Table 1 est fausse d'un facteur constant 2,21 par rapport aux équations des auteurs ; plusieurs attributions FTIR et UV ne caractérisent pas CuO.",
+  "author_errors_suspected": [
+   "« reducing agent » pour une transformation Cu(II) → CuO sans changement de degré d'oxydation",
+   "microdéformation de la Table 1 sous-estimée d'un facteur 2,21 par rapport à ε = kλ/(4D) tiré des équations 2 et 4, et équation 4 différente de la relation de Stokes–Wilson",
+   "λ = « 1542 Å » dans les Méthodes au lieu de 1,542 Å",
+   "« hydrothermal method » pour une précipitation à 90 °C en récipient ouvert",
+   "« boiled at 90 °C »",
+   "bandes FTIR de 1052–1113 cm^-1 attribuées à CuO",
+   "S. aureus et B. subtilis dites Gram-négatives",
+   "conclusion qui intervertit les gaps des deux voies",
+   "« uniform size distribution of 10–16 nm » déduite des tailles de Scherrer, qui ne donnent pas une distribution",
+   "explication contradictoire de l'effet du pH sur l'adsorption du MB",
+   "texte qui renvoie à Fig. 11 pour l'effet de la concentration (Fig. 9)"
+  ],
+  "comparison_with_database": "compare.py « CuO » : PMC8309541 (ZnO/CuO, précipitation à pH 10 puis recuit à 400 °C, 5 h) et PMC9300655 (CuO sur nanotubes, HMTA à 170 °C en autoclave). La voie KOH à pH 10 et la calcination à 400 °C de PMC9929317 rejoignent PMC8309541 ; aucune valeur ne s'écarte. Aucune autre voie verte de CuO n'est encore dans la base pour comparer la voie à l'extrait."
+ },
+ "sources_not_found": [
+  "valeur de pHpzc de CuO avec une source primaire lue (recherche Kosmulski sans valeur pour CuO dans les extraits)",
+  "composition chimique de l'extrait aqueux d'Ephedra alata (non cherchée, faute de recherches disponibles)",
+  "Ksp de Cu(OH)2 cité de mémoire (CRC Handbook), non vérifié en ligne"
+ ]
+}

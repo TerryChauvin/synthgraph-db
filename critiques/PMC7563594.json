@@ -1,0 +1,72 @@
+{
+ "pmcid": "PMC7563594",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "GO-0 step 3 (filter) : paramètres pressure = 1 bar et surface_density = 25 mg/m2",
+   "extracted": "GO-0 : filtration à 1 bar et densité surfacique 25 mg/m2 (citation de la filtration de la solution GO/diamine)",
+   "article_says": "This solution was filtered onto a PES ultrafiltration membrane (GO surface density 25 mg/m2) under a pressure of 1 bar by a filtration of self-assembly method.",
+   "fix": "La phrase décrit la solution GO + diamine ; les Conclusions limitent les 25 mg/m2 aux membranes réticulées (« GO-EDA, GO-BDA, and GO-PPD membranes with surface density of 25 mg/m2 ») et aucune phrase ne décrit la préparation de GO-0 (concentration de la dispersion de GO, pression, densité). Déclarer pressure et surface_density dans not_stated de l'étape 3 de GO-0 (ou les garder avec un doute explicite pour la densité, le doute actuel ne mentionne que le 1 bar).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "GO-0 steps 1 et 2 (lavage du support, bain de dopamine 48 h)",
+   "extracted": "GO-0 est préparée sur un support lavé puis immergé 48 h dans dopamine 2 g/L / Tris 10 mM",
+   "article_says": "the support PES ultrafiltration membrane was immersed in the mixed solution for 48 h.",
+   "fix": "La section 2.2.1 est générale (« support ») mais l'Introduction la rattache à la stratégie de réticulation (« The polyethersulfone (PES) support was pretreated with dopamine, followed by the introduction of different small molecular diamines ») ; l'article ne dit pas que le support de GO-0 a subi le même prétraitement. Héritage de lecture littérale, déjà signalé en doute : le garder ainsi, mais baisser le niveau de certitude (annotation limite_reproductibilite : prétraitement de GO-0 supposé identique, non écrit).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "GO-0 réactifs hérités de GO-EDA (méthanol, sol de GO à 400 ppm) alors que ses étapes de rinçage au méthanol sont déclarées non citées",
+   "extracted": "GO-0 a reagents [] et hérite du parent le méthanol (role wash), la sol de GO 400 ppm et l'éthylènediamine retirée par variation ; not_stated de la voie : methanol_immersion, final_drying",
+   "article_says": "Since no cross-linking agent was added between the GO nano-layers, the layer spacing was minimized under pressure filtration conditions.",
+   "fix": "Incohérence interne de la fiche : GO-0 affiche un réactif méthanol sans étape qui l'utilise, et aucun GO ni solvant propre à GO-0. Ajouter à GO-0 une variation methanol = absent (ou les étapes de GO-0 de façon explicite) pour que la fiche ne laisse pas croire à un rinçage au méthanol de GO-0.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fig. 6 (adsorption en fonction du temps) et Fig. 7 (rejet en fonction du VCF) : un seul point par courbe extrait",
+   "extracted": "capacité d'adsorption au point 9 h seulement ; rejet total à VCF 10 seulement",
+   "article_says": "Figure 6 shows the adsorption of ibuprofen, gemfibrozil, and triclosan by GO membranes with time in the absence of pressure.",
+   "fix": "Les points à 3 h et 6 h (Fig. 6) et les courbes de rejet (Fig. 7, par ex. plateau d'ibuprofène de GO-PPD vers 14 % dès VCF 3,3 ; baisse de GO-EDA de 100 % à 45 % pour l'ibuprofène) portent l'argument des auteurs (« After 3 h, the membranes reached approximately 90% of their adsorption capacity »). Choix déjà annoncé dans limite_reproductibilite ; acceptable, à noter comme perte d'information.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "tendance_observee (adsorption « 1,5 fois ») contre Fig. 6",
+   "extracted": "« les membranes réticulées adsorbent environ 1,5 fois plus de gemfibrozil et de triclosan que GO-0, selon les auteurs »",
+   "article_says": "the adsorption capacity of cross-linked GO membranes for gemfibrozil and triclosan was approximately 1.5 times that of GO-0 for gemfibrozil and triclosan.",
+   "fix": "Sur la figure 6 (point 9 h), le rapport réticulée / GO-0 vaut environ 1,6 (EDA) à 2,2 (PPD) pour le gemfibrozil et 1,9 à 2,1 pour le triclosan : le facteur 1,5 est une approximation basse des auteurs. Ajouter un doute (contradiction texte / figure, comme pour les angles de contact) sans changer la citation.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "réactif GO sol (amount 400 ppm) et rôle de tris(hydroxymethyl)aminomethane acetic acid (role base)",
+   "extracted": "amount 400 ppm pour la sol de GO ; role base pour le tampon Tris",
+   "article_says": "Graphene oxide sol (1 wt %, purity > 99%)",
+   "fix": "Les 400 ppm sont la concentration de la dispersion finale, non celle du réactif acheté (1 wt %) : écrire la concentration de la sol dans la description ou un doute. Le rôle « base » du Tris n'est pas dit par l'article (« 10 mM of Tris(hydroxymethyl)aminomethane acetic acid ») ; c'est une interprétation, à passer en buffer/autre ou à signaler.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 46,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "protocole de GO-0 jamais décrit (dispersion de GO, pression, densité surfacique, prétraitement du support, séchage)",
+  "solvant et pH du bain de dopamine / Tris acétique (pas de tampon Tris pH 8,5 cité) ; température du bain",
+  "diluant de la sol de GO (eau ?), volume prélevé avant dilution à 100 mL, concentration réelle de la sol de GO et caractéristiques du GO (taille des feuillets, degré d'oxydation)",
+  "cellule et surface de filtration utilisées pour déposer le film, durée de la filtration, quantité de GO déposée en masse",
+  "température de la réaction de 5 h et de la sonication, puissance de la sonication",
+  "pureté des trois diamines, volume de méthanol, durée du séchage final à température ambiante",
+  "concentration de départ des trois PPCP, réglage du pH 3 (HCl/NaOH), pression et durée de l'essai de rejet, définition de VCF",
+  "figures 2, 5, 6, 7, 8 lues à ±2 % près : pas de tableau de données"
+ ],
+ "mechanism_check": "ok : la condensation diamine / groupes hydroxyle et carboxyle est bien celle des auteurs ; la réduction partielle du GO citée dans le texte du mécanisme n'est pas dans la citation retenue (« indicating a reduction reaction of GO with the diamine in some manner »)",
+ "notes": "Valeurs de figure vérifiées sur les images : Fig. 2 (EDA 61,5 puis 50, BDA 67 puis 53,5, PPD 68 puis 59), Fig. 5 (flux de GO-BDA 6,5 L/m2·h·bar), Fig. 6 (points 9 h : GO-0 190/172/154, EDA 220/270/298, BDA 225/316/312, PPD 252/382/326), Fig. 8 (totaux et adsorption), toutes dans les 10 % ; aucun écart à signaler. Contradiction texte / figure sur les angles de contact (« gradually increased » alors que les trois courbes décroissent) bien traitée par l'extracteur (valeurs de figure, doute écrit). Les 46 cases not_stated vérifiées par recherche du mot-clé dans le texte : aucune erreur. Point d'interprétation sans constat : « The samples were dried at room temperature for 24 h before the test » (2.3.3) peut être le séchage final de l'étape 10 (durée), mais la phrase est dans la partie angle de contact ; la case duration non citée reste défendable. method_sources vide : correct, la section Méthodes ne contient aucun renvoi."
+}

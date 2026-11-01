@@ -1,0 +1,16 @@
+# Journal d'extraction PMC4951059
+
+- Découpage : l'article compare quatre traitements de surface (C, S, Si, Si/Al) puis la même cuisson de porcelaine et le même test μTBS. Voies de surface C, S, Si, Si/Al ; voies `intermediate` pour les deux sols (Silica_sol, Aluminosilicate_sol) ; voies `device` Bars_* pour la cuisson de porcelaine, la découpe, le thermocyclage et la résistance μTBS, afin de ne pas recopier ces étapes quatre fois.
+- Voie de base : Si (protocole de revêtement le plus détaillé). Si/Al en est une branche (seul le sol change, « Si/Al, aluminosilicate sol dip coating + calcination »). C et S ont leurs propres étapes (pas de revêtement, ou sablage) : voies sans parent, car une branche ne peut pas retirer ni ajouter d'étapes.
+- Bars_Si est la base des voies device ; Bars_Si/Al, Bars_C et Bars_S remplacent le réactif « blocs de départ » par une variation de nom exact. Les résultats μTBS sont sur ces voies device et non sur C/S/Si/Si-Al (règle device du RUNBOOK).
+- Étape de lavage à l'eau courante (« The coated Y-TZP blocks were washed… ») : écrite seulement pour les blocs revêtus. Bars_C et Bars_S portent une variation « non cité pour les blocs non revêtus » plutôt qu'un héritage non fondé ; doute associé.
+- Cuisson de la porcelaine : les deux rangées du tableau 1 (Wash firing, Main body firing) sont citées entières. Colonnes lues : température de départ, temps de séchage, vitesse de chauffe, température finale, temps de maintien, vide (« Yes »), temps de refroidissement. Le vide est rangé sous un paramètre `atmosphere_vacuum` pour remplir la case atmosphère de la grille sans inventer de valeur.
+- Sol de silice : seul le rapport molaire TEOS:HNO3:EtOH:H2O = 1:1.7:6:2 est donné ; il est consigné en `amount_text`, aucune quantité n'est déduite. Pureté et fournisseur de HNO3 et d'EtOH viennent de la phrase des méthodes (supplier_quote).
+- Sol d'aluminosilicate : TEOS 67 mL, isopropanol 100 mL, Al(NO3)3·9H2O 7.36 g dans 50 mL DDW ; quantités d'eau et de HNO3 du sol partiellement hydrolysé non citées.
+- « 80 mm/s » : non qualifié par l'article ; consigné comme `dip_coating_speed` (lecture littérale), la vitesse de retrait est dans `not_stated`.
+- Figure 6 : le texte ne donne pas la valeur du témoin ; 20,52 MPa est l'étiquette imprimée sur la barre. Son écart type (≈ 2,8) est une lecture de la barre d'erreur à 2 chiffres. Les P de la figure (0,008 ; 0,18 ; < 0,001) sont lus sur les flèches et attribués aux voies par l'échantillon comparé au témoin ou au sablage.
+- Figures 2 (positions de bandes IR imprimées), 3 (phases du témoin), 4 (pics EDS qualitatifs) lues ; figure 5 vue, épaisseur non mesurable (le texte donne ~10 μm). Les légendes des figures 4 et 5 ordonnent les groupes différemment ; épaisseur attribuée à Si et à Si/Al sans distinction.
+- Effectif : « Thirty Y-TZP blocks » (résumé) contre quatre groupes de n=10 (méthodes) et 12 barres par groupe : en doute, aucune quantité de blocs extraite hors `amount_text`.
+- Spectres IR : mesurés sur « the calcinated prepared gel » ; rangés sous Si et Si/Al, avec doute.
+- Références de méthode : seuls les renvois b19 (sol de silice) et b20 (Cao et al., sol d'aluminosilicate) sont gardés ; Brinker (b17) et les autres sont du contexte.
+- Aucune annexe, aucun renvoi au Supporting Information.

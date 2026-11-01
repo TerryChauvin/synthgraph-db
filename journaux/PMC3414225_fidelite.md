@@ -1,0 +1,14 @@
+# Journal de la critique de fidélité, PMC3414225
+
+- Ma liste d'échantillons avant ouverture de l'extraction : CdS nu, CdS@SiO2 (8 h), coque mince (2–3 h, « data not shown »), CD31-CdS@SiO2 ; plus témoins (silice seule, intermédiaire aminé, témoin biologique). Identique à `sample_inventory` ; aucun échantillon manquant.
+- Valeurs de synthèse (190 mg dans 2 mL, 2 mL à 0,01 M, 20 mL / 8 mL, 5 min, 1 mL TEOS, 0,2 mL NH3 28 %, 8 h, 25 mL, 10 mg / 2 mL à 5 % / 5 h / 10 mL PBS / 50 µL / 4 °C / 4 h) toutes conformes au texte ; aucun constat.
+- Fig. 8 ouverte : barres du matériau ciblé lues 58/82/93/99 (HUVEC) et 52/73/87/93 (gliome), identiques à l'extraction à ± 1 point. Pour la silice non ciblée, l'image donne ≈ 57/77/85/92 (HUVEC) contre 60/-/88/96 dans le texte (écart ≤ 4 points) : le texte retenu est correct, pas de constat.
+- Fig. 18 ouverte : survie silice ≈ 100 (jour 2) puis ≈ 92 ; éclosion jour 10 ≈ 92, jour 11 ≈ 10 : conformes. Mais le CdS nu montre ≈ 10 % de survie au jour 2, ce que le texte (« all test embryos were dead by Day 2 ») ne dit pas : constat `manquant` probable (valeur lue sur figure, pas de citation chiffrée).
+- Fig. 9 ouverte : le texte dit que la silice reste comparable au témoin sauf à 1 mg/mL ; l'image montre ROS à 100 µg/mL ≈ 18 (HUVEC) et 29 (gliome) contre 10 et 13. Je ne conteste pas la citation des auteurs ; constat `mineur` pour un doute, pas une correction de valeur.
+- Fig. 7 ouverte : maxima ≈ 595 nm (CdS) et 598 nm (silice), cohérents avec « 600 nm ». Le texte attribue le spectre aux particules ciblées, la légende et la figure aux enrobées non ciblées : j'ai demandé l'émission de la voie 8 h en `manquant` plutôt qu'une correction de CD31.
+- Fig. 1 ouverte : APTES seul réactif visible, aucune condition ; l'extraction le dit déjà (doute et not_stated), donc pas de constat.
+- 70 cases `not_stated` recherchées dans le texte (annexes absentes) : toutes justes. Cas limites écartés : agent de précipitation du CdS (le texte ne dit pas si l'éthanol précipite), seconde microémulsion (composition non écrite).
+- Coque mince : branche parent SiO2_CdS_8h avec une variation de durée ; je la mets en `deduit` probable car les étapes 7–10 (acétone, lavages, séchage) ne sont pas attribuées à l'échantillon 2–3 h par l'article (« observed at 2–3 hours »).
+- `method_sources` : un seul renvoi dans les Méthodes (b44, exposition des embryons), présent ; ni « as described » ni « manufacturer's instructions » ne portent de renvoi, rien à ajouter.
+- Annotations : résumé et mécanisme corrects ; `tendance_observee` affirme comme observés l'effet de taille et la tendance d'épaisseur de coque que les auteurs ne font que suggérer (`mineur`).
+- Stœchiométrie : Cd(NO3)2 ≈ 0,6–0,8 mmol contre 0,02 mmol de S2− ; je le mets dans `reproducibility_gaps`, pas en constat, car c'est la valeur de l'article.

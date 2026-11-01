@@ -1,0 +1,103 @@
+{
+ "pmcid": "PMC5521324",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "Cellulose_ZnO-7.5 (et ses 3 branches Cellulose_ZnO-0/1.0/3.5), réactifs : cellulose absente",
+   "extracted": "aucun réactif « cellulose » ; seule la variation « starch = replaced by cellulose » (parent_value 3.5 mg/mL starch) ; les branches n'ont pas de clé reagents",
+   "article_says": "Likewise, seed solution containing 3.5 mg/mL of cellulose and 0, 1.0, 3.5 and 7.5 mg/mL of ZnO nanoparticles was prepared in 10 mL of 1% acetic acid solution.",
+   "fix": "ajouter dans reagents de Cellulose_ZnO-7.5 le réactif cellulose (polymer, 3.5 mg/mL, citation ci-contre, not_stated purity et supplier) comme l'exige le RUNBOOK pour un réactif remplacé",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Starch_ZnO-2.0, réactif ZnO nanoparticles (ou caractérisation de la matière première) : taille moyenne",
+   "extracted": "12,2 nm présent seulement dans l'annotation resume, nulle part comme donnée citée",
+   "article_says": "The average size of the ZnO particles used as the seed was about 12.2 nm.",
+   "fix": "enregistrer la taille moyenne 12.2 nm des nanoparticules de germes avec cette citation (caractérisation de la voie de base ou propriété du réactif)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Starch_ZnO-0 et Cellulose_ZnO-0, héritage de l'étape 1 « Dissolve ZnO nanoparticles in the mixture of 1% acetic acid and starch »",
+   "extracted": "branches sans nanoparticules héritant de l'étape 1 de dissolution des nanoparticules (concentration_zno_nanoparticles = 2.0 mg/mL) et de la sonication de la solution de nanoparticules",
+   "article_says": "Figure 6a is an image of ZnO nanorods grown in a starch biopolymer without ZnO nanoparticles.",
+   "fix": "règle du RUNBOOK « branche sans X » : donner à ces deux branches leurs propres étapes (sans dissolution des nanoparticules) ou déclarer l'étape en not_stated ; le doute existant ne vise pas l'étape 1 elle-même",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "branches Starch_ZnO-0.5/1.0/1.5/2.5, Cellulose_* et ZnO_NP-only_seed, étape 1 héritée : paramètres d'étape non surchargés",
+   "extracted": "les variations portent sur le réactif « ZnO nanoparticles » (sans step_order) ; l'étape 1 héritée garde concentration_zno_nanoparticles = 2.0 mg/mL, et pour la cellulose concentration_starch = 3.5 mg/mL et le libellé « starch »",
+   "article_says": "Likewise, seed solution containing 3.5 mg/mL of cellulose and 0, 1.0, 3.5 and 7.5 mg/mL of ZnO nanoparticles was prepared in 10 mL of 1% acetic acid solution.",
+   "fix": "surcharger aussi le paramètre d'étape (step_order 1) ou vérifier que la vue chargée applique la variation de réactif à l'étape ; sinon les fiches des branches affichent 2.0 mg/mL et « starch » pour des échantillons à 0.5, 7.5 mg/mL ou cellulose",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Starch_ZnO-2.0 caractérisation FESEM, résultat « nanorods well-ordered (Fig. 6e), c-axis oriented »",
+   "extracted": "c-axis oriented",
+   "article_says": "Further increasing the concentration of ZnO nanoparticles to 1.0, 1.5, and 2.0 mg/mL in the seed solution which resulted well-ordered ZnO nanorods, as shown in Figure 6c–e.",
+   "fix": "retirer « c-axis oriented » du résultat : la citation donnée dit seulement « well-ordered » ; l'axe c n'est cité pour l'amidon qu'à 0.5 mg/mL (Fig. 6b) et de façon générale dans le paragraphe cellulose",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Cellulose_ZnO-7.5 caractérisation XRD : liste des pics 31.7° … 72.5°",
+   "extracted": "pics rangés sur la seule voie Cellulose_ZnO-7.5, avec la mention « cellulose seed series, Fig. 4a–c »",
+   "article_says": "For cellulose biocomposite based seed layer, on gold-coated substrates, the observed 2θ peaks at 31.7°, 34.4°, 36.3°, 47.5°, 56.6°, 62.8°, 67.9°, and 72.5° are shown in Figure 4a–c.",
+   "fix": "Fig. 4a–c couvre 1.0, 3.5 et 7.5 mg/mL : soit rattacher la liste à un résultat de groupe (annotation tendance_observee), soit la rattacher aussi aux voies 1.0 et 3.5 ; seul (002) très intense est propre à 4c (7.5)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cellulose_ZnO-7.5 / Starch_ZnO-2.0, résultats PL : intensité et défauts",
+   "extracted": "seules les positions des pics sont extraites",
+   "article_says": "the PL intensity is also a bit higher than when starch was used as a seed layer which might be due to possible more defect states in the sample grown with the seed solution of cellulose.",
+   "fix": "ajouter un résultat qualitatif PL_intensity (cellulose 7.5 un peu plus intense que amidon 2.0) et, avec la phrase « both show defects related emission that is much weaker than the NBE emission », l'émission de défauts faible dans les deux voies",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PL_defect_emission_wavelengths, Starch_ZnO-2.0 et Cellulose_ZnO-7.5",
+   "extracted": "530 nm et 670 nm (2.3 eV et 1.8 eV), both spectra, identique sur les deux voies",
+   "article_says": "The two other peaks found in the PL spectra are very broad and appear at 530 nm and 670 nm (2.3 eV and 1.8 eV).",
+   "fix": "la Fig. 9 étiquette 529 et 672 nm (amidon) et 524 et 676 nm (cellulose), écarts < 2 % : la citation du texte est fidèle, mais on peut ajouter les valeurs de figure par échantillon (from_figure) ou une note ; non bloquant",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "succeeded=false de Starch_ZnO-0, Starch_ZnO-2.5, Cellulose_ZnO-0, Cellulose_ZnO-1.0",
+   "extracted": "succeeded: false",
+   "article_says": "However, by further increasing the concentration of ZnO nanoparticles to 2.5 mg/mL in the starch solution, the nanoparticles might start to aggregate on the surface of the starch biopolymer.",
+   "fix": "les auteurs ne rapportent pas d'échec : des nanobâtonnets se forment dans tous les cas (Fig. 6a, 6f, 7a, 7b), seul l'alignement est moins bon ; le RUNBOOK réserve false à un échec (phase impure, pas de produit). Mettre true et laisser le jugement à alignment_FESEM, ou garder false avec une note",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "No_seed étape 9 (immerse) description",
+   "extracted": "« Fix the annealed substrates in a Teflon sample holder »",
+   "article_says": "An equimolar solution of 75 mM of zinc nitrate hexahydrate and hexamethylenetetramine (HMT) was prepared in the deionized water and the annealed substrates were fixed in a Teflon sample holder.",
+   "fix": "la voie No_seed n'a ni couche de germes ni recuit : reformuler (« Fix the substrates ») ; l'article ne dit pas si le substrat sans germes a été recuit",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 12,
+  "branches_extracted": 11,
+  "not_stated_checked": 65,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "préparation des nanoparticules de ZnO (« freshly prepared », aucun protocole, seulement une taille moyenne de 12.2 nm)",
+  "origine, type, masse molaire de l'amidon et de la cellulose, fournisseurs et puretés de tous les réactifs",
+  "mode de dissolution de l'amidon et de la cellulose dans l'acide acétique à 1 % (température, durée, suspension ou solution)",
+  "volume de solution de germes déposé à la tournette et nombre exact de dépôts (« two to three times »)",
+  "durée de croissance exacte par échantillon (« four to seven hours » sans correspondance avec les séries) et volume de la solution de croissance",
+  "paramètres d'évaporation Ti/Au (pression, vitesse), dimensions du substrat, nature du support en Téflon et orientation des substrats",
+  "échantillon pour l'EDX (Fig. 8) et pour l'AFM (Fig. 1b) non précisés ; diamètre des bâtonnets (100 à 200 nm) contredit par les barres d'échelle des Fig. 6 et 7"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (nature gélatineuse de l'amidon, nucléation, agrégation à 2.5 mg/mL) est dans le texte ; mecanisme_analyse est étiqueté comme analyse. Détail : la sécurité parle d'un « récipient fermé » alors que l'article dit seulement que les substrats sont couverts de papier aluminium.",
+ "notes": "Inventaire personnel : 6 amidon (0, 0.5, 1.0, 1.5, 2.0, 2.5 mg/mL à 3.5 mg/mL d'amidon), 4 cellulose (0, 1.0, 3.5, 7.5), NP seules 3.5 mg/mL (Fig. 5), sans germes (Fig. 2), plus les NP (Fig. 1a) et la couche AFM (Fig. 1b) : l'inventaire de l'extracteur est complet. Contradiction interne : § 3.1 ne cite pas 0 mg/mL pour l'amidon mais la Fig. 6a le montre ; Fig. 3 n'a pas de point à 0, Fig. 4 non plus. Fig. 2 montre un pic (Au) : le substrat sans germes était bien doré, ce qui appuie l'héritage des étapes Ti/Au pour No_seed (le doute le dit non cité ; la figure le montre). Aucune valeur from_figure dans l'extraction ; Fig. 6 et 7 vérifiées visuellement pour l'attribution des lettres, conformes. Pas de method_sources attendu : les renvois B33 et JCPDS ne portent pas sur une méthode."
+}

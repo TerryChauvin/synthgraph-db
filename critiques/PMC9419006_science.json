@@ -1,0 +1,685 @@
+{
+ "pmcid": "PMC9419006",
+ "routes": [
+  {
+   "label": "C_dots",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume implicite des solutions d'histidine",
+     "inputs": "0,38 g et 3,83 g de chlorhydrate d'histidine monohydraté ; M = 209,63 g/mol ; 0,09 et 0,90 M visés",
+     "formula": "V = (m/M)/c",
+     "result": "1,81 mmol → 20,1 mL ; 18,27 mmol → 20,3 mL",
+     "compared_to": "20 mL annoncés pour les solutions d'histidine : cohérent",
+     "source": "valeurs de l'article ; M calculée (C6H9N3O2·HCl·H2O)"
+    },
+    {
+     "what": "masse de chlorhydrate d'histidine pour 0,63 M (non écrite)",
+     "inputs": "0,63 mol/L × 0,020 L ; M = 209,63 g/mol",
+     "formula": "c·V·M",
+     "result": "12,6 mmol = 2,64 g",
+     "compared_to": "plage 0,38–3,83 g de l'article : cohérent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "chlorure apporté par le précurseur et l'ajustement de pH dans les « C dots sans halogénure »",
+     "inputs": "0,63 M His·HCl (1 Cl par molécule) ; Na+ = 1 M (NaOH) ; à pH 9,0 fraction d'histidine anionique = 1/(1+10^(9,17−9,0)) = 0,40 ; électroneutralité Na+ ≈ Cl− + 0,40·C(His)",
+     "formula": "[Cl−] ≈ [Na+] − 0,40·C(His)",
+     "result": "[Cl−] ≈ 0,75 M (0,63 M du sel + ≈ 0,12 M de HCl 10 M, soit ≈ 0,23 mL pour 20 mL)",
+     "compared_to": "Cl–C dots : ≈ 1,75 M de Cl− ; l'écart réel entre « sans » et « avec NaCl » est 0,75 → 1,75 M, pas 0 → 1 M",
+     "source": "pKa de l'histidine (DrugFuture/Merck Index) ; arithmétique"
+    },
+    {
+     "what": "solubilité estimée de l'histidine à pH 9,0",
+     "inputs": "S0 (zwitterion, eau pure, 25 °C) ≈ 41,9 g/L / 155,15 g/mol = 0,270 M ; pKa3 = 9,17",
+     "formula": "S(pH) ≈ S0·(1 + 10^(pH − pKa3))",
+     "result": "≈ 0,45 M à pH 9,0",
+     "compared_to": "0,63 M (optimum) et 0,90 M utilisés : au-dessus de la solubilité estimée (sans effet de force ionique)",
+     "source": "arXiv 2004.03798 et fiche Fisher (41,6 g/L) ; pKa DrugFuture"
+    },
+    {
+     "what": "surface d'une électrode de Pt",
+     "inputs": "fil de 6 cm × 0,05 cm de diamètre, immersion non donnée",
+     "formula": "π·d·L",
+     "result": "≤ 0,94 cm² par électrode",
+     "compared_to": "densité de courant et distance entre électrodes non données",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "échauffement Joule possible à 10 V",
+     "inputs": "courant non donné ; hypothèse 0,1–1 A ; 20 mL d'eau, Cp ≈ 4,18 J g−1 K−1",
+     "formula": "P = U·I ; dT/dt = P/(m·Cp) (adiabatique)",
+     "result": "1–10 W ; 0,7–7 K/min sans pertes",
+     "compared_to": "120 min d'électrolyse : la solution peut s'approcher de l'ébullition sans refroidissement ; les auteurs signalent chaleur et bulles",
+     "source": "chimie générale"
+    },
+    {
+     "what": "gaz dégagés (ordre de grandeur)",
+     "inputs": "hypothèse I = 0,5 A pendant 120 min ; F = 96 485 C/mol",
+     "formula": "n(e−) = I·t/F ; n(H2) = n(e−)/2",
+     "result": "3600 C → 37 mmol e− → ≈ 19 mmol H2 (≈ 0,46 L à 25 °C) à la cathode",
+     "compared_to": "cellule non divisée : H2 et O2 (ou Cl2/OCl−) mélangés au-dessus de 20 mL",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse maximale de produit carboné (base du rendement)",
+     "inputs": "12,6 mmol d'histidine ; 6 C par molécule ; M(histidine libre) = 155,15 g/mol",
+     "formula": "n·M ; n·6·12,011",
+     "result": "1,95 g d'histidine libre ; 0,91 g de carbone",
+     "compared_to": "rendements 5,1 / 12,3 / 15,6 / 33,8 % : base de calcul (masse, carbone ?) non définie",
+     "source": "arithmétique"
+    },
+    {
+     "what": "constante de quenching de Stern–Volmer par NaI (1 mM, 505 nm)",
+     "inputs": "efficacité 43,9 % → I0/I = 1/0,561 = 1,78 ; [Q] = 1 mM ; τ0 ≈ 5,05 ns (Table 1)",
+     "formula": "KSV = (I0/I − 1)/[Q] ; kq = KSV/τ0",
+     "result": "KSV ≈ 7,8 × 10² M−1 ; kq ≈ 1,5 × 10¹¹ M−1 s−1",
+     "compared_to": "limite de diffusion k_D = 8RT/(3η) ≈ 7,4 × 10⁹ M−1 s−1 (η eau 0,89 mPa s à 25 °C) : kq 20 fois trop grand pour un quenching dynamique",
+     "source": "chimie générale (équation de Smoluchowski–Debye)"
+    },
+    {
+     "what": "rangée cristalline (002) du graphite",
+     "inputs": "d mesuré 0,31 nm ; graphite d002 = 0,335 nm ; d100 = 0,213 nm",
+     "formula": "comparaison directe",
+     "result": "0,31 nm < 0,335 nm de 7 %",
+     "compared_to": "un empilement graphitique ne peut pas être plus serré que le graphite",
+     "source": "chimie générale (paramètre c du graphite 0,671 nm)"
+    },
+    {
+     "what": "seuil EPA du cuivre",
+     "inputs": "niveau d'action EPA 1,3 mg/L ; M(Cu) = 63,546",
+     "formula": "c/M",
+     "result": "20,5 μM",
+     "compared_to": "20 μM cité par les auteurs : cohérent",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Les masses d'histidine (0,38–3,83 g) correspondent exactement à 0,09–0,90 M dans ≈ 20 mL (voir « volume implicite des solutions d'histidine ») ; la masse pour 0,63 M est 2,64 g. Bilan cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le témoin « sans halogénure » n'en est pas un : le chlorhydrate d'histidine apporte 0,63 M de Cl− et l'ajustement à pH 9,0 avec HCl 10 M en ajoute ≈ 0,12 M (calcul « chlorure apporté… »), soit ≈ 0,75 M de Cl− ; la Table S1 trouve d'ailleurs 0,37 % de Cl dans ces C dots. La comparaison « C dots / Cl–C dots » oppose donc 0,75 M et 1,75 M de chlorure (et deux forces ioniques), pas l'absence et la présence d'halogénure ; le rendement plus bas des C dots (5,1 %) et l'effet attribué à Cl− relèvent d'un effet de concentration d'électrolyte. Un vrai témoin sans halogénure demanderait de l'histidine base libre et un acide non halogéné (H2SO4 ou HClO4) pour le pH.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La solubilité de l'histidine (zwitterion) dans l'eau est ≈ 42 g/L à 25 °C (0,27 M) ; à pH 9,0, avec 40 % de forme anionique, la solubilité totale estimée est ≈ 0,45 M (calcul « solubilité estimée… »), inférieure aux 0,63 M retenus et aux 0,90 M testés. La solution optimale peut être sursaturée, ce qui rend plausibles « l'agrégation » à 0,90 M et le solide blanc au-delà de 1 M de NaCl (relargage) ; vérifier que la solution de départ est limpide.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Enhanced water affinity of histidine by transition metal ions (solubilité de l'histidine dans l'eau pure à 25 °C : 41,9 mg/mL)",
+      "authors_or_publisher": "arXiv (auteurs non relevés)",
+      "year": "2020",
+      "url_or_doi": "https://arxiv.org/abs/2004.03798"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Électrolyse à tension de cellule constante (deux fils de Pt, pas d'électrode de référence) : le courant, la distance entre électrodes, la profondeur d'immersion et la température ne sont pas donnés. Avec 1 à 2 M d'électrolyte, quelques watts sont dissipés dans 20 mL (calcul « échauffement Joule… » : 0,7–7 K/min sans pertes), d'où la « chaleur » signalée ; la température réelle, variable selon le montage, est un paramètre caché qui peut changer la carbonisation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le seuil de 1,31 V est une tension entre deux électrodes : elle inclut la réaction cathodique (H2), les surtensions et la chute ohmique, et ne peut pas être lue comme un potentiel d'oxydation de l'histidine ; elle est d'ailleurs proche de la tension thermodynamique de décomposition de l'eau (1,23 V). La Fig. 1A montre une PL à 1 V, en contradiction avec « aucun C dot sous 1,31 V » (voir V1_3min).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Explication du pH par les auteurs : la hausse de PL de pH 5,0 à 7,0 serait due au « degré de dissociation accru du carboxyle ». Avec pKa(COOH) = 1,82, le carboxyle est déjà dissocié à 94 % à pH 3,0 et à 99,9 % à pH 5,0 ; entre 5 et 7 c'est le cycle imidazole (pKa 6,00) qui se déprotone (91 % → 9 % protoné). L'argument est faux tel qu'écrit ; la tendance observée reste compatible avec une adsorption accrue de l'imidazole neutre.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Histidine — données chimiques (pK1 1,82 ; pK2 6,00 ; pK3 9,17)",
+      "authors_or_publisher": "DrugFuture Chemical Index (reprise du Merck Index)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://drugfuture.com/chemdata/Histidine.html"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs disent que l'histidine adsorbée par « son carboxyle et son amine secondaire » est « convertie en imidazole ». L'histidine a une amine α primaire ; une oxydation anodique (désamination et décarboxylation, NH3 libéré, ce que les auteurs observent par la hausse de pH) donne plutôt l'imidazole-4-acétaldéhyde, -acétonitrile ou -acétate que l'imidazole lui-même. Le schéma est plausible dans ses grandes lignes (oxydation, condensation, carbonisation) mais pas démontré : aucune analyse des intermédiaires.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : les auteurs attribuent la bande D (1311 cm−1) au mode E2g et la bande G (1531 cm−1) aux défauts (« respectively ») : c'est inversé (G = E2g des carbones sp2, D = mode de respiration activé par les défauts). La bande G à 1531 cm−1 est basse pour un carbone graphitique (≈ 1580–1600 cm−1) et typique d'un carbone désordonné ; dans ce régime (stade 2 de Ferrari–Robertson), une hausse de ID/IG ne signifie pas forcément plus de défauts. Les écarts 0,90–0,98 sans barre d'erreur ne permettent pas de classer les halogénures.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "A. C. Ferrari, J. Robertson, Phys. Rev. B 61, 14095",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Distance réticulaire de 0,31 nm attribuée aux plans (002) du carbone graphitique sp2 : le d002 du graphite vaut 0,335 nm et un empilement turbostratique est plus large (≈ 0,34 nm) ; 0,31 nm est plus petit (calcul « rangée cristalline (002) »). L'attribution n'est pas démontrée (pas de DRX) ; valeur fréquente mais physiquement discutable dans la littérature des C dots.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Durées de vie (Table 1) : les auteurs écrivent que les C dots (sauf I–C) « obtenus après 60 min ont des durées de vie légèrement plus longues », alors que les valeurs à 60 min (4,83 ; 4,45 ; 4,72 ns) sont les plus basses de chaque ligne après 30 min, et que les C dots varient de 5,57 à 4,83 ns (15 %), ce qui contredit « négligeable ». Incohérence texte/tableau.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le quenching de 43,9 % par 1 mM de NaI est présenté comme preuve du croisement intersystème (effet d'atome lourd). Il implique kq ≈ 1,5 × 10¹¹ M−1 s−1 (calcul « constante de quenching de Stern–Volmer »), 20 fois la limite de diffusion : ce n'est pas un quenching collisionnel ; il faut une association statique (adsorption de I−) ou un autre mécanisme. Une mesure de durée de vie avec et sans NaI trancherait.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Fluorophores moléculaires : les spectres de suivi (aliquots de 10 μL non purifiés) et le dosage utilisent des solutions où l'histidine non transformée et des oligomères fluorescents restent présents (dialyse MWCO 100–500 Da) ; rien ne sépare la PL des « points » de celle de petites molécules issues de l'imidazole. Le rendement et la PL attribués aux C dots peuvent en partie venir de ces espèces.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "J. B. Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Cellule non divisée à 10 V : H2 à la cathode et O2 (et Cl2/OCl− en milieu chloruré, Br2/I2 avec NaBr/NaI) à l'anode, environ 0,5 L de H2 pour 0,5 A pendant 2 h (calcul « gaz dégagés ») ; ventiler et éviter toute flamme. NaOH 1 M et HCl 10 M corrosifs. Fils de Pt anodisés en milieu chlorure concentré : dissolution possible du Pt (complexes chlorés), à contrôler (ICP) si le produit est destiné au biologique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille 3,2 nm et d = 0,31 nm dans la plage des autres C dots de la base (PMC8255795 : 3,81 nm, 0,35 nm ; PMC9563711 : 2,68 nm, 0,234 nm ; PMC11840780 : 3–7 nm), toutes obtenues par voie hydrothermale à 155–200 °C ; seule voie électrochimique de la base, sans rendement quantique donné.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Oxydation anodique de l'histidine sur Pt/PtOx en milieu alcalin, directe et surtout indirecte par les oxydants halogénés produits à l'anode à partir du chlorure toujours présent (0,63 M venant du chlorhydrate) : Cl2/HOCl/OCl− (Br2/OBr−, I2/I3− avec NaBr ou NaI) chlorent l'amine α et l'imidazole ; les chloramines se décomposent par désamination et décarboxylation (NH3 libéré, hausse de pH observée) en imidazole-4-acétaldéhyde et nitrile ; ces carbonylés et amines se condensent (bases de Schiff, aldolisation, couplage des imidazoles) en oligomères azotés, qui se déshydratent et s'aromatisent peu à peu (aidés par l'échauffement Joule) en domaines sp2 riches en N et passivés par des amides, carboxylates et C–X. Ce rôle de médiateur explique mieux l'effet des halogénures sur le rendement que la conductivité (presque la même pour Cl−, Br− et I−) ou l'argument de « groupe partant » (aucune liaison C–X dans le précurseur).",
+    "sources": [
+     {
+      "title": "Absolute rate constants for the reaction of hypochlorous acid with protein side chains and peptide bonds",
+      "authors_or_publisher": "D. I. Pattison, M. J. Davies, Chem. Res. Toxicol. 14, 1453–1464",
+      "year": "2001",
+      "url_or_doi": "10.1021/tx0155451"
+     },
+     {
+      "title": "Ammonia oxidation to nitrogen mediated by electrogenerated active chlorine on Ti/PtOx-IrO2",
+      "authors_or_publisher": "A. Kapałka, A. Katsaounis, N.-L. Michels, A. Leonidova, S. Souentie, Ch. Comninellis, K. M. Udert, Electrochem. Commun. 12, 1203–1205",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.elecom.2010.06.019"
+     },
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "J. B. Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "noter le courant, la distance entre électrodes, la profondeur d'immersion et la température (refroidir si besoin) : la tension de cellule seule ne fixe pas la vitesse d'électrolyse",
+    "vérifier que 2,64 g de chlorhydrate d'histidine dans 20 mL à pH 9,0 restent dissous (solubilité estimée ≈ 0,45 M)",
+    "savoir que le témoin « sans halogénure » contient ≈ 0,75 M de chlorure ; pour un vrai témoin, partir d'histidine base et ajuster le pH sans HCl",
+    "définir le rendement (masse sèche après dialyse ? par rapport à quelle masse ?)",
+    "ventiler (H2/O2, Cl2) et ne pas dépasser 10 V sans refroidissement"
+   ]
+  },
+  {
+   "label": "Cl_C_dots",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de NaCl pour 1 M (non écrite)",
+     "inputs": "1 mol/L × 0,020 L × 58,44 g/mol",
+     "formula": "c·V·M",
+     "result": "1,17 g",
+     "compared_to": "plage 0–2,34 g de l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "NaCl maximal",
+     "inputs": "2,34 g ; 58,44 g/mol ; 20 mL",
+     "formula": "m/M/V",
+     "result": "40,0 mmol → 2,00 M",
+     "compared_to": "2,0 M de la série NaCl : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "chlorure total",
+     "inputs": "≈ 0,75 M (précurseur + HCl d'ajustement, voir C_dots) + 1 M NaCl",
+     "formula": "somme",
+     "result": "≈ 1,75 M de Cl− ; Na+ ≈ 2 M",
+     "compared_to": "C dots « sans halogénure » ≈ 0,75 M",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Masse de NaCl pour 1 M non écrite mais déductible (1,17 g pour 20 mL) ; l'article dit « solutions aqueuses de NaCl ajoutées aux 20 mL » : si NaCl est ajouté en solution, le volume augmente et l'histidine passe sous 0,63 M. Préciser si le sel est ajouté solide.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "En milieu chlorure à pH 9, l'anode produit Cl2 qui se dismute en HOCl/OCl− ; HOCl réagit vite avec l'amine α et l'imidazole de l'histidine (k ≈ 10⁵ M−1 s−1), ce qui donne une oxydation indirecte en volume. C'est une explication plus simple de la hausse de rendement (5,1 → 12,3 %) que la seule conductivité, et cohérente avec les liaisons C–Cl vues en XPS (286,6 eV).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Absolute rate constants for the reaction of hypochlorous acid with protein side chains and peptide bonds",
+      "authors_or_publisher": "D. I. Pattison, M. J. Davies, Chem. Res. Toxicol. 14, 1453–1464",
+      "year": "2001",
+      "url_or_doi": "10.1021/tx0155451"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le classement de PL des séries histidine et pH est rattaché à cette branche d'après la légende de la Fig. 1 (1 M NaCl), alors que le texte place l'optimisation de NaCl après celles de l'histidine et du pH « dans les conditions optimales (0,63 M, pH 9,0) » : l'ordre d'optimisation est circulaire. Les comparaisons restent qualitatives.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même voie que C_dots, avec davantage de chlore actif électrogénéré (HOCl/OCl−) qui accélère la désamination et la décarboxylation de l'histidine et introduit des liaisons C–Cl en surface.",
+    "sources": [
+     {
+      "title": "Absolute rate constants for the reaction of hypochlorous acid with protein side chains and peptide bonds",
+      "authors_or_publisher": "D. I. Pattison, M. J. Davies, Chem. Res. Toxicol. 14, 1453–1464",
+      "year": "2001",
+      "url_or_doi": "10.1021/tx0155451"
+     },
+     {
+      "title": "Ammonia oxidation to nitrogen mediated by electrogenerated active chlorine on Ti/PtOx-IrO2",
+      "authors_or_publisher": "A. Kapałka, A. Katsaounis, N.-L. Michels, A. Leonidova, S. Souentie, Ch. Comninellis, K. M. Udert, Electrochem. Commun. 12, 1203–1205",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.elecom.2010.06.019"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ajouter 1,17 g de NaCl solide aux 20 mL (ou corriger le volume)",
+    "attendre une odeur de chlore et de l'hypochlorite en solution : hotte"
+   ]
+  },
+  {
+   "label": "Br_C_dots",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de NaBr",
+     "inputs": "2,06 g ; M = 102,89 g/mol ; 20 mL",
+     "formula": "m/M/V",
+     "result": "20,0 mmol → 1,00 M",
+     "compared_to": "« 1 M NaX » des légendes : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "somme de la composition élémentaire (Table S1)",
+     "inputs": "C 57,00 ; N 17,73 ; O 23,96 ; Br 0,95 ; Cl 0,23",
+     "formula": "somme",
+     "result": "99,87 %",
+     "compared_to": "100 % ; Cl présent sans NaCl ajouté (chlorure du précurseur)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "1 M de NaBr cohérent ; la solution contient aussi ≈ 0,75 M de Cl− venant du précurseur (Cl 0,23 % en Table S1), donc deux halogénures. Br− s'oxyde avant Cl− (E° Br2/Br− 1,09 V contre 1,36 V pour Cl2/Cl−) : Br2/OBr− est le médiateur principal.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Teneur en O plus élevée (23,96 % contre 16,33 %) attribuée à une « meilleure passivation » ; une oxydation plus poussée par le brome actif électrogénéré l'explique aussi. Les deux lectures ne sont pas départagées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Formation de Br2/hypobromite à l'anode (le décalage d'absorption à 220 nm est attribué par les auteurs à Br2) : toxique et corrosif, travailler sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme C_dots, avec Br2/OBr− électrogénérés comme oxydants médiateurs et bromation électrophile du cycle imidazole (liaisons C–Br à 285,6 eV).",
+    "sources": [
+     {
+      "title": "Ammonia oxidation to nitrogen mediated by electrogenerated active chlorine on Ti/PtOx-IrO2",
+      "authors_or_publisher": "A. Kapałka, A. Katsaounis, N.-L. Michels, A. Leonidova, S. Souentie, Ch. Comninellis, K. M. Udert, Electrochem. Commun. 12, 1203–1205",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.elecom.2010.06.019"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "hotte (Br2)",
+    "noter que du chlorure reste présent (précurseur)"
+   ]
+  },
+  {
+   "label": "I_C_dots",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de NaI",
+     "inputs": "3,00 g ; M = 149,89 g/mol ; 20 mL",
+     "formula": "m/M/V",
+     "result": "20,0 mmol → 1,00 M",
+     "compared_to": "« 1 M NaI » de la légende de la Fig. 4 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "somme de la composition après Cu2+ (Table S1)",
+     "inputs": "C 44,84 ; N 6,50 ; O 47,15 ; I 0,55 ; Cl 0,22",
+     "formula": "somme",
+     "result": "99,26 % ; Cu non listé",
+     "compared_to": "Cu 2p discuté en XPS mais absent de la Table S1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport I−/Cu2+ et I−/Hg2+ dans le test de sélectivité",
+     "inputs": "NaI 0,8 mM ; Cu2+ ou Hg2+ 100 μM",
+     "formula": "rapport molaire",
+     "result": "8 I− par ion métallique",
+     "compared_to": "2 Cu2+ + 4 I− → 2 CuI + I2 (iodométrie) ; Hg2+ + 4 I− → HgI4²− soluble",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs expliquent le rendement le plus élevé (33,8 %) par I− « meilleur groupe partant » : aucune liaison C–halogène n'existe dans le précurseur, l'argument de substitution nucléophile ne s'applique pas. L'argument de conductivité ne distingue pas non plus les halogénures (conductivités ioniques limites presque égales, ≈ 76–78 S cm² mol−1 pour Cl−, Br−, I−, valeurs de manuel non revérifiées ici). Plus probable : I− est oxydé le plus facilement (E° I3−/I− 0,54 V) et I2/I3− servent de médiateurs, ou la base de calcul du rendement (non définie) inclut de l'iode ou des sels retenus.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cu 2p3/2 à 932,3 eV attribué au « cuivre métallique » : Cu(0) et Cu(I) ont la même énergie de liaison Cu 2p3/2 ; seul le pic Auger Cu LMM (paramètre Auger) les distingue, et il n'est pas montré. Or le dosage se fait avec 0,8 mM de I−, qui réduit Cu2+ en CuI (iodométrie, calcul « rapport I−/Cu2+ ») ; le satellite à 942 eV signale du Cu(II) résiduel. CuI est une alternative simple au Cu(0) que les données ne réfutent pas.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Advanced analysis of copper X-ray photoelectron spectra",
+      "authors_or_publisher": "M. C. Biesinger, Surface and Interface Analysis (Wiley)",
+      "year": "2017",
+      "url_or_doi": "10.1002/sia.6239"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Après Cu2+, O passe de 23,33 à 47,15 % et N de 15,30 à 6,50 %, présenté comme une oxydation de surface. Le test se fait en tampon phosphate 20–25 mM : des phosphates retenus augmenteraient O sans que P ni Na soient listés, et Cu n'apparaît pas dans la Table S1. La préparation de l'échantillon XPS n'est pas décrite ; la conclusion « oxydation par Cu2+ » n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Masquage de Hg2+ par NaI justifié par le Ksp de Hg2I2 (sel de mercure(I)) alors que l'ion testé est Hg2+ (HgCl2) ; avec 8 I− par Hg2+, il se forme surtout HgI4²− soluble : le masquage passe par une complexation, pas par une précipitation. Le Ksp de CuI cité (1 × 10⁻¹²) est correct en ordre de grandeur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "LD 0,22 μM et domaine linéaire 0,3–3 μM : ordres de grandeur usuels pour des sondes de Cu2+ à C dots (Table S2 de l'article : 0,03–1,7 μM). Seuil EPA 20 μM recalculé à 20,5 μM (C_dots, calcul « seuil EPA »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "1 M de NaI électrolysé : I2/I3− formés en quantité (coloration), irritants ; dosage avec HgCl2, AgNO3, Pb(NO3)2 : déchets toxiques à part.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme C_dots, mais l'anode oxyde d'abord I− en I2/I3− (potentiel le plus bas des trois halogénures) : I3− oxyde et iode l'histidine et ses produits (liaisons C–I à 285,2 eV) et, accumulé, éteint la PL par effet de filtre interne (absorption à 288 et 350 nm), ce qui explique le maximum de PL vers 8 min. Le quenching par Cu2+ en présence de I− implique probablement aussi la formation de CuI.",
+    "sources": [
+     {
+      "title": "Advanced analysis of copper X-ray photoelectron spectra",
+      "authors_or_publisher": "M. C. Biesinger, Surface and Interface Analysis (Wiley)",
+      "year": "2017",
+      "url_or_doi": "10.1002/sia.6239"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "définir le rendement et vérifier l'absence d'iode ou de NaI dans la masse pesée",
+    "pour l'état du cuivre, mesurer le pic Auger Cu LMM",
+    "hotte (I2)"
+   ]
+  },
+  {
+   "label": "V1_3min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "tension appliquée contre décomposition de l'eau",
+     "inputs": "1 V appliqué ; E° de décomposition de l'eau 1,23 V ; seuil des auteurs 1,31 V",
+     "formula": "comparaison",
+     "result": "1 V < 1,23 V : aucun courant faradique notable attendu",
+     "compared_to": "Fig. 1A montre une PL à 1 V proche de 3 V",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "À 1 V (sous la décomposition de l'eau, 1,23 V), aucune électrolyse notable ne devrait se produire, ce qui va avec « pas de C dots sous 1,31 V ». La PL non nulle de la Fig. 1A à 1 V vient alors de la solution de départ (histidine, impuretés) : elle donne un blanc, et la série en tension doit être lue après soustraction de ce fond.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Pas d'oxydation anodique notable sous la tension de décomposition de l'eau ; la PL mesurée est un fond.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer la PL de la solution non électrolysée comme blanc"
+   ]
+  },
+  {
+   "label": "His_0.90M",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "base nécessaire pour pH 9,0 à 0,90 M",
+     "inputs": "18,3 mmol His·HCl dans 20 mL ; NaOH 1 M (20 mmol) ; besoin ≈ 1,40 OH− par His (1 pour l'imidazolium, 0,40 pour l'ammonium)",
+     "formula": "1,40 × C(His) − 1 M",
+     "result": "≈ 0,26 M de NaOH à ajouter (≈ 0,5 mL de NaOH 10 M)",
+     "compared_to": "à 0,09 M au contraire, ≈ 1,75 mL de HCl 10 M sont nécessaires (Cl− ≈ 0,96 M) : la force ionique varie le long de la série",
+     "source": "pKa DrugFuture ; arithmétique"
+    },
+    {
+     "what": "solubilité",
+     "inputs": "0,90 M contre ≈ 0,45 M estimés à pH 9,0",
+     "formula": "rapport",
+     "result": "≈ 2 fois la solubilité estimée",
+     "compared_to": "« agrégats d'histidine non réagie » invoqués par les auteurs",
+     "source": "voir C_dots"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "À 0,90 M, l'histidine dépasse d'un facteur ≈ 2 la solubilité estimée à pH 9,0 : la baisse de PL attribuée à des « agrégats » est plus simplement une précipitation partielle ou une solution sursaturée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "L-Histidine, 98 % — fiche produit (solubilité dans l'eau 41,6 g/L à 25 °C, PubChem CID 6274)",
+      "authors_or_publisher": "Fisher Scientific (fiche fournisseur)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://fishersci.co.uk/shop/products/l-histidine-98-2/p-3734478"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Comme le chlorhydrate est dissous dans NaOH 1 M fixe, la quantité de HCl ou de NaOH d'ajustement, donc le chlorure et la force ionique, varient avec la concentration d'histidine (Cl− ≈ 0,96 M à 0,09 M, ≈ 0,9 M à 0,90 M avec Na+ ≈ 1,26 M) : la série change deux variables à la fois.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Au-delà de la solubilité, l'histidine non dissoute ou agrégée réduit l'oxydation efficace et adsorbe les C dots.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "vérifier la limpidité de la solution à 0,90 M avant électrolyse"
+   ]
+  },
+  {
+   "label": "pH_3.0",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "HCl nécessaire pour pH 3,0",
+     "inputs": "0,63 M His·HCl dans NaOH 1 M (20 mL) ; à pH 3,0 l'histidine est presque entièrement H2His+ (carboxylate 94 %, imidazolium protoné)",
+     "formula": "n(HCl) ≈ n(NaOH) = 20 mmol",
+     "result": "≈ 2,0 mL de HCl 10 M ; volume 22 mL ; His 0,57 M ; Cl− ≈ (12,6 + 20)/22 = 1,48 M, plus 1 M de NaCl selon la légende",
+     "compared_to": "pH 9,0 : ≈ 0,23 mL de HCl, His 0,63 M, Cl− ≈ 0,75 M (+ 1 M)",
+     "source": "pKa DrugFuture ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La série en pH n'est pas à composition constante : pour passer de pH 9 à pH 3 il faut ≈ 2 mL de HCl 10 M, qui diluent l'histidine de ≈ 10 % et ajoutent ≈ 0,8 M de chlorure. pH, concentration en histidine et chlorure (donc oxydant chloré disponible : Cl2/HOCl dominent à pH acide, OCl− à pH 9) changent ensemble ; la PL basse à pH 3 n'est pas imputable au seul pH.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "À pH 3, imidazolium protoné peu adsorbé sur Pt et amine protonée moins réactive envers le chlore actif : oxydation plus lente.",
+    "sources": [
+     {
+      "title": "Absolute rate constants for the reaction of hypochlorous acid with protein side chains and peptide bonds",
+      "authors_or_publisher": "D. I. Pattison, M. J. Davies, Chem. Res. Toxicol. 14, 1453–1464",
+      "year": "2001",
+      "url_or_doi": "10.1021/tx0155451"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "noter le volume de HCl ajouté et compenser la dilution"
+   ]
+  },
+  {
+   "label": "NaCl_2.0M",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "sels totaux",
+     "inputs": "2,34 g NaCl (2,0 M) + ≈ 0,75 M Cl− du précurseur ; Na+ ≈ 3 M ; histidine 0,63 M",
+     "formula": "somme",
+     "result": "Cl− ≈ 2,75 M, Na+ ≈ 3 M",
+     "compared_to": "solubilité de NaCl ≈ 6,1 M : le solide blanc n'est pas NaCl",
+     "source": "chimie générale (360 g/L de NaCl à 25 °C)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Le solide blanc ne peut pas être NaCl (≈ 2,75 M contre ≈ 6 M de solubilité) : c'est vraisemblablement l'histidine relarguée, déjà proche ou au-dessus de sa solubilité à pH 9 (voir C_dots). Explication des auteurs cohérente ; la PL mesurée porte sur une suspension.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Relargage (salting-out) de l'histidine par la force ionique élevée.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "ne pas dépasser 1 M de NaCl ajouté"
+   ]
+  },
+  {
+   "label": "Purification_pour_dosage",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "seuil de coupure de dialyse contre petites espèces",
+     "inputs": "MWCO 100–500 Da ; histidine 155,15 g/mol ; His·HCl·H2O 209,63 ; NaI 149,89 ; imidazole 68,08",
+     "formula": "comparaison",
+     "result": "histidine et NaI dans la plage du seuil",
+     "compared_to": "12,6 mmol d'histidine au départ, rendements de 5 à 34 % : l'essentiel de l'histidine n'est pas transformé",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Avec une membrane MWCO 100–500 Da, l'histidine (155 Da) et les sels (NaI 150 Da) ne sont pas éliminés de façon sûre en 24 h ; or la majeure partie de l'histidine n'a pas réagi. Les analyses (FTIR, XPS, Table S1) et la PL du dosage peuvent porter sur un mélange C dots + histidine + oligomères ; la concentration « 1× » n'a pas de valeur en mg/mL.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "J. B. Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Vieillissement de deux jours à 25 °C avant filtration : poursuite possible des condensations et de l'oxydation par le chlore actif résiduel (OCl− à pH 9) ; durée à respecter pour reproduire le dosage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Étape de purification ; pas de mécanisme de formation.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "dialyser plus longtemps ou avec une membrane de 1 kDa et contrôler l'absence d'histidine (UV à 220 nm, RMN)",
+    "exprimer la concentration en mg/mL de résidu sec"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse électrochimique simple et faisable (deux fils de Pt, 10 V, 20 mL, 2 h), avec des masses cohérentes avec les concentrations annoncées (histidine, NaCl, NaBr, NaI). Les paramètres qui fixent vraiment la vitesse d'électrolyse (courant, distance, immersion, température) manquent. Le principal défaut de raisonnement : le chlorhydrate d'histidine apporte 0,63 M de chlorure, donc les « C dots sans halogénure » contiennent ≈ 0,75 M de Cl− et la comparaison avec les Cl–C dots est une comparaison de concentrations. Plusieurs explications des auteurs sont fausses ou non démontrées : dissociation du carboxyle entre pH 5 et 7, attribution D/G du Raman inversée, « groupe partant » pour l'iodure, cuivre métallique (indiscernable de CuI en Cu 2p, alors que I− réduit Cu2+), quenching par I− trop rapide pour être collisionnel.",
+  "author_errors_suspected": [
+   "témoin « sans halogénure » contenant ≈ 0,75 M de chlorure (chlorhydrate + HCl d'ajustement)",
+   "hausse de PL de pH 5 à 7 attribuée à la dissociation du carboxyle (pKa 1,82) au lieu de l'imidazole (pKa 6,00)",
+   "bandes Raman D et G attribuées à l'inverse (E2g / défauts)",
+   "rendement des I–C dots expliqué par l'iodure « meilleur groupe partant » sans liaison C–X à substituer",
+   "Cu 2p3/2 à 932,3 eV attribué au Cu(0) sans pic Auger, alors que I− (0,8 mM) réduit Cu2+ en CuI",
+   "Ksp de Hg2I2 (mercure(I)) invoqué pour masquer Hg2+ ; avec 8 I−/Hg il se forme HgI4²− soluble",
+   "durées de vie « plus longues après 60 min » contredites par la Table 1",
+   "Raman renvoyé à la Fig. S3 au lieu de la Fig. S4"
+  ],
+  "comparison_with_database": "Seule voie électrochimique parmi les 9 voies de base « carbon dots » de la base (les autres hydrothermales ou solvothermales à 155–200 °C : PMC8255795, PMC9563711, PMC9685500, PMC9417647, PMC11840780, PMC9316793, PMC10131834). Taille 3,2–4,9 nm dans la plage (2,7–8 nm) ; d = 0,31 nm entre 0,234 nm (PMC9563711) et 0,35 nm (PMC8255795) ; aucun rendement quantique de PL donné ici, contrairement à PMC9417647 (7,4 %) et PMC11840780 (7,2 %)."
+ },
+ "sources_not_found": [
+  "conductivités ioniques limites de Cl−, Br−, I− (CRC Handbook) : valeurs ≈ 76–78 S cm² mol−1 citées de mémoire, aucune table primaire ouverte (DNS des sites de données bloqué)",
+  "étude publiée de l'oxydation anodique de l'histidine médiée par le chlore actif : non trouvée ; mécanisme proposé par analogie (Pattison & Davies 2001, Kapałka et al. 2010)",
+  "fiche PubChem de l'histidine non ouverte directement ; solubilité prise sur la fiche Fisher et l'arXiv 2004.03798"
+ ]
+}

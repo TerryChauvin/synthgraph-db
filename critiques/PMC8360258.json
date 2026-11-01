@@ -1,0 +1,97 @@
+{
+  "pmcid": "PMC8360258",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "w-CsPbBr3_13000rpm, caractérisation HRTEM (distances inter-réticulaires 0,292 et 0,419 nm)",
+      "extracted": "0,292 nm (200) et 0,419 nm (110) rangés ensemble sur la voie w-CsPbBr3_13000rpm",
+      "article_says": "The interlattice distances of 0.292 and 0.419 nm matched well with the d-spacing of (200) and (110) crystal planes of cubic CsPbBr3.",
+      "fix": "Sur la Fig. 2c (w-CsPbBr3 après centrifugation) seul 0,292 nm (200) est lisible dans l'insert. La légende de Fig. S4 dit « TEM (a) and HRTEM (b) images of h-CsPbBr3 » : 0,419 nm (110) vient probablement du HRTEM de h-CsPbBr3. Garder 0,292 nm sur w-CsPbBr3_13000rpm et ranger 0,419 nm sur h-CsPbBr3, ou, à défaut, laisser le doute explicite sur l'attribution.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation tendance_observee (w-CsPbBr3), évolution de H2 avec le potentiel",
+      "extracted": "l'efficacité faradique en H2 diminue quand le potentiel devient plus négatif (≈ 66 % à −0,7 V, ≈ 30 % à −1,2 V)",
+      "article_says": "Figure 5b showed the faradaic efficiencies (FEs) for the w-CsPbBr3 NCs from − 0.7 to − 1.2 V versus reversible hydrogen electrode (RHE).",
+      "fix": "Sur la Fig. 5b (lue), H2 vaut ≈ 66, 52, 41, 20, 26 puis 30 % de −0,7 à −1,2 V : il décroît jusqu'à un minimum d'environ 20 % à −1,0 V, puis remonte. Reformuler : « diminue de −0,7 à −1,0 V puis remonte légèrement jusqu'à −1,2 V ».",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "CO2RR_cell étape 4 (electrolyze), potentiel appliqué",
+      "extracted": "étape sans paramètre de potentiel (seul gas_flow = 5 sccm) ; electrolysis_duration_per_potential déclaré non cité",
+      "article_says": "Figure 5b showed the faradaic efficiencies (FEs) for the w-CsPbBr3 NCs from − 0.7 to − 1.2 V versus reversible hydrogen electrode (RHE).",
+      "fix": "Ajouter à l'étape 4 un paramètre `potential` en value_text « from − 0.7 to − 1.2 V versus reversible hydrogen electrode (RHE) » (plage balayée, 6 valeurs sur la Fig. 5b : −0,7 ; −0,8 ; −0,9 ; −1,0 ; −1,1 ; −1,2 V).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "w-CsPbBr3 outcomes, série Fig. 5b et Fig. 5c",
+      "extracted": "4 valeurs lues sur Fig. 5b (H2 à −0,7 V ; CO à −1,0 et −1,2 V ; CH4 à −1,2 V) sur environ 18 barres H2/CO/CH4 ; rien tiré de Fig. 5c",
+      "article_says": "From − 0.8 V, the CO2 RR mainly generated both CO and CH4; at − 1.1 V, the reaction yielded mostly CH4 (32%), and CO (40%).",
+      "fix": "La série en potentiel est la seule comparaison de conditions de test de l'article : lire les trois produits aux six potentiels sur Fig. 5b (ex. à −0,9 V : H2 ≈ 41, CO ≈ 42, CH4 ≈ 12 %). Fig. 5c montre des FE à peu près constants sur 350 h (CO ≈ 39 %, CH4 ≈ 31 %) et une densité de courant ≈ −22 mA cm−2, à noter en from_figure. Sinon se limiter à la tendance déjà annotée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "method_sources (liste vide), route w-CsPbBr3, ZnBr2 comme source de Br",
+      "extracted": "method_sources = []",
+      "article_says": "(here, the ZnBr2 was used as the Br-source, which can provide a Br-rich environment, and Zn will not enter into the crystal lattice)",
+      "fix": "Dans corpus/refs, ce passage est suivi de [[CR39]], [[CR40]] (Dong et al., Nano Lett. 2018 ; Sun et al., ACS Nano 2016). Ajouter deux entrées method_sources, route w-CsPbBr3, role « precurseur » ou « autre » (usage d'un halogénure de zinc comme source de bromure en injection à chaud), quote = la phrase de l'article sans les [[id]].",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "w-CsPbBr3 étape 3, quantités d'acide oléique et d'oléylamine",
+      "extracted": "oleic acid 3 mL et oleylamine 3 mL (3 mL de chaque)",
+      "article_says": "3 mL OA and OLA were used as surface ligands and added into the above solution.",
+      "fix": "La phrase ne dit pas si 3 mL vaut pour chacun ou pour le total (le doute existe déjà). Au lieu de 3 mL de chaque, ne pas répartir : amount 3 mL en value_text « 3 mL OA and OLA » sur chaque réactif, ou déclarer `amount` non cité avec le total 3 mL dans la description de l'étape.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Cs-OA étape 2 (heat), atmosphere",
+      "extracted": "atmosphere = « under atmosphere » (value_text)",
+      "article_says": "the mixture was heated to 120 °C under atmosphere until all CsOAc was dissolved",
+      "fix": "« under atmosphere » ne nomme aucun gaz (air ? Ar ? mot manquant) : la valeur n'apporte rien à un chimiste. Déclarer `atmosphere` dans not_stated de l'étape et garder la remarque dans le doute existant.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "h-CsPbBr3, caractérisation TEM/HRTEM",
+      "extracted": "h-CsPbBr3 n'a que XRD comme caractérisation ; la taille 8,77 nm est en outcome sans technique",
+      "article_says": "Transmission electron microscopy (TEM) images of w-CsPbBr3 (after centrifugation) and h-CsPbBr3 NCs are shown in Figs. 2c and S4, both samples have uniform size distributions (19.49 and 8.77 nm for w-CsPbBr3 and h-CsPbBr3, respectively, Fig. S5), regular morphologies, and good crystallization.",
+      "fix": "Ajouter à h-CsPbBr3 une caractérisation TEM (instrument JEM-3100, JEOL ; Fig. S4a et histogramme Fig. S5, 100 NCs comptés d'après la légende de Fig. S5) et éventuellement HRTEM (Fig. S4b).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Electrode_w-CsPbBr3, préparation de l'encre",
+      "extracted": "pas d'étape de préparation de l'encre (mélange des NCs avec la solution de Nafion 5 %) ; seuls ink_concentration et ink_volume sont en missing_fields",
+      "article_says": "For spin-coating, the suitable concentration of CsPbBr3 NCs-5% Nafion solution ink was drop casted on the surface of the electrode.",
+      "fix": "L'article nomme une encre « CsPbBr3 NCs-5% Nafion solution » : ajouter une étape `mix` avant le dépôt (NCs w-CsPbBr3 sans centrifugation + solution Nafion 5 %), avec rapport et durée déclarés non cités, plutôt que de sauter de la préparation du substrat au dépôt.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 6,
+    "branches_extracted": 7,
+    "not_stated_checked": 71,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "rendement et concentration de la dispersion finale de w-CsPbBr3 absents",
+    "durée, puissance et fréquence de la sonication dans l'eau absentes (Fig. S1 ne les donne pas non plus)",
+    "durée du chauffage à 120 °C (Cs-OA et mélange PbBr2/ZnBr2), vitesse d'agitation, atmosphère de la préparation de Cs-OA (« under atmosphere » sans gaz)",
+    "répartition des 3 mL OA et OLA (chacun ou total) et température d'ajout",
+    "température du Cs-OA au moment de l'injection (stocké à 120 °C ou refroidi ?) et température de la réaction de 5 s",
+    "concentration et volume de l'encre CsPbBr3/Nafion, nombre de gouttes, séchage entre couches",
+    "préparation de l'électrode h-CsPbBr3 utilisée pour la Fig. S11",
+    "équation de conversion en échelle RHE annoncée (« as in the equation below ») mais absente du texte ; pH de l'électrolyte, durée de chaque électrolyse, conditions de la RMN 1H",
+    "figures S1 à S12 absentes du dépôt (seules les légendes et le tableau S1 sont dans le fichier) : histogrammes de taille, DRX de III à VI, courbes de réduction de h-CsPbBr3"
+  ],
+  "mechanism_check": "ok",
+  "notes": "Extraction globalement fidèle : toutes les valeurs numériques du texte (91/79 % PLQY, 18/21 nm FWHM, 10,27/4,49 ns, 9,90/2,92 ns, 19,49/8,77 nm, 521/516 et 519/514 nm, 32/40 et 11/19 % FE, 97 et 34 % de courant) correspondent au passage cité et à la bonne voie ; l'attribution précipité → w et surnageant → h est confirmée par la Fig. S1 (III/IV, V/VI). Valeurs lues sur Fig. 5b (66, 60, 56, 12 %) et Fig. 3c (≈ 0,75 pour w, 0,40 pour h) vérifiées sur les images : écarts inférieurs à 3 points. La taille 19,49 nm est donnée « after centrifugation » : l'identification à la centrifugation à 13 000 tr/min reste une lecture (doute déjà posé). Incohérence interne signalée par l'extracteur et confirmée : « 80 % pour plus de 200 jours » contre ≈ 0,75 sur la Fig. 3c à 200 jours. Non retenu comme constat : le rôle « solvent » de l'acide oléique dans Cs-OA (il est aussi réactif ; désaccord d'interprétation sans texte) et le rôle « wash » de la résine Chelex."
+}

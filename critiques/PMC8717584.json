@@ -1,0 +1,104 @@
+{
+ "pmcid": "PMC8717584",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "Cu-TiO2/GO (et 0.5 %, 2 %) reagents : graphene oxide 15 mg + deionized water (GO solution) 10 mL hérités de TiO2/GO",
+   "extracted": "La voie Cu-TiO2/GO est déclarée « Identique à TiO2/GO sauf… » : elle hérite par le parent du réactif GO (15 mg) et de 10 mL d'eau pour la suspension de GO ; l'étape d'ajout de GO est seulement marquée `not_stated` (graphene_oxide_addition).",
+   "article_says": "The 3.8 mg copper (II) nitrate (Cu(NO3)2·3H2O, Sigma-Aldrich) precursor was added to the titanate solution.",
+   "fix": "La section Cu ne mentionne aucun GO (ni masse, ni volume, ni ordre d'ajout) ; le GO n'est attesté que par l'ATG (13,5 %). Ne pas laisser 15 mg de GO / 10 mL d'eau comme valeurs citées pour Cu, 0,5 % et 2 % : donner à la voie sa propre liste de réactifs (sans GO) avec le GO déclaré non cité, ou retirer ces deux lignes de l'héritage ; garder l'annotation limite_reproductibilite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "TiO2 (témoin sans GO) reagents et step 1 : quantités du parent héritées",
+   "extracted": "La voie hérite de 0,71 mL de butoxyde de titane, 20 mL d'éthanol, 10 mL d'eau, du fournisseur Sigma-Aldrich et de 10 mL d'eau « GO solution » ; l'étape 1 est décrite « mixed as in the TiO2/GO synthesis », alors que température et durée des étapes 2 et 3 sont déclarées non citées.",
+   "article_says": "For TiO2, the sample was synthesized following the hydrothermal process without GO and was prone to agglomeration when dried.",
+   "fix": "L'article ne donne ni précurseur, ni quantités, ni solvants, ni conditions pour ce témoin. Traitement incohérent : quantités héritées mais température/durée non citées. Soit hériter explicitement avec un doute, soit déclarer les quantités non citées ; dans tous les cas retirer les 10 mL d'eau liée à la solution de GO (GO absent).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "0.5% Cu-TiO2/GO et 2% Cu-TiO2/GO reagents : NaBH4 1.79 mg, 3.8 mg Cu(NO3)2 et NaOH hérités",
+   "extracted": "Les deux voies héritent de NaBH4 1,79 mg et du pH 12 du 1 % Cu ; seule la quantité de nitrate de cuivre est marquée variable (value_text « Different concentrations of copper nitrate »).",
+   "article_says": "Different concentrations of copper nitrate were used during the synthesis to generate 0.5% Cu–TiO2/GO and 2% Cu–TiO2/GO composites.",
+   "fix": "L'article ne dit pas que NaBH4, NaOH, GO et le reste restent inchangés (dans les trois synthèses Ag/Pd/Cu la quantité de NaBH4 varie avec le précurseur : 0,35 / 0,36 / 1,79 mg). Ajouter une variation ou un doute : quantité de NaBH4 non citée pour 0,5 % et 2 % ; la quantité de nitrate n'est pas calculée par l'extracteur, c'est correct.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "TiO2/GO reagent titanium (IV) butoxide supplier = Sigma-Aldrich",
+   "extracted": "Fournisseur Sigma-Aldrich porté sur la voie de base TiO2/GO.",
+   "article_says": "0.71 mL titanium butoxide was mixed with 20 mL ethanol and 10 mL DI water.",
+   "fix": "Dans la section TiO2/GO le réactif n'a pas de fournisseur ; Sigma-Aldrich n'est écrit que dans la section Ag (« 0.71 mL titanium (IV) butoxide (C16H36O4Ti, Sigma-Aldrich) »). Mettre le fournisseur en non cité pour TiO2/GO (ou le garder avec la citation de la section Ag) ; le doute existe déjà.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Ag-TiO2/GO, Pd-TiO2/GO, Cu-TiO2/GO : champ method hérité de TiO2/GO",
+   "extracted": "« hydrothermal (one step, without metal) » (affiché pour les trois voies dopées, qui n'ont pas de method propre).",
+   "article_says": "In this work, we synthesized Ag–TiO2/GO, Pd–TiO2/GO, and Cu–TiO2/GO composites using a one-step hydrothermal method.",
+   "fix": "Donner à chacune des trois branches un `method` propre (« one-step hydrothermal (metal precursor + titanium butoxide + GO) ») ; l'étiquette « without metal » est fausse pour elles et vient de l'héritage.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiO2/GO UV-vis : valeur du texte 2.0 eV",
+   "extracted": "Seul 3.02 eV (tableau 1) est enregistré pour TiO2/GO ; le 2.0 eV du texte n'est que dans un doute (alors que pour TiO2 le 3.20 eV du texte est gardé en caractérisation).",
+   "article_says": "For the TiO2/GO composite, a significant decrease in band gap energy was observed as the energy value decreased to 2.0 eV.",
+   "fix": "Ajouter une caractérisation UV-vis (Tauc) à TiO2/GO : « 2.0 eV (texte) ; 3.02 eV (tableau 1 et discussion) ». Lecture de l'inset de la Figure 4 : l'intersection de la droite de Tauc de TiO2/GO se situe vers 3.0 eV, ce qui appuie le tableau (les 2.0 eV semblent une erreur de texte) ; à consigner en annotation limite_reproductibilite plutôt que le doute « non lisible ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiO2 et TiO2/GO ethanol_production_rate : barres d'erreur de la Figure 8",
+   "extracted": "31 et 59 μmol/gcat h sans dispersion ; seules les voies Ag, Pd, Cu et les séries Cu ont ± dans le texte.",
+   "article_says": "GO and TiO2 were tested as control samples, yielding 0 and 31 μmol/gcat h of ethanol, respectively.",
+   "fix": "La Figure 8 (corpus/fig/PMC8717584/ao1c05799_0009.jpg) montre des barres d'erreur larges pour TiO2 (≈ 9 à 52, soit ± 20 environ) et TiO2/GO (≈ 34 à 84, soit ± 25 environ) ; les noter en valeurs `from_figure` ou, au minimum, dans limite_reproductibilite (dispersion du même ordre que l'écart TiO2 → TiO2/GO). La note actuelle dit que la Figure 8 « n'a pas été lue ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cu-TiO2/GO : masse de titane stipulée (0.1 g Ti) et rapport 1/100 non enregistrés",
+   "extracted": "Aucune trace de « 0.1 g Ti » ni de « 0.001 g Cu » dans les voies (seul le doute « 3.8 g / 3.8 mg » les évoque).",
+   "article_says": "In the previous tests, 0.71 mL titanium butoxide (0.1 g Ti) was mixed with 3.8 g copper nitrate (0.001 g Cu), creating a 1/100 (w/w) Cu/Ti ratio for the composite (1% Cu–TiO2/GO).",
+   "fix": "Ajouter une variation/propriété de la voie Cu-TiO2/GO : 0.1 g Ti ↔ 0.001 g Cu (rapport 1/100 w/w), avec le doute sur « 3.8 g » (faute de frappe probable pour 3.8 mg, cohérent avec 0.001 g de Cu) : la série 0,5/1/2 % se définit par rapport à cette base.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "photocatalytic CO2 reduction (toutes voies) conditions",
+   "extracted": "Lampe 160 W, 0,1 mg/mL, 25 mL, CO2 20 min à 0,1 L/min, 6 h, GC-FID (DB WAX, EPA 308).",
+   "article_says": "The pH value of the suspension before and after CO2 purging was ∼5 and ∼4, respectively.",
+   "fix": "Compléter `conditions` : pH ∼5 avant et ∼4 après barbotage de CO2 ; suspension agitée sous la lampe (« The suspension was stirred under a UV lamp for 6 h ») ; filtre seringue Nylon 0,2 μm avant GC ; programme du four GC (45 °C 3 min, 70 °C 2,5 min, puis 200 °C) et injecteur/détecteur à 250 °C.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Caractérisations absentes : FTIR (Ag, Pd, Cu, TiO2), XRD (Pd, Cu), UV-vis (TiO2/GO, Ag, Pd, Cu), XPS C 1s de TiO2/GO, Ag, Pd, Cu",
+   "extracted": "Ces techniques n'existent que pour certaines voies (XRD seulement TiO2, TiO2/GO, Ag ; FTIR seulement GO et TiO2/GO ; UV-vis seulement GO et TiO2) ; `conditions` de l'UV-vis (suspension dans l'eau, cuvette de quartz) donnée pour TiO2 seul.",
+   "article_says": "All the precious metal-TiO2/GO composites, including Ag–TiO2/GO, Pd–TiO2/GO, and Cu–TiO2/GO, show IR transmittance peaks of alkoxy, carboxyl, alkene, carbonyl, and hydroxyl at 1080, 1410, 1530, 1630, and 3410 cm–1.",
+   "fix": "Ajouter FTIR (1080, 1410, 1530, 1630, 3410 cm–1 ; 600 cm–1 Ti–O–Ti/Ti–O–C) aux trois voies dopées, XRD (25, 38, 48, 54, 63°, anatase) à Pd et Cu, et UV-vis à tous les échantillons avec les conditions « suspension solide dans l'eau DI, cuvette de quartz ». Les valeurs de bande interdite sont déjà en résultats.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 58,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Synthèse du TiO2 témoin non décrite (seulement « following the hydrothermal process without GO ») : précurseur, quantités, température, durée, séchage.",
+  "Section Cu–TiO2/GO : aucun GO mentionné (masse, volume, moment d'ajout) alors que le composite contient 13,5 % de graphène (ATG).",
+  "Quantités de nitrate de cuivre, de NaBH4 et de NaOH pour 0,5 % et 2 % Cu non données ; « 3.8 g » (Résultats) contre 3.8 mg (Expérimental).",
+  "Volume de NaOH 1 M pour atteindre pH 12 non donné ; ordre pH puis NaBH4 seulement dans le texte (Cu).",
+  "Pd : volume de la suspension de GO (1.5 mg GO/mL) non donné ; PdCl2 dissous dans quel milieu (insoluble dans l'eau/éthanol sans HCl) non précisé.",
+  "Pas de volume d'autoclave, de taux de remplissage, de vitesse de chauffe/refroidissement, ni de durée d'agitation avant autoclave ; sonication du GO sans durée ni puissance.",
+  "Séparation du solide (filtration ou centrifugation), lavage éventuel et atmosphère de séchage non décrits pour Pd, Cu, TiO2 ; aucun rendement.",
+  "Test photocatalytique : volume de suspension dans le récipient de 25 mL, distance et intensité de la lampe, température de réaction, nombre de répétitions (n des ±) non donnés ; Tauc : bande interdite du TiO2/GO 2.0 eV (texte) contre 3.02 eV (tableau, discussion)."
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (GO : intercalation, oxydation, décollement ; TiO2/GO : immobilisation par les groupes fonctionnels du GO) s'appuie sur le texte ; le mécanisme de photoréduction (Fig. 9, éq. 1-12) n'est pas repris en annotation mais ce n'est pas un mécanisme de synthèse.",
+ "notes": "Inventaire complet (8 échantillons, aucun manquant) et valeurs numériques du tableau 1, du texte, du tableau S1 conformes ; aucune valeur lue sur figure dans l'extraction. Lecture des figures : Fig. 8 et 10 confirment 0/31/59/109/125/233 et 27/233/30 ; inset Fig. 4 : intercepts vers 3.0 (TiO2/GO), 2.9 (Ag), 3.2 (TiO2), 2.1 (Cu) en accord avec le tableau, mais la droite violette (Pd) coupe l'axe vers 2.3 eV et non 3.09 : lecture incertaine (couleurs de pointillés proches), incohérence possible de l'article à signaler plutôt qu'une erreur d'extraction. Aucun renvoi de méthode dans la section expérimentale (refs : seul [[ref30]] pour l'équation de Tauc, exclu) : method_sources vide correct ; « EPA method 308 » est une norme citée sans renvoi. Tableau S1 (Ti, C/O, autres en % massique) non repris, détail seulement."
+}

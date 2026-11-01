@@ -1,0 +1,17 @@
+# Journal d'extraction PMC11002299
+
+- Trois voies de base indépendantes (ZnS, CNS, ZnS@CNS), aucune branche : l'article ne balaie aucun paramètre de synthèse. ZnS et CNS sont gardées en `material` (et non `intermediate`) car elles sont aussi testées seules (ZnS/GCE, CNS/GCE). Dans ZnS@CNS, elles figurent comme réactifs de rôle `intermediate`.
+- Aucune voie `device` : la section « Fabrication of modified electrode » recopie mot pour mot la préparation du composite (CNS 5 mg/mL dans l'éthanol, ZnS 10 mg/mL, 30 min, lyophilisation) et ne décrit aucun dépôt sur la GCE. Les électrodes modifiées sont dans l'inventaire avec `route: null` et la raison. Doute écrit.
+- Solvant eutectique profond : composition absente. Chlorure de choline et fructose sont cités en Materials, mais pas comme constituants du solvant ; je ne les ai pas ajoutés comme réactifs (ce serait déduire). `composition` en `not_stated`.
+- 0,1 mol de chaque sel dans 50 mL : extrait tel quel (valeur de la citation), invraisemblable (≈ 18 g d'acétate de zinc) ; doute et limite_reproductibilite. Formules « Zn(CH3COO)2 » et « Na2S » de la synthèse retenues contre les hydrates de Materials/Éq. 1.
+- Fournisseur : la phrase « all other chemicals employed in this study were procured from Sigma-Aldrich » couvre explicitement tous les produits : appliquée à l'acétate, Na2S, mélamine, éthanol ; pas à l'eau ni au solvant eutectique (préparation inconnue). Pureté : non citée (seules celles des produits électrochimiques sont données).
+- Étapes 3 à 5 de ZnS : une seule phrase donne centrifugation, lavage et séchage sous vide ; la même citation sert aux trois étapes. Solvant de lavage, vitesse, température et durée de séchage déclarés non cités.
+- Taille de 255 nm : attribuée à ZnS comme le dit la phrase (« average particle size of ZnS ») malgré le plan (1 1 0) absent de la liste cubique et le contexte de comparaison avec ZnS@CNS ; doute.
+- Morphologie « sheets like » : le texte la donne pour ZnS (et cite une synthèse micro-ondes absente des méthodes) alors que la légende de la Fig. 3 ne vise que ZnS@CNS ; rangée sur ZnS comme écrit, doute.
+- Résultats comparatifs ZnS/CNS/composite (« bonne réponse en courant », Epa/Epc) : donnés pour un groupe, donc en `tendance_observee` unique, non recopiés sur chaque voie.
+- Tableau 2 : 8 rangées en `outcomes` du composite, fluide (sérum/urine) attribué par la position, car les rangées ne portent pas le nom du fluide ; unités nM (tableau) contre µM (texte) laissées telles quelles, doute.
+- Figures lues : Fig. 5B (CNS ≈ 3,5 µA ; ZnS@CNS ≈ 5,8 µA ; GCE nue non extraite faute de voie) et Fig. 6B (5 valeurs de courant selon le pH), précision ±0,2 µA, légende en citation. Fig. 4A non lue (demi-cercle noir non fermé, couleur de ZnS non donnée par la légende) : signalé en limite_reproductibilite. Les légendes de la Fig. 5 (« calibration plot ») ne correspondent pas à la figure (histogramme).
+- Scheme 2 (gr11) : n'ajoute aucune valeur ; elle dessine une sonde de sonication alors que le texte parle d'un « ultrasonic cleaner ». Texte retenu.
+- SEM, EDX, Raman : annoncés en Materials sans résultat dans l'article ; pas de caractérisation créée.
+- `method_sources` vide : aucun renvoi ne porte sur la méthode (les références b0100 et suivantes sont des fiches XRD/XPS ou du contexte).
+- Pas de Supporting Information dans le fichier ; l'article n'en cite pas : aucune annexe absente.

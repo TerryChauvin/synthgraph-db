@@ -1,0 +1,62 @@
+{
+  "pmcid": "PMC9611298",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "LiCoPO4@C (x = 0), caractérisation FTIR, position de la bande de vibration symétrique",
+      "extracted": "aucune valeur FTIR pour la voie LiCoPO4@C ; la valeur 979 cm−1 n'existe que pour x = 0,02 et 984 pour x = 0,03 ; rien pour x = 0,01",
+      "article_says": "the symmetric stretching at 987 cm−1 position shifted to 979 cm−1 position when x = 0.02",
+      "fix": "ajouter FTIR_symmetric_stretching_position = 987 cm−1 à la voie LiCoPO4@C (le texte nomme 987 cm−1 comme position de départ, et la figure 5 l'inscrit sur la courbe LiCoPO4/C) ; ajouter 983 cm−1 pour x = 0,01 (étiquette de la courbe rouge de la figure 5, from_figure Fig. 5, citation = légende « Figure 5 FTIR spectra of the four cathode materials. »). Les étiquettes 987, 983, 979 et 984 sont imprimées sur la figure, donc sans erreur de lecture.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "LiCo0.985Y0.01PO4@C et LiCo0.955Y0.03PO4@C, capacités en régime à 0,1, 0,2 et 0,5 C (Fig. 9b)",
+      "extracted": "seul le palier 1 C est lu sur la figure (≈ 70 et ≈ 85 mAh g−1) ; les paliers 0,1, 0,2, 0,5 C et le retour à 0,1 C manquent pour ces deux échantillons",
+      "article_says": "Figure 9b presents the rate performances of the four electrodes.",
+      "fix": "lire sur la figure 9b (from_figure) au moins les paliers 0,1 / 0,2 / 0,5 C et le retour à 0,1 C de ces deux échantillons ; sur l'image les quatre courbes se distinguent à chaque palier sauf par endroits de 0,5 C, ou à défaut déclarer la limite dans une annotation limite_reproductibilite (déjà partiellement fait)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "LiCoPO4@C step 5 (calcine 700 °C Ar), description",
+      "extracted": "Second calcination under argon, which yields the olivine phase and the carbon coating.",
+      "article_says": "Finally, the dry gel was calcined at 400 °C 3 h in rotary furnace at air atmosphere, and then changed to Ar atmosphere and calcined at 700 °C 2 h",
+      "fix": "retirer l'attribution à l'étape 700 °C de l'apparition de la phase olivine et du carbone : l'article ne dit pas dans quelle des deux calcinations se forment la phase et la couche de carbone (c'est de l'interprétation, à garder dans mecanisme_analyse seulement)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "LiCoPO4@C reagent citric acid, role = carbon_source",
+      "extracted": "role: carbon_source",
+      "article_says": "First citric acid (CA, Sinopharm Chemical Reagent, ≥99.5%)",
+      "fix": "l'article ne donne aucun rôle à l'acide citrique ; le doute de l'extracteur le reconnaît. Mettre un rôle neutre (ex. ligand ou precursor) ou le conserver avec le doute, mais ne pas le présenter comme fait de l'article",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "LiCo0.955Y0.03PO4@C material.phase et succeeded",
+      "extracted": "phase « olivine, orthorhombic Pnma » ; succeeded = false",
+      "article_says": "An obvious impurity peak YPO4 appeared when the Y substitution amount was 0.03.",
+      "fix": "ajouter l'impureté YPO4 à material.phase de cette voie (« olivine avec impureté YPO4 »). Sur succeeded = false : les auteurs caractérisent et testent cet échantillon comme les autres sans parler d'échec ; la règle du RUNBOOK (phase impure) autorise false, mais l'orchestrateur peut préférer true avec l'impureté en résultat",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 4,
+    "branches_extracted": 4,
+    "not_stated_checked": 45,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "aucune quantité absolue de réactif (seul le rapport molaire nLi:nCo:nY:nP:nCA = 1,05:1-1,5x:x:1:2), ni volume d'eau, ni concentration, ni échelle de la synthèse",
+    "durée de la chauffe de gélification à 80 °C, durée et agitation de la dissolution, vitesse de chauffe, débit et pureté d'argon, mode de passage de l'air à l'argon entre 400 et 700 °C, refroidissement",
+    "teneur en carbone et rendement non donnés (la couche de 5 nm vient de la seule image TEM)",
+    "fabrication de l'électrode (liant, additif conducteur, rapports massiques, collecteur, enduction, charge en matière active, surface) absente ; assemblage de la pile (volume d'électrolyte, pression de sertissage) absent",
+    "définition du régime C (courant en mA g−1), fenêtre de potentiel du cyclage (3~5 V lisible seulement sur la figure 9a), température de test, plage de fréquence EIS écrite « 0.1 MHz to 10 MHz » (probablement 10 mHz) et signification du σ du tableau 4 non données",
+    "protocole renvoyé en partie à une publication antérieure des auteurs (Cr-substitué, réf. B39), non reprise par l'extraction"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs est appuyé par la citation « This change indicates that Y (III) replaced Co (II)… » ; mecanisme_analyse est écrit comme hypothèse ; securite_analyse couvre nitrates de cobalt, NOx, LiPF6/HF, lithium métallique, solvants",
+  "notes": "Article court (un seul protocole, 4 compositions), extraction très fidèle : les 4 rangées des tableaux 1, 2 et 4 sont attribuées au bon échantillon par le nom (le texte dit tantôt « @C », tantôt « /C »), les « respectively » des capacités de cyclage suivent l'ordre x = 0, 0,01, 0,02, 0,03 (confirmé par le 148 de x = 0,02 dans le tableau 3), les rétentions recalculées (76,8/142,6 = 53,9 %, 106,6/144,5 = 73,8 %, 111/148 = 75 %, 97,6/145,8 = 66,9 %) concordent avec le texte, et les polarisations sont bien égales au pic d'oxydation 2 moins la réduction. Valeurs from_figure vérifiées sur Fig. 9b : 1 C x = 0,01 ≈ 69 à 72 (extrait 70), x = 0,03 ≈ 85 (extrait 85), écarts sous 10 %. Les valeurs « about » de x = 0 en régime (125/110/82/66) sont compatibles avec la figure (0,1 C lu vers 125 à 135 selon le cycle). Non-constats gardés ici : la variation « dopant » donne trois avertissements du contrôle, déjà expliqués par un doute ; parent_value « 1-1.5x, x = 0 » est une lecture de la formule à x = 0 et non une valeur numérique inventée ; XPS, SEM, TEM, XRD et FTIR sont rattachés à une seule voie alors qu'ils concernent les quatre échantillons, sans effet sur les données. Le tableau 3 (comparaison avec la littérature) et les figures 1, 2, 3, 4, 6, 7, 8 et 10 n'ont pas été relues ligne à ligne ; la figure 8 (profils de charge/décharge) n'a aucun résultat extrait. J'ai aussi lancé `load.py check` (lecture seule) alors que seul review.py était autorisé."
+}

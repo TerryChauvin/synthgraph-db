@@ -1,0 +1,651 @@
+{
+ "pmcid": "PMC9611298",
+ "routes": [
+  {
+   "label": "LiCoPO4@C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "neutralité de charge de LiCo(1-1.5x)YxPO4",
+     "inputs": "Li+ = 1 ; Co2+ = 1-1,5x ; Y3+ = x ; PO4(3-) = 1",
+     "formula": "1 + 2(1-1,5x) + 3x",
+     "result": "3,00 pour tout x (0,5x lacune de Co par formule)",
+     "compared_to": "charge de PO4(3-) : 3",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport molaire Li:Co:P visé (x = 0)",
+     "inputs": "nLi:nCo:nY:nP:nCA = 1,05:1:0:1:2",
+     "formula": "n(Li)/n(P), n(Co)/n(P)",
+     "result": "Li/P = 1,05 (excès de 5 %) ; Co/P = 1,00",
+     "compared_to": "LiCoPO4 : 1:1:1 ; excès de Li usuel pour compenser la volatilisation, mais un excès non volatilisé donne Li3PO4",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport combustible/oxydant du gel (méthode des valences de Jain)",
+     "inputs": "valences : LiNO3 −5 ; Co(NO3)2 −10 ; Y(NO3)3 −15 ; NH4H2PO4 +3 ; C6H8O7 +18 (C +4, H +1, O −2, N 0, P +5) ; quantités 1,05 : 1 : 0 : 1 : 2",
+     "formula": "φ = −Σ(oxydants)/Σ(réducteurs) = (5×1,05 + 10)/(3 + 2×18)",
+     "result": "φ = 15,25/39 = 0,39 (identique pour x = 0,02 : −10×0,97 − 15×0,02 = −10)",
+     "compared_to": "φ = 1 stœchiométrique ; φ < 1 = gel riche en combustible, carbone résiduel attendu",
+     "source": "arithmétique sur les valeurs de l'article"
+    },
+    {
+     "what": "carbone maximal apporté par l'acide citrique",
+     "inputs": "2 mol C6H8O7 par mol de P ; M(C) = 12,011 ; M(LiCoPO4) = 160,84 g/mol",
+     "formula": "12 × 12,011 / (12 × 12,011 + 160,84)",
+     "result": "144 g de C par mol de LiCoPO4, soit au plus 47 % en masse si tout restait",
+     "compared_to": "une couche de 5 nm sur des grains de 200 nm correspond à quelques % en masse : l'essentiel du citrate doit brûler ou partir pendant le palier à 400 °C sous air",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "volume de maille recalculé a×b×c (x = 0 et fiche JCPDS 89-6192)",
+     "inputs": "a = 10,2007 ; b = 5,9220 ; c = 4,6987 Å (fiche : 10,2021 ; 5,9227 ; 4,7003)",
+     "formula": "V = a·b·c (orthorhombique)",
+     "result": "283,84 Å3 (fiche : 284,01 Å3)",
+     "compared_to": "tableau 1 : 283,84 et 284,01 — cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse volumique théorique et concentration en Li de LiCoPO4",
+     "inputs": "Z = 4 ; M = 160,84 g/mol ; V = 283,84 Å3 ; NA = 6,022e23",
+     "formula": "ρ = Z·M/(NA·V) ; C = ρ/M",
+     "result": "ρ = 3,76 g/cm3 ; C(Li) = 0,0234 mol/cm3",
+     "compared_to": "valeur utilisée pour le contrôle du calcul de D(Li+) (voie pile)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "capacité théorique de LiCoPO4",
+     "inputs": "F = 96485 C/mol ; M = 160,84 g/mol ; 1 e− par formule",
+     "formula": "F/(3,6·M)",
+     "result": "166,6 mAh/g",
+     "compared_to": "142,6 mAh/g mesurés au 1er cycle à 0,1 C (86 %)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rétention de capacité x = 0",
+     "inputs": "142,6 puis 76,8 mAh/g après 80 cycles",
+     "formula": "76,8/142,6",
+     "result": "53,9 %",
+     "compared_to": "53,8 % annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "potentiel de polarisation x = 0",
+     "inputs": "pics d'oxydation 4,829 et 4,924 V ; réduction 4,695 V",
+     "formula": "E(ox2) − E(red)",
+     "result": "0,229 V (avec le premier pic : 0,134 V)",
+     "compared_to": "0,229 V du tableau 2 : défini avec le second pic d'oxydation",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapports molaires cohérents avec la formule et neutres en charge pour tout x (calculs « neutralité de charge » et « rapport molaire Li:Co:P visé »). L'excès de Li de 5 % est habituel mais non justifié par les auteurs ; s'il ne se volatilise pas à 700 °C pendant 2 h, il peut laisser un peu de Li3PO4 (impureté déjà vue dans une autre olivine de la base, PMC11425712, faibles raies de Li3PO4).",
+     "status": "reserve",
+     "basis": "comparaison_base",
+     "source": null
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Gel formé à 80 °C dans l'eau (ébullition 100 °C) en récipient ouvert, séchage 120 °C, calcination 400 °C puis 700 °C : températures habituelles pour une olivine par voie citrate (cristallisation de LiCoPO4 entre 600 et 800 °C). Aucun problème de récipient ni de pression.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "redox",
+     "finding": "Co2+ du nitrate doit rester Co2+. Le palier à 400 °C sous air, en présence de nitrates oxydants, peut oxyder une partie du cobalt en Co3O4 ; c'est le carbone résiduel du citrate qui le ramène à Co2+ à 700 °C sous Ar. Ce même carbone peut, si le palier sous Ar est trop réducteur, former des phosphures de métal (Co2P), connus dans les olivines carbonées (Herle 2004 pour Fe et Ni). La DRX et le Co 2p en XPS ne montrent ni Co3O4 ni Co2P : le procédé tel qu'écrit est cohérent, mais l'équilibre dépend de la quantité de carbone qui survit à l'air.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Nano-network electronic conduction in iron and nickel olivine phosphates",
+      "authors_or_publisher": "P. S. Herle, B. Ellis, N. Coombs, L. F. Nazar, Nature Materials 3, 147–152",
+      "year": "2004",
+      "url_or_doi": "10.1038/nmat1063"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Un gel riche en combustible (φ = 0,39, calcul « rapport combustible/oxydant ») apporte jusqu'à 47 % en masse de carbone (calcul « carbone maximal »), dont la plus grande partie doit disparaître à 400 °C sous air pour ne laisser qu'une couche de 5 nm. La teneur finale en carbone dépend donc de la charge du four rotatif, du débit d'air et de l'épaisseur du lit : elle n'est ni mesurée (pas d'ATG, pas d'analyse C) ni donnée. C'est le paramètre le plus sensible pour refaire le matériau, et la capacité par gramme n'est pas interprétable sans lui.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le gel sec contient du nitrate (3,05 NO3− par P, plus 3x pour Y) et de l'ammonium (NH4H2PO4) avec du citrate : c'est un mélange combustible/oxydant (φ = 0,39) qui contient de fait du nitrate d'ammonium. Ce type de gel peut s'auto-enflammer d'un coup au chauffage (combustion « sol-gel auto-ignition »), avec un fort dégagement de NOx, CO2 et NH3, dans un four rotatif fermé. L'article ne le signale pas : chauffer lentement, petites charges, extraction des gaz. Le nitrate de cobalt est classé CMR (Carc. 1B par inhalation, Repr. 1B) et SVHC par l'ECHA.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Background document for cobalt(II) dinitrate (annexe XIV, SVHC : Carc. 1B H350i, Repr. 1B H360F, formes hydratées comprises)",
+      "authors_or_publisher": "ECHA (Agence européenne des produits chimiques)",
+      "year": "2011",
+      "url_or_doi": "https://echa.europa.eu/documents/10162/c9cadc3c-4c51-5f8c-7a1a-e18a78e3f4f0"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres de maille et volume du tableau 1 cohérents entre eux (V = a·b·c exact, calcul « volume de maille ») et proches de la fiche JCPDS 89-6192 de LiCoPO4. 142,6 mAh/g au premier cycle = 86 % de la capacité théorique (166,6 mAh/g) : élevé mais dans la fourchette publiée (le tableau 3 de l'article cite 120 à 153 mAh/g).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le protocole est un procédé citrate de type Pechini simplifié (sans polyol) : chélation des cations par l'acide citrique, gélification par évaporation, décomposition organique puis cristallisation. Le choix de 2 mol de citrate par P est cohérent avec la double fonction chélatant et source de carbone.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "The evolution of 'sol–gel' chemistry as a technique for materials synthesis",
+      "authors_or_publisher": "A. E. Danks, S. R. Hall, Z. Schnepp, Mater. Horiz.",
+      "year": "2016",
+      "url_or_doi": "10.1039/C5MH00260E"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Chélation de Co2+, Li+ (et Y3+) par le citrate en solution ; à 80 °C l'évaporation fige un gel homogène (ammonium, nitrate, phosphate, citrate). À 120 °C puis vers 200–400 °C sous air, la réaction nitrate–citrate (riche en combustible, φ ≈ 0,4) décompose nitrates et ammonium et brûle une partie du carbone, laissant un précurseur amorphe Li–Co–P–O mêlé de carbone ; une oxydation partielle de Co2+ est possible. À 700 °C sous Ar, l'olivine Pnma cristallise ; le carbone résiduel ramène le cobalt à l'état +2 et se graphitise partiellement en une couche de quelques nm qui limite la croissance des grains (≈ 200 nm). L'hypothèse de l'extraction (mecanisme_analyse) est compatible ; il faut y ajouter le rôle du palier sous air, qui fixe la quantité de carbone restante.",
+    "sources": [
+     {
+      "title": "The evolution of 'sol–gel' chemistry as a technique for materials synthesis",
+      "authors_or_publisher": "A. E. Danks, S. R. Hall, Z. Schnepp, Mater. Horiz.",
+      "year": "2016",
+      "url_or_doi": "10.1039/C5MH00260E"
+     },
+     {
+      "title": "brevet US 3 330 697 (voie citrate / éthylène glycol)",
+      "authors_or_publisher": "M. P. Pechini",
+      "year": "1967",
+      "url_or_doi": "https://patents.google.com/patent/US3330697"
+     },
+     {
+      "title": "Phospho-olivines as Positive-Electrode Materials for Rechargeable Lithium Batteries",
+      "authors_or_publisher": "A. K. Padhi, K. S. Nanjundaswamy, J. B. Goodenough, J. Electrochem. Soc.",
+      "year": "1997",
+      "url_or_doi": "10.1149/1.1837571"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en carbone après le palier à 400 °C sous air et dans le produit final (ATG sous air ou analyse élémentaire C) : non donnée, elle conditionne la couche de 5 nm et l'état du cobalt",
+    "concentration de la solution et volume d'eau (non donnés) ; quantités absolues",
+    "montée en température lente vers 400 °C et petites charges : le gel nitrate–ammonium–citrate peut s'auto-enflammer",
+    "purge complète de l'air avant la montée à 700 °C sous Ar (le passage air → Ar à chaud n'est pas décrit)",
+    "absence de Li3PO4, Co3O4 et Co2P en DRX (excès de Li de 5 % ; carbone réducteur à 700 °C)"
+   ]
+  },
+  {
+   "label": "LiCo0.985Y0.01PO4@C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "coefficient de Co et neutralité (x = 0.01)",
+     "inputs": "Co = 1 − 1,5×0.01 ; Y = 0.01",
+     "formula": "1 − 1,5x ; 1 + 2(1−1,5x) + 3x",
+     "result": "Co = 0.985 ; charge = 3,00 ; lacunes de Co = 0.005",
+     "compared_to": "formule du libellé LiCo0.985Y0.01PO4@C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport Y:Co nominal (x = 0.01)",
+     "inputs": "nY = 0.01 ; nCo = 0.985",
+     "formula": "nY/nCo",
+     "result": "1.02 % de Y par rapport à Co",
+     "compared_to": "limite de solubilité de Y3+ dans une olivine faible (substitution aliovalente défavorable selon Islam 2005)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité théorique limitée par le Co (x = 0.01)",
+     "inputs": "M = 160.85 g/mol ; Co = 0.985",
+     "formula": "(1−1,5x)·F/(3,6·M)",
+     "result": "164.1 mAh/g",
+     "compared_to": "1re décharge 144.5 mAh/g (88 %)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rétention après 80 cycles (x = 0.01)",
+     "inputs": "144.5 puis 106.6 mAh/g",
+     "formula": "Q80/Q0",
+     "result": "73.8 %",
+     "compared_to": "73.7 % annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "polarisation (x = 0.01)",
+     "inputs": "E(ox2) = 4.903 V ; E(red) = 4.704 V",
+     "formula": "E(ox2) − E(red)",
+     "result": "0.199 V",
+     "compared_to": "0.199 V annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "D(Li+) relatif contre σ (x = 0.01)",
+     "inputs": "σ = 103 (x = 0 : 391) ; D = 1.02e-14 (x = 0 : 7,11e-16)",
+     "formula": "D ∝ 1/σ² : (391/σ)² contre D/D(x=0)",
+     "result": "14.41 contre 14.35",
+     "compared_to": "rapports identiques : D calculé par D = R²T²/(2A²n⁴F⁴C²σ²) avec A et C constants",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "variation de volume de maille (x = 0.01)",
+     "inputs": "V = 284.09 Å3 ; V(x = 0) = 283,84 Å3",
+     "formula": "(V − V0)/V0",
+     "result": "+0.25 Å3 soit +0.088 %",
+     "compared_to": "écart entre l'échantillon x = 0 et la fiche JCPDS 89-6192 : 0,17 Å3 ; incertitudes de Rietveld non données",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Formule du libellé conforme à 1 − 1,5x et neutre en charge (calcul « coefficient de Co et neutralité (x = 0.01)») ; compensation de charge par 0,5x lacune de Co, choix explicite des auteurs. Le nitrate d'yttrium est bien apporté (section 2.1).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention et polarisation recalculées conformes au tableau 2 et au texte (calculs « rétention » et « polarisation »). Le rapport des D(Li+) suit exactement (391/σ)² : D est calculé à partir de σ avec la même surface et la même concentration pour les quatre électrodes, donc il n'apporte pas d'information indépendante de σ.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve d'incorporation faible : la maille grossit de 0.25 Å3 (0.09 %), du même ordre que l'écart de 0,17 Å3 entre l'échantillon x = 0 et la fiche JCPDS, sans incertitude de Rietveld donnée. Le sens est attendu (r(Y3+, VI) = 0,900 Å contre r(Co2+ HS, VI) = 0,745 Å, Shannon 1976), mais les calculs atomistiques sur l'olivine LiFePO4 donnent la substitution aliovalente sur le site M2 très défavorable (Islam 2005), et Y3+ pourrait aussi occuper le site Li (M1) ou rester en surface ou aux joints. L'EDS homogène à l'échelle de grains de 200 nm et le Y 3d en XPS (Y3+, aussi vrai pour YPO4 ou Y2O3 amorphes) ne distinguent pas ces cas. Une occupation des sites affinée par Rietveld ou une analyse locale (EXAFS au seuil de Y) serait discriminante.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Atomic-Scale Investigation of Defects, Dopants, and Lithium Transport in the LiFePO4 Olivine-Type Battery Material",
+      "authors_or_publisher": "M. S. Islam, D. J. Driscoll, C. A. J. Fisher, P. R. Slater, Chem. Mater. 17(20), 5085–5092",
+      "year": "2005",
+      "url_or_doi": "10.1021/cm050999v (DOI non vérifié en ligne : pages de l'éditeur et de Bath injoignables ; référence bibliographique confirmée par la recherche web)"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même chemin que la voie de base ; Y3+ est piégé dans le gel citrate et se retrouve réparti à l'échelle des grains. L'incorporation dans le réseau sur le site Co (M2) avec lacunes de Co est l'hypothèse des auteurs ; énergétiquement défavorable selon les calculs sur l'olivine, elle reste possible à très faible taux, mais une fraction de Y peut se trouver en surface, aux joints ou sous forme de YPO4 nanométrique non visible en DRX avant x = 0,03.",
+    "sources": [
+     {
+      "title": "Atomic-Scale Investigation of Defects, Dopants, and Lithium Transport in the LiFePO4 Olivine-Type Battery Material",
+      "authors_or_publisher": "M. S. Islam, D. J. Driscoll, C. A. J. Fisher, P. R. Slater, Chem. Mater. 17(20), 5085–5092",
+      "year": "2005",
+      "url_or_doi": "10.1021/cm050999v (DOI non vérifié en ligne : pages de l'éditeur et de Bath injoignables ; référence bibliographique confirmée par la recherche web)"
+     },
+     {
+      "title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides",
+      "authors_or_publisher": "R. D. Shannon, Acta Crystallographica A 32, 751–767",
+      "year": "1976",
+      "url_or_doi": "10.1107/S0567739476001551"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "occupation des sites Li et Co par Rietveld, et incertitudes sur a, b, V",
+    "YPO4 et Li3PO4 en DRX lente sur la plage 20–30° 2θ",
+    "teneur en carbone de chaque échantillon (comparer des échantillons à même teneur en carbone)"
+   ]
+  },
+  {
+   "label": "LiCo0.97Y0.02PO4@C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "coefficient de Co et neutralité (x = 0.02)",
+     "inputs": "Co = 1 − 1,5×0.02 ; Y = 0.02",
+     "formula": "1 − 1,5x ; 1 + 2(1−1,5x) + 3x",
+     "result": "Co = 0.970 ; charge = 3,00 ; lacunes de Co = 0.010",
+     "compared_to": "formule du libellé LiCo0.97Y0.02PO4@C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport Y:Co nominal (x = 0.02)",
+     "inputs": "nY = 0.02 ; nCo = 0.970",
+     "formula": "nY/nCo",
+     "result": "2.06 % de Y par rapport à Co",
+     "compared_to": "limite de solubilité de Y3+ dans une olivine faible (substitution aliovalente défavorable selon Islam 2005)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité théorique limitée par le Co (x = 0.02)",
+     "inputs": "M = 160.85 g/mol ; Co = 0.970",
+     "formula": "(1−1,5x)·F/(3,6·M)",
+     "result": "161.6 mAh/g",
+     "compared_to": "1re décharge 148 mAh/g (92 %)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rétention après 80 cycles (x = 0.02)",
+     "inputs": "148 puis 111 mAh/g",
+     "formula": "Q80/Q0",
+     "result": "75.0 %",
+     "compared_to": "75 % annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "polarisation (x = 0.02)",
+     "inputs": "E(ox2) = 4.892 V ; E(red) = 4.71 V",
+     "formula": "E(ox2) − E(red)",
+     "result": "0.182 V",
+     "compared_to": "0.182 V annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "D(Li+) relatif contre σ (x = 0.02)",
+     "inputs": "σ = 60 (x = 0 : 391) ; D = 3.02e-14 (x = 0 : 7,11e-16)",
+     "formula": "D ∝ 1/σ² : (391/σ)² contre D/D(x=0)",
+     "result": "42.47 contre 42.48",
+     "compared_to": "rapports identiques : D calculé par D = R²T²/(2A²n⁴F⁴C²σ²) avec A et C constants",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "variation de volume de maille (x = 0.02)",
+     "inputs": "V = 284.3 Å3 ; V(x = 0) = 283,84 Å3",
+     "formula": "(V − V0)/V0",
+     "result": "+0.46 Å3 soit +0.162 %",
+     "compared_to": "écart entre l'échantillon x = 0 et la fiche JCPDS 89-6192 : 0,17 Å3 ; incertitudes de Rietveld non données",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Formule du libellé conforme à 1 − 1,5x et neutre en charge (calcul « coefficient de Co et neutralité (x = 0.02)») ; compensation de charge par 0,5x lacune de Co, choix explicite des auteurs. Le nitrate d'yttrium est bien apporté (section 2.1).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention et polarisation recalculées conformes au tableau 2 et au texte (calculs « rétention » et « polarisation »). Le rapport des D(Li+) suit exactement (391/σ)² : D est calculé à partir de σ avec la même surface et la même concentration pour les quatre électrodes, donc il n'apporte pas d'information indépendante de σ.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve d'incorporation faible : la maille grossit de 0.46 Å3 (0.16 %), du même ordre que l'écart de 0,17 Å3 entre l'échantillon x = 0 et la fiche JCPDS, sans incertitude de Rietveld donnée. Le sens est attendu (r(Y3+, VI) = 0,900 Å contre r(Co2+ HS, VI) = 0,745 Å, Shannon 1976), mais les calculs atomistiques sur l'olivine LiFePO4 donnent la substitution aliovalente sur le site M2 très défavorable (Islam 2005), et Y3+ pourrait aussi occuper le site Li (M1) ou rester en surface ou aux joints. L'EDS homogène à l'échelle de grains de 200 nm et le Y 3d en XPS (Y3+, aussi vrai pour YPO4 ou Y2O3 amorphes) ne distinguent pas ces cas. Une occupation des sites affinée par Rietveld ou une analyse locale (EXAFS au seuil de Y) serait discriminante.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Atomic-Scale Investigation of Defects, Dopants, and Lithium Transport in the LiFePO4 Olivine-Type Battery Material",
+      "authors_or_publisher": "M. S. Islam, D. J. Driscoll, C. A. J. Fisher, P. R. Slater, Chem. Mater. 17(20), 5085–5092",
+      "year": "2005",
+      "url_or_doi": "10.1021/cm050999v (DOI non vérifié en ligne : pages de l'éditeur et de Bath injoignables ; référence bibliographique confirmée par la recherche web)"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La baisse des défauts d'anti-site Li/Co est déduite du seul déplacement de la bande de valence symétrique du phosphate (987 → 979 cm−1). Ce déplacement de 8 cm−1 peut aussi venir de la dilatation de maille ou de la couche de carbone ; l'affinement de Rietveld, déjà fait, aurait pu donner directement l'occupation de Co sur le site Li, mais elle n'est pas publiée. Affirmation non démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même chemin que la voie de base ; Y3+ est piégé dans le gel citrate et se retrouve réparti à l'échelle des grains. L'incorporation dans le réseau sur le site Co (M2) avec lacunes de Co est l'hypothèse des auteurs ; énergétiquement défavorable selon les calculs sur l'olivine, elle reste possible à très faible taux, mais une fraction de Y peut se trouver en surface, aux joints ou sous forme de YPO4 nanométrique non visible en DRX avant x = 0,03.",
+    "sources": [
+     {
+      "title": "Atomic-Scale Investigation of Defects, Dopants, and Lithium Transport in the LiFePO4 Olivine-Type Battery Material",
+      "authors_or_publisher": "M. S. Islam, D. J. Driscoll, C. A. J. Fisher, P. R. Slater, Chem. Mater. 17(20), 5085–5092",
+      "year": "2005",
+      "url_or_doi": "10.1021/cm050999v (DOI non vérifié en ligne : pages de l'éditeur et de Bath injoignables ; référence bibliographique confirmée par la recherche web)"
+     },
+     {
+      "title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides",
+      "authors_or_publisher": "R. D. Shannon, Acta Crystallographica A 32, 751–767",
+      "year": "1976",
+      "url_or_doi": "10.1107/S0567739476001551"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "occupation des sites Li et Co par Rietveld, et incertitudes sur a, b, V",
+    "YPO4 et Li3PO4 en DRX lente sur la plage 20–30° 2θ",
+    "teneur en carbone de chaque échantillon (comparer des échantillons à même teneur en carbone)"
+   ]
+  },
+  {
+   "label": "LiCo0.955Y0.03PO4@C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "coefficient de Co et neutralité (x = 0.03)",
+     "inputs": "Co = 1 − 1,5×0.03 ; Y = 0.03",
+     "formula": "1 − 1,5x ; 1 + 2(1−1,5x) + 3x",
+     "result": "Co = 0.955 ; charge = 3,00 ; lacunes de Co = 0.015",
+     "compared_to": "formule du libellé LiCo0.955Y0.03PO4@C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport Y:Co nominal (x = 0.03)",
+     "inputs": "nY = 0.03 ; nCo = 0.955",
+     "formula": "nY/nCo",
+     "result": "3.14 % de Y par rapport à Co",
+     "compared_to": "limite de solubilité de Y3+ dans une olivine faible (substitution aliovalente défavorable selon Islam 2005)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité théorique limitée par le Co (x = 0.03)",
+     "inputs": "M = 160.86 g/mol ; Co = 0.955",
+     "formula": "(1−1,5x)·F/(3,6·M)",
+     "result": "159.1 mAh/g",
+     "compared_to": "1re décharge 145.8 mAh/g (92 %)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rétention après 80 cycles (x = 0.03)",
+     "inputs": "145.8 puis 97.6 mAh/g",
+     "formula": "Q80/Q0",
+     "result": "66.9 %",
+     "compared_to": "66.9 % annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "polarisation (x = 0.03)",
+     "inputs": "E(ox2) = 4.908 V ; E(red) = 4.712 V",
+     "formula": "E(ox2) − E(red)",
+     "result": "0.196 V",
+     "compared_to": "0.196 V annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "D(Li+) relatif contre σ (x = 0.03)",
+     "inputs": "σ = 42 (x = 0 : 391) ; D = 6.16e-14 (x = 0 : 7,11e-16)",
+     "formula": "D ∝ 1/σ² : (391/σ)² contre D/D(x=0)",
+     "result": "86.67 contre 86.64",
+     "compared_to": "rapports identiques : D calculé par D = R²T²/(2A²n⁴F⁴C²σ²) avec A et C constants",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "variation de volume de maille (x = 0.03)",
+     "inputs": "V = 284.42 Å3 ; V(x = 0) = 283,84 Å3",
+     "formula": "(V − V0)/V0",
+     "result": "+0.58 Å3 soit +0.204 %",
+     "compared_to": "écart entre l'échantillon x = 0 et la fiche JCPDS 89-6192 : 0,17 Å3 ; incertitudes de Rietveld non données",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Formule du libellé conforme à 1 − 1,5x et neutre en charge (calcul « coefficient de Co et neutralité (x = 0.03)») ; compensation de charge par 0,5x lacune de Co, choix explicite des auteurs. Le nitrate d'yttrium est bien apporté (section 2.1).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention et polarisation recalculées conformes au tableau 2 et au texte (calculs « rétention » et « polarisation »). Le rapport des D(Li+) suit exactement (391/σ)² : D est calculé à partir de σ avec la même surface et la même concentration pour les quatre électrodes, donc il n'apporte pas d'information indépendante de σ.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve d'incorporation faible : la maille grossit de 0.58 Å3 (0.20 %), du même ordre que l'écart de 0,17 Å3 entre l'échantillon x = 0 et la fiche JCPDS, sans incertitude de Rietveld donnée. Le sens est attendu (r(Y3+, VI) = 0,900 Å contre r(Co2+ HS, VI) = 0,745 Å, Shannon 1976), mais les calculs atomistiques sur l'olivine LiFePO4 donnent la substitution aliovalente sur le site M2 très défavorable (Islam 2005), et Y3+ pourrait aussi occuper le site Li (M1) ou rester en surface ou aux joints. L'EDS homogène à l'échelle de grains de 200 nm et le Y 3d en XPS (Y3+, aussi vrai pour YPO4 ou Y2O3 amorphes) ne distinguent pas ces cas. Une occupation des sites affinée par Rietveld ou une analyse locale (EXAFS au seuil de Y) serait discriminante.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Atomic-Scale Investigation of Defects, Dopants, and Lithium Transport in the LiFePO4 Olivine-Type Battery Material",
+      "authors_or_publisher": "M. S. Islam, D. J. Driscoll, C. A. J. Fisher, P. R. Slater, Chem. Mater. 17(20), 5085–5092",
+      "year": "2005",
+      "url_or_doi": "10.1021/cm050999v (DOI non vérifié en ligne : pages de l'éditeur et de Bath injoignables ; référence bibliographique confirmée par la recherche web)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence interne de l'interprétation : à x = 0,03, une partie de Y part en YPO4 (DRX) et la bande FTIR remonte à 984 cm−1 (plus d'anti-sites selon les auteurs), alors que la maille continue de grossir (284,42 Å3), que Rct baisse encore (21,03 Ω) et que D(Li+) est le plus élevé (6,16e-14 cm2/s) ; la capacité et la rétention baissent pourtant. Les grandeurs avancées comme causes (maille, anti-sites, diffusion) ne suivent donc pas les performances au-delà de x = 0,02. Par ailleurs, si 0,03 Y forme YPO4, il reste Li 1,05 et Co 0,955 pour 0,97 P : un excès de Li et de P apparaît (Li3PO4 possible), non discuté.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La ségrégation de YPO4 au-delà de x ≈ 0,02–0,03 est attendue : YPO4 (xénotime) est une phase très stable et Y3+ préfère une coordinence 8 ; la même ségrégation de YPO4 est rapportée pour LiFePO4 trop dopé à l'yttrium (résultat de recherche web, source primaire non identifiée avec certitude).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même chemin que la voie de base ; Y3+ est piégé dans le gel citrate et se retrouve réparti à l'échelle des grains. L'incorporation dans le réseau sur le site Co (M2) avec lacunes de Co est l'hypothèse des auteurs ; énergétiquement défavorable selon les calculs sur l'olivine, elle reste possible à très faible taux, mais une fraction de Y peut se trouver en surface, aux joints ou sous forme de YPO4 nanométrique non visible en DRX avant x = 0,03.",
+    "sources": [
+     {
+      "title": "Atomic-Scale Investigation of Defects, Dopants, and Lithium Transport in the LiFePO4 Olivine-Type Battery Material",
+      "authors_or_publisher": "M. S. Islam, D. J. Driscoll, C. A. J. Fisher, P. R. Slater, Chem. Mater. 17(20), 5085–5092",
+      "year": "2005",
+      "url_or_doi": "10.1021/cm050999v (DOI non vérifié en ligne : pages de l'éditeur et de Bath injoignables ; référence bibliographique confirmée par la recherche web)"
+     },
+     {
+      "title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides",
+      "authors_or_publisher": "R. D. Shannon, Acta Crystallographica A 32, 751–767",
+      "year": "1976",
+      "url_or_doi": "10.1107/S0567739476001551"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "occupation des sites Li et Co par Rietveld, et incertitudes sur a, b, V",
+    "YPO4 et Li3PO4 en DRX lente sur la plage 20–30° 2θ",
+    "teneur en carbone de chaque échantillon (comparer des échantillons à même teneur en carbone)"
+   ]
+  },
+  {
+   "label": "Coin_cell_LiCo1-1.5xYxPO4@C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface d'électrode implicite dans le calcul de D(Li+)",
+     "inputs": "D·σ² = 7,11e-16 × 391² = 1,087e-10 ; R = 8,314 ; T = 298 K ; F = 96485 ; n = 1 ; C = 0,0234 mol/cm3 (voie de base)",
+     "formula": "A = [R²T²/(2n⁴F⁴·D·σ²)]^0,5 / C",
+     "result": "A·C = 0,0181 ; A ≈ 0,77 cm2 (T = 298 K supposé)",
+     "compared_to": "disque de 10 mm : 0,785 cm2 — cohérent avec σ en Ω s−1/2 et la formule usuelle",
+     "source": "arithmétique sur les valeurs de l'article"
+    },
+    {
+     "what": "fenêtre de fréquence de l'EIS telle qu'écrite",
+     "inputs": "« from 0.1 MHz to 10 MHz »",
+     "formula": "ω = 2πf ; ω−1/2 pour f = 0,1 MHz",
+     "result": "ω−1/2 ≈ 1,3e-3 s1/2 : aucune région de Warburg (domaine < 1 Hz) mesurable dans 0,1–10 MHz",
+     "compared_to": "tracé Z′ contre ω−1/2 de la figure 10b, qui exige des fréquences de l'ordre du mHz au Hz",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre Méthodes et Résultats : la plage de l'EIS est écrite « 0.1 MHz to 10 MHz », plage où la diffusion (Warburg) n'est pas mesurable (calcul « fenêtre de fréquence »), alors que σ et D(Li+) sont tirés de la pente Z′ = f(ω−1/2) (figure 10b). Il s'agit très probablement de 0,1 MHz à 10 mHz ; à confirmer avant de refaire la mesure.",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : la baisse de Rct (résistance de transfert de charge à l'interface) est présentée comme une hausse de la « conductivité électronique » du matériau ; Rct dépend de l'interface, de la surface active et de la CEI, pas de la conductivité électronique en volume. Il faudrait une mesure de conductivité sur pastille (quatre pointes ou courant continu) pour l'affirmer.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "D(Li+) calculé avec une surface d'électrode cohérente (≈ 0,77 cm2, calcul « surface d'électrode implicite »), donc ordre de grandeur plausible (1e-16 à 1e-14 cm2/s, habituel pour LiCoPO4 par EIS) ; mais le calcul suppose la même charge et la même surface pour les quatre électrodes, non données.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin manquant : la baisse de la surcharge au deuxième cycle est attribuée à la couche de carbone (« confirms carbon film plays an important role »), mais les quatre électrodes sont carbonées et l'électrolyte contient 1 % de TMSB, additif connu pour former une interphase cathodique par oxydation dès le premier cycle (Wang 2016). La passivation au premier cycle est le comportement attendu de toute cathode à 5 V ; sans échantillon non carboné ni électrolyte sans TMSB, le rôle propre du carbone n'est pas démontré. Le pic à 4,3 V attribué à l'oxydation de l'électrolyte pourrait aussi être, en partie, celle de l'additif.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Stabilizing high voltage LiCoO2 cathode in aqueous electrolyte with interphase-forming additive",
+      "authors_or_publisher": "Energy Environ. Sci. (numéro 12)",
+      "year": "2016",
+      "url_or_doi": "10.1039/c6ee02604d"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fabrication de l'électrode absente (liant, noir de carbone, rapports massiques, charge, collecteur) et teneur en carbone du matériau inconnue : la capacité par gramme (148 mAh/g pour x = 0,02, soit 92 % de la capacité limitée par le cobalt de 161,6 mAh/g) ne peut pas être rapportée sans ambiguïté à la matière active ; la fenêtre de cyclage (3–5 V lue sur la figure 9a) n'est pas écrite.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "securite",
+     "finding": "LiPF6 s'hydrolyse en HF au contact de l'humidité ; EC/DMC inflammables (point d'éclair du DMC ≈ 17 °C) ; lithium métal ; balayage CV jusqu'à 5,3 V qui oxyde l'électrolyte et peut faire gonfler une pile scellée. Seule la boîte à gants sous Ar est mentionnée.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet pour la synthèse : demi-pile Li métal. Le comportement électrochimique (deux plateaux 4,8 et 4,9 V, polarisation, perte de capacité par oxydation de l'électrolyte et CEI) est celui attendu pour LiCoPO4 à 5 V.",
+    "sources": [
+     {
+      "title": "Phospho-olivines as Positive-Electrode Materials for Rechargeable Lithium Batteries",
+      "authors_or_publisher": "A. K. Padhi, K. S. Nanjundaswamy, J. B. Goodenough, J. Electrochem. Soc.",
+      "year": "1997",
+      "url_or_doi": "10.1149/1.1837571"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "plage de fréquence réelle de l'EIS (probablement 100 kHz à 10 mHz)",
+    "composition et charge de l'électrode, surface, collecteur",
+    "fenêtre de potentiel et densité de courant de 1 C (166,6 mAh/g théorique ?)",
+    "rôle de l'additif TMSB : témoin sans additif"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse citrate en une étape cohérente et habituelle pour une olivine carbonée ; bilans de charge, volumes de maille, rétentions, polarisations et rapports des D(Li+) recalculés sont exacts. Le protocole est reproductible dans son principe, mais pas à l'identique : pas de concentration, pas de teneur en carbone, palier sous air dont dépend la quantité de carbone, gel nitrate–ammonium–citrate pouvant s'auto-enflammer (non signalé). Les interprétations (incorporation de Y sur le site Co, baisse des anti-sites, hausse de la conductivité électronique, rôle du carbone) reposent sur des preuves non discriminantes, et la plage d'EIS écrite est incompatible avec le calcul de D.",
+  "author_errors_suspected": [
+   "plage d'EIS « 0.1 MHz to 10 MHz » : borne basse probablement 10 mHz",
+   "Rct présenté comme mesure de la conductivité électronique",
+   "rôle du carbone dans la baisse de surcharge affirmé sans témoin non carboné et malgré l'additif TMSB",
+   "tableau 2 : une seule colonne d'oxydation pour deux valeurs ; la polarisation est calculée avec le second pic",
+   "« one diffraction fringe » en MET : sans doute « franges de réseau » d'une seule famille de plans"
+  ],
+  "comparison_with_database": "Une seule autre LiCoPO4 dans la base (PMC11425712, pyrolyse par atomisation à 600 °C sous air, sans carbone, traces de Li3PO4) : conditions très différentes, pas de valeur aberrante ici. Les LiFePO4/C de la base (PMC10099130, PMC12805362, PMC3330020) sont calcinées entre 600 et 750 °C sous gaz inerte ou réducteur, comme ici 700 °C sous Ar."
+ },
+ "sources_not_found": [
+  "source primaire de la ségrégation de YPO4 dans LiFePO4 dopé Y (vue seulement dans un résumé de recherche)",
+  "étude de TMSB avec LiCoPO4 précisément (aucune trouvée)",
+  "DOI de Islam et al. 2005 (10.1021/cm050999v) non vérifié : pages éditeur et université injoignables depuis le cloud",
+  "étude de la formation de Co2P en fonction de la température dans LiCoPO4/C (seulement des analogues Fe, Ni, mixtes)"
+ ]
+}

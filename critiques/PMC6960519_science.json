@@ -1,0 +1,231 @@
+{
+  "pmcid": "PMC6960519",
+  "routes": [
+    {
+      "label": "zeo1",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "teneur maximale en Al d'un ZSM-5 de SAR 50",
+         "inputs": "SiO2/Al2O3 = 50 donc Si/Al = 25 ; unité H[AlSi25O52] : 25 × SiO2 (60,084 g/mol) + AlO2H (59,99 g/mol)",
+         "formula": "n(Al)/m = 1 / (25 × 60,084 + 59,99)",
+         "result": "1562 g de zéolithe par mole d'Al, soit ≈ 640 μmol Al/g",
+         "compared_to": "acidité NH3-TPD de zeo1 : 502 μmol/g",
+         "source": "masses molaires IUPAC ; SAR de l'article"},
+        {"what": "NH3 désorbé par Al de réseau dans zeo1",
+         "inputs": "502 μmol NH3/g ; 640 μmol Al/g",
+         "formula": "502 / 640",
+         "result": "0,78 NH3 par Al",
+         "compared_to": "au plus ≈ 1 site de Brønsted par Al de réseau (une partie de l'Al peut être hors réseau)",
+         "source": "calcul sur valeurs de l'article"},
+        {"what": "rapport mésopores/micropores recalculé",
+         "inputs": "Vméso 0,14 ; Vmicro 0,12 cm3/g (tableau 1)",
+         "formula": "Vméso / Vmicro",
+         "result": "1,17",
+         "compared_to": "1,17 au tableau 1",
+         "source": "calcul sur valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Acidité de 502 μmol/g pour un ZSM-5 de Si/Al = 25 : 0,78 NH3 par Al (calcul « NH3 désorbé par Al de réseau dans zeo1 »), ordre de grandeur attendu pour une H-ZSM-5 commerciale.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "La forme NH4+ est calcinée à 400 °C seulement (4 h, atmosphère et rampe non données) alors que zeo2 et zeo3 sont calcinées à 500 °C sous air sec ; l'ammonium lié aux sites forts d'une ZSM-5 part vers 400–450 °C, donc la désammoniation de zeo1 peut être incomplète. Le prétraitement à 500 °C avant la TPD la complète pour la mesure d'acidité, mais pas pour la poudre mise dans le polymère.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "425 m2/g, Vmicro 0,12 cm3/g, isotherme de type I : valeurs habituelles pour une ZSM-5 commerciale ; les 0,14 cm3/g de « mésopores » sont du volume intergranulaire, ce que les auteurs reconnaissent.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok",
+        "proposed": "Décomposition thermique de NH4-ZSM-5 : NH4+ → NH3 (g) + H+ lié à l'oxygène pontant Si–O(H)–Al ; rien d'autre ne change dans la charpente MFI.",
+        "sources": []},
+      "what_to_verify_before_repeating": ["calciner à 500–550 °C sous air sec, avec rampe lente, pour une désammoniation complète et une histoire thermique identique à zeo2/zeo3", "mesurer le Si/Al réel de la poudre (ICP) : la SAR nominale du fournisseur n'est pas la composition de réseau"]
+    },
+    {
+      "label": "zeo2",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de silice et d'Al dans 2 g de zeo1 contre soude disponible",
+         "inputs": "2 g ; 1562 g/mol Al ; 25 Si par Al ; 100 mL NaOH 0,3 M",
+         "formula": "n(SiO2) = 2 × 25 × 60,084 / 1562 / 60,084 ; n(Al) = 2/1562 ; n(OH) = 0,3 × 0,100",
+         "result": "SiO2 32,0 mmol ; Al 1,28 mmol ; OH− 30 mmol (1 OH par Si dissous en H3SiO4−, 2 en H2SiO4^2−)",
+         "compared_to": "méthode Groen : 0,2 M, 65 °C, 30 min, ≈ 33 g de zéolithe par litre ; ici 0,3 M et 20 g/L, température non écrite",
+         "source": "valeurs de l'article ; conditions de référence : Verboekend & Pérez-Ramírez 2011 et revue MDPI Catalysts 2019 citant 0,2 M, 338 K, 30 min"},
+        {"what": "Si/Al et perte de masse qu'exigerait 1674 μmol/g avec 1 NH3 par Al et tout l'Al conservé",
+         "inputs": "1674 μmol/g ; 640 μmol Al/g dans zeo1",
+         "formula": "masse par Al = 10^6/1674 = 597 g ; Si/Al = (597 − 60) / 60,08 ; fraction de masse restante = 597/1562",
+         "result": "Si/Al ≈ 8,9 ; il ne resterait que 38 % de la masse (62 % dissous) ; ou 2,6 NH3 par Al de départ si la masse est conservée",
+         "compared_to": "zeo1 : 0,78 NH3/Al ; Groen 2005 : à Si/Al 25 l'Al freine l'extraction du silicium et l'acidité intrinsèque est préservée",
+         "source": "calcul sur valeurs de l'article"},
+        {"what": "rapport mésopores/micropores recalculé",
+         "inputs": "Vméso 0,46 ; Vmicro 0,10 cm3/g",
+         "formula": "Vméso / Vmicro",
+         "result": "4,6",
+         "compared_to": "4,60 au tableau 1",
+         "source": "calcul sur valeurs de l'article"},
+        {"what": "diamètre 4V/S avec le volume total et la surface BET",
+         "inputs": "V = 0,10 + 0,46 = 0,56 cm3/g ; S = 458 m2/g",
+         "formula": "d = 4V/S",
+         "result": "4,9 nm",
+         "compared_to": "11,10 nm (BJH désorption, 4V/A sur la surface BJH seulement) : grandeurs différentes, pas d'incohérence démontrée",
+         "source": "calcul sur valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Acidité de 1674 μmol/g, soit 2,6 NH3 par Al présent dans zeo1, ou un Si/Al de réseau ≈ 8,9 avec 62 % de la masse dissoute (calcul « Si/Al et perte de masse… 1674 »). Une désilication à Si/Al 25 enlève typiquement 30–40 % du silicium et laisse le Si/Al vers 15–20 ; elle préserve, sans la tripler, l'acidité par gramme. Avec une perte de masse de 62 %, une cristallinité de 75 % et un volume microporeux quasi inchangé (0,10 contre 0,12 cm3/g) sont peu crédibles. La valeur dépasse ce que l'aluminium peut porter : erreur d'étalonnage de la TPD, NH3 retenu hors des sites de Brønsted ou unité fausse. L'article ne donne ni Si/Al après traitement, ni rendement massique.", "status": "probleme", "basis": "litterature",
+         "source": {"title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent", "authors_or_publisher": "Groen J.C., Peffer L.A.A., Moulijn J.A., Pérez-Ramírez J. (Chem. Eur. J. 11, 4983–4994)", "year": "2005", "url_or_doi": "10.1002/chem.200500045"}},
+        {"aspect": "thermique", "finding": "La température du traitement à la soude n'est pas écrite. La méthode de Groen citée travaille à 65 °C ; à température ambiante, 30 min de NaOH 0,3 M n'extraient presque pas de silicium. Or le volume de mésopores obtenu (0,46 cm3/g) suppose un traitement à chaud. Sans cette température, l'essai ne peut pas être refait.", "status": "reserve", "basis": "litterature",
+         "source": {"title": "Design of hierarchical zeolite catalysts by desilication", "authors_or_publisher": "Verboekend D., Pérez-Ramírez J. (Catal. Sci. Technol. 1, 879–890)", "year": "2011", "url_or_doi": "10.1039/c1cy00150g"}},
+        {"aspect": "bilan", "finding": "30 mmol de OH− pour 32 mmol de SiO2 : la soude suffirait à dissoudre une grande partie de la silice, mais rien n'arrête la réaction (pas de trempe, filtration ni lavage écrits entre la soude et l'échange). Comme le traitement dure 30 min ou 2 h, le moment de l'arrêt fixe le résultat, et l'article ne le décrit pas.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Surface BET de 458 m2/g contre 425 pour zeo1 malgré une cristallinité de 75 % : possible, car les mésopores ajoutent de la surface externe. Le pic de 11,1 nm est proche des ≈ 10 nm décrits par Groen pour Si/Al 25–50.", "status": "ok", "basis": "litterature",
+         "source": {"title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent", "authors_or_publisher": "Groen J.C., Peffer L.A.A., Moulijn J.A., Pérez-Ramírez J.", "year": "2005", "url_or_doi": "10.1002/chem.200500045"}},
+        {"aspect": "securite", "finding": "NaOH 0,3 M à chaud : corrosif (yeux). Les échanges NH4Cl à 60 °C et la calcination libèrent du NH3 : travailler sous hotte.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir",
+        "proposed": "Hydrolyse basique des liaisons Si–O–Si (OH− attaque le Si, départ de silicates H3SiO4−/H2SiO4^2−) ; les tétraèdres AlO4− chargés résistent et orientent l'extraction, ce qui crée des mésopores intracristallins d'environ 10 nm pour Si/Al 25–50 ; une partie de l'Al dissous peut se redéposer en surface (réalumination) sous forme hors réseau ou mal coordonnée. Le Na+ introduit est remplacé par NH4+, puis la calcination laisse H+. On attend une hausse modérée de l'acidité par gramme (le Si/Al baisse d'un facteur 1,3–1,7), pas un facteur 3,3. La hausse annoncée doit venir en partie de l'Al hors réseau (sites de Lewis) ou d'un artefact de mesure.",
+        "sources": [{"title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent", "authors_or_publisher": "Groen J.C., Peffer L.A.A., Moulijn J.A., Pérez-Ramírez J.", "year": "2005", "url_or_doi": "10.1002/chem.200500045"},
+                    {"title": "Design of hierarchical zeolite catalysts by desilication", "authors_or_publisher": "Verboekend D., Pérez-Ramírez J.", "year": "2011", "url_or_doi": "10.1039/c1cy00150g"}]},
+      "what_to_verify_before_repeating": ["température et agitation du traitement NaOH (65 °C dans la méthode de Groen)", "arrêt de la réaction : trempe dans la glace, filtration, lavage jusqu'à pH neutre", "rendement massique et Si/Al par ICP après traitement", "acidité par une méthode qui sépare Brønsted et Lewis (IR de la pyridine) et étalonnage de la TPD sur une H-ZSM-5 de Si/Al connu"]
+    },
+    {
+      "label": "zeo3",
+      "verdict": "incoherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "Si/Al et perte de masse qu'exigerait 3131 μmol/g avec 1 NH3 par Al et tout l'Al conservé",
+         "inputs": "3131 μmol/g ; 640 μmol Al/g dans zeo1 ; 2 g de départ (1,28 mmol Al, 32,0 mmol SiO2) ; 30 mmol OH−",
+         "formula": "masse par Al = 10^6/3131 = 319 g ; Si/Al = (319 − 60)/60,08 ; fraction restante = 319/1562 ; Si dissous = 32,0 − 1,28 × 4,3",
+         "result": "Si/Al ≈ 4,3 ; 20 % de la masse restante (0,41 g sur 2 g) ; 26,5 mmol de Si dissous, presque toute la soude ; ou 4,9 NH3 par Al de départ si la masse est conservée",
+         "compared_to": "≤ 1 NH3 par Al de réseau ; Si/Al de réseau d'une MFI rarement < 10 ; cristallinité annoncée 50 %",
+         "source": "calcul sur valeurs de l'article"},
+        {"what": "rapport mésopores/micropores recalculé",
+         "inputs": "Vméso 0,40 ; Vmicro 0,11 cm3/g (tableau 1)",
+         "formula": "Vméso / Vmicro",
+         "result": "3,64",
+         "compared_to": "5,00 au tableau 1 et au tableau 3 ; zeo2 : 4,60",
+         "source": "calcul sur valeurs de l'article"},
+        {"what": "rapports d'acidité cités par les auteurs",
+         "inputs": "502 ; 1674 ; 3131 μmol/g",
+         "formula": "1674/502 ; 3131/502 ; 3131/1674",
+         "result": "3,33 ; 6,24 ; 1,87",
+         "compared_to": "« 3 times », « 6 times », « almost twice » : cohérent en interne",
+         "source": "calcul sur valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "L'acidité de 3131 μmol/g (point demandé) vaut 4,9 fois l'aluminium contenu dans zeo1 (≈ 640 μmol/g pour SAR 50). Pour la porter avec un site par Al, il faudrait un Si/Al de réseau ≈ 4,3, donc 80 % de la masse dissoute, presque toute la soude consommée (calcul « Si/Al et perte de masse… 3131 »), une cristallinité effondrée et non 50 %, et des micropores disparus, pas 0,11 cm3/g. La valeur est physiquement impossible pour des sites de Brønsted de réseau. Une acidité NH3-TPD au-delà d'environ un NH3 par Al ne peut venir que de NH3 retenu ailleurs (Al hors réseau, silanols, adsorption incomplètement purgée) ou d'une erreur d'étalonnage. Toute la conclusion de l'article (« l'effet synergique croît avec la concentration de sites acides ») repose sur cette échelle d'acidité.", "status": "probleme", "basis": "litterature",
+         "source": {"title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent", "authors_or_publisher": "Groen J.C., Peffer L.A.A., Moulijn J.A., Pérez-Ramírez J. (Chem. Eur. J. 11, 4983–4994)", "year": "2005", "url_or_doi": "10.1002/chem.200500045"}},
+        {"aspect": "resultats", "finding": "Rapport mésopores/micropores de 5,00 au tableau 1, alors que 0,40/0,11 = 3,64 (calcul « rapport mésopores/micropores recalculé ») ; les trois autres lignes du tableau sont justes. Avec 3,64, zeo3 est moins « accessible » que zeo2 (4,60), alors que les auteurs disent ces rapports « similaires ». Leur argument d'accessibilité pour le LOI et le GWIT en est affaibli.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "Passer de 30 min à 2 h de soude ne change presque pas le volume de mésopores (0,46 → 0,40 cm3/g) mais baisse la cristallinité (75 → 50 %) et la surface (458 → 369 m2/g). C'est cohérent avec une dissolution prolongée qui détruit de la charpente. Que les sites acides doublent en même temps est contradictoire : la destruction de charpente fait perdre des sites de Brønsted.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir",
+        "proposed": "Même chimie que zeo2, prolongée : au-delà de la formation des mésopores, la dissolution attaque les cristaux (cristallinité 50 %, surface en baisse) et redépose de l'aluminium hors réseau. L'augmentation réelle de l'acidité de Brønsted est probablement faible. Une hausse du NH3 retenu peut venir de sites de Lewis (Al hors réseau) et de défauts, sans rapport simple avec la catalyse acide invoquée.",
+        "sources": [{"title": "Mechanism of Hierarchical Porosity Development in MFI Zeolites by Desilication: The Role of Aluminium as a Pore-Directing Agent", "authors_or_publisher": "Groen J.C., Peffer L.A.A., Moulijn J.A., Pérez-Ramírez J.", "year": "2005", "url_or_doi": "10.1002/chem.200500045"}]},
+      "what_to_verify_before_repeating": ["refaire la TPD avec étalonnage et comparer à la teneur en Al (ICP) : l'acidité ne peut pas dépasser ≈ 1 NH3 par Al", "mesurer le rendement massique et le Si/Al après 2 h de soude", "recalculer le rapport mésopores/micropores (3,64 et non 5,00)", "séparer Brønsted et Lewis (IR pyridine) avant d'attribuer un effet aux sites de Brønsted"]
+    },
+    {
+      "label": "sil",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de TEOS et teneur de la solution de TPAOH déduite du rapport molaire",
+         "inputs": "7,352 g TEOS (208,33 g/mol) ; TPAOH/SiO2 = 0,36 ; M(TPAOH) = 203,36 g/mol ; 12,917 g de « TPAOH »",
+         "formula": "n(Si) = 7,352/208,33 ; m(TPAOH pur) = 0,36 × n(Si) × 203,36 ; fraction = m/12,917",
+         "result": "Si 35,29 mmol ; TPAOH pur 2,584 g ; la masse pesée correspond exactement à une solution aqueuse à 20,0 % en masse",
+         "compared_to": "les 12,917 g ne peuvent pas être du TPAOH pur (sinon TPAOH/Si = 1,80)",
+         "source": "calcul sur valeurs de l'article"},
+        {"what": "rapports NaOH/Si et H2O/Si",
+         "inputs": "0,015 g NaOH (40,00 g/mol) ; eau = 9,716 g + 80 % de 12,917 g = 20,05 g (18,015 g/mol)",
+         "formula": "n(NaOH)/n(Si) ; n(H2O)/n(Si)",
+         "result": "NaOH/Si = 0,0106 ; H2O/Si = 31,5 ; EtOH/Si = 4 (hydrolyse complète du TEOS, 6,5 g soit 8,2 mL d'éthanol)",
+         "compared_to": "1:0,36:0,0104:31,53:4 de l'article : concordant",
+         "source": "calcul sur valeurs de l'article"},
+        {"what": "taux de remplissage du flacon de 40 mL et pression à 170 °C",
+         "inputs": "9,716 mL d'eau + 12,917 g de solution TPAOH 20 % (≈ 1,01 g/mL) + 7,352 g de TEOS (0,933 g/mL)",
+         "formula": "V = Σ m/ρ ; taux = V/40",
+         "result": "≈ 30,4 mL, soit 76 % du flacon ; à 170 °C, la pression de vapeur de l'eau vaut ≈ 7,9 bar, plus la contribution de l'éthanol (≈ 11 % molaire de la phase liquide) : environ 10 bar",
+         "compared_to": "remplissage usuel des autoclaves ≤ 75–80 % ; l'eau se dilate d'environ 12 % entre 25 et 170 °C (≈ 0,90 g/mL à 170 °C)",
+         "source": "pression de vapeur et masse volumique de l'eau : tables de vapeur (NIST Chemistry WebBook, fluide water) ; masses volumiques TEOS et TPAOH : valeurs fournisseur usuelles"},
+        {"what": "rapport mésopores/micropores et diamètre 4V/S",
+         "inputs": "Vméso 0,10 ; Vmicro 0,12 cm3/g ; S = 294 m2/g",
+         "formula": "Vméso/Vmicro ; 4 × 0,22 / 294",
+         "result": "0,83 ; 3,0 nm",
+         "compared_to": "0,83 et 2,41 nm (BJH) au tableau 1",
+         "source": "calcul sur valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le rapport molaire annoncé se retrouve exactement si les 12,917 g sont une solution de TPAOH à 20 % en masse (calcul « moles de TEOS et teneur… »). L'article ne le dit pas, mais c'est la seule lecture compatible.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Un « closed 40 mL Teflon flask » rempli à 76 % et chauffé 7 jours à 170 °C (≈ 10 bar avec l'éthanol) : un flacon de PTFE seul flue à cette température sous pression. Il faut une chemise de PTFE dans un autoclave d'acier, ce que l'article ne précise pas. Les 8 mL d'éthanol produits par l'hydrolyse restent dans le mélange : rien n'indique qu'on les évapore pendant les 4 h d'agitation.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "La recette citée (Watanabe et al. 2011) est une synthèse de nanocristaux colloïdaux avec un pré-vieillissement du gel à 80 °C pendant 24 h, absent ici. La taille des cristaux de « sil » n'est pas connue et peut différer beaucoup de celle des ZSM-5. Le témoin sans aluminium change donc aussi la taille des grains, la surface (294 m2/g) et la teneur en Na.", "status": "reserve", "basis": "litterature",
+         "source": {"title": "Synthesis and application of colloidal nanocrystals of the MFI-type zeolites", "authors_or_publisher": "Watanabe R., Yokoi T., Tatsumi T. (J. Colloid Interface Sci. 356, 434–441)", "year": "2011", "url_or_doi": "10.1016/j.jcis.2011.01.043"}},
+        {"aspect": "resultats", "finding": "Les auteurs attribuent la petite hystérésis de la silicalite à « la longue durée de cristallisation ». Sur les MFI très siliceuses, la boucle de N2 vers p/p0 0,1–0,2 n'est pas une condensation capillaire : elle vient d'une transition de phase de l'azote adsorbé, ou d'une transition monoclinique/orthorhombique de la charpente. Le « volume de mésopores » de 0,10 cm3/g et le diamètre BJH de 2,41 nm, à la limite micro/méso, sont des artefacts de BJH sur un solide microporeux, pas une porosité réelle.", "status": "reserve", "basis": "litterature",
+         "source": {"title": "titre non relevé (article sur l'adsorption physique de membranes MFI, PDF de l'auteur)", "authors_or_publisher": "Hammond K.D. et al., Journal of Membrane Science 325, 413–419", "year": "2008", "url_or_doi": "https://samson.chem.umass.edu/pub_pdf/pap74.pdf"}},
+        {"aspect": "thermique", "finding": "Calcination à 500 °C pendant 5 h, sans rampe ni atmosphère : le TPA+ occlus se décompose vers 400–450 °C, ce qui suffit sous air. Sans séparation, lavage ni séchage écrits, le Na+ et la silice non cristallisée restent dans le solide.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Absence de pic en TPD : attendue sans aluminium. Les 0,0104 Na/Si et d'éventuelles traces d'Al des réactifs ne donnent pas de site mesurable après adsorption à 175 °C.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok",
+        "proposed": "Hydrolyse basique du TEOS en silicates oligomères et éthanol ; le TPA+ organise les unités autour de lui (gabarit des intersections de canaux MFI) ; nucléation puis croissance de silicalite-1 à 170 °C sous pression autogène ; la calcination brûle le TPA+ et libère la microporosité.",
+        "sources": [{"title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time", "authors_or_publisher": "Cundy C.S., Cox P.A. (Chem. Rev.)", "year": "2003", "url_or_doi": "10.1021/cr020060i"}]},
+      "what_to_verify_before_repeating": ["concentration de la solution de TPAOH (20 % en masse d'après le rapport molaire)", "autoclave d'acier avec chemise PTFE, remplissage ≤ 75 %", "récupération : centrifugation ou filtration, lavage, séchage", "taille des cristaux (MEB) comparée à celle des ZSM-5, pour que le témoin ne change pas aussi la granulométrie"]
+    },
+    {
+      "label": "PP+IF",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "composition molaire de la formulation intumescente par gramme de composite",
+         "inputs": "30 % en masse de formulation, APP/PER = 3:1 ; APP (NH4PO3)n, 97,0 g/mol par unité ; PER C5H12O4, 136,15 g/mol, 4 OH",
+         "formula": "n(P) = 0,225/97,0 ; n(PER) = 0,075/136,15 ; n(OH) = 4 n(PER)",
+         "result": "P 2,32 mmol/g ; PER 0,55 mmol/g ; OH 2,20 mmol/g ; P/OH ≈ 1,05",
+         "compared_to": "formulation APP/PER 3:1 classique ; ester phosphate : un P par OH estérifié",
+         "source": "calcul sur valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Extrusion à 90–190 °C, sous la décomposition de l'APP (vers 250–280 °C, que l'article situe à « around 280 °C »). Le pressage à 220 °C pendant 10 min est plus près de l'amorce de la réaction APP/PER : la TGA montre une perte de masse dès 180 °C. Une pré-réaction pendant le pressage est possible, d'autant qu'une zéolithe acide la catalyserait selon les auteurs, et elle n'est pas contrôlée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Le protocole UL-94 décrit (éprouvette verticale, V0) est rattaché à « ANSI/ASTM D 635-77 », qui est l'essai en position horizontale. La norme verticale équivalente à l'UL 94 V est l'ASTM D3801. Le classement V0 annoncé suppose donc l'essai vertical, mais la norme citée ne le confirme pas.", "status": "reserve", "basis": "litterature",
+         "source": {"title": "D3801 Standard Test Method for Measuring the Comparative Burning Characteristics of Solid Plastics in a Vertical Position ; D635 … in a Horizontal Position", "authors_or_publisher": "ASTM International", "year": "2020", "url_or_doi": "https://store.astm.org/d3801-20.html"}},
+        {"aspect": "resultats", "finding": "Phrase des auteurs « the maximum GWFI is 850 °C and the minimum is 775 °C » : pour les pièces proches de connexions de plus de 0,2 A, les exigences usuelles sont un GWFI d'au moins 850 °C et un GWIT d'au moins 775 °C. « Maximum » est donc un contresens, et les 775 °C portent sur le GWIT. La conclusion (PP pur à 700 °C sous le seuil) reste juste. 960 °C est le plafond de l'essai : tous les composites avec zéolithe saturent le GWFI, qui ne les distingue pas.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "LOI de 17 % pour le PP et de 31 % avec 30 % d'APP/PER, V0 : ordres de grandeur habituels. Écarts de LOI entre composites de 1 à 4 unités pour une précision de ±1, sans répétition ni écart-type ; GWIT en pas de 25 °C, un seul pas sépare zeo1 de zeo2/zeo3.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Fraction de PP non écrite (67 % si les 3 % de zéolithe remplacent du PP, ou 3 % ajoutés à 30 % de formulation). La teneur en APP/PER par gramme de composite change selon la lecture, ce qui pèse sur des écarts de LOI de 1 à 2 unités.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Fumées de NH3 et de phosphates à la décomposition de l'APP ; essais au feu (LOI, fil incandescent jusqu'à 960 °C) sous hotte ou en enceinte.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok",
+        "proposed": "Vers 250–300 °C, l'APP libère NH3 et de l'acide polyphosphorique, qui estérifie le PER. Les esters phosphates se déshydratent et se cyclisent en char phosphocarboné, que le NH3 fait gonfler. Avec une zéolithe, l'acide phosphorique attaque la charpente et forme des espèces aluminosilicophosphates qui stabilisent le char au-delà de 500 °C (vu par RMN 27Al et 31P).",
+        "sources": [{"title": "Synergistic effect of zeolite in an intumescence process: Study of the carbonaceous structures using solid-state NMR", "authors_or_publisher": "Bourbigot S., Le Bras M., Delobel R., Decressain R., Amoureux J.P. (J. Chem. Soc. Faraday Trans. 92, 149–158) — référence de l'article, non rouverte", "year": "1996", "url_or_doi": "10.1039/ft9969200149"}]},
+      "what_to_verify_before_repeating": ["fraction massique de PP et ordre d'ajout", "séchage de l'APP (hygroscopique) et des zéolithes avant extrusion", "norme UL-94 réellement appliquée (verticale, ASTM D3801 / IEC 60695-11-10 B)", "répétitions du LOI pour juger des écarts de 1–2 unités"]
+    },
+    {
+      "label": "PP+IF+zeo3",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "sites acides apportés par la zéolithe contre groupes acides de l'APP",
+         "inputs": "3 % de zéolithe ; acidités 502 (zeo1), 3131 (zeo3) μmol/g ; P de l'APP 2,32 mmol/g de composite",
+         "formula": "n(sites) = 0,03 × acidité ; rapport = n(sites)/n(P)",
+         "result": "zeo1 : 15 μmol/g, soit 0,6 % des P ; zeo3 : 94 μmol/g, soit 4 % des P, même en prenant l'acidité annoncée",
+         "compared_to": "l'acide polyphosphorique de l'APP est 25 à 150 fois plus abondant que les sites de la zéolithe",
+         "source": "calcul sur valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "mecanisme", "finding": "L'hypothèse des auteurs est que les sites acides de la zéolithe catalysent l'estérification APP–PER. Or l'APP produit lui-même un acide polyphosphorique 25 à 150 fois plus abondant (calcul « sites acides apportés… »). Aucune mesure ne montre une catalyse : pas d'IR ni de RMN des esters, pas de TGA de mélanges binaires APP/PER/zéolithe. La silicalite, sans Al, donne un LOI proche de PP+IF (29 contre 31) ; un effet lié à l'aluminium, qui forme des aluminophosphates, l'explique aussi bien qu'un effet d'acidité. La preuve n'est pas discriminante.", "status": "reserve", "basis": "litterature",
+         "source": {"title": "Synergistic effect of zeolite in an intumescence process: Study of the carbonaceous structures using solid-state NMR", "authors_or_publisher": "Bourbigot S. et al. (référence de l'article)", "year": "1996", "url_or_doi": "10.1039/ft9969200149"}},
+        {"aspect": "resultats", "finding": "Le classement zeo3 > zeo1 > zeo2 du LOI (35/33/32) ne suit pas l'acidité (zeo2 est 3 fois plus acide que zeo1 mais a un LOI plus bas). L'ordre repose sur des écarts de 1 à 3 unités pour une précision de ±1, et sur une échelle d'acidité physiquement impossible (voir zeo2, zeo3). Les zéolithes diffèrent aussi par la cristallinité (100/75/50 %), la calcination de départ (400 contre 500 °C) et la mésoporosité : le témoin ne fait pas varier la seule acidité.", "status": "probleme", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir",
+        "proposed": "Hypothèse la plus simple compatible avec les données : la zéolithe agit surtout comme source d'aluminium et de silice, qui réagit avec l'acide phosphorique de l'APP pour former des aluminosilicophosphates qui renforcent le char (d'où un résidu à 750 °C de 13 % avec zeo1/zeo3 contre 8,8 % avec la silicalite). Un rôle catalytique des sites de Brønsted sur l'estérification reste possible mais n'est pas démontré, et il serait faible face à l'acidité propre de l'APP.",
+        "sources": [{"title": "Synergistic effect of zeolite in an intumescence process: Study of the carbonaceous structures using solid-state NMR", "authors_or_publisher": "Bourbigot S., Le Bras M., Delobel R., Decressain R., Amoureux J.P.", "year": "1996", "url_or_doi": "10.1039/ft9969200149"}]},
+      "what_to_verify_before_repeating": ["répéter le LOI (au moins 3 séries) et donner l'écart-type", "TGA ou IR de mélanges APP/PER avec et sans zéolithe pour tester la catalyse de l'estérification", "zéolithes de même cristallinité et de même histoire thermique, différant seulement par l'acidité (par exemple par échange partiel Na+/H+)"]
+    }
+  ],
+  "article_level": {
+    "summary": "Les quatre poudres sont préparées par des méthodes standard et bien sourcées : calcination d'une ZSM-5 commerciale, désilication selon Groen, silicalite-1 au TPAOH dont le rapport molaire se recalcule exactement avec une solution à 20 %. Les composites sont mis en forme de façon classique. Deux problèmes de fond : (1) les acidités NH3-TPD de zeo2 (1674 μmol/g) et surtout de zeo3 (3131 μmol/g) dépassent de 2,6 et 4,9 fois l'aluminium disponible dans une ZSM-5 de SAR 50 (≈ 640 μmol/g) ; elles sont impossibles pour des sites de Brønsted de réseau, et toute la conclusion de l'article repose sur elles ; (2) le rapport mésopores/micropores de zeo3 vaut 3,64 et non 5,00. Réserves : température de désilication absente, norme UL-94 horizontale citée pour un essai vertical, « maximum GWFI » au lieu de minimum, écarts de LOI de l'ordre de la précision, témoins qui changent plusieurs variables à la fois (cristallinité, calcination, taille des grains).",
+    "author_errors_suspected": [
+      "acidité NH3-TPD de zeo2 (1674) et zeo3 (3131 μmol/g) supérieure à l'aluminium disponible (≈ 640 μmol/g pour SAR 50)",
+      "rapport mésopores/micropores de zeo3 : 5,00 au lieu de 0,40/0,11 = 3,64 (tableaux 1 et 3)",
+      "norme UL-94 citée « ANSI/ASTM D 635-77 », essai horizontal, pour un essai vertical (ASTM D3801)",
+      "« the maximum GWFI is 850 °C and the minimum is 775 °C » : exigences minimales GWFI ≥ 850 °C et GWIT ≥ 775 °C",
+      "température d'adsorption d'azote écrite « 196 °C » au lieu de −196 °C"
+    ],
+    "comparison_with_database": "ZSM-5 de la base (PMC7759625, PMC8941405, PMC9056161, PMC9425827) : surfaces BET de 340 à 440 m2/g, comparables à zeo1–zeo3 (369–458). Une seule acidité totale comparable (PMC7759625, sites de Lewis de 22 à 104 μmol/g) : bien en dessous des 1674–3131 μmol/g d'ici. Silicalite-1 : PMC8941405 (germes à 60–80 °C) n'a pas de conditions comparables à 170 °C pendant 7 jours."
+  },
+  "sources_not_found": [
+    "étalonnage NH3-TPD « un NH3 par Al de réseau » sur H-ZSM-5 (Niwa et Katada) : pas d'article primaire retrouvé, seulement des résumés de projet KAKEN ; le calcul repose sur la stœchiométrie de base (un H+ par Al tétraédrique)",
+    "recette exacte de Watanabe et al. 2011 au rapport TPAOH/Si = 0,36 et à 170 °C : seul le résumé PubMed a été lu (pré-vieillissement à 80 °C pendant 24 h)",
+    "Groen et al. 2004, Colloids Surf. A 241, 53–58 (méthode citée par l'article) : conditions exactes non relues, pages de l'éditeur injoignables ; conditions 0,2 M / 65 °C / 30 min prises dans des sources secondaires",
+    "norme IEC 60335-1 (GWFI 850 °C, GWIT 775 °C, > 0,2 A) : non relue en ligne, valeurs tirées de l'usage courant",
+    "pages pubs.rsc.org et iciq.org injoignables depuis la session (DNS) : DOI 10.1039/c1cy00150g confirmé seulement par OpenAlex et par la liste de références d'un article PMC"
+  ]
+}

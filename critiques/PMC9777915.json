@@ -1,0 +1,75 @@
+{
+  "pmcid": "PMC9777915",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "ZLCH-Fe outcomes, effet de la concentration initiale en nitrate (section 3.5, Fig. 5)",
+      "extracted": "outcomes nitrate_adsorption_capacity_initial_NO3_10/20/50/100_mg_L = 35 / 58 / 140 / 250 mg/g et removal 69 / 58 / 55 / 51 %, tous from_figure (Fig. 5) ; les valeurs du texte ne sont que dans l'annotation tendance_observee",
+      "article_says": "the adsorption capacity increased from 26.98 to 193.81 mg/g, contrary to the percent removal from 53.97 to 38.76%.",
+      "fix": "Non conforme à la règle du RUNBOOK (texte ou tableau d'abord, figure seulement si la valeur n'est pas écrite) : créer des outcomes à partir du texte pour les deux extrémités (10 mg/L : 26,98 mg/g et 53,97 % ; 100 mg/L : 193,81 mg/g et 38,76 %, citation de la phrase 3.5), et ne garder from_figure que pour les points non écrits (20 et 50 mg/L). Les lectures de Fig. 5 à 10 et 100 mg/L (35/69 % et 250/51 %) sont exactes (je relis 35 ; 69 ; 250 ; 50,5) et concordent avec Fig. 3a, 4 et 7 : les garder, mais sous une propriété distincte marquée « valeur lue sur figure, diverge du texte », avec le doute rattaché à l'outcome et non seulement au doute global. Retirer des annotations le statut de seule trace des valeurs écrites.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "ZLCH-Fe outcomes, série en temps (Fig. 7)",
+      "extracted": "capacités à 5, 15, 30, 60, 120, 180 min (from_figure) puis 270 min (texte) ; ni le point à 1380 min, ni les pourcentages d'élimination des points intermédiaires",
+      "article_says": "The interaction was investigated between 5 and 1380 min with 100 mg/L of nitrate concentration and 10 mg/50 mL at pH 7.",
+      "fix": "Ajouter le point à 1380 min lu sur Fig. 7 (environ 495 mg/g et 99 %, légèrement sous le point à 270 min : le plateau est confirmé) et, pour cohérence avec les séries pH, dose, concentration et anions qui ont les deux grandeurs, les pourcentages d'élimination lus sur la même figure (environ 15, 44, 50, 48, 66, 74 % pour 5, 15, 30, 60, 120, 180 min ; ils valent q/5 pour 10 mg/50 mL et 100 mg/L).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "ZLCH-Fe_AR88_25 caractérisation UV-vis (libération du colorant par NaOH, Fig. 13)",
+      "extracted": "conditions : « dried hydrogel mixed for 60 min at 30 °C with 0.1 M NaOH » ; pas de masse ni de volume, pas de réactif NaOH 0,1 M dans la liste, pas d'étape",
+      "article_says": "Figure 13 UV-visible spectra of AR88 dye hydrogel released by using 0.1 M NaOH (5 mg/20 mL, initial dye (AR88): 25, 50 and 100 mg/L; initial NO3: 100 mg/L; contact time: 60 min).",
+      "fix": "Ajouter « 5 mg de DH-ZLCH-Fe pour 20 mL de NaOH 0,1 M » (légende de Fig. 13) aux conditions de la caractérisation UV-vis, et soit une étape 3 « libérer le colorant par NaOH 0,1 M » (60 min, 30 °C, 5 mg/20 mL), soit une mention que c'est une préparation d'échantillon d'analyse ; la voie est un traitement du matériau séché que le chimiste doit pouvoir refaire.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "sample_inventory, entrée « ZLCH-Fe with AR88 (pH 7, 10) » (champ why)",
+      "extracted": "« essai d'adsorption en présence d'AR88 sans hydrogel »",
+      "article_says": "Interestingly, fact that when the solution was mixed with azo dye (AR88) at pH 2 (Figure 11a), the solution turned into hydrogels, followed by the maximum nitrate removal of 86.65%.",
+      "fix": "L'article dit que le gel se forme à pH 2 avec AR88 et qu'aucun gel n'apparaît avec MB à tout pH ; il ne dit rien de l'état de la solution AR88 à pH 7 et 10. Remplacer « sans hydrogel » par « hydrogel non décrit par l'article à ces pH ».",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "ZLCH-Fe reagents, « ferric chloride solution (0.1 M FeCl3) » formula, et reagent « nitrate » (routes hydrogel) formula",
+      "extracted": "formule FeCl3 pour le réactif solide acheté ; formule « NO3 » pour le nitrate, sans autre précision",
+      "article_says": "Ferric chloride (FeCl3.6H2O), Sodium hydroxide (NaOH), hydrochloric acid (HCl), acetic acid (CH3COOH), acid red 88 (AR88), Methylene blue (MB), and nitrate were purchased from Kanto Chemical Co. Inc. (Tokyo, Japan).",
+      "fix": "Le sel acheté est FeCl3·6H2O (la solution 0,1 M est faite à partir de lui, sans que l'article le dise explicitement : note ou not_stated sur la préparation de la solution). Pour le nitrate, le sel (NaNO3, KNO3 ?) n'est pas cité : ajouter « sel de nitrate » à not_stated du réactif et écrire NO3− plutôt que NO3.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "ZLCH-Fe reagents chitosan 1 g / acetic acid 100 mL versus step 2 (25 mL)",
+      "extracted": "chitosane 1 g et acide acétique 100 mL listés comme quantités de la voie ; 25 mL en paramètre de l'étape 2 ; l'hypothèse du prélèvement n'est que dans un doute",
+      "article_says": "Two hours of mixing 0.5 g of zeolite with 25 milliliters of chitosan in an acetic acid solution.",
+      "fix": "La quantité de chitosane réellement engagée avec 0,5 g de zéolite et 5 mL de FeCl3 0,1 M est ambiguë (1 g ou 0,25 g si les 25 mL sont un prélèvement des 100 mL). Ajouter une annotation limite_reproductibilite qui le dit, pour qu'un calcul de stœchiométrie sur 1 g ne soit pas pris pour acquis.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 4,
+    "branches_extracted": 4,
+    "not_stated_checked": 16,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "chitosane : degré de désacétylation et masse molaire non donnés (seul le fournisseur Acros est cité)",
+    "zéolite synthétique Tosoh : type, rapport Si/Al, forme cationique et granulométrie de départ non donnés",
+    "« 1% acetic acid » : pourcentage en volume ou en masse non précisé ; solvant (eau) des solutions de FeCl3 et de NaOH non cité",
+    "les 25 mL de chitosane en solution acétique sont-ils un prélèvement des 100 mL de l'étape 1 (0,25 g de chitosane) ou autre chose",
+    "températures et vitesses d'agitation de toutes les étapes de synthèse non citées (seul l'appareil Rotator RT-50 est nommé pour l'ajout de FeCl3)",
+    "étape NaOH : durée d'addition ou d'agitation après addition ; vitesse d'addition ; pH final du mélange non cités",
+    "filtration : méthode, porosité, lavage éventuel (à l'eau jusqu'à pH neutre ?) non cités ; rendement et masse de ZLCH-Fe obtenue non cités ; tamis non décrit",
+    "sel de nitrate utilisé pour les solutions, réactif d'ajustement du pH (HCl et NaOH sont achetés, mais l'usage n'est pas dit), méthode du kit nitrate Kyoritsu et préparation d'échantillon FTIR non cités",
+    "protocole de gélification avec AR88 sommaire : séparation du gel de la solution, masse séchée et choix de la concentration d'AR88 pour la FTIR non précisés",
+    "méthode pHzpc renvoyée à Hidayat et al. 2022 (B40) ; la Fig. 3b ne montre aucun pHzpc mais un ΔpH toujours positif, donc la phrase « positive charge between 2 and 10 » n'est pas vérifiable",
+    "valeurs du texte (26,98 / 193,81 mg/g ; 53,97 / 38,76 %) incompatibles avec Fig. 5, 3a, 4 et 7 pour les mêmes conditions : l'article ne l'explique pas"
+  ],
+  "mechanism_check": "ok : les annotations mecanisme_auteurs suivent le texte (groupes hydroxyle/amino protonnés à pH neutre, solubilité du chitosane en milieu acide et interactions Fe3+/azoïque pour le gel) ; mecanisme_analyse est signalé comme hypothèse. Aucun danger évident omis dans securite_analyse.",
+  "notes": "Point d'attention de l'orchestrateur : la répartition texte/figure pour la concentration initiale n'est PAS conforme à la règle (texte ou tableau d'abord, figure si la valeur n'est pas écrite) : l'extracteur a mis en résultats des lectures de Fig. 5 aux deux extrémités (10 et 100 mg/L) alors que le texte écrit 26,98/193,81 mg/g et 53,97/38,76 %, et n'a gardé le texte que dans une annotation. Les lectures de figure elles-mêmes sont justes ; je n'ai trouvé aucun écart de lecture de plus de 10 % sur Fig. 3a, 3b, 4, 5, 7, 9, 10, 12, 13 (relues toutes ; Fig. 13 : 0,46 ; 1,45 ; 1,47 lus contre 0,46 ; 1,5 ; 1,5 extraits, écart inférieur à 4 %). Tables 1 et 2 recopiées sans erreur de colonne. Les 4 voies et l'inventaire sont complets au regard de l'article ; les essais SO4/PO4, MB, AR88 à pH 7 et 10 sont rangés en résultats de ZLCH-Fe, ce qui suit la convention du projet. Fragile : le rattachement de FTIR et du décalage 503 vers 478 nm à la voie à 100 mg/L (le texte écrit le décalage avant « initial AR88 dye was 100 mg/L for further experiment » ; Fig. 13 donne bien ~478 nm pour 100 mg/L) ; le séchage de 4 jours hérité par les branches 50 et 100 mg/L repose sur la légende de Fig. 13. method_sources : B40 (préparation adaptée, pHzpc) est la seule source de méthode ; B49 (équation du taux de gonflement) est correctement exclue. Aucune annexe dans l'article. Texte de l'article traité comme donnée."
+}

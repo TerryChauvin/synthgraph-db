@@ -1,0 +1,73 @@
+{
+ "pmcid": "PMC4395432",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "ZnO_nanocones : not_stated rinse_step et anneal_step (étapes 5-6 absentes)",
+   "extracted": "La branche nanocônes n'a que les étapes 1 à 4 ; rinçage à l'eau DI et recuit à 250 °C déclarés non cités (doute posé par l'extracteur).",
+   "article_says": "The FTO substrates containing the ZnO nanorods were then rinsed thoroughly with DI water and annealed at 250°C in air for 1 h to remove any organic molecules present on the surface of the nanorods. The as-grown ZnO nanocone arrays were then used as a template in the second growth process.",
+   "fix": "Lecture ambiguë : le même paragraphe décrit un seul protocole EFAS pour « nanorod and nanocone arrays » (durée et température de croissance communes aux deux formes, héritées par l'extracteur) puis enchaîne rinçage/recuit puis « nanocone arrays » comme gabarit ; les auteurs emploient « nanorods » de façon lâche (« nanoneedles », « nanowires » ailleurs). Si l'orchestrateur juge le rinçage/recuit applicable aux nanocônes (ce qui conditionne l'état du gabarit de la voie ZnO_ZnS_nanocones), ajouter les étapes 5-6 à ZnO_nanocones avec un doute ; sinon conserver la déclaration non cité. « As-grown » plaide dans l'autre sens : décision au texte, pas de correction automatique.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "DSSC_ZnO_nanorods caractérisation « dye loading » instrument",
+   "extracted": "UV–vis spectrophotometer (Perkin Elmer Lambda 750)",
+   "article_says": "The dye absorbed amounts on ZnO-based photoelectrodes were determined by measuring the UV–vis absorption spectra of solutions containing dyes desorbed from the samples.",
+   "fix": "L'appareil n'est nommé que pour la transmittance (« The transmittance property was characterized using a UV–vis spectrophotometer (Perkin Elmer Lambda 750) ») ; pour la charge en colorant, mettre instrument à null (ou signaler l'attribution comme hypothèse dans un doute) et noter dans les manques le solvant de désorption, absent.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "DSSC_ZnO_ZnS_nanocones reagents : ZnO_ZnS_nanocones, formula",
+   "extracted": "formula = ZnO",
+   "article_says": "The sensitized ZnO and ZnO–ZnS nanostructure electrodes were assembled with a platinum-coated FTO counter electrode",
+   "fix": "Formule de l'intermédiaire cœur–coquille : ZnO/ZnS (ou ZnO–ZnS) et non ZnO ; la voie ZnO_ZnS_nanocones elle-même est bien en ZnO/ZnS.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO_ZnS_nanocones step 4 wash, parameter repetitions",
+   "extracted": "repetitions = « repeatedly » (value_text)",
+   "article_says": "After the growth process, the final products were repeatedly rinsed with DI water to remove possible impurities and then dried at room temperature.",
+   "fix": "« repeatedly » n'est pas un nombre de rinçages : déclarer `repetitions` dans not_stated de l'étape (comme pour le rinçage des nanotiges, step 5) et retirer le paramètre ; le solvant DI water reste cité.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnO_ZnS_nanocones outcomes / XRD : orientation préférentielle",
+   "extracted": "XRD : phase ZnO wurtzite et pic ZnS à 28,6° ; l'orientation (0002) n'est pas un résultat de la voie (seulement dans la citation de ZnO_lattice_spacing_0002).",
+   "article_says": "The predominant (0002) peak with narrow width indicates well oriented along the normal direction of the substrate surface, which is consistent with the FESEM observation in Fig 1.",
+   "fix": "Ajouter un résultat texte `XRD_preferred_orientation` = predominant (0002) peak, well oriented along the normal direction of the substrate, avec cette phrase (et mentionner dans le résultat du XRD de la caractérisation).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO_nanorods / ZnO_ZnS_nanocones outcomes : dimensions non écrites dans le texte",
+   "extracted": "Dimensions (longueur, diamètre) données seulement pour les nanocônes ; aucune lecture de Fig 1a et Fig 1c.",
+   "article_says": "Fig 1 FESEM and HRTEM images of ZnO-based nanostructures.FESEM images of (a) ZnO nanorods, (b) ZnO nanocons, (c) ZnO–ZnS core–shell nanocones, and (d) HRTEM image of the ZnO-ZnS core-shell structure.",
+   "fix": "La comparaison nanotiges / nanocônes / cœur–coquille repose sur la morphologie mais aucune dimension de nanotige n'est donnée dans le texte ; lire le diamètre et la longueur des nanotiges sur Fig 1a (barre 400 nm, encart 1 µm) et l'épaisseur de coquille de Fig 1d (barre 50 nm), à 2 chiffres significatifs, avec from_figure, ou citer l'absence dans limite_reproductibilite.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "densités de courant (ou tension) de l'EFAS pour les nanotiges et les nanocônes : renvoi à un travail antérieur, aucune valeur dans l'article ; pas d'annexe",
+  "épaisseur de la couche d'amorçage de ZnO, pression et gaz de pulvérisation, nettoyage du FTO, dimensions du substrat",
+  "volume de solution de croissance, durée d'agitation, géométrie de la cellule (distance entre électrodes, surface immergée), pureté et fournisseur de Zn(NO3)2·6H2O et de l'HMTA",
+  "montage permettant 110 °C en solution aqueuse (cellule fermée ?), température de la solution distincte de celle du substrat",
+  "sulfuration : volume de la solution de thioacétamide 0,2 M, position du gabarit dans le bécher, pH, couvercle ; rinçage/recuit des nanocônes avant sulfuration non dit",
+  "nombre de rinçages et durée du séchage à température ambiante",
+  "sensibilisation : température, rinçage après immersion, fournisseur et pureté de C218 et de l'acide chénodésoxycholique ; préparation de la contre-électrode Pt/FTO ; scellage du Surlyn ; volume exact d'électrolyte (« a drop »)",
+  "mesure J-V : vitesse de balayage, masque d'ouverture, nombre de cellules mesurées (aucune dispersion donnée) ; EIS : polarisation continue et éclairement non donnés ; solvant de désorption du dosage de colorant ; conditions de la PL (appareil, longueur d'onde d'excitation)",
+  "le rendement du matériau (yield) n'est donné pour aucune voie"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs cités (plan (0002) à croissance rapide pour les cônes ; nanocônes gabarit fournissant Zn2+ pour ZnS) ; mecanisme_analyse rédigés comme hypothèses, sans contradiction avec l'article ; sécurité (thioacétamide/H2S, solvants) cohérente",
+ "notes": "Extraction très fidèle : 99 valeurs, Table 1 recopiée rangée par rangée sans erreur d'attribution (η recalculé = FF×Jsc×Voc/100 : 0,93 ; 2,09 ; 4,07, cohérent). Valeurs lues sur figure vérifiées en ouvrant les images : Fig 3 inset (barres 2,2 vert/ZnO et 8,3 noir/hétérostructure, correct), Fig 5b (pics à 16, 12,6 et 10 % vers 400 nm ; 13 % arrondi accepté), Fig 5a (≈ 0,15, 0,3 et 1,2 à 600 nm, correct). Fig 6a recoupe Table 1. Fig 7 (EIS) : arcs incomplets, non lus à bon droit. Points fragiles hors constat : (1) l'article écrit « (0002) d-spacing 0.52 nm » alors que d(0002) de ZnO vaut ≈ 0,26 nm (0,52 nm = d(0001)/c) : incohérence de l'article, à garder telle quelle ; ajouter si souhaité une annotation limite_reproductibilite ; (2) l'annotation comparaison_branches dit que seule la densité de courant change entre nanotiges et nanocônes : lecture raisonnable mais non écrite telle quelle (l'article dit seulement que les cônes s'obtiennent en contrôlant la densité de courant, et que durée/température de croissance sont maintenues) ; (3) 10 mM : concentration de chaque réactif ou de la solution, ambigu, déjà en doute ; (4) la mesure de transmittance du Lambda 750 versus spectres d'absorption/réflectance (Fig 5) : doute déjà posé."
+}

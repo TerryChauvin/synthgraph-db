@@ -1,0 +1,93 @@
+{
+ "pmcid": "PMC6614408",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "ZnO_0 step 9 anneal temperature (contradiction texte / Fig. 1)",
+   "extracted": "anneal 500 °C, 2 h (aucun doute sur une autre valeur)",
+   "article_says": "annealed at 500 °C over 2 h to give pure ZnO NPs",
+   "fix": "ajouter un doute : le schéma de la Fig. 1 (corpus/fig/PMC6614408/41598_2019_46247_Fig1_HTML.jpg) porte « Annealing 400 °C » alors que les Méthodes disent 500 °C ; garder 500 °C (section la plus détaillée, cohérente avec les échantillons chargés « annealed at 500 °C for 2 h »), citer la Fig. 1 dans le doute",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "ZnO_0 step 5 age temperature ; step 1 dissolve temperature",
+   "extracted": "not_stated: temperature (age) ; dissolve : « boiling »",
+   "article_says": "Stirring was continued for 30 min and the suspension was maintained for 24 h",
+   "fix": "le schéma de la Fig. 1 indique « Allowed to settle for overnight 25 °C » (maintien) et « stirring 70 °C » (dissolution de l'acétate dans l'éthanol, contre « boiling » dans le texte) : à signaler en doute ou en limite_reproductibilite ; ces valeurs ne sont que sur un schéma, donc pas à mettre en paramètre sans from_figure",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnO_Pd0.5 / ZnO_Pd0.75 / ZnO_Pd1 : étape d'ajout de la solution de PdCl",
+   "extracted": "variation « dopant » sans step_order ; aucune étape propre aux branches",
+   "article_says": "then added to hydrolysed Zn2+ precursor solution",
+   "fix": "l'ordre est écrit : PdCl dissous dans l'éthanol, ajouté à la solution de Zn2+ déjà hydrolysée (donc après l'ajout de NaOH, étape 3). Donner aux branches une étape « add » (dissoudre PdCl dans l'éthanol puis l'ajouter après l'étape 3) ou au moins préciser l'ordre dans la variation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "ZnO_Pd* variation temperature step_order 5 et héritage de l'étape 4 (stir 30 min)",
+   "extracted": "temperature = room temperature sur l'étape « age » du parent ; étape 4 « stir 30 min » héritée",
+   "article_says": "prior to starring at room temperature for 24 h",
+   "fix": "le texte dit que le mélange est agité (« starring » = stirring) 24 h à température ambiante ; il ne dit pas que les 30 min d'agitation de ZnO_0 sont conservées. Déjà en doute, mais l'héritage de l'étape 4 reste déduit : soit retirer l'héritage (étapes propres), soit déclarer durée d'agitation de la branche en not_stated",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "outcomes optimal_operating_temperature_NH3_sensing (ZnO_0, ZnO_Pd0.5, ZnO_Pd0.75, ZnO_Pd1) et optimal_operating_temperature (Sensor_fabrication)",
+   "extracted": "350 °C recopié sur cinq voies",
+   "article_says": "prior to reaching a maximum at 350 °C",
+   "fix": "résultat donné pour tout le groupe (« all the sensors ») : une seule annotation tendance_observee (déjà présente) au lieu de cinq valeurs ; retirer au moins le doublon sur Sensor_fabrication (règle RUNBOOK sur les résultats de groupe)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnO_0 et ZnO_Pd1 outcomes : constantes de réseau par SAED",
+   "extracted": "absentes",
+   "article_says": "From the SAED patterns, average lattice constants of a = 0.332 ± 0.016 nm and c = 0,535 ± 0.027 nm were determined for the pure ZnO NPs",
+   "fix": "ajouter à ZnO_0 a = 0.332 ± 0.016 nm, c = 0,535 ± 0.027 nm et à ZnO_Pd1 a = 0.331 ± 0.017 nm, c = 0,522 ± 0.026 nm (même paragraphe, Fig. 4 b,d)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnO_Pd0.75 outcome long_term_stability_response_retention (condition d'humidité et valeurs de la Fig. 14b)",
+   "extracted": "65 % sans condition ; Fig. 14b non lue",
+   "article_says": "the sensor still maintained almost 65% of the original value",
+   "fix": "ouvrir Fig. 14b : à 0 % RH la réponse passe de ~77 (jour 0) à ~51 (jours 25-30), soit ~66 % ; à 90 % RH de ~38 à ~8,5, soit ~22 %. Ajouter ces lectures avec from_figure « Fig. 14(b) » (2 chiffres significatifs) et préciser que les 65 % correspondent à l'air sec ; le texte dit « 10 months » alors que la figure s'arrête à 30 jours (déjà en doute)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Tableaux 1 et 3 (colonnes non reprises) et annexe Fig. S1",
+   "extracted": "2θ du pic (101) ; aires O1, O2, O3 (%) ; positions Zn 2p absentes",
+   "article_says": "0.5 | 54.4 | 20.4 | 25.2 | 0.37 | 25.05 | 74.96 | 0.33",
+   "fix": "ajouter, par voie, 2θ(101) (Table 1 : 36.28, 36.43, 36.27, 36.21°) et les aires O1/O2/O3 (Table 3) ; pour toutes les voies, Zn 2p3/2 1022.0 eV et Zn 2p1/2 1045.1 eV (annexe : « positioned at 1022.0 and 1045.1 eV, respectively »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "outcomes : séries en concentration de NH3 (10 à 40 ppm)",
+   "extracted": "seul le point à 40 ppm est repris (Fig. 9a, 13) ; Fig. 8a, 9b, 9c non exploitées en série",
+   "article_says": "obtained in the presence of 10−40 ppm NH3 at 350 °C",
+   "fix": "Fig. 9b et 9c donnent temps de réponse et de récupération par concentration (10, 15, …, 40 ppm) pour les quatre échantillons ; lecture facultative avec from_figure (±10 s) ou annotation. La réponse en fonction de la concentration (Fig. 8a) est lisible aussi",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "base de calcul des « mol% » de Pd (par rapport à Zn ?) et masse de PdCl absentes ; le composé est écrit « PdCl » (PdCl2 probable)",
+  "état d'hydratation de l'acétate de zinc, volume d'éthanol de la solution de NaOH, vitesse d'agitation, vitesse et durée de centrifugation, nombre de lavages à l'heptane, durée de séchage à 90 °C, atmosphère et vitesse de chauffe du recuit non cités",
+  "contradiction Fig. 1 (recuit 400 °C, dissolution 70 °C, maintien 25 °C) contre texte (500 °C, éthanol bouillant)",
+  "la fabrication du capteur (épaisseur, volume de pâte, concentration) et le protocole d'essai gaz sont renvoyés à CR14, et Fig. S2 (série en température de fonctionnement) n'est pas dans le dépôt",
+  "Pd 0.5 mol% : réponse à 40 ppm ≈ 35 sur Fig. 8a et 9a contre 123.8 sur Fig. 12 et 13"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs s'appuie sur la citation XPS (Pd en surface et dans le réseau) et dit que le mécanisme de formation n'est pas écrit ; le mécanisme de détection (sensibilisation électronique et chimique, spill-over de PdO) n'est pas annoté, ce qui est acceptable pour une base de synthèse",
+ "notes": "Toutes les valeurs de Tables 1, 2, 3 vérifiées rangée par rangée contre l'extraction : aucune erreur. Valeurs de Fig. 9a (32/95, 31/93, 21/79, 261/270 s), Fig. 13 inset (21.4/11.8/7.5 ; 123.8/54.1/27.1 ; 142.3/72.9/37.8 ; 131.2/52.8/31.4), Fig. 8b (R²) imprimées et concordantes ; Fig. 12 barres lues à ±3 : concordantes. Incohérence Pd 0.5 mol% entre Fig. 8a/9a (~35) et 12/13 (~124) déjà en doute, non tranchée par le texte. Pd2+/Pd0 0.56 contre 37.46/62.53 = 0.60 déjà en doute. method_sources (CR14) correct et complet ; les autres [[CR]] sont des contextes ou des équations."
+}

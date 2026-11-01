@@ -1,0 +1,214 @@
+{
+  "pmcid": "PMC9999475",
+  "routes": [
+    {
+      "label": "LMOF",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bilan de la réaction LMOF", "inputs": "½ Li2O + ½ Mn2O3 + LiF → Li2MnO2F", "formula": "Li : 1 + 1 = 2 ; Mn : 1 ; O : 0,5 + 1,5 = 2 ; F : 1 ; charge : 2(+1) + 3 = 5 = 2(2) + 1", "result": "équilibrée, Mn3+ conservé ; rapport molaire Li2O:Mn2O3:LiF = 1:1:2", "compared_to": "formule visée Li2MnO2F", "source": "valeurs de l'article (« stoichiometric ratio »), masses atomiques IUPAC"},
+        {"what": "masses des précurseurs par mole de Li2MnO2F", "inputs": "M(Li2O) = 29,88 ; M(Mn2O3) = 157,87 ; M(LiF) = 25,94 g/mol", "formula": "0,5 × 29,88 + 0,5 × 157,87 + 25,94", "result": "119,82 g pour 1 mol (12,5 % Li2O, 65,9 % Mn2O3, 21,6 % LiF en masse) = M(Li2MnO2F) 119,82 g/mol", "compared_to": "aucune masse donnée par l'article", "source": "masses atomiques IUPAC"},
+        {"what": "rapport billes/poudre après ajout de LiF", "inputs": "BPR 13:1 au premier broyage (Li2O + Mn2O3 = 78,4 % de la masse finale) ; « same conditions » au second", "formula": "13 × 0,784", "result": "≈ 10,2:1 si les billes ne sont pas complétées", "compared_to": "13:1 annoncé", "source": "calcul sur la stœchiométrie"},
+        {"what": "durée réelle du broyage", "inputs": "20 h ; 10 min de pause après chaque 30 min", "formula": "20 h / 0,5 h = 40 intervalles ; 40 × 10 min", "result": "≈ 26,7 h au total si 20 h est le temps de broyage net ; 15 h de broyage net si 20 h est la durée totale", "compared_to": "« for 20 h »", "source": "valeurs de l'article"},
+        {"what": "masse d'une bille de 10 mm", "inputs": "ρ(Si3N4) ≈ 3,2 g/cm³ ; ρ(acier trempé) ≈ 7,85 g/cm³ (valeurs usuelles, non vérifiées sur fiche) ; V = 0,524 cm³", "formula": "ρ × 4/3 π r³", "result": "1,68 g (Si3N4) ; 4,11 g (acier) ; rapport 2,45", "compared_to": "rapport des BPR LMVOF/LMOF : 32/13 = 2,46", "source": "chimie générale"},
+        {"what": "positions de Bragg (Mo Kα1)", "inputs": "λ = 0,70932 Å ; a = 4,161 Å", "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 asin(λ/2d)", "result": "(111) 16,98° ; (200) 19,63° ; (220) 27,90°, dans la plage 10–50° mesurée", "compared_to": "plage déclarée 10°–50°", "source": "valeurs de l'article"},
+        {"what": "distances locales attendues dans le sel gemme", "inputs": "a = 4,161 Å", "formula": "cation–cation = a/√2 ; cation–anion moyen = a/2", "result": "2,942 Å ; 2,081 Å", "compared_to": "EXAFS : Mn–Mn 2,92 Å (cohérent) ; Mn–O/F 1,896 Å (liaisons Mn3+ courtes, plausible)", "source": "géométrie du réseau Fm-3m"},
+        {"what": "nombre de coordination Mn–Mn attendu", "inputs": "12 seconds voisins cationiques ; fraction de Mn sur le sous-réseau cationique 1/3", "formula": "12 × 1/3", "result": "4", "compared_to": "EXAFS 3,8 ± 1,3 (cohérent) ; Mn–O/F attendu 6 contre 1,7 ± 0,3 publié (≈ 6 × 1/3)", "source": "Sharpe et al. 2020 ajustent 6 O premiers voisins et 4 Mn seconds voisins"},
+        {"what": "capacité théorique à 1 e− par formule", "inputs": "F = 96 485 C/mol = 26 801 mAh/mol ; M = 119,82 g/mol", "formula": "26 801 / 119,82", "result": "223,7 mAh/g (Mn3+→Mn4+) ; 215 mAh/g mesurés = 0,96 e− par formule", "compared_to": "215 mAh/g annoncés ; House 2018 : 283 mAh/g (2,0–4,8 V, avec O-redox)", "source": "constante de Faraday"},
+        {"what": "rétention LMOF après 100 cycles", "inputs": "215 et 68 mAh/g", "formula": "68/215", "result": "31,6 %", "compared_to": "31,4 % annoncé (écart d'arrondi)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "La réaction ½ Li2O + ½ Mn2O3 + LiF → Li2MnO2F est équilibrée en éléments et en charges avec Mn3+, ce que confirme le XANES (seuil proche de Mn2O3) (voir « bilan de la réaction LMOF »). Les masses, la masse totale de poudre et le nombre de billes manquent ; la stœchiométrie permet de les recalculer (voir « masses des précurseurs par mole de Li2MnO2F »).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "« Again milled for another 20 h at 600 rpm under the same conditions » : sans ajout de billes, le BPR tombe à ≈ 10:1 au second broyage (voir « rapport billes/poudre après ajout de LiF »), et la durée de 20 h est soit nette, soit pauses comprises (voir « durée réelle du broyage »). Deux réglages à fixer avant de refaire.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Paramètre de maille 4,161 Å contre 4,1176(5) Å pour Li2MnO2F préparé des mêmes précurseurs par House et al. (750 rpm, 18 h), et 4,117 Å chez Sharpe et al. : écart de ≈ +1 %. Ordre de grandeur correct, mais la maille plus grande peut signaler une réduction partielle (Mn2+, plus gros), un défaut de fluor ou une contrainte de broyage différente ; elle n'est pas discutée.", "status": "reserve", "basis": "litterature", "source": {"title": "Lithium manganese oxyfluoride as a new cathode material exhibiting oxygen redox (Supplementary Information, affinement a = 4.1176(5) Å)", "authors_or_publisher": "House R. A., Jin L., Maitra U., Tsuruta K., Somerville J. W., Förstermann D. P., Massel F., Duda L., Roberts M. R., Bruce P. G. — Energy Environ. Sci.", "year": "2018", "url_or_doi": "10.1039/C7EE03195E"}},
+        {"aspect": "resultats", "finding": "Tableau 2 : nombre de coordination Mn–O/F = 1,7 ± 0,3 (2,0 et 2,1 après cyclage) pour un Mn octaédrique dans un sel gemme, où il vaut 6 ; Sharpe et al. ajustent l'EXAFS de Li2MnO2F avec 6 anions premiers voisins et 4 Mn seconds voisins. Le Mn–Mn (3,8 ≈ 12 × 1/3) est juste, le Mn–O/F vaut presque exactement 6 × 1/3 : un facteur d'occupation appliqué à tort à la couche anionique est probable (voir « nombre de coordination Mn–Mn attendu »). De plus, S0² est « fixed as 0 » dans les Méthodes (0,98 dans la note du tableau) et σ² de la première couche passe de 0,002 (LMOF_20C) à 0,014 Å² (HT-LMOF_20C), ce qui est sept fois plus de désordre, alors que le texte conclut à une réduction du désordre local après traitement thermique. Les conclusions EXAFS (« increase of symmetry and mitigation of defects ») ne reposent donc pas sur des ajustements cohérents.", "status": "probleme", "basis": "litterature", "source": {"title": "Redox Chemistry and the Role of Trapped Molecular O2 in Li-Rich Disordered Rocksalt Oxyfluoride Cathodes", "authors_or_publisher": "Sharpe R., House R. A., Clarke M. J., Förstermann D., Marie J.-J., Cibin G., Zhou K.-J., Playford H. Y., Bruce P. G., Islam M. S. — J. Am. Chem. Soc. 142, 21799–21809", "year": "2020", "url_or_doi": "10.1021/jacs.0c10270"}},
+        {"aspect": "resultats", "finding": "215 mAh/g entre 1,5 et 4,3 V correspondent à 0,96 e− par formule, juste sous la limite Mn3+/Mn4+ (223,7 mAh/g) (voir « capacité théorique à 1 e− par formule »). Plausible ; la borne à 4,3 V exclut l'essentiel de l'oxydo-réduction de l'oxygène, d'où moins que les 283 mAh/g de House et al. (2,0–4,8 V).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Li2O réagit avec l'eau de façon exothermique (LiOH corrosif) ; nanopoudres d'oxydes de Mn inhalables (neurotoxicité du Mn par inhalation chronique) : ouvrir la jarre en boîte à gants ou sous hotte après refroidissement. Un broyage de 20 h à 600 rpm échauffe la jarre ; aucune limite de température n'est donnée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "redox", "finding": "« Inert atmosphere » au mélange et à l'ajout de LiF : nécessaire, car Li2O capte H2O et CO2 (LiOH, Li2CO3). L'atmosphère dans la jarre pendant le broyage n'est pas écrite (fermeture en boîte à gants supposée).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Premier broyage : Li2O + Mn2O3 → 2 LiMnO2 désordonné (Li:Mn = 1:1, sel gemme cationiquement désordonné obtenu par fracture et soudure à froid répétées). Second broyage : LiMnO2 + LiF → Li2MnO2F, LiF (lui-même de type sel gemme) se dissolvant dans le réseau cubique faces centrées commun, avec F sur le sous-réseau anionique et Li en excès sur le sous-réseau cationique. Mn reste 3+ (pas de redox). La même phase s'obtient directement à partir de LiMnO2 + LiF, ce qui appuie cette séquence en deux temps.",
+        "sources": [
+          {"title": "Influence of Synthesis Parameters on the Short-Range Structure and Electrochemical Performances of Li2MnO2F (synthèse suivie depuis Mn2O3 + Li2O + LiF ou LiMnO2 + LiF)", "authors_or_publisher": "PubMed 38457780 (auteurs non relevés)", "year": "2024", "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/38457780"},
+          {"title": "Lithium manganese oxyfluoride as a new cathode material exhibiting oxygen redox", "authors_or_publisher": "House R. A. et al., Energy Environ. Sci.", "year": "2018", "url_or_doi": "10.1039/C7EE03195E"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "masse totale de poudre et nombre de billes (BPR 13:1 dans une jarre de 80 mL)",
+        "si les billes sont complétées après l'ajout de LiF (sinon BPR ≈ 10:1)",
+        "si 20 h est le temps de broyage net ou pauses comprises",
+        "fermeture de la jarre sous argon et température de la jarre",
+        "ajustement EXAFS refait avec 6 anions premiers voisins avant d'en tirer des conclusions sur le désordre"
+      ]
+    },
+    {
+      "label": "LMVOF",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bilan de la réaction LMVOF", "inputs": "½ Li2O + ½ MnO + ½ VO2 + LiF → Li2Mn0,5V0,5O2F", "formula": "O : 0,5 + 0,5 + 1,0 = 2 ; charge cations : 2 + 0,5×2 + 0,5×4 = 5 = charge anions 2×2 + 1", "result": "équilibrée avec Mn2+ et V4+ (moyenne 3+)", "compared_to": "formule visée", "source": "valeurs de l'article, masses atomiques IUPAC"},
+        {"what": "masses des précurseurs par mole de LMVOF", "inputs": "M(MnO) = 70,94 ; M(VO2) = 82,94 ; M(Li2O) = 29,88 ; M(LiF) = 25,94 g/mol", "formula": "0,5 × 29,88 + 0,5 × 70,94 + 0,5 × 82,94 + 25,94", "result": "117,82 g (12,7 % Li2O, 30,1 % MnO, 35,2 % VO2, 22,0 % LiF)", "compared_to": "M(Li2Mn0,5V0,5O2F) = 117,82 g/mol", "source": "masses atomiques IUPAC"},
+        {"what": "neutralité avec les degrés d'oxydation du XANES", "inputs": "Mn « near MnO » (2+) ; V « average oxidation state of 3+ »", "formula": "2(+1) + 0,5×2 + 0,5×3 − (2×2 + 1)", "result": "−0,5 e par formule : la phase Li2Mn0,5V0,5O2F ne peut pas porter à la fois Mn2+ et V3+", "compared_to": "précurseurs Mn2+ + V4+", "source": "valeurs de l'article"},
+        {"what": "degré d'oxydation de V par interpolation du centroïde de pré-seuil", "inputs": "V2O3 5469,55 eV ; VO2 5470,10 eV ; LMVOF 5469,63 eV ; HT-LMVOF 5469,47 eV", "formula": "3 + (E − 5469,55)/(5470,10 − 5469,55)", "result": "LMVOF ≈ 3,15 ; HT-LMVOF ≈ 2,85 (sous V2O3) ; incertitude ≈ ±0,1 d'après les ±0,05 eV des étalons", "compared_to": "seuil K décrit « between V2O3 and VO2 »", "source": "Tableau 1 de l'article"},
+        {"what": "fer d'usure nécessaire pour réduire V4+ en V3+", "inputs": "0,5 V4+ par formule → 0,5 e ; Fe0 → Fe2+ (2 e)", "formula": "0,25 × 55,85 / (117,82 + 0,25 × 55,85)", "result": "≈ 10,6 % en masse de Fe", "compared_to": "« some traces of Fe » à l'EDX", "source": "calcul"},
+        {"what": "paramètre de maille estimé par les rayons ioniques", "inputs": "rayons de Shannon (CN 6) : Li+ 0,76 ; Mn3+ HS 0,645 ; Mn2+ HS 0,83 ; V3+ 0,64 ; V4+ 0,58 ; O2− 1,40 ; F− 1,33 Å", "formula": "a ≈ 2(r̄cation + r̄anion), pondéré sur la formule", "result": "LMOF 4,197 ; LMVOF Mn2+/V3+ 4,257 ; Mn2+/V4+ 4,237 ; Mn3+/V3+ 4,195 Å. Écart LMVOF − LMOF prédit : +0,060 (Mn2+/V3+), +0,040 (Mn2+/V4+), ≈ 0 (Mn3+/V3+)", "compared_to": "écart mesuré 4,221 − 4,161 = +0,060 Å (le modèle surestime a de ≈ 0,036 Å, de façon constante)", "source": "Shannon 1976 (Mn vérifié sur la base de données de l'Imperial College ; Li, V, O, F valeurs usuelles du même tableau)"},
+        {"what": "capacité théorique de LMVOF", "inputs": "M = 117,82 g/mol ; Mn2+→Mn4+ sur 0,5 Mn = 1 e− ; V3+→V5+ sur 0,5 V = 1 e−", "formula": "26 801 / 117,82 par électron", "result": "227,5 mAh/g par e− ; 213 mAh/g mesurés = 0,94 e−", "compared_to": "Mn seul (1 e−) ou Mn + V (2 e−, 455 mAh/g)", "source": "constante de Faraday"},
+        {"what": "positions de Bragg de LiF et de LMVOF (Mo Kα1)", "inputs": "λ = 0,70932 Å ; a(LMVOF) = 4,221 Å ; a(LiF) ≈ 4,026 Å (valeur usuelle, non vérifiée sur fiche)", "formula": "2θ(200) = 2 asin(λ a⁻¹)", "result": "LMVOF (200) 19,35° ; LiF (200) 20,29°", "compared_to": "épaulement « on the right side of the (200) reflection » attribué à LiF", "source": "valeurs de l'article"},
+        {"what": "rétention LMVOF après 100 cycles", "inputs": "213 mAh/g ; 43,8 %", "formula": "213 × 0,438 ; 43,8 − 31,4", "result": "≈ 93 mAh/g au 100e cycle ; écart de 12,4 points de pourcentage (soit +39 % relatif), et non « 12.4% higher »", "compared_to": "texte de l'article", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "redox", "finding": "Contradiction interne : les précurseurs MnO + VO2 imposent Mn2+/V4+, le XANES donne Mn ≈ 2+ et V ≈ 3+, et les auteurs concluent « no charge-transfer… keep the oxidation state of the starting precursors ». Mn2+ + V3+ laisse un déficit de 0,5 charge positive par formule (voir « neutralité avec les degrés d'oxydation du XANES »). Le fer d'usure de la jarre ne peut pas l'expliquer, car il en faudrait ≈ 11 % en masse contre des « traces » (voir « fer d'usure nécessaire pour réduire V4+ en V3+ »). Lectures compatibles avec la neutralité : transfert partiel Mn2+ + V4+ → Mn(2+δ) + V(4−δ), que le seuil V « between V2O3 and VO2 » permet, ou lacunes d'oxygène non démontrées. L'état d'oxydation réel des deux métaux n'est pas établi.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "L'augmentation de maille (+0,060 Å) est attribuée à « the partial substitution of manganese by vanadium ». Or V3+ (0,64 Å) et Mn3+ (0,645 Å) ont la même taille et V4+ (0,58 Å) est plus petit : à degrés d'oxydation égaux, la substitution ne grossit pas la maille. C'est le Mn2+ (0,83 Å) qui l'explique, et l'écart prédit pour Mn2+/V3+ (+0,060 Å) coïncide avec la mesure (voir « paramètre de maille estimé par les rayons ioniques »). L'effet observé vient du changement de degré d'oxydation du Mn, pas du vanadium en soi.", "status": "reserve", "basis": "litterature", "source": {"title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides", "authors_or_publisher": "Shannon R. D., Acta Crystallographica A 32, 751–767", "year": "1976", "url_or_doi": "10.1107/S0567739476001551"}},
+        {"aspect": "mecanisme", "finding": "« Vanadium may be electrochemically inactive » : non démontré, et contredit par les propres données des auteurs. Le pic de CV vers 2,6 V, attribué à Mn2+/Mn3+, tombe là où se trouve le couple V3+/V4+ des oxyfluorures DRS (Li2VO2F : V3+/V5+ vers 2,5 V, capacité réversible jusqu'à 420 mAh/g), et la figure 8 montre V passé de 3+ à 4+ après cyclage. Une attribution discriminante demanderait du XANES V et Mn operando (ou au moins en fin de charge), pas seulement à l'état déchargé.", "status": "probleme", "basis": "litterature", "source": {"title": "Novel Dilithium Metal Oxyfluoride As High Capacity Intercalation Cathode Material for Li-Ion Batteries (« redox of V3+/5+ at ~2.5 V », 420 mAh/g pour Li2VO2F)", "authors_or_publisher": "Ren S., Chen R., Hahn H., Fichtner M. — ECS Meeting Abstracts MA2015-03, 426", "year": "2015", "url_or_doi": "10.1149/MA2015-03/2/426"}},
+        {"aspect": "bilan", "finding": "LMVOF comparé à LMOF change cinq variables à la fois : la composition (V), le degré d'oxydation et le précurseur du Mn (MnO contre Mn2O3), la jarre (acier trempé, avec contamination Fe détectée, contre Si3N4), le BPR (32:1 contre 13:1) et la vitesse (500 contre 600 rpm). La conclusion « substitution of half of the manganese with vanadium did not lead to significant improvements » ne peut pas être attribuée au vanadium. Témoin nécessaire : Li2Mn0,5Ti0,5O2F ou un LMOF Mn2+ (même chimie Mn2+, même jarre en acier, même BPR et même vitesse), ou LMVOF broyé en jarre Si3N4. Le rapport des BPR (32/13 = 2,46) égale le rapport des densités acier/Si3N4 (≈ 2,45) : même nombre de billes et même masse de poudre probables, mais énergie d'impact différente (voir « masse d'une bille de 10 mm »).", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "L'épaulement à droite de (200) est bien du côté attendu pour LiF (a ≈ 4,03 Å < 4,22 Å) : 20,29° contre 19,35° en Mo Kα1 (voir « positions de Bragg de LiF et de LMVOF (Mo Kα1) »). L'attribution à LiF non réagi est plausible ; elle implique une phase DRS appauvrie en Li et F par rapport à la formule nominale.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "« 12.4% higher » est une différence de points de pourcentage (43,8 − 31,4), soit +39 % en relatif (voir « rétention LMVOF après 100 cycles »).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "VO2 est un composé du vanadium nocif par inhalation (fiche fournisseur à consulter) ; la jarre en acier trempé libère du Fe dans le produit (contamination signalée par l'EDX).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Premier broyage : ½ Li2O + ½ MnO + ½ VO2 → LiMn0,5V0,5O2 désordonné de type sel gemme (moyenne M3+). Second broyage : dissolution de LiF dans ce réseau, incomplète (LiF résiduel à la DRX). Les degrés d'oxydation mesurés (Mn ≈ 2+, V ≈ 3+) ne respectent pas la neutralité de la formule : soit un transfert partiel Mn2+ → V4+ pendant le broyage (contrairement à ce qu'affirment les auteurs), soit une phase sous-stœchiométrique en oxygène ; le fer d'usure de l'acier peut y contribuer mais pas à lui seul (≈ 11 % en masse seraient nécessaires).",
+        "sources": [
+          {"title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides", "authors_or_publisher": "Shannon R. D., Acta Cryst. A", "year": "1976", "url_or_doi": "10.1107/S0567739476001551"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "masses de Li2O, MnO, VO2 et LiF (calculables : 12,7 / 30,1 / 35,2 / 22,0 % en masse)",
+        "dosage du Fe (ICP) dans le produit broyé en jarre d'acier",
+        "degrés d'oxydation par une méthode indépendante (titrage iodométrique, comme Sharpe et al. pour Li2MnO2F), XANES sur références de même structure",
+        "fraction de LiF non réagi (affinement à deux phases)",
+        "témoin qui ne change que le vanadium (même jarre, même BPR, même vitesse, même degré d'oxydation du Mn)"
+      ]
+    },
+    {
+      "label": "HT-LMOF",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "durée de la rampe", "inputs": "25 → 300 °C à 80 °C/h", "formula": "(300 − 25)/80", "result": "3,44 h ; « 5 h up to 300 °C » laisse soit ≈ 1,6 h de palier, soit 5 h de palier après la rampe", "compared_to": "texte « heated three times, respectively, for 5 h up to 300 °C »", "source": "valeurs de l'article"},
+        {"what": "rétention HT-LMOF", "inputs": "178 et 144 mAh/g", "formula": "144/178", "result": "80,9 %", "compared_to": "80,8 % annoncé", "source": "valeurs de l'article"},
+        {"what": "positions de Bragg après traitement", "inputs": "a = 4,148 Å, λ = 0,70932 Å", "formula": "2θ(200) = 2 asin(λ/a)", "result": "19,69° contre 19,63° pour LMOF (décalage +0,06°, vers les grands angles comme écrit)", "compared_to": "« small shift to higher angles »", "source": "valeurs de l'article"},
+        {"what": "température homologue du recuit", "inputs": "300 °C = 573 K ; LiF fond vers 845 °C (1118 K) ; les oxydes de Mn bien au-delà", "formula": "T/Tf", "result": "≈ 0,51 pour LiF, < 0,4 pour les oxydes", "compared_to": "règle de Tammann (diffusion en volume notable vers 0,5 Tf)", "source": "chimie générale (Tf de LiF : valeur usuelle, non vérifiée sur fiche)"}
+      ],
+      "checks": [
+        {"aspect": "redox", "finding": "Le gaz de formage (H2 dilué) est réducteur ; à 300 °C, 3 × 5 h, il peut réduire Mn3+ en surface. En TPR, la réduction Mn2O3 → Mn3O4 culmine vers 334–420 °C à 10 °C/min et commence plus bas. La maille diminue (4,161 → 4,148 Å) et le XANES de laboratoire ne voit pas de changement : pas de réduction massive, mais une réduction de surface (où se joue la dégradation) n'est pas exclue. Pourquoi une atmosphère réductrice sur une phase Mn3+ plutôt que l'argon de la DSC ? Ce n'est pas justifié, et la composition du gaz n'est pas donnée.", "status": "reserve", "basis": "litterature", "source": {"title": "Tuning the Synthesis of Manganese Oxides Nanoparticles for Efficient Oxidation of Benzyl Alcohol (H2-TPR : Mn2O3 → Mn3O4 à 334–420 °C)", "authors_or_publisher": "article en libre accès PMC5218959 (auteurs non relevés)", "year": "2017", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5218959"}},
+        {"aspect": "thermique", "finding": "La limite de 300 °C vient d'une DSC dynamique à 5 °C/min sous argon montrant une transition « above 300 °C ». Un maintien isotherme prolongé (jusqu'à 15 h cumulées) à la température d'amorce d'une transition peut la déclencher en partie, et l'atmosphère diffère (H2 contre Ar). La DRX après traitement ne montre pas de phase nouvelle pour LMOF, ce qui rassure a posteriori.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Les auteurs attribuent l'affinement des pics à un « powder sintering effect » (croissance de particules et de cristallites). À 300 °C, la température homologue des oxydes est < 0,4 (voir « température homologue du recuit ») : la diffusion en volume y est faible. Pour un matériau broyé 40 h, l'affinement des raies vient d'abord de la relaxation des microcontraintes et du recuit des défauts (restauration). Une analyse de Williamson–Hall séparant taille et contrainte manque pour discriminer ; le léger grossissement vu au MEB peut venir de la soudure des agglomérats dans la pastille pressée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les capacités et la rétention sont cohérentes entre elles (voir « rétention HT-LMOF »). L'interprétation EXAFS « reduced local disordering » est contredite par le σ² du tableau 2 (0,014 contre 0,002 Å² pour LMOF_20C) ; voir le constat EXAFS de la voie LMOF.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Gaz de formage : le classement dépend de la teneur en H2. Les mélanges H2/N2 ≤ 5,5 % sont classés ininflammables selon l'ISO 10156:2010 (fiche Airgas « Nonflammable Gas Mixture: Hydrogen 0.1–5.5% »), alors qu'une autre fiche (Matheson, 4–5 % H2) les classe inflammables. La composition n'est pas donnée : traiter le four comme recevant un gaz potentiellement inflammable (évacuation, purge à l'inerte avant et après).", "status": "reserve", "basis": "litterature", "source": {"title": "Guideline for Use of Hydrogen and Flammable Hydrogen Gas Mixtures (ISO 10156:2010 : > 5,5 mol % H2 dans N2 = inflammable)", "authors_or_publisher": "Purdue University, School of Chemical Engineering", "year": "2011", "url_or_doi": "https://engineering.purdue.edu/ChE/aboutus/safety/documents/hydrogen-use-guidelines-october-2011.pdf"}}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Recuit de restauration d'un matériau broyé : relaxation des microcontraintes et des défauts ponctuels et étendus introduits par 40 h de broyage, réarrangement local des cations (mise en ordre à courte distance) et, peut-être, légère perte de fluor ou de lithium en surface (la contraction de maille est compatible avec ces trois effets) ; frittage limité aux contacts entre grains dans la pastille. La réduction de surface de Mn3+ par H2 reste à vérifier.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "composition et débit du gaz de formage, four et creuset",
+        "sens de « 5 h up to 300 °C » (rampe comprise ou palier) et refroidissement entre les trois chauffes",
+        "pression de pastillage",
+        "Williamson–Hall avant et après recuit pour séparer taille et contrainte",
+        "témoin recuit sous argon pour séparer l'effet thermique de l'effet réducteur"
+      ]
+    },
+    {
+      "label": "HT-LMVOF",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rétention HT-LMVOF", "inputs": "188 et 93 mAh/g", "formula": "93/188", "result": "49,5 %", "compared_to": "49,6 % annoncé", "source": "valeurs de l'article"},
+        {"what": "degré d'oxydation de V après recuit (pré-seuil)", "inputs": "centroïde 5469,47 eV ; étalons V2O3 5469,55, VO2 5470,10 eV", "formula": "3 + (5469,47 − 5469,55)/0,55", "result": "≈ 2,85, sous V2O3", "compared_to": "« close to V2O3 »", "source": "Tableau 1 de l'article"}
+      ],
+      "checks": [
+        {"aspect": "redox", "finding": "Après recuit sous gaz réducteur, le centroïde du pré-seuil V passe sous celui de V2O3 (voir « degré d'oxydation de V après recuit (pré-seuil) »). Une légère réduction par H2 est aussi plausible qu'un simple effet de géométrie : la hauteur du pré-seuil baisse elle aussi (0,276 → 0,145), ce qui montre que le centroïde dépend autant de la symétrie que du degré d'oxydation. Le déficit de charge relevé pour LMVOF s'en trouve aggravé.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Le texte rattache la figure 8 (Mn et V après cyclage) à « cycled HT-LMVOF », la légende à « LMVOF_20C » : l'échantillon n'est pas identifiable sans l'article original. L'oxydation de V3+ en V4+ à l'état déchargé contredit l'inactivité électrochimique du V évoquée pour LMVOF.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Même restauration thermique que HT-LMOF ; la baisse de l'intensité du pré-seuil V est cohérente avec une symétrie octaédrique mieux rétablie. Le LiF résiduel ne se dissout pas à 300 °C (épaulement toujours présent).",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "mêmes points que HT-LMOF (gaz, cycle thermique)",
+        "dosage du Fe et état d'oxydation du V par une méthode indépendante"
+      ]
+    },
+    {
+      "label": "Li2Mn0.66V0.33O2F_Si3N4",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bilan avec Mn2O3 et V2O3", "inputs": "½ Li2O + 0,333 Mn2O3 + 0,167 V2O3 + LiF", "formula": "O : 0,5 + 1,0 + 0,5 = 2 ; charge : 2 + 3 = 5", "result": "équilibrée avec Mn3+ et V3+ ; 118,48 g pour 1 mol = M(Li2Mn0,67V0,33O2F)", "compared_to": "formule visée", "source": "masses atomiques IUPAC"},
+        {"what": "appartenance au pseudo-ternaire MnO–Li2VO3–LiF", "inputs": "Li2Mn1−xVxO2F = (1−x) MnO + x Li2VO3 + LiF", "formula": "Li : 2x + 1 = 2 ⇒ x = 0,5 ; neutralité avec Mn2+/V4+ : 2(1−x) + 4x = 3 ⇒ x = 0,5", "result": "seule x = 0,5 appartient à ce pseudo-ternaire ; x = 0,33 exige d'autres degrés d'oxydation (ici Mn3+/V3+)", "compared_to": "« in agreement with the modeling prediction… in the pseudo-ternary system MnO-Li2VO3-LiF »", "source": "calcul"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "L'essai x = 0,33 utilise Mn3+ et V3+, alors que LMVOF utilise Mn2+ et V4+ : l'échec ne compare pas deux compositions de la même famille mais deux chimies redox différentes. Li2Mn0,67V0,33O2F n'appartient pas au pseudo-ternaire MnO–Li2VO3–LiF invoqué (voir « appartenance au pseudo-ternaire MnO–Li2VO3–LiF »). L'« accord avec la modélisation » ne vaut donc pas preuve ; le contenu exact de la référence 24 (Kitchaev et al. 2018) n'a pas été vérifié ici.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "L'ajout de LiF n'est pas écrit pour ces essais, et le diffractogramme (figure S1) n'est pas dans le dépôt : la nature des phases parasites est inconnue.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Pas de phase DRS pure : il est probable que Mn3+/V3+ à x = 0,33 forme un mélange (DRS + LiF ou spinelle) dans ces conditions de broyage ; rien dans l'article ne permet de trancher.", "sources": []},
+      "what_to_verify_before_repeating": ["essai x = 0,33 avec Mn2+/V4+ impossible (neutralité) : choisir explicitement le couple redox visé", "phases observées en figure S1"]
+    },
+    {
+      "label": "Li2Mn0.66V0.33O2F_steel",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bilan identique à l'essai en jarre Si3N4", "inputs": "mêmes précurseurs Li2O, Mn2O3, V2O3 (+ LiF supposé)", "formula": "voir Li2Mn0.66V0.33O2F_Si3N4", "result": "équilibré avec Mn3+/V3+", "compared_to": "formule visée", "source": "calcul"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Même remarque que l'essai en Si3N4. La jarre en acier change en plus le BPR, la vitesse et apporte du Fe : deux échecs dans deux jeux de conditions ne délimitent pas le domaine de stabilité.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Comme l'essai en Si3N4.", "sources": []},
+      "what_to_verify_before_repeating": ["conditions exactes (« analogous to LMVOF »)"]
+    },
+    {
+      "label": "Electrode_DRS",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "composition massique de l'électrode", "inputs": "matière active:Super P = 60:30 ; PVDF:mélange = 10:90", "formula": "90 parts de mélange = 60 + 30 ; + 10 PVDF", "result": "60:30:10 (matière active:carbone:liant), cohérent", "compared_to": "formulation usuelle des cathodes DRS de laboratoire", "source": "valeurs de l'article"},
+        {"what": "grammage", "inputs": "≈ 1 mg de matière active sur un disque de 12 mm (1,131 cm²)", "formula": "1 / (π × 0,6²)", "result": "≈ 0,88 mg/cm²", "compared_to": "électrodes de laboratoire usuelles (quelques mg/cm²)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Environ 1 mg de matière active par disque : une erreur de pesée de 0,05 mg fait déjà 5 % sur les capacités spécifiques. Avec 30 % de Super P, la contribution capacitive du carbone entre 1,5 et 4,3 V n'est pas soustraite. Écarts de capacité de quelques pourcents entre échantillons (215 contre 213 mAh/g) non significatifs.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "NMP : classée toxique pour la reproduction (catégorie 1B, CLP) ; séchage à 120 °C sous vide dynamique, à faire en étuve à vide avec piège.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Séchage à 120 °C, 12 h sous vide : sous la limite de 300 °C du matériau et sous la fusion du PVDF (≈ 170 °C) ; compatible.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Sans objet (mise en forme).", "sources": []},
+      "what_to_verify_before_repeating": ["masse de PVDF et volume de NMP", "épaisseur et grammage mesurés", "contribution du Super P mesurée sur une électrode sans matière active"]
+    },
+    {
+      "label": "Cell_DRS",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "courant à 0,1 C", "inputs": "1 mg de LMOF ; 1 C supposé = 223,7 mA/g (1 e−), non défini par l'article", "formula": "0,1 × 223,7 mA/g × 1 mg", "result": "≈ 22 µA", "compared_to": "« 0.1 C » sans définition", "source": "calcul"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Le régime C n'est pas défini (courant massique pour 1 C), d'où des capacités à 1 C non comparables à d'autres travaux. House et al. définissent C/10 = 22,4 mA/g pour Li2MnO2F, ce qui correspond à 1 C ≈ 224 mA/g (1 e−).", "status": "reserve", "basis": "litterature", "source": {"title": "Under pressure: offering fundamental insight into structural changes on ball milling battery materials (Tableau 1 : Li2MnO2F, C/10 = 22,4 mA/g)", "authors_or_publisher": "Energy Environ. Sci. (RSC)", "year": "2023", "url_or_doi": "10.1039/D3EE00249G"}},
+        {"aspect": "securite", "finding": "LiPF6 libère du HF au contact de l'humidité ; EC/DEC inflammables ; lithium métal réactif avec l'eau : assemblage en boîte à gants (écrit), démontage et lavage au DMC en boîte à gants (écrit pour les électrodes cyclées).", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Sans objet.", "sources": []},
+      "what_to_verify_before_repeating": ["définition de 1 C en mA/g", "volume d'électrolyte et dimensions du séparateur et du lithium"]
+    }
+  ],
+  "article_level": {
+    "summary": "La synthèse mécanochimique de Li2MnO2F (LMOF) est cohérente : bilan équilibré avec Mn3+, confirmé par XANES ; elle est reproductible si l'on recalcule les masses, le nombre de billes manquant. LMVOF pose un problème de fond : les précurseurs (Mn2+/V4+) et le XANES (Mn ≈ 2+, V ≈ 3+) ne sont pas compatibles avec la neutralité de la formule, alors que les auteurs concluent à l'absence de transfert de charge. De plus, la comparaison LMOF/LMVOF change cinq variables (V, degré d'oxydation du Mn, jarre, BPR, vitesse) et ne peut pas isoler l'effet du vanadium. L'inactivité du V est contredite par la figure 8 et par la position du couple V3+/V4+ des oxyfluorures DRS. Les ajustements EXAFS donnent un nombre de coordination Mn–O/F d'environ 2 au lieu de 6 et des σ² contraires à la conclusion « moins de désordre après recuit ». Le recuit sous gaz réducteur à 300 °C est plausible mais mal décrit, et l'effet attribué au frittage relève plus probablement de la restauration des défauts de broyage.",
+    "author_errors_suspected": [
+      "« no charge-transfer… keep the oxidation state of the starting precursors » alors que VO2 (V4+) donne V ≈ 3+ au XANES",
+      "nombre de coordination Mn–O/F ≈ 2 (tableau 2) pour un Mn octaédrique, probablement 6 × 1/3 (facteur d'occupation appliqué à tort)",
+      "S0² « fixed as 0 » dans les Méthodes contre 0,98 dans la note du tableau 2 ; fenêtre de Hanning dk = 2 (texte) contre dk = 1 (légende)",
+      "σ² Mn–O/F de HT-LMOF_20C (0,014 Å²) contraire à la « reduced local disordering » affirmée",
+      "augmentation de maille attribuée au vanadium alors que les rayons ioniques l'attribuent au Mn2+",
+      "« 12.4% higher » pour une différence de 12,4 points de pourcentage",
+      "figure 8 attribuée à HT-LMVOF dans le texte et à LMVOF_20C dans la légende"
+    ],
+    "comparison_with_database": "Aucune autre synthèse de Li2MnO2F ni d'oxyfluorure DRS dans la base (compare.py « Li2MnO2F », « rock salt », « oxyfluoride », « Li2VO2F »). Comparaison à la littérature : a = 4,161 Å contre 4,1176 Å (House 2018, mêmes précurseurs, 750 rpm 18 h) et 4,117 Å (Sharpe 2020) ; capacité initiale 215 mAh/g (1,5–4,3 V) contre 283 mAh/g (2,0–4,8 V, House 2018), écart cohérent avec la borne haute plus basse."
+  },
+  "sources_not_found": [
+    "contenu de la référence 24 (Kitchaev et al. 2018) sur le pseudo-ternaire MnO–Li2VO3–LiF : non lu",
+    "fiche de données de VO2 et V2O3 (toxicité) : non consultée",
+    "masse volumique du Si3N4 et de l'acier trempé, paramètre de maille et point de fusion de LiF : valeurs usuelles non vérifiées sur fiche",
+    "rayons de Shannon de Li+, V3+, V4+, O2− et F− : non relus sur la table en ligne (seuls ceux du Mn l'ont été)"
+  ]
+}

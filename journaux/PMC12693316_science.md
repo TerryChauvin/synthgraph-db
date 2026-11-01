@@ -1,0 +1,18 @@
+# PMC12693316 — critique scientifique (journal de décisions)
+
+- J'ai lu les figures 7 (ATG) et 9 (isothermes), parce que plusieurs contrôles en dépendent : MSNs ≈ 91,4 % et BPA-MSNs ≈ 79,3 % de masse restante à 800 °C ; plus forte valeur mesurée ≈ 22,2 mg/g vers Ce ≈ 300 mg/L.
+- `probleme` EDX contre ATG : la perte nette ≈ 14 % donne au plus 0,42 mmol/g de motifs azo-BPA (C21, ≈ 331 g/mol), soit C ≈ 10,7 % et N ≈ 1,2 %, loin des 60,3 % de C et 4,25 % de N de l'EDX. Le motif organosilane pur ne contient que 65,8 % de C : l'EDX décrirait un solide presque tout organique.
+- `probleme` EDX des MSNs calcinées : C/Si = 1,10 (15 % de C), alors que l'ATG perd ≤ 3,5 % au-dessus de 150 °C. J'en conclus à un artefact (support carboné) et non à une calcination incomplète.
+- `probleme` diazotation : le texte enchaîne la réduction (dithionite à 5 %, 14,4 mmol, ≥ 6,4 mmol en excès) puis l'acidification et le NaNO2 sur « la suspension obtenue », sans lavage. S(IV) consomme HNO2 et réduit les diazoniums (Fischer). Je le classe en problème de protocole (étape probablement omise) et non en impossibilité.
+- Couplage au phénol en milieu acide : laissé en `reserve` et non en `probleme`, car il reste possible, seulement lent. La source est un support d'enseignement (JoVE), faute de revue trouvée en une recherche.
+- Nitration sur aryl–Si : seul précédent trouvé, les PMO à ponts phénylène et biphénylène (Microporous Mesoporous Mater. 2015, dépôt RIA d'Aveiro ; auteurs non lus). La substitution ipso est signalée comme un risque, sans source citée : l'article ACS 2019 « Ipso-nitration of arylsilanes » n'a pas de DOI confirmé, donc pas cité.
+- L'annotation de l'extraction « nitration surtout en para » est contestée : la régiochimie d'un aryle porteur de Si(OSi)3 n'est pas établie. Je ne propose pas de méta, faute de source.
+- Mécanisme des MSNs : « PEG protoné à pH 11,5 » est jugé intenable. Je propose une silice particulaire à porosité surtout interparticulaire (4V/S = 15,1 nm contre 2,6 nm), en m'appuyant sur la voie MSU de Pinnavaia (H-liaison PEO–silanol, pH proche de la neutralité).
+- Dissolution de la silice à pH 11,5 : sourcée par Iler (1979) à partir d'extraits cités (dissolution forte au-dessus de pH 10,7). Le livre n'a pas été ouvert ; la notice de bibliothèque sert d'URL.
+- Adsorption : bilan de masse de la figure 8a (Ce = 11,5 mg/L) contre l'isotherme de Langmuir des auteurs (3,9 mg/g) ; la cinétique (4,55) et le cycle 1 (4,92) concordent avec l'isotherme, donc la valeur isolée est 8,5 mg/g.
+- `probleme` D-SPE : Kd = qm·KL = 0,384 L/g dans la zone linéaire, donc 28 % extraits avec 100 mg pour 100 mL. Hypothèse : même pH et même isotherme ; si la D-SPE a été faite à un autre pH, l'écart reste non expliqué par l'article.
+- Temkin : bT = 0,31 J/mol rend la courbe impossible ; un réajustement grossier sur deux points lus (83 et 300 mg/L) donne bT ≈ 580 J/mol. C'est un ordre de grandeur, pas une correction.
+- pKa de la 3-chloroaniline : 3,52 (ORNL AquaMer, d'après le CRC) retenu plutôt que les 4,0 des auteurs ; à pH 4, la protonation est de 25 % et non majoritaire.
+- Sécurité : seul danger non trivial relevé, l'éthanol résiduel (séchage à 70 °C, sous les 78 °C d'ébullition) au contact de HNO3 concentré. La page CAMEO n'a pas pu être ouverte (DNS) ; l'énoncé vient de l'extrait de recherche (fiche acide nitrique, d'après Bretherick).
+- Comparaison avec la base : les silices de type MCM-41 tirées du silicate (PMC12195685, PMC10888240) font environ 1 000 m2/g, contre 503 ici, ce qui va avec l'absence de tensioactif.
+- 10 recherches web ; aucun DOI vérifié sur Crossref (bloqué). Rien n'a été ajouté à fondateurs.md ni à constantes.md.

@@ -1,0 +1,64 @@
+{
+ "pmcid": "PMC5388254",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (voie AgNP_10mmol) : « son intensité augmente avec ... la concentration en AgNO3 »; lecture absorbance Fig. 4A-C",
+   "extracted": "Le maximum de la bande plasmon se décale vers le rouge et son intensité augmente avec le temps de réaction et avec la concentration en AgNO3",
+   "article_says": "Similarly, an increase in absorption intensity was also observed as the concentration of AgNO3 solution was increased from 10 to 30 mmol as evident in Figure 4A–C.",
+   "fix": "garder l'énoncé comme celui des auteurs, mais ajouter une annotation limite_reproductibilite : sur la Fig. 4A-C l'absorbance maximale à 10 h vaut environ 0,63 (10 mmol), 0,92 (20 mmol) et 0,87 (30 mmol), donc 30 mmol est inférieure à 20 mmol, contrairement à la phrase. L'intensité n'est extraite nulle part en valeur.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "série en température : conditions 20 et 30 mmol à 50, 75 et 100 °C (6 branches non créées)",
+   "extracted": "seules les voies AgNP_10mmol_dark_50C/75C/100C existent ; inventaire : route null, « résultats non montrés »",
+   "article_says": "AgNO3 (10, 20, and 30 mmol) solution was mixed with LSH solution and progress of reaction was monitored at different temperatures (50, 75, and 100°C).",
+   "fix": "le résumé donne « 397–410 nm in the case of temperature study » alors que la Fig. 6 (10 mmol) va de 399 à 410 nm : des valeurs à 397-398 nm existent donc pour 20 et/ou 30 mmol sans être montrées. Créer au minimum une annotation de comparaison qui reprend la plage 397–410 nm du résumé, ou les branches 20/30 mmol sans résultat chiffré ; la limite est déjà dite en annotation, le point est la plage du résumé non reprise.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Wound_dressing_patch : lignes témoin et Band aid du tableau 1 (fermeture aux jours 1 à 15) absentes des résultats",
+   "extracted": "seuls les résultats du groupe LSH sont rangés ; groupe témoin (83,27 % au jour 15) et Band aid (100 %) cités en annotation seulement",
+   "article_says": "The animals treated with standard Band aid dressing showed closure area of 2.17, 19.45, 63.67, 87.27, 98.49, and 100%",
+   "fix": "ajouter l'évolution de la fermeture du groupe Band aid (2,17 ; 19,45 ; 63,67 ; 87,27 ; 98,49 ; 100 %) et du témoin (0,25 ; 1,11 ; 20,32 ; 38,76 ; 62,55 ; 83,27 %) dans une annotation de comparaison de la voie pansement, puisque la conclusion des auteurs (LSH comparable au standard) repose sur cette comparaison. Collagène 38 / 69 / 65 mg/kg : seul le 65 est en résultat, 38 et 69 sont en annotation.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "LSH_Ag_film UV/Vis : points 10 h et 24 h de référence avant stockage",
+   "extracted": "« comparable absorption spectra after 15 days, 30 days and 6 months » sans état de départ",
+   "article_says": "UV/Vis spectra were recorded after 10 and 24 h, and the sample was stored as dry thin film in dark.",
+   "fix": "ajouter à la conditions de la caractérisation UV/Vis du film que la référence est la solution mesurée à 10 h et 24 h (Fig. 8A, solution AgNO3 20 mmol) ; la comparaison de stockage n'a de sens que contre ce point.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "AgNP_10mmol_dark_75C / 100C et dark_50C : quantités des réactifs héritées de AgNP_10mmol",
+   "extracted": "réactifs de la série en température hérités de la voie à 10 mmol (AgNO3 10 mL, LSH 0,2 g dans 10 mL)",
+   "article_says": "LSH suspension (2 mL) was mixed with different concentrations of AgNO3 (10, 20, and 30 mmol, 2 mL aliquot each) in dark and then placed in diffused sunlight.",
+   "fix": "l'article ne donne aucun volume pour la série en température ; seule la mise à plus petite échelle (2 mL + 2 mL) du suivi UV/Vis est écrite. Si l'héritage des quantités de la voie de base est effectif dans la fiche, le signaler (ou ne pas hériter) ; la doute existe mais la fiche chimiste doit afficher « volumes non cités » pour la série en température. Je n'ai pas pu lancer fiche.py : à vérifier par l'orchestrateur.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 15,
+  "branches_extracted": 9,
+  "not_stated_checked": 22,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "rendement en Ag NPs et en LSH absent",
+  "intensité lumineuse, heure, saison, récipient, agitation et température pendant l'exposition au soleil absents",
+  "vitesse et durée de centrifugation absentes (LSH et Ag NPs)",
+  "pureté de AgNO3, variété et origine des graines de lin non données",
+  "volumes, durée de mélange et dispositif de chauffage de la série 50/75/100 °C absents ; la série avec 20 et 30 mmol n'est pas montrée",
+  "quantité d'argent par pansement, stérilisation du coton et temps d'imprégnation absents",
+  "volume et épaisseur du film, temps de séchage absents; la teneur en Ag NPs de la solution à 10 mg/mL des essais d'inhibition n'est pas reliée à la synthèse",
+  "distribution de taille seulement en plage (pas de moyenne ni d'écart-type)"
+ ],
+ "mechanism_check": "ok : le mécanisme auteurs (complexe Ag(LSH)+, réduction à la lumière, stabilisation électrostatique) est cité mot pour mot ; l'analyse chimiste est étiquetée hypothèse et signale à juste titre l'argument des électrons hydratés comme peu plausible",
+ "notes": "Extraction fidèle et complète : les 137 valeurs numériques que j'ai recoupées (UV/Vis 3x9 du texte, tableau 1 ligne LSH, zones d'inhibition, collagène) sont justes et bien attribuées (ordre 'respectively' vérifié). Les 24 valeurs lues sur Fig. 6 (écart max 0 nm sur 24 en lecture à l'entier) et celles de Fig. 9B et Fig. 10 concordent avec les images. Incohérences propres à l'article, déjà notées par l'extracteur : 16,73 (texte) contre 17,73 (tableau 1) au jour 3 ; collagène 69/65 (texte) contre environ 59/55 (Fig. 10) ; résumé 397–410 nm contre 399–410 (Fig. 6). Non signalé par l'extracteur : Fig. 8A (20 mmol, 10 h) a son maximum vers 425–430 nm alors que le texte donne 436 nm à 10 h pour 20 mmol (Fig. 4B plus cohérente) ; et les particules de la Fig. 8E (TEM après 6 mois, barre 50 nm) ont l'air d'environ 25-35 nm pour une légende 10–30 nm. Lecture à l'oeil, je n'en fais pas des constats. Structure : les voies dark_* ont des variations qui visent l'étape 5 du parent (illumination, durée) tout en ayant leurs propres étapes 1-2 ; cohérence de modèle à voir par l'orchestrateur, pas une erreur de valeur. Méthodes sources b38, b39, b40 justes ; b41, b42, b43 ne sont pas des méthodes (contexte) : rien de manquant."
+}

@@ -1,0 +1,16 @@
+# PMC5793535 — critique scientifique (journal de décisions)
+
+- Signe de la contrainte (doute de l'extracteur, tableau 1) : σ = −233 ε avec ε < 0 donne bien σ > 0 ; ce n'est pas une incohérence. Le coefficient −232,8 GPa a été recalculé à partir des C_ij de l'article.
+- `probleme` sur GZR1_NH4OH : 2θ(002) = 34,38° avec λ = 1,5418 Å donne c = 5,217 Å > c0 = 5,205 Å (raie massive attendue à 34,46°), donc εc = +0,23 %, alors que le tableau donne −0,07 %. Idem pour 2 %. Seul 5 % est en compression (−0,39 %), et 0,94 GPa correspond à −0,40 %, pas à −0,48 % : ε vient du c arrondi, σ du c non arrondi.
+- `probleme` sur la cohérence entre sections : « stress-free » (§ 2.7 et conclusion) contre 0,94 GPa au tableau 1. Rangé dans GZR1_NH4OH avec le calcul de Bragg.
+- `probleme` Hall (GZR5_NH4OH) : σ = q n μ vaut 0,020 S/cm pour UZR, 1 % et 2 % alors que n est multiplié par 34 et μ divisé par 36. C'est la signature d'une tension de Hall noyée dans le bruit (Werner 2017, mobilités < 1 cm²/V·s). Par ailleurs 2,38E21 cm−3 = 5,7 % des sites Zn, plus que le Ga du bain.
+- `probleme` PL : 1 % et 2 % sont sous l'apparition du Burstein-Moss (≈ 6E18 cm−3, Lu 2007 via Saw 2015) ; à 2,38E21 le modèle parabolique donne 2,3 eV (borne haute). Les +21 meV mesurés ne collent avec aucun des deux. m* = 0,28 me est une valeur de manuel non vérifiée : dit dans `calculs`.
+- `probleme` ammoniaque : 28 % à 0,90 g/mL = 14,8 M (fiche Sigma), donc 74–148 mmol de NH3, sans volume de bain : non reproductible. L'excès de NH3 sur le Ga (≈ 500–1000×) contredit l'idée de « compenser les OH− perdus par le Ga » ; mécanisme remplacé par la spéciation Zn(NH3)4 2+ / Ga(OH)4− (Gaffuri 2019, Villafuerte 2022, Baillard 2025).
+- `probleme` sur le pH 9 → < 7,5 (UZR) : avec 25 mM de Zn2+ dissous, pH 9 est incompatible avec la solubilité de Zn(OH)2 (Ksp de manuel, non vérifié) ; les bains équimolaires mesurés in situ restent presque neutres (annexe de Sci. Rep. 2015, ≈ 6,3). Le niveau `probleme` est retenu parce que le mécanisme des auteurs repose sur ces valeurs.
+- Pas de valeur chiffrée pour le point isoélectrique : la compilation de Kosmulski 2016 a été trouvée, mais seul son résumé a été lu. Je n'oppose donc aucun chiffre aux 7,4–8,2 des auteurs (consigné dans `sources_not_found`).
+- `probleme` sur Device_UZR : l'indium fond à 156,6 °C (PubChem, point fixe NIST), alors que dans l'ordre de la Fig. 9 l'électrode inférieure est déposée avant le recuit des germes à 300 °C.
+- `probleme` sur les I–V : rapports +2 V/−2 V de 2,0, 0,54, 0,77 et 1,09, calculés sur les valeurs lues par l'extracteur sur la Fig. 8. Ce n'est pas un comportement de diode. La barrière In/p-Si (travail de sortie ≈ 4,1 eV) est donnée en `reserve`, de chimie générale, sans source.
+- « Autoclaves » avec suivi in situ du pH : contradiction notée en `reserve` (UZR) et non en `probleme` : le suivi a pu se faire sur un bain témoin.
+- Scherrer (29 → 73 nm) : sert à nuancer « seul le dopage change », en `reserve`.
+- Voies jugées : Seeds_Ga, UZR, GZR5, GZR5_NH4OH, GZR1_NH4OH, Device_UZR, Device_GZR5. Les branches 2 %, Device_GZR1 et Device_GZR2 ne changent pas la chimie au-delà de ce qui est déjà dit.
+- 7 recherches web et 1 lecture de page. Rien n'a été ajouté à fondateurs.md ni à constantes.md (consigne). Toutes les DOI viennent de PubMed, d'OpenAlex ou des pages des éditeurs, sans contrôle Crossref.

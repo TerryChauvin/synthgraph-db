@@ -1,0 +1,191 @@
+{
+  "pmcid": "PMC9631917",
+  "routes": [
+    {
+      "label": "NC-ATNT",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de TiO2 (1,5 g ; 1 g ; 0,5 g)", "inputs": "M(TiO2) = 79,87 g/mol ; 1,5 g, 1 g, 0,5 g", "formula": "n = m / M", "result": "18,78 mmol ; 12,52 mmol ; 6,26 mmol", "compared_to": "NaOH apporté", "source": "masse molaire calculée (Ti 47,867 ; O 15,999)"},
+        {"what": "moles de NaOH", "inputs": "50 mL de NaOH 10 M", "formula": "n = C × V", "result": "500 mmol", "compared_to": "TiO2", "source": "valeurs de l'article"},
+        {"what": "rapport molaire NaOH/TiO2", "inputs": "500 mmol NaOH ; 18,78 / 12,52 / 6,26 mmol TiO2", "formula": "n(NaOH)/n(TiO2)", "result": "26,6 (1,5 g) ; 39,9 (1 g) ; 79,9 (0,5 g)", "compared_to": "Na/Ti = 2/3 = 0,67 dans Na2Ti3O7", "source": "valeurs de l'article"},
+        {"what": "NaOH nécessaire pour convertir tout le TiO2 en Na2Ti3O7", "inputs": "18,78 mmol Ti ; Na/Ti = 2/3", "formula": "n(Na) = 2/3 × n(Ti)", "result": "12,5 mmol, soit 2,5 % du NaOH apporté (excès d'environ 40 fois)", "compared_to": "500 mmol NaOH", "source": "stœchiométrie de Na2Ti3O7"},
+        {"what": "rapport TiO2/NaOH de l'introduction (« > 0,3 » selon Poudel et al.)", "inputs": "1,5 g TiO2 ; 0,5 mol NaOH = 20 g ; solution ≈ 66,5 g (masse volumique ≈ 1,33 g/mL, valeur approchée non sourcée)", "formula": "n(TiO2)/n(NaOH) ; m(TiO2)/m(NaOH) ; m(TiO2)/m(solution)", "result": "0,038 (molaire) ; 0,075 (massique / NaOH solide) ; ≈ 0,023 (massique / solution)", "compared_to": "seuil « TiO2/NaOH > 0,3 » cité par les auteurs", "source": "valeurs de l'article"},
+        {"what": "masse maximale de produit attendue", "inputs": "18,78 mmol Ti ; M(Na2Ti3O7) = 301,57 g/mol ; M(H2Ti3O7) = 257,61 g/mol", "formula": "m = n(Ti)/3 × M", "result": "1,89 g si Na2Ti3O7 ; 1,61 g si H2Ti3O7 ; 1,50 g si TiO2", "compared_to": "rendement non donné par l'article", "source": "masses molaires calculées"},
+        {"what": "teneur en Na de Na2Ti3O7 stœchiométrique", "inputs": "2 × 22,99 / 301,57", "formula": "w(Na) = 2M(Na)/M(Na2Ti3O7)", "result": "15,2 % en masse", "compared_to": "EDX qualitatif de l'article (aucune valeur)", "source": "masses molaires calculées"},
+        {"what": "pression de vapeur de l'eau à la température de réaction", "inputs": "NIST : 1,48 bar à 110,9 °C ; 4,79 bar à 150,2 °C ; ≈ 2,7 bar à 130 °C par interpolation", "formula": "p_sat(T) (borne haute : NaOH 10 M abaisse l'activité de l'eau)", "result": "≤ 1,5 bar (110 °C) ; ≤ 2,7 bar (130 °C) ; ≤ 4,8 bar (150 °C)", "compared_to": "conteneur PTFE scellé rempli à 50 %", "source": "NIST Chemistry WebBook, Saturation Properties for Water"},
+        {"what": "position de la réflexion (101) de l'anatase", "inputs": "d(101) = 3,52 Å (JCPDS 21-1272) ; λ = 1,54059 Å (annexe)", "formula": "2θ = 2 arcsin(λ/2d)", "result": "25,28°", "compared_to": "plage mesurée 6–80° 2θ ; réflexion interfeuillets des titanates lamellaires attendue vers 9,8–11,3° 2θ pour d ≈ 0,9–0,78 nm", "source": "loi de Bragg ; d(101) de la fiche citée par l'article"},
+        {"what": "écart des bandes Raman annoncées aux valeurs de l'anatase massive", "inputs": "article : 135, 385, 511, 632 cm–1 ; Ohsaka : 144, 399, 513/519, 639 cm–1", "formula": "Δ = ν(réf) − ν(article)", "result": "−9, −14, −2 à −8, −7 cm–1 (déplacements vers le bas, non constants)", "compared_to": "un confinement de phonons déplace le mode Eg(144) vers le haut", "source": "Ohsaka et al. 1978"},
+        {"what": "énergie du photon au seuil d'absorption", "inputs": "Eg = 3,1 eV (NC-ATNT) ; 3,27 eV (titanate)", "formula": "λ = 1239,84 / Eg", "result": "400 nm ; 379 nm", "compared_to": "« extends into the visible light region »", "source": "relation E = hc/λ"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Agitation à 80 °C dans NaOH 10 M en récipient ouvert : sous le point d'ébullition de la solution (> 100 °C), acceptable. Autoclave PTFE rempli à 50 % : pression de vapeur ≤ 2,7 bar à 130 °C et ≤ 4,8 bar à 150 °C (voir calculs « pression de vapeur »), sans risque particulier pour un autoclave PTFE chemisé acier.", "status": "ok", "basis": "litterature", "source": {"title": "Saturation Properties for Water (NIST Chemistry WebBook, SRD 69)", "authors_or_publisher": "NIST", "year": "consulté en 2026", "url_or_doi": "https://webbook.nist.gov/cgi/fluid.cgi?ID=C7732185&Action=Page"}},
+        {"aspect": "bilan", "finding": "NaOH est en excès de 26 à 80 fois sur TiO2, et il suffirait de 2,5 % du NaOH pour convertir tout le TiO2 en Na2Ti3O7 (calculs « rapport molaire NaOH/TiO2 » et « NaOH nécessaire »). Le passage titanate → mélange → anatase quand la charge passe de 0,5 à 1,5 g ne peut donc pas venir d'un manque de sodium : il traduit une conversion plus ou moins complète d'une charge de précurseur plus ou moins grande dans un temps fixé (24 h). Le « rapport NaOH/TiO2 » agit par la cinétique, pas par la stœchiométrie.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Preuve non discriminante de nanotubes « anatase ». L'anatase ne se forme pas en tubes par enroulement (réseau tridimensionnel, non lamellaire) ; les nanotubes des voies hydrothermales NaOH sont des titanates lamellaires (NaxH2–xTi3O7·nH2O) que Kasuga lui-même avait d'abord attribués à l'anatase. Les tendances de l'article (anatase qui persiste plus longtemps à plus basse température, anatase plus abondante quand la charge augmente, titanate quand elle diminue) sont exactement celles d'une conversion incomplète d'un précurseur anatase micrométrique (−325 mesh), qui laisse des grains d'anatase résiduels à côté de nanotubes de titanate mal cristallisés (raie interfeuillets faible et large). Le DRX et le Raman de la poudre d'ensemble ne distinguent pas ces deux hypothèses ; il faudrait une SAED ou des franges HRTEM sur des tubes isolés (d(101) = 0,35 nm de l'anatase contre ≈ 0,7–0,9 nm entre feuillets de titanate), un DRX du précurseur et une quantification de phase.", "status": "probleme", "basis": "litterature", "source": {"title": "Formation of Titanium Oxide Nanotube", "authors_or_publisher": "T. Kasuga, M. Hiramatsu, A. Hoson, T. Sekino, K. Niihara (Langmuir)", "year": "1998", "url_or_doi": "10.1021/la9713816"}},
+        {"aspect": "mecanisme", "finding": "Les premiers travaux attribuaient les nanotubes hydrothermaux à l'anatase ; les études suivantes ont montré qu'il s'agit de titanates lamellaires (H2Ti3O7, NayH2–yTinO2n+1·xH2O) formés par enroulement de feuillets, et que le lavage acide échange Na+ contre H+. C'est l'interprétation alternative que l'article n'exclut pas.", "status": "reserve", "basis": "litterature", "source": {"title": "Titanate – an overview (ScienceDirect Topics, extrait de Kukovecz, Kordás, Kiss, Kónya, « Atomic scale characterization and surface chemistry of metal modified titanate nanotubes and nanowires », Surface Science Reports 2016)", "authors_or_publisher": "Elsevier / Á. Kukovecz et al.", "year": "2016", "url_or_doi": "https://www.sciencedirect.com/topics/materials-science/titanate"}},
+        {"aspect": "resultats", "finding": "Bandes Raman de l'« anatase » à 135, 385, 511 et 632 cm–1, décalées de 2 à 14 cm–1 vers le bas par rapport à l'anatase de référence (144, 197, 399, 513/519, 639 cm–1 ; calcul « écart des bandes Raman »). Un effet de taille déplacerait le mode Eg principal vers le haut, pas vers le bas ; ces décalages non constants évoquent un défaut d'étalonnage ou une lecture approximative. Le mode Eg à 197 cm–1 n'est pas mentionné.", "status": "reserve", "basis": "litterature", "source": {"title": "Raman spectrum of anatase, TiO2", "authors_or_publisher": "T. Ohsaka, F. Izumi, Y. Fujiki (Journal of Raman Spectroscopy)", "year": "1978", "url_or_doi": "10.1002/jrs.1250070606"}},
+        {"aspect": "resultats", "finding": "« Les nanotubes peuvent atteindre quelques millimètres » (texte, deux fois) : pour des tubes d'environ 6 nm de diamètre, cela ferait un rapport longueur/diamètre de l'ordre de 10^5–10^6, hors de l'ordre de grandeur des nanotubes hydrothermaux (centaines de nm à quelques µm). Probable confusion d'unité (µm). Un chimiste ne doit pas viser cette longueur.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Surface BET de 118,1 m2/g pour un produit annoncé « anatase pure » obtenu d'un précurseur −325 mesh : valeur compatible avec un mélange contenant une forte fraction de nanotubes de titanate (jusqu'à ≈ 400 m2/g pour des nanotubes purs selon la littérature citée), ce qui ne tranche pas entre les deux hypothèses du contrôle de phase. Les isothermes ne sont pas exploitées (volume poreux, distribution).", "status": "reserve", "basis": "litterature", "source": {"title": "Titanate – an overview (ScienceDirect Topics, extrait de Kukovecz et al., Surface Science Reports 2016)", "authors_or_publisher": "Elsevier / Á. Kukovecz et al.", "year": "2016", "url_or_doi": "https://www.sciencedirect.com/topics/materials-science/titanate"}},
+        {"aspect": "resultats", "finding": "Bande interdite 3,1 eV présentée comme une extension « dans le visible » : 3,1 eV correspond à 400 nm (calcul « énergie du photon »), soit la limite UV/visible ; l'activité à 400 nm (6,1 μmol g–1 h–1 de CH4) est donc au seuil d'absorption et ne démontre pas une absorption visible. Anatase massive : ≈ 3,2 eV, la valeur reste dans la plage habituelle.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "redox", "finding": "XPS Ti 2p du NC-ATNT à 459,0 et 464,8 eV, écart spin-orbite 5,8 eV : cohérent avec Ti(IV) d'oxyde (anatase de référence 458,59/464,31 eV, écart 5,72 eV).", "status": "ok", "basis": "litterature", "source": {"title": "Resolving surface chemical states in XPS analysis of first row transition metals, oxides and hydroxides: Sc, Ti, V, Cu and Zn", "authors_or_publisher": "M. C. Biesinger, L. W. M. Lau, A. R. Gerson, R. St. C. Smart (Applied Surface Science 257, 887–898)", "year": "2010", "url_or_doi": "10.1016/j.apsusc.2010.07.086"}},
+        {"aspect": "bilan", "finding": "Lavage : deux lavages à HCl 1 M puis sept à l'eau jusqu'à pH 5, sans volume ni mode de séparation, et sans séchage décrit avant les mesures (BET, poids pour la photocatalyse). Le lavage acide échange le sodium des titanates ; sa durée et son volume conditionnent la teneur résiduelle en Na et donc la phase rapportée. À fixer avant de refaire.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "NaOH 10 M chaud (corrosif, projections à 80 °C), HCl 1 M, autoclave sous pression modérée (≤ 5 bar), nanopoudres de TiO2/titanate inhalables : précautions non écrites dans l'article mais usuelles.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Voie de Kasuga : dans NaOH 10 M à 110–150 °C, le TiO2 anatase se dissout partiellement en espèces titanate qui recristallisent en feuillets de titanate de sodium lamellaire ; ces feuillets s'exfolient et s'enroulent en nanotubes multiparois de quelques nm (≈ 6 nm ici). Après lavage acide, les tubes sont des titanates (Na,H)2Ti3O7·nH2O, pas de l'anatase ; l'anatase ne se forme en tubes que par déshydratation topotactique d'un titanate protoné (calcination). L'anatase observée aux temps courts, aux basses températures et aux fortes charges s'explique le plus simplement par du précurseur non converti (réaction incomplète, comme l'avait conclu Li et al. cité par les auteurs) coexistant avec des tubes de titanate peu cristallins. La conversion complète en titanate quand le temps ou la température augmentent ou quand la charge diminue suit cette lecture cinétique.",
+        "sources": [
+          {"title": "Formation of Titanium Oxide Nanotube", "authors_or_publisher": "T. Kasuga et al. (Langmuir 14, 3160–3163)", "year": "1998", "url_or_doi": "10.1021/la9713816"},
+          {"title": "Characterization of Hydrothermally Prepared Titanate Nanotube Powders by Ambient and In Situ Raman Spectroscopy", "authors_or_publisher": "S.-J. Kim, Y.-U. Yun, H.-J. Oh, S. H. Hong, C. A. Roberts, K. Routray, I. E. Wachs (J. Phys. Chem. Lett. 1, 130–135)", "year": "2010", "url_or_doi": "10.1021/jz900025r"},
+          {"title": "Titanate – an overview (ScienceDirect Topics, extrait de Kukovecz et al., Surface Science Reports 2016)", "authors_or_publisher": "Elsevier / Á. Kukovecz et al.", "year": "2016", "url_or_doi": "https://www.sciencedirect.com/topics/materials-science/titanate"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "SAED ou franges HRTEM sur des tubes isolés pour savoir si les tubes sont de l'anatase ou un titanate, et DRX du précurseur −325 mesh seul pour reconnaître l'anatase non convertie",
+        "quantification de phase (Rietveld ou étalon interne) et teneur en Na par ICP ou EDX quantitatif après lavage",
+        "volume et durée des lavages HCl 1 M, mode de séparation (centrifugation ou filtration), séchage de la poudre (température, durée)",
+        "longueur réelle des tubes (µm et non mm) et rendement massique (1,50–1,89 g attendus selon la phase)",
+        "seuil « TiO2/NaOH > 0,3 » de l'introduction : unité non dite, aucune des conditions de l'article ne l'atteint"
+      ]
+    },
+    {
+      "label": "TNT_130C_96h",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le produit est appelé « Na2Ti3O7 pur » après deux lavages à HCl 1 M. Un lavage acide de cette force échange une grande partie du Na+ des titanates nanotubulaires contre H+ (NaxH2–xTi3O7·nH2O) ; la fiche JCPDS 31-1329 ne suffit pas à distinguer Na2Ti3O7 de ses formes protonées sur des nanotubes peu cristallins. L'EDX n'est que qualitatif (présence de Na) : la composition Na2Ti3O7 (15,2 % de Na en masse) n'est pas démontrée.", "status": "reserve", "basis": "litterature", "source": {"title": "Titanate – an overview (ScienceDirect Topics, extrait de Kukovecz et al., Surface Science Reports 2016)", "authors_or_publisher": "Elsevier / Á. Kukovecz et al.", "year": "2016", "url_or_doi": "https://www.sciencedirect.com/topics/materials-science/titanate"}},
+        {"aspect": "resultats", "finding": "Raman : bandes à 195, 275, 439, 686 et ≈ 890 cm–1 cohérentes avec un titanate nanotubulaire ; l'attribution d'une bande haute fréquence à une vibration Na–O–Ti a été contestée (bande à ≈ 926 cm–1 indépendante de la teneur en Na), donc le Raman ne prouve pas non plus la teneur en sodium.", "status": "reserve", "basis": "litterature", "source": {"title": "Characterization of Hydrothermally Prepared Titanate Nanotube Powders by Ambient and In Situ Raman Spectroscopy", "authors_or_publisher": "S.-J. Kim et al. (J. Phys. Chem. Lett.)", "year": "2010", "url_or_doi": "10.1021/jz900025r"}}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Conversion complète du précurseur anatase en titanate lamellaire enroulé en tubes ; l'intercalation de Na+ et d'eau/OH– entre feuillets explique les bandes OH plus fortes en FTIR et en XPS O 1s.", "sources": [{"title": "Formation of Titanium Oxide Nanotube", "authors_or_publisher": "T. Kasuga et al. (Langmuir)", "year": "1998", "url_or_doi": "10.1021/la9713816"}]},
+      "what_to_verify_before_repeating": ["teneur en Na quantitative après lavage HCl 1 M", "raie interfeuillets vers 9–11° 2θ et sa position (Na contre H)"]
+    },
+    {
+      "label": "TNT_110C_96h",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "écart spin-orbite Ti 2p du « Na2Ti3O7 »", "inputs": "2p3/2 : 457,9 et 458,4 eV ; 2p1/2 : 463,6 et 466,0 eV", "formula": "Δ = E(2p1/2) − E(2p3/2), appariés dans l'ordre", "result": "5,7 eV (457,9 → 463,6) ; 7,6 eV (458,4 → 466,0)", "compared_to": "Ti(IV) oxyde 5,66–5,77 eV ; Ti(III) 5,60 eV (Biesinger 2010)", "source": "valeurs de l'article ; Biesinger et al. 2010"},
+        {"what": "positions de bande par la méthode de Mulliken", "inputs": "χ = 5,8 eV ; Ee = 4,5 eV ; Eg = 3,27 eV", "formula": "Ec = χ − Ee − Eg/2 ; Ev = Ec + Eg", "result": "Ec = −0,335 V ; Ev = 2,935 V", "compared_to": "article : −0,326 et 2,944 V", "source": "équations 4–6 de l'article"}
+      ],
+      "checks": [
+        {"aspect": "redox", "finding": "Le doublet 458,4 / 466,0 eV a un écart de 7,6 eV (calcul « écart spin-orbite »), incompatible avec un doublet Ti 2p (≈ 5,7 eV). Soit les composantes sont mal appariées, soit 466 eV est un autre signal ; l'affirmation « concentration de Ti3+ plus élevée que dans le C-ATNT », qui fonde l'explication de la sélectivité CO/CH3OH, n'est pas étayée.", "status": "probleme", "basis": "litterature", "source": {"title": "Resolving surface chemical states in XPS analysis of first row transition metals, oxides and hydroxides: Sc, Ti, V, Cu and Zn", "authors_or_publisher": "M. C. Biesinger et al. (Applied Surface Science)", "year": "2010", "url_or_doi": "10.1016/j.apsusc.2010.07.086"}},
+        {"aspect": "resultats", "finding": "Positions de bande : Ec et Ev recalculés à −0,335 et 2,935 V contre −0,326 et 2,944 V annoncés (écart 0,009 V, sans conséquence) ; en revanche l'électronégativité de TiO2 (5,8 eV) est appliquée telle quelle à un titanate de sodium, ce qui n'a pas de base.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Même réserve que pour TNT_130C_96h : « Na2Ti3O7 » après lavage HCl 1 M est probablement un titanate partiellement protoné ; de plus, l'article ne dit pas clairement si l'échantillon caractérisé ici (BET, XPS, photocatalyse) est celui de 110 °C ou de 130 °C (doute déjà noté par l'extraction).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Sélectivités annoncées 66 % CO et 24 % CH3OH : avec 8,5 + 3,1 + 1,2 = 12,8 μmol g–1 h–1, les fractions molaires de carbone sont 66,4 %, 24,2 % et 9,4 % : cohérent.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Titanate lamellaire nanotubulaire, partiellement protoné après lavage acide ; l'attribution de la sélectivité CO/CH3OH au Ti3+ et au Na repose sur un ajustement XPS incohérent.", "sources": [{"title": "Resolving surface chemical states in XPS analysis of first row transition metals, oxides and hydroxides: Sc, Ti, V, Cu and Zn", "authors_or_publisher": "M. C. Biesinger et al.", "year": "2010", "url_or_doi": "10.1016/j.apsusc.2010.07.086"}]},
+      "what_to_verify_before_repeating": ["quel échantillon (110 ou 130 °C, 96 h) est caractérisé", "ajustement Ti 2p avec écart spin-orbite contraint à ≈ 5,7 eV", "teneur en Na quantitative"]
+    },
+    {
+      "label": "TNT_0.5g_TiO2",
+      "verdict": "coherente",
+      "feasibility": "reproductible",
+      "calculs": [
+        {"what": "rapport molaire NaOH/TiO2 à 0,5 g", "inputs": "500 mmol NaOH ; 6,26 mmol TiO2", "formula": "n(NaOH)/n(TiO2)", "result": "79,9", "compared_to": "26,6 à 1,5 g ; Na/Ti = 0,67 pour Na2Ti3O7", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "cinetique", "finding": "Moins de précurseur dans le même volume de NaOH : conversion complète en titanate en 24 h, cohérent avec une cinétique de dissolution-recristallisation ; ce résultat est attendu et ne demande pas d'hypothèse sur un « rapport » stœchiométrique (NaOH en excès dans tous les cas).", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Conversion complète du précurseur en titanate lamellaire enroulé en tubes.", "sources": []},
+      "what_to_verify_before_repeating": ["DRX du précurseur résiduel éventuel"]
+    },
+    {
+      "label": "TNT_rutile",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [],
+      "checks": [
+        {"aspect": "bilan", "finding": "Masse de rutile non donnée (« same preparation conditions ») et rutile non distingué de l'anatase dans la liste des matériaux (une seule référence « Titanium(IV) oxide, −325 mesh »). Le témoin compare donc deux poudres dont la taille de grain et la surface ne sont pas données : la conclusion « seule l'anatase donne des ATNT » confond la phase du précurseur avec sa réactivité (taille, surface) — un témoin à granulométrie égale serait nécessaire.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Un précurseur rutile qui donne entièrement du titanate en 24 h à 130 °C alors que l'anatase reste anatase est surprenant (le rutile est en général moins réactif en NaOH, et Li et al., cité par les auteurs, trouvaient le rutile non converti). Ce résultat, inverse de l'ordre de réactivité habituel, renforce l'hypothèse que l'« anatase » de la voie de base est du précurseur non converti, lié à la granulométrie du lot anatase plutôt qu'à sa phase.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Dissolution du rutile et recristallisation en titanate lamellaire ; la mixité nanoparticules/tubes signale une conversion hétérogène.", "sources": []},
+      "what_to_verify_before_repeating": ["masse, granulométrie et surface spécifique du rutile utilisé", "même essai avec une anatase de granulométrie comparable"]
+    },
+    {
+      "label": "TNT_130C_54h",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [],
+      "checks": [
+        {"aspect": "resultats", "finding": "Mélange anatase + titanate à 54 h, intermédiaire entre 42 h (anatase) et 60 h (titanate) : cohérent avec une conversion progressive. L'activité accrue attribuée à une « homojonction titanate/titane » n'est appuyée que par une figure de l'annexe absente du dépôt.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Conversion partielle du précurseur anatase en titanate.", "sources": []},
+      "what_to_verify_before_repeating": ["fraction de phase par DRX quantitative"]
+    },
+    {
+      "label": "C-ATNT",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "écart spin-orbite Ti 2p du C-ATNT", "inputs": "458,4 / 464,2 eV et 460,4 / 466,2 eV", "formula": "Δ = E(2p1/2) − E(2p3/2)", "result": "5,8 eV pour les deux doublets", "compared_to": "Ti(IV) 5,66–5,77 eV ; Ti(III) à 457,13 eV (2p3/2), plus bas que Ti(IV) à 458,59 eV", "source": "valeurs de l'article ; Biesinger et al. 2010"},
+        {"what": "perte de surface spécifique à la calcination", "inputs": "titanate 109,6 m2/g ; C-ATNT 21,9 m2/g", "formula": "21,9 / 109,6", "result": "20 % de la surface conservée (perte de 80 %)", "compared_to": "tubes « plus courts » mais conservés selon les images", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Calciner un vrai Na2Ti3O7 à 400 °C ne donne pas d'anatase pure : le sodium stabilise la structure titanate jusqu'à ≈ 700 °C, tandis qu'un titanate protoné (pauvre en Na) se transforme en anatase dès 200–400 °C en gardant la forme de tube. Obtenir de l'« anatase pure » à 400 °C implique donc que le précurseur était déjà largement protoné par le lavage HCl 1 M, ce qui contredit l'appellation « Na2Ti3O7 » utilisée pour l'échantillon de départ (et pour l'échantillon comparé en photocatalyse).", "status": "probleme", "basis": "litterature", "source": {"title": "Characterization of Hydrothermally Prepared Titanate Nanotube Powders by Ambient and In Situ Raman Spectroscopy", "authors_or_publisher": "S.-J. Kim, Y.-U. Yun, H.-J. Oh, S. H. Hong, C. A. Roberts, K. Routray, I. E. Wachs (J. Phys. Chem. Lett. 1, 130–135)", "year": "2010", "url_or_doi": "10.1021/jz900025r"}},
+        {"aspect": "redox", "finding": "Les composantes à 460,4 et 466,2 eV, à plus HAUTE énergie de liaison que Ti(IV), sont attribuées à des « satellites shake-up de Ti3+ ». C'est physiquement inversé : Ti(III) apparaît à plus basse énergie (Ti 2p3/2 ≈ 457,1 eV contre 458,6 eV pour Ti(IV) anatase), et les satellites shake-up de TiO2 sont environ 13 eV au-dessus de la raie principale. Une composante à +2 eV relève plutôt d'une charge différentielle ou de Ti–OH/Ti–F. L'existence de Ti3+ et de lacunes d'oxygène dans le C-ATNT, qui sert d'explication à sa sélectivité CO, n'est pas démontrée (pas de RPE ni de composante basse énergie).", "status": "probleme", "basis": "litterature", "source": {"title": "Resolving surface chemical states in XPS analysis of first row transition metals, oxides and hydroxides: Sc, Ti, V, Cu and Zn", "authors_or_publisher": "M. C. Biesinger, L. W. M. Lau, A. R. Gerson, R. St. C. Smart (Applied Surface Science 257, 887–898)", "year": "2010", "url_or_doi": "10.1016/j.apsusc.2010.07.086"}},
+        {"aspect": "thermique", "finding": "Calcination 400 °C, 5 h, sans atmosphère ni rampe : 400 °C est la température usuelle de conversion titanate protoné → anatase en conservant les tubes, mais la perte de 80 % de la surface (calcul « perte de surface ») est forte pour des tubes conservés ; elle évoque un effondrement partiel ou un frittage, cohérent avec les tubes « plus courts ». Sous air, aucune raison d'attendre du Ti3+.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Déshydratation topotactique d'un titanate protoné H2Ti3O7 (ou NaxH2–xTi3O7 pauvre en Na) en anatase vers 300–400 °C, avec raccourcissement et frittage partiel des tubes ; un titanate riche en Na resterait titanate à cette température.", "sources": [{"title": "Characterization of Hydrothermally Prepared Titanate Nanotube Powders by Ambient and In Situ Raman Spectroscopy", "authors_or_publisher": "S.-J. Kim et al. (J. Phys. Chem. Lett.)", "year": "2010", "url_or_doi": "10.1021/jz900025r"}]},
+      "what_to_verify_before_repeating": ["teneur en Na du titanate avant calcination", "masse calcinée, atmosphère, rampe, creuset", "ajustement Ti 2p avec composante Ti3+ à plus basse énergie, ou RPE"]
+    },
+    {
+      "label": "Photocatalysis_film_reactor",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de NaHCO3", "inputs": "0,12 g ; M(NaHCO3) = 84,01 g/mol", "formula": "n = m / M", "result": "1,428 mmol", "compared_to": "HCl injecté (volume non donné)", "source": "masse molaire calculée"},
+        {"what": "volume de HCl 0,35 M nécessaire pour libérer tout le CO2", "inputs": "1,428 mmol NaHCO3 ; HCl 0,35 M", "formula": "V = n / C", "result": "4,08 mL", "compared_to": "volume d'injection non donné par l'article", "source": "stœchiométrie NaHCO3 + HCl → NaCl + H2O + CO2"},
+        {"what": "pression partielle de CO2 si tout le NaHCO3 réagit", "inputs": "1,428 mmol ; 150 mL ; 298 K", "formula": "p = nRT/V", "result": "23,6 kPa (≈ 0,24 bar) en plus de l'argon", "compared_to": "réacteur scellé au septum", "source": "loi des gaz parfaits"},
+        {"what": "CH4 produit en 1 h", "inputs": "48 μmol g–1 h–1 ; 50 mg", "formula": "n = r × m × t", "result": "2,40 μmol de CH4, soit 19,2 μmol d'électrons (8 e– par CH4)", "compared_to": "CO2 disponible", "source": "valeurs de l'article"},
+        {"what": "conversion du CO2 recalculée", "inputs": "CH4 48 μmol g–1 h–1 ; « CO2 » 1293 μmol g–1 h–1 mesuré sans catalyseur ; 1,428 mmol NaHCO3", "formula": "48/1293 ; 2,40 μmol / 1428 μmol", "result": "3,71 % (définition des auteurs) ; 0,17 % si tout le NaHCO3 est converti en CO2", "compared_to": "3,7 % annoncé", "source": "valeurs de l'article"},
+        {"what": "CO2 implicite dans la normalisation des auteurs", "inputs": "1293 μmol g–1 h–1 × 0,05 g × 1 h", "formula": "n = r × m × t", "result": "64,7 μmol de CO2, ce qui ne demanderait que 0,18 mL de HCl 0,35 M", "compared_to": "1428 μmol de CO2 libérables par 0,12 g de NaHCO3", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "La « production de CO2 » de 1293 μmol g–1 h–1 est mesurée « en l'absence de NC-ATNT » mais rapportée à un gramme de catalyseur : la normalisation n'a pas de sens physique sans catalyseur, et la valeur implique 64,7 μmol de CO2 dans le réacteur, soit 4,5 % seulement de ce que 0,12 g de NaHCO3 peut libérer (calculs « CO2 implicite » et « conversion du CO2 recalculée »). Selon que l'on rapporte le CH4 au CO2 mesuré ou au CO2 libérable, la conversion vaut 3,7 % ou 0,17 %. Le volume de HCl injecté n'est pas donné, ce qui rend la pression de CO2 et donc l'activité impossibles à reproduire.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "48 μmol g–1 h–1 de CH4 avec un TiO2 non modifié, soit 2,5 fois la meilleure valeur du tableau 1 de l'article pour un TiO2 seul (19,55) et environ 10 fois les valeurs habituelles. Les témoins sans catalyseur et sans lumière sont faits, mais aucun marquage isotopique 13CO2 n'exclut un carbone parasite (carbonate absorbé par NaOH, résidus), alors que c'est le contrôle de référence pour attribuer du CH4 à la réduction du CO2 sur TiO2.", "status": "reserve", "basis": "litterature", "source": {"title": "Photocatalytic Reduction of CO2 on TiO2 and Other Semiconductors", "authors_or_publisher": "S. N. Habisreutinger, L. Schmidt-Mende, J. K. Stolarczyk (Angew. Chem. Int. Ed. 52, 7372–7408)", "year": "2013", "url_or_doi": "10.1002/anie.201207199"}},
+        {"aspect": "resultats", "finding": "Rendement quantique apparent de 0,95 % à 365 nm : intensité I et surface éclairée A des équations 1–2 non données, valeur impossible à recompter.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Séchage de 10 mL d'eau à 70 °C pendant 10 h en étuve : sous le point d'ébullition, faisable en réacteur ouvert. La position du NaHCO3 par rapport au film (même fond de réacteur ou godet séparé) n'est pas dite : si la solution de HCl injectée mouille le film, la réaction n'est plus en phase vapeur.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "redox", "finding": "Ec = −0,25 V contre −0,24 V pour CO2/CH4 : marge de 10 mV seulement, et les positions de Mulliken (échelle NHE à pH 0 implicite) sont comparées à des potentiels redox à pH 7 ; la référence des potentiels de bande plate (−0,11 V) n'est pas dite. L'argument thermodynamique « positions efficaces » est donc fragile.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Réacteur scellé : la libération de CO2 ajoute ≈ 0,24 bar (calcul « pression partielle »), tolérable ; CO toxique et CH4 inflammable en très faibles quantités ; lampe Xe 300 W (UV, protection des yeux).", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Photoréduction en phase vapeur : électrons de la bande de conduction transférés au CO2 adsorbé (souvent via carbonates/bicarbonates de surface), trous oxydant l'eau ; la sélectivité CH4 sur TiO2 non métallisé est inhabituelle et demande une confirmation isotopique avant d'en tirer un mécanisme (voie carbène ou formaldéhyde).", "sources": [{"title": "Photocatalytic Reduction of CO2 on TiO2 and Other Semiconductors", "authors_or_publisher": "S. N. Habisreutinger et al. (Angew. Chem. Int. Ed.)", "year": "2013", "url_or_doi": "10.1002/anie.201207199"}]},
+      "what_to_verify_before_repeating": ["volume de HCl 0,35 M injecté et position du NaHCO3", "intensité lumineuse et surface éclairée", "essai au 13CO2 (ou NaH13CO3) pour attribuer le CH4", "masse effective de film et mode de calcul de la conversion"]
+    },
+    {
+      "label": "PEC_working_electrode",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "charge de catalyseur sur l'électrode", "inputs": "1 mg de catalyseur dans un volume d'éthanol/eau non donné + 0,005 mL de Nafion ; 0,004 mL déposés", "formula": "m(déposée) = 1 mg × 0,004 / V(total)", "result": "incalculable (volume de dispersion non donné)", "compared_to": "photocourants comparés en μA/cm2", "source": "valeurs de l'annexe"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Volume d'éthanol/eau, concentration du Nafion et surface de l'électrode non donnés : la masse déposée est inconnue, et les photocourants (16, 10, 5,5 μA/cm2) ne sont comparables que si la charge est identique. Électrodes inversées dans l'annexe (fil de Pt comme référence, Ag/AgCl comme contre-électrode) : montage invraisemblable, probablement une inversion de rédaction, mais la référence des potentiels de Mott–Schottky (−0,11 à −0,16 V) reste incertaine.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Mott–Schottky à pente positive : type n, cohérent pour TiO2 et les titanates. La règle « bande de conduction ≈ Efb − 0,2 V » donnerait −0,31 V (NC-ATNT) contre −0,25 V par Mulliken : ordre de grandeur cohérent si les potentiels sont bien exprimés contre NHE, ce qui n'est pas dit.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Sans objet (préparation d'électrode).", "sources": []},
+      "what_to_verify_before_repeating": ["volume de dispersion, surface de l'électrode, masse déposée", "électrode de référence réelle et conversion des potentiels vers NHE"]
+    }
+  ],
+  "article_level": {
+    "summary": "Synthèse hydrothermale de Kasuga (anatase −325 mesh dans NaOH 10 M, 110–150 °C, autoclave PTFE à 50 %) sans difficulté pratique. Le point central de l'article — des nanotubes d'anatase obtenus directement — n'est pas démontré : DRX et Raman de poudre ne distinguent pas des tubes d'anatase d'un mélange de précurseur anatase non converti et de tubes de titanate, et toutes les tendances observées (temps, température, charge) suivent la cinétique de conversion d'un précurseur micrométrique dans un NaOH en excès de 26 à 80 fois. L'échantillon appelé « Na2Ti3O7 » a été lavé deux fois à HCl 1 M puis donne de l'anatase pure à 400 °C, ce qui n'est possible que pour un titanate déjà largement protoné. Les attributions XPS de Ti3+ sont inversées (composantes à plus haute énergie) ou mal appariées (écart spin-orbite de 7,6 eV). En photocatalyse, la conversion du CO2 de 3,7 % repose sur une production de CO2 normalisée par la masse d'un catalyseur absent, le volume de HCl est omis, et une activité CH4 dix fois au-dessus des TiO2 nus n'est pas confirmée par 13CO2.",
+    "author_errors_suspected": [
+      "longueur des nanotubes « jusqu'à quelques millimètres » pour un diamètre de 6 nm : probablement des micromètres",
+      "composantes Ti 2p à 460,4 et 466,2 eV (plus haute énergie) attribuées à Ti3+ ; Ti3+ est à plus basse énergie (≈ 457 eV)",
+      "doublet Ti 2p 458,4/466,0 eV du titanate avec un écart de 7,6 eV au lieu de ≈ 5,7 eV",
+      "« Na2Ti3O7 pur » après deux lavages HCl 1 M, puis converti en anatase pure à 400 °C : incompatible avec un titanate riche en Na",
+      "production de CO2 « en l'absence de catalyseur » exprimée en μmol par gramme de catalyseur et par heure ; volume de HCl 0,35 M non donné",
+      "seuil « TiO2/NaOH > 0,3 » de l'introduction, sans unité, qu'aucune condition de l'article n'atteint (0,038 en moles, 0,075 en masse)",
+      "renvoi au « Tauc's plot as shown in Figure 7b » alors que le tracé de Tauc est dans la figure 8b",
+      "électrode de référence et contre-électrode inversées dans l'annexe"
+    ],
+    "comparison_with_database": "Aucune autre synthèse de nanotubes de titanate ou de TiO2 par voie NaOH dans la base (compare.py « TiO2 » : PMC2964502, PMC5521283, PMC5858874, PMC7033158, PMC9060541 sont des voies sol-gel, imprégnation, HCl hydrothermal ou sonochimie) ; comparaison sans objet."
+  },
+  "sources_not_found": [
+    "DOI de la revue Bavykin, Friedrich, Walsh, « Protonated Titanates and TiO2 Nanostructured Materials », Adv. Mater. 18 (2006) 2807–2824 : référence trouvée (Google Scholar) mais DOI non vu, non citée comme appui",
+    "DOI de Morgado et al., « A study on the structure and thermal stability of titanate nanotubes as a function of sodium content », Solid State Sci. 8 (2006) 888–900 : non retrouvé ; Kim et al. 2010 utilisé à la place",
+    "DOI de Kukovecz et al., Surface Science Reports 2016 : non vu ; cité par la page ScienceDirect Topics",
+    "Li et al. et Poudel et al. cités par l'article : références non identifiées dans le texte (pas de bibliographie lisible)",
+    "pression de vapeur au-dessus de NaOH 10 M à 130 °C : non cherchée, borne haute prise sur l'eau pure"
+  ]
+}

@@ -1,0 +1,17 @@
+# PMC9369949 : critique scientifique (journal de décisions)
+
+- Bilan de protons : Al3+ + H2mes + H2O → Al(OH)(mes) + 3 H+ ; 4 mmol Al → 12 mmol H+ ; 6 mmol d'urée = 12 mmol NH3. L'optimum des auteurs correspond exactement à la neutralisation, et le rendement de 2 à 6 mmol vaut ≈ 0,6 × fraction de base apportée. J'ai retenu ce mécanisme stœchiométrique plutôt que « l'urée aide la déprotonation jusqu'à 6 mmol ».
+- Rocío-Bautista 2018 (RSC Adv., lu en ligne) prépare déjà le CIM-80 à l'urée (0,5 urée/Al, 150 °C, 3 h, 60 % base Al, BET 891) : écart avec CIM-80_2 (même rapport, 20 % en 24 h) noté en réserve, et la présentation de l'urée comme nouveauté face à la soude signalée au niveau de l'article.
+- « Cumulative pore volume 0,87 cm3/g » : la Fig. 4b montre que 0,87 est le maximum de dV/dD (cm3/nm/g) à 0,63 nm ; le plateau de la Fig. 4a (≈ 300 cm3 STP/g × 0,0015468) donne 0,46 cm3/g = Vtotal. Classé probleme (erreur des auteurs). L'encart de la Fig. 4a écrit aussi V0 = 0,91.
+- Isotherme d'eau : la Fig. 11a plafonne à ≈ 232 cm3/g, pas 290 ; 231,45 mg/g (texte) égale ce plateau, d'où le doute sur l'unité de l'axe. Facteurs implicites des auteurs 0,915 et 0,857 mg/cm3 au lieu de 0,804 (STP) ; les COV, eux, sont convertis correctement (60,74 cm3/g → 249,7 mg/g).
+- Rendement 85 % : absent du tableau 1 (max 67 % pour un MOF) ; classé probleme. 85 % × 688 mg théoriques = 585 mg.
+- ATG CIM-80_6 : résidu lu ≈ 31 % contre 29,6 % calculé pour Al(OH)(mes) anhydre → soutient la formule et l'absence d'eau ; le trihydrate de Rocío-Bautista donnerait 22,5 %.
+- ATG CIM-80_10 : boehmite pure → 15 % de perte vers 400–550 °C (OSTI 2020 : 16 % à 400 °C, γ complète à 550 °C) ; figure ≈ 25 % au total, texte 35 % sous 300 °C. Probleme de cohérence texte/figure ; ≈ 0,44 H2O/Al en excès (pseudo-boehmite) proposé.
+- Loi de mélange BET/V0 entre CIM-80_6 et CIM-80_10 : CIM-80_7.5 ≈ 70 % de MOF malgré une DRX « pure », CIM-80_8.5 ≈ 10 % de MOF ; d'où réserve sur la pureté de 7.5 et sur le sens du rendement de 8.5.
+- DRX γ-Al2O3 : les angles « θ » ne donnent des distances de γ-Al2O3 qu'en les lisant comme 2θ ; 46° et 66,85° hors de la plage 3–40° des Méthodes, mais la Fig. 9a va à 80° : réserve, pas probleme.
+- Nanofibres « 0,5 m / 2 mm » : Fig. 10 (barres 1 et 2 μm) montre des lamelles sub-micrométriques en boules de 5–8 μm ; 4/(ρS) donne ≈ 6–7 nm d'épaisseur. Probleme (unités impossibles).
+- FTIR : « Al=O » n'existe pas dans la boehmite (δ(OH) à 1065/1154 cm−1) ; la bande 3000–3200 cm−1 de la boehmite contient ses O–H structuraux (Kloprogge 2002), donc son absence dans le MOF ne prouve pas l'hydrophobie. Laissé en réserve car l'isotherme d'eau (type V) porte la conclusion.
+- « Directement proportionnel » taille/adsorption et « aliphatique > aromatique » avec toluène en tête : contradictions internes, classées probleme (vocabulaire qui inverse le sens du résultat).
+- Sources : Levin & Brandon 1998 (fondateur des alumines de transition) préféré à une recherche de température de transformation ; Vogels 2005 pour la précipitation homogène par l'urée. WebFetch direct en échec (DNS) : lectures faites par l'outil Parallel. DOI de Reinsch 2018 et Kloprogge 2002 non vérifiés sur Crossref (bloqué) ; rien ajouté à fondateurs.md ni constantes.md.
+- Densités de la boehmite (≈ 3,0) et de γ-Al2O3 (≈ 3,6 g/cm3) prises comme valeurs de manuel, signalées « approchées » ; elles ne fondent aucun probleme.
+- Recherches web : 6 recherches, 2 lectures de page réussies (+ 2 échecs WebFetch).

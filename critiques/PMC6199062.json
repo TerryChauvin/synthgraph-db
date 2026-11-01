@@ -1,0 +1,82 @@
+{
+  "pmcid": "PMC6199062",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "faux",
+      "where": "annotation mecanisme_analyse (Sb2S3-150), dernière phrase : rapport l-cystéine/SbCl3",
+      "extracted": "Le rapport l-cystéine/SbCl3 de 3:2 donne probablement un excès de soufre par rapport au rapport 2:3 de Sb2S3.",
+      "article_says": "3 mmol l-cysteine was dissolved in 30 mL distilled water under magnetic stirring for 15 min",
+      "fix": "3 mmol de l-cystéine (3 mmol de S si une cystéine fournit un S) pour 2 mmol de SbCl3 (2 mmol de Sb, ajoutés avec le même article : « 2 mmol SbCl3 ») donnent S:Sb = 3:2, soit exactement la stoechiométrie de Sb2S3 (Sb:S = 2:3). Il n'y a donc pas d'excès de soufre, mais un apport juste stoechiométrique (avec un rendement de décomposition de la cystéine inférieur à 100 % le soufre serait plutôt limitant). Supprimer ou corriger la phrase.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "Sb2S3-150 / Sb2S3-120 / Sb2S3-180 outcome LIB_initial_coulombic_efficiency_200mAg-1 (71 / 69 / 72.5 %) ; annotation comparaison_branches de NIB_cell_Sb2S3 (« 1281 mAh g−1 en lithium à 200 mA g−1 »)",
+      "extracted": "propriété nommée « ...200mAg-1 », valeur 71 % (69 % et 72,5 % pour 120 et 180)",
+      "article_says": "Figure 4d reveals the cycling performance of Sb2S3-120, Sb2S3-150, and Sb2S3-180 at different current densities in the voltage range of 0.01–2.0 V (vs. Li/Li+).",
+      "fix": "Le texte ne rattache pas ces capacités initiales (1369/958, 1281/911, 1058/767 et CE 69/71/72,5 %) à 200 mA g−1 : la Fig. 4d regroupe plusieurs densités de courant (200 et 500 mA g−1 cités), et la Fig. 4f à 1000 mA g−1 donne d'autres CE (68, 69, 72 %). Renommer la propriété sans « 200mAg-1 » (ex. LIB_initial_coulombic_efficiency_Fig4d) ou noter l'ambiguïté dans doubts ; même retouche dans l'annotation comparaison_branches. L'ordre 120/150/180 de la phrase est cohérent (958/1369 = 70 %, 911/1281 = 71 %, 767/1058 = 72,5 %).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "annotation pourquoi_ces_donnees : « toutes les autres quantités et durées restant celles du protocole de base »",
+      "extracted": "toutes les autres quantités et durées restant celles du protocole de base",
+      "article_says": "Comparable samples were prepared using a similar procedure at alter hydrothermal reaction temperatures of 120 °C and 180 °C, respectively.",
+      "fix": "L'article dit seulement « similar procedure » ; l'annotation l'énonce comme un fait. Reformuler (« on suppose que... ») comme le fait déjà le doute sur Sb2S3-120/180. Idem pour les branches 120 et 180 : elles n'ont ni étapes ni réactifs propres, donc leur seul paramètre cité est la température.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Sb2S3-150 / 120 / 180 outcomes : capacités initiales et CE en NIB absentes",
+      "extracted": "aucun outcome pour la première décharge/charge en NIB (988 est pourtant cité dans une annotation)",
+      "article_says": "the first discharge/charge capacities of 1069/656, 988/616, and 831/551 mAh g−1, with coulombic efficiencies of 61%, 62%, and 66%, respectively",
+      "fix": "Ajouter NIB_initial_discharge_charge_200mAg-1 : 120 = 1069/656 (CE 61 %), 150 = 988/616 (CE 62 %), 180 = 831/551 (CE 66 %). Ici le texte précise 200 mA g−1 (« Figure 5c ... at a current density of 200 mA g−1 »).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "outcomes EIS : Rct avant cyclage et Rs absents (Tables 1 et 3), pour les trois échantillons",
+      "extracted": "seules les Rct après 50 cycles (110/65/104 en LIB ; 360/280/350 en NIB) sont reprises",
+      "article_says": "Before cycle | 0.04429 | 0.04819 | 0.05202 | 0.11 | 0.21 | 0.245",
+      "fix": "Ajouter, en gardant l'ordre des colonnes 120/150/180 : NIB avant cyclage Rs 0.04429/0.04819/0.05202 Ω, Rct 0.11/0.21/0.245 Ω ; NIB après 50 cycles Rs 6.521/5.305/6.455 Ω. LIB avant cyclage Rs 0.001242/0.001629/0.002298 Ω, Rct 0.005954/0.007886/0.008348 Ω ; LIB après 50 cycles Rs 16.83/3.135/3.997 Ω. Le texte confirme les Rct NIB avant cyclage (0.21 pour 150, 0.11 pour 120, 0.245 pour 180). Valeurs LIB avant cyclage très faibles (ordre du mΩ) : article tel quel, à signaler en doute, pas à corriger.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "outcomes LIB à 1000 mA g−1 : CE initiale et CE à 100 cycles absentes",
+      "extracted": "seule la capacité à 100 cycles est reprise (469 / 90 / 179)",
+      "article_says": "The cycling performance of Sb2S3-120, Sb2S3-150, and Sb2S3-180 electrodes at a high current density of 1000 mA g−1 in the voltage range of 0.01–2.0 V (vs. Li/Li+) is verified in Fig. 4f, showing initial coulombic efficiencies of 68%, 69%, and 72%, respectively.",
+      "fix": "Ajouter la CE initiale à 1000 mA g−1 (120 = 68 %, 150 = 69 %, 180 = 72 %), la CE à 100 cycles de 150 (98 %) et de 120 (88 %), et la CE de 150 en NIB à 50 cycles (98 %, avec 90 % et 94 % pour 120 et 180). Facultatif selon la politique de granularité de RUNBOOK.md.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "NIB_cell_Sb2S3 caractérisation galvanostatic charge/discharge : instrument et température",
+      "extracted": "instrument Neware ; conditions « room temperature » ; quote : « were each assessed at current densities of 50, 100, ... »",
+      "article_says": "The charge/discharge measurements of the Sb2S3 electrodes were taken on a Neware battery test system at room temperature.",
+      "fix": "La citation attachée à la caractérisation NIB ne contient ni l'instrument ni la température. Remplacer ou compléter par la phrase ci-dessus (qui vaut pour LIB et NIB : « All batteries ... Sb2S3 electrodes »).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 3,
+    "branches_extracted": 3,
+    "not_stated_checked": 56,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "pureté et fournisseur de l-cystéine, SbCl3, éthanol absolu (aucun n'est donné, et l'annexe ne contient que des figures)",
+    "vitesse d'agitation, température d'agitation, vitesse d'addition de SbCl3 et pH de la suspension laiteuse",
+    "taux de remplissage de l'autoclave non donné (60 mL de liquide dans 80 mL, soit 75 % si tout est transféré, non écrit) ; montée en température et refroidissement non décrits",
+    "séparation du solide (centrifugation ou filtration) et nombre exact de lavages (« several times »), volume de lavage ; pression du séchage sous vide ; rendement massique",
+    "syntheses 120 et 180 °C : « similar procedure » seulement ; aucune quantité ni durée répétée",
+    "électrode : collecteur de courant, méthode d'enduction, séchage de l'électrode, surface, pressage, volume d'eau ; attribution des chiffres du rapport 1:1:3 non écrite (ordre CMC, noir d'acétylène, matière active supposé)",
+    "cellules : type de pile (coin cell ou autre), volume d'électrolyte, dimensions de l'électrode, du séparateur et du métal (Li, Na), pureté du Li, du Na, de LiPF6 et NaClO4",
+    "tests électrochimiques : séquence exacte (nombre de cycles de formation, repos avant cycle), base de calcul de la capacité (masse de Sb2S3 seule ?), fréquence et amplitude de l'EIS, tension de l'EIS",
+    "caractérisation : source de rayonnement et vitesse de balayage de la DRX, tension d'accélération du TEM/HRTEM, tension et courant FIB, préparation des échantillons",
+    "incohérences internes de l'article : 458 (Conclusion) contre 469 mAh g−1 (Résultats, Tableau 2) à 1000 mA g−1 après 100 cycles ; capacités initiales Li « 1370/958, 1281/912 » contre « 1369/958, 1281/911 » ; légende du Tableau 4 dit LIBs au lieu de NIBs"
+  ],
+  "mechanism_check": "à revoir : mecanisme_auteurs (Ostwald, nanofils vers sphères creuses) est bien appuyé par la citation ; mecanisme_auteurs LIB (conversion puis alliage) l'est aussi. En revanche mecanisme_analyse contient une erreur de stoechiométrie (3 mmol de cystéine pour 2 mmol de SbCl3 donne S:Sb = 3:2, c'est-à-dire juste Sb2S3, pas un excès de soufre). Le reste de l'analyse (hydrolyse de SbCl3, cystéine source de soufre) est signalé comme hypothèse, acceptable.",
+  "notes": "Lecture complète du corps, des légendes (Fig. 1 à 5), des Tableaux 1 à 4 et de l'annexe (qui ne contient que les légendes Fig. S1 à S4, aucune donnée de synthèse) : aucune information de synthèse manquante n'est cachée dans l'annexe. Les 56 cases not_stated vérifiées (rendement, pureté, fournisseurs, vitesses, pH, taux de remplissage, pression, collecteur, enduction, séchage d'électrode, type de pile, volumes) sont bien absentes de l'article. Valeurs numériques de synthèse (3 mmol, 30 mL, 2 mmol, 30 mL, 15 et 35 min, 80 mL, 150 °C, 12 h, 80 °C, 5 h) toutes correctes ; rangées des Tableaux 1 et 3 correctement rattachées (colonnes 120/150/180) ; capacités LIB/NIB de débit (1379...541, 990...239) bien classées. Jugement non appuyé par un passage, donc pas un constat : Sb2S3-120 marqué succeeded:false alors que les auteurs ne parlent pas d'échec et le testent comme anode (la phase Sb8O11Cl2 est bien notée dans le texte) ; déjà consigné dans doubts, à trancher par l'orchestrateur. Le sens du rapport 1:1:3 reste ambigu ; la lecture retenue est plausible mais non vérifiable. La branche Electrode_Sb2S3 unique pour trois échantillons est cohérente avec le texte."
+}

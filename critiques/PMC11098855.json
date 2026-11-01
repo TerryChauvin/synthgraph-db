@@ -1,0 +1,85 @@
+{
+ "pmcid": "PMC11098855",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "faux",
+   "where": "MCF@SiO2, MCF@SiO2-Pr-Cl, MCF@SiO2-Pr-ABT, MCF@SiO2-Pr-ABT@ZnCl2 : réactif intermédiaire (MCF, MCF@SiO2, MCF@SiO2-Pr-Cl, MCF@SiO2-Pr-ABT), champ supplier",
+   "extracted": "supplier = « Merk, Fluka, and Aldrich » avec supplier_quote « All chemicals and solvents were purchased from Merk, Fluka, and Aldrich chemical companies and used without further purification. »",
+   "article_says": "All chemicals and solvents were purchased from Merk, Fluka, and Aldrich chemical companies and used without further purification.",
+   "fix": "les quatre réactifs de rôle intermediate sont préparés par les auteurs dans la voie précédente (voir les sections de préparation) : ils ne sont pas achetés ; mettre supplier à null (et citer la voie d'origine dans name), la grille ne demande ni pureté ni fournisseur pour un intermédiaire (RUNBOOK, rôle intermediate)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MCF@SiO2-Pr-ABT@ZnCl2 résultats : analyse EDS quantitative (Fig. 4)",
+   "extracted": "EDS : seulement la liste des éléments (Mn, Co, Fe, Si, O, C, Cl, N, S, Zn), aucun outcome chiffré",
+   "article_says": "EDX analysis of MCF@SiO2-Pr-ABT@ZnCl2 MNPs is displayed in Fig. 4.",
+   "fix": "lire le tableau imprimé sur la Fig. 4 (gr4.jpg, lisible sans ambiguïté) : W% / A% C 5.45/11.38, N 2.54/4.55, O 36.74/57.57, Si 3.91/3.49, S 0.15/0.12, Cl 0.36/0.25, Mn 6.59/3.01, Fe 34.67/15.57, Co 9.26/3.94, Zn 0.33/0.13 ; les ajouter en outcomes avec from_figure « Fig. 4 » et la légende « Fig. 4 EDX analysis of MCF@SiO2-Pr-ABT@ZnCl2 MNPs. » en citation",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MCF@SiO2-Pr-ABT : method_sources",
+   "extracted": "pas d'entrée pour la voie MCF@SiO2-Pr-ABT (bib30 n'est rattaché qu'à MCF@SiO2-Pr-Cl)",
+   "article_says": "Then, surface of MCF@SiO2 MNPs was functionalized by the CPTS and 2-ABT",
+   "fix": "le renvoi bib30 est placé dans la phrase des Résultats qui décrit à la fois le greffage de CPTS et celui de l'ABT ; ajouter {route: MCF@SiO2-Pr-ABT, ref_id: bib30, role: protocole_adapte} avec cette phrase (sans le renvoi) ; le protocole des Méthodes de cette voie n'a lui-même aucun renvoi, d'où probable",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MCF@SiO2-Pr-ABT@ZnCl2 résultats : réutilisation, fuite de zinc par cycle (Fig. 9)",
+   "extracted": "seule la fuite finale de 6 % est extraite (Zn_leaching_after_fifth_run)",
+   "article_says": "the leaching rate of zinc from the MCF@SiO2-Pr-ABT@ZnCl2 nanoparticles was quantified through ICP analysis after each cycle.",
+   "fix": "Fig. 9 (gr9.jpg) porte la fuite par cycle sur l'axe de droite : cycle 1 ≈ 1.1 %, cycle 2 ≈ 1.5 %, cycle 3 ≈ 2.1 %, cycle 4 ≈ 6 % (frais 0 %) ; ajouter les trois premiers points en outcomes from_figure « Fig. 9 ». Les rendements 92, 90, 90, 87 % (cycles 1 à 4) et 93 % (frais) lus par l'extracteur sont corrects (écart nul)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MCF@SiO2-Pr-ABT@ZnCl2 résultats : filtration à chaud",
+   "extracted": "un seul point, hot_filtration_yield_after_60_min_catalyst_removed = 55 % (figure) ; la valeur écrite dans le texte n'est pas reprise",
+   "article_says": "The reaction was refluxed to achieve 50 % yield within 20 min.",
+   "fix": "ajouter la valeur du texte (50 % en 20 min avant retrait du catalyseur) avec sa citation, en gardant le doute sur 20 min (texte) contre 40 min (légende Fig. 10) ; la courbe (gr10.jpg) donne rouge 25 % à 15 min, 45 % à 30 min, 50 % à 40 min, 52 % à 50 min, 55 % à 60 min, noire 93 % à 60 min : le 55 % extrait est correct",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "MCF@SiO2-Pr-ABT@ZnCl2 résultats : Table 1 (entrées 1-14) et Table 2 (20 produits)",
+   "extracted": "outcomes model_reaction_yield_Table1_entry_N et yield_XX_Table2_entry_N : seul le rendement est chiffré",
+   "article_says": "1 | MCF@SiO2-Pr-ABT@ZnCl2 (10) | H2O | 75 | 5 h | 70",
+   "fix": "le temps de réaction de chaque rangée (Table 1 en h, Table 2 en min : 45, 40, 40, 55, 56, 65, 76, 70, 48, 48, 75, 68, 25, 20, 23, 45, 25, 55, 25, 50) n'est lu que dans la citation ; ajouter des outcomes reaction_time par rangée, ou mettre solvant, température et masse de catalyseur dans le nom de la propriété pour que la comparaison de la Table 1 se lise sans ouvrir la citation. Valeurs des rendements : toutes exactes (34 rangées contrôlées)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MCF : formule du matériau contre rapport molaire des précurseurs",
+   "extracted": "formule MnCoFe2O4 et rapport Mn:Co:Fe = 1:1:4, sans doute à ce sujet",
+   "article_says": "A mixture of Mn+2:Co+2:Fe+3 with a molar ratio (1:1:4) was resolved in deionized water (100 mL)",
+   "fix": "un rapport 1:1:4 correspond à Mn0.5Co0.5Fe2O4 (c'est la formule écrite sur la Scheme 1, sc1.jpg) et non à MnCoFe2O4 (rapport 1:1:2) ; ajouter un doute (texte MnCoFe2O4 contre Scheme 1 Mn0.5Co0.5Fe2O4 et rapport 1:1:4) sans changer la formule du texte, et une annotation limite_reproductibilite",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 0,
+  "branches_extracted": 0,
+  "routes_in_article": 5,
+  "routes_extracted": 5,
+  "samples_in_my_list": 12,
+  "samples_missing_from_inventory": 0,
+  "not_stated_checked": 55,
+  "not_stated_wrong": 0,
+  "from_figure_values_checked": 5,
+  "from_figure_gap_over_10pct": 0
+ },
+ "reproducibility_gaps": [
+  "anions et quantités absolues des sels de Mn, Co et Fe (seul le rapport 1:1:4 ; la Scheme 1 donne FeCl3·6H2O, MnCl2·4H2O, CoCl2·6H2O sans quantités)",
+  "volume d'ammoniaque de la co-précipitation, température de l'étape « heated for another 2 h » (implicite), température de l'eau « warm »",
+  "identité de CPTS (abréviation non définie : silane chloropropylé, groupe alcoxy inconnu) et de la « trimethylamine » (Et3N sur la Scheme 1)",
+  "température de reflux dans le DMF et dans l'éthanol ; contradictions texte/Scheme 1 : 95 °C contre 90 °C, 48 h contre 24 h (ABT), reflux contre r.t (ZnCl2)",
+  "durées de séchage à 70 °C, nombre de lavages (sauf toluène), vitesses d'agitation, puissance des ultrasons",
+  "protocole de catalyse : volume exact de solvant (« EtOH:H2O (5 mL) » en note de la Table 2 seulement), 1.1 mmol contre 1 mmol de malononitrile, suivi CCM sans éluant, température « reflux » contre 75 °C",
+  "Supporting Information (mmc1.docx) : uniquement des spectres IR/RMN des produits organiques, aucun complément de synthèse du catalyseur"
+ ],
+ "mechanism_check": "à revoir : la formule MnCoFe2O4 du matériau contredit le rapport 1:1:4 (Scheme 1 : Mn0.5Co0.5Fe2O4) ; le reste de mecanisme_analyse est une hypothèse correctement formulée et mecanisme_auteurs reprend bien la séquence de la Scheme 1 et le mécanisme de Knoevenagel/Michael du texte",
+ "notes": "Extraction globalement fidèle : toutes les valeurs de texte, les 34 rangées des Tables 1 et 2 et les valeurs TGA/VSM (vérifiées sur gr7, gr8) sont exactes ; les valeurs lues sur Fig. 9 et Fig. 10 sont à moins de 1 % de ma lecture. Choix de ne pas faire de voie pour la réaction organique catalysée (tests du matériau fini en outcomes) conforme au RUNBOOK ; les cinq voies à parent null (chaîne d'intermédiaires) me semblent justes, aucun échantillon de mon inventaire ne manque. Fig. 3d : la taille « 10–20 nm » du texte est la classe modale (20 comptages sur 37, de 10 à 70 nm), la moyenne lue est plus haute, et le texte dit que 23 nm (Scherrer) concorde : doute déjà noté par l'extracteur, pas un constat. Non vérifié : les spectres (gr1, gr2) ne sont pas comparés aux bandes citées (valeurs écrites dans le texte). Points d'interprétation sans passage : les durées « 4.20 », « 3.55 » de la Table 1 peuvent être h.min plutôt que décimales (doute déjà noté)."
+}

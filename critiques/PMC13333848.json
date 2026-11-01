@@ -1,0 +1,62 @@
+{
+ "pmcid": "PMC13333848",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Sample 1 caractérisation SEM et missing_fields 'SEM_instrument' (toutes les voies)",
+   "extracted": "SEM : instrument null, conditions null ; manque 'SEM_instrument'",
+   "article_says": "The Scanning Electron Microscopy SEM investigations were performed in the same manner as in Matyszczak et al. investigation.",
+   "fix": "Les bandeaux des images des Fig. 6a/6b et 7a/7b (corpus/fig) portent « WUT_SU8000 5.0kV … SE(U) », grossissements x20.0k (Fig. 6) et x5.00k / x3.00k (Fig. 7, l'image SnCl2 EtOH sans chalcone est à x3.00k) : renseigner instrument SU8000 (Warsaw University of Technology), tension 5.0 kV, détecteur SE, et retirer 'SEM_instrument' de missing_fields (la source est l'image, pas le texte).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Samples 3, 4, 7, 8 (sans chalcone), réactif « first 10 mL portion » de solvant ; Sample 3 sans étape qui l'ajoute",
+   "extracted": "Réactif « methanol/ethanol (first 10 mL portion) », 10 mL, citation = phrase de dissolution de la chalcone ; Sample 3 liste ce réactif hérité mais aucune de ses étapes ne l'ajoute",
+   "article_says": "First, 20 mg of synthesized chalcone (1,5-bis-(4-dimethylamino-phenyl)-penta-1,4-dien-3-one) were placed in 10 mL of corresponding solvent and stirred for 10 min to dissolution.",
+   "fix": "Pour les essais sans chalcone l'article ne dit pas si ces 10 mL sont ajoutés. Soit marquer le volume du premier lot de solvant comme déduit (et non cité) dans les branches sans chalcone, soit le retirer et signaler dans les doutes que le volume total (10 ou 20 mL) est inconnu ; dans tous les cas la citation ne soutient pas ce réactif pour ces branches. Le doute existant le mentionne, mais le réactif reste présenté comme cité.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Samples 1-8 résultats : rendement théorique (Table 2)",
+   "extracted": "Seuls percentage_yield, actual_yield et sonochemical_efficiency sont enregistrés",
+   "article_says": "Number of reaction | Theoretical yield [mg] | Actual yield [mg] | Percentage yield [%] | Sonochemical efficiency [mg/W] | Chalcone addition",
+   "fix": "Ajouter theoretical_yield = 302 mg (Samples 1-4, rangées 1-4) et 366 mg (Samples 5-8, rangées 5-8), citation = rangée du tableau.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Résultats FT-IR et XRD par échantillon (Sample 4 en particulier)",
+   "extracted": "FT-IR : « traces of solvent; chalcone-modified samples have richer, identical spectra… » sans bande ; XRD sans indexation des pics",
+   "article_says": "The bands related to Sn-S bond (range of 1000–1300 cm− 1) are especially pronounced in sample obtained from SnCl2 in ethanol,.",
+   "fix": "Ajouter à Sample 4 (SnCl2, EtOH, sans chalcone ; la Fig. 4 montre la bande large vers 1000-1100 cm-1 pour cette courbe) le résultat : bandes Sn-S (1000-1300 cm-1) particulièrement marquées ; noter aussi les bandes de solvant (1400, 1600, 3000-3500 cm-1). Fig. 3 : pics SnS indexés (200), (120), (102) fiche JCPDS 33-1735 et SnS2 (110), (101), (012) fiche JCPDS 22-0951 ; ces indexations ne sont pas enregistrées. Raman : luminescence de la chalcone à ≈ 560 nm non notée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotation pourquoi_ces_donnees (route null)",
+   "extracted": "« la chalcone sert d'additif organique de fonctionnalisation de surface, choisie pour sa solubilité dans les alcools »",
+   "article_says": "The main rationale behind choice of solvents was the very good solubility of chalcone in alcohols.",
+   "fix": "La solubilité dans les alcools motive le choix des solvants, pas celui de la chalcone ; l'article choisit la chalcone pour son grand système de doubles liaisons conjuguées, sa couleur jaune-orangé intense et ses groupes amino (« due to the presence of large system of conjugated double C=C bonds, intensive yellow-orange colour in the visible region, and the presence of amino groups »). Reformuler.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 9,
+  "not_stated_checked": 19,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "Purification des poudres (séparation, nombre de lavages, séchage) renvoyée à Matyszczak et al. 2024 (CR25), non décrite",
+  "Protocole des essais sans chalcone non écrit",
+  "Conditions du test sonocatalytique (concentration de Metanil Yellow, dose de catalyseur, volume, température, source d'ultrasons) renvoyées à CR25",
+  "Température du bain à ultrasons non donnée ; niveau d'eau et position du flacon non donnés",
+  "Séchage des cristaux de chalcone, température de cristallisation, filtre non donnés ; fréquence du bain PS-60 A non donnée",
+  "Gamme spectrale UV-Vis et préparation des suspensions éthanoliques non données ; valeurs EDS/Tauc détaillées uniquement en annexe sous forme d'images"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Tous les tableaux 1-5 et le tableau de la Fig. 5 ont été recoupés rangée par rangée avec les résultats par échantillon : aucune valeur fausse ni mal attribuée. Contradictions internes de l'article déjà signalées en doutes (conclusion « more dense » vs MEB « less pronounced » ; SnS faible pour l'échantillon 5 vu seulement dans la Fig. 5 ; le texte dit les spectres IR des échantillons à chalcone « identical » alors que la Fig. 4 montre des courbes visiblement différentes, à noter comme limite de l'article). Les images Fig. 6 confirment la sphère presque parfaite de l'échantillon 5 et la morphologie en fleurs des autres."
+}

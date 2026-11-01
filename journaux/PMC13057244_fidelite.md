@@ -1,0 +1,15 @@
+# Journal de la critique de fidélité PMC13057244
+
+- **Ma liste d'échantillons** (avant l'extraction) : spent CAM ; M1 à M12 (Tableau S1) ; NMC622 commercial MTI ; électrodes/piles de M1, M2, M8 et du commercial. Identique à `sample_inventory` ; aucun échantillon manquant.
+- **M1/M2 contre Tableau S1** : le texte donne « 1 h for M1 and 2 h for M2 » (Discussion, Conclusions, résumé « 160 °C, 4 M LiOH and 1 h »), et I003/I104 (1,18 pour M1, 0,82 pour M2) concorde avec « M2 plus de mélange cationique après 2 h ». Le Tableau S1 met l'essai 1 à 2 h. Choix de l'extracteur (texte pour M1/M2) confirmé ; pas de constat sur M1/M2.
+- **Constat attribution sur M8/M3–M12 (probable, pas sûr)** : dans le Tableau S1, chaque paire (1-2, 3-4, … 11-12) est dans l'ordre 2 h puis 1 h. Si l'inversion du tableau vaut pour toute la série, M8 serait 2 M/220 °C/2 h. Rien dans le texte ne tranche, donc `probable` ; l'extracteur applique le tableau tel quel à M3–M12 et le texte à M1/M2, sans signaler la conséquence sur M8, échantillon caractérisé.
+- **Rangées M3–M12** : contrôlées une à une (concentration, température, durée) contre le Tableau S1, variations correctes par rapport à M1 (4 M, 160 °C, 1 h).
+- **Héritage M3–M12** : non retenu comme constat, car la section Méthodes décrit un protocole unique (50 g/L, 300 rpm, filtration, lavage, séchage 90 °C 24 h, recuit 850 °C 4 h) pour les 12 essais.
+- **Solvant eau** : non retenu comme déduit : « in aqueous media » (Conclusions) et « aqueous process » (Discussion) sont explicites.
+- **Valeurs figure** (19) : Fig. 6A (pics CV ±0,05 V), 6B (M2 1600 Ω, M8 900 Ω), 6C (tableau imprimé : 116/431/449 ; 3,03E-13, 6,85E-13), 7C (M2 ≈ 121 contre 120), 8A (M2 0,5 C 63→54 contre 62 ; M8 0,5 C 83→77 contre 82 ; M8 1 C 33). Tous à moins de 10 %.
+- **Zéros de la Fig. 8A** : M2 à 1 C et 2 C et M8 à 2 C sont tracés à 0 ; l'extracteur n'a pas repris M8 à 2 C (« confondus avec zéro », faux : la figure agrandie les montre à 0). `mineur` sûr. Le zéro lui-même est jugé douteux (M2 revient à 115 mAh/g à 0,2 C ensuite) : `mineur` probable.
+- **Capacité de M1 au cycle 50** (Fig. 7B ≈ 125) laissée de côté par l'extracteur alors que M2 et M8 l'ont : `mineur` sûr.
+- **NMC622 commercial** : route nulle autorisée par le RUNBOOK ; je signale seulement que ses valeurs de comparaison (Tableau 2, Fig. 6C) ne figurent nulle part en donnée (`mineur`, probable) ; correction par annotation, pas par outcome.
+- **Conditions de mesure** : la séquence de régimes de la Fig. 8A (« every 5 cycles ») et « formation cycles at 0.05 C » de la légende Fig. 6 sont dans l'article et absents des conditions ; la Fig. 8A montre aussi un palier à 0,05 C que le texte ne liste pas.
+- **Écarté** : le 75 mAh/g à 2 C du texte (une occurrence contre 78 deux fois et figure 80→77) ; la température du repos de 8 h (lecture ambiguë, `not_stated` défendable) ; Fig. 7 contre Fig. 8B (capacités au cycle 1 différentes) : incohérence de l'article, mise en `reproducibility_gaps`.
+- **method_sources vide** : vérifié dans `corpus/refs` : tous les renvois sont dans l'introduction et la discussion, aucun dans les Méthodes.

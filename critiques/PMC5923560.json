@@ -1,0 +1,79 @@
+{
+ "pmcid": "PMC5923560",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "22C-SCMS-C_shell_6h / _12h / _24h / _48h : étapes 9 à 12 héritées (centrifugation, lavage, séchage, calcination)",
+   "extracted": "4 branches de durée de croissance de la coquille (étape 8 = 6, 12, 24, 48 h) qui héritent du parent l'isolement, le séchage et la calcination à 550 °C, sans résultat chiffré",
+   "article_says": "Additionally, for the samples formed at 22 °C, four fractions were collected after 6, 12, 24, and 48 h of mesoporous shell formation.",
+   "fix": "l'article dit seulement que des fractions ont été « collected » ; il ne dit pas qu'elles ont été centrifugées, lavées, séchées ni calcinées (l'épaisseur du tableau 1 est pourtant calculée sur SCMS-C moins SC). Soit donner aux branches leurs propres étapes (prélèvement de la fraction à t), soit déclarer isolement et calcination dans not_stated avec le doute existant ; ajouter à chaque branche un résultat shell_thickness en value_text (« indépendante de la durée au-delà de 6 h ») avec la phrase de 3.1 en citation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "60C-SCMS-C outcomes",
+   "extracted": "hystérésis et vides interparticulaires seulement ; pas de macropores",
+   "article_says": "It is likely related to the formation of some macropores, noticed only for this sample, that seem to be too large to effectively keep the dye molecules adsorbed.",
+   "fix": "ajouter un résultat (value_text) « quelques macropores observés seulement pour cet échantillon » sur 60C-SCMS-C, avec cette phrase en citation ; c'est l'explication des auteurs de l'adsorption plus faible à 60 °C",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "8C/15C/45C/60C-SCMS-C et 22C-SCMS-C étapes 3 et 8 : température",
+   "extracted": "seule l'étape 1 porte un paramètre temperature ; les étapes 3 (agitation 6 h) et 8 (agitation de nuit) n'en ont pas",
+   "article_says": "the mixture was stirred overnight at a given temperature (the same as for the formation of cores)",
+   "fix": "l'article écrit explicitement que l'étape 8 (et l'étape 3, « at the same temperature ») se fait à la température de synthèse : ajouter ce paramètre aux étapes 3 et 8 de la voie de base et une variation correspondante dans chaque branche en température (aujourd'hui une branche 8 °C affiche une agitation de nuit sans température). Les étapes 4 à 7 (dilution, CTAB, 30 min, TEOS) ne disent rien sur la température : à déclarer dans not_stated",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "22C-SCMS-C mecanisme_auteurs, quote",
+   "extracted": "citation : « It should be related to the dependence of critical micelle concentration (CMC) on the temperature. » pour un texte qui invoque aussi la température de Krafft (10 °C) et la solubilité limitante du CTAB",
+   "article_says": "It should be related to the lower concentration of the surfactant at 8 °C disabling the formation of micelles, as it was similarly reported for non-ionic surfactants",
+   "fix": "citer aussi (ou à la place) cette phrase, qui appuie la partie « sous la température de Krafft la solubilité du CTAB limite les micelles » ; la phrase actuelle n'appuie que la partie CMC",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "sample_inventory, entrées 8 °C-SCMS, 22 °C-SCMS, 45 °C-SCMS, 60 °C-SCMS : results_in",
+   "extracted": "« Fig. 7 (15 °C) » pour les cinq SCMS non calcinés",
+   "article_says": "see absorbance for 15 °C-SC and 15 °C-SCMS in Figure 7",
+   "fix": "seul 15 °C-SCMS figure sur la figure 7 (les autres courbes de la figure 7 sont des SCMS-C) : retirer « Fig. 7 (15 °C) » des entrées 8, 22, 45 et 60 °C-SCMS",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "22C-SCMS-C characterizations TEM, conditions",
+   "extracted": "conditions : 200 kV seulement ; pas d'imagerie STEM-HAADF",
+   "article_says": "Scanning Transmission Electron Microscopy (STEM) imaging was performed using a high-angle annular dark-field (HAADF) detector. Before analysis, the samples were ultrasonically dispersed in ethanol and dropped on a Lacey type copper grid (200 mesh)",
+   "fix": "ajouter aux conditions du TEM la préparation (dispersion aux ultrasons dans l'éthanol, dépôt sur grille de cuivre Lacey 200 mesh) et la mention STEM-HAADF (figure 1B, 15 °C-SCMS-C)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Mesure de la température de Krafft (conductimétrie) : aucune donnée structurée",
+   "extracted": "échantillon inventorié avec route null ; la valeur 10 °C n'apparaît que dans des annotations",
+   "article_says": "The results showed that TK, taken as the temperature at which a sharp change in the conductivity versus temperature plot occurred, is equal to 10 °C in the applied solvent (see Figure 2).",
+   "fix": "enregistrer TK = 10 °C (CTAB 0,01 M dans eau/éthanol 25 %, figure 2, conductimètre CX-741 étalonné avec KCl 0,01 M) comme résultat de la voie 22C-SCMS-C ou comme annotation tendance_observee avec cette citation ; la figure 2 confirme la cassure à 10 °C (≈ 175 µS/cm)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 14,
+  "branches_extracted": 14,
+  "not_stated_checked": 26,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masse de CTAB ou concentration de la solution mère (seule la concentration finale 0,01 M est donnée) et composition exacte du mélange éthanol/eau de cette solution",
+  "vitesse et mode d'agitation (« vigorous stirring » seulement), vitesse d'ajout du TEOS, durée et température de mise à l'équilibre thermique avant l'ajout (comment 8 °C est maintenu : bain, thermostat)",
+  "température des étapes de dilution (200 mL d'eau) et d'ajout du CTAB : non dite, alors que 200 mL d'eau à température ambiante modifierait le mélange à 8 °C",
+  "nombre et volume des lavages à l'éthanol, température de la centrifugation ; isolement du core-shell décrit seulement par « the same way as the core particles »",
+  "durée « overnight » non chiffrée (étape 8 et séchage), type de four et refroidissement de la calcination, rendement",
+  "procédure d'isolement et de calcination des quatre fractions de 6 à 48 h, aucune valeur d'épaisseur chiffrée",
+  "annexe : figures S1–S7 présentes par leurs légendes seulement ; origine du choix de 22 °C comme référence (aucun échantillon de base désigné)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs repose sur CMC, point de Krafft et densité des micelles, tous écrits dans 3.1 et 3.2 ; mecanisme_analyse est formulé en hypothèse. Seule la citation est à compléter (constat mineur).",
+ "notes": "Liste d'échantillons faite avant l'extraction : SC et SCMS à 8, 15, 22, 45, 60 °C (+ SCMS-C), fractions 22 °C à 6/12/24/48 h, solutions CTAB pour la conductimétrie, substrat Si/PEI : identique à sample_inventory, rien d'absent. Toutes les valeurs du tableau 1 (10 diamètres, 5 épaisseurs), 464/307/345 m2/g, 95 %/73 % vérifiées sur le texte ; 19 valeurs from_figure vérifiées sur les images : Fig. 5A (371, 393), Fig. 5B (32, 31, 33, 39, 41 Å lus dans la légende), Fig. 6 (0,031 ; 0,045 ; 0,034 ; 0,024 ; 0,025), Fig. 7 (0,64 SC ; 0,71 SCMS ; solution de départ 0,84), Fig. 8 (0,79 ; 0,82 ; 0,80 ; 0,70 ; 0,62) : écarts < 3 %, aucun constat. Contradiction de l'article déjà en doute : 8 °C « ca. 25% lower » (≈ 348) contre 371 m2/g sur la figure. Les valeurs de pores du texte (≈ 3,2 nm à basse température, ca. 4,0 nm à 45 et 60 °C) ne sont pas citées mais concordent avec les valeurs de la figure. Le choix de 22 °C comme voie de base est arbitraire mais documenté. Un seul method_sources (B24) : complet ; B3, B25, B29 à B36 sont des renvois de contexte ou d'interprétation."
+}

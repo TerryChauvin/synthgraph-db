@@ -1,0 +1,16 @@
+# Journal d'extraction PMC11012633 (CsPbBr3 QDs, injection à chaud avec ZnBr2)
+
+- Découpage : voie de base `CsPbBr3_150C`, trois branches en température (`CsPbBr3_130C`, `_110C`, `_90C`) et une branche `CsPbBr3_Br10` pour la série Br:Pb = 10:1. Le précurseur Cs-oléate est une voie `intermediate` à part (`CsOA_precursor`), réutilisée dans la voie de base par un réactif de rôle `intermediate`.
+- Température de la voie de base : les Méthodes ne donnent aucune valeur (« the temperature was set to a different temperature »). 150 °C est pris dans la phrase des Résultats « (150 °C, 130 °C, 110 °C, 90 °C) », parce que c'est le premier échantillon cité, le panneau 1A, et celui de l'EIS (« fabricated at a temperature of 150 °C »). Doute consigné.
+- Rapport Br:Pb de la série en température : non écrit pour la figure 1. J'ai retenu 6:1 car l'article compare la figure S1 à la figure 1 « from Br: Pb = 6:1 to Br: Pb = 10:1 » ; ZnBr2 = 0,17 g est donc mis dans la voie de base. Le calcul de bilan (0,376 mmol PbBr2 + 0,755 mmol ZnBr2 → Br/Pb ≈ 6,0) est cohérent et noté en `mecanisme_analyse`.
+- Branche `CsPbBr3_Br10` : une seule branche pour toute la série de la figure S1 (absente du dépôt). Variations : ZnBr2 « twice as much » (en `value_text`, je n'ai pas converti en 0,34 g) et température « same reaction temperature » (pour éviter d'hériter 150 °C à tort). Résultat uniquement qualitatif (« smaller »).
+- Température de l'étape « react » (30 s) : déclarée non citée ; l'article ne la distingue pas de la température d'injection et la règle interdit de la supposer.
+- Tailles : attribuées par l'ordre « from high to low reaction temperature » (5,7 / 4,9 / 3,9 / 3,5 nm), confirmé par les histogrammes de la figure 1E–H (valeurs d inscrites sur chaque panneau).
+- Pics optiques : phrase à liste (« 494, 484, 474 to 464 » ; « 485, 474, 459 to 450 ») attribuée dans l'ordre 150, 130, 110, 90 °C ; confirmé par les étiquettes « Abs. peak / PL peak » de la figure 3A–D. Valeurs du texte, donc sans `from_figure`.
+- Valeurs lues sur figure : seulement la photocurrent de la figure 4B (≈ 0,35 puis ≈ 0,28 µA cm−2, première et sixième illuminations), précision ± 0,02. L'EIS n'est pas quantifiée (pas de valeur dans le texte, courbe de Nyquist non ajustée).
+- Contradiction : code ICSD 029073 dans le texte (renvoi figure S3) contre ICSD#01-075-0412 sur la figure 2A. Je recopie le texte et signale le doute. L'échantillon de la DRX et de la XPS n'est pas dit : rattaché à la voie de base.
+- Échantillon « méthode générale » (figure S2) laissé sans voie (`route: null`) : protocole absent, figure absente.
+- Électrochimie : pas de voie `device`, l'électrode de travail n'est pas décrite ; EIS et photocourant sont en `characterizations` de la voie de base.
+- `method_sources` vide : les renvois [B38] (théorie de LaMer, contexte), [B39]–[B44] (interprétation XRD, optique, XPS) ne portent pas sur une préparation ; « general hot injection method » n'est relié à aucune référence.
+- Pureté et fournisseur : phrase de la section 2.1 découpée par réactif (chaque réactif a sa propre mention Aladdin et sa pureté). Eau, azote : absents des réactifs.
+- Annexes : figures S1, S2, S3, S4, S5, S7 citées mais absentes ; annotation `limite_reproductibilite` « Annexe absente du dépôt ».

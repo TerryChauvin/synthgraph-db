@@ -1,0 +1,15 @@
+# PMC3998862 — critique scientifique (journal de décisions)
+
+- Plasmon 445 nm contre MET 11 nm classé `probleme` : Paramelle 2014 (tableau S1) donne 392,1 nm à 10 nm et 443,8 nm à 70 nm ; Agnihotri 2014 donne 398 nm à 10 nm et 449 nm à 85 nm. Une couronne organique n'explique pas 50 nm de décalage. Pas classé en erreur de taille MET : l'écart peut venir d'agrégats ou du fond d'extrait, mais les deux valeurs ne décrivent pas le même objet.
+- Absorbance attendue recalculée : 0,91 mM Ag, ≈ 4,1 × 10^4 atomes par particule de 11 nm, ε ≈ 7,8 × 10^8 M−1 cm−1 (interpolé entre 10 et 12 nm) → A ≈ 17 contre ≈ 1 mesuré. Laissé en `reserve` et non en `probleme`, car une dilution non écrite suffit à l'expliquer ; mais « yield » et « conversion » ne sont pas mesurés.
+- IRTF 2 918,77 cm−1 = « N–H » classé `probleme` : c'est l'élongation C–H des CH2 (chimie générale, pas de source cherchée) ; conséquence, aucune bande ne soutient un enrobage aminé.
+- DRX : écarts aux positions de la fiche 04-0783 (a = 4,0862 Å, valeur de manuel) de +0,41 / 0 / −0,21 / +0,16° : non systématiques, donc lecture ou recopie et non décalage de zéro. Laissé en `reserve` ; Scherrer recalculé à moins de 0,7 % près (ok).
+- Pouvoir réducteur : électrons comptés à 2 par catéchol (rutine) et 2 à 4 par pyrogallol (équivalent acide gallique) ; les phénols de Folin englobent les flavonoïdes, donc pas d'addition des deux. Résultat 3 à 6 e− par Ag+ à 1 mM, 1,5 à 3 à 2 mM.
+- Centrifugation : rayon de rotor de 8 cm supposé (l'article ne donne que des rpm). Le calcul de Stokes (≈ 16 min par cm) est appuyé par Paramelle, qui centrifuge des AgNPs de 10 nm 90 min à 15 000 rcf.
+- Flavonoïdes 4,0 > phénols 2,6 mg/mL : pas jugé erreur, les étalons diffèrent (en moles 6,6 < 15,3 mM). La teneur de 4 % de la masse de plante reste non vérifiée (pas de valeur publiée trouvée).
+- « Fresh » contre plante achetée : la revue PubMed 36046524 définit la drogue comme parties aériennes séchées. Classé `reserve` (cohérence entre sections, facteur 3–5 sur la concentration).
+- Citrate : stœchiométrie à 2 e− par citrate (oxydation en acétonedicarboxylate) ; écarté le bilan « 4 Ag+ par citrate » lu sur une page commerciale (BenchChem), source non fiable. Dong 2009 retenu pour l'effet du pH (plage étudiée 5,7–11,1). Ksp d'Ag3PO4 et pKa du phosphate pris de mémoire de manuel, signalés comme non revérifiés.
+- MTT : Bruggisser 2002 retenu pour l'interférence des polyphénols ; point mis en `reserve` car hors de la synthèse, mais il touche la conclusion principale de l'article.
+- Branches jugées : 2 mM, 75 mL d'extrait, 60 °C (celles qui changent le rapport réducteur/Ag ou la cinétique). Les autres branches de la série n'apportent pas de chimie nouvelle.
+- Recherches web : 3 WebSearch, 2 recherches Parallel, 2 lectures de page utiles (Paramelle article et annexe ; Agnihotri) ; 2 lectures directes de pubs.rsc.org ont échoué (DNS). Rien ajouté à fondateurs.md ni à constantes.md (Crossref bloqué).
+- DOI non vérifiés sur Crossref : 10.1039/C4AN00978A (titre confirmé sur la page RSC), 10.1055/s-2002-32073 et 10.1021/jp900775b (confirmés par les pages de résultats de recherche).

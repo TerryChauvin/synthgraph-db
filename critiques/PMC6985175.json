@@ -1,0 +1,63 @@
+{
+  "pmcid": "PMC6985175",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "NPG outcomes, refractive_index = 1.462",
+      "extracted": "refractive_index = 1.462 attribué à la voie NPG comme résultat (citation sans renvoi)",
+      "article_says": "The nanocrystals in OIiG are surrounded with glass with a refractive index of 1.462",
+      "fix": "corpus/refs/PMC6985175.txt place le renvoi [[CR14]] (Ning et al., verre à haute teneur en silice, travail antérieur) juste après 1.462 : c'est une valeur de la littérature, pas une mesure faite sur le verre nanoporeux de cet article. Retirer le résultat de NPG, ou le garder avec une annotation disant que la valeur vient de la référence CR14 (et non de l'article), pour ne pas la présenter comme mesurée",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "OIiG reagent « perovskite powders (Phe) », formula (C6H5C2H4NH3)2PbBr4",
+      "extracted": "perovskite powders (Phe), formule (C6H5C2H4NH3)2PbBr4, rôle precursor",
+      "article_says": "The nanoporous glass and perovskite powders were mixed in DMF at a weight ratio of 1:2 for 1 h at 298 K under vacuum",
+      "fix": "L'article ne dit pas ce qu'est cette poudre : le résumé parle de « raw materials of OI crystal », l'introduction de « Phe components dissolved in DMF », la conclusion de « raw nanocrystals ». La formule Phe et l'identification à la poudre de Phe_poly sont une lecture, pas une citation ; garder le réactif mais ajouter à `not_stated`/doutes que l'identité exacte (Phe déjà cristallisé, ou mélange PEABr + PbBr2 2:1) n'est pas précisée. Le doute existe déjà côté extraction ; il manque la mention dans le réactif",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "OIiG outcomes (décalage de l'émission PL)",
+      "extracted": "PL_peak_energy = 2.98 eV seul, sans le décalage",
+      "article_says": "therefore, the exciton emission band energies (E) were shifted 40 meV lower by precipitating Phe nanocrystals in the glass nanopores",
+      "fix": "ajouter un résultat PL_peak_shift_vs_single_crystal = -40 meV (valeur écrite par les auteurs, la comparaison au monocristal est le but de l'étude), ou le mentionner dans l'annotation tendance_observee",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "characterizations de NPG (transmittance), Phe_poly et Phe_single et OIiG (spectres PL stationnaires)",
+      "extracted": "NPG : seule la XRD est en caractérisation alors que la transmittance à 600 nm (18 %) est en résultat ; Phe_poly : PL_peak_wavelength/energy en résultats sans entrée de caractérisation PL ; Phe_single et OIiG : PL résolue en temps et PL en température mais pas le spectre PL stationnaire",
+      "article_says": "Optical transmittance and diffuse absorbance of the samples were measured with a Spectrophotometer (UV-4000, Hitachi Ltd, Japan).",
+      "fix": "ajouter une caractérisation UV-Vis (UV-4000) à NPG, et une caractérisation « PL stationnaire » pour Phe_poly, Phe_single et OIiG (spectres de la Fig. 5a, appareil non précisé entre FL-7200 et Fluorolog-3 : le dire en `conditions`)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Phe_single step 3 equipment et reagent nitromethane amount_text",
+      "extracted": "equipment = shaded desiccator seul ; amount_text du nitrométhane = « ajouté jusqu'à juste avant la précipitation, puis vapeur dans le dessiccateur » (paraphrase française)",
+      "article_says": "nitromethane was poured into a dish at the bottom of this desiccator",
+      "fix": "ajouter la coupelle (dish) de nitrométhane au fond du dessiccateur dans le matériel de l'étape 3 ; remplacer l'amount_text paraphrasé par le texte de l'auteur « until just before precipitation » (volume non donné)",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 5,
+    "branches_extracted": 5,
+    "not_stated_checked": 65,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "matières premières du verre alcalin borosilicaté (oxydes, carbonates, acide borique) et unité de la composition 7.7Na2O–4.0CaO–2.7Al2O3–33.2B2O3–52.4SiO2 (mol % ou % massique) non données",
+    "atmosphère de fusion à 1723 K, vitesses de chauffe et de refroidissement (fusion, séparation de phases), épaisseur du verre pressé, volume d'acide, nombre de lavages et conditions de séchage du verre nanoporeux",
+    "quantités absolues de verre nanoporeux et de poudre de pérovskite, volume de DMF, pression du vide, mode d'agitation pour l'OIiG ; nature exacte de la poudre (Phe cristallisé ou précurseurs)",
+    "quantités de phénéthylamine, HBr, PbBr2, volumes de DMF, température et durée d'évaporation pour PEABr et la Phe polycristalline ; pureté et fournisseur de tous les réactifs",
+    "température de croissance, quantité de Phe et volumes de DMF et de nitrométhane pour le monocristal (un mois de diffusion en dessiccateur)",
+    "appareil, longueur d'onde d'excitation et température du spectre PL stationnaire (Fig. 5a), non précisés ; conditions de mesure de la XRD (appareil, rayonnement) non données",
+    "aucune annexe ; les spectres des Figs. 2 à 6 ne sont donnés que sous forme graphique"
+  ],
+  "mechanism_check": "ok",
+  "notes": "Lecture indépendante : cinq échantillons (verre nanoporeux, PEABr, Phe polycristalline, monocristal, OIiG), identiques à `sample_inventory`. Aucune série de conditions comparée, donc aucune branche manquante. Aucune valeur marquée from_figure ; j'ai ouvert les Figs. 1, 4, 5 et 6 pour contrôle : la transmittance à 600 nm (monocristal ≈ 45 %, OIiG ≈ 0,4 %, verre ≈ 18 %), les pics PL (≈ 2,98 eV OIiG, ≈ 3,02 eV monocristal et polycristal) et les durées de vie (4,1/11,0 et 2,8/8,6 ns) lues sur les figures sont cohérentes avec le texte ; la pente d'Arrhenius de la Fig. 6 est plus raide pour l'OIiG que pour le monocristal, ce qui confirme le choix de l'extraction (OIiG 195 meV, monocristal 121 meV) contre la Conclusion de l'article, qui inverse les deux valeurs (incohérence de l'article, bien traitée en doute). L'introduction inverse aussi les noms des méthodes (single-crystal = solvent diffusion, polycrystalline = poor-solvent diffusion, « respectively ») : les Méthodes font foi, doute déjà posé. Les sources de méthode CR14 (verre nanoporeux) et CR6 (monocristal/polycristal) sont présentes ; les autres renvois (CR1-CR13, CR15-CR17) sont du contexte ou une équation (CR16), donc à ne pas ajouter. La comparaison « absorbance 2,94 eV (pic du monocristal) contre 3,04 eV (début de l'épaulement de l'OIiG) » mélange un pic et un début d'épaulement, comme le font les auteurs ; l'annotation tendance_observee le reprend sans le préciser. La Fig. 1 montre un ballon à col étroit chauffé pour l'imprégnation de l'OIiG, non décrit dans le texte (non extrait, à raison)."
+}

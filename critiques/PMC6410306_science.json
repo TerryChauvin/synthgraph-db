@@ -1,0 +1,570 @@
+{
+ "pmcid": "PMC6410306",
+ "routes": [
+  {
+   "label": "Csph_0.5M",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration massique du saccharose",
+     "inputs": "0,5 M et 2 M ; M(C12H22O11) = 342,30 g/mol",
+     "formula": "c × M",
+     "result": "171 g/L (0,5 M) ; 685 g/L (2 M)",
+     "compared_to": "solubilité du saccharose dans l'eau ≈ 2 000 g/L à 20–25 °C",
+     "source": "PubChem CID 5988 (valeur de solubilité à confirmer sur la fiche)"
+    },
+    {
+     "what": "pression de l'autoclave à 180 °C",
+     "inputs": "eau saturée à 180 °C",
+     "formula": "p_sat(T)",
+     "result": "≈ 1,0 MPa (≈ 10 bar), plus les gaz de décomposition du sucre (CO2, acides volatils)",
+     "compared_to": "tenue usuelle d'un autoclave PTFE/inox (≈ 3 MPa, 200–220 °C)",
+     "source": "NIST WebBook, eau saturée"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "2 M = 685 g/L reste sous la solubilité du saccharose (≈ 2 000 g/L) : solutions préparables à froid (voir calcul « concentration massique du saccharose »).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "PubChem, Sucrose (CID 5988), Chemical and Physical Properties",
+      "authors_or_publisher": "NIH / PubChem",
+      "year": "en ligne",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/5988"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "180 °C en autoclave fermé : p_sat(eau) ≈ 1,0 MPa, acceptable pour un corps PTFE ; ni volume de solution ni taux de remplissage ne sont donnés, et la carbonisation dégage des gaz (CO2) qui s'ajoutent. Remplir à ≤ 70–80 %.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "NIST Chemistry WebBook, fluide « water », propriétés de saturation",
+      "authors_or_publisher": "NIST",
+      "year": "en ligne",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Diamètres 0,4 à 2 μm pour 0,5 à 2 M à 180 °C, 8 h : dans la plage 0,4–6 μm rapportée pour la carbonisation hydrothermale du saccharose (170–240 °C), avec la même tendance (taille croissante avec la concentration).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "8 h à 180 °C suffisent pour la nucléation et la croissance des sphères de « hydrochar » (Sun & Li : glucose 160–180 °C, quelques heures).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Colloidal carbon spheres and their core/shell structures with noble-metal nanoparticles",
+      "authors_or_publisher": "X. Sun, Y. Li, Angew. Chem. Int. Ed. 43, 597–601",
+      "year": "2004",
+      "url_or_doi": "10.1002/anie.200352386"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse du saccharose en glucose et fructose, déshydratation en 5-hydroxyméthylfurfural et autres furanes, polymérisation et aromatisation ; dès que la concentration en espèces condensées dépasse la sursaturation critique, une nucléation éclair donne des germes qui croissent par dépôt de surface (type LaMer). Les sphères ont un cœur aromatique et une couronne hydrophile riche en OH, C=O et COOH. Plus de sucre par germe → sphères plus grosses, ce qui explique la tendance observée.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15, 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     },
+     {
+      "title": "Colloidal carbon spheres and their core/shell structures with noble-metal nanoparticles",
+      "authors_or_publisher": "X. Sun, Y. Li, Angew. Chem. Int. Ed. 43, 597–601",
+      "year": "2004",
+      "url_or_doi": "10.1002/anie.200352386"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de solution et taux de remplissage de l'autoclave (non donnés)",
+    "isolement, lavage et séchage des sphères (non décrits)",
+    "quelle concentration donne les gabarits de ~400, ~600, ~800 nm et 1 μm effectivement utilisés (seules les bornes 0,5 M ≈ 400 nm et 2 M ≈ 2 μm sont dites)",
+    "la distribution de taille : à 0,75 M la Fig. 1b est polydisperse, ce qui élargit celle des ZnO HS"
+   ]
+  },
+  {
+   "label": "ZnO_HS_500",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "retrait du gabarit à la coque",
+     "inputs": "gabarit ≈ 600 nm ; ZnO HS ≈ 500 nm",
+     "formula": "1 − d(ZnO)/d(C) ; 1 − (d(ZnO)/d(C))³",
+     "result": "17 % en diamètre ; 42 % en volume extérieur",
+     "compared_to": "retrait de 20 à 50 % souvent rapporté pour les coques d'oxyde sur gabarit de carbone",
+     "source": "valeurs de l'article ; ordre de grandeur de Wang et al. 2007 (réf. B36)"
+    },
+    {
+     "what": "distance (002) de ZnO wurtzite",
+     "inputs": "c = 5,207 Å (JCPDS 36-1451, citée par l'article)",
+     "formula": "d(002) = c/2",
+     "result": "2,60 Å = 0,260 nm",
+     "compared_to": "frange HRTEM mesurée 0,26 nm",
+     "source": "fiche JCPDS citée par l'article"
+    },
+    {
+     "what": "masse de sel pour 1 M de nitrate de zinc selon l'hydrate",
+     "inputs": "Zn(NO3)2 anhydre 189,40 g/mol ; Zn(NO3)2·6H2O 297,49 g/mol",
+     "formula": "c × M",
+     "result": "189 g/L ou 297 g/L",
+     "compared_to": "l'article ne dit pas l'hydrate : confondre les deux donne une solution à 0,64 M au lieu de 1 M",
+     "source": "masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Zn apporté par adsorption de Zn2+ (nitrate 1 M) dans la couronne oxygénée des sphères ; O par la combustion à l'air. Le bilan est cohérent ; la quantité de Zn retenue (donc l'épaisseur de coque) dépend du lavage, non décrit.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Colloidal carbon spheres and their core/shell structures with noble-metal nanoparticles",
+      "authors_or_publisher": "X. Sun, Y. Li, Angew. Chem. Int. Ed. 43, 597–601",
+      "year": "2004",
+      "url_or_doi": "10.1002/anie.200352386"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "500 °C, 1 h, 2 °C/min à l'air : suffisant pour brûler un hydrochar (combustion vers 400–500 °C, catalysée par les oxydes) et cristalliser ZnO ; la poudre blanche obtenue indique l'élimination du carbone.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation and characterization of ZnO hollow spheres and ZnO-carbon composite materials using colloidal carbon spheres as templates (réf. B36 de l'article, non ouverte)",
+      "authors_or_publisher": "X. Wang, P. Hu, Y. Fangli, L. Yu, J. Phys. Chem. C 111, 6706–6712",
+      "year": "2007",
+      "url_or_doi": "10.1021/jp070382w"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Frange de 0,26 nm = d(002) de ZnO (c/2 = 0,260 nm, voir calcul « distance (002) de ZnO wurtzite ») ; retrait de 17 % (voir calcul « retrait du gabarit à la coque ») plausible. Aucune DRX : la phase repose sur une frange et un cliché SAED non indexé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Dispersion aux ultrasons 20 min et vieillissement 6 h sans température : l'adsorption de Zn2+ dépend de T ; préciser température ambiante.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Hydrate du nitrate de zinc non précisé : 1 M demande 189 ou 297 g/L (voir calcul « masse de sel pour 1 M de nitrate de zinc selon l'hydrate »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nitrate de zinc comburant ; poudre de ZnO HS nanostructurée inhalable ; calcination d'un carbone imprégné de nitrate : dégagement de NOx, ventiler le four.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "NOAA CAMEO Chemicals (fiches hydrogen selenide, sodium borohydride, cadmium nitrate)",
+      "authors_or_publisher": "NOAA",
+      "year": "en ligne",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Zn2+ diffuse dans la couronne hydrophile des sphères de carbone et s'y lie aux carboxylates et hydroxyles ; au chauffage, le nitrate se décompose et ZnO nuclée dans la couronne pendant que le cœur carboné brûle en CO2 ; les grains de ZnO frittent en une coque polycristalline, plus petite que le gabarit (retrait). La taille de la coque suit celle du gabarit.",
+    "sources": [
+     {
+      "title": "Colloidal carbon spheres and their core/shell structures with noble-metal nanoparticles",
+      "authors_or_publisher": "X. Sun, Y. Li, Angew. Chem. Int. Ed. 43, 597–601",
+      "year": "2004",
+      "url_or_doi": "10.1002/anie.200352386"
+     },
+     {
+      "title": "Preparation and characterization of ZnO hollow spheres and ZnO-carbon composite materials using colloidal carbon spheres as templates (réf. B36 de l'article, non ouverte)",
+      "authors_or_publisher": "X. Wang, P. Hu, Y. Fangli, L. Yu, J. Phys. Chem. C 111, 6706–6712",
+      "year": "2007",
+      "url_or_doi": "10.1021/jp070382w"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "correspondance gabarit → coque pour chaque taille (seul 600 nm → 500 nm est donné ; probablement ~400 → 300, ~600 → 500, ~800 → ? et 1 μm → 800 nm, non écrit)",
+    "hydrate du nitrate de zinc et rapport masse de sphères / volume de solution",
+    "température du vieillissement et nature du lavage (un lavage abondant enlève le Zn faiblement retenu et donne des coques cassées)",
+    "rendement massique : 3 g de ZnO HS par pâte supposent plusieurs autoclaves par taille"
+   ]
+  },
+  {
+   "label": "QDSSC_500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Jsc intégré sur l'IPCE de la Fig. 9 (500 nm)",
+     "inputs": "IPCE lue tous les 10 nm (pic 62 % vers 420 nm, 25 % à 600 nm, ≈ 1 % à 680 nm) ; spectre AM1.5G ASTM G173-03, 1 000 W/m²",
+     "formula": "Jsc = q ∫ IPCE(λ) Φ_AM1.5G(λ) dλ = ∫ IPCE·E(λ)·λ/1239,84 dλ",
+     "result": "≈ 7,1 mA/cm²",
+     "compared_to": "Jsc du tableau 1 : 13,46 mA/cm² (rapport 1,9)",
+     "source": "spectre ASTM G173-03 ; lecture de la Fig. 9"
+    },
+    {
+     "what": "Jsc intégrés des autres tailles (IPCE de même forme, mise à l'échelle par le pic)",
+     "inputs": "pics lus 48,5 % (400), 41 % (800), 38,5 % (300) ; 7,1 mA/cm² pour 62,3 %",
+     "formula": "7,1 × pic/62,3",
+     "result": "≈ 5,5 (400) ; 4,7 (800) ; 4,4 (300) mA/cm²",
+     "compared_to": "tableau 1 : 11,61 ; 8,79 ; 11,30 mA/cm² (rapports 2,1 ; 1,9 ; 2,6)",
+     "source": "lecture de la Fig. 9 ; spectre ASTM G173-03"
+    },
+    {
+     "what": "contrôle interne du tableau 1",
+     "inputs": "Jsc, Voc, FF du tableau 1 ; Pin = 100 mW/cm²",
+     "formula": "PCE = Jsc × Voc × FF / Pin",
+     "result": "2,09 / 2,19 / 2,60 / 1,72 % (300 / 400 / 500 / 800 nm)",
+     "compared_to": "2,07 / 2,19 / 2,60 / 1,72 % annoncés : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "puissance maximale lue sur les courbes J–V de la Fig. 7a",
+     "inputs": "numérisation (axe 0–0,5 V, 0–14 mA/cm²) ; max de V × J",
+     "formula": "Pmax = max(V·J)",
+     "result": "noir (« 300 ») ≈ 1,3 ; magenta (400) ≈ 1,8 ; rouge (500) ≈ 2,4 ; bleu (« 800 ») ≈ 1,9 mW/cm² ; Jsc lus 8,8 / 11,3 / 13,6 / 10,8 ; FF ≈ 0,38–0,44",
+     "compared_to": "PCE du tableau 2,07 / 2,19 / 2,60 / 1,72 % : les courbes donnent 8 à 35 % de moins, quelle que soit l'attribution 300/800",
+     "source": "lecture de la Fig. 7a"
+    },
+    {
+     "what": "énergies des seuils d'absorption",
+     "inputs": "385, 460, 690 nm",
+     "formula": "E (eV) = 1239,84 / λ (nm)",
+     "result": "3,22 ; 2,70 ; 1,80 eV",
+     "compared_to": "annoncés 3,2 ; 2,60 ; 1,79 eV : le 2,60 eV correspond à 477 nm, pas à 460 nm",
+     "source": "arithmétique"
+    },
+    {
+     "what": "composition du ZnxCd1-xSe d'après le gap (interpolation linéaire, courbure négligée)",
+     "inputs": "Eg 1,80 eV ; CdSe 1,74 eV ; ZnSe 2,70 eV (valeurs de manuel, massif)",
+     "formula": "x = (Eg − 1,74)/(2,70 − 1,74)",
+     "result": "x ≈ 0,06 (Zn0,06Cd0,94Se), et encore moins si le confinement élargit le gap",
+     "compared_to": "un seuil à 690 nm est presque celui de CdSe massif (713 nm)",
+     "source": "chimie générale"
+    },
+    {
+     "what": "ZnO d'un film et Se disponible",
+     "inputs": "0,25 cm² × 15 μm = 3,75 × 10⁻⁴ cm³ ; porosité 50–70 % ; ρ(ZnO) 5,61 g/cm³ ; M 81,38 g/mol ; bain Se 0,1 M",
+     "formula": "V × (1 − ε) × ρ / M",
+     "result": "0,6–1,1 mg, soit 8–13 μmol de ZnO ; 1 mL de bain à 0,1 M = 100 μmol de Se",
+     "compared_to": "Se en excès d'au moins un ordre de grandeur pour tout volume de bain ≥ 1 mL : la conversion est limitée par la diffusion, pas par la quantité",
+     "source": "valeurs de l'article ; densité de ZnO de manuel"
+    },
+    {
+     "what": "NaBH4 et H2 pour 0,1 M de séléniure",
+     "inputs": "4 NaBH4 + 2 Se + 7 H2O → 2 NaHSe + Na2B4O7 + 14 H2",
+     "formula": "n(NaBH4)/n(Se) = 2 ; n(H2)/n(Se) = 7",
+     "result": "≥ 0,2 M de NaBH4 ; 0,7 mol de H2 par litre de bain, ≈ 17 L de gaz à 25 °C",
+     "compared_to": "quantités de Se et de NaBH4 non données dans l'article",
+     "source": "Klayman & Griffin 1973"
+    },
+    {
+     "what": "masse de sel pour 0,1 M de Cd2+ selon le sel",
+     "inputs": "Cd(NO3)2 236,42 ; Cd(NO3)2·4H2O 308,48 g/mol",
+     "formula": "c × M",
+     "result": "23,6 ou 30,8 g/L",
+     "compared_to": "hydrate non précisé : écart de 30 % sur la concentration",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "fraction de ZnO dans la pâte",
+     "inputs": "3 g ZnO ; 0,5 g éthylcellulose ; 10 mL terpinéol (ρ ≈ 0,93) ; 3 mL éthanol (ρ 0,789)",
+     "formula": "m(ZnO)/m(total)",
+     "result": "3/(3 + 0,5 + 9,3 + 2,37) = 19,8 % en masse ; éthylcellulose 3,3 %",
+     "compared_to": "pâtes d'oxyde pour cellules sensibilisées : ≈ 15–20 % d'oxyde",
+     "source": "valeurs de l'article ; densités de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le Jsc du tableau (13,46 mA/cm² à 500 nm) vaut 1,9 fois l'intégrale de l'IPCE de la Fig. 9 sur le spectre AM1.5G (≈ 7,1 mA/cm²) ; même facteur 1,9 à 2,6 pour les autres tailles (voir calculs « Jsc intégré… »). Un écart au-delà de 10–20 % signale une erreur de mesure J–V : surface active sans masque (0,25 cm² déclarée, aucun masque mentionné), lumière diffusée par le verre, ou simulateur mal étalonné. Les Jsc et PCE absolus sont donc probablement surestimés d'environ un facteur 2.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "How should you measure your excitonic solar cells?",
+      "authors_or_publisher": "H. J. Snaith, Energy Environ. Sci. 5, 6513–6520",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2ee03429h"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les courbes J–V de la Fig. 7a donnent des puissances maximales inférieures de 8 à 35 % aux PCE du tableau (voir calcul « puissance maximale lue sur les courbes J–V de la Fig. 7a ») : la Fig. 7a et le tableau 1 ne viennent probablement pas des mêmes balayages.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Seuil 460 nm annoncé à 2,60 eV : 1239,84/460 = 2,70 eV (2,60 eV correspond à 477 nm). Erreur de conversion ; la valeur 2,70 eV est celle de ZnSe massif, ce qui va dans le sens des auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve discriminante absente : ni DRX ni Raman. EDS « (Zn+Cd):(Se+O) ≈ 1:1 » vaut pour ZnO, ZnSe, CdSe et tout mélange : il ne prouve ni l'alliage ni le gradient. Le seuil à 690 nm (1,80 eV) correspond à x ≈ 0,06, c'est-à-dire presque CdSe (voir calcul « composition du ZnxCd1-xSe… ») : une couche de CdSe sur ZnSe expliquerait autant les données que l'alliage à gradient.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Avec un bain à 0,1 M, Se est en large excès par rapport au ZnO du film (8–13 μmol), de même pour Cd2+ : 2 × 12 h à 80 °C peuvent convertir une grande partie de la coque (grains de quelques dizaines de nm). L'épaisseur de ZnSe, la part de ZnO restante et le x final ne sont pas mesurés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "« Se2− ion solution » : dans l'eau, Se + NaBH4 donne NaHSe (HSe−) ; Se2− libre n'existe qu'en milieu très basique (pKa2 de H2Se ≈ 15). HSe− s'oxyde à l'air en Se0 rouge et polyséléniures : un bain tenu 12 h à 80 °C sans fermeture ni gaz inerte perd son séléniure. L'atmosphère n'est pas dite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Reaction of selenium with sodium borohydride in protic solvents. A facile method for the introduction of selenium into organic molecules",
+      "authors_or_publisher": "D. L. Klayman, T. S. Griffin, J. Am. Chem. Soc. 95, 197–200",
+      "year": "1973",
+      "url_or_doi": "10.1021/ja00782a034"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Bains aqueux à 80 °C pendant 12 h (× 4) : sous l'ébullition, mais l'évaporation change la concentration si le récipient est ouvert. Recuit du film à 500 °C sur FTO : compatible avec le FTO (stable jusqu'à ≈ 550 °C) et suffisant pour brûler l'éthylcellulose et le terpinéol (Éb ≈ 219 °C).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Échange ZnO → ZnSe → ZnxCd1-xSe dicté par les Ksp (ZnO 6,8 × 10⁻¹⁷ ; ZnSe 3,6 × 10⁻²⁶ ; CdSe 6,1 ou 6,31 × 10⁻³⁶ selon la section) : sens correct, même voie que Xu et al. 2011 sur nanofils. La comparaison mélange un Ksp de type M(OH)2 (mol³/L³) et des Ksp 1:1 (mol²/L²), donc elle n'est qu'indicative ; l'écart de 9 à 19 ordres de grandeur suffit pour le sens.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Arrays of ZnO/ZnxCd1−xSe nanocables: band gap engineering and photovoltaic applications (réf. B33 de l'article, non ouverte)",
+      "authors_or_publisher": "J. Xu et al., Nano Lett. 11, 4138–4143",
+      "year": "2011",
+      "url_or_doi": "10.1021/nl201934k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Voc 0,40–0,43 V et FF 0,44–0,49 : bas mais habituels pour des QDSSC ZnO/CdSe à électrolyte polysulfure ; PCE 1,7–2,6 % dans l'ordre de grandeur de la littérature, sous réserve de la surestimation du Jsc.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin à plusieurs variables : changer la taille des sphères change aussi la surface spécifique, donc la charge en ZnxCd1-xSe, l'épaisseur de coque et la porosité du film à 15 μm constants. Sans mesure de charge (absorbance du film par taille) ni réflectance diffuse par taille, l'effet de Mie n'est pas isolé. Une seule cellule par taille, alors que l'écart 300/400 nm (2,07 contre 2,19 %, 6 %) est du même ordre que la dispersion des trois cellules répétées du mélange (2,92–3,05 %, ± 2 %).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Se + NaBH4 dégage ≈ 7 mol de H2 par mol de Se (voir calcul « NaBH4 et H2… ») et, si le pH baisse, H2Se, gaz très toxique ; travailler sous hotte et sous gaz inerte. Nitrate de cadmium : cancérogène, mutagène, toxique pour la reproduction. Na2S : H2S au contact d'un acide. Méthanol de l'électrolyte : toxique, inflammable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "NOAA CAMEO Chemicals (fiches hydrogen selenide, sodium borohydride, cadmium nitrate)",
+      "authors_or_publisher": "NOAA",
+      "year": "en ligne",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "NaBH4 réduit Se en HSe− (Klayman). À 80 °C, HSe− attaque ZnO en surface et dans les joints de grains : ZnO + HSe− → ZnSe + OH−, réaction poussée par l'écart de Ksp ; la couche de ZnSe ralentit ensuite la diffusion, d'où la répétition. Dans Cd2+ 0,1 M, l'échange cationique ZnSe + x Cd2+ → Zn1−xCdxSe + x Zn2+ est rapide en surface et donne une couche très riche en Cd (gap 1,80 eV ≈ CdSe), avec un gradient vers ZnSe puis ZnO. Le gradient est plausible mais non démontré (pas de DRX, de Raman ni de profil EDS).",
+    "sources": [
+     {
+      "title": "Reaction of selenium with sodium borohydride in protic solvents. A facile method for the introduction of selenium into organic molecules",
+      "authors_or_publisher": "D. L. Klayman, T. S. Griffin, J. Am. Chem. Soc. 95, 197–200",
+      "year": "1973",
+      "url_or_doi": "10.1021/ja00782a034"
+     },
+     {
+      "title": "Arrays of ZnO/ZnxCd1−xSe nanocables: band gap engineering and photovoltaic applications (réf. B33 de l'article, non ouverte)",
+      "authors_or_publisher": "J. Xu et al., Nano Lett. 11, 4138–4143",
+      "year": "2011",
+      "url_or_doi": "10.1021/nl201934k"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de Se et de NaBH4 (≥ 2 NaBH4 par Se), volume des bains, récipient fermé et gaz inerte pour le séléniure",
+    "sel et hydrate du cadmium (nitrate selon la liste 2.1)",
+    "rinçage et séchage entre les échanges (sinon HSe− résiduel précipite CdSe directement au bain Cd2+)",
+    "sens de « repeated two times » : deux ou trois immersions",
+    "masque d'ouverture pour la mesure J–V, et comparer le Jsc à l'intégrale de l'IPCE (écart attendu < 10–20 %)",
+    "préparation de la contre-électrode Cu2S (réf. B35)",
+    "DRX ou Raman pour vérifier ZnSe puis ZnxCd1-xSe, et mesure de x"
+   ]
+  },
+  {
+   "label": "QDSSC_mix",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Jsc maximal pour un seuil à 690 nm",
+     "inputs": "spectre AM1.5G ASTM G173-03 ; rendement quantique externe = 1 de 280 à 690 nm (puis 700 nm)",
+     "formula": "Jsc,max = q ∫(280→λc) Φ_AM1.5G(λ) dλ",
+     "result": "19,7 mA/cm² (λc = 690 nm) ; 20,4 mA/cm² (λc = 700 nm)",
+     "compared_to": "Jsc annoncé 20,77 mA/cm² : au-dessus de la limite pour un IPCE de 100 % partout, verre compris",
+     "source": "spectre ASTM G173-03 (valeur cohérente avec les tables de Shockley–Queisser de Rühle 2016)"
+    },
+    {
+     "what": "Jsc intégré sur l'IPCE de la Fig. 10b",
+     "inputs": "IPCE lue tous les 10 nm (pic 84 % à 410–420 nm, 34 % à 600 nm, ≈ 2 % à 690 nm) ; AM1.5G",
+     "formula": "Jsc = ∫ IPCE·E(λ)·λ/1239,84 dλ",
+     "result": "≈ 9,6 mA/cm²",
+     "compared_to": "Jsc annoncé 20,77 mA/cm² (rapport 2,2)",
+     "source": "lecture de la Fig. 10b ; ASTM G173-03"
+    },
+    {
+     "what": "contrôle interne du mélange",
+     "inputs": "Jsc 20,77 ; Voc 0,43 ; FF 0,33",
+     "formula": "Jsc × Voc × FF / 100",
+     "result": "2,95 %",
+     "compared_to": "PCE annoncé 2,95 % : arithmétique juste",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Jsc = 20,77 mA/cm² dépasse le maximum physique (19,7 mA/cm² pour un seuil à 690 nm et un IPCE de 100 % partout, voir calcul « Jsc maximal pour un seuil à 690 nm »), alors que l'IPCE mesuré plafonne à 85 % et donne ≈ 9,6 mA/cm² une fois intégré. Valeur impossible telle qu'écrite : surface éclairée plus grande que 0,25 cm² (pas de masque), éclairement supérieur à 100 mW/cm², ou erreur de surface. Le PCE de 2,95 % (et 2,92–3,05 % des répétitions) est donc aussi surestimé ; l'effet du mélange (+ 54 % de Jsc contre la meilleure taille seule) n'est pas établi.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Tabulated values of the Shockley–Queisser limit for single junction solar cells",
+      "authors_or_publisher": "S. Rühle, Solar Energy 130, 139–147",
+      "year": "2016",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0038092X16001110"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "IPCE maximal de 85 % à travers un verre FTO (transmission ≈ 80–85 % dans le visible) suppose un rendement interne proche de 100 %, valeur haute pour une QDSSC ZnO à électrolyte polysulfure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Mélange à 25 % en masse de chaque taille : la masse totale de ZnO dans la pâte n'est pas dite (3 g supposés). Il faut produire les quatre tailles.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même chimie que QDSSC_500 ; seul l'empilement change. Une distribution large de tailles élargit la plage de diffusion de Mie, mais l'amplitude du gain annoncé dépasse ce que l'absorbance permet.",
+    "sources": [
+     {
+      "title": "How should you measure your excitonic solar cells?",
+      "authors_or_publisher": "H. J. Snaith, Energy Environ. Sci. 5, 6513–6520",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2ee03429h"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer avec un masque d'ouverture noir et comparer Jsc à l'IPCE intégré",
+    "masse totale de ZnO dans la pâte du mélange"
+   ]
+  },
+  {
+   "label": "QDSSC_300",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "ordre 300 nm contre 800 nm selon chaque source de l'article",
+     "inputs": "tableau 1 : Jsc 11,30 (300) contre 8,79 (800) ; Fig. 7b–e : PCE 2,07 / 1,72 ; Fig. 7a (légende) : 8,8 (300) contre 10,8 (800) ; Fig. 9 : IPCE max 38,5 % (300) contre 41 % (800)",
+     "formula": "comparaison",
+     "result": "tableau et étiquettes : 300 > 800 ; courbes J–V et IPCE : 800 > 300",
+     "compared_to": "500 > 400 dans toutes les sources",
+     "source": "valeurs et figures de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le classement 300/800 nm n'est pas établi : la légende de la Fig. 7a et la Fig. 9 (IPCE, mesure indépendante) placent 800 au-dessus de 300, le tableau 1 et les étiquettes de la Fig. 7b–e font l'inverse. Rien ne dit lequel est permuté. Seuls « 500 nm meilleur, 400 nm deuxième » sont cohérents partout. Les Jsc absolus sont en outre ≈ 2 fois l'IPCE intégré (voir QDSSC_500).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même chimie que QDSSC_500.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "ne pas se fier à l'ordre 300 > 800 nm du tableau 1 : le refaire avec plusieurs cellules par taille"
+   ]
+  },
+  {
+   "label": "QDSSC_800",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Voc et Jsc de la courbe noire et de la courbe bleue (Fig. 7a)",
+     "inputs": "lecture : noire Jsc ≈ 8,8, Voc ≈ 0,40 V ; bleue Jsc ≈ 10,8, Voc ≈ 0,41 V",
+     "formula": "lecture graphique",
+     "result": "la courbe noire (« 300 nm ») a les Jsc et Voc du tableau pour 800 nm (8,79 ; 0,40 V)",
+     "compared_to": "tableau 1 : 300 nm 11,30 / 0,42 V ; 800 nm 8,79 / 0,40 V",
+     "source": "Fig. 7a et tableau 1"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Même ambiguïté que QDSSC_300 : le Jsc et le Voc de la courbe noire désignent 800 nm (légende permutée), mais l'IPCE de la Fig. 9 donne 800 > 300, comme la légende. Les deux lectures restent possibles.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même chimie que QDSSC_500.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "répéter la cellule de 800 nm avant de conclure à une baisse au-delà de 500 nm"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie est cohérente et refaisable : carbonisation hydrothermale du saccharose (plage de tailles conforme à Sevilla 2009), coques de ZnO par imprégnation et calcination à l'air, conversion par échanges d'ions successifs dans le bon sens thermodynamique. Les quantités du bain de séléniure, le sel et l'hydrate du cadmium, les volumes et l'atmosphère manquent. Le défaut majeur porte sur les mesures photovoltaïques : tous les Jsc valent environ 2 fois l'intégrale de l'IPCE, et le Jsc du mélange (20,77 mA/cm²) dépasse la limite physique pour un seuil à 690 nm (19,7 mA/cm²). Les rendements absolus sont donc surestimés ; seule la tendance « 500 nm meilleur que 400 nm » est soutenue par toutes les mesures. Le classement 300/800 nm est contradictoire entre tableau et figures, et l'alliage ZnxCd1-xSe à gradient n'est pas démontré (pas de DRX, gap ≈ CdSe).",
+  "author_errors_suspected": [
+   "Jsc mesurés ≈ 2 fois l'IPCE intégré, et Jsc du mélange au-dessus de la limite de Shockley–Queisser pour 690 nm (surface sans masque ou éclairement mal étalonné)",
+   "Fig. 7a : courbes 300 et 800 nm permutées par rapport au tableau 1, ou l'inverse (l'IPCE suit la légende) ; puissances maximales des courbes inférieures de 8 à 35 % aux PCE du tableau",
+   "seuil 460 nm converti en 2,60 eV au lieu de 2,70 eV",
+   "Ksp de CdSe donné à 6,31 × 10⁻³⁶ (Introduction) et 6,1 × 10⁻³⁶ (Résultats)",
+   "« Se2− » pour une solution qui contient HSe−"
+  ],
+  "comparison_with_database": "Aucune autre synthèse de sphères de carbone hydrothermales ni de ZnO creux dans la base (compare.py « carbon sphere », « ZnO hollow ») ; un gap de ZnSe de 2,64 eV dans PMC6678425 va dans le sens de 2,6–2,7 eV pour ZnSe."
+ },
+ "sources_not_found": [
+  "Réf. B35 (préparation de la contre-électrode Cu2S) et B34 (Dong et al. 2012, méthode des gabarits) non ouvertes",
+  "Aucune source lue confirmant directement le protocole d'échange Se2−/Cd2+ à 80 °C sur ZnO (Xu et al. 2011 cité d'après la bibliographie de l'article, non ouvert)",
+  "Table de Rühle 2016 non lue en entier (page éditeur) : la limite de 19,7 mA/cm² est recalculée sur le spectre ASTM G173-03"
+ ]
+}

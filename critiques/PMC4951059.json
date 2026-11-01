@@ -1,0 +1,81 @@
+{
+  "pmcid": "PMC4951059",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "faux",
+      "where": "annotation comparaison_branches (route None), phrase finale",
+      "extracted": "seule la différence entre Si/Al et Si n'est pas significative (P=0,67)",
+      "article_says": "This can be evident in the relatively equal bond strength of silica-coated and control specimens.",
+      "fix": "Corriger : deux différences ne sont pas significatives, Si/Al contre Si (P=0,67) et Si contre témoin (P=0,18, flèche en pointillés de la figure 6, déjà extraite sur Bars_Si et reprise dans l'annotation tendance_observee). Écrire par exemple « les différences Si/Al–Si (P=0,67) et Si–témoin (P=0,18) ne sont pas significatives ».",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "Bars_C et Bars_S, étape 1 (wash) héritée de Bars_Si, et variation wash_solvent « not stated for uncoated blocks »",
+      "extracted": "étape 1 « Wash the coated Y-TZP blocks under running distilled water to remove coating remnants » héritée par les blocs témoin et sablés, avec une variation dont la valeur est une formule de l'extracteur",
+      "article_says": "The coated Y-TZP blocks were washed under running distilled water to remove any possible remnants from the coating procedure.",
+      "fix": "L'article ne dit pas que les blocs C et S ont subi ce lavage, qui vise les restes du procédé de revêtement. Donner à Bars_C et Bars_S leurs propres étapes (cuisson de la porcelaine, découpe, sélection, thermocyclage, sans l'étape 1) ou, si le schéma d'héritage l'impose, déclarer l'étape non citée pour ces deux voies ; supprimer la variation wash_solvent dont la valeur n'est pas une valeur de l'article.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "attribution",
+      "where": "Si et Si/Al, résultat coating_thickness = 10 μm",
+      "extracted": "coating_thickness = 10 μm rangé sur les voies de revêtement Si et Si/Al (après calcination), la valeur est un « ~10 μm » écrit sans le tilde",
+      "article_says": "Figure 5 Cross-sectional SEM imaging of porcelain bonded to zirconia.",
+      "fix": "La coupe de la figure 5 est faite sur les échantillons liés à la porcelaine (après cuisson à 830–860 °C), donc sur les voies device Bars_Si et Bars_Si/Al, pas sur le revêtement tel que calciné à 400 °C. Déplacer le résultat sur Bars_Si et Bars_Si/Al (ou le garder en le qualifiant « mesuré sur coupe de l'éprouvette avec porcelaine ») et signaler le « ~ » dans value_text ou l'annotation. Le texte et la légende ne permettent pas de trancher pour la voie Si seule ; à défaut de déplacement, ajouter un doute.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Si/Al (branche de Si), étape 5 héritée",
+      "extracted": "« Dip-coat the blocks in the silica sol (dip-coating device, 80 mm/s, dipping time 60 seconds) » vue telle quelle dans la branche Si/Al",
+      "article_says": "The Y-TZP blocks were coated either by the silica or aluminosilicate sol using a dip-coating device (80 mm/s, dipping time: 60 seconds) and calcinated at 400°C (5°C/min) for 2 hours.",
+      "fix": "La description de l'étape hérite du mot « silica sol » ; la variation Silica_sol -> Aluminosilicate_sol corrige le réactif mais pas le texte de l'étape lu par un chimiste. Reformuler l'étape 5 en « Dip-coat the blocks in the sol (silica sol for Si, aluminosilicate sol for Si/Al) » ou ajouter une note dans la variation.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Si/Al, résultats FTIR_main_Si-O_band (deux entrées)",
+      "extracted": "FTIR_main_Si-O_band = 1073 cm−1 (texte) et FTIR_main_Si-O_band = 1073.4 cm−1 (figure 2)",
+      "article_says": "FT-IR spectrum obtained from aluminosilicate composite indicated that the peak at 1,082 cm−1 was shifted to 1,073 cm−1, due to the incorporation of aluminum ions, confirming the formation of Al–O–Si bonds.",
+      "fix": "Doublon sur la même grandeur : garder 1073.4 cm−1 (lecture de la figure 2, étiquette imprimée) avec from_figure, ou 1073 du texte, en notant l'autre dans la citation ; la voie Si porte une seule valeur (1082.4, figure) alors que le texte donne 1,082.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Si, caractérisation FT-IR : bandes de l'eau",
+      "extracted": "bandes à 800, 464 et 1 082 cm−1 seulement",
+      "article_says": "The wide IR band in the range of 3,000–3,800 cm−1 is due to the stretching vibration of H2O molecules, and the band at 1,644 cm−1 is related to the corresponding bending.",
+      "fix": "Ajouter une caractérisation ou un résultat FT-IR pour les bandes de l'eau (3 000–3 800 cm−1 et 1 644 cm−1) avec cette citation ; la figure 2 donne 1643.2 cm−1 pour la silice et 1644.9 cm−1 pour l'aluminosilicate (bande à 1 644 cm−1 aussi pour Si/Al).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Bars_Si, caractérisation μTBS : conditions statistiques",
+      "extracted": "conditions « 6 kgf load cell, load rate 0.5 mm/min, after thermocycling », sans le traitement statistique des valeurs P",
+      "article_says": "The effect of different surface treatments on the zirconia–porcelain μTBS was examined using one-way analysis of variance (ANOVA) procedure, which was followed by Tukey’s post hoc pairwise comparison (α=0.05) using SPSS V11.5 software.",
+      "fix": "Ajouter aux conditions (ou en annotation) : ANOVA à un facteur puis Tukey post hoc, α=0,05, SPSS V11.5, ce qui donne leur sens aux valeurs P extraites (uTBS_Tukey_P_*).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 4,
+    "branches_extracted": 4,
+    "not_stated_checked": 70,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "conditions de frittage des blocs Y-TZP (« as instructed by the manufacturer »), ni dans l'article ni dans une annexe (pas d'annexe)",
+    "volumes ou quantités des sols utilisés pour le trempage, nombre de trempages, vitesse de retrait, vieillissement du sol avant trempage",
+    "sol de silice : seul le rapport molaire TEOS:HNO3:EtOH:H2O = 1:1.7:6:2 est donné, aucune quantité absolue ; sol d'aluminosilicate : quantités d'eau et de HNO3 absentes, durée d'agitation après ajout du nitrate d'aluminium absente",
+    "atmosphère de calcination à 400 °C, durée du séchage à l'air, composition (rapport) du bain acétone/éthanol",
+    "durée et angle du sablage, quantité d'alumine",
+    "porcelaine : rapport poudre/liquide, conditions de polymérisation de la résine PMMA d'enrobage, vitesse de coupe",
+    "effectifs ambigus : 30 blocs (résumé) contre 4 groupes de n=10 (méthodes) contre 12 barres par groupe retenues pour le test",
+    "valeur du témoin (20,52 MPa) et sa dispersion, ainsi que les P entre témoin, sablage et silice, lisibles seulement sur la figure 6",
+    "spectres FT-IR mesurés sur le gel calciné (« calcinated prepared gel ») dont les conditions de calcination ne sont pas données"
+  ],
+  "mechanism_check": "ok",
+  "notes": "Valeurs de la figure 6 vérifiées sur l'image : barres 20,52 / 16,74 / 22,82 / 24,08 MPa, barre d'erreur du témoin au sommet vers 23,3 MPa donc écart type ≈ 2,8 (écart < 10 % avec l'extraction) ; flèches P=0,013 (témoin–Si/Al), P=0,18 en pointillés (témoin–silice), P=0,008 (témoin–sablage), P<0,001 (sablage–silice et sablage–Si/Al), P=0,67 en pointillés (silice–Si/Al) : toutes correctement attribuées. Figure 2 : 1 082,4 et 1 073,4 cm−1 conformes. Figure 4 : pics EDS (Zr, O ; + Al ; + Si ; + Si et Al) conformes aux voies C, S, Si, Si/Al. Figure 3 : A = stishovite + deux fiches ZrSiO4 tétragonal, B = coésite + sillimanite + kyanite + ZrSiO4 + « aluminum zirconium » + oxyde de zirconium-aluminium, C = ZrO2 tétragonal (01-081-1544) : conforme à l'extraction, avec les doutes déjà posés sur stishovite/coésite. La cuisson de la porcelaine appliquée aux groupes C et S n'est pas écrite explicitement (le résumé dit « fired on the coated Y-TZP surface ») : lecture raisonnable, non retenue comme constat car les quatre groupes subissent le même essai μTBS. Les deux renvois de méthode (b19 pour le sol de silice, b20 Cao et al. pour le sol d'aluminosilicate) sont les seuls renvois de méthode du texte : rien à ajouter ni à retirer. Aucune annexe dans le dépôt pour cet article."
+}

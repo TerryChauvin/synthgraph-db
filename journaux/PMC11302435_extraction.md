@@ -1,0 +1,17 @@
+# Journal d'extraction PMC11302435
+
+- Découpage : 14 voies. Dix « méthodes » du tableau 2 pour ZIF-8 (une voie chacune) et quatre kits de marquage au 99mTc (tableaux 1 et 3). Les kits sont des voies `post_treatment` du ZIF-8.
+- Voies de base : méthode 1 (solvothermale), méthode 2 (eau), méthode 3 (méthanol, température ambiante), kit 1. Ce sont trois protocoles indépendants décrits en 3.2 à 3.4 plus le premier kit.
+- Arbre de la série dans le méthanol : méthodes 4, 5, 6 (30, 50, 80 °C) sont des branches de la méthode 3 ; méthodes 7, 8, 9 (rapports 1:2, 1:1, 2:1) sont des branches de la méthode 5 (50 °C), car le texte dit que le rapport est varié « once the desired temperature of 50°C was established » ; méthode 10 (avec agitation) est une branche de la méthode 7.
+- Contradiction Méthodes 3.4 contre tableau 2, ligne 3 (1,620 g / 1,468 g / 100 mL contre 1,125 g / 1,101 g / 150 mL) : j'ai gardé le texte des Méthodes pour la voie de base (règle de la section la plus détaillée) et mis les valeurs du tableau en variations des branches 4 à 10, pour ne pas les perdre. Conséquence : les branches 4 à 6 affichent trois variations de quantité en plus de la température ; cela traduit l'écart de l'article, pas un réglage testé. Voir le doute correspondant.
+- « 100 mL of methanol » en 3.4 : lecture ambiguë (par solution ou au total) ; enregistré 100 mL en un seul réactif méthanol, doute posé.
+- Agitation : seul le tableau 2 ligne 10 porte « With stirring ». Les sections 4.1 et 5 disent que le repos sans agitation donne des particules plus petites. J'ai donc lu les lignes 3 à 9 comme « au repos » et noté le paramètre `stirring = remained unchanged` à l'étape 3 de la méthode 3 pour que la variation de la méthode 10 ait un point d'ancrage.
+- Durée d'une heure en méthode 3 : « one hour » n'a pas de chiffre dans la citation ; la valeur numérique 1 h est citée avec la rangée 3 du tableau 2 (colonne Reaction Time).
+- Voie aqueuse : « a few minutes » (texte) gardé en value_text ; le tableau donne 0,25 h, signalé en doute.
+- Traitement après réaction des branches 4 à 10 (centrifugation, lavage, séchage) : hérité de la méthode 3, non écrit par l'article ; signalé en doute.
+- Voie solvothermale : marquée `succeeded: false` d'après « failed to yield particles with a suitable size and PDI » ; lavage et séchage non décrits (listés en manques).
+- Écarts-types du tableau 2 : pas de champ prévu, seule la moyenne est en value_num ; l'écart-type reste dans la citation de la rangée.
+- Figure 3 (corpus/fig/PMC11302435/ijpr-23-1-144928-i002.jpg) lue : les pics en intensité (≈ 550 nm pour l'échantillon 1, ≈ 1600 nm pour le 2) ne coïncident pas avec les tailles moyennes du tableau ; aucune valeur de figure extraite puisque le tableau donne tout. La figure 1 (photos) ne porte aucun résultat. Pas d'annexe renvoyée par l'article.
+- Kits 3 et 4 (sans SnCl2) : étapes propres sans dissolution de SnCl2 ; le HCl dilué reste hérité (l'article ne dit pas qu'il est omis). Kit 3 marqué `succeeded: false` (RE et RCP = 0).
+- Lot de ZIF-8 marqué : non précisé ; réactif en rôle `intermediate` sans voie, avec 500 µL (tableau 1) comme quantité de dispersion à 1 mg/mL.
+- method_sources : trois renvois de protocole pour les synthèses (REF21 à 23, rôle `protocole_adapte`, car l'article ne dit pas « according to »), REF31 (Alberto) pour le choix des méthodes de marquage et REF8 (caractérisation et stabilité ailleurs) en `autre`.

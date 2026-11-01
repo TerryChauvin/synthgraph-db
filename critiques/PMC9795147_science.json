@@ -1,0 +1,280 @@
+{
+ "pmcid": "PMC9795147",
+ "routes": [
+  {
+   "label": "N@CQDs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "énergie micro-ondes contre séchage du filtrat",
+     "inputs": "40 mL de filtrat assimilé à de l'eau (40 g), cp 4,18 J/(g·K), ΔT 80 K, ΔHvap 2257 J/g ; 700 W pendant 240 s",
+     "formula": "40 × (4,18 × 80 + 2257) ; 700 × 240",
+     "result": "≈ 104 kJ pour chauffer puis évaporer toute l'eau ; 168 kJ nominaux émis ; fraction absorbée nécessaire ≈ 62 %",
+     "compared_to": "rendement d'absorption d'un four de 50 à 70 % : le filtrat peut arriver au voisinage de la siccité en 4 min, mais pas sûrement ; tant qu'il reste de l'eau, la température plafonne vers 100 °C en récipient ouvert",
+     "source": "valeurs de l'article ; constantes de l'eau (valeurs de manuel, NIST WebBook fluide « water »)"
+    },
+    {
+     "what": "Bragg du pic PXRD à 24,60°",
+     "inputs": "2θ = 24,60° ; λ Cu Kα1 = 1,5406 Å (supposée : la longueur d'onde n'est pas déclarée)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 0,362 nm",
+     "compared_to": "graphite d002 = 0,335 nm ; carbone turbostratique désordonné 0,34–0,37 nm : cohérent avec un carbone amorphe ou peu ordonné, pas une preuve de points de carbone (tout résidu organique carbonisé donne ce halo)",
+     "source": "valeurs de l'article ; λ : NIST X-ray Transition Energies (references/constantes.md)"
+    },
+    {
+     "what": "rapports atomiques XPS",
+     "inputs": "O 43,00 % ; C 37,89 % ; N 19,11 %",
+     "formula": "N/C ; O/C",
+     "result": "N/C = 0,50 ; O/C = 1,13",
+     "compared_to": "points de carbone dopés N usuels : C majoritaire, N de quelques % ; ici O > C et N ≈ C/2 : composition de matière organique oxydée ou de sels (nitrate, amines), pas d'un cœur carboné sp2 avec franges à 0,21 nm",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "écart des énergies de liaison du survol XPS",
+     "inputs": "survol : C 1s 284,9 ; N 1s 395,6 ; O 1s 538,5 eV. Haute résolution : N 1s 399,2/400,8 ; O 1s 531,4/532,6 eV",
+     "formula": "différences survol − haute résolution",
+     "result": "C 1s : ≈ 0 ; N 1s : −3,6 à −5,2 eV ; O 1s : +5,9 à +7,1 eV",
+     "compared_to": "un effet de charge décale tous les pics dans le même sens ; des écarts de signes opposés avec C 1s calé indiquent une erreur de lecture ou de saisie des auteurs (O 1s attendu 531–533 eV, N 1s 398–401 eV)",
+     "source": "valeurs de l'article ; plages usuelles : NIST XPS Database"
+    },
+    {
+     "what": "nitrate apporté par 40 mL de jus de roquette (ordre de grandeur)",
+     "inputs": "teneur en nitrate des feuilles 4270–7100 mg/kg de matière fraîche (Signore 2020, culture hors-sol) ; hypothèse : le filtrat a la même teneur par kg que la feuille ; 40 mL ≈ 0,040 kg ; M(NO3−) 62,00, M(N) 14,007 g/mol",
+     "formula": "m(NO3−) = c × 0,040 ; m(N) = m(NO3−) × 14,007/62,00",
+     "result": "≈ 170–284 mg de nitrate, soit ≈ 39–64 mg d'azote dans le lot",
+     "compared_to": "aucune masse de produit donnée ; l'azote nitrate peut peser lourd dans le résidu (quelques % à > 10 % d'un résidu sec de ≈ 2 g)",
+     "source": "Signore et al. 2020 (voir checks) ; hypothèse de l'agent sur le transfert au filtrat"
+    },
+    {
+     "what": "constante de Stern–Volmer en unités molaires et kq",
+     "inputs": "pente 0,0026 mL/ng ; M(modafinil, C15H15NO2S) = 273,35 g/mol ; τ0 des points non mesuré, pris entre 1 et 10 ns (ordre usuel des points de carbone)",
+     "formula": "KSV = 0,0026 × 273,35 × 10^6 L/mol ; kq = KSV / τ0",
+     "result": "KSV ≈ 7,1 × 10^5 L/mol ; kq ≈ 7 × 10^13 à 7 × 10^14 L mol−1 s−1",
+     "compared_to": "limite de diffusion dans l'eau ≈ 10^10 L mol−1 s−1 : 4 ordres de grandeur au-dessus, l'extinction « dynamique » annoncée est impossible",
+     "source": "valeurs de l'article ; masse molaire d'après la formule (masses atomiques IUPAC) ; limite de diffusion : Lakowicz 2006"
+    },
+    {
+     "what": "F0/F aux bornes de l'étalonnage",
+     "inputs": "F0/F = 0,0026 C + 0,8307 (C en ng/mL)",
+     "formula": "évaluation à C = 0, 50 et 700 ng/mL",
+     "result": "0,831 ; 0,961 ; 2,65",
+     "compared_to": "Stern–Volmer impose F0/F = 1 à C = 0 et > 1 dès qu'il y a extinction ; F0/F < 1 jusqu'à ≈ 65 ng/mL voudrait dire une exaltation, contraire à la Fig. 4a",
+     "source": "valeurs de l'article (Tableau 1, Fig. 4b lue : ≈ 0,96 au premier point)"
+    },
+    {
+     "what": "LOD et LOQ recalculées",
+     "inputs": "Sa = 0,009 ; pente 0,0026",
+     "formula": "LOD = 3,3 Sa/b ; LOQ = 10 Sa/b",
+     "result": "LOD 11,4 ng/mL ; LOQ 34,6 ng/mL ; rapport annoncé/recalculé = 1,30 pour les deux ; σ implicite = 0,0117",
+     "compared_to": "annoncé 14,85 et 45,0 ng/mL : facteur constant, autre σ que le Sa du Tableau 1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration attendue d'un échantillon de plasma au Cmax",
+     "inputs": "Cmax 4,15 µg/mL ; 1 mL plasma + 1 mL méthanol ; 1 mL de surnageant porté à 5 mL",
+     "formula": "4,15 / 2 / 5",
+     "result": "≈ 415 ng/mL",
+     "compared_to": "gamme 50–700 ng/mL : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve discriminante absente : le couple λex 445 nm / λem 515 nm (Fig. 2 : ≈ 495 nm) est la signature de la riboflavine et des flavines (absorption 445 nm, émission 520–535 nm, rendement de fluorescence ≈ 0,26 à pH neutre), que les auteurs citent eux-mêmes parmi les constituants des feuilles. La purification (sonication, centrifugation, filtre 0,45 µm) ne retire aucune petite molécule : pas de dialyse, d'ultrafiltration ni de chromatographie d'exclusion. La fluorescence verte mesurée peut donc venir de flavines extraites ou de fluorophores moléculaires de Maillard, et non de points de carbone ; ni le rendement quantique (41,39 %) ni l'extinction par le modafinil ne prouvent l'existence des points.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "pH dependence of the absorption and emission behaviour of riboflavin in aqueous solution",
+      "authors_or_publisher": "Drössler P., Holzer W., Penzkofer A., Hegemann P. (Chem. Phys. 282, 429–439)",
+      "year": "2002",
+      "url_or_doi": "https://pred.uni-regensburg.de/id/eprint/39873/"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Cadre général du point précédent : dans les synthèses ascendantes, les fluorophores moléculaires libres sont souvent confondus avec des points de carbone ; un contrôle exige dialyse (ou exclusion stérique) et comparaison de la fluorescence du dialysat et du rétentat. Le dosage USP de la riboflavine se fait justement à λex 444 / λem 530 nm.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B., Kist J. A., Polo-Parada L., Baker G. A. (Chem. Mater.)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Signature des flavines confirmée par la pharmacopée : dosage fluorimétrique de la riboflavine à excitation 444 nm et émission 530 nm, soit les longueurs d'onde de travail de l'article (445/515).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Riboflavin, monographie USP 35–NF 30 (dosage fluorimétrique : excitation 444 nm, émission 530 nm)",
+      "authors_or_publisher": "United States Pharmacopeial Convention (copie drugfuture.com)",
+      "year": "2012",
+      "url_or_doi": "https://www.drugfuture.com/Pharmacopoeia/USP35/data/v35300/usp35nf30s0_m73500.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique de 41,39 % invérifiable : méthode du point unique avec la quinine, sans longueur d'onde d'excitation, absorbances, intégrales ni indices de réfraction. Le sulfate de quinine (φ = 0,546 dans H2SO4 0,5 M) absorbe vers 350 nm et quasiment plus au-delà de 400 nm : il ne convient pas pour une excitation à 445 nm ; à 350 nm, la Fig. 2 ne montre qu'un fond plat (≈ 0,2, diffusion probable). La Fig. 2 s'arrête à 400 nm et ne montre aucune absorbance à 445 nm, longueur d'onde d'excitation. Comparaison base : extraits végétaux non dialysés PMC11840780 (tige de Giloy, 7,2 %), PMC5896389 (huile de noix, 14,5 %) ; 41 % en 4 min sans purification est au-dessus.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M. (Pure Appl. Chem.)",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Extinction dite « dynamique » parce que le tracé de Stern–Volmer est linéaire : la linéarité ne distingue pas extinction statique et dynamique (il faut la durée de vie ou l'effet de la température). Avec KSV ≈ 7,1 × 10^5 L/mol, kq ≈ 10^14 L mol−1 s−1 (voir calcul « constante de Stern–Volmer en unités molaires et kq »), 10^4 fois la limite de diffusion : extinction dynamique exclue. Le transfert d'énergie invoqué exige que le modafinil absorbe vers 515 nm, or ses seuls chromophores sont deux phényles isolés et un amide (absorption sous ≈ 270 nm).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Principles of Fluorescence Spectroscopy, 3e éd., chap. 8 (Quenching of Fluorescence)",
+      "authors_or_publisher": "Lakowicz J. R. (Springer)",
+      "year": "2006",
+      "url_or_doi": "10.1007/978-0-387-46312-4"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Ordonnée à l'origine 0,8307 de F0/F (voir calcul « F0/F aux bornes de l'étalonnage ») : F0/F < 1 jusqu'à ≈ 65 ng/mL, ce qui contredit la notion même d'extinction ; l'équation n'est pas une droite de Stern–Volmer. LOD et LOQ annoncées valent 1,30 fois celles calculées avec Sa = 0,009 (calcul « LOD et LOQ recalculées »). Ces points touchent la sonde, pas la synthèse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Survol XPS incohérent avec les spectres de haute résolution du même article : N 1s à 395,6 eV contre 399,2/400,8 eV ; O 1s à 538,5 eV contre 531,4/532,6 eV, avec C 1s calé à 284,9 eV (calcul « écart des énergies de liaison du survol XPS »). Un décalage de charge ne donne pas des écarts de signes opposés : erreur de saisie ou de lecture des auteurs. Plages usuelles : O 1s 531–533 eV, N 1s 398–401 eV.",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "NIST X-ray Photoelectron Spectroscopy Database (SRD 20)",
+      "authors_or_publisher": "NIST",
+      "year": "2023",
+      "url_or_doi": "https://srdata.nist.gov/xps/"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Composition XPS O 43 % / C 37,9 % / N 19,1 % (O/C 1,13 ; N/C 0,50, calcul « rapports atomiques XPS ») peu compatible avec un « point quantique de carbone » à franges de 0,21 nm ; elle ressemble à de la matière végétale oxydée ou à des sels. La somme C+N+O = 100 % ignore K, Ca, Mg, Cl, P et le soufre des glucosinolates, abondants dans un jus de feuille ; l'EDX ne mentionne aucun de ces éléments, ce qui est improbable pour un résidu de jus non lavé. Le taux d'azote record attribué à la « passivation » n'a pas de témoin.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La roquette accumule le nitrate (4270–7100 mg/kg de matière fraîche selon la lumière en culture hors-sol ; limites allemande et suisse 2400–4000 mg/kg) : 40 mL de jus apportent de l'ordre de 40–60 mg d'azote nitrate (calcul « nitrate apporté »). Une part de l'azote mesuré peut être du nitrate ou des sels d'ammonium, non du carbone dopé ; un pic N 1s vers 407 eV (nitrate) n'est pas rapporté, mais le survol est lui-même erroné. La bande FTIR attribuée à « N–O » va dans ce sens.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Red Light Is Effective in Reducing Nitrate Concentration in Rocket by Increasing Nitrate Reductase Activity, and Contributes to Increased Total Glucosinolates Content",
+      "authors_or_publisher": "Signore A., Bell L., Santamaria P., Wagstaff C., Van Labeke M.-C. (Front. Plant Sci. 11:604)",
+      "year": "2020",
+      "url_or_doi": "10.3389/fpls.2020.00604"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR : bandes à 1560 cm−1 (C=C) et 1556 cm−1 (N–O) séparées de 4 cm−1, attribuées à deux groupes différents : non résolubles sur un spectre de matière organique ; 2900 cm−1 est attribué deux fois. Le vocabulaire « N–O stretching » ne désigne rien de précis (nitro ≈ 1550/1350, nitrate ≈ 1380 cm−1).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bragg : 2θ = 24,60° donne d = 0,362 nm (calcul « Bragg du pic PXRD »), halo de carbone désordonné ; l'espacement HRTEM de 0,21 nm correspond au plan (100) du graphite (0,213 nm). Valeurs plausibles pour des points de carbone, mais tout résidu carbonisé donne le même halo, et les franges de 0,21 nm ne disent rien de la fraction fluorescente. L'écart-type « ± 0,21 » sur 2,0 nm reprend le chiffre de l'espacement réticulaire (soupçon de confusion).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence texte–figures : Fig. 2 montre des maxima d'absorption vers 218 et 280 nm et une émission vers 495 nm, le texte dit 229, 296 et 515 nm ; Fig. 4a donne bien ≈ 515 nm. Le résumé annonce une mesure de potentiel zêta dont aucune valeur n'est donnée nulle part.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Récipient et température non donnés alors que l'appareil MFMI-100A a un capteur IR 0–300 °C. En récipient ouvert, l'eau plafonne la température vers 100 °C tant qu'elle n'est pas évaporée ; la carbonisation ne commence vraiment qu'à sec. Le bilan d'énergie (calcul « énergie micro-ondes contre séchage du filtrat ») place 4 min à 700 W juste à la limite de la siccité, ce qui explique le flottement du texte : « until brown solution was formed » puis « The residue was dispersed ». Selon le four et la charge, on obtient une solution brunie (Maillard, caramélisation) ou un résidu charbonneux : deux produits différents.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Milieu de redispersion du résidu non dit (eau supposée) ; concentration de la solution mère (0,15 mg/mL au dosage) sans masse de produit ni méthode de détermination (masse sèche ?) : la concentration de travail n'est pas reproductible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "4 min de micro-ondes à 700 W sur un liquide aqueux : durée compatible avec un brunissement de Maillard et la formation de petits fluorophores, courte pour une carbonisation complète en points graphitiques tant qu'il reste de l'eau. Comparaison base : PMC10077337 (saccharose + thiourée, four domestique 700 W, 7 min, séché puis carbonisé).",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Aucune précaution donnée. Chauffage micro-ondes d'un liquide aqueux : surchauffe et ébullition brutale, projections ; en récipient fermé, surpression (eau : pression de vapeur ≈ 1 bar à 100 °C, ≈ 15 bar à 200 °C). Utiliser un récipient ouvert ou un réacteur micro-ondes à contrôle de pression, ne jamais fermer un flacon ordinaire. Plasma humain : risque biologique (manipulation sous règles BSL-2). Méthanol : toxique, inflammable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Masse de feuilles, ajout éventuel d'eau, lavage des feuilles et provenance (teneur en nitrate et en flavines variable selon la culture) non donnés : la composition du filtrat de départ n'est pas définie ; seul le volume (40 mL) l'est.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sous micro-ondes, le jus aqueux de feuilles chauffe vers 100 °C ; sucres réducteurs et acides aminés réagissent (Maillard) et caramélisent, d'où la couleur brune, puis, si le filtrat atteint la siccité, le résidu se carbonise partiellement en petites particules de carbone désordonné (halo à 0,36 nm) riches en O et N. Mais la fluorescence verte exploitée (λex 445, λem ≈ 495–515 nm) correspond à celle des flavines (riboflavine, FMN) extraites des feuilles, qui ne sont pas éliminées par une simple filtration à 0,45 µm ; elle peut aussi venir de fluorophores moléculaires de Maillard. Rien dans l'article ne permet d'attribuer la fluorescence aux particules de 2 nm plutôt qu'à ces molécules, et l'extinction par le modafinil (kq ≫ limite de diffusion) est plutôt statique (association) ou artefactuelle.",
+    "sources": [
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B., Kist J. A., Polo-Parada L., Baker G. A. (Chem. Mater.)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     },
+     {
+      "title": "pH dependence of the absorption and emission behaviour of riboflavin in aqueous solution",
+      "authors_or_publisher": "Drössler P., Holzer W., Penzkofer A., Hegemann P. (Chem. Phys. 282, 429–439)",
+      "year": "2002",
+      "url_or_doi": "https://pred.uni-regensburg.de/id/eprint/39873/"
+     },
+     {
+      "title": "Riboflavin, monographie USP 35–NF 30 (dosage fluorimétrique : excitation 444 nm, émission 530 nm)",
+      "authors_or_publisher": "United States Pharmacopeial Convention (copie drugfuture.com)",
+      "year": "2012",
+      "url_or_doi": "https://www.drugfuture.com/Pharmacopoeia/USP35/data/v35300/usp35nf30s0_m73500.html"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer et noter la masse de feuilles, l'eau ajoutée éventuelle et le mode d'extraction (jus pressé ou extrait aqueux), puis la masse sèche de produit",
+    "noter le type de récipient (ouvert) et la température atteinte (capteur IR de l'appareil) ; dire si le filtrat arrive à sec",
+    "dialyser (membrane 500–1000 Da) ou ultrafiltrer et comparer la fluorescence du dialysat et du rétentat ; mesurer le spectre d'excitation et le comparer à celui de la riboflavine (pics 370 et 445 nm)",
+    "mesurer le spectre d'absorption jusqu'à 600 nm et refaire le rendement quantique avec un étalon adapté à 445 nm (fluorescéine dans NaOH 0,1 M ou coumarine 153) en donnant absorbances et intégrales",
+    "refaire l'XPS (énergies du survol) et doser les éléments minéraux (K, Ca, Cl, S) et le nitrate du produit",
+    "mesurer la durée de vie de fluorescence avec et sans modafinil pour trancher statique contre dynamique"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse verte en une étape (jus de roquette, micro-ondes 700 W, 4 min, filtration 0,45 µm) réalisable en principe, mais sous-décrite (pas de masse de feuilles, ni de température, ni de récipient, ni de rendement) et surtout sans preuve que la fluorescence exploitée vienne de points de carbone : la fenêtre λex 445 / λem 515 nm est celle de la riboflavine, présente dans les feuilles et non éliminée par la purification. Plusieurs erreurs internes des auteurs (survol XPS, F0/F < 1, LOD/LOQ, kq impossible pour une extinction dynamique) fragilisent la caractérisation et l'interprétation.",
+  "author_errors_suspected": [
+   "énergies de liaison du survol XPS fausses (N 1s 395,6 et O 1s 538,5 eV contre 399,2/400,8 et 531,4/532,6 eV en haute résolution)",
+   "droite F0/F d'ordonnée 0,8307 (F0/F < 1 aux faibles concentrations) présentée comme une droite de Stern–Volmer",
+   "extinction déclarée dynamique alors que kq ≈ 10^14 L mol−1 s−1 dépasse la limite de diffusion de 4 ordres de grandeur",
+   "LOD et LOQ 1,30 fois supérieures aux valeurs données par Sa = 0,009 et la pente du Tableau 1",
+   "maxima d'absorption et d'émission du texte (229, 296, 515 nm) différents de ceux de la Fig. 2 (≈ 218, 280, 495 nm)",
+   "potentiel zêta annoncé dans le résumé, jamais donné",
+   "« 2,0 nm ± 0,21 » qui reprend le chiffre de l'espacement réticulaire"
+  ],
+  "comparison_with_database": "Points de carbone d'origine végétale ou biomasse dans la base : PMC11840780 (tige de Giloy, hydrothermal, QY 7,2 %), PMC5896389 (huile de noix, hydrothermal, 14,5 %), PMC6769153 (graines de fenouil, 500 °C, franges 0,21 nm) ; voie micro-ondes 700 W comparable : PMC10077337 (saccharose + thiourée, 7 min, chauffé à sec). Le QY de 41,39 % sans dialyse ni dopant ajouté est le plus haut de ces sources végétales ; les franges à 0,21 nm sont banales dans la base."
+ },
+ "sources_not_found": [
+  "aucune revue consultable donnant la plage typique des rendements quantiques de points issus de feuilles par micro-ondes (pages PMC et RSC injoignables depuis l'environnement) : la comparaison s'appuie sur la base",
+  "rendement quantique de fluorescence de la riboflavine : valeur 0,26 prise dans le résumé de Drössler et al. 2002 (texte intégral non consulté)",
+  "spectre UV du modafinil : non vérifié en ligne ; argument de chimie générale (phényles isolés et amide)"
+ ]
+}

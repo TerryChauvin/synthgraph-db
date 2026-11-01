@@ -1,0 +1,15 @@
+# PMC8433875 — critique scientifique (journal de décisions)
+
+- Seul `probleme` retenu : absence de toute analyse de composition des films (ni EDX, ni XPS, ni Raman) alors que la conclusion affirme « no incorporation of N or O » et un SnS « phase-pure » ; le fluor (CF3) n'est jamais discuté. La XRD et la SAED n'excluent pas des phases amorphes ou minoritaires. Classé en preuve non discriminante (contrôle 7), pas en erreur de valeur.
+- Calcul qui renforce ce point : perte ATG de 57 % au lieu de 63,9 % pour SnS, soit un résidu de ≈ 179 g/mol par Sn, proche de SnS2 (56,2 %) ou de SnS avec ≈ 28 g/mol de C/F/N/O. Gardé en `reserve` dans Complex_1 (le résidu n'est pas identifié par les auteurs).
+- Bilan C12H21F3N2OSSn → SnS + C4H8 + HL vérifié atome par atome (C et H exacts) : la β-élimination d'isobutène fournit l'hydrogène qui reprotone le ligand. Je l'ai préféré à la perte de thiolate en disulfure (vue pour d'autres thiolates d'étain), parce que le bilan est exact et redonne 63,9 %, la perte théorique des auteurs.
+- Source du mécanisme tert-butylthiolate : seule la thèse de J. Cheon (Illinois, 1993, IDEALS) a été trouvée ; l'article publié de Girolami n'a pas été trouvé, donc il n'est pas cité.
+- Analyse élémentaire recalculée : S +0,54 % hors tolérance ± 0,4 %. Laissé en `reserve` parce que Kuveke et al. 2022 contestent cette tolérance ; DOI non vérifié (Crossref et PMC injoignables), cité sans DOI.
+- L'annotation mecanisme_analyse de l'extraction (« N–H plus acide que le thiol ») est jugée douteuse : alcanethiol pKa ≈ 10–11 contre un N–H d'énaminone bien moins acide. Je n'ai pas trouvé de pKa fiable du tBuSH (une valeur de site non fiable a été écartée) ; le raisonnement reste en ordre de grandeur (chimie_generale). Mécanisme de Complex_1 mis à `a_revoir` pour cette raison seulement.
+- Redox : la formation simultanée de Sn(SBut)4 et de disulfure (deux produits oxydés) implique une entrée d'O2 ou une dismutation en Sn(0) ; signalé en `reserve` sur la voie Sn(SBut)2.
+- Facteur 12 de vitesse entre FTO (2,7 nm/min) et Mo-SLG (33 nm/min) : `reserve` et pas `probleme`, la morphologie (plaquettes verticales contre flocons à plat) en explique une partie ; l'épaisseur MEB n'est pas une masse.
+- SAED/HRTEM : un réglage de maille non précisé (COD 9008785 injoignable) et des « spots » d'axe de zone décrits « as a ring pattern ». Distances d(200) recalculées dans les deux réglages (2,16 Å contre 5,6 Å) depuis les paramètres du Handbook of Mineralogy.
+- Raie (040) recalculée en supposant Cu Kα (la longueur d'onde de la GI-XRD n'est pas donnée) : 2θ ≈ 32°, séparée des raies du SnO2 du FTO.
+- Contradiction relevée : la conclusion dit que les films sur Mo n'ont « no such preference », alors que les résultats décrivent des plaquettes verticales.
+- Source Swansea (MoS2 à 470 °C) : seul l'extrait de recherche a été lu, sans le titre ; c'est noté dans la source, qui sert seulement d'appui à une `reserve`.
+- Recherches web : 7 recherches et 2 lectures de page tentées (crystallography.net et PMC injoignables). Rien n'a été ajouté à fondateurs.md ni à constantes.md (consigne).

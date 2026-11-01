@@ -1,0 +1,339 @@
+{
+ "pmcid": "PMC9908928",
+ "routes": [
+  {
+   "label": "garlic_extract",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de l'extrait en poudre d'ail",
+     "inputs": "15 g de poudre d'ail ; 500 mL d'eau désionisée",
+     "formula": "m/V",
+     "result": "30 g/L (avant filtration et centrifugation)",
+     "compared_to": "extraits aqueux de plantes usuels en synthèse verte : quelques g à quelques dizaines de g/L",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse d'ail équivalente dans 25 mL d'extrait",
+     "inputs": "30 g/L ; 25 mL",
+     "formula": "30 g/L × 0,025 L",
+     "result": "0,75 g de poudre (0,31 g de matière sèche si la poudre garde l'eau de l'ail frais, 58,6 % d'eau)",
+     "compared_to": "11,8 mmol Ag+ à réduire (voie AgNPs_garlic)",
+     "source": "valeurs de l'article ; teneur en eau : USDA FoodData Central 169230"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Dispersion de 15 g de poudre dans 500 mL d'eau « à 100 °C » 30 min sous agitation magnétique, sans reflux ni couvercle mentionnés : à 100 °C l'eau bout à pression ambiante (Teb = 100 °C), le volume final de l'extrait n'est pas contrôlé, donc sa concentration (30 g/L nominal) non plus.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Chauffer la poudre à 100 °C dénature l'alliinase : la part d'allicine dépend de ce qui s'est formé au broyage avant chauffage ; l'extrait contient surtout des fructanes (non réducteurs), peu de sucres libres (≈ 1 g/100 g d'ail frais), des composés soufrés (S-allylcystéine, γ-glutamylpeptides) et des sels. Le pouvoir réducteur réel n'est pas dosé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Garlic, raw (SR Legacy, FDC ID 169230) : eau 58,6 g, glucides 33,1 g, sucres totaux 1,0 g pour 100 g",
+      "authors_or_publisher": "USDA FoodData Central (lu via un miroir, getfoodfacts.com)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://fdc.nal.usda.gov/food-details/169230/nutrients"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Maximum d'absorption à 272 nm : compatible avec un extrait aqueux végétal (composés aromatiques et soufrés), mais les Méthodes annoncent un balayage de 300 à 800 nm alors que la figure 6b va de 250 à 800 nm : incohérence entre sections, 272 nm n'est mesurable que dans la seconde plage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La partie de la plante est ambiguë (titre « leaf extract », texte « fresh garlic » broyé) et l'état de la poudre (ail frais simplement essuyé, ou déshydraté) n'est pas dit : la matière sèche dans 25 mL varie d'un facteur 2,4 (0,31 à 0,75 g, voir calculs), ce qui change le rapport réducteur/Ag+.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Extraction à l'eau bouillante des composés hydrosolubles (fructanes, sucres libres, acides aminés soufrés, polyphénols en faible quantité, sels dont chlorures) ; la centrifugation retire les débris insolubles. L'extrait apporte ensuite à la fois un peu de réducteur et des ions chlorure capables de précipiter AgCl.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chemistry (RSC)",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     },
+     {
+      "title": "Garlic, raw (SR Legacy, FDC ID 169230) : eau 58,6 g, glucides 33,1 g, sucres totaux 1,0 g pour 100 g",
+      "authors_or_publisher": "USDA FoodData Central (lu via un miroir, getfoodfacts.com)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://fdc.nal.usda.gov/food-details/169230/nutrients"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "partie de la plante et état de la poudre (frais ou déshydraté)",
+    "volume final de l'extrait après 30 min à ébullition (compléter à 500 mL)",
+    "teneur en chlorures de l'extrait (test AgNO3/HNO3 ou chromatographie ionique)",
+    "durée et température de conservation au réfrigérateur"
+   ]
+  },
+  {
+   "label": "AgNPs_garlic",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité de AgNO3",
+     "inputs": "2 g ; M(AgNO3) = 169,87 g/mol",
+     "formula": "m/M",
+     "result": "11,77 mmol ; 0,471 mol/L dans 25 mL ; 0,235 mol/L après ajout des 25 mL d'extrait",
+     "compared_to": "solubilité de AgNO3 dans l'eau très élevée (> 2 kg/L à 20 °C) : dissolution sans difficulté",
+     "source": "masse molaire calculée (Ag 107,87 ; N 14,01 ; O 16,00)"
+    },
+    {
+     "what": "masse maximale d'argent",
+     "inputs": "11,77 mmol ; M(Ag) = 107,87 g/mol",
+     "formula": "n × M",
+     "result": "1,27 g d'Ag si tout l'argent était réduit",
+     "compared_to": "rendement non donné par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "électrons apportés par l'extrait contre électrons nécessaires",
+     "inputs": "0,75 g de poudre d'ail dans 25 mL ; ail cru : 33,1 g de glucides et 1,0 g de sucres libres pour 41,4 g de matière sèche ; Ag+ + e- → Ag, 11,77 mmol",
+     "formula": "sucres libres : m/180 × 2 e- ; tous glucides comptés comme hexose réducteur : m/162 × 2 e-",
+     "result": "sucres libres : 0,2 mmol e- (poudre sèche) ; borne haute tous glucides : 7,4 mmol e- (poudre sèche) ou 3,1 mmol e- (poudre humide) ; nécessaire : 11,8 mmol e-",
+     "compared_to": "réduction complète impossible ; avec les seuls sucres libres, < 2 % de l'argent réductible (les fructanes de l'ail ne sont pas réducteurs sans hydrolyse)",
+     "source": "USDA FoodData Central 169230 (via miroir) ; stœchiométrie 2 e- par fonction aldéhyde (Raveendran 2003)"
+    },
+    {
+     "what": "moyenne des tailles de cristallites du tableau 1",
+     "inputs": "13,88 ; 14,02 ; 14,25 ; 14,65 ; 94,19 ; 87,65 ; 110,55 ; 116,84 nm",
+     "formula": "moyenne arithmétique ; moyenne harmonique",
+     "result": "58,25 nm (arithmétique) ; 24,9 nm (harmonique)",
+     "compared_to": "D moyen annoncé : 30,20 nm",
+     "source": "valeurs du tableau 1"
+    },
+    {
+     "what": "Scherrer recalculé pic par pic",
+     "inputs": "λ = 1,5406 Å ; K = 0,9 (éq. 1) ou 0,94 (Méthodes) ; 2θ et FWHM du tableau 1",
+     "formula": "D = Kλ/(β cos θ), β en radians",
+     "result": "K = 0,9 : 13,88 ; 14,02 ; 14,25 ; 14,64 ; 94,16 ; 87,62 ; 110,51 ; 116,80 nm (identiques au tableau) ; K = 0,94 : valeurs 4,4 % plus grandes",
+     "compared_to": "tableau 1 calculé avec K = 0,9 alors que les Méthodes annoncent K = 0,94",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "positions de Bragg de Ag cubique",
+     "inputs": "a = 4,086 Å ; λ = 1,5406 Å",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(111) 38,12° ; (200) 44,30° ; (220) 64,45° ; (311) 77,40° ; (222) 81,55°",
+     "compared_to": "article : (111) 38,2° ok ; (200) 46,3° faux (1,9° d'écart) ; (220) 34,74° faux (64,45° attendu) ; (311) 77,23° ; (222) 81,82°",
+     "source": "a(Ag) ≈ 4,086 Å, fiche JCPDS 04-0783 (raies confirmées par arXiv:1111.0260)"
+    },
+    {
+     "what": "positions de Bragg de AgCl cubique (chlorargyrite)",
+     "inputs": "a = 5,556 Å ; λ = 1,5406 Å",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(111) 27,79° ; (200) 32,20° ; (220) 46,18° ; (311) 54,75° ; (222) 57,41° ; (420) 76,64°",
+     "compared_to": "article : 27,96 ; 32,28 ; 46,31 ; 54,72° (attribués à AgO (100), (111), (220) et à Ag (200)) : écarts ≤ 0,17°",
+     "source": "Webmineral, chlorargyrite, PDF 31-1238"
+    },
+    {
+     "what": "indice de réfraction donné par la formule (7) de l'article",
+     "inputs": "Ts en pourcentage (10^-A × 100)",
+     "formula": "n = 1/Ts + √(1/(Ts − 1))",
+     "result": "Ts = 50 % → 0,163 ; 80 % → 0,125 ; 90 % → 0,117 ; 95 % → 0,114",
+     "compared_to": "0,113–0,116 annoncé = simple traduction d'une transmittance de 90–96 % ; la formule n'est pas une relation optique (avec Ts en fraction, la racine est imaginaire)",
+     "source": "arithmétique sur la formule de l'article"
+    },
+    {
+     "what": "potentiel zêta recalculé depuis la mobilité (Smoluchowski)",
+     "inputs": "μ = −1,532 μm·cm/(V·s) = −1,532 × 10^-8 m²/(V·s) ; η(eau, 25 °C) = 0,890 mPa·s ; εr = 78,4",
+     "formula": "ζ = μη/(εr ε0)",
+     "result": "−19,6 mV",
+     "compared_to": "−19,5 mV annoncé : cohérent ; l'unité « μmcm/Vs » est bien μm·cm/(V·s)",
+     "source": "constantes de l'eau, valeurs de manuel"
+    },
+    {
+     "what": "longueur d'onde du bord optique",
+     "inputs": "Eg = 3,39 eV",
+     "formula": "λ = 1239,84/E",
+     "result": "366 nm",
+     "compared_to": "dans la plage 300–800 nm mesurée ; Tauc n'a pas de sens pour un métal (Ag) ; AgO et Ag2O ont des bandes interdites ≈ 1–1,5 eV ; AgCl a un gap indirect ≈ 3,2 eV (valeur de manuel non vérifiée ici)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Argent en très large excès sur le réducteur : 11,8 mmol Ag+ (0,235 mol/L) pour 0,75 g d'ail au plus ; même en comptant tous les glucides comme réducteurs à 2 e-, l'extrait fournit au plus 7,4 mmol e- (3,1 si la poudre est humide), et seulement 0,2 mmol e- avec les sucres libres (voir « électrons apportés par l'extrait contre électrons nécessaires »). La plus grande partie de l'argent reste en solution et part au lavage ; le précipité noir ne peut être qu'une petite fraction du 1,27 g possible, et le rendement n'est pas donné.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Garlic, raw (SR Legacy, FDC ID 169230) : eau 58,6 g, glucides 33,1 g, sucres totaux 1,0 g pour 100 g",
+      "authors_or_publisher": "USDA FoodData Central (lu via un miroir, getfoodfacts.com)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://fdc.nal.usda.gov/food-details/169230/nutrients"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Identification de phase fausse : quatre des huit pics (27,96 ; 32,28 ; 46,31 ; 54,72°) coïncident à ≤ 0,17° près avec AgCl cubique (111), (200), (220), (311) (voir « positions de Bragg de AgCl ») ; 46,31° ne peut pas être Ag (200), attendu à 44,30°, et 34,74° ne peut pas être Ag (220), attendu à 64,45°. Les raies 38,2 ; 77,2 ; 81,8° conviennent à Ag. Le diagramme se lit Ag + AgCl, et non Ag + AgO ; AgCl est un sous-produit classique des synthèses par extraits végétaux (chlorures de la plante).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Phytofabrication of Silver/Silver Chloride Nanoparticles Using Aqueous Leaf Extract of Oedera genistifolia: Characterization and Antibacterial Potential",
+      "authors_or_publisher": "Okaiyeto K. et al., Molecules (MDPI)",
+      "year": "2019",
+      "url_or_doi": "10.3390/molecules24234382"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "AgO est un oxyde mixte Ag(I)/Ag(III) qui se prépare par oxydation forte (persulfate de potassium en milieu alcalin) ; il ne peut pas naître d'un milieu réducteur à 80 °C, non basique, sous air. Les Méthodes parlent même de « reduction of silver Ag+ ions to AgO », ce qui est une oxydation. L'attribution AgO est incompatible avec la chimie de la voie ; Ag2O demanderait un pH basique que l'extrait d'ail (acide) ne donne pas.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermal Stability and Decomposition Kinetics of AgO Submicron Particles Prepared by Potassium Persulfate Oxidation",
+      "authors_or_publisher": "Materials Science (Medžiagotyra), Kaunas University of Technology",
+      "year": "2018",
+      "url_or_doi": "https://matsc.ktu.lt/index.php/MatSc/article/view/17052"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Moyenne des tailles de cristallites fausse : les huit valeurs du tableau 1 donnent 58,25 nm en moyenne arithmétique (24,9 nm en harmonique), pas 30,20 nm (voir « moyenne des tailles de cristallites du tableau 1 »). En outre K = 0,94 (Méthodes) contre 0,9 (éq. 1, utilisé pour le tableau) ; quatre pics ont la même FWHM 0,590° et quatre autres ≈ 0,09°, valeur proche de l'élargissement instrumental d'un diffractomètre de laboratoire, non soustrait : les tailles de 88–117 nm ne sont pas mesurables par Scherrer et la moyenne de pics de deux phases n'a pas de sens physique.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire physique : l'EDS ne mesure pas une « absorption » liée à la résonance plasmon ; le pic vers 3 keV est la raie d'émission X Ag Lα (≈ 2,98 keV) et ne prouve pas la cristallinité. L'échantillon MEB est posé sur un support « platinum mesh coated with palladium » : les raies L de Pd (≈ 2,8 keV) recouvrent celles de Ag, et Cl Kα (≈ 2,6 keV) n'est pas recherché ; le pic intense non étiqueté vers 1,4–1,5 keV peut être Al Kα du porte-objet. L'EDS montrée ne discrimine ni Ag/AgCl ni Ag/AgO.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Grandeurs optiques sans fondement : le Tauc « direct » de 3,39 eV (366 nm) s'applique à un semi-conducteur, pas à Ag métallique ; il ne correspond pas non plus à AgO ni Ag2O (≈ 1–1,5 eV) mais serait proche du gap indirect de AgCl (≈ 3,2 eV), ce qui va dans le sens de la phase AgCl. L'indice de réfraction 0,113–0,116 est un artefact de la formule (7) avec Ts en pourcent : il traduit seulement une transmittance de 90–96 % (voir « indice de réfraction donné par la formule (7) »). Le film mince (épaisseur d nécessaire à α = A·ln10/d) n'est pas décrit.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plasmon à 420 nm pour des particules de 50–350 nm (classe la plus fréquente 150–200 nm au MET) : des sphères d'argent de plus de 100 nm ont une résonance large, décalée vers le rouge et des modes multipolaires ; 420 nm correspond plutôt à une population de quelques dizaines de nm. Le spectre est mesuré sur le mélange réactionnel à 24 h, pas sur le produit lavé et séché : il ne caractérise pas la poudre. Les « nanoparticules » sont en majorité au-dessus de 100 nm, la borne que l'article donne lui-même en introduction.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Size-controlled silver nanoparticles synthesized over the range 5–100 nm using the same protocol and their antibacterial efficacy",
+      "authors_or_publisher": "Agnihotri S., Mukherji S., Mukherji S., RSC Advances",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ra44507k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Zêta −19,5 mV et mobilité −1,532 μm·cm/(V·s) sont cohérents entre eux (Smoluchowski : −19,6 mV, voir calculs), mais |ζ| < 30 mV correspond à une stabilité électrostatique modérée, pas « very stable » ; DLS 95–310 nm plus une population à 1,5–3 μm confirme une agrégation partielle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "80 °C 1 h dans l'eau, en récipient vraisemblablement ouvert (Teb eau 100 °C) : faisable, évaporation partielle. Séchage 85 °C 4 h : compatible avec Ag et AgCl ; AgO, s'il existait, commence à se décomposer vers 123 °C. Les Méthodes de DRX et MEB décrivent une autre préparation de l'échantillon (centrifugation 10 000 rpm 15 min, séchage à 50 °C) que la synthèse (séchage 85 °C) : on ne sait pas quel solide a été mesuré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermal Stability and Decomposition Kinetics of AgO Submicron Particles Prepared by Potassium Persulfate Oxidation",
+      "authors_or_publisher": "Materials Science (Medžiagotyra), Kaunas University of Technology",
+      "year": "2018",
+      "url_or_doi": "https://matsc.ktu.lt/index.php/MatSc/article/view/17052"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Lavage à l'éthanol d'un précipité imbibé d'une solution encore riche en AgNO3 (la majeure partie des 11,8 mmol n'est pas réduite), puis séchage à 85 °C : AgNO3 et alcools peuvent former du fulminate d'argent, explosif au choc. Laver d'abord à l'eau jusqu'à disparition de Ag+ (test chlorure) avant l'éthanol ; récupérer les eaux de lavage argentées.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Silver nitrate – Chemical Datasheet (réactivité : avec l'éthanol ou d'autres alcools, formation possible de fulminate d'argent, explosif ; d'après Bretherick)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/4443"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La conclusion biologique (« conductivity increases with frequency ... increase the energy in the mitochondria and increase the movement of sperm ») relie une conductivité optique calculée à la mobilité des spermatozoïdes sans aucune mesure ; ce lien n'a pas de base physique.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérences de la partie in vivo : le texte dit la mobilité du groupe nanoparticules augmentée « significantly ... when compared to the negative control », alors que le tableau 2 donne 85 % contre 88,5 % avec des lettres AB et A (non différents) ; « male rats » au lieu de souris ; metformine 28 jours contre 35 jours annoncés ; voie d'administration et nature du groupe « Silver » non décrites ; la toxicité chez la souris saine annoncée en introduction n'a pas de groupe. La dose de 2 mg/kg porte sur une poudre dont la composition (Ag/AgCl, résidus organiques) n'est pas établie.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À l'ajout de l'extrait, les ions chlorure de la plante précipitent aussitôt AgCl (Ks ≈ 1,8 × 10^-10) ; une petite partie de Ag+ est réduite en Ag0 par les sucres réducteurs, polyphénols et composés soufrés à 80 °C, et AgCl peut lui-même se réduire partiellement en surface (lumière, réducteurs) : on obtient des agrégats Ag/AgCl, d'où la couleur noire et les raies des deux phases. Les composés soufrés peuvent aussi donner un peu de Ag2S (noir), à vérifier (la raie 34,74° n'appartient ni à Ag ni à AgCl). L'argent non réduit, majoritaire, reste en solution. AgO n'est pas attendu : il exige un oxydant fort en milieu alcalin.",
+    "sources": [
+     {
+      "title": "Phytofabrication of Silver/Silver Chloride Nanoparticles Using Aqueous Leaf Extract of Oedera genistifolia: Characterization and Antibacterial Potential",
+      "authors_or_publisher": "Okaiyeto K. et al., Molecules (MDPI)",
+      "year": "2019",
+      "url_or_doi": "10.3390/molecules24234382"
+     },
+     {
+      "title": "Aqueous corn husk extract – Mediated green synthesis of AgCl and Ag nanoparticles",
+      "authors_or_publisher": "Villanueva-Ibáñez M., Yañez-Cruz M. G., Álvarez-García R., Hernández-Pérez M. A., Flores-González M. A., Materials Letters 152, 166–169",
+      "year": "2015",
+      "url_or_doi": "https://ipn.elsevierpure.com/en/publications/aqueous-corn-husk-extract-mediated-green-synthesis-of-agcl-and-ag"
+     },
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chemistry (RSC)",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     },
+     {
+      "title": "Thermal Stability and Decomposition Kinetics of AgO Submicron Particles Prepared by Potassium Persulfate Oxidation",
+      "authors_or_publisher": "Materials Science (Medžiagotyra), Kaunas University of Technology",
+      "year": "2018",
+      "url_or_doi": "https://matsc.ktu.lt/index.php/MatSc/article/view/17052"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase par DRX contre les fiches AgCl (PDF 31-1238), Ag (PDF 04-0783) et Ag2S ; rechercher Cl Kα (2,62 keV) en EDS sur un support sans Pd",
+    "doser l'argent restant dans le surnageant et peser le produit (rendement)",
+    "tester un rapport extrait/AgNO3 beaucoup plus élevé (ou une solution de AgNO3 bien plus diluée) pour une réduction complète",
+    "laver à l'eau jusqu'à disparition de Ag+ avant l'éthanol (risque de fulminate)",
+    "mesurer le spectre UV-visible sur le produit lavé et redispersé, pas sur le mélange brut",
+    "décrire la préparation et l'épaisseur du film pour les mesures optiques ; abandonner Tauc et la formule (7) pour un métal"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le protocole est simple et faisable (extrait aqueux d'ail, AgNO3 0,235 mol/L, 80 °C), mais le produit n'est vraisemblablement pas « Ag/AgO » : la moitié des raies DRX sont celles de AgCl, AgO est redox-incompatible avec un milieu réducteur, et l'extrait ne peut réduire qu'une petite fraction des 11,8 mmol d'argent. Les grandeurs dérivées (moyenne de Scherrer, gap de Tauc d'un métal, indice de réfraction < 1 issu d'une formule non physique) sont fausses ou sans objet, et l'EDS ne discrimine pas les phases. La composition de la poudre administrée aux souris n'est donc pas établie.",
+  "author_errors_suspected": [
+   "pics 27,96 / 32,28 / 46,31 / 54,72° attribués à AgO et Ag alors qu'ils correspondent à AgCl ; 34,74° indexé Ag (220) (attendu 64,45°) et 46,31° indexé Ag (200) (attendu 44,30°)",
+   "D moyen 30,20 nm alors que la moyenne du tableau 1 vaut 58,25 nm ; K = 0,94 dans les Méthodes, 0,9 dans l'équation utilisée",
+   "« reduction of silver Ag+ ions to AgO » : AgO est un produit d'oxydation",
+   "EDS : le pic à 3 keV attribué à la résonance plasmon et pris comme preuve de cristallinité",
+   "gap direct de Tauc (3,39 eV) et indice de réfraction (0,113–0,116) calculés pour un métal avec une formule où Ts est en pourcent",
+   "plage UV-visible 300–800 nm dans les Méthodes contre 250–800 nm et un pic à 272 nm dans les Résultats",
+   "mobilité « significativement » supérieure au témoin négatif alors que le tableau 2 la donne inférieure et non différente ; « male rats » pour des souris ; 28 contre 35 jours"
+  ],
+  "comparison_with_database": "compare.py « silver » : 23 voies de base. Les autres synthèses vertes ou douces de la base trouvent Ag cubique (fcc) sans AgO, avec un plasmon vers 412–445 nm et des tailles de quelques nm à ≈ 86 nm (PMC3407523 : 31,6 nm MET ; PMC3833323 : < 6 nm ; PMC3920662 : 86 nm DLS ; PMC3107715 : < 15 nm). Les tailles d'ici (50–350 nm) et la phase « AgO » sortent de cet ensemble, ce qui va dans le sens d'un réducteur limitant, d'une agrégation et d'une phase mal identifiée. Concentrations d'argent des autres voies non comparées."
+ },
+ "sources_not_found": [
+  "teneur en chlorures de l'ail (aucune valeur trouvée dans les recherches ; l'origine du chlorure de AgCl reste une hypothèse)",
+  "fiche JCPDS 01-076-1489 (AgO) citée par l'article : positions des raies non vérifiées",
+  "DOI de Villanueva-Ibáñez et al., Mater. Lett. 2015 (non affiché par les résultats ; URL du dépôt institutionnel donnée à la place)",
+  "gap indirect de AgCl ≈ 3,2 eV : valeur de manuel non vérifiée en ligne ici",
+  "seuil de stabilité ±30 mV du potentiel zêta : convention usuelle, pas de source vérifiée ici"
+ ]
+}

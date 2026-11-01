@@ -1,0 +1,113 @@
+{
+ "pmcid": "PMC11002299",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "voie device : électrode modifiée (GCE, ZnS/GCE, CNS/GCE, ZnS@CNS/GCE)",
+   "extracted": "Aucune voie device ; sample_inventory marque les électrodes route=null ; tous les résultats du capteur (LOD, sensibilité, recouvrement, stabilité) rangés sur la voie matériau ZnS@CNS",
+   "article_says": "In a typical synthesis procedure, a solution of 5 mg/mL of carbon nitride sheets (CNS) in ethanol was prepared",
+   "fix": "RUNBOOK (Dispositifs) : la fabrication d'une électrode est une voie `device`. L'article a une section « Fabrication of modified electrode » ; créer une voie device (GCE 0,071 cm2, 5 mg/mL CNS + 10 mg/mL ZnS, 30 min, lyophilisation, ni dépôt ni volume ni séchage de l'encre : `not_stated`) et y déplacer les résultats d'électrode (Rct, pics CV, LSV, LOD, sensibilité, sélectivité, stabilité, recouvrements) au lieu de les laisser sur la voie matériau ; garder le doute existant sur l'absence de procédure de dépôt.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS@CNS caractérisation XPS, énergies de liaison Zn 2p et S 2p (texte contre figure)",
+   "extracted": "Zn 2p3/2 1022,5 eV, Zn 2p1/2 1045,9 eV, S 2p 162,5 et 163,2 eV (valeurs du texte, sans doute sur l'écart avec la figure)",
+   "article_says": "The peak separation of the peaks at 1022.5 eV and 1045.9 eV in Zn 2p spectrum (Fig. 2A)",
+   "fix": "Fig. 2A (gr2.jpg) place les deux pics de Zn 2p vers 1025 eV et 1048 eV (écart de 2,5 à 3 eV avec le texte) ; Fig. 2B S 2p vers 163 et 164 eV ; Fig. 2D N 1s : pics étiquetés vers 398,5, 399,7, 400,5 et 402,5 eV contre 397,8, 399,4, 400,9 et 402,5 eV dans le texte. Ne pas changer les valeurs (citées du texte) mais ajouter un doute et une mention dans limite_reproductibilite : texte et figure se contredisent.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS@CNS caractérisation XPS, citation",
+   "extracted": "result : Zn 2p, S 2p, C 1s et N 1s ; quote limitée à la phrase sur Zn 2p",
+   "article_says": "In other hand, the S 2p could be deconvoluted into the peaks at 162.5 eV and 163.2 eV, assigned to S 2p3/2 and S 2p1/2 of ZnS (Fig. 2B)",
+   "fix": "La citation ne soutient que Zn 2p ; scinder en quatre caractérisations XPS (Zn 2p, S 2p, C 1s, N 1s), chacune avec sa phrase. Noter aussi que le texte attribue C 1s et N 1s aux « C3N4 nanosheets » et renvoie à « Fig. 3B » pour C 1s alors que Fig. 2C-D les porte (renvoi erroné de l'article).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS@CNS résultat LSV_linear_range / LSV_calibration_R2 (équation de droite)",
+   "extracted": "l'équation de régression n'est pas extraite ; seul R2 = 0,9899 et la plage",
+   "article_says": "which is followed by the regression equation y = -0.167x −0.5114 and an R2 value of 0.9899 shown in Fig. 9B",
+   "fix": "Le texte donne y = -0.167x − 0.5114, la Fig. 9B (gr9.jpg) porte y = 0.167x + 0.5114 (pente et ordonnée positives, ce que confirme 0,167 µA/µM ÷ 0,071 cm2 = 2,352 µA µM-1 cm-2). Ajouter un doute sur le signe et, si on extrait l'équation, citer le texte tel qu'écrit.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnS@CNS résultats CV Fig. 7B et Fig. 8B (droites d'étalonnage et de vitesse de balayage)",
+   "extracted": "seuls R2 = 0,9977 et 0,9972 sont extraits",
+   "article_says": "Here, we represented the good linearity with (R2) value of 0.9977 corresponding to the calibration curve and which was given in Fig. 7B.",
+   "fix": "Les équations sont écrites sur les figures (gr7.jpg : y = 0.0818x + 0.078, R2 = 0.9977 ; gr8.jpg : y = 0.0321x + 4.2215, R2 = 0.9972) ; ajouter la pente et l'ordonnée avec from_figure. À 125 µM le courant est d'environ 10 µA sur Fig. 7B.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CNS et ZnS : résistance de transfert de charge (Fig. 4A)",
+   "extracted": "Rct lu pour ZnS@CNS/GCE seulement (152,4 Ω, texte) ; CNS/GCE et ZnS/GCE non lus (doute « non lues »)",
+   "article_says": "The Nyquist plot of ZnS/GCE, CNS/GCE, and ZnS@CNS/GCE in 5 mM [Fe(CN)6)]3−/4− having 0.1 M KCl is shown in Fig. 4A.",
+   "fix": "La légende de Fig. 4 donne CNS/GCE en bleu et ZnS@CNS/GCE en vert (ZnS/GCE, noir, par élimination) ; sur gr4.jpg le demi-cercle bleu (CNS) se ferme vers 420 Ω après Rs ≈ 95 Ω, soit Rct ≈ 330 Ω, et le demi-cercle vert vaut ≈ 145 Ω (accord avec 152,4 Ω, écart < 10 %). Rct de ZnS/GCE ≈ 420 Ω (minimum vers 520 Ω, lecture moins sûre). Le pic CNS/GCE de Fig. 5B a bien été lu ; lire aussi ces deux valeurs avec from_figure, ou justifier la non-lecture.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS@CNS caractérisation LSV, conditions",
+   "extracted": "result : calibration 0,05 à 1320,15 µM et LOD 12,6 nM ; conditions : PBS pH 7,0 purgé N2, 100 µM de flutamide",
+   "article_says": "Here by using LSV technique with PBS of pH 7.0 with N2 purged in 100 µM of flutamide and we are examining this through LSV.",
+   "fix": "Cette phrase décrit le test de sélectivité (100 µM) et ne soutient ni la plage 0,05 à 1320,15 µM ni le LOD ; la purge N2 et 100 µM ne sont pas des conditions de la droite d'étalonnage (Fig. 9A : « 50 mM PBS (in pH 7.0) », plage de concentration variable). Séparer : LSV étalonnage (PBS 50 mM pH 7,0 d'après la légende Fig. 9) et LSV sélectivité/stabilité/reproductibilité (100 µM, N2).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS@CNS résultats current_at_pH_* (Fig. 6B) contre Fig. 5B",
+   "extracted": "9,7 µA à pH 7 (Fig. 6B) et 5,8 µA pour ZnS@CNS/GCE (Fig. 5B), sans doute sur leur incohérence",
+   "article_says": "Fig. 6 (A) CV response of flutamide at various pH ranging from 3.0 to 11 in 0.05 M PBS at ZnS@CNS/GCE and pH vs current response (B).",
+   "fix": "Lectures exactes (5,5 ; 7,5 ; 9,7 ; 5,9 ; 5,6 µA, écart < 5 %). Mais la légende de Fig. 6 ne donne pas la concentration de flutamide ni la vitesse de balayage, et le courant à pH 7 (9,7 µA) ne coïncide pas avec Fig. 5B (5,8 µA à 75 µM, pH 7,0, 50 mV/s) ni avec Fig. 7B (≈ 6,2 µA à 75 µM) : ajouter un doute et l'inscrire dans limite_reproductibilite (concentration de flutamide du test de pH non citée).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (Epa/Epc)",
+   "extracted": "le composite donne « l'écart de potentiel de pic Epa/Epc le plus faible »",
+   "article_says": "In other hand, the composite modified GCE shows excellent current performance and Epa/Epc is also very low.",
+   "fix": "L'article dit seulement que Epa/Epc est « also very low » pour le composite comme pour CNS/GCE ; « le plus faible » n'est pas écrit (Fig. 4B : écart des pics vert et bleu pratiquement identique, ≈ 0,14 V). Reformuler : « aussi très faible ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS réactif sodium sulfide, formule et hydratation",
+   "extracted": "formule Na2S, 0,1 mol",
+   "article_says": "Overall Reaction:(1)ZnCH3COO2.H2O+Na2S.9H2O→ZnS+2CH3COONa+10H2O",
+   "fix": "Materials dit « sodium sulfide nonahydrate » et l'Éq. (1) écrit Zn(CH3COO)2·H2O + Na2S·9H2O ; la synthèse écrit « Na2S » et « zinc acetate [Zn(CH3COO)2] ». Le doute le dit déjà ; envisager d'écrire la forme hydratée dans le nom ou une note du réactif (0,1 mol de Na2S·9H2O = 24 g, de l'anhydre = 7,8 g), car la masse change d'un facteur 3.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnS@CNS Tableau 2 (colonne RSD) et conditions des essais de sélectivité",
+   "extracted": "seuls les recouvrements du Tableau 2 sont extraits ; interference_deviation sans la nature des interférents",
+   "article_says": "Here we have studied and added the selectivity studies, 5-folds high volume of drugs (dopamine, uric acid, folic acid, tamitinol, Adriamycin) and biological chemicals (acetylcholine, adenine, cysteine, estradiol, guanine).",
+   "fix": "Ajouter la RSD par rangée (sérum : 1,67 ; 2,04 ; 2,74 ; 1,84 % ; urine : 1,97 ; 1,84 ; 1,09 ; 1,43 %), et préciser dans l'essai de sélectivité l'excès « 5-folds » et les dix interférents (< 7,5 % de déviation, flutamide 100 µM).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 3,
+  "branches_extracted": 3,
+  "not_stated_checked": 47,
+  "not_stated_wrong": 0,
+  "note": "3 voies de synthèse (ZnS, CNS, ZnS@CNS) ; aucune série de conditions de synthèse. Seule la voie device de l'électrode modifiée manque (constat 1). 5 sur 5 lectures de figure de Fig. 5B et 6B vérifiées, écart < 5 %."
+ },
+ "reproducibility_gaps": [
+  "composition et préparation du solvant eutectique profond (chlorure de choline et fructose achetés, mais aucun rapport ni mélange décrit)",
+  "0,1 mol de Zn(CH3COO)2 et 0,1 mol de Na2S dans 50 mL : quantité invraisemblable (≈ 18 à 24 g), forme hydratée ambiguë",
+  "ZnS : solvant et nombre de lavages, vitesse et durée de centrifugation, température et durée du séchage sous vide, rendement",
+  "CNS : masse de mélamine, atmosphère de calcination, nombre de lavages, séchage",
+  "ZnS@CNS : volume d'éthanol, conditions de lyophilisation ; aucune sonication décrite malgré le titre « sonochemical »",
+  "électrode modifiée : volume et mode de dépôt sur la GCE, masse déposée, séchage, nettoyage préalable de la GCE (non écrits)",
+  "concentration de flutamide et vitesse de balayage du test de pH (Fig. 6) ; matrice et préparation du sérum et de l'urine",
+  "XPS, TEM, SEM, EDX, Raman : instruments et conditions d'acquisition absents ; SEM, EDX et Raman sans résultat"
+ ],
+ "mechanism_check": "ok : le mécanisme de formation des auteurs se réduit à l'Éq. (1) et à une phrase de l'introduction sur l'exfoliation assistée par ultrasons, correctement rapportées ; l'hypothèse analyste signale elle-même que la préparation décrite n'est qu'une agitation de 30 min. Seule nuance : la tendance Epa/Epc (constat 9).",
+ "notes": "Article très pauvre en détails de synthèse ; l'extraction est globalement fidèle (valeurs de synthèse toutes exactes, aucun « non cité » à tort, aucune étape manquante). Désaccords de l'article non tranchés par moi : texte « around 25 » µA à 125 µM contre ≈ 10 µA sur Fig. 7B (déjà en doute dans l'extraction) ; décroissance de pH 9 à 11 dite par le texte contre un plateau sur Fig. 6B (déjà noté) ; XPS « three feature peaks » pour N 1s mais quatre valeurs écrites ; Tableau 2 en nM contre µM dans le texte (déjà noté). Le choix de ne pas créer de voie ZnS/GCE ou CNS/GCE distincte est cohérent avec l'absence de procédure de dépôt, mais le constat 1 reste un désaccord de lecture du RUNBOOK ; l'orchestrateur tranche. method_sources vide : correct (aucun renvoi dans les phrases de préparation ; [b0100] et [b0115] à [b0125] sont des renvois de comparaison de pics)."
+}

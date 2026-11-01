@@ -1,0 +1,103 @@
+{
+ "pmcid": "PMC9059895",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "CdS/Cu7S4-5 outcomes, MB degradation in dark (Fig. S12b, S12d)",
+   "extracted": "Seule la constante (0,0547 min-1) est extraite pour MB à l'obscurité ; la série de taux de décoloration est absente, alors qu'elle est extraite pour MB sous visible, RB (UV, visible, obscurité) et RB@MB (visible, obscurité).",
+   "article_says": "%, 61.19 %, 71.64 %, 78.21%, 83.28%, 85.22%, 89.25%, 91.04% and 92.54% after the",
+   "fix": "ajouter à CdS/Cu7S4-5 le résultat MB_decolouring_degree_in_dark_5_to_45min : 41,79 ; 61,19 ; 71,64 ; 78,21 ; 83,28 ; 85,22 ; 89,25 ; 91,04 ; 92,54 % à 5, 10, 15, 20, 25, 30, 35, 40 et 45 min (phrase de l'annexe coupée par des sauts de ligne : « The decoloring degree are about 41.79 %, 61.19 % ... after the degradation of MB in dark for 5 min, ... 40 min and 45 min »).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Témoin sans catalyseur (H2O2 + UV), Fig. S12c-e, S13d-f, S14c-e : aucun résultat chargé, route null dans sample_inventory",
+   "extracted": "Les constantes 0,0101 / 0,0221 / 0,0194 min-1 n'apparaissent que dans une annotation tendance_observee ; les séries de décoloration du témoin ne sont nulle part.",
+   "article_says": "The decoloring degree are about 16.12%, 29.55%, 43.28%, 54.03%,",
+   "fix": "rattacher les résultats du témoin à une voie « sans catalyseur » (essai d'activité) ou à CdS/Cu7S4-5 avec une condition explicite : MB UV sans catalyseur 16,12 ; 29,55 ; 43,28 ; 54,03 ; 63,58 ; 72,24 ; 80,60 ; 88,06 ; 95,52 % à 30, 60, 90, 120, 150, 180, 210, 240, 280 min, k = 0,0101 min-1 ; RB 42,11 ; 73,16 ; 86,84 ; 94,21 ; 95,52 % à 30, 60, 90, 120, 150 min, k = 0,0221 ; RB@MB 28,03 ; 48,48 ; 62,12 ; 75,00 ; 84,47 ; 90,53 % à 20, 40, 60, 80, 100, 120 min, k = 0,0194. Le témoin est la seule référence qui sépare l'effet du catalyseur de celui de H2O2 + UV.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Série en température de réaction de l'échange (Fig. S3), aucun résultat chargé",
+   "extracted": "Aucun résultat ni branche ; seulement un doute et une ligne null dans sample_inventory.",
+   "article_says": "In addition, the influence of reaction temperature on the morphology of the product has been explored (Fig. S3†) and the microstructures of products are collapsed at the higher reaction temperature.",
+   "fix": "ajouter au moins le résultat qualitatif « microstructures effondrées à plus haute température de réaction » (températures non citées) sur la voie CdS/Cu7S4 concernée, ou une branche en température avec temperature en not_stated et un doute ; l'échantillon exact n'est pas nommé par l'article.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Mott–Schottky : aucune entrée characterizations",
+   "extracted": "Les potentiels de bande (SCE puis NHE) sont des résultats, mais aucune caractérisation « Mott–Schottky » n'existe pour CdS-3 ni CdS/Cu7S4-1 (fréquence, électrolyte, pH, électrodes).",
+   "article_says": "The Mott–Schottky measurements were carried out at 10 Hz and the three-electrode system was same as the photocurrent measurements.",
+   "fix": "ajouter une caractérisation Mott–Schottky : instrument CHI 660E, conditions 10 Hz, 0,2 M Na2SO4 à pH 7 (phrase des résultats), Ag/AgCl référence, fil de Pt contre-électrode, ITO (0,25 cm2).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources vide : renvois cit52, cit53 (Mott–Schottky) et cit54, cit55, cit56 (piégeage des radicaux)",
+   "extracted": "method_sources = []",
+   "article_says": "the Mott–Schottky test was performed in 0.2 M Na2SO4 aqueous solution at pH 7.",
+   "fix": "dans corpus/refs/PMC9059895.txt, cit52 et cit53 suivent cette phrase de protocole de mesure, et cit54 à cit56 suivent « In order to identify the major active radical in the degradation of MB solution ». Aucun n'est introduit par « according to » : à classer en source de méthode seulement si l'orchestrateur juge qu'on en a besoin pour refaire la mesure ; sinon laisser vide. Le renvoi cit46 (gabarit) est un renvoi de contexte.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS-3 et CdS/Cu7S4-1..5, outcomes band_potential_vs_SCE / band_potential_vs_NHE",
+   "extracted": "propriété nommée « band_potential » (valeur −0,61 eV vs SCE)",
+   "article_says": "The CB potentials vs. SCE were converted to the normal hydrogen electrode (NHE) scale by ENHE = ESCE + 0.197 eV at pH 7",
+   "fix": "les valeurs sont des potentiels de bande de conduction (CB) ; renommer conduction_band_potential_vs_SCE / vs_NHE (le texte dit d'abord « band potentials » puis « CB potentials »).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CdS-3 et CdS/Cu7S4-1..5 : positions des pics DRX non extraites",
+   "extracted": "résultats DRX qualitatifs seulement (phase, système cristallin)",
+   "article_says": "The XRD diffraction peaks of pure CdS located at 25.0°, 26.6°, 28.4°, 36.65°, 43.68°, 47.84° and 51.91° are corresponding to (1 0 0), (0 0 2), (1 0 1), (1 0 2), (1 1 0), (1 0 3) and (1 1 2) planes of hexagonal phase, respectively.",
+   "fix": "ajouter les pics DRX de CdS (CdS-3) et de Cu7S4 (22,92 ; 24,72 ; 26,60 ; 29,76 ; 31,22 ; 34,08 ; 35,35 ; 46,86 ; 48,92°, phrase « The XRD diffraction peaks of pure Cu7S4 located at ... ») avec leurs indices, et l'espacement intercouche 2,52 à 4,20 Å (Fig. 1f).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (témoin et éclairage) : « constantes un peu plus faibles que l'UV »",
+   "extracted": "Avec CdS/Cu7S4-5, la lumière visible puis l'obscurité donnent des constantes un peu plus faibles que l'UV",
+   "article_says": "When the visible light is used as the light source instead of the ultraviolet light, the catalytic performance is slightly weakened because of the weakening of the light energy.",
+   "fix": "« un peu plus faibles » ne vaut que pour la lumière visible (MB 0,168 -> 0,0903 min-1) ; à l'obscurité la constante est environ trois fois plus faible (0,0547 pour MB ; 0,0429 contre 0,1392 pour RB). Reformuler.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation resume : « Les cinq échantillons CdS/Cu7S4 ... sont testés ... sous UV, lumière visible ou à l'obscurité »",
+   "extracted": "les cinq échantillons testés sous les trois éclairages",
+   "article_says": "shows that the degradation capability of MB, RB, RB@MB under different illumination environment using CdS/Cu7S4-5 as catalyst and without catalyst",
+   "fix": "seul CdS/Cu7S4-5 est testé sous lumière visible et à l'obscurité ; les cinq échantillons ne le sont que sous UV (Fig. 4, 5). Préciser dans le résumé.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CARAC SEM-EDS et XPS de CdS-3 : un champ result cite une seule phrase pour plusieurs valeurs",
+   "extracted": "SEM-EDS result « microflowers of petaloid nanosheets about 20 nm thick; ... homogeneous distribution » avec la seule citation sur le rapport atomique Cd:S ; XPS result avec la seule citation sur Cd 3d",
+   "article_says": "the thickness of the freestanding single ultrathin nanosheets is about 20 nm (the inset of Fig. 1b)",
+   "fix": "valeurs justes mais la citation ne soutient que le rapport atomique (EDS) ou les énergies Cd 3d (XPS) ; épaisseur 20 nm, répartition uniforme (« distributed uniformly ») et S 2p 160,78 et 161,79 eV devraient avoir leur propre citation.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 9,
+  "not_stated_checked": 44,
+  "not_stated_wrong": 0,
+  "note": "Ma liste : CdS-1, CdS-2, CdS-3 (=CdS), CdS/Cu7S4-1 à -5, Cu1.97S = 9 voies, toutes présentes. Hors voies : série en température de l'échange (Fig. S3, non nommée, T non écrite) et témoin sans catalyseur, sans résultat chargé. Valeurs from_figure vérifiées : Fig. 2f (Cu 2, 9, 20, 36 at.% ; Cd 49, 44, 37, 24 at.%, conformes à ±2 points) et Fig. 5a-f (120, 60, 45, 35, 20, 15 min, conformes). Attributions « respectively » (bandes interdites, potentiels, constantes, décolorations) toutes vérifiées, sans erreur."
+ },
+ "reproducibility_gaps": [
+  "masse ou volume exact de Cu(NO3)2·3H2O : seul le rapport molaire CdS : Cu2+ est écrit, et on ne sait pas si les 0,5 mmol de CdS sont conservés pour -2 à -5",
+  "composition et volume de « the above reaction solution » de l'échange cationique (mélange éthylène glycol/éthylènediamine/CTAB ou autre) ; taux de remplissage de l'autoclave de 30 mL",
+  "concentration du H2O2 (10 mL ajoutés) ; source UV (lampe, puissance, longueur d'onde, distance) et source de lumière visible des essais catalytiques non décrites (la lampe Xe 420 nm est celle du photocourant seul) ; éclairage des essais de piégeage des radicaux non précisé",
+  "température de l'agitation de 8 h du CdS (ambiante supposée) et 8 h contre 0,5 h pour Cu1.97S (possible coquille de l'article) ; vitesses d'agitation, vitesse et durée de centrifugation de synthèse, nombre de lavages, rendement",
+  "températures de la série Fig. S3 et échantillon concerné absents ; valeurs de surface BET et de taille de pores (Fig. S4) non écrites ; potentiels de bande de valence non écrits (Fig. S6g)",
+  "incohérences internes de l'article (à noter en limite_reproductibilite, sans corriger les valeurs) : (i) RB@MB, CdS : 5 % de décoloration à 15 min alors que k = 0,027 min-1 donnerait environ 33 % et que la Fig. 5g montre environ 12 % ; (ii) k du CdS pur sous UV avec H2O2 (0,008 min-1, MB) inférieur à celui du témoin sans catalyseur (0,0101 min-1) ; (iii) Mott–Schottky mesuré avec Ag/AgCl mais converti « vs SCE » puis vers NHE avec +0,197 V (valeur d'Ag/AgCl) ; (iv) EDX de CdS/Cu7S4-5 Cu:S = 70,15 : 29,66 (environ 2,4) loin de Cu7S4 (1,75) ; (v) Fig. 4h : k d'environ 0,155 pour -5 contre 0,168 dans le texte"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (CTAB en gabarit mou, micelles lamellaires, transition hexagonal vers monoclinique, Fenton + transfert d'électrons de CdS vers Cu7S4) fidèle au texte ; mecanisme_analyse (0,75 mmol Cd et 0,75 mmol thiourée ; 1 mmol Cu2+ pour 1 : 2) arithmétiquement correct ; sécurité suffisante (Cd, éthylènediamine, thiourée, autoclave à 160 °C, H2O2, UV). Les résultats des pièges à radicaux (trous et ·OH majeurs) pourraient compléter mecanisme_auteurs.",
+ "notes": "Extraction très fidèle : toutes les valeurs recoupées (paramètres de synthèse, 6 bandes interdites, 12 potentiels, 12 constantes MB/RB@MB, taux de décoloration, XPS, séries visible/obscurité/UV de RB et RB@MB, Cu1.97S) sont exactes et bien attribuées ; 0 valeur fausse, 0 mauvaise attribution, 0 non_cite_a_tort. Les 11 doutes de l'extracteur sont raisonnables. Fragile dans ma lecture : l'identité de l'échantillon « CdS » des essais (CdS-3 retenu, plausible), le « after the degradation of MB for 15 min » de la phrase RB@MB (probablement une coquille de l'article), et l'absence des images Fig. S1 à S14 (le dépôt n'a que Fig. 1 à 5). Pas de web utilisé."
+}

@@ -1,0 +1,105 @@
+{
+  "pmcid": "PMC5376314",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "Co1 steps 3-5 (centrifuge_speed 7000 RPM, wash_solvent/repetitions, dry duration 24 h and atmosphere air)",
+      "extracted": "Centrifugation 7000 RPM, lavage 2x eau + 2x éthanol absolu, séchage à l'air 24 h, avec pour citations les phrases du paragraphe du nickel",
+      "article_says": "The black precipitate obtained after 1 h of sonication was handled as described above.",
+      "fix": "L'article ne répète aucune de ces valeurs pour le cobalt. Soit déclarer centrifuge_speed, wash_solvent, repetitions et la durée de séchage de Co1 en not_stated en gardant le renvoi « as described above » dans la description, soit garder les valeurs mais marquer clairement qu'elles sont reprises du nickel par renvoi. Les trois étapes ont pour quote le seul renvoi, tandis que les paramètres citent le paragraphe du nickel : c'est une valeur déduite par héritage entre deux protocoles.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Co1_400C step 6 duration (héritée de Co1) et atmosphère/vitesse de chauffe",
+      "extracted": "Branche qui ne change que la température (400 °C) et hérite de la durée 2 h, de l'azote et de 10 K/min",
+      "article_says": "Heating at 400 °C still produced amorphous products, while nanocrystalline products were obtained by heating the precursors obtained by the sonochemical reaction for 2 h at 500 °C.",
+      "fix": "L'article ne donne aucune durée pour le chauffage à 400 °C (le « 2 h » est attaché à 500 °C). Ajouter une variation duration en value_text « not stated » (ou déclarer duration en not_stated pour la branche) au lieu d'hériter de 2 h.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "Co5 et Co6 step 6 (chauffage 500 °C, 2 h hérité de Co1)",
+      "extracted": "Co5 (thiourée) et Co6 (thiosulfate) héritent de l'étape de chauffage à 500 °C pendant 2 h",
+      "article_says": "Attempts to prepare cobalt sulfides using either thiourea or Na2S2O3 ∙ 5H2O instead of TAA were unsuccessful, yielding only CoO in both cases.",
+      "fix": "Rien ne dit que ces échantillons ont été chauffés, ni où le CoO s'est formé (sonication ou chauffage). Ajouter à ces deux branches une variation sur l'étape 6 (heating = not stated) ou un not_stated, et supprimer l'héritage implicite de 500 °C / 2 h.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Co1 step 6 atmosphere nitrogen, gas_flow 100 mL/min, heating_rate 10 K/min",
+      "extracted": "Paramètres de l'ATG rattachés au maintien de 2 h à 500 °C",
+      "article_says": "We heated the as-obtained amorphous products using a Mettler TGA/SDTA 851e system and Al2O3 crucibles in the temperature range 30−500 °C in a nitrogen stream of 100 mL/min with a heating rate of 10 K/min.",
+      "fix": "La phrase décrit une montée de 30 à 500 °C dans l'ATG sans palier ; le palier de 2 h est dans les Résultats sans appareil ni atmosphère. Le lien est plausible mais non écrit (déjà en doute chez l'extracteur) : ajouter une température initiale de 30 °C si on garde la rampe, et dire que la durée de 2 h n'est pas rattachée explicitement à l'ATG. Masse d'échantillon ATG non citée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "faux",
+      "where": "method_sources bib0070 et bib0305",
+      "extracted": "Deux entrées role « autre » rattachées à l'extrapolation de Tauc",
+      "article_says": "By extrapolating the linear portion of the curve to the x-axis, one can obtain Eg as the intercept",
+      "fix": "Ces renvois portent sur le calcul du gap optique, pas sur une préparation : ils ne relèvent pas de method_sources (consigne du RUNBOOK : renvois portant sur la méthode de préparation). Retirer les deux entrées, ou les garder en connaissance de cause comme sources de méthode de caractérisation.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "method_sources bib0290 (Wang et al. 2002)",
+      "extracted": "Absent",
+      "article_says": "The first sonochemical preparation of NiS nanoparticles was reported in 2002 by Wang et al. by irradiating an aqueous solution of nickel acetate, thioacetamide (TAA) and triethanolamine as complexing agent under ambient air.",
+      "fix": "Renvoi [[bib0290]] placé dans une phrase qui décrit une préparation (mêmes réactifs que Ni3/Ni8). Il n'est pas écrit que les auteurs la suivent : ajouter une entrée role « autre » si l'orchestrateur applique la règle à la lettre, sinon rejeter.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Ni3 et Ni4 material.morphology « nearly spherical »",
+      "extracted": "strongly agglomerated, nearly spherical nanoparticles",
+      "article_says": "Products prepared by using higher amplitudes (Fig. 3c, d) are more spherical in shape with diameters between 15 and 20 nm, also strongly agglomerated into clusters.",
+      "fix": "« nearly spherical » est le terme de l'échantillon à 50 % (Ni2). Pour Ni3 et Ni4 écrire « more spherical in shape, 15−20 nm, strongly agglomerated ».",
+      "confidence": "sure"
+    },
+    {
+      "severity": "attribution",
+      "where": "Ni2, Ni3, Ni4 outcome Ni_content_AAS",
+      "extracted": "Chaque branche porte la valeur moyenne 64.3 ± 0.2 % Ni",
+      "article_says": "Results of Ni determination in samples Ni2 − Ni4 by AAS showed an average composition of 64.3 ± 0.2% Ni (calculated for NiS: 64.7% Ni)",
+      "fix": "C'est une moyenne sur trois échantillons, non une valeur par échantillon ; déjà écrite avec la mention « samples Ni2 − Ni4 », donc acceptable, mais ne pas la comparer entre ces trois branches. Même remarque pour Ni5/Ni6 (64.4 ± 0.3 %).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "Ni3-1 et Ni3-2 material.phase « hexagonal α-NiS (PDF No. 00-002-1280) »",
+      "extracted": "Phase hexagonale α avec fiche PDF, héritée de Ni3",
+      "article_says": "Shortening the reaction time to 30 min (Ni3-1, pattern not shown) caused the reaction yield to decrease significantly, while the shape of the diffraction pattern and the crystallite size remained virtually unchanged.",
+      "fix": "Le tableau ne donne que « NiS » pour ces deux échantillons et le diffractogramme n'est pas montré ; la phase α et le numéro de fiche viennent de Ni3 (« virtually unchanged » / « not significantly different »). Écrire « NiS (pattern similar to Ni3) ».",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation conclusion_auteurs, phrase sur la thioacétamide",
+      "extracted": "La thioacétamide est la seule source de soufre qui conduit à des sulfures purs",
+      "article_says": "Experiments performed with sulfur sources other than thioacetamide were less successful.",
+      "fix": "Formulation plus forte que l'article : le thiosulfate donne Ni3S4 avec traces de β-NiS (Ni11). Écrire « les autres sources de soufre ont été moins efficaces (thiourée : Ni(OH)2 ou CoO ; thiosulfate : mélange ou Ni3S4 avec traces de NiS) ».",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 19,
+    "branches_extracted": 19,
+    "not_stated_checked": 22,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "Quantités de thioacétamide et d'acétate pour les rapports 1:2, 1:3 (Ni) et 1.2:1, 1:2 (Co) : on ne sait pas quel précurseur est modifié, ni de combien",
+    "Volume, solvant et base du « ≈10 % » de TEA et de l'EDTA 0.05 M (ajout dans les 50 mL d'eau ou solution remplaçant l'eau ?), et quantités de thiourée et de thiosulfate (seuls les rapports molaires sont donnés)",
+    "Température du milieu pendant la sonication (pas de refroidissement), mode pulsé ou continu, profondeur d'immersion de la sonde, volume de solution dans le bécher de 100 mL",
+    "Durée de centrifugation, température de séchage à l'air, volume de lavage",
+    "Cobalt : centrifugation, lavage et séchage seulement par renvoi « as described above » ; appareil et atmosphère du chauffage de 2 h à 500 °C (ATG ou four) ; masse traitée ; durée à 400 °C ; si Co5 et Co6 ont été chauffés",
+    "Cobalt : le rendement du tableau 1 se rapporte-t-il au solide amorphe ou au produit chauffé ? Définition du rendement (base : quantité de Ni ou de Co, selon le texte)",
+    "Ni9 : le tableau donne 120 min alors que le texte dit que toutes les synthèses suivantes ont duré 60 min",
+    "Légendes des figures 7 et 8 : thiosulfate indiqué pour des échantillons de cobalt que le texte et le tableau 1 attribuent à la thioacétamide",
+    "« 3-ethanolamine (TEA) » dans le texte contre triethanolamine dans la section Experimental"
+  ],
+  "mechanism_check": "ok",
+  "notes": "Les 18 rangées du tableau 1 sont attribuées au bon échantillon (Ni1 à Ni11 avec Ni3-1 et Ni3-2, Co1, Co2, Co3, Co5, Co6) : sonication, amplitude, rapport, complexant, produit, taille et rendement ont été recomparés rangée par rangée. Co4 n'existe pas dans le tableau. Avec Co1_400C on obtient bien 19 voies. Aucune valeur numérique fausse trouvée. Fragile dans ma lecture : (1) le sens de « handled as described above » (renvoi probablement valable pour centrifugation, lavage et séchage, mais le texte ne le détaille pas) ; (2) « high-purity water » n'apparaît que dans la partie AAS, donc la déclaration not_stated pour la pureté de l'eau de synthèse est correcte mais discutable ; (3) bib0295 (De la Parra-Arciniega) décrit aussi une préparation par sonochimie mais avec d'autres réactifs, sans suite dans la méthode des auteurs, je ne l'ai pas signalé ; (4) l'identification Ni1 (30 %) et Ni2 (50 %) repose sur le tableau, le texte n'étiquette que Ni3-1, Ni3-2, Ni10, Ni11 et les échantillons 7 et 8."
+}

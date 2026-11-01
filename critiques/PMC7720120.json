@@ -1,0 +1,104 @@
+{
+ "pmcid": "PMC7720120",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "HNTs-70/S, HNTs-80/S, HNTs-90/S : étapes héritées de HNTs/S (étapes 1 à 6, dont réaction 3 h et séchage sous vide 12 h)",
+   "extracted": "Branches de HNTs/S : HNTs-X remplace HNTs naturelles, protocole 2.3 hérité en entier (réaction 3 h, lavages, séchage sous vide 12 h).",
+   "article_says": "The HNTs of acid etching was combined with sulfur and graphene to prepare the composite electrode materials.",
+   "fix": "L'article ne dit pas que HNTs-70/S, -80/S, -90/S suivent la section 2.3 (ni 0,15 g de HNTs, ni 3 h). Garder l'héritage seulement avec une annotation limite_reproductibilite explicite (le doute existe déjà) ou déclarer durée et masse de HNTs-X en not_stated sur ces branches.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "RGO@HNTs-80/S réactif 1 (HNTs-80, 0.085 g)",
+   "extracted": "HNTs-80 (acid-etched HNTs, route HNTs-80), 0.085 g, rôle intermediate",
+   "article_says": "First, HNTs (0.085 g) were added into an aqueous solution of Na2S2O3 (300 mL, 0.04 M)",
+   "fix": "La section 2.4 ne précise pas quelles HNTs ; HNTs-80 vient du nom RGO@HNTs-80/S (Fig. 3, 5, 6). Lecture raisonnable mais déduite : le noter en annotation limite_reproductibilite (HNTs-80 non écrit en section 2.4) en plus du doute.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "RGO@HNTs-80/S étape 6, description « (reduction of GO) » et rôle reducing_agent de l'hydrate d'hydrazine",
+   "extracted": "Raise the temperature to 90 °C and add 1 mL of hydrazine hydrate, for 3 h (reduction of GO).",
+   "article_says": "At last, the temperature was raised to 90 °C and hydrazine hydrate (1 mL, 0.026 mmol) was added for 3 h.",
+   "fix": "L'article ne dit ni que l'oxyde de graphène est réduit à cette étape ni le rôle de l'hydrazine ; la solution ajoutée est déjà appelée RGO. Retirer « (reduction of GO) » de la description de l'étape (garder l'interprétation en annotation mecanisme_analyse, déjà présente).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "RGO@HNTs-80/S étape 6 (deux opérations fusionnées)",
+   "extracted": "Une seule étape react : montée à 90 °C + ajout de l'hydrazine + 3 h.",
+   "article_says": "At last, the temperature was raised to 90 °C and hydrazine hydrate (1 mL, 0.026 mmol) was added for 3 h.",
+   "fix": "Découper en étape de chauffage à 90 °C, étape d'ajout de l'hydrate d'hydrazine (1 mL), puis réaction 3 h (la durée de 3 h reste ambiguë, déjà signalée en doute).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "HNTs-0 (halloysite naturelle non traitée) : résultats sans ligne dans les outcomes",
+   "extracted": "HNTs-0 est dans sample_inventory avec route null ; ses valeurs ne sont que dans des annotations (0,042 cm3 g-1 lu sur Fig. 1d) ; Table 1, Fig. 1d et dimensions de Fig. 2 n'ont aucun outcome.",
+   "article_says": "HNTs-0 | 16.4 | 63.4 | 20.2 | 3.142",
+   "fix": "C'est le point de comparaison de toute la série en température. Rattacher ses valeurs à une voie (par exemple une voie HNTs-0 de type material sans étape, produit commercial) : XPS Al 16,4 %, O 63,4 %, Si 20,2 %, O/Si 3,142 ; volumes de pores lus Fig. 1d ≈ 0,042 / 0,0375 / 0,025 cm3 g-1 (0–20, 20–50, 50–100 nm) ; longueur 0,6–1,5 µm, diamètre externe 80–150 nm, interne 10–40 nm. Sinon, accepter la règle « échantillon commercial sans voie ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Cathode témoin « normal S » : valeurs sans ligne dans les outcomes",
+   "extracted": "normal S dans sample_inventory avec route null ; capacité initiale 985,4 mAh g-1 et rétention 47 % seulement citées en annotation.",
+   "article_says": "The initial charge/discharge capacity of normal S cathode, HNTs-70/S, HNTs-80/S, HNTs-90/S and RGO@HNTs-80/S composite electrode was 985.4 mAh g−1, 837.1 mAh g−1, 1012.5 mAh g−1, 1030.7 mAh g−1 and 1134 mAh g−1 at 0.1 C (1 C = 1675 mAh g−1), respectively.",
+   "fix": "Les chiffres du témoin (985,4 mAh g-1 ; 47 % après 50 cycles ; Fig. 5b ≈ 460 mAh g-1 au cycle 50 ; Fig. 5c ≈ 150 mAh g-1 à 1 C) sont ceux auxquels tous les gains sont rapportés. À consigner comme outcomes d'une voie témoin (soufre commercial) ou garder l'annotation ; décision de périmètre pour l'orchestrateur.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Annexe Fig. S3 (XPS haute résolution) : texte de l'annexe non repris ; annotation limite_reproductibilite inexacte",
+   "extracted": "Aucune valeur Al 2p / Si 2p ; l'annotation dit que S2 et S3 ne sont connues que par leur légende.",
+   "article_says": "The Al 2P peak on the HNTs surface can be fitted to 76.3 eV and 74.2 eV, which belong to Al-OH and Al-O",
+   "fix": "Ajouter une caractérisation XPS haute résolution (HNTs-0/70/80/90) : Al 2p 76,3 eV (Al-OH) et 74,2 eV (Al-O) ; Si 2p 102,6 eV (Si-OH) et 104,6 eV (Si-O) ; « the -OH group increases obviously after acid etching ». Corriger l'annotation limite_reproductibilite : le texte de S3 est dans l'annexe lue, seules les images S1 à S4 manquent.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "RGO@HNTs-80/S capacity_retention_vs_normal_S_after_50_cycles = 20.1 %",
+   "extracted": "20.1 %",
+   "article_says": "the discharge capacity after 50 cycles retains 20.1% higher than the normal S electrode",
+   "fix": "20,1 est l'écart de rétention en points de pourcentage (67,1 % moins 47 %) ; en capacité absolue au cycle 50 l'écart relatif lu sur Fig. 5b est de l'ordre de 65 % (≈ 760 contre ≈ 460 mAh g-1). Préciser dans value_text ou en annotation qu'il s'agit de points de rétention, et non d'un gain relatif de capacité.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Annotation pourquoi_ces_donnees : « HNTs-80, jugé le meilleur compromis »",
+   "extracted": "Un seul composite avec graphène (à base de HNTs-80, jugé le meilleur compromis) est préparé.",
+   "article_says": "The above results show that the optimal acid etching temperature of HNTs is 70–90 °C.",
+   "fix": "Les auteurs ne justifient pas le choix de HNTs-80 comme « meilleur compromis » avant la préparation du RGO@HNTs ; ils écrivent seulement que la plage optimale est 70–90 °C. Reformuler (HNTs-80 retenu sans justification explicite, rétention la plus haute de la série à 68 %).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "HNTs-70, HNTs-80, HNTs-90 : material.formula Al2Si2O5(OH)4",
+   "extracted": "Formule de l'halloysite intacte pour les trois échantillons gravés.",
+   "article_says": "When the etching temperature reaches 90 °C, the molar ratio of O/Si is 2.144, which is close to the 2:1 ratio in SiO2.",
+   "fix": "Le gravage retire de l'aluminium en surface (Al 16,4 % à 7,9 %) : la formule d'halloysite est celle du précurseur, pas du produit. Mettre formula à null ou à une formule à composition variable avec note ; l'article ne donne aucune formule des produits gravés.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 12,
+  "branches_extracted": 9,
+  "not_stated_checked": 79,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "origine, préparation et concentration réelle de l'oxyde de graphène (réduit) : l'article écrit « RGO (80 mL, 1 mg/mL) » sans dire d'où il vient",
+  "quantité d'hydrate d'hydrazine incohérente (« 1 mL, 0.026 mmol » ; 1 mL correspond à environ 20 mmol)",
+  "température, agitation et séchage (température) de la synthèse des composites HNTs/S et RGO@HNTs/S ; durée de l'hydrazine ambiguë (3 h à 90 °C ?)",
+  "masse de HNTs-70, -80 et -90 pour les composites HNTs-X/S, et confirmation qu'elles suivent la section 2.3",
+  "préparation de la cathode « normal S » et de « RGO@S » (seulement citée en Fig. S4)",
+  "teneur en soufre de la cathode (charge en matière active par cm2), volume de NMP, volume d'électrolyte, séparateur, nombre de lavages et conditions de centrifugation des composites",
+  "images S1 à S4 de l'annexe absentes du dépôt : surfaces BET des quatre HNTs non connues",
+  "pureté des HNTs naturelles ; origine de la concentration PVP « 0.02 wt.% » (par rapport à quoi)"
+ ],
+ "mechanism_check": "ok : les annotations mecanisme_auteurs reprennent bien la réaction S2O3 2- + 2H+ et le gravage interne/externe ; les mécanismes de l'analyse sont étiquetés « probablement ». Voir toutefois le constat sur « (reduction of GO) » dans une description d'étape.",
+ "notes": "Valeurs vérifiées sur figures : Fig. 1d (9 volumes de pores, écart max ≈ 0,002 cm3 g-1, soit < 10 %), Fig. 5b (520, 690, 600, 760 mAh g-1 au cycle 50 ; cohérents avec rétention × capacité initiale), Fig. 5c (300, 500, 380 mAh g-1 à 1 C, ±20), Fig. 4 (51,33 / 59,08 / 60,91 / 62,68 % cohérents avec les flèches, et la légende HNTs-0/S confirme que HNTs/S = HNTs-0/S), Fig. 6 (pics 2,29, 1,94, 2,49 V cohérents). Tableau 1 : les 16 valeurs et le rangement par échantillon sont corrects. Valeurs et rangement des rétentions/capacités du texte (« respectively ») : tous les rangs corrects. method_sources : B32, B26, B28, B35 attendus et présents ; B33/B34/B21/B26 (interprétation, EIS, CV) et B35 (TG) correctement exclus. Fragile dans ma lecture : l'identité des HNTs dans 2.3 et 2.4 (déduite du nom), et la lecture de « for 3 h »."
+}

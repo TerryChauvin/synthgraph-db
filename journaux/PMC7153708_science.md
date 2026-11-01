@@ -1,0 +1,19 @@
+# PMC7153708 — critique scientifique (journal de décisions)
+
+- Germes d'or (2.2) : 25 µmol Au(III) (5 mL à 5 mM) contre 2 µmol NaBH4, soit 16 µmol e- pour 75 requis (ratio 0,21) ; et 0,1 mL de germes = 10 % de l'or de croissance, environ 170 fois plus que dans Nikoobakht (PMC7695247). Classé `probleme` (erreur probable de l'article sur « 5 mM »), mais faisabilité « avec réserves », car la méthode de référence est connue.
+- Plasmon longitudinal 752 nm contrôlé avec la relation de Jain 2006 (445,4 + 90,6 R → 762 nm) plutôt qu'avec Link 1999, dont je n'avais pas la formule sous les yeux ; la formule a été lue dans l'extrait du PDF.
+- Coque de Se 22 nm (3.1) contre 13 nm (3.3, légendes des fig. 4–5) : calcul de la section d'anneau A = (16 + 2t)² − 256 par µL de SeO2 (68 ; 123 ; 167 ou 75 nm²/µL). La série n'est pas proportionnelle et 13 nm colle mieux à 5 µL. Je n'ai pas fait de bilan volumique Se → PbSe : densités de Se amorphe et de PbSe non vérifiées.
+- Contradiction sur Kirkendall en 3.2 : premier paragraphe « Se plus rapide → vides », second paragraphe « Se plus rapide → inhibe les vides, Pb plus rapide → vides ». Classée `probleme` (mécanisme), avec Yin 2004 comme référence ; à la place, j'explique la série de formes par le rapport Pb:Se disponible (0,25 → 1).
+- « Se reduced to Se2− by AA » : jugé `reserve` (redox) et non `probleme`. Le bilan global (1 AA par Se) reste juste si la réduction est couplée à la précipitation de PbSe ; les potentiels sont cités de mémoire (Se/Se2- ≈ −0,92 V), sans source en ligne : je le signale dans sources_not_found.
+- NaOH pour pH 9,8 estimé à environ 61 µL de 2 M (pKa2 de la glycine 9,6, 61 % déprotoné) : sert à montrer que C(Pb2+) reste ≈ 0,95 mM. Pas de Ksp de Pb(OH)2 ni de PbBr2 chiffrés (valeurs trop dispersées sans source) : le rôle de la glycine est jugé qualitativement.
+- Cd, Cu (0,2 µmol) et Bi (0,13 µmol) contre environ 2 µmol de Se : de 0,065 à 0,1 équivalent de cation. Trois `probleme` de bilan, car une « coque enveloppante » de séléniure est impossible ; l'hypothèse d'une coquille (2 µL au lieu de 20 µL) est signalée sans être tranchée.
+- Bi(NO3)3 à 0,01 M sans acide : hydrolyse sourcée par Miersch 2012 (Inorg. Chem.), `reserve`.
+- CuSe : source GMU 2021 (Au@Se + Cu2+ + AA → Cu2-xSe) retenue comme indication de phase concurrente ; les auteurs du manuscrit ne figurent pas dans l'extrait, d'où « dépôt George Mason University ».
+- Photoanodes : le tableau S1 lu par l'extracteur (yolk-shell 5 µL SeO2 / 20 µL Pb ; haltère 20 / 5) montre que la seule grandeur commune est le PbSe maximal (0,5 µmol). D'où le `probleme` « témoin à plusieurs variables » (contrôle 5) et la remarque sur le Se amorphe résiduel dans l'haltère et le témoin PbSe.
+- 10 mg de sensibilisateur : borne haute par lot ≤ 0,985 mg d'Au (toute la croissance) + 0,143 mg de PbSe → au moins 9 lots non décrits. `probleme`, robuste quelle que soit la concentration réelle des bâtonnets.
+- « 0,17 M alcohol » rapproché de l'éthanol pur (17,1 M) : simple hypothèse de coquille, gardée en calcul et non en constat séparé.
+- Rct 6,74 / 2,88 kΩ : `probleme` de cohérence (le texte dit que l'haltère a le Rct le plus élevé ; photocourants dans le même sens). Il recoupe le doute de l'extracteur ; je ne tranche pas l'attribution.
+- IPCE : 1,91 % n'est retrouvé qu'avec (5,62 µA/cm², 0,607 mW/cm²) ; recoupé par l'IPCE moyenne estimée à partir du photocourant à large bande (≈ 1,9 %, λ moyen pris à 800 nm, hypothèse). `reserve`.
+- TiO2 : rutile attendu (Liu et Aydil 2009, URL umn.edu car le DOI n'a pas été vu sur une page consultée) ; autoclave à 61 %, environ 6 M en HCl : `ok`.
+- Branches de la série en temps et en concentration non jugées séparément : même chimie que la voie de base, déjà couverte dans son bloc calculs.
+- Recherches web : 7 (Nikoobakht, Liu-Aydil, Link/Jain, Au@Se, PbSe a0, Bi(NO3)3, Yin 2004 + Liu-Aydil). Rien ajouté à fondateurs.md ni à constantes.md (Crossref bloqué).

@@ -1,0 +1,15 @@
+# Journal d'extraction PMC9695608
+
+- Voie de base : MnFe2O4_90C (x = 0). Les Méthodes (3.1) disent « at 90 °C or 100 °C » sans lier la température à une composition ; la série de neuf compositions est dite « synthesized at 90 °C » (légende Fig. 1, 2.2.2, 2.3) et les deux ferrites purs sont refaits à 100 °C (2.1, Fig. 2). Choix : 90 °C en base, 100 °C en branche (étape 1, `temperature`).
+- Température de la phase de 2 h (étape 3) : « After 2 h » sans température. Supposée égale à celle de l'eau, mais implicite : déclarée `not_stated`, pas de valeur.
+- Quantité de MnSO4·H2O : la phrase « the doping metal salt (MnSO4.H2O, Ca(CH3CO2)2) (0.66 mmol) » vaut pour tous les échantillons ; lue littéralement comme 0,66 mmol de MnSO4·H2O pour x = 0. Pour les mixtes, le partage Mn/Ca n'est pas écrit : quantités déclarées non citées (rien calculé à partir de x).
+- Neuf branches à 90 °C : les compositions x = 0,5 (et 0,4, 0,6 par la plage « 0.4–0.6 ») ne sont listées que par la Fig. 1 (étiquettes) et la Fig. 6. Branche par composition visible sur la Fig. 1 ; la variation de x = 0,5 est marquée `from_figure` avec la légende de la Fig. 1.
+- x = 0,7 et 0,9 : ne figurent que dans la légende de la Fig. 5A, jugée erronée (elle cite aussi 100 °C pour x = 0,1 et 0,9, alors que le 100 °C ne concerne que x = 0 et 1). Inventaire avec `route: null`.
+- Héritage : toutes les branches Ca/100 °C suivent le même protocole général de 3.1 (« In general ... »). La branche sans citrate (Fig. S3, absente) hérite faute de mieux ; héritage non confirmé, noté en doute.
+- Résultats de groupe (calcite pour x > 0,2 ; réduction de taille ; baisse d'ILP) : une annotation `tendance_observee` avec citation, pas de recopie sur chaque voie.
+- Valeurs lues sur figure : Fig. 2B,D (valeurs imprimées sur les histogrammes) ; 3D, 5B, 5C, 5E, 6B, 6C, 7A, 7B, 7C, 7D (agrandies par script, 2 chiffres significatifs). Non extraits faute de précision : paramètre de maille, densité X, surface spécifique, longueurs de saut, valeurs à 5 K et 380 K, ILP aux champs 270,6 et 161,6 kHz à 90 °C pour x > 0 (points confondus).
+- Noms de propriétés ILP et Ms (300 K) : les conditions viennent des légendes de figure, pas des citations (légendes de panneau seulement dans l'image).
+- Contradictions notées, valeur non corrigée : 15 °C du texte contre ~13,5 °C lus sur la Fig. 7C ; 10 min de champ (Méthodes) contre 120 s (courbes) ; 0,01 mM (Méthodes) contre 0,01 mg/mL (Résultats) ; couleurs de légende inversées entre 7A et 7B ; ILP de MnFe2O4 plus faible à 100 °C qu'à 90 °C à 616,6 kHz alors que le texte parle de « similar or slightly improved ».
+- Annexes : aucune section `Supporting Information` dans le fichier ; Fig. S1–S10 et Tables S1–S5 déclarées absentes en `limite_reproductibilite`.
+- Mécanisme : `mecanisme_auteurs` cité (équations (1)–(3) de l'introduction) ; `mecanisme_analyse` avec le bilan Fe/M = 2:1, NaOH 4 mmol pour 2 mmol de cations divalents et l'hypothèse de calcite par CO2 de l'air.
+- Rendement : non cité pour la voie de base (aucun rendement dans l'article).

@@ -1,0 +1,89 @@
+{
+ "pmcid": "PMC11243152",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "PS4 characterization BET, technique label 'N2-type surface and pore size analyzer'",
+   "extracted": "BET (N2-type surface and pore size analyzer)",
+   "article_says": "The specific surface area of the synthesized powder was measured using an automated surface and pore size analyzer (Quadrasorb SI-Kr; Quantachrome Instruments, Boynton Beach, FL, USA)",
+   "fix": "retirer « N2-type » : l'article ne nomme aucun gaz d'adsorption (le modèle cité s'appelle « SI-Kr ») ; écrire « BET (surface and pore size analyzer) » ; dégazage, gaz et méthode de calcul des pores non cités",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "TGA of the precursor (Fig. 3): technique, instrument and conditions absent from every route's characterizations",
+   "extracted": "aucune caractérisation ATG ; résultat repris seulement dans une annotation tendance_observee, conditions de mesure absentes de tout le JSON",
+   "article_says": "The thermal analysis of the precursor powder was carried out using a thermal analyzer (SDT650, Ta Instruments, New Castle, DE, USA) at a heating rate of 10 °C/min in air up to 1000 °C.",
+   "fix": "ajouter à une route (ou à l'annotation, à défaut de rattachement) la caractérisation ATG : instrument SDT650 (TA Instruments), 10 °C/min, air, jusqu'à 1000 °C ; sur Fig. 3 la perte est ≈ 3,5 % à 200 °C, ≈ 31 % à 550 °C et ≈ 34 % à 1000 °C (le texte dit 5 % puis 25 %)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "PS4 step 2 (mix) : rapport PVA:M2+ réellement ajouté",
+   "extracted": "molar_ratio = 4:1 (citation : ligne de Table 3 « PS4 | 9000~10,000 | 4:1 »)",
+   "article_says": "Therefore, to achieve a 4:1 ratio, PVA was added at a PVA:M2+ ratio of 2:1, considering that the molecular weight of the PVA monomer is 44",
+   "fix": "ajouter à l'étape 2 un paramètre « PVA:M2+ ratio = 2:1 (PVA monomer M = 44) pour obtenir le rapport nominal 4:1 » avec cette citation, et signaler qu'aucune valeur équivalente n'est donnée pour 16:1 ; la valeur n'existe aujourd'hui que dans method_sources (role autre)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation pourquoi_ces_donnees / resume : sens du rapport 4:1 et 16:1",
+   "extracted": "« le rapport PVA:cations (4:1 et 16:1) »",
+   "article_says": "PVA was added at a ratio of 4:1 or 16:1 with respect to the average atomic weight of the four metal cations, as listed in Table 2.",
+   "fix": "le texte ne donne pas le sens du rapport et la Table 2 (4:1 = 3.5563 g, 16:1 = 0.8890 g, soit 4 fois moins de PVA à 16:1) contredit un rapport PVA:cations ; reformuler « rapport nominal 4:1 ou 16:1 (sens non précisé ; 4:1 = plus de PVA d'après Table 2) » et ajouter à limite_reproductibilite que 3.5563 g de PVA pour 30 g de nitrates correspond à environ 1 monomère de PVA par M2+ (Ni+Co+Mn), non au 2:1 écrit dans les Méthodes",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PS4 characterization SEM (et champ material.morphology de toutes les voies)",
+   "extracted": "result « secondary particles are aggregates of primary particles of about 60 nm (all samples) », citation = phrase de méthode « Scanning electron microscopy (SEM; Regulus8230 …) was used for microstructural and compositional analyses »",
+   "article_says": "Considering that the primary particle size was approximately 60 nm, the secondary particle size of the powder observed by SEM was due to the aggregation of many primary particles.",
+   "fix": "la citation actuelle ne soutient pas le résultat ; utiliser la phrase ci-contre, préciser que les ≈ 60 nm viennent de l'équation de Scherrer (DRX, Table 5), et noter que PS4 et PS16 sont à 63,48 et 65,38 nm, pas à 60 nm",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "SEM, tendance 4:1 vs 16:1 (PS4, PM4, PL4, PM16 sans résultat MEB)",
+   "extracted": "MEB renseigné seulement pour PS16 (faible agrégation) et PL16 (pré-frittage) ; PM4, PL4, PM16 sans résultat MEB",
+   "article_says": "Particle size was larger for a PVA mixing ratio of 4:1 than for 16:1.",
+   "fix": "ajouter ce résultat qualitatif (taille des particules secondaires plus grande à 4:1) aux branches 4:1 (PS4, PM4, PL4) ou en annotation tendance_observee ; PS4 : « local particle aggregation » n'est donné que pour PS16",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PVA_X steps 1 et 2 (dry, anneal)",
+   "extracted": "deux étapes (dry, anneal) pour l'échantillon sans PVA ; la citation de l'étape 2 porte sur l'échantillon traité à 850 °C de la Fig. 4a",
+   "article_says": "The XRD data for the powders synthesized without the addition of PVA are also presented to investigate the influence of PVA.",
+   "fix": "l'article ne décrit ni séchage ni traitement thermique pour cet échantillon (seul le mot « drying of the solution precursor » dans l'explication) : l'étape anneal est reconstruite ; la garder avec tous ses paramètres en not_stated (déjà fait) mais la marquer comme supposée, ou la remplacer par une annotation limite_reproductibilite (déjà présente)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation limite_reproductibilite (figures) : contradiction texte / Fig. 10 sur les rétentions",
+   "extracted": "« Le texte et la Fig. 10 se contredisent sur plusieurs capacités initiales (voir doutes) » ; la contradiction sur les rétentions n'est que dans les doutes",
+   "article_says": "PM16 showing a particularly low-capacity retention rate of only 61.48%",
+   "fix": "ajouter : sur la Fig. 10 le cycle 100 donne PM16 ≈ 65 sur ≈ 115 mAh/g (≈ 57 %) et PL16 ≈ 106 sur ≈ 160 mAh/g (≈ 66 %), alors que le texte donne 56,31 % pour PL16 ; sur la Fig. 9 (cycle 1) PL16 ≈ 115 et PM16 ≈ 130 mAh/g (texte 115,82 et 124,63), donc Fig. 9 suit le texte et Fig. 10 s'en écarte (PS16 ≈ 125, PM4 ≈ 142, PL16 ≈ 160 mAh/g au premier point)",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 34,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masse de chaque nitrate : seule la somme de 30 g (Table 2) et le rapport molaire 1,05:0,6:0,2:0,2 sont donnés ; on ne sait pas si les 30 g sont les sels hydratés",
+  "volume d'eau de dissolution et volume/masse de la solution de PVA à 5 wt% (3,5563 g ou 0,8890 g de PVA seulement) ; durée de dissolution et de mélange",
+  "sens et définition du rapport 4:1 / 16:1 : 2:1 PVA:M2+ écrit dans les Méthodes contre ≈ 1 monomère par M2+ qu'impliquent les masses de la Table 2",
+  "atmosphère, vitesse de montée en température, four et creuset pour la pyrolyse à 500 °C (1 h) et le traitement à 850 °C (20 h), refroidissement",
+  "traitement (séchage, calcination) de l'échantillon sans PVA, non décrit",
+  "rapport PVA du gel analysé en ATG (PVA 50 000 seulement)",
+  "électrodes : charge massique, diamètre, volume d'électrolyte, méthode de couchage et épaisseur, atmosphère du séchage à 70 °C ; rapport 1:1 de EC/DMC en volume ou en masse non dit",
+  "DRX : rayonnement, plage 2θ et pas non donnés ; BET : gaz d'adsorption, dégazage, méthode de calcul de la taille des pores non donnés",
+  "aucun matériel complémentaire (Supporting Information) dans l'article"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs rend la phrase des auteurs (complexation des cations par les -OH du PVA avant l'élimination de l'eau) ; mecanisme_analyse est signalé comme probable ; la sécurité couvre nitrates, NOx, Ni/Co, HF du LiPF6",
+ "notes": "Valeurs numériques vérifiées sans écart : Tables 4 et 5 (12 valeurs), capacités initiales et rétentions du texte, diffusion D (Fig. 11c : 1,03e-9 ; 7,95e-10 ; 1,19e-9). Valeurs lues sur figures vérifiées en ouvrant les images : Fig. 8 (12 valeurs, écart maximal 0,05 m2/g et 0,5 Å), Fig. 10 au cycle 100 (PS4 ≈ 110, PS16 ≈ 77, PM4 ≈ 108, PM16 ≈ 65, PL4 ≈ 143, PL16 ≈ 106 : écart de PL16 de 4 mAh/g, de PM4 et PL4 de 2 à 3, tous sous 10 %), Fig. 11 (diamètres de demi-cercle 55, 55, 37 avant cyclage pour PS16, PM16, PL16 ; 180, 130, 90 après cyclage pour PS4, PM4, PL4, conformes à la figure). Le texte attribue les impédances à PS4 > PM4 > PL4 « before cycling » alors que Fig. 11a montre les échantillons 16:1 avant cyclage : l'extraction suit la légende de la figure, c'est le bon choix. Les renvois B27, B33, B34 des Méthodes sont des renvois de contexte ou de justification, B27 (YAG:Ce, voie polymère) pourrait être discuté ; la numérotation des renvois de la section Résultats semble décalée dans le fichier de références (B35 est une référence de Scherrer cité pour « precursor can be obtained using polyvinyl alcohol »), donc rien n'est ajouté aux method_sources. Les doutes de l'extracteur (Fig. 9 / Fig. 10, légende Fig. 11, TGA 25 % contre 28 %) sont corrects."
+}

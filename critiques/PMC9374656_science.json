@@ -1,0 +1,398 @@
+{
+ "pmcid": "PMC9374656",
+ "routes": [
+  {
+   "label": "Si0.7Ge0.3",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface et volume de la couche de 500 nm (disque de 10 mm)",
+     "inputs": "diamètre 10 mm ; épaisseur 500 nm",
+     "formula": "A = π r² ; V = A·t",
+     "result": "A = 0,785 cm² ; V = 3,93 × 10⁻⁵ cm³",
+     "compared_to": "-",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "masse attendue de SiGe par disque",
+     "inputs": "V = 3,93 × 10⁻⁵ cm³ ; masse volumique déduite de a(x) (Dismukes 1964) : ρ = 8·M(x)/(N_A·a³) → Si 2,329 ; x=0,15 2,835 ; x=0,3 3,321 ; x=0,6 4,235 ; x=0,8 4,799 ; Ge 5,327 g/cm³",
+     "formula": "m = ρ·V",
+     "result": "Si 91,5 ; 0,15 111,3 ; 0,3 130,4 ; 0,6 166,3 ; 0,8 188,4 ; Ge 209,2 μg",
+     "compared_to": "masses déclarées 85 / 101 / 143 / 168 / 185 / 214 μg : rapport 0,93 / 0,91 / 1,10 / 1,01 / 0,98 / 1,02 ; épaisseur équivalente 454–548 nm",
+     "source": "Dismukes et al. 1964 (paramètre de maille) ; masses atomiques IUPAC"
+    },
+    {
+     "what": "moles d'Al à dissoudre et HF nécessaire",
+     "inputs": "250 nm × 0,785 cm² ; ρ(Al) = 2,70 g/cm³ ; M = 26,98 g/mol ; 2 Al + 6 HF → 2 AlF3 + 3 H2",
+     "formula": "n(Al) = ρ·A·t/M ; n(HF) = 3 n(Al)",
+     "result": "m(Al) = 53 μg ; n(Al) = 1,96 μmol ; n(HF) = 5,9 μmol",
+     "compared_to": "HF 1,5 % (≈ 0,75 mol/L en supposant % massique, densité ≈ 1) : 8 μL suffisent ; excès très large dans tout bain réaliste",
+     "source": "masse volumique de l'Al : valeur de manuel (CRC), non revérifiée en ligne ; arithmétique"
+    },
+    {
+     "what": "rapport d'épaisseurs a-SiGe / Al",
+     "inputs": "500 nm / 250 nm",
+     "formula": "t(SiGe)/t(Al)",
+     "result": "2,0",
+     "compared_to": "échange complet décrit pour des épaisseurs voisines ou Al au moins aussi épais (étude Isomura et al., référence complète non retrouvée) ; le groupe des auteurs obtient des couches LE jusqu'à ~1000 nm sur verre (Ozawa 2022)",
+     "source": "valeurs de l'article ; Ozawa et al. 2022"
+    },
+    {
+     "what": "mobilité des trous déduite de p et σ (figure 2e, lectures)",
+     "inputs": "Si p=2e18, σ=5 ; x=0,3 p=3e18, σ=11 ; x=0,6 p=6e19, σ=150 ; x=0,8 p=2e20, σ=350 ; Ge p=5e20, σ=1300 S/cm ; q = 1,602 × 10⁻¹⁹ C",
+     "formula": "μ = σ/(p·q)",
+     "result": "16 / 23 / 16 / 11 / 16 cm² V⁻¹ s⁻¹",
+     "compared_to": "ordre de grandeur attendu pour du poly-SiGe très dopé à petits grains (10–50 cm²/V·s) : cohérent",
+     "source": "lectures de figure de l'extraction ; constante élémentaire CODATA"
+    },
+    {
+     "what": "marge sous les eutectiques",
+     "inputs": "recuit 375 °C (x>0) et 400 °C (Si) ; eutectique Al–Ge ≈ 424 °C ; Al–Si ≈ 578 °C",
+     "formula": "T_eut − T_recuit",
+     "result": "Al–Ge : 49 °C sous l'eutectique ; Al–Si : 178 °C",
+     "compared_to": "échange à l'état solide attendu",
+     "source": "Song & Hellawell 1990"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Recuit à 375 °C sous N2 : sous l'eutectique Al–Ge (≈ 424 °C) et loin de l'eutectique Al–Si (≈ 578 °C) (voir « marge sous les eutectiques ») ; l'échange se fait donc à l'état solide, comme le décrit le mécanisme des auteurs.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Solidification in the system Al-Ge-Si: The phase diagram, coring patterns, eutectic growth, and modification",
+      "authors_or_publisher": "H. Song, A. Hellawell (Michigan Technological University)",
+      "year": "1990",
+      "url_or_doi": "https://digitalcommons.mtu.edu/michigantech-p/4507"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le polyimide n'est pas identifié. Pour le Kapton HN, la transition vitreuse est entre 360 et 410 °C et le retrait est de 1,25 % après 2 h à 400 °C : 20 h à 375–400 °C placent le substrat dans sa zone de transition vitreuse (retrait, contraintes sur la couche). Les auteurs donnent eux-mêmes 400 °C comme limite du polyimide.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "DuPont Kapton HN Polyimide Film — technical data sheet",
+      "authors_or_publisher": "DuPont (fiche fournisseur, copie distributeur)",
+      "year": "non daté",
+      "url_or_doi": "https://www.epectec.com/downloads/DuPont-Kapton-HN-Polyimide-Film.pdf"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les masses de SiGe déclarées sur Mo (85–214 μg) correspondent à 0,91–1,10 fois la masse d'une couche dense de 500 nm sur un disque de 10 mm (voir « masse attendue de SiGe par disque ») : toute la matière déposée reste après dissolution de l'Al, et les masses sont cohérentes avec l'épaisseur annoncée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La couche amorphe (500 nm) est deux fois plus épaisse que l'Al (250 nm) (voir « rapport d'épaisseurs a-SiGe / Al »). Le groupe des auteurs obtient des couches LE jusqu'à ~1000 nm, donc un échange complet est possible, mais l'article ne montre ni la fraction amorphe résiduelle (le Raman est commenté qualitativement) ni l'existence ou non d'une couche d'oxyde d'Al entre Al et a-SiGe, paramètre qui gouverne la nucléation en échange induit par Al.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Flexible Thermoelectric Generator Based on Polycrystalline SiGe Thin Films",
+      "authors_or_publisher": "T. Ozawa, M. Murata, T. Suemasu, K. Toko — Materials (MDPI)",
+      "year": "2022",
+      "url_or_doi": "10.3390/ma15020608 (PMC8782019)"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "HF 1,5 % dissout l'Al (2 Al + 6 HF → 2 AlF3 + 3 H2) avec un excès très large (voir « moles d'Al à dissoudre et HF nécessaire ») ; HF dilué n'attaque pas notablement Si ni Ge cristallins. Mais la couche de SiO2 de 30 nm sous le SiGe est soluble dans HF : par les bords et par les vides de la couche (fig. 3b), un sous-gravage de 2 min peut la fragiliser ; rien n'est dit sur l'adhérence.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mobilités déduites de p et σ : 11–23 cm²/V·s (voir « mobilité des trous déduite de p et σ ») : plausibles pour du poly-SiGe dopé à 10¹⁸–10²⁰ cm⁻³. La hausse de p avec x suit la plus grande solubilité de l'Al dans Ge que dans Si, mécanisme de « dopage auto-organisé » décrit par le même groupe ; la valeur numérique de la solubilité de l'Al n'a pas été retrouvée en source primaire.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Layer Exchange Synthesis of SiGe for Flexible Thermoelectric Generators: A Comprehensive Review",
+      "authors_or_publisher": "K. Toko et al. — Advanced Electronic Materials",
+      "year": "2024",
+      "url_or_doi": "10.1002/aelm.202400130"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte attribue les modes Raman Si–Si, Si–Ge et Ge–Ge à « environ 300, 400 et 500 cm⁻¹ respectivement » : l'ordre est inversé. Ge–Ge est vers 300 cm⁻¹, Si–Ge vers 400 cm⁻¹ et Si–Si vers 500 cm⁻¹ (520 cm⁻¹ pour Si pur). L'erreur ne change pas la conclusion (couches cristallines), mais l'extraction recopie l'ordre faux dans la caractérisation ; à signaler en limite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Raman spectra of c-Si1−xGex alloys",
+      "authors_or_publisher": "M. I. Alonso, K. Winer (Phys. Rev. B 39, 10056)",
+      "year": "1989",
+      "url_or_doi": "10.1103/PhysRevB.39.10056 (référence citée par des travaux trouvés en ligne ; DOI non vérifié sur Crossref, bloqué ici)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte renvoie à « The high σ at high x (Fig. 2c) » alors que σ est sur la figure 2e (2c est une image MEB) : renvoi de figure erroné de l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HF même à 1,5 % : brûlures profondes à effet retardé et toxicité systémique du fluorure ; gel de gluconate de calcium à 2,5 % à portée de main, gants adaptés, et rinçage. L'article ne mentionne aucune précaution. La pulvérisation et le recuit sous N2 sont des opérations standard d'atelier de couches minces.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrofluoric acid — fiches de sécurité universitaires (ex. Focus Sheet HF)",
+      "authors_or_publisher": "University of Washington EH&S",
+      "year": "non daté",
+      "url_or_doi": "https://www.ehs.washington.edu/system/files/resources/Focus_Sheet-HF.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Échange de couches induit par Al à l'état solide (sous les eutectiques) : Si et Ge diffusent dans l'Al par ses joints de grains, sursaturent l'Al, nucléent et croissent latéralement, et l'Al est repoussé en surface. L'abaissement de l'énergie d'interface cristal–Al fournit la force motrice. L'Al est incorporé dans le SiGe à sa limite de solubilité, d'où le type p et la hausse de p avec x. Mécanisme des auteurs conforme à la littérature du groupe ; l'analyse de l'extraction (eutectiques, barrière SiO2) est compatible.",
+    "sources": [
+     {
+      "title": "Layer Exchange Synthesis of SiGe for Flexible Thermoelectric Generators: A Comprehensive Review",
+      "authors_or_publisher": "K. Toko et al. — Advanced Electronic Materials",
+      "year": "2024",
+      "url_or_doi": "10.1002/aelm.202400130"
+     },
+     {
+      "title": "Flexible Thermoelectric Generator Based on Polycrystalline SiGe Thin Films",
+      "authors_or_publisher": "T. Ozawa, M. Murata, T. Suemasu, K. Toko — Materials (MDPI)",
+      "year": "2022",
+      "url_or_doi": "10.3390/ma15020608 (PMC8782019)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "nature du polyimide (Kapton HN ou autre) et sa tenue à 375–400 °C pendant 20 h",
+    "cibles (alliage SiGe ou co-pulvérisation) et contrôle de x",
+    "présence ou non d'une exposition à l'air de l'Al (couche d'AlOx) avant le dépôt de a-SiGe",
+    "fraction amorphe résiduelle avec 500 nm de SiGe pour 250 nm d'Al",
+    "adhérence de la couche après HF sur le SiO2 de 30 nm (sous-gravage)",
+    "précautions HF"
+   ]
+  },
+  {
+   "label": "Si",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "marge sous l'eutectique Al–Si",
+     "inputs": "400 °C ; eutectique ≈ 578 °C",
+     "formula": "T_eut − T",
+     "result": "178 °C",
+     "compared_to": "état solide",
+     "source": "Song & Hellawell 1990"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Le Si pur est recuit à 400 °C, les autres compositions à 375 °C : le point x = 0 de la série change deux variables (composition et température). Les auteurs disent eux-mêmes qu'une température plus haute donne des grains plus petits ; la comparaison σ et capacité de Si avec les autres x n'est donc pas un pur effet de composition. 400 °C est en outre la limite de tenue donnée pour le polyimide.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "DuPont Kapton HN Polyimide Film — technical data sheet",
+      "authors_or_publisher": "DuPont (fiche fournisseur, copie distributeur)",
+      "year": "non daté",
+      "url_or_doi": "https://www.epectec.com/downloads/DuPont-Kapton-HN-Polyimide-Film.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même échange induit par Al ; la diffusion plus lente de Si dans l'Al justifie probablement les 25 °C de plus.",
+    "sources": [
+     {
+      "title": "Layer Exchange Synthesis of SiGe for Flexible Thermoelectric Generators: A Comprehensive Review",
+      "authors_or_publisher": "K. Toko et al. — Advanced Electronic Materials",
+      "year": "2024",
+      "url_or_doi": "10.1002/aelm.202400130"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "un témoin Si recuit à 375 °C (ou tous à 400 °C) pour séparer l'effet de température"
+   ]
+  },
+  {
+   "label": "Ge",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [
+    {
+     "what": "marge sous l'eutectique Al–Ge",
+     "inputs": "375 °C ; eutectique ≈ 424 °C",
+     "formula": "T_eut − T",
+     "result": "49 °C",
+     "compared_to": "état solide, marge suffisante si la régulation du four est bonne",
+     "source": "Song & Hellawell 1990"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "375 °C reste à ~49 °C sous l'eutectique Al–Ge ; un dépassement de consigne vers 420 °C ferait fondre l'interface. Marge suffisante pour un four régulé.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Solidification in the system Al-Ge-Si: The phase diagram, coring patterns, eutectic growth, and modification",
+      "authors_or_publisher": "H. Song, A. Hellawell (Michigan Technological University)",
+      "year": "1990",
+      "url_or_doi": "https://digitalcommons.mtu.edu/michigantech-p/4507"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même mécanisme ; solubilité de l'Al plus élevée dans Ge, d'où p ≈ 5 × 10²⁰ cm⁻³.",
+    "sources": [
+     {
+      "title": "Layer Exchange Synthesis of SiGe for Flexible Thermoelectric Generators: A Comprehensive Review",
+      "authors_or_publisher": "K. Toko et al. — Advanced Electronic Materials",
+      "year": "2024",
+      "url_or_doi": "10.1002/aelm.202400130"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "précision de la régulation du four près de 375 °C"
+   ]
+  },
+  {
+   "label": "Anode_Si0.7Ge0.3",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "capacité théorique massique de Si1−xGex",
+     "inputs": "F = 26 801 mAh/mol ; M(x) = 28,086(1−x) + 72,63x ; Li15M4 (3,75 Li par atome) ou Li4,4Ge pour la part de Ge",
+     "formula": "Q = n_Li·F/M(x)",
+     "result": "Li3,75 : Si 3579 ; 0,15 2891 ; 0,3 2425 ; 0,6 1834 ; 0,8 1577 ; Ge 1384 mAh/g — avec Li4,4Ge : 3579 / 2966 / 2551 / 2024 / 1796 / 1624",
+     "compared_to": "valeurs de l'article : 3580 (Li15Si4), 1625 (Li4,4Ge) : identiques",
+     "source": "Obrovac & Christensen 2004 (Li15Si4) ; arithmétique"
+    },
+    {
+     "what": "fraction de la capacité théorique atteinte à 0,1 C (figure 6a, lectures)",
+     "inputs": "3100 / 2300 / 1800 / 1450 / 1550 / 1050 mAh/g",
+     "formula": "Q_mes/Q_th",
+     "result": "Li3,75 : 87 / 80 / 74 / 79 / 98 / 76 % ; Li4,4Ge : 87 / 78 / 71 / 72 / 86 / 65 %",
+     "compared_to": "« almost reflected the theoretical values » : vrai à 65–98 % près, le plus mauvais pour Ge si l'on prend la base 1625 mAh/g des auteurs",
+     "source": "arithmétique sur les lectures de l'extraction"
+    },
+    {
+     "what": "courant à 1 C et capacité surfacique",
+     "inputs": "Q_th(Li3,75) × m(SiGe) ; A = 0,785 cm²",
+     "formula": "I(1C) = Q_th·m ; Q_s = Q(0,1C)·m/A",
+     "result": "I(1C) ≈ 0,29–0,35 mA par disque ; capacité surfacique 0,29–0,37 mAh/cm²",
+     "compared_to": "électrode couche mince : valeurs faibles et raisonnables ; la définition de 1 C (théorique ou mesurée) n'est pas donnée",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse du disque de Mo contre masse de SiGe",
+     "inputs": "Mo 50 μm × 0,785 cm² ; ρ(Mo) ≈ 10,2 g/cm³",
+     "formula": "m = ρ·A·t",
+     "result": "≈ 40 mg de Mo pour 85–214 μg de SiGe (0,2–0,5 %)",
+     "compared_to": "une pesée différentielle à ±2 μg près donne ±1–2 % sur mAh/g ; la méthode de détermination de la masse n'est pas écrite",
+     "source": "masse volumique du Mo : valeur de manuel (CRC), non revérifiée en ligne ; arithmétique"
+    },
+    {
+     "what": "capacité à 1 C (cycle 1, fig. 5b) contre 0,1 C (fig. 6a)",
+     "inputs": "x=0,6 : 1650 contre 1450 ; Ge : 1250 contre 1050 ; x=0,8 : 1500 contre 1550 mAh/g",
+     "formula": "Q(1C)/Q(0,1C)",
+     "result": "1,14 (x=0,6) ; 1,19 (Ge) ; 0,97 (x=0,8)",
+     "compared_to": "on attend Q(1C) ≤ Q(0,1C) sur une même électrode ; > 1 indique des cellules différentes ou une dispersion de masse/lecture de ±15–20 %",
+     "source": "lectures de figure de l'extraction"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Capacités théoriques des auteurs (3580 mAh/g pour Li15Si4, 1625 pour Li4,4Ge) recalculées à l'identique (voir « capacité théorique massique de Si1−xGex »). À 0,1 C, les capacités mesurées valent 65 à 98 % de la théorie (voir « fraction de la capacité théorique atteinte à 0,1 C ») : « approached the theoretical capacities » est exact pour Si et x = 0,8, généreux pour Ge (65 % de 1625) et x = 0,3 (71–74 %).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Structural Changes in Silicon Anodes during Lithium Insertion/Extraction",
+      "authors_or_publisher": "M. N. Obrovac, L. Christensen — Electrochem. Solid-State Lett. 7, A93–A96",
+      "year": "2004",
+      "url_or_doi": "10.1149/1.1652421 (DOI non vérifié sur Crossref, bloqué ici)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pour x = 0,6 et Ge, la capacité au cycle 1 à 1 C (fig. 5b) dépasse celle à 0,1 C du test en régime (fig. 6a) de 14–19 % (voir « capacité à 1 C (cycle 1, fig. 5b) contre 0,1 C (fig. 6a) ») : les deux essais sont sur des cellules différentes, et la dispersion entre cellules (masse, contact) est au moins de cet ordre. Une seule cellule par composition semble avoir été mesurée ; aucune barre d'erreur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le résumé annonce une efficacité coulombique ≥ 97 % pour toutes les anodes, mais seul x = 0,3 est montré (fig. 5a) ; la valeur n'est pas vérifiable pour les autres x dans le texte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs expliquent la tenue en régime des couches riches en Ge par leur σ, mesurée sur polyimide, alors que les électrodes sont sur Mo, avec des grains plus petits (dit par les auteurs). σ n'est pas mesurable sur un substrat conducteur, mais l'argument transpose une mesure d'un substrat à l'autre sans contrôle ; la baisse de dilatation volumique avec x et la diffusivité de Li plus grande dans Ge suffisent à expliquer la tendance.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Rétention de 48 % à 100 cycles pour une couche de 500 nm sans liant ni additif (pas de FEC dans l'électrolyte LiPF6 EC/DEC) : ordre de grandeur attendu pour une couche mince de Si riche cyclée jusqu'à la lithiation complète (forte expansion volumique, pulvérisation).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Structural Changes in Silicon Anodes during Lithium Insertion/Extraction",
+      "authors_or_publisher": "M. N. Obrovac, L. Christensen — Electrochem. Solid-State Lett. 7, A93–A96",
+      "year": "2004",
+      "url_or_doi": "10.1149/1.1652421 (DOI non vérifié sur Crossref, bloqué ici)"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Li métal (réactif à l'eau) et LiPF6 dans EC/DEC (inflammable, libère HF à l'humidité) : assemblage en boîte à gants sous Ar, non écrit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Stockage par alliage : lithiation de Si et Ge cristallins via des phases amorphes LixSi/LixGe jusqu'à Li15Si4/Li15Ge4, avec cristallisation de Li15Si4 vers 50 mV ; l'expansion volumique fissure la couche et fait baisser la capacité, moins pour Ge. Le CV de Si0,4Ge0,6, superposition de ceux de Si et Ge, est cohérent avec cette lecture.",
+    "sources": [
+     {
+      "title": "Structural Changes in Silicon Anodes during Lithium Insertion/Extraction",
+      "authors_or_publisher": "M. N. Obrovac, L. Christensen — Electrochem. Solid-State Lett. 7, A93–A96",
+      "year": "2004",
+      "url_or_doi": "10.1149/1.1652421 (DOI non vérifié sur Crossref, bloqué ici)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "définition de 1 C (base théorique, par composition ?)",
+    "fenêtre de potentiel de cyclage",
+    "méthode de détermination de la masse de SiGe (pesée sur ~40 mg de Mo)",
+    "format de pile, volume d'électrolyte, atmosphère d'assemblage",
+    "nombre de cellules par composition"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse par échange de couches induit par Al cohérente : recuits sous les eutectiques Al–Ge et Al–Si, masses de SiGe sur Mo conformes à 500 nm de couche dense (±10 %), mobilités déduites plausibles, capacités théoriques exactes. Le protocole de dépôt est incomplet (cibles, polyimide, interface Al/a-SiGe), le point Si change aussi de température, et le polyimide est recuit dans sa zone de transition vitreuse. Erreur d'auteur nette : l'attribution inversée des modes Raman Si–Si / Ge–Ge.",
+  "author_errors_suspected": [
+   "Modes Raman attribués dans l'ordre inverse : Si–Si, Si–Ge, Ge–Ge à « 300, 400 et 500 cm⁻¹ respectivement » au lieu de Ge–Ge ≈ 300, Si–Ge ≈ 400, Si–Si ≈ 500 cm⁻¹ (Alonso & Winer 1989).",
+   "Renvoi « high σ at high x (Fig. 2c) » : la conductivité est sur la figure 2e.",
+   "Efficacité coulombique ≥ 97 % annoncée pour tous les x dans le résumé, montrée seulement pour x = 0,3.",
+   "Capacité à 1 C supérieure à celle à 0,1 C pour x = 0,6 et Ge (cellules différentes, pas de répétition)."
+  ],
+  "comparison_with_database": "Aucune autre synthèse de SiGe ou de Ge dans la base (compare.py « SiGe », « Ge », « germanium » : 0 voie hors cet article). PMC8199406 (Si nanométrique enrobé de carbone) est une anode Si, mais de procédé trop différent pour une comparaison utile."
+ },
+ "sources_not_found": [
+  "Solubilité limite numérique de l'Al dans Si et Ge (Trumbore 1960, Bell Syst. Tech. J. 39, 205 : référence identifiée, valeurs non lues).",
+  "Étude d'Isomura et al. sur le rapport d'épaisseur Al / a-SiGe pour un échange complet : citation complète (revue, année, DOI) non retrouvée.",
+  "Fiche NOAA CAMEO de l'acide fluorhydrique : non atteinte par la recherche ; remplacée par une fiche universitaire.",
+  "Source primaire de la diffusivité de Li 400 fois plus grande dans Ge que dans Si (Graetz et al. 2004 présumé) : non confirmée."
+ ]
+}

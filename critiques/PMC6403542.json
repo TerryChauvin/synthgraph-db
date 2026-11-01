@@ -1,0 +1,86 @@
+{
+  "pmcid": "PMC6403542",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "PEDOT:PSS (neat), réactifs hérités (DMSO (HDI-GO suspension), 2,5 mL)",
+      "extracted": "la branche témoin n'a ni réactif propre ni variation retirant « DMSO (HDI-GO suspension) » : elle hérite donc de 2,5 mL de DMSO de suspension de charge alors que ses 5 étapes propres n'en utilisent aucun",
+      "article_says": "reference samples containing neat PEDOT:PSS (0 wt % HDI-GO) and 5.0 mg of raw GO (10 wt % GO) were prepared in a similar way.",
+      "fix": "ajouter une variation « DMSO (HDI-GO suspension) = absent » à la branche, ou mettre le point en doutes (l'article ne dit pas si ce DMSO est ajouté au témoin) ; la même phrase ne dit pas non plus si le témoin subit les 2 h de bain à ultrasons de l'étape 4",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "P/GO (10 wt%), étapes héritées 1 à 8 (dispersion du GO 1 min sonde à 40 % puis 1 h de bain dans 2,5 mL de DMSO)",
+      "extracted": "la branche hérite telles quelles les étapes et quantités de la voie HDI-GO 6 (parent P/HDI-GO 6 (10 wt%)), seul le réactif changeant",
+      "article_says": "reference samples containing neat PEDOT:PSS (0 wt % HDI-GO) and 5.0 mg of raw GO (10 wt % GO) were prepared in a similar way.",
+      "fix": "ajouter un doute sur P/GO (10 wt%) : « in a similar way » est la seule base de l'héritage des étapes de dispersion (seul le doute sur le réactif GO est écrit aujourd'hui) ; ou noter les étapes comme héritées par hypothèse dans limite_reproductibilite",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "HDI-GO 6 step 2 duration (héritée de HDI-GO 1 : 2 h)",
+      "extracted": "HDI-GO 6 hérite « duration = 2 h » de l'étape 2 de HDI-GO 1 en plus des 3 cycles de sonde, la seule variation enregistrée étant sonication_method",
+      "article_says": "In another synthesis, to improve the GO exfoliation, the bath sonication was combined with 3 probe sonication cycles (5 min on/5 min off, 40% amplitude), leading to a product (HDI-GO 6) with an FD close to 18.1%.",
+      "fix": "le texte ne donne pas la durée du bain pour HDI-GO 6 ni celle des quantités et étapes suivantes : déjà dans doubts, ajouter la durée à missing_fields de HDI-GO 6 plutôt que de la laisser héritée sans réserve",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "P/HDI-GO 1 (10 wt%) et P/HDI-GO 6 (10 wt%), résultat Raman : décalage de la bande C=C antisymétrique",
+      "extracted": "absent comme résultat (seules les positions de bandes du tableau S1 sont extraites)",
+      "article_says": "P/HDI-GO 1 (10 wt %) and P/HDI-GO 6 (10 wt %) display significant upshifts in the position of the bands by up to 13 and 17 cm−1 in the C=C antisymmetric stretching, respectively.",
+      "fix": "ajouter un résultat « Raman_antisymmetric_shift_vs_neat » = 13 cm−1 sur P/HDI-GO 1 (10 wt%) et 17 cm−1 sur P/HDI-GO 6 (10 wt%) (ordre respectively : HDI-GO 1 puis HDI-GO 6)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "P/HDI-GO 6 (10 wt%), résultat TGA : hausse des Tmax",
+      "extracted": "absent comme résultat (Ti 130 → 184 °C est couvert par le tableau S2, pas les hausses de Tmax)",
+      "article_says": "the temperature of the maximum rate of weight loss (Tmax) of the first and the second degradation stages increased by about 53 and 81 °C, respectively.",
+      "fix": "ajouter deux résultats TGA_Tmax_stage_I_increase_vs_neat = 53 °C et TGA_Tmax_stage_II_increase_vs_neat = 81 °C sur P/HDI-GO 6 (10 wt%)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "P/HDI-GO 6 (0.5 à 10 wt%), P/HDI-GO 1 (toutes teneurs) et P/GO (10 wt%), résultat qualitatif : aspect des dispersions et des films (Fig. S1, S2)",
+      "extracted": "aucun résultat sur l'homogénéité des dispersions et des films ni sur le virage de couleur avec la teneur",
+      "article_says": "Homogeneous films were obtained for all the HDI-GO concentrations and both levels of functionalization studied, as shown in Figure S2 in the Supplementary Material. With increasing HDI-GO content, the transparency of the films decreased, as the colour changed from metallic grey to black.",
+      "fix": "ajouter à la voie de base et aux branches de teneur un résultat qualitatif (dispersions sans précipité, films homogènes ; gris métallique → noir quand la teneur monte) ; la phrase « leading to homogenous dispersions, without precipitates » est dans l'étape 4",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "HDI-GO 1 et HDI-GO 6, résultat : résistance carrée",
+      "extracted": "absent",
+      "article_says": "The Rs of raw GO and the HDI-functionalized GO samples was out of scale",
+      "fix": "ajouter un résultat sheet_resistance en value_text « out of scale » sur GO, HDI-GO 1 et HDI-GO 6 (information utile pour comparer à la valeur du film)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_auteurs, route HDI-GO 6 (partie stabilité thermique)",
+      "extracted": "le texte de l'annotation attribue aussi la meilleure stabilité thermique à une réticulation plus forte, mais la citation de l'annotation ne couvre que la phrase sur la surface plus lisse",
+      "article_says": "The thermal stability of HDI-GO increases with increasing FD (Table S2), attributed to a higher degree of crosslinking between the nanosheets.",
+      "fix": "remplacer la citation par cette phrase ou scinder l'annotation en deux, chacune avec sa citation",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 15,
+    "branches_extracted": 15,
+    "not_stated_checked": 30,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "masse de PEDOT:PSS : « 0.05 mg for each sample » est incohérent avec 0,25–5,0 mg de HDI-GO pour 0,5–10 wt % (probablement 50 mg) ; la valeur réelle n'est pas dans l'article ni l'annexe",
+    "pas de quantité de graphite, H2SO4, K2S2O8, P2O5, KMnO4, eau ; durées et volumes de la seconde oxydation ; vitesse de centrifugation et solvant de lavage du GO ; H2O2 listé en 2.1 sans étape qui l'utilise",
+    "pas de masse absolue de GO, HDI, TEA (seulement le rapport 1:1:1), ni volume de toluène ou de chlorure de méthylène ; pas de température ni de durée de séchage sous vide de HDI-GO",
+    "HDI-GO 6 : durée du bain et suite du protocole non redites ; le protocole complet est renvoyé à une communication de conférence (B25)",
+    "volume versé par boîte de Pétri, diamètre de la boîte, nature de l'alcool pour décoller le film, température du bain à ultrasons, amplitude de la sonde pour la solution de polymère",
+    "pour les témoins (PEDOT:PSS seul et GO brut) : « prepared in a similar way », sans dire quelles étapes de dispersion sont reprises"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs porte les interactions π-π, liaisons H, électrostatiques et hydrophobes, avec appui dans le texte ; les mecanisme_analyse sont étiquetés hypothèses ; sécurité cohérente (HDI sensibilisant, Mn2O7 avec KMnO4/H2SO4, DMSO).",
+  "notes": "Toutes les valeurs numériques du tableau S1 et S2 (12 rangées chacun) ont été comparées rangée par rangée : aucune erreur. Valeurs from_figure (Fig. 5b, 6, 7a-d, 5 teneurs par série et par figure) comparées aux images : écart maximal environ 4 % (Rs HDI-GO 1 à 1 wt % : 104 lu contre 100 extrait ; HDI-GO 6 à 1 wt % : 114 contre 110), donc aucun constat ; le module de HDI-GO 6 à 10 wt % lu 8,0 GPa alors que +330 % de 1,8 donne 7,7 GPa est un écart de l'article, pas de l'extraction. Non-constats écartés : rôle « oxidant » de P2O5 (déshydratant dans la pré-oxydation de Kovtyukhova, mais l'article ne donne pas de rôle) ; rôle « base » de TEA alors que l'article dit « catalyst » (la liste de rôles n'a pas catalyst) ; l'appariement des masses de HDI-GO avec les teneurs (listes parallèles) est cohérent avec 5,0 mg = 10 wt % et avec un polymère de 50 mg, et déjà signalé en doutes ; film_thickness 13 ± 2 μm est porté par la voie de base alors que la phrase vaut pour tous les films. method_sources complet (B25 et B11 ; les renvois de Bragg, Raman, TGA ne sont pas des méthodes de préparation). Aucune valeur numérique fausse, aucune branche manquante : l'extraction est fidèle, les constats portent sur des héritages et des résultats qualitatifs ou comparatifs oubliés."
+}

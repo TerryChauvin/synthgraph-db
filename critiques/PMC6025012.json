@@ -1,0 +1,89 @@
+{
+  "pmcid": "PMC6025012",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "ZeoX-opt outcomes (morphology, morphology_5h) et caractérisation XRD « single phase zeolite X at 110 °C » ; branche centrale de la série §3.2 absente",
+      "extracted": "ZeoX-opt (vieillissement 30 min, Na2O/SiO2 = 1.4) porte les résultats « octahedral crystals, uniform distribution » (110 °C), « regular crystals with smooth faces » (5 h) et « highly crystalline single phase zeolite X at 110 °C », tirés de la série en température et en durée de cristallisation",
+      "article_says": "Highly crystalline single phase zeolite X was formed as the crystallization temperature was raised to 110 °C.",
+      "fix": "Selon la lecture littérale retenue par l'extracteur lui-même (série §3.2 faite à 60 min de vieillissement et Na2O/SiO2 = 3.0), l'échantillon 110 °C / 5 h de cette série n'est pas ZeoX-opt (30 min, 1.4). Créer une branche centrale (par ex. ZeoX-T110, parent ZeoX-opt, variations vieillissement 60 min et Na2O/SiO2 = 3.0, citation « Namely: 30 °C of aging temperature, 60 min of aging time, 40 of H2O/Na2O ratio and 3.0 of Na2O/SiO2 ratio. ») et y ranger la phase X monophasée, la morphologie octaédrique (fig. 3e,f) et les cristaux réguliers à faces lisses à 5 h ; ou, à défaut, déplacer ces résultats hors de ZeoX-opt et consigner l'ambiguïté (la conclusion et la légende fig. 11 donnent 110 °C / 5 h comme échantillon optimal à 30 min / 1.4).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "ZeoX-T130 (branche entière, variation temperature = 130 °C)",
+      "extracted": "branche à 130 °C, avec pour seul résultat « CEC gradually decreased with temperature above 110 °C »",
+      "article_says": "Increasing temperature of crystallization up to 110 °C increased the CEC but by further increasing the temperature up to 130 °C, the CEC of prepared samples gradually decreased (Figure 5a).",
+      "fix": "130 °C n'apparaît que comme borne (« up to 130 °C ») dans la phrase sur la CEC ; la section 2.2 annonce « crystallized at 90–120 °C for 3–9 h » et XRD, SEM et §3.2 s'arrêtent à 120 °C. Règle RUNBOOK sur les plages : pas de branche pour une borne. Supprimer ZeoX-T130 (garder le point en annotation tendance_observee et dans les doutes), ou la conserver seulement si la figure 5a montre un échantillon à 130 °C.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "série en température de vieillissement (fig. 6a, 7a) : aucune branche",
+      "extracted": "aucune branche ; le doute dit « aucune branche créée, conformément à la règle des plages »",
+      "article_says": "The XRD peaks of the prepared products at different aging temperatures exhibited similar crystallinity of zeolite X (Figure 6a) indicating that aging temperature within this range played only a minor role, if any in the formation of zeolite X.",
+      "fix": "Les auteurs comparent bien des températures de vieillissement (30–60 °C, légende fig. 6 « aging temperature at aging time of 60 min »), sans en lister de valeur intermédiaire. Appliquer la règle du RUNBOOK pour les criblages décrits par des plages : une branche (par ex. ZeoX-agT) avec une variation duration de l'étape 4 = 60 min (légende fig. 6) et une variation temperature de l'étape 4 en value_text « 30–60 °C » (citation « Subsequently, the slurry was subjected to aging for 0–120 min at 30–60 °C. »), résultat : cristallinité de la zéolithe X similaire, CEC « fluctuated little » (« As shown in Figure 7a, the CEC values of samples at different aging temperatures fluctuated little. »). Sinon le résultat de cette série (effet mineur) n'existe nulle part dans la base hors annotation.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "ZeoX-age0, ZeoX-age60, ZeoX-age120 (alcalinité héritée), et séries ZeoX-H2O45/H2O50 et ZeoX-NS1.3/NS1.5 (rapport tenu constant hérité)",
+      "extracted": "les branches de vieillissement héritent de H2O/Na2O = 40 et Na2O/SiO2 = 1.4 de ZeoX-opt ; les branches H2O/Na2O héritent de Na2O/SiO2 = 1.4, et les branches Na2O/SiO2 de H2O/Na2O = 40",
+      "article_says": "by keeping the crystallization temperature and time constant at 110 °C and 5 h, respectively, and the alkalinity of the base solutions at the initial values.",
+      "fix": "L'article ne chiffre pas l'alcalinité de la série de vieillissement (« initial values ») : la lecture « 40 et 1.4 » est une déduction, d'autant que la série §3.2 donne comme valeurs de départ 40 et 3.0. Pour ZeoX-age0/age60/age120, ajouter des variations molar_ratio_h2o_na2o et molar_ratio_na2o_sio2 en value_text « initial values » (ou les déclarer non citées) plutôt qu'hériter de 40 et 1.4 sans le dire. Pour les séries H2O/Na2O et Na2O/SiO2 (§3.4 ne dit pas quel rapport est maintenu), le doute existant suffit mais l'héritage reste une supposition : à signaler dans limite_reproductibilite.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "entrées calcium_ion_exchange_capacity des 14 branches (T90, T100, T120, T130, t3h, t4h, t6h, age0, age60, age120, H2O45, H2O50, NS1.3, NS1.5)",
+      "extracted": "value_text recopiant le sens de variation de toute la série (« CEC increased with crystallization temperature up to 110 °C (sentence covering the series; no value in the text) », etc.), sans valeur propre à la branche, avec la même propriété que la valeur chiffrée de ZeoX-opt (248 mg/g)",
+      "article_says": "Furthermore, the CEC of samples firstly increased with the increase of crystallization time and then gradually decreased when the time was over 5 h (Figure 5b).",
+      "fix": "Ces entrées décrivent une tendance de série, pas la CEC mesurée de la branche, et elles se mêlent à la propriété numérique (compare.py ou fiche.py les afficheront comme des CEC). Soit renommer la propriété en CEC_tendance_serie, soit les retirer des branches et garder la tendance en annotation (déjà présente). Les valeurs de CEC par branche n'existent que sur les figures 5a,b, 7a,b et 10a,b : le dossier corpus/fig/PMC6025012/ n'existe pas (enrich.py figs PMC6025012), et le RUNBOOK autorise une lecture graphique marquée from_figure (2 chiffres significatifs) quand la valeur sert à comparer les branches. À faire, ou à laisser déclaré non lu dans limite_reproductibilite (déjà le cas).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "ZeoX-opt outcomes (phase « pure zeolite X »)",
+      "extracted": "phase « pure zeolite X » (conclusion), sans mention de zéolithe A ; seul un doute le signale",
+      "article_says": "When the H2O/Na2O ratios were 40 and 45, the crystallization degree reached the maximum and there were also some zeolite A impurities.",
+      "fix": "Le rapport 40 de la série §3.4 est celui de ZeoX-opt (même vieillissement 30 °C / 30 min et mêmes 110 °C / 5 h). Ajouter à ZeoX-opt un résultat impurity « some zeolite A impurities (ratios 40 and 45) » avec cette citation, et reporter la contradiction avec « pure zeolite X » dans limite_reproductibilite.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotations limite_reproductibilite et pourquoi_ces_donnees",
+      "extracted": "limite_reproductibilite ne mentionne que les quantités manquantes ; pourquoi_ces_donnees dit que six facteurs sont « balayés un par un autour des conditions optimales »",
+      "article_says": "Namely: 30 °C of aging temperature, 60 min of aging time, 40 of H2O/Na2O ratio and 3.0 of Na2O/SiO2 ratio.",
+      "fix": "Les séries en température et en durée de cristallisation ne sont pas faites autour des conditions optimales (60 min et Na2O/SiO2 = 3.0 contre 30 min et 1.4) : corriger pourquoi_ces_donnees. Ajouter à limite_reproductibilite l'incohérence interne de l'article : 3.0 est hors de la plage 1.3–1.5 de §3.4 et du Na2O/SiO2 = 1.4 optimal ; 60 min de vieillissement donne de la zéolithe A en §3.3 (« However, when the aging time was up to 60 and 120 min, some obvious diffraction peaks of zeolite A appeared ») alors que §3.2 obtient de la zéolithe X monophasée à 110 °C ; 130 °C hors de la plage 90–120 °C de §2.2. Valeurs gardées littérales dans les branches (conforme au RUNBOOK).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "ZeoX-opt reagent diatomite, supplier",
+      "extracted": "supplier = « Linjiang City, Jilin Province, China »",
+      "article_says": "Diatomite (Dt) is obtained from Linjiang City, Jilin Province, China.",
+      "fix": "C'est une provenance (gisement), pas un fournisseur : déclarer supplier dans not_stated et laisser la provenance dans le nom du réactif (déjà le cas). Pour purity, la composition chimique de la diatomite (SiO2 63.77 %, Al2O3 18.97 %…) est la seule indication de pureté de l'article ; elle est déjà en caractérisation.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 15,
+    "branches_extracted": 14,
+    "not_stated_checked": 31,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "masses de diatomite, d'hydroxyde d'aluminium et de soude, volume d'eau et concentration de la solution de NaOH absents : seuls Si/Al = 1.13, Na2O/SiO2 et H2O/Na2O sont donnés (on ne sait pas si l'aluminium de la diatomite compte dans Si/Al, ni si la silice comptée est la silice totale ou seulement la silice amorphe)",
+    "taille de lot non reliée à une masse : « the contents of Si in the raw material and the synthesized X zeolite is 3.22 and 2.88 g » ne dit pas à quelle quantité de diatomite cela correspond",
+    "vitesse et durée d'agitation, température et durée de formation du gel, ordre d'addition ; agitation éventuelle pendant le vieillissement et la cristallisation",
+    "volume de l'autoclave et taux de remplissage, vitesse de chauffe, mode de chauffage (statique ou rotatif)",
+    "durée de séchage de la diatomite broyée, mode de broyage, mode de filtration, volumes et nombre de lavages",
+    "rendement massique absent",
+    "alcalinité de la série de vieillissement (« initial values ») non chiffrée, rapport tenu constant dans les séries H2O/Na2O et Na2O/SiO2 non précisé, Na2O/SiO2 = 3.0 et vieillissement de 60 min de la série §3.2 contradictoires avec le reste",
+    "valeurs de CEC par échantillon seulement sur les figures 5, 7 et 10 ; températures de vieillissement comparées non listées",
+    "pureté des réactifs réduite à « analytical reagent grade »"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs de ZeoX-T90 et ZeoX-T120 ont une vraie citation ; celui de ZeoX-opt repose sur une généralité de §3.4 (« Generally high alkaline concentration of the system could accelerate the dissolution… ») plutôt que sur un mécanisme propre à l'échantillon, acceptable car présenté comme tel par les auteurs. mecanisme_analyse rédigé en hypothèse ; securite_analyse pertinente (soude, autoclave, poussière de silice).",
+  "notes": "Vérifié sans erreur : prétraitement de la diatomite (« It was grounded to a size smaller than 30 mesh and dried at 105 °C. ») en étapes 1 (grind) puis 2 (dry) avant la dispersion, dans l'ordre de la phrase, durée de séchage déclarée non citée ; valeurs 90/100/120 °C, 3/4/6 h, 0/60/120 min, H2O/Na2O 45/50, Na2O/SiO2 1.3/1.5 bien attribuées ; XRD à 100 °C (liste de pics) bien rattaché à ZeoX-T100 ; tableaux 1 et 2 corrects (Si/Al = 1.21 recalculé à 1.205 depuis le tableau 1). method_sources complet : le seul renvoi de méthode est B22 (CEC), les autres renvois (B1–B21, B31–B35) sont du contexte ou de l'interprétation. Fragile dans ma propre lecture : la durée de cristallisation de 5 h des branches de la série en température n'est donnée que par la légende de la figure 2 (le texte §3.2 ne la dit pas), héritée du parent sans citation propre ; les marquages succeeded:false de T100, T120, age60, age120 et H2O45 sont des jugements de l'extracteur (les auteurs ne parlent pas d'échec), laissés au choix de l'orchestrateur ; le chauffage à 820 °C de l'échantillon (fig. 11b, nepheline) n'est pas un traitement de synthèse mais une mesure TG-DTA, non extrait en post_treatment, ce qui me paraît correct ; la zéolithe X commerciale (232 mg/g) est un témoin acheté, sans voie."
+}

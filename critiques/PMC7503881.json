@@ -1,0 +1,72 @@
+{
+ "pmcid": "PMC7503881",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "CS-10HA step 6 (add phosphate) parameter molar_ratio = Ca/P 1.67 (from_figure Scheme 1)",
+   "extracted": "value_text « Ca/P = 1.67 », quote « Scheme 1 Flowchart of CS/HA coating by sol-gel process. », from_figure Scheme 1",
+   "article_says": "Scheme 1 Flowchart of CS/HA coating by sol-gel process.",
+   "fix": "Valeur exacte et bien placée (image du schéma 1, case « Adding Phosphate solution to Ca/Cs solution (dropwise) (Ca/P)=1.67 », lue et vérifiée) mais la citation est la légende, qui ne contient pas 1.67 : le texte de l'article n'écrit nulle part cette valeur. Garder from_figure et préciser dans la description qu'il s'agit du rapport molaire nominal des précurseurs (stœchiométrie de l'HA) lu sur le schéma, distinct du Ca/P mesuré par EDS (1,74 / 1,63 / 1,68).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "CS-50HA et CS-60HA, rapport Ca/P de l'étape 6 (hérité du parent CS-10HA)",
+   "extracted": "aucune variation sur molar_ratio : les branches héritent de Ca/P = 1.67",
+   "article_says": "The amount of Ca, P and CS solutions were modified to have the composite with the composition of 10, 50, and 60 wt.% HA in CS matrix.",
+   "fix": "Le schéma 1 est générique (une seule procédure, pas de valeurs par composition) ; l'article ne dit pas que Ca/P reste à 1,67 quand les quantités de Ca, P et chitosane changent. Ajouter à limite_reproductibilité (ou en not_stated sur les branches) que le Ca/P nominal des compositions à 50 et 60 % n'est pas écrit et n'est que supposé identique.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CS-10HA/50HA/60HA, lavage des composites à l'eau (poudres XRD)",
+   "extracted": "aucune étape de lavage ; doute « lavage » conservé sans étape ni annotation",
+   "article_says": "consequently composites washed several times in dH2O to remove sodium nitrate residues",
+   "fix": "L'article décrit une opération réelle (lavages répétés à dH2O contre NaNO3, sous-produit de Ca(NO3)2 + NaOH) appliquée aux composites analysés. Soit une étape wash optionnelle « poudres pour XRD/FTIR » (nombre de lavages non cité), soit une annotation limite_reproductibilité : on ne sait pas si le sol de revêtement est lavé (il ne l'est pas d'après les étapes du texte).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "CS-10HA/50HA/60HA, CARAC XRD et RESULTAT HA_crystallinity / HA_crystallite_size",
+   "extracted": "XRD, cristallinité (23/28/33 %) et taille de cristallites (33/50/53 nm) rangés comme caractérisation et résultats du revêtement déposé",
+   "article_says": "XRD patterns of CS/HA composite powders (Figure 3a) confirmed the presence of HA characteristic peaks, matched with a JSPDS card number of 09-432",
+   "fix": "Valeurs justes par composition (vérifiées) mais mesurées sur des poudres composites lavées, non sur le revêtement sur Ti6Al4V ; l'inventaire le note, la fiche des résultats non. Ajouter « sur poudre composite lavée » dans la condition de la caractérisation et dans la description des deux résultats.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "CS-10HA/50HA/60HA, CARAC FTIR (identique pour les trois)",
+   "extracted": "« amide II band shifted (1565 to 1571 and 1581 cm−1) with increasing chitosan » copié à l'identique dans les trois voies",
+   "article_says": "The band at 1565 cm−1 was related to NH bending (amide II), which shifted to a higher wavenumber at 1571 cm−1 and 1581 cm−1 corresponding to the increasing of CS in composites",
+   "fix": "L'article ne dit pas quelle bande (1565, 1571 ou 1581) correspond à quelle composition (10, 50 ou 60 % HA). La ligne identique sur les trois voies suggère une attribution par échantillon qui n'existe pas : la garder sur une seule entrée (ou sur la route de base) en précisant « série de trois compositions, correspondance non donnée ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CS-10HA/50HA/60HA, résultat morphologie des cellules hMSC (SEM, jour 3, Fig. 7)",
+   "extracted": "seul RESULTAT hMSC_proliferation (Alamar blue) ; rien sur les micrographies de la Fig. 7",
+   "article_says": "In the presence of 10 wt.% HA, the cells showed a spread appearance on the coating surface. By increasing the amount of HA content, only fewer cells stretch and proliferate on the coating surface due to HA nanoparticles agglomeration.",
+   "fix": "Ajouter un résultat qualitatif « hMSC_morphologie_SEM_jour3 » : cellules étalées sur CS/10 wt.% HA ; moins de cellules étalées sur CS/50 et CS/60 wt.% HA. Ce résultat est comparatif, par branche, donc de même nature que apatite_morphology_after_SBF_21d déjà extrait.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 52,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantités de chitosane, de nitrate de calcium et de phosphate de diammonium, et volumes d'eau, absentes pour les trois compositions : le « 10 wt.% chitosan solution » est la seule donnée, et la définition de la teneur en HA (rapport massique HA/chitosane sec ?) n'est pas écrite",
+  "les teneurs de 50 et 60 % ne sont décrites que par « The amount of Ca, P and CS solutions were modified » ; Ca/P nominal de ces compositions non écrit (1,67 n'apparaît que sur le schéma 1, pour une procédure générique)",
+  "temps d'immersion du trempage, nombre exact de couches (« repeated two times »), volume de sol, appareil de trempage-retrait absents",
+  "ordre vieillissement/trempage contradictoire : schéma 1 « Aging at 37°C » avant « Dip coating », texte « Finally, the coated substrates were treated at 37 °C for 48 h » ; pH « about 10 » (texte) contre « pH>10 » (schéma)",
+  "origine, séchage et mode de lavage des poudres analysées en XRD/FTIR non décrits ; nombre de lavages non cité",
+  "SBF : composition 1X renvoyée au protocole de Kokubo, volume de SBF par échantillon, renouvellement, température d'incubation et surface/échantillon non cités ; définition du témoin CTR absente (Fig. 5c et 6)",
+  "substrats d'adhérence (disques de 25 mm × 1 mm) différents des plaquettes de 20 × 10 × 2 mm sans que l'article dise qu'ils sont traités de la même façon ; Ra du substrat alcalin (8 µm) supérieur à celui du revêtement à 10 % (2,88 µm), pour des revêtements de 15 à 50 µm : épaisseur par échantillon non donnée",
+  "degré de désacétylation et pureté du chitosane, pureté des réactifs, vitesse d'agitation, atmosphère et humidité du traitement final de 48 h non cités"
+ ],
+ "mechanism_check": "ok : la séquence proposée (dissolution acide du chitosane, complexation de Ca2+, précipitation de l'HA à pH 10, NaNO3 observé en XRD avant lavage) est cohérente avec le texte ; l'équation 10 Ca2+ + 6 HPO4 2− + 8 OH− → Ca10(PO4)6(OH)2 + 6 H2O est équilibrée (atomes et charges) ; les annotations « auteurs » (coordination –NH2/Ca2+, taille des cristaux et concentrations ioniques) sont appuyées par les citations.",
+ "notes": "Valeurs numériques du texte (contact angle, adhésion, Ra, cristallinité, taille de cristallites, Ca/P EDS avant et après SBF) vérifiées une à une, toutes justes et bien rangées par composition. Figures ouvertes : Scheme 1 (Ca/P 1,67 confirmé), Fig. 5b (7,58 / 7,73 / 7,85 lus, extrait 7,6 / 7,7 / 7,8 : écart < 1 %), Fig. 5c (Ca 110 / 145 / 151, P 37 / 41 / 43 ; extrait Ca 110 / 140 / 150 : écart max 3,4 %), Fig. 6 (35/51/41, 22/35/29, 20/31/28 : exact). Écarts sous le seuil de 10 %. Fragile dans ma lecture : (1) les exposants sont aplatis dans le texte (« 1 × 104 cells/mL » lu 1 × 10^4 par l'extracteur, interprétation raisonnable, non un constat) ; (2) le 10 wt.% de chitosane et le 10 wt.% d'HA se confondent, doute déjà consigné ; (3) étape de séchage de l'alcali sans humidité relative : non cité, non signalé comme not_stated sur l'étape 5 (mineur, non retenu). Aucun renvoi de méthode manquant : B40 (ISO 13779-4) et B41 (Kokubo et Takadama) présents ; B38/B39 (Scherrer, cristallinité), B42 (Alamar blue, contexte) et B4 (mécanisme du traitement alcalin) exclus conformément à la règle du 2026-10-13."
+}

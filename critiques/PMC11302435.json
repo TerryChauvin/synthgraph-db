@@ -1,0 +1,95 @@
+{
+ "pmcid": "PMC11302435",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "annotation limite_reproductibilite (globale) : « l'équation 1 de la pureté radiochimique ne sont pas donnés » ; characterization ITLC de Tc_Kit1 sans formule de RCP ni de RE",
+   "extracted": "l'équation 1 de la pureté radiochimique [...] n'est pas donnée ; CHAR ITLC : « %RCP from the activity of the upper and lower parts of the TLC strip »",
+   "article_says": "To calculate the %RCP by TLC, Equation 1 can be used, where A0 represents the activity of the lower part of the TLC paper, and A1 represents the activity of the upper part of the TLC paper.",
+   "fix": "L'équation 1 figure dans l'image de la Figure 2 (corpus/fig/PMC11302435/ijpr-23-1-144928-i001.jpg) : %RCP = A0/(A0+A1) x 100, A0 = ZIF-8-Tc (ligne de dépôt), A1 = TcO4- (front). Corriger l'annotation (retirer l'équation des manques) et ajouter la formule de RCP et celle de RE (« dividing \"a\" by \"b\" multiplied by 100 », a = activité du sédiment, b = activité ajoutée) aux conditions de la caractérisation ITLC / aux résultats des kits.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "ZIF8_MeOH_30C / 50C / 80C (et par héritage 1to2, 1to1, 2to1, 1to2_stirred) : étapes de centrifugation 10 min, 3 lavages au méthanol, séchage 70 °C 12 h héritées de ZIF8_MeOH_RT",
+   "extracted": "branches sans étapes propres : héritent des étapes 4 à 6 de ZIF8_MeOH_RT (centrifugation 10 min, lavage x3 méthanol, séchage 70 °C / 12 h)",
+   "article_says": "The reactant mixture was exposed to temperatures of 30, 50, and 80°C for one hour, and the resulting alterations in particle size and PDI were assessed and compared.",
+   "fix": "L'article ne décrit pas le traitement après réaction des échantillons 4 à 10 ; garder l'héritage structurel si la convention du dépôt l'impose, mais l'annoter (limite_reproductibilite par branche) comme hypothèse non écrite et signaler la durée/le mode de chauffage (bain, plaque) comme non cités pour ces branches.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "ZIF8_MeOH_RT : réactifs (Méthodes 3.4) vs résultats (rangée 3 du tableau 2)",
+   "extracted": "voie de base avec 1,620 g de 2-méthylimidazole, 1,468 g de nitrate de zinc, 100 mL de méthanol ; résultats 185,14 nm / PDI 0,299 cités depuis la rangée 3 du tableau 2",
+   "article_says": "3 | RT | 1 | Methanol | 1.125 g 2-methyl imidazole; 1.101 g zinc nitrate; 150 mL methanol | 185.14 ± 3.045 | 0.299 ± 0.049",
+   "fix": "La rangée qui porte le résultat décrit d'autres quantités (1,125 g / 1,101 g / 150 mL) que les réactifs de la voie. Ajouter une annotation limite_reproductibilite rattachée à la voie ZIF8_MeOH_RT (pas seulement globale) disant que le résultat mesuré correspond aux quantités du tableau, et que les quantités des Méthodes (1,620 g / 1,468 g / 100 mL) sont celles du texte seul ; les branches 4 à 6 ont ainsi pour parent une voie dont les quantités diffèrent de celles du résultat comparé.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZIF8_MeOH_RT reactif « methanol » : 100 mL en une seule ligne",
+   "extracted": "methanol, solvent, 100 mL (une seule entrée)",
+   "article_says": "1.620 g of 2 -methylimidazole and 1.468 g of Zn (NO3)2.6H2O were separately dissolved in 100 mL of methanol.",
+   "fix": "Les voies solvothermale et aqueuse séparent le solvant par solution (25 + 25 mL ; 8 + 80 mL) ; ici « separately dissolved in 100 mL » peut vouloir dire 100 mL par solution (200 mL, contre 150 mL au tableau 2). Rendre la lecture explicite (annotation ou note sur le réactif) sans trancher ; le doute existe mais le réactif est présenté comme une valeur unique.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "ZIF8_MeOH_50C_1to2_stirred variation stirring : parent_value « remained unchanged (no stirring) » ; ZIF8_MeOH_RT étape 3, paramètre stirring",
+   "extracted": "parent_value = « remained unchanged (no stirring) » ; stirring (étape 3) = « remained unchanged »",
+   "article_says": "Then, the solution of 2-methylimidazole was added to the Zn(NO3)2.6H2O solution while stirring, and it remained unchanged for one hour at room temperature.",
+   "fix": "« (no stirring) » est une inférence de l'extracteur (étayée seulement indirectement par « allowing the mixture to stand without stirring resulted in smaller particles ») ; l'étape 2 dit que l'ajout se fait sous agitation. Écrire la valeur parent comme « remained unchanged (au repos après l'ajout sous agitation) » ou noter l'inférence en annotation.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZIF8_solvo_100C succeeded=false",
+   "extracted": "succeeded: false (voie solvothermale) ; ZIF8_H2O_RT : succeeded non renseigné",
+   "article_says": "The solvothermal approach, conducted at high temperature and pressure, failed to yield particles with a suitable size and PDI.",
+   "fix": "Des particules ont bien été obtenues (1050 nm, PDI 0,725), jugées de taille inadaptée ; le RUNBOOK réserve succeeded:false aux échecs (phase impure, pas de produit). Traitement incohérent avec la voie aqueuse (1983 nm, « Deionized water resulted in larger particles »), laissée à None. Harmoniser : mettre None aux deux et garder le résultat suitability_for_size_and_PDI.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "annotation resume : « Ces particules sont ensuite marquées »",
+   "extracted": "« Les meilleures nanoparticules (≈ 96 nm, PDI 0,16) [...] Ces particules sont ensuite marquées au technétium-99m par quatre protocoles »",
+   "article_says": "Different methods were examined to radiolabel ZIF-8 nanoparticles with 99mTc since it has not been conducted before.",
+   "fix": "L'article ne dit pas quel lot de ZIF-8 est marqué (l'extraction elle-même le note dans limite_reproductibilite de Tc_Kit1 et dans un doute). Reformuler le résumé : « Des nanoparticules de ZIF-8 (lot non précisé) sont ensuite marquées... ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Tc_Kit1 réactif tin(II) chloride dihydrate : 10 mg ; HCl : 1 mL",
+   "extracted": "SnCl2 : 10 mg ; HCl 0,01 M : 1 mL (quantités de la solution mère)",
+   "article_says": "To prepare this solution, 10 mg of divalent SnCl2 was dissolved in 1 mL of 0.01 M hydrochloric acid (HCl).",
+   "fix": "Chaque kit n'utilise que 100 µL de cette solution (≈ 1 mg de SnCl2) pour 500 µL de dispersion (tableau 1 : « 1 | RT | 30 | 1 | 10 | 500 | 100 | 6 »). Les quantités de réactif sont celles de la solution mère : ajouter à l'amount ou en note la quantité effectivement engagée (100 µL de 10 mg/mL) pour éviter une lecture de 10 mg par kit (la valeur existe au paramètre volume_sncl2 de l'étape 3, mais pas au réactif). Le fait que la solution est préparée en 1 mL pour plusieurs kits n'est pas écrit.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZIF8_H2O_RT étape 4, duration",
+   "extracted": "duration = « a few minutes » (value_text)",
+   "article_says": "2 | RT | 0.25 | Deionized water | 22.7 g 2-methyl imidazole; 1.17 g zinc nitrate; 88 mL DI water with stirring | 1983 ± 27.73 | 0.362 ± 0.23",
+   "fix": "Le tableau 2 donne 0,25 h de temps de réaction pour cette voie ; l'extraction garde « a few minutes » (choix noté en doute). Ajouter la valeur du tableau comme second paramètre ou en annotation (0,25 h = 15 min) sans remplacer la valeur du texte. Le tableau précise aussi « with stirring » pour cette voie.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 14,
+  "branches_extracted": 14,
+  "not_stated_checked": 30,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "vitesse et durée de centrifugation, solvant et volume des lavages, rendement : absents pour toutes les synthèses (seule la voie méthanol TA donne 10 min de centrifugation)",
+  "mode de chauffage et de régulation (bain, plaque), vitesse d'agitation, vitesse d'ajout pour la série 30/50/80 °C et les rapports ; traitement après réaction des échantillons 4 à 10 non décrit",
+  "quantités de la section Méthodes (1,620 g / 1,468 g / 100 mL) en désaccord avec la rangée 3 du tableau 2 (1,125 g / 1,101 g / 150 mL), et ambiguïté « separately dissolved in 100 mL »",
+  "voie solvothermale : volume et type d'autoclave, taux de remplissage, refroidissement, lavage et séchage non donnés",
+  "DLS : appareil, milieu de dispersion, concentration, température de mesure non donnés ; aucune caractérisation (DRX, MEB, BET) du produit dans cet article, renvoyée à une autre publication",
+  "marquage : lot de ZIF-8 utilisé non précisé, ordre d'ajout et agitation non donnés, solvant de lavage du sédiment non donné, identité du kit utilisé pour les tests de stabilité (PBS, plasma) déduite de « an effective method », pas écrite",
+  "pureté des réactifs non donnée (seul le fournisseur Sigma-Aldrich)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (liaison dative Tc-N de l'imidazole) est bien dans la Discussion (« likely occurs through the formation of a dative bond... ») ; mecanisme_analyse est déclaré hypothèse. Sécurité : radioprotection, méthanol, autoclave signalés ; rien d'évident d'omis.",
+ "notes": "Valeurs de Table 2 (10 rangées x taille, PDI) et de Table 3 (4 rangées x RE, RCP) relues une à une : toutes correctes, bien rattachées à leur branche. Aucune valeur from_figure : la Figure 3 (lue) donne des pics en intensité (≈ 550 nm échantillon 1, ≈ 1600 nm échantillon 2) différents des moyennes du tableau, ce que l'extraction a vu ; pas de constat. method_sources : les trois renvois de méthode (REF21, REF22, REF23) sont présents et rattachés aux bonnes voies ; REF31 (Alberto) et REF8 en role « autre » me paraissent défendables. Les écarts-types (n = 3) ne sont pas dans les champs structurés (value_num seul), seulement dans les citations : choix de format, pas un constat. Inventaire des échantillons : mes 14 échantillons (10 rangées du tableau 2 + 4 kits) coïncident avec sample_inventory."
+}

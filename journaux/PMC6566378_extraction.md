@@ -1,0 +1,17 @@
+# Journal d'extraction PMC6566378
+
+- Voie de base = L = 4.3 nm (120 °C) : échantillon central de l'article (TA détaillée Fig. 1b-c, 3a-b) et premier cité dans la liste des températures « 120 °C for 4.3 nm and 4.5 nm ». Les sept autres tailles sont des branches avec une seule variation de fond : la température de réaction (étape 7), citée par fragment « 88 °C for 2.6 nm », etc.
+- 4.5 nm : même température que 4.3 nm (120 °C). L'article n'écrit pas ce qui les distingue ; seule autre variable citée, ZnBr2 « varying amounts (0–600 mg) ». La branche porte donc la plage de ZnBr2 comme variation, avec un doute (pas de valeur propre).
+- ZnBr2 : quantité exacte jamais donnée par taille ; `amount_text` avec la plage (0–600 mg), plutôt qu'un nombre, pour ne pas inventer.
+- Durée de réaction : « 10–180 s, depending on the temperature » en `value_text` dans la voie de base ; durées explicites (180, 120, 100 s) seulement pour 2.6, 3.0, 3.5 nm, en variation de l'étape 9. Les autres tailles restent sans durée propre.
+- Synthèse « scaled up by 3 times » pour 2.6–3.5 nm : variation `scale` en `value_text`. Le nom ne correspond à aucun paramètre hérité, d'où 3 avertissements du contrôle, expliqués dans un doute ; les quantités ×3 ne sont pas recalculées.
+- Purification : deux protocoles (« higher temperatures 140–190 °C » : acétone 8 mL puis 3 min de centrifugation ; « lower temperatures 80–120 °C » : repos 0,5 h, 2e centrifugation 15 min, acétone goutte à goutte). Base 120 °C = protocole « bas » (120 est dans 80–120) ; 6.2 nm (140 °C) = protocole « haut » avec ses propres étapes complètes (copie des étapes 1–12, T = 140 °C). Les plages du texte (190–80 °C) sont incohérentes avec 88–140 °C : doute.
+- 5.0 nm (130 °C) : n'appartient à aucune plage. Étapes propres jusqu'à la première centrifugation, puis récupération dans l'hexane ; précipitation déclarée non citée plutôt qu'héritée à tort.
+- Cs-oleate : préparé dans la même voie (étapes 1-4), pas de voie `intermediate` séparée puisqu'il n'est pas isolé ni réutilisé ailleurs que dans l'injection de l'étape 8.
+- Étape 9 (réaction) : température déclarée non citée, la température de réaction n'étant écrite que dans la liste de l'étape 7 ; la durée est la plage.
+- Table 1 : une rangée = une taille, attribuée par la valeur L de la première colonne ; chaque rangée citée en entier. Contrôle de ΔE = X2 − X1 et dE/dt = ΔE/2τr : tout est cohérent sauf 5.0 nm (0,24 au lieu de ≈ 0,275) ; valeur du tableau conservée (le point de la Fig. 4 va dans le même sens), doute posé.
+- Incohérence texte/tableau : ΔE « 0.18 eV to 0.32 eV » contre 0.37 dans le tableau pour 2.6 nm ; tableau retenu.
+- Échange de ligands DDT : une seule voie `post_treatment` pour 4.3, 4.0 et 5.0 nm (texte) ; la légende de Fig. S11 dit 3.9, 4.3 et 5.0 nm : doute, texte retenu. Réactif « NCs OA » en rôle `intermediate`. Pas de purification décrite.
+- Figures : Fig. 1, 3, 4 ouvertes ; aucune ne porte de valeur absente du Tableau 1 (Fig. 4 reprend le tableau). Aucune valeur `from_figure` ; seules les températures de la légende de Fig. 3a sont notées dans les conditions de caractérisation. Fig. 2 non ouverte (graphique du Tableau 1). Images S1–S13 absentes du dépôt, signalé en `limite_reproductibilite`.
+- `method_sources` : cit29 et cit33 (synthèse), cit45 (échange DDT), cit36 (condition de mesure à faible densité d'excitation). cit31 (calcul EMA) et cit28 (diamètre de Bohr) exclus : calcul d'analyse et contexte.
+- CdSe et PbSe QDs de la Fig. 2b : sans voie, données de littérature.

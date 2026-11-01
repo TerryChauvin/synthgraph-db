@@ -1,0 +1,467 @@
+{
+ "pmcid": "PMC5028751",
+ "routes": [
+  {
+   "label": "TGMs",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "concentration de la suspension d'enrobage",
+     "inputs": "40 mL d'eau ; masses de TiO2 et de GO « appropriate amount »",
+     "formula": "C = m/V",
+     "result": "non calculable : aucune masse donnée",
+     "compared_to": "le rapport GO/TiO2 fixe l'épaisseur de coque et la teneur finale de 17 % (voir calcul « nombre de couches de graphène équivalentes à 17 % en masse »)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "nombre de couches de graphène équivalentes à 17 % en masse",
+     "inputs": "sphère r = 337,5 nm ; coque = 83 % du volume ; TiO2 anatase 3,89 g/cm³, porosité 0 à 50 % ; graphène 0,77 mg/m² par couche",
+     "formula": "m(G) = m(TiO2) × 0,17/0,83 ; couches = m(G)/(4πr² × 0,77 mg/m²)",
+     "result": "≈ 50 à 100 couches équivalentes autour de chaque sphère",
+     "compared_to": "« enrobage par des feuillets » : 17 % en masse représente bien plus que quelques feuillets, donc soit un rGO libre en excès, soit une perte de masse ATG qui n'est pas seulement du carbone (déshydroxylation du TiO2 hydraté)",
+     "source": "calcul ; densité de l'anatase et masse surfacique du graphène, valeurs de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ni la masse de TiO2 amorphe ni celle de GO ne sont données, et les microsphères amorphes de départ sont renvoyées à des travaux antérieurs. Les 17 % en masse de graphène mesurés par ATG sur TGHMs correspondent à ≈ 50–100 couches équivalentes par sphère (calcul « nombre de couches de graphène équivalentes à 17 % en masse »), ce qui suggère du rGO libre en excès : le rapport GO/TiO2 est le paramètre manquant décisif.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs parlent d'un « chemical bonding reaction » par condensation déshydratante entre TiO2 et GO sous simple agitation dans l'eau à température ambiante. Une condensation Ti–O–C à 20 °C dans l'eau n'est pas démontrée ici (pas de pH, pas de spectre de TGMs) ; une adsorption électrostatique et par liaisons hydrogène du GO (chargé négativement) sur l'oxyde hydraté est l'explication la plus simple.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Adsorption du GO (carboxylates et hydroxyles, chargé négativement au-dessus de pH ≈ 4) sur la surface hydroxylée du TiO2 amorphe par interactions électrostatiques et liaisons hydrogène ; une condensation partielle Ti–O–C n'est vraisemblable qu'au chauffage ultérieur.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "protocole et taille des microsphères de TiO2 amorphe (référence antérieure des auteurs)",
+    "rapport massique GO/TiO2 et pH de la suspension",
+    "vitesse de centrifugation et élimination du GO non fixé"
+   ]
+  },
+  {
+   "label": "TGHMs",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "pression de vapeur à 180 °C dans l'autoclave",
+     "inputs": "T = 453,15 K ; éthanol : log10 P(bar) = 4,92531 − 1432,526/(T − 61,819) ; eau : tables de vapeur",
+     "formula": "Antoine ; mélange idéal borné par les corps purs",
+     "result": "éthanol ≈ 18 bar ; eau ≈ 10 bar ; mélange éthanol/HCl aqueux : 10–18 bar, plus HCl et chloroéthane éventuel",
+     "compared_to": "autoclave PTFE/acier usuel (tenue ≈ 30 bar, ≈ 200–220 °C) : acceptable si remplissage ≤ 70–80 %, non donné",
+     "source": "NIST Chemistry WebBook"
+    },
+    {
+     "what": "fraction de volume occupée par la coque",
+     "inputs": "diamètre 650–700 nm (r ≈ 337,5 nm) ; coque ≈ 150 nm",
+     "formula": "1 − ((r − e)/r)³",
+     "result": "≈ 0,83 du volume de la sphère est dans la coque ; le vide central n'est que ≈ 17 %",
+     "compared_to": "bilan de matière d'un creusement par migration interne → externe : compatible sans perte de Ti, si la coque est poreuse (« loose »)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Bragg des raies (101) et (004)",
+     "inputs": "λ = 0,15418 nm (Cu Kα déclaré) ; 2θ = 25,2° et 37,9° (article)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d(101) = 0,353 nm ; d(004) = 0,237 nm",
+     "compared_to": "franges HRTEM annoncées : 0,35 nm « {101} » et 0,24 nm « {001} »",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "distances réticulaires de l'anatase proches de 0,24 nm",
+     "inputs": "maille quadratique I41/amd, a = 3,785 Å, c = 9,514 Å (fiche JCPDS 21-1272, valeurs de manuel à confirmer sur COD)",
+     "formula": "1/d² = (h²+k²)/a² + l²/c²",
+     "result": "d(004) = 0,238 nm ; d(103) = 0,243 nm ; d(112) = 0,233 nm ; d(200) = 0,189 nm ; (001) éteinte (00l seulement pour l = 4n)",
+     "compared_to": "frange de 0,24 nm attribuée à « {001} » : plus proche de (103) que de (004) ; vue selon [001], seules des franges (200)/(020) de 0,189 nm sont visibles",
+     "source": "calcul cristallographique ; paramètres de maille JCPDS 21-1272"
+    },
+    {
+     "what": "rapport I004/I101 relatif à la fiche",
+     "inputs": "TGHMs 0,41 ; PT 0,28 ; JCPDS 21-1272 0,20 (article)",
+     "formula": "rapport / 0,20",
+     "result": "TGHMs ×2,05 ; PT ×1,4",
+     "compared_to": "une raie (004) renforcée signifie des cristallites plus longs selon l'axe c (croissance selon [001]) ou une orientation préférentielle de la poudre, pas une plus grande part de facettes {001}",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "écart des doublets Ti 2p",
+     "inputs": "TiO2 : 458,9 et 464,9 eV ; doublet « Ti–C » : 455,3 et 459,5 eV (article)",
+     "formula": "E(2p1/2) − E(2p3/2)",
+     "result": "TiO2 : 6,0 eV ; doublet « Ti–C » : 4,2 eV",
+     "compared_to": "écart spin-orbite Ti 2p : 5,72 eV (anatase), 6,05 eV (Ti métal) ; un écart de 4,2 eV n'est pas un doublet 2p3/2/2p1/2 d'une même espèce",
+     "source": "Biesinger et al. 2010"
+    },
+    {
+     "what": "concentrations molaires des tests photocatalytiques",
+     "inputs": "RhB M = 479,02 g/mol ; Cr M = 51,996 g/mol ; 0,02 g de catalyseur dans 20 mL",
+     "formula": "C = (mg/L)/M",
+     "result": "RhB 10 mg/L = 20,9 µmol/L, 6 mg/L = 12,5 µmol/L ; Cr(VI) 50 mg/L = 0,96 mmol/L, 20 mg/L = 0,38 mmol/L ; catalyseur 1 g/L",
+     "compared_to": "système simple (10 et 50 mg/L) et mélange optimal (6 et 20 mg/L) ne sont pas à la même concentration : 1,7 fois moins de RhB et 2,5 fois moins de Cr(VI) dans le mélange",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "conversion à 30 min prédite par les Kapp",
+     "inputs": "Kapp(RhB) = 4,47 × 10−2 min−1 ; Kapp(Cr) = 2,35 × 10−2 min−1 ; t = 30 min (mélange 6 mg/L RhB + 20 mg/L Cr(VI))",
+     "formula": "X = 1 − exp(−Kapp t)",
+     "result": "RhB 74 % ; Cr(VI) 51 %",
+     "compared_to": "élimination annoncée à 30 min dans le même mélange : ≈ 85 % et ≈ 70 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "bilan d'électrons pour la réduction de Cr(VI) dans le mélange",
+     "inputs": "70 % de 0,38 mmol/L Cr(VI) réduit en Cr(III) (3 e−) ; RhB 12,5 µmol/L, minéralisation complète ≈ 130 e− par molécule (C28H31N2O3+ → CO2, NH4+)",
+     "formula": "n(e−) = 3 × 0,7 × C(Cr) ; n(h+) max = 130 × C(RhB)",
+     "result": "0,81 mmol/L d'électrons nécessaires ; minéralisation complète de RhB ≈ 1,6 mmol/L de trous ; une simple décoloration en consomme beaucoup moins",
+     "compared_to": "la RhB ne peut fournir l'équivalent des électrons que si elle est largement minéralisée ; l'eau ou l'éthanol résiduel doit servir de donneur, ce qui affaiblit l'argument de couplage stœchiométrique",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "180 °C pendant 24 h en autoclave à chemise PTFE : la pression de vapeur (éthanol ≈ 18 bar, eau ≈ 10 bar ; calcul « pression de vapeur à 180 °C dans l'autoclave ») reste dans la tenue d'un autoclave usuel, mais ni le volume du liquide, ni la capacité du récipient, ni le rapport éthanol/HCl ne sont donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "NIST Chemistry WebBook, SRD 69 (ethanol : constantes d'Antoine d'Ambrose et Sprake ; eau : tables de vapeur)",
+      "authors_or_publisher": "NIST",
+      "year": "2023",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Éthanol et HCl chauffés 24 h à 180 °C en vase clos : la substitution EtOH + HCl → C2H5Cl + H2O (voie historique du chloroéthane, gaz qui bout vers 12 °C) peut consommer une partie de l'acide et ajouter un gaz inflammable à la pression ; la vapeur de HCl traverse aussi les chemises PTFE et corrode l'enveloppe en acier inoxydable (Fe, Cr, Ni). Ouverture après refroidissement complet, sous hotte.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chloroethane",
+      "authors_or_publisher": "Wikipedia (source secondaire)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Chloroethane"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La concentration de HCl n'est pas donnée alors qu'elle décide de la phase : dans la base, le traitement hydrothermal de TiO2 dans HCl à 150 °C donne de l'anatase pure jusqu'à 1 mol/L et un mélange anatase + rutile à partir de 2 mol/L (PMC2964502, voies TiO2_HCl_0.1M à TiO2_HCl_6M). L'anatase pure observée ici suppose donc un HCl dilué dans le mélange ; à vérifier avant de refaire.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Creusement par dissolution–recristallisation (mûrissement d'Ostwald interne → externe) d'une sphère de nanoparticules amorphes, confinée par la coque : mécanisme connu pour des sphères d'anatase creuses ; la coque occupe ≈ 83 % du volume (calcul « fraction de volume occupée par la coque »), compatible avec un déplacement de matière sans perte de Ti.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation of Hollow Anatase TiO2 Nanospheres via Ostwald Ripening",
+      "authors_or_publisher": "Yang H.G., Zeng H.C., J. Phys. Chem. B 108, 3492–3495 (ACS)",
+      "year": "2004",
+      "url_or_doi": "10.1021/jp0377782"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Réduction du GO en rGO à 180 °C en milieu aqueux ou alcoolique : établie (déshydratation hydrothermale du GO) et cohérente avec la hausse de ID/IG observée en Raman.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal dehydration for the \"green\" reduction of exfoliated graphene oxide to graphene and demonstration of tunable optical limiting properties",
+      "authors_or_publisher": "Zhou Y., Bao Q., Tang L.A.L., Zhong Y., Loh K.P., Chemistry of Materials 21(13), 2950–2956",
+      "year": "2009",
+      "url_or_doi": "https://research.monash.edu/en/publications/hydrothermal-dehydration-for-the-green-reduction-of-exfoliated-gr/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La preuve des « nanocristaux à facettes {001} et {101} mutuellement indépendants » ne discrimine pas : (1) observer « selon la direction {001} » des plans {001} est impossible, une vue selon [001] ne montre que des franges (200)/(020) de 0,189 nm ; (2) la réflexion (001) est éteinte dans l'anatase et la frange de 0,24 nm correspond aussi bien à (103) (0,243 nm) qu'à (004) (0,238 nm) (calcul « distances réticulaires de l'anatase proches de 0,24 nm ») ; (3) une frange identifie un plan interne, pas une facette exposée ; une particule de 10–20 nm montre 0,35 ou 0,24 nm selon son orientation. Le témoin sans GO (TiO2_HCl_noGO) montre les mêmes deux distances sur des monocristaux à facettes co-exposées, ce qui ne permet pas de distinguer les deux modèles. Il faudrait la forme des cristaux (bipyramides tronquées, feuillets), des vues selon [010] avec angle de 68,3° entre (101) et (004), ou un photodépôt sélectif (Pt sur les facettes réductrices, PbO2 sur les oxydantes).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Anatase TiO2 single crystals with a large percentage of reactive facets",
+      "authors_or_publisher": "Yang H.G., Sun C.H., Qiao S.Z., Zou J., Liu G., Smith S.C., Cheng H.M., Lu G.Q., Nature 453, 638–641",
+      "year": "2008",
+      "url_or_doi": "10.1038/nature06964"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "I004/I101 = 0,41 contre 0,20 pour la fiche (calcul « rapport I004/I101 relatif à la fiche ») indique des cristallites allongés selon l'axe c ou une orientation de la poudre. Un allongement selon [001] diminue la part des facettes {001} au lieu de l'augmenter : l'argument va contre la conclusion des auteurs, ou au mieux ne la soutient pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Liaison Ti–C invoquée en XPS : le doublet 455,3/459,5 eV a un écart de 4,2 eV, alors que l'écart spin-orbite Ti 2p vaut 5,7–6,1 eV (calcul « écart des doublets Ti 2p ») ; ces deux pics ne sont pas un même doublet. La formation d'un carbure de titane à 180 °C en milieu aqueux acide est par ailleurs très improbable (les carbures se forment au-delà de 1000 °C). Un pic vers 455 eV évoque Ti2+/Ti3+ réduit ou un effet de charge différentielle, et la composante C 1s à 281,1 eV n'est pas un diagnostic suffisant. Liaisons Ti–O–C ou simple contact sont plus vraisemblables.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Resolving surface chemical states in XPS analysis of first row transition metals, oxides and hydroxides: Sc, Ti, V, Cu and Zn",
+      "authors_or_publisher": "Biesinger M.C., Lau L.W.M., Gerson A.R., Smart R.St.C. (Applied Surface Science 257, 887–898)",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.apsusc.2010.07.086"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le spectre général de l'échantillon dit « as-prepared » montre du Cr, que l'article n'explique pas. Deux hypothèses à lever : spectre pris après le test au Cr(VI) (Cr(OH)3 déposé, comme en Figure S6), ou contamination par corrosion de l'enveloppe en acier inoxydable de l'autoclave sous vapeur de HCl. Dans les deux cas, la composition de surface attribuée à TGHMs est douteuse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Gap estimé avec la loi des semi-conducteurs à gap direct ((αhν)² contre hν), alors que l'anatase est un semi-conducteur à gap indirect (≈ 3,2 eV) ; de plus, 17 % de rGO noir donnent un fond d'absorption qui fausse l'extrapolation de Kubelka-Munk. Le « gap plus petit » de TGHMs n'est donc pas établi ; il peut n'être qu'un artefact du fond carboné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "New understanding of the difference of photocatalytic activity among anatase, rutile and brookite TiO2",
+      "authors_or_publisher": "Zhang et al., Physical Chemistry Chemical Physics (Royal Society of Chemistry)",
+      "year": "2014",
+      "url_or_doi": "10.1039/C4CP02201G"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence Méthodes/Résultats sur le photocourant : le texte dit « stimulated solar light », la section Caractérisation dit lampe xénon avec filtre de coupure à 420 nm (visible seul), où l'anatase n'absorbe presque pas. Le facteur 6 mesuré sous visible reflète surtout l'absorption du rGO ou de défauts, pas la séparation des charges dans TiO2.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'effet « synergique » compare le système simple à 10 mg/L de RhB et 50 mg/L de Cr(VI) (légende Fig. 7a) au mélange à 6 et 20 mg/L, soit 1,7 et 2,5 fois moins concentré (calcul « concentrations molaires des tests photocatalytiques ») : à dose de catalyseur égale (1 g/L), une conversion plus forte à plus faible concentration est attendue sans aucune synergie. Au point le plus concentré du mélange (10 mg/L RhB, 50 mg/L Cr(VI), si les barres de la Fig. 7c,d sont appariées), les valeurs lues (≈ 44 % et ≈ 25 %) ne dépassent pas celles du système simple à 30 min (50 % et 25 %). Le témoin valable serait le système simple aux mêmes concentrations que le mélange, avec la part d'adsorption à l'obscurité (forte sur 17 % de rGO) soustraite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Les Kapp donnés (4,47 × 10−2 et 2,35 × 10−2 min−1) prédisent 74 % et 51 % de conversion à 30 min, contre ≈ 85 % et ≈ 70 % annoncés pour le même mélange (calcul « conversion à 30 min prédite par les Kapp ») : soit l'élimination inclut l'adsorption, soit la cinétique n'est pas d'ordre 1. Les deux chiffres ne sont pas compatibles tels quels.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cr(VI) dosé par ses bandes à 258 et 354 nm en présence de RhB, qui absorbe aussi dans l'UV (bande vers 259 nm) et dont les intermédiaires de dégradation absorbent dans cette zone : le dosage de Cr(VI) dans le mélange est biaisé ; le pH, qui fixe la spéciation (HCrO4− / CrO4 2−) et la vitesse de réduction, n'est pas donné. Un dosage au diphénylcarbazide après séparation, ou un contrôle par ICP du Cr total, serait nécessaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bilan d'électrons (calcul « bilan d'électrons pour la réduction de Cr(VI) dans le mélange ») : réduire 70 % de 0,38 mmol/L de Cr(VI) demande 0,81 mmol/L d'électrons, que 12,5 µmol/L de RhB ne fournissent que par une minéralisation presque complète ; la décoloration de RhB ne suffit pas à équilibrer, d'autres donneurs (eau, résidus organiques, éthanol adsorbé) interviennent. L'image d'un couplage un pour un « électrons → Cr, trous → RhB » est simplifiée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte annonce ≈ 100 % de RhB converti à 150 min en système simple, alors que la Figure 7a s'arrête à ≈ 89 % à 120 min (note de l'extraction) : incohérence texte/figure à signaler.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Cr(VI) cancérogène (catégorie 1B) et toxique pour l'environnement ; HCl corrosif ; autoclave sous pression avec éthanol inflammable ; poudres de GO et de TiO2 nanométriques à ne pas inhaler. Aucune précaution dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Formation : sous 180 °C en milieu éthanol/HCl dilué, le TiO2 amorphe se dissout partiellement en complexes chloro-hydroxo de Ti(IV) et recristallise en anatase sur la face interne de la coque de GO (mûrissement d'Ostwald interne → externe, confinement par la coque), pendant que le GO est réduit par déshydratation hydrothermale. Activité : le modèle Z-scheme entre facettes {001} et {101} de la même anatase n'a pas de preuve (pas de piégeage de radicaux, pas de photodépôt sélectif), et l'écart de bandes entre facettes d'anatase, décrit pour la jonction de surface {001}/{101}, est faible devant la largeur de bande ; le gain de pouvoir redox est donc marginal. Sous lumière solaire simulée, la RhB absorbe à 553 nm : la photosensibilisation du TiO2/rGO par le colorant (électrons injectés qui réduisent Cr(VI), radical cation du colorant qui se dégrade), Cr(VI) jouant de son côté le piège à électrons qui libère les trous, et l'adsorption sur le rGO, expliquent plus simplement l'effet mutuel des deux polluants.",
+    "sources": [
+     {
+      "title": "Simultaneous and synergistic conversion of dyes and heavy metal ions in aqueous TiO2 suspensions under visible-light illumination",
+      "authors_or_publisher": "Kyung H., Lee J., Choi W., Environ. Sci. Technol. 39, 2376 (ACS)",
+      "year": "2005",
+      "url_or_doi": "https://oasis.postech.ac.kr/handle/2014.oak/24669"
+     },
+     {
+      "title": "Enhanced photocatalytic CO2-reduction activity of anatase TiO2 by coexposed {001} and {101} facets",
+      "authors_or_publisher": "Yu J. et al., Journal of the American Chemical Society (ACS)",
+      "year": "2014",
+      "url_or_doi": "10.1021/ja5044787"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration et volume de HCl, rapport éthanol/HCl, volume de l'autoclave et taux de remplissage",
+    "lavage après autoclave (non décrit) et élimination des chlorures",
+    "phase par DRX (rutile si HCl ≥ 2 mol/L, d'après PMC2964502)",
+    "forme des cristaux (bipyramides, feuillets) avant toute affirmation sur les facettes exposées",
+    "origine du Cr dans l'XPS (échantillon frais ou après test ; corrosion de l'autoclave)",
+    "tests photocatalytiques simple et mixte aux mêmes concentrations, adsorption à l'obscurité soustraite, pH noté"
+   ]
+  },
+  {
+   "label": "PT",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rapport I004/I101 relatif à la fiche",
+     "inputs": "TGHMs 0,41 ; PT 0,28 ; JCPDS 21-1272 0,20 (article)",
+     "formula": "rapport / 0,20",
+     "result": "TGHMs ×2,05 ; PT ×1,4",
+     "compared_to": "une raie (004) renforcée signifie des cristallites plus longs selon l'axe c (croissance selon [001]) ou une orientation préférentielle de la poudre, pas une plus grande part de facettes {001}",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Les Méthodes disent que PT et TGMs sont préparés « same as the above » mais « directly autoclaved » à 180 °C pendant 24 h, sans dire dans quel liquide. Si PT est autoclavé dans l'eau, il diffère de TGHMs par trois variables à la fois (GO, HCl, éthanol) : il ne sépare pas l'effet du GO de celui de l'attaque acide. Le témoin utile serait TiO2 amorphe traité dans le même mélange éthanol/HCl sans GO (c'est TiO2_HCl_noGO, dont les conditions ne sont pas données).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le nom PT désigne deux matériaux : la légende de la Figure 1b appelle PT les microsphères lisses avant enrobage, alors que les DRX, gap et tests portent sur PT autoclavé. Il faut savoir lequel a été mesuré avant de comparer à TGHMs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Cristallisation du TiO2 amorphe en anatase à 180 °C pendant 24 h en conditions hydrothermales : attendue, cohérente avec la courbe a de la Figure 5a et avec I004/I101 = 0,28.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Cristallisation hydrothermale du TiO2 amorphe par dissolution–reprécipitation locale ; sans coque de GO ni acide, les sphères gardent leur forme et se densifient en agrégats d'anatase.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "milieu liquide et volume de l'autoclave",
+    "séchage",
+    "quel échantillon PT (avant ou après autoclave) a été caractérisé"
+   ]
+  },
+  {
+   "label": "TGMs_autoclaved",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Aucune quantité, aucun milieu liquide et aucun résultat ne sont donnés pour cet échantillon de comparaison ; il ne peut servir de témoin du rôle de HCl.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans HCl, le TiO2 amorphe enrobé devrait cristalliser en anatase en gardant une sphère pleine, avec réduction hydrothermale du GO ; non vérifié par l'article.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "milieu de l'autoclave",
+    "résultats (morphologie, phase) absents de l'article"
+   ]
+  },
+  {
+   "label": "TiO2_HCl_noGO",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Témoin bien choisi en principe (même traitement HCl sans GO), mais température, durée et concentration de HCl ne sont pas dites. Les nanoparticules libres de 10–15 nm à facettes {101} et {001} co-exposées, avec les mêmes distances de 0,35 et 0,24 nm que TGHMs, montrent que ces deux franges ne distinguent pas un monocristal à facettes co-exposées d'un ensemble de cristaux « indépendants ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Perte de la forme sphérique sans coque : attendue pour une dissolution–recristallisation non confinée en milieu acide ; la phase (anatase seule ou avec rutile) dépend de la concentration de HCl (PMC2964502) et n'est pas donnée.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Dissolution du TiO2 amorphe en complexes chlorés de Ti(IV) et recristallisation en nanocristaux libres sans confinement, d'où la perte de la sphère.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "conditions du traitement (T, durée, [HCl]) identiques à TGHMs ou non",
+    "phase par DRX"
+   ]
+  },
+  {
+   "label": "Photoanode_PT_TGHMs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "épaisseur du film de photoanode",
+     "inputs": "10 µL × 5 mg/mL = 50 µg ; surface FTO 1 à 2 cm² (« 2 cm × 1 ») ; anatase 3,89 g/cm³",
+     "formula": "e(dense) = m/(ρ S) ; porosité = 1 − e(dense)/6 µm",
+     "result": "film dense de 64 à 129 nm ; un film de 6 µm demanderait 98–99 % de porosité",
+     "compared_to": "épaisseur annoncée ≈ 6 µm",
+     "source": "calcul sur valeurs de l'article ; densité de l'anatase, valeur de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "10 µL d'un colloïde à 5 mg/mL déposent 50 µg ; sur une électrode de 1 à 2 cm² (« 2 cm × 1 »), cela donne un film dense de 64 à 129 nm, et 6 µm demanderaient 98–99 % de porosité (calcul « épaisseur du film de photoanode »). L'épaisseur annoncée de ≈ 6 µm n'est pas compatible avec la masse déposée ; l'une des deux valeurs est fausse ou la surface couverte est bien plus petite que l'électrode.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le film est séché à 60 °C sans recuit : le contact électrique particule–FTO est faible et le photocourant dépend beaucoup de l'épaisseur et de l'adhérence, non contrôlées ici ; le rapport de 6 entre TGHMs et PT peut venir en partie de la conductivité du rGO dans le film plutôt que d'une meilleure séparation des charges.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "KOH à 10 % dans l'éthanol (caustique et inflammable) et acétone aux ultrasons : sous hotte, sans flamme ; non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Dépôt par goutte et évaporation : film poreux de particules liées par forces de van der Waals, sans frittage.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "surface réellement couverte et masse déposée",
+    "épaisseur mesurée (profilomètre ou MEB en coupe)",
+    "source lumineuse du photocourant (solaire simulé ou > 420 nm)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La voie de synthèse (enrobage de TiO2 amorphe par GO puis traitement éthanol/HCl à 180 °C, 24 h) est chimiquement plausible (creusement par mûrissement d'Ostwald confiné, réduction hydrothermale du GO), mais elle n'est pas refaisable depuis l'article seul : aucune masse, ni concentration de HCl, ni rapport éthanol/HCl, ni volume d'autoclave, et les microsphères amorphes de départ sont renvoyées à des travaux antérieurs. Les preuves structurales des conclusions sont faibles : la frange de 0,24 nm et le rapport I004/I101 ne démontrent pas des facettes {001} exposées sur des nanocristaux séparés ; la liaison Ti–C en XPS repose sur un « doublet » de 4,2 eV d'écart, incompatible avec le spin-orbite de Ti 2p ; la « synergie » compare des systèmes de concentrations différentes ; l'épaisseur de photoanode annoncée est incompatible avec la masse déposée.",
+  "author_errors_suspected": [
+   "observation « selon la direction {001} » de plans {001} : impossible, et (001) est éteinte dans l'anatase",
+   "doublet Ti 2p « Ti–C » à 455,3/459,5 eV : écart de 4,2 eV au lieu de 5,7–6,1 eV",
+   "gap de l'anatase traité comme direct",
+   "photocourant dit sous lumière solaire simulée mais mesuré avec un filtre à 420 nm",
+   "synergie démontrée entre systèmes simple (10/50 mg/L) et mixte (6/20 mg/L) de concentrations différentes",
+   "Kapp incompatibles avec les conversions à 30 min annoncées",
+   "film de 6 µm pour 50 µg déposés",
+   "Cr présent dans l'XPS de l'échantillon « as-prepared »",
+   "texte « {101} and {101} » à plusieurs reprises pour {001} et {101}",
+   "100 % de RhB à 150 min dans le texte contre ≈ 89 % à 120 min sur la figure"
+  ],
+  "comparison_with_database": "PMC2964502 (TiO2 en HCl à 150 °C, 24 h) : anatase pure jusqu'à 1 mol/L de HCl, anatase + rutile au-delà de 2 mol/L ; l'anatase pure de TGHMs suppose un HCl dilué, non précisé. Les autres voies TiO2 de la base (PMC11891312, PMC4961655) ne sont pas comparables (sol-gel, dépôt de ZrO2)."
+ },
+ "sources_not_found": [
+  "cinétique de la formation de chloroéthane à partir d'éthanol et de HCl aqueux sans catalyseur à 180 °C (seule la voie historique est sourcée, par une source secondaire)",
+  "valeur chiffrée de l'écart de bandes entre facettes {001} et {101} de l'anatase (Yu et al. 2014 identifié, texte intégral non lu)",
+  "texte intégral de Kyung et al. 2005 (résumé seulement ; il signale une réactivité faible du couple Cr(VI)/RhB sous visible > 420 nm)",
+  "DOI de Zhou et al. 2009 (Chem. Mater.) non relevé ; notice Monash utilisée"
+ ]
+}

@@ -1,0 +1,563 @@
+{
+ "pmcid": "PMC11891312",
+ "routes": [
+  {
+   "label": "MCM-41",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles des réactifs MCM-41",
+     "inputs": "NaOH 0,6104 g (M 40,00) ; CTAB 2,6 g (M 364,45) ; TEOS 10,245 g (M 208,33) ; H2O 1 L (1000 g, M 18,015)",
+     "formula": "n = m/M",
+     "result": "NaOH 15,26 mmol ; CTAB 7,13 mmol ; TEOS 49,18 mmol ; H2O 55,5 mol",
+     "compared_to": "rôles annoncés (base, gabarit, source de Si)",
+     "source": "valeurs de l'article ; masses molaires de manuel"
+    },
+    {
+     "what": "rapport molaire TEOS:CTAB:NaOH:H2O",
+     "inputs": "moles ci-dessus",
+     "formula": "n(i)/n(TEOS)",
+     "result": "1 : 0,145 : 0,310 : 1129",
+     "compared_to": "recette de Cai et al. 2001 (1,0 g CTAB, 480 mL H2O, 3,5 mL NaOH 2 M, 5,0 mL TEOS, 80 °C) : 1 : 0,123 : 0,313 : 1190",
+     "source": "Cai et al. 2001, 10.1021/cm990661z ; recette chiffrée relevée dans Microporous Mesoporous Mater. 2024 (pii S138718112300416X : 280 mg NaOH = 7 mmol, pH 12,16, 80 °C, bécher couvert d'un verre de montre)"
+    },
+    {
+     "what": "pH initial de la solution de NaOH",
+     "inputs": "15,26 mmol NaOH dans 1 L",
+     "formula": "pH = 14 + log[OH-]",
+     "result": "≈ 12,2",
+     "compared_to": "pH 12,16 de la recette de type Cai",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse maximale de SiO2 et éthanol libéré",
+     "inputs": "49,18 mmol TEOS ; M(SiO2) 60,08 ; 4 EtOH par TEOS, M 46,07, ρ 0,789",
+     "formula": "n·M ; 4n·M/ρ",
+     "result": "SiO2 ≤ 2,95 g ; EtOH 197 mmol ≈ 11,5 mL (≈ 1,1 % v/v)",
+     "compared_to": "aucun rendement donné par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg du pic d100 aux petits angles et paramètre a0",
+     "inputs": "2θ = 1,7 à 2,0° ; λ = 1,5406 Å (déclarée)",
+     "formula": "d = λ/(2 sin θ) ; a0 = 2d/√3",
+     "result": "d100 = 5,19 à 4,41 nm ; a0 = 6,00 à 5,10 nm",
+     "compared_to": "MCM-41 au CTAB de la base : d100 = 4,14 nm, a0 = 4,78 nm (PMC8233738)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre moyen 4V/S",
+     "inputs": "V = 1,6313 cm3/g ; S = 895,19 m2/g",
+     "formula": "D = 4V/S",
+     "result": "7,289 nm (identique à la valeur de l'article)",
+     "compared_to": "a0 = 5,1 à 6,0 nm (le diamètre d'un canal ne peut pas dépasser a0)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre de pore correspondant à la condensation capillaire à P/P0 = 0,30-0,34",
+     "inputs": "N2 à 77,35 K : γ = 8,85 mN/m, Vm = 34,68 cm3/mol ; épaisseur t de Harkins-Jura t(Å) = [13,99/(0,034 − log P/P0)]^0,5",
+     "formula": "rk = 2γVm/(RT·ln(P0/P)) ; D = 2(rk + t)",
+     "result": "D ≈ 2,6 à 2,8 nm (Kelvin-BJH, qui sous-estime d'environ 1 nm les pores de MCM-41 : ≈ 3,5-4 nm corrigé)",
+     "compared_to": "7,289 nm annoncés ; 3,5 nm (BJH) dans PMC12195685",
+     "source": "constantes de manuel (chimie générale) ; correction de Kelvin pour MCM-41 : Kruk, Jaroniec, Sayari 1997, 10.1021/la970776m"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapports TEOS:CTAB:NaOH:H2O = 1 : 0,145 : 0,310 : 1129 (voir « rapport molaire TEOS:CTAB:NaOH:H2O ») : c'est la recette de nanoparticules de MCM-41 de Cai et al. 2001, environ doublée (NaOH/TEOS identique, CTAB un peu plus abondant). Des sphères de 60 à 110 nm sont l'ordre de grandeur attendu pour cette recette. La recette est connue ; l'article ne la cite pas.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Dilute Solution Routes to Various Controllable Morphologies of MCM-41 Silica with a Basic Medium",
+      "authors_or_publisher": "Cai Q., Luo Z.-S., Pang W.-Q., Fan Y.-W., Chen X.-H., Cui F.-Z. (Chem. Mater. 13, 258-263)",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm990661z"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "1 L d'eau à 80 °C pendant 10 h (Cai : 2 h) sans récipient ni couvercle précisés : l'évaporation (et celle des ≈ 11,5 mL d'éthanol libérés par l'hydrolyse) change la concentration au cours de la réaction. Une recette de type Cai couvre le bécher d'un verre de montre. Agitation « jusqu'à 5000 rpm » : hors de portée d'un agitateur magnétique ordinaire (≈ 300-1500 rpm) ; il faut un agitateur à hélice ou un disperseur, et la vitesse influe sur la taille des particules.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le « diamètre moyen des pores » de 7,289 nm est exactement 4V/S (voir « diamètre moyen 4V/S ») avec un volume total de 1,63 cm3/g qui inclut les vides entre particules de 60-110 nm. Il dépasse le paramètre de maille a0 = 5,1-6,0 nm tiré du pic d100 (voir « Bragg du pic d100 ») : ce ne peut pas être le diamètre des canaux. La condensation capillaire décrite à P/P0 = 0,30-0,34 correspond à des pores d'environ 2,7 nm (Kelvin-BJH) ou 3,5-4 nm (corrigé), comme les autres MCM-41 de la base (3,5 nm dans PMC12195685, 3,47 nm dans PMC8233738). Le chiffre de 7,3 nm ne doit pas être lu comme la taille des mésopores. De même, 1,63 cm3/g dépasse le volume primaire habituel d'un MCM-41 (≈ 0,7-1,0 cm3/g ; 0,7 dans PMC12195685) : la porosité texturale y est comptée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Relations between pore structure parameters and their implications for characterization of MCM-41 using gas adsorption and X-ray diffraction",
+      "authors_or_publisher": "Kruk M., Jaroniec M., Sayari A. (Chem. Mater. 11, 2)",
+      "year": "1999",
+      "url_or_doi": "10.1021/cm981006e"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Isotherme décrite comme « type IV avec boucles d'hystérésis » pour un MCM-41 au CTAB dont la condensation se fait à P/P0 ≈ 0,3 : selon l'IUPAC, des pores de moins de ≈ 4 nm donnent une isotherme IVb réversible, sans boucle ; une boucle à haute pression viendrait des vides entre particules, ce qui va dans le sens du point précédent.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al. (Pure Appl. Chem.)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Structure « hexagonale » affirmée sur un seul pic d100 : les raies (110) et (200), qui distinguent l'arrangement hexagonal d'un réseau de canaux désordonné (vermiculaire), ne sont pas citées. Le pic large à 22,9° (d = 0,388 nm) est le halo de la silice amorphe ; une fiche « JCPDS No. 0085-29 » n'a pas le format des numéros PDF et une phase amorphe ne s'indexe pas sur une fiche.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ordered mesoporous molecular sieves synthesized by a liquid-crystal template mechanism",
+      "authors_or_publisher": "Kresge C.T., Leonowicz M.E., Roth W.J., Vartuli J.C., Beck J.S. (Nature 359, 710-712)",
+      "year": "1992",
+      "url_or_doi": "10.1038/359710a0"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDS de MCM-41 : Si 43,81 % at. et O 55,55 % at., soit Si/O = 0,79 contre 0,50 pour SiO2 ; l'oxygène est sous-estimé (habituel en EDS pour les éléments légers) et 0,64 % at. d'Al apparaît sans source dans les réactifs (porte-échantillon ou pollution). L'EDS n'est ici que qualitatif.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination à 550 °C sous air : suffisante pour brûler le CTAB (décomposition vers 200-350 °C) ; la durée (5 h) n'est que sur l'organigramme et la rampe n'est pas donnée, alors qu'une montée rapide fait contracter la charpente.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "TEOS inflammable et irritant ; NaOH corrosif ; nanopoudre de silice calcinée à manipuler sous protection respiratoire ; dégagement de produits de combustion du CTAB (bromures, NOx) au four : calcination sous hotte ou four ventilé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Mécanisme de gabarit à cristal liquide en régime dilué basique (pH ≈ 12,2) : les micelles cylindriques de CTA+ s'entourent d'oligomères silicatés anioniques issus de l'hydrolyse du TEOS (appariement S+I−) ; la condensation à 80 °C fige la mésophase hexagonale dans des particules sphériques de ≈ 100 nm, dont la taille est réglée par la vitesse de nucléation (concentration en NaOH, température, agitation) ; la calcination brûle le gabarit et libère des canaux d'environ 3-4 nm. C'est le mécanisme de l'annotation de l'extraction, conforme à la littérature.",
+    "sources": [
+     {
+      "title": "Ordered mesoporous molecular sieves synthesized by a liquid-crystal template mechanism",
+      "authors_or_publisher": "Kresge C.T., Leonowicz M.E., Roth W.J., Vartuli J.C., Beck J.S. (Nature 359, 710-712)",
+      "year": "1992",
+      "url_or_doi": "10.1038/359710a0"
+     },
+     {
+      "title": "Dilute Solution Routes to Various Controllable Morphologies of MCM-41 Silica with a Basic Medium",
+      "authors_or_publisher": "Cai Q., Luo Z.-S., Pang W.-Q., Fan Y.-W., Chen X.-H., Cui F.-Z. (Chem. Mater. 13, 258-263)",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm990661z"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "récipient couvert ou à reflux pour 10 h à 80 °C",
+    "type d'agitateur et vitesse réelle (5000 rpm n'est pas magnétique)",
+    "durée et rampe de calcination (5 h lue sur la figure seulement)",
+    "taille des canaux à mesurer par BJH/NLDFT plutôt que par 4V/S",
+    "présence des raies (110) et (200) aux petits angles"
+   ]
+  },
+  {
+   "label": "CdS",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de Cd, OH- et S2-",
+     "inputs": "10 mL Cd(NO3)2 0,1 M ; 100 mL NaOH 0,1 M ; 10 mL Na2S 0,1 M",
+     "formula": "n = C·V",
+     "result": "Cd2+ 1,0 mmol ; OH- 10 mmol ; S2- 1,0 mmol ; Cd:S = 1:1 ; OH-/Cd = 10",
+     "compared_to": "CdS (1:1) ; Cd(OH)2 demande 2 OH- par Cd",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pH final et masse maximale de CdS",
+     "inputs": "OH- restant 10 − 2 = 8 mmol dans 120 mL ; M(CdS) 144,48",
+     "formula": "pH = 14 + log[OH-] ; m = n·M",
+     "result": "[OH-] ≈ 0,067 M, pH ≈ 12,8 ; CdS ≤ 0,144 g par lot",
+     "compared_to": "0,025 g de CdS utilisés pour CT",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg des trois raies de CdS et paramètre cubique",
+     "inputs": "2θ = 26,68 ; 44,04 ; 51,56° ; λ = 1,5406 Å ; (111), (220), (311)",
+     "formula": "d = λ/(2 sin θ) ; a = d·√(h²+k²+l²)",
+     "result": "d = 3,339 ; 2,054 ; 1,771 Å ; a = 5,783 ; 5,811 ; 5,874 Å",
+     "compared_to": "CdS blende a ≈ 5,82 Å (écart de 1,6 % entre raies) ; positions calculées pour CdS wurtzite (a 4,137, c 6,716 Å) : (100) 24,8°, (002) 26,5°, (101) 28,2°, (110) 43,7°, (103) 47,9°, (112) 51,9°",
+     "source": "arithmétique ; paramètres de maille de manuel"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Cd:S = 1:1 exactement (voir « moles de Cd, OH- et S2- ») : aucun excès de sulfure pour achever la conversion. Comme Cd2+ est d'abord versé dans 10 équivalents d'OH-, il précipite en Cd(OH)2 (pH ≈ 12,8), puis S2- doit transformer ce solide en CdS en 10 min à température ambiante. La conversion est très favorisée thermodynamiquement (Ksp de CdS ≈ 10^-27 contre ≈ 10^-14 pour Cd(OH)2) mais se fait de solide à solide : un reste de Cd(OH)2 ou de CdO est possible et n'est pas recherché (pas de raie de Cd(OH)2 discutée).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les trois raies donnent a = 5,78-5,87 Å (voir « Bragg des trois raies de CdS »), cohérent avec CdS. Mais la phase cubique n'est pas démontrée : la wurtzite a des raies à 26,5°, 43,7° et 51,9°, presque confondues avec celles de la blende pour des grains de 12 nm ; seules l'absence de (100) à 24,8°, (101) à 28,2° et (103) à 47,9° tranche, et l'article ne le dit pas. Le précipité aqueux à température ambiante donne souvent un mélange.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Ajout rapide de Na2S (nucléation brève) et 10 min d'agitation : conditions de précipitation de nanoparticules ; une taille de Scherrer de 12,25 nm est plausible (pas de confinement notable, rayon de Bohr de CdS ≈ 3 nm). Durée de centrifugation et nombre de lavages non donnés ; les ions Na+ et NO3- restants peuvent fausser l'EDS.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V.K., Dinegar R.H. (JACS)",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nitrate de cadmium et CdS : composés du cadmium cancérogènes (Cd et ses composés, CIRC groupe 1), toxiques pour la reproduction et très toxiques pour l'environnement aquatique : hotte, gants, collecte séparée des eaux de lavage chargées en Cd. Na2S·9H2O : corrosif, libère H2S au contact d'un acide (ne jamais acidifier les eaux mères). Rien n'est dit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipitation de Cd(OH)2 (ou d'hydroxo-complexes) dans l'excès de NaOH, puis conversion par S2- en CdS (Cd(OH)2 + S2- → CdS + 2 OH-), favorisée par l'écart de solubilité ; l'ajout rapide crée une nucléation en bouffée qui limite la taille. Conforme à l'annotation de l'extraction ; la conversion peut rester incomplète.",
+    "sources": [
+     {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V.K., Dinegar R.H. (JACS)",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "absence de Cd(OH)2 résiduel (XRD, raies vers 29-30° et 36°)",
+    "raies (100), (101), (103) de la wurtzite pour trancher la phase",
+    "durée de centrifugation et nombre de lavages",
+    "gestion des déchets de cadmium"
+   ]
+  },
+  {
+   "label": "CT",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de CdS, Ti, NH3 et H2O apportées",
+     "inputs": "CdS 0,025 g (M 144,48) ; TBT 0,75 mL × 1,00 g/mL (M 340,32) ; NH4OH 25 % 0,24 mL × 0,91 g/mL (NH3 M 17,03 ; eau 75 % en masse)",
+     "formula": "n = m/M",
+     "result": "CdS 0,173 mmol ; Ti 2,20 mmol ; NH3 3,21 mmol ; H2O 9,09 mmol ; Ti/Cd = 12,7 ; h = H2O/Ti = 4,1",
+     "compared_to": "hydrolyse-condensation complète : 2 H2O par Ti (Ti(OBu)4 + 2 H2O → TiO2 + 4 BuOH)",
+     "source": "Sigma-Aldrich 244112 (densité, M du TBT) ; densité de l'ammoniaque à 25 % : valeur de manuel"
+    },
+    {
+     "what": "composition attendue de CT",
+     "inputs": "TiO2 = 2,20 mmol × 79,87 = 0,176 g ; CdS 0,025 g",
+     "formula": "fractions massiques",
+     "result": "CdS 12,4 % en masse ; Cd 9,7 % ; S 2,8 % ; Ti 52,5 % (si conversion totale en TiO2 anhydre)",
+     "compared_to": "EDS de CT : Cd 7,61 %, S 5,69 %, Ti 34,90 % en masse",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rapports atomiques S/Cd et Ti/Cd de l'EDS",
+     "inputs": "CT : S 4,43, Cd 1,69, Ti 18,21 % at. ; CTM (5%) : 0,54 / 0,19 / 0,47 ; CTM (15%) : 0,44 / 0,13 / 0,83",
+     "formula": "rapports",
+     "result": "S/Cd = 2,62 (CT), 2,84 (CTM 5 %), 3,38 (CTM 15 %) ; Ti/Cd = 10,8 (CT), 2,5 (CTM 5 %), 6,4 (CTM 15 %)",
+     "compared_to": "S/Cd = 1 pour CdS ; Ti/Cd = 12,7 attendu (même CT dans tous les échantillons)",
+     "source": "Table S1 de l'article"
+    },
+    {
+     "what": "diamètre moyen 4V/S de CT",
+     "inputs": "V = 0,4112 cm3/g ; S = 369,45 m2/g",
+     "formula": "4V/S",
+     "result": "4,452 nm (identique à l'article)",
+     "compared_to": "valeur annoncée",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Eau apportée par l'ammoniaque seule : h = 4,1 (voir « moles de CdS, Ti, NH3 et H2O apportées »), plus l'eau de l'éthanol non anhydre ; suffisant pour l'hydrolyse-condensation (2 H2O par Ti au minimum). Ti/Cd = 12,7 : CT contient ≈ 12 % de CdS en masse, ce que l'EDS confirme à peu près (Ti/Cd = 10,8).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Titanium(IV) butoxide reagent grade, 97 %, fiche produit 244112 (M = 340,32 g/mol ; densité 1,00 g/mL à 20 °C)",
+      "authors_or_publisher": "Sigma-Aldrich (Merck), fiche fournisseur",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/244112"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "45 °C pendant 24 h dans 100 mL d'éthanol (éb. 78 °C) : sous l'ébullition, mais en récipient ouvert l'évaporation sur 24 h est notable ; le récipient n'est pas précisé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDS de CT : S/Cd = 2,6 (voir « rapports atomiques S/Cd et Ti/Cd de l'EDS ») au lieu de 1 pour CdS ; le soufre excédentaire n'a pas de source dans le protocole (Cd:S = 1:1 dans la voie CdS). Mg (3,79 % at.), Ca (2,78 % at.) et Si (2,10 % at.) apparaissent dans CT alors qu'aucun réactif n'en contient : pollution (verrerie, support, eau) ou artefact de quantification. L'EDS ne peut donc pas servir à confirmer la composition.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Sans calcination, le « TiO2 » est un oxyde hydraté amorphe (séché à 70 °C, encore porteur de groupes butoxy : 9,9 % at. de C à l'EDS). Les explications de l'article (transfert d'électrons de la bande de conduction de CdS vers celle de TiO2) supposent un TiO2 cristallisé ; dans un oxyde amorphe riche en défauts, ce transfert et la baisse de recombinaison ne sont pas acquis et l'article ne le montre pas (pas de photocourant, pas de durée de vie de PL).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "TBT inflammable et sensible à l'humidité (libère du butanol) ; éthanol inflammable à 45 °C (point éclair 13 °C) ; ammoniaque irritante ; poudre contenant du cadmium.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Titanium(IV) butoxide reagent grade, 97 %, fiche produit 244112 (M = 340,32 g/mol ; densité 1,00 g/mL à 20 °C)",
+      "authors_or_publisher": "Sigma-Aldrich (Merck), fiche fournisseur",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/244112"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse du butoxyde de titane catalysée par NH3, avec l'eau de l'ammoniaque (h ≈ 4), puis condensation hétérogène d'un oxyde de titane hydraté amorphe sur les particules de CdS qui servent de germes ; sans calcination, le TiO2 reste amorphe et retient des groupes organiques. Conforme à l'annotation de l'extraction.",
+    "sources": [
+     {
+      "title": "Titanium(IV) butoxide reagent grade, 97 %, fiche produit 244112 (M = 340,32 g/mol ; densité 1,00 g/mL à 20 °C)",
+      "authors_or_publisher": "Sigma-Aldrich (Merck), fiche fournisseur",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/244112"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "origine du Mg, du Ca et du soufre excédentaire de l'EDS",
+    "récipient fermé ou à reflux pour 24 h à 45 °C",
+    "cristallinité réelle du TiO2 (une calcination modérée sous gaz inerte changerait la phase)"
+   ]
+  },
+  {
+   "label": "CTM (15%)",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface et volume poreux attendus pour un simple mélange CT + MCM-41",
+     "inputs": "MCM-41 : 895,19 m2/g, 1,6313 cm3/g ; CT : 369,45 m2/g, 0,4112 cm3/g ; x = 0,05 et 0,15 (base CT/total supposée)",
+     "formula": "X = (1−x)·X(MCM-41) + x·X(CT)",
+     "result": "5 % : 868,9 m2/g, 1,570 cm3/g (mesuré 892,98 ; 1,2761 : +2,8 % et −18,7 %) ; 15 % : 816,3 m2/g, 1,448 cm3/g (mesuré 732,35 ; 1,1737 : −10,3 % et −19,0 %)",
+     "compared_to": "Table 4",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètres 4V/S de CTM (5%) et CTM (15%)",
+     "inputs": "1,2761/892,98 ; 1,1737/732,35",
+     "formula": "4V/S",
+     "result": "5,716 et 6,411 nm (identiques à l'article)",
+     "compared_to": "MCM-41 7,289 nm ; ordre non monotone 5 % < 15 %",
+     "source": "arithmétique"
+    },
+    {
+     "what": "modèle quadratique refait sur la Table 3",
+     "inputs": "20 essais (A pH, B débit d'air, C rapport MB/CTM, Y) ; codage A = (pH−7)/2, B = (débit−1,75)/0,75, C = (rapport−111,11)/22,22 ; termes A, B, C, AB, AC, A², C²",
+     "formula": "moindres carrés",
+     "result": "Y = 32,75 + 12,73 A − 6,88 B + 3,07 C + 1,12 AB + 1,21 AC − 2,45 A² − 2,77 C² ; R² = 0,9915 ; SC modèle 3215,35 ; SC résiduelle 27,69",
+     "compared_to": "article : coefficients +12,79, −6,88, +3,07, AC +1,21 ; SC modèle 3215,30 ; résiduelle 28,11 ; R² 0,9913 (modèle à 7 degrés de liberté, donc AB conservé)",
+     "source": "Table 3 de l'article, calcul refait"
+    },
+    {
+     "what": "prédiction du modèle aux conditions « optimales » annoncées et point qui donne 44,61 %",
+     "inputs": "modèle ci-dessus",
+     "formula": "Y(pH, débit, rapport)",
+     "result": "Y(7 ; 1,75 ; 110) = 32,6 % ; Y(7 ; 1,75 ; 133,3) = 33,1 % ; Y(7 ; 0,49 ; 133,3) = 44,61 % ; maximum à pH 7 dans le domaine : 45,2 % (débit 0,49, rapport ≈ 124)",
+     "compared_to": "44,61 % annoncés à pH 7, 1,75 mL/min, rapport 110 ; 6 essais au centre (pH 7, 1,75, 111,11) : moyenne 32,84 %",
+     "source": "calcul refait"
+    },
+    {
+     "what": "erreur pure des 6 essais au centre",
+     "inputs": "31,23 ; 31,52 ; 35,25 ; 32,39 ; 33,33 ; 33,33",
+     "formula": "Σ(Y − moyenne)²",
+     "result": "moyenne 32,84 % ; SC = 10,83 (5 ddl)",
+     "compared_to": "SC résiduelle 28,11 − manque d'ajustement 17,14 = 10,97 (Table 6)",
+     "source": "calcul refait"
+    },
+    {
+     "what": "dose de catalyseur selon les trois indications de l'article",
+     "inputs": "MB 20 mg/L (300 mL) ; « 0,1 g/L » (Experimental set-up) ; « 1 g L-1 » (légende Fig. 9) ; rapport MB/CTM 88,89-133,33",
+     "formula": "rapport = C(MB)/C(CTM)",
+     "result": "0,1 g/L → MB/CTM = 0,20 (w/w) ; 1 g/L → 0,020 ; un rapport de 88,89-133,33 n'est atteint qu'en mg de MB par g de CTM, soit CTM = 0,225-0,15 g/L (0,18 g/L au centre) avec 20 mg/L de MB",
+     "compared_to": "aucune des trois indications n'est compatible avec les deux autres",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentration des piégeurs",
+     "inputs": "10 mL de piégeur 20 mM ajoutés à 300 mL",
+     "formula": "n = C·V ; C finale = n/310 mL",
+     "result": "0,20 mmol ; ≈ 0,65 mM dans le réacteur ; MB = 18,8 µmol (20 mg/L × 0,3 L / 319,85 g/mol)",
+     "compared_to": "les alcools piégeurs sont d'ordinaire employés de 0,5 à 100 mM et au-delà (Ding et al. 2023)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "séparations des doublets XPS",
+     "inputs": "Ti 2p 464,23/470,09 ; Cd 3d 410,61/417,5 ; S 2p 154,76/160,74 ; Si 2p 109,4 eV",
+     "formula": "écart entre composantes ; décalage par rapport aux références",
+     "result": "Ti 5,86 eV ; Cd 6,89 eV ; « S 2p » 5,98 eV ; décalage de Si 2p : 109,4 − 103,5 = +5,9 eV ; Ti 2p3/2 : +5,5 eV (réf. ≈ 458,7) ; Cd 3d5/2 : +5,4 eV (réf. ≈ 405,2)",
+     "compared_to": "écart spin-orbite S 2p = 1,16-1,18 eV ; Ti 2p ≈ 5,7 eV ; Cd 3d ≈ 6,7 eV",
+     "source": "Thermo Fisher XPS Periodic Table (S, Si) ; valeurs de manuel pour Ti et Cd"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'optimum annoncé ne correspond pas au modèle des auteurs. Le modèle refait sur la Table 3 retrouve leurs coefficients et leur R² (voir « modèle quadratique refait sur la Table 3 »). Il prédit 32,6 % à pH 7, 1,75 mL/min, rapport 110, en accord avec les 6 essais au centre (moyenne 32,8 %). Les 44,61 % annoncés sont exactement la prédiction à pH 7, débit 0,49 mL/min (point axial minimal) et rapport 133,3 (voir « prédiction du modèle aux conditions optimales »), ce qui explique le « ratio = 133,3 » de la Table 7. La conclusion (« pH 7, airflow = 1.75 mL/min, MB/CTM = 110 », 45,6 %) donne donc un débit d'air et un rapport faux : à 1,75 mL/min on obtient environ 33 %, pas 45 %.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La dose de catalyseur de l'essai ne peut pas être déduite : 0,1 g/L (Méthodes), 1 g/L (légende de la Fig. 9) et un rapport MB/CTM de 88,89-133,33 (plan d'expériences), qui avec 20 mg/L de MB n'a de sens qu'en mg/g et impose 0,15-0,225 g/L (voir « dose de catalyseur selon les trois indications »). Le facteur C ne porte pas d'unité. Sans dose, aucune efficacité (45,6 %, Fig. 9, Table 3) ne peut être reproduite ni comparée à la Table 7.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le doublet attribué à S 2p (154,76 et 160,74 eV) est séparé de 5,98 eV, alors que l'écart spin-orbite de S 2p vaut 1,16 eV : ce ne peut pas être un doublet S 2p. Le spectre est décalé par la charge d'environ +5,5 à +5,9 eV (Si 2p à 109,4 au lieu de 103,5 ; Ti et Cd de même ; voir « séparations des doublets XPS »). Le sulfure attendu serait alors vers 167 eV, pas à 154,8. Le pic à 160,74 eV tombe sur le Si 2s de la silice décalé de la même charge (≈ 154,5 + 5,9). Dans un échantillon à 85 % de silice, avec 0,44 % at. de S, la région S 2p est dominée par Si 2s (Thermo indique ce recouvrement). La présence de sulfure et l'« absence de disulfure » ne sont pas démontrées par ce spectre. De même, O 1s à 539,06 eV est l'O de la silice décalé par la charge (≈ 532,9 + 5,9), pas de l'eau adsorbée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Sulfur | XPS Periodic Table (S 2p : sulfure métallique ~161,5 eV, Δ spin-orbite 1,16 eV, recouvrement avec le plasmon Si 2s)",
+      "authors_or_publisher": "Thermo Fisher Scientific, Materials Science Learning Center",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.thermofisher.com/us/en/home/materials-science/learning-center/periodic-table/non-metal/sulfur.html"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les rôles donnés aux piégeurs sont faux ou douteux : l'éthanol piège les trous et les •OH, pas les électrons (les piégeurs d'électrons usuels sont AgNO3, K2Cr2O7 ou O2) ; le chlorure n'est pas un piégeur de trous reconnu (on emploie l'EDTA ou l'oxalate d'ammonium) et il forme lui-même des radicaux chlorés. De plus, la concentration finale (≈ 0,65 mM, voir « concentration des piégeurs ») est basse pour des alcools. Méthanol et éthanol jouent donc le même rôle. La conclusion « •OH dominant, électrons et trous sans effet » ne découle pas de l'essai.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Use of scavenger agents in heterogeneous photocatalysis: truths, half-truths, and misinterpretations",
+      "authors_or_publisher": "Schneider J.T., Firak D.S., Ribeiro R.R., Peralta-Zamora P. (Phys. Chem. Chem. Phys. 22, 15723)",
+      "year": "2020",
+      "url_or_doi": "10.1039/D0CP02411B"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Aucun témoin n'isole l'adsorption. MCM-41 seul n'est pas testé, ni en adsorption ni sous lumière. CTM (5 %) contient environ 20 fois moins de CT que CT pur (≈ 0,6 % de CdS) et fait pourtant mieux (6,22 contre 5,90 fois CdS). Le facteur pH, de loin le plus fort (+12,79), est expliqué par l'attraction électrostatique du MB cationique (pHpzc 5). Il faut aussi savoir si C0 dans l'équation 1 est pris avant ou après les 30 min dans le noir. Tout cela indique que l'adsorption du colorant sur 730-890 m2/g de silice peut porter une grande part de la « dégradation » mesurée par absorbance en 30 min. Le témoin nécessaire : MCM-41 seul et chaque CTM dans le noir pendant 60 min, et C0 mesuré après l'équilibre d'adsorption. Le COT (63 % en 90 min) va dans le sens d'une minéralisation partielle, mais il n'est donné qu'à un seul point.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Des particules de CT d'environ 25 nm ne peuvent pas « pénétrer » des canaux d'environ 3-4 nm (et même pas les 7,3 nm du 4V/S). Le mélange dans l'éthanol suivi d'un séchage à 70 °C dépose le CT sur l'extérieur des grains de MCM-41 ou en agrégats à côté. La baisse du volume poreux (−19 % par rapport au simple mélange, voir « surface et volume poreux attendus ») s'explique par le bouchage des entrées de pores et des vides entre grains, pas par une insertion. Le « décalage vers les grands angles » du pic d100 après un simple mélange à 70 °C ne s'explique pas non plus ; une contraction de la charpente demanderait un traitement thermique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Relations between pore structure parameters and their implications for characterization of MCM-41 using gas adsorption and X-ray diffraction",
+      "authors_or_publisher": "Kruk M., Jaroniec M., Sayari A. (Chem. Mater. 11, 2)",
+      "year": "1999",
+      "url_or_doi": "10.1021/cm981006e"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PL comparée sans normalisation entre des poudres qui contiennent 12 % (CT), ≈ 1,9 % (CTM 15 %) et ≈ 0,6 % (CTM 5 %) de CdS : une intensité plus faible traduit d'abord la dilution de l'émetteur, pas une meilleure séparation des charges. Le texte contredit d'ailleurs la Fig. 8a (doute de l'extraction). Tauc : « n = 1/2 pour un matériau direct » dans [F(R)hν]^n inverse la convention habituelle (exposant 2 pour une transition directe permise). Un mélange qui contient 85 à 95 % de silice n'a pas une bande interdite propre : ces « gaps » sont ceux du CdS dilué.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDS incohérent avec la charge : Ti/Cd vaut 10,8 dans CT, mais 2,5 dans CTM (5 %) et 6,4 dans CTM (15 %), alors que c'est le même CT. Cd est plus abondant dans CTM (5 %) (1,01 % en masse) que dans CTM (15 %) (0,87 %). Le Ti de CTM (15 %) (2,29 %) vaut moins de la moitié de l'attendu (≈ 5,2 % d'après l'EDS de CT). Ces teneurs sont proches de la limite de détection de l'EDS, qui ne mesure qu'un point de l'échantillon : elles ne peuvent pas « confirmer » la charge.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Débit d'air de 1 à 2,5 mL/min : une pompe d'aquarium donne de l'ordre du L/min, et à 2,5 mL/min il ne passe que quelques bulles par seconde. L'explication des auteurs (« intense airflow » qui raccourcit le séjour des bulles) va avec des L/min ; l'unité est probablement erronée. Table 6 : les p sont écrits « > 0,0001 » au lieu de « < 0,0001 », et le terme AB (p = 0,06) reste dans le modèle à 7 ddl alors que le texte dit l'exclure (le calcul refait n'atteint la SC du modèle qu'avec AB).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La voie n'est pas définie en masse : les quantités de CT et de MCM-41 ne sont pas données (« different weights »), ni la base du pourcentage (CT/total ou CT/MCM-41 : à 15 %, 15,0 % contre 13,0 % de CT dans le solide), ni le volume d'éthanol. Un lot de CT (0,025 g de CdS) donne au plus ≈ 0,20 g de CT, de quoi faire ≈ 1,3 g de CTM (15 %).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "CdS se photocorrode dans l'eau aérée sous lumière visible (oxydation du sulfure par les trous, libération de Cd2+ et de sulfate). L'essai se fait avec aération continue et descend à pH 3,6 (essai 15, ajusté avec HCl : CdS + 2 H+ → Cd2+ + H2S possible). Aucune mesure de Cd relargué n'est donnée, pour un matériau proposé au traitement des eaux usées. Le cadmium dissous doit être dosé dans l'eau traitée (ICP) avant d'envisager l'usage annoncé. Lampes « 60 W » sans type ni spectre : intensité reçue inconnue.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Photo-Degradation and Fluorescence of Colloidal-Cadmium Sulfide in Aqueous Solution",
+      "authors_or_publisher": "Henglein A. (Ber. Bunsenges. Phys. Chem.)",
+      "year": "1982",
+      "url_or_doi": "10.1002/bbpc.19820860409"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Pas de liaison chimique formée : le CT (agrégats de ≈ 25 nm, CdS enrobé d'oxyde de titane amorphe) se dépose par séchage sur l'extérieur des grains de MCM-41 et bouche en partie les entrées de pores. Le gain d'activité apparente vient le plus probablement de deux effets : la dispersion du CT, qui expose plus de CdS à la lumière par gramme de CT, et l'adsorption du MB cationique sur la silice, chargée négativement au-dessus de pH 5, qui retire le colorant de la solution et le rapproche des sites actifs. L'oxydation se fait surtout par les trous de CdS et les •OH (le méthanol a le plus d'effet). Le transfert d'électrons CdS → TiO2 amorphe proposé par les auteurs n'est pas démontré.",
+    "sources": [
+     {
+      "title": "Use of scavenger agents in heterogeneous photocatalysis: truths, half-truths, and misinterpretations",
+      "authors_or_publisher": "Schneider J.T., Firak D.S., Ribeiro R.R., Peralta-Zamora P. (Phys. Chem. Chem. Phys. 22, 15723)",
+      "year": "2020",
+      "url_or_doi": "10.1039/D0CP02411B"
+     },
+     {
+      "title": "Alcohols as Scavengers for Hydroxyl Radicals in Photocatalytic Systems: Reliable or Not?",
+      "authors_or_publisher": "Ding L. et al. (ACS ES&T Water 3, 3534)",
+      "year": "2023",
+      "url_or_doi": "10.1021/acsestwater.3c00271"
+     },
+     {
+      "title": "Photo-Degradation and Fluorescence of Colloidal-Cadmium Sulfide in Aqueous Solution",
+      "authors_or_publisher": "Henglein A. (Ber. Bunsenges. Phys. Chem.)",
+      "year": "1982",
+      "url_or_doi": "10.1002/bbpc.19820860409"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dose de catalyseur réelle (0,1, 0,18 ou 1 g/L) et unité du rapport MB/CTM",
+    "débit d'air réel (mL/min ou L/min) et conditions de l'optimum (0,49 mL/min et rapport 133,3 d'après le modèle)",
+    "masses de CT et de MCM-41 et base du pourcentage w/w",
+    "témoin d'adsorption dans le noir (MCM-41 seul et CTM) et définition de C0",
+    "piégeurs adaptés (AgNO3 pour e-, EDTA-2Na ou oxalate pour h+, tert-butanol pour •OH, p-benzoquinone pour O2•-) à des concentrations de l'ordre de 1 à 10 mM",
+    "Cd2+ relargué dans l'eau après l'essai",
+    "XPS : référencer la charge sur C 1s et ajuster S 2p avec un doublet à 1,16 eV, en tenant compte du Si 2s"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les trois synthèses de base (MCM-41 par la recette de Cai, CdS par précipitation, CT par sol-gel du TBT) sont chimiquement cohérentes et les quantités se tiennent (TEOS:CTAB:NaOH:H2O = 1:0,145:0,31:1129 ; Cd:S = 1:1 ; h = 4,1 pour TiO2). Le composite CTM est un simple mélange mal défini en masse. Les faiblesses sont dans la caractérisation et l'essai photocatalytique : l'optimum annoncé (pH 7, 1,75 mL/min, rapport 110 → 44,61-45,6 %) contredit le modèle des auteurs, qui donne 32,6 % à ce point et 44,61 % seulement à 0,49 mL/min et rapport 133,3. La dose de catalyseur est donnée de trois façons incompatibles. Le « doublet S 2p » est impossible (écart de 5,98 eV) et recouvre Si 2s. Les rôles des piégeurs sont faux. Aucun témoin n'isole l'adsorption sur la silice. Le « diamètre moyen des pores » (4V/S) dépasse le paramètre de maille et n'est pas la taille des canaux.",
+  "author_errors_suspected": [
+   "conditions optimales mal reportées : la prédiction de 44,61 % correspond à pH 7, 0,49 mL/min et rapport 133,3, pas à 1,75 mL/min et rapport 110",
+   "dose de catalyseur contradictoire (0,1 g/L, 1 g/L, rapport 88,89-133,33 sans unité)",
+   "attribution XPS S 2p avec un écart de doublet de 5,98 eV (attendu 1,16 eV) ; décalage de charge d'environ +5,5 à +6 eV présenté comme « léger »",
+   "éthanol présenté comme piégeur d'électrons et NaCl comme piégeur de trous",
+   "p-values écrites « > 0,0001 » au lieu de « < 0,0001 » ; terme AB gardé dans le modèle mais annoncé exclu",
+   "diamètre de pore de 7,3 nm (4V/S, porosité entre particules comprise) présenté comme diamètre des mésopores de MCM-41",
+   "convention de Tauc inversée (n = 1/2 pour une transition directe dans [F(R)hν]^n)",
+   "débit d'air en mL/min probablement au lieu de L/min"
+  ],
+  "comparison_with_database": "MCM-41 : PMC12195685 (BJH 3,5 nm, 0,7 cm3/g, 996 m2/g) et PMC8233738 (d100 4,14 nm, a0 4,78 nm, BJH 3,47 nm) ; ici 895 m2/g est dans la norme, mais 7,29 nm et 1,63 cm3/g sont hors norme parce qu'ils incluent la porosité entre particules. CdS : PMC13446275 (hydrothermal à 200 °C, cubique, 19 nm, 2,2 eV) et PMC9059895 (solvothermal, hexagonal) ; la précipitation à température ambiante donne ici un grain plus petit (12 nm), compatible."
+ },
+ "sources_not_found": [
+  "aucune source consultée ne donne la capacité d'adsorption du bleu de méthylène sur un MCM-41 calciné comparable ; l'argument d'adsorption repose sur le calcul et la logique du témoin manquant",
+  "fiche « JCPDS No. 0085-29 » pour la silice amorphe : pas cherchée, le format du numéro n'est pas celui d'une fiche PDF",
+  "énergie de liaison exacte de Si 2s dans SiO2 (≈ 154,5 eV) : prise de manuel, aucune page consultée ne l'indique explicitement (la page Thermo signale seulement le recouvrement S 2p / Si 2s)"
+ ]
+}

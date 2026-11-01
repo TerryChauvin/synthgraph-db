@@ -1,0 +1,15 @@
+# Journal de la critique de fidélité, PMC5882680
+
+- Ma liste d'échantillons avant ouverture de l'extraction : g-C3N4 massif (550 °C) et nanofeuillets (désammoniation 500 °C), composites 2:8, 5:5, 8:2, Bi2WO6 pur, et le témoin « MO photolysis » sans catalyseur. L'inventaire de l'extracteur est identique ; le témoin est bien rangé sans voie. Aucun échantillon manquant.
+- « Pure g-C3N4 » : l'article ne dit pas s'il s'agit du massif ou des nanofeuillets. L'extracteur a retenu une seule voie (nanofeuillets) et l'a mis en doute ; je n'en fais pas un constat, faute de passage qui tranche (les images Fig. 5a,c montrent des nanoflocons).
+- Rapport massique : sens g-C3N4 : Bi2WO6 confirmé par « as the amount of g-C3N4 increased » (décalage vers le rouge) et par « too much Bi2WO6 content ... (such as 2 : 8) ». La branche 8:2 prise comme base est cohérente avec le protocole « typical » générique.
+- Valeurs de tableau/« respectively » : phrase des constantes k relue (g-C3N4, 2:8, 5:5, 8:2, Bi2WO6) ; attributions 0,00999 / 0,01104 / 0,0166 / 0,02659 / 0,00313 correctes. Rapports 2,7 et 8,5 recalculés (0,02659/0,00999 = 2,66 ; /0,00313 = 8,5) ; 1,4 et 3,2 cohérents avec 95,88 %, 68,8 % et C/C0 ≈ 0,70 de Bi2WO6.
+- Figures lues (Fig. 6b, 8, 10a) : toutes dans la tolérance. Fig. 8 fin de cycle 1 ≈ 0,025 (extrait 0,03) et cycle 4 ≈ 0,175 (extrait 0,17, texte 84,26 % soit 0,157) : écart absolu inférieur à 0,02, pas de constat.
+- Fig. 7b (≈ 0,015 pour 5:5 ; ≈ 0,010 pour 2:8) contre le texte (0,0166 ; 0,01104) : écart d'environ 10 %, déjà documenté dans les doutes ; le texte l'emporte, pas de constat.
+- Fig. 10b : pic de PL de g-C3N4 lu vers 432 nm contre 440 nm écrit : 2 %, valeur du texte conservée, noté seulement.
+- Fig. 4b : les gaps des composites ne sont lisibles qu'au mieux pour 8:2, sans précision suffisante ; je n'exige pas de valeur (écrit dans les lacunes de reproductibilité).
+- Constats `sure` : concentrations des capteurs (phrase exacte présente dans l'article, absente de l'extraction) ; protocole de recyclage « After every cycle... dried at 60°C » absent ; FT-IR de Bi2WO6 absent ; creuset en alumine déclaré non cité alors qu'il est cité.
+- Constat `probable` : branche Bi2WO6, retrait des 30 ml de TEG et addition « dropwise » héritée ; la citation (« without g-C3N4 ») ne dit ni l'un ni l'autre ; le doute de l'extracteur en parle déjà, d'où `deduit` et non `faux`.
+- Les 57 cases `not_stated` ont été comparées au texte : recherche de rpm, rampe, vitesse de chauffe, pureté, fournisseur, volume d'autoclave, distance de lampe : aucun résultat dans l'article (pas d'annexe). Seule `crucible` est fausse.
+- method_sources : C19 et C20 correctes (rôle « autre » acceptable). Exclus à raison : C37 (équation cinétique), C31 (Tauc), C39 (choix des capteurs, contexte), C33 et C23 (comparaisons).
+- Non-constats : annotation pourquoi_ces_donnees (« seulement sur le meilleur échantillon » pour PL alors que Fig. 10b compare trois échantillons) et qualification du TEG « toxique » dans securite_analyse : pas de passage de l'article à citer, donc en notes.

@@ -1,0 +1,588 @@
+{
+ "pmcid": "PMC6985175",
+ "routes": [
+  {
+   "label": "NPG",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "somme de la composition du verre",
+     "inputs": "7,7 Na2O + 4,0 CaO + 2,7 Al2O3 + 33,2 B2O3 + 52,4 SiO2",
+     "formula": "Σ",
+     "result": "100,0",
+     "compared_to": "cohérent avec des % molaires comme avec des % massiques : la somme ne tranche pas l'unité",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "composition si les chiffres sont des % molaires, convertie en % massiques",
+     "inputs": "M(Na2O) 61,98 ; M(CaO) 56,08 ; M(Al2O3) 101,96 ; M(B2O3) 69,62 ; M(SiO2) 60,08 g/mol",
+     "formula": "w_i = x_i M_i / Σ x_j M_j",
+     "result": "Na2O 7,4 ; CaO 3,5 ; Al2O3 4,3 ; B2O3 35,9 ; SiO2 48,9 % massique",
+     "compared_to": "verre mère de type Vycor (≈ 75 SiO2 – 20 B2O3 – 5 Na2O % massique) : plus riche en bore ; reste dans la zone de démixtion Na2O–B2O3–SiO2",
+     "source": "masses molaires IUPAC ; calcul"
+    },
+    {
+     "what": "composition si les chiffres sont des % massiques, convertie en % molaires",
+     "inputs": "mêmes masses molaires",
+     "formula": "x_i = (w_i/M_i) / Σ (w_j/M_j)",
+     "result": "Na2O 7,9 ; CaO 4,5 ; Al2O3 1,7 ; B2O3 30,4 ; SiO2 55,5 % molaire",
+     "compared_to": "écart de 1 à 6 points selon l'oxyde : l'unité change la recette (≈ 3,5 g de B2O3 de différence pour 100 g de verre)",
+     "source": "masses molaires IUPAC ; calcul"
+    },
+    {
+     "what": "transmission maximale d'une lame de silice (pertes de Fresnel seules)",
+     "inputs": "n = 1,462 (valeur de l'article)",
+     "formula": "R = ((n−1)/(n+1))² ; T = (1−R)²",
+     "result": "R = 3,5 % par face ; T max ≈ 93 %",
+     "compared_to": "18 % mesurés à 600 nm pour le verre nanoporeux",
+     "source": "calcul (optique élémentaire)"
+    },
+    {
+     "what": "indice effectif du verre poreux sec",
+     "inputs": "porosité 28 % (Vycor 7930) ; n(squelette) = 1,462 ; n(air) = 1",
+     "formula": "moyenne en volume 0,72 × 1,462 + 0,28 × 1",
+     "result": "≈ 1,33",
+     "compared_to": "1,462 cité par les auteurs pour « le verre » autour des nanocristaux : c'est l'indice de la silice dense, non mesuré sur le verre poreux",
+     "source": "Applied Optics 1979 (porosité) ; calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Unité de la composition non donnée ; les deux lectures (calculs « % molaires » et « % massiques ») donnent un verre sodo-borosilicaté riche en B2O3 (30–36 %) situé dans la zone de démixtion classique, mais la pesée des oxydes diffère de 1 à 6 points selon l'unité. Pas de composition analysée après fusion (B2O3 et Na2O s'évaporent partiellement à 1723 K pendant 4 h).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Fusion à 1723 K (1450 °C) 4 h en creuset de platine puis traitement de démixtion à 853 K (580 °C) 40 h : plage habituelle des verres poreux de type Vycor (traitement de 500–650 °C, quelques heures à quelques jours, la taille de pore croît avec la température et la durée). Pore de ~4 nm compatible avec une démixtion à basse température.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Silica monoliths with hierarchical porosity obtained from porous glasses",
+      "authors_or_publisher": "Inayat A., Reinhardt B., Uhlig H., Einicke W.-D., Enke D. — Chem. Soc. Rev. 42, 3753",
+      "year": "2013",
+      "url_or_doi": "10.1039/c2cs35304k"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Lixiviation 24 h dans HNO3 1 N à 363 K : conditions classiques ; épaisseur de la plaque avant lixiviation non donnée (≈ 1 mm d'après l'échantillon OIiG). Aucun lavage alcalin n'est décrit : la silice colloïdale qui se dépose dans les pores après lixiviation acide n'est pas retirée, ce qui réduit le volume poreux et peut diffuser la lumière.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Method of making controlled pore glass (US 9 731 996 B1)",
+      "authors_or_publisher": "USPTO, brevet",
+      "year": "2017",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9731996"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Transmittance de 18 % à 600 nm pour un verre à pores de 4 nm, contre ≈ 93 % au plus par pertes de Fresnel (calcul « transmission maximale d'une lame de silice ») : le verre obtenu est très diffusant. Un verre de type Vycor bien démixé est transparent ; une turbidité vient d'une hétérogénéité de structure (domaines de démixtion plus gros, silice colloïdale) ou d'un séchage incomplet. Épaisseur et état de surface du verre mesuré non donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Fractal and spinodal-decomposed turbidities of nanoporous glass: fluctuation picture in turbid and transparent Vycor",
+      "authors_or_publisher": "Ogawa S., Nakamura J. — J. Opt. Soc. Am. A 34(4), 449–463",
+      "year": "2017",
+      "url_or_doi": "non relevé (DOI reconstruit par le critique, retiré par l orchestrateur)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Indice 1,462 attribué au verre : c'est l'indice de la silice dense (squelette), pas celui du verre poreux (≈ 1,33 sec, calcul « indice effectif du verre poreux sec »). La valeur n'est pas une mesure de l'article ; à ne pas utiliser comme indice du verre nanoporeux.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Diamètre de pore « ~4 nm » sans mesure décrite (pas d'isotherme N2, pas de porosimétrie) : valeur reprise de la ressemblance avec le Vycor 7930 (pores de 4–5 nm, porosité 28 %, masse volumique sèche 1,45 g/cm³). C'est pourtant la grandeur qui fonde toute l'interprétation de taille.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "What is Vycor glass?",
+      "authors_or_publisher": "Applied Optics (Optica Publishing Group), vol. 18 n° 19, p. 3208 (Tableau IV : propriétés du Vycor poreux 7930)",
+      "year": "1979",
+      "url_or_doi": "10.1364/AO.18.003208"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Fusion à 1450 °C (four, protection thermique et faciale), HNO3 chaud (corrosif, vapeurs nitreuses) : non mentionnés par l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le verre sodo-borosilicaté se démixe par décomposition spinodale vers 580 °C en une phase riche en silice et une phase interconnectée riche en borate de sodium ; HNO3 chaud dissout la phase borate (soluble en acide) et laisse un squelette de silice à ~96 % dont les canaux ont la taille des domaines de démixtion (quelques nm à basse température et durée moyenne). De la silice colloïdale peut rester dans les pores faute de lavage alcalin.",
+    "sources": [
+     {
+      "title": "Silica monoliths with hierarchical porosity obtained from porous glasses",
+      "authors_or_publisher": "Inayat A., Reinhardt B., Uhlig H., Einicke W.-D., Enke D. — Chem. Soc. Rev. 42, 3753",
+      "year": "2013",
+      "url_or_doi": "10.1039/c2cs35304k"
+     },
+     {
+      "title": "Method of making controlled pore glass (US 9 731 996 B1)",
+      "authors_or_publisher": "USPTO, brevet",
+      "year": "2017",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9731996"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "unité de la composition (mol % ou % massique) et pertes de B2O3/Na2O à la fusion",
+    "mesure réelle de la taille de pore et du volume poreux (isotherme N2) avant l'imprégnation",
+    "épaisseur et polissage de la plaque ; transmittance d'un verre poreux correct attendue bien au-dessus de 18 %",
+    "lavage alcalin éventuel pour retirer la silice colloïdale",
+    "température et durée de séchage (eau adsorbée dans les pores avant imprégnation)"
+   ]
+  },
+  {
+   "label": "PEABr",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "stœchiométrie de la neutralisation",
+     "inputs": "C6H5C2H4NH2 + HBr → C6H5C2H4NH3Br ; « stoichiometric ratio »",
+     "formula": "n(amine) : n(HBr)",
+     "result": "1 : 1",
+     "compared_to": "sel C8H12NBr (M = 202,10 g/mol) : conforme",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport 1:1 correct pour le bromure de phénéthylammonium. Forme de HBr non donnée (gaz, solution aqueuse à 48 % ?) ; la référence suivie par les auteurs (Kawano 2017) fait la neutralisation dans l'eau, pas dans le DMF.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Scintillating Organic–Inorganic Layered Perovskite-type Compounds and the Gamma-ray Detection Capabilities",
+      "authors_or_publisher": "Kawano N., Koshimizu M., Okada G., Fujimoto Y., Kawaguchi N., Yanagida T., Asai K. — Sci. Rep. 7, 14754",
+      "year": "2017",
+      "url_or_doi": "10.1038/s41598-017-15268-x"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Neutralisation dans le DMF puis évaporation à 363 K : en milieu acide (HX), le DMF s'hydrolyse en diméthylamine et acide formique ; le bromure de diméthylammonium formé reste dans la poudre, puisqu'aucun lavage (éther) ni recristallisation n'est décrit. Impureté possible du sel PEABr, donc de la Phe.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Myths and reality of HPbI3 in halide perovskite solar cells",
+      "authors_or_publisher": "Ke W., Spanopoulos I., Stoumpos C. C., Kanatzidis M. G. — Nat. Commun. 9, 4785",
+      "year": "2018",
+      "url_or_doi": "10.1038/s41467-018-07204-y"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Évaporation du DMF (Téb 153 °C à 1 atm) à 363 K sous vide : possible ; pression du vide non donnée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Neutralisation amine + HBr exothermique, HBr corrosif ; DMF reprotoxique (hotte). Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réaction acide–base : HBr protone l'amine primaire en ion phénéthylammonium, le sel cristallise à l'évaporation du solvant. Un excès de HBr ou un chauffage prolongé dans le DMF favorise l'hydrolyse acide du DMF en diméthylammonium.",
+    "sources": [
+     {
+      "title": "Scintillating Organic–Inorganic Layered Perovskite-type Compounds and the Gamma-ray Detection Capabilities",
+      "authors_or_publisher": "Kawano N., Koshimizu M., Okada G., Fujimoto Y., Kawaguchi N., Yanagida T., Asai K. — Sci. Rep. 7, 14754",
+      "year": "2017",
+      "url_or_doi": "10.1038/s41598-017-15268-x"
+     },
+     {
+      "title": "Myths and reality of HPbI3 in halide perovskite solar cells",
+      "authors_or_publisher": "Ke W., Spanopoulos I., Stoumpos C. C., Kanatzidis M. G. — Nat. Commun. 9, 4785",
+      "year": "2018",
+      "url_or_doi": "10.1038/s41467-018-07204-y"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "forme et concentration de HBr",
+    "quantités et volume de DMF",
+    "lavage du sel (éther diéthylique) et pureté contrôlée (RMN, absence de diméthylammonium)"
+   ]
+  },
+  {
+   "label": "Phe_poly",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "stœchiométrie de la pérovskite en couches",
+     "inputs": "2 C6H5C2H4NH3Br + PbBr2 → (C6H5C2H4NH3)2PbBr4",
+     "formula": "n(PEABr) : n(PbBr2)",
+     "result": "2 : 1 ; M(Phe) = 771,20 g/mol",
+     "compared_to": "formule (C8H12N)2PbBr4 de Shibuya 2009 : conforme",
+     "source": "valeurs de l'article ; Shibuya 2009"
+    },
+    {
+     "what": "masse volumique de la Phe",
+     "inputs": "V = 2250,6 Å³, Z = 4, M = 771,20 g/mol (Shibuya 2009)",
+     "formula": "ρ = Z M / (N_A V)",
+     "result": "2,28 g/cm³",
+     "compared_to": "sert au bilan de remplissage des pores (voie OIiG)",
+     "source": "Shibuya 2009 ; calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport molaire 2:1 conforme à la formule (calcul « stœchiométrie de la pérovskite en couches »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Kawano 2017, que les auteurs suivent, agite la solution 3 h sous flux d'argon sec ; l'article omet l'atmosphère. Pb(II) et Br− ne s'oxydent pas à l'air, mais l'humidité ajoute de l'eau au DMF et accélère son hydrolyse : précaution utile, non indispensable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Scintillating Organic–Inorganic Layered Perovskite-type Compounds and the Gamma-ray Detection Capabilities",
+      "authors_or_publisher": "Kawano N., Koshimizu M., Okada G., Fujimoto Y., Kawaguchi N., Yanagida T., Asai K. — Sci. Rep. 7, 14754",
+      "year": "2017",
+      "url_or_doi": "10.1038/s41598-017-15268-x"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bloc polycristallin de 10 × 10 × 5 mm totalement opaque (0,0 %) : attendu pour une pérovskite 2D très anisotrope en polycristal (les auteurs le disent eux-mêmes). PL à 410 nm (3,02 eV) identique au monocristal : cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Température et durée d'évaporation non données ; obtenir un bloc massif de 5 mm d'épaisseur par simple évaporation sous vide suppose un volume de solution important (non donné).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dans le DMF, PbBr2 et PEABr forment des complexes plomb–bromure ; l'évaporation sursature la solution, et les feuillets PbBr4²⁻ à sommets partagés s'auto-assemblent avec des bicouches de phénéthylammonium, d'où la phase en couches P-1.",
+    "sources": [
+     {
+      "title": "Poly[bis(phenethylammonium) [dibromidoplumbate(II)]-di-μ-bromido]",
+      "authors_or_publisher": "Shibuya K., Koshimizu M., Nishikido F., Saito H., Kishimoto S. — Acta Cryst. E",
+      "year": "2009",
+      "url_or_doi": "10.1107/S160053680903712X"
+     },
+     {
+      "title": "Scintillating Organic–Inorganic Layered Perovskite-type Compounds and the Gamma-ray Detection Capabilities",
+      "authors_or_publisher": "Kawano N., Koshimizu M., Okada G., Fujimoto Y., Kawaguchi N., Yanagida T., Asai K. — Sci. Rep. 7, 14754",
+      "year": "2017",
+      "url_or_doi": "10.1038/s41598-017-15268-x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités et volume de DMF",
+    "température, durée et pression de l'évaporation",
+    "atmosphère sèche (argon) comme chez Kawano 2017"
+   ]
+  },
+  {
+   "label": "Phe_single",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume de maille avec les paramètres de l'article",
+     "inputs": "a = 11,65 Å ; b = 11,66 Å ; c = 17,59 Å ; α = 105,6° ; β = 99,4° ; γ = 90,0°",
+     "formula": "V = abc √(1 − cos²α − cos²β − cos²γ + 2 cosα cosβ cosγ)",
+     "result": "2268 Å³",
+     "compared_to": "2250,6 Å³ (Shibuya 2009 : a = 11,615, b = 11,628, c = 17,575 Å, α = 99,55°, β = 105,72°, γ = 89,98°, Z = 4) : écart de 0,8 % ; α et β permutés = autre choix d'axes (a ≈ b)",
+     "source": "Shibuya 2009 ; calcul"
+    },
+    {
+     "what": "distance interfeuillets et plan (006)",
+     "inputs": "maille de l'article",
+     "formula": "d(001) = V / (a b sin γ) ; d(006) = d(001)/6",
+     "result": "d(001) = 1,67 nm ; d(006) = 0,278 nm",
+     "compared_to": "pic (001) à 2θ = 5,36° (d = 1,65 nm, Cu Kα) chez Ge 2019 : conforme",
+     "source": "Ge 2019 ; calcul"
+    },
+    {
+     "what": "énergies de photon",
+     "inputs": "410 nm ; 422 nm (pic d'absorbance « 2,94 eV ») ; exciton de couche mince 402 nm (Ge 2019)",
+     "formula": "E (eV) = 1239,84 / λ (nm)",
+     "result": "3,024 ; 2,938 ; 3,084 eV",
+     "compared_to": "le pic d'absorbance du monocristal (2,94 eV) tombe 80 meV sous son émission (3,02 eV) et 145 meV sous l'exciton connu (3,08 eV)",
+     "source": "Ge 2019 ; calcul"
+    },
+    {
+     "what": "transmission maximale du monocristal",
+     "inputs": "n = 1,830 à 632,8 nm",
+     "formula": "T = (1 − ((n−1)/(n+1))²)²",
+     "result": "≈ 84 %",
+     "compared_to": "44 % mesurés à 600 nm sur 3 mm : plausible (diffusion, défauts)",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Diffusion de vapeur de nitrométhane dans une solution DMF : méthode publiée pour cette phase (Shibuya 2009 : deux mois, 8 × 6 × 1 mm ; Kawano 2017 : un mois puis un second mois avec germe pour 17 × 23 × 4 mm). Un cristal de 13 × 13 × 3 mm en un mois sans germe est dans la fourchette haute mais plausible. Température de croissance non donnée (ambiante chez Shibuya).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Poly[bis(phenethylammonium) [dibromidoplumbate(II)]-di-μ-bromido]",
+      "authors_or_publisher": "Shibuya K., Koshimizu M., Nishikido F., Saito H., Kishimoto S. — Acta Cryst. E",
+      "year": "2009",
+      "url_or_doi": "10.1107/S160053680903712X"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres de maille conformes à la structure de référence (calcul « volume de maille avec les paramètres de l'article »).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Poly[bis(phenethylammonium) [dibromidoplumbate(II)]-di-μ-bromido]",
+      "authors_or_publisher": "Shibuya K., Koshimizu M., Nishikido F., Saito H., Kishimoto S. — Acta Cryst. E",
+      "year": "2009",
+      "url_or_doi": "10.1107/S160053680903712X"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pic d'absorbance « excitonique » à 2,94 eV (422 nm), sous l'émission à 3,02 eV (calcul « énergies de photon ») : physiquement anormal pour un exciton libre ; l'exciton de (PEA)2PbBr4 absorbe vers 402 nm (3,08 eV). En absorbance diffuse sur un cristal de 3 mm, l'absorption excitonique est saturée et la bande à 422 nm est la queue d'absorption ou un effet de réflexion, pas la position de l'exciton. La Fig. 4b montre d'ailleurs un autre maximum vers 392 nm. La valeur 2,94 eV ne doit pas servir de référence d'énergie excitonique.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Centimeter-scale 2D perovskite (PEA)2PbBr4 single crystal plates grown by a seeded solution method for photodetectors",
+      "authors_or_publisher": "Ge C. et al. — RSC Advances 9, 16779",
+      "year": "2019",
+      "url_or_doi": "10.1039/c9ra01415b"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nitrométhane : inflammable, peut se décomposer de façon explosive sous choc ou chauffage, mélanges avec les amines sensibles au choc. Ici l'amine est protonée (sel), le risque est faible, mais pas de phénéthylamine libre en présence de nitrométhane, pas de chauffage en dessiccateur fermé. Non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "ICSC 0522 — Nitromethane",
+      "authors_or_publisher": "IPCS / OMS – Commission européenne (INCHEM) ; voir aussi NOAA CAMEO Chemicals, fiche 1222",
+      "year": "1997",
+      "url_or_doi": "https://www.inchem.org/documents/icsc/icsc/eics0522.htm"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "La vapeur de nitrométhane (mauvais solvant, plus volatil que le DMF) se dissout lentement dans la solution DMF, abaisse la solubilité de la Phe et maintient une faible sursaturation : peu de germes au fond du flacon, croissance lente en plaques selon les feuillets inorganiques.",
+    "sources": [
+     {
+      "title": "Poly[bis(phenethylammonium) [dibromidoplumbate(II)]-di-μ-bromido]",
+      "authors_or_publisher": "Shibuya K., Koshimizu M., Nishikido F., Saito H., Kishimoto S. — Acta Cryst. E",
+      "year": "2009",
+      "url_or_doi": "10.1107/S160053680903712X"
+     },
+     {
+      "title": "Scintillating Organic–Inorganic Layered Perovskite-type Compounds and the Gamma-ray Detection Capabilities",
+      "authors_or_publisher": "Kawano N., Koshimizu M., Okada G., Fujimoto Y., Kawaguchi N., Yanagida T., Asai K. — Sci. Rep. 7, 14754",
+      "year": "2017",
+      "url_or_doi": "10.1038/s41598-017-15268-x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration de Phe dans le DMF et volumes",
+    "température de croissance",
+    "mesure de l'exciton sur une lame mince ou en réflectance, pas en absorbance diffuse d'un bloc de 3 mm"
+   ]
+  },
+  {
+   "label": "OIiG",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume poreux massique du verre",
+     "inputs": "Vycor 7930 : porosité 28 % en volume, masse volumique sèche 1,45 g/cm³",
+     "formula": "Vp = 0,28 / 1,45",
+     "result": "0,19 cm³/g",
+     "compared_to": "verre de l'article supposé semblable (« similar composition to Vycor 7913 », pores de ~4 nm)",
+     "source": "Applied Optics 1979, Tableau IV"
+    },
+    {
+     "what": "masse de Phe qui remplirait entièrement les pores",
+     "inputs": "Vp = 0,19 cm³/g ; ρ(Phe) = 2,28 g/cm³",
+     "formula": "Vp × ρ",
+     "result": "0,44 g de Phe par g de verre",
+     "compared_to": "rapport pondéral annoncé 1:2 = 2 g de Phe par g de verre, soit 4,5 fois la capacité des pores (si l'ordre est inversé, 0,5 g/g : encore au-dessus)",
+     "source": "Shibuya 2009 ; Applied Optics 1979 ; calcul"
+    },
+    {
+     "what": "bilan pour l'échantillon de 15 × 15 × 1 mm",
+     "inputs": "V = 0,225 cm³ ; 1,45 g/cm³ ; Phe = 2 × masse du verre",
+     "formula": "m(verre) = 0,225 × 1,45 ; V(Phe) = 2 m / 2,28 ; excès = V(Phe) − 0,28 × 0,225 ; surface 5,1 cm²",
+     "result": "verre 0,33 g ; Phe 0,65 g (0,85 mmol) = 0,29 cm³ ; pores 0,063 cm³ ; excès 0,22 cm³, soit une couche de ≈ 0,4 mm si tout se dépose sur la plaque",
+     "compared_to": "aucune étape d'élimination de l'excès (rinçage, polissage) n'est décrite",
+     "source": "calcul sur les valeurs de l'article"
+    },
+    {
+     "what": "remplissage maximal en une imprégnation par une solution",
+     "inputs": "hypothèse : solution 1 mol/L de Phe (771 g/L) ; Vp = 0,19 cm³/g",
+     "formula": "Vp × c × M / (ρ Vp)",
+     "result": "0,15 g de Phe/g de verre ; 34 % du volume poreux",
+     "compared_to": "concentration de la solution non donnée ; seule la solution contenue dans les pores peut y cristalliser",
+     "source": "calcul (hypothèse de concentration)"
+    },
+    {
+     "what": "largeur de Scherrer attendue pour des cristaux de 3,5 nm",
+     "inputs": "pic (002) à 2θ ≈ 10,6° ; λ = 0,15406 nm (Cu Kα supposé, non donné) ; K = 0,9",
+     "formula": "β = K λ / (L cos θ)",
+     "result": "≈ 2,3° (2,0° à 4 nm, 2,7° à 3 nm)",
+     "compared_to": "pics de l'OIiG de la Fig. 2 (lecture visuelle) nettement plus fins, de l'ordre de 0,3–0,5°, soit L ≈ 16–27 nm",
+     "source": "calcul ; lecture de la Fig. 2"
+    },
+    {
+     "what": "nombre de mailles dans une sphère de 3,5 nm",
+     "inputs": "V(maille) = 2,25 nm³",
+     "formula": "(4/3) π (1,75 nm)³ / 2,25 nm³",
+     "result": "≈ 10 mailles ; 2 feuillets inorganiques selon c",
+     "compared_to": "« only several unit cells » des auteurs : conforme",
+     "source": "calcul"
+    },
+    {
+     "what": "énergies d'activation recalculées depuis la Fig. 6",
+     "inputs": "lecture des points (1/T ; I normalisée) : monocristal (2,894e-3 ; 0,38) … (3,333e-3 ; 1,00) ; OIiG, droite tracée de (2,97e-3 ; 0,16) à (3,33e-3 ; 0,97) ; k_B = 8,617e-5 eV/K",
+     "formula": "(a) k_B × pente de I (linéaire) contre 1/T ; (b) k_B × pente de ln I contre 1/T",
+     "result": "(a) 123 meV (monocristal) et 194 meV (OIiG) ; (b) ≈ 190 meV et ≈ 400 meV",
+     "compared_to": "121 et 195 meV publiés : ils correspondent à la pente de l'intensité linéaire, pas à une loi d'Arrhenius",
+     "source": "lecture de la Fig. 6 (approximative) ; calcul"
+    },
+    {
+     "what": "décalage de la PL",
+     "inputs": "410 nm (monocristal) ; 416 nm (OIiG)",
+     "formula": "1239,84/λ",
+     "result": "3,024 → 2,980 eV : −44 meV (vers le rouge)",
+     "compared_to": "un confinement quantique décale l'émission vers le bleu",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport pondéral 1:2 apporte 4,5 fois la masse de Phe que les pores peuvent contenir (calcul « masse de Phe qui remplirait entièrement les pores ») ; pour la plaque de 15 × 15 × 1 mm, ≈ 0,22 cm³ de Phe ne peut pas entrer dans les pores (calcul « bilan pour l'échantillon »). Aucun rinçage ni polissage n'est décrit : une partie de la Phe cristallise en surface ou à côté de la plaque en grains massifs. L'ordre des chiffres (verre:Phe) n'est pas dit.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve de taille non discriminante : les pics de l'OIiG en XRD (Fig. 2) sont bien plus fins que les ≈ 2,3° attendus pour 3,5 nm (calcul « largeur de Scherrer »), ce qui indique des cristallites d'au moins ~15–25 nm, compatibles avec la Phe en excès hors des pores ; la photo (Fig. 1) montre un échantillon blanc opaque et la transmittance tombe de 18 à 0,4 %, ce que des particules de 3–4 nm (diffusion de Rayleigh ∝ d⁶) n'expliquent pas. Les mesures optiques globales (absorbance, PL, déclin, PL en température) peuvent donc venir en partie de Phe massive de surface ; la MET sur verre broyé ne l'exclut pas.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Énergies d'activation : les valeurs 121 et 195 meV se retrouvent comme k_B × pente de l'intensité normalisée tracée en échelle linéaire contre 1/T (calcul « énergies d'activation recalculées depuis la Fig. 6 ») ; une énergie d'activation se tire de ln I (ou de ln(I0/I − 1)) contre 1/T, ce qui donne des valeurs différentes (≈ 190 et ≈ 400 meV avec les mêmes points). De plus l'intensité de l'OIiG décroît aussi en dessous de 300 K (Fig. 6), comportement non monotone que le modèle à une barrière n'explique pas. Les nombres 121/195 meV ne sont pas des énergies d'activation et ne mesurent pas une énergie de liaison de l'exciton.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : la Conclusion donne 195 meV au monocristal et 121 meV à l'OIiG, l'inverse des Résultats et du résumé ; la Conclusion parle d'une « dispersion of raw nanocrystals in DMF », les Méthodes de poudre mélangée au DMF, l'Introduction de composants dissous (la Phe est soluble dans le DMF, c'est le solvant de croissance) ; le résumé dit l'échantillon « translucent », la Conclusion « very low transmittance » (0,4 %).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le décalage excitonique annoncé (2,94 → 3,04 eV) compare un pic (monocristal) au début d'un épaulement (OIiG), deux grandeurs différentes ; et 2,94 eV n'est pas l'exciton du monocristal (voir voie Phe_single). L'épaulement de l'OIiG (≈ 3,04–3,06 eV, 405–408 nm) est proche de l'exciton d'une couche mince massive (402 nm, 3,08 eV) : pas de décalage vers le bleu démontré. La PL se décale au contraire de 44 meV vers le rouge (calcul « décalage de la PL »), à l'opposé d'un confinement quantique ; un effet diélectrique de la silice, des défauts de surface ou la réabsorption sont des explications au moins aussi simples.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Centimeter-scale 2D perovskite (PEA)2PbBr4 single crystal plates grown by a seeded solution method for photodetectors",
+      "authors_or_publisher": "Ge C. et al. — RSC Advances 9, 16779",
+      "year": "2019",
+      "url_or_doi": "10.1039/c9ra01415b"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Durées de vie plus courtes (2,8/8,6 contre 4,1/11,0 ns) attribuées à une hausse de la recombinaison radiative en supposant k_nr identique ; pour des cristaux de quelques mailles au rapport surface/volume énorme, la recombinaison non radiative en surface est l'explication la plus simple. Sans rendement quantique de PL, k_r et k_nr ne sont pas séparables.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres de maille de l'OIiG identiques au monocristal au millième de nm : trois pics faibles sur un halo ne permettent pas d'affiner une maille triclinique ; ce sont les valeurs du monocristal reprises, pas une mesure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Imprégnation 1 h à 298 K sous vide (vide qui chasse l'air des pores, standard) puis évaporation 30 min à 373 K sous vide : Phe stable à 100 °C ; DMF (Téb 153 °C) piégé dans des pores de 4 nm et coordonné au plomb peut ne pas partir en 30 min ; aucune ATG ni IR pour vérifier le DMF résiduel. Pression du vide non donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Composés du plomb (PbBr2, Phe) toxiques, fragments de verre broyé chargés en plomb pour la MET ; DMF reprotoxique chauffé sous vide (piège froid). Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sous vide, la solution de Phe dans le DMF entre dans les canaux de ~4 nm par capillarité ; à l'évaporation, la sursaturation fait cristalliser la Phe dans les pores (domaines de quelques mailles, deux feuillets selon c) mais seule la solution contenue dans les pores peut y cristalliser (≈ 0,15 g/g pour une solution 1 mol/L, calcul « remplissage maximal »). L'essentiel de la Phe apportée (rapport 1:2) cristallise hors des pores en grains massifs, en surface de la plaque ou sur la verrerie. L'échantillon est donc un mélange de nanodomaines confinés et de Phe massive, dont les parts n'ont pas été mesurées.",
+    "sources": [
+     {
+      "title": "Silica monoliths with hierarchical porosity obtained from porous glasses",
+      "authors_or_publisher": "Inayat A., Reinhardt B., Uhlig H., Einicke W.-D., Enke D. — Chem. Soc. Rev. 42, 3753",
+      "year": "2013",
+      "url_or_doi": "10.1039/c2cs35304k"
+     },
+     {
+      "title": "What is Vycor glass?",
+      "authors_or_publisher": "Applied Optics (Optica Publishing Group), vol. 18 n° 19, p. 3208 (Tableau IV : propriétés du Vycor poreux 7930)",
+      "year": "1979",
+      "url_or_doi": "10.1364/AO.18.003208"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ordre du rapport pondéral verre:Phe et concentration de la solution",
+    "rinçage ou polissage des faces après imprégnation pour retirer la Phe de surface, puis nouvelle XRD (largeur des pics) et nouvelle transmittance",
+    "dosage du plomb ou ATG pour connaître la charge réellement dans les pores",
+    "DMF résiduel (ATG, IR)",
+    "analyse de la PL en température par ln(I0/I − 1) contre 1/T, et mesure du rendement quantique de PL",
+    "exciton du monocristal mesuré sur lame mince, pour comparer à l'OIiG"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les quatre voies de préparation (verre poreux, sel PEABr, Phe polycristalline et monocristalline) sont chimiquement cohérentes et suivent des protocoles publiés, avec des quantités absentes partout. La voie OIiG est douteuse : le rapport pondéral 1:2 apporte environ 4,5 fois la Phe que les pores peuvent contenir, sans élimination de l'excès, et la XRD (pics fins), l'opacité et la PL décalée vers le rouge n'établissent pas que les propriétés mesurées sont celles de nanocristaux confinés. Les énergies d'activation publiées (121 et 195 meV) correspondent à la pente de l'intensité linéaire contre 1/T, non à une loi d'Arrhenius, et la Conclusion les inverse.",
+  "author_errors_suspected": [
+   "Conclusion : énergies d'activation inversées (195 meV monocristal, 121 meV OIiG) par rapport aux Résultats et au résumé",
+   "Introduction : noms des méthodes inversés (monocristal par « solvent diffusion », polycristal par « poor-solvent diffusion »), alors que les Méthodes font l'inverse et que le polycristal est obtenu par évaporation",
+   "Énergies d'activation tirées de la pente de l'intensité normalisée (échelle linéaire) contre 1/T, pas de ln I",
+   "Comparaison d'un pic d'absorbance (monocristal, 2,94 eV, sous l'émission) avec le début d'un épaulement (OIiG, 3,04 eV)",
+   "Paramètres de maille de l'OIiG recopiés du monocristal",
+   "Indice 1,462 attribué au verre nanoporeux alors que c'est celui de la silice dense",
+   "Composition du verre sans unité ; aucune quantité absolue dans tout l'article"
+  ],
+  "comparison_with_database": "Aucune autre voie de (C6H5C2H4NH3)2PbBr4 ni de verre nanoporeux dans la base (compare.py « PbBr4 », « phenethyl », « nanoporous glass » : seule cette publication). Comparaison faite avec la littérature (Shibuya 2009, Kawano 2017, Ge 2019)."
+ },
+ "sources_not_found": [
+  "Rayon de Bohr de l'exciton dans le plan pour (PEA)2PbBr4 : pas de valeur vérifiée trouvée (les auteurs citent ~3–4 nm de diamètre, Lanty 2014, non vérifié)",
+  "Fiche technique Corning du Vycor 7930 avec transmittance optique : non trouvée ; seules les propriétés de porosité (Applied Optics 1979) l'ont été",
+  "Pression de vapeur du DMF (NIST) : non consultée, raisonnement qualitatif seulement"
+ ]
+}

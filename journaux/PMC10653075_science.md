@@ -1,0 +1,15 @@
+# PMC10653075 — critique scientifique (journal de décisions)
+
+- Recette de base jugée cohérente : 0,5 / 0,24 / 0,25 / 1,72 mmol donne Cs/B(I)/B(III)/Cl = 2/0,96/1/6,88, identique au 2/0,96/1/6,9 de Locardi 2018 (vérifié sur la page ACS). L'excès de Cl (15–19 %) vient donc de la recette d'origine, pas d'une erreur.
+- Microcontrainte : j'ai recalculé ε = WG/(4√(2 ln2) tan θ) sur le tableau de la figure S6 (0,0094/0,0138/0,0154 pour Bi, 0,0067/0,0082/0,0068 pour Sb) : le calcul des auteurs est juste. Le `probleme` vient de la méthode : Scherrer donne 0,226° pour 8,1 nm et 0,163° pour 11,2 nm à λ = 0,35423 Å, soit la largeur totale mesurée ; la part lorentzienne est ≈ 0 pour Bi x = 0,25 et 0,5. Taille et contrainte ne se séparent pas sur une seule raie. Source retenue : lettre de la Commission de diffraction des poudres de l'IUCr (profil de taille entre lorentzien et gaussien) plutôt qu'un manuel non consulté.
+- Témoin à plusieurs variables (contrôle 5) classé `probleme` sur la voie Sb : AO ≈ 7,9 mmol contre ≈ 3,2 (AO à 3,17 mmol/mL dans chaque solution d'oléate), AO/OLA ≈ 5,2 contre 2,1, volume 7,7 contre 6,2 mL, et matrices différentes dans les séries en x. Almeida 2018 (fondateurs.md) cité pour le rôle acide/base, transposé des CsPbBr3 : c'est une analogie, je le dis comme tel.
+- PLQY : la même composition nominale (Ag0,4Na0,6In0,9Bi0,1) vaut 12 % et 22 % dans deux séries ; écart > baisse de 24 → 19 % attribuée au Bi → `probleme` sur la conclusion Franck–Condon, pas sur la synthèse.
+- Formule de Eb de l'annexe sans préfacteur : avec A = 1, 1/(1 + e^(−69/25,85)) = 0,936 à 300 K, donc au plus 6 % d'extinction. Classé `reserve` (omission d'écriture probable, figure S11 absente du dépôt donc invérifiable).
+- S = 82,5 contre ≈ 40 : FWHM prédite à 300 K 0,71 contre 0,49 eV ; les auteurs reconnaissent la demi-bande. `reserve`.
+- Rayons de Shannon vérifiés dans la base de l'Imperial College (In3+ 0,80 ; Sb3+ 0,76 ; Bi3+ 1,03 Å, coordinence 6). Les paramètres de maille recalculés depuis S6 donnent +0,10 Å pour Sb entre x = 0 et 0,5 malgré un Sb3+ plus petit : contredit la phrase « same size, no change », `reserve`.
+- Ag0 : l'article Nano Lett. 2022 dit que Ag0 se forme si la solubilisation se fait au-dessus de 90 °C ; ici 100 °C, 5 min. `reserve` redox. Auteurs de cet article non relevés (la page ne les donnait pas) ; je ne les ai pas inventés.
+- NaCl : l'explication « formé au séchage sur verre » est fragilisée par la présence de NaCl en capillaire synchrotron (légende de la figure 4) ; `reserve`, test proposé (DRX sur suspension).
+- Solutions d'oléates à 90 °C en flacon ouvert : l'acide acétique (Téb 118 °C) n'est pas chassé, équilibre d'échange ; `reserve` sans source web (chimie générale).
+- Sécurité : CAMEO « reacts violently with amines » pour le Bz-Cl, injecté dans 1,5 mmol d'OLA à 100 °C à l'air.
+- compare.py : aucune autre double pérovskite chlorée dans la base.
+- Recherches web : 6 recherches et 4 lectures de page. Crossref bloqué : 4 DOI non vérifiés (listés dans sources_not_found). Rien ajouté à fondateurs.md ni à constantes.md.

@@ -1,0 +1,94 @@
+{
+ "pmcid": "PMC10249076",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "YIG_hydrothermal et YIG_solgel, outcomes : taille de particule du tableau 2",
+   "extracted": "absente (Ms, Mr, Hc seuls repris de la rangée « present work »)",
+   "article_says": "hydrothermal | microwave | 1250 | 59 | 24.78 | 0.147 | 3.39 | present work",
+   "fix": "ajouter un outcome « particle_size » 59 nm (hydrothermal) et 56 nm (sol–gel), colonne « particle size (nm) » du tableau 2 (rangées sol–gel : 56)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "sample_inventory : échantillon de comparaison de l'hyperthermie",
+   "extracted": "inventaire limité aux quatre rangées de littérature du tableau 2",
+   "article_says": "Fopase et al. reported the SAR value of YIG particles synthesized by the sol–gel method as 146.76 W/g.",
+   "fix": "ajouter à l'inventaire « YIG sol–gel de Fopase et al. (littérature, réf. 5) », route null, SAR 146.76 W/g, comparé par les auteurs à leurs propres SAR",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "outcomes hyperthermie, durée pour dépasser 43 °C (Fig. 3b,c)",
+   "extracted": "seuls les SAR à 1 et 3 mg/mL ; courbes de chauffage non relevées",
+   "article_says": "The YIG NPs at various concentrations reached an MH temperature of greater than 43 °C within a short time period, which is an important parameter for MH cancer treatment.",
+   "fix": "lire sur la figure 3b,c le temps pour atteindre ≈ 44 °C : panneau b, 1 mg/mL ≈ 8 min et 3 mg/mL ≈ 3 min ; panneau c, 1 mg/mL ≈ 12 min et 3 mg/mL ≈ 4 min ; les ranger en outcomes `from_figure` (température de départ ≈ 25–27,5 °C selon la courbe)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "doute « Figure 3b,c et SAR » et annotation limite_reproductibilite (attribution des panneaux ambiguë)",
+   "extracted": "le panneau b serait plus rapide que c, ce qui contredirait un SAR plus fort pour la voie sol–gel",
+   "article_says": "Figure 3 (a) Magnetization cycle and (b, c) transient temperature as a function of time of YIG synthesized by the hydrothermal method and sol–gel auto combustion technique.",
+   "fix": "la contradiction n'existe pas : SAR proportionnel à la pente initiale rapportée à la concentration ; sur la figure, pentes initiales à 1 mg/mL ≈ 4,6 °C/min (b) et ≈ 5,1 °C/min (c), rapport 1,11 = 237/214 ; à 3 mg/mL ≈ 9,4 (b) et ≈ 7,3 °C/min (c), et rapport 1→3 mg/mL de b ≈ 1,47 = 214/146. Donc b = hydrothermal et c = sol–gel (ordre de la légende), ce qui confirme aussi l'attribution des rangées « 3 | 146 » (hydrothermal) et « 3 | 101 » (sol–gel). Reformuler le doute en conséquence (lecture graphique approximative, ± 10 %)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "YIG_hydrothermal step 14 sinter et YIG_solgel steps 9 et 12 : fréquence du four micro-ondes",
+   "extracted": "pas de paramètre frequency ni dans les paramètres ni dans not_stated (la fréquence 2.45 GHz n'est que dans l'étape 11 de la voie hydrothermale)",
+   "article_says": "The pellet obtained is once again milled and pressed into pellets and sintered at 1250 °C for another 30 min using the microwave furnace.",
+   "fix": "hydrothermal étape 14 : « the microwave furnace » reprend le four de l'étape 11, donc noter la fréquence 2.45 GHz avec cette phrase en renvoi, ou la lister dans not_stated ; voie sol–gel, étapes 9 et 12 : ajouter 'frequency' à not_stated (l'article ne décrit pas le four de cette voie)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation resume (voie sol–gel et hydrothermale) : « Y2O3 dissous dans HNO3 »",
+   "extracted": "Y2O3 dissous dans HNO3",
+   "article_says": "The precursors are taken in stoichiometric ratios and dissolved in double-distilled water by continuous stirring.",
+   "fix": "l'article ne dit pas que Y2O3 est dissous dans HNO3 (le doute de l'extracteur le reconnaît) ; écrire « Y2O3, HNO3 et nitrate ferrique dissous dans l'eau (la dissolution de Y2O3 par HNO3 est une hypothèse) » dans le résumé",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "YIG_solgel reagents : acide citrique",
+   "extracted": "formule None (alors que l'éthylène glycol a C2H6O2 et l'ammoniaque NH3 (aq), non écrits non plus dans l'article)",
+   "article_says": "Citric acid is added to the prepared solution as a fuel agent.",
+   "fix": "homogénéiser : soit C6H8O7 (formule déduite du nom, comme pour l'éthylène glycol), soit retirer les formules non écrites",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "outcomes dislocation_density, unité « × 10^14 cm–2 »",
+   "extracted": "2.78 × 10^14 cm–2 et 3.13 × 10^14 cm–2",
+   "article_says": "dislocation density δ (× 1014) (cm–2) (∼±0.01%) | 2.78 | 3.13",
+   "fix": "valeur et unité sont fidèles à l'article (le XML confirme ×10^14 et cm^-2) ; mais 1/D² avec D = 59.95 nm donne 2.78 × 10^14 m^-2, soit 2.78 × 10^10 cm^-2 : l'unité de l'article semble fausse. Ne pas corriger la valeur ; ajouter une annotation limite_reproductibilite",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 0,
+  "branches_extracted": 0,
+  "routes_in_article": 2,
+  "routes_extracted": 2,
+  "not_stated_checked": 82,
+  "not_stated_wrong": 0,
+  "values_checked_against_text_tables": 44,
+  "values_wrong": 0,
+  "from_figure_checked": 2,
+  "from_figure_gap_pct": "0 (2.25 et 2.24 eV lus sur Fig. 2a,b)"
+ },
+ "reproducibility_gaps": [
+  "aucune quantité de Y2O3, HNO3, Fe(NO3)3·9H2O (ni volume d'eau) dans l'article ni dans l'annexe, qui ne contient que les légendes des figures S1 à S4",
+  "concentration de NH4OH et de l'ammoniaque, quantités d'acide citrique et d'éthylène glycol (rapport citrate/métaux inconnu)",
+  "durée de la gélification et de la combustion, matériel de chauffage à 120 °C (voie sol–gel), récipient de combustion",
+  "taux de remplissage de l'autoclave de 300 mL, vitesse de montée en température, nombre de lavages",
+  "pression de pressage, taille des pastilles, atmosphère, puissance et rampes du four micro-ondes ; four non décrit pour la voie sol–gel",
+  "passage des pastilles frittées (grains de 1 à 2 µm) à une dispersion de « nanoparticules » dans l'hexane : broyage, tensioactif, sonication non décrits",
+  "conditions du potentiel zêta (milieu, pH, concentration) ; chaleur spécifique de l'hexane et masse utilisées pour le SAR ; incertitude de champ 35.2 contre 35.33 kA/m",
+  "rendement absent"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs limité à des phrases écrites (pH 11 et précipité de nanoferrite ; éthylène glycol et agglomération) ; mecanisme_analyse présenté comme hypothèse ; sécurité signalée (HNO3, NO2, hexane, autoclave). Seule remarque : le résumé affirme la dissolution de Y2O3 par HNO3 sans que l'article l'écrive (voir constats).",
+ "notes": "Valeurs numériques des tableaux 1 à 3, du texte (grains, zêta, Raman, Ms/Mr/Hc) et des deux lectures de figure toutes conformes ; attributions Table 3 (rangées « 3 | 146 » hydrothermal et « 3 | 101 » sol–gel, cellules vides de la colonne technique dans le XML) correctes, et corroborées par les pentes de la figure 3b,c. Exposants du Tableau 1 vérifiés sur le XML : « ×10^14 », « cm^-2 », « ×10^-3 » exacts ; seule « gcm3 » a perdu son signe moins dans la source, la lecture « g cm–3 » est la seule physiquement possible (5.22). Autres points de science notés pour l'autre critique : paramètre de maille 1.22 nm bas (YIG ≈ 1.2376 nm) et densité 5.22 (5.17 attendu) ; l'article dit à la fois nanoparticules (56–60 nm cristallite) et grains de 1.4–2.3 µm. Bande FTIR intermédiaire (≈ 595 cm-1 sol–gel, ≈ 598 cm-1 hydrothermal) lisible sur la figure 2d mais non discutée dans le texte, non retenue comme constat. method_sources vide : correct (réf. 20 et 21 justifient un choix, ne donnent pas de protocole) ; « agitate mortar » lu agate, signalé par l'extracteur."
+}

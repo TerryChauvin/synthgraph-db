@@ -1,0 +1,14 @@
+# PMC9079727 — critique scientifique (journal de décisions)
+
+- Base de l'excès de 10 wt% Li2CO3 : tranchée par l'arithmétique. Le « 11 % lower than the theoretical quantity » (Li 6,25 à 1100 °C) n'est retrouvé qu'avec Li nominal 7,04 = 6,4 × 1,10 (11,2 %) ; contre 6,4 l'écart ne fait que 2,3 %. L'excès porte donc sur la masse de Li2CO3, ce qui résout le doute de l'extraction.
+- `probleme` densité théorique : Z·M/(NA·a³) = 8 × 840,97/(6,022e23 × (12,971e-8)³) = 5,12 g/cm3, contre 5,257 annoncé ; il faudrait a = 12,857 Å ou M = 863 g/mol. Confirmé par Yu et al. (5,139 g/cm3 pour Al-LLZO) et Mater. Adv. 2021 (5,1 g/cm3). Densités relatives recalculées 89,9–96,5 %. Classé `probleme` (grandeur dérivée fausse), l'ordre des échantillons ne change pas.
+- `probleme` électroneutralité : Li attendu = 7 − 3·Al ; avec les Al mesurés, déficit 0,36 (LLZALO-1) à 1,08 Li (LLZALO-3). Un déficit de 1,08 non compensé = ~16 % d'unités formulaires décomposées en La2Zr2O7 + La2O3, visible en DRX. Je n'ai pas tranché entre dosage faux (La fixé à 3 sans mesure, « after many trials »), protons (échange Li+/H+) ou phase secondaire non vue : les trois sont dans le finding. Répété sur chaque branche parce que chaque rangée du tableau 1 porte sa propre teneur.
+- Al mesuré 0,13–0,15 contre 0,2 visé : Al non volatil à 1220 °C, donc dosage ou dissolution incomplète ; laissé en `reserve` car sans effet sur la phase observée.
+- Rangasamy 2012 (seuil 0,204 mol Al, passage au tétragonal quand Li monte de 6 à 7) cité pour signaler que LLZALO-1 (Al 0,13, Li 6,25) est à la limite du domaine cubique ; `reserve`, la DRX à 4,2°/min ne permet pas d'exclure un dédoublement faible.
+- Fréquence de relaxation du volume calculée avec εr = 50–100 : hypothèse, aucune source trouvée pour εr de LLZO (pas de recherche dédiée pour rester sous 10). Conclusion qualitative seulement (arc de volume au-delà de 1 MHz) → `reserve`.
+- Vitesse de perte de Li (7,04 − Li)/t : 1210 °C × 15 h (0,062 Li/h) < 1150 °C × 20 h (0,068 Li/h). Gardé en `reserve` et non `probleme` : la perte n'est pas forcément linéaire en temps (l'excès de Li2CO3 part d'abord), mais le plan confond T et t (contrôle 5).
+- Contradiction Ea (« lower than 0.32–0.40 eV » alors que 3 échantillons sur 5 sont dedans ou au-dessus) et « 4.9 % » de variation de densité (= (92,0 − 87,5)/92,0, pas le maximum 94,0) : `reserve`, erreurs de rédaction des auteurs.
+- Mécanisme de l'extraction jugé `ok` ; précisé avec Al3+ sur sites 24d (Rettenwander 2014), phase liquide Li–Al–O et rôle du lit de poudre (Lobe 2022), La2Zr2O7 intermédiaire et produit de perte de Li.
+- Sources écartées : résultats « patsnap » (blog) et arXiv Bernstein (DFT, non nécessaire).
+- Base : aucune autre voie LLZO (compare.py « LLZO » vide ; « garnet » ne donne que YIG).
+- 6 recherches web. Aucun DOI vérifié sur Crossref (bloqué) ; Lobe 2022 et Yu 2016 cités par URL. Rien ajouté à fondateurs.md ni constantes.md.

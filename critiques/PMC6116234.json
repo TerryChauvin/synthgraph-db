@@ -1,0 +1,80 @@
+{
+ "pmcid": "PMC6116234",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "MAPbI3_p6_2nm (et série p1–p6) : longueur d'onde du pic de PL absente des résultats",
+   "extracted": "seule l'intensité du pic (PL_peak_intensity) est extraite ; la position du pic n'apparaît que dans une annotation tendance_observee",
+   "article_says": "The PL peak shifts towards shorter wavelength from 770 to 720 nm as the thickness of the perovskite decreases from 100 nm to single unit cell (2 nm)",
+   "fix": "ajouter un résultat PL_peak_wavelength = 720 nm sur la branche p6 (2 nm), et 770 nm en texte pour la plaquette de 100 nm (sans branche correspondante, p1 = 63 nm). Noter l'écart avec la figure 2b où le maximum de p1 se lit vers 755 nm, pas 770 nm (valeur de l'auteur conservée).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Fig. 2c–f : plaquettes cartographiées en PL (> 100 nm, 20 nm, < 10 nm), aucune branche ni résultat",
+   "extracted": "inventaire : route null, résultat reporté en annotation tendance_observee uniquement",
+   "article_says": "When the perovskite thickness is larger than 100 nm, the boundary PL intensity is much higher than that in the central part (Figure 2c).",
+   "fix": "créer trois branches d'épaisseur (> 100 nm, 20 nm, < 10 nm) avec un résultat PL_edge_vs_center (bord >> centre ; bord > centre, contraste plus faible ; uniforme), épaisseurs en value_text qualitatif. Le contraste bord/centre selon l'épaisseur est l'une des deux comparaisons de l'article.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Fig. 1i,k,l : rugosité de surface selon l'épaisseur sur SiO2/Si (centaines de nm, 10 nm, 2 nm)",
+   "extracted": "inventaire : route null ; résultat uniquement en annotation tendance_observee",
+   "article_says": "Clearly, the surface of the 2D perovskites is more rough for the hundreds-nanometer-thick (Figure 1i) and the single-unit-cell-thick samples (Figure 1l), but the ten-nanometer-thick sample exhibits a much smoother surface (Figure 1k).",
+   "fix": "ajouter un résultat qualitatif de rugosité (rough / much smoother / rough) sur des branches d'épaisseur rattachées à SiO2/Si (ici le substrat est écrit : « on SiO2/Si substrate »), ou au minimum sur la branche p6 (2 nm) et sur une branche 10 nm sur SiO2/Si.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "branches p1–p6, AFM_450/175/150/60 nm, TEM_10nm : substrat hérité de la voie de base (parent MAPbI3_SiO2Si)",
+   "extracted": "parent = MAPbI3_SiO2Si, donc substrat SiO2/Si implicite pour ces échantillons",
+   "article_says": "is measured to be 63 nm, 41 nm, 25 nm, 18 nm, 11 nm, 2 nm, respectively.",
+   "fix": "l'article ne dit le substrat que pour Fig. 1i–p (SiO2/Si) et Fig. 2a (verre) ; il ne le dit ni pour p1–p6, ni pour les images AFM Fig. 1q–t, ni pour la plaquette TEM (qui a dû être transférée sur grille). Ajouter une annotation limite_reproductibilite ou noter « substrat non précisé » sur ces branches au lieu de laisser le parent le suggérer ; la limite est déjà dans les doutes mais pas dans les données.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MAPbI3_SiO2Si étapes 1–2 : découpage et description",
+   "extracted": "étape 2 : « Heat the PbI2 suspension at 100 °C to obtain an oversaturated PbI2 solution » ; les étapes 1 et 2 portent la même citation",
+   "article_says": "0.2 mg PbI2 powder was dissolved in 1 mL distilled water and heated at 100 °C for 1 h to get oversaturated PbI2 solution",
+   "fix": "« suspension » n'est pas dans l'article (il dit dissoudre puis chauffer, « solution »). Reformuler la description ; les deux étapes sont une seule opération de l'article, acceptable mais à garder cohérent.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "MAPbI3_glass_10nm : caractérisation XRD incomplète",
+   "extracted": "pics (110) et (220) et disparition des pics PbI2 ; pas de mention de l'absence des pics (112), (211), (310), (224)",
+   "article_says": "Note that the normally observed (112), (211), (310) and (224) diffraction peaks in perovskite synthesized via solution method are not observed in our samples, attesting the fine crystal orientation of the converted CH3NH3PbI3 perovskite",
+   "fix": "ajouter ce résultat (orientation cristalline) à la caractérisation ou aux résultats de la branche. À noter pour la reproductibilité : la figure 2a s'étend d'environ 5 à 55° alors que les Méthodes annoncent un balayage de 10 à 60°.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Phototransistor_MAPbI3 : puissance d'éclairement des résultats de la Fig. 4",
+   "extracted": "photoresponsivity_1V = 8.3 A W−1 sans puissance ; seul le point à la puissance la plus forte (≈ 3,2 A W−1, lu sur Fig. 4d) est ajouté",
+   "article_says": "Figure 4d shows the photoresponsivity and photocurrent as a function of the light power.",
+   "fix": "la valeur 8,3 A W−1 correspond sur la figure 4d au point de plus faible puissance (≈ 1,04 nW d'après la légende de la Fig. 4c) ; ajouter cette condition de mesure, et idéalement les autres points (≈ 7,4 à 5,88 nW ; ≈ 5,3 à 21,4 nW ; ≈ 3,2 à 46,8 nW, lus sur figure). Les puissances 4,45 et 17,78 nW de la Fig. 4b sont aussi absentes. Lecture figure : écarts < 10 % pour la valeur 3,2 vérifiée.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 22,
+  "branches_extracted": 19,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantité (masse) de CH3NH3I absente de l'article et de l'annexe",
+  "température des substrats chauffés, volume de goutte, temps de croissance des plaquettes de PbI2 et nettoyage des substrats absents",
+  "ce qui fixe l'épaisseur (2 nm à plusieurs centaines de nm) absent ; durée de conversion donnée en plage 5–30 min sans correspondance avec l'épaisseur",
+  "0,2 mg de PbI2 dans 1 mL d'eau : valeur littérale, très probablement erronée pour une solution sursaturée à 100 °C (l'article ne corrige pas)",
+  "substrat des échantillons p1–p6, AFM et TEM non précisé ; transfert pour le TEM non décrit",
+  "dimensions du canal du phototransistor (largeur du ruban organique), vitesse et pression de l'évaporation de l'or absentes",
+  "pureté et fournisseurs de PbI2, CH3NH3I, eau, Ar ; cellule/nacelle, pompe, débit de refroidissement absents",
+  "figures S1–S3 (images) absentes du dépôt : seules leurs légendes sont lisibles"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (insertion de CH3NH3I dans le PbI2, démarrage aux bords puis depuis la surface) est soutenu par le texte ; mecanisme_analyse est étiqueté « probablement »",
+ "notes": "Ma liste d'échantillons : 5 substrats (SiO2/Si, Si, mica, verre, PDMS), p1–p6, 4 épaisseurs AFM, 10 nm (XRD verre, TEM), CH3NH3I insuffisant (Fig. S2), plaquettes Fig. 1i–p et Fig. 2c–f (épaisseurs qualitatives), dispositif ; l'inventaire de l'extracteur est complet et déclare les trois groupes sans route (PbI2, Fig. 1i–p, Fig. 2c–f) avec raison, mes constats 2 et 3 en demandent seulement le rattachement. Toutes les valeurs lues sur figure (formes Fig. 1a–h, intensités PL p1–p6, responsivité 3,2) concordent avec les images à moins de 10 %. Fragile : la figure 2b montre des maxima vers 740–755 nm alors que le texte dit 770 nm pour 100 nm ; la légende de la Fig. 2 dit « thicker than 10 nm » alors que le texte dit 20 nm ; non traités comme constats (incohérences de l'article). Aucun renvoi de méthode manquant : seul B13 (« Previously, we introduce a two-steps method ») est une source de protocole ; B29 (CVD en deux étapes à 350–510 puis 120 °C) est un renvoi de contexte, B30 d'interprétation XRD."
+}

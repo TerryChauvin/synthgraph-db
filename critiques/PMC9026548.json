@@ -1,0 +1,121 @@
+{
+ "pmcid": "PMC9026548",
+ "verdict": "corrections_majeures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "14 branches sans charge (les 14 labels ...-M0 : THF_P5-S-M0_slow, THF_P5-L-M0_slow, DCM_P5-S-M0, DCM_P5-L-M0, MEK_P5-S-M0, MEK_P5-L-M0, CHCl3_P5-S-M0, CHCl3_P5-L-M0, CHCl3_P3-S-M0, CHCl3_P3-L-M0, CHCl3_P4-S-M0, CHCl3_P4-L-M0, CHCl3_P7-S-M0, CHCl3_P7-L-M0) : étapes 1 et 2 héritées",
+   "extracted": "Les branches M0 n'ont comme variation que filler_loading=0 et MOF-808 absent ; elles héritent donc de THF_P5-S-M10_slow l'étape 1 (dispersion du MOF aux ultrasons, 30 min, bain à ultrasons) et l'étape 2 (ajout du polymère en trois portions à 2 h d'intervalle, protocole d'amorçage).",
+   "article_says": "For the preparation of MMMs, a prescribed amount of MOF-808 was dispersed in the respective solvent in an ultrasonic bath for 30 min and then the polymer was added in three steps (in equal amounts at 2 h intervals) according to a priming protocol",
+   "fix": "Faire de THF_P5-S-M0_slow une voie à étapes propres (dissolution du polymère sous agitation une nuit, coulée en boîte de Petri sous N2, évaporation lente, recuit, découpe), sans dispersion de MOF ni ajout en trois portions ; y rattacher les 13 autres M0 (changement de solvant, de concentration, de masse coulée). Sinon ajouter à chaque M0 une variation qui retire explicitement les étapes 1 et 2. Même correction pour le paramètre filler_loading=0 de l'étape 1 et pour l'équipement « ultrasonic bath ». L'article ne décrit jamais la préparation des membranes sans charge autrement que par la dissolution une nuit.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Branches échouées ou inutilisables : étapes 5 à 9 héritées (THF_P5-S-M30_fast, THF_P5-L-M30_fast, THF_P3-S-M10_medium, THF_P3-S-M10_fast, THF_P3-S-M30_fast, THF_P3-L-M10_fast, THF_P3-L-M30_slow/medium/fast, THF_P10-S-M30_medium/fast, THF_P15-S-M10_fast, THF_P20, DCM_P5-S-M30, DCM_P5-L-M30, CHCl3_P5-S-M10, CHCl3_P3-S-M10, CHCl3_P3-S-M30)",
+   "extracted": "Ces 18 branches (symbole − dans les tableaux 1 et 3, ou succeeded=false) héritent de la voie de base l'évaporation lente complète (entonnoir + papier d'aluminium), le recuit 100 °C puis 180 °C et la découpe de pastilles de 20 mm.",
+   "article_says": "membranes that could be cut into coupons for subsequent gas separation testing could be obtained only when the evaporation rate was slowed down, as the fast solvent evaporation always rendered brittle or severely curled membranes",
+   "fix": "Pour chaque branche à échec, ne pas laisser croire que le recuit et la découpe ont eu lieu : ajouter une variation de l'étape 9 (cut) avec value_text « not performed / could not be processed » quand l'article le dit (DCM à 30 % : « brittle membranes that could not be processed » ; membranes « brittle » du tableau 1), et déclarer l'étape de recuit « non citée » pour ces membranes (not_stated sur la branche) ; à défaut une doute explicite par branche. Le texte ne dit nulle part que les membranes fragiles ont été recuites.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "THF_P20 (voie entière héritée de THF_P5-S-M10_slow)",
+   "extracted": "Seule variation : polymer_concentration=20 wt.%. La branche hérite 10 % de MOF, version S, évaporation lente, dispersion aux ultrasons, ajout en trois portions, évaporation, recuit et découpe.",
+   "article_says": "attempts to prepare membranes from 20 wt.% polymer solutions failed due to the very high viscosity of the solution",
+   "fix": "L'article ne donne ni taux de charge, ni version, ni vitesse d'évaporation pour cette tentative, et la solution n'a pas pu être coulée : ajouter des variations filler_loading, casting_solution_mass et evaporation_rate en value_text « not stated », et marquer les étapes 5 à 9 comme non réalisées (la membrane n'a pas été obtenue). Le doute existe déjà mais la donnée hérite quand même des valeurs de la base.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Série chloroforme 3, 4 et 7 wt.% (18 branches : CHCl3_P3-*, CHCl3_P4-*, CHCl3_P7-*, M0/M10/M30, S et L) : vitesse d'évaporation",
+   "extracted": "Elles héritent par la chaîne la vitesse d'évaporation « slow » de THF_P5-S-M10_slow (funnel + papier d'aluminium).",
+   "article_says": "Based on the promising results using chloroform in Section 3.2, a screening study for chloroform-based MMMs was performed to be able to identify the optimal synthesis parameters for the MMM fabrication.",
+   "fix": "La section 3.3 et le tableau 4 ne disent pas la vitesse d'évaporation (seule la section 3.2 précise « under slow evaporation rate » pour les membranes à 5 %). Ajouter pour ces 18 branches une variation evaporation_rate = « not stated » (ou déclarer evaporation_rate non cité) au lieu de l'hériter ; le doute général sur cette série existe mais la valeur est quand même affichée comme celle de la base.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Branches ..._medium (13) et ..._fast (13) : équipement et description de l'étape 5 hérités",
+   "extracted": "Les variations ne remplacent que le paramètre evaporation_rate ; l'étape 5 garde sa description « Slow solvent evaporation under an upside-down funnel whose outlet is covered with alumina foil » et ses deux équipements (entonnoir 200 mL, papier d'aluminium). La branche rapide hérite donc entonnoir et papier d'aluminium, la branche moyenne hérite le papier d'aluminium.",
+   "article_says": "(i) the solvent was allowed to evaporate without any preventive cover, (ii) solvent evaporation was slowed down by placing a funnel upside-down (with volume of 200 mL, bottom diameter of 10 cm, and top diameter of 1.5 cm) over the dishes, and (iii) evaporation was further slowed down by covering this funnel outlet with alumina foil",
+   "fix": "Rapide = aucun couvercle, moyenne = entonnoir seul : ajouter pour chaque branche une variation sur l'équipement (« alumina foil » = absent pour les 13 moyennes ; « funnel » et « alumina foil » = absents pour les 13 rapides), ou rendre la description de l'étape 5 neutre dans la voie de base et porter funnel/foil dans des variations de la branche lente.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "THF unfilled 10 et 15 wt.% : branches THF_P10-S-M0_slow, THF_P10-L-M0_slow, THF_P15-S-M0_slow, THF_P15-L-M0_slow absentes",
+   "extracted": "Seules les membranes sans charge à 5 wt.% dans le THF sont extraites (THF_P5-S-M0_slow et THF_P5-L-M0_slow) ; la limite_reproductibilite dit que les autres concentrations ne sont pas listées.",
+   "article_says": "of unfilled 6FDD membranes and corresponding MMMs cast from (a) 5 wt.%, (b) 10 wt.%, or (c) 15 wt.% polymer solutions",
+   "fix": "Le texte dit aussi : « similar gas separation measurements were performed for unfilled 6FDD membranes prepared with different polymer concentrations and casting solution volumes at slow evaporation rate ». Créer les quatre branches sans charge (S et L à 10 et à 15 wt.%, évaporation lente, filler 0). Le texte ne dit pas explicitement que les deux versions ont été faites à chaque concentration, d'où probable ; l'existence d'unfilled à 10 et 15 wt.% est sûre d'après la légende de la figure 2. Corriger aussi l'annotation limite_reproductibilité.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "Notes de dispersion du tableau 2 (MOF_dispersion_quality_in_casting_solution) : Fair (THF base), Good (DCM_P5-S-M10), Poor (MEK_P5-S-M10), Good (CHCl3_P5-S-M10)",
+   "extracted": "Chaque note est rattachée seulement à l'échantillon 10 wt.% MOF, version S, de son solvant ; les autres échantillons du même solvant n'ont pas de note.",
+   "article_says": "e Visual rating of MOF-808 dispersion quality while stirring the casting solutions.",
+   "fix": "La note du tableau 2 porte sur « the casting solutions » du solvant, sans taux de charge ni version : la rattacher à M10 S est un choix d'extraction, pas une donnée de l'article. Les lignes citées sont les bonnes (THF Fair, DCM Good, chloroforme Good, MEK Poor). Mieux : la porter par la voie du solvant (ou aux deux taux de charge) avec la réserve du texte « DCM possibly did not allow good dispersion for this high amount of filler » pour DCM à 30 %, où la note Good ne vaut pas.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "CHCl3_P7-S-M30 : outcome membrane_defects avec succeeded=true",
+   "extracted": "« defects upon high MOF incorporation » rattaché à P7-S-M30 (symbole ++) et P7-L-M30 (symbole +), succeeded=true pour S.",
+   "article_says": "As can be seen in Figure 4d, membranes cast from 7 wt.% polymer solutions suffer from defects upon high MOF incorporation.",
+   "fix": "La phrase concerne les deux versions à 7 wt.% sans distinction, alors que le tableau 4 note ++ pour la version S. Laisser succeeded vide (ni true ni false) pour P7-S-M30, ou garder true et noter le conflit dans un doute ; ne pas laisser un outcome « defects » à côté de succeeded=true sans explication.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "THF_P5-S-M10_slow étape 1, paramètre solvent=THF : citation",
+   "extracted": "quote = titre de section « THF-Based Membranes: Effect of Polymer and MOF Concentration, Casting Solution Volume, and Solvent Evaporation Rate »",
+   "article_says": "THF-Based Membranes: Effect of Polymer and MOF Concentration, Casting Solution Volume, and Solvent Evaporation Rate",
+   "fix": "Un titre n'établit pas que le solvant de ce protocole est le THF ; préférer le tableau 3 (ligne « THF | ++ ... ») ou la phrase 3.2 « four different volatile solvents (DCM, chloroform, MEK, and THF) ». La valeur THF est juste.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Épaisseur des membranes (aucune sortie)",
+   "extracted": "Aucun outcome membrane_thickness, ni mesure d'épaisseur dans les étapes.",
+   "article_says": "Small and large casting solution volumes resulted in final membrane thickness of 33–196 μm and 50–291 μm, respectively, depending on the preparation conditions.",
+   "fix": "Ajouter en outcomes de THF_P5-S-M10_slow (version S) la plage 33–196 μm et sur une branche L la plage 50–291 μm en value_text (« 1.4–1.7 times thicker » aussi), avec l'étape de mesure (micromètre Mitutoyo IP65, cinq points par pastille). Valeurs par échantillon seulement dans les figures ou le SI.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Caractérisation de la série chloroforme (section 3.3.3), Tg et Td",
+   "extracted": "Aucun résultat de TGA/DSC propre aux membranes chloroforme avec MOF ; seules les phrases sur les solvants (Td 494–498 °C, Tg inchangée) sont reprises.",
+   "article_says": "Based on DSC analysis, Tg was elevated by approximately 6 °C for MMMs compared to unfilled 6FDD membrane upon 10 and 30 wt.% MOF incorporation",
+   "fix": "Ajouter en caractérisation/outcome sur les branches chloroforme avec MOF : Tg +6 °C environ pour 10 et 30 wt.%, Td décroissant avec le taux de charge (« The major backbone degradation was observed after 490 °C for all membrane samples, with a decreased Td with increasing filler content »), épaulement DTG à 30 wt.%.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources B38 : rôle",
+   "extracted": "role = protocole_complet pour « priming protocol »",
+   "article_says": "then the polymer was added in three steps (in equal amounts at 2 h intervals) according to a priming protocol",
+   "fix": "L'article décrit lui-même le nombre et l'intervalle des ajouts ; le renvoi ne sert qu'au nom du protocole : protocole_adapte serait plus exact. Sans conséquence sur les données. B37, B39 et B40 sont présents et corrects selon la règle du 2026-10-13 (B39/B40 : protocole de mesure du montage de perméation).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 82,
+  "branches_extracted": 77,
+  "not_stated_checked": 32,
+  "not_stated_wrong": 0,
+  "table_rows_checked": 76,
+  "table_rows_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Table S1 (masses de polymère, de solvant et de MOF de chaque solution de coulée) renvoyée au Supporting Information, absent du corpus : aucune quantité de polymère, de solvant ni de MOF n'est donnée en grammes ; seuls 4 g et 6 g de solution, les pourcentages massiques et le taux de charge",
+  "Définition du taux de charge contradictoire : « mass ratio of MOF-808 to the polymer » contre l'équation (1) m_charge/(m_charge+m_polymère) ; le calcul des masses de MOF diffère selon la lecture",
+  "Durée d'évaporation de chaque vitesse (rapide, moyenne, lente), température de dissolution et de coulée, vitesse d'agitation, puissance des ultrasons : non citées",
+  "Atmosphère et enceinte du recuit (100 °C 1 h puis 180 °C 6 h), non citées ; on ne sait pas si les membranes fragiles ou curled sont recuites",
+  "Masse molaire, lot et pureté du copolyimide 6FDD, pureté des solvants et des réactifs du MOF (fournisseur seul donné), pression du four sous vide à 70 °C, rendement du MOF-808",
+  "Légende des symboles ++, + et − seulement dans les notes de tableau ; valeurs de séparation et de perméabilité par échantillon seulement dans les figures 1 à 4 (pas de tableau numérique) ; vitesse d'évaporation de la série chloroforme 3, 4 et 7 wt.% non dite",
+  "Tableau S2 (Td et Tg) et protocole de perméation des renvois B39 et B40 non reproduits"
+ ],
+ "mechanism_check": "ok : le mécanisme des auteurs (réarrangement des chaînes sous évaporation rapide) est bien appuyé par la citation ; il n'y a pas de mécanisme d'auteurs pour le MOF-808. À compléter éventuellement par leur explication de la sédimentation (Stokes–Einstein, viscosité et densité du solvant, section 3.2.1).",
+ "notes": "Tableaux 1, 3 et 4 : les 76 symboles de visual_assessment (rangée et colonne) ont été comparés un à un aux rangées du texte, 0 erreur ; les cases NA du tableau 1 (P10-L-M30, P15-S-M30, P15-L-M30) n'ont à juste titre pas de branche. Les valeurs numériques de texte (7/6 %, −2 %/82 %/43 %, 62 %/24 %, 2/3 %, 73 %/23 %/5 %) sont bien attribuées. Fragile : la phrase « 7 and 6%, respectively » du THF peut se lire S/L (lecture retenue) ou 10/30 wt.% MOF ; le doute existe déjà. Les 73/23/5 % de 3.3.2 rattachés à 7 wt.% polymère sont une inférence raisonnable mais non écrite. La chaîne de branches (jusqu'à cinq niveaux, par ex. CHCl3_P7-L-M30 ← P7-S-M30 ← P7-S-M10 ← P5-S-M10 échouée ← THF de base) fonctionne mais fait de THF_P5-S-M10_slow le parent de séries qui n'en sont pas des variantes directes (solvant, absence de MOF). Aucun corpus de Supporting Information : Tableaux S1 et S2 non vérifiables. Le texte contredit le tableau 1 sur P5-L-M30 moyenne (doute déjà posé)."
+}

@@ -1,0 +1,72 @@
+{
+ "pmcid": "PMC13057244",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "M8 (et M3–M12) duration, Table S1 row order vs text",
+   "extracted": "M8 = 2,0 M, 220 °C, 1 h (annotations resume et comparaison_branches l'énoncent sans réserve) ; M3–M12 = rangées du Tableau S1 telles quelles",
+   "article_says": "M1 and M2 were regenerated using the same LiOH concentration (4 M) and temperature (160 °C), but different hydrothermal reaction times (1 h for M1 and 2 h for M2).",
+   "fix": "Le Tableau S1 range chaque paire (essais 1-2, 3-4, …, 11-12) dans le même ordre 2 h puis 1 h ; le texte contredit ce motif pour la paire 1-2 (M1 = 1 h). Si la numérotation du tableau est inversée pour toute la série, M8 (échantillon caractérisé) serait à 2 h et M3–M12 changeraient de durée. L'extraction applique le texte à M1/M2 et le tableau tel quel à M3–M12, ce qui est incohérent entre paires. Garder le choix mais ajouter un doute et une annotation limite_reproductibilité sur M8 : sa durée (1 h) ne vient que du Tableau S1, dont l'ordre des durées est contredit par le texte pour M1/M2 ; préciser dans les annotations de M8 la mention « selon le Tableau S1 ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "M8 outcomes, discharge_capacity_2C (Fig. 8A)",
+   "extracted": "absent (le journal dit « points confondus avec zéro »)",
+   "article_says": "Fig. 8 (A) Rate capability of M1, M2, M8 vs. commercial NMC622 in voltage window 3.0–4.3 V; (B) cycling stability of M1, M2, M8 vs. commercial NMC622 at 0.1 C measured after cell formation.",
+   "fix": "Fig. 8A : à 2 C les points de M8 (bleus) sont nettement tracés à 0 mAh/g, comme ceux de M2 à 1 C et 2 C. Ajouter discharge_capacity_2C pour M8 sur le même modèle que M2 (from_figure Fig. 8A), ou traiter les trois « 0 » de la même façon.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "M2 discharge_capacity_1C / 2C = 0 mAh/g ; M8 à 2 C (Fig. 8A)",
+   "extracted": "0 mAh/g (value_num 0, from_figure Fig. 8A)",
+   "article_says": "Fig. 8 (A) Rate capability of M1, M2, M8 vs. commercial NMC622 in voltage window 3.0–4.3 V; (B) cycling stability of M1, M2, M8 vs. commercial NMC622 at 0.1 C measured after cell formation.",
+   "fix": "Le zéro est bien ce qui est tracé, mais physiquement M2 retrouve 115 mAh/g à 0,2 C juste après et M8 33 mAh/g à 1 C ; un vrai zéro de capacité est improbable (cellule non cyclée, coupure, donnée absente). Le texte ne dit rien. Remplacer par value_text « tracé à 0 dans la Fig. 8A » ou ajouter une annotation limite_reproductibilite disant que le zéro n'est pas commenté par les auteurs.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "M1 outcomes, capacité au cycle 50 (Fig. 7B)",
+   "extracted": "absente (le journal dit « trois chiffres significatifs, non lu »)",
+   "article_says": "Among the regenerated samples, M8 exhibits the highest initial discharge capacity (172 mAh/g at cycle 1) but decreases to 119.8 mAh/g after 50 cycles, whereas M1 and M2 deliver 156 mAh/g and 154 mAh/g at cycle 1, respectively.",
+   "fix": "Les capacités au cycle 50 de M2 (≈ 121) et M8 (119.8) sont extraites, pas celle de M1 (Fig. 7B ≈ 125 mAh/g, lue sur la courbe rouge de décharge à 3,0 V). Ajouter discharge_capacity_cycle_50 pour M1 avec from_figure Fig. 7B pour que la série soit complète.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "NMC622 commercial, résultats de référence (route null)",
+   "extracted": "aucun résultat porté ; valeurs seulement dans les citations des autres rangées",
+   "article_says": "As shown in Table 2, the lattice parameters and unit cell volumes for M1 and M2 are close to those of the commercial NMC622 reference.",
+   "fix": "Le texte compare M1 et M2 à la référence : sans ses valeurs la comparaison est perdue. Valeurs disponibles : Tableau 2 colonne NMC (a 2.86 Å, c 14.19 Å, V 100.67 Å3, I003/I104 2.09) et Fig. 6C (Warburg 113, diffusivité 5.36E-12 cm2 s-1). Les consigner dans une annotation comparaison_branches avec citation de la rangée (pas en outcomes, puisque l'échantillon n'a pas de voie).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Electrode_coin_cell_NMC, caractérisation CV et conditions de la mesure de régime",
+   "extracted": "CV : conditions null ; galvanostatique : régimes de la Fig. 8A absents des conditions",
+   "article_says": "The electrodes were charged and discharged successively at 0.02 C, 0.1 C, 0.2 C, 0.5 C, 1 C, and 2 C every 5 cycles, respectively, and tested again at 0.2 C and 0.5 C at the end of the cycling.",
+   "fix": "Ajouter aux conditions galvanostatiques la séquence de régimes (0,02 ; 0,1 ; 0,2 ; 0,5 ; 1 ; 2 C, 5 cycles chacun, puis 0,2 et 0,5 C). Pour la CV, la légende Fig. 6 donne « measured after formation cycles at 0.05 C » : le reporter en conditions (la vitesse de balayage reste non citée). La Fig. 8A montre aussi un palier à 0,05 C que le texte ne liste pas : à signaler en doute.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 14,
+  "branches_extracted": 14,
+  "not_stated_checked": 54,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Figure S4 (composition en Li des 12 essais) absente : aucun critère de choix de M1, M2, M8 vérifiable ; Figures S1–S8 absentes.",
+  "Durées de M1/M2 contradictoires entre texte et Tableau S1 ; par suite durée de M8 et de M3–M12 non garanties.",
+  "Volume de solution de LiOH, taux de remplissage et pression du réacteur Parr, vitesse de chauffe et de refroidissement, nombre de lavages.",
+  "Atmosphère, vitesse de chauffe et refroidissement du recuit à 850 °C ; atmosphère du séchage à 90 °C ; précision sur la mise en oeuvre pour les 12 essais (recuit appliqué à tous ?).",
+  "Décharge du bloc (tension finale), durée et puissance des ultrasons, milieu de l'ultrasonication, température et durée du séchage sous vide des feuilles.",
+  "Vitesse de balayage et fenêtre de la CV ; volume d'électrolyte ; température du repos de 8 h ; épaisseur d'électrode, pression de calandrage.",
+  "Paramètres DRX (pas, plage 2θ), tension d'accélération du MEB.",
+  "Fig. 8B et Fig. 7 donnent des capacités différentes au cycle 1 (M8 ≈ 188 et ≈ 172 mAh/g ; M2 plus haut que M1 en Fig. 8B, l'inverse dans le texte) : numérotation des cycles non expliquée."
+ ],
+ "mechanism_check": "ok : mécanisme_auteurs fidèle à l'article (Li+ incorporé, réduction des OH− en eau et oxygène ; explication plausible de M2 par redistribution des métaux de transition) ; mécanisme_analyse marqué hypothèse.",
+ "notes": "Points prioritaires : (a) le texte donne M1 = 1 h cinq fois (Résultats, Discussion x2, Conclusions, résumé) et la logique I003/I104 (1,18 pour M1, 0,82 pour M2) y est cohérente ; le choix du texte pour M1/M2 est donc justifié, et le Tableau S1 est probablement inversé au moins pour la paire 1-2. Le doute existant couvre M1/M2 mais pas la conséquence sur M8. Rangées de M3–M12 vérifiées une par une contre le Tableau S1 : concentration, température, durée correctement attribuées, variations par rapport à M1 (4 M, 160 °C, 1 h) correctes. (b) L'héritage du protocole de M1 (50 g/L, 300 rpm, lavage, séchage 90 °C 24 h, recuit 850 °C 4 h) par M3–M12 est fondé : la section Méthodes donne un protocole unique pour les 12 essais ; non retenu comme constat. (c) Les 19 valeurs from_figure ont été vérifiées sur Fig. 6A, 6B, 6C, 7C, 8A : écarts tous inférieurs à 10 % (CV : 3,8/3,7 V, 4,0/3,6 V, 3,9/3,6 V ; Warburg 116/431/449 et diffusivités 3,03E-13 et 6,85E-13 identiques au tableau imprimé ; Rct M2 1600 et M8 900 Ω ; M2 cycle 50 ≈ 121 ; M2 0,5 C 63→54 (62 retenu), M8 0,5 C 83→77 (82), M8 1 C 33). Les « 0 » lus à 1 C et 2 C sont fidèles à la figure. (d) Solvant eau : « in aqueous media » (Conclusions) et « sub-250 °C aqueous process » (Discussion) sont une mention explicite, pas une déduction ; pas de constat. Désaccord d'interprétation non retenu : le 75 mAh/g à 2 C du texte (une occurrence) contre 78 (deux occurrences, figure 80→77) : choix de l'extracteur justifié, doute déjà consigné. Table 1, Table 2 et charges massiques vérifiées sans erreur ; method_sources vide justifié (aucun renvoi de méthode dans les Méthodes). Les valeurs from_figure ont pour citation une légende de figure qui ne contient pas le nombre : comportement normal du format mais le chimiste doit savoir que ce sont des lectures graphiques."
+}

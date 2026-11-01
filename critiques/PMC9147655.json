@@ -1,0 +1,56 @@
+{
+  "pmcid": "PMC9147655",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "AN-TiN, DMF-TiN, A-TiN outcomes (extinction proche IR)",
+      "extracted": "seuls les maxima lus sur la Fig. 4 (0,076 ; 0,071 ; 0,068 mL/(ug·cm)) ; la phrase du texte n'est dans aucun outcome ni annotation (le doute dit pourtant que « phrase du texte » est conservée)",
+      "article_says": "NPs ablated in nitrogen-containing liquids (AN-TiN and DMF-TiN) have slightly higher (~10%) optical extinction in near-IR than A-TiN NPs.",
+      "fix": "ajouter un outcome (ou une tendance_observee) sur AN-TiN et DMF-TiN : extinction proche IR ≈ 10 % supérieure à A-TiN, avec cette citation ; garder la lecture de figure (+12 % et +4 %) en doute",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "AN-TiN (et liquides non précisés) : essai de bullage de N2",
+      "extracted": "écarté dans un doute et dans sample_inventory (route null), aucun résultat noté",
+      "article_says": "We tried to pump out the dissolved molecular oxygen O2 from the liquid by bubbling the liquids with N2 before and during the ablation process, but it did not lead to an increase of the nitrogen/oxygen ratio (data not shown).",
+      "fix": "garder le choix de ne pas créer de branche (liquide non précisé, pas de données) mais consigner le résultat qualitatif en annotation tendance_observee ou limite_reproductibilite avec cette citation, car c'est une variation testée par les auteurs",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "AN-TiN, DMF-TiN, A-TiN outcomes qualitatifs EDX et SEM",
+      "extracted": "absents des outcomes",
+      "article_says": "However, the nitrogen content of DMF-TiN NPs was the lowest among all synthesized NPs, despite the presence of nitrogen in the molecular structure of DMF.",
+      "fix": "ajouter comme outcomes qualitatifs de DMF-TiN (azote le plus bas) ; de même pour AN-TiN « AN-TiN NPs had higher oxygen content than DMF-TiN NPs (and approximately equal oxygen content to A-TiN NPs) » et « almost no NPs exceeding 50 nm were observed »",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "W-TiN, DMF-TiN, A-TiN, AN-TiN, H2O2-TiN : nom de la propriété de taille",
+      "extracted": "mean_size (W-TiN, 50 nm, texte de la Discussion), mode_size (DMF, A, lecture Fig. 1F), mean_modal_size (AN, H2O2)",
+      "article_says": "Mode size of the lognormal fits of size distribution of NPs prepared in different liquids.",
+      "fix": "harmoniser sur une propriété (mode_size) pour que compare.py puisse les aligner ; la Fig. 1F donne ≈ 52 nm pour W-TiN, la valeur 50 nm vient de « have a slightly larger size (50 nm) » (déjà signalé en doute, valeur correcte telle que citée)",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 7,
+    "branches_extracted": 7,
+    "not_stated_checked": 22,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "volume de liquide dans la cuvette de 20 ml (non donné)",
+    "concentration de H2O2 et pureté/fournisseur de H2O2, eau, acétone, DMF, acétonitrile",
+    "fluence, diamètre du faisceau, écart entre lignes de la spirale",
+    "valeur exacte de la distance lentille–cuvette pour chaque liquide (95–97 mm, ajustée par liquide)",
+    "masse ou concentration de NPs obtenue (valeurs AAS, Table S1 absente)",
+    "pour AN-Ti et DMF-Ti : pureté de la cible de Ti, réglages laser, durée, et résultats (Fig. S4 absente)",
+    "annexes absentes du dépôt : Fig. S1 à S7, Tables S1 et S2 (le fichier texte n'a aucune section Supporting Information)",
+    "bullage de N2 : liquide, débit, durée non donnés (data not shown)"
+  ],
+  "mechanism_check": "ok",
+  "notes": "Les 5 voies à cible de TiN sont fidèles : 132 valeurs relues, les rangées des Tableaux 1 et 2 sont attribuées au bon échantillon (AN, DMF, A, W, H2O2) et aux bonnes colonnes. Fig. 1F, 2B–D et 4 ouvertes : toutes les valeurs from_figure tombent à moins de 10 % (par ex. N/Ti AN 0,33, DMF 0,14, A 0,20, W 0,25, H2O2 0,19 ; O/Ti 0,22 / 0,11 / 0,19 / 0,8 / 1,3 ; extinction 0,076 / 0,071 / 0,068 / 0,054). Fragile : choix de W-TiN comme voie de base arbitraire (l'article ne désigne aucun liquide de référence), héritage des étapes accepté car la Section 2.1 décrit un protocole unique pour la série de liquides ; AN-Ti et DMF-Ti sans héritage des réglages laser, choix prudent. method_sources (B19, « we adapted this technique ») acceptable, route null au lieu de W-TiN : sans conséquence."
+}

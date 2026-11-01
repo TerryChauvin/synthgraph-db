@@ -1,0 +1,310 @@
+{
+ "pmcid": "PMC9036664",
+ "routes": [
+  {
+   "label": "LSMF_foam",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de paraformaldéhyde",
+     "inputs": "9,0 g de (CH2O)n, motif CH2O 30,03 g/mol",
+     "formula": "n = m / M",
+     "result": "0,300 mol de CH2O",
+     "compared_to": "0.3 mol annoncé : cohérent",
+     "source": "valeurs de l'article ; masse molaire d'après la formule (masses atomiques IUPAC)"
+    },
+    {
+     "what": "moles de mélamine",
+     "inputs": "« 0.1 mol (about 12.0 g) » ; C3H6N6 126,12 g/mol",
+     "formula": "n = m / M ; m = n × M",
+     "result": "12,0 g = 0,0951 mol ; 0,1 mol = 12,61 g (écart de 5 %)",
+     "compared_to": "les deux chiffres de l'article ne concordent pas exactement",
+     "source": "valeurs de l'article ; masse molaire d'après la formule"
+    },
+    {
+     "what": "rapport molaire F/M",
+     "inputs": "0,300 mol CH2O ; 0,0951 à 0,100 mol mélamine",
+     "formula": "n(CH2O) / n(mélamine)",
+     "result": "3,0 à 3,15",
+     "compared_to": "rapport M:F 1:3 usuel pour les résines MF (Merline et al. 2013 ; Ullah et al. 2014)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taux de matière sèche du sirop",
+     "inputs": "9,0 g paraformaldéhyde + 12,0 g mélamine + 2,0 g lignosulfonate dans 20 g d'eau",
+     "formula": "m(solides) / m(total)",
+     "result": "23,0 / 43,0 = 53 % en masse",
+     "compared_to": "résines MF de laboratoire à 50–70 % de matière sèche (Ullah et al. 2014 : maximum 69,7 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "chlorure d'ammonium : quantité et part de la résine",
+     "inputs": "4,0 g NH4Cl, 53,49 g/mol ; résine 23,0 g de solides",
+     "formula": "n = m / M ; m(NH4Cl) / m(solides)",
+     "result": "74,8 mmol ; 17 % de la masse des solides",
+     "compared_to": "durcisseur latent ajouté d'ordinaire à 1–6 % de la résine (Ivanov et al. 2023)",
+     "source": "valeurs de l'article ; masse molaire d'après la formule"
+    },
+    {
+     "what": "formaldéhyde consommé par NH4Cl et acide libéré",
+     "inputs": "6 CH2O + 4 NH4Cl → (CH2)6N4 + 4 HCl + 6 H2O ; 74,8 mmol NH4Cl ; 300 mmol CH2O",
+     "formula": "n(CH2O) = 1,5 × n(NH4Cl) ; n(HCl) = n(NH4Cl)",
+     "result": "jusqu'à 112 mmol de CH2O (37 % du formaldéhyde) et 74,8 mmol de HCl si tout réagit",
+     "compared_to": "quantité de triéthanolamine non donnée : l'acide formé excède très probablement la base ; le chlorure reste dans le solide",
+     "source": "stœchiométrie de la réaction du durcisseur latent (Ivanov et al. 2023)"
+    },
+    {
+     "what": "vapeur d'éther de pétrole dans l'étuve",
+     "inputs": "5 mL × 0,75 g/mL (CAMEO) = 3,75 g ; M ≈ 99 g/mol (CAMEO) ; 80 °C (353 K), 1 atm",
+     "formula": "n = m / M ; V = nRT / P",
+     "result": "0,038 mol ; ≈ 1,1 L de vapeur",
+     "compared_to": "limite inférieure d'explosivité 1,1 % (CAMEO) : 1,1 L suffit à rendre inflammables ≈ 100 L d'air, l'ordre du volume d'une étuve de laboratoire",
+     "source": "NOAA CAMEO Chemicals, Petroleum ether"
+    },
+    {
+     "what": "part de laurylsulfate de sodium",
+     "inputs": "0,05 g pour 23,0 g de solides",
+     "formula": "m(SLS) / m(solides)",
+     "result": "0,2 % en masse",
+     "compared_to": "ordre de grandeur d'un stabilisant de mousse",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "F/M ≈ 3,0–3,15 (voir « rapport molaire F/M ») et 53 % de matière sèche : formulation classique d'une résine MF. Seul écart : 0,1 mol de mélamine pèse 12,6 g et non « about 12.0 g » (5 %), sans effet notable sur la chimie.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "Synthesis and Thermal Degradation Studies of Melamine Formaldehyde Resins", "authors_or_publisher": "Ullah S., Bustam M.A., Nadeem M., Naz M.Y., Tan W.L., Shariff A.M., TheScientificWorldJournal", "year": "2014", "url_or_doi": "10.1155/2014/940502"}
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "pH 9 fixé à la triéthanolamine : pKa de l'acide conjugué ≈ 7,8, donc pH 9 atteignable ; le milieu basique dépolymérise le paraformaldéhyde et méthylole la mélamine à 50 °C, ce qui la solubilise (la mélamine seule n'est soluble qu'à quelques g/L dans l'eau froide). La solution claire annoncée est plausible.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "4,0 g de NH4Cl, soit 17 % de la résine (voir « chlorure d'ammonium : quantité et part de la résine »), contre 1–6 % pour un durcisseur latent : il peut consommer jusqu'à 37 % du formaldéhyde et libérer 75 mmol de HCl. Ce choix, non justifié, fixe le degré de réticulation et laisse beaucoup de chlorure (NH4Cl, chlorhydrate de triéthanolamine) dans la mousse, qui se retrouvera dans les « NCDs » (voir voie NCDs).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Usage of the New Modifier-curing Agent in Plywood Technology: The Influence to Urea-formaldehyde Resin Curing and Formaldehyde Emission", "authors_or_publisher": "Ivanov et al., Periodica Polytechnica Chemical Engineering 67(3), 386–395", "year": "2023", "url_or_doi": "https://pp.bme.hu/ch/article/download/21369/9803"}
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Bain-marie à 50 °C puis cuisson à 80 °C pendant 24 h en moule ouvert : compatibles avec l'eau (Téb 100 °C) ; l'éther de pétrole (Téb dès 30 °C selon la coupe, non précisée) s'évapore et fait mousser, c'est le but. La coupe d'éther de pétrole (30–60 ou 60–90 °C) change la vitesse d'expansion et n'est pas donnée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "PETROLEUM ETHER", "authors_or_publisher": "NOAA CAMEO Chemicals", "year": "2024", "url_or_doi": "https://cameochemicals.noaa.gov/chemical/1305"}
+    },
+    {
+     "aspect": "securite",
+     "finding": "5 mL d'éther de pétrole vaporisés dans une étuve à 80 °C donnent ≈ 1,1 L de vapeur (voir « vapeur d'éther de pétrole dans l'étuve ») ; la limite inférieure d'explosivité est de 1,1 % et le point d'éclair de −40 à −86 °F : une étuve ordinaire (non antidéflagrante, ventilation fermée) peut contenir une atmosphère inflammable. S'y ajoutent le formaldéhyde (cancérogène) dégagé par le paraformaldéhyde à 50 °C et pendant la cuisson. L'article ne dit rien de ces risques.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {"title": "PETROLEUM ETHER", "authors_or_publisher": "NOAA CAMEO Chemicals", "year": "2024", "url_or_doi": "https://cameochemicals.noaa.gov/chemical/1305"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Matériaux : « sodium dodecyl sulfonate » ; préparation : « sodium lauryl sulfate ». Ce sont deux tensioactifs différents (sulfonate C–SO3− contre sulfate C–O–SO3−). Effet faible à 0,2 % en masse, mais le réactif exact est indéterminé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hypothèse de l'extraction retenue : dépolymérisation basique du paraformaldéhyde, méthylolation de la mélamine à pH 9, incorporation du lignosulfonate ; à l'ajout de NH4Cl, réaction avec le formaldéhyde libre (hexaméthylènetétramine + HCl) qui acidifie le sirop et déclenche la condensation en ponts méthylène et éther de méthylène ; le laurylsulfate stabilise les bulles, l'éther de pétrole s'évapore et fait mousser ; la réticulation s'achève à 80 °C.",
+    "sources": [
+     {"title": "Melamine formaldehyde: curing studies and reaction mechanism", "authors_or_publisher": "Merline D.J., Vukusic S., Abdala A.A., Polymer Journal", "year": "2013", "url_or_doi": "https://www.nature.com/articles/pj2012162"},
+     {"title": "Usage of the New Modifier-curing Agent in Plywood Technology: The Influence to Urea-formaldehyde Resin Curing and Formaldehyde Emission", "authors_or_publisher": "Ivanov et al., Periodica Polytechnica Chemical Engineering", "year": "2023", "url_or_doi": "https://pp.bme.hu/ch/article/download/21369/9803"}
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité de triéthanolamine nécessaire pour atteindre pH 9 (non donnée)",
+    "nature exacte du tensioactif (laurylsulfate ou dodécylsulfonate de sodium)",
+    "coupe d'éther de pétrole et étuve compatible avec des vapeurs inflammables (antidéflagrante ou ventilée), sous hotte",
+    "quantité de NH4Cl : 4,0 g (17 % de la résine) est très au-dessus de l'usage ; vérifier qu'il ne s'agit pas d'une solution",
+    "masse de mélamine : 12,0 g ou 12,6 g (0,1 mol)"
+   ]
+  },
+  {
+   "label": "NCDs",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "Bragg du pic DRX à 25,6°",
+     "inputs": "2θ = 25,6° ; λ = 0,154 06 nm (Cu Kα, supposée : l'article ne donne pas l'anode du D/max-RC)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 0,348 nm",
+     "compared_to": "d(002) du graphite 0,335 nm : carbone turbostratique désordonné",
+     "source": "valeurs de l'article ; λ Cu Kα1 (NIST X-ray Transition Energies)"
+    },
+    {
+     "what": "distance (100) du graphite",
+     "inputs": "a(graphite) = 0,246 nm, maille hexagonale",
+     "formula": "d(100) = a × √3 / 2",
+     "result": "0,213 nm",
+     "compared_to": "frange HRTEM de 0,21 nm attribuée par les auteurs au plan (002) : elle correspond à (100) ; (002) serait à 0,335–0,35 nm",
+     "source": "paramètre de maille du graphite (valeur de manuel, a = 2,46 Å)"
+    },
+    {
+     "what": "épaisseur cohérente (Scherrer) du pic à 25,6°",
+     "inputs": "largeur à mi-hauteur lue sur la figure 1a ≈ 4–5° ; K = 0,9 ; λ = 0,154 06 nm ; θ = 12,8°",
+     "formula": "Lc = K λ / (β cos θ)",
+     "result": "Lc ≈ 1,6–2,0 nm, soit 5 à 6 plans empilés",
+     "compared_to": "« high graphitization degree » de la Conclusion : non soutenu ; un tel pic est celui d'un carbone très désordonné",
+     "source": "valeurs de l'article (largeur lue sur figure, précision ± 1°)"
+    },
+    {
+     "what": "concentration de NCDs pour la fluorescence",
+     "inputs": "0,1 g dans 10 mL",
+     "formula": "m / V",
+     "result": "10 mg/mL",
+     "compared_to": "« The concentration of NCDs is 10 mg mL−1 » : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration finale de Fe3+ dans le test de sélectivité",
+     "inputs": "15 μL de solution à 90 μmol/L ajoutés à 3 mL",
+     "formula": "C × V1 / (V1 + V2) ; n = C × V1",
+     "result": "0,448 μmol/L dans la cuve ; 1,35 nmol de Fe3+",
+     "compared_to": "les concentrations de 9 à 450 μmol/L du texte et de la figure 7 sont celles de la solution ajoutée, pas celles de la cuve",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "nombre de Fe3+ par point de carbone",
+     "inputs": "3 mL × 10 mg/mL = 30 mg ; sphère de 10 nm, masse volumique supposée 1,5–2,0 g/cm3 ; 1,35 nmol Fe3+",
+     "formula": "m(point) = (4/3)π r³ ρ ; N = 30 mg / m(point) ; n(Fe)/n(points)",
+     "result": "m(point) ≈ 0,8–1,0 × 10⁻¹⁸ g ; 2,9–3,8 × 10¹⁶ points (48–63 nmol) ; 0,02–0,03 Fe3+ par point",
+     "compared_to": "F/F0 = 0,63 (37 % d'extinction) en extinction statique supposerait au moins ≈ 0,37 ion par émetteur",
+     "source": "valeurs de l'article ; masse volumique : hypothèse de l'analyste"
+    },
+    {
+     "what": "contrôle du modèle double logarithmique",
+     "inputs": "droite de la figure 7b : y = −1,003 + 0,361 x, x = lg C(Fe3+) ; C = 90 μmol/L (solution ajoutée) ou 4,48 × 10⁻⁷ mol/L (cuve)",
+     "formula": "(F0 − F)/F = 10^(−1,003) × C^0,361",
+     "result": "K = 10^(−1,003) = 0,0993 ; avec C = 90 (μmol/L) : (F0−F)/F = 0,50, F0/F = 1,50 ; avec C en mol/L dans la cuve : (F0−F)/F = 5 × 10⁻⁴, extinction nulle",
+     "compared_to": "figure 7a : F0/F = 1,62 à 90 μmol/L. Le K de 0,101 « L mol−1 » n'a de sens qu'en (μmol/L)^−n avec la concentration de la solution ajoutée ; R² = 0,887 sur la figure contre 0,909 dans le texte",
+     "source": "valeurs de l'article (texte et figure 7)"
+    },
+    {
+     "what": "durée de vie attendue si l'extinction était dynamique",
+     "inputs": "τ0 = 4,79 ns ; F0/F = 1,18 à 9 μmol/L (figure 7a, concentration utilisée en figure 7f)",
+     "formula": "τ = τ0 / (F0/F)",
+     "result": "4,06 ns attendus contre 4,73 ns mesurés",
+     "compared_to": "durée de vie quasi constante : exclut une extinction dynamique dominante à cette concentration, sans prouver un complexe (un filtre interne ou une impureté donneraient le même résultat)",
+     "source": "valeurs de l'article ; Lakowicz 2006, chapitre 8"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "250 °C sous N2 se situe avant la décomposition principale d'une résine MF (pertes de masse principales entre 300 et 450 °C ; de 125 à 335 °C départ de formaldéhyde, de méthanol et d'amines). À 250 °C la mousse est donc partiellement dégradée (scission des ponts éther de méthylène, déméthylolation), pas carbonisée. La durée du palier, la vitesse de chauffe et la masse de mousse ne sont pas données alors qu'elles sont le seul paramètre de la transformation : la voie n'est pas reproductible telle qu'écrite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Synthesis and Thermal Degradation Studies of Melamine Formaldehyde Resins", "authors_or_publisher": "Ullah S. et al., TheScientificWorldJournal", "year": "2014", "url_or_doi": "10.1155/2014/940502"}
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Aucune purification : pas de dialyse, pas de filtration fine, seulement une centrifugation à 8000 rpm puis lyophilisation du surnageant. Tout ce qui est soluble dans l'eau passe dans les « NCDs » : lignosulfonate de sodium (2 g, lui-même fluorescent), chlorures (NH4Cl à 17 % de la résine, sublimation ≈ 338 °C donc non éliminé à 250 °C ; chlorhydrate de triéthanolamine), tensioactif, oligomères triazine de la résine dégradée. Le fait que la mousse réticulée « se dissolve presque entièrement » après 250 °C va dans ce sens. Le TEM (taches de 5–20 nm) et la DRX ne distinguent pas des points de carbone d'un mélange de fluorophores moléculaires, d'oligomères et de sels ; le XPS ne rapporte ni Na, ni S, ni Cl, qui devraient y être. Les autres points de carbone de la base (PMC11944978, PMC9316793, PMC9061421, PMC8255795) sont dialysés.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {"title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots", "authors_or_publisher": "Essner J.B. et al., Chemistry of Materials", "year": "2018", "url_or_doi": "10.1021/acs.chemmater.7b04446"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La frange HRTEM de 0,21 nm est attribuée au plan (002) du graphite ; elle correspond au plan (100) (0,213 nm, voir « distance (100) du graphite »), et la DRX donne d(002) = 0,348 nm (voir « Bragg du pic DRX à 25,6° »). La Conclusion parle de « high graphitization degree » alors que Lc ≈ 2 nm (voir « épaisseur cohérente (Scherrer) ») et que 250 °C ne graphitise pas. La preuve d'un « cœur graphitique sp2 » repose sur une attribution fausse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Extinction par Fe3+ incohérente avec les quantités : dans la cuve, Fe3+ est à 0,45 μmol/L (1,35 nmol) pour 30 mg de NCDs, soit 0,02–0,03 ion par point de 10 nm (voir « nombre de Fe3+ par point de carbone ») ; une extinction statique de 37 % est alors impossible, sauf si l'émetteur est une espèce très minoritaire ou si les concentrations sont fausses. Le K = 0,101 « L mol−1 » n'est reproduit qu'en prenant la concentration de la solution ajoutée en μmol/L (voir « contrôle du modèle double logarithmique ») : unité fausse. n = 0,361 (< 1) et R² = 0,887–0,909 ne soutiennent pas un complexe 1:1 ; le « mécanisme statique » n'est pas établi par ces données.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {"title": "Principles of Fluorescence Spectroscopy, 3rd edition (chapitre 8, Quenching of Fluorescence)", "authors_or_publisher": "Lakowicz J.R., Springer", "year": "2006", "url_or_doi": "10.1007/978-0-387-46312-4"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Spectres pris à 10 mg/mL, sans dilution déclarée, y compris l'UV-Vis dans 3 mL : à cette concentration l'absorbance à 212–251 nm et probablement à 500 nm dépasse largement 0,1, d'où un filtre interne par les NCDs eux-mêmes et des intensités non linéaires. Le rendement quantique absolu (2,94 %) et le rapport F0/F peuvent en être faussés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "The quenching of the fluorescence of carbon dots: A review on mechanisms and applications", "authors_or_publisher": "Zu F., Yan F., Bai Z., Xu J., Wang Y., Huang Y., Zhou X., Microchimica Acta 184, 1899–1914", "year": "2017", "url_or_doi": "10.1007/s00604-017-2318-9"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Effet de la température (F0/F qui baisse de 298 à 338 K) et absence de recouvrement entre l'absorption de Fe3+ (201 nm) et l'excitation (500–514 nm) ou l'émission (580 nm) : raisonnements corrects (une extinction statique baisse quand T monte ; pas de filtre interne par Fe3+). La durée de vie n'a été mesurée qu'à 9 μmol/L, où l'extinction n'est que de 18 % (voir « durée de vie attendue si l'extinction était dynamique »).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "Principles of Fluorescence Spectroscopy, 3rd edition", "authors_or_publisher": "Lakowicz J.R., Springer", "year": "2006", "url_or_doi": "10.1007/978-0-387-46312-4"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérences entre sections : excitation 500 nm (Méthodes, figure 7f) contre maximum d'excitation à 514 nm (Résultats) ; émission à 580 nm (jaune-orangé) contre solution « cyan-green » sous 365 nm (l'émission dépend de l'excitation, donc possible, mais non expliqué) ; « fitted to five peaks » pour quatre énergies listées en C 1s ; 286,7 eV attribué à O–C=O et 288,2 eV à C–O alors que les valeurs usuelles sont ≈ 286–286,5 eV pour C–O/C–N et ≈ 288–289 eV pour C=O/O–C=O (attributions inversées) ; ion « Zr2+ » dans la série de sélectivité, espèce qui n'existe pas en solution aqueuse (le zirconium y est Zr(IV)), donc le sel utilisé est inconnu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« High yield » dans le titre et la Conclusion, sans aucun rendement (ni masse de mousse calcinée, ni masse de solide lyophilisé). Rendement quantique 2,94 % : faible, dans le bas de la base (7,2 % pour PMC11840780, 21 % pour PMC9323265, 32 % pour PMC9054292).",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "IR des NCDs (figure 1b) : bandes à 3303 et 3134 cm−1, 1641 cm−1 et une bande fine vers 750–800 cm−1 (lue sur la figure, non commentée), dans la zone de respiration du cycle triazine (≈ 810 cm−1) : compatibles avec des unités triazine/mélamine encore présentes, donc une carbonisation incomplète, plutôt qu'avec un cœur graphitique. La bande à 1641 cm−1 attribuée à C=C aromatique peut aussi être C=N du cycle triazine ou la déformation de l'eau.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "La dégradation d'une résine MF entre 125 et 390 °C libère formaldéhyde, méthanol, amines et NH3 ; NH4Cl présent peut donner HCl et NH3. Four tubulaire à évacuation ventilée nécessaire ; l'article n'en parle pas. Toxicité des nanoparticules non discutée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Synthesis and Thermal Degradation Studies of Melamine Formaldehyde Resins", "authors_or_publisher": "Ullah S. et al., TheScientificWorldJournal", "year": "2014", "url_or_doi": "10.1155/2014/940502"}
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 250 °C sous N2, la résine MF/lignosulfonate n'est pas carbonisée : elle perd formaldéhyde, méthanol et amines par scission des ponts éther de méthylène et déméthylolation, ce qui baisse la densité de réticulation et rend une partie du réseau soluble dans l'eau. Le produit dissous est probablement un mélange d'oligomères riches en triazine et en groupes OH/NH, de « points de polymère carbonisé » faiblement condensés (émission par états de surface et par émission renforcée par la réticulation), de lignosulfonate (fluorescent par agrégation) et de sels. L'émission à 580 nm dépendante de l'excitation, le faible rendement quantique (2,94 %) et la DRX très large vont dans ce sens plus que vers des points graphitiques ; l'« effondrement de la mousse » décrit par les auteurs est une observation morphologique, pas un mécanisme de formation.",
+    "sources": [
+     {"title": "Synthesis and Thermal Degradation Studies of Melamine Formaldehyde Resins", "authors_or_publisher": "Ullah S. et al., TheScientificWorldJournal", "year": "2014", "url_or_doi": "10.1155/2014/940502"},
+     {"title": "The photoluminescence mechanism in carbon dots (graphene quantum dots, carbon nanodots, and polymer dots): current state and future perspective", "authors_or_publisher": "Zhu S., Song Y., Zhao X., Shao J., Zhang J., Yang B., Nano Research 8, 355–381", "year": "2015", "url_or_doi": "10.1007/s12274-014-0644-3"},
+     {"title": "Aggregation-induced emission: the origin of lignin fluorescence", "authors_or_publisher": "Xue Y., Qiu X., Wu Y., Qian Y., Zhou M., Deng Y., Li Y., Polymer Chemistry", "year": "2016", "url_or_doi": "10.1039/c6py00244g"},
+     {"title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots", "authors_or_publisher": "Essner J.B. et al., Chemistry of Materials", "year": "2018", "url_or_doi": "10.1021/acs.chemmater.7b04446"}
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée du palier à 250 °C, vitesse de chauffe, débit de N2, type de four et masse de mousse : absents, à fixer et à noter",
+    "purifier le surnageant (dialyse 100–1000 Da, filtration 0,22 μm) avant de lyophiliser, et mesurer la part de sels (Cl, Na, S) par analyse élémentaire",
+    "témoin : lignosulfonate seul et mousse sans lignosulfonate traités de la même façon, pour attribuer la fluorescence",
+    "réattribuer la frange de 0,21 nm au plan (100) et mesurer d(002) en HRTEM si un cœur graphitique est revendiqué",
+    "refaire les essais de fluorescence à absorbance < 0,1 et exprimer les concentrations de Fe3+ dans la cuve",
+    "identifier le sel de zirconium (« Zr2+ » n'existe pas en solution)",
+    "rendement massique du solide lyophilisé par rapport à la mousse calcinée"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La mousse LSMF est une formulation de résine mélamine-formaldéhyde classique (F/M ≈ 3), avec un durcisseur NH4Cl en quantité inhabituelle (17 % de la résine) et un moussage à l'éther de pétrole en étuve dont le risque d'inflammation n'est pas signalé. La voie NCDs est douteuse : 250 °C est en dessous de la décomposition principale d'une résine MF, la durée de calcination manque, et le surnageant est lyophilisé sans dialyse, de sorte que le produit appelé « points de carbone » contient vraisemblablement lignosulfonate, sels et oligomères. Les preuves structurales reposent sur une attribution fausse (frange de 0,21 nm donnée pour (002)) et sur une « haute graphitisation » contredite par la DRX. Les données d'extinction par Fe3+ sont quantitativement incohérentes (0,02–0,03 Fe3+ par point pour 37 % d'extinction ; K avec une unité fausse) et ne démontrent pas le mécanisme statique annoncé.",
+  "author_errors_suspected": [
+   "frange de 0,21 nm attribuée au plan (002) du graphite au lieu de (100)",
+   "« high graphitization degree » pour un carbone traité à 250 °C dont le pic DRX donne Lc ≈ 2 nm",
+   "constante K = 0,101 « L mol−1 » calculée avec la concentration de la solution ajoutée en μmol/L ; R² 0,909 dans le texte contre 0,887 sur la figure 7b",
+   "concentrations de Fe3+ (9–450 μmol/L) données pour la solution ajoutée et non pour la cuve, ce qui les surestime d'un facteur 200",
+   "« Zr2+ » dans la série de sélectivité",
+   "« five peaks » en C 1s pour quatre énergies, et attributions C–O / O–C=O inversées",
+   "tensioactif nommé « sodium dodecyl sulfonate » dans les matériaux et « sodium lauryl sulfate » dans la préparation",
+   "0,1 mol de mélamine donnée pour « about 12.0 g » (0,1 mol = 12,6 g)",
+   "« high yield » sans aucun rendement"
+  ],
+  "comparison_with_database": "18 voies de base « carbon dots » dans la base. Toutes celles comparées (PMC11944978, mélamine et éthylènediamine à 220 °C 6 h ; PMC9316793, lignine alcaline ; PMC9061421 ; PMC8255795 ; PMC11840780 ; PMC9323265) comportent une dialyse, absente ici. PMC9036664 est la seule obtenue par calcination à sec à 250 °C. La frange de 0,21 nm se retrouve dans PMC9061421 et PMC10131834 ; PMC8255795 donne 0,35 nm en HRTEM et 0,34 nm en DRX pour (002), ce qui illustre l'attribution correcte. Son rendement quantique (2,94 %) est parmi les plus bas de la base (7,2 à 32 % pour PMC11840780, PMC9323265, PMC9054292)."
+ },
+ "sources_not_found": [
+  "aucune étude trouvée de la dégradation thermique d'une mousse MF modifiée au lignosulfonate à 250 °C ; les températures de dégradation sont prises sur des résines MF pures (Ullah et al. 2014)",
+  "DOI de Merline et al. 2013 (Polymer Journal) non relevé : seule l'URL de l'éditeur est donnée"
+ ]
+}

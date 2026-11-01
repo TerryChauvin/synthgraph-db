@@ -1,0 +1,388 @@
+{
+ "pmcid": "PMC9689030",
+ "routes": [
+  {
+   "label": "TiO2",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "Bragg : distances des raies déclarées (λ Cu Kα1 = 0,154056 nm)",
+     "inputs": "2θ = 26,08 ; 30,55 ; 37,81 ; 53,92 ; 62,75°",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 3,414 ; 2,924 ; 2,377 ; 1,699 ; 1,480 Å",
+     "compared_to": "anatase JCPDS 21-1272 : (004) 2,378 Å / 37,80° ; (112) 2,332 Å / 38,58° ; (200) 1,892 Å / 48,05° ; (105) 1,700 Å / 53,89° ; (204) 1,481 Å / 62,69° ; (101) 3,52 Å / 25,28° (100 %)",
+     "source": "valeurs de l'article ; λ Cu Kα1 : NIST X-ray Transition Energies (references/constantes.md) ; fiche anatase : rapport NMI (JCPDS 21-1272)"
+    },
+    {
+     "what": "Bragg avec la longueur d'onde écrite par les auteurs (1,54060 nm)",
+     "inputs": "λ = 1,54060 nm ; 2θ = 37,81°",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 23,8 Å (dix fois trop grand pour toute raie d'anatase)",
+     "compared_to": "Cu Kα1 = 0,154056 nm = 1,54056 Å",
+     "source": "valeurs de l'article ; NIST X-ray Transition Energies"
+    },
+    {
+     "what": "raies de l'ITO (In2O3 bixbyite, a = 10,118 Å)",
+     "inputs": "a = 10,118 Å ; (hkl) = (222), (400), (411), (440)",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 asin(λ/2d)",
+     "result": "(222) 30,58° ; (400) 35,46° ; (411) 37,69° ; (440) 51,02°",
+     "compared_to": "raie déclarée « ITO (003) » à 30,55° : c'est (222) ; (003) est éteinte dans le groupe Ia-3 (h+k+l impair) ; (411) à 37,69° recouvre la raie « anatase » à 37,81°",
+     "source": "paramètre de maille de mémoire (bixbyite In2O3, fiche JCPDS 06-0416 citée par la littérature), à confirmer sur COD ; raie (222) à ≈ 30,3–30,6° : Senthilkumar 2010"
+    },
+    {
+     "what": "pente de Nernst à 25 °C",
+     "inputs": "R = 8,314 J/(mol·K) ; T = 298,15 K ; F = 96 485 C/mol",
+     "formula": "S = ln(10)·RT/F",
+     "result": "59,16 mV/pH",
+     "compared_to": "53,4 mV/pH (TiO2), 0,90 × Nernst ; température de mesure non donnée",
+     "source": "constantes CODATA (chimie générale)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité n'est donnée pour l'isopropoxyde de titane, l'acide acétique, le Triton X-100 ou l'éthanol (ni concentration en Ti, ni rapport AcOH/Ti, ni rapport eau/Ti) : le bilan de matière et l'épaisseur du film ne peuvent pas être recalculés. Le rapport AcOH/TTIP gouverne pourtant l'hydrolyse et la taille des cristallites (Behnajady 2011 et Yao 2008 font varier ce rapport de 1 à 10). Synthèse non reproductible telle qu'écrite ; un chimiste devra choisir une recette standard (ex. TTIP 0,1–0,5 M, AcOH/Ti 1–4) sans garantie d'obtenir le même film.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Reaction Pathway to the Synthesis of Anatase via the Chemical Modification of Titanium Isopropoxide with Acetic Acid",
+      "authors_or_publisher": "Yao L., Chen J., Wang Z., Sham T.-K., Chem. Mater. 20, 143–150",
+      "year": "2008",
+      "url_or_doi": "10.1021/cm702286e"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage 100 °C (éthanol, éb. 78,4 °C, s'évapore ; film mince) puis recuit 400 °C, 15 min sous air : la cristallisation en anatase d'un film sol-gel issu de TTIP commence vers 300 °C ; 400 °C suffit en principe, mais 15 min est court et l'atmosphère et la rampe ne sont pas données. Le carbone résiduel (C 1,8 at% en EDX) est compatible avec une combustion incomplète du Triton X-100 et des acétates.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of annealing temperature on structural, morphological and electrical properties of nanoparticles TiO2 thin films by sol-gel method",
+      "authors_or_publisher": "AIP Conf. Proc. 1733 (auteurs non relevés sur la notice OSTI 22608624)",
+      "year": "2016",
+      "url_or_doi": "10.1063/1.4948905"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Identification de phase fautive (voir « Bragg : distances des raies déclarées ») : 37,81° est (004) et non (112) (38,58°) ; 53,92° est (105) et non (200), qui est à 48,05° ; seule (204) à 62,75° est juste. La raie la plus intense de l'anatase, (101) à 25,28° (100 %), est absente, alors que (004), (105) et (204) (14–20 %) seraient vues : c'est peu compatible avec de l'anatase non texturée. De plus 37,81° recouvre la raie (411) de l'In2O3 (37,69°) et les auteurs écrivent que ces pics sont vus « pour tous les échantillons, films de TiO2 et substrats ITO ». La présence d'anatase n'est donc pas démontrée ; la longueur d'onde écrite « λ = 1,54060 nm » est fausse d'un facteur 10 (Cu Kα1 = 0,154056 nm) et la raie de l'ITO à 30,55° est (222), pas (003) (réflexion éteinte en Ia-3).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "NMI report: XRD of sunscreen samples (reference pattern anatase JCPDS 21-1272, table of d, 2θ, I/I0)",
+      "authors_or_publisher": "National Measurement Institute (Australia), rapport publié par Friends of the Earth",
+      "year": "non relevée",
+      "url_or_doi": "https://foe.org/wp-content/uploads/2017/legacy/NMI-report-XRD-anatase.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDX : Ti 0,4 at% contre In 18,5 et Si 30,5 at% : le signal vient presque entièrement du verre et de l'ITO (profondeur d'analyse à 15 kV ≈ 1 µm), le film est très mince ; la composition du film n'est pas mesurée. Les éléments Na, Ca, Mg, Al viennent du verre sodocalcique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "53,4 mV/pH (0,90 × la pente de Nernst de 59,16 mV/pH à 25 °C, calcul « pente de Nernst à 25 °C ») est dans la gamme publiée pour les électrodes TiO2 en EGFET (54,13 mV/pH cité par les auteurs) ; plausible. La température des mesures n'est pas donnée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le ruban Kapton posé avant le dépôt reste vraisemblablement pendant le recuit à 400 °C (rien ne dit qu'il est retiré) : l'adhésif silicone de ces rubans est garanti jusqu'à 260 °C ; au-delà, dégradation, fumées et résidus siliconés possibles sur la zone de contact. Autres dangers non écrits : TTIP inflammable et hydrolysable, méthanol toxique, acide acétique glacial corrosif.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "3M Polyimide Film Tape 5413, Technical Data Sheet (fiche fournisseur)",
+      "authors_or_publisher": "3M",
+      "year": "2021",
+      "url_or_doi": "https://multimedia.3m.com/mws/media/136011O/3m-polyimide-film-tape-5413-tds.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le TTIP est modifié par l'acide acétique (échange d'un isopropoxyde par un acétate pontant ou chélatant), ce qui ralentit l'hydrolyse par l'eau résiduelle de l'éthanol et l'humidité de l'air ; polycondensation lente en oligomères Ti–O–Ti ; le Triton X-100 améliore le mouillage de l'ITO. Après dépôt, gel amorphe ; la déshydroxylation et le départ des acétates et du tensioactif vers 300–400 °C font cristalliser l'anatase en petits domaines. Le mécanisme est classique ; c'est la preuve de l'anatase dans ce film qui manque.",
+    "sources": [
+     {
+      "title": "Reaction Pathway to the Synthesis of Anatase via the Chemical Modification of Titanium Isopropoxide with Acetic Acid",
+      "authors_or_publisher": "Yao L., Chen J., Wang Z., Sham T.-K., Chem. Mater. 20, 143–150",
+      "year": "2008",
+      "url_or_doi": "10.1021/cm702286e"
+     },
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     },
+     {
+      "title": "Effect of annealing temperature on structural, morphological and electrical properties of nanoparticles TiO2 thin films by sol-gel method",
+      "authors_or_publisher": "AIP Conf. Proc. 1733 (auteurs non relevés sur la notice OSTI 22608624)",
+      "year": "2016",
+      "url_or_doi": "10.1063/1.4948905"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer la recette du sol (concentration en Ti, rapports AcOH/Ti, Triton/Ti, eau/Ti) et le volume d'une goutte",
+    "retirer le Kapton avant le recuit à 400 °C ou utiliser un masque tenant 400 °C",
+    "mesurer l'épaisseur du film (profilomètre, ellipsométrie)",
+    "vérifier la phase par DRX en incidence rasante ou Raman (144 cm-1 de l'anatase) et chercher la raie (101) à 25,3°",
+    "mesurer le substrat ITO nu traité à 400 °C pour séparer ses raies et sa réponse pH"
+   ]
+  },
+  {
+   "label": "TiO2-PANI_bilayer",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "concentration de la solution de PANI",
+     "inputs": "0,1 wt% PANI-EB dans le méthanol ; masse volumique du méthanol ≈ 0,79 g/mL",
+     "formula": "c = 0,001 × ρ",
+     "result": "≈ 0,79 mg/mL de PANI",
+     "compared_to": "solvants de la PANI-EB donnés par le fournisseur : NMP, DMF, DMAc, DMSO, m-crésol (pas le méthanol)",
+     "source": "valeurs de l'article ; masse volumique du méthanol : PubChem (valeur de manuel, non relue ici)"
+    },
+    {
+     "what": "distance de la raie attribuée à la PANI",
+     "inputs": "2θ = 26,08° ; λ = 0,154056 nm",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "3,41 Å",
+     "compared_to": "PANI-EB de classe I : amorphe ; halo large vers 20–25° (empilement des cycles ≈ 3,5 Å) pour les formes partiellement cristallines",
+     "source": "valeurs de l'article ; Pouget 1991"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "La PANI base émeraude n'est donnée soluble que dans le NMP, le DMF, le DMAc, le DMSO et le m-crésol par le fournisseur ; dans le méthanol, à 0,79 mg/mL (calcul « concentration de la solution de PANI »), on obtient au mieux une solution partielle ou une dispersion (Othman 2010 parle d'interactions par liaisons H et suit la taille par DLS). Ni filtration ni centrifugation ne sont décrites : la quantité de PANI réellement déposée est inconnue.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Polyaniline (emeraldine base) average Mw ~20000, fiche produit 556378 (fiche fournisseur)",
+      "authors_or_publisher": "Sigma-Aldrich (Merck)",
+      "year": "consultée 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/556378"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rien ne prouve que la couche supérieure de PANI est présente : N non détecté en EDX, C plus faible (0,1 at%) que sur le TiO2 seul (1,8 at%). Le seul indice est une raie « significative » à 26,08° (d = 3,41 Å) ; or la PANI-EB coulée en solution est amorphe ou faiblement ordonnée (halo large), et quelques gouttes d'une solution à 0,1 wt% centrifugées donnent un film de quelques nm à dizaines de nm, ce qui rend une raie de diffraction nette très improbable. L'explication des auteurs (C et N « ne produisent pas d'intensité continue » en EDX) est fausse : N Kα (0,392 keV) se détecte avec un détecteur SDD à fenêtre mince ; c'est la minceur du film qui empêche la mesure. Il faudrait de l'IR (ATR) ou de l'UV-visible (bandes à ≈ 330 et 600 nm de la PANI-EB) ou du XPS (N 1s).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "X-ray structure of polyaniline",
+      "authors_or_publisher": "Pouget J.P. et al., Macromolecules",
+      "year": "1991",
+      "url_or_doi": "10.1021/ma00003a022"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "PANI séchée 10 min à 150 °C : au-dessus du point d'ébullition du méthanol (64,7 °C), sous le seuil de dégradation de la PANI-EB ; acceptable. La couche de TiO2 dessous a, elle, été recuite à 400 °C.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs justifient la PANI par sa « haute conductivité » ; la base émeraude non dopée est isolante (≈ 10^-9–10^-10 S/cm) et ne devient conductrice qu'une fois protonée (pH < 4 environ). La baisse de pente du bicouche (48,1 mV/pH) est cohérente avec une couche peu conductrice et peu sensible au-dessus du TiO2.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Morphological and Structural Analysis of Polyaniline and Poly(o-anisidine) Layers",
+      "authors_or_publisher": "Polymers (MDPI) 9, 732 (auteurs non relevés)",
+      "year": "2017",
+      "url_or_doi": "10.3390/polym9120732"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Dépôt physique : la PANI-EB dispersée ou partiellement solvatée dans le méthanol est centrifugée sur le TiO2 recuit et sèche en une couche mince discontinue, sans liaison chimique au TiO2 ; au contact des tampons acides elle se protone (EB → ES) de façon réversible, ce qui fait de sa surface (amines/imines) le site d'échange de protons.",
+    "sources": [
+     {
+      "title": "X-ray structure of polyaniline",
+      "authors_or_publisher": "Pouget J.P. et al., Macromolecules",
+      "year": "1991",
+      "url_or_doi": "10.1021/ma00003a022"
+     },
+     {
+      "title": "Conducting Polyaniline Nanowire and Its Applications in Chemiresistive Sensing",
+      "authors_or_publisher": "Nanomaterials (MDPI), article PMC5304646 (auteurs non relevés)",
+      "year": "2013",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5304646"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dissoudre la PANI-EB dans le NMP ou filtrer la dispersion méthanolique et doser ce qui passe (UV-visible)",
+    "prouver la présence de la couche de PANI (ATR-IR, UV-visible, XPS N 1s)",
+    "mesurer l'épaisseur de chaque couche"
+   ]
+  },
+  {
+   "label": "TiO2-PANI_composite",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "PANI dans le sol composite",
+     "inputs": "PANI 0,79 mg/mL ; mélange TiO2:PANI 2:1 (supposé en volume)",
+     "formula": "c = 0,79 × 1/3",
+     "result": "≈ 0,26 mg/mL de PANI ; teneur en TiO2 inconnue, donc fraction PANI/TiO2 incalculable",
+     "compared_to": "—",
+     "source": "valeurs de l'article ; hypothèse « en volume » non écrite par les auteurs"
+    },
+    {
+     "what": "écart à la pente de Nernst",
+     "inputs": "66,1 mV/pH ; Nernst 59,16 mV/pH à 25 °C",
+     "formula": "66,1 / 59,16",
+     "result": "1,12 (12 % au-dessus de la limite thermodynamique pour 1 H+/1 e-)",
+     "compared_to": "modèle de liaison de sites (équation 1 de l'article) : pente ≤ Nernst",
+     "source": "valeurs de l'article ; chimie générale"
+    },
+    {
+     "what": "écart-type de répétabilité",
+     "inputs": "66,1 ; 65,6 ; 65,5 ; 66,5 ; 65,3 mV/pH",
+     "formula": "s = √(Σ(x−x̄)²/(n−1)) ; RSD = s/x̄",
+     "result": "x̄ = 65,8 mV/pH ; s = 0,49 mV/pH ; RSD = 0,74 % (0,67 % avec n au dénominateur)",
+     "compared_to": "« standard deviation of 0.49% » des auteurs : 0,49 est l'écart-type en mV/pH, pas un pourcentage",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "étendue de la gamme nitrate",
+     "inputs": "10 à 30 ppm NO3−-N ; 12,9 mV/dec",
+     "formula": "log10(30/10) ; ΔV = pente × décades",
+     "result": "0,48 décade ; ΔV ≈ 6,2 mV sur toute la gamme (13,1 mV pour 27,5 mV/dec)",
+     "compared_to": "dérive mesurée 5,54 mV/h à pH 7 ; hystérésis 3 mV",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration molaire du nitrate",
+     "inputs": "10 et 30 ppm en N ; M(N) = 14,007 g/mol",
+     "formula": "c = ppm / (1000 × 14,007)",
+     "result": "0,71 à 2,1 mmol/L de NO3−",
+     "compared_to": "—",
+     "source": "valeurs de l'article ; masse atomique IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Le composite n'est que séché à 150 °C (10 min) ; aucun recuit à 400 °C n'est décrit. Un gel de TTIP séché à 150 °C est amorphe (cristallisation de l'anatase vers 300 °C et plus) et garde acétates, isopropoxydes et Triton X-100 (non volatil). Or les auteurs rapportent les mêmes « raies d'anatase » (37,81°, 53,92°, 62,75°) sur ce film que sur le TiO2 recuit : soit ces raies ne viennent pas du TiO2 (substrat), soit un recuit non écrit a eu lieu. Incohérence entre Méthodes et Résultats à lever avant de refaire la synthèse.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of annealing temperature on structural, morphological and electrical properties of nanoparticles TiO2 thin films by sol-gel method",
+      "authors_or_publisher": "AIP Conf. Proc. 1733 (auteurs non relevés sur la notice OSTI 22608624)",
+      "year": "2016",
+      "url_or_doi": "10.1063/1.4948905"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le gain en sensibilité (66,1 contre 53,4 mV/pH) est attribué à la PANI, mais le composite diffère du TiO2 par au moins quatre variables : présence de PANI, dilution du sol par le méthanol (2:1), absence de recuit à 400 °C (gel hybride amorphe au lieu d'un oxyde), et rugosité (agglomérats). Le témoin nécessaire — sol de TiO2 dilué 2:1 par du méthanol pur, séché à 150 °C sans recuit — manque ; l'effet de la PANI n'est pas isolé.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "66,1 mV/pH dépasse de 12 % la pente de Nernst (calcul « écart à la pente de Nernst »). Une surface d'oxyde décrite par le modèle de liaison de sites ne peut pas dépasser 59,16 mV/pH à 25 °C ; une pente super-nernstienne demande un couplage redox (la PANI échange H+ et électrons : le second couple redox de la PANI se déplace de ≈ 120 mV/pH) ou un artefact. Ici, la dérive mesurée (3,3–5,5 mV/h) et l'ordre des mesures (de pH 7 vers le basique puis vers l'acide) peuvent ajouter quelques mV/pH ; la température de mesure n'est pas donnée. Résultat possible, non démontré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Conducting Polyaniline Nanowire and Its Applications in Chemiresistive Sensing",
+      "authors_or_publisher": "Nanomaterials (MDPI), article PMC5304646 (auteurs non relevés)",
+      "year": "2013",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5304646"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Hautement sélectif » n'est pas démontré : la « sensibilité au nitrate » est la pente d'une droite à R² = 0,15 (0,08 au troisième essai) sur 0,48 décade (10–30 ppm), soit ≈ 6 mV au total, du même ordre que la dérive horaire et l'hystérésis (calcul « étendue de la gamme nitrate ») ; une droite à R² ≈ 0,1 signifie absence de corrélation, pas une faible réponse. Le pH des solutions de nitrate (avec ajusteur de force ionique) n'est pas contrôlé, alors que l'électrode y répond à 66 mV/pH. La sélectivité vis-à-vis de H+ se mesure par un coefficient de sélectivité potentiométrique (méthode à interférent fixe : réponse au pH en présence de nitrate à teneur constante), recommandation IUPAC.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Recommendations for nomenclature of ion-selective electrodes (IUPAC Recommendations 1994)",
+      "authors_or_publisher": "IUPAC, Pure Appl. Chem. 66, 2527–2536",
+      "year": "1994",
+      "url_or_doi": "https://media.iupac.org/publications/pac/1994/pdf/6612x2527.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Répétabilité : l'écart-type des cinq pentes est 0,49 mV/pH, soit 0,74 % en relatif (calcul « écart-type de répétabilité ») ; l'article écrit « 0,49 % » (unité fausse). De plus, cinq mesures successives sur la même électrode donnent une répétabilité, pas une reproductibilité entre électrodes ; une seule électrode composite semble avoir été fabriquée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Mélange d'un sol de TTIP stabilisé par l'acide acétique dans l'éthanol avec une dispersion de PANI-EB dans le méthanol : miscibilité des solvants sans problème ; l'acide acétique peut protoner partiellement la PANI-EB (pKa 4,76) et favoriser son agrégation, ce qui est cohérent avec les agglomérats observés en MEB. Le rapport « 2:1 » n'est pas défini (volume ? masse ?).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hystérésis : la séquence est 7→4→7→10→7 (25 min) dans les Résultats et la légende, 7→10→7→4→7 (5 min par palier) dans la Conclusion ; la durée totale concorde (5 × 5 min), l'ordre non.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Mélange physique d'un sol de titane modifié par l'acétate (oligomères Ti–O–Ti amorphes) et de chaînes de PANI-EB partiellement protonées par l'acide acétique, qui s'agrègent ; après séchage à 150 °C sans recuit, le film est un hybride amorphe Ti-oxo/acétate/Triton/PANI, non un composite d'anatase. La réponse au pH combine l'équilibre acido-basique des Ti–OH et la protonation (et le couple redox) des sites amine/imine de la PANI, ce dernier pouvant donner une pente apparente supérieure à Nernst. L'hypothèse d'« états d'oxydation différents » des auteurs va dans ce sens mais n'est pas étayée par une mesure (XPS, UV-visible).",
+    "sources": [
+     {
+      "title": "Conducting Polyaniline Nanowire and Its Applications in Chemiresistive Sensing",
+      "authors_or_publisher": "Nanomaterials (MDPI), article PMC5304646 (auteurs non relevés)",
+      "year": "2013",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5304646"
+     },
+     {
+      "title": "Reaction Pathway to the Synthesis of Anatase via the Chemical Modification of Titanium Isopropoxide with Acetic Acid",
+      "authors_or_publisher": "Yao L., Chen J., Wang Z., Sham T.-K., Chem. Mater. 20, 143–150",
+      "year": "2008",
+      "url_or_doi": "10.1021/cm702286e"
+     },
+     {
+      "title": "Effect of annealing temperature on structural, morphological and electrical properties of nanoparticles TiO2 thin films by sol-gel method",
+      "authors_or_publisher": "AIP Conf. Proc. 1733 (auteurs non relevés sur la notice OSTI 22608624)",
+      "year": "2016",
+      "url_or_doi": "10.1063/1.4948905"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dire si le composite est recuit ou non, et refaire la DRX du film séché à 150 °C",
+    "définir le rapport 2:1 (volume ou masse) et la concentration de chaque solution",
+    "faire le témoin TiO2 dilué 2:1 au méthanol, séché à 150 °C sans recuit",
+    "mesurer la température des tampons et alterner l'ordre des pH pour séparer pente et dérive",
+    "mesurer la sélectivité par la méthode à interférent fixe (pH variable, nitrate constant) et contrôler le pH des solutions de nitrate",
+    "fabriquer plusieurs électrodes pour une reproductibilité entre électrodes"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Dépôt sol-gel de TiO2 (TTIP/acide acétique/Triton X-100/éthanol) sur ITO par centrifugation, avec PANI-EB en bicouche ou en mélange, pour électrode EGFET de pH. La chimie du sol est classique et plausible, mais aucune quantité n'est donnée (synthèse non reproductible telle qu'écrite) et plusieurs affirmations ne tiennent pas : identification de l'anatase fautive (indices de Miller faux, raie (101) absente, recouvrement avec l'ITO, λ écrite 1,54060 nm), anatase annoncée dans un composite seulement séché à 150 °C, effet de la PANI non isolé (le composite change aussi de recuit et de dilution), présence de PANI non prouvée en EDX, « sélectivité » au nitrate fondée sur des droites à R² ≈ 0,1 sur 0,48 décade, écart-type de répétabilité donné en % au lieu de mV/pH.",
+  "author_errors_suspected": [
+   "λ Cu Kα écrite « 1,54060 nm » au lieu de 0,154060 nm (1,54060 Å)",
+   "indexation de l'anatase : 37,81° = (004) et non (112) ; 53,92° = (105) et non (200) (48,05°)",
+   "raie de l'ITO à 30,55° indexée (003) au lieu de (222) ; (003) est éteinte dans Ia-3",
+   "anatase rapportée sur le composite séché à 150 °C sans recuit décrit",
+   "écart-type de répétabilité « 0,49 % » : c'est 0,49 mV/pH (RSD 0,74 %)",
+   "équation (2) écrite « E = E0 = 0,0592 V log Q/n » au lieu de E = E0 − (0,0592/n) log Q",
+   "séquence d'hystérésis différente entre Résultats (7→4→7→10→7) et Conclusion (7→10→7→4→7)",
+   "explication fausse de la non-détection de N en EDX (« pas d'intensité continue ») ; c'est la minceur du film",
+   "PANI base émeraude présentée comme « hautement conductrice » alors qu'elle est isolante non dopée"
+  ],
+  "comparison_with_database": "compare.py « TiO2 » : 13 voies de base ; la seule autre couche sol-gel recuite à 400 °C (PMC5521283 « TiO2_400C », recuit 2 h) obtient l'anatase après un recuit huit fois plus long ; aucun autre film de la base n'annonce d'anatase sans recuit ≥ 400 °C ou traitement hydrothermal. Pas d'autre électrode TiO2–PANI dans la base."
+ },
+ "sources_not_found": [
+  "source primaire (COD ou fiche ICDD) du paramètre de maille de l'In2O3 bixbyite (10,118 Å) : utilisé de mémoire, à confirmer",
+  "auteurs de l'article AIP Conf. Proc. 1733 (DOI 10.1063/1.4948905) non relevés sur la notice OSTI",
+  "aucune source trouvée sur la stabilité thermique de la PANI-EB à 150 °C dans le temps imparti (jugement de chimie générale)"
+ ]
+}

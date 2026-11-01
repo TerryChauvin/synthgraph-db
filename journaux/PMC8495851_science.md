@@ -1,0 +1,21 @@
+# PMC8495851 — critique scientifique (journal de décisions)
+
+- SBA-15 sans HCl : rattachée à la voie « acidité auto-générée » de Chen, Jang, Cheng 2004 (10.1021/cm049247b, DOI pris du résultat de recherche, non vérifié sur Crossref) ; [Zr] ≈ 0,016 mol/L calculé sur une base de 1 g de P123. Jugé `reserve`, pas `probleme` : la chimie tient, ce sont les quantités qui manquent.
+- « Plaquettes de 12 nm » classé `probleme` : impossible pour un objet qui contient des pores de 15,8 nm ; l'extracteur l'avait déjà mis en doute.
+- Condensation capillaire « P/P0 < 0,7 » contre 15,82 nm : ordre de grandeur de Kelvin, sans calcul exact (épaisseur de film non connue) ; laissé en `reserve`.
+- BET 148,74 m2/g : comparé à PMC6812203 (675 m2/g), seule SBA-15 de la base ; `reserve` (signal, pas preuve).
+- M-SBA-15, solubilité de Fe(acac)3 (≈ 2 g/L, Wikipedia, source secondaire faute de PubChem) : chaîne de calcul Ms 23,11 → 27–39 % de CoFe2O4 → 0,32–0,55 g de Fe(acac)3 dans 10 mL → 16 à 27 fois la solubilité ; le dissous seul ne donnerait que ≈ 2 emu/g. Classé `probleme` (le protocole écrit ne peut pas produire ce matériau par imprégnation).
+- M-SBA-15 en `non_reproductible` : sans quantité de Fe ni de Co, la charge en ferrite (qui fixe Ms et la surface) est arbitraire ; c'est le seul cas de ce verdict.
+- Ms 23,11 → 8,21 emu/g : bilan électronique APS (2 e−) contre 2,5 e−/aniline et 2,33 e−/pyrrole, unités dopées 108,8 et 76,8 g/mol ; la dilution exige 182 mg de polymère, le maximum possible est 115 mg. `probleme` ; hypothèse retenue : lessivage de CoFe2O4 par HCl 1 M (recherche web sans mesure quantitative trouvée, dit dans sources_not_found).
+- Lecture « 0,05 mL de chaque monomère » retenue pour les calculs (comme l'extracteur) ; l'autre lecture rend la dilution encore moins capable d'expliquer Ms (14,7 emu/g attendus).
+- Essai 26 du Tableau 2 : qe = 231 mg/g > C0/dose = 10/0,05 = 200 mg/g → `probleme` (bilan de matière impossible). Tous les autres essais respectent qe ≤ C0/dose.
+- Thermodynamique : ΔG = ΔH − TΔS recalculé pour les 9 cases du Tableau S4, écart ≤ 0,4 kJ/mol, donc unités kJ/mol et J/(mol·K) confirmées ; la contradiction est dans le texte (« < −40 », « exothermique », « auto-chauffant »), d'où `probleme` sur la cohérence entre sections.
+- RL du Tableau S2 : C0 recalculé ≈ 30 mg/L aux trois températures, donc le tableau est cohérent et c'est le texte (« RL augmente ») qui se trompe.
+- Fig. 9 à 0,02 g/L (520 mg/g) contre Langmuir à Ce = 18,9 mg/L (235 mg/g) : laissé en `reserve` car lu sur figure (±10).
+- 89 Hg/nm2 de surface BET : utilisé pour contester l'image « monocouche », pas les capacités ; `reserve`.
+- Précipitation à pH 8 : HgO ≈ 52 mg/L (Wikipedia + fiche Sigma via Thomas Scientific) contre 32 mg/L de HgO équivalent ; `reserve` seulement, car le sel de Hg et la teneur en chlorures ne sont pas écrits.
+- XPS Hg 4f / Si 2p : chevauchement tiré de xpsdatabase.com ; `reserve` (preuve discriminante incomplète, pas fausse).
+- Cinétique : Simonin 2016 cité par sa page HAL ; DOI (10.1016/j.cej.2016.04.079) non vérifié, donc non mis dans `url_or_doi`.
+- Stejskal & Gilbert 2002 (10.1351/pac200274050857) : texte intégral injoignable (publications.iupac.org ne résout pas) ; le rapport 1,25 vient de ma connaissance du protocole, signalé dans sources_not_found.
+- Classement CLP du nitrate de cobalt (Carc. 1B, Repr. 1B) pris d'une page secondaire (NextSDS reprenant l'ECHA), à confirmer sur echa.europa.eu.
+- 10 recherches web ; rien ajouté à fondateurs.md ni constantes.md (Crossref bloqué, consigne de l'orchestrateur).

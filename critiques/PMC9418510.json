@@ -1,0 +1,90 @@
+{
+  "pmcid": "PMC9418510",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "ZSM-5-5 outcome xrd_quartz_peaks (et doute « ZSM-5-5 et ZSM-5-5_72h, phase »)",
+      "extracted": "quartz peaks marked by asterisks in the XRD of the 48 h product (Fig. 1C)",
+      "article_says": "Asterisks in (C) and (D) indicate quartz peaks.",
+      "fix": "Supprimer cette sortie de ZSM-5-5. Sur l'image Fig. 1C (corpus/fig/PMC9418510/c9na00399a-f1.jpg), les astérisques (≈ 21°, 26,7° et 50° 2θ) sont sur la trace a (non broyé), pas sur la trace c (50 min, ZSM-5 pur, sans astérisque). Le Tableau 1 (ZSM-5 pour 5 : 1 : 30) et la figure concordent : le produit de référence à 48 h n'a pas de quartz. Résoudre le doute correspondant dans ce sens.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "attribution",
+      "where": "ZSM-5-5_72h outcome xrd_quartz_peaks",
+      "extracted": "quartz peaks marked by asterisks in the XRD of the 72 h product (Fig. 1D)",
+      "article_says": "Asterisks in (C) and (D) indicate quartz peaks.",
+      "fix": "Supprimer cette sortie de ZSM-5-5_72h. Sur l'image Fig. 1D, les astérisques de quartz sont sur les traces a (non broyé) et b (broyé 25 min) ; la trace c (50 min, 72 h) montre le ZSM-5 sans astérisque. Rattacher le quartz à Unground et Ground-25min (voir constats suivants).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Unground, durée de chauffage et résultats par durée (doute « Unground et Ground-25min, durée de chauffage »)",
+      "extracted": "durée « 24 to 72 h » (value_text) ; résultats génériques « essentially amorphous » puis « dense crystalline quartz » sans durée",
+      "article_says": "In contrast, the unground and 25 min ball milled mixture transform from amorphous materials to dense crystalline quartz rather than to porous aluminosilicate zeolites.",
+      "fix": "Lire la Fig. 1 (légende : « a = no grinding, b = 25 min, and c = 50 min ») : trace a non broyé = amorphe à 24 h (Fig. 1B), quartz à 48 h (Fig. 1C, astérisques) et à 72 h (Fig. 1D). Ajouter ces résultats par durée (valeurs lues sur figure, `from_figure`, qualitatives), ou créer des branches Unground_48h / Unground_72h comme pour ZSM-5-5_24h et _72h ; retirer l'incertitude du doute.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Ground-25min, résultats par durée de chauffage",
+      "extracted": "durée « 24 to 72 h » ; amorphe puis quartz, sans durée",
+      "article_says": "while the XRD patterns of both unground and 25 min ball milled samples are essentially amorphous",
+      "fix": "Fig. 1 trace b (25 min) : amorphe à 24 h (1B) et encore amorphe à 48 h (1C, bosse large sans astérisque), quartz seulement à 72 h (1D, astérisques). Différence réelle avec le non broyé (quartz dès 48 h) : à ajouter aux résultats ou à une branche à 72 h.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "ZSM-5-5 yield",
+      "extracted": "yield value 80 %",
+      "article_says": "Typical isolated mass yields based on the amount of SiO2 used are at or above 80%.",
+      "fix": "Le chiffre est un minimum typique (« at or above »), pas un rendement mesuré de ZSM-5-5 ; la phrase est dans la section durées de broyage et de chauffage (24, 48, 72 h), sans échantillon précis. Le champ yield n'a pas de qualificatif : garder la citation mais ajouter une annotation limite_reproductibilite « rendement ≥ 80 % typique, non propre à cette voie » (le doute existe déjà dans doubts, pas dans les annotations).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "N7-S30 outcomes",
+      "extracted": "xrd_phase ZSM-5 + mordenite (Tableau 1) seulement",
+      "article_says": "Poorly crystalline ZSM-5 and mordenite are observed with a Na2O/Al2O3 = 7 reaction ratio.",
+      "fix": "Ajouter la précision « poorly crystalline » (texte) à la phase ou aux résultats de N7-S30, confirmée par la Fig. 3 (pics ZSM-5 et mordénite faibles sur fond large).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "H-ZSM-5-5 / H-ZSM-5-6 / H-MOR-7 / H-MOR-9 outcomes, référence sans catalyseur et zéolithes commerciales",
+      "extracted": "échantillons « sans catalyseur » et « Comm H-ZSM-5 », « Comm H-MOR » rangés en route null dans sample_inventory, valeurs nulle part dans le JSON",
+      "article_says": "In the absence of a catalyst, very low biomass conversions (HMF yield) of 21% (3%) and 13% (0.8%) were found for glucose and cellulose, respectively.",
+      "fix": "Les conversions et rendements HMF du témoin (21 % (3 %) glucose, 13 % (0,8 %) cellulose) et des commerciaux (Tableau 3 : Comm H-ZSM-5 82 (65) / 48 (35), Comm H-MOR 88 (60) / 37 (28)) sont la référence sur laquelle les auteurs concluent « comparable ». Les consigner dans une annotation comparaison_branches ou en résultats de comparaison rattachés aux voies H, pour qu'un lecteur voie l'effet du catalyseur.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Calc-24h / Calc-48h / Calc-72h, étape calcine, durée 6 h",
+      "extracted": "duration 6 h, quote « Selected zeolite products were heated to higher temperatures (550 °C, 6 h) … »",
+      "article_says": "products from a 50 min ball mill pre-reaction followed by 180 °C heating for 24, 48, or 72 h were subsequently calcined at higher 550 °C temperatures in air",
+      "fix": "La phrase des Résultats qui décrit ces trois calcinations ne donne pas de durée ; les 6 h viennent de la phrase générale « Selected zeolite products » des Méthodes (Na, Si, Al). Valeur plausible, déjà signalée en annotation limite_reproductibilité sur Calc-24h : vérifier que la valeur reste marquée comme transférée d'une autre phrase, et que les routes Calc-48h et Calc-72h portent la même annotation.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 23,
+    "branches_extracted": 23,
+    "not_stated_checked": 38,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "masse totale de poudre par jarre et rapport masse de billes / masse de poudre absents (Tableau S1 donne seulement des quantités en mmol sans unité écrite ; les mmol viennent des plages des Méthodes)",
+    "atmosphère et température du broyage, pauses éventuelles, absents",
+    "nature de la silice ajoutée : « silica gel » (Matériaux) contre « fumed silica » (Résultats), pureté absente",
+    "vitesse de montée, refroidissement, taux de remplissage de l'autoclave, pression, non cités",
+    "lavage à l'eau : volume, nombre de lavages, mode de séparation, durée de séchage à 80 °C absents",
+    "pour non broyé et broyé 25 min, la durée de chauffage de chaque résultat n'est écrite nulle part dans le texte (seulement lisible sur la Fig. 1)",
+    "échange acide : température, nombre d'échanges, lavage, Résultats parlent de NH4Cl, Méthodes de nitrate d'ammonium ; calcination 550 °C : atmosphère et rampe non citées pour l'échange acide",
+    "durée de calcination des produits de la Fig. S2 non écrite pour ces trois essais (6 h empruntées aux échantillons « selected »)",
+    "Tableau 1 : le gras qui désigne les produits monophasés est perdu dans le texte ; les rapports 6 et 8 à 30 avec NaOH et 3 à 40 avec NaOH sont des tirets (non préparés ou non rapportés)",
+    "quantité de Na2SiO3 de 7,67 mmol (9 : 1 : 40 avec NaOH, Tableau S1) hors de la plage 1,7–7,5 mmol des Méthodes"
+  ],
+  "mechanism_check": "ok : le mécanisme des auteurs (équation 1, métathèse Na2SiO3 + Al2(SO4)3 → Na2SO4) est bien attribué à la citation « likely results in a net mechanochemical pre-reaction » ; l'analyse chimique de l'extracteur (≈ 63 mmol d'eau libérée, 5,03 × 9 + 0,98 × 18) est arithmétiquement juste.",
+  "notes": "Attribution des 24 compositions : les 23 branches et la base correspondent une à une aux rangées du Tableau S1 (quantités recopiées exactes pour les 4 séries : 30, 30 avec NaOH, 40, 40 avec NaOH) et aux cases du Tableau 1 (colonnes lues dans l'ordre 30 | 30 NaOH | 40 | 40 NaOH), recoupées avec les légendes Fig. 3, Fig. 4, Fig. S3, Fig. S4 et le Tableau S2 (4 rangées ICP bien rangées sur N4-S30, N4-S30-OH, N7-S40, N9-S40). Figures 3 et 4 ouvertes : phases concordantes avec le Tableau 1. Fig. 6 comparée au Tableau 3 : écarts ≤ 2 points (H-ZSM-5-6 cellulose ≈ 48 contre 49 ; H-MOR-9 glucose ≈ 80 contre 78), le tableau fait foi. Aucune valeur marquée from_figure dans l'extraction. Le rendement « at or above 80% » est bien sur la voie de base uniquement, une seule fois ; reste le problème du minimum non qualifié. N9-S30-OH est marqué succeeded true avec « Mordenite » : plausible (Fig. 4 et Scheme 1 donnent la mordénite pour 7–9 avec NaOH) mais l'article ne dit pas « single-phase » pour lui, le gras du tableau étant perdu ; je n'en fais pas un constat. Le choix de ne pas créer de branche pour les cases « — » est cohérent avec le Tableau S1."
+}

@@ -1,0 +1,15 @@
+# PMC5727554 — critique scientifique (journal de décisions)
+
+- Fractions de phase (88/12, 72/28, 100/0, 40/60) : jugées `probleme` parce que l'article les attribue à un ajustement Le Bail, qui extrait les intensités raie par raie sans modèle structural ni facteur d'échelle par phase ; il faut un Rietveld. Source : Le Bail 2005 (Powder Diffraction), plus un cours en ligne (UCL) pour le principe.
+- 28 % de rutile à 400 °C puis 0 % à 600 °C sur la même poudre (trois portions) : `probleme`, la transformation anatase → rutile est irréversible (Hanaor & Sorrell 2011). Hypothèse retenue : bosse large vers 27–28° de la Fig. 2d (TiO2(B) ou titanate résiduel) prise pour du rutile. Indice en plus : la courbe K-M de la Fig. 13 (échantillon à 400 °C) n'a pas de seuil vers 3,0 eV.
+- Parois des tubes : (De − Di)/2 = 0,45 nm (400 °C et lavé) et 0,50 nm (600 °C), avec σ ≈ 2–2,7 nm. Jugé `probleme` : plus mince qu'une seule couche de titanate (≈ 0,9 nm d'interfeuillet ; tubes de 3–7 couches, revue PMC8418895). Je n'ai pas relevé les auteurs ni l'année de cette revue : source à confirmer.
+- Conditions MET « 15 eV ; 75 mA ; working distance 25 mm » : `probleme` (chimie générale), impossibles pour un JEM-2100 ; probablement des conditions MEB-EDS avec des unités fausses. Rangé dans la voie de base, puisque ce sont des conditions communes.
+- Eg : 3,28 eV = 1239,84/378 nm exactement ; la tangente de la Fig. 13 coupe l'axe vers 3,20 eV (lecture de la figure). `reserve` et non `probleme` : l'écart est faible et ne touche pas la synthèse ; noté aussi l'absence de transformation de Tauc et de mesure du P25.
+- HCl « 99,7 % » : `reserve`, solution commerciale 36,5–38 % (fiche J.T. Baker/Thermo Fisher, fiche Sigma-Aldrich H7020 pour 11,6–12 M). Calcul de 1,7 mL d'acide concentré pour 200 mL à 0,1 M.
+- Lavage avant l'acide non décrit : 20 mmol de HCl contre 10 mmol de NaOH par mL de liqueur mère retenue ; `reserve` sur le Na résiduel. Sources sur le rôle du Na : Qamar 2006 (Nanotechnology), Lee 2007 (PubMed 17765912).
+- Échantillon (c) attribué à l'anatase : `reserve`, deux pics larges (3,52 et 1,89 Å) qui ne distinguent pas l'anatase du titanate protoné ; le pic à 48,4° de (b) est aussi le (020) des titanates.
+- « Le lavage acide forme les tubes » : témoin manquant (lavage à l'eau seule jusqu'au même pH). Tsai & Teng 2006 vont dans le sens des auteurs, Zhang/Peng 2003 placent l'enroulement pendant l'étape hydrothermale : laissé en `reserve`.
+- Voie 800 °C jugée `coherente` : rutile majoritaire et frittage attendus ; réserve sur Na2Ti6O13 non cherché (OSTI 22403599, vu dans la recherche mais non cité faute de références complètes, remplacé par Qamar 2006).
+- Pression en autoclave : ≤ 1,4 bar (p° de l'eau à 110 °C ≈ 143 kPa, tables de vapeur), aucun problème ; seul le récipient (PTFE, pas de verre) compte.
+- Comparaison avec la base : PMC9631917 (NaOH 10 M, 130 °C ; calcination à 400 °C → anatase pure, Eg 3,2 eV) ne montre pas de rutile à 400 °C.
+- 9 appels web (8 recherches + 1 lecture). Crossref bloqué : aucun DOI vérifié par verif_doi.py ; rien ajouté à fondateurs.md ni à constantes.md.

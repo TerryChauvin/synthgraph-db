@@ -1,0 +1,55 @@
+{
+  "pmcid": "PMC5028751",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "PT material.morphology (« microspheres, ~650–700 nm »)",
+      "extracted": "microspheres, ~650–700 nm",
+      "article_says": "before the warped process, the surface of the pure TiO2 microspheres is smooth, and the whole microspheres with the average diameter about 650–700 nm",
+      "fix": "Le diamètre 650–700 nm décrit les microsphères de TiO2 de départ (Fig. 1b, avant enrobage), pas PT autoclavé directement à 180 °C, dont l'article ne donne aucune morphologie (le journal d'extraction le soupçonne lui-même). Mettre material.morphology de PT à null, ou y écrire seulement ce que l'article dit de l'échantillon autoclavé ; garder la remarque dans le doute existant.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "résultat du TiO2@rGO creux à facette {101} unique (inventaire : route null), Fig. S7d",
+      "extracted": "absent : aucun outcome, aucune annotation ne reprend ce chiffre",
+      "article_says": "the synthesized hollow TiO2@rGO core-shell structure with the single {101} facet exposed TiO2 layer removal nearly 75% of the Rh B after under stimulated solar light irradiation for 150 min.",
+      "fix": "Ce témoin n'a pas de voie (protocole en annexe absente), mais son seul résultat chiffré du texte (≈ 75 % de Rh B à 150 min, contre ≈ 100 % annoncé pour TGHMs) devrait figurer dans une annotation tendance_observee ou comparaison_branches avec cette citation, puisque c'est l'argument des auteurs sur le rôle des facettes.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "résultats des comparateurs P25 et « without catalyst » de la Fig. 7a (inventaire : route null)",
+      "extracted": "absents ; seule la phrase 2–3 % est mentionnée dans un doute, aucun outcome",
+      "article_says": "without catalyst, the dye occurred a self-degradation under stimulated light irradiation, and the degradation rate is about 2–3%",
+      "fix": "Consigner le chiffre du texte (2–3 % sans catalyseur) et, marqué from_figure Fig. 7a, P25-Rh B ≈ 8,5 % et sans catalyseur ≈ 3,5–4 % à 150 min, dans une annotation tendance_observee (les deux témoins n'ayant pas de voie). Sans cela, la comparaison TGHMs / PT / P25 de l'article n'est pas reconstituable depuis la base.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "attribution",
+      "where": "Photoanode_PT_TGHMs (voie device) : le résultat de photocourant est rangé sur TGHMs",
+      "extracted": "TGHMs outcomes : photocurrent_ratio_vs_PT = 6 times ; TGHMs characterization « photocurrent » avec les conditions de cellule à trois électrodes ; la voie device ne porte que film_thickness",
+      "article_says": "Under stimulated solar light irradiation, photocurrents of TGHMs composite electrodes were approximately about 6 times higher than that of the PT electrode",
+      "fix": "Le photocourant est mesuré sur la photoanode (FTO + PT ou TGHMs), voie device déjà créée : déplacer le résultat et la caractérisation vers Photoanode_PT_TGHMs (règle RUNBOOK : résultats d'une voie device sur elle seule, sans doublon sur le matériau).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 7,
+    "branches_extracted": 6,
+    "not_stated_checked": 70,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "masses de TiO2 et de GO, rapport GO/TiO2 (« appropriate amount », « desired amount »)",
+    "préparation des microsphères de TiO2 amorphes de départ (aucun réactif ni condition dans l'article), origine et préparation du GO",
+    "composition du mélange éthanol/HCl : volumes, rapport, concentration de HCl ; volume de l'autoclave et taux de remplissage ; vitesse de centrifugation ; séchage des TGMs après lavage",
+    "milieu liquide et séchage de PT et de TGMs autoclavés « directement » ; température, durée et concentration de HCl du témoin TiO2 sans GO (Fig. S2)",
+    "protocole du TiO2@rGO à facette {101} (annexe absente du dépôt) ; Figures S1–S9 et Table S1 absentes (constantes cinétiques, recyclage)",
+    "test photocatalytique : durée de l'équilibre adsorption-désorption (la Fig. 7a en montre 60 min avant t = 0 avec ≈ 20 % déjà éliminés), distance et intensité de la lampe, pH de la solution de Cr(VI), longueur d'onde de dosage du Cr(VI) (258 ou 354 nm)",
+    "solvant du colloïde de TiO2 déposé sur FTO"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs cite bien l'explication des auteurs (gravure par Cl−, confinement par la coque de graphène) ; mecanisme_analyse est formulée comme une hypothèse",
+  "notes": "Extraction globalement fidèle : les 12 valeurs lues sur la Fig. 7 sont à moins de 2 points de ma lecture (7a : TGHMs-Rh B ≈ 89 % à 120 min, TGHMs-Cr ≈ 50 %, PT-Cr ≈ 14 %, PT-Rh B ≈ 35 % à 150 min ; 7c : ≈ 68,5 / 71 / 85,5 / 74 / 44 % ; 7d : ≈ 45,5 / 68,5 / 46 / 38,5 / 25 %). La Fig. 5a, légende comprise (PT noir = courbe a, TGHMs rouge = courbe b, inset 0,28 et 0,41), tranche le doute de l'extracteur : la courbe a est bien PT, donc phase anatase et I004/I101 = 0,28 attribués correctement. Désaccord texte/figure déjà en doute et conservé tel quel : « 100 % » de Rh B à 150 min dans le texte contre 89 % à 120 min (dernier point) sur la Fig. 7a, sans point à 150 min. Non-constats : sources de méthode complètes (b18 et b47 ; b19, b37, b44–b46, b48 sont du contexte ou des formules d'analyse, à bon droit exclus) ; rôle de b18 « protocole_adapte » discutable (l'article reprend lui-même le protocole), sans conséquence ; l'étape de sonication du FTO fusionne trois solvants successifs mais la phrase de l'article les donne ainsi ; l'annotation securite_analyse parle de « HCl concentré » alors que l'article ne donne pas la concentration (formulation à nuancer, pas une donnée). Les « {101} and {101} facets » du texte sont une coquille d'auteur correctement non recopiée."
+}

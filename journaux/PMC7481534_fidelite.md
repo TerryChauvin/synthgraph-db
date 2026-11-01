@@ -1,0 +1,14 @@
+# Journal de la critique de fidélité PMC7481534
+
+- Ma liste d'échantillons avant l'extraction : aGQD (voie principale), GO brut (Hummers renvoyé aux références), essai à 500 °C ou plus (une phrase), RGO hydrophobe écarté par lavage, solutions d'uranyle et d'ions. L'inventaire de l'extracteur est identique ; la série pH, la série d'excitation et la série d'éclairement sont des essais du matériau fini, donc des résultats et non des branches (règle du RUNBOOK) : pas de constat de branche manquante.
+- Branche aGQD_500C : constat `deduit`, `probable`. La phrase « when the temperature reaches 500 °C or even higher, no aGQDs could be obtained » ne dit ni durée, ni rampe, ni lavage/dialyse ; la branche hérite pourtant de tout. Le doute de l'extracteur existe mais l'héritage n'a pas été corrigé. Probable et non sûr, car la section sur le mécanisme situe la remarque dans l'étape 3 (traitement thermique).
+- Fig. 2c : mode lu à 12 nm (11 comptes, classe 11,5–12,5), 57 particules, classes de 5 à 14 nm : conforme à l'extraction.
+- Fig. 8b : équation écrite sur la figure y = −9,735 x + 100,0 ; extraction −9,7 % par 10−7 M : conforme.
+- Fig. 9 : blanc lu à 19500 (extrait 20000, écart 2,5 %, sous le seuil de 10 %) ; UO22+ 17000 conforme. Les 12 autres ions ne sont pas extraits : constat `manquant`, `probable` (Zn2+, Fe3+, Fe2+ ≈ 19000, les autres ≈ blanc).
+- Fig. 5b : la série porte sur pH 1 à 13, alors que le texte ne parle que de « <4 or >10 ». Valeurs lues avec ±2 % ; pH 4 ≈ 89 % : « stable » recouvre 89–100 %. Constat `manquant` (résultats chiffrés absents), `probable`.
+- Fig. 6b : 100, 97, 91, 88, 88, 87 % pour 0 à 5 h ; le texte dit 90 % : écart de 2 à 3 points, pas un constat de fausseté. Seul constat `mineur` sur l'absence de condition dans le nom de la propriété.
+- `not_stated` : 37 cases contrôlées, aucune à tort. Cas limites écartés : durée du séchage à 80 °C (non écrite), séparation après lavage (« aGQDs came into the filtrate » ne nomme pas la filtration, donc `separation_method` reste non cité), eau déionisée sans pureté (non couverte par « analytical grade chemicals »).
+- `method_sources` : bib43, 44, 45 pour « modified Hummers' method according to our previously report » ; bib46 (Dynamic Structural Model) est une référence d'interprétation, à raison absente. Aucun renvoi de méthode manquant pour la détection.
+- Résultat « powder_particle_size_after_sieving » du GO brut : `mineur` `sure`, doublon du paramètre sieve_mesh, pas une mesure.
+- Citations de caractérisation (FT-IR, TEM, Raman) : le résultat dépasse la citation (1600, 1381, 1255 cm−1 ; réseau désordonné) et 2300 cm−1 (O=C=O) est omis : `mineur`.
+- Non-constats mis en notes : KMnO4, H2SO4, H2O2 et HCl listés dans « Materials » mais pas rattachés au Hummers par l'article ; l'extraction ne les a pas inscrits à GO_crude, ce qui est prudent. « KOH fondu à 300 °C » dans mecanisme_analyse discutable (hypothèse déjà formulée au conditionnel).

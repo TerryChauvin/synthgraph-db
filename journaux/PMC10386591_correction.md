@@ -1,0 +1,14 @@
+# Journal de correction PMC10386591
+
+- Constat 1 (FT-IR ZnS) : bande 3246 cm−1 ajoutée à la voie ZnS avec la phrase de la section 3.5 en citation. Conditions « KBr pellet holders; 500–4000 cm−1 » reprises : le texte dit « FT-IR spectra of GO, rGO, ZnS, and rGO-ZnS composite across the range of 500–4000 cm−1 » et « in KBr pellet holders », donc elles valent pour ZnS.
+- Constat 2 (XPS C 1s) : entrée XPS distincte ajoutée à rGO-ZnS-13.3 (l'entrée Zn/S/O existante garde sa citation propre). Doute créé : le texte dit « C 1 s profile for rGO » alors que la légende de la Fig. 4 est « XPS spectra of the rGO-ZnS ».
+- Constat 3 (COD 90 min) : valeurs 5376.0 / 59.4 % inchangées. Doute + annotation `limite_reproductibilite` (fraction restante, abattement réel 40,6 %), fusionnée avec le point science sur le catalyseur retiré par centrifugation (adsorption comptée, pas de COT).
+- Constat 4 : rôle de NaNO3 passé de `precursor` à `additive` (l'article ne donne pas de rôle).
+- Constat 5 : 78,8 % (ZnO) et 61,1 % (Nano ZnO) consignés dans une annotation `comparaison_branches` de rGO-ZnS-13.3, avec la réserve sur l'inversion e/f. Aucune voie créée (préparation non décrite).
+- Constat 6 : conditions des Tables 1 et 3 en deux annotations `tendance_observee` avec la citation de la note de la Table 1 et de l'en-tête de la Table 3 (sous-chaînes exactes du texte). Choix du type `tendance_observee` faute de type dédié aux conditions d'essai.
+- Constat 7 : doute « Recyclage » complété avec les lectures de la Fig. 8 (≈ 13/18/23 % de colorant restant en fin de cycle, départs ≈ 82 et 94 %) ; valeurs du texte gardées ; annotation `limite_reproductibilite` ajoutée.
+- Science, `probleme` : sept points convertis en annotations `limite_reproductibilite` sans toucher aux valeurs (Mn2O7/ordre des étapes sur GO ; 350 °C et hydrazine/pâte sur rGO ; DCO initiale, DCO à 90 min, XPS S 2p / Zn 2p, recyclage sur rGO-ZnS-13.3). Les points DCO 90 min et fraction restante sont fusionnés en une annotation.
+- Réserves de stœchiométrie regroupées en une seule annotation courte (teneurs nominales, 0,382 M au lieu de 0,4 M, Na2S anhydre vs nonahydrate) ; j'y ai ajouté la remarque sur l'éthanol non sélectif comme piège à trous, comme demandé. Je n'ai pas repris les autres réserves du critique (autoclave de 400 mL, tube plein, activité antibactérienne, bande interdite de ZnS) car l'orchestrateur ne les listait pas.
+- Mécanisme : `mecanisme_analyse` de rGO-ZnS-13.3 réécrit en hypothèse (précipitation de ZnS 2 h avant l'ajout du rGO, hétéro-agrégation, puis mûrissement et réduction hydrothermale à 180 °C). `mecanisme_auteurs` intouché.
+- `securite_analyse` réécrite pour nommer Mn2O7 dans le mélange chauffé, l'hydrazine en récipient ouvert, et ajouter NOx et pression de l'autoclave.
+- Aucune voie supprimée ni renommée ; aucun doute « refs sans marqueurs » à retirer (il n'y en avait pas).

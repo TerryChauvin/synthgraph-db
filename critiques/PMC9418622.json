@@ -1,0 +1,85 @@
+{
+ "pmcid": "PMC9418622",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "White_2759K..White_6398K reagents: blue = MAPbBr3-3.5L (458 nm), green = MAPbBr3-2L (510 nm)",
+   "extracted": "blue emitter rattaché à MAPbBr3-3.5L, green à MAPbBr3-2L (déduit de la longueur d'onde écrite dans le texte)",
+   "article_says": "blue (λ = 458 nm), green (λ = 510 nm), yellow (λ = 562 nm), and red (λ = 630 nm) emissions",
+   "fix": "Fig. 5a/5b (spectres d'émission des quatre émetteurs du mélange) : pic bleu lu à ~437-440 nm (pixel/axe, proche de 4L = 440 nm, pas de 3.5L = 458 nm) et pic vert à ~521-530 nm (proche de 1L/x=1 = 520 ou x=0.9 = 528, pas de 2L = 510 nm). Le texte et la Fig. 5 se contredisent : ne pas figer l'identité bleu/vert ; compléter le doute White_* et ajouter une annotation limite_reproductibilite (émetteurs bleu et vert non identifiés avec certitude ; jaune 562 = x 0.7 et rouge 630 = x 0.5 concordent avec Fig. 5c-d).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MAPbBrI_x0.4 outcomes (peak_emission_wavelength)",
+   "extracted": "seul résultat : taille 19.7 nm ; doute « aucun pic PL n'est donné pour cet échantillon »",
+   "article_says": "The normalized PL emission spectra of halide perovskite nanocrystals over the range of 408–755 nm",
+   "fix": "Fig. 4 montre douze pics PL (408, 440, 458, 478, 510, ~530, ~543, ~569, ~602, ~628, ~687, 755 nm) ; le pic à ~687 nm (entre x=0.5 = 630 et x=0 = 755) ne peut être que x=0.4 (seule composition sans valeur de tableau). Ajouter peak_emission_wavelength ≈ 687 nm avec from_figure (lecture à ±5 nm, attribution par élimination) et corriger le doute. L'extracteur n'avait ouvert que les Fig. 1, 2 et 6. Remarque : les pics lus pour x=0.8 (~543 nm) et x=0.7 (~569 nm) sont à 9 et 7 nm des valeurs du tableau 2 (534, 562) : garder le tableau.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MAPbBrI_x0.9..x0.4 material.phase = « mixed cubic/tetragonal »",
+   "extracted": "mixed cubic/tetragonal, identique pour tous les x",
+   "article_says": "At high iodine ion concentration, the crystal structure becomes tetragonal.",
+   "fix": "L'article ne donne ni le x de transition ni la phase de chaque composition mixte (seuls MAPbBr3 = cubique et MAPbI3 = tétragonal sont attribués). Mettre la phase non citée (ou « cubique vers tétragonal avec la teneur en iode ; x de transition non donné ») au lieu d'une valeur commune à toutes les branches.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MAPbBr3-4L / 3.5L / 2L / 3L, MAPbBrI_x0.5 / x0.4 : pics DRX bas angle (superréseau)",
+   "extracted": "aucun résultat ni caractérisation sur les pics bas angle ; seul l'espacement TEM 1.83 / 1.30 nm est repris",
+   "article_says": "There are additional sharp peaks in XRD patterns at smaller angles (<10°) that indicate the presence of highly ordered superlattice-like arrangements of nanocrystals.",
+   "fix": "Ajouter une caractérisation DRX (arrangement en superréseau, pics < 10°, espacement ~1-4 nm entre nanocristaux : « A simple analysis of these peaks gives a spacing of ∼1–4 nm ») sur 4L et 3.5L (« very strong low-angle superstructure peaks »). Fig. 1a montre aussi des pics bas angle pour 2L, 3L, x=0.5 et x=0.4 mais l'article ne les commente pas.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MAPbBr3-1L method et annotation resume",
+   "extracted": "« ligand-assisted reprecipitation at room temperature » ; résumé : « à l'air et à température ambiante »",
+   "article_says": "This mixture was stirred at 70–80 °C on a hot plate until the solids dissolved completely and the solution became transparent.",
+   "fix": "La dissolution des précurseurs se fait à 70–80 °C ; seul le mélange avec le toluène est à température ambiante (« under magnetic stirring at room temperature »). Reformuler method et résumé pour ne pas laisser croire que toute la synthèse est à température ambiante.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MAPbBr3-2L/3L/3.5L/4L/6L variations octylamine (step_order absent)",
+   "extracted": "variation octylamine sans step_order (alors que composition_x des voies mixtes a step_order 1)",
+   "article_says": "In order to shift the PL emission from green to violet, the ligand (octylamine) concentration was increased in the MAPbBr3 precursor only.",
+   "fix": "Le ligand est introduit à l'étape 1 (dissolution : « 15 μL of octylamine » dans le mélange) : renseigner step_order = 1 sur ces cinq variations.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "characterizations par voie (PL, UV-vis, TEM, XRD)",
+   "extracted": "instrument et conditions renseignés seulement sur MAPbBr3-1L et MAPbBrI_x0.9 (PL) ; MAPbI3 a un XRD sans instrument ni conditions et ses résultats PL, UV-vis et TEM n'ont aucune caractérisation ; 3.5L a un XRD sans conditions ; les autres branches n'en ont pas",
+   "article_says": "The PL spectra were measured using a Spectrofluorophotometer (Shimadzu, RF-6000) with a monochromatic xenon lamp as the excitation source while the nanocrystals remained in a colloidal suspension.",
+   "fix": "Rattacher à chaque branche les caractérisations qui portent ses résultats (PL excitation 365 nm série ligand / 450 nm série Br:I ; UV-vis ; TEM ; XRD Rigaku Cu Kα1 40 kV 44 mA), ou l'indiquer en annotation. Ambiguïté à noter : 1L = x=1 est dans les deux séries (365 nm ou 450 nm ?).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "sample_inventory results_in",
+   "extracted": "3L, 4L, 6L : pas de Fig. 3a ni Fig. 4 ; x=0.4 : seulement Fig. 1a et Fig. 2i ; x=0.9 et x=0.7 sans Fig. 3b ni Fig. 4",
+   "article_says": "Fig. 3 Optical absorption spectra of (a) MAPbBr3 with ligand concentration variation and (b) MAPb(BrxI1−x)3 with ‘Br’ and ‘I’ composition variation at a fixed ligand amount (1L)",
+   "fix": "Fig. 3a (légende 6L, 4L, 3L, 2L, 1L) porte 6L, 4L, 3L ; Fig. 3b (x = 0, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9) porte x=0.4, 0.7, 0.9 ; Fig. 4 porte les pics de presque tous les échantillons. Compléter results_in (3.5L n'est pas dans Fig. 3a, 6L n'est pas dans Fig. 1a).",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 18,
+  "branches_extracted": 18,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "volumes d'octylamine pour 2L, 3L, 3.5L, 4L, 6L (seul L = 15 μL est défini) et volume total de la solution après ajout de ligand",
+  "rapport volumique ou molaire des précurseurs MAPbBr3 et MAPbI3 pour chaque x (0.9 à 0.4) ; ordre du mélange par rapport au toluène et aux centrifugations ; volume de toluène de redispersion",
+  "durées d'agitation (dissolution à 70–80 °C, mélange avec le toluène), vitesse d'agitation, vitesse d'addition (« slowly »)",
+  "pureté et fournisseur des réactifs, rendement, concentration finale des dispersions",
+  "identité exacte des émetteurs bleu et vert du blanc (texte 458/510 nm contre Fig. 5 ~437/~525 nm) et absence de LED physique : les mélanges sont calculés"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs appuyé par la citation sur le ligand qui limite la croissance ; mecanisme_analyse marqué « probablement », sécurité complète",
+ "notes": "Valeurs de tableaux 1, 2 et 3, quantités et paramètres d'étapes recoupés un par un : aucune valeur fausse. Attribution TEM (Fig. 2a-j = 4L, 3.5L, 3L, 2L, 1L, x=0.8, 0.6, 0.5, 0.4, 0) conforme à la légende ; l'ambiguïté « (3.5L and 3L) ... (Fig. 2b) » est bien traitée en doute. Lectures sur figure faites par repérage des pixels et des graduations (Fig. 4 : 1.54 px/nm ; Fig. 5 : ticks 42 px/35 nm et 45 px/50 nm), précision ~±5 nm ; l'attribution du pic ~687 nm à x=0.4 est faite par élimination. Aucun renvoi de méthode dans refs (cit63 = Tauc, cit64 = interprétation) : method_sources vide est correct. Aucune annexe dans l'article."
+}

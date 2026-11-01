@@ -1,0 +1,207 @@
+{
+  "pmcid": "PMC7153708",
+  "routes": [
+    {
+      "label": "Au_NRs",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "Au(III) et NaBH4 dans la solution de germes", "inputs": "5 mL à 5 mM HAuCl4 ; 0,2 mL de NaBH4 10 mM", "formula": "n(Au) = C·V ; n(NaBH4) = C·V ; électrons disponibles = 8·n(BH4-) ; électrons requis = 3·n(Au)", "result": "n(Au) = 25 µmol (75 µmol e- requis) ; n(NaBH4) = 2 µmol (16 µmol e- au plus, avant hydrolyse) ; rapport disponible/requis = 0,21", "compared_to": "Nikoobakht-El-Sayed : 2,5 µmol Au (5 mL à 0,5 mM) pour 6 µmol NaBH4 (0,6 mL à 0,01 M), soit 48 µmol e- pour 7,5 requis (6,4 fois l'excès)", "source": "valeurs de l'article ; protocole de comparaison repris dans PMC7695247 (réf. Nikoobakht 2003)"},
+        {"what": "fraction d'or apportée par les germes", "inputs": "0,1 mL de germes à 5 mM Au (tel qu'écrit) ; 1 mL à 5 mM HAuCl4 dans la croissance", "formula": "n(Au germes)/n(Au croissance)", "result": "0,5 µmol / 5 µmol = 0,10", "compared_to": "protocole Nikoobakht repris dans PMC7695247 : 72 µL de germes à 0,25 mM (18 nmol) pour 30 µmol d'Au, soit 6·10^-4", "source": "valeurs de l'article ; PMC7695247"},
+        {"what": "rapports molaires de la solution de croissance", "inputs": "Au 1 mL × 5 mM = 5 µmol ; AgNO3 0,01 mL × 0,1 M = 1 µmol ; HCl 0,015 mL × 0,1 M = 1,5 µmol ; AA 0,7 mL × 0,01 M = 7 µmol ; volume total 1 + 0,01 + 6 + 0,015 + 0,7 + 0,1 = 7,825 mL", "formula": "Ag/Au ; AA/Au ; [HCl] = n/V", "result": "Ag/Au = 0,20 ; AA/Au = 1,4 ; [HCl] ajouté ≈ 0,19 mM ; [Au] = 0,64 mM ; [CTAB] ≈ 0,15 M", "compared_to": "Ag/Au = 0,2 (6 µmol Ag pour 30 µmol Au) dans PMC7695247 ; AA/Au = 1,09 dans PMC10367958 ; AA/Au ≥ 1 nécessaire pour Au(III) → Au(I)", "source": "valeurs de l'article ; PMC7695247 ; PMC10367958"},
+        {"what": "position attendue du plasmon longitudinal", "inputs": "longueur 56 nm, largeur 16 nm (rapport d'aspect R = 3,5)", "formula": "λmax = 445,4 + 90,6·R (Jain et al. 2006, calcul DDA à rayon effectif fixe)", "result": "762 nm", "compared_to": "752 nm mesuré (et 780 nm en FDTD, annexe)", "source": "Jain, Lee, El-Sayed, El-Sayed 2006 (voir checks)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Germes : tels qu'écrits (HAuCl4 5 mM dans 5 mL, 0,2 mL de NaBH4 10 mM), le borohydrure n'apporte que 21 % des électrons nécessaires pour réduire tout l'Au(III) (calcul « Au(III) et NaBH4 dans la solution de germes »), alors que les protocoles de référence en mettent environ 6 fois trop. L'Au y est en outre 10 à 20 fois plus concentré que d'habitude (0,25 à 0,5 mM), et 0,1 mL de ces germes apporterait 10 % de l'or de la croissance, environ 170 fois plus que d'habitude (calcul « fraction d'or apportée par les germes »). Avec autant de germes, on attendrait des bâtonnets bien plus petits que 56 × 16 nm. La valeur « 5 mM » est probablement une erreur de l'article (0,5 mM ou moins), ou bien les germes sont en majorité de l'Au(III) non réduit.", "status": "probleme", "basis": "litterature", "source": {"title": "Synthesis and Stabilization of Gold Nanoparticles Using Water-Soluble Synthetic and Natural Polymers (protocole Nikoobakht-El-Sayed repris en Méthodes)", "authors_or_publisher": "Polymers (MDPI), PMC7695247", "year": "2020", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7695247"}},
+        {"aspect": "bilan", "finding": "Croissance : Ag/Au = 0,2, AA/Au = 1,4 et [CTAB] ≈ 0,15 M (calcul « rapports molaires de la solution de croissance ») sont dans la fenêtre habituelle de la méthode Nikoobakht-El-Sayed. L'HCl ajouté (0,19 mM) est négligeable devant l'acidité de HAuCl4 lui-même ; son effet sur le rapport d'aspect sera faible.", "status": "ok", "basis": "litterature", "source": {"title": "Preparation and Growth Mechanism of Gold Nanorods (NRs) Using Seed-Mediated Growth Method", "authors_or_publisher": "Nikoobakht B., El-Sayed M. A., Chem. Mater.", "year": "2003", "url_or_doi": "10.1021/cm020732l"}},
+        {"aspect": "thermique", "finding": "CTAB à 0,2 M cristallise sous sa température de Krafft (environ 20–25 °C) : « room temperature » et une solution de NaBH4 « ice-cooled » versée dans la solution de CTAB peuvent faire précipiter le tensioactif si le laboratoire est froid. La plupart des protocoles imposent 27–30 °C.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Pour R = 3,5, la relation calculée λmax = 445,4 + 90,6·R donne 762 nm, contre 752 nm mesuré (calcul « position attendue du plasmon longitudinal ») : taille TEM et spectre se correspondent. Le pic transverse à 518 nm est normal.", "status": "ok", "basis": "litterature", "source": {"title": "Calculated Absorption and Scattering Properties of Gold Nanoparticles of Different Size, Shape, and Composition: Applications in Biological Imaging and Biomedicine", "authors_or_publisher": "Jain P. K., Lee K. S., El-Sayed I. H., El-Sayed M. A., J. Phys. Chem. B", "year": "2006", "url_or_doi": "http://nathan.instras.com/ResearchProposalDB/doc-97.pdf"}},
+        {"aspect": "resultats", "finding": "d(111) de l'or = a/√3 = 4,065/√3 = 0,235 nm : identique à la distance HRTEM annoncée (0,235 nm).", "status": "ok", "basis": "litterature", "source": {"title": "Lattice Constants and Crystal Structures of some Semiconductors and Other Materials", "authors_or_publisher": "Argonne National Laboratory (Advanced Photon Source)", "year": "s.d.", "url_or_doi": "https://7id.xray.aps.anl.gov/calculators/crystal_lattice_parameters.html"}},
+        {"aspect": "securite", "finding": "NaBH4 dégage de l'H2 ; HAuCl4 corrosif ; CTAB toxique pour le milieu aquatique (déjà dans l'annotation de sécurité). Rien d'autre de notable.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Croissance sur germes classique : NaBH4 donne des germes d'Au de 2–4 nm stabilisés par CTAB ; l'acide ascorbique réduit Au(III)-CTAB en Au(I), réduit en Au(0) seulement à la surface des germes ; un dépôt de Ag en sous-potentiel et une bicouche de CTAB plus dense sur les faces latérales freinent la croissance latérale et allongent la particule. Le rapport d'aspect est surtout fixé par Ag/Au et par le nombre de germes.", "sources": [{"title": "Preparation and Growth Mechanism of Gold Nanorods (NRs) Using Seed-Mediated Growth Method", "authors_or_publisher": "Nikoobakht B., El-Sayed M. A., Chem. Mater.", "year": "2003", "url_or_doi": "10.1021/cm020732l"}]},
+      "what_to_verify_before_repeating": ["concentration de HAuCl4 dans la solution de germes (5 mM tel qu'écrit, sans doute 0,25–0,5 mM) et excès de NaBH4", "température du bain (≥ 27 °C) pour éviter la cristallisation du CTAB", "volume de redispersion des bâtonnets dans CTAB 0,2 M : il fixe la quantité d'or contenue dans le « 1 mL » des étapes suivantes"]
+    },
+    {
+      "label": "Au@Se",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport réducteur / Se(IV)", "inputs": "AA 0,05 mL × 0,1 M = 5 µmol ; SeO2 0,02 mL × 0,1 M = 2 µmol ; H2SeO3 + 2 C6H8O6 → Se + 2 C6H6O6 + 3 H2O (4 e- par Se, 2 e- par AA)", "formula": "n(AA)/(2·n(Se))", "result": "5 / 4 = 1,25 (excès de 25 %) ; pour 5 µL de SeO2 : 10 ; pour 10 µL : 2,5", "compared_to": "stœchiométrie : 2 AA par Se", "source": "valeurs de l'article"},
+        {"what": "section de coque de Se par µL de SeO2 (coque latérale, extrémités ouvertes)", "inputs": "diamètre du bâtonnet 16 nm ; épaisseurs 4,2 nm (5 µL), 11,3 nm (10 µL), 22 nm ou 13 nm (20 µL)", "formula": "A(t) = (16 + 2t)² − 16² (proportionnelle au volume de Se à longueur fixe) ; A/V(SeO2)", "result": "A = 339 ; 1234 ; 3344 (22 nm) ; 1508 (13 nm) nm² ; par µL : 68 ; 123 ; 167 ; 75", "compared_to": "volume de Se proportionnel au SeO2 ajouté si le dépôt est complet ; en extrapolant depuis 5 µL ou 10 µL, 20 µL devrait donner 12 à 18 nm", "source": "valeurs de l'article (3.1, 3.3, annexe S2)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "AA est en excès de 25 % seulement pour 20 µL de SeO2 (calcul « rapport réducteur / Se(IV) ») ; pendant 5 h à 38 °C à l'air, une partie de l'AA est oxydée par O2, donc la réduction peut rester incomplète pour la plus grosse coque. Pour 5 et 10 µL, l'AA est en large excès.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Pour la même dose nominale (20 µL de SeO2 à 0,1 M), l'article donne une coque de 22 nm (3.1, fig. 2b) et de 13 nm (3.3 ; légendes des fig. 4 et 5, germe de toute la série en Pb2+ et des spectres). En section de coque, la série 5/10/20 µL ne suit pas la quantité de Se (68, 123 puis 167 ou 75 nm² par µL, calcul « section de coque de Se par µL de SeO2 ») ; l'épaisseur de 13 nm est la plus proche de l'extrapolation depuis 5 µL. Ou bien les lots de bâtonnets diffèrent (la concentration d'or du « 1 mL » n'est jamais donnée), ou bien le germe à 13 nm a été fait avec une autre quantité de Se, qui n'est pas décrite. On ne peut donc pas refaire à l'identique le germe de la série principale (fig. 4–5).", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Décalage des plasmons (752 → 1018 nm ; 518 → 578 nm) et couleur rouge sombre → céladon : cohérents avec une coque de Se amorphe de fort indice. Un travail indépendant sur Au@Se (SeO2 + AA) rapporte le même décalage vers le rouge quand la coque s'épaissit.", "status": "ok", "basis": "litterature", "source": {"title": "Enhanced dual plasmonic photocatalysis through plasmonic coupling in eccentric noble metal—Nonstoichiometric copper chalcogenide hetero-nanostructures (manuscrit accepté)", "authors_or_publisher": "dépôt George Mason University (Nano Research, manuscrit accepté)", "year": "2021", "url_or_doi": "https://science.gmu.edu/sites/default/files/2021-06/Just%20Accepted_2021.pdf"}},
+        {"aspect": "thermique", "finding": "38 °C dans un tube de 10 mL : au-dessus de la température de Krafft du CTAB, loin de l'ébullition de l'eau ; aucun problème.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "SeO2 et H2SeO3 sont très toxiques (par inhalation et par contact) ; préparer la solution de SeO2 sous hotte.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "SeO2 s'hydrate en H2SeO3, que l'acide ascorbique réduit en Se(0) amorphe dans la solution acide de CTAB. Le Se se dépose de préférence sur l'or (affinité Au–Se) et remplace une partie du tensioactif. L'étude ne dit pas pourquoi le dépôt se fait sur les flancs (extrémités ouvertes) alors que la bicouche de CTAB y est réputée plus dense ; ce n'est qu'une observation.", "sources": [{"title": "Enhanced dual plasmonic photocatalysis through plasmonic coupling in eccentric noble metal—Nonstoichiometric copper chalcogenide hetero-nanostructures (manuscrit accepté)", "authors_or_publisher": "dépôt George Mason University (Nano Research, manuscrit accepté)", "year": "2021", "url_or_doi": "https://science.gmu.edu/sites/default/files/2021-06/Just%20Accepted_2021.pdf"}]},
+      "what_to_verify_before_repeating": ["quantité de SeO2 qui donne la coque de 13 nm utilisée pour la série en Pb2+ (fig. 4–5)", "concentration en or (ou densité optique) du « 1 mL » de bâtonnets redispersés", "excès d'acide ascorbique pour 20 µL de SeO2 (1,25 fois seulement)"]
+    },
+    {
+      "label": "Au-PbSe_yolk-shell",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Pb:Se et concentration finale de Pb2+", "inputs": "Pb(OAc)2 0,02 mL × 0,1 M = 2 µmol ; Se du germe = 2 µmol (20 µL de SeO2 à 0,1 M, si tout est déposé et conservé à la centrifugation) ; volume 0,02 + 1,0 + 1,0 + 0,02 mL = 2,04 mL (+ NaOH)", "formula": "n(Pb)/n(Se) ; C(Pb) = n/V", "result": "Pb:Se = 1:1 ; C(Pb2+) = 0,98 mM (≈ 0,95 mM avec environ 60 µL de NaOH)", "compared_to": "PbSe 1:1 ; « C(Pb2+) = 1,0 mM » de 3.2", "source": "valeurs de l'article"},
+        {"what": "Pb:Se des branches de la série en concentration", "inputs": "0,25 / 0,5 / 0,75 mM dans environ 2 mL = 0,5 / 1 / 1,5 µmol de Pb pour environ 2 µmol de Se", "formula": "n(Pb)/n(Se)", "result": "0,25 ; 0,5 ; 0,75", "compared_to": "PbSe 1:1 : seule la branche à 1 mM peut convertir tout le Se", "source": "valeurs de l'article"},
+        {"what": "glycine et NaOH nécessaires pour pH 9,8", "inputs": "glycine 1,0 mL × 0,2 M = 200 µmol ; pKa2 (NH3+) de la glycine ≈ 9,6 ; NaOH 2 M", "formula": "fraction déprotonée = 1/(1 + 10^(pKa − pH)) ; n(NaOH) ≈ fraction × n(Gly) ; V = n/2 M", "result": "fraction 0,61 ; n(NaOH) ≈ 122 µmol ; V ≈ 61 µL ; Gly/Pb = 100", "compared_to": "volume de NaOH non donné par l'article", "source": "pKa2 de la glycine, constante de manuel (chimie générale)"},
+        {"what": "réducteur dans l'étape de conversion", "inputs": "AA 0,02 mL × 0,1 M = 2 µmol ; bilan global Se + Pb2+ + C6H8O6 → PbSe + C6H6O6 + 2 H+ (2 e- par Se)", "formula": "n(AA)/n(Se)", "result": "1,0 (stœchiométrique, aucun excès)", "compared_to": "AA consommé aussi par O2 à 80 °C et pH 9,8", "source": "valeurs de l'article"},
+        {"what": "distance réticulaire PbSe (200)", "inputs": "a(PbSe) = 6,124 Å à 300 K", "formula": "d(200) = a/2", "result": "0,306 nm", "compared_to": "0,306 nm annoncé en HRTEM", "source": "Zhang et al., Phys. Rev. B 2009 (valeur expérimentale citée)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Pb:Se = 1:1 et C(Pb2+) ≈ 1 mM (calcul « rapport Pb:Se et concentration finale de Pb2+ ») : le protocole type est stœchiométrique et concorde avec la concentration annoncée en 3.2. Les branches à 0,25–0,75 mM manquent de Pb (Pb:Se = 0,25–0,75), ce qui explique bien une conversion limitée aux extrémités (haltères).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "L'acide ascorbique est juste stœchiométrique (calcul « réducteur dans l'étape de conversion ») alors qu'à pH 9,8 et 80 °C, l'oxydation de l'ascorbate par l'air est rapide ; une partie du Se peut ne pas être convertie. Contrôler la conversion (rapport Pb/Se en EDS quantitatif).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "À pH 9,8, Pb2+ libre précipiterait en hydroxyde, et les 0,1 M de bromure apportés par le CTAB du germe pourraient former PbBr2 ; la glycine 100 fois en excès (Gly/Pb = 100, dont 61 % sous forme d'aminocarboxylate, calcul « glycine et NaOH nécessaires pour pH 9,8 ») complexe le plomb, ce qui justifie son rôle de précurseur Gly[Pb2+]. Le volume de NaOH (≈ 60 µL de 2 M, non donné) change peu C(Pb2+).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "80 °C pendant 90 min dans un tube de 10 mL avec environ 2 mL d'eau, sans mention de bouchon ni de reflux : l'évaporation peut concentrer le milieu ; pH réglé à température ambiante, il baisse à 80 °C (pKa de l'amine de la glycine qui diminue quand la température monte).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "d(200) de PbSe calculé = 0,306 nm (calcul « distance réticulaire PbSe (200) ») : identique à la valeur HRTEM ; l'indexation cubique (NaCl) est cohérente.", "status": "ok", "basis": "litterature", "source": {"title": "Thermodynamic properties of PbTe, PbSe, and PbS: First-principles study", "authors_or_publisher": "Zhang Y. et al., Phys. Rev. B 80, 024304", "year": "2009", "url_or_doi": "10.1103/PhysRevB.80.024304"}},
+        {"aspect": "mecanisme", "finding": "Le raisonnement de 3.2 sur les flux se contredit. Le premier paragraphe dit, comme le veut l'effet Kirkendall, que la diffusion de Se vers l'extérieur est plus rapide que celle de Pb2+ et crée les vides. Le second dit l'inverse : à 0,25 mM, « the diffusion rate of Se2− ion is higher than that of Pb2+ … which inhibit the formation of Kirkendall voids », puis les vides apparaissent à 0,5 mM « parce que » le flux de Pb2+ devient plus grand que celui de Se. Dans l'effet Kirkendall, c'est la sortie plus rapide de l'espèce interne (ici Se) qui creuse les vides. L'explication de la transition haltère → yolk-shell par le rapport des flux n'est donc pas démontrée ; plus simplement, la quantité de Pb disponible (Pb:Se = 0,25 à 1) limite l'étendue de la conversion.", "status": "probleme", "basis": "litterature", "source": {"title": "Formation of hollow nanocrystals through the nanoscale Kirkendall effect", "authors_or_publisher": "Yin Y., Rioux R. M., Erdonmez C. K., Hughes S., Somorjai G. A., Alivisatos A. P., Science 304, 711–714", "year": "2004", "url_or_doi": "10.1126/science.1096566"}},
+        {"aspect": "redox", "finding": "« Se atoms in the shells are reduced to Se2− ions by AA and diffused into the solution » : l'ascorbate ne peut pas réduire seul Se(0) en séléniure libre (couple Se/Se2- très négatif, environ −0,92 V/ESH), et à pH 9,8 un séléniure libre serait HSe−, pas Se2−. La réaction n'est possible que couplée à la précipitation de PbSe, très insoluble (Se + Pb2+ + 2 e− → PbSe), donc à l'interface et non par du Se2− qui diffuserait dans la solution. De même, la dismutation de Se en Se2−/Se(IV) n'est guère favorable à pH 9,8 sans ce piège. Le bilan global (1 AA par Se) reste juste.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Sels de plomb reprotoxiques et nanocristaux de PbSe : manipuler sous hotte, et traiter les surnageants et les déchets comme des déchets de plomb et de sélénium (déjà dans l'annotation).", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Gly[Pb2+] (Gly 100 fois en excès) garde le plomb soluble à pH 9,8 et l'amène de préférence aux extrémités du bâtonnet, où le Se est absent ou mince (coque ouverte aux bouts). La conversion Se + Pb2+ + AA → PbSe + acide déhydroascorbique est une réduction couplée à la précipitation de PbSe à l'interface coque/solution. Le Se diffuse vers l'extérieur plus vite que Pb2+ ne pénètre (effet Kirkendall au sens de Yin 2004), ce qui laisse un vide entre l'or et la coque de PbSe. L'étendue de la conversion, et donc la forme (haltère poreux, haltère creux, parapluie, yolk-shell), est surtout bornée par le rapport Pb:Se disponible (0,25 → 1). La relation inverse des flux avancée par les auteurs en 3.2 n'est pas nécessaire et se contredit.", "sources": [{"title": "Formation of hollow nanocrystals through the nanoscale Kirkendall effect", "authors_or_publisher": "Yin Y. et al., Science", "year": "2004", "url_or_doi": "10.1126/science.1096566"}]},
+      "what_to_verify_before_repeating": ["volume de NaOH 2 M (≈ 60 µL attendu) et pH mesuré à 80 °C", "fermeture du tube à 80 °C", "excès d'acide ascorbique (stœchiométrique tel qu'écrit)", "rapport Pb/Se final en EDS quantitatif pour vérifier la conversion complète", "quel germe Au@Se (coque de 22 ou de 13 nm) sert vraiment à la série"]
+    },
+    {
+      "label": "Au-PbSe_SeO2-5uL",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Pb:Se avec la coque mince", "inputs": "Se = 5 µL × 0,1 M = 0,5 µmol ; Pb = 20 µL × 0,1 M = 2 µmol", "formula": "n(Pb)/n(Se)", "result": "4 (Pb en excès d'un facteur 4) ; PbSe formé au plus 0,5 µmol = 0,143 mg", "compared_to": "PbSe 1:1", "source": "valeurs de l'article (annexe, tableau S1)"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Une « cavité » de 0,4 nm en moyenne (annexe S2) a la taille d'une couche atomique : elle n'est pas mesurable de façon fiable sur une image TEM de bâtonnets de 16 nm, et il s'agit plutôt d'une coque quasi jointive. La valeur indique une tendance, pas une mesure.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Avec Pb 4 fois en excès (calcul « rapport Pb:Se avec la coque mince »), le Se est le réactif limitant ; c'est cet échantillon (et non le yolk-shell de 13,8 nm de la fig. 2) qui sert de sensibilisateur au photoanode (tableau S1, coque de 4,3 nm en annexe).", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Même conversion que la voie de base, mais limitée par le Se : la coque mince de Se se convertit presque entièrement et laisse peu de place à un vide de Kirkendall.", "sources": []},
+      "what_to_verify_before_repeating": ["mesure de la cavité par tomographie ou HAADF plutôt qu'en TEM conventionnel"]
+    },
+    {
+      "label": "Au-CdSe",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Cd:Se", "inputs": "Cd(OAc)2 0,002 mL × 0,1 M = 0,2 µmol ; Se du germe ≈ 2 µmol", "formula": "n(Cd)/n(Se)", "result": "0,10 ; au plus 10 % du Se converti en CdSe ; C(Cd) ≈ 0,1 mM", "compared_to": "CdSe 1:1", "source": "valeurs de l'article (annexe)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le Cd n'apporte que 0,1 équivalent du Se du germe (calcul « rapport Cd:Se »). La série en Pb montre qu'à 0,25 équivalent, on n'obtient que deux nanocristaux aux extrémités. Une « coque » de CdSe qui enveloppe le bâtonnet ne peut donc pas être faite de CdSe sur toute son épaisseur : au moins 90 % du Se doit rester sous forme de Se amorphe, invisible en XRD. L'EDS de la fig. S3g n'est pas quantifiée. Il faut soit des quantités erronées (2 µL au lieu de 20 µL ?), soit une coque surtout faite de Se.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "À pH 8,5 et 0,1 mM, avec la glycine en grand excès, Cd2+ reste en solution ; ajuster le pH plus bas que pour Pb est logique.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Indexer CdSe en hexagonal sur la seule réflexion {100} en HRTEM ne distingue pas bien wurtzite et blende pour une coque de quelques nm : il faut des raies propres à la wurtzite, (102) ou (103), en XRD.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Acétate de cadmium cancérogène (CMR) : manipulation sous hotte et déchets cadmiés.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Conversion partielle de la coque de Se en CdSe, limitée par le Cd (0,1 équivalent), surtout aux extrémités où la glycine amène le cation ; il reste du Se amorphe.", "sources": []},
+      "what_to_verify_before_repeating": ["volume réel de la solution de Cd(OAc)2 (2 µL à 0,1 M tel qu'écrit)", "rapport Cd/Se en EDS quantitatif", "présence de Se amorphe résiduel (Raman, environ 250 cm-1)"]
+    },
+    {
+      "label": "Au-Bi2Se3",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Bi:Se", "inputs": "Bi(NO3)3 0,013 mL × 0,01 M = 0,13 µmol ; Se du germe ≈ 2 µmol", "formula": "n(Bi)/n(Se) ; Se convertible = 1,5·n(Bi)", "result": "Bi:Se = 0,065 (0,667 requis pour Bi2Se3) ; au plus 0,195 µmol de Se converti (≈ 10 %)", "compared_to": "Bi2Se3 2:3", "source": "valeurs de l'article (annexe)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le Bi n'apporte que 10 % de ce qu'il faut pour convertir le Se (calcul « rapport Bi:Se ») : comme pour Cd et Cu, la « coque » de Bi2Se3 est au mieux une conversion partielle aux extrémités, sur un fond de Se amorphe.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "Une solution aqueuse de Bi(NO3)3·5H2O à 0,01 M s'hydrolyse en nitrates basiques de bismuth insolubles si elle n'est pas acidifiée par HNO3 ; l'article ne dit pas comment la solution mère est faite, ni le pH du milieu (pas de NaOH pour Bi). La glycine peut complexer Bi3+, mais seulement une fois la solution mère mélangée.", "status": "reserve", "basis": "litterature", "source": {"title": "Hydrolysis Studies on Bismuth Nitrate: Synthesis and Crystallization of Four Novel Polynuclear Basic Bismuth Nitrates", "authors_or_publisher": "Miersch L. et al., Inorg. Chem.", "year": "2012", "url_or_doi": "10.1021/ic301148p"}},
+        {"aspect": "cinetique", "finding": "60 °C pendant 300 min au lieu de 80 °C et 90 min : choix plausible pour limiter l'hydrolyse du Bi, non justifié.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Conversion partielle du Se en Bi2Se3 limitée par le Bi (0,065 équivalent) ; une partie du Bi peut se perdre en oxonitrate hydrolysé si la solution mère n'est pas acide.", "sources": []},
+      "what_to_verify_before_repeating": ["préparation de la solution de Bi(NO3)3 à 0,01 M (acidifiée ou non)", "pH du milieu réactionnel", "rapport Bi/Se en EDS quantitatif"]
+    },
+    {
+      "label": "Au-CuSe",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Cu:Se", "inputs": "CuCl2 0,002 mL × 0,1 M = 0,2 µmol ; Se ≈ 2 µmol", "formula": "n(Cu)/n(Se)", "result": "0,10 ; au plus 10 % du Se converti en CuSe", "compared_to": "CuSe 1:1 (Cu2-xSe : Cu/Se ≈ 2)", "source": "valeurs de l'article (annexe)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Cu à 0,1 équivalent du Se (calcul « rapport Cu:Se ») : comme pour CdSe, la coque enveloppante ne peut pas être faite de CuSe sur toute son épaisseur.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "redox", "finding": "L'acide ascorbique réduit Cu2+ en Cu+ avant qu'il entre dans le réseau du Se ; à partir de Au@Se et de Cu2+ en présence d'AA, un autre groupe obtient Cu2-xSe. Ici, le Se en très large excès peut favoriser CuSe (klockmannite, hexagonale), mais l'indexation sur la seule réflexion {101} en HRTEM ne distingue pas CuSe de Cu2-xSe.", "status": "reserve", "basis": "litterature", "source": {"title": "Enhanced dual plasmonic photocatalysis through plasmonic coupling in eccentric noble metal—Nonstoichiometric copper chalcogenide hetero-nanostructures (manuscrit accepté)", "authors_or_publisher": "dépôt George Mason University (Nano Research, manuscrit accepté)", "year": "2021", "url_or_doi": "https://science.gmu.edu/sites/default/files/2021-06/Just%20Accepted_2021.pdf"}}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Cu2+ réduit en Cu+ par l'AA, incorporé dans le Se aux extrémités ; conversion limitée à environ 10 % du Se ; phase CuSe ou Cu2-xSe à confirmer en XRD.", "sources": []},
+      "what_to_verify_before_repeating": ["volume de CuCl2 (2 µL)", "phase par XRD complet (CuSe contre Cu2-xSe)", "rapport Cu/Se en EDS quantitatif"]
+    },
+    {
+      "label": "PbSe_NCs",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Pb:Se du témoin sans or (tableau S1)", "inputs": "SeO2 20 µL × 0,1 M = 2 µmol ; Pb 5 µL × 0,1 M = 0,5 µmol", "formula": "n(Pb)/n(Se)", "result": "0,25 ; PbSe au plus 0,5 µmol, 1,5 µmol de Se non converti", "compared_to": "yolk-shell du photoanode : Se 0,5 µmol, Pb 2 µmol (Pb:Se = 4)", "source": "valeurs de l'article (tableau S1)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le témoin PbSe a 3 fois plus de Se que de Pb (calcul « rapport Pb:Se du témoin sans or ») : il contient donc surtout du Se amorphe (bande interdite ≈ 1,8–2 eV, photoactif en lumière blanche) avec une fraction de PbSe. La façon de préparer le « germe de Se » sans or (SeO2 + AA dans CTAB 0,1 M) n'est pas décrite en volume ni en température.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Nanoparticules de Se amorphe formées dans CTAB, partiellement converties en PbSe en surface ; le vide intérieur s'explique par la diffusion de Se vers l'extérieur (Kirkendall).", "sources": []},
+      "what_to_verify_before_repeating": ["protocole exact du germe de Se sans or", "fraction de Se non converti"]
+    },
+    {
+      "label": "Au-PbSe_nanocubes",
+      "verdict": "invérifiable",
+      "feasibility": "non_reproductible",
+      "calculs": [],
+      "checks": [
+        {"aspect": "bilan", "finding": "Les cubes et les prismes d'or de départ renvoient à deux travaux antérieurs, sans quantités ; la concentration en or du « 1 mL » est inconnue, donc le rapport Se/Au et Pb/Se ne peut pas être évalué.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Même chimie que la voie de base sur une autre forme d'or.", "sources": []},
+      "what_to_verify_before_repeating": ["synthèse des cubes d'or (Liu et al., Nanoscale 2013, cité en annexe) et des prismes (Scarabelli et al., ACS Nano 2014)"]
+    },
+    {
+      "label": "TiO2_NWs_film",
+      "verdict": "coherente",
+      "feasibility": "reproductible",
+      "calculs": [
+        {"what": "concentrations dans l'autoclave", "inputs": "HCl 36–38 % (≈ 12 M) 7,5 mL + eau 7,5 mL ; tétrabutyl titanate 0,25 mL (densité ≈ 1,00 ; M = 340,32 g/mol)", "formula": "[HCl] = 12 × 7,5/15,25 ; n(Ti) = 0,25 × 0,996/340,32 ; [Ti] = n/15,25 mL", "result": "[HCl] ≈ 5,9 M ; n(Ti) = 0,73 mmol ; [Ti] ≈ 0,048 M", "compared_to": "recette de Liu et Aydil (eau/HCl concentré 1:1, quelques dixièmes de mL de butoxyde de titane, 150 °C)", "source": "valeurs de l'article ; Liu et Aydil 2009"},
+        {"what": "remplissage et pression de l'autoclave", "inputs": "15,25 mL de liquide dans 25 mL ; 150 °C ; pression de vapeur de l'eau à 150 °C ≈ 4,8 bar", "formula": "taux = V liquide / V autoclave", "result": "61 % ; pression de quelques bars (eau + HCl), compatible avec un autoclave en PTFE", "compared_to": "taux de remplissage usuel 50–80 %", "source": "tables de vapeur de l'eau (constante de manuel)"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Autoclave rempli à 61 %, 150 °C, environ 6 M en HCl (calculs « remplissage et pression de l'autoclave » et « concentrations dans l'autoclave ») : conditions standard de la croissance de bâtonnets de rutile sur FTO.", "status": "ok", "basis": "litterature", "source": {"title": "Growth of oriented single-crystalline rutile TiO2 nanorods on transparent conducting substrates for dye-sensitized solar cells", "authors_or_publisher": "Liu B., Aydil E. S., J. Am. Chem. Soc. 131, 3985–3990", "year": "2009", "url_or_doi": "https://experts.umn.edu/en/publications/growth-of-oriented-single-crystalline-rutile-tio-sub2sub-nanorods/"}},
+        {"aspect": "resultats", "finding": "L'article n'indique pas la phase ; dans HCl concentré sur FTO, on obtient du rutile (accord de maille avec SnO2 rutile, a = 4,737 Å), qui reste rutile après recuit à 550 °C. Un film d'environ 340 nm après 5 h est un ordre de grandeur plausible pour une concentration en Ti aussi faible.", "status": "ok", "basis": "litterature", "source": {"title": "Growth Time Influence on Optical and Electrical Properties of TiO2 Nanorods Prepared via Hydrothermal Method", "authors_or_publisher": "J. Phys.: Conf. Ser. 2114, 012063 (IOP)", "year": "2021", "url_or_doi": "https://iopscience.iop.org/article/10.1088/1742-6596/2114/1/012063/pdf"}},
+        {"aspect": "securite", "finding": "HCl à environ 6 M à 150 °C : vapeurs corrosives à l'ouverture et risque de corrosion de l'acier si la chemise en PTFE fuit ; laisser refroidir complètement avant d'ouvrir (l'article le dit).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Dans HCl concentré, l'hydrolyse du butoxyde de titane est freinée ; des octaèdres TiO6 se condensent en rutile, qui nuclée par épitaxie sur le SnO2 rutile du FTO et croît selon [001] en bâtonnets orientés.", "sources": [{"title": "Growth of oriented single-crystalline rutile TiO2 nanorods on transparent conducting substrates for dye-sensitized solar cells", "authors_or_publisher": "Liu B., Aydil E. S., J. Am. Chem. Soc.", "year": "2009", "url_or_doi": "https://experts.umn.edu/en/publications/growth-of-oriented-single-crystalline-rutile-tio-sub2sub-nanorods/"}]},
+      "what_to_verify_before_repeating": ["phase (rutile attendu) par XRD", "nettoyage du FTO et face conductrice tournée vers la paroi"]
+    },
+    {
+      "label": "Device_yolk-shell@TiO2",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "masse de sensibilisateur produite par lot", "inputs": "or : au plus 5 µmol par croissance de bâtonnets (tout le lot redispersé dans 1 mL) × 196,97 g/mol ; PbSe : au plus 0,5 µmol (Se limitant, 5 µL de SeO2) × 286,16 g/mol", "formula": "m = n × M", "result": "Au ≤ 0,985 mg ; PbSe ≤ 0,143 mg ; total ≤ 1,13 mg par lot", "compared_to": "10 mg de Au–PbSe dans 1 mL d'adsorbant : au moins 9 lots, non mentionnés", "source": "valeurs de l'article ; masses atomiques standard"},
+        {"what": "« 0,17 M alcohol solution »", "inputs": "éthanol pur : 789 g/L / 46,07 g/mol", "formula": "C = ρ/M", "result": "17,1 mol/L ; 0,17 M serait de l'éthanol à 1 % dans l'eau", "compared_to": "« 0,17 M » de l'article (probablement 17 M, éthanol pur, ou une coquille)", "source": "masse volumique de l'éthanol, constante de manuel"},
+        {"what": "IPCE à 600 nm recalculée", "inputs": "i = 5,62·10^-2 (unité illisible) ; P = 0,607 mW/cm² dans le texte, 6,07 dans la formule ; λ = 600 nm", "formula": "IPCE = 1240·i/(λ·P) × 100 (i en mA/cm², P en mW/cm²)", "result": "1,91 % avec (0,0562 ; 6,07) ou (0,00562 ; 0,607) ; 19,1 % avec (0,0562 ; 0,607)", "compared_to": "1,91 % annoncé ; IPCE moyenne estimée à partir de 47 µA/cm² sous 3,8 mW/cm² (λ > 600 nm, λ moyen pris à 800 nm) : 1240 × 0,047/(800 × 3,8) ≈ 1,9 %", "source": "valeurs de l'article (annexe)"},
+        {"what": "rapport des photocourants", "inputs": "10,62 µA/cm² (haltère) × 4,38", "formula": "produit", "result": "46,5 µA/cm²", "compared_to": "≈ 47 µA/cm² lu sur la fig. 6b", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "10 mg de nanobâtonnets pour 1 mL d'adsorbant, alors qu'un lot tel que décrit donne au plus environ 1,1 mg (calcul « masse de sensibilisateur produite par lot ») : il faut au moins 9 lots, et l'article ne le dit pas. La masse, ou la concentration du « 1 mL de bâtonnets », est donc fausse ou omise. « 0,17 M alcohol solution » n'a pas de sens tel quel (l'éthanol pur fait 17,1 M, calcul « 0,17 M alcohol solution »).", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Le témoin ne change pas une seule variable. Le sensibilisateur yolk-shell (5 µL de SeO2, 20 µL de Pb) diffère de l'haltère (20 µL de SeO2, 5 µL de Pb) par la quantité de Se, la quantité de Pb, l'épaisseur de coque (4,3 nm contre des cristaux de 27,5 nm) et la symétrie. L'haltère et le témoin PbSe contiennent en outre environ 1,5 µmol de Se amorphe non converti pour 0,5 µmol de PbSe. Seule la quantité maximale de PbSe (0,5 µmol) est la même, ce qui explique sans doute le « same mass » du tableau S1. Le facteur 4,38 ne peut donc pas être attribué à la seule symétrie de la coque. Il faudrait un haltère et un yolk-shell de même épaisseur et sans Se résiduel. Le yolk-shell du photoanode n'est pas non plus celui des fig. 2 et 5 (coque de 13,8 nm, plasmon à 1450 nm).", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Rct : la liste de 3.4 nomme deux fois l'haltère, et l'attribution par position (PbSe 6,74 ; haltère 2,88 kΩ) contredit la phrase suivante (« dumbbell … exhibits the higher interfacial charge transfer resistance than the other sensitized electrodes ») ainsi que l'ordre des photocourants (haltère 10,62 < PbSe 12,25 µA/cm²). Les valeurs 6,74 et 2,88 sont probablement inversées.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "IPCE : le calcul de l'annexe mélange 0,607 et 6,07 mW/cm² ; 1,91 % n'est juste que si i = 5,62 µA/cm² et P = 0,607 mW/cm² (calcul « IPCE à 600 nm recalculée »). Cette valeur est cohérente avec le photocourant à large bande (≈ 1,9 % en moyenne).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "4,38 × 10,62 = 46,5 µA/cm² (calcul « rapport des photocourants »), cohérent avec la figure.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Vocabulaire : avec Na2S/Na2SO3 comme électrolyte, les trous oxydent le sulfure et le sulfite, pas l'eau ; parler de « water-splitting reactions » est impropre (seule la réduction en H2 à la contre-électrode est réelle). Par ailleurs, « since the electron scavenger is absent » désigne en fait un capteur de trous, qui est bien présent (sulfite).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Électrolyte Na2S/Na2SO3 (pH ≈ 12) : dégage du H2S s'il est acidifié ; recuit et séchage sous vide sans risque particulier.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "La photoactivité sous λ > 600 nm vient à la fois de l'absorption du PbSe et de l'excitation plasmonique ; l'attribution à la seule symétrie de la coque n'est pas démontrée, car l'épaisseur, la quantité de Se résiduel et la quantité de Pb changent en même temps.", "sources": []},
+      "what_to_verify_before_repeating": ["nombre de lots ou concentration réelle pour obtenir 10 mg de sensibilisateur", "nature et concentration de la « 0,17 M alcohol solution »", "ordre des Rct (6,74 et 2,88 kΩ)", "témoin haltère et yolk-shell à épaisseur et quantité de Se égales"]
+    }
+  ],
+  "article_level": {
+    "summary": "La chimie générale (Au@Se par SeO2 + AA, puis conversion en PbSe par Gly[Pb2+] à pH 9,8 et 80 °C) est cohérente : Pb:Se = 1:1 et C(Pb2+) ≈ 1 mM se vérifient, et les distances HRTEM et le plasmon des bâtonnets concordent. Points faibles : la solution de germes d'or telle qu'écrite (Au 5 mM, NaBH4 à 21 % de la stœchiométrie) ; l'épaisseur de la coque de Se pour 20 µL (22 ou 13 nm) ; une explication par les flux qui se contredit en 3.2 ; des généralisations à Cd, Bi et Cu avec 0,07 à 0,1 équivalent de cation, donc des coques surtout faites de Se ; une comparaison des photoanodes qui change plusieurs variables à la fois ; 10 mg de sensibilisateur impossible par lot ; des valeurs de Rct probablement inversées.",
+    "author_errors_suspected": [
+      "HAuCl4 « 5 mM » dans la solution de germes (NaBH4 insuffisant ; sans doute 0,25–0,5 mM)",
+      "coque de Se de 22 nm (3.1) contre 13 nm (3.3 et légendes) pour la même dose de SeO2",
+      "inversion du raisonnement sur les flux de Se et de Pb2+ en 3.2",
+      "Rct de PbSe NCs et de l'haltère probablement inversés ; haltère nommé deux fois",
+      "IPCE : 0,607 contre 6,07 mW/cm² dans le calcul de l'annexe",
+      "« 0,17 M alcohol solution » et 10 mg de sensibilisateur pour environ 1 mg produit par lot",
+      "30 min (légende fig. 3) contre 25 min (texte) pour le prélèvement intermédiaire"
+    ],
+    "comparison_with_database": "Aucune autre voie de bâtonnets d'or en CTAB, de PbSe ou de rutile hydrothermal sur FTO dans la base (compare.py « Au », « PbSe », « TiO2 ») ; comparaison faite avec les protocoles publiés (Nikoobakht 2003 repris dans PMC7695247, Liu et Aydil 2009)."
+  },
+  "sources_not_found": [
+    "Aucune source cherchée ni trouvée pour la constante de solubilité de PbSe ni pour les potentiels Se/Se2- et SeO3^2-/Se : valeurs d'ordre de grandeur de chimie générale, non vérifiées en ligne",
+    "DOI de Liu et Aydil 2009 et de Jain et al. 2006 non vus sur une page consultée : cités par URL",
+    "Les équations de réaction citées par les auteurs (réf. 54 et 55) ne sont pas dans le texte du dépôt"
+  ]
+}

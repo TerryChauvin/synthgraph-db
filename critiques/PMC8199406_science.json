@@ -1,0 +1,702 @@
+{
+ "pmcid": "PMC8199406",
+ "routes": [
+  {
+   "label": "sCCSi",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction de carbone de PAN",
+     "inputs": "motif C3H3N : M = 3×12,011 + 3×1,008 + 14,007 = 53,06 g/mol",
+     "formula": "3×12,011 / 53,06",
+     "result": "67,9 % en masse de C",
+     "compared_to": "rendement en carbone usuel de la conversion PAN → carbone : ≈ 50 % de la masse de PAN",
+     "source": "masses atomiques IUPAC ; rendement : 10.1002/app.53515"
+    },
+    {
+     "what": "fraction massique de Si après carbonisation",
+     "inputs": "Si:PAN = 1:5 ou 1:2 (masse) ; rendement en carbone y = 0,4 / 0,5 / 0,6 de la masse de PAN ; Si supposé non oxydé",
+     "formula": "w(Si) = 1 / (1 + r × y), r = 5 ou 2",
+     "result": "1:5 → 33 / 29 / 25 % de Si ; 1:2 → 56 / 50 / 45 % de Si",
+     "compared_to": "« silicon-to-carbon ratios 1:5 et 1:2 » des Résultats : ce sont des rapports Si:PAN (Méthodes), pas Si:C du produit ; Si:C réel ≈ 1:2,5 et ≈ 1:1 pour y = 0,5",
+     "source": "calcul sur valeurs de l'article ; y d'après 10.1002/app.53515"
+    },
+    {
+     "what": "distance interréticulaire Si(111)",
+     "inputs": "a(Si) = 5,431 Å (diamant cubique)",
+     "formula": "d111 = a / √3",
+     "result": "3,136 Å = 0,314 nm",
+     "compared_to": "0,31 nm annoncé (MET) : cohérent avec Si(111)",
+     "source": "paramètre de maille du silicium, valeur de manuel (référence NIST SRM 640)"
+    },
+    {
+     "what": "surface géométrique attendue des macropores et des nanoparticules",
+     "inputs": "sphères pleines équivalentes ; ρ(carbone) ≈ 2,0 g/cm3 (hypothèse) ; ρ(Si) = 2,33 g/cm3 ; d = 191 nm, 8,3 µm, 30 nm (Si)",
+     "formula": "S = 6 / (ρ × d)",
+     "result": "191 nm → ≈ 16 m2/g ; 8,3 µm → ≈ 0,4 m2/g ; Si 30 nm nu → ≈ 86 m2/g",
+     "compared_to": "BET 108,024 m2/g attribuée par les auteurs à la porosité en éponge",
+     "source": "calcul ; ordres de grandeur"
+    },
+    {
+     "what": "écart Si 2p Si–C / Si–Si",
+     "inputs": "pics annoncés 99,0 (Si–Si) et 99,5 eV (Si–C) ; références Si élémentaire 99,2–99,5 eV, SiC 100,4–100,8 eV ; C 1s de SiC 283,0 ± 0,8 eV",
+     "formula": "ΔE = E(Si–C) − E(Si–Si)",
+     "result": "0,5 eV chez les auteurs contre ≈ 1,0–1,5 eV attendu ; le doublet de spin-orbite Si 2p3/2–2p1/2 est lui-même de 0,6 eV",
+     "compared_to": "la composante « Si–C » à 99,5 eV coïncide avec la composante Si 2p1/2 du silicium élémentaire",
+     "source": "xpsdatabase.com (tables NIST SRD 20) ; xpsfitting.com"
+    },
+    {
+     "what": "décalage Raman de la raie du silicium",
+     "inputs": "raie annoncée 506 cm−1 ; Si massif ≈ 520–521 cm−1",
+     "formula": "Δν = 506 − 520,5",
+     "result": "≈ −14 cm−1",
+     "compared_to": "confinement des phonons négligeable pour 30 nm (< 1–2 cm−1 au-delà de 10 nm) ; échauffement laser : quelques à > 10 cm−1 sur des nanostructures de Si",
+     "source": "Nanomaterials 2015, 5, 614 ; notice Technion 2003"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "L'atmosphère de la pré-oxydation et de la carbonisation n'est pas écrite. La pratique établie est stabilisation sous air (200–300 °C) puis carbonisation sous gaz inerte (N2 ou Ar) ; une carbonisation à 800 °C sous air brûlerait le carbone et oxyderait le silicium en SiO2. Le protocole tel qu'écrit n'est donc pas exécutable sans hypothèse ; la présence de C, de Si–Si et d'un carbone amorphe confirme a posteriori un gaz inerte à 800 °C.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A review of heat treatment on polyacrylonitrile fiber",
+      "authors_or_publisher": "M. S. A. Rahaman, A. F. Ismail, A. Mustafa (Polymer Degradation and Stability 92, 1421-1432)",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.polymdegradstab.2007.03.023"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Agitation à température ambiante dans le DMF (ébullition 153 °C), séchage à 40 °C, montée à 1 °C/min jusqu'à 280 °C, palier 5 h : conditions classiques de stabilisation du PAN (cyclisation, déshydrogénation, oxydation entre 200 et 300 °C sous air). La montée lente limite aussi l'emballement de l'exotherme de cyclisation du PAN homopolymère, connu pour créer vides et défauts.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation, Stabilization and Carbonization of a Novel Polyacrylonitrile-Based Carbon Fiber Precursor",
+      "authors_or_publisher": "H. Liu et al. (Polymers 11, 1150, MDPI)",
+      "year": "2019",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6680452/"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune masse absolue de Si, de PAN, de DMF ni d'eau : seule la proportion Si:PAN 1:5 ou 1:2 est donnée. Le produit contient, pour un rendement en carbone du PAN d'environ 50 %, ≈ 29 % (1:5) ou ≈ 50 % (1:2) de Si en masse (voir calcul « fraction massique de Si après carbonisation »). La concentration de PAN dans le DMF, qui gouverne la séparation de phase et donc la porosité, n'est pas donnée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "article du Journal of Applied Polymer Science sur la stabilisation de fibres PAN (titre non relevé ; extrait lu : « The carbon yield of conversion from PAN to CF is about 50% »)",
+      "authors_or_publisher": "Wiley, Journal of Applied Polymer Science",
+      "year": "2023",
+      "url_or_doi": "10.1002/app.53515"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le PAN (Mw 150 000) est soluble dans le DMF ; les nanoparticules de Si y sont dispersées, pas dissoutes : la « homogeneous Si/PAN precursor solution » est une suspension. L'eau, non-solvant du PAN miscible au DMF, provoque une séparation de phase induite par non-solvant (NIPS) ; « exchange of two solutes (DMF and DI water) » désigne en fait deux solvants.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation and Characterization of Membranes Formed by Nonsolvent Induced Phase Separation: A Review",
+      "authors_or_publisher": "G. R. Guillen, Y. Pan, M. Li, E. M. V. Hoek (Ind. Eng. Chem. Res. 50, 3798-3817)",
+      "year": "2011",
+      "url_or_doi": "10.1021/ie101928r"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La surface BET de 108,024 m2/g est attribuée à la porosité en éponge, mais des pores de 191 nm à 8,3 µm ne peuvent fournir qu'environ 0,4 à 16 m2/g (calcul « surface géométrique attendue »). Les nanoparticules de Si de 30 nm exposées (≈ 86 m2/g pour du Si nu) et la microporosité du carbone de PAN (que les auteurs invoquent eux-mêmes pour la boucle à basse pression) expliquent l'essentiel de la surface. Aucun témoin (CCSi-w compact) n'a été mesuré en BET : le lien porosité en éponge → surface n'est pas démontré.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Boucle d'hystérésis non refermée à basse pression : selon l'IUPAC, une hystérésis à basse pression signale le plus souvent un équilibre non atteint, un gonflement ou une adsorption irréversible, pas simplement un « remplissage des micropores » ; à vérifier par un temps d'équilibre plus long.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "M. Thommes et al. (Pure Appl. Chem. 87, 1051)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS : la composante « Si–C » à 99,5 eV est à 0,5 eV seulement de Si–Si (99,0 eV) alors que le Si 2p de SiC est attendu vers 100,4–100,8 eV ; un écart de 0,5 eV est du même ordre que le doublet de spin-orbite Si 2p (0,6 eV), de sorte que la composante peut être la partie 2p1/2 du silicium élémentaire (calcul « écart Si 2p Si–C / Si–Si »). La conclusion « stable chemical bond between silicon nanoparticles and carbon » ne repose donc pas sur une preuve discriminante ; à 800 °C pendant 2 h, la formation de SiC entre Si et carbone est très limitée (dans un système voisin, SiC n'apparaît qu'à partir de 1200 °C).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Silicon — Si 2p chemical state binding energies (tables NIST SRD 20, PHI Handbook, Thermo)",
+      "authors_or_publisher": "The International XPS Spectra-Base (xpsdatabase.com)",
+      "year": "2022",
+      "url_or_doi": "https://xpsdatabase.com/cacarbon-sspectra-sic-optical-element-sisisilicon-cacarbide"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : la raie du Si à 506 cm−1, soit ≈ 14 cm−1 sous le Si cristallin (520,5 cm−1), ne s'explique pas par la taille (30 nm) ; c'est la signature typique d'un échauffement par le laser des nanoparticules dans une matrice poreuse peu conductrice thermiquement. La puissance laser n'est pas donnée ; le mot « sharp peak corresponds to crystalline silicon » est juste sur la phase, pas sur la position.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Optical and Structural Properties of Si Nanocrystals in SiO2 Films",
+      "authors_or_publisher": "Nanomaterials 5(2), 614 (MDPI)",
+      "year": "2015",
+      "url_or_doi": "https://www.mdpi.com/2079-4991/5/2/614"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "ID/IG = 0,944 lu comme « few disordered structures with good conductivity » : pour un carbone de PAN carbonisé à 800 °C (stade 2 de Ferrari et Robertson, carbone nanocristallin à amorphe), un rapport proche de 1 traduit au contraire un carbone très désordonné, à cristallites de l'ordre du nanomètre. Mot à corriger ; la conductivité n'est pas mesurée (la résistance EIS de 61,68 Ω est une grandeur de cellule sans surface ni épaisseur, et sans témoin).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "A. C. Ferrari, J. Robertson (Phys. Rev. B 61, 14095)",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Distance de 0,31 nm cohérente avec Si(111) (0,314 nm, calcul « distance interréticulaire Si(111) »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : la stabilisation et la carbonisation du PAN libèrent HCN, NH3, CO et H2O (four ventilé ou gaz de sortie piégé) ; DMF reprotoxique (catégorie 1B CLP), à manipuler sous hotte ; le précipité encore imbibé de DMF est chauffé à 280 °C dans une étuve (vapeurs inflammables) ; nanopoudre de Si inflammable et inhalable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Conversion of modified commercial polyacrylonitrile fibers to carbon fibers",
+      "authors_or_publisher": "Journal of Optoelectronics and Advanced Materials 9(6), 1614-1617 (auteurs non relevés)",
+      "year": "2007",
+      "url_or_doi": "https://joam.inoe.ro/articles/conversion-of-modified-commercial-polyacrylonitrile-fibers-to-carbon-fibers/fulltext"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Section 2.1 nomme le solvant « N,N-Dimethylacetamide (DMF) » et la section 4.1 « N,N-Dimethylformamide (DMF) » : incohérence entre sections ; les deux dissolvent le PAN, mais la vitesse d'échange avec l'eau et donc la porosité diffèrent. Le DMF (Méthodes, fournisseur et pureté donnés) est le plus probable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Séparation de phase induite par non-solvant (NIPS) : l'eau ajoutée goutte à goutte à la solution PAN/DMF chargée de Si fait passer progressivement le mélange ternaire PAN/DMF/eau dans la zone biphasée (démixtion retardée) ; la phase riche en polymère, qui englobe les nanoparticules de Si, forme le squelette et la phase pauvre (DMF + eau) forme les pores dès la précipitation, avant tout chauffage. Le séchage à 40 °C et la montée lente à 280 °C sous air retirent le solvant résiduel pendant que la cyclisation et la réticulation oxydante rendent le PAN infusible (structure en échelle) : la porosité est figée. Un chauffage rapide, ou un traitement à 200 °C (sous vide, sans O2), laisse un PAN insuffisamment stabilisé qui se ramollit ou subit un exotherme brutal à la carbonisation, d'où l'effondrement. La carbonisation (sous gaz inerte, non écrit) donne un carbone amorphe dopé azote, avec ≈ 50 % de la masse du PAN. L'explication des auteurs (pores créés par l'évaporation de l'eau ou du DMF piégés pendant la pré-oxydation) est secondaire : dans la NIPS, la taille des pores est fixée surtout par la vitesse de démixtion.",
+    "sources": [
+     {
+      "title": "Preparation and Characterization of Membranes Formed by Nonsolvent Induced Phase Separation: A Review",
+      "authors_or_publisher": "G. R. Guillen, Y. Pan, M. Li, E. M. V. Hoek (Ind. Eng. Chem. Res. 50, 3798-3817)",
+      "year": "2011",
+      "url_or_doi": "10.1021/ie101928r"
+     },
+     {
+      "title": "A review of heat treatment on polyacrylonitrile fiber",
+      "authors_or_publisher": "M. S. A. Rahaman, A. F. Ismail, A. Mustafa (Polymer Degradation and Stability 92, 1421-1432)",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.polymdegradstab.2007.03.023"
+     },
+     {
+      "title": "Preparation, Stabilization and Carbonization of a Novel Polyacrylonitrile-Based Carbon Fiber Precursor",
+      "authors_or_publisher": "H. Liu et al. (Polymers 11, 1150, MDPI)",
+      "year": "2019",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6680452/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère : stabilisation sous air à 280 °C puis carbonisation à 800 °C sous N2 ou Ar (non écrit)",
+    "concentration de PAN dans le DMF, masses de Si, volume et débit d'eau ajoutée (fixent la porosité)",
+    "le rapport 1:5 / 1:2 est un rapport Si:PAN (pas Si:C) ; faire une ATG sous air pour mesurer la teneur réelle en Si",
+    "liaison Si–C : ne pas la tenir pour acquise ; ajuster le Si 2p avec le doublet 2p3/2–2p1/2 (0,6 eV) avant d'attribuer une composante à Si–C",
+    "puissance laser Raman (raie du Si à 506 cm−1)",
+    "évacuer HCN et NH3 dégagés par le PAN ; DMF sous hotte"
+   ]
+  },
+  {
+   "label": "sCCSi-15",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "capacité maximale de première lithiation (hors SEI) de sCCSi-15",
+     "inputs": "w(Si) = 0,25–0,33 (Si:PAN 1:5, rendement carbone 0,4–0,6) ; Q(Si, Li15Si4) = 3579 mAh/g ; Q(carbone) ≈ 372 mAh/g (borne haute)",
+     "formula": "Q = w × 3579 + (1 − w) × 372",
+     "result": "≈ 1170–1440 mAh/g",
+     "compared_to": "3084,1 mAh/g attribués à sCCSi-15 par le texte (Fig. 5a ≈ 1100 mAh/g)",
+     "source": "Obrovac & Chevrier 2014 (3579 mAh/g) ; calcul sur valeurs de l'article"
+    },
+    {
+     "what": "capacité réversible déduite du premier cycle",
+     "inputs": "1131,9 mAh/g × ICE 68,5 % ; ou 3084,1 × 68,5 %",
+     "formula": "Q1 × ICE",
+     "result": "≈ 775 mAh/g si 1131,9 ; ≈ 2113 mAh/g si 3084,1",
+     "compared_to": "capacité maximale ultérieure de sCCSi-15 : 726,7 mAh/g",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "rétention apparente au cycle 300",
+     "inputs": "≈ 400 mAh/g (lu sur Fig. 5c) / 726,7 mAh/g",
+     "formula": "Q300 / Qmax",
+     "result": "≈ 55 %",
+     "compared_to": "70,6 % annoncé : référence de calcul non écrite",
+     "source": "calcul sur valeurs de l'extraction"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Une première capacité de 3084,1 mAh/g est impossible pour sCCSi-15 : même avec un faible rendement en carbone, l'électrode contient au plus ≈ 33 % de Si et ne peut dépasser ≈ 1440 mAh/g hors SEI (calcul « capacité maximale de première lithiation »). 1131,9 mAh/g × 68,5 % ≈ 775 mAh/g, en accord avec le maximum de 726,7 mAh/g aux cycles suivants. Le texte inverse donc les deux valeurs de premier cycle (la phrase suivante, « larger specific capacity of sCCSi-12 », et les figures 5a,b le confirment) : sCCSi-15 = 1131,9 mAh/g, sCCSi-12 = 3084,1 mAh/g.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Alloy Negative Electrodes for Li-Ion Batteries",
+      "authors_or_publisher": "M. N. Obrovac, V. L. Chevrier (Chem. Rev. 114, 11444-11502)",
+      "year": "2014",
+      "url_or_doi": "10.1021/cr500207g"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention de 70,6 % après 300 cycles : 400/726,7 ≈ 55 % (calcul « rétention apparente »). La référence de la rétention n'est pas écrite (probablement la capacité du premier cycle à 500 mA/g, après la chute initiale) : chiffre non comparable aux rétentions de la littérature calculées sur le premier cycle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement coulombique initial de 68,5 % : plausible pour un composite Si/carbone désordonné de ≈ 100 m2/g (forte SEI).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Capacité portée par la lithiation du Si (Li15Si4 à température ambiante) et par le carbone désordonné ; la perte du premier cycle vient de la SEI sur une grande surface.",
+    "sources": [
+     {
+      "title": "Alloy Negative Electrodes for Li-Ion Batteries",
+      "authors_or_publisher": "M. N. Obrovac, V. L. Chevrier (Chem. Rev. 114, 11444-11502)",
+      "year": "2014",
+      "url_or_doi": "10.1021/cr500207g"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "attribuer 1131,9 mAh/g (1er cycle) à sCCSi-15, pas 3084,1",
+    "fenêtre de potentiel et masse de matière active par cm2 (non écrites)",
+    "référence de calcul de la rétention"
+   ]
+  },
+  {
+   "label": "sCCSi-12",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "capacité maximale de première lithiation (hors SEI) de sCCSi-12",
+     "inputs": "w(Si) = 0,45–0,56 (Si:PAN 1:2, rendement carbone 0,4–0,6) ; 3579 et 372 mAh/g",
+     "formula": "Q = w × 3579 + (1 − w) × 372",
+     "result": "≈ 1830–2150 mAh/g",
+     "compared_to": "3084,1 mAh/g (Fig. 5b) : dépassement de ≈ 1000 mAh/g, à mettre au compte de la SEI (ICE 57,6 % → réversible ≈ 1776 mAh/g, inférieur au maximum théorique)",
+     "source": "Obrovac & Chevrier 2014 ; calcul sur valeurs de l'article"
+    },
+    {
+     "what": "rétention apparente au cycle 300",
+     "inputs": "≈ 700 mAh/g (Fig. 5c) / 1173,1 mAh/g",
+     "formula": "Q300 / Qmax",
+     "result": "≈ 60 %",
+     "compared_to": "70,2 % annoncé",
+     "source": "calcul sur valeurs de l'extraction"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La valeur de premier cycle attribuée par le texte (1131,9 mAh/g) est incompatible avec la capacité maximale ultérieure de 1173,1 mAh/g et avec ICE 57,6 % (réversible ≈ 650 mAh/g) ; 3084,1 mAh/g × 57,6 % ≈ 1776 mAh/g est au contraire cohérent avec ≈ 50 % de Si. Inversion du texte, comme pour sCCSi-15.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention 70,2 % contre ≈ 60 % recalculé sur le maximum : référence non écrite (voir sCCSi-15).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Plus de Si (≈ 50 %) que le carbone ne peut enrober : particules en surface et dans les pores (encart Fig. 5c), pulvérisation et SEI renouvelée, d'où ICE et rendement coulombique plus faibles, comme le disent les auteurs.",
+    "sources": [
+     {
+      "title": "Alloy Negative Electrodes for Li-Ion Batteries",
+      "authors_or_publisher": "M. N. Obrovac, V. L. Chevrier (Chem. Rev. 114, 11444-11502)",
+      "year": "2014",
+      "url_or_doi": "10.1021/cr500207g"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "attribuer 3084,1 mAh/g (1er cycle) à sCCSi-12",
+    "référence de la rétention"
+   ]
+  },
+  {
+   "label": "CCSi-w",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Verser la solution dans un grand excès d'eau provoque une démixtion instantanée à la surface de chaque goutte (peau dense), alors que l'ajout lent d'eau à la solution donne une démixtion retardée dans tout le volume, qui conduit d'ordinaire à une structure de type éponge : l'opposition observée (CCSi-w compact, sCCSi en éponge) est cohérente avec la NIPS. L'explication des auteurs par la « teneur en humidité » n'est qu'une partie de ce mécanisme.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation and Characterization of Membranes Formed by Nonsolvent Induced Phase Separation: A Review",
+      "authors_or_publisher": "G. R. Guillen, Y. Pan, M. Li, E. M. V. Hoek (Ind. Eng. Chem. Res. 50, 3798-3817)",
+      "year": "2011",
+      "url_or_doi": "10.1021/ie101928r"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Volumes d'eau et de solution non donnés : le rapport non-solvant/solvant, qui décide du régime de démixtion, n'est pas reproductible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Démixtion instantanée (peau dense autour de chaque goutte) contre démixtion retardée pour la voie d'origine.",
+    "sources": [
+     {
+      "title": "Preparation and Characterization of Membranes Formed by Nonsolvent Induced Phase Separation: A Review",
+      "authors_or_publisher": "G. R. Guillen, Y. Pan, M. Li, E. M. V. Hoek (Ind. Eng. Chem. Res. 50, 3798-3817)",
+      "year": "2011",
+      "url_or_doi": "10.1021/ie101928r"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'eau et vitesse d'ajout",
+    "rapport Si:PAN utilisé"
+   ]
+  },
+  {
+   "label": "CCSi-v",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "La variante remplace la pré-oxydation à 280 °C (1 °C/min, 5 h) par un « drying » à 200 °C sous vide (sans O2). Elle change à la fois la température finale, la vitesse de chauffage (non contrôlée : 3–5 ou > 5 °C/min, estimée par les auteurs), et l’atmosphère (pas d’oxygène, donc pas de réticulation oxydante). Or 200 °C est au bas de la plage de stabilisation du PAN (200–300 °C) : la cyclisation et l'oxydation y restent très incomplètes en quelques heures, et un PAN mal stabilisé se ramollit, fond ou s'emballe à la carbonisation. L'effondrement observé peut donc venir de l'absence de stabilisation, pas de la vitesse de chauffage : le témoin ne prouve pas que « slow heating rate is the key ». Témoin utile : 280 °C, 5 h sous air, à 5 °C/min.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "A review of heat treatment on polyacrylonitrile fiber",
+      "authors_or_publisher": "M. S. A. Rahaman, A. F. Ismail, A. Mustafa (Polymer Degradation and Stability 92, 1421-1432)",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.polymdegradstab.2007.03.023"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Durée du traitement à 200 °C et suite du protocole (carbonisation identique ou non) non écrites.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Stabilisation insuffisante du PAN à 200 °C (et sans O2 pour CCSi-v) : le polymère reste fusible et se déforme ou se fragmente pendant la carbonisation ; l'évaporation rapide du solvant piégé peut s'y ajouter.",
+    "sources": [
+     {
+      "title": "A review of heat treatment on polyacrylonitrile fiber",
+      "authors_or_publisher": "M. S. A. Rahaman, A. F. Ismail, A. Mustafa (Polymer Degradation and Stability 92, 1421-1432)",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.polymdegradstab.2007.03.023"
+     },
+     {
+      "title": "Preparation, Stabilization and Carbonization of a Novel Polyacrylonitrile-Based Carbon Fiber Precursor",
+      "authors_or_publisher": "H. Liu et al. (Polymers 11, 1150, MDPI)",
+      "year": "2019",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6680452/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "séparer les variables : vitesse de chauffage seule à 280 °C sous air",
+    "durée à 200 °C et conditions de carbonisation"
+   ]
+  },
+  {
+   "label": "CCSi-o",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "La variante remplace la pré-oxydation à 280 °C (1 °C/min, 5 h) par un « drying » à 200 °C à l'étuve. Elle change à la fois la température finale, la vitesse de chauffage (non contrôlée : 3–5 ou > 5 °C/min, estimée par les auteurs). Or 200 °C est au bas de la plage de stabilisation du PAN (200–300 °C) : la cyclisation et l'oxydation y restent très incomplètes en quelques heures, et un PAN mal stabilisé se ramollit, fond ou s'emballe à la carbonisation. L'effondrement observé peut donc venir de l'absence de stabilisation, pas de la vitesse de chauffage : le témoin ne prouve pas que « slow heating rate is the key ». Témoin utile : 280 °C, 5 h sous air, à 5 °C/min.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "A review of heat treatment on polyacrylonitrile fiber",
+      "authors_or_publisher": "M. S. A. Rahaman, A. F. Ismail, A. Mustafa (Polymer Degradation and Stability 92, 1421-1432)",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.polymdegradstab.2007.03.023"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Durée du traitement à 200 °C et suite du protocole (carbonisation identique ou non) non écrites.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Stabilisation insuffisante du PAN à 200 °C (et sans O2 pour CCSi-v) : le polymère reste fusible et se déforme ou se fragmente pendant la carbonisation ; l'évaporation rapide du solvant piégé peut s'y ajouter.",
+    "sources": [
+     {
+      "title": "A review of heat treatment on polyacrylonitrile fiber",
+      "authors_or_publisher": "M. S. A. Rahaman, A. F. Ismail, A. Mustafa (Polymer Degradation and Stability 92, 1421-1432)",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.polymdegradstab.2007.03.023"
+     },
+     {
+      "title": "Preparation, Stabilization and Carbonization of a Novel Polyacrylonitrile-Based Carbon Fiber Precursor",
+      "authors_or_publisher": "H. Liu et al. (Polymers 11, 1150, MDPI)",
+      "year": "2019",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6680452/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "séparer les variables : vitesse de chauffage seule à 280 °C sous air",
+    "durée à 200 °C et conditions de carbonisation"
+   ]
+  },
+  {
+   "label": "CCSi-HT-M",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les deux conclusions des auteurs ne sont pas isolées par les essais : (1) « RT crée plus de pores que HT » repose sur HT-U (peu de pores) contre RT-U (beaucoup), qui ne diffèrent que par la température : correct ; (2) « les ultrasons donnent des pores plus petits » compare RT-U (2,8 µm) à HT-M (4,5 µm), qui diffèrent par deux variables (température et oscillation). La comparaison à une seule variable, RT-U contre la voie d'origine sCCSi (ambiante, mécanique), donne 2,8 µm contre une distribution bimodale (191 nm et 8,3 µm) : on ne peut pas conclure que les ultrasons réduisent la taille. HT-U (peu de pores) contre HT-M (pores de 4,5 µm) dit seulement que les ultrasons à 80 °C suppriment des pores. Le texte nomme en outre deux fois « CCSi-HT-U » (le troisième est CCSi-RT-U d'après les Méthodes).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Agitation à 80 °C dans le DMF (ébullition 153 °C) : sans risque d'ébullition ; mais la température au moment de l'ajout d'eau n'est pas dite (solution encore chaude ou refroidie ?), alors que la solubilité du PAN et la vitesse de démixtion en dépendent ; 12 h à 80 °C peut aussi évaporer une partie du DMF en récipient ouvert et changer la concentration.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À plus haute température, le PAN est plus soluble et la démixtion par l'eau plus lente ou plus tardive, ce qui coalesce la phase pauvre en polymère en moins de pores ; l'effet des ultrasons sur la taille n'est pas établi par ces essais.",
+    "sources": [
+     {
+      "title": "Preparation and Characterization of Membranes Formed by Nonsolvent Induced Phase Separation: A Review",
+      "authors_or_publisher": "G. R. Guillen, Y. Pan, M. Li, E. M. V. Hoek (Ind. Eng. Chem. Res. 50, 3798-3817)",
+      "year": "2011",
+      "url_or_doi": "10.1021/ie101928r"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température de la solution au moment de l'ajout d'eau",
+    "paramètres des ultrasons",
+    "témoin RT-M = sCCSi mesuré avec la même statistique de pores"
+   ]
+  },
+  {
+   "label": "CCSi-HT-U",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les deux conclusions des auteurs ne sont pas isolées par les essais : (1) « RT crée plus de pores que HT » repose sur HT-U (peu de pores) contre RT-U (beaucoup), qui ne diffèrent que par la température : correct ; (2) « les ultrasons donnent des pores plus petits » compare RT-U (2,8 µm) à HT-M (4,5 µm), qui diffèrent par deux variables (température et oscillation). La comparaison à une seule variable, RT-U contre la voie d'origine sCCSi (ambiante, mécanique), donne 2,8 µm contre une distribution bimodale (191 nm et 8,3 µm) : on ne peut pas conclure que les ultrasons réduisent la taille. HT-U (peu de pores) contre HT-M (pores de 4,5 µm) dit seulement que les ultrasons à 80 °C suppriment des pores. Le texte nomme en outre deux fois « CCSi-HT-U » (le troisième est CCSi-RT-U d'après les Méthodes).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Agitation à 80 °C dans le DMF (ébullition 153 °C) : sans risque d'ébullition ; mais la température au moment de l'ajout d'eau n'est pas dite (solution encore chaude ou refroidie ?), alors que la solubilité du PAN et la vitesse de démixtion en dépendent ; 12 h à 80 °C peut aussi évaporer une partie du DMF en récipient ouvert et changer la concentration.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Oscillation ultrasonore sans durée, fréquence, puissance ni température du bain : un bain à ultrasons chauffe et peut redisperser des particules ; non reproductible tel qu'écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À plus haute température, le PAN est plus soluble et la démixtion par l'eau plus lente ou plus tardive, ce qui coalesce la phase pauvre en polymère en moins de pores ; l'effet des ultrasons sur la taille n'est pas établi par ces essais.",
+    "sources": [
+     {
+      "title": "Preparation and Characterization of Membranes Formed by Nonsolvent Induced Phase Separation: A Review",
+      "authors_or_publisher": "G. R. Guillen, Y. Pan, M. Li, E. M. V. Hoek (Ind. Eng. Chem. Res. 50, 3798-3817)",
+      "year": "2011",
+      "url_or_doi": "10.1021/ie101928r"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température de la solution au moment de l'ajout d'eau",
+    "paramètres des ultrasons",
+    "témoin RT-M = sCCSi mesuré avec la même statistique de pores"
+   ]
+  },
+  {
+   "label": "CCSi-RT-U",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les deux conclusions des auteurs ne sont pas isolées par les essais : (1) « RT crée plus de pores que HT » repose sur HT-U (peu de pores) contre RT-U (beaucoup), qui ne diffèrent que par la température : correct ; (2) « les ultrasons donnent des pores plus petits » compare RT-U (2,8 µm) à HT-M (4,5 µm), qui diffèrent par deux variables (température et oscillation). La comparaison à une seule variable, RT-U contre la voie d'origine sCCSi (ambiante, mécanique), donne 2,8 µm contre une distribution bimodale (191 nm et 8,3 µm) : on ne peut pas conclure que les ultrasons réduisent la taille. HT-U (peu de pores) contre HT-M (pores de 4,5 µm) dit seulement que les ultrasons à 80 °C suppriment des pores. Le texte nomme en outre deux fois « CCSi-HT-U » (le troisième est CCSi-RT-U d'après les Méthodes).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "« RT, 25 °C » est la même condition que la voie d'origine (« room temperature ») : seule l'oscillation change par rapport à sCCSi.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Oscillation ultrasonore sans durée, fréquence, puissance ni température du bain : un bain à ultrasons chauffe et peut redisperser des particules ; non reproductible tel qu'écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À plus haute température, le PAN est plus soluble et la démixtion par l'eau plus lente ou plus tardive, ce qui coalesce la phase pauvre en polymère en moins de pores ; l'effet des ultrasons sur la taille n'est pas établi par ces essais.",
+    "sources": [
+     {
+      "title": "Preparation and Characterization of Membranes Formed by Nonsolvent Induced Phase Separation: A Review",
+      "authors_or_publisher": "G. R. Guillen, Y. Pan, M. Li, E. M. V. Hoek (Ind. Eng. Chem. Res. 50, 3798-3817)",
+      "year": "2011",
+      "url_or_doi": "10.1021/ie101928r"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température de la solution au moment de l'ajout d'eau",
+    "paramètres des ultrasons",
+    "témoin RT-M = sCCSi mesuré avec la même statistique de pores"
+   ]
+  },
+  {
+   "label": "Electrode_sCCSi",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction de matière active et de Si dans l'électrode",
+     "inputs": "sCCSi:PAA:Super P = 8:1:1 (masse) ; w(Si) dans sCCSi ≈ 0,29 (1:5) ou 0,50 (1:2)",
+     "formula": "8/10 ; 0,8 × w(Si)",
+     "result": "80 % de sCCSi ; ≈ 23 % ou ≈ 40 % de Si dans l'électrode sèche",
+     "compared_to": "formulation usuelle des électrodes de Si avec PAA (liant 10–20 %)",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Séchage à 120 °C sous vide 10 h : compatible avec le PAA (pas de décomposition à cette température) et habituel pour les liants PAA.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le solvant de la pâte n'est pas écrit (« ground » seulement) : le PAA de Mw 450 000 demande de l'eau, de l'éthanol ou de la NMP pour former une encre enductible ; charge massique et épaisseur non données, alors que la capacité par gramme en dépend.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme d'électrode).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "solvant de la pâte",
+    "charge en matière active (mg/cm2)",
+    "rapport Si:PAN du matériau actif utilisé"
+   ]
+  },
+  {
+   "label": "HalfCell_sCCSi",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de LiPF6 par litre d'électrolyte",
+     "inputs": "1 M ; M(LiPF6) = 6,94 + 30,97 + 6 × 19,00 = 151,9 g/mol",
+     "formula": "m = C × M",
+     "result": "≈ 152 g de LiPF6 par litre de solution",
+     "compared_to": "électrolyte commercial standard (1 M LiPF6 EC/DEC/DMC + FEC)",
+     "source": "masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "securite",
+     "finding": "Lithium métallique et LiPF6 (qui s'hydrolyse en HF) : assemblage en boîte à gants sous argon, non écrit. 5 % vol de FEC : additif habituel pour le Si.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fenêtre de potentiel du cyclage non écrite ; cyclage à 50 mA/g (3 cycles) puis 500 mA/g conforme aux usages.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (assemblage de pile).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "fenêtre de potentiel (souvent 0,01–1,5 V contre Li+/Li)",
+    "boîte à gants"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse chimiquement cohérente et classique (séparation de phase du PAN par l'eau, stabilisation à 280 °C, carbonisation à 800 °C), mais non reproductible sans hypothèses : ni atmosphère, ni concentrations, ni volumes. Les valeurs de premier cycle de sCCSi-15 et sCCSi-12 sont inversées dans le texte (le calcul de capacité maximale le prouve). Plusieurs interprétations ne sont pas démontrées : surface BET attribuée aux macropores, liaison Si–C à 99,5 eV, rôle de la vitesse de chauffage (témoins à plusieurs variables), effet des ultrasons sur la taille des pores. La simulation (pores de 50 nm, 25 nm de Si) ne représente pas les pores mesurés (191 nm à 8,3 µm).",
+  "author_errors_suspected": [
+   "capacités de premier cycle inversées entre sCCSi-15 (1131,9) et sCCSi-12 (3084,1)",
+   "« silicon-to-carbon ratio » 1:5 et 1:2 alors que ce sont des rapports Si:PAN ; Si:C réel ≈ 1:2,5 et ≈ 1:1",
+   "« N,N-Dimethylacetamide (DMF) » en 2.1 contre N,N-Dimethylformamide en 4.1",
+   "CCSi-HT-U nommé deux fois en 2.2 (le troisième est CCSi-RT-U)",
+   "« peroxidation » pour pré-oxydation (4.2) ; « 372 mAh−1 » (unité incomplète) et 4200 mAh/g attribués à Li22Si5 (la phase atteinte à température ambiante est Li15Si4, 3579 mAh/g)",
+   "ID/IG ≈ 0,94 présenté comme peu désordonné ; raie du Si à 506 cm−1 non discutée (échauffement laser probable)"
+  ],
+  "comparison_with_database": "Aucune autre synthèse de composite Si/carbone dans la base (compare.py « silicon » ne renvoie que cette publication et un substrat SERS PMC9034142 sans rapport)."
+ },
+ "sources_not_found": [
+  "rendement en carbone du PAN mesuré précisément à 800 °C (seule source lue : ≈ 50 % pour la conversion en fibre de carbone, 10.1002/app.53515, titre non relevé)",
+  "source primaire sur la température de formation de SiC entre nanoparticules de Si et carbone de PAN (seul un système Si3N4/carbone, SiC dès 1200 °C, a été trouvé)",
+  "fiche NOAA CAMEO du DMF non ouverte (classement reprotoxique 1B cité de mémoire, à confirmer sur ECHA)"
+ ]
+}

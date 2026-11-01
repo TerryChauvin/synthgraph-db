@@ -1,0 +1,17 @@
+# Journal d'extraction PMC6410306
+
+- Découpage en 13 voies : série de gabarits de carbone (Csph, 4 voies, `intermediate`), série de ZnO HS (4 voies, `intermediate`), série de photoanodes/cellules (QDSSC, 5 voies, `device`). Les trois couches sont chaînées par des réactifs de rôle `intermediate` qui nomment la voie amont.
+- Choix de fusionner film de ZnO, échange Se2−/Cd2+ et assemblage de la cellule dans une seule voie `device` par taille (QDSSC_x) : l'article ne mesure jamais un film de ZnxCd1-xSe@ZnO isolé de la cellule, et les résultats (tableau 1, IPCE) sont ceux de la cellule.
+- Voie de base Csph_0.5M : choisie parce que la légende de la Fig. 1 liste 0,5/0,75/1/2 M et que 0,5 M est le premier ; la Section 2.2 ne donne aucune concentration. Les trois autres sont des branches sur le réactif « sucrose ».
+- Résultats Csph : la phrase « tuned from ~400 nm to ~2 μm … from 0.5 M to 2 M » est attribuée à 0,5 M (400 nm) et 2 M (2 μm) comme bornes de plage ; appariement non écrit, signalé en doute. Rien pour 0,75 et 1 M.
+- Gabarit de ~600 nm (Fig. 2a) laissé sans voie (`route: null`) : sa concentration en saccharose n'est pas donnée.
+- ZnO_HS_500 est la voie de base de la série ZnO car seul le couple « gabarit ~600 nm → ZnO ~500 nm » est décrit (Fig. 2 et texte) ; branches 300/400/800 avec une variation en texte libre (« different sizes of the carbonaceous templates »), sans appariement taille de gabarit / taille de ZnO que l'article ne donne pas.
+- Atmosphère de la calcination du ZnO : « heated in air » vient des Résultats (mécanisme), pas des Méthodes ; retenue comme citation de l'atmosphère car la phrase est explicite.
+- Recuit du film (500 °C, 1 h) : atmosphère et vitesse de chauffe déclarées non citées (la mention « in air » ne vise que la calcination des sphères de carbone). Séchage « in ambient conditions » consigné en `value_text`, durée non citée.
+- Cd2+ : le sel n'est pas nommé dans 2.3 ; nitrate de cadmium retenu (seul sel de Cd listé en 2.1), avec doute. Fournisseur Aladdin attribué par la phrase générale de 2.1 pour les réactifs nommés dans la liste ; méthanol et eau absents de la liste donc fournisseur non cité.
+- « repeated two times » : conservé en `value_text`, sans le convertir en nombre de cycles (ambigu : 2 ou 3 immersions).
+- Tableau 1 : chaque rangée recopiée entière et attribuée par la taille de la première colonne. La Fig. 7a contredit le tableau pour 300 et 800 nm (courbes lues ≈ 8,8 et ≈ 10,8 mA·cm−2) : valeurs du tableau gardées, lectures de figure non extraites, doute et `limite_reproductibilite` écrits.
+- Valeurs lues sur figure : maxima d'IPCE de la Fig. 9 (38, 49, 62, 41 %, 2 chiffres significatifs, par taille) ; Voc 0,43 V et FF 0,33 de la Fig. 10a (étiquettes imprimées dans l'image). Le texte seul ne donne ni l'un ni l'autre.
+- Mélange de tailles : branche QDSSC_mix, réactif de ZnO remplacé par un mélange 25 % en masse de chaque taille ; quantité totale non écrite, déclarée en `amount_text` du seul pourcentage. Résultats Jsc/PCE du texte, plage 3,05 à 2,92 % des trois cellules répétées en `value_text` (Fig. S2 absente).
+- Contre-électrode Cu2S : pas de voie (renvoi B35), réactif `counter_electrode` avec grille déclarée non citée ; `method_sources` B35 (protocole_complet) et B34 (ZnO HS, protocole_adapte). Les autres renvois (Ksp, interprétations, comparaisons) ne sont pas des sources de méthode.
+- Annexe : le fichier texte ne contient que les légendes de Fig. S1 et S2 ; annotation « Annexe absente du dépôt » écrite.

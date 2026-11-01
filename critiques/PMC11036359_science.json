@@ -1,0 +1,1034 @@
+{
+ "pmcid": "PMC11036359",
+ "routes": [
+  {
+   "label": "OAM-Br",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'oléylamine",
+     "inputs": "5 mL ; densité 0,813 g/mL (valeur de manuel, non revérifiée ici) ; pureté 98 % ; M = 267,49",
+     "formula": "V × d × 0,98 / M",
+     "result": "≈ 14,9 mmol",
+     "compared_to": "HBr apporté (ligne suivante)",
+     "source": "densité de mémoire (fiche Sigma-Aldrich à confirmer)"
+    },
+    {
+     "what": "moles de HBr (5,5 mL à 47 %)",
+     "inputs": "5,5 mL × 8,66 mol/L (voir « concentration de HBr à 47 % »)",
+     "formula": "V × c",
+     "result": "≈ 47,6 mmol",
+     "compared_to": "rapport HBr/OAM ≈ 3,2 : excès d'un facteur 3, pas « léger excès » comme l'écrit l'annotation mecanisme_analyse",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "concentration de HBr à 47 %",
+     "inputs": "47 % massique ; densité 1,49 g/mL (valeur de la solution à 48 %, fiche Sigma-Aldrich) ; M = 80,91",
+     "formula": "1,49 × 1000 × 0,47 / 80,91",
+     "result": "≈ 8,7 mol/L",
+     "compared_to": "« constant boiling » HBr 47,6 % = 8,8–8,9 mol/L (Wikipedia, ScienceDirect Topics)",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "eau apportée par HBr",
+     "inputs": "5,5 mL × 1,49 g/mL × 0,53",
+     "formula": "V × d × (1 − 0,47)",
+     "result": "≈ 4,3 g d'eau dans 5 mL d'acétonitrile",
+     "compared_to": "milieu aqueux-acétonitrile ~50/50 en volume : l'« acétonitrile anhydre » n'a pas d'intérêt ici",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "échauffement de neutralisation (ordre de grandeur)",
+     "inputs": "≈ 14,9 mmol d'amine neutralisées ; ΔH ≈ −50 kJ/mol (ordre de grandeur acide fort + amine, hypothèse) ; ≈ 15 g de mélange, Cp ≈ 3 J/(g·K)",
+     "formula": "n × |ΔH| / (m × Cp)",
+     "result": "≈ 0,75 kJ → ≈ +17 K si l'ajout était instantané",
+     "compared_to": "partant de 60 °C, on approche l'ébullition de l'acétonitrile (82 °C) : l'ajout goutte à goutte prescrit est justifié",
+     "source": "hypothèse d'ordre de grandeur, à vérifier"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Neutralisation acide-base RNH2 + HBr → RNH3+Br−. HBr est en excès d'un facteur ≈ 3,2 (voir « moles de HBr (5,5 mL à 47 %) ») : l'annotation mecanisme_analyse qui parle d'un « léger excès » sous-estime l'excès. L'excès d'acide et l'eau restent dans la poudre « humide » tant que les lavages ne sont pas complets ; le nombre de lavages n'est pas donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le mélange final est ≈ 50/50 eau-acétonitrile (4,3 g d'eau) : le bromure d'oléylammonium y précipite (chaîne C18), ce qui permet la centrifugation à 3000 rpm. Cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Acétonitrile chauffé à 60 °C (ébullition 82 °C) en flacon : sous le point d'ébullition, mais l'exotherme de neutralisation peut pousser vers 75–80 °C si HBr est ajouté vite (voir « échauffement de neutralisation »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HBr à 47 % corrosif et émettant des vapeurs ; ajout goutte à goutte sur amine chaude dans l'acétonitrile (toxique, inflammable) : à faire sous hotte, flacon ouvert ou avec évent.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Protonation de l'oléylamine par HBr en bromure d'oléylammonium, insoluble dans le milieu eau-acétonitrile, qui précipite ; les lavages à l'acétonitrile retirent l'amine libre, l'eau et l'excès de HBr ; le séchage au dessiccateur retire le solvant résiduel. Préparation standard des sels d'alkylammonium pour pérovskites.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "nombre de lavages et absence de HBr résiduel (pH d'une suspension aqueuse, ou RMN)",
+    "teneur en eau après dessiccateur (le sel humide change le sous-produit, cf. PROT_wet_precursor)",
+    "rendement de sel (théorique ≈ 5,2 g pour 14,9 mmol)"
+   ]
+  },
+  {
+   "label": "AMTP-Br",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'AMTP (400 µL)",
+     "inputs": "400 µL ; densité 1,02 g/mL ; pureté 97 % ; M = 115,17",
+     "formula": "V × d × 0,97 / M",
+     "result": "≈ 3,4 mmol (3,0 mmol si d = 0,90)",
+     "compared_to": "HBr : 500 µL × 8,66 mol/L = 4,3 mmol → HBr/AMTP ≈ 1,26 (1,4 si d = 0,90)",
+     "source": "ChemicalBook CB9418437 ; fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "concentration de HBr à 47 %",
+     "inputs": "47 % massique ; densité 1,49 g/mL (valeur de la solution à 48 %, fiche Sigma-Aldrich) ; M = 80,91",
+     "formula": "1,49 × 1000 × 0,47 / 80,91",
+     "result": "≈ 8,7 mol/L",
+     "compared_to": "« constant boiling » HBr 47,6 % = 8,8–8,9 mol/L (Wikipedia, ScienceDirect Topics)",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "masse molaire d'AMTP-Br",
+     "inputs": "C6H13NO·HBr = 115,17 + 80,91",
+     "formula": "somme",
+     "result": "196,1 g/mol ; rendement théorique ≈ 0,67 g",
+     "compared_to": "valeur utilisée pour la voie protonée (50 mg = 0,255 mmol)",
+     "source": "masses molaires calculées"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "HBr en léger excès (≈ 1,26 équivalent, voir « moles d'AMTP (400 µL) ») : protonation complète de l'amine primaire (pKa prédit ≈ 10). Le sel garde l'excès d'acide et l'eau de la solution à 47 % (≈ 0,4 g d'eau) tant qu'il n'est pas séché.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Hydrobromic acid 48 wt. % in H2O (fiche produit 339245 ; densité 1,49 g/mL à 25 °C)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consultée 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/sigald/339245"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le sel d'ammonium d'une petite molécule polaire (éther + NH3+) précipite dans 3 mL d'acétonitrile contenant ≈ 0,4 g d'eau (turbidité) ; une partie peut rester dissoute : rendement non donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HBr concentré et amine : exotherme faible à cette échelle (≈ 3 mmol) ; hotte.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Protonation de l'amine primaire de l'AMTP par HBr, précipitation du bromure d'ammonium dans l'acétonitrile, lavages, séchage. Le séchage est déterminant : le sel humide garde eau et HBr, ce que l'article relie au changement de sous-produit (monocouches AMTP).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "densité réelle du lot d'AMTP (0,9 à 1,02 selon les fournisseurs)",
+    "teneur en eau et en HBr libre du sel séché (Karl Fischer, titrage)"
+   ]
+  },
+  {
+   "label": "PROT_acetone_RT",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbBr2",
+     "inputs": "110 mg ; M(PbBr2) = 367,01 g/mol",
+     "formula": "m / M",
+     "result": "0,300 mmol (0,60 M dans 0,5 mL de DMSO)",
+     "compared_to": "soluble : PbBr2 se dissout à 1 M dans DMF:DMSO 1:1 (fiche Sigma-Aldrich)",
+     "source": "masse molaire IUPAC ; fiche Sigma-Aldrich 915696"
+    },
+    {
+     "what": "moles d'AMTP-Br et rapport Pb:AMTP",
+     "inputs": "50 mg ; M = 196,1 g/mol ; n(Pb) = 0,300 mmol",
+     "formula": "m / M ; n(Pb)/n(AMTP)",
+     "result": "0,255 mmol ; Pb:AMTP = 1,18",
+     "compared_to": "formule (PbBr2)2(AMTP)2PbBr4 = Pb3Br8(AMTPH)2 : Pb:AMTP = 1,5 ; l'AMTP est à 1,28 fois la stœchiométrie (0,200 mmol nécessaires)",
+     "source": "masses molaires calculées"
+    },
+    {
+     "what": "rapport Br:Pb du premier flacon",
+     "inputs": "Br = 2 × 0,300 + 0,255 = 0,855 mmol",
+     "formula": "n(Br)/n(Pb)",
+     "result": "2,85",
+     "compared_to": "formule visée Pb3Br8 : 2,67 → bromure suffisant sans OAM-Br",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "moles d'OAM-Br",
+     "inputs": "120 mg (acétone) ou 180 mg (ODE) ; M(C18H35NH3Br) = 267,49 + 80,91 = 348,4 g/mol",
+     "formula": "m / M ; rapport à n(Pb)",
+     "result": "0,344 mmol (1,15 par Pb) ; 0,517 mmol (1,72 par Pb)",
+     "compared_to": "OAM2PbBr4 consomme 2 OAM par Pb : de quoi convertir 57 % (acétone) à 86 % (ODE) du plomb en monocouches OAM si tout l'OAM-Br réagissait",
+     "source": "masses molaires calculées"
+    },
+    {
+     "what": "moles d'acide oléique",
+     "inputs": "0,5 mL ; densité 0,895 g/mL (valeur de manuel, non revérifiée ici) ; pureté 90 % ; M = 282,46",
+     "formula": "V × d × 0,90 / M",
+     "result": "≈ 1,43 mmol (4,8 par Pb)",
+     "compared_to": "source de protons faible mais abondante pour l'AMTP libre",
+     "source": "densité de mémoire (fiche fournisseur à confirmer)"
+    },
+    {
+     "what": "rapport OAM:AMTP",
+     "inputs": "0,344 mmol OAM-Br ; 0,255 mmol AMTP-Br",
+     "formula": "n(OAM)/n(AMTP)",
+     "result": "1,35",
+     "compared_to": "l'ammonium concurrent (OAM) est plus abondant que l'ammonium visé (AMTP) : cohérent avec les monocouches OAM2PbBr4 en sous-produit",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Bilan Pb/Br/AMTP compatible avec Pb3Br8(AMTPH)2 (voir « rapport Br:Pb du premier flacon », « moles d'AMTP-Br et rapport Pb:AMTP »). Mais l'OAM-Br (1,15 par Pb, voir « moles d'OAM-Br ») suffit à convertir plus de la moitié du plomb en OAM2PbBr4 : le sous-produit de monocouches est attendu par la recette elle-même, pas seulement par la cinétique. Le rendement de l'hétérostructure n'est jamais chiffré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "PbBr2 à 0,60 M dans le DMSO avec 0,85 équivalent de bromure supplémentaire : soluble (PbBr2 se dissout à 1 M dans DMF:DMSO 1:1 ; les bromoplombates augmentent la solubilité). Injection de 0,5 mL de DMSO dans 5 mL d'acétone (miscibles) : reprécipitation assistée par ligands (LARP) classique, PbBr2 étant peu soluble dans l'acétone.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Lead(II) bromide Anhydrobeads, 99.999 % (fiche 915696 : « dissolved in DMF:DMSO (1:1) to yield 1M solution »)",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consultée 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/915696"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs invoquent la théorie classique de la nucléation (rayon critique qui baisse quand T monte). Le rayon critique r* = 2γVm/(kT ln S) baisse avec T à sursaturation S fixe, mais S baisse quand la solubilité augmente avec T ; le sens net n'est pas prévisible sans mesure. La série de la figure 2 (ambiante, 50, 120, 150 °C) change en plus le solvant (acétone → ODE), l'antisolvant (hexane → acétone), la masse d'OAM-Br (120 → 180 mg) et, pour 120 °C, la quantité de ligands et d'AMTP (légende S2d). Aucune de ces variables n'est isolée : la série ne prouve pas l'effet de la température.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V. K., Dinegar R. H., J. Am. Chem. Soc.",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte principal dit que les tailles décroissent avec la température, mais les tailles ne sont données par aucune valeur numérique dans le texte (distributions S2, S5 absentes du dépôt), et la voie déprotonée en ODE donne des particules plus grandes à 180 °C qu'à 150 °C pour 5 min (Fig. 4b–d), à l'inverse de la tendance annoncée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve de phase : l'absorption excitonique unique à 400 nm (Fig. 6a) est aussi la signature attendue d'une couche PbBr4 isolée, donc des monocouches OAM2PbBr4/AMTP2PbBr4 présentes en sous-produit (émission 407–410 nm, tableau S2) ; l'absorption ne distingue pas l'hétérostructure de ses sous-produits. Les anneaux de SAED et les franges HRSTEM « d'environ 1 nm » pour un d(200) de 1,09 nm (2θ ≈ 8,1° en Cu Kα) sont un appui plus spécifique, mais une précision de ±10 % reste faible pour exclure un ordre supérieur de l'empilement des monocouches.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Plomb (reprotoxique), DMSO qui traverse la peau en entraînant les sels de plomb dissous, acétone et hexane inflammables, centrifugation de solvants volatils à 12 000 rpm : non mentionné par l'article ; l'annotation securite_analyse le couvre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans le DMSO, PbBr2 et AMTPH+Br− forment des bromoplombates solvatés ([PbBr3(DMSO)x]−, [PbBr4(DMSO)2]2−) ; à l'injection dans l'acétone, la sursaturation brutale fait précipiter le bromoplombate avec les cations disponibles. Deux cations ammonium sont en concurrence (AMTPH+ 0,255 mmol, OAMH+ 0,344 mmol) : l'hétérostructure, qui exige l'AMTPH+ et la coordination du PbBr2 neutre par l'éther du tétrahydropyrane (Aubrey 2021), concurrence OAM2PbBr4. L'acide oléique et l'oléylammonium passivent la surface. L'hypothèse des auteurs (« noyau neutre » exigé) est qualitative et n'est pas testée ; le partage des produits est plus simplement gouverné par les rapports AMTP:OAM:Pb et par l'acidité (équilibres acide-base, comme pour CsPbBr3 chez Almeida 2018).",
+    "sources": [
+     {
+      "title": "Directed assembly of layered perovskite heterostructures as single crystals",
+      "authors_or_publisher": "Aubrey M. L., Saldivar Valdes A., Filip M. R., Connor B. A., Lindquist K. P., Neaton J. B., Karunadasa H. I., Nature 597, 355–359",
+      "year": "2021",
+      "url_or_doi": "10.1038/s41586-021-03810-x"
+     },
+     {
+      "title": "Role of Acid–Base Equilibria in the Size, Shape, and Phase Control of Cesium Lead Bromide Nanocrystals",
+      "authors_or_publisher": "Almeida G. et al., ACS Nano",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsnano.7b08357"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fraction d'hétérostructure contre monocouches (DRX quantitative, rendement massique)",
+    "effet propre de la température à solvant et quantités fixés",
+    "teneur en eau de l'AMTP-Br et du DMSO (le DMSO est hygroscopique)"
+   ]
+  },
+  {
+   "label": "PROT_acetone_50C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Acétone à 50 °C en flacon : 6 °C sous son point d'ébullition (56 °C, NIST) ; flacon ouvert ou fermé non précisé. Perte d'acétone par évaporation et injection de 0,5 mL de DMSO froid : la température réelle du mélange n'est pas contrôlée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même LARP que la voie à température ambiante, solubilité plus élevée et nucléation plus rapide ; les amas observés peuvent venir d'un mûrissement accéléré.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "fermeture du flacon et température réelle après injection"
+   ]
+  },
+  {
+   "label": "PROT_wet_precursor",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« Précurseur humide » : teneur en eau, en HBr résiduel et en acétonitrile non mesurée ; solvant et température de la synthèse non dits (Fig. S8b). La variation ne peut pas être reproduite quantitativement. L'hypothèse des auteurs (l'eau remplace le DMSO dans [PbBr4(DMSO)2]2− et favorise l'AMTP) s'appuie sur Zhang 2020, qui traite de films MAPbI3 et non de ce système ; l'excès de HBr retenu par le sel humide (≈ 1,26 équivalent à la préparation) est une explication concurrente non écartée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A prenucleation strategy for ambient fabrication of perovskite solar cells with high device performance uniformity",
+      "authors_or_publisher": "Zhang K., Wang Z., Wang G., Wang J., Li Y., Qian W., Zheng S., Xiao S., Yang S., Nat. Commun. 11, 1006",
+      "year": "2020",
+      "url_or_doi": "10.1038/s41467-020-14715-0"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "L'eau et le HBr retenus par le sel non séché changent à la fois la solvatation du plomb et l'acidité ; l'effet sur le sous-produit ne peut pas être attribué à l'eau seule.",
+    "sources": [
+     {
+      "title": "A prenucleation strategy for ambient fabrication of perovskite solar cells with high device performance uniformity",
+      "authors_or_publisher": "Zhang K., Wang Z., Wang G., Wang J., Li Y., Qian W., Zheng S., Xiao S., Yang S., Nat. Commun. 11, 1006",
+      "year": "2020",
+      "url_or_doi": "10.1038/s41467-020-14715-0"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer l'eau (Karl Fischer) et l'acide libre du sel humide",
+    "refaire avec sel sec + quantité d'eau connue, et sel sec + HBr connu, pour séparer les deux effets"
+   ]
+  },
+  {
+   "label": "DEP_acetone_RT",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbBr2",
+     "inputs": "110 mg ; M(PbBr2) = 367,01 g/mol",
+     "formula": "m / M",
+     "result": "0,300 mmol (0,60 M dans 0,5 mL de DMSO)",
+     "compared_to": "soluble : PbBr2 se dissout à 1 M dans DMF:DMSO 1:1 (fiche Sigma-Aldrich)",
+     "source": "masse molaire IUPAC ; fiche Sigma-Aldrich 915696"
+    },
+    {
+     "what": "moles d'AMTP (35 µL)",
+     "inputs": "35 µL ; densité 1,02 g/mL (ChemicalBook ; 0,9 ± 0,1 chez un autre fournisseur) ; pureté 97 % ; M = 115,17",
+     "formula": "V × d × 0,97 / M",
+     "result": "0,30 mmol (0,27 mmol si d = 0,90)",
+     "compared_to": "Pb : 0,300 mmol → Pb:AMTP ≈ 1,0 (formule visée 3:2 = 1,5)",
+     "source": "ChemicalBook CB9418437 ; PubChem CID 2773210 pour M"
+    },
+    {
+     "what": "concentration de HBr à 47 %",
+     "inputs": "47 % massique ; densité 1,49 g/mL (valeur de la solution à 48 %, fiche Sigma-Aldrich) ; M = 80,91",
+     "formula": "1,49 × 1000 × 0,47 / 80,91",
+     "result": "≈ 8,7 mol/L",
+     "compared_to": "« constant boiling » HBr 47,6 % = 8,8–8,9 mol/L (Wikipedia, ScienceDirect Topics)",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "moles de HBr (10 µL) et taux de protonation de l'AMTP",
+     "inputs": "10 µL × 8,66 mol/L ; n(AMTP) = 0,30 mmol",
+     "formula": "V × c ; n(HBr)/n(AMTP)",
+     "result": "0,087 mmol ; HBr/AMTP = 0,29",
+     "compared_to": "la voie est présentée comme protonant l'AMTP par HBr ; 71 % de l'AMTP reste en amine libre si HBr est la seule source de protons ; l'hétérostructure en exige 0,200 mmol d'AMTPH+ (43 % couverts)",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "rapport Br:Pb du premier flacon (voie déprotonée)",
+     "inputs": "Br = 2 × 0,300 + 0,087 = 0,687 mmol",
+     "formula": "n(Br)/n(Pb)",
+     "result": "2,29",
+     "compared_to": "Pb3Br8 exige 2,67 : déficit de bromure comblé seulement par l'OAM-Br du second flacon",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "eau apportée par 10 µL de HBr",
+     "inputs": "10 µL × 1,49 g/mL × 0,53 ; M(H2O) = 18,02",
+     "formula": "m / M",
+     "result": "0,44 mmol d'eau, 1,5 par Pb, ≈ 6 % molaire face à 7,0 mmol de DMSO",
+     "compared_to": "ordre de grandeur cohérent avec un rôle de l'eau dans la solvatation du plomb, mais dose non variée",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "moles d'OAM-Br",
+     "inputs": "120 mg (acétone) ou 180 mg (ODE) ; M(C18H35NH3Br) = 267,49 + 80,91 = 348,4 g/mol",
+     "formula": "m / M ; rapport à n(Pb)",
+     "result": "0,344 mmol (1,15 par Pb) ; 0,517 mmol (1,72 par Pb)",
+     "compared_to": "OAM2PbBr4 consomme 2 OAM par Pb : de quoi convertir 57 % (acétone) à 86 % (ODE) du plomb en monocouches OAM si tout l'OAM-Br réagissait",
+     "source": "masses molaires calculées"
+    },
+    {
+     "what": "moles d'acide oléique",
+     "inputs": "0,5 mL ; densité 0,895 g/mL (valeur de manuel, non revérifiée ici) ; pureté 90 % ; M = 282,46",
+     "formula": "V × d × 0,90 / M",
+     "result": "≈ 1,43 mmol (4,8 par Pb)",
+     "compared_to": "source de protons faible mais abondante pour l'AMTP libre",
+     "source": "densité de mémoire (fiche fournisseur à confirmer)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le HBr ne protone que 29 % de l'AMTP (voir « moles de HBr (10 µL) et taux de protonation de l'AMTP ») et le bromure du premier flacon est en dessous de Pb3Br8 (voir « rapport Br:Pb du premier flacon (voie déprotonée) »). L'hétérostructure ne peut se former que si l'oléylammonium (pKa voisin) ou l'acide oléique (≈ 1,4 mmol) protonent le reste de l'AMTP après injection : la voie n'est « déprotonée » que de nom, et elle contredit l'affirmation des auteurs que sans protonation on n'obtient que des monocouches. Le rendement faible observé est cohérent avec ce manque de protons et de bromure.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Explication des petites particules par l'eau du HBr (Zhang 2020) : la voie déprotonée change en même temps l'eau, l'acidité, la forme de l'AMTP (amine libre à 71 %) et le rapport Pb:AMTP (1,0 contre 1,18). Le témoin qui isolerait l'eau (voie protonée + 8 µL d'eau) n'est pas fait ; l'attribution à l'eau n'est pas démontrée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "A prenucleation strategy for ambient fabrication of perovskite solar cells with high device performance uniformity",
+      "authors_or_publisher": "Zhang K., Wang Z., Wang G., Wang J., Li Y., Qian W., Zheng S., Xiao S., Yang S., Nat. Commun. 11, 1006",
+      "year": "2020",
+      "url_or_doi": "10.1038/s41467-020-14715-0"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "AMTP libre (amine) + PbBr2 dans le DMSO : l'amine coordonne Pb2+ ; dissolution plausible à 0,6 M. Rien d'incohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Absorption à 400 nm identique à celle de la voie protonée et des monocouches (voir PROT_acetone_RT) : ne prouve pas la phase.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans le DMSO, l'AMTP libre se lie au plomb (par l'amine), le HBr n'en protone qu'un tiers. Après injection dans l'acétone, les protons de l'oléylammonium et de l'acide oléique se redistribuent (équilibres acide-base) ; seule la fraction d'AMTP protonée et le bromure disponible permettent l'hétérostructure, d'où un rendement faible. La taille plus petite peut venir autant d'une sursaturation plus faible en espèce constitutive (moins de noyaux qui croissent, donc moins de monomère par noyau) que de l'eau.",
+    "sources": [
+     {
+      "title": "Role of Acid–Base Equilibria in the Size, Shape, and Phase Control of Cesium Lead Bromide Nanocrystals",
+      "authors_or_publisher": "Almeida G. et al., ACS Nano",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsnano.7b08357"
+     },
+     {
+      "title": "Highly Dynamic Ligand Binding and Light Absorption Coefficient of CsPbBr3 Nanocrystals",
+      "authors_or_publisher": "De Roo J. et al., ACS Nano",
+      "year": "2016",
+      "url_or_doi": "10.1021/acsnano.5b06295"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ajouter HBr en quantité stœchiométrique (≈ 0,2–0,3 mmol, soit 23–35 µL de HBr à 47 %) et comparer",
+    "témoin eau seule dans la voie protonée",
+    "rendement massique des deux voies"
+   ]
+  },
+  {
+   "label": "DEP_ODE_150_5min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbBr2",
+     "inputs": "110 mg ; M(PbBr2) = 367,01 g/mol",
+     "formula": "m / M",
+     "result": "0,300 mmol (0,60 M dans 0,5 mL de DMSO)",
+     "compared_to": "soluble : PbBr2 se dissout à 1 M dans DMF:DMSO 1:1 (fiche Sigma-Aldrich)",
+     "source": "masse molaire IUPAC ; fiche Sigma-Aldrich 915696"
+    },
+    {
+     "what": "moles d'AMTP (35 µL)",
+     "inputs": "35 µL ; densité 1,02 g/mL (ChemicalBook ; 0,9 ± 0,1 chez un autre fournisseur) ; pureté 97 % ; M = 115,17",
+     "formula": "V × d × 0,97 / M",
+     "result": "0,30 mmol (0,27 mmol si d = 0,90)",
+     "compared_to": "Pb : 0,300 mmol → Pb:AMTP ≈ 1,0 (formule visée 3:2 = 1,5)",
+     "source": "ChemicalBook CB9418437 ; PubChem CID 2773210 pour M"
+    },
+    {
+     "what": "moles de HBr (10 µL) et taux de protonation de l'AMTP",
+     "inputs": "10 µL × 8,66 mol/L ; n(AMTP) = 0,30 mmol",
+     "formula": "V × c ; n(HBr)/n(AMTP)",
+     "result": "0,087 mmol ; 0,29",
+     "compared_to": "même déficit que DEP_acetone_RT",
+     "source": "fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "HBr oxydable par le DMSO à 120 °C",
+     "inputs": "0,087 mmol de HBr dans 7,0 mmol de DMSO",
+     "formula": "2 HBr + Me2SO → Br2 + Me2S + H2O",
+     "result": "jusqu'à 0,043 mmol de Br2 si la réaction est complète",
+     "compared_to": "la couleur « blackish-yellow » est compatible avec Br2/Br3− et des produits de décomposition, pas avec des bromoplombates (incolores à jaune pâle)",
+     "source": "Cao et al. 2013 (système DMSO-HBr)"
+    },
+    {
+     "what": "volume après injection et ajout d'acétone",
+     "inputs": "5 mL ODE + 0,5 mL DMSO + 5 mL acétone",
+     "formula": "somme",
+     "result": "10,5 mL",
+     "compared_to": "tube de centrifugation ≥ 15 mL",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "moles d'OAM-Br",
+     "inputs": "120 mg (acétone) ou 180 mg (ODE) ; M(C18H35NH3Br) = 267,49 + 80,91 = 348,4 g/mol",
+     "formula": "m / M ; rapport à n(Pb)",
+     "result": "0,344 mmol (1,15 par Pb) ; 0,517 mmol (1,72 par Pb)",
+     "compared_to": "OAM2PbBr4 consomme 2 OAM par Pb : de quoi convertir 57 % (acétone) à 86 % (ODE) du plomb en monocouches OAM si tout l'OAM-Br réagissait",
+     "source": "masses molaires calculées"
+    },
+    {
+     "what": "rapport OAM:AMTP (ODE)",
+     "inputs": "0,517 mmol OAM-Br ; 0,30 mmol AMTP",
+     "formula": "n(OAM)/n(AMTP)",
+     "result": "1,7",
+     "compared_to": "l'ammonium concurrent domine encore plus qu'en acétone",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Le premier flacon chauffe HBr (aqueux) dans le DMSO à 120 °C « jusqu'à ce que la solution devienne jaune-noir ». Le système DMSO–HBr est un oxydant connu : le DMSO oxyde HBr en Br2 (et bromure de bromodiméthylsulfonium, solide orangé) avec formation de sulfure de diméthyle. La couleur et le chauffage consomment donc une partie du seul acide qui devait protoner l'AMTP, et du Br2 peut bromer l'acide oléique, l'oléylamine et l'ODE (doubles liaisons) après injection. L'article interprète le chauffage comme une simple « complexation » sans l'avoir distingué de cette chimie redox (aucun spectre de la solution).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of Dimethyl Aryl Acylsulfonium Bromides from Aryl Methyl Ketones in a DMSO-HBr System",
+      "authors_or_publisher": "Cao Z., Shi D., Qu Y., Tao C., Liu W., Yao G., Molecules 18, 15717",
+      "year": "2013",
+      "url_or_doi": "10.3390/molecules181215717"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "DMSO acidifié (HBr) et contenant des bromures chauffé à 120 °C : les acides (dont HBr) et les halogénures abaissent la température de début de la décomposition autocatalytique du DMSO (DMSO pur : ≈ 189 °C en ARC). Le noircissement est un signe de décomposition. Puis injection de ce DMSO dans de l'ODE à 150–180 °C (proche de l'ébullition du DMSO, 189 °C, eau du HBr qui flashe) et ajout de 5 mL d'acétone (ébullition 56 °C) dans le flacon tout juste retiré de la plaque : ébullition brutale et projections, vapeurs inflammables près d'une plaque chaude. Aucun de ces risques n'est signalé.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Potential Explosion Hazards Associated with the Autocatalytic Thermal Decomposition of Dimethyl Sulfoxide and Its Mixtures",
+      "authors_or_publisher": "Yang Q. et al., Org. Process Res. Dev. 24, 916–939",
+      "year": "2020",
+      "url_or_doi": "10.1021/acs.oprd.0c00159"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le DMSO et l'ODE (alcène en C18) ne sont pas miscibles à froid ; à 150 °C la miscibilité reste partielle. L'injection crée des gouttelettes de DMSO où se trouvent le plomb et l'AMTP, l'OAM-Br étant dans l'ODE : la nucléation se fait probablement à l'interface ou lors de l'ajout d'acétone (qui rend le mélange homogène en refroidissant), pas à 150 °C en phase homogène. La « température de croissance » annoncée n'est donc pas forcément celle de la formation des particules.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Voir DEP_acetone_RT : HBr ne protone que 29 % de l'AMTP, avant même la perte par oxydation au chauffage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Décalage vers le bleu des maxima de PLE (≈ 350 → 320 nm) attribué au confinement quantique latéral : le sens « bleu » est juste (longueur d'onde plus courte), mais la PLE est enregistrée à 420 nm, dans la queue d'émission des monocouches (407–410 nm, tableau S2) dont l'article dit qu'elles sont présentes dans ces échantillons (pic à ≈ 400 nm des cartes S10–S11). Un changement de la fraction de monocouches déplace aussi la PLE. Un confinement latéral demande des dimensions de quelques nanomètres, que l'article ne chiffre pas. L'attribution n'est pas discriminante.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PLQY 1,46–1,93 % mesurée sur des échantillons de forte densité optique (les auteurs le reconnaissent) : la réabsorption et le filtre interne faussent la mesure ; les écarts entre échantillons (0,1–0,5 point) ne sont pas significatifs sans incertitude.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M., Pure Appl. Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Au chauffage du DMSO, une partie du HBr est oxydée (Br2, Me2S, sulfonium) et le DMSO commence à se dégrader ; la solution contient alors des bromoplombates aminés, du Br2/Br3− et moins de protons. À l'injection dans l'ODE chaud contenant l'OAM-Br et l'acide oléique, le DMSO forme une phase séparée ; la précipitation se fait à l'interface et surtout à l'ajout d'acétone. L'abondance d'oléylammonium (1,7 par Pb) favorise les monocouches OAM, et les deux populations observées (Fig. 4b, c) sont compatibles avec une nucléation en deux temps (à chaud dans les gouttelettes, puis à l'ajout d'antisolvant).",
+    "sources": [
+     {
+      "title": "Synthesis of Dimethyl Aryl Acylsulfonium Bromides from Aryl Methyl Ketones in a DMSO-HBr System",
+      "authors_or_publisher": "Cao Z., Shi D., Qu Y., Tao C., Liu W., Yao G., Molecules 18, 15717",
+      "year": "2013",
+      "url_or_doi": "10.3390/molecules181215717"
+     },
+     {
+      "title": "Potential Explosion Hazards Associated with the Autocatalytic Thermal Decomposition of Dimethyl Sulfoxide and Its Mixtures",
+      "authors_or_publisher": "Yang Q. et al., Org. Process Res. Dev. 24, 916–939",
+      "year": "2020",
+      "url_or_doi": "10.1021/acs.oprd.0c00159"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "spectre UV-vis du DMSO chauffé avec HBr (bande de Br3− vers 270 nm et Br2 vers 400 nm) et odeur de Me2S",
+    "faire le chauffage du DMSO sous hotte, petit volume, derrière un écran",
+    "laisser refroidir l'ODE sous 50 °C avant d'ajouter l'acétone",
+    "PLE à une émission hors de la bande des monocouches (ex. 480–500 nm)"
+   ]
+  },
+  {
+   "label": "DEP_ODE_180_5min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "ODE à 180 °C : 9 °C sous l'ébullition du DMSO injecté (189 °C) ; l'eau du HBr flashe à l'injection. Évaporation partielle du DMSO probable, projections ; température réelle après injection non mesurée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Particules plus grandes à 180 °C qu'à 150 °C (5 min) : contraire à la tendance « température plus haute → particules plus petites » avancée pour la voie protonée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Croissance et mûrissement d'Ostwald plus rapides à 180 °C pendant 5 min, après une nucléation semblable à celle de l'agitation minimale (DEP_ODE_180_min).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer la température du mélange après injection"
+   ]
+  },
+  {
+   "label": "DEP_ODE_180_min",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "« Minimal mixing » sans durée chiffrée : la comparaison avec 5 min n'est pas reproductible telle qu'écrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Arrêt précoce de la croissance : petites particules issues de la nucléation.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durée réelle avant ajout de l'acétone"
+   ]
+  },
+  {
+   "label": "PROT_ODE_150",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbBr2",
+     "inputs": "110 mg ; M(PbBr2) = 367,01 g/mol",
+     "formula": "m / M",
+     "result": "0,300 mmol (0,60 M dans 0,5 mL de DMSO)",
+     "compared_to": "soluble : PbBr2 se dissout à 1 M dans DMF:DMSO 1:1 (fiche Sigma-Aldrich)",
+     "source": "masse molaire IUPAC ; fiche Sigma-Aldrich 915696"
+    },
+    {
+     "what": "moles d'AMTP-Br et rapport Pb:AMTP",
+     "inputs": "50 mg ; 196,1 g/mol",
+     "formula": "m / M",
+     "result": "0,255 mmol ; Pb:AMTP = 1,18",
+     "compared_to": "formule 1,5 ; mais la légende S2d et le SI parlent de « more ligands (and more AMTP) » et d'« increasing the amount of the protonated precursor » pour les voies en ODE : la quantité réelle n'est pas celle des Méthodes",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "moles d'OAM-Br",
+     "inputs": "120 mg (acétone) ou 180 mg (ODE) ; M(C18H35NH3Br) = 267,49 + 80,91 = 348,4 g/mol",
+     "formula": "m / M ; rapport à n(Pb)",
+     "result": "0,344 mmol (1,15 par Pb) ; 0,517 mmol (1,72 par Pb)",
+     "compared_to": "OAM2PbBr4 consomme 2 OAM par Pb : de quoi convertir 57 % (acétone) à 86 % (ODE) du plomb en monocouches OAM si tout l'OAM-Br réagissait",
+     "source": "masses molaires calculées"
+    },
+    {
+     "what": "Bragg pour d(200) = 1,09 nm",
+     "inputs": "λ = 0,154 nm (Cu Kα déclaré)",
+     "formula": "2θ = 2 arcsin(λ / 2d)",
+     "result": "2θ ≈ 8,1°",
+     "compared_to": "raie basse, dans la plage mesurée (1–60°) ; franges HRSTEM « environ 1 nm » compatibles à ±10 %",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Incohérence entre sections : les Méthodes donnent 50 mg d'AMTP-Br pour les voies en acétone et en ODE, alors que le SI attribue le passage aux bâtonnets et plaques à « increasing the amount of the protonated precursor (as seen in Fig. 2) » et que la légende S2d indique « more ligands (and more AMTP) » à 120 °C. Les quantités qui ont donné les plaques de la figure 2d ne sont donc pas connues (tableau S4 absent).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Mélange DMSO (température ambiante) injecté dans l'ODE à 150 °C : sous l'ébullition du DMSO (189 °C), mais DMSO et ODE non miscibles (voir DEP_ODE_150_5min) ; ajout de 5 mL d'acétone (56 °C) après refroidissement de durée non dite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le premier flacon « jusqu'à ce que la solution devienne orange » : PbBr2 et un bromure d'ammonium dans le DMSO donnent des solutions incolores à jaune pâle ; une teinte orange suggère du Br2/Br3− ou du bromure de bromodiméthylsulfonium (solide orangé), donc de l'HBr résiduel du sel AMTP-Br oxydé par le DMSO. Le critère de couleur dépend alors de la pureté du sel, pas de la complexation.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of Dimethyl Aryl Acylsulfonium Bromides from Aryl Methyl Ketones in a DMSO-HBr System",
+      "authors_or_publisher": "Cao Z., Shi D., Qu Y., Tao C., Liu W., Yao G., Molecules 18, 15717",
+      "year": "2013",
+      "url_or_doi": "10.3390/molecules181215717"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PL large centrée vers 430 nm et absorption excitonique à 400 nm : cohérent avec une couche PbBr4 n = 1 (cf. Aubrey 2021 pour le massif), mais les monocouches émettent à 407–410 nm et chevauchent la PL ; les auteurs le traitent par cartes PL-PLE, ce qui est raisonnable.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Directed assembly of layered perovskite heterostructures as single crystals",
+      "authors_or_publisher": "Aubrey M. L., Saldivar Valdes A., Filip M. R., Connor B. A., Lindquist K. P., Neaton J. B., Karunadasa H. I., Nature 597, 355–359",
+      "year": "2021",
+      "url_or_doi": "10.1038/s41586-021-03810-x"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "LARP biphasique : précipitation à l'interface DMSO/ODE puis à l'ajout d'acétone ; la croissance anisotrope en plaques suit l'anisotropie du réseau en couches (croissance rapide dans le plan des couches). L'excès d'oléylammonium (1,7 par Pb) et d'acide oléique module la forme comme dans les synthèses CsPbBr3 (équilibres acide-base).",
+    "sources": [
+     {
+      "title": "Role of Acid–Base Equilibria in the Size, Shape, and Phase Control of Cesium Lead Bromide Nanocrystals",
+      "authors_or_publisher": "Almeida G. et al., ACS Nano",
+      "year": "2018",
+      "url_or_doi": "10.1021/acsnano.7b08357"
+     },
+     {
+      "title": "Directed assembly of layered perovskite heterostructures as single crystals",
+      "authors_or_publisher": "Aubrey M. L., Saldivar Valdes A., Filip M. R., Connor B. A., Lindquist K. P., Neaton J. B., Karunadasa H. I., Nature 597, 355–359",
+      "year": "2021",
+      "url_or_doi": "10.1038/s41586-021-03810-x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités exactes d'AMTP-Br, d'OAM-Br et d'acide oléique pour 120 et 150 °C (tableau S4)",
+    "durée d'agitation de l'échantillon de la figure 2d",
+    "durée de refroidissement avant l'acétone"
+   ]
+  },
+  {
+   "label": "PROT_ODE_120",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La légende S2d dit « protonated precursors at 120 °C with more ligands (and more AMTP) » : la branche ne diffère pas seulement par la température, la quantité n'est pas donnée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme PROT_ODE_150 ; la forme en bâtonnets peut venir de l'excès de ligands autant que de la température.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "quantités d'AMTP-Br et de ligands réellement utilisées"
+   ]
+  },
+  {
+   "label": "PROT_ODE_150_HC_15min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Complexation chauffée à 120 °C dans le DMSO avec AMTP-Br (et l'HBr résiduel qu'il contient) : même risque d'oxydation du bromure par le DMSO et de décomposition acido-catalysée que dans la voie déprotonée ; la hausse de quantité de particules est attribuée à « plus de complexes » sans mesure.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Potential Explosion Hazards Associated with the Autocatalytic Thermal Decomposition of Dimethyl Sulfoxide and Its Mixtures",
+      "authors_or_publisher": "Yang Q. et al., Org. Process Res. Dev. 24, 916–939",
+      "year": "2020",
+      "url_or_doi": "10.1021/acs.oprd.0c00159"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PLQY 1,7 / 1,58 / 1,93 % pour 30 s, 5 min, 15 min : pas de tendance, écarts inférieurs à l'incertitude probable d'une mesure en forte densité optique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M., Pure Appl. Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Croissance et transformation en bâtonnets avec le temps d'agitation (croissance anisotrope dans le plan des couches).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durée et température réelles du chauffage du DMSO",
+    "incertitude de la PLQY (répétitions)"
+   ]
+  },
+  {
+   "label": "PROT_ODE_150_cleaned",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fractionnement par centrifugation",
+     "inputs": "3500 rpm 5 min puis 7000 rpm 10 min, surnageant gardé à chaque fois",
+     "formula": "comparaison qualitative",
+     "result": "le produit gardé est la fraction la plus fine et la mieux dispersée",
+     "compared_to": "« pureté accrue » jugée sur les cartes PL-PLE seulement",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Garder le surnageant deux fois élimine les gros agrégats et une partie des monocouches empilées : c'est une sélection en taille autant qu'une purification ; les propriétés mesurées après nettoyage ne représentent pas le lot entier. Rayon du rotor non donné (g inconnu).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Sédimentation différentielle : les objets lourds (agrégats, empilements) sédimentent, les nanocristaux colloïdaux stabilisés restent en suspension.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "accélération en g et volume traité",
+    "DRX après nettoyage pour vérifier la baisse des monocouches"
+   ]
+  },
+  {
+   "label": "OAM_monolayer",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbBr2",
+     "inputs": "110 mg ; M(PbBr2) = 367,01 g/mol",
+     "formula": "m / M",
+     "result": "0,300 mmol (0,60 M dans 0,5 mL de DMSO)",
+     "compared_to": "soluble : PbBr2 se dissout à 1 M dans DMF:DMSO 1:1 (fiche Sigma-Aldrich)",
+     "source": "masse molaire IUPAC ; fiche Sigma-Aldrich 915696"
+    },
+    {
+     "what": "moles d'oléylamine et de HBr",
+     "inputs": "0,5 mL OAM × 0,813 g/mL × 0,98 / 267,49 ; 10 µL HBr × 8,66 mol/L",
+     "formula": "V × d × p / M ; V × c",
+     "result": "1,49 mmol OAM (5,0 par Pb) ; 0,087 mmol HBr",
+     "compared_to": "OAM2PbBr4 : 2 OAM et 4 Br par Pb",
+     "source": "densité de l'oléylamine de mémoire ; fiche Sigma-Aldrich 339245"
+    },
+    {
+     "what": "bromure disponible et rendement maximal en OAM2PbBr4",
+     "inputs": "Br = 0,600 + 0,087 = 0,687 mmol ; 4 Br par formule",
+     "formula": "n(Br)/4",
+     "result": "0,17 mmol d'OAM2PbBr4 au plus (57 % du plomb) ; Br:Pb = 2,29",
+     "compared_to": "le reste du plomb finit en oléate ou en PbBr2 non converti",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Bragg, empilement des monocouches OAM",
+     "inputs": "λ = 0,154 nm ; θ = 1,2°",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "3,68 nm",
+     "compared_to": "3,6 nm écrit (arrondi par défaut) ; littérature (OAm)2PbBr4 en film déposé : 4,05–4,25 nm (Gahlot 2024)",
+     "source": "Gahlot et al. 2024"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Bromure limitant (voir « bromure disponible et rendement maximal en OAM2PbBr4 ») : au plus 57 % du plomb peut devenir OAM2PbBr4 ; les protons manquants viennent de l'acide oléique. La voie marche comme témoin, avec un rendement plafonné par le bromure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Période d'empilement : le calcul donne 3,68 nm (voir « Bragg, empilement des monocouches OAM ») et non 3,6 nm ; elle est 10–15 % plus courte que les 4,05–4,25 nm mesurés pour (OAm)2PbBr4 déposé en film. Différence possible (interdigitation des chaînes, orientation, assignation des pics) mais à noter. PL à 407 nm cohérente avec une couche PbBr4 n = 1.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Growth mechanism of oleylammonium-based tin and lead bromide perovskite nanostructures",
+      "authors_or_publisher": "Gahlot K., Kraft J. N., Pérez-Escribano M., Koushki R. M., Ahmadi M., Ortí E., Kooi B. J., Portale G., Calbo J., Protesescu L., J. Mater. Chem. C 12, 15152–15162",
+      "year": "2024",
+      "url_or_doi": "10.1039/d4tc02029d"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Reprécipitation assistée par ligands : bromoplombate du DMSO + oléylammonium (formé avec HBr et l'acide oléique) → feuillets n = 1 OAM2PbBr4 qui s'empilent au dépôt.",
+    "sources": [
+     {
+      "title": "Growth mechanism of oleylammonium-based tin and lead bromide perovskite nanostructures",
+      "authors_or_publisher": "Gahlot K., Kraft J. N., Pérez-Escribano M., Koushki R. M., Ahmadi M., Ortí E., Kooi B. J., Portale G., Calbo J., Protesescu L., J. Mater. Chem. C 12, 15152–15162",
+      "year": "2024",
+      "url_or_doi": "10.1039/d4tc02029d"
+     },
+     {
+      "title": "CsPbX3 Quantum Dots for Lighting and Displays: Room-Temperature Synthesis",
+      "authors_or_publisher": "Li X. et al., Adv. Funct. Mater.",
+      "year": "2016",
+      "url_or_doi": "10.1002/adfm.201600109"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "source de bromure supplémentaire (OAM-Br) si l'on veut un témoin pur"
+   ]
+  },
+  {
+   "label": "AMTP_monolayer",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "moles de PbBr2",
+     "inputs": "110 mg ; M(PbBr2) = 367,01 g/mol",
+     "formula": "m / M",
+     "result": "0,300 mmol (0,60 M dans 0,5 mL de DMSO)",
+     "compared_to": "soluble : PbBr2 se dissout à 1 M dans DMF:DMSO 1:1 (fiche Sigma-Aldrich)",
+     "source": "masse molaire IUPAC ; fiche Sigma-Aldrich 915696"
+    },
+    {
+     "what": "moles d'AMTP (35 µL)",
+     "inputs": "35 µL ; densité 1,02 g/mL (ChemicalBook ; 0,9 ± 0,1 chez un autre fournisseur) ; pureté 97 % ; M = 115,17",
+     "formula": "V × d × 0,97 / M",
+     "result": "0,30 mmol (0,27 mmol si d = 0,90)",
+     "compared_to": "Pb : 0,300 mmol → Pb:AMTP ≈ 1,0 (formule visée 3:2 = 1,5)",
+     "source": "ChemicalBook CB9418437 ; PubChem CID 2773210 pour M"
+    },
+    {
+     "what": "bilan de charge et de bromure pour (AMTPH)2PbBr4",
+     "inputs": "0,300 mmol Pb ; 0,600 mmol Br ; 0,30 mmol AMTP (amine libre) ; aucun acide ni bromure ajouté",
+     "formula": "besoin : 2 H+ et 4 Br par Pb",
+     "result": "besoin 0,60 mmol H+ et 1,20 mmol Br ; disponible 0 H+ et 0,60 mmol Br",
+     "compared_to": "impossible tel qu'écrit",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Bragg, empilement des monocouches AMTP",
+     "inputs": "λ = 0,154 nm ; θ = 2,68°",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "1,65 nm",
+     "compared_to": "Rietveld : a sin β = 16,834 × sin 100,564° = 16,55 Å → accord",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "volume de la maille de Rietveld",
+     "inputs": "a, b, c = 16,834 ; 8,2509 ; 8,2021 Å ; α, β, γ = 89,987 ; 100,564 ; 90,22°",
+     "formula": "V = abc √(1 − cos²α − cos²β − cos²γ + 2 cosα cosβ cosγ)",
+     "result": "1119,9 Å3",
+     "compared_to": "1119,89 Å3 du tableau S1 → accord",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Tel qu'écrit, PbBr2 + AMTP (amine libre) dans l'acétone, sans HBr ni bromure d'ammonium, ne peut pas donner (AMTPH)2PbBr4 : il manque tous les protons et la moitié du bromure (voir « bilan de charge et de bromure pour (AMTPH)2PbBr4 »). Au mieux on forme un adduit neutre PbBr2·(AMTP)x. Il manque probablement un ajout d'HBr ou l'emploi d'AMTP-Br. Cette voie fournit pourtant l'échantillon de Rietveld qui sert de référence aux sous-produits.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Volume d'acétone non donné ; PbBr2 est très peu soluble dans l'acétone : réaction solide-liquide de 30 min, conversion incertaine.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bragg et volume de maille recalculés en accord (voir les deux entrées de calcul). Mais affinement en P1 (sans centre d'inversion) avec α et γ à 0,02–0,2° de 90° et wR = 24,8 % : un wR aussi haut est un affinement médiocre, et le choix de P1 plutôt qu'une maille monoclinique n'est pas justifié. b ≈ c ≈ 8,2 Å ≈ √2 × 5,9 Å (distance Pb–Pb d'une couche PbBr4) est cohérent avec une couche n = 1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Si un acide bromhydrique est en fait présent (non écrit), l'AMTPH+ se place en site A entre des feuillets PbBr4 n = 1 de période 1,65 nm ; sans acide, l'amine libre et le tétrahydropyrane coordonnent PbBr2 en un complexe neutre, ce qui ne donne pas une pérovskite.",
+    "sources": [
+     {
+      "title": "Directed assembly of layered perovskite heterostructures as single crystals",
+      "authors_or_publisher": "Aubrey M. L., Saldivar Valdes A., Filip M. R., Connor B. A., Lindquist K. P., Neaton J. B., Karunadasa H. I., Nature 597, 355–359",
+      "year": "2021",
+      "url_or_doi": "10.1038/s41586-021-03810-x"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "demander aux auteurs la recette réelle (HBr ? AMTP-Br ? volume d'acétone)",
+    "analyse élémentaire Br/Pb du produit"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse colloïdale plausible dans son principe (reprécipitation assistée par ligands, depuis le DMSO vers l'acétone ou l'ODE), avec des bilans Pb/Br/AMTP compatibles pour la voie protonée. Quatre faiblesses de chimie : (1) la voie « déprotonée » n'apporte du HBr que pour 29 % de l'AMTP ; (2) le chauffage de HBr dans le DMSO à 120 °C, jusqu'à une couleur jaune-noir, relève de l'oxydation du bromure par le DMSO et de la décomposition du DMSO catalysée par les acides, et non d'une simple complexation ; c'est aussi un risque non signalé ; (3) la recette des monocouches AMTP2PbBr4 manque de protons et de bromure ; (4) les séries en température changent plusieurs variables à la fois, et la PLE à 420 nm ne distingue pas le confinement d'une contribution des monocouches. Les calculs de Bragg et de maille du SI sont justes, à l'arrondi près (3,68 contre 3,6 nm).",
+  "author_errors_suspected": [
+   "recette AMTP2PbBr4 sans source de protons ni de bromure (HBr ou AMTP-Br probablement omis)",
+   "quantités d'AMTP-Br et de ligands des voies en ODE différentes de celles des Méthodes (SI : « more AMTP », « increasing the amount of the protonated precursor »)",
+   "effet de la température affirmé à partir d'une série qui change aussi solvant, antisolvant et quantités",
+   "d = 0,154/(2 sin 1,2°) = 3,68 nm, écrit 3,6 nm",
+   "légende de la figure 6d avec deux courbes « blue » (relevé par l'extraction)"
+  ],
+  "comparison_with_database": "Aucune autre synthèse de (PbBr2)2(AMTP)2PbBr4, d'OAM2PbBr4 ou de bromure de plomb en couches dans la base (compare.py « AMTP », « OAM2PbBr4 », « PbBr4 »)."
+ },
+ "sources_not_found": [
+  "densité de l'oléylamine (0,813 g/mL) et de l'acide oléique (0,895 g/mL) non revérifiées en ligne : valeurs de manuel",
+  "densité de l'AMTP : seulement des bases fournisseurs secondaires (ChemicalBook 1,02 ; autre fournisseur 0,9 ± 0,1) ; PubChem non lu",
+  "paramètres de maille du massif (PbBr2)2(AMTP)2PbBr4 d'Aubrey 2021 (d(200) = 1,09 nm) non vérifiés : article non lu en entier",
+  "mesure de la miscibilité DMSO/ODE à 150–180 °C : pas de source cherchée (raisonnement de chimie générale)"
+ ]
+}

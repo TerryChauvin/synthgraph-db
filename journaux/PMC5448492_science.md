@@ -1,0 +1,16 @@
+# PMC5448492 — critique scientifique (Opus, 2026-10-14)
+
+- Fig. 5b (surface par mole de silice) : les 13 couples lus (Fig. 5a / Fig. 5b) donnent une masse implicite de 139–180 g par mol de Fe (moyenne ≈ 162), soit M(Fe2O3) = 159,7 par atome de Fe au lieu de 79,85. Classé `probleme` (erreur de calcul probable des auteurs) malgré l'incertitude de lecture (±10 m2/g, ±1000 m2/mol) : le biais est systématique sur tous les points, pas aléatoire.
+- Conséquence retenue : à 500 °C aucun échantillon au fer ne dépasse le blanc une fois recalculé (50 % : 22 000 contre 24 000 m2/mol) ; à 700 °C l'effet « anti-effondrement » subsiste pour 5, 10, 25 et 50 %, pas pour 33 %. Je n'ai pas conclu que la thèse des auteurs est fausse, seulement non démontrée à 500 °C.
+- IR : « no bands assigned to Fe-O-Si bonds at ~490 cm−1 » alors que la plage mesurée est 1300–580 cm−1 → `probleme` (contrôle 7, bande hors de la plage mesurée).
+- Bande à 667 cm−1 sur xerogels non calcinés attribuée à un « oxyde de fer » : laissée en `reserve` (pas de preuve que ce n'est pas Fe–O ; l'hématite est à 548/471 cm−1 selon Vempati 1990, hors plage).
+- Eau : 9 mol de H2O2 à 30 % m/m portent 39,6 mol d'eau ≈ « 40 H2O ». J'en déduis que la lecture la plus probable est « 40 H2O = eau de H2O2 », ce qui rend « H2O/Si constant » impossible (9,9 → 14,4). `reserve` et non `probleme` : l'autre lecture (40 H2O ajoutés, compensés de 9x) reste possible, au prix de H2O/Si ≈ 20.
+- pH : pH 1,70 exige 0,83 H+ par Fe alors que la première hydrolyse de Fe3+ (log *β1 ≈ −2,19) donne pH ≈ 2,0 à 0,024 mol/L dans l'eau. Interprété comme pH apparent en milieu à 89 % d'éthanol (et stabilisants de H2O2), pas comme une erreur : `reserve`.
+- Précipitation au-dessus de pH 2,10 jugée cohérente : sursaturation ×15–50 vis-à-vis de la ferrihydrite (log *Ks0 pris entre 3,0 et 3,5, ordre de grandeur de manuel, non revérifié en ligne) et silice au-dessus de son point isoélectrique.
+- ATG : avec Fig. 1b lue comme masse résiduelle (doute de l'extracteur), le fer du xerogel à 50 % pèse ≈ 136 g/mol Fe (hypothèse : la silice perd autant que le blanc) → déjà dénitraté au séchage. Placé en `reserve` car dépendant de cette lecture de figure.
+- Fig. 5a contre Fig. 6 : 10 % Fe à 700 °C = 120 m2/g contre 150–260 pour toute la série pH. La légende de la Fig. 6 ne donne pas le Fe/Si : `reserve` (soit autre composition, soit mauvaise reproductibilité entre lots).
+- « Baisse de 33 % » blanc → 2 % : 33 % seulement si rapporté à l'échantillon 2 % ; noté en `reserve`, cohérent avec le doute de l'extracteur.
+- Témoin FeSi0 : sans Fe, plus de source d'acide ni d'eau de cristallisation → témoin qui change plusieurs variables (contrôle 5).
+- Recherches web (7) : Uhlmann 2009 (texte intégral introuvable, recette B17 non vérifiée) ; bande Fe–O–Si (aucune source primaire claire, abandon) ; hématite IR → Vempati et al. 1990 retenu (référence confirmée, DOI non trouvé) ; hydrolyse de Fe(III) → Flynn 1984 Chem. Rev. retenu (DOI 10.1021/cr00059a003 de mémoire, non vérifiable : doi.org et Crossref injoignables) ; CAMEO H2O2 (fiche 891) pour la sécurité.
+- Hench & West 1990 et Thommes 2015 pris dans references/fondateurs.md, sans recherche web.
+- Rien ajouté à fondateurs.md ni à constantes.md (Crossref bloqué, consigne de l'orchestrateur).

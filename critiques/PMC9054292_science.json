@@ -1,0 +1,295 @@
+{
+  "pmcid": "PMC9054292",
+  "routes": [
+    {
+      "label": "CDs_180C_4h",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "pression de vapeur dans l'autoclave à 180 °C",
+          "inputs": "eau : P_sat(180 °C) = 10,028 bar (NIST) ; éthanol : Antoine NIST A = 4,92531, B = 1432,526, C = −61,819 (364,8–513,9 K), T = 453,15 K ; éthanol 80 % v/v : 80 mL × 0,789 g/mL / 46,07 g/mol = 1,370 mol, 20 mL × 0,998 / 18,015 = 1,108 mol d'eau",
+          "formula": "log10 P = A − B/(T + C) ; x(EtOH) = n(EtOH)/n(total) ; P(mélange) ≈ x·P°EtOH + (1 − x)·P°eau (Raoult idéal, minorant : le mélange eau–éthanol dévie positivement)",
+          "result": "P°EtOH(180 °C) = 18,4 bar ; x(EtOH) = 0,553 ; P ≈ 14,7 bar si l'extrait reste dans l'éthanol à 80 % ; ≈ 10,0 bar si l'éthanol a été évaporé et l'extrait repris dans l'eau",
+          "compared_to": "taux de remplissage et solvant non donnés par l'article ; pression supportable par un autoclave à chemise PTFE courant",
+          "source": "NIST Chemistry WebBook, Ethanol, Antoine Equation Parameters (Ambrose, Sprake et al., 1975), https://webbook.nist.gov/cgi/cbook.cgi?ID=C64175&Mask=4 ; NIST WebBook, Saturation Properties for Water, https://webbook.nist.gov/chemistry/fluid/"
+        },
+        {
+          "what": "base de la concentration « 1 mg L−1 de CDs »",
+          "inputs": "extrait introduit à 500 mg L−1 (équivalent phénols totaux, étalon catéchol) ; aucune étape d'isolement, de séchage ni de pesée des CDs ; solution de CDs utilisée directement après centrifugation ; CDs employés à 0,5–1,5 mg L−1",
+          "formula": "facteur de dilution = 500 / 1",
+          "result": "si « 1 mg L−1 » est l'équivalent précurseur, la solution mère est diluée 500 fois ; la masse réelle de CDs dans la solution est inconnue (pas de rendement)",
+          "compared_to": "une concentration massique de CDs exige une masse de produit sec (rendement) ; l'article n'en donne pas",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "constante bimoléculaire de désactivation kq",
+          "inputs": "Ksv = 1163,4 L mol−1 ; durée de vie τ0 des CDs non mesurée, prise ≤ 10 ns (ordre habituel des points de carbone, hypothèse)",
+          "formula": "kq = Ksv / τ0",
+          "result": "kq ≥ 1,16 × 10^11 L mol−1 s−1 pour τ0 = 10 ns (2,3 × 10^11 pour 5 ns)",
+          "compared_to": "limite de diffusion en eau ≈ 1 × 10^10 L mol−1 s−1 (Lakowicz) : une extinction purement dynamique est exclue sauf si τ0 > 116 ns",
+          "source": "Lakowicz, Principles of Fluorescence Spectroscopy, 3e éd., Springer 2006, 10.1007/978-0-387-46312-4"
+        },
+        {
+          "what": "extinction prédite par Ksv dans la gamme linéaire",
+          "inputs": "Ksv = 1163,4 L mol−1 ; [Cr(VI)] = 3,5 ; 20 ; 100 µM ; 1 mM",
+          "formula": "F0/F = 1 + Ksv[Q] ; extinction = 1 − F/F0",
+          "result": "3,5 µM : 0,4 % ; 20 µM : 2,3 % ; 100 µM : 10,4 % ; 1 mM : 54 %",
+          "compared_to": "LOD 3,5 µM = variation de 0,4 % du signal, à comparer au RSD intra-jour de 2,78 % ; pente de la droite d'étalonnage du Tableau S1 y = 2,2346x (unités non dites), soit le double de Ksv exprimé en mM−1 (1,1634)",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "absorption de Cr(VI) à l'excitation (effet de filtre interne)",
+          "inputs": "[Cr(VI)] = 100 µM ; ε(340 nm) pris ≥ 1000 L mol−1 cm−1 (minorant supposé : maxima de HCrO4− à 350 nm et de CrO4 2− à 373 nm, pKa 6,4) ; cuve de 1 cm, lecture au centre (0,5 cm)",
+          "formula": "A = ε·c·l ; atténuation au centre = 1 − 10^(−A/2)",
+          "result": "A ≥ 0,10 ; atténuation de l'excitation ≥ 11 % au centre de la cuve",
+          "compared_to": "extinction observée/prédite par Ksv à 100 µM : 10,4 % ; l'effet de filtre interne suffit à lui seul à expliquer l'ordre de grandeur",
+          "source": "maxima d'absorption : Sanchez-Hachair & Hofmann, C. R. Chimie 2018, 10.1016/j.crci.2018.05.002 ; ε supposé (à mesurer)"
+        },
+        {
+          "what": "limite de détection en masse de chrome",
+          "inputs": "LOD = 3,5 µM ; LOQ = 11,7 µM ; M(Cr) = 51,996 g/mol",
+          "formula": "c(µg/L) = c(µM) × M ; LOQ/LOD",
+          "result": "LOD = 182 µg L−1 ; LOQ = 608 µg L−1 ; LOQ/LOD = 3,34 (≈ 10/3, cohérent avec 3SD/m et 10SD/m)",
+          "compared_to": "valeur guide OMS du chrome total dans l'eau de boisson : 50 µg L−1",
+          "source": "WHO, Chromium in drinking-water, background document WHO/HEP/ECH/WSH/2020.3, 2020"
+        },
+        {
+          "what": "valeurs des échantillons réels contre la gamme validée",
+          "inputs": "Tableau 2 : eaux usées 1 : Cr(III) 4 ± 2,3 µM, Cr(VI) 19,9 ± 1,5 µM ; eaux usées 2 : Cr(VI) 6,8 ± 6,1 µM ; gamme linéaire 20–100 µM ; LOD 3,5 µM ; LOQ 11,7 µM",
+          "formula": "comparaison directe ; bilan Cr(III) + Cr(VI) = Cr total",
+          "result": "4 µM et 6,8 µM sont sous la LOQ (et 6,8 ± 6,1 recouvre zéro) ; 19,9 µM est sous la borne basse de la gamme linéaire ; bilans 4 + 19,9 = 23,9 ≈ 24 et 22,4 + 6,8 = 29,2 ≈ 29,1 cohérents",
+          "compared_to": "une valeur sous la LOQ ne se rapporte pas comme quantitative",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "solubilité de AgCl (source d'Ag(I) du test de sélectivité)",
+          "inputs": "Ks(AgCl, 25 °C) = 1,77 × 10^−10 (valeur de manuel) ; M(AgCl) = 143,32 g/mol ; ion testé à 1 mM",
+          "formula": "s = √Ks",
+          "result": "s = 1,33 × 10^−5 mol L−1 ≈ 1,9 mg L−1",
+          "compared_to": "1 mM demandé : 75 fois la solubilité",
+          "source": "chimie générale (produit de solubilité de manuel)"
+        },
+        {
+          "what": "hydrolyse de Cr(III) et Fe(III) à pH 7",
+          "inputs": "Ks(Cr(OH)3) ≈ 6,3 × 10^−31 ; Ks(Fe(OH)3) ≈ 2,8 × 10^−39 (valeurs de manuel) ; [OH−] = 10^−7",
+          "formula": "[M3+]max = Ks / [OH−]^3",
+          "result": "[Cr3+]max ≈ 6 × 10^−10 M ; [Fe3+]max ≈ 3 × 10^−18 M",
+          "compared_to": "Cr(III) 20–100 µM et Fe(III) 1 mM à pH 7 : sursaturés, hydrolyse et précipitation colloïdale attendues",
+          "source": "chimie générale (produits de solubilité de manuel)"
+        },
+        {
+          "what": "équilibre de l'équation d'oxydation de Cr(III) par H2O2",
+          "inputs": "2Cr3+ + 3H2O2 + 10OH− → 2CrO4 2− + 8H2O",
+          "formula": "bilan des atomes et des charges",
+          "result": "Cr 2/2 ; O 16/16 ; H 16/16 ; charge −4/−4 : équilibrée ; consomme 5 OH− par Cr",
+          "compared_to": "dosage décrit dans un tampon phosphate à pH 7 : l'équation suppose un milieu alcalin",
+          "source": "valeurs de l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "La concentration des CDs (« 1 mg L−1 », série 0,5–1,5 mg L−1 du rendement quantique) n'a pas de base de masse : aucun isolement, séchage ni pesée des CDs n'est décrit, la solution centrifugée est utilisée telle quelle et aucun rendement n'est donné. La seule grandeur massique est la concentration de l'extrait (500 mg L−1 en équivalent phénols totaux, étalon catéchol). « 1 mg L−1 » est donc au mieux une dilution 500 fois de la solution mère (voir calcul « base de la concentration »). Un chimiste ne peut pas reproduire la concentration de travail ni comparer la sonde à d'autres CDs.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Le solvant mis en autoclave n'est pas dit (extrait dans l'éthanol à 80 % ou repris dans l'eau ; l'introduction parle d'« extrait concentré »), ni le volume ni la capacité du récipient. À 180 °C : ≈ 10 bar dans l'eau, ≈ 15 bar (minorant) dans l'éthanol à 80 % (calcul « pression de vapeur »). Pression supportable par un autoclave PTFE usuel si le remplissage reste ≤ 2/3, mais le taux de remplissage est inconnu.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "NIST Chemistry WebBook — Ethanol (Antoine) ; Saturation Properties for Water", "authors_or_publisher": "NIST", "year": "2025 (consulté)", "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C64175&Mask=4"}
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Sonication dans l'éthanol à 80 % à 45 °C : sous le point d'ébullition de l'éthanol (78 °C), bain à température annoncée, pas d'objection.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Les auteurs appellent leur précurseur « total phenolic extract » et le dosent en équivalent catéchol. Or le réactif de Folin–Ciocalteu (méthode supposée, non nommée) réagit aussi avec protéines, thiols et réducteurs non phénoliques, et la matière sèche de l'échalote est dominée par les sucres (fructose, glucose, saccharose, fructanes de type inuline, près de la moitié de la matière sèche chez certaines espèces) ; les phénols (glucosides de quercétine) sont minoritaires. La source de carbone principale à 180 °C est donc vraisemblablement le sucre, et 500 mg L−1 « de phénols » ne mesure pas la charge réelle en carbone.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Thorough Study of Reactivity of Various Compound Classes toward the Folin−Ciocalteu Reagent", "authors_or_publisher": "Everette J.D., Bryant Q.M., Green A.M., Abbey Y.A. et al. (J. Agric. Food Chem.)", "year": "2010", "url_or_doi": "10.1021/jf1005935"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Pas de purification au-delà d'une centrifugation (ni dialyse, ni filtration, ni chromatographie d'exclusion) : la solution contient sels (Cl, K, Ca vus en EDX), petites molécules et fluorophores moléculaires possibles. L'extrait brut émet lui-même vers 430 nm (Fig. 2B, courbe verte). Rien ne distingue l'émission de particules carbonées de celle de fluorophores moléculaires solubles ; le rendement quantique de 32,34 %, haut pour un produit de biomasse brut, peut en dépendre. Les points très contrastés de la Fig. 1 pourraient aussi contenir des cristallites de sels séchés.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots", "authors_or_publisher": "Essner J.B., Kist J.A., Polo-Parada L., Baker G.A. (Chem. Mater.)", "year": "2018", "url_or_doi": "10.1021/acs.chemmater.7b04446"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Rendement quantique : intensités au pic (430 et 450 nm) au lieu d'émissions intégrées, excitation à 340 nm pour les CDs et 350 nm pour la quinine sans correction de l'intensité de la lampe ; la quinine dans H2SO4 0,1 M (54 %) est un étalon dont le rendement dépend de la température, le rapport IUPAC recommande la quinine dans HClO4 0,1 M. La Conclusion attribue 32,34 % au sulfate de quinine (erreur de rédaction). Valeur à prendre comme indicative.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)", "authors_or_publisher": "Brouwer A.M. (Pure Appl. Chem.)", "year": "2011", "url_or_doi": "10.1351/pac-rep-10-09-31"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Vocabulaire spectral : la Fig. 2B montre un maximum d'absorption des CDs vers 278 nm et une simple traîne à 340 nm (c'est l'extrait brut qui a un épaulement à 340 nm) : « absorption at 340 nm » désigne la longueur d'onde d'excitation, pas un maximum. Attribuer 250–500 nm à π–π* et 280–350 nm à n–π* (plages emboîtées) n'a pas de sens ; π–π* (C=C) se situe habituellement vers 230–280 nm et n–π* (C=O) vers 300–350 nm. Autres glissements : « bending » de C–O à 1060 cm−1 (élongation), « wavelength range of 1000–1400 cm−1 » (nombre d'onde), LUMO appelée « lowest occupied molecular orbital ».",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "EDX : énergies annoncées correctes (C Kα 0,277, N 0,392, O 0,525, S Kα 2,31 keV), mais l'échantillon est métallisé à l'or et la raie Au Mα (≈ 2,12 keV) est voisine de S Kα (2,31 keV) : la présence de soufre, base de l'« autofonctionnalisation » thiol, demande une preuve sans recouvrement (XPS, analyse élémentaire). Aucune XPS n'est montrée.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Les auteurs concluent à une extinction « dynamique » (aucune variation avec le temps d'incubation) par transfert d'énergie vers les orbitales d de Cr(VI). Avec Ksv = 1163,4 L mol−1 et τ0 ≤ 10 ns, kq ≥ 1,2 × 10^11 L mol−1 s−1, plus de dix fois la limite de diffusion (≈ 10^10) : une extinction purement dynamique est impossible (calcul « kq »). L'indépendance au temps d'incubation ne distingue pas dynamique, statique et filtre interne. Cr(VI) absorbe fortement à 350 nm (HCrO4−) et 373 nm (CrO4 2−), sur l'excitation à 340 nm : l'effet de filtre interne suffit à expliquer ≈ 10 % d'extinction à 100 µM (calcul « absorption de Cr(VI) »), mécanisme admis pour Cr(VI) avec des CDs. Il faudrait des mesures de durée de vie et une correction de filtre interne.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {"title": "On–Off–On Fluorescent Carbon Dot Nanosensor for Recognition of Chromium(VI) and Ascorbic Acid Based on the Inner Filter Effect", "authors_or_publisher": "Zheng M. et al. (ACS Appl. Mater. Interfaces)", "year": "2013", "url_or_doi": "10.1021/am4042355"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Tableau 2 : des concentrations sous la LOQ (Cr(III) 4 ± 2,3 µM ; Cr(VI) 6,8 ± 6,1 µM, intervalle qui recouvre zéro) et sous la borne basse de la gamme linéaire 20–100 µM (19,9 µM) sont rapportées comme valeurs quantitatives et comparées à l'ICP-OES (calcul « valeurs des échantillons réels »). Elles ne sont pas validées par la méthode décrite.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Sensibilité : LOD = 182 µg L−1 de Cr, plus de trois fois la valeur guide OMS (50 µg L−1 de chrome total). Les « n.d. » de l'eau de boisson, des laits et des jus signifient seulement < 182 µg L−1, et l'affirmation de « sensibilité supérieure » n'est pas soutenue pour l'eau de boisson. La LOD correspond à une baisse de 0,4 % du signal (calcul « extinction prédite par Ksv »), ce qui suppose un bruit du blanc ≈ 0,13 % : à vérifier.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Chromium in drinking-water. Background document for development of WHO Guidelines for drinking-water quality (WHO/HEP/ECH/WSH/2020.3)", "authors_or_publisher": "World Health Organization", "year": "2020", "url_or_doi": "https://cdn.who.int/media/docs/default-source/wash-documents/wash-chemicals/chromium-background-201223.pdf"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Grandeurs d'étalonnage incohérentes entre sections : Ksv = 1163,4 L mol−1 (R² = 0,9966) contre la droite du Tableau S1 y = 2,2346x (R² = 0,9981), unités de y et de x non dites ; exprimé en mM−1, Ksv vaut 1,16, soit la moitié de la pente. La Conclusion donne la stabilité à pH 3–7, les Résultats pH 3–8.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "redox",
+          "finding": "Spéciation : l'équation écrite (2Cr3+ + 3H2O2 + 10OH− → 2CrO4 2− + 8H2O, équilibrée) exige un milieu alcalin, alors que le dosage est décrit dans un tampon phosphate à pH 7 où Cr(III), H2O2 et CDs sont mélangés ensemble ; le pH de l'étape d'oxydation (80 °C, 10 min) n'est pas dit et l'excès de H2O2 n'est pas détruit. En milieu acide, H2O2 réduit au contraire Cr(VI) en Cr(III) ; à pH 7, Cr(III) à 20–100 µM est sursaturé en Cr(OH)3 (calcul « hydrolyse »). Le protocole de spéciation n'est pas reproductible tel qu'écrit.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Reduction of hexavalent chromium by H2O2 in acidic solutions", "authors_or_publisher": "Pettine M. et al. (notice PubMed 11918015)", "year": "2002", "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/11918015"}
+        },
+        {
+          "aspect": "solubilite",
+          "finding": "Test de sélectivité à 1 mM d'ions métalliques : l'Ag(I) vient du « silver(I) chloride », soluble à 1,3 × 10^−5 M seulement (≈ 1,9 mg L−1) ; 1 mM d'Ag(I) ne peut pas être atteint (calcul « solubilité de AgCl »). Fe(III) à 1 mM à pH 7 précipite en Fe(OH)3 (calcul « hydrolyse ») : la « sélectivité » vis-à-vis de Fe(III) à pH 7 peut venir de la précipitation et non d'une moindre interaction.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "Non écrits : pression autogène et vapeur d'éthanol inflammable si l'extrait éthanolique est mis en autoclave (≈ 15 bar à 180 °C) ; K2Cr2O7 et Cr(VI) cancérogènes ; sels de Hg(II) et Pb(II) très toxiques ; H2O2 chauffé à 80 °C avec matière organique. Déchets chromés à traiter.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Comparaison avec la base : les autres CDs hydrothermaux de biomasse ou d'acides aminés sont préparés à 160–220 °C pendant 5–12 h (PMC11840780, Giloy, 160 °C 5 h, QY 7,2 % ; PMC9563711, arginine, 180 °C 6 h ; PMC9370708, chitosane, 220 °C, QY 35 %). 180 °C 4 h est dans la plage ; un QY de 32,34 % pour un extrait végétal brut non purifié est au haut de la plage (Tableau 1 de l'article : 0,18–25,6 %), à rapprocher de l'absence de purification.",
+          "status": "reserve",
+          "basis": "comparaison_base"
+        }
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "À 180 °C sous pression autogène, les sucres solubles majoritaires de l'extrait (fructose, glucose, saccharose, fructanes) se déshydratent en furanes (HMF), qui se condensent et s'aromatisent en noyaux carbonés sp2/sp3 de quelques nanomètres (carbonisation hydrothermale) ; les acides aminés et protéines apportent N par réactions de Maillard, et les S-alk(én)yl-L-cystéine sulfoxydes (isoalliine) apportent S ; les glucosides de quercétine participent mais restent minoritaires. Une partie de la fluorescence peut venir de fluorophores moléculaires solubles non séparés (pas de dialyse). Le terme « précurseur phénolique total » des auteurs décrit mal la chimie. L'extinction par Cr(VI) relève surtout de l'effet de filtre interne, avec une possible part statique, et non d'un transfert dynamique.",
+        "sources": [
+          {"title": "The Phytochemical and Nutritional Composition of Shallot Species (Allium × cornutum, Allium × proliferum and A. cepa Aggregatum) Is Genetically and Environmentally Dependent", "authors_or_publisher": "Major N. et al. (Antioxidants)", "year": "2022", "url_or_doi": "10.3390/antiox11081547"},
+          {"title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots", "authors_or_publisher": "Essner J.B. et al. (Chem. Mater.)", "year": "2018", "url_or_doi": "10.1021/acs.chemmater.7b04446"},
+          {"title": "On–Off–On Fluorescent Carbon Dot Nanosensor for Recognition of Chromium(VI) and Ascorbic Acid Based on the Inner Filter Effect", "authors_or_publisher": "Zheng M. et al. (ACS Appl. Mater. Interfaces)", "year": "2013", "url_or_doi": "10.1021/am4042355"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "solvant mis en autoclave (éthanol à 80 % ou eau après évaporation), volume d'extrait et capacité de l'autoclave (remplissage ≤ 2/3)",
+        "méthode de dosage des « phénols totaux » (Folin–Ciocalteu ?) et dilution pour atteindre 500 mg L−1",
+        "définir la concentration des CDs par une masse sèche (lyophiliser une aliquote, peser) et donner le rendement",
+        "purifier (dialyse 0,5–1 kDa ou exclusion stérique) et vérifier que l'émission et la sensibilité au Cr(VI) restent dans la fraction retenue",
+        "mesurer la durée de vie de fluorescence avec et sans Cr(VI) et corriger l'effet de filtre interne avant d'invoquer un mécanisme",
+        "vérifier le soufre par XPS (raie Au Mα voisine de S Kα en EDX)",
+        "fixer le pH de l'oxydation Cr(III) → Cr(VI) (alcalin) et détruire l'excès de H2O2 avant la mesure",
+        "remplacer AgCl par AgNO3 pour le test de sélectivité"
+      ]
+    },
+    {
+      "label": "CDs_200-220C",
+      "verdict": "invérifiable",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "pression de vapeur dans l'autoclave à 220 °C",
+          "inputs": "eau : P_sat(220 °C) = 23,196 bar (NIST) ; éthanol : Antoine NIST (364,8–513,9 K), T = 493,15 K ; x(EtOH) = 0,553 pour l'éthanol à 80 % v/v",
+          "formula": "log10 P = A − B/(T + C) ; P(mélange) ≈ x·P°EtOH + (1 − x)·P°eau (minorant)",
+          "result": "P°EtOH(200 °C) = 27,7 bar ; P°EtOH(220 °C) = 40,2 bar ; mélange à 220 °C ≈ 32,6 bar (minorant) ; eau seule 23,2 bar",
+          "compared_to": "pression et température d'emploi des autoclaves à chemise PTFE de laboratoire, à vérifier sur la fiche de l'appareil (non donnée)",
+          "source": "NIST Chemistry WebBook, Ethanol (Antoine) et Water (saturation), https://webbook.nist.gov/chemistry/"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "thermique",
+          "finding": "Si l'extrait éthanolique est chauffé tel quel, la pression à 220 °C dépasse 30 bar (calcul « pression de vapeur à 220 °C »), trois fois celle de la voie de base ; à 220 °C le PTFE approche aussi de sa limite d'emploi en autoclave. Le récipient n'est pas décrit.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "NIST Chemistry WebBook — Ethanol (Antoine) ; Saturation Properties for Water", "authors_or_publisher": "NIST", "year": "2025 (consulté)", "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C64175&Mask=4"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "La baisse de fluorescence au-delà de 180 °C est lue sans normalisation : changer la température change à la fois la quantité de CDs formée et leur rendement quantique, et l'article ne dit pas si les intensités sont comparées à absorbance égale ou à dilution égale. La Fig. S5 n'est pas disponible ; le texte ne dit pas quelles températures entre 180 et 220 °C ont été testées.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Une carbonisation plus poussée à plus haute température convertit les fluorophores moléculaires et les petits domaines émissifs en carbone plus graphitisé et peu émissif, ce qui est cohérent avec une baisse d'intensité ; non vérifiable sans la Fig. S5.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "températures exactes testées et normalisation des intensités (absorbance à 340 nm)",
+        "pression nominale de l'autoclave si l'éthanol n'est pas éliminé"
+      ]
+    },
+    {
+      "label": "CDs_6h",
+      "verdict": "invérifiable",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [],
+      "checks": [
+        {
+          "aspect": "cinetique",
+          "finding": "Plateau d'intensité de 3 à 5 h puis baisse à 6 h : tendance plausible pour une carbonisation hydrothermale à 180 °C ; même réserve de normalisation que pour la série en température, et Fig. S5 indisponible. Le choix de 4 h dans un plateau 3–5 h est cohérent.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Prolonger le traitement poursuit la condensation et l'aromatisation, réduisant la part d'espèces émissives.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "valeurs de la Fig. S5(A) et normalisation des intensités"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "Synthèse hydrothermale (180 °C, 4 h) d'un extrait éthanolique d'échalote sans réactif ajouté : chimie plausible, comparable aux autres CDs de biomasse, mais non reproductible quantitativement (solvant, volumes, remplissage, rendement non donnés) et sans purification. La concentration de travail « 1 mg L−1 de CDs » n'a pas de base massique. Côté capteur : le mécanisme d'extinction « dynamique » est exclu par Ksv (kq > limite de diffusion) et l'effet de filtre interne de Cr(VI) suffit ; des valeurs d'échantillons réels sous la LOQ sont rapportées comme quantitatives ; le test de sélectivité Ag(I) à 1 mM est impossible avec AgCl ; la LOD (182 µg L−1) dépasse la valeur guide OMS.",
+    "author_errors_suspected": [
+      "Conclusion : rendement quantique de 32,34 % attribué au sulfate de quinine (c'est celui des CDs)",
+      "Conclusion : stabilité à pH 3–7, contre pH 3–8 dans les Résultats",
+      "extinction dite dynamique alors que kq = Ksv/τ0 ≥ 1,2 × 10^11 L mol−1 s−1",
+      "Ksv (1163,4 L mol−1, R² 0,9966) et pente du Tableau S1 (2,2346, R² 0,9981) incompatibles sans unités",
+      "Cr(III) 4 µM et Cr(VI) 6,8 ± 6,1 µM rapportés sous la LOQ de 11,7 µM",
+      "AgCl comme source d'Ag(I) à 1 mM",
+      "plages π–π* (250–500 nm) et n–π* (280–350 nm) emboîtées ; « absorption at 340 nm » alors que le maximum des CDs est vers 278 nm (Fig. 2B)"
+    ],
+    "comparison_with_database": "compare.py « carbon dots » : 12 voies ; CDs hydrothermaux de précurseur naturel ou d'acide aminé à 160–220 °C, 5–12 h (PMC11840780 Giloy 160 °C 5 h QY 7,2 % ; PMC9563711 arginine 180 °C 6 h ; PMC9370708 chitosane 220 °C QY 35 %). Conditions de PMC9054292 dans la plage ; QY au haut de la plage pour un extrait non purifié."
+  },
+  "sources_not_found": [
+    "revue sur la carbonisation hydrothermale des sucres (voie HMF) : non recherchée faute de budget de recherches ; mécanisme donné en chimie générale",
+    "coefficient d'absorption molaire de Cr(VI) à 340 nm : non trouvé dans les extraits consultés, minorant de 1000 L mol−1 cm−1 supposé",
+    "pression nominale des autoclaves à chemise PTFE : non recherchée, à lire sur la fiche de l'appareil"
+  ]
+}

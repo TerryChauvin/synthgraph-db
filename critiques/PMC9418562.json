@@ -1,0 +1,96 @@
+{
+ "pmcid": "PMC9418562",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "MoS2_noAuNP variations 'poly-l-lysine solution = absent' (et omission des étapes PLL, rinçage, séchage)",
+   "extracted": "poly-l-lysine absent pour le substrat témoin ; étapes propres : nettoyage, PTCDA, chargement, chauffage, croissance, refroidissement",
+   "article_says": "one substrate with gold NPs and one without them were loaded on the graphite susceptor in a symmetrical position",
+   "fix": "l'article ne dit pas que le substrat témoin n'a pas reçu la poly-l-lysine (ni qu'il a été rincé/séché de la même façon) : la variation « PLL absent » est une déduction. La garder seulement avec un `not_stated` explicite sur la préparation du témoin (déjà dans les doutes) ou la retirer des variations ; ne pas la présenter comme citée.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "MoS2_AuNP40, MoS2_AuNP100, MoS2_AuNP60_2dropcasts, MoS2_AuNP60_4dropcasts : héritage de toutes les étapes de MoS2_AuNP60",
+   "extracted": "parent MoS2_AuNP60, une seule variation (diamètre ou nombre de dépôts)",
+   "article_says": "The synthesis of MoS2 crystals with nanoparticles of different sizes and concentrations is presented in ESI Fig. S2 and S3.",
+   "fix": "l'annexe ne dit pas « same procedure » : l'héritage de la poly-l-lysine, du rinçage, du PTCDA et du chargement est une lecture. Pour 2 et 4 dépôts, l'article ne dit pas si la poly-l-lysine, le rinçage à 60 s et le séchage sont répétés après chaque dépôt (les étapes 5 et 6 héritées supposent un seul rinçage final). Ajouter un `limite_reproductibilite` qui le dit ; le doute existant ne suffit pas à signaler l'incertitude dans la fiche.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MoS2_AuNP60 step 8 (load) equipment « open tube furnace (two temperature zones T1 and T2) … sulfur boat in T1, MoO3 powder and susceptor in T2 »",
+   "extracted": "quote : « The growth was carried out at atmospheric pressure in an open tube »",
+   "article_says": "The sulfur temperature T1 was fixed at 140 °C, and the temperature of the powders and susceptor T2 was 785 °C.",
+   "fix": "la citation attachée ne dit rien des deux zones ni de la place des nacelles ; l'information vient de la figure 1b (zones T1 et T2, soufre en T1, MoO3 puis suscepteur en T2), non citable. Remplacer la citation par la phrase ci-contre (T1 soufre, T2 poudres et suscepteur) et indiquer dans le détail « d'après la Fig. 1b ». Les distances entre nacelles ne sont pas données (not_stated correct).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "FET_noAuNP_MoS2 (voie fille de FET_AuNP_MoS2) et outcome threshold_voltage = −20 V",
+   "extracted": "parent FET_AuNP_MoS2 : mêmes contacts Ni/Au, même substrat ; Vth = −20 V",
+   "article_says": "transistors fabricated using similar geometry and the same SiO2 thickness on CVD grown MoS2 without gold nanoparticles, which showed a negative threshold voltage (Vth = −20 V)",
+   "fix": "la valeur est rapportée avec un renvoi (cit50, Giannazzo et al. 2020) : il est possible qu'elle provienne d'un autre jeu d'échantillons que le témoin MoS2_noAuNP de cet article, et « similar geometry » n'est pas « same fabrication ». Ne pas hériter la fabrication (ou le dire) et ajouter une annotation `limite_reproductibilite` : valeur du témoin FET tirée d'un travail antérieur, croissance du témoin non décrite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MoS2_AuNP60 outcomes : histogramme de la carte Raman",
+   "extracted": "seulement δ = 19.3 et 21.2 cm−1",
+   "article_says": "The histogram shows that a bimodal distribution peaked at 18 cm−1 and 20 cm−1 with a tail on the high δ side.",
+   "fix": "ajouter un résultat raman_delta_histogram = bimodale, pics à 18 et 20 cm−1, queue vers les δ élevés (figure 5c : étiquettes ML, BL, TL, lecture concordante)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MoS2_AuNP60 outcomes : tableaux S1 à S3 de l'annexe (ajustements de PL)",
+   "extracted": "seulement les décroissances en % et les énergies ML ; l'annotation dit que les tableaux n'ont pas été repris",
+   "article_says": "All the parameters of the fitting are reported in Tables S1, S2 and S3.",
+   "fix": "les valeurs sont lisibles dans le texte de l'annexe (cellules isolées, ordre trion/exciton A/exciton B) : ML 1.78/1.84/1.98 eV, largeurs 0.10/0.07/0.15 eV, intensités intégrées 927/2523/685 ; AuNP/ML 1.78/1.84/1.95 eV, 0.09/0.07/0.18, 771/567/700 ; BL 1.79/1.84/1.98 eV, 0.11/0.09/0.18, 880/1056/864. À reprendre comme résultats (échantillon/zone en clair) avec citation de la rangée, ou à déclarer volontairement omis.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "FET_AuNP_MoS2 : conditions de mesure et paramètres du diélectrique",
+   "extracted": "mobilité, gm/W, Vth, L, doping, ΔVth",
+   "article_says": "with Cox = 11.9 nF cm−2 being the capacitance per unit area of the 290 nm thick SiO2 gate oxide",
+   "fix": "ajouter Cox = 11.9 nF cm−2, épaisseur d'oxyde 290 nm, VDS = 1 V (courbe de transfert, « at VDS = 1 V ») et plage VG 0 à 20 V (courbes de sortie) en conditions ou résultats",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Article lui-même : MoS2_AuNP60, PL_B_exciton_integrated_intensity_decrease_BL_vs_ML = 21 %",
+   "extracted": "21 % (diminution)",
+   "article_says": "while the trion and the B exciton intensities are only slightly decreased by 6% and 21%, respectively",
+   "fix": "ne pas corriger la valeur (citation fidèle), mais signaler l'incohérence : le tableau S3 donne 864 pour l'exciton B de la bicouche contre 685 pour la monocouche (tableau S1), soit une augmentation d'environ 26 %, et 880 contre 927 pour le trion (−5 %). Ajouter un doute et une annotation `limite_reproductibilite`.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources cit37 (rôle autre)",
+   "extracted": "cit37 attaché à la phrase sur l'inversion du flux d'azote",
+   "article_says": "This switch allowed us to avoid any S and Mo prereaction during the temperature ramp, thus permitting a more precise control of the MoS2 nucleation.",
+   "fix": "le renvoi cit37 (Chen et al., Adv. Sci. 2016) justifie l'effet de l'inversion du flux, il n'est pas nécessaire pour refaire la préparation : renvoi de contexte, à retirer des method_sources selon la règle du 2026-10-13 (cit34 et cit36 sont bien des sources de méthode ; cit35, promoteur PTCDA, est acceptable).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 45,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "concentration en or de la suspension (0.1 mg ml−1 est celle du citrate), pureté des nanoparticules",
+  "fournisseur, pureté et concentration de la poly-l-lysine ; fournisseur et pureté de S, MoO3, PTCDA",
+  "concentration et quantité de la solution de PTCDA, surface de la pièce de Si, position exacte du promoteur",
+  "vitesses de chauffe de T1 et T2, durée du chauffage du soufre, moment exact de l'inversion du flux par rapport aux 5 min de stabilisation",
+  "position et distances des nacelles (soufre, MoO3) et du suscepteur dans le tube, diamètre du tube, direction du flux pendant la rampe de T2",
+  "préparation du substrat témoin (poly-l-lysine ? rinçage ?) et protocole des dépôts répétés (2 et 4 gouttes) : annexe muette",
+  "détails de lithographie et de dépôt des contacts Ni/Au, largeur du canal, recuit éventuel",
+  "rendement et reproductibilité (nombre de croissances) non donnés"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (nanoparticules comme points de nucléation, PLL désorbée, PTCDA décomposé, charge fixe AuCl) suit le texte ; mecanisme_analyse stœchiométrie 175 mg S ≈ 5,5 mmol et 50 mg MoO3 ≈ 0,35 mmol vérifiée ; Cox, mobilité (≈ 0,9 cm2 V−1 s−1) et dopage 1,85 × 10^12 cm−2 recalculés et cohérents.",
+ "notes": "Toutes les valeurs numériques du texte principal et des annexes que j'ai recoupées sont correctes (≈ 109 valeurs relues, aucune valeur fausse). Fig. 1 et Fig. 5 ouvertes : schéma de la Fig. 1b confirme zones T1/T2 ; histogramme 5c compatible avec 18/20 cm−1. Aucune valeur n'est marquée from_figure, aucune écart à mesurer. Fragile dans ma lecture : l'enchaînement chauffage du soufre / 5 min de stabilisation de T2 est réellement ambigu dans l'article (le doute de l'extracteur est justifié). La rampe de 20 min et la croissance de 10 min sont bien citées. L'étape react ne reprend pas T1 = 140 °C pendant la croissance (« fixed at 140 °C ») : lecture possible, non retenue comme constat. Texte exposants aplatis (1012) : value_text 10^12 acceptable car recalcul concordant."
+}

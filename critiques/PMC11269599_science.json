@@ -1,0 +1,698 @@
+{
+ "pmcid": "PMC11269599",
+ "routes": [
+  {
+   "label": "TPHPP",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité, température ni durée : la voie se résume au renvoi « reported method » (condensation pyrrole + 4-hydroxybenzaldéhyde dans l'acide propionique, de type Adler–Longo). Rien à contrôler en moles.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "RMN (DMSO) 10,03 OH, 8,9 β-H, 8,03/7,24 ArH, −2,84 NH et UV 416/516/554/592/649 nm : valeurs typiques d'une tétra(4-hydroxyphényl)porphyrine base libre (comparer la base libre H2TClPP de Nasri 2022 : Soret 421, Q 522/557/599/651 nm). Cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of New Cobalt(III) Meso-Porphyrin Complex, Photochemical, X-ray Diffraction, and Electrical Properties for Photovoltaic Cells",
+      "authors_or_publisher": "Nasri S., Guergueb M., Brahmi J., Al-Ghamdi Y.O., Molton F., Loiseau F., Turowska-Tyrk I., Nasri H. (Molecules 27, 8866)",
+      "year": "2022",
+      "url_or_doi": "10.3390/molecules27248866"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre sections : le spectrophotomètre est déclaré balayé de 200 à 600 nm (Instruments) mais une bande Q à 649 nm est rapportée ; la RMN est déclarée dans CDCl3 (Instruments) mais les données sont « in DMSO » (la TPHPP, très peu soluble dans CHCl3, est en pratique mesurée dans le DMSO-d6, ce qui rend aussi douteuse la mesure UV « (CHCl3) »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La bande IR à 1001 cm−1 est attribuée à ν(Co–N) dans le spectre de la porphyrine libre, qui ne contient pas de cobalt : attribution impossible (voir Co-TPHPP).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Pyrrole (toxique, à distiller, s'oxyde à l'air), acide propionique chaud (corrosif, Teb 141 °C) : non mentionnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Condensation acido-catalysée pyrrole/aldéhyde en porphyrinogène dans l'acide propionique au reflux (≈ 141 °C), puis oxydation à l'air en porphyrine (Adler–Longo) ; rendement typique 10–20 %, purification par chromatographie (la silice listée dans Matériaux y sert probablement).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "retrouver la méthode citée (quantités, durée de reflux, purification)",
+    "solvant réel des spectres UV (CHCl3 peu probable) et RMN (DMSO-d6)"
+   ]
+  },
+  {
+   "label": "Co-TPHPP",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de TPHPP",
+     "inputs": "200 mg ; M(C44H30N4O4) = 678,75 g/mol",
+     "formula": "n = m/M",
+     "result": "0,2947 mmol",
+     "compared_to": "0,294 mmol écrit : conforme",
+     "source": "masses atomiques IUPAC, calcul"
+    },
+    {
+     "what": "moles de CoCl2·6H2O",
+     "inputs": "58 mg ; M = 237,93 g/mol (anhydre 129,84)",
+     "formula": "n = m/M ; m pour 0,294 mmol = 0,294 × M",
+     "result": "0,2438 mmol (0,447 si anhydre) ; 0,294 mmol exigerait 70,0 mg ; 58 mg/0,294 mmol = 197 g/mol, aucun sel de Co ne correspond",
+     "compared_to": "« 58 mg; 0.294 mmol » écrit : faux d'environ 17 %",
+     "source": "masses atomiques IUPAC, calcul"
+    },
+    {
+     "what": "rendement contre réactif limitant",
+     "inputs": "produit 0,28 mmol ; Co apporté 0,2438 mmol ; M(Co-TPHPP, C44H28CoN4O4) = 735,67 g/mol",
+     "formula": "0,28/0,2438 ; m = 0,28 × M",
+     "result": "115 % du Co apporté ; 206 mg de complexe annoncés",
+     "compared_to": "≤ 100 % ; avec 58 mg de CoCl2·6H2O au plus 0,244 mmol (179 mg) de complexe",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rendement de 0,28 mmol dépasse le cobalt apporté (115 %, voir « rendement contre réactif limitant ») : soit la masse de sel (58 mg) soit le nombre de moles est faux, soit le produit contient de la porphyrine non métallée. Avec 0,83 équivalent de Co, la métallation ne peut pas être complète.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Les preuves données ne désignent pas Co(II) : un Co(II) porphyrinique (3d7, paramagnétique) donne des β-H vers 16 ppm et des aryles entre 13 et 9,8 ppm, alors qu'un Co(III) diamagnétique donne des β-H vers 8,9–9,1 ppm et des aryles entre 7,65 et 8,8 ppm (Nasri 2022). Le spectre rapporté (β-H 9,13 ; ArH 7,9/7,25 ppm, raies fines) est celui d'un composé diamagnétique : Co(III) ou porphyrine non métallée. De même, la Soret à 448 nm est déplacée vers le rouge comme celle d'un Co(III) (442 nm pour [Co(III)(TClPP)Cl], 414 nm pour le Co(II) correspondant). Sous air, avec du chlorure en méthanol, l'oxydation Co(II) → Co(III) est attendue. L'état d'oxydation « Co(II) », sur lequel repose tout le mécanisme catalytique, n'est donc pas établi (ni RPE, ni XPS).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of New Cobalt(III) Meso-Porphyrin Complex, Photochemical, X-ray Diffraction, and Electrical Properties for Photovoltaic Cells",
+      "authors_or_publisher": "Nasri S., Guergueb M., Brahmi J., Al-Ghamdi Y.O., Molton F., Loiseau F., Turowska-Tyrk I., Nasri H. (Molecules 27, 8866)",
+      "year": "2022",
+      "url_or_doi": "10.3390/molecules27248866"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La bande IR à 1001 cm−1 est attribuée à ν(Co–N), mais elle figure déjà dans la liste de la porphyrine libre, et la vibration métal–azote des métalloporphyrines se situe en infrarouge lointain (bien au-dessous de 600 cm−1). Les bandes vers 1000 cm−1 sont des modes du cycle pyrrole sensibles au métal. Elle ne prouve pas la métallation, et encore moins la présence de Co dans les solides suivants.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Méthodes : méthanol au reflux (Teb 64,7 °C) ; Résultats : « Metalation … in DMF » (Teb 153 °C). Les deux sections se contredisent. Avec CoCl2, la métallation est en général conduite dans le DMF au reflux (méthode d'Adler 1970) ; à 65 °C dans le méthanol elle peut rester incomplète, ce que le spectre RMN ne permet pas d'exclure (pas de NH visible, mais pas non plus de déplacement paramagnétique).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Reflux du méthanol (Teb 64,7 °C) puis évaporation du méthanol sous vide après ajout de 60 mL d'eau : ordre des opérations possible, le complexe précipite de l'eau. Isolement (filtration, séchage) non décrit.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "CoCl2·6H2O : cancérogène présumé (CLP Carc. 1B), sensibilisant, reprotoxique ; non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Insertion du Co(II) dans la cavité N4 avec départ des deux N–H ; en présence d'air et de chlorure, le Co(II)-porphyrine s'oxyde facilement en Co(III)(Cl ou ligand axial), ce que les données RMN (β-H 9,13 ppm) et UV (Soret 448 nm) rapportées indiquent plutôt.",
+    "sources": [
+     {
+      "title": "Synthesis of New Cobalt(III) Meso-Porphyrin Complex, Photochemical, X-ray Diffraction, and Electrical Properties for Photovoltaic Cells",
+      "authors_or_publisher": "Nasri S., Guergueb M., Brahmi J., Al-Ghamdi Y.O., Molton F., Loiseau F., Turowska-Tyrk I., Nasri H. (Molecules 27, 8866)",
+      "year": "2022",
+      "url_or_doi": "10.3390/molecules27248866"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse réelle de CoCl2·6H2O (70 mg pour 0,294 mmol)",
+    "solvant de métallation (méthanol ou DMF)",
+    "état d'oxydation du cobalt (RPE, RMN dans un solvant défini, Soret)",
+    "absence de porphyrine libre résiduelle (bandes Q à 516 et 649 nm)"
+   ]
+  },
+  {
+   "label": "PHCS",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "unités de chitosane et amines libres",
+     "inputs": "1 g ; DD 81 % ; M(GlcN) = 161,16, M(GlcNAc) = 203,19 g/mol",
+     "formula": "M moyen = 0,81 × 161,16 + 0,19 × 203,19 ; n = 1/M",
+     "result": "M moyen 169,1 g/mol ; 5,91 mmol d'unités ; 4,79 mmol de NH2",
+     "compared_to": "—",
+     "source": "masses atomiques IUPAC, calcul"
+    },
+    {
+     "what": "équivalents d'anhydride phtalique",
+     "inputs": "2,7 g ; M(C8H4O3) = 148,12 g/mol",
+     "formula": "n = m/M ; rapport à NH2 et aux unités",
+     "result": "18,2 mmol ; 3,8 éq. par NH2 ; 3,1 éq. par unité",
+     "compared_to": "Kurita 2002 : 3 éq. par unité pyranose dans DMF/eau 95:5 ; « excess » conforme",
+     "source": "calcul sur valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport anhydride/unité ≈ 3,1 et 5 % d'eau dans le DMF : ce sont les conditions de la phtaloylation chimiosélective de Kurita (l'eau supprime l'O-phtaloylation). Température et durée ne sont pas données (Kurita : 120 °C, 8 h).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemoselective Protection of the Amino Groups of Chitosan by Controlled Phthaloylation: Facile Preparation of a Precursor Useful for Chemical Modifications",
+      "authors_or_publisher": "Kurita K., Ikeda H., Yoshida Y., Shimojoh M., Harata M. (Biomacromolecules 3, 1–4)",
+      "year": "2002",
+      "url_or_doi": "10.1021/bm0101163"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Phtalimide à 1715 et 1759 cm−1 (doublet C=O imide attendu vers 1710 et 1775 cm−1) ; maintien d'une certaine cristallinité en DRX, comme signalé par Kurita. Cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemoselective Protection of the Amino Groups of Chitosan by Controlled Phthaloylation: Facile Preparation of a Precursor Useful for Chemical Modifications",
+      "authors_or_publisher": "Kurita K., Ikeda H., Yoshida Y., Shimojoh M., Harata M. (Biomacromolecules 3, 1–4)",
+      "year": "2002",
+      "url_or_doi": "10.1021/bm0101163"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bragg avec λ = 1,5406 Å : 9,60° → 0,921 nm et 20,22° → 0,439 nm, conformes aux 0,92 et 0,438 nm annoncés pour le chitosane ; 6,42° → 1,376 nm pour le N-phtaloyl chitosane. Mais Matériaux donne « degree of deacetylation 81 % » et la section DRX « degree of acetylation was 81 % » : contradiction (DA 19 % ou 81 % ne donnent pas le même nombre d'amines à protéger).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "DMF : reprotoxique (CLP Repr. 1B), à chaud ; non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "N-acylation de l'amine primaire par l'anhydride puis cyclisation en phtalimide ; l'eau (5 %) hydrolyse les O-phtalates formés, d'où une protection sélective de N.",
+    "sources": [
+     {
+      "title": "Chemoselective Protection of the Amino Groups of Chitosan by Controlled Phthaloylation: Facile Preparation of a Precursor Useful for Chemical Modifications",
+      "authors_or_publisher": "Kurita K., Ikeda H., Yoshida Y., Shimojoh M., Harata M. (Biomacromolecules 3, 1–4)",
+      "year": "2002",
+      "url_or_doi": "10.1021/bm0101163"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température et durée (méthode de Kurita : 120 °C, 8 h)",
+    "degré de désacétylation réel du lot",
+    "isolement (précipitation dans la glace, lavage) et degré de substitution"
+   ]
+  },
+  {
+   "label": "ClAc-PHCS",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité, aucun solvant ni condition : la voie renvoie à la littérature. Le degré de chloroacétylation, qui fixe le nombre de sites de greffage, n'est pas mesuré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La bande à 717 cm−1 attribuée à C–Cl tombe sur la déformation C–H aromatique du phtaloyle (724 cm−1 dans PHCS, et « 717 ν(C–H, Ph) » dans la ligne de données de cette même étape) : sa disparition ultérieure ne peut pas être lue sans ambiguïté.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Chlorure de chloroacétyle : corrosif, lacrymogène, réagit violemment avec l'eau et les alcools en libérant HCl ; triéthylamine inflammable. Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "O-acylation des OH (principalement 6-OH) du N-phtaloyl chitosane par le chlorure d'acide, Et3N captant HCl ; on obtient un ester chloroacétique (schéma de la Fig. 2 : –O–C(=O)–CH2Cl en C6).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "méthode citée (solvant anhydre, température, équivalents)",
+    "degré de substitution en Cl (analyse élémentaire)"
+   ]
+  },
+  {
+   "label": "Co-TPHPP-PHCS",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "sites C–Cl du support contre OH phénoliques du complexe",
+     "inputs": "1,0 g de support ; unité phtaloyl-chloroacétylée ≈ 351 g/mol (hypothèse : 1 chloroacétyle par unité, DD 81 %) ; 0,01 mmol de complexe × 4 OH",
+     "formula": "n(C–Cl) = 1000/351 ; n(OH) = 4 × 0,01 ; fraction = n(OH)/n(C–Cl)",
+     "result": "≈ 2,85 mmol C–Cl ; 0,04 mmol OH ; au plus 1,4 % des C–Cl peuvent réagir avec la porphyrine (0,35 % si une seule liaison par porphyrine)",
+     "compared_to": "« disparition » de la bande C–Cl à 717 cm−1 invoquée comme preuve du greffage",
+     "source": "calcul sur valeurs de l'article, degré de chloroacétylation supposé"
+    },
+    {
+     "what": "charge en complexe et en cobalt",
+     "inputs": "0,01 mmol ; M(complexe) = 735,67 g/mol ; M(Co) = 58,93 g/mol ; 1,0 g de support",
+     "formula": "m = n × M",
+     "result": "7,4 mg de complexe (0,73 % en masse au plus) ; 0,59 mg de Co (≤ 0,059 % en masse)",
+     "compared_to": "—",
+     "source": "calcul"
+    },
+    {
+     "what": "K2CO3 contre OH phénoliques",
+     "inputs": "0,5 g ; M = 138,21 g/mol",
+     "formula": "n = m/M",
+     "result": "3,62 mmol ; ≈ 90 éq. par OH phénolique",
+     "compared_to": "—",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La disparition de la bande C–Cl (717 cm−1) est présentée comme preuve du greffage covalent, or le complexe ne peut consommer au plus que ≈ 1,4 % des C–Cl (voir « sites C–Cl du support contre OH phénoliques du complexe »). Si la bande disparaît, c'est que les chloroacétyles ont été hydrolysés ou substitués par autre chose (carbonate, eau, DMF à chaud), pas par la porphyrine. La preuve n'est pas discriminante ; le taux de greffage réel (Co par ICP, UV du complexe non greffé dans les eaux de lavage) n'est pas mesuré.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Avec 0,73 % en masse de complexe, aucune bande propre de la porphyrine ne peut émerger du spectre du polysaccharide (les auteurs l'admettent : « signature bands for [Co(II) THPP] did not appear ») ; la bande « 1001 ν(Co–N) » citée pour ce solide ne peut donc pas être attribuée au complexe.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le schéma de la Fig. 2 indique « K2CO3/DMF 80 °C, 4 h, reflux under nitrogen » : à 80 °C le DMF (Teb 153 °C) ne reflue pas. Il s'agit d'un chauffage à 80 °C sous N2, pas d'un reflux ; les Méthodes ne donnent ni température ni durée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les Méthodes écrivent « N-phthaloyl chitosan » et non le dérivé chloroacétylé : sans chloroacétyle, aucun électrophile n'est disponible pour une éthérification de Williamson.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le phénolate (K2CO3) peut déplacer le chlorure d'un chloroacétyle (SN2, éther aryloxyacétique) ; mais avec 0,01 mmol de complexe pour ≈ 3 mmol de C–Cl, le greffage ne touche qu'une petite fraction des sites et une adsorption non covalente (π, liaisons H) du complexe sur le polysaccharide est tout aussi compatible avec les données.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "température, durée et atmosphère réelles (80 °C sous N2 ?)",
+    "dosage du Co sur le solide après lavage exhaustif (ICP-OES)",
+    "témoin : même traitement avec N-phtaloyl chitosane non chloroacétylé (adsorption seule)"
+   ]
+  },
+  {
+   "label": "Co-TPHPP-Cs",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "hydrazine contre phtalimides",
+     "inputs": "2 mL d'hydrate d'hydrazine à 80 % (densité ≈ 1,03, valeur de manuel) ; ≈ 2,8–3,4 mmol de phtalimide dans 1 g de support (calculs précédents)",
+     "formula": "n = 2 × 1,03 × 0,80 / 50,06",
+     "result": "≈ 33 mmol de N2H4·H2O ; ≈ 10 éq. par phtalimide",
+     "compared_to": "Kurita : large excès d'hydrazine à 100 °C ; quantité suffisante",
+     "source": "calcul ; densité de l'hydrate d'hydrazine de mémoire, à confirmer sur fiche fournisseur"
+    },
+    {
+     "what": "hydrazine contre esters chloroacétiques (lien porphyrine–chitosane)",
+     "inputs": "≈ 33 mmol de N2H4 ; ≈ 2,85 mmol d'esters chloroacétiques ; 0,01 mmol d'esters portant la porphyrine",
+     "formula": "rapport molaire",
+     "result": "≈ 12 éq. d'hydrazine par ester",
+     "compared_to": "hydrazinolyse des esters en hydrazides : réaction classique dans ces conditions (hydrazine pure, 100 °C, 2 h)",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "D'après le schéma des auteurs (Fig. 2), la porphyrine est attachée par un ester –O–CH2–C(=O)–O–C6 du chitosane. L'hydrate d'hydrazine à 100 °C pendant 2 h, en large excès (≈ 12 éq. par ester, voir « hydrazine contre esters chloroacétiques »), est précisément le réactif qui coupe les esters en hydrazides : on s'attend à ce que la déprotection détache la porphyrine du chitosane (porphyrine–OCH2CONHNH2 éliminée au lavage). Les auteurs n'apportent aucune mesure de Co après cette étape (la bande 1001 cm−1 n'est pas une preuve, voir Co-TPHPP). Le greffage « covalent » du catalyseur final n'est donc pas établi et a peu de chances de survivre à cette étape.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "100 °C, 2 h avec hydrazine monohydrate : conditions classiques de déphtaloylation du N-phtaloyl chitosane.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemoselective Protection of the Amino Groups of Chitosan by Controlled Phthaloylation: Facile Preparation of a Precursor Useful for Chemical Modifications",
+      "authors_or_publisher": "Kurita K., Ikeda H., Yoshida Y., Shimojoh M., Harata M. (Biomacromolecules 3, 1–4)",
+      "year": "2002",
+      "url_or_doi": "10.1021/bm0101163"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "100 °C sans reflux dans les Méthodes (le schéma dit « reflux under nitrogen, 100 °C ») ; l'hydrate d'hydrazine (Teb ≈ 120 °C) n'est pas bouillant à 100 °C, mais ses vapeurs sont toxiques : montage fermé ou réfrigérant sous hotte indispensable. 2 mL pour 1 g de solide forment une pâte : agitation à vérifier.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'apparition d'une bande à 1656 cm−1 et la remontée de cristallinité (pic à 20,81°, d = 0,427 nm) sont compatibles avec un chitosane régénéré, mais aussi avec du phtalhydrazide résiduel s'il n'est pas éliminé (lavage à l'eau seulement, alors que le phtalhydrazide est peu soluble dans l'eau neutre).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Hydrazine : très toxique, cancérogène (CLP Carc. 1B), corrosive, instable à chaud au contact d'oxydes métalliques ; non mentionnée. Source standard : NOAA CAMEO Chemicals (fiche non relue dans cette session).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CAMEO Chemicals (fiches hydrazine, chloroacetyl chloride, hydrogen peroxide)",
+      "authors_or_publisher": "NOAA Office of Response and Restoration",
+      "year": "consulté 2026 (non relu dans cette session)",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hydrazinolyse du phtalimide (Ing–Manske) qui libère NH2 et du phtalhydrazide ; dans les mêmes conditions, hydrazinolyse concurrente des esters en C6 (chloroacétates et aryloxyacétates), qui détache la porphyrine et convertit les C–Cl restants. Le produit le plus probable est un chitosane portant au plus une faible quantité de complexe adsorbé.",
+    "sources": [
+     {
+      "title": "Chemoselective Protection of the Amino Groups of Chitosan by Controlled Phthaloylation: Facile Preparation of a Precursor Useful for Chemical Modifications",
+      "authors_or_publisher": "Kurita K., Ikeda H., Yoshida Y., Shimojoh M., Harata M. (Biomacromolecules 3, 1–4)",
+      "year": "2002",
+      "url_or_doi": "10.1021/bm0101163"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "Co sur le solide avant et après hydrazine (ICP-OES)",
+    "couleur et UV-Vis des eaux de lavage (porphyrine libérée)",
+    "élimination du phtalhydrazide (lavage basique)",
+    "manipulation de l'hydrazine sous hotte, montage fermé"
+   ]
+  },
+  {
+   "label": "GO",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "Bragg du pic de GO",
+     "inputs": "λ = 1,5406 Å (article) ; 2θ = 10,32° puis 9,60° dans le composite",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "0,856 nm puis 0,921 nm",
+     "compared_to": "GO de Hummers : distance interfeuillets 0,8–0,9 nm selon l'hydratation",
+     "source": "calcul ; ordre de grandeur Dreyer 2010"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« Modified Hummer's method » sans quantité, température ni durée ; seuls apparaissent graphite, « concentrated acids » et KMnO4 (H2SO4 et H3PO4 dans Matériaux, comme dans la méthode de Marcano). Non vérifiable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Improved Synthesis of Graphene Oxide",
+      "authors_or_publisher": "Marcano D.C. et al. (ACS Nano)",
+      "year": "2010",
+      "url_or_doi": "10.1021/nn1006368"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "d(001) ≈ 0,86 nm à 10,32° et bandes IR (3442, 1720, 1627, 1387, 1074 cm−1) : signature habituelle d'un GO.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D.R., Park S., Bielawski C.W., Ruoff R.S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "KMnO4 dans H2SO4 concentré (formation de Mn2O7, explosif au-dessus de ≈ 55 °C), extinction exothermique à l'eau et à H2O2 : dangers non écrits.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation of Graphitic Oxide",
+      "authors_or_publisher": "Hummers W.S., Offeman R.E. (J. Am. Chem. Soc.)",
+      "year": "1958",
+      "url_or_doi": "10.1021/ja01539a017"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Intercalation de H2SO4 dans le graphite, oxydation par Mn2O7/MnO3+ formés à partir de KMnO4, puis hydrolyse en GO portant époxydes et hydroxyles sur le plan basal et carboxyles en bordure (Dreyer 2010).",
+    "sources": [
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer D.R., Park S., Bielawski C.W., Ruoff R.S. (Chem. Soc. Rev.)",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     },
+     {
+      "title": "Preparation of Graphitic Oxide",
+      "authors_or_publisher": "Hummers W.S., Offeman R.E. (J. Am. Chem. Soc.)",
+      "year": "1958",
+      "url_or_doi": "10.1021/ja01539a017"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "méthode de Hummers modifiée réellement suivie (quantités, H3PO4 ou NaNO3)",
+    "lavage complet des ions Mn (Mn résiduel = catalyseur de décomposition de H2O2, voir voie finale)"
+   ]
+  },
+  {
+   "label": "Co-TPHPP-Cs-GO",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "cobalt contre colorant dans l'essai standard",
+     "inputs": "15 × 10−3 g/mL × 10 mL = 150 mg de catalyseur ; Co ≤ 0,059 % (support non déprotégé) à ≈ 0,098 % (si la déprotection fait perdre 40 % de masse) dans Co-TPHPP-Cs, × 0,8 (rapport 4:1 avec GO) ; AO7 1,42 × 10−4 M × 10 mL",
+     "formula": "n(Co) = 150 mg × w(Co) / 58,93 ; n(AO7) = C × V",
+     "result": "Co 1,2 à 2,0 µmol (au plus, greffage total et sans perte à l'hydrazine) ; AO7 1,42 µmol ; Co/AO7 ≈ 0,85 à 1,4",
+     "compared_to": "catalyse : nombre de rotations ≫ 1 ; ici ≤ 1,1 colorant décoloré par Co",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "H2O2 contre AO7 et demande d'oxydation totale",
+     "inputs": "H2O2 8 × 10−2 M ; AO7 1,42 × 10−4 et 2,85 × 10−4 M ; C16H11N2NaO4S + 18,5 O2 → 16 CO2 + 5 H2O + N2 + NaHSO4, soit 37 H2O2 par AO7",
+     "formula": "rapport molaire ; excès = rapport/37",
+     "result": "H2O2/AO7 = 563 (15 fois la demande de minéralisation totale) ; 281 à 2,85 × 10−4 M (7,6 fois)",
+     "compared_to": "argument des auteurs : « The molar ratio oxidant/dye is low »",
+     "source": "calcul (bilan d'oxydation équilibré ici)"
+    },
+    {
+     "what": "conversion à 60 min selon chaque kobs",
+     "inputs": "kobs = 0,011 (Tableau 1, Fig. 8–11), 0,236 (légende Fig. 7b), ≈ 0,04 min−1 (pente lue Fig. 7b)",
+     "formula": "X = 1 − exp(−kobs × 60) ; k requis pour 94 % = ln(1/0,06)/60",
+     "result": "48 % ; 100 % (94 % atteints dès 12 min) ; 91 % ; k requis = 0,047 min−1",
+     "compared_to": "94 % en 60 min annoncés",
+     "source": "calcul"
+    },
+    {
+     "what": "ΔG‡ par l'équation d'Eyring",
+     "inputs": "kobs du Tableau 1 ; kB = 1,380649 × 10−23 J/K ; h = 6,62607 × 10−34 J s ; R = 8,31446 J/(mol K)",
+     "formula": "ΔG‡ = RT ln(kB T/(h k)), k en s−1 (k/60) ou, par erreur, en min−1",
+     "result": "avec k en min−1 : 85,7 kJ/mol à 298 K, 88,5 à 313 K, 90,4 à 321 K, 90,7 à 328 K (auteurs : 85,79 ; 88,45 ; 89,87 ; 91,11) ; avec k en s−1 : 95,8 ; 99,2 ; 101,3 ; 101,8 kJ/mol",
+     "compared_to": "valeurs du Tableau 1 : les auteurs ont mêlé k en min−1 et kB T/h en s−1 ; ΔG‡ sous-estimé de RT ln 60 ≈ 10,7 kJ/mol",
+     "source": "constantes CODATA (définitions SI), calcul"
+    },
+    {
+     "what": "énergie d'activation par Arrhenius",
+     "inputs": "Tableau 1 : (289 K ; 0,006), (313 ; 0,011), (321 ; 0,013), (328 ; 0,025) min−1 ; variante 289 → 298 K ; Fig. 12 (lu par l'extracteur) : 25, 40, 48, 55 °C ; 0,006, 0,014, 0,018, 0,022",
+     "formula": "régression ln k = ln A − Ea/(RT)",
+     "result": "Tableau tel quel : Ea = 25,4 kJ/mol (R² 0,88) ; avec 298 K : 35,6 kJ/mol (R² 0,93) ; Fig. 12 : 35,6 kJ/mol (R² 0,98)",
+     "compared_to": "Ea = 35,5 kJ/mol annoncé : obtenu seulement avec 298 K, donc « 289 » est une coquille pour 298 K",
+     "source": "calcul"
+    },
+    {
+     "what": "ΔH‡ et ΔS‡",
+     "inputs": "Ea = 35,5 kJ/mol ; T = 313 K ; ΔG‡(313) = 88,45 (auteurs) ou 99,2 kJ/mol (corrigé)",
+     "formula": "ΔH‡ = Ea − RT ; ΔS‡ = (ΔH‡ − ΔG‡)/T",
+     "result": "ΔH‡ = 32,9 kJ/mol (et non 35,5) ; ΔS‡ = −177 J/(mol K) avec les ΔG‡ des auteurs (ils ont donc bien utilisé 32,9) ; ≈ −212 J/(mol K) avec ΔG‡ corrigé",
+     "compared_to": "Tableau 1 : ΔH‡ = 35,5 ; ΔS‡ = −177 J/(mol K)",
+     "source": "calcul"
+    },
+    {
+     "what": "dose de catalyseur",
+     "inputs": "15 × 10−3 g/mL",
+     "formula": "conversion d'unité",
+     "result": "15 g/L",
+     "compared_to": "Tableau 3 de l'article : 0,05 à 2 g/L pour les autres catalyseurs",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Trois kobs incompatibles pour les mêmes conditions : 0,236 min−1 (légende Fig. 7b), 0,011 min−1 (Tableau 1, Fig. 8–11) et ≈ 0,04 min−1 (pente de la Fig. 7b). 0,011 min−1 ne donne que 48 % en 60 min, 0,236 min−1 donnerait 94 % en 12 min ; seul ≈ 0,047 min−1 est compatible avec « 94 % en 60 min » (voir « conversion à 60 min selon chaque kobs »). Les séries de kobs (pH, doses, température, isopropanol) ne peuvent pas être comparées à la décoloration annoncée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tableau 1 : 289 K est une coquille pour 298 K (Ea = 35,5 kJ/mol et ΔG‡ = 85,79 kJ/mol ne se retrouvent qu'avec 298 K) ; les ΔG‡ sont calculés avec k en min−1 et kB T/h en s−1, d'où une sous-estimation de ≈ 10,7 kJ/mol (voir « ΔG‡ par l'équation d'Eyring ») ; ΔH‡ est écrit égal à Ea alors que ΔH‡ = Ea − RT = 32,9 kJ/mol.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire : les auteurs lisent des paramètres d'activation (ΔG‡, ΔH‡, ΔS‡ d'Eyring) comme des grandeurs thermodynamiques de réaction (ΔG° « non spontané », ΔH° « endothermique, irréversible »). Un ΔG‡ positif est une barrière, pas une non-spontanéité ; l'oxydation d'AO7 par H2O2 est fortement exergonique. Un ΔS‡ négatif traduit un état de transition associatif, pas un « ordre à l'interface ».",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le Co présent dans l'essai standard est d'environ 1 à 2 µmol au plus pour 1,42 µmol de colorant (voir « cobalt contre colorant dans l'essai standard ») : le nombre de rotations est ≤ 1 par Co, même dans l'hypothèse la plus favorable (aucune perte à l'hydrazine). Le caractère catalytique du Co n'est pas démontré ; le Co du solide n'est pas dosé (l'EDX à ≈ 0,05–0,08 % en masse est sous la limite de détection usuelle de l'EDX, ≈ 0,1 %).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoins insuffisants : H2O2 seul et catalyseur sans H2O2, mais aucun essai avec le support Cs/GO sans porphyrine + H2O2. Le GO de Hummers garde souvent des ions Mn résiduels, eux-mêmes décomposeurs de H2O2, et le Co(II)/H2O2 en solution est un mauvais générateur de HO• (Anipsitakis et Dionysiou : le cobalt n'est efficace qu'avec le peroxymonosulfate). Sans ce témoin, rien n'attribue l'activité à la cobaltoporphyrine.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Radical Generation by the Interaction of Transition Metals with Common Oxidants",
+      "authors_or_publisher": "Anipsitakis G.P., Dionysiou D.D. (Environ. Sci. Technol. 38, 3705–3712)",
+      "year": "2004",
+      "url_or_doi": "10.1021/es035121o"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Équation 7 : Co(III)-porphyrine + OH− → Co(II) + HO• suppose qu'un Co(III) porphyrinique oxyde l'hydroxyde en HO•, couple très oxydant (E°(HO•/HO−) ≈ +1,9 V à pH 14, rapport IUPAC), hors de portée d'un couple Co(III)/Co(II) porphyrinique (quelques dixièmes de volt) : thermodynamiquement impossible. La régénération de Co(II) passe plutôt par H2O2 (Co(III) + H2O2 → Co(II) + HO2• + H+). L'équation 8 (AO7 + HO• → … + H2O2 + CO2) n'est pas équilibrée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Standard electrode potentials involving radicals in aqueous solution: inorganic radicals (IUPAC Technical Report)",
+      "authors_or_publisher": "Armstrong D.A., Huie R.E., Koppenol W.H. et al. (Pure Appl. Chem. 87, 1139–1150)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-0502"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Série en pH : chaque pH a son tampon (phosphate à 7 et 11, borax/HCl à 8 et 9, NaHCO3/NaOH à 10). Le carbonate et le bicarbonate piègent HO• (Buxton 1988 : de l'ordre de 10^7 M−1 s−1 pour HCO3−, 10^8 pour CO3 2−), le phosphate tamponne mal à pH 11 (pKa3 ≈ 12,3) et complexe le cobalt. Le maximum à pH 9 et la baisse à pH 10 peuvent venir du tampon et non du pH : le témoin qui change plusieurs variables ne prouve pas l'optimum.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Critical Review of rate constants for reactions of hydrated electrons, hydrogen atoms and hydroxyl radicals (·OH/·O−) in aqueous solution",
+      "authors_or_publisher": "Buxton G.V., Greenstock C.L., Helman W.P., Ross A.B. (J. Phys. Chem. Ref. Data 17, 513)",
+      "year": "1988",
+      "url_or_doi": "10.1063/1.555805"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La baisse d'efficacité aux fortes concentrations d'AO7 est attribuée à un rapport oxydant/colorant « faible » ; or H2O2 reste en excès de 7,6 à 15 fois la demande de minéralisation totale (voir « H2O2 contre AO7 »). La saturation des quelque 1–2 µmol de sites, comparables à la quantité de colorant, est l'explication cohérente.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Liaison amide NH2/COOH « par sonication/chauffage » (Fig. 2) sans agent de couplage : l'amidation directe acide carboxylique + amine dans l'eau ne se fait pas dans ces conditions (formation d'un sel d'ammonium-carboxylate). Les déplacements IR de 1651 à 1632 et de 1438 à 1431 cm−1 (moins de 20 cm−1) sont compatibles avec une interaction électrostatique ou des liaisons H ; ils ne prouvent pas une amide.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX : le pic du composite à 9,60° (d = 0,921 nm) coïncide exactement avec la réflexion (020) du chitosane de départ (9,60°) : le « décalage » 10,32 → 9,60° du GO par intercalation n'est pas distingué d'une superposition.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Recyclage : le résumé et la conclusion annoncent l'absence de désactivation après six cycles, tandis que le texte donne 15 % de perte au sixième cycle et que la Fig. 15 donne ≈ 100 % au premier cycle, contre 94 % annoncés dans les mêmes conditions. Le lixiviat de Co n'est pas mesuré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Abaissement de kobs par l'isopropanol et fluorescence de l'acide 2-hydroxytéréphtalique : cohérents avec la présence de HO•. Mais l'axe de la Fig. 13 n'a pas d'unité, et l'isopropanol ne distingue pas un HO• généré par le Co d'un HO• généré par des traces de Mn ou de Fe du GO.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "H2O2 à 30 % (oxydant, incompatible avec l'hydrazine résiduelle des étapes amont), nanopoudre de GO (inhalation), sonication : non mentionnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Association surtout physique (sel d'ammonium-carboxylate, liaisons H, intercalation) entre chitosane et GO, sans amide démontrée ; activité catalytique de type Fenton modeste, avec un nombre de rotations ≤ 1 par Co. Une part de l'activité peut venir de sites Mn/Co non porphyriniques. Cycle le plus plausible : Co(II) + H2O2 → Co(III)–OH + HO• ; Co(III) + H2O2 → Co(II) + HO2• + H+ (et non l'oxydation de OH− par Co(III)) ; attaque de l'azo/hydrazone de AO7 par HO•.",
+    "sources": [
+     {
+      "title": "Radical Generation by the Interaction of Transition Metals with Common Oxidants",
+      "authors_or_publisher": "Anipsitakis G.P., Dionysiou D.D. (Environ. Sci. Technol. 38, 3705–3712)",
+      "year": "2004",
+      "url_or_doi": "10.1021/es035121o"
+     },
+     {
+      "title": "Standard electrode potentials involving radicals in aqueous solution: inorganic radicals (IUPAC Technical Report)",
+      "authors_or_publisher": "Armstrong D.A., Huie R.E., Koppenol W.H. et al. (Pure Appl. Chem. 87, 1139–1150)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-0502"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en Co du composite (ICP) et lixiviation dans la solution après réaction",
+    "témoin Cs/GO sans porphyrine + H2O2 et GO seul + H2O2 (Mn résiduel)",
+    "une seule cinétique cohérente avec 94 % en 60 min (k ≈ 0,047 min−1) ; un seul tampon non piégeur sur toute la série en pH",
+    "recalcul du Tableau 1 (298 K, k en s−1)",
+    "nature de la liaison Cs–GO (XPS N 1s, essai sans chauffage)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Chaîne de sept étapes dont quatre (TPHPP, chloroacétylation, GO, assemblage final) renvoient à la littérature sans conditions : le catalyseur n'est pas refaisable avec le seul article. Là où il y a des chiffres, plusieurs ne tiennent pas : le cobalt apporté (58 mg = 0,244 mmol et non 0,294) est inférieur au produit annoncé (0,28 mmol, 115 %) ; la RMN (β-H 9,13 ppm, raies fines) et la Soret à 448 nm désignent un Co(III) diamagnétique ou une porphyrine non métallée, pas un Co(II) ; 0,01 mmol de complexe pour 1 g de support ne peut pas faire disparaître la bande C–Cl ; l'hydrazine à 100 °C doit couper le lien ester porphyrine–chitosane du schéma des auteurs ; le Co final (≈ 1–2 µmol au plus) est équimolaire au colorant (pas de catalyse démontrée) ; les trois kobs se contredisent ; le Tableau 1 mêle min−1 et s−1 et porte 289 K pour 298 K ; le mécanisme régénère Co(II) par une réaction thermodynamiquement impossible ; aucun témoin Cs/GO sans porphyrine.",
+  "author_errors_suspected": [
+   "CoCl2·6H2O : 58 mg = 0,244 mmol, pas 0,294 mmol ; rendement 0,28 mmol > Co apporté",
+   "Tableau 1 : 289 K au lieu de 298 K ; ΔG‡ calculés avec k en min−1 (≈ 10,7 kJ/mol trop bas) ; ΔH‡ = Ea au lieu de Ea − RT",
+   "kobs standard : 0,236 (légende) contre 0,011 (tableau, figures) contre 94 % en 60 min (exige ≈ 0,047 min−1)",
+   "bande 1001 cm−1 attribuée à ν(Co–N) y compris dans la porphyrine libre",
+   "métallation dans le méthanol (Méthodes) contre DMF (Résultats)",
+   "degré de désacétylation 81 % (Matériaux) contre degré d'acétylation 81 % (DRX)",
+   "UV mesuré de 200 à 600 nm mais bande à 649 nm rapportée ; RMN dans CDCl3 (Instruments) contre DMSO (données)",
+   "équation 7 (Co(III) + OH− → Co(II) + HO•) impossible ; équation 8 non équilibrée",
+   "paramètres d'activation interprétés comme ΔG°, ΔH°, ΔS° de réaction",
+   "recyclage : « pas de désactivation » contre 15 % de perte au 6e cycle"
+  ],
+  "comparison_with_database": "compare.py : aucune autre voie de cobaltoporphyrine ni de chitosane modifié par porphyrine dans la base ; la seule autre porphyrine (PMC6720160, TPPS4) n'est pas comparable. GO : les voies GO extraites (ex. PMC12093138) détaillent la méthode de Hummers améliorée, celle-ci non."
+ },
+ "sources_not_found": [
+  "source directe de la position de la vibration Co–N des métalloporphyrines en infrarouge lointain (énoncé de chimie générale, non sourcé ici)",
+  "valeurs exactes de E°(HO•/HO−) et des constantes HO• + HCO3−/CO3 2− non relues sur les documents (rapport IUPAC 2015 et Buxton 1988 identifiés par recherche, DOI non vérifiés sur Crossref)",
+  "publication sur les impuretés de Mn dans le GO de Hummers non recherchée (limite de recherches)"
+ ]
+}

@@ -1,0 +1,10 @@
+# Journal de correction PMC8398574
+
+- Constat 1 (RL_min sans épaisseur) : la structure des résultats n'a pas de champ de condition, et la citation de RL_min (« Simultaneously, their minimum RL values… ») n'écrit pas « 4.0 mm » ; renommer la propriété aurait mis dans son nom une condition que sa citation ne porte pas. Décision de l'orchestrateur : annotation `limite_reproductibilite` (route null) qui rattache 4,0 mm à RL_min et RL_min_frequency (conclusion et Tableau 1), valeurs inchangées.
+- Constat 2 (TGA MMO ~2,5 % vs Fig. 1f) : figure ouverte (corpus/fig/PMC8398574/…g001.jpg), la courbe 1f finit vers 96,5 % (≈ 3,5 %). Valeur du texte conservée ; ajout d'un doute et d'une annotation sur le MMO. Le « ~35 % » vs 33,5 % du LDH est dans une annotation brève (le doute existait déjà).
+- Constat 3 (tan δμ, tan δε) : ajoutés aux deux voies matériau en `outcomes`, même citation de texte (valeurs communes aux deux échantillons, selon l'article) ; tan δμ en `value_num` 1.4 (« about 1.4 »), tan δε en `value_text` « less than 0.1 ». Conditions « 5-7 GHz » dans le nom de propriété car la citation les écrit.
+- Constat 4 (XRD, intensités NiO > NiFe2O4) : absent des décisions de l'orchestrateur mais soutenu par le texte, donc appliqué comme résultat `XRD_peak_intensity_NiO_vs_NiFe2O4` sur NiFe-MMO (value_text = mots de l'article).
+- Science : les deux `probleme` (perméabilité LDH, réponse magnétique MMO) deviennent des annotations `limite_reproductibilite`, sans valeur modifiée ; source citée sans DOI (Coronado et al., Inorg. Chem. 2008), selon la consigne de ne pas reprendre les DOI non vérifiés.
+- Réserves : annotations brèves regroupées (x défini à l'envers + 35 % vs 33,5 % sur le LDH ; Foucault en route null ; NiO/spinelle avec la perte de masse sur le MMO ; 40 % massique ≈ 17 % vs 8,7 % vol. et RL = couche sur métal sur l'anneau).
+- `mecanisme_analyse` du LDH : « 44 mmol de OH− » remplacé par 40 mmol (2 × 20), excès de 25 % de NH3, en mentionnant 44 mmol pour des hydroxydes simples ; `mecanisme_auteurs` inexistant, non touché.
+- Aucun doute périmé sur les marqueurs `[[id]]` n'existait ; rien à retirer.

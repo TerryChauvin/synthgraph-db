@@ -1,0 +1,86 @@
+{
+ "pmcid": "PMC9061730",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "toutes voies, characterizations : DSC absente (instrument, vitesse, atmosphère, plage, AP 20 µm, taux de charge)",
+   "extracted": "aucune entrée DSC dans characterizations ; 'Mettler', '5 °C min' et 'nitrogen blanket' n'apparaissent nulle part dans le JSON ; la taille de l'AP (20 μm) n'est que dans l'inventaire",
+   "article_says": "Differential scanning calorimetry (DSC) analysis were performed on an 822e Mettler Toledo instrument at a heating rate of 5 °C min−1 under a nitrogen blanket in the range of 140–500 °C.",
+   "fix": "ajouter à chaque voie testée (GO, rGO, CuNP, rGO|CuNP) une caractérisation DSC : instrument 822e Mettler Toledo, 5 °C min−1, atmosphère N2, plage 140–500 °C, catalyseur ajouté à l'AP (20 μm) à 1, 3 et 5 % en masse (citation « The catalytic performance of the compounds ... in 1, 3 and 5% wt. »). Toutes les valeurs de température et d'énergie en dépendent.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "rGO outcome HTD_peak_AP_with_rGO_summary = 410 °C (Fig. 7)",
+   "extracted": "410 °C sans taux de charge ; le voisin du texte (5 % : HTD diminuée de 1 °C) donnerait 414 °C",
+   "article_says": "Considering 5% wt., the LTD decreased by 5 °C and 1 °C in the case of the HTD.",
+   "fix": "Fig. 6b : l'étiquette 410 °C est celle de la courbe à 1 % ; 5 % porte 414 °C et 3 % 417 °C. La barre rGO de la Fig. 7 (≈ 410) correspond donc au taux de 1 %, pas au 5 % du texte. Renommer en HTD_peak_AP_with_1%_wt_rGO_summary (ou préciser le taux dans la propriété), et ajouter 414 °C (5 %) et 417 °C (3 %) si voulu ; même précision pour GO (403 °C = taux de 5 %, voir le texte « GO at 5% wt. diminished the HTD of AP by 12 °C »).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "TEM de GO, rGO, CuNP et rGO|CuNP : instrument « Hitachi HT7700 »",
+   "extracted": "instrument = Hitachi HT7700 pour les quatre TEM",
+   "article_says": "TEM images were collected on a Hitachi HT7700 equipment.",
+   "fix": "le texte ne dit pas quelles figures (Fig. 1, Fig. 3) viennent de ce microscope. Fig. 1b montre des colonnes atomiques à 3 Å, ce qui relève plutôt du HRTEM du FEI Titan (« Scanning transmission electron microscopy (STEM) and high-resolution transmission electron microscopy (HRTEM) analyses were performed with a FEI Titan Themis 80/300 »). Mettre l'instrument en non cité pour Fig. 1b au moins, ou citer les deux possibles.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "rGO|CuNP outcomes DFT : seul le site (IV) a ses valeurs ; sites (I), (II), (III), (V) et niveau de calcul absents",
+   "extracted": "trois résultats DFT (site le plus stable, écart de 11.3 kcal mol−1, −Eint BSSE de (IV) = 44.088) ; journal : la rangée (I) contient du SVG donc non citable",
+   "article_says": "(II) | –COOH | 2.05 | −0.672 | 0.414 | −0.084 | 24.450 (30.189) | 0.287",
+   "fix": "les rangées (II), (III) et (V) ne contiennent aucun SVG et sont citables telles quelles : −Eint 24.450, 21.787, 25.547 kcal mol−1 et EBG 0.287, 0.282, 0.288 eV ; (I) est citable aussi, la citation peut commencer après la balise SVG (« | 1.93 | −0.745 | 0.415 | 0.231 | 32.825 (37.257) | 0.189 »). Les cinq sites sont la variation testée par les auteurs. Niveau de calcul absent : B3LYP, 6-311G (C, H, O), LANL2DZ (Cu), Gaussian16, cluster Cu8, correction de contrepoids Boys–Bernardi.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "témoin AP seul et énergie de l'rGO à 1 % : aucun résultat extrait",
+   "extracted": "AP seul non extrait « faute de voie » ; phrase « 1.8 times » non extraite",
+   "article_says": "Finally, the high-temperature decomposition (HTD) step occurs at 415 °C.",
+   "fix": "les décalages de 4, 12, 97, 68 °C n'ont de sens qu'avec la référence : AP seul LTD ≈ 300 °C, HTD 415 °C, transition 240–250 °C (texte), 1016 J g−1 (Fig. 6, les quatre panneaux). À noter en annotation ou en outcome d'une voie ; l'énergie 1.8× (1761/1016 = 1,73, rGO à 1 %) de la phrase « The increase in the energy release at 1% wt. rGO|CuNP was almost 1.8 times the energy of pure AP » pourrait être rangée sur la voie rGO avec doute, la phrase suivante parlant de « rGO|CuNP » comme second terme.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "rGO step 4 (adjust_ph) placée après le chauffage",
+   "extracted": "adjust_ph après heat à 65 °C / 1 h",
+   "article_says": "The pH value was kept at 10 by adding NH3 dissolution.",
+   "fix": "« kept at 10 » indique un pH maintenu pendant la réaction (en parallèle du chauffage), non un ajustement après 1 h ; ordre incertain, déjà en doute. Annoter plutôt « concomitant ou non précisé ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation securite_analyse (CuNP) : « L'ammoniac concentré (rGO, rGO|CuNP) »",
+   "extracted": "« concentré »",
+   "article_says": "The pH value was kept at 10 by adding NH3 dissolution.",
+   "fix": "la concentration de la solution de NH3 n'est pas donnée (c'est une lacune de l'extraction elle-même) ; écrire « solution d'ammoniac » sans « concentré ».",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 0,
+  "branches_extracted": 0,
+  "routes_in_article": 4,
+  "routes_extracted": 4,
+  "not_stated_checked": 14,
+  "not_stated_wrong": 0,
+  "from_figure_checked": 16,
+  "from_figure_wrong": 1,
+  "method_sources_checked": 3,
+  "method_sources_missing": 0
+ },
+ "reproducibility_gaps": [
+  "préparation des mélanges AP/catalyseur (méthode de mélange, masse d'échantillon, capsule, quantité de catalyseur par essai) absente",
+  "rendements des quatre matériaux absents",
+  "solvant des solutions de CuCl2 et d'acide ascorbique (eau supposée, non écrit) et concentration de la solution de NH3 absents",
+  "vitesse d'agitation, durée de séchage et pression du vide absentes ; volume d'éther non donné",
+  "produit de CuNP et rGO|CuNP : culot ou surnageant dilué ; le texte dit aussi « the CuNP powder » sur grille TEM, ce qui suppose une poudre isolée non décrite",
+  "ordre et moment de l'ajustement du pH (rGO, rGO|CuNP) non précisés",
+  "annexe : seules les légendes de Fig. S1 à S4 sont disponibles, pas les images",
+  "taille de CuNP 6 nm (TEM) contre 4.8 ± 1.2 nm (HAADF-STEM), et unités Å/nm incohérentes dans le résumé et pour le d-spacing"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (sites d'ancrage époxy et carbonyle, calcul DFT) soutenu par la citation ; seule remarque : « ammoniac concentré » de securite_analyse non appuyé par l'article",
+ "notes": "Les 16 valeurs de la Fig. 6 (12 énergies, 318 °C) et de la Fig. 7 (403, 410, 347) relues sur les images : toutes les étiquettes d'énergie concordent (GO 2004/1880/1867, rGO 1761/1590/1817, CuNP 2851/1948/1894, rGO|CuNP 3559/2017/1220), 318 °C = CuNP 3 %, 347 °C = rGO|CuNP 1 % ; seule l'attribution de 410 (rGO) au taux de 1 % est en cause. Le choix 4 voies sans branche est cohérent avec l'article (un seul protocole par matériau, taux de charge = test du matériau fini). Fragile dans ma lecture : « 1.8 times » probablement l'rGO à 1 % (coquille dans le texte), non certain."
+}

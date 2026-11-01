@@ -1,0 +1,16 @@
+# Journal d'extraction PMC6154307
+
+- Découpage : MSN (voie de base, synthèse Radu adaptée) et Py-MSN-toluene (chargement, MSN en réactif `intermediate`) sont deux voies de base ; le chargement est une transformation du matériau mais Py-MSN est le matériau étudié dans l'essai en serre, donc `material` et non `post_treatment`.
+- Branches : seulement les deux solvants de chargement (chloroforme, hexane), « three solvents—chloroform, toluene, and hexane » ; ordre des valeurs « 3.92%, 29.77% and 20.56%, respectively » = chloroforme, toluène, hexane, confirmé par « the loading efficiency of MSNs was 29.77% » (toluène).
+- Héritage des branches solvant : l'article ne dit pas que le reste du protocole est identique. J'ai gardé l'héritage (variation = toluène remplacé) et ouvert un doute, plutôt que recopier des étapes inventées ; la citation de la variation est la phrase des trois solvants.
+- Doses 0,5 et 2 mg/mL, pH de libération, parties de plante : ce sont des conditions d'essai du matériau fini, donc des `outcomes` (nom de propriété avec la condition) et non des branches ; inventaire avec `route: null` et raison.
+- Fig. 5 : les valeurs sont les étiquettes imprimées sur les barres (72 valeurs, 8 panneaux × 9 dates), marquées `from_figure: Fig. 5a`… avec en citation la légende du panneau ; le texte les renvoie à tort à « Figure 2 ». Barres d'erreur non extraites.
+- Fig. 3 : seules deux valeurs lues (volume adsorbé à P/P0 = 0,5, ≈ 270 et ≈ 3 cm3/g), 2 chiffres significatifs, signalées en doute ; pas de volume ni diamètre de pores donnés par l'article.
+- Table 2 : demi-vies recopiées. Constat : pour feuilles supérieures, inférieures et racines, t½ ≠ ln2/k, l'écart vaut le jour de départ (3, 5, 7) ; valeur de l'article gardée, doute écrit. Les feuilles traitées respectent ln2/k.
+- Rangées de la table 2 pour la dose 2 mg/mL : la cellule « Part » est vide dans le texte (cellules fusionnées), attribution par position sous la partie précédente ; la citation est la fin de la rangée.
+- 70 °C (chauffage avant ajout du TEOS) et 80 °C (6 h d'agitation) : deux étapes distinctes, les deux valeurs gardées, doute écrit.
+- Quantités écrites en toutes lettres (« Four hundred eighty milliliters », « Thirty milligrams ») : `amount_text`, car le contrôle refuse un nombre absent de la citation.
+- Eau désionisée : fournisseur = « Milli-Q water purification system from Millipore, USA » (phrase des matériaux), pureté non citée. NaOH, toluène, éthanol : ni pureté ni fournisseur ; TEOS : fournisseur seulement.
+- method_sources : Radu (B37) pour la synthèse des MSN ; QuEChERS modifié (B38) pour le dosage des résidus. Non retenus : B39 (autre article cité en bloc avec B38, évaluation de protecteurs d'analytes en GC), B29 (lignes directrices de validation UE), Cai, Mann, Ostafin (contexte historique).
+- Non extrait volontairement : validation analytique (table 1 : recouvrements, LOQ, droites de calibration) ; le texte annonce R2 « better than 0.995 » alors que la table donne 0,993 pour les feuilles (contradiction interne, hors voies de synthèse, non reprise).
+- Protocole de l'essai en serre et du dosage : repris seulement en caractérisation HPLC-MS/MS (conditions) ; pas de voie `device`, car ce n'est pas une fabrication.

@@ -1,0 +1,330 @@
+{
+  "pmcid": "PMC7481534",
+  "routes": [
+    {
+      "label": "GO_crude",
+      "verdict": "invérifiable",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {
+          "what": "ouverture du tamis de 1200 mesh",
+          "inputs": "1200 fils par pouce (25,4 mm) ; graphite de départ 300 mesh",
+          "formula": "pas = 25,4 mm / mesh ; ouverture ≈ pas − diamètre du fil",
+          "result": "pas ≈ 21 µm, ouverture ≈ 10–13 µm selon la norme de tamis ; 300 mesh ≈ 85 µm de pas (≈ 48–50 µm d'ouverture)",
+          "compared_to": "tamisage à sec d'une poudre de GO hygroscopique et électrostatique sous 12 µm : lent, faible rendement de passage",
+          "source": "arithmétique sur la définition du mesh (fils par pouce) ; norme de tamis non citée par l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Aucune quantité (graphite, KMnO4, H2SO4, H2O2), durée ni température d'oxydation n'est donnée : la méthode de Hummers modifiée est renvoyée à trois références des auteurs. KMnO4, H2SO4, H2O2 et HCl figurent dans la liste des produits achetés, ce qui est compatible avec un Hummers classique, mais rien n'est vérifiable.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Preparation of Graphitic Oxide", "authors_or_publisher": "Hummers W. S., Offeman R. E., J. Am. Chem. Soc.", "year": "1958", "url_or_doi": "10.1021/ja01539a017"}
+        },
+        {
+          "aspect": "bilan",
+          "finding": "Le GO est dit « crude » et les auteurs opposent leur méthode aux « plus de 10 jours » de préparation et purification du GO : le GO brut contient donc probablement de l'acide sulfurique, des sels de manganèse et de potassium résiduels. Leur teneur fixe la quantité de KOH réellement disponible à l'étape suivante (neutralisation) et la proportion de sels de K dans le solide chauffé (voir aGQD, sécurité). Non quantifiée.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "Hummers : KMnO4 dans H2SO4 concentré (formation possible de Mn2O7 explosif si la température n'est pas tenue), exotherme à l'ajout d'eau, H2O2. Aucune précaution écrite (étape renvoyée aux références).",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Improved Synthesis of Graphene Oxide", "authors_or_publisher": "Marcano D. C. et al., ACS Nano", "year": "2010", "url_or_doi": "10.1021/nn1006368"}
+        }
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Oxydation de Hummers : intercalation de H2SO4 dans le graphite, oxydation par Mn(VII) en époxydes et hydroxyles sur le plan basal, carbonyles et carboxyles en bordure ; le produit brut est un complexe de feuillets oxydés et de débris d'oxydation fortement oxydés (environ un tiers de la masse), détachables par une base.",
+        "sources": [
+          {"title": "The chemistry of graphene oxide", "authors_or_publisher": "Dreyer D. R., Park S., Bielawski C. W., Ruoff R. S., Chem. Soc. Rev.", "year": "2010", "url_or_doi": "10.1039/B917103G"},
+          {"title": "Deoxygenation of Graphene Oxide: Reduction or Cleaning?", "authors_or_publisher": "Thomas H. R. et al., Chem. Mater.", "year": "2013", "url_or_doi": "10.1021/cm401922e"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "retrouver le protocole Hummers dans les références des auteurs (quantités de KMnO4, H2SO4, durée, température)",
+        "dire si le GO est lavé (et jusqu'à quel pH) ou utilisé brut avec ses sels et son acide résiduels : cela change la quantité de KOH libre et la sécurité du chauffage",
+        "teneur en eau et en potassium du GO brut (ATG, ICP)"
+      ]
+    },
+    {
+      "label": "aGQD",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "moles de KOH et concentration nominale",
+          "inputs": "20 g KOH (M = 56,106 g/mol) ; 25 mL éthanol/eau 4:1 (20 mL éthanol + 5 mL eau)",
+          "formula": "n = m/M ; C = n/V",
+          "result": "n(KOH) = 0,356 mol ; 800 g/L, soit ≈ 14 mol/L rapportés au volume de solvant",
+          "compared_to": "solubilité (calcul suivant)",
+          "source": "PubChem, « Potassium Hydroxide », CID 14797, https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-hydroxide (masse molaire)"
+        },
+        {
+          "what": "KOH dissoluble dans 20 mL d'éthanol + 5 mL d'eau",
+          "inputs": "eau : 112 g KOH/100 g à 20 °C ; éthanol : ≈ 1 g KOH pour 2,5 mL (source secondaire) ; additivité supposée",
+          "formula": "m = 5 g × 1,12 + 20 mL / 2,5 mL·g−1",
+          "result": "≈ 5,6 + 8 ≈ 13–14 g dissous au plus à température ambiante, contre 20 g annoncés",
+          "compared_to": "« KOH (20 g) was dissolved » : une partie (≈ 6 g) reste probablement solide sauf échauffement par la dissolution",
+          "source": "PubChem CID 14797 (Ullmann's : 112 g/100 g H2O à 20 °C) ; WikiDoc « Potassium hydroxide », https://www.wikidoc.org/index.php/Potassium_hydroxide (≈ 1 g/2,5 mL EtOH, source secondaire)"
+        },
+        {
+          "what": "rapport KOH/carbone du GO",
+          "inputs": "5 g de GO brut ; teneur en carbone supposée 50–60 % en masse (GO de Hummers, C/O ≈ 2, eau comprise) ; 0,356 mol KOH",
+          "formula": "n(C) = 5 × w(C) / 12,011 ; KOH/C",
+          "result": "n(C) ≈ 0,21–0,25 mol ; KOH/C ≈ 1,4–1,7 mol/mol ; KOH/GO = 4:1 en masse",
+          "compared_to": "rapports massiques KOH/C de 2 à 4 de l'activation chimique des carbones (700–800 °C) : excès de base fort, ici à 300 °C seulement",
+          "source": "teneur en C : hypothèse d'ordre de grandeur (Dreyer et al. 2010, 10.1039/B917103G) ; arithmétique"
+        },
+        {
+          "what": "état du KOH à 300 °C",
+          "inputs": "point de fusion de KOH : 406 °C (CRC) ; « about 360 °C ; about 380 °C when anhydrous » (Merck) ; consigne 300 °C",
+          "formula": "comparaison directe",
+          "result": "300 °C < 360–406 °C : KOH n'est pas fondu à 300 °C ; après séchage à l'air il est en partie carbonaté (K2CO3, fusion 891 °C)",
+          "compared_to": "annotation mecanisme_analyse « le KOH fondu à 300 °C attaque les régions oxydées » : à corriger (réaction solide–solide ou via un film hydraté)",
+          "source": "PubChem CID 14797, section Melting Point (CRC Handbook 95e éd. ; Merck Index 2013)"
+        },
+        {
+          "what": "concentration d'uranyle après chaque ajout (étalonnage)",
+          "inputs": "2 mL d'aGQD ; ajouts successifs de 20 µL d'uranyle 1e−5 M (légende Fig. 8)",
+          "formula": "c_n = n × 20e−6 × 1e−5 / (2e−3 + n × 20e−6)",
+          "result": "c1 = 9,90e−8 M ; c10 = 2,0e−9 mol / 2,2e−3 L = 9,09e−7 M (et non 1,0e−6)",
+          "compared_to": "axe de la Fig. 8b gradué de 1 à 10 × 1e−7 M : écart de 1 à 9 % selon le point, pente surestimée d'≈ 5 %",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "baisse d'intensité due à la seule dilution",
+          "inputs": "2 mL + 10 × 20 µL = 2,2 mL",
+          "formula": "F/F0 (dilution) = 2 / 2,2",
+          "result": "0,909 : ≈ 9 % de baisse au 10e ajout sans aucune extinction chimique",
+          "compared_to": "≈ 97 % d'extinction au 10e ajout (Fig. 8b) : la dilution n'explique qu'une petite part, mais aucun témoin (20 µL d'eau) n'est montré",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "uranyle par masse d'aGQD",
+          "inputs": "2 mL × 0,05 mg/mL = 0,10 mg d'aGQD ; 2,0e−9 mol U au 10e ajout",
+          "formula": "n(U) / m(aGQD)",
+          "result": "≈ 20 µmol U par g d'aGQD pour une extinction quasi totale",
+          "compared_to": "teneur en carboxyles de GO et points de carbone de l'ordre du mmol/g : sites largement en excès ; une extinction quasi linéaire jusqu'à 97 % avec si peu d'uranyle est inhabituelle (on attend une courbe de Stern–Volmer ou une saturation)",
+          "source": "valeurs de l'article ; ordre de grandeur des carboxyles : chimie générale, non sourcé"
+        },
+        {
+          "what": "extinction à 1e−7 M dans l'essai de sélectivité vs étalonnage",
+          "inputs": "Fig. 9 : blanc ≈ 19 500, UO2 2+ ≈ 17 000 u.a. ; Fig. 8b : 90 % à 1e−7 M",
+          "formula": "(F0 − F)/F0",
+          "result": "12,8 % (Fig. 9) contre ≈ 10 % (Fig. 8b)",
+          "compared_to": "accord acceptable entre deux séries indépendantes",
+          "source": "valeurs lues sur les figures de l'article (± 500 u.a.)"
+        },
+        {
+          "what": "concentration massique d'uranium aux bornes de l'étalonnage",
+          "inputs": "1e−7 et 1e−6 mol/L ; M(U) = 238,03 g/mol ; valeur guide OMS 30 µg/L",
+          "formula": "c(µg/L) = c(mol/L) × 238,03 × 1e6",
+          "result": "23,8 µg/L à 1e−6 M : 238 µg/L ; la valeur guide (30 µg/L) vaut 1,26e−7 M",
+          "compared_to": "le bas de la gamme linéaire est à peine sous la valeur guide de l'eau de boisson ; aucune limite de détection n'est donnée",
+          "source": "WHO, Guidelines for drinking-water quality, 4e éd. avec 1er addendum (2017), chap. 9, https://cdn.who.int/media/docs/default-source/wash-documents/water-safety-and-quality/dwq-guidelines-4/gdwq4-with-add1-chap9.pdf (valeur guide provisoire 30 µg/L)"
+        },
+        {
+          "what": "fer(III) libre possible à pH 5",
+          "inputs": "Ksp(Fe(OH)3) de l'ordre de 1e−38 (ordre de grandeur de manuel) ; [OH−] = 1e−9 M ; Fe3+ introduit à 1e−5 M",
+          "formula": "[Fe3+]max = Ksp / [OH−]^3",
+          "result": "≈ 1e−11 M ≪ 1e−5 M : le Fe3+ de l'essai de sélectivité est presque entièrement hydrolysé ou précipité",
+          "compared_to": "absence d'extinction par Fe3+ (Fig. 9) : ne prouve pas la sélectivité vis-à-vis du Fe3+ dissous",
+          "source": "chimie générale (produit de solubilité de manuel, ordre de grandeur)"
+        },
+        {
+          "what": "part de l'eau dans l'échantillon FT-IR",
+          "inputs": "légende Fig. 3b : « FT-IR spectrum of 0.05 mg mL−1 aGQDs solution »",
+          "formula": "m(eau)/m(aGQD) = 1000 mg / 0,05 mg",
+          "result": "20 000 : 1 ; 99,995 % d'eau en masse",
+          "compared_to": "le spectre de la Fig. 3b est celui de l'eau liquide (bande O–H large vers 3400, flexion vers 1640, combinaison vers 2100–2130 cm−1)",
+          "source": "valeurs de l'article ; positions des bandes de l'eau : Verma et al. 2017 (10.1021/acs.jpcb.7b09641), PMC9370017"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "solubilite",
+          "finding": "20 g de KOH ne se dissolvent probablement pas en entier dans 20 mL d'éthanol + 5 mL d'eau à température ambiante (≈ 13–14 g au plus, voir « KOH dissoluble dans 20 mL d'éthanol + 5 mL d'eau ») : on obtient une suspension chaude ou une solution sursaturée, pas la « strong alkaline solution » décrite. Sans conséquence grave puisque tout est ensuite séché, mais l'homogénéité du mélange GO/KOH en dépend.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Potassium Hydroxide, CID 14797", "authors_or_publisher": "PubChem (NIH), données Ullmann's et CRC", "year": "2026", "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-hydroxide"}
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Ajout du GO brut à la solution KOH éthanol/eau : chaleur de dissolution de KOH (« much heat is generated », Merck) plus neutralisation de l'acide résiduel du GO brut, dans un solvant à 80 % d'éthanol (ébullition 78 °C) : l'« ébullition violente » signalée par les auteurs est attendue. Séchage à 80 °C, au-dessus de l'ébullition de l'éthanol : étuve ventilée nécessaire (vapeurs inflammables). Durée de séchage non donnée.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Potassium Hydroxide, CID 14797 (Merck Index : dissolution dans l'eau ou l'alcool très exothermique)", "authors_or_publisher": "PubChem (NIH)", "year": "2026", "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-hydroxide"}
+        },
+        {
+          "aspect": "thermique",
+          "finding": "300 °C, 10 °C/min, 4 h à l'air dans un four à moufle : température inférieure à la fusion de KOH (406 °C CRC ; ≈ 360–380 °C Merck), voir « état du KOH à 300 °C ». La réaction se fait donc sur un mélange solide GO + KOH/K2CO3, pas dans un bain fondu ; le creuset n'est pas précisé (l'alcali chaud attaque porcelaine et verre : nickel, argent ou alumine).",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Potassium Hydroxide, CID 14797, Melting Point", "authors_or_publisher": "PubChem (NIH), CRC Handbook 95e éd., Merck Index 2013", "year": "2026", "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-hydroxide"}
+        },
+        {
+          "aspect": "securite",
+          "finding": "Le GO contaminé par des sels de potassium devient très inflammable : une simple source chaude peut déclencher une combustion totale et auto-entretenue. Ici 5 g de GO brut sont imprégnés de 20 g de KOH puis chauffés à 300 °C sous air : risque de déflagration ou d'emballement dans le four, non mentionné. Commencer sur de petites masses, rampe lente, four ventilé.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Self-Propagating Domino-like Reactions in Oxidized Graphite", "authors_or_publisher": "Kim F., Luo J., Cruz-Silva R., Cote L. J., Sohn K., Huang J., Adv. Funct. Mater.", "year": "2010", "url_or_doi": "10.1002/adfm.201000736"}
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Preuve non discriminante : une base seule, à température ambiante, détache du GO de Hummers des « débris d'oxydation » (environ 30 % de la masse), petits fragments polyaromatiques très oxydés, solubles dans l'eau et fortement fluorescents, avec une émission bleue qui se déplace avec la longueur d'onde d'excitation — exactement ce que montrent les aGQDs (427 nm sous 323 nm, 425→540 nm). L'article n'a pas de témoin « KOH sans chauffage à 300 °C » ni « 300 °C sans KOH » : rien ne montre que l'étape à 300 °C « découpe » des points plutôt que de libérer les débris déjà présents. Témoins à faire : même lavage alcalin sans four ; même four sans KOH ; rendement massique et PL comparés.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {"title": "The Real Graphene Oxide Revealed: Stripping the Oxidative Debris from the Graphene-like Sheets", "authors_or_publisher": "Rourke J. P., Pandey P. A., Moore J. J., Bates M., Kinloch I. A., Young R. J., Wilson N. R., Angew. Chem. Int. Ed.", "year": "2011", "url_or_doi": "10.1002/anie.201007520"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Le spectre FT-IR (Fig. 3b) est mesuré sur la dispersion aqueuse à 0,05 mg/mL (99,995 % d'eau, voir « part de l'eau dans l'échantillon FT-IR ») et montre le spectre de l'eau liquide : bande O–H large vers 3400, flexion H–O–H vers 1640 et bande de combinaison flexion + libration vers 2130 cm−1. Les auteurs attribuent la bande vers 2300 cm−1 à O=C=O et celle vers 1600 cm−1 au carbone aromatique ; la bande C=O à 1701 cm−1 et les bandes « époxy » à 1381 et 1255 cm−1 ne se distinguent pas sur la figure. La conclusion « riche en carboxyles, époxydes, hydroxyles » ne repose donc pas sur ce spectre. Il faut un spectre de la poudre lyophilisée (KBr ou ATR) ou de l'XPS.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {"title": "The Bend+Libration Combination Band Is an Intrinsic, Collective, and Strongly Solute-Dependent Reporter on the Hydrogen Bonding Network of Liquid Water", "authors_or_publisher": "Verma P. K. et al., J. Phys. Chem. B", "year": "2017", "url_or_doi": "10.1021/acs.jpcb.7b09641"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Les aGQDs sont dits « nano-scale reduced graphene oxide pieces » et en même temps riches en groupes oxygénés. Aucune mesure ne fixe le degré de réduction (pas d'XPS, d'analyse élémentaire ni d'ATG) ; l'HRTEM ne montre pas de franges de réseau, et le Raman (D 1365, G 1605 cm−1, ID/IG 1,08) est celui de tout carbone désordonné ou du GO. Le mot « graphene quantum dots » et le qualificatif « reduced » ne sont pas établis.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Interpretation of Raman spectra of disordered and amorphous carbon", "authors_or_publisher": "Ferrari A. C., Robertson J., Phys. Rev. B", "year": "2000", "url_or_doi": "10.1103/physrevb.61.14095"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Raman « with 512 nm laser excitation » : aucune raie laser courante à 512 nm (argon 514,5 nm, laser solide doublé 532 nm) ; probablement 514 nm. Sans effet sur ID/IG au premier ordre, mais la longueur d'onde est à vérifier si l'on compare la position de D.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Couleur d'émission : sous 323 nm l'émission maximale est à 427 nm (bleu-violet, Fig. 4), et la lampe de la Fig. 7 émet à 312 nm, où l'on attend la même émission bleue ; or les auteurs (et la photo) parlent de fluorescence « yellow-green ». L'émission verte n'est forte que pour des excitations de 360–440 nm. La photo a probablement été prise sur une dispersion plus concentrée (réabsorption) ou avec une lampe à large bande : condition à préciser.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Absorbance de la dispersion à 0,05 mg/mL vers 323 nm ≈ 0,5 (lecture de la Fig. 3a) : à cette valeur, l'effet de filtre interne n'est pas négligeable (règle usuelle A < 0,1) pour la PL mesurée à la même concentration ; les intensités relatives entre excitations (Fig. 4) en sont faussées. Aucun rendement quantique n'est donné.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)", "authors_or_publisher": "Brouwer A. M., Pure Appl. Chem.", "year": "2011", "url_or_doi": "10.1351/pac-rep-10-09-31"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Étalonnage : la concentration tracée suppose 1e−6 M au 10e ajout alors que le calcul donne 9,09e−7 M (voir « concentration d'uranyle après chaque ajout »), et 9 % de la baisse finale vient de la dilution seule (voir « baisse d'intensité due à la seule dilution »), sans témoin. La décroissance est quasi linéaire jusqu'à 3 % de l'intensité initiale avec ≈ 20 µmol U/g d'aGQD : un comportement de titrage plutôt que d'extinction dynamique ou statique ordinaire, peu attendu si les carboxyles sont en grand excès. Pas de limite de détection ; le bas de gamme (23,8 µg/L) est à peine sous la valeur guide OMS de 30 µg/L.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Guidelines for drinking-water quality, 4th edition incorporating the 1st addendum — chap. 9 Radiological aspects (uranium : valeur guide provisoire 30 µg/L)", "authors_or_publisher": "World Health Organization", "year": "2017", "url_or_doi": "https://cdn.who.int/media/docs/default-source/wash-documents/water-safety-and-quality/dwq-guidelines-4/gdwq4-with-add1-chap9.pdf"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Sélectivité (Fig. 9) : Cu2+, Co2+, Ni2+ et Fe3+ à 1e−5 M (100 fois l'uranyle) n'éteignent presque rien (≤ 3 %), alors que les auteurs attribuent l'extinction par l'uranyle à la coordination par les carboxyles, que Cu2+ et Fe3+ lient aussi fortement (Fe3+ est la cible classique des capteurs à points de carbone). À pH 5, le Fe3+ est presque entièrement hydrolysé (voir « fer(III) libre possible à pH 5 ») : l'essai ne teste pas le Fe3+ dissous. Le mode d'ajout des ions interférents (sel, contre-ion, volume) n'est pas donné. Résultat à reproduire avant de s'y fier.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "cinetique",
+          "finding": "L'article présente la méthode comme « time-saving » face aux plus de 10 jours de préparation et purification du GO, mais il utilise lui-même une dialyse de deux semaines : la durée totale n'est pas plus courte. Dialyse indispensable ici vu les 20 g de KOH (et K2CO3) à retirer.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "Non écrit : KOH corrosif (dissolution exothermique), vapeurs d'éthanol à 80 °C, dégagement de CO/CO2 au four, GO chargé de sels de K inflammable (Kim 2010), nitrate d'uranyle toxique et radioactif (déchets à gérer comme radioactifs).",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Self-Propagating Domino-like Reactions in Oxidized Graphite", "authors_or_publisher": "Kim F. et al., Adv. Funct. Mater.", "year": "2010", "url_or_doi": "10.1002/adfm.201000736"}
+        },
+        {
+          "aspect": "bilan",
+          "finding": "Aucun rendement ni masse d'aGQD récupérée : impossible de dire si les aGQDs représentent une fraction notable du GO (ce qu'on attendrait si ce sont les débris d'oxydation, ≈ 30 % de la masse du GO selon Rourke 2011) ou une trace.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "The Real Graphene Oxide Revealed: Stripping the Oxidative Debris from the Graphene-like Sheets", "authors_or_publisher": "Rourke J. P. et al., Angew. Chem. Int. Ed.", "year": "2011", "url_or_doi": "10.1002/anie.201007520"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Taille : 5–10 nm dans le résumé, 5–14 nm (surtout 8–13 nm) dans le texte et l'histogramme de la Fig. 2c. Valeurs du corps à retenir.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Le plus probable : la base détache d'abord du GO brut les débris d'oxydation (petits fragments polyaromatiques très oxydés, carboxylés, faiblement liés aux feuillets) et les met sous forme de carboxylates de potassium solubles, comme dans un lavage alcalin à température ambiante ; la dégradation du GO en milieu aqueux ou basique (coupure C–C, acides vinylogues, structures de type humique) en ajoute. Le chauffage à 300 °C sous air, sur un mélange solide (KOH non fondu, en partie carbonaté), déshydrate et décarboxyle les grands feuillets, qui deviennent hydrophobes, et brûle partiellement le carbone par oxydation catalysée par le potassium. Au lavage, seuls les fragments solubles passent dans le filtrat ; la dialyse à 1000 g/mol retire les sels et les plus petites molécules. À 500 °C et plus, la gazéification catalysée par les alcalins consomme les fragments, ce qui rend compte de l'absence de produit. Le « découpage » par l'air à 300 °C invoqué par les auteurs n'est pas exclu mais n'est pas démontré.",
+        "sources": [
+          {"title": "The Real Graphene Oxide Revealed: Stripping the Oxidative Debris from the Graphene-like Sheets", "authors_or_publisher": "Rourke J. P. et al., Angew. Chem. Int. Ed.", "year": "2011", "url_or_doi": "10.1002/anie.201007520"},
+          {"title": "Deoxygenation of Graphene Oxide: Reduction or Cleaning?", "authors_or_publisher": "Thomas H. R. et al., Chem. Mater.", "year": "2013", "url_or_doi": "10.1021/cm401922e"},
+          {"title": "Graphene Oxide. Origin of Acidity, Its Instability in Water, and a New Dynamic Structural Model", "authors_or_publisher": "Dimiev A. M., Alemany L. B., Tour J. M., ACS Nano", "year": "2013", "url_or_doi": "10.1021/nn3047378"},
+          {"title": "Mechanisms of the alkali metal catalysed gasification of carbon", "authors_or_publisher": "McKee D. W., Fuel", "year": "1983", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/0016236183901928"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "témoins : même traitement KOH sans four à 300 °C, et four à 300 °C sans KOH ; comparer masse récupérée et PL",
+        "rendement massique en aGQD après dialyse",
+        "FT-IR sur poudre lyophilisée (ou XPS) pour établir les groupes oxygénés",
+        "creuset résistant à l'alcali chaud ; essai d'abord sur petite masse (GO chargé de sels de K inflammable)",
+        "longueur d'onde réelle du laser Raman (514 ou 532 nm)",
+        "témoin de dilution (20 µL d'eau) dans l'étalonnage de l'uranyle, et concentrations corrigées de la dilution",
+        "limite de détection et essais d'ions interférents avec contre-ions et volumes précisés"
+      ]
+    },
+    {
+      "label": "aGQD_500C",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "écart de température à la branche de base",
+          "inputs": "300 °C (base) ; ≥ 500 °C (branche)",
+          "formula": "ΔT",
+          "result": "+ 200 °C au moins ; au-dessus de la fusion de KOH (406 °C), donc milieu alcalin fondu",
+          "compared_to": "gazéification du carbone par l'air catalysée par K, nettement accélérée dans cette plage",
+          "source": "PubChem CID 14797 (fusion) ; McKee 1983"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "thermique",
+          "finding": "La disparition de tout produit à 500 °C et au-delà est cohérente : au-dessus de la fusion de KOH (406 °C), en présence de sels de potassium et d'air, l'oxydation du carbone est fortement catalysée par les alcalins, et le GO chargé de sels de K brûle totalement une fois amorcé (Kim 2010). Mais l'essai n'est qu'une phrase (température exacte, durée, rampe et suite du protocole non dites).",
+          "status": "ok",
+          "basis": "litterature",
+          "source": {"title": "Mechanisms of the alkali metal catalysed gasification of carbon", "authors_or_publisher": "McKee D. W., Fuel", "year": "1983", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/0016236183901928"}
+        }
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Combustion du carbone catalysée par le potassium (cycle oxydation–réduction de l'alcali en surface du carbone) dans un bain KOH/K2CO3 fondu : les fragments et les feuillets sont gazéifiés en CO2.",
+        "sources": [
+          {"title": "Mechanisms of the alkali metal catalysed gasification of carbon", "authors_or_publisher": "McKee D. W., Fuel", "year": "1983", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/0016236183901928"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "température et durée exactes de l'essai à 500 °C",
+        "perte de masse au four (bilan carbone) pour confirmer la combustion"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "Synthèse simple (GO brut + KOH, séchage, 300 °C à l'air, lavage, dialyse) et chimiquement vraisemblable, mais l'interprétation n'est pas démontrée : sans témoin, rien ne distingue un « découpage » des feuillets à 300 °C de la simple libération par la base des débris d'oxydation fluorescents déjà présents dans le GO de Hummers, dont les propriétés (solubles, très oxydés, émission bleue dépendant de l'excitation) correspondent aux aGQDs. Le spectre FT-IR, mesuré sur la dispersion aqueuse diluée, est celui de l'eau et ne prouve pas les groupes oxygénés. KOH (20 g dans 25 mL éthanol/eau) ne se dissout probablement pas en entier et n'est pas fondu à 300 °C. Danger non écrit : GO chargé de sels de potassium inflammable au chauffage. Le capteur d'uranyle est vraisemblable en ordre de grandeur, mais l'étalonnage ignore la dilution, la sélectivité vis-à-vis de Cu2+ et Fe3+ est inhabituelle et aucune limite de détection n'est donnée.",
+    "author_errors_suspected": [
+      "FT-IR de la dispersion à 0,05 mg/mL : bandes de l'eau (1640 et ≈ 2130 cm−1) attribuées au carbone aromatique et à O=C=O",
+      "taille 5–10 nm (résumé) contre 5–14 nm (texte, Fig. 2c)",
+      "laser Raman « 512 nm » (probablement 514 nm)",
+      "concentrations d'uranyle de la Fig. 8b non corrigées de la dilution (9,09e−7 M au 10e ajout, et non 1e−6 M)",
+      "méthode présentée comme rapide alors qu'elle comporte deux semaines de dialyse",
+      "fluorescence « jaune-vert » sous 312 nm alors que l'émission maximale sous 323 nm est à 427 nm"
+    ],
+    "comparison_with_database": "Seule autre voie top-down depuis le GO dans la base : PMC4585659 (GO + NH4OH/H2O2, 150 °C en autoclave) donne des GQDs émettant à 520 nm sous 350 nm, rendement quantique 8,4 % et rendement massique 70 % ; ici ni rendement ni rendement quantique, émission principale bleue (427 nm). PMC10405785 et PMC11678781 sont des N-GQDs ascendants (sucrose ou acide citrique + éthylènediamine) : non comparables pour la synthèse."
+  },
+  "sources_not_found": [
+    "aucune fiche primaire (PubChem/CRC) trouvée pour la solubilité de KOH dans l'éthanol pur en g/100 mL : valeur ≈ 1 g/2,5 mL prise d'une source secondaire (WikiDoc)",
+    "Thomas et al., « Identifying the fluorescence of graphene oxide », J. Mater. Chem. C 2013 : référence vue (titre, auteurs, résumé) mais DOI non obtenu, donc non citée comme source",
+    "DOI Crossref non vérifiables depuis la session : 10.1002/anie.201007520, 10.1021/cm401922e, 10.1021/nn3047378, 10.1002/adfm.201000736, 10.1021/acs.jpcb.7b09641 (tous vus sur PubMed, ACS, ORCID ou pages d'éditeur)"
+  ]
+}

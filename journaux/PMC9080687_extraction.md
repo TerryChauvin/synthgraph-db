@@ -1,0 +1,19 @@
+# Journal d'extraction PMC9080687
+
+- **Deux voies de base** : MAPbI3−xClx (ITO/PEDOT:PSS/…/PCBM/Al, SI) et MAPbI3 (ITO/NiOx/…/PC61BM/BCP/Ag, SI) sont deux protocoles indépendants (matériau, HTL, solvant, antisolvant différents). Références choisies : « Normal 90 °C 2.5 h » (Tableau S1 et phrase « standard MAPbI3−xClx… 90 °C for 2.5 hours ») et « Normal 100 °C 10 min » (Tableau 1).
+- **kind = device partout** : le film de pérovskite est formé dans la fabrication du dispositif et les résultats (PCE, couverture, grains) sont sur la même voie ; pas de voie « matériau » séparée pour éviter de doubler 38 voies.
+- **Additif = voie avec ses propres étapes** (MAPbI3−xClx) : le SI décrit la solution d'additif (DMF 25 wt%, agitation une nuit, ajout, secouage 10 min), étapes absentes du témoin ; les voies urée 1 % (65 °C, 4.5 h) et thiourée 0,5 % (75 °C, 2.5 h) sont donc des branches du témoin mais recopient les étapes ; les grilles sont des branches de ces deux voies.
+- **MAPbI3 + additif** : le SI ne dit pas que la solution d'additif est préparée comme pour MAPbI3−xClx ; une seule étape « add » avec les cases non citées, sans DMF (héritage refusé, doute noté).
+- **Grilles Fig. S1 et S2** : légendes « (a) to (a-2) … 0.5%, 1%, 3% respectively » → a = 0,5 %, a-1 = 1 %, a-2 = 3 % ; 3 durées × 3 concentrations pour l'urée (65 °C), 3 conditions × 3 concentrations pour la thiourée (75 °C 1 h, 75 °C 2.5 h, 80 °C 2.5 h). Une branche par échantillon, sans résultat chiffré (images absentes du dépôt, texte muet) ; avertissements assumés.
+- **Passage garbled** « over-crystallized when 0.5% and 1% of urea was added at 80 °C and heated at 75 °C for 2.5 hours, respectively » : contredit la légende Fig. S1 (urée à 65 °C) ; aucune branche créée, doute écrit.
+- **Six échantillons à 90 °C** (phrase « respectively » avec 0.5/1/3 % d'urée et de thiourée) : durée de recuit non donnée ; variation `duration` en `value_text` « 30 minutes » à partir de « opaque appearance in 30 minutes » (hypothèse notée en doute).
+- **Thiourée 70 °C vs 75 °C** : texte « at 70 °C for 2.5 hours » contre 75 °C dans Fig. 1b, Fig. S4d, Tableau S1 ; 75 °C retenu (3 sources contre 1).
+- **Concentration du précurseur 25 wt% (SI) vs 30 wt% (texte)** : SI retenu pour le paramètre, texte cité dans le doute ; MAI et PbCl2 déclarés sans quantité.
+- **Électrode** : Al (SI MAPbI3−xClx) contre Ag (texte principal) ; Al pour les étapes, Ag/Au pour MAPbI3 (« Ag or Au » écrit tel quel dans le nom du réactif).
+- **Lignes « urea » / « thiourea » des Tableaux S1/S2** sans concentration : rattachées à 1 % d'urée et 0,5 % de thiourée (concentrations du texte) ; doute écrit.
+- **TRPL (Tableau S4) et EIS (Tableau S5)** « MAPbI3 / urea » sans condition : rangés sur le témoin 100 °C et sur l'urée 85 °C d'après les courbes de la Fig. 3 ; hypothèse notée en doute.
+- **Fig. S5 (65 °C, 20 min)** : légende MAPbI3, phrase de synthèse MAPbI3−xClx ; tailles de grain 93,2 / 608,9 / 895,2 nm rangées sur les voies MAPbI3.
+- **Figures lues** : Fig. 2 (valeurs de grain identiques au texte) et Fig. 3 (J–V, IPCE, EIS, TRPL, GIWAXS) ouvertes ; aucune valeur `from_figure` nécessaire car tout chiffre figure dans le texte ou les tableaux. Fig. S1–S11 absentes du dépôt (limite_reproductibilite « Annexe absente du dépôt »).
+- **Fournisseur Aldrich** appliqué via « All chemicals were purchased from Aldrich… unless otherwise specified » aux solvants, sels de plomb, additifs, Ni(acac)2, HCl, toluène ; refusé pour PEDOT:PSS (Baytron), PCBM, BCP, MAI (synthétisé), ITO et métaux.
+- **Références du SI (1 et 2)** : absentes de la liste de références de corpus/refs ; non reprises dans method_sources (doute) ; seul le MAI (cit37) est une source de méthode.
+- **Largeurs de lecture du Tableau S1** : cellules coupées dans le PDF (« 8.8±0. 9 ») ; le nombre cité est recopié, l'incertitude ± est dans `value_text` à partir du texte principal (8.8 ± 0.9).

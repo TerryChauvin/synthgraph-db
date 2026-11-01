@@ -1,0 +1,517 @@
+{
+ "pmcid": "PMC3330020",
+ "routes": [
+  {
+   "label": "SGAc",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire Li:Fe:P",
+     "inputs": "LiNO3, Fe(NO3)3·9H2O, NH4H2PO4 « dissolved stoichiometrically » (aucune masse donnée)",
+     "formula": "n(Li):n(Fe):n(P) pour LiFePO4",
+     "result": "1:1:1 (seul rapport déductible ; quantités absolues inconnues)",
+     "compared_to": "LiFePO4 : 1:1:1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse de précurseurs par gramme de LiFePO4",
+     "inputs": "M(LiNO3) 68,95 ; M(Fe(NO3)3·9H2O) 403,99 ; M(NH4H2PO4) 115,03 ; M(LiFePO4) 157,76 g/mol (masses atomiques standard)",
+     "formula": "(68,95 + 403,99 + 115,03) / 157,76",
+     "result": "588,0 g de sels par mole, soit 3,73 g de sels par g de LiFePO4",
+     "compared_to": "perte de masse attendue ≈ 73 % hors organiques",
+     "source": "chimie_generale (masses atomiques IUPAC)"
+    },
+    {
+     "what": "bilan redox Fe3+ → Fe2+ par l'acide ascorbique",
+     "inputs": "acide ascorbique C6H8O6 → acide déhydroascorbique C6H6O6 + 2 H+ + 2 e− ; 1 e− par Fe",
+     "formula": "n(AA)min = n(Fe)/2",
+     "result": "≥ 0,5 mol d'acide ascorbique par mol de Fe ; quantité de l'article non donnée",
+     "compared_to": "rôle annoncé « reducing reagent »",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "pouvoir oxydant des nitrates apportés",
+     "inputs": "1 NO3− (LiNO3) + 3 NO3− (Fe(NO3)3) par mol de LiFePO4 ; NO3− → NO : 3 e−",
+     "formula": "4 × 3",
+     "result": "≈ 12 équivalents oxydants par Fe, contre 1 e− nécessaire pour réduire Fe3+",
+     "compared_to": "les organiques (acide ascorbique, agent complexant) doivent consommer ces nitrates au chauffage pour que Fe reste à +2",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "spéciation acide acétique à pH 6,5",
+     "inputs": "pKa(CH3COOH) = 4,76 (valeur de manuel)",
+     "formula": "[AcO−]/[AcOH] = 10^(6,5 − 4,76)",
+     "result": "≈ 55 : l'acide est presque entièrement neutralisé en acétate d'ammonium",
+     "compared_to": "« saturated solution » d'un liquide miscible : quantité d'ammoniac nécessaire ≈ 1 mol NH3 par mol d'acide acétique",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "capacité théorique de LiFePO4",
+     "inputs": "F = 96 485 C/mol ; 1 e− par formule ; M = 157,76 g/mol",
+     "formula": "F / (3,6 × M)",
+     "result": "169,9 mAh/g",
+     "compared_to": "article : 170 mAh g-1 (Introduction) ; Padhi 1997",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "capacité de SGAc rapportée à la théorie",
+     "inputs": "161,08 mAh/g (tableau 1) ; 2,3 wt.% C",
+     "formula": "161,08/169,9 ; et 161,08/(1 − 0,023)/169,9 si la masse comprend le carbone",
+     "result": "94,8 % (par g de composite) ou 97,0 % (par g de LiFePO4)",
+     "compared_to": "valeurs usuelles 150–165 mAh/g à faible régime pour LiFePO4/C sol-gel (PMC11431264 cite 163,5 mAh/g à 0,1 C)",
+     "source": "valeurs de l'article ; revue PMC11431264"
+    },
+    {
+     "what": "taux de perte de capacité sur 30 cycles",
+     "inputs": "161,1 et 157,5 mAh/g",
+     "formula": "(161,1 − 157,5)/161,1",
+     "result": "2,23 %",
+     "compared_to": "article : 2,2 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constante de stabilité Fe2+–acétate",
+     "inputs": "Fe2+ + AcO− : log K1 = 1,40 (Martell & Smith, via Harvey) ; tableau 1 : logβ3 = 8,3",
+     "formula": "logβ3 = log K1 + log K2 + log K3 ≤ 3 × 1,40",
+     "result": "logβ3(Fe2+) ≤ ≈ 4 (K2, K3 < K1 en général), loin de 8,3",
+     "compared_to": "8,3 correspond à l'ordre de grandeur d'un complexe de Fe3+ (non vérifié en ligne)",
+     "source": "Harvey/LibreTexts, Formation Constants"
+    },
+    {
+     "what": "énergie de stabilisation du champ cristallin (CFSE), Fe2+ haut spin d6",
+     "inputs": "octaédrique t2g4 eg2 ; tétraédrique e3 t2^3 ; Δt ≈ 4/9 Δo",
+     "formula": "oct : 4(−0,4) + 2(+0,6) = −0,4 Δo ; tét : 3(−0,6) + 3(+0,4) = −0,6 Δt = −0,27 Δo",
+     "result": "−0,40 Δo (oct) contre −0,27 Δo (tét)",
+     "compared_to": "conclusion qualitative des auteurs (CFSE tétraédrique plus faible) juste ; formules absentes du texte",
+     "source": "chimie_generale (théorie du champ cristallin)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité n'est donnée (« stoichiometrically », « saturated solution », acide ascorbique sans masse, ammoniac sans volume) : seul le rapport Li:Fe:P = 1:1:1 est déductible (voir « rapport molaire Li:Fe:P »). La teneur en carbone final dépend directement des masses d'organiques, donc la synthèse n'est pas refaisable à l'identique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« Saturated solution of complexing agent in water » n'a pas de sens pour l'acide acétique, miscible à l'eau en toutes proportions : la concentration de l'agent complexant (et donc la quantité de carbone et d'ammoniac) est indéfinie. Ajuster ensuite à pH 6,5 une solution très riche en acide acétique exige environ une mole de NH3 par mole d'acide (voir « spéciation acide acétique à pH 6,5 ») : volume d'ammoniaque considérable et formation massive d'acétate d'ammonium, non décrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Fe3+ réduit par l'acide ascorbique (≥ 0,5 mol/mol Fe, voir « bilan redox ») : plausible en milieu acide. Mais les nitrates apportent ≈ 12 équivalents oxydants par Fe (voir « pouvoir oxydant des nitrates apportés ») ; au séchage et au frittage, ils réoxydent Fe2+ si les organiques ne suffisent pas. Le maintien de Fe2+ repose donc sur l'excès de matière organique, dont la quantité n'est pas donnée ; l'olivine pure observée en DRX suggère que l'excès était suffisant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Gel nitrate + combustibles organiques (acide ascorbique, acétate) + nitrate d'ammonium formé par l'ajout d'ammoniaque : mélange de type « sol-gel auto-combustion », qui peut s'enflammer vers 200 °C en dégageant beaucoup de gaz (NOx). L'évaporation « to dryness » puis le frittage doivent se faire sous hotte, par petites quantités, avec montée lente ; l'article ne le dit pas.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Review on the Polymeric and Chelate Gel Precursor for Li-Ion Battery Cathode Material Synthesis",
+      "authors_or_publisher": "revue en accès libre, PubMed Central PMC11431264",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11431264"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Agitation à 55 puis 75 °C en récipient ouvert : sous le point d'ébullition de l'eau (100 °C) et de l'acide acétique (118 °C), sans risque. Frittage 600 °C 4 h sous N2 : dans la plage usuelle de cristallisation de l'olivine (600–750 °C) ; les autres voies LiFePO4 de la base sont calcinées à 650–750 °C sous gaz réducteur (PMC10099130, PMC12805362, PMC9323570), 600 °C sous N2 est donc la borne basse, cohérente avec une poudre submicronique.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "161,1 mAh/g = 95–97 % de la capacité théorique 169,9 mAh/g (voir « capacité théorique » et « capacité de SGAc rapportée à la théorie ») : plausible à faible régime, mais le régime de courant (C-rate) n'est pas donné, ni si la masse inclut le carbone. Densité de tassement 1,37 g/cm3 : ordre de grandeur habituel pour LiFePO4/C. Perte 2,2 % sur 30 cycles recalculée exacte (2,23 %).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le tableau 1 donne logβ = 8,3 pour Fe2+–acide acétique (« logβ3 »). Or log K1(Fe2+–acétate) = 1,40 (Martell & Smith) : logβ3 ne peut guère dépasser ≈ 4 (voir « constante de stabilité Fe2+–acétate »). La valeur 8,3 n'est pas celle de Fe2+ ; elle a l'ordre de grandeur d'un complexe acétate de Fe3+. Les constantes du tableau mélangent probablement l'ion métallique et l'ordre du complexe (β2 pour l'oxalate de Fe2+ : 3,05 + 2,10 = 5,15, proche de 5,22) ; la corrélation logβ ↔ capacité, et l'« exception » de l'acide acétique, reposent sur des valeurs non comparables.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Analytical Chemistry 2.1, Appendix 16.12: Formation Constants (valeurs de Martell & Smith, Critical Stability Constants, 1976)",
+      "authors_or_publisher": "D. Harvey / LibreTexts",
+      "year": "2019 (page mise à jour 2021)",
+      "url_or_doi": "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_by_David_Harvey/Analytical_Chemistry_2.1_(Harvey)/16%3A_Appendix/16.12%3A_Formation_Constants"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'argument du champ cristallin : la conclusion qualitative (CFSE de Fe2+ haut spin plus faible en tétraédrique, −0,27 Δo, qu'en octaédrique, −0,40 Δo ; voir « CFSE ») est juste, mais (1) la notation « eg3t2g3 » est fausse en symétrie tétraédrique (e et t2, sans indice g) ; (2) rien ne montre que Fe2+ soit tétraédrique « avec trois acétates et une molécule d'eau » en solution aqueuse, où Fe2+ reste hexacoordiné ; (3) la constante de stabilité mesurée inclut déjà toute la stabilisation, CFSE comprise : invoquer la CFSE pour expliquer un écart à logβ revient à compter deux fois le même terme. Les formules de CFSE manquent dans le texte (« So, its CFSE was » sans équation).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les complexes en solution aqueuse à 25 °C n'existent plus à 600 °C : ce qui commande taille et carbone résiduel est plutôt la quantité et la volatilité des organiques restés dans le gel séché (acide acétique et acétate d'ammonium partent en grande partie à 75–80 °C ; l'acide ascorbique, commun aux quatre essais, carbonise) et la combustion nitrate/organique. Les auteurs attribuent le carbone au seul agent complexant (« the carbon generated from the complexing agent »), en oubliant l'acide ascorbique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Review on the Polymeric and Chelate Gel Precursor for Li-Ion Battery Cathode Material Synthesis",
+      "authors_or_publisher": "revue en accès libre, PubMed Central PMC11431264",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11431264"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : le résumé annonce des particules de 200 nm pour SGAc et un carbone « less than 6.8 wt.% », les Résultats donnent 100 nm–1 μm (secondaires) et au plus 5,1 wt.%. Les Résultats écrivent aussi que la teneur en carbone est « in direct ratio » à logβ, alors que le tableau donne 2,3 wt.% pour l'acide acétique (logβ 8,3) contre 3,2 wt.% pour l'oxalique (logβ 5,22) : l'exception de l'acide acétique vaut aussi pour le carbone, contrairement au texte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nanopoudre de LiFePO4/C inhalable ; NH3 et NOx dégagés au séchage et au frittage ; acide acétique concentré corrosif. Sources standard : fiches CAMEO/fournisseur (non consultées ici).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Fe3+ est réduit en Fe2+ par l'acide ascorbique (2 e− par molécule) ; l'ajustement à pH 6,5 par NH3 transforme acides et nitrates en sels d'ammonium (acétate, nitrate) et limite la précipitation précoce de FePO4. À l'évaporation, on obtient un xérogel de sels mixtes et d'organiques (ascorbate/déhydroascorbate, agent complexant résiduel) plutôt qu'un réseau de complexes Fe2+–ligand défini. Au chauffage, la réaction nitrate/organique (auto-combustion vers 200 °C) puis la pyrolyse sous N2 laissent un carbone amorphe qui maintient Fe à +2 et limite la croissance des grains ; l'olivine cristallise à 600 °C. Taille et carbone résiduel dépendent surtout de la quantité et de la volatilité des organiques restants, non de logβ en solution.",
+    "sources": [
+     {
+      "title": "Review on the Polymeric and Chelate Gel Precursor for Li-Ion Battery Cathode Material Synthesis",
+      "authors_or_publisher": "revue en accès libre, PubMed Central PMC11431264",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11431264"
+     },
+     {
+      "title": "Analytical Chemistry 2.1, Appendix 16.12: Formation Constants (valeurs de Martell & Smith, Critical Stability Constants, 1976)",
+      "authors_or_publisher": "D. Harvey / LibreTexts",
+      "year": "2019 (page mise à jour 2021)",
+      "url_or_doi": "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_by_David_Harvey/Analytical_Chemistry_2.1_(Harvey)/16%3A_Appendix/16.12%3A_Formation_Constants"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer des quantités : par exemple 0,01 mol de chaque sel, rapport agent complexant/Fe et acide ascorbique/Fe (≥ 0,5) écrits",
+    "concentration de l'agent complexant (« saturated » n'a pas de sens pour un liquide miscible)",
+    "volume d'ammoniaque nécessaire pour atteindre pH 6,5",
+    "évaporation et pré-calcination prudentes (mélange nitrate/organique, NOx)",
+    "teneur en Fe3+ du produit (Mössbauer ou titrage) et régime de courant du cyclage",
+    "ne pas reprendre les constantes du tableau 1 sans les vérifier (ion Fe2+ ou Fe3+, ordre du complexe)"
+   ]
+  },
+  {
+   "label": "SGEg",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "constante de stabilité Fe2+–éthanediol",
+     "inputs": "tableau 1 : logβ = 9,67",
+     "formula": "comparaison à un diol neutre, ligand O-donneur faible en eau",
+     "result": "aucune valeur de manuel trouvée ; 9,67 est du niveau de tris(éthylènediamine)fer(II), invraisemblable pour l'éthylène glycol en solution aqueuse",
+     "compared_to": "Fe2+–acétate log K1 1,40 (Martell & Smith)",
+     "source": "Harvey/LibreTexts ; recherche infructueuse pour Fe2+–éthanediol"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "L'éthylène glycol est un diol neutre, à peine complexant pour Fe2+ en solution aqueuse (beaucoup moins qu'un carboxylate) ; logβ = 9,67, presque égal à celui de l'éthylènediamine (9,70), n'est pas plausible et aucune valeur n'a été trouvée. Le classement des quatre agents par logβ, et donc la corrélation avec la capacité, est fragile.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Analytical Chemistry 2.1, Appendix 16.12: Formation Constants (valeurs de Martell & Smith, Critical Stability Constants, 1976)",
+      "authors_or_publisher": "D. Harvey / LibreTexts",
+      "year": "2019 (page mise à jour 2021)",
+      "url_or_doi": "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_by_David_Harvey/Analytical_Chemistry_2.1_(Harvey)/16%3A_Appendix/16.12%3A_Formation_Constants"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "L'éthanediol est miscible à l'eau : « saturated solution » est indéfini, la quantité d'agent complexant (et la quantité de carbone résiduel, 4,8 wt.%) ne peut pas être reproduite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Point d'ébullition de l'éthylène glycol ≈ 197 °C : il n'est pas éliminé à 75–80 °C et reste dans le gel jusqu'au frittage, ce qui explique mieux que logβ la teneur en carbone plus élevée (4,8 wt.%) et l'agglomération observée. Avec les nitrates, il peut aussi réagir (oxydation, combustion) vers 150–250 °C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Glycol peu complexant ; il agit surtout comme solvant résiduel à haut point d'ébullition et comme combustible/source de carbone au chauffage ; plus de carbone et d'agglomération par pyrolyse d'un gel plus riche en organique.",
+    "sources": [
+     {
+      "title": "Review on the Polymeric and Chelate Gel Precursor for Li-Ion Battery Cathode Material Synthesis",
+      "authors_or_publisher": "revue en accès libre, PubMed Central PMC11431264",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11431264"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité d'éthanediol",
+    "dégazage contrôlé du glycol avant frittage"
+   ]
+  },
+  {
+   "label": "SGOc",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "constante de stabilité Fe2+–oxalate",
+     "inputs": "log K1 = 3,05 ; log K2 = 2,10 (μ = 1 M, Martell & Smith via Harvey)",
+     "formula": "logβ2 = log K1 + log K2",
+     "result": "5,15",
+     "compared_to": "tableau 1 : 5,22 (cohérent avec β2 de Fe2+, pas avec β3 utilisé pour l'acétate)",
+     "source": "Harvey/LibreTexts, Formation Constants"
+    },
+    {
+     "what": "solubilité de l'oxalate de fer(II)",
+     "inputs": "pKsp(FeC2O4·2H2O) = 6,5",
+     "formula": "s = √Ksp",
+     "result": "≈ 5,6 × 10^-4 mol/L, soit ≈ 0,1 g/L",
+     "compared_to": "Fe2+ en concentration de l'ordre de 0,1–1 mol/L dans un sol-gel",
+     "source": "fiche ChemicalBook (source secondaire)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Une fois Fe3+ réduit en Fe2+ par l'acide ascorbique, Fe2+ et l'oxalate précipitent l'oxalate de fer(II) dihydraté jaune (pKsp 6,5, ≈ 0,1 g/L ; voir « solubilité de l'oxalate de fer(II) ») sauf large excès d'oxalate qui forme des complexes solubles [Fe(C2O4)2]2−. Une « homogeneous solution » puis un gel sont donc douteux avec l'acide oxalique : on a vraisemblablement une co-précipitation, ce qui change le mécanisme (et peut expliquer la taille 100–200 nm).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Iron(II) oxalate dihydrate, CAS 6047-25-2 (pKsp 6,5 ; précipite en cristaux jaunes à partir de Fe2+ et d'oxalate, complexes solubles en excès d'oxalate)",
+      "authors_or_publisher": "ChemicalBook (fiche de base de données, source secondaire)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.chemicalbook.com/CASEN_6047-25-2.htm"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "L'acide oxalique est un solide de solubilité finie : « saturated solution » est ici défini, mais sa valeur à la température de travail n'est pas donnée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La constante utilisée (5,22) est un β2 de Fe2+, alors que celle de l'acétate est un « β3 » de 8,3 (voir SGAc) : comparer les deux pour définir une « exception » n'a pas de sens.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Analytical Chemistry 2.1, Appendix 16.12: Formation Constants (valeurs de Martell & Smith, Critical Stability Constants, 1976)",
+      "authors_or_publisher": "D. Harvey / LibreTexts",
+      "year": "2019 (page mise à jour 2021)",
+      "url_or_doi": "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_by_David_Harvey/Analytical_Chemistry_2.1_(Harvey)/16%3A_Appendix/16.12%3A_Formation_Constants"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Précipitation probable de FeC2O4·2H2O (et éventuellement de phosphate de fer) dans le milieu, puis décomposition de l'oxalate vers 200–400 °C (CO, CO2) sous N2 ; l'oxalate est aussi réducteur, ce qui aide à garder Fe2+.",
+    "sources": [
+     {
+      "title": "Iron(II) oxalate dihydrate, CAS 6047-25-2 (pKsp 6,5 ; précipite en cristaux jaunes à partir de Fe2+ et d'oxalate, complexes solubles en excès d'oxalate)",
+      "authors_or_publisher": "ChemicalBook (fiche de base de données, source secondaire)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.chemicalbook.com/CASEN_6047-25-2.htm"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "observer si un précipité jaune apparaît après l'ajout d'acide ascorbique",
+    "rapport oxalate/Fe"
+   ]
+  },
+  {
+   "label": "SGEn",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "spéciation de l'éthylènediamine à pH 6,5",
+     "inputs": "pKa = 7,564 et 10,712 à 0 °C (PubChem/CRC) ; à 25 °C les valeurs de manuel sont plus basses (≈ 6,9 et 9,9)",
+     "formula": "fractions H2en2+, Hen+, en à [H+] = 10^-6,5",
+     "result": "en libre : 5 × 10^-6 (0 °C) à 1 × 10^-4 (25 °C) ; 69–92 % sous forme H2en2+",
+     "compared_to": "complexation de Fe2+ par en libre : quasi nulle à pH 6,5",
+     "source": "PubChem CID 3301"
+    },
+    {
+     "what": "bilan acide-base avant ajustement du pH",
+     "inputs": "en : 2 équivalents basiques par molécule ; au minimum 3 en par Fe pour [Fe(en)3]2+ ; acides apportés par mol de Fe : ≈ 1 H+ (réduction Fe3+ par l'ascorbique), ≈ 1 (acide ascorbique, pKa ≈ 4,1), H2PO4− peu dissocié à pH 6,5",
+     "formula": "bases (≥ 6 éq.) − acides (≈ 2–3 éq.)",
+     "result": "excès de base ≥ 3 éq. par Fe même pour une quantité stœchiométrique d'en ; une solution « saturée » (en miscible) est encore bien plus basique (pH > 11)",
+     "compared_to": "consigne : ajuster à pH 6,5 « with ammonia water »",
+     "source": "chimie_generale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Le protocole commun dit d'ajuster le pH à 6,5 avec de l'ammoniaque. Avec l'éthylènediamine, base miscible à l'eau, le mélange est basique (pH > 9) même pour une quantité seulement stœchiométrique d'agent complexant (voir « bilan acide-base avant ajustement du pH ») : on ne peut pas descendre à pH 6,5 en ajoutant une base. Soit l'ajustement s'est fait avec un acide (non dit), soit le pH n'était pas 6,5 pour SGEn ; dans les deux cas l'échantillon n'a pas été préparé comme écrit.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "À pH 6,5, l'éthylènediamine est surtout diprotonée (H2en2+) et ne peut presque pas complexer Fe2+ (voir « spéciation de l'éthylènediamine à pH 6,5 ») : la constante logβ3 = 9,70 du tableau, valable pour en libre, ne décrit pas le milieu de synthèse. La constante conditionnelle est de plusieurs ordres de grandeur plus faible ; le classement « en = complexe le plus stable » est faux dans ces conditions.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Ethylenediamine, CID 3301 (Dissociation Constants : pKa 10,712 et 7,564 à 0 °C, d'après CRC Handbook 67e éd.)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/3301"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Éthylènediamine : corrosive, sensibilisante, inflammable (point éclair 34 °C) ; avec les nitrates, formation de nitrate d'éthylènediammonium, sel énergétique : évaporation à sec et chauffage d'un mélange en/nitrate à faire en petites quantités, derrière écran.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Teneur en carbone la plus élevée (5,1 wt.%) et feuillets plus gros : cohérent avec des sels d'éthylènediammonium non volatils restés dans le gel (riches en C et N), plutôt qu'avec la stabilité du complexe ; le carbone peut être dopé à l'azote.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Si le pH a réellement été amené à 6,5 (avec un acide), en est sous forme d'ions éthylènediammonium qui cristallisent avec nitrate/phosphate à l'évaporation ; leur pyrolyse sous N2 donne un carbone azoté abondant et des particules plus grosses.",
+    "sources": [
+     {
+      "title": "Ethylenediamine, CID 3301 (Dissociation Constants : pKa 10,712 et 7,564 à 0 °C, d'après CRC Handbook 67e éd.)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/3301"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quelle base ou quel acide a servi à fixer le pH à 6,5 pour SGEn, et quel pH réel",
+    "quantité d'éthylènediamine"
+   ]
+  },
+  {
+   "label": "Electrode_LiFePO4C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition de l'électrode",
+     "inputs": "80 wt.% matière active, 15 wt.% noir d'acétylène, 5 wt.% PVDF",
+     "formula": "80 + 15 + 5",
+     "result": "100 % ; rapport liant/carbone conducteur 1:3",
+     "compared_to": "formulations courantes 80:10:10 ou 8:1:1 (PMC9323570 dans la base)",
+     "source": "valeurs de l'article ; comparaison_base"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "Le PVDF est dissous dans le phtalate de diméthyle (DMP) au lieu de la NMP habituelle. Le DMP est un solvant latent du PVDF : il ne le dissout qu'à chaud et le PVDF y forme des gels thermoréversibles au refroidissement. La préparation de la barbotine demande donc un chauffage non écrit ; « dimethyl phthalate » pourrait aussi être une erreur pour NMP.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermoreversible gelation of poly(vinylidene fluoride) in phthalates: the influence of aliphatic chain length of solvents",
+      "authors_or_publisher": "PubMed 18366217 (J. Phys. Chem. B)",
+      "year": "2008",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/18366217"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Point d'ébullition du DMP ≈ 284 °C, pression de vapeur très faible : un séchage sous vide à 80 °C sans durée risque de laisser du solvant dans l'électrode (masse active surestimée, réactions parasites).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Seulement 5 wt.% de liant pour 15 wt.% de noir d'acétylène (surface élevée) : adhésion possiblement faible, sans conséquence de sécurité ; charge massique et épaisseur non données.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme d'électrode).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "solvant réel (DMP chauffé ou NMP)",
+    "durée et température de séchage suffisantes pour un solvant à 284 °C",
+    "charge massique"
+   ]
+  },
+  {
+   "label": "Cell_LiFePO4C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fenêtre de cyclage contre plateaux",
+     "inputs": "2,5–4,3 V ; plateaux 3,49 V (charge) et 3,37 V (décharge) ; CV 2,0–4,5 V à 0,05 mV/s",
+     "formula": "écart des plateaux 3,49 − 3,37",
+     "result": "0,12 V ; plateaux bien à l'intérieur de la fenêtre ; potentiel moyen ≈ 3,43 V",
+     "compared_to": "LiFePO4 : ≈ 3,4–3,45 V vs Li+/Li (Padhi 1997)",
+     "source": "valeurs de l'article ; Padhi 1997"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Plateaux 3,49/3,37 V et 1 M LiPF6 dans EC:DMC 1:1 : standard et cohérent avec LiFePO4 (≈ 3,45 V vs Li+/Li). Le régime de courant n'est pas donné, ce qui empêche de comparer les 161 mAh/g aux autres travaux.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Phospho-olivines as Positive-Electrode Materials for Rechargeable Lithium Batteries",
+      "authors_or_publisher": "Padhi, Nanjundaswamy, Goodenough, J. Electrochem. Soc.",
+      "year": "1997",
+      "url_or_doi": "10.1149/1.1837571"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Lithium métal réactif à l'eau ; LiPF6 s'hydrolyse en HF ; carbonates inflammables : boîte à gants sous Ar, mentionnée par les auteurs, adaptée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (assemblage de cellule).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "régime de courant (C-rate) et charge massique",
+    "format de cellule"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse sol-gel classique de LiFePO4/C (nitrates, NH4H2PO4, acide ascorbique, frittage 600 °C sous N2) dont les résultats (olivine pure, 161 mAh/g) sont plausibles mais non reproductibles faute de toute quantité. L'interprétation est le point faible : les constantes de stabilité du tableau 1 ne sont pas homogènes (8,3 pour Fe2+–acétate est incompatible avec log K1 = 1,40 ; 5,22 est un β2 ; 9,67 pour l'éthanediol est invraisemblable ; 9,70 pour en ignore la protonation à pH 6,5), et l'argument de CFSE double-compte une stabilisation déjà incluse dans logβ. Le protocole commun est impossible tel qu'écrit pour l'éthylènediamine (pH 6,5 atteint avec une base) et « saturated » n'a pas de sens pour trois des quatre agents, miscibles à l'eau.",
+  "author_errors_suspected": [
+   "logβ3 = 8,3 attribué à Fe2+–acétate alors que log K1(Fe2+) = 1,40 : valeur probablement d'un complexe de Fe3+",
+   "constantes d'ordres différents (β2 oxalate, β3 acétate/en) comparées directement",
+   "logβ = 9,67 pour Fe2+–éthanediol sans source plausible",
+   "ajustement à pH 6,5 « with ammonia water » impossible pour la solution d'éthylènediamine",
+   "« saturated solution » de liquides miscibles (acide acétique, éthanediol, éthylènediamine)",
+   "notation « eg3t2g3 » en champ tétraédrique ; équations de CFSE absentes du texte",
+   "carbone attribué au seul agent complexant, en oubliant l'acide ascorbique",
+   "résumé (200 nm, < 6,8 wt.% C) incohérent avec les Résultats (100 nm–1 μm, ≤ 5,1 wt.%)"
+  ],
+  "comparison_with_database": "Quatre autres publications LiFePO4 dans la base (PMC10099130, PMC12805362, PMC9323570, PMC3293091) : calcinations 650–750 °C sous gaz réducteur (Ar/H2) ; celle-ci est la seule à 600 °C sous N2 pur, ce qui reste dans la plage usuelle. Électrode : 80:15:5 dans le DMP contre 8:1:1 dans la NMP ailleurs (PMC9323570)."
+ },
+ "sources_not_found": [
+  "valeur publiée de logβ pour Fe2+–éthylène glycol en solution aqueuse",
+  "source primaire de logβ3 = 8,3 pour l'acétate (Fe3+ supposé, Lange's Handbook non consulté)",
+  "valeur publiée de logβ3 = 9,70 pour Fe2+–éthylènediamine (non vérifiée en ligne ; ordre de grandeur connu de mémoire)"
+ ]
+}

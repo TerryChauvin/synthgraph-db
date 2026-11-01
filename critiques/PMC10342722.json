@@ -1,0 +1,49 @@
+{
+ "pmcid": "PMC10342722",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "CoS-200 outcome specific_capacitance_CV_20_mV_s (1480 F/g) et Table 2, rangée CoS 200 °C : contradiction interne non signalée dans les doutes",
+   "extracted": "1480 F/g à 20 mV/s (rangée de Table 2 et phrase « The highest specific capacitance value of 1480 F/g »)",
+   "article_says": "CoS 200 °C | 1480 | 1239 | 1101 | 994 | 876 | 756 | 678 | 614 | 546 | 42.55",
+   "fix": "Ne pas changer la valeur (le tableau et le texte disent 1480). Ajouter un doute et l'inscrire dans limite_reproductibilite : la rétention 42,55 % de la même rangée correspond à 546/1283 (soit environ 1280 F/g à 20 mV/s), et la figure 5 (corpus/fig/PMC10342722/materials-16-04512-g005.jpg) place la courbe CoS 200 °C à environ 1280 F/g à 20 mV/s, pas à 1480. Les rétentions de 180 °C (324/1270 = 25,5 %) et 220 °C (345/1245 = 27,7 %) sont cohérentes avec leur rangée ; celle de 160 °C ne l'est pas non plus (286/1256 = 22,8 % contre 21,3 %).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "caractérisation DRX (CoS-160 à CoS-220) : positions des pics et fiche de référence",
+   "extracted": "XRD résumé en « hexagonal CoS » sans positions de pics ni indexation",
+   "article_says": "The main diffraction peaks at 2θ = 30.64°, 35.28°, 46.94°, and 54.6° match the JCPDS card no. (01-075-0605) and correspond to the (102), (110), (202), and (210) planes of the hexagonal phase of CoS nanostructures.",
+   "fix": "Ajouter à la caractérisation DRX (ou en outcome d'article rattaché à CoS-200, échantillon sans impureté) les pics 30,64 / 35,28 / 46,94 / 54,6° indexés (102), (110), (202), (210) et la fiche JCPDS 01-075-0605 ; la figure 1 porte les mêmes indices, y compris pour 160 et 180 °C (pics très larges) et un losange CoO vers 32° à 220 °C. Le texte ne dit pas pour quel échantillon les positions sont mesurées.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Electrode_CoS : réactifs de la cellule d'essai (électrolyte, contre-électrode, référence)",
+   "extracted": "Électrolyte KOH, électrode de platine et Ag/AgCl présents seulement dans le texte libre des conditions de caractérisation CV ; aucun réactif ni équipement de voie",
+   "article_says": "with platinum serving as the counter electrode and Ag/AgCl serving as the reference electrode",
+   "fix": "Si la voie device inclut la cellule : ajouter KOH (rôle electrolyte, 1 M ou 2 M selon le doute déjà écrit, quote « The three electrodes were immersed in a 2 molar aqueous solution of potassium hydroxide (KOH) as the electrolyte. »), platine (counter_electrode) et Ag/AgCl (référence) ; sinon laisser tel quel et le dire. Choix de périmètre, d'où probable.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0,
+  "figures_checked": "Fig. 3 : 16 valeurs EDX relues (wt % et at % des quatre échantillons) toutes identiques aux encarts. Fig. 8 : 0,0011 / 0,0012 / 0,0013 / 0,00097 Ah ; lecture personnelle 0,00115 / 0,0012 / 0,00126 / 0,00097, écarts inférieurs à 5 %. Fig. 7 : durées de décharge 5 / 5,5 / 11,5 / 7,5 s, conformes au doute de l'extracteur. Fig. 6 : demi-cercle de 200 °C d'environ 500 à 600 Ω, conforme. Fig. 1 : bosse amorphe vers 21° plus forte à 220 °C qu'à 200 °C, conforme au doute. Fig. 5 : voir constat 1."
+ },
+ "reproducibility_gaps": [
+  "quantités de Co(NO3)2·6H2O et de thiourée données en mg (0,95 mg et 0,6 mg pour 45 mL), manifestement trop faibles ; l'unité réelle est inconnue",
+  "température de l'autoclave non écrite dans la section Synthèse (seulement dans l'introduction et les légendes) ; volume de l'autoclave, taux de remplissage, chemise, vitesse d'agitation, vitesse de chauffe et de refroidissement absents",
+  "volume d'eau et mode d'ajout de la thiourée : « one beaker », puis « two solutions were combined », sans second volume",
+  "rendement et mode de séparation du solide (filtration ou centrifugation) non donnés",
+  "électrode : quantité et concentration de nafion, surface de l'électrode, conditions de séchage ; masse déposée 1 µg contre 2 µg calculés ; KOH 1 M contre 2 M",
+  "courant de la mesure de capacité GCD non écrit dans la phrase qui donne les valeurs ; valeurs GCD (1583,3 et 116,6 F/g) incompatibles avec les temps de décharge de la figure 7",
+  "Rct à 200 °C : 10 Ω (Table 3) contre environ 600 Ω (texte, figure 6)",
+  "Table 2 à 20 mV/s pour 200 °C : 1480 F/g contre environ 1280 F/g déduits de la rétention et de la figure 5"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs cite le mûrissement cinétique sans lui prêter de réaction ; mecanisme_analyse est formulé comme une hypothèse ; le calcul 3,3 µmol de Co pour 7,9 µmol de thiourée (rapport 2,4) est juste.",
+ "notes": "Extraction très soigneuse : les 4 échantillons ont leur voie, les rangées de Table 1, 2 et 3 sont attribuées par nom d'échantillon (relues rangée par rangée, aucune erreur), les quatre ensembles EDX de la figure 3 sont exacts, les cases not_stated vérifiées sont réellement absentes de l'article, method_sources vide est correct (aucun renvoi dans la section 2 de corpus/refs ; Scherrer, JCPDS et Smith/Zhang/Li sont du contexte ou de l'analyse). Écarté comme non-constat : la température 160 °C de la voie de base repose sur une phrase qui liste les quatre températures (« 160, 180, 200, and 220 °C ») ; le choix arbitraire de la voie de base est déjà dans les doutes et la lecture littérale est la seule possible. Écarté aussi : eau distillée portée à 99,99 % et Sigma Aldrich (la phrase « All the precursors » couvre la liste de 2.1 qui nomme l'eau distillée, règle 6 du RUNBOOK, même si c'est peu plausible chimiquement). « Smith et al. » du paragraphe 3.4.3 n'a aucune référence dans la liste (citation douteuse, pour le critique scientifique) et la référence B27 (Zhang et al.) porte sur l'oxyde de graphène et non sur CoS ; l'extracteur l'a signalé. Les micrographies de la figure 2 ont des barres d'échelle de 1 à 2 µm et montrent des agrégats micrométriques, alors que le texte parle de nanoparticules : non repris, pas de valeur écrite dans l'article."
+}

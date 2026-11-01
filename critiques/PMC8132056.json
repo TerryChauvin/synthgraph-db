@@ -1,0 +1,113 @@
+{
+ "pmcid": "PMC8132056",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "PSC_pristine / PSC_12F / PSC_4F outcomes PCE_retention_UV_light*",
+   "extracted": "valeurs de rétention sous UV sans conditions d'essai ; encapsulation à l'« ethoxyline » absente de tout le JSON (le mot n'apparaît pas)",
+   "article_says": "the UV‐light stability of the devices encapsulated with ethoxyline was also evaluated under high‐voltage mercury lamp irradiation (500 W) with a 365 nm cutoff filter (temperature: 30 °C; relative humidity: 80%)",
+   "fix": "ajouter aux résultats UV de PSC_pristine et PSC_12F (comme déjà fait pour PSC_4F) les conditions : lampe Hg haute tension 500 W, filtre 365 nm, 30 °C, HR 80 % ; noter que les dispositifs sont encapsulés avec de l'ethoxyline (résine époxy), procédé d'encapsulation non décrit (à lister dans missing_fields / limite_reproductibilite)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "PSC_pristine / PSC_12F outcomes PCE_retention_ambient_110_days et PCE_retention_85C_48_h",
+   "extracted": "seul le nom de propriété indique « unencapsulated » ; température, humidité et atmosphère des essais absentes",
+   "article_says": "unencapsulated devices was monitored in ambient condition (temperature: 25 °C; relative humidity: 35%) for over 110 days",
+   "fix": "porter 25 °C / HR 35 % / 110 j (ambiant) et 85 °C, obscurité, azote en boîte à gants (aging « in a dark nitrogen atmosphere in a glove box ») dans les conditions ou la citation des résultats de rétention",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "PSC_50F (et PSC_4F pour l'air ambiant) outcomes de stabilité, Fig. 5",
+   "extracted": "aucune rétention de PCE pour 50 %-F-TiO2 (UV, thermique, air) ni pour 4 % à l'air ; seul 4 % est lu en UV (8 %) et thermique (40 %)",
+   "article_says": "b) UV‐light stabilities of the encapsulated devices based on different TiO2 ETLs under high‐voltage mercury lamp irradiation (500 W) with 365 nm cutoff filter",
+   "fix": "Fig. 5 (g001) : la courbe rose (50 % d'après la légende de 5a) finit vers 0,56 après 26 h UV et vers 0,86 après 48 h à 85 °C ; à l'air (5a) 4 % ≈ 0,82 et 50 % ≈ 0,84 après 110 j. Les étiquettes de 5b (« 50 % » placé sur la courbe haute à 0,68, que le texte attribue à 12 %) contredisent les couleurs : lecture à confirmer par l'orchestrateur avant ajout, en valeur from_figure ou en value_text",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PSC_pristine reagents (hole transport layer)",
+   "extracted": "spiro-OMeTAD et Li-TFSI absents de la liste de réactifs de PSC_pristine, alors que la structure ITO/ETL/pérovskite/spiro-OMeTAD/Au est celle des dispositifs",
+   "article_says": "spiro‐OMeTAD (1 M company), and Li‐bis(trifluoromethanesulfonyl) imide (Li‐TFSI, Sigma)",
+   "fix": "ajouter spiro-OMeTAD (fournisseur « 1 M company ») et Li-TFSI (Sigma) comme réactifs (rôle couche de transport de trous / dopant), sans quantité (not_stated) ; les étapes de dépôt restent déclarées absentes",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "PSC_pristine reagent potassium iodide / cesium iodide supplier",
+   "extracted": "supplier déclaré not_stated pour KI et CsI",
+   "article_says": "KI and CsI (MAI, Xi'an Polymer Light Technology Corp)",
+   "fix": "la parenthèse nomme un fournisseur (Xi'an Polymer Light Technology Corp) juste après « KI and CsI » ; le « MAI » y est probablement une erreur des auteurs. Renseigner supplier avec cette citation en gardant le doute (ou garder not_stated mais l'écrire dans la note), plutôt que « non cité »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources : renvoi advs2485-bib-0040 (DLTS)",
+   "extracted": "absent de method_sources (0013, 0039, 0048 présents comme « autre » pour SCLC et EIS)",
+   "article_says": "Figure 4a compares the DLTS spectra of the devices based on different TiO2 ETLs.",
+   "fix": "refs/PMC8132056.txt place [[advs2485-bib-0040]] sur cette phrase de mesure DLTS ; si les renvois de protocole de mesure SCLC et EIS sont gardés (règle du 2026-10-13), ajouter 0040 avec la même logique, ou retirer 0013/0039/0048 par cohérence",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources : renvoi advs2485-bib-0011, route null",
+   "extracted": "route : null",
+   "article_says": "In situ surface fluorination of TiO2 nanocrystals was fulfilled by a one‐step nonhydrolytic sol–gel method.",
+   "fix": "rattacher à la voie dopée (TiO2_12F ou TiO2_4F, branches de dopage) plutôt que laisser la route vide",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TiO2_pristine steps 2-8 et PSC_pristine steps 5-7, paramètre atmosphere",
+   "extracted": "atmosphere = ambient condition portée seulement à l'étape 1 de TiO2_pristine ; argon en boîte à gants seulement à l'étape 4 de PSC_pristine",
+   "article_says": "The following coating steps were performed under argon atmosphere inside a glovebox.",
+   "fix": "l'article dit « all procedures done in the ambient condition » (synthèse des nanocristaux) et « The following coating steps … argon … glovebox » : reporter atmosphere sur les étapes 2-8 (ambiante) et 5-7 de PSC_pristine (argon). Étape 8 (plaque chauffante) laissée en doute comme le fait l'extracteur",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "TiO2_pristine / TiO2_50F outcome RMS_roughness_of_film_AFM",
+   "extracted": "4.6 nm attribué au TiO2 témoin, 11.0 nm à 50 %",
+   "article_says": "increasing further the F content for 50%‐F‐TiO2 results in obvious increase of RMS roughness from 4.6 to 11.0 nm",
+   "fix": "« from 4.6 » suit « increasing further », ce qui peut désigner 12 %-F-TiO2 (jugé « comparable » au témoin) ; l'échantillon à 4,6 nm n'est pas nommé : noter l'ambiguïté dans la citation ou l'annotation, ne pas présenter 4,6 nm comme valeur certaine du témoin",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ANNOT tendance_observee, « longueur de recombinaison »",
+   "extracted": "« Un fluor modéré (12 %) améliore tout : mobilité, pièges de la pérovskite, longueur de recombinaison, FF et PCE »",
+   "article_says": "are smaller than that on the pristine TiO2 (252.92 ns",
+   "fix": "aucune « longueur de recombinaison » dans l'article ; les durées de vie TRPL à 12 % et 50 % sont plus courtes que celle du témoin (246,87 et 219,51 contre 252,92 ns), lues comme extraction d'électrons plus efficace. Retirer ou reformuler (résistance de recombinaison Rrec plus grande, n et α plus proches de 1)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "résultats non extraits (route null ou valeur de tableau ignorée)",
+   "extracted": "Pb 4f 142,9 / 138,0 eV (+0,1 eV) et 19F RMN (−87,78 ppm pour 50 %-F-TiO2, −87,00 après mélange avec FAI, SI Fig. S12) rangés dans aucun résultat ; Tableau S6 : seul l'indice d'hystérésis est repris (pas les Voc, Jsc, FF, PCE reverse/forward) ; Fig. S14 : Vmpp 0,99 V du témoin ; Rs/Rsh moyens des cellules flexibles (Tableau S8) absents alors qu'ils le sont pour les cellules rigides",
+   "article_says": "the Pb 4f5/2 and Pb 4f7/2 signals detected at 142.9 and 138.0 eV both shift positively by 0.1 eV",
+   "fix": "ajouter ces valeurs en résultats (PSC_50F pour XPS/RMN d'interface s'il n'y a pas de voie propre ; PSC_pristine/PSC_12F pour S6 ; PSC_flex_* pour Rs/Rsh moyens) ou les lister dans missing_fields",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 19,
+  "branches_extracted": 18,
+  "not_stated_checked": 45,
+  "not_stated_wrong": 1,
+  "note": "Ma liste : TiO2 pristine, 4, 8, 12, 20, 50 % F ; pristine et 50 % calcinés 600 °C ; PSC rigides x6 ; PSC flexibles x4 (0, 4, 12, 50 %) = 18 voies, toutes présentes. Le 19e élément est l'échantillon d'interface pérovskite/50 %-F-TiO2 (XPS, RMN), classé sans voie dans l'inventaire : acceptable, mais ses résultats sont perdus (voir dernier constat). Valeurs lues sur figure vérifiées : Fig. 1i (0,35 et 0,85 ; écart < 0,03), Fig. 3e (22,04 et 22,34 exacts), Fig. 2k (425/50/200 nm exacts), Fig. 5b-c (8 % et 40 % pour 4 %, 68 % et 83 % pour 12 % cohérents)."
+ },
+ "reproducibility_gaps": [
+  "solvant et volume de la solution de précurseurs de la pérovskite (DMF/DMSO seulement listés dans Materials), durée d'agitation, volume déposé à la tournette",
+  "dépôt du spiro-OMeTAD (concentration, Li-TFSI, tBP/Co éventuels, vitesse) et de l'électrode d'or (épaisseur, vitesse), absents de l'article et de l'annexe",
+  "fabrication des dispositifs à électrons seuls (ITO/Ag/TiO2/Ag ; ITO/F-TiO2/pérovskite/PCBM/Ag) : dépôt de l'Ag et du PCBM non décrit",
+  "quantité absolue de TiF4 (masse) : seul un rapport molaire F:Ti nominal est donné, sans dire s'il est calculé sur TiCl4 seul",
+  "volume d'éther diéthylique, volumes de lavage, durée de dispersion avec le TIPD, « cold » sans température pour l'éthanol",
+  "procédé d'encapsulation à l'ethoxyline des dispositifs testés sous UV",
+  "protocole de photocatalyse à la RhB (concentration de RhB, charge de catalyseur, lampe) non donné, ni rampe de calcination à 600 °C",
+  "formule de la pérovskite différente entre introduction et Methods ; « 1.3 m » (molarité ou molalité) ; nettoyage ITO sans durées ni UV-ozone ; gravure de l'ITO non décrite"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (TiF4 plus stable que TiCl4, Cl éliminé par échange avec le TIPD, F fixé sur (001)) est soutenu par le texte ; mecanisme_analyse est signalé comme hypothèse. Seul le terme « longueur de recombinaison » de tendance_observee n'a pas d'appui.",
+ "notes": "Extraction globalement fidèle : 307 valeurs, tableaux 1, S1-S5, S8, S10, S13, S14 recoupés sans erreur de valeur ni d'attribution de rangée. Fragile dans ma lecture : (1) les étiquettes de la Fig. 5b ne sont pas cohérentes avec le texte (la courbe haute à 0,68 est étiquetée 50 % dans l'image mais 12 % dans le texte) ; (2) le texte donne Ti 2p3/2 = 458,7 eV pour 12 %-F-TiO2 alors que la Fig. 1f montre 458,8 (témoin 458,7) : incohérence interne à l'article, pas une erreur d'extraction ; (3) l'indice d'hystérésis du témoin (1,9 % avec PCE reverse 19,91 < forward 20,29) est de signe douteux, déjà signalé en doute ; (4) la légende de la Fig. S7c parle de « different TiO2 powders » après calcination sans les nommer, alors que le texte ne compare que témoin et 50 % ; non vérifiable sans image du SI. Les figures du SI ne sont pas dans le dépôt."
+}

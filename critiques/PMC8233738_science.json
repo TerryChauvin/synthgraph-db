@@ -1,0 +1,203 @@
+{
+  "pmcid": "PMC8233738",
+  "routes": [
+    {
+      "label": "CFA1-Hydro-100",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "concentration de NaOH", "inputs": "13 g NaOH (M = 40,00 g/mol) dans 100 mL d'eau", "formula": "n = m/M ; C = n/V", "result": "0,325 mol ; ≈ 3,25 mol/L (130 g/L)", "compared_to": "130 g/L de NaOH de Shoppert et al., repris par les auteurs", "source": "valeurs de l'article ; masse molaire NaOH (PubChem)"},
+        {"what": "rapports Na/CFA et L/S", "inputs": "13 g NaOH ; 25 g CFA ; 100 mL", "formula": "13/25 ; 100/25", "result": "0,52 ; 4", "compared_to": "Table 2 : Na/CFA 0,52, L/S 4", "source": "valeurs de l'article"},
+        {"what": "conversion Si et Al de CFA1 (100 °C) recalculée", "inputs": "Si 9303 mg/L, Al 347 mg/L, V = 0,100 L, m = 25 g, SiO2 62,7 %, Al2O3 19,8 % ; facteurs SiO2/Si = 60,084/28,086 = 2,139 et Al2O3/2Al = 101,961/53,964 = 1,889", "formula": "T = 100·C·V·f/(m·x)", "result": "Si 12,70 % ; Al 1,32 % (sans le facteur oxyde : Si 5,93 %)", "compared_to": "Table 2 : 12,7 % et 1,32 % — les concentrations du surnageant sont donc en Si et Al élémentaires, et la formule (10) écrite sans facteur oxyde ne redonne pas les valeurs", "source": "valeurs de l'article ; masses atomiques IUPAC"},
+        {"what": "conversion rapportée à la phase vitreuse (toutes cendres, hydrothermie)", "inputs": "conversions de Table 2 × (SiO2 ou Al2O3 total)/(SiO2 ou Al2O3 vitreux) de Table 1", "formula": "T_verre = T × x_total / x_verre", "result": "silice : 42, 30, 36, 19 % à 100 °C et 28, 57, 67, 35 % à 200 °C (CFA1–4) ; alumine : 4,6, 4,9, 4,9, 2,8 % à 100 °C et 3,4, 1,7, 0,6, 0,6 % à 200 °C", "compared_to": "texte : « 33–67% for silica and 13–23% for alumina »", "source": "valeurs de l'article"},
+        {"what": "concentration molaire du surnageant", "inputs": "Si 9303 mg/L ; M(Si) = 28,086", "formula": "C/M", "result": "0,331 mol/L de Si", "compared_to": "NaOH 3,25 mol/L : rapport OH/Si ≈ 10, silicate entièrement soluble", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "100 °C dans un mini-autoclave pour une solution de NaOH 3,25 mol/L (point d'ébullition ≈ 101–102 °C, un peu au-dessus de celui de l'eau, 100 °C) : pas de surpression notable, traitement « atmosphérique » cohérent.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Les conversions de Table 2 ne se retrouvent qu'en convertissant les concentrations de Si et d'Al élémentaires en SiO2 et Al2O3 (facteurs 2,139 et 1,889 ; voir « conversion Si et Al de CFA1 (100 °C) recalculée ») ; la formule (10) telle qu'écrite (sans ce facteur ni conversion d'unités) donnerait 5,9 % au lieu de 12,7 %. Les données sont cohérentes, la formule publiée est incomplète.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les fourchettes « 33–67 % de la silice vitreuse et 13–23 % de l'alumine vitreuse » ne se retrouvent pas à partir des Tables 1 et 2 : silice 19 à 67 %, alumine 0,6 à 4,9 % (voir « conversion rapportée à la phase vitreuse »). La base de calcul de ces pourcentages n'est pas donnée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "La disparition de la bosse vers 2θ = 25° sans changement des raies du quartz et de la mullite indique une dissolution sélective du verre aluminosilicaté par NaOH à 100 °C, comportement classique des cendres en milieu alcalin.", "status": "ok", "basis": "litterature", "source": {"title": "Synthesis of zeolites from coal fly ash: an overview", "authors_or_publisher": "Querol X., Moreno N., Umaña J.C., Alastuey A., Hernández E., López-Soler A., Plana F. (Int. J. Coal Geol. 50, 413–423)", "year": "2002", "url_or_doi": "10.1016/S0166-5162(02)00124-6"}},
+        {"aspect": "securite", "finding": "Non mentionné : NaOH 3,25 mol/L chaud (corrosif, projections), poussière de cendre volante (silice cristalline respirable : quartz 38–45 % ici) à manipuler sous hotte ou avec masque.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Attaque alcaline du verre aluminosilicaté (Si–O–Si et Si–O–Al rompus par OH−) qui libère des silicates et aluminates de sodium solubles ; le quartz et la mullite, cristallins, ne réagissent presque pas en 3 h à 100 °C, d'où une conversion limitée à la fraction vitreuse.", "sources": [{"title": "Synthesis of zeolites from coal fly ash: an overview", "authors_or_publisher": "Querol X. et al., Int. J. Coal Geol.", "year": "2002", "url_or_doi": "10.1016/S0166-5162(02)00124-6"}]},
+      "what_to_verify_before_repeating": ["mesurer Si et Al du surnageant en élément et convertir en oxyde avant de calculer la conversion", "volume réel du surnageant récupéré (la formule suppose 100 mL)", "volume du mini-autoclave et taux de remplissage"]
+    },
+    {
+      "label": "CFA1-Hydro-200",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "conversion Si et Al de CFA1 à 200 °C recalculée", "inputs": "Si 6153 mg/L, Al 260 mg/L, 0,100 L, 25 g, 62,7 % et 19,8 %", "formula": "T = 100·C·V·f/(m·x)", "result": "8,4 % ; 0,99 %", "compared_to": "Table 2 : 8,4 % ; 0,99 %", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "« ca. 1.55 MPa » à 200 °C correspond à la pression de vapeur saturante de l'eau pure à 200 °C (≈ 1,55 MPa, tables de vapeur) ; la solution NaOH 3,25 mol/L a une pression un peu plus faible. Le volume de l'autoclave et le taux de remplissage ne sont pas donnés.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Analcime, sodalite, cancrinite et zéolithe P formées à 200 °C en NaOH concentré : c'est la zéolitisation hydrothermale classique des cendres, qui retient Si et Al dans le solide et explique la baisse de l'alumine du surnageant (0,12–0,99 %).", "status": "ok", "basis": "litterature", "source": {"title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time", "authors_or_publisher": "Cundy C.S., Cox P.A., Chem. Rev.", "year": "2003", "url_or_doi": "10.1021/cr020060i"}},
+        {"aspect": "securite", "finding": "Autoclave sous ≈ 1,5 MPa avec soude chaude : joint et soupape adaptés, ouverture après refroidissement complet. Non mentionné.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Dissolution du verre puis d'une partie du quartz et de la mullite, suivie d'une recristallisation rapide en zéolithes sodiques (sodalite, cancrinite, analcime, P) qui consomment Si et surtout Al.", "sources": [{"title": "Synthesis of zeolites from coal fly ash: an overview", "authors_or_publisher": "Querol X. et al., Int. J. Coal Geol.", "year": "2002", "url_or_doi": "10.1016/S0166-5162(02)00124-6"}]},
+      "what_to_verify_before_repeating": ["volume de l'autoclave et taux de remplissage", "temps de montée en température (non donné)"]
+    },
+    {
+      "label": "CFA1-MW-100-1h",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "conversion Si et Al des essais micro-ondes recalculée (même base que les autres lignes)", "inputs": "1 h : Si 11 281, Al 632 mg/L ; 3 h : Si 15 603, Al 825 mg/L ; 0,100 L ; 25 g ; 62,7 % et 19,8 %", "formula": "T = 100·C·V·f/(m·x)", "result": "1 h : Si 15,4 %, Al 2,41 % ; 3 h : Si 21,3 %, Al 3,15 %", "compared_to": "Table 2 : Al 3,21 % et 4,19 % (écart d'un facteur 1,33 sur l'alumine seulement ; Si identique)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Les conversions d'alumine des deux essais micro-ondes (3,21 et 4,19 %) ne découlent pas des concentrations d'Al de Table 2 (632 et 825 mg/L) avec la base utilisée pour les 20 autres lignes, qui toutes se recalculent à 0,05 % près : on obtient 2,41 et 3,15 % (voir « conversion Si et Al des essais micro-ondes recalculée »). L'une des deux valeurs (concentration ou conversion) est fausse ; les conclusions « micro-ondes > hydrothermie » restent vraies pour Si.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Quantités non écrites (« même rapport » que l'hydrothermie : 13 g NaOH, 100 mL, 25 g), récipient ouvert ou à reflux non précisé, séparation du surnageant non décrite.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Même attaque alcaline du verre qu'en chauffage classique ; le chauffage diélectrique accélère la dissolution (chauffage volumique, surchauffes locales).", "sources": []},
+      "what_to_verify_before_repeating": ["puissance micro-ondes, volume, reflux", "dosage de l'Al du surnageant à refaire avant de comparer les conversions d'alumine"]
+    },
+    {
+      "label": "CFA1-MW-100-3h",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "silice extraite vs silice vitreuse de CFA1", "inputs": "conversion Si 21,3 % du SiO2 total (62,7 %) ; SiO2 vitreux de CFA1 18,9 % (Table 1)", "formula": "0,213 × 62,7", "result": "13,4 g de SiO2 extraits pour 100 g de cendre, contre 18,9 g de SiO2 vitreux", "compared_to": "texte : « a conversion rate of more than 18.9% … This confirmed the leaching of silica from crystals »", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Les auteurs comparent une conversion (21,3 % du SiO2 total) à une teneur massique (18,9 % de SiO2 vitreux dans la cendre) : deux bases différentes. Ramenée à la même base, la silice extraite (13,4 g/100 g) reste inférieure à la silice vitreuse (18,9 g/100 g) ; la dissolution de silice cristalline n'est pas démontrée (voir « silice extraite vs silice vitreuse de CFA1 »).", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "La conclusion écrit que « la silice extraite de CFA2 dépasse la silice vitreuse de CFA2 » sous micro-ondes, alors que seul CFA1 a été traité aux micro-ondes (Table 2, Fig. 2i). Incohérence entre sections.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Raies de Na2SiO3 dans le résidu : plus probablement du silicate de sodium de la liqueur mère cristallisé au séchage du résidu non lavé que l'effet d'une « agitation insuffisante ». Le lavage du résidu n'est pas décrit.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Dissolution plus avancée du verre aluminosilicaté (la silice extraite reste inférieure à la silice vitreuse) ; Na2SiO3 vient probablement de la liqueur résiduelle séchée sur le résidu. Rien n'impose une attaque du quartz ou de la mullite.", "sources": []},
+      "what_to_verify_before_repeating": ["laver le résidu avant DRX", "comparer silice extraite et silice vitreuse sur la même base massique"]
+    },
+    {
+      "label": "CFA1-Fusion-550",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport NaOH/CFA", "inputs": "15 g NaOH ; 12,5 g CFA", "formula": "15/12,5", "result": "1,20", "compared_to": "Table 2 : Na/CFA = 1,25 ; introduction : 1,2 (Shigemoto)", "source": "valeurs de l'article"},
+        {"what": "conversion Si et Al de CFA1 en fusion recalculée", "inputs": "550 : 7314/428 mg/L ; 650 : 9266/702 ; 750 : 9706/806 ; 0,100 L ; 12,5 g", "formula": "T = 100·C·V·f/(m·x)", "result": "550 : 20,0/3,27 % ; 650 : 25,3/5,36 % ; 750 : 26,5/6,15 %", "compared_to": "Table 2 : 20,0/3,26 ; 25,3/5,35 ; 26,5/6,14", "source": "valeurs de l'article"},
+        {"what": "accroissements relatifs moyens 550→650 et 650→750 °C", "inputs": "conversions des quatre cendres (Table 2)", "formula": "moyenne de T(650)/T(550) − 1, etc.", "result": "Si +22,4 %, Al +65,1 % ; puis Si +6,8 %, Al +46,0 %", "compared_to": "texte : 22,4 %, 65,1 %, 6,8 %, 46 %", "source": "valeurs de l'article"},
+        {"what": "masse d'Al-MCM-41 de Table 3", "inputs": "1000 kg CFA1 ; xSi 62,7 % ; xAl 19,8 % ; E de Table 2", "formula": "mM41 = m(xSi·ESi + xAl·EAl)", "result": "131,9 ; 169,2 ; 178,3 kg", "compared_to": "Table 3 : 132, 169, 178 kg", "source": "valeurs de l'article"},
+        {"what": "chaleur pour porter 1,2 t de NaOH à la température de fusion (omise par Table 3)", "inputs": "NIST (Chase 1998, Shomate) : H(liq,T) − H(sol,298 K) = 54,4 ; 62,8 ; 71,2 kJ/mol à 550, 650, 750 °C ; M = 40,00 g/mol ; 1200 kg NaOH par tonne de cendre", "formula": "Q_NaOH = m·ΔH/M ; q' = 1,2(Qe + Q_NaOH + ΣQi)/mM41", "result": "Q_NaOH ≈ 1,63 ; 1,88 ; 2,14 GJ ; q' ≈ 20 240 ; 18 300 ; 19 730 kJ/kg (contre 5421 ; 4914 ; 5319)", "compared_to": "Table 3 : 650 °C optimal ; gain 9,4 % sur 550 °C", "source": "NIST Chemistry WebBook, Sodium hydroxide, condensed phase thermochemistry (Chase 1998)"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Le bilan énergétique de Table 3 ne chauffe que la cendre (Cp 0,92 kJ/(kg·K)) et oublie les 1,2 t de NaOH (fusion vers 320 °C) qui absorbent environ 3 fois plus d'énergie, ainsi que l'enthalpie de réaction ; le q réel est ≈ 3,7 fois plus grand. Le classement (650 °C optimal, gain ≈ 10 %) se maintient avec NaOH inclus, mais les valeurs absolues de q sont fausses et les pertes du four sont des hypothèses, pas des mesures (voir « chaleur pour porter 1,2 t de NaOH … »).", "status": "reserve", "basis": "litterature", "source": {"title": "Sodium hydroxide — Condensed phase thermochemistry data (Shomate, Chase 1998)", "authors_or_publisher": "NIST Chemistry WebBook, SRD 69", "year": "1998", "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C1310732&Mask=6"}},
+        {"aspect": "bilan", "finding": "Na/CFA vaut 1,20 avec 15 g et 12,5 g, pas 1,25 comme en Table 2 (voir « rapport NaOH/CFA ») ; les conversions se recalculent à 0,05 % près avec 12,5 g et 100 mL.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Creuset non précisé : NaOH fondu (550–750 °C) attaque porcelaine, silice et alumine ; un creuset en alumine ou porcelaine apporterait de l'Al et du Si au surnageant et fausserait les conversions. Creuset en nickel ou acier, gants et écran contre les projections de soude fondue.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "La « cordiérite » (Al3(Mg,Fe)2[Si5AlO18]) attribuée dans le résidu de fusion à 550–750 °C est peu vraisemblable : c'est une phase de céramique formée vers 1200 °C ou plus, pas en milieu NaOH fondu, où l'on attend aluminosilicates de sodium (sodalite hydroxylée, néphéline/carnégieite) et silicates de sodium. La sodalite écrite « 3NaAlSiO4·NaCl » suppose du chlorure, absent du protocole : hydroxysodalite plus probable. Attribution DRX à recontrôler.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "NaOH fondu convertit verre, quartz et mullite en silicates et aluminates de sodium solubles dans l'eau ; une partie de Si et Al reprécipite en aluminosilicates sodiques insolubles (sodalite) au refroidissement ou à la lixiviation, ce qui plafonne la conversion vers 25–29 %.", "sources": [{"title": "Synthesis of zeolites from coal fly ash: an overview", "authors_or_publisher": "Querol X. et al., Int. J. Coal Geol.", "year": "2002", "url_or_doi": "10.1016/S0166-5162(02)00124-6"}]},
+      "what_to_verify_before_repeating": ["matériau du creuset", "rapport réel NaOH/CFA (1,2 ou 1,25)", "atmosphère et rampe du four", "inclure NaOH dans un bilan énergétique"]
+    },
+    {
+      "label": "AM41E-120-48",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de CTAB et de Si visé", "inputs": "1,325 g CTAB (M = 364,45 g/mol) ; CTAB/Si = 0,2", "formula": "n = m/M ; n(Si) = n(CTAB)/0,2", "result": "3,636 mmol CTAB ; 18,18 mmol Si requis", "compared_to": "rapport Si/Al/CTAB/H2O = 1:0,08:0,2:230", "source": "valeurs de l'article ; masse molaire CTAB (PubChem)"},
+        {"what": "identification du surnageant par la stœchiométrie", "inputs": "55 mL de surnageant de CFA1 : hydro 100 °C (9303/347 mg/L), fusion 550 (7314/428), 650 (9266/702), 750 (9706/806), micro-ondes 3 h (15 603/825)", "formula": "n(Si) = C·0,055/28,086 ; Al/Si ; CTAB/Si", "result": "hydro 100 : Si 18,22 mmol, Al/Si 0,039 ; fusion 550 : 14,32 mmol, 0,061, CTAB/Si 0,254 ; fusion 650 : 18,15 mmol, Al/Si 0,0789, CTAB/Si 0,200 ; fusion 750 : 19,01 mmol, 0,086, 0,191 ; MW 3 h : 30,55 mmol, 0,055", "compared_to": "Si/Al/CTAB = 1:0,08:0,2 : seul le surnageant de fusion à 650 °C redonne les deux rapports", "source": "valeurs de l'article"},
+        {"what": "rapport H2O/Si", "inputs": "25 mL d'eau + 55 mL de surnageant (≈ 50–55 g d'eau) ; n(Si) = 18,15 mmol", "formula": "n(H2O)/n(Si)", "result": "≈ 229 (75 g d'eau) à 245 (80 g)", "compared_to": "230", "source": "valeurs de l'article"},
+        {"what": "acide acétique pour atteindre pH 10,5", "inputs": "surnageant de fusion : 15 g NaOH/100 mL = 3,75 mol/L, soit 206 mmol dans 55 mL ; moins 2 OH par Si (36,3 mmol) et 1 par Al (1,4 mmol) ; plus ≈ 1 H+ par silicate pour descendre à pH 10,5 ; acide acétique glacial 17,47 mol/L (ρ 1,049, M 60,05)", "formula": "n(AcOH) ≈ n(OH libre) + n(Si) ; V = n/17,47", "result": "≈ 187 mmol, soit ≈ 10,7 mL d'acide acétique glacial ; acétate de sodium ≈ 2,0 mol/L dans ≈ 91 mL ; échauffement adiabatique ≈ 29 K (56 kJ/mol)", "compared_to": "quantité non donnée par l'article (« dropwise »)", "source": "estimation, valeurs de l'article ; ordre de grandeur (borne haute : Na perdu dans le résidu non compté)"},
+        {"what": "paramètre de maille a0 et épaisseur de paroi", "inputs": "d100 de Table 5 ; dBJH", "formula": "a0 = 2·d100/√3 ; W = a0 − dBJH", "result": "120-48 : a0 4,780, W 1,31 ; 90-48 : a0 4,734, W 1,31 (publié 1,29) ; 60-48 : 4,688/1,25 ; 30-48 : 4,561/1,17 ; C-120-48 : 4,596/1,36 ; 120-24 : 4,642/1,26 ; 120-72 : 4,815/1,33", "compared_to": "Table 5 : identique sauf W de AM41E-90-48 (1,29 au lieu de 1,31)", "source": "valeurs de l'article"},
+        {"what": "angle de Bragg de d100", "inputs": "d100 = 4,14 nm ; Cu Kα 0,154 06 nm", "formula": "2θ = 2 asin(λ/2d)", "result": "2,13°", "compared_to": "plage SXRD 0,5–10° : cohérent", "source": "longueur d'onde Cu Kα1 (constantes.md, NIST)"},
+        {"what": "diamètre 4V/S", "inputs": "120-48 : 0,77 cm3/g, 791 m2/g ; 60-48 : 0,87, 824 ; C-120-48 : 0,96, 1055", "formula": "d = 4V/S", "result": "3,89 ; 4,22 ; 3,64 nm", "compared_to": "dBJH 3,47 ; 3,44 ; 3,24 nm (V à p/p0 = 0,99 inclut un peu de volume interparticulaire)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le rapport Si/Al/CTAB = 1:0,08:0,2 déclaré n'est atteint qu'avec le surnageant de fusion à 650 °C de CFA1 (Al/Si 0,079, CTAB/Si 0,200) ; le surnageant hydrothermal à 100 °C donnerait Al/Si 0,039 (voir « identification du surnageant par la stœchiométrie »). C'est très probablement la source non écrite ; un chimiste doit utiliser ce surnageant ou réajuster Al et CTAB.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "pH 10,5 atteignable : la neutralisation demande ≈ 10–11 mL d'acide acétique glacial pour 55 mL de surnageant, ce qui laisse ≈ 2 mol/L d'acétate de sodium (force ionique élevée) et dégage assez de chaleur pour ≈ 29 K d'échauffement si l'ajout est rapide (voir « acide acétique pour atteindre pH 10,5 »). La gélification « vers pH 11 » puis le réglage final à 10,5 ne se contredisent pas : la silice condense dès que le pH passe sous ≈ 11.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Cristallisation en autoclave à 30–120 °C : pression de vapeur de l'eau à 120 °C ≈ 0,2 MPa, sans risque ; le taux de remplissage n'est pas donné. Extraction : « heated to 60 °C and then refluxed » dans le méthanol (point d'ébullition 64,7 °C) : à 60 °C il n'y a pas de vrai reflux ; consigne de bain à préciser.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "a0 = 2d100/√3 et W = a0 − dBJH se recalculent (voir « paramètre de maille a0 et épaisseur de paroi »), sauf W de AM41E-90-48 (1,31 et non 1,29) et W = 1,22 nm de AM41E-60-24 sans d100 publié. SBET 790–860 m2/g, pores 3,4–3,5 nm, isothermes de type IV : valeurs typiques de la MCM-41 au CTAB. Le BJH (Kelvin classique) sous-estime le diamètre des pores de moins de 10 nm, donc W est surestimé ; les tendances restent valables.", "status": "reserve", "basis": "litterature", "source": {"title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)", "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.", "year": "2015", "url_or_doi": "10.1515/pac-2014-1117"}},
+        {"aspect": "resultats", "finding": "Le texte attribue −102 ppm à Q4 et −112 ppm à Q3 (et « isolated silanes » pour silanols), à l'inverse de l'usage (Q4 ≈ −109/−110 ppm, Q3 ≈ −100/−101, Q2 ≈ −91) ; la Table 6 donne la bonne attribution (Q4 −112, Q3 −102). Les rapports Q4/Q3 ne sont quantitatifs qu'en polarisation directe avec un délai de recyclage long ; la séquence (CP ou simple impulsion) n'est pas donnée.", "status": "reserve", "basis": "litterature", "source": {"title": "A 29Si, 1H, and 13C Solid-State NMR Study on the Surface Species of Various Depolymerized Organosiloxanes at Silica Surface", "authors_or_publisher": "Nanoscale Research Letters (Springer), article PMC6517472", "year": "non relevé", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6517472"}},
+        {"aspect": "mecanisme", "finding": "Preuve non discriminante : l'extraction NH4Cl/méthanol n'est pas contrôlée (ni ATG ni analyse C/N de AM41E). Une partie du Q3 plus élevé et de la SBET plus faible des échantillons extraits peut venir de CTA+ résiduel (sites Si–O−···CTA+) et non seulement de la densité de silanols. Il faudrait une ATG ou un dosage du carbone après extraction.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Incohérences mineures entre sections : l'introduction annonce une cristallisation de 30 à 150 °C (essais réels 30–120 °C) ; la conclusion parle de pas de 100 °C (pas réels de 30 °C) ; noms « AM41S-120-48 » et « AM41A-120-48 » non définis dans la Table 12 ; DRX « 40 kV et 200 mA » (8 kW) impossible pour un tube scellé de D8 Advance ou d'Empyrean (≈ 2,2 kW) : sans doute 40 mA.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Non mentionné : neutralisation exothermique soude/acide acétique (ajout lent), méthanol (inflammable, toxique), CTAB (toxique pour le milieu aquatique), autoclave.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Assemblage coopératif S+I− : les micelles cylindriques de CTA+ s'entourent d'oligomères silicates et aluminates anioniques quand l'acide abaisse le pH vers 10,5–11 ; la mésophase hexagonale précipite (gel), puis la cristallisation hydrothermale poursuit la condensation des parois (Q3 → Q4), ce qui épaissit les parois et réduit la surface quand la température ou la durée augmentent. L'Al s'insère en tétraèdres (Si/Al du solide ≈ 12,7 contre 12,5 dans le gel).", "sources": [{"title": "A new family of mesoporous molecular sieves prepared with liquid crystal templates", "authors_or_publisher": "Beck J.S., Vartuli J.C., Roth W.J., Leonowicz M.E., Kresge C.T. et al., J. Am. Chem. Soc. 114, 10834–10843", "year": "1992", "url_or_doi": "10.1021/ja00053a020"}]},
+      "what_to_verify_before_repeating": ["prendre le surnageant de fusion à 650 °C de CFA1 (seul compatible avec Si/Al/CTAB = 1:0,08:0,2) ou doser Si et Al avant mélange", "volume d'acide acétique (≈ 10–11 mL attendus) et ajout lent sous agitation", "taux de remplissage de l'autoclave", "contrôler l'élimination du CTAB après extraction (ATG ou C)", "séquence RMN 29Si (polarisation directe) avant de comparer des Q4/Q3"]
+    },
+    {
+      "label": "AM41C-120-48",
+      "verdict": "coherente",
+      "feasibility": "reproductible",
+      "calculs": [
+        {"what": "a0 et W après calcination", "inputs": "d100 3,98 nm ; dBJH 3,24 nm", "formula": "a0 = 2d/√3 ; W = a0 − dBJH", "result": "a0 4,596 nm ; W 1,36 nm", "compared_to": "Table 5 : 4,60 ; 1,36", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Calcination 550 °C, 5 h : condition standard d'élimination du CTAB ; contraction de maille (d100 4,14 → 3,98 nm), hausse de SBET (791 → 1055 m2/g) et de Q4/Q3 (1,8 → 4,1) par déshydroxylation : cohérent. Atmosphère et rampe non données (air et rampe lente attendus).", "status": "ok", "basis": "litterature", "source": {"title": "A new family of mesoporous molecular sieves prepared with liquid crystal templates", "authors_or_publisher": "Beck J.S. et al., J. Am. Chem. Soc.", "year": "1992", "url_or_doi": "10.1021/ja00053a020"}}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Combustion du CTA+ et condensation des silanols voisins (Q3 → Q4) : surface accessible plus grande mais moins de sites de greffage.", "sources": []},
+      "what_to_verify_before_repeating": ["atmosphère et rampe de calcination"]
+    },
+    {
+      "label": "AM41ES-120-48",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "MPTMS engagé", "inputs": "6 mL MPTMS (ρ 1,057 g/mL, M 196,34 g/mol) ; 2 g de support", "formula": "n = V·ρ/M", "result": "32,3 mmol, soit 16,2 mmol/g de support", "compared_to": "S greffé 2,53 mmol/g (8,10 % S) : excès ≈ 6", "source": "valeurs de l'article ; densité et masse molaire du MPTMS (fiche fournisseur)"},
+        {"what": "rapports élémentaires de Table 7 (AM41ES-120-48)", "inputs": "S 8,10 ; C 9,16 ; Si1 6,97 ; Si2 28,4 ; Al 2,15 % ; qm 123,0 mg/g", "formula": "n = %/M ; S/Pb = n(S)/(qm/207,2)", "result": "S 2,53 mmol/g ; C/S 3,02 ; Si1/S 0,98 ; Si2/Al 12,69 ; S/Pb 4,26", "compared_to": "propylthiol : C/S = 3, Si/S = 1 ; Table 7 : Si2/Al 12,8, S/Pb 4,26 ; gel Si/Al 12,5", "source": "valeurs de l'article"},
+        {"what": "somme des teneurs de Table 7", "inputs": "S+C+H+Si1+Si2+Al+O", "formula": "somme", "result": "93,4 % (AM41ES-120-48) ; 95,7 % (AM41ES-60-48)", "compared_to": "100 %", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Table 7 est dite obtenue par XRF, or la fluorescence X ne mesure pas H et mesure mal C, et ne distingue pas le Si de l'organosilane (Si1) de celui de la charpente (Si2). Les valeurs, cohérentes entre elles (C/S 3,0 ; Si1/S 1,0 ; voir « rapports élémentaires de Table 7 »), viennent forcément d'une analyse élémentaire CHNS ou d'un calcul non décrit. La méthode de dosage du thiol, qui porte toute la conclusion, n'est pas reproductible telle qu'écrite.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "« heated to 105 °C and refluxed » dans le toluène : le toluène bout à 110,6 °C ; à 105 °C il n'y a pas de reflux. Consigne de bain ou température réelle à préciser.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les résonances ajoutées après greffage sont attribuées « −60 ppm : T3, −70 ppm : T2 », à l'inverse de l'usage (T2 ≈ −58 ppm, T3 ≈ −67/−68 ppm).", "status": "reserve", "basis": "litterature", "source": {"title": "A 29Si, 1H, and 13C Solid-State NMR Study on the Surface Species of Various Depolymerized Organosiloxanes at Silica Surface", "authors_or_publisher": "Nanoscale Research Letters (Springer), article PMC6517472", "year": "non relevé", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6517472"}},
+        {"aspect": "resultats", "finding": "Dégazage à 300 °C pendant 2 h avant la mesure N2, appliqué aussi aux solides greffés : des groupes propylthiol et aminopropyl peuvent commencer à se dégrader vers 250–350 °C ; SBET et VPORE des matériaux greffés (374 et 261 m2/g) peuvent donc ne pas représenter l'adsorbant utilisé. Un dégazage à 100–120 °C serait la règle pour un hybride.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "« S/Pb = 4,26 sites nécessaires par Pb(II) » : c'est le rapport du thiol total à qm ; il dit qu'environ un quart des thiols est occupé à saturation, pas que chaque Pb lie quatre thiols. Les capacités à pH 7–9 incluent la précipitation d'hydroxyde de plomb (les auteurs le disent) et ne sont pas des capacités d'adsorption. Un meilleur R2 en pseudo-second ordre ne prouve pas une chimisorption.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Non mentionné : toluène (inflammable, reprotoxique), MPTMS (odeur de thiol, nocif), dégagement de méthanol au greffage, nitrate de plomb (toxique, reprotoxique, déchets plombés à collecter).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Condensation des groupes méthoxy du MPTMS avec les silanols de surface (libération de méthanol), en liaisons T2 et T3 ; le dégazage à 150 °C limite l'eau qui polymériserait le silane en solution. La quantité greffée suit les silanols accessibles : Q3 élevé et pores ordonnés. Pb(II), acide intermédiaire à mou, se lie aux thiolates (HSAB).", "sources": []},
+      "what_to_verify_before_repeating": ["méthode réelle de dosage de S, C, H (CHNS) et du partage Si1/Si2", "température réelle du greffage (reflux du toluène à 110,6 °C)", "dégazage à basse température pour la mesure BET des hybrides"]
+    },
+    {
+      "label": "AM41ES-60-48",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "densité de greffage", "inputs": "S 10,32 % (M 32,06) ; SBET du support AM41E-60-48 824 m2/g", "formula": "n(S) = 10,32/32,06 ; densité = n·NA/S", "result": "3,22 mmol/g ; 2,35 groupes/nm2", "compared_to": "fourchette haute pour un greffage post-synthèse sur MCM-41", "source": "valeurs de l'article"},
+        {"what": "rapport S/Pb", "inputs": "3,22 mmol/g S ; qm 153,0 mg/g (Pb 207,2)", "formula": "n(S)/n(Pb)", "result": "4,36", "compared_to": "Table 7 : 4,36", "source": "valeurs de l'article"},
+        {"what": "cohérence ΔG, ΔH, ΔS", "inputs": "ΔH0 = 20 kJ/mol ; ΔS0 = 101 (unité publiée kJ/mol) ; T = 298,15 K", "formula": "ΔG = ΔH − TΔS", "result": "avec 101 J/(mol·K) : ΔG ≈ −10,1 kJ/mol ; avec 101 kJ/(mol·K) : ΔG ≈ −30 000 kJ/mol", "compared_to": "« All values of ΔG0 were negative »", "source": "valeurs de l'article"},
+        {"what": "Langmuir contre points mesurés", "inputs": "qm 153,0 mg/g ; b 0,262 L/mg ; V/m = 50 mL/50 mg = 1 L/g", "formula": "qe = qm·b·Ce/(1 + b·Ce) ; qe = C0 − Ce", "result": "C0 200 : qe ≈ 140 mg/g, Ce ≈ 60 mg/L, Langmuir 143,8 ; C0 100 : qe 93, Ce 7, Langmuir 99,0", "compared_to": "Fig. 11b (≈ 140) et Fig. 14a (93) : cohérent", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "ΔS0 = 101 « kJ/mol » : l'unité est fausse. Seul 101 J/(mol·K) est compatible avec ΔH = 20 kJ/mol et des ΔG négatifs (ΔG(298 K) ≈ −10 kJ/mol ; voir « cohérence ΔG, ΔH, ΔS ») ; en kJ/(mol·K), ΔG vaudrait −30 MJ/mol.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Kd = qe/Ce (unité déclarée L/mg) est introduit dans ΔG = −RT ln Kd sans le rendre adimensionnel : ΔG0 et ΔS0 changent avec l'unité choisie. Le signe de ΔH reste interprétable, pas les valeurs de ΔG0 et ΔS0.", "status": "reserve", "basis": "litterature", "source": {"title": "A critical review of the estimation of the thermodynamic parameters on adsorption equilibria. Wrong use of equilibrium constant in the Van't Hoof equation for calculation of thermodynamic parameters of adsorption", "authors_or_publisher": "Lima E.C., Hosseini-Bandegharaei A., Moreno-Piraján J.C., Anastopoulos I., J. Mol. Liq. 273, 425–434", "year": "2019", "url_or_doi": "DOI non relevé (référence vue citée par des tiers, non ouverte)"}},
+        {"aspect": "resultats", "finding": "AM41ES-60-24 (96,3 mg/g, point expérimental à C0 = 200 mg/L) est comparé à qm = 153,0 mg/g de AM41ES-60-48 (paramètre ajusté). La comparaison juste est avec le point expérimental de AM41ES-60-48 au même C0 (≈ 140 mg/g) : la conclusion tient, l'écart est plus faible qu'annoncé. Pas de répétitions ni de barres d'erreur pour un maximum entre 30 et 120 °C.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "153 mg/g avec V/m = 1 L/g est sous la borne physique (qe ≤ C0 = 200 mg/g) ; Langmuir et points mesurés concordent (voir « Langmuir contre points mesurés ») ; 3,2 mmol/g de thiol (2,35 groupes/nm2) est élevé mais possible si le silane polymérise en partie à la surface.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Plus de silanols accessibles (Q4/Q3 1,2) et des pores encore ordonnés donnent le greffage le plus dense, donc la plus forte capacité ; à 30 °C l'ordre trop faible bloque l'accès aux pores malgré Q4/Q3 0,9.", "sources": []},
+      "what_to_verify_before_repeating": ["refaire l'analyse thermodynamique avec une constante adimensionnelle", "répéter les isothermes pour confirmer le maximum à 60 °C"]
+    },
+    {
+      "label": "AM41EA-120-48",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapports N/Pb et C/N", "inputs": "N 3,95 % (M 14,007) ; C 9,68 % ; qm 61,6 mg/g", "formula": "n(N) = 3,95/14,007 ; n(Pb) = 61,6/207,2 ; C/N", "result": "N 2,82 mmol/g ; Pb 0,297 mmol/g ; N/Pb 9,49 ; C/N 2,86", "compared_to": "Table 7 : N/Pb 9,49 ; aminopropyle C/N = 3", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Quantité d'APTMS et conditions de greffage non données (« also grafted with APTMS ») ; les teneurs N et C (C/N 2,86, voir « rapports N/Pb et C/N ») sont cohérentes avec un aminopropyle greffé. Une amine (base dure) moins efficace qu'un thiol pour Pb(II) : conforme à la logique HSAB invoquée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "APTMS corrosif et sensible à l'humidité : à manipuler sous hotte, gants. Non mentionné.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Greffage de l'APTMS par condensation sur les silanols comme pour le MPTMS ; à pH 6 une partie des amines est protonée (pKa ≈ 10), ce qui réduit la complexation de Pb(II).", "sources": []},
+      "what_to_verify_before_repeating": ["quantité d'APTMS et conditions de greffage"]
+    }
+  ],
+  "article_level": {
+    "summary": "Chimie globalement cohérente : activation alcaline des cendres (les 20 conversions hydrothermales et de fusion se recalculent à 0,05 % près en traitant les concentrations comme Si et Al élémentaires), synthèse d'Al-MCM-41 au CTAB dont la stœchiométrie déclarée (Si/Al/CTAB = 1:0,08:0,2) n'est compatible qu'avec le surnageant de fusion à 650 °C de CFA1, structure poreuse cohérente (a0, W recalculés), greffage thiol plausible. Points faibles : conversions d'alumine des essais micro-ondes incohérentes avec leurs concentrations, affirmation non démontrée de dissolution de silice cristalline (bases de calcul mélangées, et CFA2 cité alors que seul CFA1 a été traité aux micro-ondes), dosage C/H/S attribué à la XRF, unité de ΔS0 fausse, attributions RMN 29Si inversées dans le texte, bilan énergétique sans le NaOH.",
+    "author_errors_suspected": [
+      "Table 2 : conversions d'Al des essais micro-ondes (3,21 et 4,19 %) incompatibles avec 632 et 825 mg/L d'Al (2,41 et 3,15 % attendus)",
+      "Résultats et conclusion : dissolution de silice cristalline affirmée en comparant une conversion (21,3 %) à une teneur massique (18,9 %) ; la conclusion cite CFA2, non traité aux micro-ondes",
+      "Formule (10) sans facteur de conversion Si → SiO2 et Al → Al2O3",
+      "Table 2 : Na/CFA 1,25 au lieu de 1,20 (15 g/12,5 g)",
+      "Table 3 : chaleur d'échauffement et de fusion du NaOH (1,2 t par tonne de cendre) omise",
+      "Section 2.2 : Q4 et Q3 (et T3/T2) inversés dans le texte par rapport à la Table 6 et à l'usage",
+      "Table 7 : C, H et Si1/Si2 attribués à une analyse XRF qui ne peut pas les fournir",
+      "ΔS0 = 101 kJ/mol au lieu de 101 J/(mol·K) ; Kd non adimensionnel",
+      "W de AM41E-90-48 (1,29 au lieu de 1,31 nm) ; DRX à 200 mA ; 105 °C de « reflux » du toluène ; 60 °C de « reflux » du méthanol"
+    ],
+    "comparison_with_database": "compare.py « MCM-41 » : une seule autre voie (PMC5977331, ZnO sur MCM-41 au salicylaldimine, SBET 740 m2/g, pores 2,2 nm, calcination 550 °C 6 h). Les surfaces 790–1055 m2/g et pores 3,2–3,5 nm d'ici sont du même ordre, cohérentes avec du CTAB comme gabarit ; pas d'autre synthèse issue de cendres volantes dans la base."
+  },
+  "sources_not_found": [
+    "DOI de Lima et al., J. Mol. Liq. 273 (2019) 425–434 non relevé (article vu seulement cité par des tiers)",
+    "source primaire pour la température de début de décomposition des groupes mercaptopropyle greffés sur MCM-41 (ATG) : non trouvée, constat laissé en chimie générale",
+    "année et auteurs de l'article PMC6517472 (déplacements 29Si) non relevés",
+    "DOI de Querol et al. 2002 vu sur une fiche Mindat, non contrôlé contre Crossref (bloqué)"
+  ]
+}

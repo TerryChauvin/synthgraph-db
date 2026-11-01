@@ -1,0 +1,494 @@
+{
+ "pmcid": "PMC7254238",
+ "routes": [
+  {
+   "label": "LaFe-oxalate-precursor",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan redox diol → oxalate",
+     "inputs": "C2H6O2 + 2 H2O → C2O4^2− + 10 H+ + 8 e− ; NO3− + 4 H+ + 3 e− → NO + 2 H2O",
+     "formula": "3 × oxydation + 8 × réduction",
+     "result": "3 C2H6O2 + 8 NO3− + 2 H+ → 3 C2O4^2− + 8 NO + 10 H2O",
+     "compared_to": "rapport La:Fe:diol:HNO3 = 1:1:3:2 → 3 diol, 6 + 2 = 8 nitrates, 2 H+ par La+Fe",
+     "source": "chimie générale (nombres d'oxydation : C −1 → +3, N +5 → +2)"
+    },
+    {
+     "what": "équation globale du précurseur",
+     "inputs": "1 La(NO3)3 + 1 Fe(NO3)3 + 2 HNO3 + 3 C2H6O2",
+     "formula": "bilan atomique",
+     "result": "LaFe(C2O4)3·3H2O + 8 NO + 7 H2O (bilan exact en La, Fe, C, H, N, O, charge)",
+     "compared_to": "rapport 1:1:3:2 de l'article : exactement stœchiométrique si l'azote part sous forme de NO",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse molaire et analyse élémentaire de LaFe(C2O4)3·3H2O",
+     "inputs": "LaFeC6O15H6 ; masses atomiques IUPAC (La 138,905 ; Fe 55,845 ; C 12,011 ; O 15,999 ; H 1,008) — arithmétique",
+     "formula": "Σ masses ; % = m(élément)/M",
+     "result": "M = 512,85 g/mol ; La 27,08 % ; Fe 10,89 % ; C 14,05 % ; H 1,18 %",
+     "compared_to": "calc. de l'article 27,09 / 10,89 / 14,04 / 1,17 % : identiques",
+     "source": "arithmétique"
+    },
+    {
+     "what": "pH initial attendu",
+     "inputs": "2 mol HNO3 (solution 2 M, soit 1 L) par mol de La ; volume total ≥ 1 L par mol de La",
+     "formula": "pH = −log[H+]",
+     "result": "[H+] ≤ 2 mol/L → pH ≈ −0,3 à 0 ; pour pH 3 il faudrait diluer 2 mol de H+ dans ≈ 2 000 L par mol de La (La ≈ 0,5 mmol/L)",
+     "compared_to": "« molar ratio of 1:1:3:2 that assured the solution pH of 3 »",
+     "source": "arithmétique"
+    },
+    {
+     "what": "volume de NO dégagé",
+     "inputs": "8 mol NO par mol de précurseur (512,85 g) ; volume molaire 24,47 L à 25 °C",
+     "formula": "8/M × 24,47",
+     "result": "15,6 mmol NO par g de précurseur ≈ 0,38 L de gaz par g (puis NO2 à l'air)",
+     "compared_to": "aucune mention de dégagement gazeux ni de hotte dans l'article",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport 1:1:3:2 est exactement celui de l'équation 3 C2H6O2 + 8 NO3− + 2 H+ → 3 C2O4^2− + 8 NO + 10 H2O (voir « bilan redox diol → oxalate ») : les 6 nitrates des sels et les 2 HNO3 fournissent les 24 électrons demandés par l'oxydation de 3 diols en 3 oxalates, et les 3 oxalates (charge −6) compensent La3+ + Fe3+. L'affirmation des auteurs (conditions fixées « based on the stoichiometry of the redox reaction ») est cohérente, sans aucun excès ni de diol ni d'oxydant.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Analyse élémentaire recalculée (voir « masse molaire et analyse élémentaire ») : M = 512,85 g/mol, valeurs calculées identiques à celles de l'article, écarts trouvés/calculés ≤ 0,27 % absolu. Cohérent avec LaFeC6O15H6.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« pH 3 » est impossible comme pH du mélange initial : 2 mol de HNO3 par mol de La, apportés par une solution 2 M, donnent [H+] de l'ordre de 1 à 2 mol/L, pH ≈ 0 (voir « pH initial attendu ») ; l'hydrolyse de Fe3+ abaisse encore le pH. Le pH 3 ne peut être que celui de la solution après réaction, quand les 2 H+ ont été consommés par l'équation redox. Un chimiste qui ajusterait le mélange de départ à pH 3 (par une base) changerait la stœchiométrie et ne referait pas cette synthèse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "20 min vers 100 °C pour oxyder entièrement l'éthanediol par des nitrates en milieu peu concentré : l'oxydation des glycols par HNO3 est autocatalysée par les oxydes d'azote (HNO2) et présente une période d'induction ; le procédé industriel emploie HNO3 concentré, souvent avec H2SO4 et V2O5, et un excès de HNO3 (rapport ≥ 3/1). Ici le rapport est juste stœchiométrique et la concentration n'est pas donnée : la conversion complète en 20 min dépend du volume (concentration) et d'une évaporation éventuelle. L'analyse élémentaire conforme suggère que la conversion a été complète dans les conditions des auteurs, mais elle n'est pas transposable sans le volume.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "US3691232A — Process for producing oxalic acid (oxydation de l'éthylène glycol par HNO3/H2SO4 ; dégagement d'oxydes d'azote)",
+      "authors_or_publisher": "Google Patents (déposant non relevé)",
+      "year": "non vérifiée (brevet US des années 1970)",
+      "url_or_doi": "https://patents.google.com/patent/US3691232A/en"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Voie déjà publiée par la même école (Timișoara) pour Co, Cu, Ni : oxydation du 1,2-éthanediol par les nitrates métalliques en présence de HNO3, l'oxalate formé coordinant le métal en ligand tétradenté pontant. La méthode « originale » de l'article est l'extension de cette voie au couple La–Fe.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis, structural characterization and thermal analysis of the cobalt(II) oxalate obtained through the reaction of 1,2-ethanediol with Co(NO3)2·6H2O",
+      "authors_or_publisher": "Bîrzescu M., Niculescu M., Dumitru R., Carp O., Segal E. — J. Therm. Anal. Calorim. 96, 979–986",
+      "year": "2009",
+      "url_or_doi": "10.1007/s10973-009-0054-z"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve discriminante : le précurseur est amorphe en DRX ; analyse élémentaire et IR (oxalate bidentate et tétradentate) ne distinguent pas un composé hétérobinucléaire LaFe(C2O4)3·3H2O d'un mélange intime d'oxalate de lanthane et d'oxalato-ferrate(III) (ou d'oxalate de fer(II) formé par réduction de Fe3+ par l'oxalate) de même composition globale. Pour la céramique finale cela importe peu (mélange à l'échelle atomique ou nanométrique dans les deux cas), mais le nom de « composé » n'est pas démontré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mode d'isolement non décrit : il n'est pas dit si le solide précipite (filtration) ou si la solution est évaporée à sec. L'oxalate de lanthane est très peu soluble, mais [Fe(C2O4)3]3− est soluble dans l'eau ; une simple filtration pourrait perdre du fer et déplacer le rapport La/Fe. Le rapport La/Fe trouvé (27,21/10,62 %, soit La:Fe = 1,03:1 en moles) montre que le solide analysé est stœchiométrique, ce qui plaide pour une évaporation ou une précipitation complète.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Bain-marie « vers 100 °C » : un bain d'eau ouvert ne dépasse pas ≈ 100 °C (ébullition de l'eau à 1 atm), consigne compatible avec un récipient ouvert, qui est d'ailleurs obligatoire vu le dégagement gazeux.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : la réaction dégage ≈ 0,38 L de NO par gramme de précurseur (voir « volume de NO dégagé »), qui devient NO2 toxique à l'air ; l'éthylène glycol est incompatible avec l'acide nitrique et les nitrates (réaction oxydante exothermique, possible emballement après la période d'induction). Hotte obligatoire, récipient ouvert et largement dimensionné (moussage), montée en température progressive.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hazardous Substance Fact Sheet — Ethylene Glycol (incompatible avec les oxydants dont nitrates et acide nitrique)",
+      "authors_or_publisher": "New Jersey Department of Health",
+      "year": "2016 (révision)",
+      "url_or_doi": "https://nj.gov/health/eoh/rtkweb/documents/fs/0878.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Oxydation progressive du 1,2-éthanediol par NO3−/HNO3 (via glycolaldéhyde, acides glycolique et glyoxylique) jusqu'à l'acide oxalique, catalysée par HNO2/NOx formés in situ ; l'azote est réduit en NO (bilan 3 diol : 8 NO3−). L'oxalate formé coordonne La3+ et Fe3+ (ligand bidentate et tétradentate pontant) et le solide hydraté amorphe se forme à mesure que l'acidité est consommée (pH final ≈ 3).",
+    "sources": [
+     {
+      "title": "Synthesis, structural characterization and thermal analysis of the cobalt(II) oxalate obtained through the reaction of 1,2-ethanediol with Co(NO3)2·6H2O",
+      "authors_or_publisher": "Bîrzescu M., Niculescu M., Dumitru R., Carp O., Segal E. — J. Therm. Anal. Calorim. 96, 979–986",
+      "year": "2009",
+      "url_or_doi": "10.1007/s10973-009-0054-z"
+     },
+     {
+      "title": "US3691232A — Process for producing oxalic acid (oxydation de l'éthylène glycol par HNO3/H2SO4 ; dégagement d'oxydes d'azote)",
+      "authors_or_publisher": "Google Patents (déposant non relevé)",
+      "year": "non vérifiée (brevet US des années 1970)",
+      "url_or_doi": "https://patents.google.com/patent/US3691232A/en"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume (concentration) de la solution et masse de sels : non donnés ; ils fixent la vitesse de l'oxydation et la conversion en 20 min",
+    "pH 3 = pH final, pas un réglage du mélange de départ : ne pas ajouter de base",
+    "mode d'isolement du solide (évaporation ou filtration) et contrôle du rapport La/Fe du solide",
+    "travail sous hotte : dégagement de NO/NO2 et réaction exothermique avec période d'induction"
+   ]
+  },
+  {
+   "label": "LaFeO3-550",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "perte de masse étape 1 (3 H2O)",
+     "inputs": "3 × 18,015 g/mol ; M(précurseur) 512,85 g/mol",
+     "formula": "54,05/512,85",
+     "result": "10,54 %",
+     "compared_to": "calc. article 10,53 % ; trouvé 11,10 %",
+     "source": "arithmétique"
+    },
+    {
+     "what": "perte de masse étape 2 (2 CO)",
+     "inputs": "2 C2O4 → 2 CO3 + 2 CO ; 2 × 28,01 g/mol",
+     "formula": "56,02/512,85",
+     "result": "10,92 %",
+     "compared_to": "calc. article 10,92 % ; trouvé 10,40 %",
+     "source": "arithmétique"
+    },
+    {
+     "what": "perte de masse étape 3 (intermédiaire → LaFeO3)",
+     "inputs": "[CO3La(C2O4)FeCO3] = LaFeC4O10, M = 402,78 g/mol ; LaFeO3, M = 242,75 g/mol ; 4 CO2 partent mais ½ O2 est fixé",
+     "formula": "(402,78 − 242,75)/512,85 = (4 × 44,01 − 16,00)/512,85",
+     "result": "31,21 %",
+     "compared_to": "calc. article 34,32 % = 4 × 44,01/512,85 (fixation d'oxygène oubliée) ; trouvé 34,03 %",
+     "source": "arithmétique"
+    },
+    {
+     "what": "perte totale et résidu théoriques",
+     "inputs": "M(LaFeO3) 242,75 ; M(précurseur) 512,85",
+     "formula": "1 − 242,75/512,85",
+     "result": "perte 52,67 % ; résidu 47,33 %",
+     "compared_to": "somme trouvée 11,10 + 10,40 + 34,03 = 55,53 % ; somme « calc. » de l'article 55,77 % ; résidu lu sur la courbe TG (figure 2) ≈ 43,5 % à 1 000 °C",
+     "source": "arithmétique ; figure 2 de l'article"
+    },
+    {
+     "what": "masse molaire impliquée par le résidu TG",
+     "inputs": "résidu ≈ 43,5 % (figure 2) ; LaFeO3 242,75 g/mol",
+     "formula": "242,75/0,435",
+     "result": "≈ 558 g/mol, soit ≈ 45 g/mol (≈ 2,5 H2O) de plus que LaFe(C2O4)3·3H2O",
+     "compared_to": "512,85 g/mol d'après l'analyse élémentaire",
+     "source": "arithmétique"
+    },
+    {
+     "what": "distance d(111) avec les paramètres du tableau 1",
+     "inputs": "a = 5,562 ; b = 7,856 ; c = 5,558 Å",
+     "formula": "1/d² = h²/a² + k²/b² + l²/c²",
+     "result": "d(111) = 3,516 Å",
+     "compared_to": "frange HRTEM à 700 °C : 3,51 Å (111)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "distance d(204)",
+     "inputs": "axes du tableau 1 (b = 7,856 Å long) ; puis réglage Pbnm (c long = 7,856 Å)",
+     "formula": "1/d² = h²/a² + k²/b² + l²/c²",
+     "result": "axes du tableau : d(204) = 1,243 Å ; réglage Pbnm (c long) : d(204) = 1,604 Å",
+     "compared_to": "frange HRTEM à 550 °C : 1,60 Å (2 0 4)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "volume de maille et incertitude",
+     "inputs": "550 °C : a 5,562 ± 0,011 ; b 7,856 ± 0,016 ; c 5,558 ± 0,012 Å ; 800 °C : ± 0,002 ; ± 0,002 ; ± 0,001 Å",
+     "formula": "V = abc ; σV/V = √Σ(σi/xi)²",
+     "result": "V(550) = 242,86 ± 0,87 Å3 ; V(800) = 242,81 ± 0,12 Å3 ; écart 0,05 Å3 (0,02 %)",
+     "compared_to": "« clear contraction of the unit cell » ; figure 4a : 242,855 → 242,805 Å3",
+     "source": "arithmétique"
+    },
+    {
+     "what": "largeur Scherrer attendue",
+     "inputs": "D = 17,5 nm ; λ = 0,15418 nm ; raie (121)/(200) vers 2θ = 32,2° ; K = 0,9",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "β ≈ 0,47° (2θ)",
+     "compared_to": "raies larges et peu intenses décrites à 550 °C : ordre de grandeur cohérent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "cristallites par grain à 800 °C",
+     "inputs": "<DG> = 69,4 nm (MEB) ; <D> = 36,7 nm (DRX)",
+     "formula": "(69,4/36,7)³",
+     "result": "≈ 6,8 cristallites par grain moyen (en volume)",
+     "compared_to": "« smaller grains consist of 2–3 crystallites, larger ones 6–10 »",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Erreur de calcul des auteurs dans l'analyse thermique : la perte calculée de la troisième étape (34,32 %) correspond à 4 CO2 sans tenir compte de l'oxygène fixé pour passer de CO3La(C2O4)FeCO3 à LaFeO3 ; la bonne valeur est 31,21 % (voir « perte de masse étape 3 »). Les pertes « calculées » de l'article totalisent 55,77 %, plus que la perte maximale possible de 52,67 % pour LaFe(C2O4)3·3H2O → LaFeO3. La perte trouvée (55,53 %) et le résidu de la courbe TG (≈ 43,5 % contre 47,33 % attendus) contredisent donc la formule tirée de l'analyse élémentaire : le précurseur analysé en TG contient ≈ 8 % de matière volatile en plus (eau ou résidus organiques, voir « masse molaire impliquée par le résidu TG »). L'accord « trouvé/calculé » de la troisième étape est fortuit.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séquence thermique plausible : déshydratation < 160 °C, décomposition oxydante très exothermique vers 350–360 °C (pic DSC, figure 2), perte résiduelle de CO2 entre 550 et ≈ 700 °C (palier TG vers 600–650 °C). Les DRX (amorphe à 500 °C, LaFeO3 dès 550 °C) concordent avec les cristallisations de LaFeO3 à partir de précurseurs moléculaires (citrate, sol-gel) à 500–600 °C ; dans la base, PMC4726031 calcine à 600 °C (sol-gel citrique) et trouve 15,5 nm, ordre de grandeur voisin des 14–17 nm à 550 °C ici.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : l'IR de la poudre à 550 °C ne montre « que » les bandes La–O et Fe–O (pas de carbonate vers 1 400–1 500 cm−1), alors que la TG attribue la perte 550–700 °C au départ de CO2 retenu. Les deux ne sont compatibles que si le carbonate résiduel est sous le seuil de détection IR ou si la calcination isotherme d'1 h élimine ce que la TG dynamique à 10 K/min laisse ; les auteurs ne le discutent pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille de cristallite et cristallinité confondues : le texte donne 17,5 nm (550 °C) et 36,7 nm (800 °C) comme tailles moyennes, mais la figure 4b porte ≈ 14,5 et ≈ 38,5 nm ; 17,5 et 36,7 sont en revanche les valeurs de cristallinité (%) de la figure 4a. L'une des deux séries est mal reportée. De plus, une cristallinité de 18 à 37 % (donc 63 % de phase amorphe à 800 °C) contredit la conclusion « single phase LaFeO3 powders… 550–800 °C » et l'image MEB de grains frittés à joints nets à 800 °C ; la méthode de calcul de la « cristallinité » n'est pas donnée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Clear contraction of the unit cell » non démontrée : le volume passe de 242,86 à 242,81 Å3 (0,02 %), alors que l'incertitude propagée des paramètres du tableau 1 est ± 0,87 Å3 à 550 °C (voir « volume de maille et incertitude ») ; les paramètres à 550 et 600 °C sont identiques au millième. La tendance invoquée (relaxation du réseau quand la taille croît) n'est pas significative dans ces données.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres de maille conformes à LaFeO3 massif (référence Pnma : a = 5,5647, b = 7,8551, c = 5,5560 Å, V ≈ 242,9 Å3). Mais le tableau donne les axes dans le réglage Pnma (b long = 7,856 Å) sous l'étiquette « Pbnm », et l'indexation HRTEM (2 0 4) à 1,60 Å n'est juste que dans le réglage Pbnm (c long) : d(204) = 1,604 Å en Pbnm contre 1,243 Å avec les axes du tableau (voir « distance d(204) »). d(111) = 3,516 Å est juste dans les deux réglages. Un lecteur qui compare des indices doit savoir que deux réglages coexistent dans l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Analysis of the Structure of Heavy Ion Irradiated LaFeO3 Using Grazing Angle X-ray Absorption Spectroscopy (LaFeO3 Pnma : a = 5,5647, b = 7,8551, c = 5,5560 Å)",
+      "authors_or_publisher": "auteurs non relevés — PMC11094784 (Inorg. Chem.)",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11094784"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tailles cohérentes entre techniques : cristallites 14–17 nm (DRX), particules < 15 nm (MEB), 10–20 nm (MET), 6,5–10 nm (HRTEM) à 550 °C ; largeur Scherrer attendue ≈ 0,47° (voir « largeur Scherrer attendue »), compatible avec des raies « larges ». À 800 °C, 69,4 nm de grain pour 36,7 nm de cristallite donne ≈ 7 cristallites par grain moyen en volume, compatible avec « 2–3 à 6–10 ».",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "La calcination dégage CO et CO2 (décomposition des oxalates : 2 CO par formule à l'étape 2, voir « perte de masse étape 2 ») : four ventilé. La poudre de LaFeO3 de 10–20 nm est inhalable : masque FFP3 ou manipulation sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Déshydratation (25–160 °C) puis décarbonylation partielle des oxalates terminaux en carbonates (≈ 160–280 °C), puis décomposition oxydante très exothermique vers 350 °C (oxalate + carbonates → CO2, avec fixation d'½ O2 par formule) qui donne un oxyde La–Fe amorphe ; LaFeO3 cristallise de cette matrice entre 500 et 550 °C, et les carbonates résiduels du lanthane partent jusqu'à ≈ 650–700 °C. Le bilan de masse proposé par les auteurs pour la troisième étape est faux (oxygène oublié) et la masse résiduelle TG indique un précurseur plus hydraté que la formule.",
+    "sources": [
+     {
+      "title": "Synthesis, structural characterization and thermal analysis of the cobalt(II) oxalate obtained through the reaction of 1,2-ethanediol with Co(NO3)2·6H2O",
+      "authors_or_publisher": "Bîrzescu M., Niculescu M., Dumitru R., Carp O., Segal E. — J. Therm. Anal. Calorim. 96, 979–986",
+      "year": "2009",
+      "url_or_doi": "10.1007/s10973-009-0054-z"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "refaire la TG du précurseur sec et comparer le résidu à 47,3 % (formule LaFe(C2O4)3·3H2O) : un résidu de 43,5 % signale de l'eau ou des organiques en plus",
+    "demander ou mesurer la taille de cristallite (Scherrer/Williamson-Hall) : 17,5 nm (texte) ou ≈ 14,5 nm (figure 4b) à 550 °C",
+    "mesurer la fraction amorphe à 550 °C (étalon interne) avant d'utiliser la poudre : la phase « LaFeO3-550 » est majoritairement amorphe d'après la figure 4a",
+    "masse calcinée, four et refroidissement non donnés"
+   ]
+  },
+  {
+   "label": "LaFeO3-500",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Poudre amorphe à 500 °C, cohérent avec la TG (la décomposition oxydante est finie vers 400 °C, mais la cristallisation de la pérovskite n'est vue qu'à partir de 550 °C) ; conditions (durée, rampe) non écrites, l'essai n'est qu'une observation DRX.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Oxyde mixte La–Fe amorphe avec carbonates résiduels, avant la nucléation de LaFeO3.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durée et rampe de l'essai à 500 °C non données"
+   ]
+  },
+  {
+   "label": "LaFeO3-800",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "« Cristallinité » de 37 % à 800 °C (figure 4a) incompatible avec des grains frittés à joints de grains nets et triples jonctions (MEB) et avec la conclusion « single phase » ; voir le constat sur la voie LaFeO3-550 (calculs « volume de maille et incertitude » et « cristallites par grain à 800 °C »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Croissance des cristallites et frittage partiel par diffusion de surface et aux joints de grains (coalescence des grains de 70 nm en grains de 200–300 nm).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "méthode de calcul de la cristallinité (aire des raies sur aire totale ?) avant d'utiliser ce chiffre"
+   ]
+  },
+  {
+   "label": "LaFeO3-BDD_electrode",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport LQ/LOD par ligne du tableau 2",
+     "inputs": "LOD = 3σ/m, LQ = 10σ/m (rapport attendu 3,33) ; CV −0,40 : 0,021/0,038 ; CV 0,40 : 0,590/1,970 ; DPV < 2,5 µM : 0,010/0,250 ; DPV > 2,5 µM : 0,734/2,446 ; MPA −1,1 : 0,158/0,527 ; MPA −0,4 : 0,103/0,343 µM",
+     "formula": "LQ/LOD",
+     "result": "1,81 ; 3,34 ; 25,0 ; 3,33 ; 3,34 ; 3,33",
+     "compared_to": "3,33 attendu : deux lignes fausses (CV −0,40 V et DPV < 2,5 µM)",
+     "source": "arithmétique ; définition 3σ/m et 10σ/m (note du tableau 2 : « 3 Sb/m »)"
+    },
+    {
+     "what": "écart-type du blanc tiré de chaque valeur, DPV",
+     "inputs": "m = 111,0 ou 11,43 µA µM−1 cm−2 ; LOD et LQ du tableau 2",
+     "formula": "σ = LOD·m/3 ; σ = LQ·m/10",
+     "result": "DPV < 2,5 µM : σ = 0,37 (LOD) contre 2,78 (LQ) ; DPV > 2,5 µM : σ = 2,80 et 2,80",
+     "compared_to": "le LQ 0,250 µM de la ligne basse correspond au même σ que la ligne haute ; le LOD cohérent serait 0,734 × 11,43/111,0 = 0,076 µM",
+     "source": "arithmétique"
+    },
+    {
+     "what": "sensibilité maximale par diffusion (impulsion)",
+     "inputs": "n = 2 (réduction C=O de la capécitabine) ; D ≈ 5×10−6 cm² s−1 (petite molécule, hypothèse) ; t = 5 à 50 ms ; C = 1 µM = 10−9 mol cm−3",
+     "formula": "i/(A·C) = nF √(D/(π t))",
+     "result": "1,1 (50 ms) à 3,4 (5 ms) µA µM−1 cm−2",
+     "compared_to": "DPV < 2,5 µM : 111,0 µA µM−1 cm−2 (30 à 100 fois plus) ; MPA −1,1 V (50 ms) : 3,04 (même ordre)",
+     "source": "équation de Cottrell (chimie générale) ; D supposé, non mesuré pour la capécitabine"
+    },
+    {
+     "what": "sensibilité CV par diffusion",
+     "inputs": "n = 2 ; D ≈ 5×10−6 cm² s−1 ; v = 0,05 V s−1",
+     "formula": "ip/(A·C) = 2,69×10^5 n^1,5 D^0,5 v^0,5",
+     "result": "≈ 0,38 µA µM−1 cm−2",
+     "compared_to": "CV −0,40 V : 0,257 µA µM−1 cm−2 (même ordre)",
+     "source": "équation de Randles–Sevcik (chimie générale)"
+    },
+    {
+     "what": "potentiels en échelle RHE",
+     "inputs": "0,1 M NaOH, pH ≈ 13 ; E(SCE) = 0,241 V/ESH",
+     "formula": "E(RHE) = E(SCE) + 0,241 + 0,059 pH",
+     "result": "+0,4 V/SCE = 1,41 V/RHE ; −0,4 V/SCE = 0,61 V/RHE ; −1,1 V/SCE = −0,09 V/RHE",
+     "compared_to": "O2/H2O à 1,23 V/RHE : début d'OER possible à +0,4 V/SCE (surtension 0,18 V) ; −1,1 V/SCE au voisinage de H2/H2O",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le LOD vedette de l'article (0,010 µM, tableau 3 : « superiority of this electrode ») est incohérent avec son propre LQ : LQ/LOD = 25 au lieu de 3,33 (voir « rapport LQ/LOD par ligne du tableau 2 ») ; avec le même écart-type du blanc que la ligne DPV haute, que le LQ 0,250 µM confirme, le LOD serait ≈ 0,076 µM (voir « écart-type du blanc tiré de chaque valeur, DPV »), moins bon que ZnO/MWCNT/CPE (0,030) et AuNPs/SGNF/GCE (0,017) du tableau 3. La ligne CV −0,40 V est aussi incohérente (rapport 1,81). La comparaison du tableau 3 ne tient pas.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Sensibilité DPV de 111,0 µA µM−1 cm−2 sous 2,5 µM : 30 à 100 fois la limite de diffusion d'un soluté à 2 électrons (voir « sensibilité maximale par diffusion »), et dix fois la pente au-dessus de 2,5 µM. Elle n'est possible qu'avec une accumulation par adsorption (la réduction de la capécitabine est décrite comme contrôlée par l'adsorption sur d'autres électrodes), qui n'est ni décrite ni contrôlée (pas de temps d'accumulation). De plus la légende de la figure 10 ne montre que 2,5 à 17 µM : la gamme basse n'est pas documentée. Les sensibilités CV et MPA, elles, sont du bon ordre (voir « sensibilité CV par diffusion »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Electrochemical sensing of anti-cancer drug (Capecitabine) by GC-MWCNT-PAMAM (G3)-AuNps electrode (réduction de la capécitabine contrôlée par l'adsorption)",
+      "authors_or_publisher": "auteurs non relevés — Advanced Materials Proceedings (IAAM)",
+      "year": "2017",
+      "url_or_doi": "https://amp.iaamonline.org/article_16225_f9d8c6f4d86d8f4ae626834601492846.pdf"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Attribution de la réduction à −1,02 V/SCE à la capécitabine plausible : la capécitabine se réduit par 2 électrons sur la liaison C=O du cycle pyrimidine ; l'oxydation assistée par Fe2+/Fe3+ et Fe3+/Fe4+ n'est pas démontrée (aucun produit identifié) et, à +0,4 V/SCE (1,41 V/RHE, voir « potentiels en échelle RHE »), le courant inclut l'OER, comme les auteurs le disent.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The Application of Differential Pulse Polarography to the Analysis of Capecitabine and Investigation of Its Electroreduction Mechanism",
+      "authors_or_publisher": "Baymak M. S., Celik H., Ozkan S. A. — J. Electrochem. Soc.",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0021507jes"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres DPV inhabituels : amplitude 0,2 V et pas de 0,05 V (valeurs courantes 25–50 mV et 5 mV) ; avec un pas de 50 mV, le potentiel de pic (−1,02 V) n'est défini qu'à ± 25 mV près et les pics sont très élargis. Les sensibilités sont données par cm² sans surface d'électrode ni surface électroactive mesurée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Dépôt « par simple immersion » dans une suspension à 5 mg/mL sans solvant, durée, séchage ni liant : la masse de LaFeO3 fixée est inconnue et une couche non liée peut se décoller dans NaOH 0,1 M ; les RSD de 0,10 % (CV) sur trois répétitions sont exceptionnellement bas pour une électrode refaite avant chaque mesure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Capécitabine : cytostatique (manipulation et déchets comme cytotoxiques) ; NaOH 0,1 M irritant. Pas de danger supplémentaire lié au montage.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Couche de nanoparticules de LaFeO3 physisorbée sur le diamant dopé ; en milieu alcalin, les couples de surface Fe(II)/Fe(III) et Fe(III)/Fe(IV) servent de médiateurs à l'oxydation de la capécitabine (produits non identifiés), tandis que le pic à −1,02 V/SCE correspond à la réduction à 2 électrons du C=O pyrimidique, probablement après adsorption de la molécule sur la couche d'oxyde, ce qui expliquerait la forte pente aux faibles concentrations.",
+    "sources": [
+     {
+      "title": "The Application of Differential Pulse Polarography to the Analysis of Capecitabine and Investigation of Its Electroreduction Mechanism",
+      "authors_or_publisher": "Baymak M. S., Celik H., Ozkan S. A. — J. Electrochem. Soc.",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0021507jes"
+     },
+     {
+      "title": "Electrochemical sensing of anti-cancer drug (Capecitabine) by GC-MWCNT-PAMAM (G3)-AuNps electrode (réduction de la capécitabine contrôlée par l'adsorption)",
+      "authors_or_publisher": "auteurs non relevés — Advanced Materials Proceedings (IAAM)",
+      "year": "2017",
+      "url_or_doi": "https://amp.iaamonline.org/article_16225_f9d8c6f4d86d8f4ae626834601492846.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "surface géométrique et électroactive de l'électrode BDD (pour les sensibilités par cm²)",
+    "solvant de la suspension, durée d'immersion, séchage, masse déposée",
+    "recalculer LOD et LQ à partir d'un même écart-type de blanc (le LOD 0,010 µM est probablement ≈ 0,076 µM)",
+    "tester l'accumulation par adsorption (variation du courant avec le temps de repos) avant d'exploiter la gamme < 2,5 µM"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La voie oxalate in situ est chimiquement cohérente : le rapport La:Fe:diol:HNO3 = 1:1:3:2 est exactement la stœchiométrie de l'oxydation de 3 diols en 3 oxalates par 8 nitrates réduits en NO, et l'analyse élémentaire concorde. Mais l'article contient plusieurs erreurs vérifiables : pH 3 impossible pour le mélange initial (2 mol de HNO3 2 M par mol de La), perte de masse calculée de la troisième étape fausse (oxygène oublié) et TG qui contredit la formule, tailles de cristallite et cristallinité confondues (et 37 % de cristallinité à 800 °C contre « single phase »), contraction de maille non significative, et LOD vedette de 0,010 µM incohérent avec son LQ (LOD probable ≈ 0,076 µM). Reproductible avec réserves faute de volumes, de mode d'isolement et de préparation de l'électrode.",
+  "author_errors_suspected": [
+   "pH 3 présenté comme pH du mélange de départ alors qu'il ne peut être que le pH final",
+   "perte calculée de l'étape 3 : 34,32 % au lieu de 31,21 % (½ O2 fixé oublié) ; pertes calculées totalisant 55,77 % > 52,67 % possible",
+   "texte : 17,5 et 36,7 nm (taille) = valeurs de cristallinité de la figure 4a ; figure 4b ≈ 14,5 et 38,5 nm",
+   "« clear contraction of the unit cell » : 0,05 Å3 pour une incertitude de ± 0,87 Å3",
+   "LOD DPV 0,010 µM incohérent avec LQ 0,250 µM (rapport 25) ; LOD CV −0,40 V incohérent avec son LQ (rapport 1,8)",
+   "axes du tableau 1 en réglage Pnma sous l'étiquette Pbnm, indexation HRTEM (204) en réglage Pbnm",
+   "phrase MEB citant 600 °C pour la figure 5f (700 °C)"
+  ],
+  "comparison_with_database": "Une seule autre voie LaFeO3 dans la base : PMC4726031 (sol-gel citrique sur montmorillonite, 600 °C, 5 h) donne 15,5 nm en DRX et 10–15 nm en MET, du même ordre que les 14–17 nm et 10–20 nm à 550–600 °C ici. Aucune autre voie par oxydation du 1,2-éthanediol par les nitrates."
+ },
+ "sources_not_found": [
+  "fiche NOAA CAMEO de l'éthylène glycol ou du couple acide nitrique–glycol (site injoignable depuis le cloud ; remplacée par la fiche du New Jersey Department of Health)",
+  "coefficient de diffusion mesuré de la capécitabine (valeur 5×10−6 cm² s−1 supposée)",
+  "article de la même équipe donnant l'équation de LaFe(C2O4)3·3H2O (seule la voie au cobalt, 2009, a été trouvée)"
+ ]
+}

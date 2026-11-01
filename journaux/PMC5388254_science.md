@@ -1,0 +1,14 @@
+# PMC5388254 — critique scientifique (journal de décisions)
+
+- Électrons hydratés : jugés `probleme` (AgNP_10mmol, redox). Photons solaires au sol ≤ 4,2 eV (coupure ≈ 295 nm) contre seuil ≥ 6,5 eV pour l'eau liquide (Díaz Mirón 2026 ; Fujishima & Honda 1972). Hou et al. 2013 (10.1021/es400802w, vu sur PubMed) écarte aussi les électrons hydratés dans la photoréduction de Ag+ par la matière organique naturelle : source retenue pour le mécanisme de remplacement.
+- Bilan réducteur : extrémités réductrices du LSH (Mw 1,7×10^4 à 1,5×10^6 g/mol, Fabre 2015 / Qian 2012) ≤ 2,4×10^-5 mol e− contre 1×10^-4 mol nécessaires à 10 mM. Gardé en `reserve` et non `probleme` : d'autres donneurs (hydroxyles photo-oxydés, protéines 4–20 %, phénols) peuvent fournir le reste.
+- Témoin lumière : le LSH réduit Ag+ dans le noir dès 50 °C (Fig. 6, 399 nm à 0,25 h) et aucun essai dans le noir à température ambiante n'existe → `probleme` (contrôle 5, témoin qui change deux variables : lumière et température).
+- Fig. 4 lue directement : absorbance max ≈ 0,63 / 0,92 / 0,87 (10/20/30 mM). Le texte dit « increase from 10 to 30 mmol » → `probleme`. Lecture à l'œil, ± 0,02.
+- Absorbance < 1 pour 5–15 mM d'argent : je n'ai pas donné de coefficient d'extinction chiffré (Paramelle 2014 non lu) ; le point reste qualitatif dans le même constat.
+- Plasmon 436 nm contre TEM 10–35 nm : `reserve`. Source chiffrée d'Agnihotri introuvable (pubs.rsc.org injoignable) ; appui pris sur Int. J. Nanomed. 2021 (sphères de 10, 20 et 50 nm toutes vers 400 nm).
+- Fig. 7 ouverte : petite raie vers 27° sur B, C, E, sans raie à 32,2° → AgCl non démontré, gardé en `reserve` (le mucilage apporte 3–9 % de cendres).
+- Tableau 1 recalculé : les 17 pourcentages ne collent qu'avec (d0 − d)/d0 et d0 = 6,0 mm ; sur l'aire, le témoin serait à 97 % au jour 15. Contre la plaie de 1 cm et la « wound area (mm2) » des Méthodes → `probleme`. Le recalcul donne 17,7 % au jour 3 du groupe LSH : le tableau (17,73) est juste, le texte (16,73) est une coquille.
+- Collagène en mg/kg : `probleme` par arithmétique seule (1 mg pesé = 15 g de tissu à 65 mg/kg ; une plaie de 1 cm ≈ 0,16 g). Pas de source trouvée sur la teneur normale en mg/g ; je ne l'ai pas inventée.
+- « 10 mg/mL » de l'essai antimicrobien : ≈ matière sèche totale du mélange à 20 mM (11,7 mg/mL, dont 1,08 mg/mL d'argent) ; dose d'argent inconnue, Ag+ résiduel non séparé → `probleme`.
+- 100 °C pendant 8 h sans récipient fermé ni reflux écrit → `probleme` thermique (point d'ébullition de l'eau), seulement sur la branche à 100 °C.
+- Recherches web : 8 recherches et 2 lectures de page échouées (pubs.rsc.org, nanocomposix.com : DNS). Rien ajouté à fondateurs.md ni à constantes.md (Crossref bloqué). DOI non vérifiés sur Crossref : 10.1021/es400802w, 10.1038/238037a0, 10.1038/s41467-026-70045-7, 10.1021/jf00038a003, 10.2147/IJN.S304138.

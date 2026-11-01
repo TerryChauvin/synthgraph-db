@@ -1,0 +1,873 @@
+{
+ "pmcid": "PMC9034142",
+ "routes": [
+  {
+   "label": "AgNPs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'Ag+",
+     "inputs": "50 µL × 0,02 mol/L AgNO3",
+     "formula": "C × V",
+     "result": "1,0 µmol Ag+",
+     "compared_to": "-",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration en Ag dans le ballon",
+     "inputs": "1,0 µmol dans 40 mL + 0,15 mL",
+     "formula": "n/V",
+     "result": "≈ 25 µmol/L",
+     "compared_to": "Lee-Meisel : 90 mg AgNO3 dans 500 mL ≈ 1,06 mmol/L, soit ≈ 43 fois plus concentré",
+     "source": "Lee & Meisel 1982 (fondateurs.md) ; arithmétique"
+    },
+    {
+     "what": "moles de citrate",
+     "inputs": "100 µL de TSC à 2 % (lu comme 2 g/100 mL, unité non précisée) ; M(Na3C6H5O7·2H2O) = 294,10 g/mol",
+     "formula": "0,02 g/mL × 0,1 mL / M",
+     "result": "2,0 mg ; 6,8 µmol",
+     "compared_to": "rapport citrate/Ag = 6,8",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "bilan électronique Ag+ / citrate",
+     "inputs": "1,0 µmol Ag+ (1 e- chacun) ; 6,8 µmol citrate (2 e- par citrate oxydé en acétonedicarboxylate + CO2)",
+     "formula": "n(e-) disponibles / n(e-) nécessaires",
+     "result": "13,6 / 1,0 : réducteur en excès d'un facteur ≈ 14",
+     "compared_to": "rôle annoncé de réducteur : suffisant",
+     "source": "Pillai & Kamat 2004 (stœchiométrie de l'oxydation du citrate) ; arithmétique"
+    },
+    {
+     "what": "masse maximale d'Ag par lot",
+     "inputs": "1,0 µmol × 107,87 g/mol",
+     "formula": "n × M",
+     "result": "≈ 108 µg d'Ag par lot",
+     "compared_to": "« sédiments » lavés trois fois puis séchés ; DRX sur poudre",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "bilan redox de l'équation (1) des auteurs",
+     "inputs": "4AgNO3 + Na3C6H5O7 + 2H2O → 4Ag + C6H5O7H3 + 3NaNO3 + HNO3 + O2",
+     "formula": "comptage des atomes et des électrons",
+     "result": "équilibrée en atomes ; 4 e- gagnés par 4 Ag+, 4 e- cédés par 2 O(-II) de l'eau → O2 ; le citrate est seulement protoné, il n'est pas oxydé",
+     "compared_to": "E°(Ag+/Ag) = 0,80 V < E°(O2/H2O) = 1,23 V : l'oxydation de l'eau par Ag+ n'est pas spontanée",
+     "source": "potentiels standard (tables usuelles) ; arithmétique"
+    },
+    {
+     "what": "Bragg sur le pic (111) de l'Ag",
+     "inputs": "2θ = 38,18° ; λ = 1,5406 Å",
+     "formula": "d = λ/(2 sin θ) ; a = d√3",
+     "result": "d = 2,355 Å ; a = 4,080 Å",
+     "compared_to": "Ag massif a ≈ 4,086 Å : écart 0,15 %, compatible",
+     "source": "λ déclarée ; arithmétique"
+    },
+    {
+     "what": "largeur à mi-hauteur impliquée par D = 28,36 nm",
+     "inputs": "K = 0,893 ; λ = 0,154056 nm ; 2θ = 38,18°",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "β ≈ 0,294°",
+     "compared_to": "taille TEM 6-8 nm → β attendu ≥ 1,0-1,4°",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "sédimentation d'une AgNP de 7 nm à 6000 rpm",
+     "inputs": "r = 3,5 nm ; ρ(Ag) = 10,49 g/cm3 ; η(eau) = 0,89 mPa·s ; FCR ≈ 1,118×10^-5 × 10 cm × 6000² ≈ 4000 g (rayon de rotor supposé 10 cm)",
+     "formula": "v = 2r²Δρ·a/(9η) ; distance en 600 s",
+     "result": "v ≈ 1,1 µm/s ; ≈ 0,7 mm en 10 min",
+     "compared_to": "hauteur de liquide d'un tube ≈ 30-40 mm : les AgNPs de 6-8 nm ne sédimentent pas ; des particules de 40 nm parcourent ≈ 22 mm",
+     "source": "loi de Stokes ; ρ(Ag) et η(eau) valeurs usuelles (NIST WebBook / CRC)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Citrate en excès d'un facteur ≈ 14 en électrons sur Ag+ (calcul « bilan électronique Ag+ / citrate ») : la réduction complète est possible. La concentration d'Ag (≈ 25 µmol/L) est ≈ 43 fois plus faible que dans le protocole Lee-Meisel : le colloïde est très dilué et ne contient que ≈ 108 µg d'Ag par lot.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Adsorption and surface-enhanced Raman of dyes on silver and gold sols",
+      "authors_or_publisher": "Lee, Meisel (J. Phys. Chem. 86, 3391)",
+      "year": "1982",
+      "url_or_doi": "10.1021/j100214a025"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "L'équation (1) des auteurs fait réduire Ag+ par l'eau (dégagement d'O2) et laisse le citrate simplement protoné (calcul « bilan redox de l'équation (1) ») : c'est contraire à E°(Ag+/Ag) = 0,80 V < E°(O2/H2O) = 1,23 V et au rôle de réducteur que les auteurs donnent au citrate. Le citrate est oxydé en acétonedicarboxylate + CO2 (2 e- par citrate). L'équation ne doit pas servir à calculer les quantités.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "What factors control the size and shape of silver nanoparticles in the citrate ion reduction method?",
+      "authors_or_publisher": "Pillai, Kamat (J. Phys. Chem. B 108, 945-951)",
+      "year": "2004",
+      "url_or_doi": "10.1021/jp037018r"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Ballon porté à ébullition (100 °C) pendant ≈ 1 h sans condenseur mentionné (le condenseur n'est écrit que pour l'or) : évaporation de quelques mL sur 40 mL, concentration finale modifiée. Monter un réfrigérant à reflux.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille de cristallite DRX 28,36 nm (β impliqué ≈ 0,29°) supérieure à la taille TEM 6-8 nm (calcul « largeur à mi-hauteur impliquée ») : impossible pour un même échantillon, une cristallite ne peut pas dépasser la particule. Soit la DRX a été faite sur une poudre agrégée ou mûrie au séchage, soit les deux mesures ne portent pas sur le même lot. Le résumé annonce par ailleurs 40-60 nm pour l'ensemble des échantillons.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SPR à 396 nm cohérente avec des AgNPs sphériques de petite taille (≈ 5-20 nm, bande vers 395-405 nm).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Size-controlled silver nanoparticles synthesized over the range 5-100 nm using the same protocol and their antibacterial efficacy",
+      "authors_or_publisher": "Agnihotri, Mukherji, Mukherji (RSC Adv. 4, 3974)",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ra44507k"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Isolement des « sédiments » : des AgNPs de 6-8 nm ne sédimentent ni spontanément ni à 6000 rpm en 10 min (≈ 0,7 mm parcourus, calcul « sédimentation d'une AgNP de 7 nm »). Le lavage trois fois puis le séchage au dessiccateur décrits supposent une étape de séparation non écrite (ultracentrifugation réelle ou floculation), et ne laisseraient que ≈ 100 µg par lot, trop peu pour une DRX sans regrouper de nombreux lots.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Réduction de Ag+ par le citrate à l'ébullition, citrate complexant les germes d'argent et ralentissant la croissance (Pillai & Kamat) : compatible avec une distribution étroite de petites particules.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "What factors control the size and shape of silver nanoparticles in the citrate ion reduction method?",
+      "authors_or_publisher": "Pillai, Kamat (J. Phys. Chem. B 108, 945-951)",
+      "year": "2004",
+      "url_or_doi": "10.1021/jp037018r"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3 oxydant et corrosif (tache la peau) ; ébullition (projections) ; poudre d'AgNPs séchée à manipuler sans inhalation. Rien d'exotique.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Ag+ (≈ 25 µmol/L) est réduit à l'ébullition par le citrate, oxydé en acétonedicarboxylate + CO2 (2 e- par citrate) ; le citrate se complexe aux petits agrégats Ag_n, ralentit leur croissance et stabilise électrostatiquement les particules ; l'excès de citrate (≈ 7 citrate par Ag) et la forte dilution favorisent des particules petites (quelques nm à ≈ 20 nm), cohérentes avec la SPR à 396 nm. L'équation (1) des auteurs (oxydation de l'eau en O2) est à écarter.",
+    "sources": [
+     {
+      "title": "What factors control the size and shape of silver nanoparticles in the citrate ion reduction method?",
+      "authors_or_publisher": "Pillai, Kamat (J. Phys. Chem. B 108, 945-951)",
+      "year": "2004",
+      "url_or_doi": "10.1021/jp037018r"
+     },
+     {
+      "title": "Adsorption and surface-enhanced Raman of dyes on silver and gold sols",
+      "authors_or_publisher": "Lee, Meisel (J. Phys. Chem. 86, 3391)",
+      "year": "1982",
+      "url_or_doi": "10.1021/j100214a025"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "unité de la solution « 2 % » de citrate (m/V supposé)",
+    "monter un réfrigérant à reflux pendant l'heure à l'ébullition",
+    "mode de séparation des « sédiments » (une centrifugation à 6000 rpm ne suffit pas pour 6-8 nm)",
+    "mesurer la taille par TEM et DRX sur le même lot ; la DRX demande de regrouper de nombreux lots (≈ 108 µg d'Ag par lot)"
+   ]
+  },
+  {
+   "label": "AuNPs",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'Au(III)",
+     "inputs": "50 µL × 20 mmol/L HAuCl4",
+     "formula": "C × V",
+     "result": "1,0 µmol Au",
+     "compared_to": "-",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration en Au",
+     "inputs": "1,0 µmol dans ≈ 40,15 mL",
+     "formula": "n/V",
+     "result": "≈ 25 µmol/L",
+     "compared_to": "Frens : 50 mL de HAuCl4 à 0,01 % ≈ 0,25-0,29 mmol/L, soit ≈ 10 fois plus concentré ; PMC7786535 (sonochimie) : 25 µmol/L, même ordre",
+     "source": "Frens 1973 ; arithmétique ; comparaison_base PMC7786535"
+    },
+    {
+     "what": "rapport citrate/Au",
+     "inputs": "6,8 µmol de citrate (100 µL à 2 %, voir AgNPs) ; 1,0 µmol Au",
+     "formula": "n(citrate)/n(Au)",
+     "result": "6,8",
+     "compared_to": "Frens 16 nm : 1 mL de citrate à 1 % pour 50 mL à 0,01 % ≈ 34 µmol / 12,7-14,7 µmol ≈ 2,3-2,7 ; un rapport plus élevé donne des particules plus petites (≈ 12-15 nm)",
+     "source": "Frens 1973 ; arithmétique"
+    },
+    {
+     "what": "bilan électronique Au(III) / citrate",
+     "inputs": "1,0 µmol Au(III) (3 e-) ; 6,8 µmol citrate (2 e-)",
+     "formula": "n(e-) disponibles / n(e-) nécessaires",
+     "result": "13,6 / 3,0 ≈ 4,5",
+     "compared_to": "stœchiométrie usuelle : 2 AuCl4- + 3 citrate → 2 Au + 3 acétonedicarboxylate + 3 CO2 + ...",
+     "source": "arithmétique"
+    },
+    {
+     "what": "bilan de l'équation (2) des auteurs",
+     "inputs": "2HAuCl4 + 4Na3C6H5O7 → 2Au + 4Na2C5H4O5 + 4NaCl + 4HCl + 4CO2 + H2",
+     "formula": "comptage des atomes et des électrons",
+     "result": "équilibrée (Na 12, C 24, Cl 8, O 28, H 22) ; e- : 6 (Au) + 2 (H2) gagnés = 8 cédés par 4 citrates",
+     "compared_to": "le dégagement d'H2 n'est pas une étape admise de la réduction de Turkevich",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Ébullition 1 h avec condenseur : conforme à la méthode de Frens.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Controlled nucleation for the regulation of the particle size in monodisperse gold suspensions",
+      "authors_or_publisher": "Frens (Nature Phys. Sci. 241, 20-22)",
+      "year": "1973",
+      "url_or_doi": "10.1038/physci241020a0"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Citrate en excès (rapport 6,8, électrons ×4,5 ; calculs « rapport citrate/Au » et « bilan électronique ») : réduction complète. pH final 7,2 cohérent avec ≈ 170 µmol/L de citrate et ≈ 25 µmol/L de H+ apportés par HAuCl4.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TEM 30-60 nm alors que le rapport citrate/Au (6,8) est plus élevé que celui de Frens pour 16 nm (≈ 2,5) : la loi de Frens prédit des particules plus petites (≈ 12-15 nm). La très forte dilution (≈ 25 µmol/L, 10 fois moins que Frens) peut changer la nucléation, mais la taille annoncée et la couleur « violette » (Résultats) contre « rouge vin » (Méthodes) suggèrent plutôt une agrégation partielle.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Controlled nucleation for the regulation of the particle size in monodisperse gold suspensions",
+      "authors_or_publisher": "Frens (Nature Phys. Sci. 241, 20-22)",
+      "year": "1973",
+      "url_or_doi": "10.1038/physci241020a0"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'épaulement à 560 nm est attribué à une résonance quadripolaire : pour une sphère d'or, le mode quadripolaire apparaît du côté des courtes longueurs d'onde par rapport au dipôle, et seulement au-delà de ≈ 80-100 nm. Un épaulement vers le rouge (560 nm) signale des dimères ou agrégats, ou des particules non sphériques. L'attribution est fausse, et elle masque une agrégation.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Optical Properties of Metal Nanoparticles: The Influence of Size, Shape, and Dielectric Environment",
+      "authors_or_publisher": "Kelly, Coronado, Zhao, Schatz (J. Phys. Chem. B 107, 668-677)",
+      "year": "2003",
+      "url_or_doi": "10.1021/jp026731y"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "L'équation (2) des auteurs est équilibrée mais fait dégager de l'H2 (calcul « bilan de l'équation (2) ») : non étayé ; la réaction admise oxyde le citrate en acétonedicarboxylate et CO2 sans H2. Sans effet sur la mise en œuvre.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "Turkevich, Stevenson, Hillier (Discuss. Faraday Soc. 11, 55)",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cristallite DRX 8,14 nm (β impliqué ≈ 1,0°) pour des particules TEM de 30-60 nm : particules polycristallines ou maclées, fréquent pour l'or au citrate ; pas contradictoire.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HAuCl4 corrosif ; ébullition sous condenseur ; rien d'exotique.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Méthode de Turkevich-Frens : à l'ébullition, le citrate réduit AuCl4- (via l'acétonedicarboxylate) ; nucléation en rafale puis croissance limitée par l'adsorption du citrate ; la taille est fixée par le rapport citrate/Au. À 25 µmol/L d'Au et un rapport de 6,8, on attend des sphères de ≈ 12-15 nm ; des tailles de 30-60 nm avec un épaulement à 560 nm indiquent une agrégation ou une croissance lente non contrôlée.",
+    "sources": [
+     {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "Turkevich, Stevenson, Hillier (Discuss. Faraday Soc. 11, 55)",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     },
+     {
+      "title": "Controlled nucleation for the regulation of the particle size in monodisperse gold suspensions",
+      "authors_or_publisher": "Frens (Nature Phys. Sci. 241, 20-22)",
+      "year": "1973",
+      "url_or_doi": "10.1038/physci241020a0"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "unité de la solution « 2 % » de citrate",
+    "taille TEM sur plusieurs lots : 30-60 nm n'est pas l'attendu de la loi de Frens à ce rapport citrate/Au",
+    "épaulement à 560 nm (agrégation ?) avant d'utiliser le colloïde comme référence"
+   ]
+  },
+  {
+   "label": "AgAu",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de métal",
+     "inputs": "50 µL × 0,02 mol/L HAuCl4 ; 50 µL × 0,02 mol/L AgNO3",
+     "formula": "C × V",
+     "result": "1,0 µmol Au + 1,0 µmol Ag",
+     "compared_to": "rapport nominal Ag:Au = 1:1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentrations avant réduction",
+     "inputs": "volume total ≈ 80 + 0,05 + 0,05 + 0,4 + 0,2 = 80,7 mL ; Cl- = 4 par HAuCl4",
+     "formula": "n/V",
+     "result": "[Ag+] ≈ 12,4 µmol/L ; [Cl-] ≈ 49,6 µmol/L",
+     "compared_to": "-",
+     "source": "arithmétique"
+    },
+    {
+     "what": "sursaturation en AgCl au mélange",
+     "inputs": "[Ag+] 12,4 µmol/L ; [Cl-] 49,6 µmol/L ; Ksp(AgCl, 25 °C) ≈ 1,77 × 10^-10",
+     "formula": "Q = [Ag+][Cl-] ; Q/Ksp",
+     "result": "Q ≈ 6,1 × 10^-10 ; Q/Ksp ≈ 3,5",
+     "compared_to": "Q > Ksp : AgCl peut précipiter pendant les 5 min de mélange à température ambiante",
+     "source": "Ksp : periodni.com ; arithmétique"
+    },
+    {
+     "what": "bilan électronique",
+     "inputs": "200 µL TSC 2 % = 4,0 mg = 13,6 µmol citrate (2 e-) ; besoin 3 × 1,0 (Au) + 1 × 1,0 (Ag) = 4,0 µmol e-",
+     "formula": "e- disponibles / e- nécessaires",
+     "result": "27,2 / 4,0 ≈ 6,8",
+     "compared_to": "réducteur suffisant",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "quantité de PVP",
+     "inputs": "0,4 mL × 0,0067 mol/L ; Mw 29 000 g/mol ; motif VP 111,14 g/mol",
+     "formula": "C × V ; × M",
+     "result": "2,68 µmol ; soit 77,7 mg si la molarité porte sur le polymère, ou 0,30 mg si elle porte sur le motif",
+     "compared_to": "rapport motif VP / métal : ≈ 350 ou ≈ 1,3 selon la lecture ; une solution de PVP 29 000 à 0,0067 mol/L de polymère ferait ≈ 194 g/L",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "pH après ajout des sels, avant citrate",
+     "inputs": "1,0 µmol de H+ (HAuCl4, acide fort) dans ≈ 80,5 mL d'eau non tamponnée",
+     "formula": "pH = -log(n/V)",
+     "result": "pH ≈ 4,9",
+     "compared_to": "« 80 ml of deionized water at pH 7 » : l'agent d'ajustement n'est pas donné",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Réducteur en excès (≈ ×6,8 en électrons) : la co-réduction complète est possible (calcul « bilan électronique »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Mélange des sels avant réduction : Q/Ksp(AgCl) ≈ 3,5 à température ambiante (calcul « sursaturation en AgCl ») ; une faible sursaturation peut rester métastable, mais un trouble d'AgCl modifierait la composition des particules (Ag piégé en AgCl). Problème connu de la co-réduction Ag/Au en présence de chlorure.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Solubility product constants",
+      "authors_or_publisher": "periodni.com (table de Ksp à 25 °C) ; Ksp(AgCl) ≈ 1,77-1,8 × 10^-10",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.periodni.com/solubility_product_constants.html"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "80 mL agités à 100 °C pendant 1 h, sans condenseur mentionné : ébullition et évaporation qui changent le volume. Prévoir un reflux.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "PVP « 0,0067 M » ambigu (calcul « quantité de PVP ») : 77,7 mg ou 0,30 mg selon que la molarité porte sur le polymère ou sur le motif, soit un facteur 260 sur la quantité de stabilisant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Ordre des ajouts contradictoire : les Méthodes ajoutent le PVP avec les sels puis le citrate à température ambiante (couleur jaune pâle avant chauffage) ; le paragraphe de la Fig. 1 ajoute citrate et PVP ensemble après 5 min. Le pH « 7 » de l'eau n'est pas celui du mélange (≈ 4,9 après HAuCl4, calcul « pH après ajout des sels »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le mécanisme des auteurs (« dissolution oxydante des atomes d'Ag, réduction d'AuCl4- et dépôt d'Au ») décrit un remplacement galvanique (3 Ag + AuCl4- → Au + 3 Ag+ + 4 Cl-), qui contredit la « réduction simultanée » annoncée et conduirait plutôt à des structures creuses ou à gradient. L'invocation du mûrissement d'Ostwald n'est appuyée par aucune mesure cinétique.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "IR : la bande à 3420 cm-1 est attribuée à « C-C stretching » et dite « déplacée » à 2959 cm-1. 3420 cm-1 est l'élongation O-H (eau, hydroxyles) et 2959 cm-1 l'élongation C-H des CH2 du PVP : ce sont deux bandes distinctes, pas un déplacement de 460 cm-1. Seul le passage C=O 1652 → 1641 cm-1 indique une coordination du PVP.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SPR à 480 nm pour Ag:Au 1:1 : dans l'intervalle attendu pour un alliage (interpolation linéaire 396-530 nm → ≈ 463 nm ; Link et al. : décalage quasi linéaire avec la fraction d'Au).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3, HAuCl4 corrosifs ; 100 °C en récipient ouvert ; rien d'exotique.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 100 °C, le citrate réduit AuCl4- plus vite que Ag+ (Ag+ est réduit lentement par le citrate et s'y complexe) : des germes riches en or se forment d'abord, puis Ag se dépose et s'interdiffuse partiellement ; un Ag0 formé tôt est réoxydé par AuCl4- (remplacement galvanique) et le chlorure peut piéger Ag+ en AgCl. On obtient des particules d'alliage à gradient de composition plutôt qu'un alliage parfaitement homogène ; une bande plasmon unique qui se déplace linéairement avec la fraction d'or est l'argument habituel d'alliage (Link 1999), sans exclure un gradient. La croissance jusqu'à 40-60 nm avec des cristallites de ≈ 7 nm indique une agrégation et coalescence de particules primaires stabilisées par le PVP, plutôt qu'un mûrissement d'Ostwald.",
+    "sources": [
+     {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     },
+     {
+      "title": "What factors control the size and shape of silver nanoparticles in the citrate ion reduction method?",
+      "authors_or_publisher": "Pillai, Kamat (J. Phys. Chem. B 108, 945-951)",
+      "year": "2004",
+      "url_or_doi": "10.1021/jp037018r"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "molarité du PVP : polymère ou motif",
+    "ordre des ajouts (PVP avec les sels ou avec le citrate) et température d'ajout du citrate",
+    "absence de trouble d'AgCl au mélange des sels",
+    "reflux pendant l'heure à 100 °C",
+    "agent et mesure du pH 7"
+   ]
+  },
+  {
+   "label": "Ag3Au",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "sursaturation en AgCl (hypothèse : Ag + Au = 2,0 µmol, 1,5 + 0,5)",
+     "inputs": "[Ag+] ≈ 18,6 µmol/L ; [Cl-] ≈ 24,8 µmol/L ; Ksp ≈ 1,77 × 10^-10",
+     "formula": "Q/Ksp",
+     "result": "≈ 2,6 (≈ 5,2 si 1,5 µmol Ag + 1,0 µmol Au)",
+     "compared_to": "Q > Ksp dans les deux lectures",
+     "source": "Ksp : periodni.com ; quantités non données par l'article (hypothèses)"
+    },
+    {
+     "what": "Bragg sur le pic (111) de Ag3Au",
+     "inputs": "2θ = 38,27° ; λ = 1,5406 Å",
+     "formula": "d = λ/(2 sin θ) ; a = d√3",
+     "result": "d = 2,350 Å ; a = 4,070 Å",
+     "compared_to": "Ag 4,086 Å, Au 4,079 Å : valeur plus petite que les deux métaux, hors de la loi de Vegard ; écart de 2θ (≈ 0,1°) du même ordre que l'erreur de calage",
+     "source": "λ déclarée ; paramètres de maille usuels (COD)"
+    },
+    {
+     "what": "distances (111) de Ag et Au massifs",
+     "inputs": "a(Ag) = 4,0862 Å ; a(Au) = 4,0786 Å",
+     "formula": "d = a/√3",
+     "result": "2,359 Å et 2,355 Å : écart 0,0004 nm",
+     "compared_to": "HRTEM des auteurs : 0,234 nm (« Ag ») et 0,233 nm (« Au ») ; précision HRTEM ≈ 0,005 nm",
+     "source": "paramètres de maille usuels (COD / Wyckoff)"
+    },
+    {
+     "what": "paramètres de maille HRTEM",
+     "inputs": "d = 0,234 et 0,233 nm",
+     "formula": "a = d√3",
+     "result": "0,4053 et 0,4036 nm",
+     "compared_to": "auteurs : 0,405 et 0,403 nm, exact ; ≈ 0,8-1,1 % sous les valeurs massives",
+     "source": "arithmétique"
+    },
+    {
+     "what": "loi de Vegard",
+     "inputs": "n = 0,7982 ; m = 0,2018 ; a(Ag) = 0,405 nm ; a(Au) = 0,403 nm (valeurs des auteurs)",
+     "formula": "a = n·aAg + m·aAu",
+     "result": "0,40460 nm",
+     "compared_to": "auteurs : 0,40495 nm (écart 0,00035 nm, erreur d'arithmétique) ; avec les valeurs massives : 0,40847 nm",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "largeur à mi-hauteur impliquée par D = 7,3 nm",
+     "inputs": "K = 0,893 ; λ = 0,154056 nm ; 2θ = 38,27°",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "β ≈ 1,14°",
+     "compared_to": "particules TEM ≈ 40 nm → ≈ 5 domaines par diamètre",
+     "source": "arithmétique"
+    },
+    {
+     "what": "SPR attendue par interpolation linéaire",
+     "inputs": "Ag 396 nm, Au 530 nm ; x(Au) = 0,25",
+     "formula": "396 + 134x",
+     "result": "≈ 430 nm",
+     "compared_to": "mesure 433 nm",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Les quantités pour 3:1 ne sont pas données : on ne sait pas si la somme Ag + Au est constante ou si un seul volume change. Dans les deux lectures, Q/Ksp(AgCl) ≈ 2,6-5,2 (calcul « sursaturation en AgCl »).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Solubility product constants",
+      "authors_or_publisher": "periodni.com (table de Ksp à 25 °C) ; Ksp(AgCl) ≈ 1,77-1,8 × 10^-10",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.periodni.com/solubility_product_constants.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDS : les auteurs attribuent 1 et 2,2 keV à Ag et 1,8, 3 et 9,8 keV à Au. Or Ag Lα ≈ 2,98 keV, Au Mα ≈ 2,12 keV et Au Lα ≈ 9,71 keV : les raies à 2,2 et 3 keV sont inversées ; 1 keV n'est pas une raie d'Ag (Cu Lα 0,93 keV de la grille, ou Na Kα 1,04 keV du citrate) et 1,8 keV ressemble à Si Kα (1,74 keV). La composition 79,82 : 20,18 dépend de l'identification correcte des raies et doit être recontrôlée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "X-ray transition energies: new approach to a comprehensive evaluation (NIST X-ray Transition Energies Database, SRD 128)",
+      "authors_or_publisher": "Deslattes et al., Rev. Mod. Phys. 75, 35 / NIST",
+      "year": "2003",
+      "url_or_doi": "10.1103/RevModPhys.75.35"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "HRTEM : 0,234 nm (« Ag ») et 0,233 nm (« Au ») ne distinguent pas les deux métaux (d(111) massifs 2,359 et 2,355 Å, écart 0,0004 nm, sous la précision de la mesure ; calcul « distances (111) »). Le texte décrit des « cristaux d'Ag accolés à des cristaux d'Au », c'est-à-dire un hétérodimère, ce qui contredit l'alliage homogène annoncé. Les paramètres 0,405 et 0,403 nm sont ≈ 1 % sous les valeurs massives (calibration). La DRX ne discrimine pas non plus alliage et mélange (désaccord de maille 0,2 % ; a = 4,070 Å hors de Vegard). La preuve d'alliage repose sur la bande plasmon unique et sur la cartographie EDX d'une particule.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cristallite DRX 7,3 nm pour des particules TEM de ≈ 40 nm (calcul « largeur à mi-hauteur impliquée ») : particules polycristallines, ce qui contredit « single crystalline nature » tiré de la HRTEM. Le résultat de Vegard (0,40495 nm) ne découle pas de l'équation et des valeurs données (0,40460 nm) ; l'écart est sans conséquence mais montre un calcul non recontrôlé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SPR à 433 nm conforme à l'interpolation linéaire (≈ 430 nm) attendue pour un alliage (Link et al.) ; le rapport EDS ≈ 4:1 pour 3:1 nominal est plausible si une partie de l'Ag est perdue (AgCl, Ag+ non réduit).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme pour AgAu : réduction plus rapide d'Au(III), dépôt d'Ag ensuite, alliage à gradient ; l'enrichissement en Ag mesuré (≈ 4:1) reste à confirmer avec une EDS dont les raies sont correctement attribuées.",
+    "sources": [
+     {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes d'AgNO3 et de HAuCl4 pour 3:1 (non donnés)",
+    "réattribuer les raies EDS (Ag Lα 2,98 keV ; Au Mα 2,12 keV ; Au Lα 9,71 keV) avant de citer 79,82 : 20,18",
+    "preuve d'alliage : cartographie EDX sur plusieurs particules ou profil de ligne"
+   ]
+  },
+  {
+   "label": "AgAu3",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "sursaturation en AgCl (hypothèse 0,5 µmol Ag + 1,5 µmol Au)",
+     "inputs": "[Ag+] ≈ 6,2 µmol/L ; [Cl-] ≈ 74,4 µmol/L ; Ksp ≈ 1,77 × 10^-10",
+     "formula": "Q/Ksp",
+     "result": "≈ 2,6 (≈ 5,2 si 1,0 µmol Ag + 1,5 µmol Au)",
+     "compared_to": "Q > Ksp ; excès de Cl- le plus grand des trois compositions",
+     "source": "Ksp : periodni.com ; quantités non données (hypothèses)"
+    },
+    {
+     "what": "SPR attendue par interpolation linéaire",
+     "inputs": "x(Au) = 0,75",
+     "formula": "396 + 134x",
+     "result": "≈ 497 nm",
+     "compared_to": "mesure 509 nm",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Quantités non données ; l'excès de chlorure (≈ 12 Cl- par Ag+) est maximal pour cette composition, ce qui rend la perte d'Ag en AgCl la plus probable (calcul « sursaturation en AgCl »). Pas d'EDS quantitative sur cet échantillon.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Solubility product constants",
+      "authors_or_publisher": "periodni.com (table de Ksp à 25 °C) ; Ksp(AgCl) ≈ 1,77-1,8 × 10^-10",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.periodni.com/solubility_product_constants.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SPR à 509 nm proche de l'interpolation linéaire (≈ 497 nm) ; la cartographie EDX d'une seule particule (Fig. 7) montre Ag et Au superposés, compatible avec un alliage mais sans statistique.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même schéma que AgAu ; l'excès d'AuCl4- favorise le remplacement galvanique de l'Ag déposé et un cœur riche en or.",
+    "sources": [
+     {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes d'AgNO3 et de HAuCl4 pour 1:3",
+    "trouble d'AgCl au mélange",
+    "composition réelle (EDS correctement attribuée)"
+   ]
+  },
+  {
+   "label": "Mix_AgNPs_AuNPs",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "absorbance attendue de l'argent dans le mélange 3:1 à partir des colloïdes bruts",
+     "inputs": "[Ag] ≤ 25 µmol/L × 0,75 ≈ 19 µmol/L ; coefficient d'extinction au pic d'une AgNP de ≈ 10 nm ≈ 5,6 × 10^8 L/(mol·cm) pour ≈ 3,1 × 10^4 atomes, soit ≈ 1,8 × 10^4 L/(mol·cm) par atome d'Ag (ordre de grandeur) ; trajet 1 cm",
+     "formula": "A = ε·c·l",
+     "result": "A(390 nm) ≈ 0,3",
+     "compared_to": "valeur lue sur la Fig. 2d : 1,9",
+     "source": "ordre de grandeur (tables de fournisseurs de colloïdes d'argent, non vérifiées ici) ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ni volumes ni concentrations ni base du rapport (volume ou moles) : le mélange n'est pas reproductible tel qu'écrit. L'absorbance de 1,9 à 390 nm (Fig. 2d) est ≈ 6 fois plus forte que celle attendue de colloïdes à ≈ 25 µmol/L d'Ag (calcul « absorbance attendue »), ce qui laisse supposer des colloïdes concentrés ou des conditions de mesure non décrites.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Deux bandes séparées (≈ 390 et 550 nm) pour un mélange physique, contre une bande unique pour les alliages : témoin pertinent et classique (Link et al.).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Superposition des résonances des deux populations de particules ; la bande vers 550 nm (plutôt que 530) indique un début d'agrégation au mélange.",
+    "sources": [
+     {
+      "title": "Alloy formation of gold-silver nanoparticles and the dependence of the plasmon absorption on their composition",
+      "authors_or_publisher": "Link, Wang, El-Sayed (J. Phys. Chem. B 103, 3529-3533)",
+      "year": "1999",
+      "url_or_doi": "10.1021/jp990387w"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes et concentrations des colloïdes mélangés",
+    "base du rapport Ag:Au (volume ou moles)"
+   ]
+  },
+  {
+   "label": "SERS_Ag3Au",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration réelle de RhB dans la goutte",
+     "inputs": "10 µL de sol + 10 µL de RhB à C",
+     "formula": "C/2",
+     "result": "5 × 10^-12 mol/L pour la solution « 10^-11 M »",
+     "compared_to": "EF calculé avec C, soit surestimé d'un facteur 2 à toutes les concentrations",
+     "source": "arithmétique"
+    },
+    {
+     "what": "molécules de RhB déposées à 10^-11 M",
+     "inputs": "10 µL × 10^-11 mol/L × 6,022 × 10^23",
+     "formula": "C·V·NA",
+     "result": "≈ 6,0 × 10^7 molécules",
+     "compared_to": "-",
+     "source": "arithmétique"
+    },
+    {
+     "what": "molécules dans la tache laser",
+     "inputs": "6,0 × 10^7 molécules ; tache laser de 3,8 µm de diamètre (11,3 µm²) ; dépôt séché supposé de 2 à 5 mm de diamètre (non donné)",
+     "formula": "N × (aire tache / aire dépôt)",
+     "result": "≈ 35 à 220 molécules",
+     "compared_to": "fluctuation de Poisson 1/√N ≈ 7 à 17 % ; RSD annoncé 3,1 %",
+     "source": "arithmétique ; diamètre du dépôt supposé"
+    },
+    {
+     "what": "intensité normale Inor impliquée par les EF",
+     "inputs": "EF = (ISERS/Inor)(Cnor/CSERS) ; Cnor = 10^-4 M ; 10^-5 M : I = 35 000, EF 8,5 × 10^5 ; 10^-11 M : I = 1000, EF 2 × 10^10",
+     "formula": "Inor = ISERS·Cnor/(EF·CSERS)",
+     "result": "Inor ≈ 0,41 et 0,50 u.a. (cohérent entre eux)",
+     "compared_to": "signal de référence de l'ordre du bruit : l'EF dépend surtout de l'estimation de ce bruit",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "droite d'étalonnage",
+     "inputs": "log I = 0,3 log C + 6,23",
+     "formula": "I = 10^(0,3 log C + 6,23)",
+     "result": "≈ 53 700 u.a. à 10^-5 M ; ≈ 850 u.a. à 10^-11 M",
+     "compared_to": "texte : ≈ 35 000 et ≈ 1000 u.a. (facteur 1,5 à 10^-5 M)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "loi de l'EF analytique avec une pente de 0,3",
+     "inputs": "I ∝ C^0,3",
+     "formula": "EF ∝ I/C ∝ C^-0,7 ; EF(10^-5) = 8,5 × 10^5",
+     "result": "attendus : 4,3 × 10^6 ; 2,1 × 10^7 ; 1,1 × 10^8 ; 5,4 × 10^8 ; 2,7 × 10^9 ; 1,35 × 10^10 pour 10^-6 à 10^-11 M",
+     "compared_to": "Tableau 2 : 6,4 × 10^6 ; 3,3 × 10^7 ; 4,4 × 10^7 ; 8 × 10^8 ; 3 × 10^9 ; 2 × 10^10 (10^-8 M hors tendance)",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "force centrifuge à 6000 rpm",
+     "inputs": "rayon de rotor supposé 10 cm",
+     "formula": "FCR = 1,118 × 10^-5 × r(cm) × rpm²",
+     "result": "≈ 4000 g",
+     "compared_to": "« ultracentrifuge » : une ultracentrifugation dépasse ≈ 100 000 g",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'EF qui croît de 8,5 × 10^5 à 2 × 10^10 quand la concentration baisse est la conséquence directe de la réponse sous-linéaire (pente 0,3, donc EF ∝ C^-0,7 ; calcul « loi de l'EF analytique ») : ce n'est pas une propriété du substrat. L'EF analytique n'a de sens que dans le domaine linéaire et au-dessus de la limite de détection ; le chiffre 2 × 10^10 et le « record de sensibilité » ne sont pas justifiés. Le signal de référence implicite (≈ 0,4-0,5 u.a., calcul « intensité normale Inor ») est de l'ordre du bruit.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Surface Enhanced Raman Scattering Enhancement Factors: A Comprehensive Study",
+      "authors_or_publisher": "Le Ru, Blackie, Meyer, Etchegoin (J. Phys. Chem. C 111, 13794-13803)",
+      "year": "2007",
+      "url_or_doi": "10.1021/jp0687908"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "À 10^-11 M, seulement ≈ 35 à 220 molécules dans la tache laser (calcul « molécules dans la tache laser ») : régime de quelques molécules, où le signal fluctue (Poisson ≥ 7-17 %, clignotement). Un RSD de 3,1 % sur 8 points et un signal de ≈ 1000 u.a. sont incompatibles avec ce régime ; un fond résiduel ou une contamination est plus probable. Le mélange 1:1 divise en outre la concentration par 2 (calcul « concentration réelle »).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Surface Enhanced Raman Scattering Enhancement Factors: A Comprehensive Study",
+      "authors_or_publisher": "Le Ru, Blackie, Meyer, Etchegoin (J. Phys. Chem. C 111, 13794-13803)",
+      "year": "2007",
+      "url_or_doi": "10.1021/jp0687908"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Même concentration 10^-11 M, même substrat Ag3Au : ≈ 1000 u.a. (Fig. 9a) contre ≈ 1600 u.a. pour le substrat neuf de la Fig. 10c. Tableau 1 : à 1528 cm-1, EF(Au) = 6,5 × 10^5 > EF(Ag) = 2,7 × 10^5, contraire à l'affirmation du texte (probable faute de frappe). Tableau 2 : la valeur à 10^-8 M sort de la tendance.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Excitation à 532 nm proche de l'absorption de la RhB (≈ 550 nm) : régime de résonance (SERRS), que les auteurs mentionnent ; les EF incluent donc une part de résonance moléculaire et ne se comparent pas à des EF hors résonance.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Centrifugation à 6000 rpm (≈ 4000 g, calcul « force centrifuge ») appelée « ultracentrifuge » : ce n'est pas une ultracentrifugation. Elle concentre les alliages de 40-60 nm mais pas les AgNPs de 6-8 nm (voir AgNPs, calcul de sédimentation) : le substrat SERS_Ag est probablement préparé avec un sol non concentré, ce qui fausse la comparaison des EF.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Rhodamine B nocive (colorant, suspecté cancérogène selon les classifications) ; acétone inflammable ; laser 532 nm de 3,2 mW (classe 3R) : protection oculaire.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Exaltation surtout électromagnétique dans les interstices entre particules agrégées au séchage, plus une résonance moléculaire de la RhB à 532 nm ; le « champ électrique interne avec SiO2 » invoqué pour la contribution chimique n'est pas étayé. Aux très faibles concentrations, la réponse sous-linéaire traduit une adsorption saturable ou un fond, pas une hausse de l'exaltation.",
+    "sources": [
+     {
+      "title": "Surface Enhanced Raman Scattering Enhancement Factors: A Comprehensive Study",
+      "authors_or_publisher": "Le Ru, Blackie, Meyer, Etchegoin (J. Phys. Chem. C 111, 13794-13803)",
+      "year": "2007",
+      "url_or_doi": "10.1021/jp0687908"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "diamètre du dépôt séché et volume total déposé",
+    "spectre de référence de la RhB à 10^-4 M (Inor) avec son rapport signal sur bruit",
+    "blancs (substrat sans RhB) aux mêmes conditions pour les très faibles concentrations",
+    "calculer l'EF dans le domaine linéaire seulement, avec la concentration après mélange 1:1"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèses par réduction au citrate chimiquement faisables, à très faible concentration (≈ 25 µmol/L de métal, ≈ 100-300 µg de métal par lot). Les points faibles sont dans l'interprétation : équation de réduction de l'argent fausse (l'eau, et non le citrate, y est oxydée), mécanisme d'alliage décrit comme un remplacement galvanique, raies EDS mal attribuées, HRTEM et DRX qui ne distinguent pas Ag et Au, cristallite de l'Ag plus grande que ses particules, attributions IR et plasmon (« quadripôle » à 560 nm) erronées. Côté SERS, l'EF de 2 × 10^10 et la LOD de 10 pM découlent d'une réponse sous-linéaire et d'un signal de référence au niveau du bruit ; à 10^-11 M il n'y a que quelques dizaines de molécules sous le laser, ce qui est incompatible avec un RSD de 3,1 %.",
+  "author_errors_suspected": [
+   "Équation (1) : Ag+ réduit par l'eau avec dégagement d'O2, le citrate n'étant pas oxydé (thermodynamiquement impossible, contraire au rôle de réducteur annoncé).",
+   "Raies EDS : 2,2 keV (Au Mα) et 3 keV (Ag Lα) inversées ; 1 et 1,8 keV ne sont pas des raies d'Ag ni d'Au.",
+   "Cristallite DRX de l'Ag (28,36 nm) plus grande que les particules TEM (6-8 nm).",
+   "HRTEM : 0,234 contre 0,233 nm présentés comme distinguant Ag et Au ; particules dites monocristallines alors que la cristallite DRX (7,3 nm) est cinq fois plus petite que la particule (40 nm).",
+   "Loi de Vegard : 0,40495 nm annoncé, 0,40460 nm avec les valeurs données.",
+   "IR : 3420 cm-1 (O-H) attribué à C-C et « déplacé » à 2959 cm-1 (C-H).",
+   "Épaulement à 560 nm de l'or attribué à une résonance quadripolaire (le quadripôle est du côté bleu et n'apparaît qu'au-delà de ≈ 80-100 nm).",
+   "EF analytique calculé hors du domaine linéaire (EF ∝ C^-0,7) et avec la concentration avant mélange 1:1 ; RSD de 3,1 % à 10^-11 M incompatible avec ≈ 35-220 molécules dans la tache laser.",
+   "Centrifugation à 6000 rpm appelée ultracentrifugation ; AgNPs de 6-8 nm non séparables ainsi."
+  ],
+  "comparison_with_database": "Seule autre réduction de HAuCl4 au citrate dans la base : PMC7786535 (sonochimie, même concentration en Au ≈ 25 µmol/L, 16 nm). Aucune autre co-réduction Ag/Au ni AgNP au citrate en voie de base : pas de comparaison chiffrée possible."
+ },
+ "sources_not_found": [
+  "Page NIST X-ray Transition Energies (physics.nist.gov) inaccessible depuis le proxy : énergies Ag Lα 2,98 keV, Au Lα 9,71 keV prises comme valeurs usuelles ; Au Mα (2,12 keV) n'est pas dans NIST SRD 128 (raies K et L seulement), valeur de tables usuelles (X-ray Data Booklet LBNL, non ouvert).",
+  "Texte intégral de Kelly et al. 2003 non ouvert (domaine injoignable) : la position du mode quadripolaire côté courtes longueurs d'onde est un fait connu de la théorie de Mie, non vérifié dans le texte de l'article.",
+  "Coefficient d'extinction d'une AgNP de 10 nm (≈ 5,6 × 10^8 L/(mol·cm)) : ordre de grandeur de tables de fournisseurs, non vérifié en ligne.",
+  "DOI non vérifiés sur Crossref (bloqué) : 10.1021/jp990387w, 10.1021/jp037018r, 10.1021/jp026731y, 10.1021/jp0687908, 10.1103/RevModPhys.75.35 ; ceux de Frens, Turkevich, Lee-Meisel et Agnihotri viennent de references/fondateurs.md."
+ ]
+}

@@ -1,0 +1,791 @@
+{
+ "pmcid": "PMC9036687",
+ "routes": [
+  {
+   "label": "HAP",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration de l'acide acétique à 10 %",
+     "inputs": "10 % (supposé m/m), masse volumique ≈ 1,012 g/mL, M = 60,05 g/mol",
+     "formula": "101,2 g/L / 60,05",
+     "result": "≈ 1,69 mol/L",
+     "compared_to": "CaCO3 + 2 CH3COOH → Ca(CH3COO)2 + CO2 + H2O : 1 L dissout au plus ≈ 84 g de CaCO3 ; la masse de coquilles n'est pas donnée",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "rapport Ca/P visé",
+     "inputs": "Ca/P = 1,67 (texte)",
+     "formula": "10/6",
+     "result": "1,667",
+     "compared_to": "Ca10(PO4)6(OH)2 : 10/6 = 1,667 (stœchiométrique)",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "surface géométrique des bâtonnets de HAP",
+     "inputs": "largeur 40–50 nm, longueur 50–100 nm ; masse volumique de HAP ≈ 3,16 g/cm3",
+     "formula": "S = (4/d + 2/L)/ρ",
+     "result": "31,6 à 44,3 m2/g (≈ 36,6 m2/g pour 45 × 75 nm)",
+     "compared_to": "BET mesurée 46,63 m2/g : même ordre de grandeur",
+     "source": "arithmétique ; masse volumique de l'hydroxyapatite (valeur de manuel, non relue dans cette session)"
+    },
+    {
+     "what": "paramètres de maille de HAP tirés des pics déclarés",
+     "inputs": "(002) à 2θ = 25,88° ; (211) à 31,77° ; λ = 1,54056 Å (Cu Kα1, supposée : la source n'est pas dite)",
+     "formula": "d = λ/(2 sin θ) ; c = 2 d002 ; 1/d211² = (4/3)(h²+hk+k²)/a² + l²/c²",
+     "result": "d002 = 3,440 Å, c = 6,880 Å ; d211 = 2,814 Å, a = 9,422 Å ; d100 = a√3/2 = 0,816 nm",
+     "compared_to": "HRTEM : 0,817 nm attribué à HAP (100) : cohérent",
+     "source": "arithmétique ; λ Cu Kα1 : NIST X-ray Transition Energies Database (references/constantes.md)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ca/P = 1,67 est la stœchiométrie de l'hydroxyapatite (calcul « rapport Ca/P visé »), mais la teneur en Ca du filtrat n'est pas mesurée (ni dosage EDTA, ni ICP) et la masse de coquilles n'est pas donnée : le rapport annoncé ne peut pas avoir été fixé sans un dosage non décrit. Les coquilles d'huîtres sont surtout de la calcite avec Mg, Sr, Na et une matrice organique : ces ions passent dans le filtrat et peuvent se substituer dans l'apatite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "160 °C, 8 h dans une étuve en « reaction kettle » (autoclave à chemise téflon probable) : pression de vapeur de l'eau à 160 °C ≈ 6,2 bar (tables de vapeur, NIST WebBook, valeur non relue ici), plus la pression partielle d'ammoniac (pH 9–10 imposé par NH3). Acceptable pour un autoclave PTFE, mais le volume et le taux de remplissage ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "pH 9–10 atteignable avec l'ammoniac (pKa NH4+/NH3 = 9,25) dans une solution d'acétate tamponnée ; il faut d'abord neutraliser l'excès d'acide acétique (≈ 1,69 mol/L au départ), ce qui demande un volume d'ammoniaque important, non dit.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Précipitation à pH basique puis traitement hydrothermal 120–200 °C quelques heures : voie classique donnant des bâtonnets d'hydroxyapatite bien cristallisés.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A. (Acta Biomaterialia)",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les positions DRX (002) et (211) et la distance HRTEM 0,817 nm (100) sont cohérentes entre elles (calcul « paramètres de maille de HAP ») et avec la maille hexagonale de HAP. La BET de 46,63 m2/g est du même ordre que la surface géométrique des bâtonnets (calcul « surface géométrique »). Les « nanobâtonnets » ont un rapport longueur/largeur de 1 à 2,5 seulement.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande interdite de 3,30 eV mesurée par Tauc : l'hydroxyapatite stœchiométrique absorbe bien plus loin dans l'UV (bande interdite calculée ≈ 5 eV et plus) ; une valeur vers 3,4–3,5 eV est attribuée dans la littérature à des lacunes d'oxygène des phosphates, mais une absorption vers 375 nm peut aussi venir d'impuretés (matière organique résiduelle des coquilles, carbonate, ions de transition). La « pureté élevée » est affirmée sur la seule DRX, qui ne voit ni carbonate (pas d'IR) ni impuretés cationiques (pas d'analyse élémentaire).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Oxygen vacancies, the optical band gap (Eg) and photocatalysis of hydroxyapatite: comparing modelling with measured data",
+      "authors_or_publisher": "Bystrov V.S. et al. (Applied Catalysis B: Environmental)",
+      "year": "2016",
+      "url_or_doi": "10.1016/j.apcatb.2016.05.014 (notice : https://ria.ua.pt/handle/10773/19564)"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Aucun changement d'état d'oxydation attendu ; atmosphère sans importance.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dégagement de CO2 à la dissolution des coquilles (récipient ouvert), vapeurs d'ammoniac (hotte), autoclave sous pression à 160 °C avec NH3 (refroidir avant ouverture). Non mentionné par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre sections : le texte (et la liste des réactifs) donne (NH4)2HPO4 0,3 mol/L comme source de phosphate, alors que le schéma de la Fig. 1 écrit « +Na2HPO4 ». L'acide phosphorique et l'urée de la liste des réactifs ne servent dans aucune étape décrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dissolution de la calcite des coquilles par l'acide acétique (acétate de calcium + CO2) ; ajout de phosphate à Ca/P = 1,67 et pH 9–10 : précipitation d'un phosphate de calcium amorphe ou peu cristallisé ; le traitement hydrothermal à 160 °C le transforme par dissolution–recristallisation en hydroxyapatite hexagonale, la croissance préférentielle selon l'axe c donnant des bâtonnets. L'acétate et l'ammonium ne sont pas incorporés ; carbonate et Mg/Sr des coquilles peuvent l'être.",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M., Khorasani M.-T., Dinpanah-Khoshdargi E., Jamshidi A. (Acta Biomaterialia)",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "doser Ca dans le filtrat avant d'ajouter le phosphate (sinon Ca/P = 1,67 n'est pas contrôlé)",
+    "masse de coquilles, volumes d'acide et de (NH4)2HPO4, volume et taux de remplissage de l'autoclave",
+    "source réelle du phosphate : (NH4)2HPO4 (texte) ou Na2HPO4 (Fig. 1)",
+    "IR pour le carbonate, analyse élémentaire (Mg, Sr) si la pureté compte"
+   ]
+  },
+  {
+   "label": "Ag3PO4",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de AgNO3 et de Na2HPO4·12H2O",
+     "inputs": "0,5096 g AgNO3 ; 0,5372 g Na2HPO4·12H2O ; masses molaires : AgNO3 169,87 ; NaBr 102,89 ; Na2HPO4·12H2O 358,14 ; Ag3PO4 418,58 ; AgBr 187,77 ; Ca10(PO4)6(OH)2 1004,6 g/mol",
+     "formula": "m/M",
+     "result": "AgNO3 3,000 mmol ; HPO4²⁻ 1,500 mmol ; Ag:P = 2:1",
+     "compared_to": "Ag3PO4 : Ag:P = 3:1 ; phosphate en excès de 50 % ; rendement théorique 1,000 mmol = 0,4186 g",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "bilan de protons de la précipitation",
+     "inputs": "3 Ag+ + HPO4²⁻ → Ag3PO4 + H+ ; 1,5 mmol HPO4²⁻",
+     "formula": "si 1 mmol de Ag3PO4 se forme, il reste 0,5 mmol de phosphate portant 1,5 mmol de H",
+     "result": "3 H par phosphate restant, soit H3PO4 : conversion complète incompatible avec un milieu non tamponné ; vers H2PO4⁻ (2 H par phosphate) la conversion plafonne à ≈ 0,75 mmol",
+     "compared_to": "Ag3PO4 se dissout en milieu acide : rendement probablement < 100 %, non donné",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "Bragg pour Ag3PO4",
+     "inputs": "(210) à 33,29°, (211) à 36,59° ; λ = 1,54056 Å",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "d210 = 2,689 Å ; d211 = 2,454 Å ; a = d210·√5 = 6,013 Å, d211·√6 = 6,011 Å",
+     "compared_to": "HRTEM (211) = 0,245 nm : cohérent ; maille cubique de Ag3PO4 ≈ 6,0 Å",
+     "source": "arithmétique ; λ Cu Kα1 : NIST (references/constantes.md)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ag:P = 2:1 (calcul « moles de AgNO3 et de Na2HPO4·12H2O ») : le phosphate est en excès et sert en partie de tampon, mais la libération d'un proton par Ag3PO4 formé abaisse le pH (calcul « bilan de protons ») ; ni pH final ni rendement ne sont donnés. Recette habituelle : AgNO3 ajouté goutte à goutte à Na2HPO4, comme ici.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pics (210) et (211) cohérents entre eux (même paramètre de maille 6,01 Å) et avec la distance HRTEM 0,245 nm. Bande interdite 2,36 eV (texte) contre 2,35 eV (étiquette de la Fig. 5b) : écart négligeable, ordre de grandeur habituel de Ag3PO4.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Ag3PO4 est photosensible (photoréduction en Ag0) : séchage et stockage à l'abri de la lumière à préciser ; durée de repos, séparation et séchage non donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3 oxydant et corrosif, tache la peau ; déchets argentés à collecter.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipitation directe : 3 Ag+ + HPO4²⁻ → Ag3PO4 (cubique) + H+, sursaturation immédiate (Ksp de Ag3PO4 = 8,89 × 10−17) ; croissance et agrégation en particules de 200–500 nm pendant le repos.",
+    "sources": [
+     {
+      "title": "Appendix C: Solubility Constants for Compounds at 25 °C (données du CRC Handbook of Chemistry and Physics, 84e éd.) : Ag3PO4 Ksp = 8,89 × 10−17",
+      "authors_or_publisher": "Introductory Chemistry, BCcampus Open Textbook",
+      "year": "s.d.",
+      "url_or_doi": "https://opentextbc.ca/introductorychemistry/back-matter/appendix-solubility-constants-for-compounds-at-25c/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume d'eau et donc concentrations",
+    "pH final (l'acidification limite le rendement)",
+    "lumière ambiante pendant la préparation et le séchage",
+    "température et durée de séchage"
+   ]
+  },
+  {
+   "label": "AgBr",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de NaBr et de AgNO3",
+     "inputs": "0,3087 g NaBr ; 0,5096 g AgNO3 ; masses molaires : AgNO3 169,87 ; NaBr 102,89 ; Na2HPO4·12H2O 358,14 ; Ag3PO4 418,58 ; AgBr 187,77 ; Ca10(PO4)6(OH)2 1004,6 g/mol",
+     "formula": "m/M",
+     "result": "NaBr 3,000 mmol ; AgNO3 3,000 mmol ; Br:Ag = 1,000",
+     "compared_to": "AgBr 1:1 ; rendement théorique 0,563 g",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "Bragg pour AgBr",
+     "inputs": "(200) à 30,960°, (220) à 44,346° ; λ = 1,54056 Å",
+     "formula": "d = λ/(2 sin θ) ; a = 2 d200 = 2√2 d220",
+     "result": "d200 = 2,886 Å, a = 5,772 Å ; d220 = 2,041 Å, a = 5,773 Å",
+     "compared_to": "HRTEM (200) = 0,288 nm : cohérent ; AgBr cubique type NaCl a ≈ 5,77 Å",
+     "source": "arithmétique ; λ Cu Kα1 : NIST"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Stœchiométrie exacte 1:1 (calcul « moles de NaBr et de AgNO3 »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Positions DRX et distance HRTEM cohérentes (même paramètre 5,77 Å). Bande interdite 2,62 eV : ordre de grandeur habituel (gap indirect de AgBr ≈ 2,6 eV).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "AgBr est très photosensible : préparation et séchage à l'abri de la lumière non précisés ; lavage pour éliminer NaNO3 non décrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipitation quasi totale Ag+ + Br− → AgBr (Ksp ≈ 5 × 10−13), croissance par mûrissement d'Ostwald en particules submicroniques.",
+    "sources": [
+     {
+      "title": "Solubility product constants (AgBr Ksp = 5,35 × 10−13 à 25 °C)",
+      "authors_or_publisher": "periodni.com (EniG. Periodic Table of the Elements)",
+      "year": "s.d.",
+      "url_or_doi": "https://periodni.com/solubility_product_constants.html"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes d'eau",
+    "lavage (NaNO3 formé : 3 mmol)",
+    "séchage à l'abri de la lumière"
+   ]
+  },
+  {
+   "label": "Ag3PO4/AgBr",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition attendue de Ag3PO4/AgBr",
+     "inputs": "AgNO3 3,000 mmol ; HPO4²⁻ 1,500 mmol ; NaBr 0,1029 g = 1,000 mmol",
+     "formula": "AgBr = n(Br) ; Ag3PO4 = (n(Ag) − n(Br))/3",
+     "result": "AgBr 1,000 mmol (0,188 g) ; Ag3PO4 ≤ 0,667 mmol (0,279 g) ; Br/Ag = 0,333",
+     "compared_to": "Tableau 1 : 0,51 g AgNO3, 0,103 g NaBr : cohérent",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "solubilités molaires comparées",
+     "inputs": "Ksp(Ag3PO4) = 8,89 × 10−17 ; Ksp(AgBr) = 5,35 × 10−13",
+     "formula": "s = (Ksp/27)^(1/4) ; s = √Ksp",
+     "result": "Ag3PO4 : 4,2 × 10−5 mol/L ; AgBr : 7,3 × 10−7 mol/L",
+     "compared_to": "AgBr ≈ 60 fois moins soluble : Br− ajouté après Ag3PO4 le convertit en AgBr par échange d'ions",
+     "source": "CRC Handbook via BCcampus (Ag3PO4) ; periodni.com (AgBr)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "NaBr ajouté après la précipitation de Ag3PO4 : conversion de surface Ag3PO4 + 3 Br− → 3 AgBr + PO4³⁻ (méthode d'échange d'ions de Bi et al., citée par les auteurs), cohérente avec les solubilités (calcul « solubilités molaires comparées »).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les quantités de phosphate et d'argent ne sont pas répétées pour cette voie (« similar to the preparation of Ag3PO4 ») ; la forme de NaBr (solide ou solution) n'est pas dite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipitation de Ag3PO4 puis échange d'anions en surface par Br− : coquille de AgBr sur cœur de Ag3PO4 (≈ 1 AgBr pour 0,67 Ag3PO4 en moles).",
+    "sources": [
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "forme et vitesse d'ajout de NaBr",
+    "temps de contact avant séparation"
+   ]
+  },
+  {
+   "label": "1:1-Ag3PO4/AgBr/HAP",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles dans le composite 1:1",
+     "inputs": "AgNO3 1 g ; NaBr 0,206 g ; HAP 1 g ; masses molaires : AgNO3 169,87 ; NaBr 102,89 ; Na2HPO4·12H2O 358,14 ; Ag3PO4 418,58 ; AgBr 187,77 ; Ca10(PO4)6(OH)2 1004,6 g/mol",
+     "formula": "m/M",
+     "result": "Ag 5,887 mmol ; Br 2,002 mmol (Br/Ag = 0,340) ; HAP 0,995 mmol, soit 5,97 mmol PO4 et 9,95 mmol Ca",
+     "compared_to": "Br/Ag = 0,333 dans Ag3PO4/AgBr : même rapport",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "phosphate à prendre à HAP pour former Ag3PO4",
+     "inputs": "Ag restant après AgBr = 5,887 − 2,002 = 3,885 mmol",
+     "formula": "n(Ag3PO4) = 3,885/3 ; fraction = n/5,97",
+     "result": "1,295 mmol Ag3PO4 (0,542 g) ; 21,7 % du phosphate de HAP ; libère ≈ 2,16 mmol Ca²⁺ et consomme ≈ 0,217 g de HAP",
+     "compared_to": "aucune autre source de phosphate n'est écrite (texte et Fig. 1 : « +AgNO3, NaBr »)",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "composition massique du solide séché",
+     "inputs": "HAP 1 g ; AgBr 0,376 g ; Ag3PO4 ≤ 0,542 g ; NaNO3 formé 2,002 mmol = 0,170 g",
+     "formula": "fractions massiques",
+     "result": "HAP ≈ 52 % ; phases argentées ≈ 48 % ; NaNO3 ≈ 8 % de plus si le solide n'est pas lavé",
+     "compared_to": "aucun lavage ni séparation décrits avant le séchage à 100 °C",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "Bragg pour le pic attribué à Ag2O après cyclage",
+     "inputs": "2θ = 38,07° ; λ = 1,54056 Å ; Ag cfc a = 4,086 Å ; Ag2O cubique a ≈ 4,72 Å",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "d = 2,362 Å ; Ag (111) attendu à 38,11° ; Ag2O (200) à ≈ 38,1° mais Ag2O (111), raie la plus forte, à ≈ 32,8°",
+     "compared_to": "pic non discriminant : Ag0 et Ag2O tombent au même angle",
+     "source": "arithmétique ; Ag 04-0783 (111) = 38,116° (tableau de PMC5367563)"
+    },
+    {
+     "what": "constantes de vitesse apparentes recalculées",
+     "inputs": "dégradation à 120 min : Ag3PO4 61,69 %, Ag3PO4/AgBr 54,98 % ; 1:1 : 97,63 % à 40 min, k = 0,08929 min−1",
+     "formula": "k ≈ ln(1/(1−X))/t",
+     "result": "Ag3PO4 0,0080 ; Ag3PO4/AgBr 0,0067 ; 1:1 0,094 min−1 ; rapports 11,2 et 13,4",
+     "compared_to": "auteurs : 12 et 15 fois (Fig. 6d ne trace pas Ag3PO4 ni Ag3PO4/AgBr) : même ordre de grandeur",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "surface BET attendue par simple dilution",
+     "inputs": "HAP 46,63 m2/g ; fraction de HAP ≈ 52 % ; phases argentées 200–500 nm (≈ 1–2 m2/g)",
+     "formula": "S ≈ x(HAP)·46,63",
+     "result": "≈ 24–25 m2/g",
+     "compared_to": "mesuré : 13,65 (1:1), 25,11 (0,5AgBr), 21,62 (2AgBr)",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "agent de capture EDTA-2Na contre le catalyseur",
+     "inputs": "1 mmol d'EDTA dans 250 mL ; 0,35 g de composite 1:1 ≈ 1,07 mmol Ag et ≈ 1,8 mmol Ca",
+     "formula": "rapport molaire",
+     "result": "EDTA ≈ 1 équivalent de tout l'argent de la charge",
+     "compared_to": "EDTA complexe Ag+ et surtout Ca²⁺ : attaque possible du support et des phases argentées",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune source de phosphate n'est ajoutée : Ag3PO4 ne peut se former que par échange Ag+/Ca²⁺ et dissolution partielle de HAP, en consommant ≈ 22 % de son phosphate et en libérant ≈ 2,2 mmol de Ca²⁺ (calcul « phosphate à prendre à HAP »). Une telle conversion par AgNO3 est rapportée (poudres Ag3PO4 + HAp après échange d'ions), elle est donc possible, mais elle contredit l'affirmation que la structure de HAP n'est pas touchée, et l'article ne donne ni dosage du Ca libéré ni quantification des phases. Il faut aussi savoir si une partie de l'argent reste en Ag+ adsorbé ou substitué.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Article de Głuszek, Świrska, Kaczorowski et al. sur l'échange d'ions Ag+ dans l'hydroxyapatite par AgNO3 (titre exact non relu)",
+      "authors_or_publisher": "Głuszek, Świrska, Kaczorowski et al., Engineering of Biomaterials n° 161 (Lodz University of Technology)",
+      "year": "non vérifiée",
+      "url_or_doi": "https://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-bf0756c6-d863-4a95-8cfc-f5ac0da04674/c/eb_161_3.pdf"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "« AgNO3 and NaBr … were dissolved in water and then dropped into the suspension » : s'il s'agit d'une seule solution, AgBr précipite avant tout contact avec HAP ; l'ordre et le mode d'ajout changent la répartition Ag3PO4/AgBr. Aucune séparation ni lavage n'est écrite avant le séchage à 100 °C : NaNO3 (≈ 0,17 g), Ca(NO3)2 éventuel et Ag+ non fixé resteraient dans le solide (calcul « composition massique du solide séché »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pic à 38,07° attribué à Ag2O après cinq cycles : Ag métallique (111) est au même angle (38,11°), et la raie la plus forte de Ag2O, (111) vers 32,8°, n'est pas montrée séparément (calcul « Bragg pour le pic attribué à Ag2O »). Les auteurs écrivent eux-mêmes que les électrons photogénérés réduisent Ag+ en Ag0 : la photoréduction en Ag0 est l'explication la plus simple ; l'attribution à Ag2O n'est pas démontrée (XPS après cyclage nécessaire).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Supplementary information, New J. Chem. (pics à 32,928°, 38,164° et 55,111° attribués ensemble aux fiches Ag2O 43-0997 et Ag 04-0783)",
+      "authors_or_publisher": "Royal Society of Chemistry, suppdata c7nj05007k",
+      "year": "2018",
+      "url_or_doi": "https://www.rsc.org/suppdata/c7/nj/c7nj05007k1.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le test est dit « sous lumière visible » alors que la lampe Xe de 500 W émet de 300 à 800 nm sans filtre coupe-UV déclaré : HAP (3,30 eV, ≈ 376 nm), Ag3PO4 et AgBr sont aussi excités par l'UV de la lampe. Le titre et les conclusions « visible light » ne sont pas établis par ce montage ; il faudrait un filtre λ > 420 nm.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bleu de méthylène comme seule molécule test, suivi à 664 nm : la décoloration n'est pas une minéralisation (pas de COT), et un colorant qui absorbe dans le visible peut être dégradé par photosensibilisation ; la conclusion « MB was not transformed into other substances » n'est pas démontrée par la seule disparition de la bande à 664 nm.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Is methylene blue an appropriate substrate for a photocatalytic activity test? A study with visible-light responsive titania",
+      "authors_or_publisher": "Yan X., Ohno T., Nishijima K., Abe R., Ohtani B. (Chem. Phys. Lett. 429)",
+      "year": "2006",
+      "url_or_doi": "https://eprints.lib.hokudai.ac.jp/repo/huscap/all/14893/CPL429-4-6.pdf"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Mécanisme photocatalytique : les électrons passent de la bande de conduction de Ag3PO4 vers HAP, puis réduiraient O2 en ˙O2− (−0,33 V/ENH, valeur donnée par les auteurs). Un transfert vers un niveau plus bas fait perdre du pouvoir réducteur ; si la bande de conduction de Ag3PO4 est plus positive que −0,33 V (ce que les auteurs admettent : « electrons tended to in situ reduce Ag+ to metallic Ag rather than generated the superoxide »), un électron passé ensuite sur HAP ne peut pas réduire O2 en ˙O2−. Le rôle des lacunes d'oxygène de HAP est une hypothèse sans mesure (pas de RPE des lacunes, pas d'XPS O 1s discuté en ce sens).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Agents de capture peu sélectifs : 1 mmol d'EDTA-2Na équivaut à tout l'argent de la charge et complexe Ca²⁺ (calcul « agent de capture EDTA-2Na ») ; la benzoquinone absorbe et capte aussi des électrons. L'arrêt total de l'activité ne distingue pas h+/˙O2− d'une attaque chimique du catalyseur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande interdite de 2,90 eV pour le composite, plus grande que celles de Ag3PO4 (2,36) et AgBr (2,62) qu'il contient : dans un mélange, le bord d'absorption est fixé par la phase de plus petite bande interdite ; 2,90 eV est un artefact d'extrapolation de Tauc sur un mélange dilué par HAP, pas la bande interdite d'une phase.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "BET 13,65 m2/g pour 1:1, contre ≈ 24–25 attendus par dilution et 25,11 et 21,62 mesurés pour 0,5AgBr et 2AgBr (calcul « surface BET attendue ») : le 1:1 est anormalement bas, ce que le texte ne discute pas (« did not change significantly »). Isothermes de type IV/H3 : porosité inter-particulaire.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al. (Pure Appl. Chem.)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Constantes de vitesse cohérentes avec les taux de dégradation (calcul « constantes de vitesse apparentes ») ; les rapports 12 et 15 sont du bon ordre. Positions DRX et HRTEM cohérentes (voir voies HAP, Ag3PO4, AgBr). XPS Ag 3d : écart 3d3/2 − 3d5/2 = 6,00 eV, valeur de Ag ; 367,87 eV compatible avec Ag+.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage à 100 °C, 8 h : sans risque pour Ag3PO4, AgBr et HAP ; à l'abri de la lumière non précisé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3 oxydant ; poudres submicroniques d'argent ; lampe Xe 500 W avec UV (écran) ; benzoquinone toxique. Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Formation : Ag+ s'adsorbe et s'échange avec Ca²⁺ à la surface de HAP ; Br− précipite d'abord AgBr (Ksp ≈ 5 × 10−13), le reste de Ag+ forme Ag3PO4 avec le phosphate libéré par dissolution partielle de HAP (Ksp(Ag3PO4) = 8,9 × 10−17), ce qui consomme jusqu'à ≈ 22 % du phosphate du support. Fonctionnement : la photoréduction partielle de Ag+ en Ag0 (pic à 38,1°) est plus probable que Ag2O, et un schéma où Ag0 relie Ag3PO4 et AgBr (type Z) est une alternative au transfert vers HAP proposé par les auteurs.",
+    "sources": [
+     {
+      "title": "Article de Głuszek, Świrska, Kaczorowski et al. sur l'échange d'ions Ag+ dans l'hydroxyapatite par AgNO3 (titre exact non relu)",
+      "authors_or_publisher": "Głuszek, Świrska, Kaczorowski et al., Engineering of Biomaterials n° 161 (Lodz University of Technology)",
+      "year": "non vérifiée",
+      "url_or_doi": "https://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-bf0756c6-d863-4a95-8cfc-f5ac0da04674/c/eb_161_3.pdf"
+     },
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     },
+     {
+      "title": "Appendix C: Solubility Constants for Compounds at 25 °C (données du CRC Handbook of Chemistry and Physics, 84e éd.) : Ag3PO4 Ksp = 8,89 × 10−17",
+      "authors_or_publisher": "Introductory Chemistry, BCcampus Open Textbook",
+      "year": "s.d.",
+      "url_or_doi": "https://opentextbc.ca/introductorychemistry/back-matter/appendix-solubility-constants-for-compounds-at-25c/"
+     },
+     {
+      "title": "Solubility product constants (AgBr Ksp = 5,35 × 10−13 à 25 °C)",
+      "authors_or_publisher": "periodni.com (EniG. Periodic Table of the Elements)",
+      "year": "s.d.",
+      "url_or_doi": "https://periodni.com/solubility_product_constants.html"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ordre d'ajout de AgNO3 et NaBr (solutions séparées, successives ?)",
+    "séparation et lavage avant séchage (sinon NaNO3 et Ag+ libre restent)",
+    "doser Ca²⁺ dans le surnageant et quantifier les phases (DRX Rietveld ou ICP) pour savoir combien de Ag3PO4 se forme réellement",
+    "test photocatalytique avec filtre λ > 420 nm et avec une molécule incolore (phénol) pour la revendication « lumière visible »",
+    "XPS Ag 3d après cyclage pour distinguer Ag0 de Ag2O"
+   ]
+  },
+  {
+   "label": "1:4-Ag3PO4/AgBr/HAP",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition attendue 1:4",
+     "inputs": "AgNO3 0,25 g ; NaBr 0,0515 g ; HAP 1 g",
+     "formula": "AgBr = n(Br) ; Ag3PO4 = (n(Ag)−n(Br))/3",
+     "result": "Ag 1,472 mmol ; Br 0,501 mmol (Br/Ag 0,340) ; AgBr 0,501 mmol ; Ag3PO4 ≤ 0,324 mmol (5,4 % du phosphate de HAP) ; HAP ≈ 81 % en masse",
+     "compared_to": "série en argent à Br/Ag constant",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Texte : « when the bromine content is fixed, the catalytic performance of the composite steadily improves with increasing Ag3PO4/AgBr content ». Or le Tableau 1 fait varier NaBr proportionnellement à AgNO3 (Br/Ag ≈ 0,34 constant), le brome n'est donc pas fixé ; et la Fig. 6b montre 1:2 (0,5 g AgNO3, C/C0 ≈ 0,07 à 40 min) plus actif que 1:1.4 (0,7 g, C/C0 ≈ 0,35) : l'activité n'augmente pas régulièrement avec la charge. L'affirmation du texte est contredite par ses propres données.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme le composite 1:1 : AgBr d'abord, puis Ag3PO4 avec l'argent restant et le phosphate pris à HAP.",
+    "sources": [
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mêmes points que le composite 1:1"
+   ]
+  },
+  {
+   "label": "1:2-Ag3PO4/AgBr/HAP",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition attendue 1:2",
+     "inputs": "AgNO3 0,50 g ; NaBr 0,103 g ; HAP 1 g",
+     "formula": "idem",
+     "result": "Ag 2,943 mmol ; Br 1,001 mmol (Br/Ag 0,340) ; Ag3PO4 ≤ 0,647 mmol (10,8 % du phosphate de HAP) ; HAP ≈ 69 % en masse",
+     "compared_to": "série en argent",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Texte : « when the bromine content is fixed, the catalytic performance of the composite steadily improves with increasing Ag3PO4/AgBr content ». Or le Tableau 1 fait varier NaBr proportionnellement à AgNO3 (Br/Ag ≈ 0,34 constant), le brome n'est donc pas fixé ; et la Fig. 6b montre 1:2 (0,5 g AgNO3, C/C0 ≈ 0,07 à 40 min) plus actif que 1:1.4 (0,7 g, C/C0 ≈ 0,35) : l'activité n'augmente pas régulièrement avec la charge. L'affirmation du texte est contredite par ses propres données.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La Fig. 6b compare aussi un « 1:2-Ag3PO4/HAP » (sans AgBr) que les Méthodes et le Tableau 1 ne décrivent pas : témoin sans protocole.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme le composite 1:1 : AgBr d'abord, puis Ag3PO4 avec l'argent restant et le phosphate pris à HAP.",
+    "sources": [
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "protocole du témoin 1:2-Ag3PO4/HAP"
+   ]
+  },
+  {
+   "label": "1:1.4-Ag3PO4/AgBr/HAP",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition attendue 1:1.4",
+     "inputs": "AgNO3 0,70 g ; NaBr 0,154 g ; HAP 1 g",
+     "formula": "idem",
+     "result": "Ag 4,121 mmol ; Br 1,497 mmol (Br/Ag 0,363, un peu au-dessus de 0,340) ; Ag3PO4 ≤ 0,875 mmol (14,6 % du phosphate de HAP) ; HAP ≈ 61 % en masse ; « 1:1.4 » = 0,70:1 = 1:1,43",
+     "compared_to": "série en argent",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Texte : « when the bromine content is fixed, the catalytic performance of the composite steadily improves with increasing Ag3PO4/AgBr content ». Or le Tableau 1 fait varier NaBr proportionnellement à AgNO3 (Br/Ag ≈ 0,34 constant), le brome n'est donc pas fixé ; et la Fig. 6b montre 1:2 (0,5 g AgNO3, C/C0 ≈ 0,07 à 40 min) plus actif que 1:1.4 (0,7 g, C/C0 ≈ 0,35) : l'activité n'augmente pas régulièrement avec la charge. L'affirmation du texte est contredite par ses propres données. Un essai unique, sans répétition, ne permet pas de dire si ce point est un aléa.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme le composite 1:1 : AgBr d'abord, puis Ag3PO4 avec l'argent restant et le phosphate pris à HAP.",
+    "sources": [
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "répéter le point 1:1.4"
+   ]
+  },
+  {
+   "label": "1:1-Ag3PO4/0.5AgBr/HAP",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition attendue 0,5AgBr",
+     "inputs": "AgNO3 1 g ; NaBr 0,103 g ; HAP 1 g",
+     "formula": "idem",
+     "result": "Ag 5,887 mmol ; Br 1,001 mmol (Br/Ag 0,170) ; AgBr 1,001 mmol ; Ag3PO4 ≤ 1,629 mmol (27,3 % du phosphate de HAP)",
+     "compared_to": "plus de Ag3PO4 que le 1:1",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Activité (97,48 % à 40 min) identique au 1:1 et BET (25,11 m2/g) proche de la dilution attendue : cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme le composite 1:1 : AgBr d'abord, puis Ag3PO4 avec l'argent restant et le phosphate pris à HAP.",
+    "sources": [
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "phosphate réellement disponible : 27 % du phosphate de HAP à convertir"
+   ]
+  },
+  {
+   "label": "1:1-Ag3PO4/2AgBr/HAP",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition attendue 2AgBr",
+     "inputs": "AgNO3 1 g ; NaBr 0,412 g ; HAP 1 g",
+     "formula": "idem",
+     "result": "Ag 5,887 mmol ; Br 4,004 mmol (Br/Ag 0,680) ; AgBr 4,004 mmol ; Ag3PO4 ≤ 0,628 mmol, soit 2,1 fois moins que dans le 1:1",
+     "compared_to": "à argent fixé, ajouter du brome retire de l'argent à Ag3PO4",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change deux variables : à AgNO3 fixé, doubler NaBr divise par ≈ 2 la quantité maximale de Ag3PO4 (calcul « composition attendue 2AgBr »). La baisse d'activité (81,07 % à 40 min) s'explique au moins autant par la perte de Ag3PO4 que par l'« adsorption trop forte » avancée par les auteurs, qui n'est pas isolée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme le composite 1:1 : AgBr d'abord, puis Ag3PO4 avec l'argent restant et le phosphate pris à HAP.",
+    "sources": [
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantifier Ag3PO4 et AgBr par DRX (Rietveld) avant d'interpréter la série en brome"
+   ]
+  },
+  {
+   "label": "1:1-Ag3PO4/4AgBr/HAP",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "composition attendue 4AgBr",
+     "inputs": "AgNO3 1 g = 5,887 mmol ; NaBr 0,824 g = 8,009 mmol ; HAP 1 g",
+     "formula": "Br/Ag ; excès de Br = n(Br) − n(Ag)",
+     "result": "Br/Ag = 1,36 ; tout l'argent peut passer en AgBr (5,887 mmol, 1,105 g) ; excès de NaBr 2,12 mmol ; Ag3PO4 attendu à l'équilibre : 0",
+     "compared_to": "nom « Ag3PO4/4AgBr » : Ag3PO4 annoncé",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "solubilités molaires comparées",
+     "inputs": "Ksp(Ag3PO4) = 8,89 × 10−17 ; Ksp(AgBr) = 5,35 × 10−13",
+     "formula": "s = (Ksp/27)^(1/4) ; s = √Ksp",
+     "result": "4,2 × 10−5 contre 7,3 × 10−7 mol/L",
+     "compared_to": "Br− en excès convertit Ag3PO4 en AgBr",
+     "source": "CRC Handbook via BCcampus ; periodni.com"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le brome est en excès sur l'argent (Br/Ag = 1,36) : à l'équilibre, aucun Ag3PO4 ne peut subsister (AgBr ≈ 60 fois moins soluble, conversion par échange d'ions de Bi et al.). Le nom « 1:1-Ag3PO4/4AgBr/HAP » annonce une phase qui ne devrait pas être là, sauf cœur de Ag3PO4 protégé par une coquille de AgBr (conversion incomplète). Sur la Fig. 2b, ce diagramme est dominé par AgBr ; le pic marqué Ag3PO4 vers 55° coïncide avec AgBr (222). La baisse d'activité (59,88 % à 40 min) est donc d'abord celle d'un matériau AgBr/HAP, pas un effet d'adsorption.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme le composite 1:1 : AgBr d'abord, puis Ag3PO4 avec l'argent restant et le phosphate pris à HAP.",
+    "sources": [
+     {
+      "title": "Facile synthesis of rhombic dodecahedral AgX/Ag3PO4 (X = Cl, Br, I) heterocrystals with enhanced photocatalytic properties and stabilities",
+      "authors_or_publisher": "Bi Y., Ouyang S., Cao J., Ye J. (Phys. Chem. Chem. Phys. 13, 10071-10075)",
+      "year": "2011",
+      "url_or_doi": "10.1039/C1CP20488B"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "vérifier la présence réelle de Ag3PO4 (pic (210) à 33,3° isolé, Rietveld)",
+    "laver l'excès de NaBr (2,1 mmol) avant le séchage"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les synthèses de référence (HAP hydrothermale à partir de coquilles, Ag3PO4 et AgBr par précipitation, Ag3PO4/AgBr par échange d'ions) sont chimiquement cohérentes et les données DRX/HRTEM/XPS concordent entre elles, mais de nombreuses quantités manquent (coquilles, volumes, lavages). Pour les composites, aucune source de phosphate n'est ajoutée : Ag3PO4 doit être pris à HAP (≈ 22 % de son phosphate pour le 1:1), ce qui est possible mais non vérifié. La série en brome change en même temps la quantité de Ag3PO4, jusqu'à l'exclure pour 4AgBr (Br/Ag = 1,36). Plusieurs conclusions ne sont pas soutenues : « lumière visible » avec une lampe 300–800 nm sans filtre, Ag2O à 38,07° (même angle que Ag0), progression régulière avec la charge en argent contredite par la Fig. 6b, transfert d'électrons vers HAP qui ne peut pas réduire O2 en ˙O2−.",
+  "author_errors_suspected": [
+   "Brome dit « fixé » dans la série en argent alors que NaBr suit AgNO3 (Tableau 1), et activité dite croissante alors que 1:2 > 1:1.4 (Fig. 6b)",
+   "Échantillon « 1:1-Ag3PO4/4AgBr/HAP » : Br/Ag = 1,36, Ag3PO4 ne peut pas subsister à l'équilibre",
+   "Pic à 38,07° attribué à Ag2O sans exclure Ag0 (111) à 38,11°",
+   "« Visible light » avec une lampe Xe 300–800 nm sans filtre coupe-UV",
+   "Source de phosphate de la HAP : (NH4)2HPO4 (texte) contre Na2HPO4 (Fig. 1)",
+   "Bande interdite « du composite » (2,90 eV) supérieure à celles de ses deux phases actives",
+   "Phrase « The degradation time of Ag3PO4/HAP composites was 10 min shorter than that of Ag3PO4/HAP » : même nom deux fois"
+  ],
+  "comparison_with_database": "compare.py « hydroxyapatite » : 9 voies ; seule PMC8136633 (HAp-run9, hydrothermal 130 °C, 7 h, pH 7) est une précipitation hydrothermale comparable ; 160 °C, 8 h, pH 9–10 ici est dans la même gamme. compare.py « Ag3PO4 » : aucune autre publication que celle-ci."
+ },
+ "sources_not_found": [
+  "Source de la valeur calculée de 3,38 eV pour HAP à lacunes d'oxygène citée par les auteurs : non retrouvée (Bystrov et al. 2016 donne ≈ 3,45 eV d'après le résumé)",
+  "Position de la bande de conduction de Ag3PO4 (souvent donnée vers +0,45 V/ENH) : non vérifiée dans cette session, le raisonnement s'appuie sur la phrase des auteurs",
+  "Pression de vapeur de l'eau à 160 °C et masse volumique de HAP : valeurs de manuel non relues dans cette session",
+  "Titre exact et année de l'article de Głuszek et al. (Engineering of Biomaterials n° 161) : page inaccessible depuis cet environnement",
+  "Publication antérieure du groupe sur Ag3PO4/HAP (Acta Materiae Compositae Sinica, doi 10.13801/j.cnki.fhclxb.20200220.001) : page inaccessible, mode d'apport du phosphate non vérifié"
+ ]
+}

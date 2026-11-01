@@ -1,0 +1,874 @@
+{
+ "pmcid": "PMC8149873",
+ "routes": [
+  {
+   "label": "0LCVO-ABR",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de précurseurs pour 1 g de Li3VO4",
+     "inputs": "V2O5 + 6 LiOH·H2O → 2 Li3VO4 + 9 H2O ; M(Li3VO4) = 135,76 ; M(LiOH·H2O) = 41,96 ; M(V2O5) = 181,88 g/mol",
+     "formula": "n = 1/135,76 ; m(LiOH·H2O) = 3n·41,96 ; m(V2O5) = (n/2)·181,88",
+     "result": "7,37 mmol Li3VO4 : 0,927 g LiOH·H2O + 0,670 g V2O5 (Li:V = 3:1)",
+     "compared_to": "l'article ne donne aucune masse ; seul le rapport stœchiométrique est implicite",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    },
+    {
+     "what": "eau libérée par la réaction elle-même",
+     "inputs": "4,5 mol H2O par mol de Li3VO4 (eau d'hydratation + eau de neutralisation)",
+     "formula": "4,5 × 7,37 mmol × 18,015 g/mol",
+     "result": "0,60 g d'eau par gramme de produit",
+     "compared_to": "réservoir séparé : 1 mL d'eau ; vapeur nécessaire pour saturer ≈ 17 mL à 80 °C : ≈ 5 mg (calcul suivant)",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    },
+    {
+     "what": "vapeur d'eau nécessaire pour saturer le flacon",
+     "inputs": "P_sat(80 °C) = 354,5 mmHg = 47,3 kPa (Antoine, constantes de l'article) ; volume libre ≈ 17 mL ; T = 353 K",
+     "formula": "n = P·V/(R·T)",
+     "result": "2,7 × 10−4 mol ≈ 5 mg d'eau",
+     "compared_to": "1 mL d'eau dans le petit flacon : très large excès si le flacon de 20 mL est fermé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression dans le flacon fermé à 80 °C",
+     "inputs": "air fermé à 20 °C (1,013 bar) chauffé à 353 K ; P_sat(eau, 80 °C) ≈ 0,474 bar",
+     "formula": "1,013 × 353/293 + 0,474",
+     "result": "≈ 1,69 bar absolus",
+     "compared_to": "acceptable pour un flacon en verre à bouchon vissé ; la fermeture n'est pas écrite",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "degré de saturation S de l'annexe (Clausius–Clapeyron)",
+     "inputs": "e_s(273 K) = 4,58 mmHg ; ΔHvap = 40 650 J/mol ; T2 = 353 K (valeurs de l'annexe)",
+     "formula": "e_s(353) = 4,58·exp[ΔH/R·(1/273 − 1/353)]",
+     "result": "265 mmHg (et non 406,6 mmHg) ; S = 354,5/265 = 1,34 ; il faut ΔH ≈ 45 050 J/mol pour retrouver ≈ 410 mmHg",
+     "compared_to": "S = 0,872 annoncé ; de toute façon 354,5 mmHg (Antoine) EST déjà la pression de vapeur saturante à 80 °C : le rapport de deux estimations de la même grandeur ne mesure pas une sous-saturation",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rayon d'équilibre de Köhler à S = 0,872",
+     "inputs": "σ = 0,0626 N/m ; v_L = 18,5 × 10−6 m3/mol ; T = 353 K ; i = 1 à 4 ; Ns = 10−18 et 10−15 mol",
+     "formula": "ln S = a/r − b/r3 ; a = 2σv_L/(RT) = 7,9 × 10−10 m ; b = 3·i·Ns·v_L/(4π)",
+     "result": "Ns = 10−18 mol : r ≈ 30 nm (i = 1) à 49 nm (i = 4) ; Ns = 10−15 mol : r ≈ 0,32 à 0,50 µm",
+     "compared_to": "l'article annonce 25,56 nm à 2,58 µm : la borne basse est du bon ordre, la borne haute est ≈ 5 à 8 fois trop grande (r varie comme Ns^1/3, pas Ns^2/3)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de soluté dans la gouttelette de 25,56 nm",
+     "inputs": "Ns = 10−18 mol ; V = 4/3·π·(25,56 nm)3 = 7,0 × 10−20 L",
+     "formula": "Ns/V",
+     "result": "≈ 14 mol/L",
+     "compared_to": "bien au-delà de la solubilité de LiOH (≈ 5 mol/kg à 20 °C, ordre de grandeur de manuel) ; la loi de Raoult en solution diluée, base de l'équation de Köhler, ne s'applique pas",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "moles de Li3VO4 dans une sphère de 25 nm",
+     "inputs": "r = 25 nm ; masse volumique écrite « 2,47 × 10^3 g m−3 » ; M = 135,76 g/mol",
+     "formula": "4/3·π·r3·ρ/M",
+     "result": "1,19 × 10−18 mol avec ρ = 2,47 × 10^6 g/m3 (= 2,47 g/cm3) ; 1,19 × 10−21 mol avec l'unité écrite",
+     "compared_to": "1,18 × 10−18 mol annoncé : l'unité écrite est fausse d'un facteur 1000 (kg m−3 voulu)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse volumique cristallographique de Li3VO4",
+     "inputs": "V = 169,916 Å3 (Table 1) ; Z = 2 (Pmn21 : V en 2a)",
+     "formula": "ρ = Z·M/(N_A·V)",
+     "result": "2,65 g/cm3",
+     "compared_to": "2,47 g/cm3 utilisé dans le calcul de gouttelette (écart 7 %, sans effet sur l'ordre de grandeur)",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    },
+    {
+     "what": "taille équivalente tirée de la surface BET",
+     "inputs": "S_BET = 1,400 m2/g ; ρ = 2,65 g/cm3",
+     "formula": "d = 6/(ρ·S)",
+     "result": "≈ 1,6 µm",
+     "compared_to": "particules « de quelques dizaines de nm » (MEB) et cristallites 37,9 nm (Williamson–Hall) : les particules primaires sont soudées en agrégats dont la surface accessible correspond à ≈ 1,6 µm",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "vérification BET à partir des droites",
+     "inputs": "pente 3,07 ; ordonnée 0,042",
+     "formula": "Vm = 1/(pente + ordonnée) ; S = 4,353·Vm ; C = pente/ordonnée + 1",
+     "result": "S = 1,399 m2/g ; C = 74",
+     "compared_to": "1,400 m2/g annoncé : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre moyen 4V/S",
+     "inputs": "V = 0,01037 cm3/g ; S = 1,400 m2/g",
+     "formula": "4V/S",
+     "result": "29,6 nm",
+     "compared_to": "pores interparticulaires (méso/macro), pas une porosité intrinsèque",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Williamson–Hall : constante utilisée",
+     "inputs": "ordonnée 0,00407 ; D = 378,82 Å",
+     "formula": "K·λ = ordonnée × D",
+     "result": "1,5418 Å, soit K = 1 et λ = Cu Kα moyen",
+     "compared_to": "convention K = 0,9 avec λ = 1,5406 Å donnerait 341 Å ; écart de convention, non signalé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport Li/V mesuré (ICP-OES)",
+     "inputs": "Li 14,96 % ; V 37,91 % (Supplementary Table 5)",
+     "formula": "(14,96/6,941)/(37,91/50,94)",
+     "result": "Li/V = 2,90",
+     "compared_to": "3,00 attendu ; écart de 3,5 %, acceptable",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Bilan acide–base cohérent : V2O5 (oxyde acide) + 6 LiOH → 2 Li3VO4 + 3 H2O ; Li/V = 3 imposé par la « stoechiométrie » et retrouvé à 2,90 par ICP (voir « rapport Li/V mesuré (ICP-OES) »). Aucune masse ni taille de lot n'est donnée : le rapport entre l'eau du réservoir (1 mL) et la masse de poudre est inconnu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La réaction libère elle-même ≈ 0,60 g d'eau par gramme de produit (voir « eau libérée par la réaction elle-même »), soit l'ordre de grandeur du réservoir de 1 mL pour un lot de 1–2 g : le rôle propre de la vapeur apportée n'est pas isolé, aucun témoin à 80 °C sans flacon d'eau n'est montré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "80 °C en étuve, sous le point d'ébullition de l'eau (100 °C) ; si le flacon de 20 mL est fermé, pression ≈ 1,7 bar absolu (voir « pression dans le flacon fermé à 80 °C »), tolérable pour un flacon vissé. L'article ne dit pas si le flacon est fermé : c'est pourtant ce qui fixe l'humidité (ouvert, la vapeur s'échappe dans l'étuve).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Le calcul de sous-saturation de l'annexe est faux : avec ses propres données Clausius–Clapeyron donne 265 mmHg, pas 406,6, et la valeur d'Antoine (354,5 mmHg) est déjà la pression saturante à 80 °C ; S = 0,872 n'est donc pas une mesure de l'humidité du flacon (voir « degré de saturation S de l'annexe »). Avec de l'eau liquide dans un flacon fermé, S tend vers 1. La taille « confinée » de 25 nm à 2,58 µm qui en découle n'a pas de base physique ; la borne haute ne suit même pas la loi de Köhler (voir « rayon d'équilibre de Köhler à S = 0,872 »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le contrôle de cohérence de l'article est circulaire : il compare les moles de soluté d'une gouttelette de 25 nm aux moles d'une particule solide de 25 nm (même rayon), ce qui impose une concentration de ≈ 14 mol/L dans la gouttelette, hors du domaine de la loi de Raoult (voir « concentration de soluté dans la gouttelette de 25,56 nm »). La masse volumique y est écrite « 2,47 × 10^3 g m−3 », fausse d'un facteur 1000 (voir « moles de Li3VO4 dans une sphère de 25 nm »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Particules « de quelques dizaines de nm » contre surface BET de 1,40 m2/g, qui correspond à des sphères de ≈ 1,6 µm (voir « taille équivalente tirée de la surface BET ») : les grains primaires sont agrégés et l'essentiel de leur surface est inaccessible. L'argument « taille limitée par la gouttelette » porte sur les cristallites (≈ 38 nm), pas sur la poudre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surfaces de 0,15 à 7 m2/g mesurées à l'azote (BELSORP-mini II) : sous ≈ 1 m2 de surface totale dans la cellule, l'IUPAC recommande le krypton à 77 K ; la masse analysée n'est pas donnée. Les aires de « micropores » du t-plot (0,1 à 0,8 m2/g) sont du même ordre que l'incertitude, et le mot « mésoporeux » désigne ici des vides entre particules (4V/S ≈ 30 nm).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La bande Raman à 1091,6 cm−1 attribuée à LiOH est la bande d'élongation symétrique du carbonate de Li2CO3 (≈ 1088–1090 cm−1) ; LiOH a ses raies à ≈ 621 et 3665 cm−1. Les poudres de LiOH se carbonatent à l'air : la « disparition puis réapparition de LiOH » suivie à 1091 cm−1 suit en réalité du Li2CO3, ce qui affaiblit l'argument de mobilité des gouttelettes chargées de LiOH.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Lithium Compound Characterization via Raman Spectroscopy (titre tronqué dans le résultat de recherche), tableau 1 : LiOH 621 et 3665 cm−1 ; Li2CO3 1090 et 1461 cm−1",
+      "authors_or_publisher": "rapport DTIC AD1145756 (Defense Technical Information Center)",
+      "year": "non relevée",
+      "url_or_doi": "https://apps.dtic.mil/sti/trecms/pdf/AD1145756.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres de maille cohérents avec Li3VO4 orthorhombique Pmn21 (a 6,31 ; b 5,44 ; c 4,95 Å) ; V = a·b·c à 0,005 Å3 près. L'article écrit une fois « Pnm21 » (coquille) et Table 1/Supplementary Table 1 indiquent Pmn21.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "V4+/V5+ = 6,63 % et « lacunes d'oxygène » 6,8 % (XPS O1s à ≈ 531,9 eV) sur l'échantillon non dopé : la composante O1s à 531–532 eV d'une poudre mesurée ex situ est celle des hydroxyles adsorbés (et ici probablement de LiOH/Li2CO3 de surface, la poudre sortant d'un milieu humide et basique), pas une signature de lacune.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "On the wrong assignment of the XPS O1s signal at 531–532 eV attributed to oxygen vacancies in photo- and electro-catalysts for water splitting and other materials applications",
+      "authors_or_publisher": "Idriss H., Surface Science 712, 121894",
+      "year": "2021",
+      "url_or_doi": "10.1016/j.susc.2021.121894"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "V2O5 : toxique par inhalation, mutagène et reprotoxique suspecté ; LiOH·H2O corrosif ; broyage au mortier de poudres fines sous hotte avec masque. Flacon chauffé fermé ≈ 1,7 bar. L'extraction le note déjà (annotation securite_analyse).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dissolution–précipitation dans un film d'eau : LiOH·H2O (très soluble) forme à 80 °C sous forte humidité une solution concentrée de LiOH qui mouille les grains ; V2O5 s'y dissout comme vanadate (VO4^3− en milieu très basique), Li3VO4 précipite dès que sa solubilité est dépassée, et la réaction libère son eau (4,5 H2O par Li3VO4), ce qui entretient le film. La basse température et le peu de liquide limitent la croissance des cristallites (≈ 20–40 nm, Williamson–Hall), qui restent soudées en agrégats micrométriques (BET). L'argument de « gouttelettes de taille fixée par la théorie de Köhler » repose sur un degré de saturation erroné et n'est pas nécessaire. La bande Raman suivie à 1091 cm−1 est celle de Li2CO3, impureté de surface de LiOH, pas de LiOH.",
+    "sources": [
+     {
+      "title": "Lithium Compound Characterization via Raman Spectroscopy (titre tronqué dans le résultat de recherche), tableau 1 : LiOH 621 et 3665 cm−1 ; Li2CO3 1090 et 1461 cm−1",
+      "authors_or_publisher": "rapport DTIC AD1145756 (Defense Technical Information Center)",
+      "year": "non relevée",
+      "url_or_doi": "https://apps.dtic.mil/sti/trecms/pdf/AD1145756.pdf"
+     },
+     {
+      "title": "« … BaCO3 system derived from IR and Raman spectroscopy » (titre tronqué dans le résultat ; système Li2CO3–BaCO3) : « the most characteristic band on the Raman spectrum of lithium carbonate is the one at 1088 cm−1 »",
+      "authors_or_publisher": "Pasierb P. et al., J. Mol. Struct.",
+      "year": "2001",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0022286001007037"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de chaque précurseur et taille du lot (rapport eau du réservoir / poudre)",
+    "flacon de 20 mL fermé ou non ; humidité réellement atteinte",
+    "pureté de LiOH·H2O vis-à-vis de Li2CO3 (raie Raman à 1090 cm−1, DRX) avant la synthèse",
+    "témoin à 80 °C sans flacon d'eau pour isoler le rôle de la vapeur",
+    "surface spécifique au krypton si elle est < 1 m2/g"
+   ]
+  },
+  {
+   "label": "1LCVO-ABR",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "cohérence V = a·b·c",
+     "inputs": "a 6,3179 ; b 5,4460 ; c 4,9492 Å ; V annoncé 170,250(1) Å3 (Supplementary Table 1)",
+     "formula": "a·b·c (maille orthorhombique)",
+     "result": "170,289 Å3",
+     "compared_to": "écart 0,04 Å3, 40 fois l'écart-type annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "teneur en Ca mesurée",
+     "inputs": "Ca 0,18 % (ICP) ; V 36,01 %",
+     "formula": "(0,18/40,078)/(36,01/50,94)",
+     "result": "Ca/V = 0,0064",
+     "compared_to": "0,01 attendu (TC 0,29 %) ; l'ICP retrouve 64 % du Ca nominal",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le volume de maille ne vaut pas a·b·c à la précision annoncée (voir « cohérence V = a·b·c ») ; l'écart reste faible, mais il signale des tableaux recopiés à la main.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Coefficient de Warburg 101,4 Ω s−0,5 (le plus mauvais des ABR) et D(Li+) 4,4 × 10−11 cm2/s : contraire à la tendance « le dopage accélère la diffusion », non discuté par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même voie que 0LCVO-ABR, CaO ajouté (base de la substitution non écrite, voir 3LCVO-ABR).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "formule visée (Li3−xCaxVO4 ou Li3−2xCaxVO4) et masse de CaO"
+   ]
+  },
+  {
+   "label": "2LCVO-ABR",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "cohérence V = a·b·c",
+     "inputs": "a 6,3183 ; b 5,4479 ; c 4,9509 Å ; V annoncé 170,352(2) Å3",
+     "formula": "a·b·c",
+     "result": "170,417 Å3",
+     "compared_to": "écart 0,065 Å3, ≈ 30 écarts-types",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Échantillon absent des Méthodes (x = 0, 1, 3, 5 % seulement) ; ses paramètres de maille sont ceux que la Table 1 attribue à 3LCVO-ABR (voir 3LCVO-ABR).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même voie que 0LCVO-ABR.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "existence de la préparation à 2 % (absente des Méthodes)"
+   ]
+  },
+  {
+   "label": "3LCVO-ABR",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "base du pourcentage de Ca",
+     "inputs": "TC du Supplementary Table 5 : Ca 0,29 / 0,88 / 1,46 % pour x = 1 / 3 / 5 %",
+     "formula": "Li3−xCaxVO4 avec x = 0,01 / 0,03 / 0,05",
+     "result": "Ca % = 0,294 / 0,879 / 1,458",
+     "compared_to": "TC de l'article identiques : x % = moles de Ca par Li3VO4 (soit 1 % des sites Li pour « 3 % »)",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    },
+    {
+     "what": "Ca dans la maille d'après l'affinement Rietveld (Table 2)",
+     "inputs": "Ca1 (4b) g = 0,025 ; Ca2 (2a) g = 0,03 ; Li1 g = 0,99 ; Li2 g = 0,965 ; Z = 2",
+     "formula": "Ca/V = (4·0,025 + 2·0,03)/2 ; somme des taux sur 4b = 0,99 + 0,025",
+     "result": "Ca/V = 0,080 ; site 4b occupé à 1,015",
+     "compared_to": "nominal 0,030 ; ICP 0,028 (calcul suivant) : l'affinement met 2,7 fois trop de Ca et un site occupé à plus de 100 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Ca et Li mesurés (ICP-OES)",
+     "inputs": "Li 13,14 % ; Ca 0,76 % ; V 35,02 %",
+     "formula": "n(X)/n(V)",
+     "result": "Li/V = 2,75 ; Ca/V = 0,028 ; (Li + Ca)/V = 2,78",
+     "compared_to": "attendu Li/V = 2,97 ; Ca/V = 0,03",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    },
+    {
+     "what": "cohérence V = a·b·c",
+     "inputs": "Table 1 : a 6,3183 ; b 5,4479 ; c 4,9509 ; V 170,250 ; Supplementary Table 1 : a 6,3202 ; b 5,4484 ; c 4,9520 ; V 170,462",
+     "formula": "a·b·c",
+     "result": "Table 1 : 170,417 Å3 (écart 0,17) ; Suppl. : 170,522 Å3 (écart 0,06)",
+     "compared_to": "les a, b, c de la Table 1 sont ceux de 2LCVO-ABR et V celui de 1LCVO-ABR",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "dilatation de b : MET contre DRX",
+     "inputs": "d MET = 5,61 Å ; b DRX = 5,4412 → 5,4479 Å",
+     "formula": "(5,61 − 5,44)/5,44 ; (5,4479 − 5,4412)/5,4412",
+     "result": "+3,1 % (MET) contre +0,12 % (DRX)",
+     "compared_to": "la frange de 5,61 Å est (010) (d = b), pas (100) (d = a = 6,32 Å) ; l'écart de 3 % est de l'ordre de l'erreur d'étalonnage en MET",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "V4+ attendu du dopage seul",
+     "inputs": "Ca/V = 0,028 (ICP) ; un électron par Ca2+ sur site Li+",
+     "formula": "V4+/V ≤ Ca/V",
+     "result": "≤ 2,8 % de V4+ (V4+/V5+ ≤ 2,9 %)",
+     "compared_to": "V4+/V5+ = 34,52 % annoncé, soit 25,7 % du vanadium en V4+ : il faudrait δ ≈ 0,11 O manquant par formule (2,9 % des sites O) en volume",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "vérification BET et 4V/S",
+     "inputs": "pente 0,96 ; ordonnée 0,005 ; V = 0,05519 cm3/g ; S = 4,484 m2/g",
+     "formula": "S = 4,353/(pente + ordonnée) ; 4V/S ; d = 6/(ρS)",
+     "result": "S = 4,51 m2/g (C = 193) ; 4V/S = 49 nm ; sphère équivalente 0,50 µm",
+     "compared_to": "4,484 m2/g annoncé ; « mésoporeux » : 4V/S à la limite méso/macro, vides entre particules",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacités contre capacité théorique",
+     "inputs": "M = 135,76 g/mol ; F = 96 485 C/mol ; 1re décharge 946,78 mAh/g ; ER 74,19 % ; 543,1 mAh/g après 200 cycles",
+     "formula": "Q = z·F/(3,6·M) ; z = Q·3,6·M/F",
+     "result": "2 Li : 394,8 mAh/g ; 3 Li : 592,3 mAh/g ; 1re charge = 946,78 × 0,7419 = 702,4 mAh/g = 3,56 Li ; 543,1 mAh/g = 2,75 Li",
+     "compared_to": "fenêtre 0,2–3,0 V ; XPS ex situ : V3+ au plus bas, soit 2 Li au maximum (394,8 mAh/g)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "charge en excès rapportée à la surface",
+     "inputs": "excès au-delà de 2 Li : 702,4 − 394,8 = 307,6 mAh/g (1re charge) ; 543,1 − 394,8 = 148,3 mAh/g (200e cycle) ; S = 4,484 m2/g",
+     "formula": "excès × 3,6 C/mAh / S",
+     "result": "24,7 mC/cm2 (1re charge) ; 11,9 mC/cm2 (200e cycle)",
+     "compared_to": "une monocouche de Li+ (≈ 10^15 /cm2) porte 0,16 mC/cm2 : il faudrait 75 à 150 monocouches",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "D(Li+) recalculé avec la formule de l'annexe",
+     "inputs": "D = R2T2/(2A2n4F4C2σ2) ; A = S_BET × 1 mg ; C = 1 × 10−3 mol/cm3 ; σ de la Table 4",
+     "formula": "rapport D(3LCVO-ABR)/D(0LCVO-ABR) = (1,400 × 41,368)2/(4,484 × 41,057)2",
+     "result": "0,099 ; valeurs absolues 1,0 × 10−14 et 1,1 × 10−13 cm2/s",
+     "compared_to": "Table 4 : 1,08 × 10−10 et 1,07 × 10−10 cm2/s (rapport 1,01) ; l'annexe écrit aussi « 1 mol dm−3 = 1000 mol cm−3 » (faux : 10−3 mol cm−3)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Formule de substitution non écrite : les compositions théoriques du Supplementary Table 5 correspondent à Li3−xCaxVO4 (x = 0,03 Ca par formule) (voir « base du pourcentage de Ca »), formule non électroneutre sans V4+ ni lacune de Li. Le calcul DFT met 2 Ca pour 16 Li3VO4 (0,125 par formule, « 4,17 at. % » de Li) en le disant « proche de 3 % » : quatre fois le dopage expérimental.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Affinement Rietveld incohérent avec la composition : 0,080 Ca par V et un site 4b occupé à 1,015, contre 0,028 Ca par V à l'ICP et 0,03 nominal (voir « Ca dans la maille d'après l'affinement Rietveld »). Les a, b, c de la Table 1 sont ceux de 2LCVO-ABR et ne donnent pas le V annoncé (voir « cohérence V = a·b·c »). L'expansion de maille due au Ca reste donc mal établie (≤ 0,3 % en volume).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La frange MET de 5,61 Å est indexée (100) alors que d(100) = a ≈ 6,32 Å ; 5,44 Å « théorique » est b, donc (010). L'expansion de 3,1 % est 25 fois celle de la DRX (+0,12 % sur b) : elle ne peut pas prouver l'insertion de Ca (voir « dilatation de b : MET contre DRX »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "V4+/V5+ = 34,52 % et « lacunes » O1s 30,4 % : le dopage ne peut fournir que ≤ 2,8 % de V4+ (voir « V4+ attendu du dopage seul ») ; le reste supposerait ≈ 3 % de sites O vides en volume, non vu en DRX. La composante O1s à 531,9 eV d'une poudre ex situ correspond aux hydroxyles et carbonates de surface (poudre préparée en milieu humide et basique), et la proportion V4+ en XPS de surface peut venir de la réduction sous faisceau. La preuve des lacunes n'est pas discriminante ; la RPE montre du V4+ sans le quantifier.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "On the wrong assignment of the XPS O1s signal at 531–532 eV attributed to oxygen vacancies in photo- and electro-catalysts for water splitting and other materials applications",
+      "authors_or_publisher": "Idriss H., Surface Science 712, 121894",
+      "year": "2021",
+      "url_or_doi": "10.1016/j.susc.2021.121894"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Capacité au-delà de la limite de l'intercalation : 1re charge 702 mAh/g (3,56 Li) et 543 mAh/g après 200 cycles (2,75 Li) dans 0,2–3,0 V, alors que Li3VO4 donne 394 mAh/g pour 2 Li et que l'XPS ex situ des auteurs ne montre pas mieux que V3+ (voir « capacités contre capacité théorique »). L'excédent (12 à 25 mC/cm2 de surface BET, soit 75 à 150 monocouches) ne peut pas être une pseudocapacité de surface (voir « charge en excès rapportée à la surface ») ; il vient plutôt de l'électrolyte (gel polymère, que les auteurs citent à 50 mA/g), du Super-P (20 % de l'électrode) ou d'une erreur de masse (≈ 1 mg par disque de 1,54 cm2, soit 0,65 mg/cm2, d'abord écrit 10 mg).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Mesoporous Li3VO4/C Submicron-Ellipsoids Supported on Reduced Graphene Oxide as Practical Anode for High-Power Lithium-Ion Batteries",
+      "authors_or_publisher": "auteurs non relevés (article PMC en accès libre)",
+      "year": "2015",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5054844"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "D(Li+) de la Table 4 non reproductible avec la méthode de l'annexe : avec A = S_BET × masse, 3LCVO-ABR aurait un D dix fois plus faible que 0LCVO-ABR, alors que la table les donne égaux ; la concentration est mal convertie (« 1 mol dm−3 = 1000 mol cm−3 ») (voir « D(Li+) recalculé avec la formule de l'annexe »). Les σ de 0LCVO-ABR et 3LCVO-ABR sont quasi égaux (41,4 et 41,1) : la phrase « plus forte diffusion pour 3LCVO-ABR » ne repose sur rien de mesurable.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'XPS ex situ est fait après décharge à 0,1 V alors que tout le cyclage est entre 0,2 et 3,0 V ; écart de section à section.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "V2p : séparation 525,02 − 517,62 = 7,40 eV et non 7,48 eV ; les deux pics « de V2p3/2 » à 517,62 et 525,02 eV sont en fait 2p3/2 et 2p1/2.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Explication de la porosité par l'enthalpie d'hydratation et la diffusivité de Ca2+ (valeurs d'ordre correct : D Li+ 1,03, Ca2+ 0,79, Mg2+ 0,71 × 10−9 m2/s à 25 °C) : plausible qualitativement, mais la phrase « abaisser l'énergie de surface en augmentant la tension de surface » se contredit (c'est la même grandeur). Le Mg teste en même temps hydratation, diffusivité et rayon : il ne sépare aucun des deux effets invoqués.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Ca2+ (rayon 1,00 Å en coordinence 6) comparé à Li+ en coordinence 4 (0,59 Å) : Ca2+ en site tétraédrique est rare et il n'a pas de rayon de Shannon à CN 4. À 80 °C en milieu vanadate basique, Ca2+ peut aussi précipiter comme vanadate de calcium peu soluble en surface ; ICP et cartographie EDS ne distinguent pas substitution et phase de surface amorphe.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même dissolution–précipitation que 0LCVO-ABR ; CaO s'hydrate en Ca(OH)2 et Ca2+ peut soit s'insérer en faible quantité (≤ 0,03 par formule, expansion ≤ 0,3 %), soit précipiter en vanadate de calcium de surface qui gêne la croissance et augmente la surface (4,5 m2/g). Les preuves d'un fort taux de V4+ et de lacunes reposent sur l'XPS de surface et ne sont pas discriminantes ; la capacité excédentaire vient plus probablement de l'électrolyte et du carbone que du matériau.",
+    "sources": [
+     {
+      "title": "On the wrong assignment of the XPS O1s signal at 531–532 eV attributed to oxygen vacancies in photo- and electro-catalysts for water splitting and other materials applications",
+      "authors_or_publisher": "Idriss H., Surface Science 712, 121894",
+      "year": "2021",
+      "url_or_doi": "10.1016/j.susc.2021.121894"
+     },
+     {
+      "title": "Surface-Amorphous and Oxygen-Deficient Li3VO4−δ as a Promising Anode Material for Lithium-Ion Batteries",
+      "authors_or_publisher": "auteurs non relevés (article PMC en accès libre)",
+      "year": "2015",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5033021"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "formule visée et masse de CaO",
+    "affinement Rietveld avec Ca contraint à la teneur ICP et somme des occupations ≤ 1",
+    "capacité du Super-P seul (électrode sans matière active) et masse active pesée à ±0,01 mg",
+    "dosage du V4+ en volume (titrage redox ou RPE quantitative) plutôt que l'O1s XPS",
+    "D(Li+) recalculé avec C = 10−3 mol/cm3 et l'aire réellement utilisée"
+   ]
+  },
+  {
+   "label": "5LCVO-ABR",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "cohérence V = a·b·c",
+     "inputs": "a 6,3228 ; b 5,4517 ; c 4,9540 Å ; V annoncé 170,515(6) Å3",
+     "formula": "a·b·c",
+     "result": "170,764 Å3",
+     "compared_to": "écart 0,25 Å3, ≈ 40 écarts-types",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Ca mesuré (ICP)",
+     "inputs": "Ca 1,12 % ; V 37,06 % ; Li 13,65 %",
+     "formula": "n(X)/n(V)",
+     "result": "Ca/V = 0,038 ; Li/V = 2,70",
+     "compared_to": "nominal Ca/V = 0,05",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le volume de maille diffère de a·b·c de 0,25 Å3, plus que toute la variation due au dopage entre 3 et 5 % (voir « cohérence V = a·b·c ») : la courbe V(x) de la Fig. 1e n'est pas fiable à ce niveau.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Phase Ca7V4O17 identifiée sur une seule raie à 2θ ≈ 30,67°, formée à 80 °C alors que les vanadates de calcium s'obtiennent d'ordinaire par voie solide à haute température. Une raie isolée ne suffit pas ; Li2CO3 (carbonatation de LiOH, déjà visible en Raman à 1091 cm−1) a une raie forte vers 30,6° (à confirmer sur une fiche COD/ICDD).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Excès local de Ca : précipitation d'un vanadate de calcium ou d'un carbonate, phase à confirmer par plusieurs raies.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identification de l'impureté par plusieurs raies (Ca7V4O17, Ca3(VO4)2, Li2CO3)"
+   ]
+  },
+  {
+   "label": "3LMVO-ABR",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "vérification BET",
+     "inputs": "pente 0,62 ; ordonnée 0,004",
+     "formula": "S = 4,353/(pente + ordonnée)",
+     "result": "6,98 m2/g (C = 156)",
+     "compared_to": "6,963 m2/g annoncé : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Précurseur de Mg et quantité non donnés ; « même teneur » sans base. Le témoin Mg change à la fois l'enthalpie d'hydratation, la diffusivité et le rayon ionique : il montre qu'un dopant divalent augmente la surface, pas lequel des deux mécanismes invoqués agit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme 3LCVO-ABR, avec Mg2+.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "précurseur de Mg (MgO ? Mg(OH)2 ?) et masse"
+   ]
+  },
+  {
+   "label": "0LCVO-SSR",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rapport Li/V mesuré (ICP-OES)",
+     "inputs": "Li 13,02 % ; V 37,81 % (Supplementary Table 5)",
+     "formula": "(13,02/6,941)/(37,81/50,94)",
+     "result": "Li/V = 2,53",
+     "compared_to": "3,00 pour Li3VO4 ; 16 % de lithium manquant",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    },
+    {
+     "what": "taille de cristallite W–H",
+     "inputs": "ordonnée 0,00019 ; K·λ = 1,5418 Å",
+     "formula": "D = K·λ/ordonnée",
+     "result": "811 nm",
+     "compared_to": "au-delà de ≈ 100–200 nm, l'élargissement est celui de l'instrument : valeur non significative",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "vérification BET",
+     "inputs": "pente 28,36 ; ordonnée 0,280",
+     "formula": "S = 4,353/(pente + ordonnée)",
+     "result": "0,152 m2/g (C = 102)",
+     "compared_to": "0,152 annoncé : cohérent, mais aire totale probablement < 1 m2 dans la cellule",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Précurseurs, température et durée non donnés (« following reference ») : voie non reproductible depuis l'article.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Li/V = 2,53 à l'ICP pour un Li3VO4 « pur » (voir « rapport Li/V mesuré (ICP-OES) ») : 16 % de Li manquant, compatible avec une perte de Li à haute température ou une phase pauvre en Li (LiVO3) ; l'article dit pourtant que le tableau « confirme la pureté ». La référence SSR, utilisée pour toutes les comparaisons, n'est donc peut-être pas monophasée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surface 0,152 m2/g à l'azote : sous le domaine fiable sans krypton ni grande masse.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Réaction à l'état solide classique (diffusion aux interfaces à haute température), frittage et grossissement des grains (> 5 µm).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "protocole complet de la référence citée",
+    "pureté de phase et Li/V de la référence SSR"
+   ]
+  },
+  {
+   "label": "3LCVO-SSR",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "Ca et Li mesurés (ICP-OES)",
+     "inputs": "Ca 0,25 % (ICP) ; 0,30 % (XRF) ; V 37,21 % ; Li 12,42 %",
+     "formula": "n(X)/n(V)",
+     "result": "Ca/V = 0,0085 ; Li/V = 2,45",
+     "compared_to": "nominal « 3 % » : Ca/V = 0,03 (0,88 %) ; la colonne théorique de l'article donne 0,29 %, valeur de x = 1 %",
+     "source": "masses molaires IUPAC (Li 6,941 ; V 50,9415 ; O 15,999 ; Ca 40,078 ; H 1,008)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "L'échantillon « 3 % » SSR contient 0,25–0,30 % de Ca, soit la teneur de x = 1 % ; la colonne théorique de l'article est d'ailleurs celle de 1 % (voir « Ca et Li mesurés (ICP-OES) »). La comparaison ABR contre SSR « à dopage égal » compare en fait 3 % à ≈ 1 %, avec 18 % de lithium manquant (Li/V = 2,45).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison de l'O1s « lacunes » (9,94 % contre 30,4 %) : même réserve que pour 3LCVO-ABR (hydroxyles de surface, plus abondants sur la poudre préparée en atmosphère humide).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "On the wrong assignment of the XPS O1s signal at 531–532 eV attributed to oxygen vacancies in photo- and electro-catalysts for water splitting and other materials applications",
+      "authors_or_publisher": "Idriss H., Surface Science 712, 121894",
+      "year": "2021",
+      "url_or_doi": "10.1016/j.susc.2021.121894"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Voie solide à haute température, dopant non nommé.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "source de Ca et teneur réellement introduite"
+   ]
+  },
+  {
+   "label": "Anode_half_cell",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "charge surfacique de matière active",
+     "inputs": "≈ 1 mg sur un disque de 14 mm (1,539 cm2)",
+     "formula": "m/(π·0,7 cm)2",
+     "result": "0,65 mg/cm2",
+     "compared_to": "électrodes de laboratoire usuelles 1–3 mg/cm2 ; à 1 mg, une erreur de pesée de 0,05 mg fait 5 % de capacité",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "part du Super-P dans la capacité",
+     "inputs": "Super-P 20 %, matière active 75 % ; capacité propre du noir de carbone supposée 100–150 mAh/g (ordre de grandeur, non sourcé)",
+     "formula": "Q_C × 20/75",
+     "result": "≈ 27–40 mAh/g ramenés à la matière active",
+     "compared_to": "ne suffit pas à expliquer 150–300 mAh/g d'excès",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration d'électrolyte",
+     "inputs": "LiPF6 1 mol/L",
+     "formula": "1 mol/L = 10−3 mol/cm3",
+     "result": "10−3 mol/cm3",
+     "compared_to": "l'annexe écrit 1000 mol/cm3",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Électrode à 20 % de Super-P et 0,65 mg/cm2 (voir « charge surfacique de matière active ») : la capacité rapportée à la seule matière active est sensible à la contribution du carbone et à la pesée ; aucune électrode témoin sans matière active n'est montrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "LiPF6 en EC:DMC : HF au contact de l'humidité ; Li métal en boîte à gants ; NMP reprotoxique. Notés dans l'extraction.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Courant écrit « 100 mAh g−1 » dans les Méthodes (coquille pour mA g−1) ; XPS ex situ à 0,1 V hors de la fenêtre 0,2–3,0 V.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Insertion de Li+ dans Li3VO4 (jusqu'à Li5VO4, V5+ → V3+) vers 0,5–1 V, plus SEI au premier cycle.",
+    "sources": [
+     {
+      "title": "Mesoporous Li3VO4/C Submicron-Ellipsoids Supported on Reduced Graphene Oxide as Practical Anode for High-Power Lithium-Ion Batteries",
+      "authors_or_publisher": "auteurs non relevés (article PMC en accès libre)",
+      "year": "2015",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5054844"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "capacité d'une électrode Super-P/PVDF sans matière active dans la même fenêtre",
+    "masse active pesée par différence à ±0,01 mg"
+   ]
+  },
+  {
+   "label": "Full_cell_NMC622_3LCVO-ABR",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport N/P",
+     "inputs": "capacité anode/cathode = 0,9",
+     "formula": "N/P",
+     "result": "0,9 < 1",
+     "compared_to": "pratique courante 1,0–1,2 pour éviter le dépôt de Li",
+     "source": "10.34133/energymatadv.0113"
+    },
+    {
+     "what": "potentiel de la cathode en fin de charge",
+     "inputs": "tension de coupure 4,5 V ; anode Li3VO4 lithiée vers 0,2–0,5 V vs Li ; graphite vers 0,1 V",
+     "formula": "E_cathode = U_cellule + E_anode",
+     "result": "≈ 4,7–5,0 V vs Li (Li3VO4) ; ≈ 4,6 V vs Li (graphite)",
+     "compared_to": "NMC622 est d'ordinaire chargé à ≤ 4,3–4,4 V vs Li (ordre de grandeur, non sourcé ici)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pile complète avec N/P = 0,9 et coupure à 4,5 V : l'anode est limitante et poussée au bas de son potentiel, la cathode NMC622 monte vers 4,7–5 V vs Li (voir « potentiel de la cathode en fin de charge »). Ces conditions sont hors des usages et la capacité est rapportée à la masse d'anode seule.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Challenges and Strategies of Fast-Charging Li-Ion Batteries with a Focus on Li Plating (« The N/P ratio is typically in the range of 1.0 to 1.2 to avoid Li plating »)",
+      "authors_or_publisher": "Energy Material Advances (Science Partner Journals)",
+      "year": "2024",
+      "url_or_doi": "10.34133/energymatadv.0113"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Électrolyte, séparateur, composition et charge de la cathode non donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Pile Li-ion à intercalation ; anode pré-cyclée 20 fois en demi-pile donc déjà passivée (SEI formée).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "N/P ≥ 1 et coupure adaptée à NMC622",
+    "électrolyte et cathode"
+   ]
+  },
+  {
+   "label": "Full_cell_NMC622_CG",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "perte par cycle",
+     "inputs": "rétention 60,0 % en 50 cycles",
+     "formula": "(100 − 60)/50",
+     "result": "0,80 %/cycle",
+     "compared_to": "0,79 % annoncé : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Témoin qui change plusieurs variables : l'anode 3LCVO-ABR est pré-cyclée 20 fois en demi-pile (SEI formée, pertes irréversibles déjà payées par le Li métal), le graphite ne l'est pas ; avec N/P = 0,9 et la même coupure, le graphite est surchargé jusqu'à ≤ 0 V vs Li, d'où dépôt de lithium. La perte de 40 % en 50 cycles du graphite reflète ces conditions, pas une infériorité du matériau ; il faudrait les deux anodes pré-cyclées (ou aucune), N/P ≈ 1,1 et une coupure propre à chaque couple.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Exploring the Limits of the Rapid-Charging Performance of Graphite as the Anode in Lithium-Ion Batteries (abaisser N/P avec la même tension de coupure : graphite surchargé, potentiel ≤ 0 V, risque de dépôt de Li)",
+      "authors_or_publisher": "J. Electrochem. Soc. (ECS / IOP)",
+      "year": "2022",
+      "url_or_doi": "10.1149/1945-7111/ac4b87"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dégradation probable par dépôt de Li sur le graphite surchargé et consommation du lithium de la cathode par la SEI du premier cycle.",
+    "sources": [
+     {
+      "title": "Exploring the Limits of the Rapid-Charging Performance of Graphite as the Anode in Lithium-Ion Batteries (abaisser N/P avec la même tension de coupure : graphite surchargé, potentiel ≤ 0 V, risque de dépôt de Li)",
+      "authors_or_publisher": "J. Electrochem. Soc. (ECS / IOP)",
+      "year": "2022",
+      "url_or_doi": "10.1149/1945-7111/ac4b87"
+     },
+     {
+      "title": "Challenges and Strategies of Fast-Charging Li-Ion Batteries with a Focus on Li Plating (« The N/P ratio is typically in the range of 1.0 to 1.2 to avoid Li plating »)",
+      "authors_or_publisher": "Energy Material Advances (Science Partner Journals)",
+      "year": "2024",
+      "url_or_doi": "10.34133/energymatadv.0113"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pré-cyclage identique des deux anodes",
+    "N/P > 1 pour le graphite"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie de base (V2O5 + 6 LiOH·H2O → 2 Li3VO4 + 9 H2O à 80 °C en atmosphère humide) est plausible et refaisable, aux masses près (non données). Le reste de l'argumentation tient mal : degré de sous-saturation S = 0,872 issu d'un calcul faux (deux estimations de la même pression saturante, Clausius–Clapeyron mal évalué), contrôle de taille de gouttelette circulaire, bande Raman de Li2CO3 prise pour LiOH, occupations Rietveld incompatibles avec l'ICP, frange MET mal indexée, « lacunes » lues sur l'O1s à 531,9 eV, capacités au-delà de 2 Li (et même de 3 Li au 1er cycle) attribuées à une pseudocapacité impossible sur 4,5 m2/g, D(Li+) non reproductibles, référence SSR « 3 % » dosée à ≈ 1 % de Ca, pile complète au graphite défavorisée (pas de pré-cyclage, N/P = 0,9).",
+  "author_errors_suspected": [
+   "S = 0,872 : Clausius–Clapeyron avec ΔH = 40 650 J/mol donne 265 mmHg et non 406,6 ; et 354,5 mmHg (Antoine) est déjà la pression saturante à 80 °C",
+   "masse volumique « 2,47 × 10^3 g m−3 » au lieu de kg m−3",
+   "« 1 mol dm−3 = 1000 mol cm−3 » au lieu de 10−3 mol cm−3 dans le calcul de D(Li+)",
+   "frange (100) à 5,61 Å comparée à 5,44 Å, qui est b donc (010)",
+   "Table 1 : paramètres de 3LCVO-ABR copiés de 2LCVO-ABR (a, b, c) et de 1LCVO-ABR (V) ; V ≠ a·b·c pour les dopés",
+   "Table 2 : site 4b occupé à 1,015 et Ca/V = 0,08 contre 0,028 à l'ICP",
+   "supercellule écrite Li48V18O64 dans les Résultats et Li48V16O64 dans les Méthodes ; 4,17 at. % dit « proche de 3 % »",
+   "XPS ex situ à 0,1 V hors de la fenêtre 0,2–3,0 V ; séparation V2p 7,40 eV écrite 7,48",
+   "TC de 3LCVO-SSR = composition à 1 %",
+   "capacité théorique de référence 591 mAh/g (3 Li) alors que les auteurs n'assignent que V5+ → V4+ → V3+ (2 Li, 394 mAh/g)"
+  ],
+  "comparison_with_database": "Aucune autre voie Li3VO4 ni vanadate dans la base (compare.py « Li3VO4 », « vanad »). Le Supplementary Table 14 de l'article situe 3LCVO-ABR au-dessus des autres Li3VO4 dopés (≤ 484 mAh/g à 100 mA/g)."
+ },
+ "sources_not_found": [
+  "source vérifiée de la position des raies DRX de Li2CO3 vers 30,6° (non cherchée faute de budget de recherche ; à prendre sur une fiche COD)",
+  "source de la stabilité en tension de NMC622 (≤ 4,3–4,4 V vs Li) non relue dans cette session",
+  "capacité propre du Super-P dans 0,2–3,0 V non sourcée (ordre de grandeur)",
+  "solubilité de LiOH et de Li3VO4 dans l'eau à 80 °C non relue (PubChem non consulté)"
+ ]
+}

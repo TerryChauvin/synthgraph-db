@@ -1,0 +1,110 @@
+{
+  "pmcid": "PMC12917697",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "Cur_low (hérite de Cur_1mgmL : étapes dissolve/stir/centrifuge, 50 mg de MOF, 10 mL, éthanol absolu, 24 h)",
+      "extracted": "branche Cur_low sans étapes propres, donc protocole effectif de Cur_1mgmL : 50 mg de γ-CD-MOF dans 10 mL de solution éthanolique de curcumine, 24 h, à l'abri de la lumière",
+      "article_says": "The adsorption capacity of synthesized γ-CD-MOF-5 samples was then examined at low curcumin concentrations ranging from 0.001 to 0.016 mg/mL by using a single-beam UV–vis spectrophotometer and eq , as displayed in Figure a.",
+      "fix": "Les Méthodes ne décrivent que 1 à 5 mg/mL ; pour 0,001–0,016 mg/mL l'article ne donne ni masse de MOF, ni volume, ni solvant, ni agitation. Seule la durée « after 24 h adsorption » (phrase « The UV–vis spectroscopy measurements that were obtained after 24 h adsorption… », section Méthodes, isotherme de Langmuir) est appuyée. Ne pas laisser hériter 50 mg / 10 mL / éthanol : soit détacher Cur_low de Cur_1mgmL avec ses propres étapes réduites (24 h seul, citation ci-dessus) et masse, volume, solvant en not_stated, soit garder le parent mais déclarer ces champs not_stated dans la branche et ajouter une limite_reproductibilite sur la branche.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "échantillon « γ-CD loaded with curcumin » (sample_inventory, route null)",
+      "extracted": "7,05 % seulement dans une annotation tendance_observee, aucune voie",
+      "article_says": "Curcumin was also loaded into γ-CD, affording a loading capacity of 7.05%, which was consistent with the reported values in the literature.",
+      "fix": "Créer une branche (ex. Cur_gammaCD, parent Cur_1mgmL) dont la variation est l'adsorbant (γ-CD native au lieu de γ-CD-MOF), avec le résultat loading_capacity = 7,05 % et la concentration de curcumine, la masse et la durée en not_stated : c'est la comparaison que les auteurs mettent en avant (MOF 24,6 % contre γ-CD 7,05 %). L'absence de protocole justifie des champs not_stated, pas l'absence de branche.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "material.phase de 1B, 2A, 2B, 3B, 3C",
+      "extracted": "1B : « not γ-CD-MOF » ; 2A, 2B, 3B, 3C : « γ-CD-MOF »",
+      "article_says": "Within sample set 3, only 3A exhibited a diffraction pattern consistent with high-quality γ-CD-MOF.",
+      "fix": "L'article ne dit pas quelle phase constituent 1B (« showed almost no crystallization »), 2A, 2B (premier pic attendu, autres décalés ou absents) ni 3B, 3C (seulement « only 3A… »). Sur la figure 1c, 3B et 3C n'ont aucun pic net, donc « γ-CD-MOF » n'est pas soutenu pour elles. Mettre phase à null (ou à une formule neutre « non précisée ») pour ces cinq échantillons et laisser le résultat xrd_crystallinity_vs_gamma_CD_MOF porter l'information ; garder « unidentified crystalline phase » seulement pour 1A (et 1C « similar to 1A »).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Cur_4mgmL et Cur_5mgmL, caractérisation TGA, quote",
+      "extracted": "citation = « These analyses were done at a heating rate of 10 °C per minute… » pour le résultat « two-step weight loss (water below ≈120 °C, framework degradation 300–400 °C), similar to unloaded »",
+      "article_says": "All samples exhibited a characteristic two-step weight loss behavior.",
+      "fix": "La citation actuelle soutient les conditions, pas le résultat. Citer « All samples exhibited a characteristic two-step weight loss behavior. » (et « The major decomposition step occurred between 300 and 400 °C… » pour les 300–400 °C), garder la phrase des conditions dans le champ conditions.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "caractérisation SEM de 1A, 2A, 3A, 4A, 5A (conditions et taille de particule)",
+      "extracted": "morphology_SEM et particle_size_SEM en résultats, aucune entrée characterizations de type SEM (ni instrument, ni tension, ni préparation) ; crystallite_size_XRD sans méthode",
+      "article_says": "The samples were adhered to a sample pan by a carbon double-sided tape and sputter-coated with gold by using an automatic sputter coater (CRESSINGTON 108 AUTO, Ted Pella, Inc., Redding, California, USA) twice and then observed and photographed with a working voltage of 5 kV.",
+      "fix": "Ajouter à chacune des cinq voies une caractérisation SEM : JEOL JIB 4601F, 5 kV, dépôt d'or deux fois, tailles par ImageJ sur au moins 62 cristaux (note de bas de tableau 2 : « SEM-based values were obtained from a minimum of 62 crystals »). Noter pour crystallite_size_XRD : ajustement pseudo-Voigt des trois premiers pics, équation de Scherrer, moyenne des trois valeurs.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "5A (XPS, FT-IR) et 5C (TGA du matériau non chargé)",
+      "extracted": "seul XRD (et résultats SEM/Langmuir) sur 5A ; rien sur XPS, FT-IR ou TGA du MOF non chargé",
+      "article_says": "The structural characterization of γ-CD-MOF-5A sample was further supported by the XPS spectra.",
+      "fix": "Ajouter sur 5A : XPS (Thermo VG K-α+, Al Kα 1486,6 eV ; C, O, K présents, composante O 1s de basse énergie attribuée à K–O, doublet K 2p) ; FT-IR des γ-CD-MOF-5 (A–C) : large bande 3310 cm–1 (O–H), 2922 cm–1 (C–H), 1641 cm–1 (eau), 1078 et 1018 cm–1 (C–O–C) ; sur 5C : TGA de l'échantillon non chargé (seule la version chargée est notée), avec la citation « All samples exhibited a characteristic two-step weight loss behavior. ».",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "surface BET 430,8 m2/g (annotation seulement)",
+      "extracted": "valeur dans un ANNOT, aucune caractérisation ; citation de dégazage rattachée à Cur_1mgmL dans limite_reproductibilite",
+      "article_says": "Within this broad range, the BET surface area obtained in the present study (430.8 m2/g) was well within expected values, indicating successful framework formation and activation.",
+      "fix": "L'échantillon n'est pas nommé : soit l'enregistrer comme caractérisation BET (NOVA 800, ≈ 50 mg dégazés à 60 °C pendant 8 h, 77 K, N2) sur la voie 5A avec la mention « échantillon non précisé » dans result, soit le laisser en annotation mais rattacher l'annotation à une voie MOF plutôt qu'à Cur_1mgmL (le dégazage est celui du MOF, pas de la voie de chargement).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_auteurs (1A), citation",
+      "extracted": "« à température élevée, la diffusion de vapeur de méthanol provoque une sursaturation rapide des précurseurs » présenté comme explication des auteurs ; la citation ne soutient que le volet entropique",
+      "article_says": "These observations align with the findings of Liu et al., who reported that increasing the synthesis temperature promotes vapor diffusion of methanol into the reactant solution, leading to rapid supersaturation of the precursors.",
+      "fix": "La sursaturation rapide est le résultat de Liu et al. que les auteurs rapprochent de leurs observations, pas un résultat de l'étude : scinder la phrase (volet entropique = auteurs, avec la citation actuelle ; volet sursaturation = « selon Liu et al. cités par les auteurs », avec cette citation).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "TGA de 5C et des Cur-5C-4 / Cur-5C-5 (résultat TGA, valeurs 300–400 °C ; « similar to unloaded »)",
+      "extracted": "« framework degradation 300–400 °C », « similar to unloaded »",
+      "article_says": "The major decomposition step occurred between 300 and 400 °C, which can be attributed to the degradation of the γ-cyclodextrin organic framework.",
+      "fix": "Valeurs recopiées fidèlement, mais la figure 7 montre la chute principale entre ≈ 240 et ≈ 320 °C (poids de ≈ 88 % à ≈ 42 %), et Cur-5C-4 descend à ≈ 8 % à 800 °C contre ≈ 22 % pour 5C, ce qui contredit « final residue above 600 °C consistent with potassium carbonate » et « similar decomposition profiles ». Ajouter une annotation limite_reproductibilite (incohérence article/figure) ; ne pas corriger la valeur.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Cur_3mgmL, résultat en mg/g (capacité maximale expérimentale)",
+      "extracted": "loading_capacity 24,59 % seulement ; la valeur en mg/g n'est que mentionnée en annotation",
+      "article_says": "Calculated q m values based on the Langmuir model fitted at high curcumin concentrations were also found to conform well with the experimentally determined average maximum adsorption capacity (245.92 mg/g) as given in Table .",
+      "fix": "245,92 mg/g correspond à 24,592 % : ajouter à Cur_3mgmL un résultat max_adsorption_capacity_high_concentration = 245,92 mg/g avec cette citation (nommée « average » par les auteurs, tableau 3 ne la donne pas dans le texte fourni).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "rendements (toutes les voies de la série 1A–5C), définition",
+      "extracted": "valeurs du tableau S2 seulement",
+      "article_says": "The yield of each γ-CD-MOF sample was calculated as the percent ratio of the obtained product mass to the theoretical mass based on reagent inputs, with all results shown in Table S1.",
+      "fix": "Consigner la définition du rendement (masse obtenue / masse théorique calculée sur les réactifs) dans une annotation ou dans le champ scale de 1A ; la base de calcul (γ-CD ou KOH limitant, formule du produit) n'est pas donnée, à mettre en not_stated.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 22,
+    "branches_extracted": 21,
+    "not_stated_checked": 22,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "fichier MPIF (ZIP) des 15 γ-CD-MOF et figure S1 (schéma de synthèse) non disponibles dans le dépôt",
+    "agitation de 12 h ou 1 h : l'article ne dit pas si elle se poursuit pendant l'incubation sous vapeur de MeOH ni si elle précède la mise en place de la chambre de diffusion ; appareil qui tient 50 °C pendant l'incubation non précisé (l'étuve Nüve est citée seulement pour le séchage)",
+    "type de filtre, nombre de lavages au MeOH, température du trempage de 7 jours, pression du séchage sous vide",
+    "base de calcul du rendement ; écart entre rendement moyen annoncé de 83 % et moyenne de 84, 81, 80 % (81,7 %)",
+    "échantillon de γ-CD-MOF réellement utilisé pour la série 1–5 mg/mL (légende figure 8 : 5A, 5B, 5C), protocole complet de la série 0,001–0,016 mg/mL (masse, volume, solvant, agitation), concentration et protocole de la γ-CD seule (7,05 %), vitesse d'agitation et température de la dissolution de la curcumine, traitement du MOF après chargement (lavage, séchage)",
+    "échantillon mesuré en BET (430,8 m2/g) non nommé ; unité de pureté de l'eau « 18.2 Ω resistivity » probablement 18,2 MΩ·cm (recopié tel quel)"
+  ],
+  "mechanism_check": "à revoir : mecanisme_auteurs mêle le volet entropique des auteurs et la sursaturation rapide de Liu et al. (voir constat). L'hypothèse mecanisme_analyse est étiquetée comme telle ; elle ne s'appuie sur aucune citation (OK).",
+  "notes": "Vérifié sans erreur : les 15 rendements du tableau S2 (68, 84, 76 / 85, 74, 57 / 14, 17, 57 / 84, 81, 80 / 67, 68, 73), les deux blocs du tableau 3 (5A 1,53 / 8,17 / 0,996 et 250,00 / 0,400 / 0,999 ; 5B 1,52 / 6,57 / 0,997 et 256,41 / 0,195 / 0,999 ; 5C 1,48 / 11,25 / 0,998 et 256,41 / 0,380 / 0,999 : les deux rangées « 5A » sont bien attribuées, bloc bas puis bloc haut), le tableau 2 (tailles SEM et XRD de 1A à 5A), le tableau 1 et les variations (étape 2 = agitation, étape 4 = incubation), les 10,78 / 19,92 / 24,59 / 20,86 % et la lecture de 23 % à 4 mg/mL (figure 8b : barre ≈ 23,4 %, écart ≈ 2 %, sous le seuil de 10 %). Branche Cur_low : la masse et le volume ne sont pas dits ; l'héritage est signalé en constat. method_sources : ref2 est bien Smaldone et al. (2010), nommé dans la phrase « adapted from Smaldone et al. » ; le XML source n'a aucun renvoi bibliographique dans le corps (numéros supprimés, virgules seules), donc l'absence de marqueur [[id]] est un défaut du corpus, pas de l'extraction ; les trois renvois groupés de « guided by previously reported … protocols » relèvent du contexte, pas d'une préparation à refaire. Annotations resume, comparaison_branches, conclusion_auteurs, securite : conformes ; mon seul désaccord de fond est le choix de rattacher les paramètres de Langmuir (résultats d'adsorption) aux voies de synthèse 5A–5C plutôt qu'aux voies de chargement : défendable car l'article les range par échantillon, laissé hors constat."
+}

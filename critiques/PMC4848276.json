@@ -1,0 +1,41 @@
+{
+  "pmcid": "PMC4848276",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {"severity": "deduit",
+     "where": "annotation tendance_observee (MD) : « diamètre moyen pondéré minimal d'environ 4,95 Å avec 7 OXCA »",
+     "extracted": "4,95 Å (unité angström)",
+     "article_says": "Number of OXCAs | Weighted diameter | STD | Standard error",
+     "fix": "le tableau 2 ne donne aucune unité pour le diamètre pondéré (la figure 6 est normalisée) ; l'angström est une déduction (seule la boîte de simulation est donnée en Å). Écrire « 4,95 (unité non précisée, probablement Å) » ou retirer l'unité",
+     "confidence": "probable"},
+    {"severity": "manquant",
+     "where": "résultats UV-visible des branches 0,08 / 0,28 / 0,4 / 0,48 / 0,56 mM (bande SPR)",
+     "extracted": "résultat SPR de groupe (500–580 nm, 0,08–0,56 mM) rangé uniquement dans la caractérisation UV-vis de la voie de base 0,28 mM ; pas de résultat SPR sur les branches 0,08, 0,4, 0,48, 0,56 ; 0,28 mM n'a pas de pic",
+     "article_says": "The characteristic surface plasmon resonance (SPR) band for AuNPs was clearly observed in the range of 500–580 nm in the UV-visible spectra for caffeic acid solutions of 0.08–0.56 mM (Fig. 3c–k).",
+     "fix": "soit ajouter à chaque branche 0,08 à 0,56 mM un résultat qualitatif « bande SPR observée 500–580 nm (selon le texte) » avec cette citation, soit retirer ce résultat de groupe de la caractérisation de la seule voie 0,28 mM. Attention : la figure 3 contredit le texte pour c (0,08 mM, bosse vers 640 nm) et h à k (0,28 à 0,56 mM, pas de pic net) ; à signaler en limite_reproductibilite",
+     "confidence": "probable"},
+    {"severity": "manquant",
+     "where": "branches 0,08 / 0,12 / 0,16 / 0,2 / 0,24 mM : tendance de taille en MET",
+     "extracted": "aucun résultat MET sur ces branches (seuls 0,04, 0,24 morphologie, 0,28, 0,4, 0,48, 0,56 en ont)",
+     "article_says": "As the concentration of caffeic acid increased from 0.04 to 0.24 mM, the mean particle size gradually decreased.",
+     "fix": "ajouter un résultat qualitatif « taille moyenne en diminution (MET, Fig. S2 b–e) » aux branches 0,08, 0,12, 0,16, 0,2 avec la phrase de l'annexe « the particle sizes were obviously decreased form 0.08 mM to 0.20 mM » ; la légende S2 donne b = 0,08, c = 0,12, d = 0,16, e = 0,20 mM",
+     "confidence": "probable"},
+    {"severity": "mineur",
+     "where": "AuNP_0.4mM mean_particle_size_DLS = 22.6 nm",
+     "extracted": "22.6 nm (valeur du tableau 1 recopiée)",
+     "article_says": "the plot of the mean particle size exhibited a parabolic shape, where 0.28 mM caffeic acid resulted in the smallest particle size of 89.4 nm.",
+     "fix": "valeur recopiée correctement (règle de la valeur écrite) ; j'ai relu la figure 4 : le point à 0,4 mM se lit à environ 225 nm, donc 22.6 est très probablement une faute pour 226. S'assurer que l'incohérence est portée par une annotation limite_reproductibilite visible sur la branche 0,4 mM (elle n'est aujourd'hui que dans comparaison_branches et un doute)",
+     "confidence": "sure"}
+  ],
+  "coverage_check": {"branches_in_article": 11, "branches_extracted": 11, "not_stated_checked": 12, "not_stated_wrong": 0},
+  "reproducibility_gaps": [
+    "concentration de la solution mère d'acide caféique non donnée (seule la concentration finale dans 1 mL est donnée ; la solution mère se déduit comme 1,25 fois la finale si « final » désigne bien le mélange de 1 mL)",
+    "pureté des deux réactifs, récipient, mode d'ajout (vitesse) non donnés",
+    "la température de 220 °C est la consigne de la plaque chauffante et non celle du mélange ; agitation et température de l'étape de 1 min non précisées ; la phrase « While stirring ... for 2 min, ... was added » ne dit pas si les 2 min précèdent ou accompagnent l'ajout",
+    "atmosphère et récipient (ouvert ou fermé) du séjour de 12 h à 85 °C, vitesse de refroidissement, absence totale de lavage ou de centrifugation",
+    "préparation des échantillons pour UV-vis, DLS, potentiel zêta (dilution, pH) et MET (dépôt sur grille) non décrite ; tailles MET non chiffrées dans l'article",
+    "rendement non donné"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs est fidèle à « Basically, the caffeic acid reduces Au ions with inducing the aggregation of AuNPs » et au passage DFT (adsorption plus forte sur (110), écart (100)-(111) réduit de 17 %, croissance en oursin le long de [100]) ; mecanisme_analyse (2 e- par caféique, 3 e- par Au3+, soit 1,5 caféique par or, 0,3 mM pour 0,2 mM) est stœchiométriquement correct et rédigé comme hypothèse ; sécurité cohérente",
+  "notes": "Fidélité très bonne : les 11 colonnes de la table 1 (taille DLS et zêta) sont attribuées aux bons échantillons, les 11 concentrations de l'inventaire correspondent aux légendes des figures 2, 3, 5 et S2 (S2 : a 0,008, b 0,08, c 0,12, d 0,16, e 0,20, f 0,48), MD et DFT sont correctement écartées comme voies. Figures relues : Fig. 2 (couleurs : a, b limpides, c gris-violet, d violet, e à g rouge vin, h à k sombres jusqu'au noir pour k) conforme ; Fig. 3 (pics SPR environ 540 à 550 nm pour d à g, écart inférieur à 10 nm) conforme ; Fig. 4 confirme l'anomalie 22.6 / 226 à 0,4 mM ; Fig. 5 : a à e conformes aux légendes (a polygonale grosse, b sphérique, c début d'oursin, e oursin large). Léger flou sur le 0,24 mM : la phrase DFT cite Fig. 5a, b comme polygonales alors que la section HR-TEM dit « increasingly spherical » jusqu'à 0,24 ; l'extraction retient « sphérique » pour 0,24 et « polygonal » pour 0,04, ce qui est défendable. Le choix de 0,28 mM comme voie de base est arbitraire mais documenté. Aucune source de méthode dans corpus/refs pour la partie humide (les renvois ne concernent que MD/DFT) : method_sources vide est correct. Fig. S2 (annexe PDF) non disponible en image, non vérifiée."
+}

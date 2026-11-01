@@ -1,0 +1,106 @@
+{
+ "pmcid": "PMC9078281",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "Mn-NGQDs_citric-acid et NG_citric-acid : material.morphology / phase",
+   "extracted": "Mn-NGQDs_citric-acid : morphology « well dispersed, uniform quantum dots », phase « graphitic carbon (broad XRD peaks) » ; NG_citric-acid : « irregular nanosheets with a small amount of QDs » (copiés du parent)",
+   "article_says": "The comparison experiment results show that, choosing citric acid as precursor for high quality fluorescent quantum dots is unsuitable (Fig. S5b, ESI†).",
+   "fix": "mettre material.morphology et phase à null pour les deux branches à l'acide citrique (aucun TEM ni XRD n'est donné, seule la figure S5b de spectres PL, absente) ; ne pas hériter de la morphologie du parent",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Mn-NGQDs_Mn1, _Mn3, _Mn4, _MnSO4, _MnNO3, _MnOAc, _160C, _200C : material.morphology / phase",
+   "extracted": "morphology « well dispersed, uniform quantum dots », phase « graphitic carbon (broad XRD peaks) » identiques à la voie de base",
+   "article_says": "Therefore, the Mn(ii)-NGQDs show well dispersed QDs with uniform size and shape, and exhibit a high QY than that of NG.",
+   "fix": "la morphologie (TEM) et les pics XRD ne sont donnés que pour l'échantillon à 2 × 10−3 mol L−1, 180 °C, MnCl2 ; les huit branches (autres concentrations, autres sels, 160 et 200 °C) n'ont aucune caractérisation structurale dans l'article : material.morphology et phase à null",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Mn-NGQDs step 7 disperse not_stated « concentration » ; missing_fields « stock_solution_concentration »",
+   "extracted": "concentration de la solution mère non citée",
+   "article_says": "200 μL of Mn(ii)-NGQDs (6.52 mg mL−1) solution were mixed together and diluted to 5 mL with the HMTA buffer solution (pH = 7.35).",
+   "fix": "la solution de Mn(ii)-NGQDs utilisée pour la détection est donnée à 6.52 mg mL−1, et l'annexe dit « this concentration value was used as a standard for further application of Hg2+ ions detection, MTT test and cell fluorescence imaging » (valeur mesurée sur le surnageant avant dialyse, ambiguïté à signaler) ; retirer « concentration » de not_stated de l'étape 7 et de missing_fields, ou ajouter un paramètre concentration = 6.52 mg mL−1 avec doute sur l'écart surnageant / solution redispersée",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources (vide)",
+   "extracted": "[] ; annotation limite_reproductibilite : « [S1] à [S3] ... aucune source de méthode n'a pu être rattachée »",
+   "article_says": "according to an established procedure using quinine sulfate (with QY of 54%, 0.1 M",
+   "fix": "l'annexe (dans corpus/text) renvoie à des protocoles de mesure : QY « established procedure ... [S1] » (Liao, ACS Sustain. Chem. Eng. 2016, 4, 3053), MTT « using the MTT assay[S2] » (Choi, Biosens. Bioelectron. 2017, 93, 267), déclin de fluorescence « time correlated single photon counting technique[S3] » (Zhang, Talanta 2016, 152, 288). Leur liste [S1]-[S3] figure à la fin de l'annexe, donc l'affirmation « ne figurent pas dans la liste de références » est inexacte pour l'annexe. Ajouter les trois entrées à method_sources (ref_id S1, S2, S3, role autre) si load.py accepte des ref_id hors de corpus/refs, sinon corriger l'annotation pour dire que les références sont dans l'annexe, avec leur citation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "sample Hg2+-NG (Fig. 5e, 5f)",
+   "extracted": "Hg2+ laissé sans voie (entrée d'inventaire avec route null)",
+   "article_says": "Fig. 5e and f show the PL spectra and QYs of various M–NG.",
+   "fix": "la figure 5f porte une barre Hg2+ à environ 16-17 % (lue sur la figure, entre Pb2+ 14 % et Cd2+ 18 %), au même titre que les 14 autres ions. Choix défendable de ne pas créer de branche (préparation non décrite) ; au minimum la valeur lue doit figurer quelque part (branche M-NG_Hg2+ avec from_figure Fig. 5f et doute, ou mention dans l'annotation comparaison_branches)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Mn-NGQDs characterizations « Hg2+ fluorescence sensing » conditions",
+   "extracted": "10 min at room temperature, excitation 370 nm, HMTA buffer pH 7.35",
+   "article_says": "In a typical process, 200 μL of Hg2+ solution with various concentrations (0–5 × 10−6 mol L−1) and 200 μL of Mn(ii)-NGQDs (6.52 mg mL−1) solution were mixed together and diluted to 5 mL with the HMTA buffer solution (pH = 7.35).",
+   "fix": "ajouter aux conditions les volumes (200 μL de solution de Hg2+, 200 μL de Mn(ii)-NGQDs à 6.52 mg mL−1, dilution à 5 mL) et la plage 0–5 × 10−6 mol L−1 ; sans eux le protocole de détection n'est pas refaisable",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Mn-NGQDs outcomes, détection de Hg2+ dans l'eau Milli-Q (annexe Fig. S7)",
+   "extracted": "seule la limite de détection 3.2e-07 mol/L est gardée",
+   "article_says": "mol/L to 2.0×10-6 mol/L ( Fig. S7c,) and 2.0×10-6 mol/L to 8.0×10-6 mol/L (Fig. S7d),",
+   "fix": "l'annexe donne deux domaines linéaires dans l'eau (0 à 2.0×10-6 et 2.0×10-6 à 8.0×10-6 mol/L) avec F/F0=0.9805-0.2059C (R2=0.9897) et F/F0=0.7156-0.0674C (R2=0.9956) lues sur les graphes S7c et S7d ; ajouter au moins les plages en value_text. Le détail des concentrations de Hg2+ testées (0 à 9×10-6 mol/L) et de la sélectivité (6.0×10-6 mol/L par ion) est aussi absent",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Mn-NGQDs / NG outcomes, tableaux S1 et S3",
+   "extracted": "N (4.24 / 2.2 %) et Mn (0.21 %) du tableau S1, durée de vie moyenne 7.58 / 8.88 ns",
+   "article_says": "The lifetime data in Table S3 (ESI†) shows that the average lifetime of Mn(ii)-NGQDs have not significantly change with the concentration increase of Hg2+ ions.",
+   "fix": "valeurs d'annexe non reprises : tableau S1 C 1s 55.43 % / 60.48 % (NG) et O 1s 40.11 % / 37.33 %, Mn 0 % pour NG ; tableau S3 durée de vie moyenne 7.50 ns (HMTA), 7.44 ns (2.0×10-6 mol/L Hg2+), 7.41 ns (4.0×10-6 mol/L), et NG tri-exponentiel (1.25, 5.45, 11.96 ns). Compléter si on veut les résultats de l'annexe ; lacune de couverture, pas d'erreur",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Mn-NGQDs outcome zeta_potential et NG zeta_potential, unité eV",
+   "extracted": "-19.7 eV et -15.2 eV",
+   "article_says": "Compared with NG (−15.2 eV), Mn(ii)-NGQDs exhibit a more negative potential value (−19.7 eV)",
+   "fix": "la citation est bien recopiée (règle : valeur et unité du texte) mais l'axe de la figure S9 de l'annexe dit « Zeta potential(mV) ». Garder eV et ajouter une annotation limite_reproductibilite : unité probablement mV (erreur des auteurs), pour que la conversion SI de load.py ne produise pas une énergie. Le doute existe déjà, l'annotation manque",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "M-NG_Ag+, _Co2+, _Fe2+, _Mg2+, _Zn2+, _Ni2+ : material.morphology",
+   "extracted": "« irregular sheets and small QDs » sans résultat cité",
+   "article_says": "TEM images of NG doping with other metal ions display similar morphology to pure NG, some large irregular sheets and small QDs can be observed (Fig. S6, ESI†).",
+   "fix": "attribution correcte (la légende S6 liste exactement Ag+, Ni2+, Fe2+, Co2+, Mg2+, Zn2+ ; Ba2+ et Ca2+ n'y sont pas) mais portée par le seul champ material ; ajouter à ces six branches un outcome morphology_TEM avec cette citation et value_text, pour que la valeur soit citée",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 28,
+  "branches_extracted": 27,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 1,
+  "from_figure_checked": 18,
+  "from_figure_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "forme du citrate de sodium non précisée (mono-, di- ou trisodique, hydraté ou non) : détermine le pH initial et le nombre de carboxylates ; pH du mélange réactionnel jamais donné alors que les auteurs soulignent l'importance du pH",
+  "durée et vitesse d'agitation, ordre d'ajout, température de mélange ; type de four, rampe de chauffe, durée de refroidissement naturel ; taux de remplissage à déduire (50 mL dans 100 mL)",
+  "matériau de la membrane et volume d'eau de dialyse, nombre de renouvellements ; conditions de lyophilisation (température, pression, durée) ; volume et concentration de redispersion pour la solution mère",
+  "rendement massique de la synthèse : non donné (la concentration 6.52 mg mL−1 est mesurée sur le surnageant, volume V non donné)",
+  "concentration en Mn2+ des échantillons à 1, 3 et 4 × 10−3 mol L−1 : le volume de MnCl2 ajouté n'est pas donné (seul 1 mL de 0,1 mol L−1 pour l'échantillon standard, soit 2 × 10−3 mol L−1 dans environ 50 mL, identité non écrite par les auteurs)",
+  "quantités des sels de manganèse, de l'acide citrique et des sels des 15 autres ions ; sels de Al3+, Ba2+, Cr3+, K+, Mg2+ jamais nommés ; sel de Hg2+ pour la détection non nommé",
+  "séries en température (160, 200 °C) et en durée : résultats uniquement dans la figure S5d, images de l'annexe absentes du dépôt ; aucune durée testée n'est écrite",
+  "fiabilité des mesures : QY mesuré à 360 nm (annexe) contre 370 nm (texte), émission 440 nm (légende) contre 443 nm (texte), unité du zêta en eV"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (groupes carboxyle non carbonisés, liaison de Mn2+, blocage de la condensation et de la croissance) suit le texte « The mechanism is conjectured as the follows » ; mecanisme_analyse est marqué « Probablement » et ne contredit pas l'article. securite_analyse couvre autoclave à 180 °C et sels de Pb, Cd, Hg, Cr.",
+ "notes": "Valeurs lues sur figure vérifiées en ouvrant corpus/fig/PMC9078281/c7ra12133d-f5.jpg : Fig. 5d (0 : 27, 1 : 30, 2 : 42, 3 : 30, 4 : 28.5 ; extrait 30, 30, 29, écart maximal 2 %) et Fig. 5f (14 ions ; écart maximal 1 point, toutes sous 10 %). L'ordre des barres suit les étiquettes de l'axe. Fig. 2 (0.24 et 0.26 nm) conforme. Le texte contient deux contradictions des auteurs déjà notées en doutes (Cr2+/Cr3+, 443/440 nm). Non retenu comme constat : appariement ion/sel des M-NG (AgNO3 pour Ag+, FeSO4 pour Fe2+, etc.), qui vient de la liste de réactifs et reste cohérent ; absence de branche « temps » (aucune valeur dans l'article) ; QY 0 mol/L de Fig. 5d rattaché à NG (cohérent avec 27 contre 27.06) ; Hg2+ et K+ : voir constats. Toutes les cases not_stated des étapes 1-6 vérifiées (fournisseurs, agitation, rampe, pression, lyophilisation) : exactes, sauf la concentration de la solution mère (étape 7)."
+}

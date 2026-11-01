@@ -1,0 +1,774 @@
+{
+ "pmcid": "PMC9866506",
+ "routes": [
+  {
+   "label": "FeVO4_nH2O",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de FeCl3·6H2O",
+     "inputs": "2 mmol ; M(FeCl3·6H2O) = 270,30 g/mol",
+     "formula": "n × M",
+     "result": "0,541 g, soit 0,20 mol/L dans 10 mL",
+     "compared_to": "très soluble (sel déliquescent) : aucun problème",
+     "source": "valeurs de l'article ; masse molaire PubChem"
+    },
+    {
+     "what": "masse et concentration de NH4VO3",
+     "inputs": "2 mmol ; M = 116,98 g/mol (PubChem) ; 10 mL d'eau",
+     "formula": "n × M / V",
+     "result": "0,234 g dans 10 mL = 2,34 g/100 mL (0,20 mol/L)",
+     "compared_to": "solubilité : ≈ 0,6 g/100 mL à froid (1 partie dans 165 parties d'eau, Merck Index via PubChem), 2,42 g/100 mL à 60 °C, ≈ 7 g/100 mL à 96 °C (compilation BenchChem) → soluble à 90 °C, ≈ 4 fois sursaturé si la solution refroidit à 20 °C",
+     "source": "PubChem CID 516859 ; BenchChem 2026"
+    },
+    {
+     "what": "rapport molaire Fe:V des précurseurs",
+     "inputs": "2 mmol FeCl3·6H2O ; 2 mmol NH4VO3",
+     "formula": "n(Fe)/n(V)",
+     "result": "1:1",
+     "compared_to": "FeVO4 : 1:1 ; EDS des poudres calcinées : 1:1,2 (excès de V de 20 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "acidité libérée par la précipitation",
+     "inputs": "Fe3+ + VO3− + H2O → FeVO4 + 2 H+ ; 2 mmol de FeVO4 ; 20 mL",
+     "formula": "2 × n / V ; pH = −log[H+]",
+     "result": "4 mmol H+ → 0,20 mol/L → pH ≈ 0,7 si la précipitation est complète (sans compter l'hydrolyse de Fe3+ ni le tampon NH4+ négligeable)",
+     "compared_to": "les auteurs disent éviter tout réglage du pH ; Anwar et al. 2023 règlent le pH à 8 (NaOH) pour la même famille de nanorods",
+     "source": "arithmétique ; Anwar et al. 2023"
+    },
+    {
+     "what": "taux de remplissage de l'autoclave",
+     "inputs": "10 mL + 10 mL de solution ; autoclave 50 mL",
+     "formula": "V liquide / V autoclave",
+     "result": "40 %",
+     "compared_to": "usage courant ≤ 70–80 % ; pression de vapeur de l'eau à 180 °C ≈ 10 bar (tables de vapeur NIST)",
+     "source": "valeurs de l'article ; NIST WebBook (eau)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Fe et V apportés en 1:1 (calcul « rapport molaire Fe:V des précurseurs »), O et H2O par l'eau : bilan compatible avec FeVO4·nH2O. NH4+ et Cl− restent en solution (NH4Cl) et sont éliminés au lavage. Mais l'EDS annonce Fe:V = 1:1,2 sur les trois poudres calcinées, soit 20 % de vanadium en trop, que les auteurs disent « cohérent » avec la XPS sans donner de quantification XPS : soit une phase riche en V (Fe2V4O13, V2O5) non vue, soit une précipitation incomplète du fer (voir solubilité), soit simplement l'incertitude de l'EDS. Rendement non donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "NH4VO3 à 0,20 mol/L (2,34 g/100 mL, calcul « masse et concentration de NH4VO3 ») est soluble à 90 °C mais environ 4 fois au-dessus de sa solubilité à 20 °C (≈ 0,6 g/100 mL). L'article ne dit pas si la solution est ajoutée chaude ni à quelle température est la solution de FeCl3 : si elle refroidit pendant l'ajout goutte à goutte, NH4VO3 recristallise et le rapport Fe:V réellement engagé n'est plus 1:1.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ammonium metavanadate, CID 516859 — section Solubility (HSDB : « Soluble in 165 parts water ; more soluble in hot water », Merck Index ; ICSC ; CRC)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026 (consulté)",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Ammonium-metavanadate"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le pH n'est pas réglé : le mélange devient très acide (pH ≈ 0,7 si FeVO4 précipite entièrement, calcul « acidité libérée »). Dans ce domaine, V(V) passe en décavanadates puis en cation VO2+, et Fe3+ reste en partie soluble ; la précipitation de FeVO4 est donc probablement incomplète et le solide peut s'enrichir en vanadium (cohérent avec l'EDS 1:1,2). À ces pH et à 140–180 °C en hydrothermal, NH4VO3 acidifié cristallise en vanadates d'ammonium en bâtonnets ou feuillets (NH4V3O8, pH 2,5–3), phase alternative plausible pour les « nanorods FeVO4·nH2O » orange, dont la DRX (Fig. S1a) est absente du dépôt. L'argument des auteurs « éviter le contrôle du pH » revient à laisser le pH à une valeur imposée et non mesurée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Microwave-assisted hydrothermal synthesis of NH4V3O8 microcrystals with controllable morphology (pH initial 2,5–5,5 ajusté par HCl/H2SO4 ; le pH est le facteur déterminant)",
+      "authors_or_publisher": "arXiv:1609.06095",
+      "year": "2016",
+      "url_or_doi": "https://arxiv.org/pdf/1609.06095"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Mélange à 90 °C (seulement dans la Discussion) : sous le point d'ébullition de l'eau (100 °C), en récipient ouvert sans problème si l'évaporation est surveillée. Autoclave de 50 mL rempli à 40 % (calcul « taux de remplissage ») à 180 °C : pression de vapeur de l'eau ≈ 10,0 bar, acceptable pour un autoclave à chemise PTFE (limite habituelle ≈ 200–220 °C).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "3 h à 180 °C est court mais suffisant pour une recristallisation hydrothermale d'un précipité amorphe ; la nature cristalline du produit n'est cependant pas montrée dans le texte (Fig. S1a absente).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Aucune réaction redox n'est nécessaire : Fe reste +3 et V reste +5 de FeCl3/NH4VO3 à FeVO4. Les auteurs parlent pourtant d'une « disproportionation reaction » (étape ii du schéma 1) : le mot est faux (une dismutation est une réaction redox où un même élément est à la fois oxydé et réduit) ; il s'agit d'une précipitation par échange (métathèse), ce qu'ils appellent ailleurs « double replacement reaction ». De même, l'étape i (« hydrolysis … to provide Fe+3 and VO−3 ions ») est une dissolution, non une hydrolyse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le mécanisme des auteurs (nanocristaux à « activation energies » multiples, ceux de plus faible énergie d'activation s'allongeant ; dans la Discussion, des microparticules « favorables » qui accumulent les nanoparticules puis deviennent des sphères qui s'allongent en nanorods) ne correspond pas au mûrissement d'Ostwald : celui-ci est piloté par la différence de solubilité entre petits et gros cristaux (effet Gibbs–Thomson) et ne crée pas à lui seul d'anisotropie ; la forme en bâtonnet vient de la structure cristalline ou d'une attache orientée. Aucune expérience (série en temps, DRX en fonction du temps) ne soutient le scénario.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V. K., Dinegar R. H., JACS",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit par les auteurs : NH4VO3 est toxique (UN 2859, classe 6.1 ; PAC-1 = 0,01 mg/m3) — peser sous hotte, éviter les poussières ; solution acide chlorée à 180 °C en autoclave : ouvrir après refroidissement complet.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ammonium metavanadate (UN 2859, Poison ; PAC-1 0,01 mg/m3)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "2024",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/2435"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dissolution de FeCl3·6H2O ([Fe(H2O)6]3+ partiellement hydrolysé, solution acide) et de NH4VO3 à chaud (métavanadate) ; au mélange, précipitation par métathèse d'un vanadate de fer hydraté amorphe orange, sans changement de degré d'oxydation (Fe3+, V5+), qui libère 2 H+ par FeVO4 et fait chuter le pH vers 1 ; une partie du Fe3+ peut rester en solution et le vanadium excédentaire condense en polyvanadates. À 180 °C, dissolution–reprécipitation (mûrissement d'Ostwald au sens propre, croissance des gros cristaux aux dépens des petits) et cristallisation d'un hydrate ou d'un vanadate en bâtonnets dont l'anisotropie vient de la structure ; la nature de cette phase n'est pas établie dans le texte (DRX Fig. S1a absente). La calcination déshydrate et cristallise FeVO4-I triclinique ; voie analogue : nanorods hydrothermaux convertis en nanorods poreux de FeVO4 par calcination (Lehnen et al. 2014).",
+    "sources": [
+     {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V. K., Dinegar R. H., JACS",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     },
+     {
+      "title": "Hydrothermally grown porous FeVO4 nanorods and their integration as active material in gas-sensing devices (titre et DOI relevés dans la bibliographie de Anwar et al. 2023 ; texte non lu)",
+      "authors_or_publisher": "Lehnen T., Valldor M., Nižňanský D., Mathur S., J. Mater. Chem. A 2, 1862–1868",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ta12821k"
+     },
+     {
+      "title": "Microwave-assisted hydrothermal synthesis of NH4V3O8 microcrystals with controllable morphology (pH initial 2,5–5,5 ajusté par HCl/H2SO4 ; le pH est le facteur déterminant)",
+      "authors_or_publisher": "arXiv:1609.06095",
+      "year": "2016",
+      "url_or_doi": "https://arxiv.org/pdf/1609.06095"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "garder la solution de NH4VO3 au-dessus de ≈ 70 °C jusqu'à la fin de l'ajout (sinon recristallisation) et noter la température de la solution de FeCl3",
+    "mesurer le pH du mélange avant autoclave (attendu ≈ 1) et le noter",
+    "DRX du précipité séché (phase réelle de « FeVO4·nH2O » : hydrate de FeVO4, vanadate d'ammonium, V2O5·nH2O ?) et dosage Fe:V (ICP) du solide et des eaux de lavage",
+    "rendement en masse par rapport aux 2 mmol (0,342 g de FeVO4 attendus)"
+   ]
+  },
+  {
+   "label": "FV500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface géométrique de nanorods de 115 nm",
+     "inputs": "diamètre d = 115 nm ; masse volumique supposée de FeVO4 ρ ≈ 3,6 g/cm3 (valeur non relue dans une source vérifiée)",
+     "formula": "S = 4/(ρ d) (cylindre long) ; diamètre équivalent sphère d_eq = 6/(ρ S)",
+     "result": "S ≈ 9,7 m2/g ; la surface annoncée (60 m2/g) correspond à d_eq ≈ 28 nm",
+     "compared_to": "taille de cristallite annoncée 14 nm : 60 m2/g est compatible avec des bâtonnets poreux formés de grains de 15–30 nm",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fraction tassée",
+     "inputs": "densité tassée 0,1 g/mL ; ρ ≈ 3,6 g/cm3",
+     "formula": "ρ_tap / ρ",
+     "result": "≈ 3 %",
+     "compared_to": "poudre de nanorods très aérée : plausible mais extrême",
+     "source": "arithmétique"
+    },
+    {
+     "what": "écart spin-orbite V2p des composantes XPS",
+     "inputs": "V4+ : 516,97 / 523,92 eV ; V5+ : 517,26 / 524,88 eV",
+     "formula": "E(2p1/2) − E(2p3/2)",
+     "result": "V4+ : 6,95 eV ; V5+ : 7,62 eV",
+     "compared_to": "un même écart (≈ 7,5–7,6 eV) attendu pour les deux composantes ; écart V5+ − V4+ en 2p3/2 annoncé 0,29 eV contre ≈ 1,4 eV de référence (V5+ 517,2 eV ; V4+ 515,8 eV, O1s à 530,0 eV)",
+     "source": "valeurs de l'article ; Silversmit et al. 2004"
+    },
+    {
+     "what": "écart spin-orbite Fe2p",
+     "inputs": "Fe2+ : 712,20 / 725,80 eV ; Fe3+ : 713,70 / 727,57 eV",
+     "formula": "E(2p1/2) − E(2p3/2)",
+     "result": "13,60 et 13,87 eV",
+     "compared_to": "cet écart vaut ≈ 13,6 eV pour tous les états du fer : il ne prouve pas Fe3+ comme l'écrivent les auteurs",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "longueur d'onde déclarée",
+     "inputs": "λ = 1,54046 Å (article) ; Cu Kα1 = 1,540 56 Å",
+     "formula": "écart relatif",
+     "result": "0,006 %",
+     "compared_to": "négligeable pour Bragg ; aucun angle 2θ n'est donné dans le texte, donc aucune distance à recalculer",
+     "source": "references/constantes.md (NIST X-ray Transition Energies)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Calcination à 500 °C (atmosphère non écrite, probablement l'air) : au-dessus de la déshydratation de l'hydrate et compatible avec FeVO4-I, phase stable sous air jusqu'au moins 800 °C (température de synthèse en phase solide). Rampe 5 °C/min, 2 h : standard.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Phase equilibria relations in the V2O5-rich part of the Fe2O3–TiO2–V2O5 system at 1200 °C … (rappel : FeVO4 synthétisé à 800 °C sous air)",
+      "authors_or_publisher": "Shi J. et al., Int. J. Miner. Metall. Mater.",
+      "year": "2024",
+      "url_or_doi": "10.1007/s12613-024-2845-4"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les isothermes sont dites de type III, avec une constante « c < 1 » et une nature « non poreuse », mais les auteurs en tirent une surface BET (≈ 60 m2/g), des méso- et macropores BJH, et décrivent par ailleurs des « porous nanorods ». Pour une isotherme de type III, la méthode BET n'est pas applicable (pas de monocouche identifiable), et une constante C < 1 interdit tout calcul de surface BET : la surface et la discussion poreuse/non poreuse sont contradictoires. De plus, des vides entre particules sont des pores interparticulaires (l'article écrit l'inverse), et la condensation capillaire ne s'applique pas à un solide non poreux.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "60 m2/g pour des bâtonnets de 115 nm de large vaut ≈ 6 fois la surface géométrique d'un bâtonnet dense (calcul « surface géométrique de nanorods de 115 nm ») : cohérent avec des bâtonnets poreux faits de grains de 15–30 nm (cristallite 14 nm), donc avec le MEB et le MET, mais pas avec l'étiquette « non poreux ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS du vanadium : les composantes V4+ (516,97 eV) et V5+ (517,26 eV) ne sont séparées que de 0,29 eV, alors que la référence donne V5+ ≈ 517,2 eV et V4+ ≈ 515,8 eV (≈ 1,4 eV d'écart) ; leurs écarts spin-orbite diffèrent (6,95 contre 7,62 eV, calcul « écart spin-orbite V2p »). La déconvolution ne peut pas prouver V4+ ; tout le signal est compatible avec V5+ seul.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of the V2p XPS binding energies for different vanadium oxidation states (V5+ to V0+)",
+      "authors_or_publisher": "Silversmit G., Depla D., Poelman H., Marin G. B., De Gryse R., J. Electron Spectrosc. Relat. Phenom. 135, 167–175",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.elspec.2004.03.004"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS du fer : l'écart de 13,9 eV entre Fe2p3/2 et Fe2p1/2 ne désigne pas Fe3+ (il est ≈ 13,6 eV pour tous les états, calcul « écart spin-orbite Fe2p ») ; c'est la position de Fe2p3/2 et la forme des satellites qui distinguent Fe2+ de Fe3+. Une composante Fe2+ après calcination à 500–700 °C sous air (atmosphère supposée) est chimiquement peu attendue et n'est pas étayée par les satellites.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Analysis of XPS spectra of Fe2+ and Fe3+ ions in oxide materials",
+      "authors_or_publisher": "Yamashita T., Hayes P., Appl. Surf. Sci. 254, 2441–2449",
+      "year": "2008",
+      "url_or_doi": "10.1016/j.apsusc.2007.09.063"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La composante O1s à 531,50 eV attribuée aux lacunes d'oxygène (Oυ) correspond, sur des poudres analysées ex situ, à des hydroxyles et à l'eau adsorbée : une lacune n'émet pas de photoélectron. La « preuve » de lacunes d'oxygène et des « intrinsic defects » mis en avant dans le résumé et la conclusion n'est donc pas discriminante. Par ailleurs, les composantes V–O (529,87 eV) et Fe–O (530,40 eV) séparées de 0,5 eV ne sont pas résolubles de façon fiable.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "On the wrong assignment of the XPS O1s signal at 531–532 eV attributed to oxygen vacancies in photo- and electro-catalysts for water splitting and other materials applications",
+      "authors_or_publisher": "Idriss H., Surface Science 712, 121894",
+      "year": "2021",
+      "url_or_doi": "10.1016/j.susc.2021.121894"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "EDS Fe:V = 1:1,2 sur les trois poudres alors que la DRX (et un affinement de Rietveld, annexe absente) est dite monophasée FeVO4-I : un excès de 20 % de V devrait laisser ≈ 9 % molaire de V sous une autre forme (Fe2V4O13, V2O5) ; soit la phase secondaire est amorphe ou sous le seuil de détection, soit l'écart est l'incertitude de l'EDS. Les auteurs écrivent que l'EDS est « cohérente » avec la XPS, sans quantification XPS.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Phase diagram of the V2O5 - Fe2O3 system (formation de FeVO4 et Fe2V4O13 ; fusion péritectique de FeVO4 et de Fe2V4O13 ; eutectique V2O5–Fe2V4O13) — notice INIS, texte non lu",
+      "authors_or_publisher": "Fotiev A. A., Cheshnitskij S. M., Surat L. L.",
+      "year": "1983",
+      "url_or_doi": "https://inis.iaea.org/records/taqvs-t0s76"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman excité « λ = 520 nm » : longueur d'onde inhabituelle pour un Renishaw (raies courantes 514,5 et 532 nm) ; probablement une coquille, sans conséquence sur l'attribution.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Déshydratation de l'hydrate puis cristallisation de FeVO4-I triclinique ; le départ de l'eau à partir de bâtonnets hydratés laisse une porosité interne (pseudomorphose), d'où des bâtonnets poreux de grains de 15–30 nm (60 m2/g). Les « lacunes d'oxygène » et V4+ ne sont pas démontrés par les spectres montrés.",
+    "sources": [
+     {
+      "title": "Hydrothermally grown porous FeVO4 nanorods and their integration as active material in gas-sensing devices (titre et DOI relevés dans la bibliographie de Anwar et al. 2023 ; texte non lu)",
+      "authors_or_publisher": "Lehnen T., Valldor M., Nižňanský D., Mathur S., J. Mater. Chem. A 2, 1862–1868",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ta12821k"
+     },
+     {
+      "title": "On the wrong assignment of the XPS O1s signal at 531–532 eV attributed to oxygen vacancies in photo- and electro-catalysts for water splitting and other materials applications",
+      "authors_or_publisher": "Idriss H., Surface Science 712, 121894",
+      "year": "2021",
+      "url_or_doi": "10.1016/j.susc.2021.121894"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère de calcination (air statique ou flux) et masse de poudre par nacelle",
+    "isotherme N2 complète et valeur de C BET ; si C < 2, ne pas annoncer de surface BET",
+    "DRX lente pour chercher Fe2V4O13 / V2O5 si l'EDS reste à Fe:V ≈ 1:1,2 ; dosage ICP",
+    "XPS du fer avec satellites et référence de calibration (C1s ou O1s) indiquée"
+   ]
+  },
+  {
+   "label": "FV600",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface géométrique de particules de 290 nm",
+     "inputs": "d = 275–290 nm ; ρ ≈ 3,6 g/cm3 (supposée)",
+     "formula": "S = 6/(ρ d) ; d_eq = 6/(ρ S)",
+     "result": "S ≈ 5,7 m2/g ; 34 m2/g ⇔ d_eq ≈ 49 nm",
+     "compared_to": "particules agrégées de grains plus petits : plausible ; Anwar et al. 2023 obtiennent 32,2 m2/g pour des nanorods de 30–60 nm calcinés à 600 °C",
+     "source": "arithmétique ; Anwar et al. 2023"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "600 °C, 2 h sous air (supposé) : FeVO4-I stable ; frittage modéré attendu.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Phase equilibria relations in the V2O5-rich part of the Fe2O3–TiO2–V2O5 system at 1200 °C … (rappel : FeVO4 synthétisé à 800 °C sous air)",
+      "authors_or_publisher": "Shi J. et al., Int. J. Miner. Metall. Mater.",
+      "year": "2024",
+      "url_or_doi": "10.1007/s12613-024-2845-4"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "34 m2/g pour des particules de ≈ 290 nm représente ≈ 6 fois la surface géométrique (calcul « surface géométrique de particules de 290 nm ») ; à comparer à 32,2 m2/g pour des nanorods de 30–60 nm calcinés à la même température dans une autre étude : la surface annoncée est haute pour la taille annoncée, plausible seulement si les « nanoparticules polygonales » sont des agrégats poreux. Même réserve qu'en FV500 sur l'usage de BET pour une isotherme de type III.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and Characterization of Ferric Vanadate Nanorods for Efficient Electrochemical Detection of Ascorbic Acid (pH ajusté à 8 par NaOH, PVP, 200 °C 24 h, calcination 600 °C 3 h ; nanorods 30–60 nm ; BET 32,2 m2/g)",
+      "authors_or_publisher": "Anwar N. et al., ACS Omega 8(17), 15450",
+      "year": "2023",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10157664"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérences internes de taille et de distribution : 275, 290 puis 287 nm selon le paragraphe ; distribution « narrow » pour FV500 et FV600 dans la section 3.3, puis FV600 et FV700 « having broad size distributions » quelques lignes plus loin.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Frittage et croissance des grains de FeVO4-I : la porosité des bâtonnets se referme et les bâtonnets se fragmentent en particules polygonales agrégées.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "même lot de précurseur que FV500 et FV700 (non dit)",
+    "isotherme et constante C BET"
+   ]
+  },
+  {
+   "label": "FV700",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface géométrique de microparticules de 5 µm",
+     "inputs": "d = 5,0 µm ; ρ ≈ 3,6 g/cm3 (supposée)",
+     "formula": "S = 6/(ρ d) ; d_eq = 6/(ρ S)",
+     "result": "S ≈ 0,33 m2/g ; 25 m2/g ⇔ d_eq ≈ 67 nm, soit 75 fois la surface géométrique",
+     "compared_to": "« multi-face polygonal microparticles » denses et « non poreuses » : incompatible",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fraction tassée",
+     "inputs": "densité tassée 1,1 g/mL ; ρ ≈ 3,6 g/cm3",
+     "formula": "ρ_tap / ρ",
+     "result": "≈ 31 %",
+     "compared_to": "plausible pour une poudre micrométrique",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "25 m2/g pour des microparticules facettées de 5 µm dites non poreuses est 75 fois la surface géométrique (calcul « surface géométrique de microparticules de 5 µm ») ; il faudrait des grains de ≈ 67 nm ou une forte porosité interne, que ni le MEB ni l'isotherme « non poreuse » ne montrent. Les surfaces BET de FV600 et FV700 ne sont pas compatibles avec les tailles annoncées.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La taille de cristallite ne passe que de 14 à 16 nm de 500 à 700 °C alors que les particules passent de 115 nm à 5 µm, deviennent « multi-face polygonal » et que la cristallinité est dite croître (FV700 > FV600 > FV500) : des microparticules facettées de 5 µm faites de cristallites de 16 nm (SAED polycristallin) sont possibles mais inhabituelles ; un élargissement de raie dû aux contraintes ou à l'instrument mal soustrait est l'explication la plus simple. Tableau 1 absent : impossible de recalculer Scherrer.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "700 °C est juste au-dessus du point de fusion de V2O5 (690 °C). Si l'excès de V vu en EDS (Fe:V 1:1,2) existe sous forme de V2O5 ou de phase riche en V (diagramme Fe2O3–V2O5 : FeVO4, Fe2V4O13 et un eutectique V2O5–Fe2V4O13), un liquide peut apparaître et expliquer la croissance brutale de 290 nm à 5 µm (frittage en phase liquide). FeVO4 lui-même reste stable à 700 °C sous air.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Phase diagram of the V2O5 - Fe2O3 system (formation de FeVO4 et Fe2V4O13 ; fusion péritectique de FeVO4 et de Fe2V4O13 ; eutectique V2O5–Fe2V4O13) — notice INIS, texte non lu",
+      "authors_or_publisher": "Fotiev A. A., Cheshnitskij S. M., Surat L. L.",
+      "year": "1983",
+      "url_or_doi": "https://inis.iaea.org/records/taqvs-t0s76"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Croissance rapide des grains de FeVO4 entre 600 et 700 °C, probablement aidée par une phase liquide riche en V (V2O5 fond à 690 °C) si l'excès de vanadium est réel ; ce n'est pas un mûrissement d'Ostwald (terme des auteurs) mais un frittage.",
+    "sources": [
+     {
+      "title": "Phase diagram of the V2O5 - Fe2O3 system (formation de FeVO4 et Fe2V4O13 ; fusion péritectique de FeVO4 et de Fe2V4O13 ; eutectique V2O5–Fe2V4O13) — notice INIS, texte non lu",
+      "authors_or_publisher": "Fotiev A. A., Cheshnitskij S. M., Surat L. L.",
+      "year": "1983",
+      "url_or_doi": "https://inis.iaea.org/records/taqvs-t0s76"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ATD/ATG de FV600 jusqu'à 750 °C pour voir un pic de fusion vers 650–690 °C",
+    "MEB en coupe et isotherme complète pour expliquer 25 m2/g"
+   ]
+  },
+  {
+   "label": "PVDF_binder_solution",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de PVDF pour 5 % en masse dans 20 mL de NMP",
+     "inputs": "20 mL de NMP ; masse volumique ≈ 1,03 g/mL (valeur de manuel, non relue) ; 5 % en masse",
+     "formula": "m = 0,05/0,95 × V × ρ",
+     "result": "≈ 1,08 g de PVDF",
+     "compared_to": "l'article écrit « stoichiometric amount » : terme sans objet pour une solution de polymère",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "PVDF à 5 % en masse dans le NMP, 24 h d'agitation à température ambiante en flacon fermé : concentration et solvant habituels pour un liant d'électrode ; la dissolution est souvent accélérée vers 50–60 °C, mais 24 h à température ambiante suffit en général.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "« Stoichiometric amount of PVDF » : aucune stœchiométrie n'intervient dans une solution de polymère ; la masse à peser (≈ 1,08 g pour 20 mL, calcul « masse de PVDF ») n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NMP : reprotoxique (Repr. 1B selon la classification CLP harmonisée), à manipuler sous hotte avec des gants adaptés ; non mentionné par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Simple dissolution du polymère ; pas de mécanisme de formation à discuter.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "peser 1,08 g de PVDF pour 20 mL de NMP (≈ 20,6 g)",
+    "grade et masse molaire du PVDF"
+   ]
+  },
+  {
+   "label": "FV500_PAA",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "capacité théorique de FeVO4",
+     "inputs": "M(FeVO4) = 55,845 + 50,942 + 4 × 15,999 = 170,78 g/mol (masses atomiques IUPAC) ; 8 électrons (Fe3+→Fe0 : 3 ; V5+→V0 : 5)",
+     "formula": "8 × F/(3,6 × M)",
+     "result": "1255,5 mAh/g (capacité pour 1 Li par FeVO4 = F/(3,6 × M) = 96 485/(3,6 × 170,78) = 156,93 mAh/g)",
+     "compared_to": "valeur des auteurs ~1255,5 mAh/g : exacte pour 8 e−, mais leur équation (1) ne décrit pas une réduction à 8 e−",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Li insérés à la première décharge, FV500_PAA",
+     "inputs": "1046,23 mAh/g ; 156,93 mAh/g par Li",
+     "formula": "Q / q1",
+     "result": "6,67 Li par FeVO4",
+     "compared_to": "auteurs : 6,66 — conforme",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendements coulombiques initiaux (PAA et PVDF)",
+     "inputs": "1046,23/771,69 ; 730,70/455,99 ; 686,85/367,53 ; 1016,62/661,84 ; 737,40/488,45 ; 1080,63/945,17 mAh/g",
+     "formula": "Q_charge / Q_décharge",
+     "result": "73,76 ; 62,40 ; 53,51 ; 65,10 ; 66,24 ; 87,46 %",
+     "compared_to": "valeurs annoncées 73,75 ; 62,40 ; 53,50 ; 65,10 ; 66,23 ; 87,46 % — conformes ; le couple du résumé 1051,21/661,849 donnerait 62,96 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "bilan de l'équation (1)",
+     "inputs": "FeVO4 + x Li+ + x e− → Fe° + LixV2O5 + Li2O",
+     "formula": "conservation de V et de O",
+     "result": "1 V à gauche, 2 V à droite ; 4 O à gauche, 6 O à droite",
+     "compared_to": "équation équilibrée possible : 2 FeVO4 + (6 + x) Li → 2 Fe + LixV2O5 + 3 Li2O",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse volumique de l'enduction",
+     "inputs": "0,91–1,3 mg/cm2 de matière active (60 % de l'enduction) ; épaisseur 26–32 µm",
+     "formula": "(m_active/0,6) / épaisseur",
+     "result": "≈ 0,47 à 0,83 g/cm3",
+     "compared_to": "électrode peu dense mais plausible ; l'unité « mg/cm » de l'article est sans doute mg/cm2",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Équation (1) déséquilibrée en V et en O (calcul « bilan de l'équation (1) ») et sans les 3 électrons de Fe3+ → Fe0 ; la version équilibrée demande 2 FeVO4 et 6 + x Li. L'affirmation que LixV2O5 et Fe° « se retransforment en FeVO4 » à la charge n'est pas montrée (les réactions de conversion donnent en général un produit amorphe ou nanocomposite, pas la phase de départ).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le liant est décrit comme « 35 weight % PAA in ethanol » acheté chez Sigma-Aldrich ; les solutions de PAA à 35 % en masse vendues par Sigma-Aldrich sont dans l'eau (références 523925 et 416002, « 35 wt. % in H2O »). Le solvant de l'encre est donc probablement l'eau : à corriger avant de refaire l'électrode (séchage, mouillage du collecteur).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Poly(acrylic acid) solution, average Mw ~100,000, 35 wt. % in H2O (réf. 523925) ; idem Mw ~250,000, 35 wt. % in H2O (réf. 416002) — fiches fournisseur",
+      "authors_or_publisher": "Sigma-Aldrich (Merck)",
+      "year": "2026 (consulté)",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/523925"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Rapport 60:20:20 sans dire s'il porte sur la solution de liant ou sur le polymère sec : compté en solution, le PAA sec ne représenterait que 7 % (20 × 0,35) de l'électrode et le PVDF 1 % (20 × 0,05). Collecteur de courant, méthode d'enduction et diamètre des disques absents.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Première décharge 1046 mAh/g < capacité théorique 1255 mAh/g (calcul « capacité théorique ») : ordre de grandeur habituel des anodes de conversion, la part irréversible (SEI) comprise. Les « 6,66 moles of lithium intercalated » comptent aussi la SEI : ce n'est pas une intercalation. Rétentions de 131 à 186 % sans cycle de référence défini.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "LiPF6 dans EC/DEC et Li métal en boîte à gants : précaution écrite. LiPF6 hydrolysé donne HF (les auteurs écrivent la réaction) : éliminer les piles comme déchets dangereux.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Première décharge : insertion de Li puis conversion de FeVO4 en Fe0 nanométrique et en oxyde de vanadium lithié réduit dans une matrice Li2O, avec formation de la SEI vers 0,8–0,5 V ; la capacité qui croît au fil des cycles relève de l'activation de la matrice et du gel polymère de surface. L'équation (1) doit être réécrite équilibrée (2 FeVO4 + (6 + x) Li → 2 Fe + LixV2O5 + 3 Li2O).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "solvant réel du PAA (eau, d'après le fournisseur)",
+    "base du rapport 60:20:20 (polymère sec ou solution)",
+    "collecteur (Cu ?), enduction, diamètre, masse par électrode",
+    "cycle de référence de la rétention"
+   ]
+  },
+  {
+   "label": "FV600_PAA",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Li insérés à la première décharge, FV600_PAA",
+     "inputs": "730.7 mAh/g ; 156,93 mAh/g par Li (voir FV500_PAA)",
+     "formula": "Q / q1",
+     "result": "4.66 Li par FeVO4",
+     "compared_to": "auteurs : 4,29 (écart 0,37 Li, soit ≈ 58 mAh/g)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le nombre de Li annoncé (4,29) ne correspond pas à la capacité annoncée (730,70 mAh/g → 4,66 Li, calcul « Li insérés … FV600_PAA ») : l'une des deux valeurs est fausse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même conversion que FV500_PAA ; capacité plus faible attribuable à des particules plus grosses et moins de surface.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "capacité réelle de première décharge (figure 6a)"
+   ]
+  },
+  {
+   "label": "FV700_PAA",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Li insérés à la première décharge, FV700_PAA",
+     "inputs": "686.85 mAh/g ; 156,93 mAh/g par Li (voir FV500_PAA)",
+     "formula": "Q / q1",
+     "result": "4.38 Li par FeVO4",
+     "compared_to": "auteurs : 4,37 — conforme",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La capacité supplémentaire sous 0,1 V est attribuée à FV700_PVDF dans un paragraphe et à FV700_PAA dans le suivant, avec la même explication (décomposition de l'électrolyte et du gel polymère) ; FV700_PAA a pourtant le rendement initial le plus bas (53,5 %), ce qui va dans le sens d'une consommation irréversible, contrairement à FV700_PVDF.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Conversion limitée par la taille micrométrique (diffusion du Li sur ≈ 2,5 µm) ; forte part irréversible.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "profil de décharge sous 0,1 V des deux électrodes FV700"
+   ]
+  },
+  {
+   "label": "FV500_PVDF",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Li insérés à la première décharge, FV500_PVDF",
+     "inputs": "1016.62 mAh/g ; 156,93 mAh/g par Li (voir FV500_PAA)",
+     "formula": "Q / q1",
+     "result": "6.48 Li par FeVO4",
+     "compared_to": "auteurs : 6,69 (écart 0,21 Li) ; 6,69 correspond en fait à 1051,21 mAh/g, valeur du résumé (6,70 Li)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "liant sec dans l'électrode selon la base du rapport",
+     "inputs": "rapport 60:20:20 ; PAA 35 % en masse ; PVDF 5 % en masse",
+     "formula": "20 × fraction de polymère",
+     "result": "PAA : 20 % (sec) ou 7 % (solution) ; PVDF : 20 % (sec) ou 1 % (solution)",
+     "compared_to": "comparaison des liants valable seulement si le rapport porte sur le polymère sec",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Deux capacités de première décharge pour la même électrode : 1051,21 mAh/g (résumé) et 1016,62 mAh/g (section 3.5) ; le nombre de Li annoncé (6,69) suit la valeur du résumé, le rendement coulombique (65,10 %) suit celle de la section 3.5 (calcul « Li insérés … FV500_PVDF »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le témoin « PVDF au lieu de PAA » change plusieurs variables à la fois : polymère, solvant (NMP contre eau ou éthanol), concentration de la solution de liant (5 contre 35 %), donc peut-être la teneur en liant sec (1 à 20 %, calcul « liant sec ») et la porosité de l'électrode. Attribuer la différence de rétention au fluor du PVDF (HF, LiF, PF5) n'est pas démontré : il faudrait des électrodes à même teneur en polymère sec, même masse et même densité, et une analyse de surface (XPS F1s) après cyclage. Le PVDF n'est par ailleurs pas une source notable de HF comparée à LiPF6 en présence de traces d'eau.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même conversion que FV500_PAA ; la perte plus rapide avec le PVDF s'explique d'abord par la faible tenue mécanique du PVDF face aux variations de volume des anodes de conversion, l'effet « fluor » restant une hypothèse non testée.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en polymère sec identique pour les deux liants",
+    "valeur réelle de la première décharge (1016,62 ou 1051,21 mAh/g)"
+   ]
+  },
+  {
+   "label": "FV600_PVDF",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Li insérés à la première décharge, FV600_PVDF",
+     "inputs": "737.4 mAh/g ; 156,93 mAh/g par Li (voir FV500_PAA)",
+     "formula": "Q / q1",
+     "result": "4.70 Li par FeVO4",
+     "compared_to": "auteurs : 4,88 (écart 0,18 Li)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Nombre de Li annoncé (4,88) incompatible avec la capacité annoncée (737,40 mAh/g → 4,70 Li, calcul « Li insérés … FV600_PVDF »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même conversion que FV500_PVDF.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "capacité réelle de première décharge (figure 6b)"
+   ]
+  },
+  {
+   "label": "FV700_PVDF",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Li insérés à la première décharge, FV700_PVDF",
+     "inputs": "1080.63 mAh/g ; 156,93 mAh/g par Li (voir FV500_PAA)",
+     "formula": "Q / q1",
+     "result": "6.89 Li par FeVO4",
+     "compared_to": "auteurs : 7,69 (écart 0,80 Li, ≈ 126 mAh/g)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Nombre de Li annoncé (7,69) incompatible avec la capacité annoncée (1080,63 mAh/g → 6,89 Li, calcul « Li insérés … FV700_PVDF ») ; 7,69 Li reviendraient à 1207 mAh/g, presque la capacité théorique pour des microparticules de 5 µm.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs expliquent la capacité supplémentaire sous 0,1 V par la décomposition de l'électrolyte et du gel polymère, réactions irréversibles qui abaissent le rendement coulombique ; or cette électrode a le rendement initial le plus élevé des six (87,46 %, recalculé exact) et la meilleure capacité de première décharge, à l'inverse de toute la tendance taille/surface. L'explication contredit la donnée : soit la masse active de cette électrode est fausse, soit la capacité vient d'un autre processus réversible (stockage interfacial dans Li2O/Fe, gel réversible).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Aucun mécanisme cohérent n'est proposé ; une erreur de masse active (charge massique donnée seulement en plage 0,91–1,3 mg/cm2) ou un stockage interfacial réversible sont les hypothèses à tester.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masse active exacte de l'électrode et répétition sur au moins deux piles",
+    "rétention de 38,8 % à rapprocher de cette capacité initiale élevée"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Voie de synthèse simple et réalisable (précipitation FeCl3 + NH4VO3 1:1, autoclave 180 °C rempli à 40 %, calcinations 500–700 °C), mais l'intermédiaire « FeVO4·nH2O » n'est pas identifié dans le texte (DRX en annexe absente), le pH non réglé est très acide (≈ 0,7 calculé) et l'EDS donne un excès de V de 20 %. Le mécanisme des auteurs emploie des mots faux (« disproportionation », « hydrolysis », Ostwald par « activation energies »). Les caractérisations ne prouvent pas ce qui est affirmé : BET calculé sur des isothermes de type III avec C < 1, surfaces de FV600/FV700 incompatibles avec les tailles annoncées (×6 et ×75 la surface géométrique), V4+ et V5+ séparés de 0,29 eV seulement, lacunes d'oxygène déduites du pic O1s à 531,5 eV. Côté électrochimie : équation (1) déséquilibrée, quatre nombres de Li sur six qui ne suivent pas les capacités annoncées, deux valeurs de première décharge pour FV500_PVDF, liant PAA dit « dans l'éthanol » alors que le produit Sigma-Aldrich est en solution aqueuse, comparaison PAA/PVDF qui change plusieurs variables, et anomalie FV700_PVDF expliquée par une réaction irréversible malgré le meilleur rendement coulombique.",
+  "author_errors_suspected": [
+   "équation (1) déséquilibrée en V et en O (FeVO4 → Fe + LixV2O5 + Li2O)",
+   "nombres de Li insérés incompatibles avec les capacités : FV600_PAA 4,29 (calculé 4,66), FV500_PVDF 6,69 (calculé 6,48 ; 6,70 avec la valeur du résumé), FV600_PVDF 4,88 (calculé 4,70), FV700_PVDF 7,69 (calculé 6,89)",
+   "première décharge de FV500_PVDF : 1051,21 mAh/g (résumé) contre 1016,62 mAh/g (section 3.5)",
+   "PAA à 35 % en masse décrit « dans l'éthanol » ; le produit Sigma-Aldrich de cette concentration est en solution aqueuse",
+   "surface BET calculée à partir d'isothermes de type III avec C < 1 (méthode non applicable), isothermes dites « non poreuses » pour des « porous nanorods », pores interparticulaires appelés intraparticulaires",
+   "déconvolution V2p non physique (V4+ et V5+ à 0,29 eV l'un de l'autre, écarts spin-orbite différents) ; écart spin-orbite Fe2p présenté comme preuve de Fe3+ ; pic O1s 531,5 eV attribué aux lacunes d'oxygène",
+   "« disproportionation reaction » pour une précipitation sans redox ; mûrissement d'Ostwald invoqué pour la calcination",
+   "FV700_PVDF : capacité supplémentaire attribuée à la décomposition irréversible de l'électrolyte alors que le rendement coulombique est le plus élevé ; même explication attribuée aussi à FV700_PAA",
+   "section 3.3 : la hausse de la température de calcination « can enhance the specific capacity », à l'opposé des résultats et de la conclusion"
+  ],
+  "comparison_with_database": "Aucune autre publication de la base sur FeVO4 ou les vanadates de fer (compare.py « FeVO4 » et « vanadate » ne renvoient que PMC9866506). Comparaison externe : Anwar et al. 2023 (PMC10157664) règlent le pH à 8 (NaOH), ajoutent PVP et Triton X-100, traitent 24 h à 200 °C et calcinent 3 h à 600 °C, pour des nanorods de 30–60 nm à 32,2 m2/g : la surface de FV600 (34 m2/g pour ≈ 290 nm) et surtout celle de FV700 (25 m2/g pour 5 µm) sont hautes pour leurs tailles."
+ },
+ "sources_not_found": [
+  "masse volumique théorique de FeVO4-I (paramètres de maille COD/ICDD 071-1592) non relue dans une source vérifiée : 3,6 g/cm3 est une hypothèse d'ordre de grandeur ; les conclusions sur les surfaces tiennent pour ±15 %",
+  "température de fusion péritectique de FeVO4 et de l'eutectique V2O5–Fe2V4O13 : seule la notice INIS de Fotiev et al. 1983 a été trouvée, sans les valeurs",
+  "aucune étude trouvée sur le produit hydrothermal de FeCl3 + NH4VO3 1:1 sans réglage du pH (nature exacte de la phase à pH ≈ 1)",
+  "positions de référence Fe2p3/2 de Fe2+ et Fe3+ dans Yamashita & Hayes 2008 non relues dans le texte (seul le résumé a été vu)",
+  "point de fusion de V2O5 (690 °C) pris dans une page de synthèse ScienceDirect Topics, non relu sur PubChem ou NIST",
+  "Crossref injoignable depuis le cloud (proxy) : les DOI 10.1016/j.susc.2021.121894, 10.1016/j.elspec.2004.03.004, 10.1016/j.apsusc.2007.09.063, 10.1007/s12613-024-2845-4 et 10.1039/c3ta12821k n'ont pas été vérifiés par references/verif_doi.py (les quatre premiers ont été vus sur doi.org, INIS/ADS, UQ eSpace ou l'URL de l'éditeur ; le dernier seulement dans une bibliographie) ; rien n'a été ajouté à fondateurs.md ni à constantes.md"
+ ]
+}

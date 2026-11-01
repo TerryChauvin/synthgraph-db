@@ -1,0 +1,97 @@
+{
+ "pmcid": "PMC8838941",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "AC-Cr and AC-Pb step 1 (pH = 5) and step 2 (temperature = 25 °C)",
+   "extracted": "pH 5 et 25 °C présentés comme paramètres de ces deux échantillons (citation de la section 2.6)",
+   "article_says": "Then, the heavy metal solution was mixed with AC with an adsorbent dosage of 7 g·L−1 in a crystallizing dish with continuous magnetic stirring at 25 °C.",
+   "fix": "la note de bas de Table 1 ne donne que 100 mg/L, 7 g·L−1 et 12 h ; pH 5 et 25 °C viennent du protocole général de 2.6 : les garder avec une mention explicite d'héritage du protocole général, ou les passer en annotation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "CQDs/TiO2-4 (branche sans étapes propres : hérite des étapes et des quantités de CQDs/TiO2)",
+   "extracted": "branche fille de CQDs/TiO2, seule variation carbon_content = 4.96 wt%, étapes et réactifs hérités (200 mL de solution de CQDs, 2.5 g de TiO2)",
+   "article_says": "the degradation rate of the CQDS/TiO2 sample with a carbon content of 4.96 wt% (CQDS/TiO2–4) showed a degradation rate of 93.3% within 80 min",
+   "fix": "l'article ne dit pas comment CQDs/TiO2-4 est préparé (Table S2, Fig. S7 absentes) : la teneur en carbone plus faible vient très probablement d'un autre rapport CQDs/TiO2, donc l'héritage des 200 mL / 2.5 g est une supposition ; le signaler (annotation ou doute) plutôt que laisser croire à une variation à un seul paramètre",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "CQDs/TiO2 outcomes : témoin TiO2 pur",
+   "extracted": "bande interdite et PZC du composite seuls (1.55 eV ; 6.77) ; ceux du TiO2 pur ne sont pas extraits alors que les autres valeurs du témoin le sont (…_pure_TiO2_…)",
+   "article_says": "The band gap of the pure TiO2 photocatalyst was about 3.07 eV.",
+   "fix": "ajouter band_gap_pure_TiO2 = 3.07 eV et point_of_zero_charge_pure_TiO2 = 6.03 (« the point of zero charge (PZC) value of CQDs/TiO2 composite (6.77) is higher than that of pure TiO2 (6.03, see Figure 7h) »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "AC characterizations « adsorption test Pb(II) and Cr(VI) » conditions",
+   "extracted": "pH 5, 7 g·L−1, 25 °C, 20–100 mg·L−1 (isothermes), 25 mg/L (cinétique)",
+   "article_says": "the concentration of Cr(VI) or Pb(II) was tested with diphenylcarbazide spectrophotometry or dithizone spectrophotometry, respectively",
+   "fix": "ajouter aux conditions : méthode de dosage (diphénylcarbazide pour Cr(VI), dithizone pour Pb(II)), temps de contact 12 h pour les isothermes (« The adsorption equilibrium was established within 12 h for both Cr(VI) or Pb(II) adsorption »), 10 à 120 min pour la cinétique, cristallisoir et agitation magnétique continue, centrifugation avant dosage",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "AC results : bet_surface_area, average_pore_size vs Table 1",
+   "extracted": "AC : 1250.4 m2·g−1 et 2.48 nm (texte) ; AC-Cr et AC-Pb : average_pore_width et valeurs de Table 1 à quatre décimales",
+   "article_says": "AC | 84.17 | 1.21 | 1.30 | 1250.35 | 0.4053 | 2.4773 | 5.83",
+   "fix": "ajouter pour AC la valeur de Table 1 (1250.35 m2·g−1, 2.4773 nm) sous le nom average_pore_width, comme pour AC-Cr/AC-Pb, pour que les trois lignes soient comparables (propriété actuellement nommée average_pore_size pour AC seul)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "AC-Cr / AC-Pb characterizations (Fig. 4)",
+   "extracted": "AC-Cr : élémentaire, XRD, IR ; AC-Pb : élémentaire, SEM-EDX, IR (asymétrique)",
+   "article_says": "(a,b) The SEM image and heavy metal distribution image of the AC sample after Cr(VI) (a) and Pb(II) (b) adsorption; (c) the PXRD patterns of AC before and after Cr(VI) and Pb(II) adsorption",
+   "fix": "ajouter SEM-EDX (Fig. 4a) à AC-Cr, XRD (décalage vers les petits angles, Fig. 4c) à AC-Pb, et le décalage vers le rouge de C–O à 1039 cm−1 à AC-Pb",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "CQDs/TiO2 route : étape préalable de dialyse non réalisée",
+   "extracted": "réactif « CQDs solution » 200 mL, « directly mixed » ; la phrase sur la dialyse n'apparaît nulle part dans l'extraction",
+   "article_says": "However, for the synthesis of CQDs/TiO2 composite, dialyzation was not a necessary step.",
+   "fix": "écrire explicitement (étape, note ou annotation limite) que la solution de CQDs filtrée mais non dialysée est utilisée pour le composite ; sinon un chimiste suivant la voie CQDs → dialyse → composite se trompe",
+   "confidence": "probable"
+  },
+  {
+   "severity": "faux",
+   "where": "method_sources : B43 et B44 (voie HTC powder, rôle « autre »)",
+   "extracted": "B43-nanomaterials-12-00472 et B44-nanomaterials-12-00472 comme sources de la voie HTC powder",
+   "article_says": "In our previous works, we treated WRN by a hydrothermal method to obtain carbon spheres and CQDs",
+   "fix": "renvoi de contexte (travaux antérieurs sur des composites PLA) : la procédure hydrothermale est entièrement décrite en 2.2 ; retirer ces deux entrées (règle du 2026-10-13 : ni renvoi de contexte ni interprétation) ou les garder en rôle « contexte » si le schéma l'autorise. B45 (PZC « carried out as follows ») est correct ; B46, B47, B48 (modèles Langmuir/Freundlich, cinétiques, Langmuir–Hinshelwood) sont bien exclus",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CQDs solution route : not_stated « yield »",
+   "extracted": "yield déclaré non cité ; scale « about 200 mL per 100 g WRN »",
+   "article_says": "For 100 g of WRN, 13.7 g hydrothermal carbon powder and about 200 mL CQDs solution could be obtained.",
+   "fix": "le volume obtenu (about 200 mL pour 100 g de WRN) est cité : le mettre en yield et retirer « yield » de not_stated ; le point « concentration de la solution en carbone » reste non cité",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 8,
+  "not_stated_checked": 75,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "Table S1 (conditions testées pour l'AC « optimisée ») et Table S2 / Fig. S7 (série CQDs/TiO2-1 à -n, définition de CQDs/TiO2-4) : annexes absentes, aucun texte « Supporting Information » dans le corpus",
+  "WRN : teneur en eau/masse humide non donnée (seuls amidon 21.36, protéines 1.91, lipides 0.4 g/100 g), variabilité d'un lot de cantine",
+  "autoclave : taux de remplissage, vitesse de chauffe et refroidissement, pression ; séparation, lavage et séchage du solide HTC non décrits",
+  "solution de CQDs : concentration en carbone, seuil de coupure de la membrane de dialyse, milieu et volume de dialyse, type de filtre",
+  "activation : vitesse de chauffe, débit d'azote, atmosphère de séchage, durée d'agitation de la pâte, volume des lavages",
+  "composite : mode de mesure de la teneur en carbone (15.24 %), vitesse/durée de centrifugation, récipient de l'étape à 85 °C",
+  "essais de photocatalyse : pas de temps d'équilibre d'adsorption à l'obscurité, pH, distance lampe-solution, puissance de la lampe xénon, ouverture du réacteur",
+  "adsorption : volume de solution, vitesse d'agitation, récupération et séchage de l'AC chargé avant caractérisation",
+  "préparation des électrodes de la mesure de photocourant non décrite"
+ ],
+ "mechanism_check": "ok (mecanisme_auteurs reste une hypothèse hedgée des auteurs « might be due to » ; analyses de l'extracteur étiquetées comme telles ; rapport KOH/HTC 27.4/13.7 = 2:1 correct)",
+ "notes": "Valeurs de Table 1, 3, 5, 6, 7 et du texte (rendements 13.7 g / 31.6 % / 4.3 g / 2.9 g, 15.24 %, 0.0583 mmol/g = 12.08 mg/g, 0.180 mmol/g = 9.36 mg/g) toutes contrôlées, 0 erreur. Les 9 valeurs from_figure de la Fig. 9 relues sur l'image : 77, 56, 91, 38, 68, 98, 77, 90, 7 % tous à moins de 2 points de ma lecture (écart nettement < 10 %). Rhodamine B à 30 min : courbe vers 97 %, texte 99 % (valeur du texte retenue : correct). Fig. 8a/c et Fig. 10 relues : cohérentes avec le texte ; la légende de Fig. 10 (c = PL, d = photocourant) correspond à l'image, c'est le texte qui permute, l'extracteur l'a bien vu. Fragile : sur Fig. 10d le photocourant du composite (≈1,2–1,7 µA/cm²) face au TiO2 (≈0,05) donne plutôt un facteur ≈ 30 que « more than 60 times » ; la valeur est bien celle du texte, pas un constat. Le texte imprime « 8 × 104 LUX » (exposant perdu à l'extraction du XML) : la citation reprise est littérale, l'illuminance réelle est probablement 8 × 10^4 lux. « 10 °C/s » de la BET est déjà en doute côté extracteur. Non extraits mais sans enjeu de synthèse : HTC se décompose au-dessus de 400 °C (Fig. S3) et application des CQDs à la détection de Fe3+ (Fig. S1), toutes deux renvoyées aux annexes absentes."
+}

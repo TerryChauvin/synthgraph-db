@@ -1,0 +1,18 @@
+# PMC8307816 — critique scientifique (journal de décisions)
+
+- Quantités : 5,06 g de dimère de Ga (M = 403,91) → 25,06 mmol Ga ; 5,61 g de Ti(NMe2)4 (M = 224,18) → 25,03 mmol Ti ; Ga/Ti = 1,001. Les mmol annoncées sont justes. NH3 liquide 60 mL ≈ 2,40 mol pour 0,175 mol de NMe2 (≈ 14 fois) : « excès » justifié.
+- Rendement : 3,65 g de nitrures au maximum ; « ca. 1.5 g » par produit n'est cohérent (82 %) que si le lot d'imide a été partagé entre 800 et 950 °C. Noté en calcul, pas en problème.
+- Équations de désamination des auteurs vérifiées atome par atome et en électrons (Ti(IV) → Ti(III), N imide → N2) : justes.
+- Densité théorique 5,73 g/cm3 recalculée avec les volumes molaires (5,727) ; les % du tableau 3 se retrouvent tous. La densité de TiN prise (5,24) est sous la densité cristallographique à a = 4,24 Å (5,39) : écart d'environ 1 point seulement, laissé en réserve.
+- Problème 1 : c = 4,20 Å (tableau 2, Composite_800_sint_1000) donne c/a = 1,31, impossible pour une wurtzite. Coquille déjà signalée par l'extracteur ; classée `probleme` parce que la valeur est physiquement impossible.
+- Problème 2 : le texte compare 10 nm (TiN du composite à 1200 °C) à 13 nm (TiN pur) pour dire que la croissance de TiN est freinée ; le tableau 2 donne 13 nm, et à 650 °C le composite (10 nm) dépasse le TiN pur (8 nm). La conclusion « restrained » n'est pas soutenue. Classé `probleme` (erreur des auteurs qui change une conclusion).
+- Problème 3 : la baisse de dureté de Composite_950_sint_1200 est attribuée à du Ga métallique vu au MEB, alors que la fig. 4 (série 950) dit qu'aucun Ga n'est vu et que le Ga n'est observé que dans Composite_800_sint_1200, dont la dureté monte. Contrôle n° 6 (cohérence entre sections).
+- Décomposition de GaN à 1200 °C sous 7,7 GPa : d'après Utsumi 2003 et Karpinski 1984, une pression de N2 de quelques GPa stabilise GaN bien au-delà de 1200 °C. J'ai donc proposé une autre voie : transfert d'azote de GaN vers TiNx sous-stœchiométrique (Raman : x < 1), appuyé sur la réaction Ti/GaN des contacts (Lu et al. 2003, TiN et Ti2GaN dès 700 °C). Gardé en `reserve` et mécanisme `a_revoir`, sans preuve directe dans l'article.
+- Absence de c-GaN dans les composites : Bragg recalculé ; seule c-GaN (200) à 40,0° est discriminante, à 2,6° de TiN (200), avec des largeurs de 0,8 à 1,7° à 5–10 nm. Réserve (contrôle n° 7), pas problème : la raie reste séparable si la fraction est importante.
+- « (50) mol.% » identiques partout et entre parenthèses : je les lis comme des fractions fixées, non affinées ; réserve.
+- Densités hélium à 74–81 % mesurées sur pastilles broyées : la porosité fermée n'est pas distinguée d'une contamination O/C/H de nanopoudres passées à l'air. Réserve.
+- « Écrasement » des cristallites à 650 °C : Scherrer ne sépare pas taille et microdéformation ; réserve. Dav = 160 nm : élargissement attendu ≈ 0,05°, de l'ordre de la largeur instrumentale, donc borne inférieure.
+- TiN à 1100 °C (section 3.1) contre 1000 °C ailleurs : 1100 °C est la température de l'article TiN–AlN des mêmes auteurs (PMC7865222, lu), probable reprise de texte.
+- Recherches web : 6 (Utsumi, contacts Ti/GaN, Janik/Brown-Maya, équilibre N2/GaN, article TiN–AlN, RMN de Ga2(NMe2)6). La dernière n'a rien donné : le point sur l'attribution des signaux 1H a été abandonné. La couleur « blanche » de l'imide riche en Ti n'a pas été vérifiée, faute de source.
+- Aucune comparaison utile dans la base (compare.py : seulement des couches minces de TiN).
+- DOI non vérifiés sur Crossref (bloqué) : 10.1038/nmat1003, 10.1016/0022-0248(84)90070-8, 10.1021/cm960419h, 10.1111/j.1151-2916.1988.tb05763.x ; titres et années vus dans les résultats de recherche.

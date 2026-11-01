@@ -1,0 +1,79 @@
+{
+  "pmcid": "PMC4973716",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "attribution",
+      "where": "Vaccine_15mgkg reagent 'silver nanoparticles' amount 300 µg (avec 1 mL de virus à l'étape 1)",
+      "extracted": "amount 300 µg d'AgNPs ajoutés à 1 mL de virus inactivé",
+      "article_says": "the concentration of 15 mg/kg (300 µg AgNPs per injection dose) was used for the NIH test.",
+      "fix": "300 µg est la quantité par dose injectée (0,5 mL), pas la quantité mélangée à 1 mL de virus ; les seules quantités de mélange écrites sont 200, 400, 600 et 800 µg par mL. Retirer amount=300 µg du réactif de la voie ou le déclarer non cité (le 600 µg/mL du 15 mg/kg n'est qu'une déduction à garder en doubt), et ne pas l'associer à volume = 1 mL.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Vaccine_5mgkg, Vaccine_10mgkg, Vaccine_20mgkg : quantité d'AgNPs ajoutée",
+      "extracted": "variation en mg/kg seulement (citation = en-tête du tableau 1) ; aucune quantité en µg",
+      "article_says": "Different amounts of AgNPs (200 µg, 400 µg, 600 µg, and 800 µg) were added to 1 mL of inactivated rabies virus",
+      "fix": "ajouter la quantité en µg par mL de virus (200, 400, 800 µg) comme information de la branche, avec un doubt sur la correspondance non écrite 200/400/600/800 µg ↔ 5/10/15/20 mg/kg ; sans cela un chimiste ne voit pas la quantité réellement mélangée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "Vaccine_5mgkg/10mgkg/15mgkg/20mgkg outcomes : titre d'anticorps neutralisants",
+      "extracted": "comptes de souris vivantes/mortes seulement ; le titre n'est pas un résultat de branche (seuls les seuils sont dans la citation)",
+      "article_says": "all the living mice had >3 IU/mL of neutralizing antibody titers while dead ones had <0.375 IU/mL of neutralizing antibodies (Table 1)",
+      "fix": "ajouter un résultat neutralizing_antibody_titer par branche (survivantes ≥3,00 IU/mL, mortes ≤0,38 IU/mL, première colonne du tableau 1), ou une tendance_observee ; la caractérisation RFFIT du 15 mg/kg ne couvre pas les trois autres branches.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "method_sources : renvoi b25 (essai d'innocuité chez le chien)",
+      "extracted": "absent de method_sources",
+      "article_says": "the animals were monitored at least daily for signs of abnormal local and systemic reactions for 14 days after administration.",
+      "fix": "ajouter {route: Vaccine_15mgkg, ref_id: b25-ijn-11-3597, role: autre} : le renvoi suit la phrase qui décrit le protocole de suivi des chiens (Moore et al., événements indésirables après vaccination).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "method_sources : renvoi b26 (mesure de la température des chiens) et b24 (suivi des souris)",
+      "extracted": "absents de method_sources",
+      "article_says": "In addition, the body temperatures were monitored at 0 hour, 4 hours, and 4 days after administration.",
+      "fix": "ajouter b26-ijn-11-3597 (Vaccine_15mgkg, protocole de suivi de température) et, pour la phrase « All the mice were monitored for abnormal reaction, signs of illness, and weight loss for 24 hours after the time of injection », b24-ijn-11-3597 (AgNPs_Eucalyptus, toxicité anormale). Ce sont des renvois de protocole d'essai, pas d'interprétation ; le second emploi de b26 (plage de température normale) est un renvoi de contexte.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Eucalyptus_extract step 3 heat, temperature",
+      "extracted": "temperature = « boiled » (value_text)",
+      "article_says": "boiled in 500 mL deionized water for 2 hours",
+      "fix": "« boiled » décrit un état, pas une température ; la valeur 100 °C n'est pas écrite. Garder le texte mais ajouter un doubt, ou déclarer temperature non citée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "securite_analyse (article entier)",
+      "extracted": "nitrate d'argent, virus, poudre de nanoparticules",
+      "article_says": "AgNPs were resuspended in ethanol (EMD Millipore), dried at 75°C for 120 minutes",
+      "fix": "ajouter le risque d'inflammation des vapeurs d'éthanol lors du séchage à 75 °C (étape 7 d'AgNPs_Eucalyptus) ; les AgNPs séchées dans l'éthanol sont aussi une poudre fine à ne pas inhaler (déjà dit) et l'argent est toxique pour le milieu aquatique (élimination des déchets).",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 4,
+    "branches_extracted": 4,
+    "not_stated_checked": 34,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "durée et température de l'incubation extrait + nitrate d'argent (« until the colorless solution converted into dirty brown color »)",
+    "concentration de l'extrait (matière sèche), volume d'éthanol, température de centrifugation, atmosphère de séchage",
+    "AgNO3 0,01 mM dans 100 mL (1 µmol Ag, ≈ 0,11 mg) incompatible avec 300 µg par dose : le rendement par lot et la quantité d'AgNPs réellement préparée ne sont pas donnés",
+    "préparation renvoyée à une communication de congrès (b17) non accessible",
+    "quantité d'AgNPs réellement mélangée pour chaque groupe : 200–800 µg par mL de virus dans les Méthodes, mg/kg dans les résultats, correspondance non écrite sauf 15 mg/kg = 300 µg par dose",
+    "titre du virus inactivé, quantité d'AgNPs du « double dose » donné aux chiens, vitesse d'agitation",
+    "origine botanique et quantité de feuilles fraîches"
+  ],
+  "mechanism_check": "ok : le mecanisme_auteurs de formation ne reprend que la phrase « extract as reducing agent » (juste) ; le mécanisme d'action adjuvant (piégeage et libération lente de l'antigène) est dit par les auteurs dans la Discussion mais n'a pas d'annotation mecanisme_auteurs, ce n'est pas un mécanisme de formation.",
+  "notes": "Lecture indépendante : 4 groupes de dose (5, 10, 15, 20 mg/kg), contrôles alun/PBS/virus seul, test NIH (référence, alun, AgNPs à 4 dilutions), MTT à 5 concentrations, toxicité souris, innocuité chien. Tous les échantillons sont dans sample_inventory. Table 1 et Table 2 (rangée AgNPs) relues colonne par colonne : valeurs et attributions justes, y compris 5 souris au total pour 10 mg/kg. Figures lues : Fig. 5 (PBS ≈17, alun ≈83, 20 et 15 mg/kg ≈67, 10 mg/kg ≈40, 5 mg/kg ≈33 %, conforme aux comptes), Fig. 8 (AgNP à 10 mg/mL ≈89 %, ≈102–104 % aux quatre autres concentrations : l'extraction écrit 100, écart < 5 %, non retenu), Fig. 9 (moyenne test ≈0,45 g, conforme), Fig. 3 (pic principal vers 90 nm en intensité, pic secondaire vers 10 nm ; non extrait, noté en doubt). Non-constats : b19–b22 (test NIH « gold standard according to… pharmacopeia ») est à la limite d'un renvoi de contexte, rôle « autre » acceptable ; b18 (Reed et Muench) est une formule d'analyse, correctement exclu ; le résultat alun (survie 5/6, potentiel 1,897) n'a pas de voie, conforme à la règle des échantillons commerciaux. Température de l'étape « react » déclarée non citée alors que « stirred gently at RT » précède : choix prudent, pas une erreur."
+}

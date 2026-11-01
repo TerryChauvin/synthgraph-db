@@ -1,0 +1,16 @@
+# Journal d'extraction PMC8703864 (SAPO-34 en nanoplaquettes, synthèse micro-ondes)
+
+- Voie de base = S8 (x = 4,0, y = 2,0, z = 0,6, addition de H3PO4 en 30 min, 453 K, 7 h) : c'est l'échantillon retenu par les auteurs (3,482 mmol/g) et le point d'arrivée des séries en x et en z. Les 16 autres échantillons sont des branches rattachées par la ligne du Tableau 1 qui ne diffère que d'un paramètre.
+- Arbre : S1 à S7 (x) partent de S8 ; S9 et S10 (y) partent de S7, qui ne diffère de S9 et S10 que par y ; S11 et S12 (durée 12 h et 24 h) partent de S10 (« the gel with low P2O5 was used for longer synthesis times ») ; S15 et S17 (z = 0,4 et 0,5) partent de S8 ; S13, S14, S16 (temps d'addition 0, 15, 60 min) partent de S15, car ces trois échantillons ont z = 0,4 comme S15 (Tableau 1, composition 1Al2O3:4.0TEAOH:2.0P2O5:0.4SiO2).
+- Aucune masse de réactif n'est donnée, seulement les rapports molaires du gel et « 22 g gel solution ». Les quantités sont donc en `amount_text` (mol par 1 Al2O3), citées par la ligne de tableau ou la phrase « The gel composition was 1Al2O3:xTEAOH… », et la limite est consignée en annotation.
+- S1 (x = 0) reçoit ses propres étapes sans l'étape 1 « TEAOH + eau, 10 min », qui n'a plus d'objet sans template (règle « branche sans X »). Ce que fait l'article à la place n'est pas dit : doute.
+- S2 (SAPO-5) et S1 (mélange amorphe) en `succeeded: false` car le matériau visé est le SAPO-34 ; S10 (amorphe + SAPO-34) aussi (phase impure d'après le Tableau 2). S11 et S12 sont des SAPO-34 purs d'après le Tableau 2.
+- Tableau 2 : une ligne par échantillon, attribuée par son nom (S1…S17) ; tailles « - » (S1, S10) non extraites. Taille de S2 (3,91 µm) reprise aussi du texte avec la mention DLS.
+- Tableau 3 (« Cubic » / « Nanoplates ») sans nom d'échantillon : rattaché à S13 et S15 par la légende de la Fig. 8 et le texte (« cubic (S13) and nanoplates (S15) »).
+- Tableau 4 : colonnes A et B non définies ; conservées sous ce nom. S7 et S15 ont les mêmes T1 et T2 : valeurs gardées, doute noté.
+- Tableau 5 « Our study » = S8 ramené à 0,5 Al2O3 (identification par la composition et par Si/Al 0,35, 3,48 mmol/g), mais taille 0,2 µm contre 0,13 µm du Tableau 2 : non utilisé comme résultat, doute noté.
+- Figures lues (3, 7, 9) : 33 valeurs (Si/Al, P/Al, incorporation du Si) pour S3 à S8, S13 à S17, par étalonnage des axes sur les pixels ; 2 chiffres significatifs. Fig. 3 ne porte que x = 1,5 à 4,0 (S3 à S8). S8 (Fig. 3 et 9) et S15 (Fig. 7 et 9) lus deux fois et concordants ; pour S8 j'ai gardé P/Al 0,78 (figures) et non 0,79 (Tableau 5). Figures 1, 2, 4, 5, 6, 8, 10, 11 non lues en valeurs : DRX, MEB, FTIR, isotherme, TPD déjà chiffrés dans les tableaux et le texte.
+- Étape « another 2 h » après la silice : extraite en `mix` de 2 h, sans agitation ni température déclarées (le texte dit « left », pas « stirred »).
+- Température du chauffage micro-ondes et durée : prises dans la ligne du Tableau 1 de chaque échantillon (453 K ; 7, 12 ou 24 h) ; pression 1,72 × 106 Pa en `value_text` (superscript perdu dans le fichier texte).
+- Annexe absente : Figures S1, S2, S3 (DLS, MEB et DRX de la série en silice) ; aucune section Supporting Information dans le fichier.
+- `method_sources` vide : le corps de la méthode (section 2) ne porte aucun renvoi bibliographique.

@@ -1,0 +1,374 @@
+{
+ "pmcid": "PMC5302706",
+ "routes": [
+  {
+   "label": "ZnO_HT",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "zinc en moles",
+     "inputs": "0,440 g Zn(NO3)2·6H2O, M = 297,49 g/mol",
+     "formula": "m/M",
+     "result": "1,479 mmol Zn",
+     "compared_to": "ZnO maximal = 1,479 mmol × 81,38 g/mol = 0,120 g (rendement non donné)",
+     "source": "masses molaires standard ; arithmétique"
+    },
+    {
+     "what": "rapport OH−/Zn",
+     "inputs": "0,600 g NaOH, M = 40,00 g/mol → 15,0 mmol ; 1,479 mmol Zn",
+     "formula": "n(OH)/n(Zn)",
+     "result": "10,1",
+     "compared_to": "4 OH par Zn pour former Zn(OH)4^2− : reste 15,0 − 4 × 1,479 = 9,08 mmol d'OH− libres, soit 0,21 mol/L dans 43 mL",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentrations dans les 3 mL d'eau initiaux",
+     "inputs": "15,0 mmol NaOH ; 1,479 mmol Zn ; 3 mL",
+     "formula": "n/V",
+     "result": "NaOH 5,0 mol/L ; Zn 0,49 mol/L",
+     "compared_to": "zincate soluble en soude concentrée ; dissolution de 0,6 g de NaOH dans 3 mL très exothermique (voir calcul suivant)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "échauffement à la dissolution de NaOH",
+     "inputs": "ΔHdiss(NaOH) ≈ −44,5 kJ/mol (valeur de manuel) ; 15,0 mmol ; ≈ 3 g d'eau + 1 g de solides (capacité ≈ 14 J/K)",
+     "formula": "n·|ΔH| / C",
+     "result": "≈ 0,67 kJ ; ΔT adiabatique ≈ 45–50 K",
+     "compared_to": "la solution de 3 mL monte vers 65–70 °C avant l'ajout d'éthanol (point d'ébullition de l'éthanol 78 °C)",
+     "source": "chimie générale (ordre de grandeur)"
+    },
+    {
+     "what": "rapport EDA/Zn",
+     "inputs": "5 mL EDA, densité 0,899 g/mL (7,5 lb/gal, CAMEO), M = 60,10 g/mol → 74,8 mmol ; 1,479 mmol Zn",
+     "formula": "n(EDA)/n(Zn)",
+     "result": "50,6 (3 sont nécessaires à [Zn(en)3]2+) ; [EDA] = 1,74 mol/L dans 43 mL",
+     "compared_to": "même rapport EDA/Zn(II) = 50/1 à 180 °C dans une synthèse hydrothermale de bâtonnets de ZnO citée par PMC7407485",
+     "source": "CAMEO Chemicals (densité) ; arithmétique"
+    },
+    {
+     "what": "protonation de l'EDA dans le milieu",
+     "inputs": "pKa1(EDAH+) ≈ 9,9 (valeur de manuel) ; OH− libre 0,21 mol/L → pH nominal ≈ 13,3",
+     "formula": "[EDAH+]/[EDA] = 10^(pKa − pH)",
+     "result": "≈ 4 × 10^-4",
+     "compared_to": "l'EDA ne fournit pratiquement pas d'OH− en présence de 9 mmol d'OH− libres de la soude (équation (2) des auteurs)",
+     "source": "chimie générale"
+    },
+    {
+     "what": "composition et volume du mélange",
+     "inputs": "3 + 30 + 5 + 5 mL ; éthanol 30 mL × 0,789 g/mL / 46,07 = 514 mmol ; eau 8 mL + 6 H2O d'hydratation = 452 mmol ; EDA 74,8 mmol",
+     "formula": "somme ; fractions molaires",
+     "result": "43 mL ; x(EtOH) = 0,49 ; x(H2O) = 0,43 ; x(EDA) = 0,07",
+     "compared_to": "volume de l'autoclave non donné",
+     "source": "arithmétique (densités de manuel)"
+    },
+    {
+     "what": "pression de vapeur à 180 °C",
+     "inputs": "éthanol, Antoine NIST (364,8–513,9 K) : A = 4,92531, B = 1432,526, C = −61,819, T = 453,15 K → 18,4 bar ; eau à 179,6 °C : 9,93 bar (NIST)",
+     "formula": "P ≈ x(EtOH)·P°(EtOH) + x(H2O)·P°(H2O) (Raoult, EDA négligée)",
+     "result": "≈ 13 bar (Raoult) ; 13–18 bar en tenant compte de l'écart positif éthanol-eau",
+     "compared_to": "dans les limites d'un autoclave à chemise PTFE (souvent ≤ 30 bar, ≤ 200–220 °C) à condition de respecter le taux de remplissage",
+     "source": "NIST Chemistry WebBook"
+    },
+    {
+     "what": "dilatation du liquide à 180 °C",
+     "inputs": "masse volumique de l'eau : 0,998 g/mL à 20 °C, 0,887 g/mL à 179,6 °C (NIST) ; éthanol à T/Tc = 453/514 = 0,88, dilatation plus forte que l'eau",
+     "formula": "ρ(20 °C)/ρ(180 °C) − 1",
+     "result": "≥ 12,5 % (eau seule) ; 43 mL deviennent ≥ 48–55 mL",
+     "compared_to": "dans un autoclave de 50 mL le liquide remplirait tout le volume (surpression hydraulique) : il faut ≥ 75–100 mL",
+     "source": "NIST Chemistry WebBook"
+    },
+    {
+     "what": "Bragg avec Co Kα (λ = 0,1789 nm)",
+     "inputs": "ZnO wurtzite a = 0,32498 nm, c = 0,52066 nm (valeurs usuelles)",
+     "formula": "1/d² = 4(h²+hk+k²)/3a² + l²/c² ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(100) 37,1° ; (002) 40,2° ; (101) 42,4° ; (203) 109,8°",
+     "compared_to": "Figure 3 : (100) ≈ 37°, (002) ≈ 40°, (101) ≈ 42°, (203) ≈ 110° : indexation cohérente avec la longueur d'onde déclarée",
+     "source": "arithmétique ; Figure 3"
+    },
+    {
+     "what": "largeur de raie impliquée par les tailles de Scherrer",
+     "inputs": "K = 0,9 ; λ = 0,179 nm ; (100) θ = 18,5°, D = 227 nm ; (203) θ = 54,9°, D = 3 nm",
+     "formula": "β = Kλ/(D cos θ)",
+     "result": "(100) : β = 7,5 × 10^-4 rad = 0,043° ; (203) : β = 0,093 rad = 5,4°",
+     "compared_to": "0,043° est en dessous de la largeur instrumentale habituelle d'un diffractomètre de laboratoire (≈ 0,05–0,1°) ; 5,4° serait une bosse très large alors que la raie (203) de la Figure 3 est une raie fine (≈ 1° ou moins, lecture visuelle)",
+     "source": "arithmétique ; Figure 3"
+    },
+    {
+     "what": "énergie du bord d'absorption",
+     "inputs": "λ = 380 nm",
+     "formula": "E = 1239,84 / λ(nm)",
+     "result": "3,26 eV",
+     "compared_to": "3,25 eV annoncé : cohérent",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Zn, O apportés ; OH−/Zn = 10,1 et EDA/Zn = 50,6 (voir calculs « rapport OH−/Zn » et « rapport EDA/Zn ») : la soude seule suffit à former le zincate et à précipiter ZnO, l'EDA est en très large excès. Rendement maximal 0,120 g de ZnO, non vérifiable (rendement non donné). Compatible avec ZnO.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les équations des auteurs ne sont pas équilibrées : (2) « H2NCH2CH2NH2 + 2H2O → H3NCH2CH2NH2 + 2OH− » perd un H et les charges (il faudrait H3N+CH2CH2NH3+ pour deux OH−) ; (3) « Zn2+ + OH− → Zn(OH)2 » demande 2 OH−. Sans conséquence sur le protocole, mais à ne pas reprendre tel quel.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le mécanisme des auteurs fait de l'« hydrolyse » de l'EDA la source d'OH−. C'est une protonation (équilibre acide-base), et elle est négligeable ici : avec 0,21 mol/L d'OH− libres apportés par la soude, [EDAH+]/[EDA] ≈ 4 × 10^-4 (calcul « protonation de l'EDA »). La basicité et la sursaturation sont fixées par NaOH, pas par l'EDA ; le zinc est réparti entre zincate Zn(OH)4^2− et complexes Zn-EDA, que l'article ne distingue pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "0,49 mol/L de Zn dans de la soude 5 mol/L : zincate en principe soluble, mais l'ajout de 30 mL d'éthanol (≈ 70 % en volume) diminue fortement la solubilité des sels ioniques ; une précipitation de Zn(OH)2/ZnO dès la température ambiante, avant l'autoclave, est possible (l'EDA peut la retarder). L'article parle de « solution » sans dire si elle est limpide : à observer.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Dissolution de 0,6 g de NaOH dans 3 mL d'eau : échauffement adiabatique ≈ 45–50 K (calcul « échauffement à la dissolution de NaOH »), soude 5 mol/L chaude dans un récipient en PTFE ; l'ajout des 30 mL d'éthanol (Teb 78 °C) sur cette solution chaude peut faire bouillonner. Laisser refroidir avant l'ajout. Bain à ultrasons de 30 min sans température indiquée (le bain chauffe ; éthanol et EDA volatils).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "180 °C en autoclave avec 43 mL d'un mélange eau-éthanol-EDA : pression ≈ 13–18 bar (calcul « pression de vapeur à 180 °C ») et dilatation du liquide ≥ 12,5 % (calcul « dilatation du liquide à 180 °C »). Le volume de l'autoclave n'est pas donné : avec un modèle de 50 mL le liquide occuperait tout le volume. Il faut au moins 75–100 mL. La chemise PTFE supporte 180 °C.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ethanol — Antoine Equation Parameters (données Ambrose, Sprake et al., 1975)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C64175&Mask=4&Type=ANTOINE&Plot=on"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "2 h à 180 °C suffisent pour déshydrater le zincate en ZnO et faire croître des bâtonnets (les synthèses en soude de la base donnent du ZnO en 2 h dès 121 °C, PMC10262014). La durée de montée en température et la vitesse de refroidissement, qui changent le rapport nucléation/croissance, ne sont pas données.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tailles de Scherrer de 227 nm (100) à 3 nm (203) sur la même poudre : 227 nm correspond à une largeur de 0,043°, sous la largeur instrumentale, hors du domaine de validité de la formule (≈ 100–200 nm au plus) ; 3 nm demanderait une raie (203) large de ≈ 5,4°, alors que la Figure 3 montre une raie fine à 110° (calcul « largeur de raie impliquée par les tailles de Scherrer »). Ces deux valeurs extrêmes ne mesurent pas une taille ; elles ne prouvent pas la présence de grains de quelques nm. Un écart d'un facteur 75 entre directions relèverait d'une analyse Williamson-Hall (déformation, correction instrumentale) qui n'est pas faite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Scherrer equation versus the 'Debye-Scherrer equation'",
+      "authors_or_publisher": "Holzwarth U., Gibson N. (Nature Nanotechnology 6, 534)",
+      "year": "2011",
+      "url_or_doi": "10.1038/nnano.2011.145"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Attribution Raman partiellement inexacte : selon Cuscó et al. 2007, 380 cm−1 est A1(TO) (et non E1(TO), situé vers 410 cm−1), 438 cm−1 est E2(high), 574 cm−1 est A1(LO) et ≈ 590 cm−1 E1(LO) ; 332 cm−1 est le processus de second ordre E2(high) − E2(low). La raie à 540 cm−1 n'est pas A1(LO) mais une bande de second ordre ; 579 cm−1 est un mode LO mixte A1/E1. La phase wurtzite n'est pas remise en cause.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Temperature dependence of Raman scattering in ZnO",
+      "authors_or_publisher": "Cuscó R., Alarcón-Lladó E., Ibáñez J., Artús L., Jiménez J., Wang B., Callahan M. J. (Phys. Rev. B 75, 165202)",
+      "year": "2007",
+      "url_or_doi": "10.1103/PhysRevB.75.165202"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Morphologie : « nanotubes » et « nanolumps de quelques nm » ne sont pas démontrés. La Figure 2 (20 000× et 50 000×) montre des plaquettes de quelques centaines de nm et de longs fils ou rubans ; une cavité de tube ou des grains de quelques nm ne se voient pas à ce grandissement. Il faudrait une MET ; la taille de 3 nm (Scherrer) ne peut pas servir de preuve (voir ci-dessus).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "EDA : liquide inflammable (point d'éclair ≈ 34 °C), corrosif, sensibilisant respiratoire et cutané, absorbe le CO2 de l'air (CAMEO) ; soude 5 mol/L chaude ; mélange inflammable éthanol-EDA chauffé à 180 °C sous 13–18 bar. Ouvrir l'autoclave froid, sous hotte. Non mentionné par les auteurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "ETHYLENEDIAMINE — Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/3407"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Phase : indexation des raies de la Figure 3 cohérente avec ZnO wurtzite et Co Kα (calcul « Bragg avec Co Kα »), sans raie parasite visible. Bord d'absorption à 380 nm = 3,26 eV, cohérent avec 3,25 eV annoncé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Avec 10 OH− par Zn, le zinc est d'abord du zincate Zn(OH)4^2− dans la soude 5 mol/L ; à la dilution par l'éthanol, l'eau et l'EDA (≈ 50 équivalents), il se répartit entre zincate et complexes [Zn(en)n]2+ dont la stabilité diminue quand la température augmente. Vers 180 °C, la déshydratation du zincate (Zn(OH)4^2− → ZnO + H2O + 2 OH−) fait nucléer ZnO wurtzite. La croissance préférentielle le long de c ([002]) donne les fils ; la quantité d'EDA, agent de surface « doux », règle le passage particules / bâtonnets / fleurs (Pal et Santiago 2005), probablement par adsorption sur les faces latérales (hypothèse). L'éthanol abaisse la solubilité du zincate et augmente la sursaturation : beaucoup de germes, d'où les plaquettes à côté des fils. La basicité vient de la soude, pas de l'EDA. Les « tubes » ne sont pas démontrés et pourraient être des rubans.",
+    "sources": [
+     {
+      "title": "Controlling the morphology of ZnO nanostructures in a low-temperature hydrothermal process",
+      "authors_or_publisher": "Pal U., Santiago P. (J. Phys. Chem. B 109, 15317)",
+      "year": "2005",
+      "url_or_doi": "10.1021/jp052496i"
+     },
+     {
+      "title": "Hydrothermal growth of ZnO nanostructures",
+      "authors_or_publisher": "Baruah S., Dutta J. (Sci. Technol. Adv. Mater.)",
+      "year": "2009",
+      "url_or_doi": "10.1088/1468-6996/10/1/013001"
+     },
+     {
+      "title": "Solvothermal synthesis of nanorods of ZnO, N-doped ZnO and CdO",
+      "authors_or_publisher": "Materials Research Bulletin (Elsevier), notice OSTI 21062266 (auteurs non relevés)",
+      "year": "2007",
+      "url_or_doi": "10.1016/j.materresbull.2007.01.017"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de l'autoclave : ≥ 75–100 mL pour 43 mL de mélange eau-éthanol à 180 °C (≈ 13–18 bar)",
+    "laisser refroidir la soude 5 mol/L (≈ +45 K à la dissolution) avant d'ajouter l'éthanol et l'EDA",
+    "noter si le mélange reste limpide ou précipite avant l'autoclave",
+    "rampe de chauffe, vitesse de refroidissement, vitesse et durée de centrifugation, nombre de lavages",
+    "tailles de cristallites : refaire avec correction instrumentale (étalon) ou Williamson-Hall ; MET pour vérifier les tubes et les grains de quelques nm",
+    "rendement (maximum théorique 0,120 g de ZnO)"
+   ]
+  },
+  {
+   "label": "ZnO_IDT_sensor",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "O2 apporté par la bouteille de NH3 dans le gaz porteur azote",
+     "inputs": "NH3 500 ppm dans l'air (20,9 % O2) ; débit total constant 500 mL/min ; NH3 visé 10 à 95 ppm (Figure 12)",
+     "formula": "x(O2) = (c(NH3)/500 ppm) × 20,9 %",
+     "result": "0,42 % O2 à 10 ppm ; 4,0 % O2 à 95 ppm",
+     "compared_to": "l'« azote » contient alors 0,4 à 4 % d'O2 pendant l'exposition à NH3",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "dilution de l'O2 de l'air par la bouteille de NO2",
+     "inputs": "NO2 100 ppm dans N2 ; NO2 visé 1 à 20 ppm dans l'air synthétique (20 % O2)",
+     "formula": "x(O2) = 20 % × (1 − c/100 ppm)",
+     "result": "19,8 % à 1 ppm ; 16,0 % à 20 ppm",
+     "compared_to": "négligeable à 1 ppm (valeurs du Tableau 1), sensible à 10–20 ppm",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "réponse à 1 ppm de NO2 sous UV relue sur la Figure 9",
+     "inputs": "N2 : Ra ≈ 3,3 kΩ juste avant l'exposition, Rg ≈ 21 kΩ ; air : Ra ≈ 6,0 kΩ, Rg ≈ 21,5 kΩ (lecture ± 0,5 kΩ)",
+     "formula": "(Rg − Ra)/Ra × 100",
+     "result": "≈ 540 % (N2) ; ≈ 260 % (air)",
+     "compared_to": "Figure 16 : ≈ 520 % et ≈ 265 % ; texte et Tableau 1 : 431 % et 341 %",
+     "source": "Figures 9 et 16 de l'article ; arithmétique"
+    },
+    {
+     "what": "sélectivité NO2/H2 ramenée au ppm",
+     "inputs": "NO2 1 ppm, 200 °C : 600 % (N2), 232 % (air) ; H2 1 % = 10^4 ppm, 200 °C : ≈ −95 % (N2), ≈ −85 % (air) (Figure 16)",
+     "formula": "(R_NO2/1 ppm) / (|R_H2|/10^4 ppm)",
+     "result": "≈ 6 × 10^4 (N2) ; ≈ 3 × 10^4 (air)",
+     "compared_to": "« more than 10^6 times » (exposant perdu dans le texte, Résumé et Conclusions)",
+     "source": "valeurs de l'article ; arithmétique"
+    },
+    {
+     "what": "sélectivité NO2/NH3 ramenée au ppm",
+     "inputs": "NH3 10 ppm, 200 °C : ≈ −2 % (N2 et air), Figures 12b et 16 ; NO2 comme ci-dessus",
+     "formula": "(R_NO2/1 ppm) / (|R_NH3|/10 ppm)",
+     "result": "≈ 3 × 10^3 (N2) ; ≈ 1 × 10^3 (air)",
+     "compared_to": "« more than 10^5 times » annoncé",
+     "source": "Figures 12b et 16 ; arithmétique"
+    },
+    {
+     "what": "longueur de Debye de ZnO",
+     "inputs": "εr ≈ 8,5 (valeur de manuel, ZnO statique), T = 296 K",
+     "formula": "λD = (εr ε0 kT / (e² n))^½",
+     "result": "3,5 nm (10^18 cm−3) ; 11 nm (10^17) ; 35 nm (10^16)",
+     "compared_to": "1, 3 et 10 nm écrits dans l'Introduction : même loi en n^-½ mais valeurs ≈ 3,5 fois plus petites",
+     "source": "chimie générale"
+    },
+    {
+     "what": "humidité de 6 % HR à 22 °C en ppm",
+     "inputs": "P°(eau, 22 °C) ≈ 2,64 kPa (valeur de manuel)",
+     "formula": "0,06 × P°/101,3 kPa",
+     "result": "≈ 1 600 ppm d'eau",
+     "compared_to": "azote « 6.0 » en bouteille ≈ quelques ppm d'eau : l'humidité vient du montage ; la dilution par des gaz étalons secs (jusqu'à 19 % du débit pour NH3 à 95 ppm) la fait baisser pendant l'exposition",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre sections pour 1 ppm de NO2 à température ambiante sous UV : texte et Tableau 1 donnent 431 % (N2) et 341 % (air), mais la Figure 9 relue donne ≈ 540 % et ≈ 260 % et la Figure 16 ≈ 520 % et ≈ 265 % (calcul « réponse à 1 ppm de NO2 sous UV relue sur la Figure 9 »). L'écart dépasse la précision de lecture et change l'effet apparent de l'oxygène (rapport N2/air 1,26 dans le texte contre ≈ 2 sur les figures). Les valeurs de 200 °C sont cohérentes (≈ 585 % et ≈ 220 % sur la Figure 16). Le choix de la résistance de référence Ra n'est pas précisé.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La sélectivité annoncée (réponse à NO2 plus de 10^5 fois celle à NH3 et 10^6 fois celle à H2, « ramenée à 1 ppm ») ne se retrouve pas avec les propres données des auteurs : en divisant chaque réponse par la concentration, on obtient ≈ 1–3 × 10^3 pour NH3 et ≈ 3–6 × 10^4 pour H2 (calculs « sélectivité … ramenée au ppm »). De plus, cette normalisation linéaire n'a pas de sens physique quand la réponse sature, ce que les auteurs écrivent eux-mêmes pour H2 (1 % et 4 % donnent presque la même réponse). Le texte dit aussi que la couche « réagit distinctement » à NH3 à 200 °C, ce qui ne s'accorde pas avec un facteur 10^5.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change plusieurs variables : la comparaison air/azote sert à isoler le rôle de l'oxygène, mais NH3 vient d'une bouteille à 500 ppm dans l'air. Dans le gaz porteur « azote », l'exposition à NH3 apporte donc 0,4 % (10 ppm) à 4 % (95 ppm) d'O2 (calcul « O2 apporté par la bouteille de NH3 »). Inversement, NO2 dilué dans N2 fait baisser l'O2 de l'air de 20 à 16 % à 20 ppm, et H2 pur à 1–4 % dilue le gaz porteur. Les écarts air/azote pour NH3, et pour NO2 à forte concentration, mêlent l'effet du gaz cible et celui d'un changement d'O2 et d'humidité. Témoin à faire : un étalon NH3 dans N2 pour le gaz porteur azote, ou une compensation d'O2.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les longueurs de Debye de l'Introduction (1, 3, 10 nm pour 10^18, 10^17, 10^16 cm−3) suivent la bonne loi en n^-½ mais sont ≈ 3,5 fois plus petites que λD = (εr ε0 kT/e²n)^½ avec εr ≈ 8,5 (calcul « longueur de Debye de ZnO »). La classification grands/petits grains qui en découle est donc à prendre avec prudence ; ce point ne touche pas la synthèse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Dépôt : dispersion dans l'hexane (Teb 69 °C), séchage à température ambiante puis 200 °C : cohérent pour éliminer l'hexane. En revanche, la poudre n'a jamais été calcinée (séchée à température ambiante) et l'EDA adsorbée sur ZnO n'est pas forcément partie à 200 °C. Les mesures R(T) portent ensuite la couche à 300 °C (section 2.6) : l'état de surface peut changer d'une série de mesures à l'autre, et l'ordre des essais n'est pas donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NO2 (toxique, oxydant), NH3 (toxique, corrosif), H2 jusqu'à 4 % (limite inférieure d'explosivité dans l'air ≈ 4 %), nanopoudre de ZnO soufflée à l'air comprimé 10 bar, LED UV 390 nm : les essais demandent une chambre étanche ventilée, un rejet des gaz contrôlé, une protection respiratoire au soufflage et une protection des yeux contre l'UV. Les auteurs ne mentionnent que l'explosivité de H2.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les ordres de grandeur sont plausibles pour du ZnO : réponse positive (résistance qui augmente) aux gaz oxydants et négative aux réducteurs, réponse bornée à −100 % pour H2 (−95 % = Ra/Rg ≈ 20), inversion du sens de la réponse à l'humidité entre température ambiante et 200 °C, et 600 % pour 1 ppm de NO2 à 200 °C, élevé mais du même ordre que les autres capteurs du Tableau 1.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Mécanisme de détection classique d'un semi-conducteur de type n : O2 et NO2 piègent des électrons en surface (O2−, O−, NO2−, NO3−) et élèvent les barrières entre grains ; H2 et NH3 consomment l'oxygène adsorbé et libèrent des électrons. À température ambiante, la désorption de NO2 est trop lente (pas de retour) ; l'UV crée des trous qui désorbent les espèces chargées et rendent la réponse réversible. Ce mécanisme est cohérent avec les observations, mais la part de l'oxygène déduite de la comparaison air/azote est faussée par l'O2 et l'eau qu'apportent les bouteilles étalons (voir les contrôles).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masse de ZnO déposée, volume d'hexane et de goutte, durée du chauffage à 200 °C (non donnés)",
+    "utiliser des gaz étalons dans le même gaz porteur (NH3 dans N2 pour les essais sous azote) ou contrôler l'O2 et l'humidité pendant l'exposition",
+    "préciser la résistance de référence Ra (avant chaque exposition ou au début de la série) : elle explique peut-être l'écart entre texte et figures pour NO2 sous UV",
+    "ne pas reprendre le facteur de sélectivité 10^5/10^6 : le recalculer à concentration égale, dans la zone linéaire",
+    "fixer l'ordre des essais (cycle à 300 °C de la section 2.6 avant ou après les mesures de gaz)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse hydrothermale (NaOH 10 éq., EDA 50 éq., éthanol-eau, 180 °C, 2 h) est chimiquement cohérente et reproductible si l'on choisit un autoclave assez grand (≥ 75–100 mL, ≈ 13–18 bar). Le mécanisme des auteurs attribue la basicité à l'« hydrolyse » de l'EDA, ce qui est faux ici : c'est la soude qui la fixe, et deux de leurs équations ne sont pas équilibrées. Côté résultats : les tailles de Scherrer de 227 nm et 3 nm sont hors du domaine de la méthode ou contredites par la Figure 3, et l'attribution Raman est partiellement inexacte. Côté capteur : les réponses à NO2 sous UV diffèrent entre le texte (431/341 %) et les Figures 9 et 16 (≈ 530/260 %), le facteur de sélectivité 10^5/10^6 ne se retrouve pas dans les données (≈ 10^3 et ≈ 5 × 10^4), et la comparaison air/azote pour NH3 est faussée par l'air de la bouteille étalon.",
+  "author_errors_suspected": [
+   "équations (2) et (3) non équilibrées ; « hydrolyse » de l'EDA au lieu de protonation, et rôle négligeable devant la soude",
+   "tailles de Scherrer 227 nm (sous la largeur instrumentale) et 3 nm (raie (203) fine sur la Figure 3)",
+   "attribution Raman : 380 cm−1 est A1(TO) et non E1(TO), 540 cm−1 n'est pas A1(LO)",
+   "réponses à 1 ppm de NO2 sous UV : 431/341 % dans le texte et le Tableau 1 contre ≈ 520–540/260–265 % sur les Figures 9 et 16",
+   "facteurs de sélectivité 10^5 (NH3) et 10^6 (H2) non retrouvés à partir des Figures 12 et 16",
+   "longueurs de Debye de l'Introduction ≈ 3,5 fois trop petites pour εr ≈ 8,5"
+  ],
+  "comparison_with_database": "Les synthèses hydrothermales de ZnO en milieu soude de la base donnent toutes de la wurtzite en quelques heures entre 120 et 180 °C : PMC10262014 (acétate + NaOH, 121 °C, 2 h, bâtonnets), PMC9960931 (pH ≈ 13,5, cristallites prismatiques), PMC3497326 (120 °C, 18 h, plaquettes avec agents de surface). Celle-ci est la seule de la base avec l'EDA en large excès et 70 % d'éthanol, et la seule à donner un mélange fils + plaquettes, ce qui est cohérent avec la croissance anisotrope favorisée par l'EDA. Pas d'écart anormal de température ni de durée."
+ },
+ "sources_not_found": [
+  "référence [38] des auteurs (décomposition du complexe Zn-EDA au-dessus de 100 °C) : citation perdue à l'extraction du texte, non recherchée",
+  "masse volumique de l'éthanol saturé à 180 °C : page de fluide NIST non accessible (erreur 400) ; seule la dilatation de l'eau est chiffrée",
+  "constantes de stabilité Zn-EDA et zincate en milieu eau-éthanol à 180 °C : non recherchées, la répartition zincate/complexe reste qualitative"
+ ]
+}

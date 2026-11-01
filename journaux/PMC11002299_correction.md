@@ -1,0 +1,16 @@
+# Journal de la correction, PMC11002299
+
+- Constat 1 (voie device) : décision de l'orchestrateur appliquée telle quelle. Aucune voie créée, résultats laissés sur ZnS@CNS ; j'ai seulement ajouté un doute explicite et une annotation `limite_reproductibilite` (dépôt sur GCE non décrit, charge inconnue), parce que la section « Fabrication of modified electrode » répète la préparation du composite.
+- Constat 2 (XPS) : valeurs du texte conservées (1022,5/1045,9 eV) ; doute ajouté (texte contre Fig. 2A, renvoi erroné à « Fig. 3B » pour C 1s, « three peaks » pour quatre) et mention dans une annotation de réserves.
+- Constat 3 : la caractérisation XPS unique est scindée en quatre (Zn 2p, S 2p, C 1s, N 1s), chacune avec sa phrase propre vérifiée comme sous-chaîne du texte. Pas dans les décisions de l'orchestrateur mais soutenu par le texte, donc appliqué.
+- Constat 4 (signe de l'équation LSV) : rien extrait, doute + annotation ; la sensibilité et le R2 du texte restent.
+- Constat 5 : équations des Fig. 7B (y = 0,0818x + 0,078) et 8B (y = 0,0321x + 4,2215) ouvertes sur gr7.jpg et gr8.jpg, lisibles ; ajoutées en `value_text` avec `from_figure` et la légende pour citation. Le texte ne les écrit pas, mais les figures de l'article oui.
+- Constat 6 : Rct de CNS/GCE ajoutée sur la voie CNS (330 Ω, `from_figure` Fig. 4A, légende de la Fig. 4 qui donne CNS en bleu) : demi-cercle bleu fermé vers 425 Ω, Rs ≈ 95 Ω. Rct de ZnS/GCE rejetée : couleur absente de la légende (noire par élimination) et demi-cercle non fermé, confondu avec la queue de Warburg.
+- Constat 7 : caractérisation LSV scindée en « étalonnage » (citation : « the associated calibration curve illustrates a wide linear range… », conditions PBS 50 mM pH 7,0 d'après la légende de la Fig. 9) et « sélectivité, stabilité, reproductibilité, répétabilité » (100 µM, N2) qui garde la phrase d'origine.
+- Constat 8 : 9,7 µA (Fig. 6B) contre 5,8 µA (Fig. 5B) et ≈ 6,2 µA (Fig. 7B) : doute et annotation, valeurs inchangées.
+- Constat 9 : annotation `tendance_observee` reformulée (« aussi très faible », écart très faible pour CNS/GCE par rapport à ZnS/GCE), citation remplacée par les deux phrases qui la soutiennent.
+- Constat 10 : décision « not_stated si le texte ne précise pas » : ici le texte précise (nonahydrate dans Materials, Na2S·9H2O dans l'Éq. 1), donc pas de `not_stated` ; formule Na2S de la phrase de synthèse conservée, hydratation consignée en doute et en annotation (masse ×3).
+- Constat 11 : huit RSD du Tableau 2 ajoutées (une rangée = une citation) ; résultat `selectivity_interferents` ajouté avec la phrase des cinq fois et des dix interférents.
+- Science : six `probleme` transformés en annotations `limite_reproductibilite` (Scherrer/(110)/255 nm ; « sonochimique » contre agitation ; dépôt GCE ; pente LSV et LOD ; solubilité du flutamide) regroupées, plus les réserves brèves ; aucune valeur modifiée. Le point 255 nm reste en outcome.
+- Annotation limite existante sans voie : phrase sur les figures « non lues » mise à jour (Rct CNS, Fig. 7B, 8B désormais lues).
+- Non appliqué : `mecanisme_analyse` non réécrit (le critique juge l'hypothèse de l'extraction correcte pour ZnS@CNS ; pas de correction demandée par la décision).

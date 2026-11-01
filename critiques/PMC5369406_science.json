@@ -1,0 +1,610 @@
+{
+ "pmcid": "PMC5369406",
+ "routes": [
+  {
+   "label": "ZG-AC",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire Cu:Zn de la solution",
+     "inputs": "Cu(OAc)2·H2O 0,35 M ; Zn(OAc)2·2H2O 0,175 M",
+     "formula": "0,35/0,175",
+     "result": "2,00:1 ; métal total 0,525 M, acétate 1,05 M",
+     "compared_to": "nominal 2:1 annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration massique de l'acétate de cuivre",
+     "inputs": "0,35 M ; M(Cu(OAc)2·H2O) = 199,65 g/mol",
+     "formula": "0,35 × 199,65",
+     "result": "69,9 g/L",
+     "compared_to": "solubilité 72 g/L (7,2 g/100 mL) dans l'eau froide, 200 g/L à chaud",
+     "source": "Wikipedia « Copper(II) acetate » et fiche TCI C2346"
+    },
+    {
+     "what": "concentration massique de l'acétate de zinc",
+     "inputs": "0,175 M ; M(Zn(OAc)2·2H2O) = 219,51 g/mol",
+     "formula": "0,175 × 219,51",
+     "result": "38,4 g/L",
+     "compared_to": "acétate de zinc dihydraté très soluble (plusieurs centaines de g/L)",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "perte de Cu tirée de l'EDX",
+     "inputs": "Cu:Zn mesuré 1,8:1 ; nominal 2:1 ; aucune perte de Zn",
+     "formula": "1 − 1,8/2",
+     "result": "10 % du Cu perdu",
+     "compared_to": "« ca. 10 at% » du texte ; rendement Cu 92,5 % du tableau 1 (perte 7,5 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "volume d'effluent implicite dans le rendement du tableau 1",
+     "inputs": "perte 7,5 % de 0,35 mol Cu par litre de solution métallique ; effluent 430,5 mg/L",
+     "formula": "0,075 × 0,35 × 63,546 × 1000 / 430,5",
+     "result": "≈ 3,9 L d'effluent par litre de solution métallique (même valeur, 3,9 L, pour (NH4)HCO3 : 0,039 × 0,35 × 63,546 × 1000 / 222,5)",
+     "compared_to": "volumes non donnés ; à volumes égaux sans lavage on attendrait ≈ 830 mg/L pour 7,5 % de perte",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "fraction d'ammoniac libre à pH 6,5–7,0",
+     "inputs": "pKa(NH4+/NH3) = 9,25 à 25 °C",
+     "formula": "1/(1 + 10^(9,25 − pH))",
+     "result": "0,18 % à pH 6,5 ; 0,56 % à pH 7,0",
+     "compared_to": "perte de Cu par complexe ammine annoncée par les auteurs",
+     "source": "chimie générale (pKa de NH4+)"
+    },
+    {
+     "what": "perte de masse théorique à la calcination",
+     "inputs": "malachite Cu2(OH)2CO3 (221,1 g/mol) → 2 CuO ; georgeite idéale Cu5(CO3)3(OH)4·6H2O (673,9 g/mol) → 5 CuO",
+     "formula": "1 − m(oxydes)/m(précurseur)",
+     "result": "28,1 % (stœchiométrie malachite) ; 41,0 % (formule idéale de la georgeite minérale)",
+     "compared_to": "29–32 % mesurés en TGA",
+     "source": "Bridge, Just, Hey 1979 pour la formule ; masses atomiques IUPAC"
+    },
+    {
+     "what": "diamètre de pore moyen 4V/S du précurseur",
+     "inputs": "S = 35 m2/g ; V = 0,3 cm3/g",
+     "formula": "4V/S",
+     "result": "34 nm (mésopore, classe IUPAC 2–50 nm)",
+     "compared_to": "distribution DFT montrée en Fig. 5A",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Cu:Zn = 2,00:1 dans la solution ; le carbonate apporte C et OH (par hydrolyse) ; l'acétate reste en solution sous forme d'acétate d'ammonium. Bilan cohérent avec un hydroxycarbonate mixte. Le rapport carbonate/métal réel n'est pas calculable : les volumes et le débit d'addition ne sont pas donnés (seul le pH est fixé).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Cu(OAc)2·H2O à 0,35 M = 69,9 g/L, soit presque la solubilité dans l'eau froide (72 g/L) ; l'acétate de zinc ajoute 0,35 M d'acétate commun. La solution est proche de la saturation à 20 °C et peut cristalliser au refroidissement : la dissoudre à chaud et la garder préchauffée (calcul « concentration massique de l'acétate de cuivre »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Copper(II) acetate (infobox : solubilité de l'hydrate 7,2 g/100 mL eau froide, 20 g/100 mL eau chaude) ; confirmé par fiche fournisseur TCI C2346 (72 g/L à 20 °C)",
+      "authors_or_publisher": "Wikipedia ; TCI Chemicals (fiche fournisseur)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Copper(II)_acetate"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le « carbonate d'ammonium » ACS du commerce n'est pas (NH4)2CO3 pur mais un mélange d'hydrogénocarbonate et de carbamate d'ammonium (≈ 30 % NH3) qui perd NH3 et CO2 à l'air et à la chaleur (fusion/décomposition vers 58 °C). Une solution « 0,55 M » dépend de la masse molaire retenue, et le préchauffage à 40 °C en récipient ouvert la fait dériver (perte de NH3/CO2), ce qui change le volume de base nécessaire pour tenir le pH.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ammonium carbonate (monographie) : hydrogénocarbonate d'ammonium et carbamate d'ammonium en proportions à peu près équimoléculaires, ≈ 30 % m/m NH3 ; fiche Fisher (CAS 8000-73-5, fusion 58 °C)",
+      "authors_or_publisher": "British Pharmacopoeia 2010 ; Fisher Scientific (fiche fournisseur)",
+      "year": "2010",
+      "url_or_doi": "https://www.drugfuture.com/Pharmacopoeia/BP2010/data/3991.html"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "40 °C, vieillissement 15 min, séchage sous vide à 40 °C : conditions douces cohérentes avec le maintien d'une phase métastable amorphe ; les auteurs montrent eux-mêmes que 65 °C et 30 min donnent la malachite zincifère.",
+     "status": "ok",
+     "basis": "comparaison_base",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Fraction de NH3 libre de 0,2–0,6 % à pH 6,5–7 (calcul « fraction d'ammoniac libre ») : avec ≈ 0,5–1 M d'ions ammonium, quelques mM de NH3 libre suffisent pour complexer une partie du Cu2+ (Cu–ammine), et non le Zn à ce niveau. La baisse de la concentration de Cu dans l'effluent d'un facteur 0,52 avec NH4HCO3 (un N par C au lieu de deux) va dans le même sens. Cohérent avec l'explication des auteurs.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tableau 1 : rendement de Zn = 0 % alors que l'effluent ne contient pas de Zn et que le solide contient 36 at% de Zn. La colonne « Yield Zn » est donc fausse (on attend ≈ 100 %, ou la colonne désigne une perte). Erreur de l'article à signaler (annotation limite_reproductibilite), pas à corriger dans les valeurs.",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pertes de Cu non concordantes entre méthodes : EDX 1,8:1 → 10 % ; tableau 1 → 7,5 % ((NH4)2CO3) et 3,9 % ((NH4)HCO3). Pour NH4HCO3, 96,1 % de rendement donnerait Cu:Zn 1,92:1 (65,8 at% Cu) et non 1,8:1 (64 at%), un écart de 1,8 at% supérieur à l'écart type EDX annoncé (± 1 at%). Le rendement repose sur un volume d'effluent implicite de ≈ 3,9 L par litre de solution métallique (calcul « volume d'effluent implicite »), non donné.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TGA : 29–32 % de perte totale, proche de la stœchiométrie de la malachite (28,1 %) et loin de la formule idéale de la georgeite minérale (41,0 %) : le solide co-précipité et séché sous vide est bien moins hydraté que le minéral ; « georgeite » désigne ici une phase amorphe à composition proche de la malachite, avec en plus de l'acétate. La phrase « ca. 12% residual mass retained after 300 °C » ne peut pas être une masse résiduelle (68–70 % restent à 600 °C) : c'est la perte de masse qui reste à venir au-dessus de 300 °C (carbonate de haute température), soit un rapport CO3/M d'environ 0,3 dans le solide calciné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Georgeite, a new amorphous copper carbonate from the Carr Boyd mine, Western Australia",
+      "authors_or_publisher": "Bridge P. J., Just J., Hey M. H., Mineralogical Magazine 43, 97",
+      "year": "1979",
+      "url_or_doi": "https://rruff.info/doclib/mm/vol43/MM43_97.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve discriminante : les nanocristaux de 2 nm « CuO ou Cu2O » vus en STEM à 200 kV dans un hydroxycarbonate de Cu(II) préparé sans réducteur peuvent être un artefact de faisceau (décomposition et réduction des hydroxycarbonates de cuivre sous le faisceau). L'article ne montre ni série en dose ni technique non électronique qui exclue cette hypothèse ; la même observation avait été faite sur la georgeite SAS (Kondrat 2016).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Stable amorphous georgeite as a precursor to a high-activity catalyst",
+      "authors_or_publisher": "Kondrat S. A. et al., Nature 531, 83–87",
+      "year": "2016",
+      "url_or_doi": "10.1038/nature16935"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Préchauffer une solution de carbonate d'ammonium dégage NH3 et CO2 (sorbonne) ; la neutralisation à pH 6,5–7 produit du CO2 (pKa1 H2CO3 = 6,35) : moussage. Effluents riches en Cu (430 mg/L) à traiter comme déchets.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Au mélange à pH 6,5–7, Cu2+ et Zn2+ précipitent avec CO3 2−/HCO3− (et OH− issu de l'hydrolyse du carbonate, avec dégagement de CO2) en un hydroxycarbonate mixte amorphe, phase initiale connue des co-précipitations de malachite ; le Zn incorporé limite la distorsion de Jahn–Teller et freine la dissolution-recristallisation en malachite zincifère, qui est lente à 40 °C et en 15 min. Une partie du Cu reste en solution sous forme d'ammine (NH3 libre de quelques mM) et l'acétate d'ammonium (ou de sodium) imprègne le solide s'il n'est pas lavé.",
+    "sources": [
+     {
+      "title": "Stable amorphous georgeite as a precursor to a high-activity catalyst",
+      "authors_or_publisher": "Kondrat S. A. et al., Nature 531, 83–87",
+      "year": "2016",
+      "url_or_doi": "10.1038/nature16935"
+     },
+     {
+      "title": "article de Dalton Trans. 2012, n° 43, sur le mécanisme de co-précipitation Cu,Zn (co-condensation directe à pH 5–6,5 contre phase intermédiaire de stockage du Zn) — titre exact non relu",
+      "authors_or_publisher": "Zander S., Seidlhofer B., Behrens M., Dalton Trans.",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2dt31236k"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes des deux solutions, débit d'addition et rapport carbonate/métal final",
+    "masse molaire retenue pour le « (NH4)2CO3 » commercial (mélange bicarbonate/carbamate) et durée du préchauffage",
+    "dissoudre l'acétate de cuivre à chaud (0,35 M ≈ saturation à 20 °C)",
+    "nombre de lavages et volume de filtrat (base du rendement)",
+    "colonne « Yield Zn » du tableau 1 (0 % incohérent)"
+   ]
+  },
+  {
+   "label": "ZG-ABC",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport des concentrations de Cu dans l'effluent",
+     "inputs": "222,5 mg/L (NH4HCO3) ; 430,5 mg/L ((NH4)2CO3)",
+     "formula": "222,5/430,5",
+     "result": "0,52 ; pertes 3,9 % contre 7,5 % (rapport 0,52)",
+     "compared_to": "rapport N/C de 1 contre 2 entre les deux précipitants",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Perte de Cu divisée par ≈ 2 quand l'apport d'ammonium par carbonate est divisé par 2 : cohérent avec la complexation par NH3. Mais le Cu:Zn EDX de 1,8:1 ne suit pas (96,1 % de rendement → 1,92:1 attendu).",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "bilan",
+     "finding": "NH4HCO3 est une base plus faible que (NH4)2CO3 (une seule charge négative par carbonate) : il en faut environ deux fois plus en volume pour neutraliser les mêmes métaux et tenir pH 6,5–7, avec plus de CO2 dégagé. Le témoin change donc à la fois le rapport NH4/C et le volume ajouté.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même précipitation que ZG-AC ; moins de NH3 libre par mole de carbonate, d'où moins de Cu sous forme d'ammine.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "volume de NH4HCO3 nécessaire pour tenir le pH"
+   ]
+  },
+  {
+   "label": "ZG-SC",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "sodium retenu dans le solide non lavé",
+     "inputs": "7,03 % Na dans l'oxyde calciné ; ≈ 42 g d'oxydes par litre de solution métallique (0,35 mol CuO + 0,175 mol ZnO)",
+     "formula": "0,0703 × 42 / 22,99",
+     "result": "≈ 0,13 mol Na par litre de solution métallique, soit ≈ 10–12 % du Na apporté si ≈ 1 L de Na2CO3 0,55 M (1,1 mol Na) est ajouté",
+     "compared_to": "liqueur mère d'acétate de sodium imprégnant le gâteau",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Rapport Cu:Zn nominal atteint (pas d'ammoniac), et beaucoup de Na retenu sans lavage (7 %) : ordre de grandeur cohérent avec l'acétate de sodium de la liqueur mère restée dans le gâteau (calcul « sodium retenu »).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même précipitation, sans complexation du Cu ; l'acétate de sodium reste dans le gâteau non lavé et le Na+ s'adsorbe sur le solide lavé (0,59 %).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "nombre de lavages suffisant pour descendre sous 0,6 % Na"
+   ]
+  },
+  {
+   "label": "ZM-2to1",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur en Zn visée",
+     "inputs": "Cu:Zn 2:1",
+     "formula": "1/3",
+     "result": "33 at% Zn",
+     "compared_to": "27 at% Zn au plus dans la malachite (texte de l'article) : l'excédent doit former de l'aurichalcite",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "quantités de métal",
+     "inputs": "1,5 M de métal total, 2:1",
+     "formula": "1,5 × 2/3 ; 1,5 × 1/3",
+     "result": "1,0 M Cu(NO3)2, 0,5 M Zn(NO3)2 ; Na2CO3 1,5 M",
+     "compared_to": "conditions industrielles usuelles (≈ 1 M, 65 °C, pH 6,5–7)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "33 at% Zn > 27 at% (limite de substitution dans la malachite citée par l'article) : ≈ 10 % d'aurichalcite attendu et observé ; à 1:1, aurichalcite majoritaire. Cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "A new class of Cu/ZnO catalysts derived from zincian georgeite precursors prepared by co-precipitation (article étudié et son ESI)",
+      "authors_or_publisher": "Smith, Kondrat, Chater et al., Chem. Sci. (RSC)",
+      "year": "2017",
+      "url_or_doi": "10.1039/c6sc04130b"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La légende de la Fig. 5 donne 70 °C pour la préparation de cette malachite contre 65 °C dans les Méthodes ; l'ESI (Fig. S5) parle d'une calcination de 2 h contre 4 h dans les Méthodes. Incohérences entre sections à lever avant de refaire la référence.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin qui change plusieurs variables : la référence « malachite » diffère de la georgeite par l'anion (nitrate/acétate), le précipitant (Na2CO3), la concentration (1,5 contre 0,525 M), la température (65/40 °C), le vieillissement (30/15 min), le lavage (6 L à 65 °C/1 L à 25 °C), le séchage (110 °C/40 °C sous vide) et le Na résiduel (0,07/0,02 %). La comparaison d'activité compare deux recettes, pas deux phases ; le témoin juste serait la même recette acétate/(NH4)2CO3 vieillie à 65 °C jusqu'à la malachite.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipité amorphe initial (georgeite) qui, à 65 °C et en 30 min, se dissout et recristallise en malachite zincifère avec dégagement de CO2 (changement de couleur bleu → vert) ; l'excédent de Zn au-delà de ≈ 27 at% part en aurichalcite.",
+    "sources": [
+     {
+      "title": "article de Dalton Trans. 2012, n° 43, sur le mécanisme de co-précipitation Cu,Zn (co-condensation directe à pH 5–6,5 contre phase intermédiaire de stockage du Zn) — titre exact non relu",
+      "authors_or_publisher": "Zander S., Seidlhofer B., Behrens M., Dalton Trans.",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2dt31236k"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température de précipitation (65 ou 70 °C)",
+    "volumes et débit d'addition",
+    "calcination de 2 h ou 4 h pour la référence"
+   ]
+  },
+  {
+   "label": "SAS-ZG",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentrations et rapport Cu:Zn",
+     "inputs": "4 mg/mL Cu(OAc)2·H2O (199,65 g/mol) ; 2,13 mg/mL Zn(OAc)2·2H2O (219,51 g/mol)",
+     "formula": "4/199,65 ; 2,13/219,51",
+     "result": "20,0 mM Cu ; 9,70 mM Zn ; Cu:Zn = 2,06:1",
+     "compared_to": "nominal 2:1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse maximale de solide",
+     "inputs": "500 mL : 10,02 mmol Cu, 4,85 mmol Zn",
+     "formula": "oxydes : 10,02 × 79,545 + 4,85 × 81,38 mg ; hydroxycarbonate type malachite M2(OH)2CO3 ; georgeite idéale M5(CO3)3(OH)4·6H2O",
+     "result": "1,19 g d'oxydes ; 1,65 g type malachite ; 2,01 g type georgeite idéale",
+     "compared_to": "1,1–1,3 g obtenus, soit 67–79 % (type malachite) ou 55–65 % (georgeite idéale)",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "durée d'injection de la solution",
+     "inputs": "500 mL à 6,5 mL/min",
+     "formula": "500/6,5",
+     "result": "77 min ; 15 + 77 + 30 + 60 = 182 min ≈ 3 h, plus mise en pression et détente ≈ 3,5 h",
+     "compared_to": "« approximately 3.5 hours » = durée de l'expérience entière, pas de l'injection seule",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport molaire scCO2/solution",
+     "inputs": "CO2 6,5 kg/h (44,01 g/mol) ; solution 6,5 mL/min = 390 mL/h, 10 vol% eau (0,997 g/mL) / 90 % éthanol (0,789 g/mL)",
+     "formula": "147,7 mol/h CO2 / (2,16 + 6,01) mol/h solvant",
+     "result": "18:1 (24,6:1 si on ne compte que l'éthanol)",
+     "compared_to": "22:1 annoncé",
+     "source": "valeurs de l'article ; densités usuelles de l'eau et de l'éthanol (NIST WebBook)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "40 °C et 110 bar : au-dessus du point critique du CO2 pur (31,0 °C, 73,8 bar, NIST WebBook) ; conditions identiques à celles de la synthèse SAS publiée (Kondrat 2016). L'eau (10 vol%) est peu miscible au scCO2, ce qui est voulu pour la précipitation d'un sel.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Stable amorphous georgeite as a precursor to a high-activity catalyst",
+      "authors_or_publisher": "Kondrat S. A. et al., Nature 531, 83–87",
+      "year": "2016",
+      "url_or_doi": "10.1038/nature16935"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rapport scCO2/solution recalculé à 18:1 (ou 24,6:1 en ne comptant que l'éthanol) contre 22:1 annoncé : écart de ≈ 20 %, base de calcul non dite (calcul « rapport molaire scCO2/solution »). L'étape « precipitate » de 3,5 h dans l'extraction correspond en fait à la durée totale de l'essai ; l'injection dure 77 min.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "bilan",
+     "finding": "1,1–1,3 g pour 1,65–2,0 g possibles : rendement de 55–79 % selon la formule, plausible pour un SAS (pertes sur les parois et le filtre). Le rendement n'est pas donné par l'article.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "securite",
+     "finding": "Appareil sous 110 bar de CO2 pendant ≈ 3,5 h : équipement spécialisé (Separex), contrôles d'étanchéité, détente lente ; risque d'asphyxie par CO2 en local clos.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le CO2 supercritique diffuse dans les gouttelettes eau/éthanol et l'éthanol dans le CO2 : le pouvoir solvant s'effondre, les acétates précipitent très vite à forte sursaturation ; l'eau et le CO2 donnent l'hydroxycarbonate amorphe, et le séchage au scCO2 empêche le vieillissement en malachite.",
+    "sources": [
+     {
+      "title": "Stable amorphous georgeite as a precursor to a high-activity catalyst",
+      "authors_or_publisher": "Kondrat S. A. et al., Nature 531, 83–87",
+      "year": "2016",
+      "url_or_doi": "10.1038/nature16935"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base de calcul du rapport 22:1",
+    "volume de la cuve et débit de détente",
+    "préparation du catalyseur à partir du précurseur SAS (calcination non redonnée)"
+   ]
+  },
+  {
+   "label": "Calc_ZG-AC",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction de Cu implicite dans les productivités par kg de Cu",
+     "inputs": "STY par kgcat / STY par kgCu, tableau 2",
+     "formula": "3,19/5,23 ; 4,46/7,31 ; 2,59/4,25 ; 3,64/7,58 ; 6,01/12,51",
+     "result": "0,610 (georgeite, deux températures) ; 0,609 (malachite) ; 0,480 (étalon commercial)",
+     "compared_to": "Cu dans l'oxyde : 0,511 (64:36), 0,535 (67:33), 0,479 (60:30:10) ; Cu dans le Cu/ZnO réduit : 0,587 (64:36), 0,619 (67:33), 0,545 (étalon)",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "cohérence des surfaces de Cu par g et par g de Cu",
+     "inputs": "16/28, 21/34, 6/10, 18/29, 3/5 m2 g−1",
+     "formula": "rapport",
+     "result": "0,57 ; 0,62 ; 0,60 ; 0,62 ; 0,60",
+     "compared_to": "fraction de Cu du catalyseur réduit 0,587 (64:36) et 0,619 (67:33)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "N2O disponible contre Cu de surface",
+     "inputs": "12 impulsions de 113 µL ; 100 mg calcinés (≈ 87 mg réduits) ; 16 m2/g ; 1,47 × 10^19 Cu/m2",
+     "formula": "12 × 113 µL / 22,414 L/mol ; 16 × 0,087 × 1,47e19 / NA / 2",
+     "result": "60 µmol N2O fournis contre 17 µmol consommés (22 µmol pour 21 m2/g)",
+     "compared_to": "excès d'environ 3 : titrage complet possible",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "dispersion et taille équivalente du Cu",
+     "inputs": "28 m2/gCu ; 1,47 × 10^19 Cu/m2 ; ρ(Cu) = 8,96 g/cm3",
+     "formula": "28 × 1,47e19 / (6,022e23/63,546) ; d = 6/(ρ S)",
+     "result": "dispersion 4,3 % ; d ≈ 24 nm (sphères libres)",
+     "compared_to": "cristallites d'oxyde ≤ 5 nm après calcination : la surface N2O est plus faible que ne le laisse attendre la taille, ce qui est habituel pour Cu/ZnO (recouvrement partiel par ZnOx)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "conversion d'équilibre en LTS à 220 °C",
+     "inputs": "H2O:CO:CO2:H2:N2 = 50:2:8:27,5:12,5 ; K = exp(4577,8/T − 4,33), T = 493,15 K",
+     "formula": "(8 + x)(27,5 + x) / ((2 − x)(50 − x)) = K",
+     "result": "K = 142 ; x = 1,957, conversion d'équilibre 97,8 %",
+     "compared_to": "94 % initiaux pour la georgeite, 85 % pour la malachite (lus Fig. 4)",
+     "source": "corrélation de Moe 1962"
+    },
+    {
+     "what": "conversion du carbone en méthanol",
+     "inputs": "3,5 L/h (TPN, 22,414 L/mol) ; CO + CO2 = 15,2 % ; 0,5 g ; STY 3,19 mol/(h kg)",
+     "formula": "3,19 × 0,5 mmol/h / (156 mmol/h × 0,152)",
+     "result": "6,7 % (georgeite 190 °C) ; 12,7 % (étalon 205 °C) ; VVH 7 000 mL g−1 h−1",
+     "compared_to": "loin de l'équilibre à 25 bar : régime cinétique, comparaison d'activité valable",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "cohérence Na % m et mg/kg (tableau 3)",
+     "inputs": "148, 208, 340, 5 885, 70 325, 695, 425 mg/kg",
+     "formula": "/10 000",
+     "result": "0,0148 ; 0,0208 ; 0,034 ; 0,589 ; 7,03 ; 0,070 ; 0,043 %",
+     "compared_to": "0,02 ; 0,02 ; 0,03 ; 0,59 ; 7,03 ; 0,07 ; 0,04 % : seul 148 mg/kg devrait s'arrondir à 0,01 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre de pore 4V/S après calcination",
+     "inputs": "30 m2/g, 0,3 cm3/g ; 56/0,7 ; 16/0,15 ; 28/0,3 ; 29/0,3",
+     "formula": "4V/S",
+     "result": "40 ; 50 ; 37,5 ; 43 ; 41 nm",
+     "compared_to": "mésopores larges (≤ 50 nm), cohérents avec la Fig. 5",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Productivités par kg de Cu (tableau 2) : la georgeite (64:36) et la malachite (67:33) sont normalisées avec la même fraction de Cu, 0,610, et l'étalon avec 0,480 (base oxyde exacte pour 60:30:10). 0,610 ne correspond ni à la base oxyde (0,511) ni à la base réduite (0,587) du catalyseur 64:36 (calcul « fraction de Cu implicite »). Sur une même base oxyde, la georgeite ferait 6,24 et non 5,23 mol h−1 kgCu−1 à 190 °C : l'écart avec l'étalon (7,58) passe de 45 à 21 %. L'affirmation « encore plus nette rapportée à la masse de Cu » dépend de cette normalisation incohérente.",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pertes de conversion LTS « après 135 h » (3,6 ; 16,5 ; 11 %) alors que la Fig. 4 s'arrête vers 111 h et que la lecture donne ≈ 2,7 points pour la georgeite. Les essais se font à 94 % pour une conversion d'équilibre de 97,8 % (calcul « conversion d'équilibre ») : près de l'équilibre, la conversion est peu sensible à l'activité, ce qui écrase les écarts de désactivation de la georgeite ; seuls les essais à 75 % de conversion (ESI) comparent vraiment les activités.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Design of water-gas shift reactors (Chem. Eng. Prog. 58, 33) — corrélation K = exp(4577,8/T − 4,33), rapportée par Wikipedia « Water–gas shift reaction » et le brevet US 9 945 801",
+      "authors_or_publisher": "Moe J. M.",
+      "year": "1962",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Water%E2%80%93gas_shift_reaction"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination à 300 °C, 1 °C/min, 4 h sous air : suffisante pour décomposer la georgeite (perte principale 100–200 °C) mais pas le carbonate de haute température (jusqu'à 440–465 °C), ce que les auteurs veulent. Pour la malachite de référence, les raies de malachite/aurichalcite persistent après 300 °C (Fig. 6) : le catalyseur de référence est réduit à partir d'un hydroxycarbonate en grande partie non décomposé, ce qui biaise la comparaison des deux précurseurs.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Exotherme des précurseurs non lavés attribué à l'acétate d'ammonium (texte) mais à « l'ammonium carbonate » dans la légende de la Fig. S8 ; il disparaît sous N2 : c'est donc une combustion (oxydation de l'acétate et de NH3, catalysée par CuO), pas une décomposition propre de l'acétate d'ammonium. Les m/z 30 et 46 attribués à NOx sont aussi ceux de fragments organiques (HCHO, HCOOH) : sans autre signal, l'identification de NOx sous hélium est fragile.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surfaces de Cu par g et par g de Cu cohérentes entre elles (rapports 0,57–0,62 = fraction de Cu du catalyseur réduit) ; N2O en excès d'un facteur 3 ; dispersion 4,3 % plausible pour Cu/ZnO. Na : seul 148 mg/kg (0,015 %) est mal arrondi en 0,02 %.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "securite",
+     "finding": "Calcination du précurseur non lavé fortement exothermique (risque d'emballement en lit épais) ; essais sous CO et H2 à 25–27,5 bar ; Cu réduit pyrophorique à passiver.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Entre 100 et 200 °C, l'hydroxycarbonate amorphe perd H2O et CO2 et donne un mélange intime de nanocristaux de CuO et ZnO (3–10 nm) ; une part du carbonate (≈ 0,3 CO3 par métal) reste occluse jusqu'à 440 °C et freine le frittage lors de la réduction. Sans lavage, l'acétate d'ammonium brûle de façon exothermique vers 245 °C, chauffe localement le solide, élimine le carbonate occlus et fait croître les cristallites (8,8 et 18,1 nm), d'où une surface de Cu trois fois plus faible.",
+    "sources": [
+     {
+      "title": "Stable amorphous georgeite as a precursor to a high-activity catalyst",
+      "authors_or_publisher": "Kondrat S. A. et al., Nature 531, 83–87",
+      "year": "2016",
+      "url_or_doi": "10.1038/nature16935"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base de normalisation de la masse de Cu (tableau 2)",
+    "durée réelle de l'essai LTS (111 ou 135 h)",
+    "calcination de la référence malachite (300 °C insuffisant pour la décomposer)"
+   ]
+  },
+  {
+   "label": "Calc_ZG-SC_nowash",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "16 m2/g ; 0,15 cm3/g",
+     "formula": "4V/S",
+     "result": "37,5 nm",
+     "compared_to": "Fig. 5C",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "7 % de Na : frittage (CuO 13,6 nm), surface BET 16 m2/g et surface de Cu 3 m2/g ; effet poison du Na cohérent. Le pic de CO2-TPD à 178 °C attribué au Na n'est montré que sur un échantillon, sans série en teneur de Na.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'acétate de sodium résiduel, peu combustible, laisse Na+ à la surface ; il favorise le frittage des oxydes et fixe le CO2 plus fortement.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": []
+  }
+ ],
+ "article_level": {
+  "summary": "Protocoles de co-précipitation simples et cohérents (bilan Cu:Zn 2:1, pH, températures douces), mais volumes, débits et nombre de lavages absents. Les incohérences viennent des tableaux et des recoupements : colonne « Yield Zn » à 0 % ; normalisation par kg de Cu (fraction 0,61 pour deux compositions différentes, 0,48 pour l'étalon) ; durée LTS 135 h contre 111 h tracées ; 65/70 °C et 2/4 h entre Méthodes, Fig. 5 et ESI ; rapport scCO2/solution 22:1 recalculé à 18:1. La comparaison georgeite/malachite change plusieurs variables à la fois. Les essais LTS se font près de l'équilibre (97,8 %).",
+  "author_errors_suspected": [
+   "Tableau 1 : rendement de Zn 0 % (attendu ≈ 100 %)",
+   "Tableau 2 : fraction de Cu de 0,61 utilisée pour les catalyseurs 64:36 et 67:33, 0,48 pour l'étalon (bases différentes)",
+   "perte de conversion LTS « après 135 h » alors que la Fig. 4 s'arrête vers 111 h",
+   "Fig. 5 : 70 °C contre 65 °C dans les Méthodes ; Fig. S5 : 2 h contre 4 h de calcination",
+   "Fig. S8 : exotherme attribué au carbonate d'ammonium, le texte dit acétate d'ammonium",
+   "Tableau 3 : 148 mg/kg arrondi en 0,02 % au lieu de 0,01 %",
+   "« 12% residual mass retained after 300 °C » désigne une perte de masse restante, pas une masse résiduelle"
+  ],
+  "comparison_with_database": "Aucune autre synthèse de georgeite, de malachite ou de Cu/ZnO dans la base (compare.py « georgeite », « malachite », « Cu/ZnO ») : seules les voies de cette publication."
+ },
+ "sources_not_found": [
+  "article original de Moe 1962 non lu (corrélation lue dans des sources secondaires)",
+  "titre exact de Zander, Seidlhofer, Behrens, Dalton Trans. 2012 (DOI 10.1039/c2dt31236k) non relu",
+  "limite de miscibilité CO2/éthanol/eau à 40 °C et 110 bar : pas de source trouvée",
+  "Baltes et al., J. Catal. 2008 (258, 334) : DOI non trouvé, non utilisé",
+  "dépôt ORCA de Kondrat 2016 injoignable (DNS) : rapport 22:1 du papier SAS non vérifié"
+ ]
+}

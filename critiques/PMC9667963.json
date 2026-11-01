@@ -1,0 +1,111 @@
+{
+ "pmcid": "PMC9667963",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "P-10-80-120 characterization XPS (Si 2p) and result Si2p_binding_energy_uncalcined_vs_calcined",
+   "extracted": "Si 2p at 103.9 eV (uncalcined) vs 103.1 eV (calcined)",
+   "article_says": "the Si 2p peak of the uncalcined sample obviously shifts to lower electron energy levels compared with the calcined P-10-80-120 (103.9 eV vs. 103.1 eV)",
+   "fix": "Le texte dit que le pic non calciné est plus bas ; la Fig. 3b montre P-10-80-120-uncal vers 103 eV et P-10-80-120-cal vers 104 eV. Donc 103,1 eV = non calciné et 103,9 eV = calciné : inverser l'attribution dans la caractérisation (garder le résultat en value_text littéral mais ne pas l'étiqueter uncalcined=103.9), ou écrire explicitement l'ambiguïté du texte.",
+   "confidence": "sure"
+  },
+  {
+   "where": "P-0-80-120 result Si2p_binding_energy_before_vs_after_calcination",
+   "severity": "attribution",
+   "extracted": "104.2 eV vs. 103.8 eV étiqueté avant vs après calcination",
+   "article_says": "the peak position of P-0-80-120 only shifts slightly before and after calcination (104.2 eV vs. 103.8 eV)",
+   "fix": "Sur la Fig. 3b, P-0-80-120-uncal est vers 103,8-103,9 eV et P-0-80-120-cal vers 104,1-104,2 eV : même ordre inversé que pour P-10 (première valeur = calciné). Retirer l'ordre « avant vs après » du nom de la propriété ou le corriger.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "faux",
+   "where": "P-10-80-120-HCl reagent hydrochloric acid solution (purity)",
+   "extracted": "100 mL, purity 36 wt%",
+   "article_says": "1 g P-10-80- 120 sample was treated with 100 mL 1M HCl water solution at room temperature for 6 h",
+   "fix": "La solution utilisée est 1 M ; les 36 wt% sont ceux du HCl commercial (liste des réactifs). Mettre concentration 1 M (nom « HCl 1 M aqueux ») et garder 36 wt% seulement comme pureté du produit de départ, ou le retirer de la ligne de 100 mL.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "P-0-80-120 time series, 24 h (branche absente)",
+   "extracted": "pas de branche ; inventaire : « seul le sens de la tendance est donné »",
+   "article_says": "Si/Ti ratio from 107 to 98",
+   "fix": "Créer P-0-80-120_24h (durée 24 h à 120 °C) avec Si/Ti = 98 (valeur de fin de la plage 6–24 h, Fig. S20), ou au minimum porter 98 en résultat de P-0-80-120 avec sa durée en annotation ; la phrase donne bien deux valeurs aux deux bornes 6 h et 24 h.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "échantillon TiO2 (nano-anatase), Table S4 et Fig. 7",
+   "extracted": "inventaire route null, raison : DBT 8,8 % et hexène 1,01 % ; autres colonnes de la ligne TiO2 de la Table S4 non portées nulle part",
+   "article_says": "As a comparison, the maximum conversion of 1-hexene over the nano-sized anatase only reaches 1.0%",
+   "fix": "Reporter aussi la sélectivité >99 %, la conversion de H2O2 18,2 % et l'efficacité 5,5 % de la ligne TiO2 de la Table S4 dans le `why` de l'inventaire ou dans une annotation (pas de voie à créer).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "P-10-80-120 time series, Fig. 1b (0, 0.5, 1.0 h) et P-0-80-120 6 h",
+   "extracted": "cristallinité relative lue seulement à 1,5, 2,0, 2,5, 3 h (P-10) et 8, 12 h (P-0)",
+   "article_says": "the crystallized products of P-10-80-120 begin to form at the crystallization time of 1.5 h",
+   "fix": "Fig. 1b montre ≈ 0 % à 0, 0,5 et 1,0 h pour P-10 ; les branches P-10-80-120_0h, _0.5h et _1.0h n'ont aucun résultat de cristallinité alors que le texte dit qu'aucun produit cristallisé n'existe avant 1,5 h. Ajouter relative_crystallinity ≈ 0 % (from_figure Fig. 1b) ou une valeur textuelle « aucun solide cristallin avant 1,5 h ». Le texte donne aussi pour P-0 « undergo complete crystallization within 2 h » (6 → 8 h), non repris.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "P-0-80-120, P-0-120, P-0-170 steps centrifuge / wash / dry / calcine",
+   "extracted": "post-traitement du protocole PAM repris avec la citation du protocole PAM ; étape calcine décrite « to remove PAM and TPA » pour un échantillon sans PAM",
+   "article_says": "Control TS-1 zeolite named P-0-80-120 was synthesized with the same molar composition of the P-10-80-120 sample without adding PAM.",
+   "fix": "L'article ne dit pas que le témoin est centrifugé, lavé, séché et calciné comme le P-10 (seule la calcination est suggérée par l'XPS « before and after calcination »). Pour P-0-80-120 le doute est écrit, mais P-0-120 et P-0-170 n'ont qu'un not_stated ['yield'] : ajouter post_treatment et agitation de 24 h à leur not_stated, et corriger la description de la calcination (« to remove TPA », sans PAM).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "P-10-80-120_1.5h result WLP_phase (Si/Ti = 23)",
+   "extracted": "WLPs amorphous (Si/Ti = 23 by ICP) rattaché à l'échantillon 1,5 h",
+   "article_says": "the Si/Ti ratio of the solid obtained after crystallization at 120 °C (0 h) is 23",
+   "fix": "23 est la valeur du solide à 0 h (Fig. S16) ; à 1,5 h le texte ne donne pas de Si/Ti (19,6 à 0,5 h, 29 à 3 h). Le WLP « Si/Ti = 23 » de la phrase SAED n'est pas explicitement daté 1,5 h : déplacer la valeur numérique vers P-10-80-120_0h (déjà présente) et ne garder que « amorphe (SAED) » pour 1,5 h.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "P1800-10-80-120, durée à 120 °C et Si/Ti = 59",
+   "extracted": "durée 8 h (Table S1) portée en variation ; Si/Ti = 59 tiré de la Table S3 (6 h)",
+   "article_says": "P1800-10-80-120 3 h 6 h 59",
+   "fix": "Les deux tableaux de l'article sont en contradiction sur la durée du même échantillon ; le Si/Ti = 59 vient d'une ligne qui dit 6 h alors que la voie dit 8 h. Ajouter une annotation limite_reproductibilite sur P1800-10-80-120 (le doute n'existe que dans la liste des doutes).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "CARAC catalytic tests (hexène, DBT) : contradictions Méthodes / note de la Table S4",
+   "extracted": "Méthodes retenues (méthanol 10 mL, H2O2 30 wt%, n-octadécane) ; contradiction seulement dans les doutes",
+   "article_says": "H2O2 (35 wt%), 3.3 mmol; methanol, 8.0 g",
+   "fix": "Un chimiste qui lit la fiche ne voit pas la contradiction : ajouter une annotation limite_reproductibilite (H2O2 30 vs 35 wt%, méthanol 10 mL vs 8,0 g ; n-octadécane en Méthodes vs n-hexadécane en liste de réactifs).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "propriété 1-hexene_max_conversion et annotation comparaison_branches",
+   "extracted": "« conversion maximale du 1-hexène 26,5 % »",
+   "article_says": "achieving the highest maximum theoretical conversion of 26.5%",
+   "fix": "La Table S4 donne 26,5 / 36,2 = 73,2 % (efficacité) pour P-10, 18,3 / 22,7 = 80,6 % pour P-0 : la « Max conversion » est exprimée par rapport au maximum théorique permis par 3,3 mmol de H2O2 pour 10 mmol d'hexène, pas une conversion absolue du 1-hexène. Préciser dans le nom de propriété ou une annotation.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 26,
+  "branches_extracted": 25,
+  "not_stated_checked": 45,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "aucune masse ni volume de réactif : seulement des rapports molaires (SiO2 : 0,033 TiO2 : 0,27 TPAOH : 30 H2O : 0,1 PAM) ; taille de lot, volume et remplissage de l'autoclave absents",
+  "PAM : base du rapport 0,1 (motif ou chaîne) et masse molaire en plage 8 000 000-15 000 000 pour le fournisseur Guangfu ; état du PAM ajouté (solide, solution) non dit",
+  "température de l'agitation de 24 h, vitesse d'agitation, rampe de chauffage, vitesse et durée de centrifugation, atmosphère et rampe de calcination non données",
+  "micro-TS-1 : sources de Si et Ti, étapes et post-traitement absents",
+  "post-traitement des témoins P-0-* et des solides extraits aux temps intermédiaires non décrit ; séries en temps (Fig. S2, S3, S4, S16, S19-S21) en figures du SI non disponibles, donc durées d'induction par échantillon et teneurs relatives en TiO6 inconnues",
+  "contradictions de l'article sur les essais catalytiques (H2O2 30/35 wt%, méthanol 10 mL/8,0 g, n-octadécane/n-hexadécane) et sur la durée de P1800 (8 h/6 h)",
+  "quantité de TBHP (0,028 g pour 10 mL de combustible, TBHP à 70 wt% aqueux) et rapport au soufre non justifiés ; état du catalyseur (calciné) pour les essais non dit"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (liaisons hydrogène acyle-Si/Ti, coordination amino-Ti, TiO6(PAM), attachement de particules) fidèle aux passages cités ; mecanisme_analyse clairement présenté comme probable ; sécurité plausible (TPAOH, TBOT/TEOS, autoclave, TBHP, H2O2, méthanol).",
+ "notes": "Extraction très fidèle : toutes les citations sont des sous-chaînes du texte, les 4 lignes de la Table S2, la Table S3 et la Table S4 sont correctement rangées (colonnes vérifiées par efficacité = conversion max / conversion de H2O2). Valeurs lues sur Fig. 1b et Fig. 7a vérifiées à ±3 points, aucun écart supérieur à 10 %. method_sources vide : confirmé, les renvois [[cit]] de refs sont tous d'interprétation. Fragile : la lecture des durées dans Fig. 1b à 1,5 et 2,0 h (2 et 3 %) est à la limite de la précision. Fig. 1b montre aussi P-10 à 4 h (100 %) et 6 h (≈ 98 %), sans échantillon décrit par le texte : non signalé comme constat. Le texte dit en Fig. 5 que le pic à 459,1 eV est propre aux échantillons avec PAM alors que la figure le montre aussi sur P-0-80-120-uncal : incohérence de l'article, pas de l'extraction."
+}

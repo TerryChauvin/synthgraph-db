@@ -1,0 +1,143 @@
+{
+ "pmcid": "PMC8149873",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "3LCVO-ABR lattice_parameter_a/b/c and unit_cell_volume (Table 1 vs Supplementary Table 1)",
+   "extracted": "a = 6.3183 Å, b = 5.4479 Å, c = 4.9509 Å, V = 170.25 Å3 (main Table 1 column '3LCVO-ABR')",
+   "article_says": "a (Å) | 6.3106 (3) | 6.3183 (5)",
+   "fix": "Supplementary Table 1 (xLCVO-ABR, same Rietveld) gives for 3LCVO-ABR a = 6.3202(5), b = 5.4484(4), c = 4.9520(2) Å, V = 170.462(3) Å3 (chi2 1.639, Rwp 2.58, Rp 2.00), and gives a = 6.3183(4), b = 5.4479(4), c = 4.9509(3) for 2LCVO-ABR and V = 170.250(1) for 1LCVO-ABR: the main-table column mixes values of 2LCVO and 1LCVO. Its V is also inconsistent with its own a*b*c (170.42). Keep the Table 1 value (extraction rule: contradiction goes in doubts) but add a second result with the Supplementary Table 1 row as quote, and an annotation limite_reproductibilite 'Table 1 et Supplementary Table 1 donnent deux jeux de paramètres de maille pour 3LCVO-ABR' (the existing doubt is not visible to the chemist). Under the SI values the series a, b, c, V rises monotonically with x, as the text says; under Table 1 V of 3LCVO (170.250) is below that of 2LCVO (170.352).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "0LCVO-ABR method ('closed vial') and step 4 description ('in the container')",
+   "extracted": "kept at 80 °C for 24 h in a closed vial with an open vial of water ; step 4: dry the sample in the container",
+   "article_says": "The obtained mixture was transferred into a 20 mL glass vial which was added another open 3 mL vial containing 1 mL of distilled water.",
+   "fix": "The article never says the outer 20 mL vial is closed, capped or sealed (only the inner 3 mL vial is 'open'); step 2 itself declares closure_of_outer_vial not_stated, so the route 'method' text contradicts it. Replace 'closed vial' by 'a 20 mL vial containing an open 3 mL vial of water' and drop 'in the container' from step 4 (the article only says the samples were dried at the same temperature after the water vial was taken out; lid state during drying is also unstated). Matters for the safety annotation too (pressure).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "3LMVO-ABR (inherited steps from 3LCVO-ABR; structure field 'orthorhombic')",
+   "extracted": "parent = 3LCVO-ABR, so grinding, 20 mL vial + 3 mL water vial, 80 °C 24 h, drying 12 h, re-grinding are inherited; structure 'orthorhombic (XRD, Supplementary Fig. 10)'",
+   "article_says": "The XRD pattern of the Mg-doped sample in Supplementary Fig. 10 can be used to determine the purity of the prepared sample",
+   "fix": "The only description is 'Ca was replaced by magnesium (Mg2+) (at the same content)'; no phrase says the Mg sample followed the ABR procedure (the suffix -ABR is the only hint), and the article does not say the Mg sample is orthorhombic, only that its XRD shows purity. RUNBOOK 'pas d'héritage non fondé': either give 3LMVO-ABR its own steps or declare them not_stated, keeping the doubt, and remove 'orthorhombic' (put 'phase pure per XRD, Supp. Fig. 10, not shown in repository').",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "2LCVO-ABR route (inherits the ABR protocol of 0LCVO-ABR)",
+   "extracted": "2LCVO-ABR is a branch of 0LCVO-ABR with dopant 2 % Ca, all steps inherited",
+   "article_says": "In a typical process, LiOH H2O, CaO, and V2O5 with the stoichiometric mole percentage (x% = 0, 1, 3, and 5%) was well mixed and ground in mortar.",
+   "fix": "Methods list x = 0, 1, 3, 5 only; x = 2 exists only in the Results sentence 'xLCVO-ABR (x = 0, 1, 2, 3, 5 ...' and Supplementary Tables 1 and 3. The branch is reasonable and its only data (Supp. Table 1 lattice parameters) match the Supp. Table 1 column '2LCVO-ABR', but add an annotation limite_reproductibilite saying the preparation of the 2 % sample is not described in Methods. Not extracted for 2LCVO-ABR: chi2 1.295, Rwp 3.58, Rp 2.91 (Supp. Table 1) and the structural table (Supp. Table 3, Li/Ca occupancy 0.98/0.02).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "3LCVO-ABR and 0LCVO-ABR V4+/V5+_ratio_XPS (34.52 % and 6.63 %)",
+   "extracted": "34.52 % attributed to 3LCVO-ABR, 6.63 % to 0LCVO-ABR",
+   "article_says": "The estimated ratio of V4+/V5+ in the doped samples was 34.52% which is 5.21 times higher than that of pure material (6.63%).",
+   "fix": "The sentence says 'the doped samples' (plural) and 'pure material', without naming 3LCVO-ABR/0LCVO-ABR; the previous sentence only uses 3LCVO-ABR as an example of the fit, and the XPS series of Supplementary Fig. 11a also contains 3LCVO-SSR. The attribution is plausible (6.63 x 5.21 = 34.5) but inferred: keep, but mark it (doubt already present, add a note in the result or an annotation) and do not read it as 3LCVO-ABR-only evidence. The 6.8 % / 30.4 % O1s values name 3LCVO-ABR and 'the pristine sample' explicitly.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "0LCVO-ABR reversible_capacity_after_200_cycles_100_mA_g-1 (268.7 mAh g-1)",
+   "extracted": "268.7 mAh g-1 (text), doubt says Fig. 4b ends near 230",
+   "article_says": "543.1 mAh g−1 (for 3LCVO-ABR) and 268.7 mAh g−1 (for 0LCVO-ABR) after 200 cycles",
+   "fix": "I measured the red 0LCVO-ABR curve of Fig. 4b at about 232 mAh g-1 at cycle 200 (axis 0-1200, other curves match the extracted figure readings within 2 %), i.e. 14 % below the text; Supplementary Table 15 repeats 268.7 / 90.27 %. The value is correctly extracted from text; add the discrepancy as an annotation limite_reproductibilite (the doubt alone is not shown to the chemist).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "0LCVO-ABR, 1/3/5LCVO-ABR, 0/3LCVO-SSR, Supplementary Table 5: Li, V, O contents",
+   "extracted": "only Ca mass % (ICP-OES, XRF) extracted for 1, 3, 5LCVO-ABR and 3LCVO-SSR",
+   "article_says": "elemental composition of as-prepared samples was investigated using Inductively Coupled Plasma Optical Emission Spectroscopy and X-ray fluorescence",
+   "fix": "Supplementary Table 5 gives mass % Li, Ca, V, O (theoretical, ICP-OES, XRF) for 0LCVO-ABR, 1LCVO-ABR, 3LCVO-ABR, 5LCVO-ABR, 0LCVO-SSR, 3LCVO-SSR; e.g. 3LCVO-ABR Li 15.05 theory / 13.14 ICP-OES, V 37.27 / 35.02 / 36.21 XRF; 0LCVO-ABR Li 15.44 / 14.96, V 37.50 / 37.91 / 36.14; 0LCVO-SSR Li 15.44 / 13.02. Add Li, V (and XRF O) for each route (route 0LCVO-ABR and 0LCVO-SSR have no composition result at all). Also note: the 3LCVO-SSR measured Ca (0.25 / 0.30 %) is one third of its nominal 3 % (0.88 %) and its theoretical Ca/V/O equal the 1LCVO-ABR row (doubt exists).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "0/1/2/3/5LCVO-ABR Rietveld agreement factors",
+   "extracted": "not extracted",
+   "article_says": "χ2 | 1.724 | 1.639",
+   "fix": "Table 1 and Supplementary Table 1: chi2 1.724, 1.707, 1.295, 1.639, 1.211; Rwp 2.50, 4.04, 3.58, 2.58, 3.40 %; Rp 1.95, 3.26, 2.91, 2.00, 3.37 % for x = 0, 1, 2, 3, 5 (Supp. Table 1 column order). Low priority.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "CV peak potentials of Table 5 (3rd and 4th cycles, both samples) and Table 5 2nd-cycle values",
+   "extracted": "only 2nd-cycle values from the text (0.500/0.846/1.168 V and 0.60/0.896/1.108 V)",
+   "article_says": "0LCVO-ABR | 2nd | 1.17 | 0.50 | 0.86 | 0.67 | 0.31",
+   "fix": "The block structure of Table 5 is unambiguous (rows 1-3 under '0LCVO-ABR', rows 4-6 under '3LCVO-ABR'): add 3rd and 4th cycle values (0LCVO-ABR 3rd 1.15/0.51/0.85/0.64/0.30, 4th 1.12/0.52/0.85/0.60/0.27; 3LCVO-ABR 3rd 1.10/0.61/0.91/0.49/0.19, 4th 1.09/0.62/0.92/0.47/0.17), citing the full row plus the block header row. The doubt rejecting this as 'attribution par position' is too cautious.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "3LCVO-ABR XPS peak positions (V2p, O1s) and ex situ electrode XPS",
+   "extracted": "only qualitative CARAC for ex situ XPS; V5+/V4+ binding energies not extracted",
+   "article_says": "V2p3/2 peak could be deconvoluted into peaks at 517.62 and 525.02 eV",
+   "fix": "Text gives for 3LCVO-ABR: V5+ 517.62 and 525.02 eV (splitting 7.48), V4+ 516.77 and 524.15 eV (7.38); O1s 530.26, 531.93 and 533.15 eV; for all samples V5+ 2p3/2 ~517.0 and 2p1/2 ~525.5 eV; ex situ electrode at 0.1 V: V3+ 515.51, V4+ 516.45, V5+ 517.42 eV. (Note: 525.02 - 517.62 = 7.40, not 7.48: article-internal inconsistency worth a doubt.)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "3LCVO-ABR and 3LMVO-ABR pore characteristics (t-plot, BJH); in situ XRD of 0LCVO-ABR",
+   "extracted": "BET total/external area and pore volume only",
+   "article_says": "the increase in BET surface area, large μ-pore area, and large pore size of 3LMVO-ABR confirm the inhibitory effect of the dopant ions on particles growth",
+   "fix": "Add qualitative CARAC/results: ABR and Ca doping increase the micropore (μ-pore) area, pore size larger in 3LCVO-ABR than in the pure sample (Supp. Figs 8, 9), same for 3LMVO-ABR; 0LCVO-ABR in situ XRD shows an unknown peak (phase II) in the first cycle (currently written only on the 3LCVO-ABR route). Low priority.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Full_cell_NMC622_CG step 2 current_density",
+   "extracted": "current_density declared not_stated",
+   "article_says": "The galvanostatic profile of the NMC622║3LCVO-ABR full-cell at a current density of 50 mA g−1 was shown in Fig. 4e.",
+   "fix": "Fig. 4f (cycling of both full cells, caption 'f cycling performance of full cell of NMC622 cathode and 3LCVO-ABR anode or CG') carries one label '50 mA g-1' under both curves, so the CG cell is also read at 50 mA g-1 on the figure; add it with from_figure 'Fig. 4f' or keep not_stated with a doubt. Probable because the label is shared by the two curves.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "3LCVO-ABR XRD characterization (quote vs result) and 0LCVO-ABR XRD space group",
+   "extracted": "3LCVO-ABR XRD result '(200) peak shifted to lower 2θ (lattice expansion)' with quote on the 1 and 3 % single-phase sentence; 0LCVO-ABR 'space group Pmn21' with a quote that reads 'Pnm21'",
+   "article_says": "the substitution of larger radius ion at the Li site could lead to the expansion of inter-planar d spacing as illustrated by the shift of (200) peak to lower 2θ angles",
+   "fix": "The quoted sentence does not contain the (200) shift (it is in the next sentence and speaks of the doped samples in general), and the quote for 0LCVO-ABR says 'Pnm21' while Table 1 says 'Pmn21' (article typo). Use the right sentence/row as quote, and instrument/conditions of the XRD (Philips X'Pert, Cu Kα, 10-80°, step 0.026°) are given only on 0LCVO-ABR, not on the XRD of 1/3/5LCVO-ABR, nor the FESEM (S-4700, Hitachi) on the SSR samples.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "1LCVO-ABR and 5LCVO-ABR material morphology 'similar to the undoped ABR sample'",
+   "extracted": "morphology 'similar to the undoped ABR sample' on 1LCVO-ABR and 5LCVO-ABR, none on 2LCVO-ABR",
+   "article_says": "Ca-doped samples obtained via the same reaction exhibit a similar morphology (as shown in Fig. 2b).",
+   "fix": "Fig. 2b is 3LCVO-ABR only; the sentence is general ('Ca-doped samples') and no image of the 1 % sample is described (the 5 % SEM exists only in the reviewer response, not the article). Keep as a general statement on 3LCVO-ABR or add a doubt; treat the 1 %/5 % attribution as inferred.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (surface specific increase with Ca then retention maximum at 3 %)",
+   "extracted": "'Le dopage Ca en voie ABR augmente la surface spécifique et la porosité, puis la rétention de capacité passe par un maximum à 3 % de Ca.'",
+   "article_says": "These results demonstrate that the combination of ABR and Ca doping induces a mesoporous morphology and significantly increases the specific surface area.",
+   "fix": "BET is measured only for 0LCVO-ABR, 3LCVO-ABR (and 3LMVO-ABR), not on a Ca series, so 'augmente ... puis' presents a two-point comparison as a trend; the retention maximum at 3 % (92.72, 94.27, 89.72 %) is supported (article: 'The decrease in capacity retention beyond doping concentration of 3%'). Reword: surface area increases between 0 and 3 % Ca; retention peaks at 3 %.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 11,
+  "branches_extracted": 11,
+  "not_stated_checked": 72,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "Masses/moles of LiOH·H2O, V2O5 and CaO and batch size are absent (article and Supplementary Information): only 'stoichiometric mole percentage (x% = 0, 1, 3, and 5%)'; the base of x % (per V, per Li, per Li3VO4) and the substitution stoichiometry are not given (Rietveld occupancies 0.01/0.02/0.03/0.05 for Ca suggest x/100 Ca per formula unit, not stated).",
+  "Whether the 20 mL vial is closed/capped, oven type and humidity control, grinding time/fineness, atmosphere of drying and the temperature of the 12 h drying ('same temperature') are not written.",
+  "SSR route entirely absent: precursors, Ca source, amounts, annealing temperature, time, ramp and atmosphere are only 'following reference' (ref 9, Li et al. 2013, an undoped Li3VO4 paper) and 'After annealing process'.",
+  "Mg-doped 3LMVO-ABR: Mg precursor, amount and whether the ABR procedure was used are not stated; Supp. Fig. 10 is not in the repository.",
+  "In situ Raman experiment: cell, temperature, humidity, laser and the relation between the 270-360 min times and the 24 h bulk reaction are not given.",
+  "Full cells: electrolyte, separator, cathode composition and loading, cell format and the current density of the NMC622║CG cell (only on Fig. 4f) are not given; the half-cell protocol states 100 mAh g-1 (typo) and the coating method/thickness/pressing are not stated.",
+  "Table 1 vs Supplementary Table 1 disagree for 3LCVO-ABR lattice parameters; Supp. Table 5 theoretical row of 3LCVO-SSR repeats the 1 % row; 0LCVO-ABR 200-cycle capacity 268.7 (text) vs about 232 (Fig. 4b); Methods list x = 0, 1, 3, 5 but 2 % is used in Results/SI."
+ ],
+ "mechanism_check": "ok : réaction V2O5 + 6 LiOH -> 2 Li3VO4 + 3 H2O équilibrée, vapeur d'eau à 80 °C ≈ 0,47 bar (SI : 354,5 mmHg), mecanisme_auteurs conforme au paragraphe Raman ; une seule réserve, la phrase de tendance sur la surface BET (voir constats).",
+ "notes": "Les 15 valeurs from_figure vérifiées sur les images : Fig. 4b à 200 cycles (1LCVO 310 lu 313 ; 5LCVO 360 lu 364 ; 3LCVO-SSR 190 lu 189 ; 0LCVO-SSR 130 lu 132), Fig. 4c palier 800 mA g-1 (0LCVO-ABR 250 lu 254 ; 1LCVO 290 lu 288 ; 3LCVO 520 lu 519 ; 5LCVO 400 lu 407 ; 0LCVO-SSR 150 lu 144 ; 3LCVO-SSR 210 lu 206), Fig. 5f imprimé (34.4/45.9/47.4/48.7/51.2/60.9) : tous à moins de 5 %, aucun constat. Tables 3, 4, 7 et Supp. Table 5 (Ca) revérifiées rangée par rangée : correctes. Les citations des valeurs Fig. 5f commencent au milieu d'un mot ('f the contribution ...') : sous-chaîne valide mais à retailler. L'inventaire de l'extracteur correspond à ma liste (11 voies, plus graphite commerciale, modèles DFT et autres composés ABR de la Supp. Table 15 sans protocole). Mes constats sont tous mineurs : aucune valeur fausse trouvée. Fragile dans ma lecture : les colonnes de Supp. Table 1 et le choix de la bonne valeur pour 3LCVO-ABR (je ne peux pas trancher entre Table 1 et Supp. Table 1) ; la relecture par les pairs (lue, non citable comme article) montre que l'ajustement XPS porte sur 0LCVO-ABR, 3LCVO-ABR et un troisième échantillon (probablement 3LCVO-SSR), ce qui renforce le doute sur '34.52 %'."
+}

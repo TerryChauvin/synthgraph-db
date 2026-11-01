@@ -1,0 +1,14 @@
+# PMC9182795 — critique scientifique (journal de décisions)
+
+- **DA 80 % → `probleme`** : « degree of acetylation is about 80% » (§2.1). Un polymère acétylé à 80 % est de la chitine, insoluble dans l'acide acétique dilué (seuil DA ≈ 50 %, Rinaudo 2006, DOI vu sur la page ScienceDirect). Lu comme degré de désacétylation (Sigma LMW 75–85 %). Les amines passent de 2,1 à 9,4 mM selon la lecture : la différence n'est pas cosmétique.
+- **Zêta −52,39 mV → `probleme`** : le protocole d'origine que l'article dit suivre (Dananjaya 2017, réf. B37) annonce +37,45 mV (extrait de recherche, texte intégral inaccessible) ; deux autres sources donnent des AuNPs coiffées de chitosane positives. L'article invoque lui-même « the positive charge Chi » : contradiction interne, pas seulement littérature.
+- **Ciprofloxacine → `probleme`** : CMI 25–50 µg/mL dans le tableau 1 contre des plages de contrôle qualité 0,12–0,5 (S. aureus ATCC 29213) et 0,25–1 µg/mL (P. aeruginosa ATCC 27853), lettre FDA 2009. Souches de l'article différentes (ATCC 25923, MTCC1034), mais sensibles : l'écart d'un facteur 50–400 met en doute l'échelle des CMI. K. oxytoca BLSE peut être résistante : je ne m'appuie pas sur elle.
+- **Cicatrisation → `probleme`** : l'équation (2) croît, les valeurs décroissent ; je retiens la lecture « surface restante » de l'extraction (figure 4). Classé problème car les chiffres pris à la lettre disent l'inverse de la conclusion.
+- **Matière sèche < 2 mg/mL** : (2V + 0,79)/(V + 2) < 2 pour tout V ; les essais à 2000 µg/mL exigent un isolement non décrit. Laissé en `reserve` (omission, pas contradiction).
+- **Bande 1725 cm−1** : `reserve` plutôt que `probleme` ; elle est compatible avec l'oxydation (formiate, acides glucosaminiques de Pestov 2015) comme avec l'acide acétique résiduel (C=O 1716–1724 cm−1 des sels de chitosane, Kumirska 2010). Témoin sans or demandé.
+- **Mécanisme** : préféré Pestov 2015 (hydrolyse catalysée par Au(III), produits d'hydrolyse réducteurs) à « oxydation des OH par Au+ ». DOI de Pestov non relevé : cité par PubMed (PMID 25498610).
+- **Sun 2017** (réf. B58 de l'article) : anisotropie au-delà de 0,05 % de chitosane à 70 °C ; ici sphères à 0,2 %. Gardé en `reserve` : conditions différentes, pas une contradiction.
+- **DRX** : a = 4,079–4,104 Å, décalage −0,2° aux bas angles = hauteur d'échantillon probable ; `ok`. Le pic du chitosane à 22,8° est atypique (raies usuelles 10° et 20°) : `reserve`.
+- **DMSO** : « dissolved in DMSO » pour un composite chitosane/or jugé impossible tel quel (chimie générale, pas de recherche).
+- **Recherches web** : 9 (3 WebSearch + 6 Parallel) ; pubs.rsc.org inaccessible (DNS puis 403), d'où l'absence du volume de chitosane de Dananjaya 2017. Rien ajouté à `fondateurs.md` ni à `constantes.md` (Crossref bloqué).
+- **Base** : aucune autre voie Au/chitosane ; voisines PMC8600520 et PMC4848276 sans écart notable.

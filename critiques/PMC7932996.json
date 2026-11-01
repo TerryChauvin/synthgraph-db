@@ -1,0 +1,89 @@
+{
+ "pmcid": "PMC7932996",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "AgNPs-PF127_1mg outcomes ZOI_*_hydrogel (4 valeurs, Table 3, colonne « ZOI for AI-AgNPs-PF127 hydrogel (mm) »)",
+   "extracted": "ZOI de l'hydrogel (B. cereus 18.7, E. coli 20.0, P. aeruginosa 13.0, S. aureus 20.0 mm) rangés sur la voie du gel à 1 mg",
+   "article_says": "Another set of bacterial plates were similarly prepared to test the effect of AI-AgNPs-PF127 hydrogel.",
+   "fix": "l'article ne dit pas quelle charge (0,3, 1 ou 3 mg) a servi aux disques ; le rattachement au gel 1 mg est une supposition. Soit déplacer ces 4 valeurs hors de la voie 1 mg (annotation tendance_observee avec la citation de la colonne, charge « non précisée »), soit les garder en précisant dans une annotation limite_reproductibilite que la charge est inconnue. Ne pas les copier sur 0,3 et 3 mg.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "AgNPs-PF127_3mg outcome skin_irritation (citation)",
+   "extracted": "citation : « AI-AgNPs-PF127 hydrogel did not produce any undesirable side effects such as skin redness, dryness, or flakiness when applied on skin of mice »",
+   "article_says": "20 μL of pristine PF127 hydrogel and 20 μL of 3 mg AI-AgNPs-PF127 hydrogel was applied on back of mice. Skin responses were noted at 1, 6, 24, and 48 h.",
+   "fix": "le rattachement à la branche 3 mg est correct (seul gel testé en irritation d'après les Méthodes), mais la citation du résultat ne nomme pas la charge : ajouter la phrase des Méthodes comme citation (ou une seconde citation) pour que la valeur se lise seule ; ajouter le temps d'observation (1, 6, 24, 48 h) dans value_text si le format le permet.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "PF127_pristine : résultat irritation cutanée absent",
+   "extracted": "aucun outcome d'irritation sur le gel PF127 seul",
+   "article_says": "The skin of both control and treated animals appeared normal.",
+   "fix": "le gel PF127 seul a aussi été appliqué (20 μL) dans le test d'irritation ; ajouter un outcome skin_irritation = peau normale sur la voie PF127_pristine, sous réserve que « control » désigne ce gel (lecture probable, le texte ne dit pas si le témoin est la peau non traitée ou le gel seul : le noter).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "AI-extract not_stated/missing_fields « extract_concentration »",
+   "extracted": "extract_concentration déclaré non cité",
+   "article_says": "Aqueous extract was prepared by adding 10 g of leaf powder to 100 mL of distil water (1:10 ratio) and heating in a water bath at 50°C for 30 min.",
+   "fix": "la concentration de l'extrait est donnée (10 g de poudre pour 100 mL d'eau, rapport 1:10, déjà extrait en mass_volume_ratio à l'étape 4) : retirer extract_concentration de not_stated et de missing_fields. (Si l'extracteur voulait dire concentration en matière sèche du filtrat, c'est bien non cité : alors renommer la case en « dry_matter_of_filtrate ».)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "AI-extract reagent « neem leaf powder » not_stated [purity, supplier]",
+   "extracted": "supplier déclaré non cité",
+   "article_says": "Leaves of neem were collected from the premises of Temasek Life Sciences Laboratory, Singapore.",
+   "fix": "l'origine des feuilles est écrite (collecte sur le site du Temasek Life Sciences Laboratory, Singapour) : la mettre dans supplier (ou dans un champ de provenance) avec cette citation dans supplier_quote ; purity reste non citée (matériau végétal, espèce non précisée au-delà d'Azadirachta indica, saison et âge non donnés).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "AI-extract characterizations (FTIR de l'extrait)",
+   "extracted": "voie AI-extract sans caractérisation",
+   "article_says": "Comparative analysis of FTIR spectra of AI-extract and AI-AgNPs (Figure 2C) depict the shift in peaks from 3254 to 3211 cm–1 corresponding to NH or OH stretching vibration of amino or phenolic/hydroxyl, from 2,252 to 2,048 cm–1 corresponding to –C=C– stretching vibration of alkenes, from 1,612 to 1,550 cm–1 corresponding to –C=O– stretching vibration of amides characteristic of –COOH and from 1,408 to 1,445 cm–1 corresponding to -N-H- bending vibration of primary amines.",
+   "fix": "les premières valeurs de chaque couple (3254, 2252, 1612, 1408 cm–1) sont les bandes de l'extrait : ajouter une caractérisation FTIR sur la voie AI-extract (même citation). Sur AI-AgNPs, le résultat actuel « 3254 à 3211 cm–1, etc. » est tronqué : lister les quatre décalages.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PF127_pristine et gels chargés : propriétés physico-chimiques (outcomes)",
+   "extracted": "pH, transition sol-gel, étalabilité seulement dans une annotation tendance_observee",
+   "article_says": "pH of the two hydrogels were 5.7–5.8. They exhibited impressive features in terms of sol-gel transition between 22 and 37°C, being liquid at 4°C and hydrogel at 37°C.",
+   "fix": "ce sont des résultats du matériau fini, à ranger en outcomes des deux voies (PF127_pristine et AgNPs-PF127_1mg, citation commune), avec aussi « Spreadability of the hydrogels was in the range of 6.0–7.7 cm » et « Viscosity of the hydrogels increased with the increase in temperature ». Noter l'incohérence de l'article : la Discussion donne « The pH of the AI-AgNPs-PF127 hydrogel was between 5.5-5.8 ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "AI-AgNPs étape 3 duration/temperature (24 h, RT) contre Résultats",
+   "extracted": "duration = 24 h, temperature = RT (value_text)",
+   "article_says": "Optimized reaction parameters for synthesis of stable AI-AgNPs were addition of 5 mL of AI-extract to 45 mL of AgNO3 (1 mM) at pH 7 and incubation at 25°C in dark at 200 rpm for 18 h.",
+   "fix": "le doute et l'annotation conclusion_auteurs existent déjà : rien à corriger dans les valeurs, mais une chimiste qui lit seulement l'étape verra 24 h. Ajouter dans la description de l'étape « (18 h dans les Résultats) » ou une annotation limite_reproductibilite rattachée à l'étape. La Fig. 1A montre des photographies à 0, 6, 12, 18 et 24 h, ce qui ne tranche pas.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 26,
+  "not_stated_wrong": 2
+ },
+ "reproducibility_gaps": [
+  "agent d'ajustement du pH (pH 7) absent de l'article",
+  "séchage des feuilles et du culot : durée, température non données (« Air dried »)",
+  "rendement en AI-AgNPs et masse obtenue absents ; masse de nanoparticules disponible pour les gels non donnée",
+  "durée d'incubation : 24 h (Méthodes) contre 18 h (Résultats, conditions « optimisées »)",
+  "gels : volume de PF127 auquel s'ajoutent 0,3, 1 et 3 mg non donné ; charge du gel utilisé pour les disques ZOI non donnée ; vitesse d'agitation non donnée ; composition et pH du PBS non donnés",
+  "protocole de synthèse renvoyé à B9, qui est un article sur Melia azedarach (Chinnasamy 2019), pas sur le neem : « our previous paper » ne permet pas de combler les manques",
+  "essais d'optimisation (pH, température, concentrations d'extrait et d'AgNO3, durée) mentionnés mais non rapportés",
+  "âge, saison de récolte et variété des feuilles non donnés ; pureté de l'AgNO3 non donnée",
+  "conditions de l'essai ZOI (disques de 6 mm à 1 000 μg/mL d'après les Méthodes, inoculum 1 × 106 CFU/mL) qui ne figurent dans aucune propriété"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Valeurs vérifiées une à une : Table 2 (rangées 100 à 500, extrait et AgNPs, DPPH et ABTS, colonnes attribuées sans décalage), Table 3 (ZOI, ZOI gel, MIC, MBC des quatre bactéries), contractions de plaie (PF127 seul, 0,3 mg, 1,0 mg ; ordre « respectively » respecté), valeurs de l'inventaire. 19 valeurs lues sur figure vérifiées sur les images : Fig. 1B (0,25 ; 0,23 ; 0,095 ; 0,13 ; 0,21) et 1C (0,25 jour 1 ; 0,20 jour 28), Fig. 3A/3B/3C/3D (éclosion 94/87 extrait et 93/83 AgNPs, œufs 33/30 et 32/25, F1 jour 30 : 70/54 et 68/50) : tous à moins de 2 points ou 0,01 ua de ma lecture, aucun écart supérieur à 10 %. Rattachements par défaut demandés : (1) ZOI de l'hydrogel sur 1 mg : non fondé dans le texte, constat deduit/sure ; (2) irritation cutanée sur 3 mg : fondé par les Méthodes (« 20 μL of 3 mg AI-AgNPs-PF127 hydrogel »), seule la citation est à compléter. Incohérences propres à l'article, sans correction de valeur : Résumé « 13–18.7 mm » pour le ZOI du gel contre 13,0 à 20,0 mm dans la Table 3 ; pH 5,7–5,8 (Résultats) contre 5,5–5,8 (Discussion) ; Fig. 3 : seuls les points 0 et 250 μg/mL ont été extraits (le texte ne donne pas d'autres chiffres), et seulement le jour 30 pour l'éclosion F1, choix de l'extracteur acceptable. method_sources : les six renvois de méthode du texte (B9, B7, B10, B19, B13, B28) sont tous présents ; le renvoi B49 (« in accordance with the literature ») est un renvoi de contexte, à bon droit absent. Texte sans accents ni exposants : « 1 × 106 CFU/mL » (10^6 aplati par sections.py), sans effet sur l'extraction. Pas de web (consigne)."
+}

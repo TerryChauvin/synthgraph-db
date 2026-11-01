@@ -1,0 +1,16 @@
+# Journal d'extraction PMC5515720
+
+- Découpage : une voie de base `SiO2@C_MWNT` (seul protocole décrit en entier), une branche `SiO2@C` (témoin sans MWNT, « following the same preparation route »), deux voies `device` (électrode, pile). Pas d'autre échantillon dans l'article.
+- `SiO2@C` est une branche avec ses propres étapes : la dispersion de MWNT est ajoutée à la solution d'acide citrique (étape 3 du parent), donc une branche « sans X » n'hérite pas de cette étape (règle du RUNBOOK). Variation = réactif « MWNT aqueous dispersion (9 wt%) » valeur `absent`, citée par la phrase du témoin. L'article ne dit pas si l'eau de la dispersion est remplacée : annotation et doute.
+- Étape de pyrolyse (« heated under Ar atmosphere for 1 h at 1100 °C ») rangée en `calcine` pour appliquer la grille complète ; vitesse de chauffe, débit d'argon et four déclarés non cités (recherche de « heating rate », « ramp », « °C min » sans résultat).
+- Acide citrique et éthylène glycol : rôle `carbon_source` (les auteurs ne disent pas le rôle de l'éthylène glycol ; l'hypothèse polyester de type Pechini est en `mecanisme_analyse`). La dispersion de MWNT : rôle `precursor`, fournisseur « Timesnano, Chengdu » cité, pureté non citée (9 wt% est une concentration, pas une pureté).
+- Fournisseur du TEOS, de l'acide citrique et de l'éthylène glycol : seule la pureté est donnée (≥ 99.5 %, ≥ 99 %), citée dans `supplier_quote` ; fournisseur déclaré non cité.
+- Résumé contre Résultats : le résumé écrit « 475 mAh g−1 even at 1000 mA g−1 », les Résultats ~220 (Fig. 10) et 215 (Fig. 8). Valeurs du corps retenues, 475 non extraite, doute écrit.
+- « respectively » de ID/IG : « for SiO2@C and SiO2@C/MWNT composites are 0.94 and 0.99 » donc SiO2@C = 0,94, SiO2@C/MWNT = 0,99. Même ordre pour « ~710, 570, 300, 250, 220 » à « 100, 200, 500, 750 et 1000 mA g−1 ».
+- Valeurs lues sur figure, pour SiO2@C seulement (le texte ne les donne pas) : Fig. 10 (cinq paliers de courant), Fig. 7 (2e cycle, environ 600), Fig. 9a (demi-cercle, environ 190 Ω, cohérent avec « about half »). Précision de lecture notée en doute. Les valeurs du texte (333 au 40e cycle, 95 à 1000 mA g−1) ont priorité ; la Fig. 8 montre environ 85–90 au lieu de 95, texte retenu.
+- Électrode : une seule voie device pour les deux matériaux (« The resulting SiO2@C/MWNT and SiO2@C composite electrode ») ; la charge de ~4 mg cm−2 est un résultat de cette voie.
+- Pile : séparateur et électrolyte jamais nommés, déclarés non cités sans compléter par l'usage courant. CR2025 n'apparaît que dans les Résultats, conservé comme résultat `cell_type`. Résultats électrochimiques (capacités, EIS) rangés sur les voies matériau, jamais sur la pile.
+- TGA : Méthodes « under N2 flow » contre Résultats « oxidization of carbon » : doute, les deux passages recopiés tels quels. Franges HRTEM de SiO2 cristallin contre structure amorphe annoncée : doute.
+- Lignes de la Table 1 (matériaux de la littérature) : pas de voie, `route: null` dans l'inventaire ; la ligne « This work » (557, 991/615) répète des valeurs déjà extraites.
+- `method_sources` vide : aucun renvoi bibliographique dans le paragraphe Méthodes de `corpus/refs`.
+- Annexes : aucune section Supporting Information dans le fichier et aucun renvoi à une annexe dans le texte.

@@ -1,0 +1,18 @@
+# Journal d'extraction PMC11382057 (Ga–LLZO micro-ondes)
+
+- Voie de base : « MW 0.4 Ga–LLZO », car c'est l'échantillon optimal décrit en détail (Méthodes 2.1 écrit le protocole pour « MW xGa–LLZO », x: 0–0.45) et le seul caractérisé de bout en bout ; les autres teneurs en Ga sont des branches qui héritent de toutes les étapes, la section Méthodes s'appliquant explicitement à toute la série.
+- Série en Ga : 8 branches (0, 0,1, 0,15, 0,2, 0,25, 0,3, 0,35, 0,45), une par valeur nommée dans la légende de la Fig. S2. Les branches 0,1, 0,15, 0,25 et 0,35 n'ont aucun résultat : leurs données sont dans des figures d'annexe dont seules les légendes sont dans le fichier.
+- Variation de teneur : portée par le paramètre `molar_ratio` de l'étape 1, avec les rapports Li:La:Zr:Ga du Tableau 1 pour 0,2 / 0,3 / 0,4 (rangées « 6.4:3:2:0.2 », « 6.1:3:2:0.3 », « 5.8:3:2:0.4 »). Attribution des rangées par la valeur de Li (7−3x), cohérente avec l'ordre de la phrase « 1114.5, 679.2, and 265 Ω » et des conductivités du texte.
+- MW 0 : variation « gallium nitrate = absent », lecture littérale de x = 0 ; le texte ne l'écrit pas explicitement (doute noté).
+- MW 0.45 marquée `succeeded: false` : la phase LZO réapparaît (« the LZO impurity phase reappears ») et la conductivité baisse ; les auteurs ne parlent pas d'échec, lecture discutable mais conforme à la règle de la phase impure.
+- Phase des échantillons sous 0,2 : « below a Ga content of 0.2 mol%, ... LZO appear » est une phrase de groupe ; je ne l'ai pas rangée en résultat par voie (annotation `tendance_observee`), sauf « tétragonal » pour MW 0 qui est nommé.
+- Précurseurs « approximately 50 nm » et poudres « from >1 μm to <800 nm » : valeurs de groupe sur 0,2–0,4, donc annotations `tendance_observee`, pas de résultat par voie.
+- Fig. 2d–f : trois valeurs lues sur les encarts annotés (1,00 μm × 796 nm ; 825 × 917 nm ; 810 × 621 nm), marquées `from_figure`, avec la légende comme citation ; ce sont les dimensions d'une particule marquée, pas des moyennes. Fig. 1, 3, 4, 5, 6, 7 ouvertes pour les valeurs numériques, déjà chiffrées dans le texte ; Rbulk et Rgb des Fig. 3c/6 non lus (pas assez précis).
+- Voie sol–gel « SG 0.4 Ga–LLZO » : voie de base distincte (autre solvant, LiNO3, ajustement de pH, gélification) plutôt que branche, car la structure du protocole change ; la comparaison est dite dans les annotations.
+- Conductivité 1,04 × 10−3 S cm−1 : 0,00104 n'est pas géré par `number_forms` (seuil 1e-3) ; elle est donc en `value_text` + unité. Les conductivités < 1e-3 sont en `value_num`.
+- Contradiction Rb après cyclage : texte 46 Ω, Tableau S2 43 Ω ; texte retenu. Les cellules du Tableau S2 et du Tableau S1 sont éclatées sur plusieurs lignes, donc non citables intactes ; seules les valeurs du texte sont extraites (d50, surface BET).
+- Conductivités du Tableau 1 environ deux fois supérieures à ce que donne L/(R·S) avec ∼1 mm et ∼10 mm : en doute, valeurs de l'article gardées.
+- « x » en « mol% » (texte) contre coefficient de la formule (Tableau 1) : en doute ; rapports du Tableau 1 lus comme composition nominale.
+- Dispositifs : deux voies `device` (cellule Au/Ga–LLZO/Au pour l'EIS ; pile symétrique Li/MW 0.4 Ga–LLZO/Li en CR2032). La conductivité, résistance et énergie d'activation restent des résultats des voies matériau ; la tenue en cyclage (>1700 h) et les résistances avant/après cyclage sont sur la pile.
+- Aucun renvoi de méthode : le seul renvoi de la section Méthodes (bib41) donne la densité théorique de LLZO, donnée de calcul et non un protocole ; `method_sources` vide.
+- Annexe : images des figures S1–S12 absentes du dépôt (annotation « Annexe absente du dépôt »).

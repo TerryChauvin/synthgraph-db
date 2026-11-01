@@ -1,0 +1,14 @@
+# Journal de la critique de fidélité, PMC8307816
+
+- Ma liste d'échantillons (lue avant l'extraction) : 3 imides, 6 poudres (Composite_800/950, GaN_800/950, TiN_800/1000), 12 céramiques (6 composites, 4 GaN purs, TiN_800_sint_650 et _1200). Même liste que sample_inventory ; seul écart : la Fig. 7 montre aussi GaN_800_sint_650, absente de ses résultats (constat mineur). TiN_1000_sint_1200 est bien un exemple de nomenclature (2.4), pas un échantillon.
+- Tableau 1 (mise en page cassée) : attribution par position vérifiée ligne par ligne pour les 6 colonnes ; confirmée par le texte (Dav 27/55, 17/50, 8/19 nm ; h-GaN/c-GaN 1/1 et 2/1 donc 50/50 et 70/30) et par la Fig. 3. Aucune erreur trouvée.
+- Tableaux 2 et 3 : toutes les valeurs (réseau a, c, Dav, fractions, dHe, % théor., Hv 100/300 gf et écarts types) comparées colonne par colonne : correctes. Le c = 4,20 Å de Composite_800_sint_1000 est une coquille de l'article, déjà signalée ; pas de constat.
+- TiN pur fritté : durée 3 min et 7,7 GPa héritées de 2.3 ; le texte renvoie à une publication antérieure (nitruration 800 et 1100 °C) et ne redit rien. Constat « deduit », `probable` et non `sure` parce que la Fig. 1 donne bien ces conditions pour les nitrures individuels.
+- 1000 contre 1100 °C pour TiN : 2.2, 3.2, tableau 1 et légende Fig. 3 disent 1000 ; la Fig. 3 (image) montre 800 et 1000 ; seul le 3.1 et le renvoi à la publication antérieure disent 1100. L'extraction a retenu 1000 : correct. Constat `sure` seulement sur l'absence dans limite_reproductibilite.
+- Gallium métallique : l'extracteur l'attribue à Composite_800_sint_1200 seul (Fig. 5, points EDX 1 à 4 vérifiés sur l'image). La phrase de dureté sur Composite_950 à 1200 °C contredit la Fig. 4 et le 3.2 (« only traces ») ; lecture littérale correcte, annotation manquante.
+- Phase des céramiques GaN_800/950_sint_650 : tableau 2 donne 70/30 et 80/20 de h-GaN/c-GaN, l'extraction écrit phase = h-GaN : `faux`, `sure`.
+- Pas de valeur from_figure : rien à mesurer sur les images ; Figs 1, 3, 4, 5, 7, 9 ouvertes pour les attributions (courbes Raman, points EDX, présence de c-GaN).
+- Écarté comme non-constat : « 13.6/15.0 and 10.0 GPa » (trois valeurs pour deux échantillons) : l'extracteur a gardé la lecture littérale en value_text, c'est la bonne ; mis dans les lacunes de reproductibilité.
+- Écarté : B20 (50 % de dimère mixte Al/Ga) et B22 (stabilité de GaN) ne sont pas des sources de méthode ; B27, B28, B31, B32 (frittage « as described earlier »), B33, B34, B19, B30 déjà présentes et bien portées.
+- Écarté : le fait que 4 branches sint héritent de l'étape de polissage : la phrase de 2.3 est générale ; intégré au constat sur TiN et GaN purs, sans constat séparé.
+- Stœchiométrie contrôlée : 12,5 mmol de dimère à 403,9 g/mol = 5,05 g ; 25,0 mmol de Ti(NMe2)4 à 224,2 g/mol = 5,61 g ; Ga:Ti = 1:1 comme annoncé.

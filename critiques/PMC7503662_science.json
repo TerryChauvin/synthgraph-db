@@ -1,0 +1,686 @@
+{
+ "pmcid": "PMC7503662",
+ "routes": [
+  {
+   "label": "g-C3N4",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de précurseurs",
+     "inputs": "urée 15 g (M = 60,06 g/mol) ; dicyandiamide 15 g (M = 84,08 g/mol)",
+     "formula": "n = m/M",
+     "result": "urée 249,8 mmol ; DCDA 178,4 mmol ; rapport molaire urée/DCDA = 1,40",
+     "compared_to": "mélanges urée + DCDA usuels (sans valeur cible stricte)",
+     "source": "masses molaires : PubChem"
+    },
+    {
+     "what": "masse maximale de g-C3N4",
+     "inputs": "C apporté : 249,8 mmol (urée) + 2 x 178,4 mmol (DCDA) = 606,6 mmol ; M(C3N4) = 92,06 g/mol",
+     "formula": "m_max = n(C)/3 x M(C3N4) ; DCDA seule : 2 n(DCDA)/3 x M",
+     "result": "18,6 g si tout le carbone condensait ; 10,9 g pour la seule DCDA",
+     "compared_to": "rendement réel non donné par l'article (l'urée seule condense en g-C3N4 avec un rendement de quelques %)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "gaz dégagés à la polycondensation",
+     "inputs": "3 C2N4H4 -> 2 C3N4 + 4 NH3 ; urée -> NH3 + HNCO (au plus 1 + 1 par urée) ; 24,5 L/mol à 25 °C",
+     "formula": "n(NH3, DCDA) = 4/3 x 178,4 mmol ; n(urée) = 249,8 mmol",
+     "result": "~238 mmol NH3 (~5,8 L) venant de la DCDA, plus jusqu'à ~250 mmol NH3 et ~250 mmol HNCO (~6 L chacun) venant de l'urée : de l'ordre de 12 à 18 L de gaz",
+     "compared_to": "volume du creuset non donné",
+     "source": "stœchiométrie, arithmétique"
+    },
+    {
+     "what": "Bragg g-C3N4",
+     "inputs": "2θ = 12,74° et 27,60° ; λ = 1,5418 Å (déclarée)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 0,695 nm (12,74°) ; d = 0,323 nm (27,60°)",
+     "compared_to": "0,68-0,69 nm = motif tri-s-triazine dans le plan, (100) ; 0,32-0,33 nm = empilement entre feuillets, (002)",
+     "source": "Thomas et al. 2008"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "550 °C, 5 °C/min, 4 h en creuset couvert : conditions standard de condensation de la DCDA/urée en g-C3N4 (melon) ; le g-C3N4 reste stable sous air jusqu'à ~600 °C. Atmosphère non dite (four à l'air probable).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphitic carbon nitride materials: variation of structure and morphology and their use as metal-free catalysts",
+      "authors_or_publisher": "Thomas A., Fischer A., Goettmann F., Antonietti M., Müller J.-O., Schlögl R., Carlsson J. M. (J. Mater. Chem., 4893-4908) ; fiche EPA HERO 6927082",
+      "year": "2008",
+      "url_or_doi": "https://hero.epa.gov/reference/6927082/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Indexation inversée : l'article attribue 12,74° à (002) et 27,60° à (100). Les distances recalculées (voir « Bragg g-C3N4 » : 0,695 et 0,323 nm) correspondent à l'inverse : 12,7-13° = (100), arrangement des unités tri-s-triazine dans le plan ; 27,4-27,6° = (002), empilement graphitique. La section Résultats parle ensuite d'un pic « (110) » de g-C3N4, indexation qui n'existe dans aucun des deux schémas. Sans effet sur la synthèse, mais les commentaires de décalage de pics (empilement contre plan) sont à relire avec l'indexation correcte.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphitic carbon nitride materials: variation of structure and morphology and their use as metal-free catalysts",
+      "authors_or_publisher": "Thomas A., Fischer A., Goettmann F., Antonietti M., Müller J.-O., Schlögl R., Carlsson J. M. (J. Mater. Chem., 4893-4908) ; fiche EPA HERO 6927082",
+      "year": "2008",
+      "url_or_doi": "https://hero.epa.gov/reference/6927082/"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le paragraphe Materials cite la mélamine (jamais utilisée) et pas la dicyandiamide (utilisée, 15 g) : origine et pureté de la DCDA inconnues. 30 g de précurseurs dégagent de l'ordre de 12 à 18 L de NH3/HNCO (voir « gaz dégagés à la polycondensation ») ; l'urée fond vers 133 °C et mousse : le volume du creuset (non donné) doit être nettement supérieur au volume de poudre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dégagement d'ammoniac et d'acide isocyanique (voir « gaz dégagés à la polycondensation ») : four sous extraction ; poudre fine de g-C3N4 à manipuler avec protection respiratoire. Rien n'est dit par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SBET 29,9 m2/g et Eg 2,73 eV (Table 2) : ordres de grandeur habituels du g-C3N4 issu d'urée/DCDA (urée seule : plus haut, DCDA ou mélamine seule : ~5-10 m2/g). Le texte donne 2,75 eV pour g-C3N4 (voir la voie kaolin/CeO2/g-C3N4).",
+     "status": "ok",
+     "basis": "comparaison_base",
+     "source": {
+      "title": "PMC10460902 (GCN, 5,5 m2/g, 2,56 eV, mélamine) ; PMC9078232 (mélamine calcinée, 27,4 m2/g)",
+      "authors_or_publisher": "base synthese.db",
+      "year": "2026",
+      "url_or_doi": ""
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'urée fond (~133 °C) et se décompose en NH3 + HNCO (150-250 °C) ; la DCDA se condense en mélamine (~250 °C), puis mélam/mélem (350-400 °C) avec départ de NH3, et enfin en melon polymérique (g-C3N4) vers 500-550 °C. Le creuset couvert garde une atmosphère riche en NH3 et limite la sublimation de la mélamine ; les gaz dégagés par l'urée froissent et amincissent les feuillets, ce qui explique une surface (~30 m2/g) plus élevée que pour la DCDA seule.",
+    "sources": [
+     {
+      "title": "Graphitic carbon nitride materials: variation of structure and morphology and their use as metal-free catalysts",
+      "authors_or_publisher": "Thomas A., Fischer A., Goettmann F., Antonietti M., Müller J.-O., Schlögl R., Carlsson J. M. (J. Mater. Chem., 4893-4908) ; fiche EPA HERO 6927082",
+      "year": "2008",
+      "url_or_doi": "https://hero.epa.gov/reference/6927082/"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume du creuset (mousse de l'urée, ~12-18 L de gaz)",
+    "fournisseur et pureté de la dicyandiamide (absente de la liste Materials)",
+    "atmosphère du four et extraction des gaz (NH3, HNCO)",
+    "rendement massique, pour connaître la masse disponible pour les composites"
+   ]
+  },
+  {
+   "label": "kaolin/CeO2",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de Ce",
+     "inputs": "Ce(NO3)3·6H2O 1,305 g, M = 434,22 g/mol ; 60 mL",
+     "formula": "n = m/M ; c = n/V",
+     "result": "3,005 mmol Ce ; 0,050 mol/L",
+     "compared_to": "concentrations usuelles des synthèses de CeO2 nanostructuré en NaOH (0,02-0,1 mol/L)",
+     "source": "M : PubChem"
+    },
+    {
+     "what": "concentration de NaOH et rapport OH/Ce",
+     "inputs": "NaOH 14,400 g, M = 39,997 g/mol ; 60 mL",
+     "formula": "n = m/M ; c = n/V ; n(OH)/n(Ce)",
+     "result": "0,360 mol ; ~6,0 mol/L (volume de solution ignoré) ; OH/Ce = 120",
+     "compared_to": "6 mol/L : condition de Mai et al. 2005 pour bâtonnets (basse température) et cubes (180 °C)",
+     "source": "arithmétique ; Mai et al. 2005"
+    },
+    {
+     "what": "masse théorique de CeO2 et teneur du composite",
+     "inputs": "3,005 mmol ; M(CeO2) = 172,12 g/mol ; kaolin 1,0 g (perte de déshydroxylation théorique 13,96 %)",
+     "formula": "m = n x M ; w = m(CeO2)/(m(CeO2) + m(kaolin))",
+     "result": "0,517 g CeO2 ; ~34 % en masse sur kaolin cru, ~37,5 % sur métakaolin (0,86 g)",
+     "compared_to": "teneur non donnée par les auteurs",
+     "source": "arithmétique ; 13,96 % : Minerals 2025"
+    },
+    {
+     "what": "oxygène disponible pour Ce(III) -> Ce(IV) dans l'autoclave",
+     "inputs": "espace de tête ~40 mL d'air (100 mL - 60 mL), 21 % O2, 24,46 L/mol ; 4 e- par O2 ; 1 e- par Ce",
+     "formula": "n(O2) = 0,21 x 0,040 / 24,46 ; n(e-) = 4 n(O2)",
+     "result": "0,34 mmol O2 = 1,37 mmol e- contre 3,0 mmol nécessaires (46 %)",
+     "compared_to": "oxydation complète en CeO2",
+     "source": "arithmétique"
+    },
+    {
+     "what": "échauffement à la dissolution de NaOH",
+     "inputs": "0,360 mol ; ΔH(dissolution) ≈ -44,5 kJ/mol ; ~74 g de solution ; cp ≈ 3,6 J/(g·K)",
+     "formula": "Q = n x |ΔH| ; ΔT = Q/(m cp)",
+     "result": "Q ≈ 16 kJ ; ΔT ≈ 60 K (sans pertes)",
+     "compared_to": "dissolution dans un bécher ouvert",
+     "source": "ΔH de dissolution de NaOH : valeur de manuel (chimie générale)"
+    },
+    {
+     "what": "remplissage et pression de l'autoclave",
+     "inputs": "60 mL d'eau + 14,4 g NaOH dans 100 mL ; pression de vapeur de l'eau à 180 °C ≈ 1,0 MPa",
+     "formula": "taux = V(liquide)/V(autoclave)",
+     "result": "≥ 60 % (un peu plus avec le volume de NaOH et la dilatation à 180 °C) ; P ≤ ~1 MPa (abaissée par NaOH 6 M)",
+     "compared_to": "limite usuelle 80 % ; chemise PTFE (≤ 200-220 °C)",
+     "source": "NIST WebBook, eau"
+    },
+    {
+     "what": "Bragg CeO2 (111)",
+     "inputs": "2θ = 28,4° (composite) ; λ = 1,5418 Å ; a(CeO2) = 5,411 Å",
+     "formula": "d = λ/(2 sin θ) ; d111 = a/√3",
+     "result": "d = 0,314 nm ; d111 attendu 0,3124 nm (2θ = 28,57°) ; HRTEM 0,31 nm",
+     "compared_to": "fiche JCPDS 43-1002 citée par l'article",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "180 °C, 24 h, autoclave PTFE de 100 mL rempli à ≥ 60 % : pression ≤ ~1 MPa (voir « remplissage et pression de l'autoclave »), compatible avec une chemise PTFE.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "NIST Chemistry WebBook, Thermophysical Properties of Fluid Systems (water)",
+      "authors_or_publisher": "NIST",
+      "year": "2023",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Morphologie inattendue : dans NaOH ~6 mol/L (voir « concentration de NaOH et rapport OH/Ce »), la littérature obtient des nanobâtonnets à basse température (~90-100 °C) et des nanocubes à 180 °C, par dissolution-recristallisation de bâtonnets de Ce(OH)3/CeO2. Les auteurs annoncent des « nanobâtonnets » de 50-80 nm de diamètre après 180 °C, 24 h (et après calcinations à 450 puis 550 °C). Ce n'est pas impossible (mélanges bâtonnets/cubes), mais un chimiste qui refait la recette doit s'attendre à des cubes et vérifier la morphologie par MET.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Shape-Selective Synthesis and Oxygen Storage Behavior of Ceria Nanopolyhedra, Nanorods, and Nanocubes",
+      "authors_or_publisher": "Mai H.-X., Sun L.-D., Zhang Y.-W., Si R., Feng W., Zhang H.-P., Liu H.-C., Yan C.-H. (J. Phys. Chem. B 109, 24380-24385)",
+      "year": "2005",
+      "url_or_doi": "10.1021/jp055584b"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Ce(III) doit être oxydé en Ce(IV). L'air de l'espace de tête ne fournit qu'environ 46 % des électrons nécessaires (voir « oxygène disponible pour Ce(III) -> Ce(IV) dans l'autoclave ») ; l'oxydation se fait aussi pendant les 2 h d'agitation à l'air de Ce(OH)3 en milieu basique, et le nitrate peut servir d'oxydant à 180 °C ; la calcination à 450 °C sous air termine l'oxydation. Cohérent, mais les phases intermédiaires (Ce(OH)3, CeO2-x) dépendent de l'aération de l'étape d'agitation.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Les auteurs écrivent « homogeneous solution » : avec OH/Ce = 120, Ce(OH)3 précipite dès le mélange ; c'est une suspension, pas une solution. Pas de conséquence sur le protocole, mais l'ordre d'ajout (Ce dans NaOH ou l'inverse) n'est pas dit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "450 °C, 3 h, sous air : le kaolin commence à se déshydroxyler (domaine 450-700 °C) ; la transformation en métakaolin amorphe se termine pendant la calcination suivante à 550 °C, 4 h (voie ternaire), ce qui explique l'absence des raies du kaolin en DRX.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Kaolin (Deju R., Tuca C. et al.), Romanian Journal of Physics 66, 904 : déshydroxylation de la kaolinite 450-700 °C, métakaolinisation 550-900 °C",
+      "authors_or_publisher": "Romanian Journal of Physics (NIPNE)",
+      "year": "2021",
+      "url_or_doi": "https://rjp.nipne.ro/2021_66_1-2/RomJPhys.66.904.pdf"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dissoudre 14,4 g de NaOH dans 60 mL d'eau échauffe la solution d'environ 60 K (voir « échauffement à la dissolution de NaOH ») : soude 6 mol/L chaude, projections ; lunettes, gants, ajout progressif. Autoclave à ouvrir froid. Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le produit lavé est transféré en entier (pas de quantité) : la teneur visée est ~34-37 % CeO2 (voir « masse théorique de CeO2 et teneur du composite »), mais le rendement de récupération n'est pas donné et la teneur réelle n'est mesurée ni par ICP ni par ATG.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Ce3+ + 3 OH- -> Ce(OH)3 hexagonal (bâtonnets) ; oxydation par O2 (air pendant l'agitation, espace de tête) et éventuellement par NO3- : 4 Ce(OH)3 + O2 -> 4 CeO2 + 6 H2O. Dans NaOH 6 mol/L à 180 °C, la dissolution-recristallisation conduit habituellement à des nanocubes {100} (Mai et al. 2005) ; les bâtonnets annoncés sont donc à vérifier. Le mélange avec le kaolin en eau/éthanol est un dépôt physique (interactions électrostatiques et liaisons hydrogène avec les OH de surface) ; la calcination à 450 °C consolide les contacts et commence la déshydroxylation du kaolin.",
+    "sources": [
+     {
+      "title": "Shape-Selective Synthesis and Oxygen Storage Behavior of Ceria Nanopolyhedra, Nanorods, and Nanocubes",
+      "authors_or_publisher": "Mai H.-X., Sun L.-D., Zhang Y.-W., Si R., Feng W., Zhang H.-P., Liu H.-C., Yan C.-H. (J. Phys. Chem. B 109, 24380-24385)",
+      "year": "2005",
+      "url_or_doi": "10.1021/jp055584b"
+     },
+     {
+      "title": "Article d5cy01612f (titre non relevé) : protocole Ce(NO3)3 + NaOH, vieillissement 24 h à 90 °C pour des nanobâtonnets de CeO2 et à 180 °C pour des nanocubes",
+      "authors_or_publisher": "Royal Society of Chemistry, Catalysis Science & Technology",
+      "year": "2026",
+      "url_or_doi": "https://pubs.rsc.org/en/content/articlepdf/2026/cy/d5cy01612f"
+     },
+     {
+      "title": "Kaolin (Deju R., Tuca C. et al.), Romanian Journal of Physics 66, 904 : déshydroxylation de la kaolinite 450-700 °C, métakaolinisation 550-900 °C",
+      "authors_or_publisher": "Romanian Journal of Physics (NIPNE)",
+      "year": "2021",
+      "url_or_doi": "https://rjp.nipne.ro/2021_66_1-2/RomJPhys.66.904.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "morphologie obtenue à 180 °C dans NaOH 6 M (bâtonnets annoncés, cubes attendus)",
+    "ordre de mélange Ce(NO3)3/NaOH et échauffement de la soude",
+    "masse de CeO2 récupérée après lavage (teneur réelle du composite)",
+    "atmosphère de calcination",
+    "nature et pureté du kaolin (Jingdezhen, sans analyse)"
+   ]
+  },
+  {
+   "label": "CeO2",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "cohérence taux de dégradation / constante de vitesse",
+     "inputs": "k = 0,00434 min-1 ; 150 min d'irradiation ; dégradation annoncée 42 %",
+     "formula": "C/C0 (photo) = exp(-k t) ; part du C/C0 après obscurité nécessaire = (1 - 0,42)/exp(-k t)",
+     "result": "exp(-0,651) = 0,52 -> au moins 48 % dégradés même sans adsorption ; il faudrait C/C0 = 1,11 après l'obscurité, impossible",
+     "compared_to": "42 % annoncés",
+     "source": "arithmétique"
+    },
+    {
+     "what": "surface géométrique de bâtonnets de CeO2",
+     "inputs": "cylindres longs, d = 50-80 nm ; ρ(CeO2) = 7,2 g/cm3",
+     "formula": "S = 4/(ρ d)",
+     "result": "11,1 m2/g (50 nm) à 6,9 m2/g (80 nm) ; 56 m2/g pour d = 10 nm",
+     "compared_to": "SBET 9,77 m2/g",
+     "source": "arithmétique ; ρ : PubChem"
+    },
+    {
+     "what": "pores 4V/S",
+     "inputs": "V = 0,0331 cm3/g ; S = 9,77 m2/g",
+     "formula": "d = 4V/S",
+     "result": "13,6 nm",
+     "compared_to": "BJH 8,96 nm",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le protocole de CeO2 seul n'est pas écrit (« a similar method without kaolin ») : on ne sait pas si la poudre a été dispersée dans l'éthanol et calcinée à 450 °C. La comparaison avec kaolin/CeO2 mélange donc l'effet du kaolin et celui d'un éventuel traitement thermique différent.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "42 % de dégradation à 150 min est incompatible avec k = 0,00434 min-1 (au moins 48 %, voir « cohérence taux de dégradation / constante de vitesse »). Par ailleurs g-C3N4 dégrade plus (51 %) avec une constante plus faible (0,00359 min-1) : l'ordre CeO2 > g-C3N4 des constantes contredit l'ordre des rendements. Une des deux séries (texte ou Fig. 6b) est fausse ou les ajustements ne portent pas sur le même intervalle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EPR : « aucun signal, donc pas de défauts » ne suit pas. Ce3+ (4f1) relaxe très vite et ne se voit en RPE qu'à basse température (quelques K) ; à température ambiante l'absence de signal ne prouve pas l'absence de lacunes d'oxygène. Les auteurs affirment d'ailleurs du Ce(III) en XPS (attribution elle-même fausse, voir le ternaire). Température de mesure non donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Eg de CeO2 : 2,92 eV dans le texte, 2,75 eV dans la Table 2 et dans le calcul des bandes. Les valeurs usuelles de CeO2 (transition O 2p -> Ce 4f) sont de ~2,9-3,2 eV : la valeur du texte est la plus vraisemblable, celle de la Table 2 sert pourtant au schéma de bandes.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SBET 9,8 m2/g : cohérent avec des bâtonnets pleins de 50-80 nm (surface géométrique 6,9-11,1 m2/g, voir « surface géométrique de bâtonnets de CeO2 ») ; des bâtonnets fins de ~10 nm donneraient ~56 m2/g. Le diamètre 4V/S (13,6 nm) diffère du BJH (8,96 nm) : porosité inter-particulaire, la classe « mésoporeux » n'est qu'apparente.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même formation que dans la voie kaolin/CeO2 (Ce(OH)3 puis oxydation et recristallisation en NaOH 6 M à 180 °C, nanocubes attendus) ; le traitement après lavage n'est pas décrit.",
+    "sources": [
+     {
+      "title": "Shape-Selective Synthesis and Oxygen Storage Behavior of Ceria Nanopolyhedra, Nanorods, and Nanocubes",
+      "authors_or_publisher": "Mai H.-X., Sun L.-D., Zhang Y.-W., Si R., Feng W., Zhang H.-P., Liu H.-C., Yan C.-H. (J. Phys. Chem. B 109, 24380-24385)",
+      "year": "2005",
+      "url_or_doi": "10.1021/jp055584b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "traitement après lavage (éthanol, séchage, calcination 450 °C ?)",
+    "morphologie (cubes ou bâtonnets)",
+    "température de la mesure RPE"
+   ]
+  },
+  {
+   "label": "CeO2/g-C3N4",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "moles de Ce et de NaOH",
+     "inputs": "1,305 g Ce(NO3)3·6H2O ; 14,400 g NaOH ; 60 mL",
+     "formula": "n = m/M ; c = n/V",
+     "result": "3,005 mmol Ce (0,050 mol/L) ; 0,360 mol NaOH (~6,0 mol/L) ; 0,517 g CeO2 au plus",
+     "compared_to": "identique à kaolin/CeO2",
+     "source": "arithmétique"
+    },
+    {
+     "what": "constante de vitesse comparée à g-C3N4",
+     "inputs": "k(CeO2/g-C3N4) = 0,00268 min-1 ; k(g-C3N4) = 0,00359 ; k(CeO2) = 0,00434",
+     "formula": "rapports",
+     "result": "0,75 x g-C3N4 ; 0,62 x CeO2",
+     "compared_to": "hétérojonction censée améliorer l'activité",
+     "source": "arithmétique"
+    },
+    {
+     "what": "cohérence C/C0 final / constante",
+     "inputs": "C/C0 = 0,54 (Fig. 6a) ; k = 0,00268 min-1 ; 150 min",
+     "formula": "C/C0 après obscurité = 0,54/exp(-k t)",
+     "result": "exp(-0,402) = 0,67 -> C/C0 après obscurité 0,81 (adsorption ~19 %)",
+     "compared_to": "adsorption plausible",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« taking a certain the result product » et « a certain amount of g-C3N4 » : ni la masse de CeO2 prélevée ni celle de g-C3N4 ne sont données. Le rapport CeO2/g-C3N4, donc le matériau, ne peut pas être refait.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le binaire CeO2/g-C3N4 est moins actif que chacun de ses constituants (voir « constante de vitesse comparée à g-C3N4 ») : l'hétérojonction de type II invoquée pour le ternaire ne fonctionne pas ici. Les auteurs ne le commentent pas ; ce résultat affaiblit l'idée que l'interface CeO2/g-C3N4 explique l'activité du ternaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination 450 °C, 3 h, sous air (probable) : g-C3N4 stable à cette température, mais le CeO2, catalyseur d'oxydation, peut amorcer la combustion partielle du g-C3N4 ; la teneur finale en g-C3N4 n'est pas mesurée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Dépôt physique de CeO2 préformé sur les feuillets de g-C3N4 en eau/éthanol, puis frittage des contacts à 450 °C. L'activité plus faible que celle des constituants suggère un mauvais contact ou une part de g-C3N4 oxydée.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masses de CeO2 et de g-C3N4 (non données)",
+    "teneur en g-C3N4 après 450 °C (ATG)",
+    "atmosphère de calcination"
+   ]
+  },
+  {
+   "label": "kaolin/CeO2/g-C3N4",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rendement de dégradation attendu à partir de k et de l'adsorption",
+     "inputs": "k = 0,01022 min-1 ; 150 min ; adsorption à l'obscurité 24 % (texte)",
+     "formula": "C/C0 = (1 - 0,24) x exp(-k t)",
+     "result": "exp(-1,533) = 0,216 ; C/C0 = 0,164 -> élimination totale ~84 %, photodégradation seule ~78 %",
+     "compared_to": "90 % (texte, résumé) ; « complètement éliminée » (conclusion) ; Fig. 6a ≈ 0,16",
+     "source": "arithmétique"
+    },
+    {
+     "what": "constante nécessaire pour 90 % en 150 min",
+     "inputs": "C/C0 = 0,10 ; t = 150 min",
+     "formula": "k = ln(10)/t",
+     "result": "0,0154 min-1 (1,5 x la valeur annoncée)",
+     "compared_to": "0,01022 min-1",
+     "source": "arithmétique"
+    },
+    {
+     "what": "rapports de constantes",
+     "inputs": "0,01022 / 0,00434 ; 0,01022 / 0,00359",
+     "formula": "rapports",
+     "result": "2,35 et 2,85",
+     "compared_to": "2,36 et 2,85 annoncés : corrects",
+     "source": "arithmétique"
+    },
+    {
+     "what": "surface maximale d'un mélange physique",
+     "inputs": "kaolin 12,6 ; CeO2 9,8 ; g-C3N4 29,9 m2/g",
+     "formula": "S(mélange) ≤ max(S_i) = 29,9 m2/g",
+     "result": "29,9 m2/g au plus",
+     "compared_to": "77,6 m2/g mesurés pour le ternaire",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre de pore 4V/S",
+     "inputs": "V = 0,1286 cm3/g ; S = 77,608 m2/g (et kaolin 0,0507/12,628 ; g-C3N4 0,0787/29,936)",
+     "formula": "d = 4V/S",
+     "result": "ternaire 6,6 nm ; kaolin 16,1 nm ; g-C3N4 10,5 nm",
+     "compared_to": "BJH : 31,0 ; 13,7 ; 19,5 nm",
+     "source": "arithmétique ; Thommes et al. 2015"
+    },
+    {
+     "what": "cohérence interne de la Table 1 (BET)",
+     "inputs": "pente s et constante C ; ordonnée i = s/(C - 1)",
+     "formula": "S x (s + i)",
+     "result": "3480 ; 3483 ; 3483 ; 3483 pour CeO2, kaolin, g-C3N4, ternaire",
+     "compared_to": "produit constant attendu si S = k/(s + i) : la table est cohérente en interne (unités de l'appareil non standard : 4353 attendu pour des cm3 STP/g et σ = 0,162 nm2)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "bord d'absorption contre Eg",
+     "inputs": "bord ~430 nm ; Eg = 2,73 eV ; maximum 403 nm",
+     "formula": "E = 1239,84/λ ; λ = 1239,84/E",
+     "result": "430 nm = 2,88 eV ; 2,73 eV = 454 nm ; 403 nm = 3,08 eV",
+     "compared_to": "Eg annoncé 2,73 eV pour le ternaire",
+     "source": "arithmétique"
+    },
+    {
+     "what": "électronégativités implicites (Mulliken)",
+     "inputs": "ECB = χ - 4,5 - 0,5 Eg ; g-C3N4 : ECB = -0,91, Eg = 2,73 ; CeO2 : ECB = -0,71, Eg = 2,75 (ou 2,92)",
+     "formula": "χ = ECB + 4,5 + 0,5 Eg",
+     "result": "χ(g-C3N4) = 4,96 eV ; χ(CeO2) = 5,17 eV (5,25 avec Eg = 2,92) ; avec χ(CeO2) = 5,56 eV, valeur souvent employée, ECB(CeO2) = -0,32 à -0,40 V",
+     "compared_to": "E(O2/•O2-) = -0,33 V vs NHE (valeur citée par l'article)",
+     "source": "arithmétique ; χ(CeO2) = 5,56 eV non vérifié ici (voir sources_not_found)"
+    },
+    {
+     "what": "volume prélevé pendant l'essai photocatalytique",
+     "inputs": "50 mL ; prélèvements de 5 mL toutes les 30 min sur 60 min d'obscurité + 150 min de lumière",
+     "formula": "n x 5 mL",
+     "result": "30 mL (6 prélèvements sous lumière) à 40 mL (8 prélèvements) sur 50 mL",
+     "compared_to": "volume initial 50 mL, 50 mg de catalyseur",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg CeO2 (111) et décalage annoncé",
+     "inputs": "28,4° ; g-C3N4 27,60° -> 27,64° ; vitesse de balayage 7°/min",
+     "formula": "d = λ/(2 sin θ) ; Δ2θ",
+     "result": "d = 0,314 nm ; Δ2θ(g-C3N4) = 0,04°",
+     "compared_to": "reproductibilité usuelle d'une position de pic sans étalon interne : ~0,02-0,05°",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le rendement de 90 % à 150 min (résumé, texte) est incompatible avec k = 0,01022 min-1 et 24 % d'adsorption : on attend ~84 % d'élimination totale (voir « rendement de dégradation attendu à partir de k et de l'adsorption »), ce que montre d'ailleurs la Fig. 6a (C/C0 ≈ 0,16) ; 90 % demanderait k = 0,0154 min-1. La conclusion (« CIP was completely removed within 150 min ») contredit le texte et la figure. Les cycles (93 % au 1er) et le témoin sans piégeur (96 %) donnent encore d'autres valeurs.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Largeurs de bande incohérentes entre sections : le texte donne 2,73 (ternaire), 2,75 (g-C3N4) et 2,92 eV (CeO2), la Table 2 donne 2,73 (g-C3N4) et 2,75 eV (CeO2), et c'est la Table 2 qui sert au calcul des bandes. Le texte inverse aussi CB et VB (« valence band potentials (CB) »). En plus, le bord d'absorption du ternaire à ~430 nm correspond à 2,88 eV, pas à 2,73 eV (voir « bord d'absorption contre Eg ») : avec Eg = 2,73 eV pour g-C3N4 (bord ~454 nm), le ternaire n'aurait pas un bord « étendu » vers 430 nm.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS Ce 3d mal attribué : 882,4 / 888,8 eV (3d5/2) et 900,8 / 907,3 eV (3d3/2) sont les composantes v, v'' et u, u'' de Ce(IV), pas de Ce(III) ; Ce(III) se lit à ~880,5 / 885 eV (v0, v') et ~899 / 903,5 eV (u0, u'). Avec les six pics listés (v, v'', v''', u, u'', u'''), le spectre est celui de CeO2 : la présence de Ce(III) affirmée n'est pas démontrée. De même, le C 1s à 284,8 eV, qui sert de référence d'étalonnage (carbone de contamination), est attribué à C-NH2 (~286 eV attendu), et le N 1s à 404,4 eV est une excitation π (pas un « effet de charge »).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Cerium - HarwellXPS Guru (tableau des composantes Ce 3d v0, v', v, v'', v''', u0, u', u, u'', u''')",
+      "authors_or_publisher": "HarwellXPS (M. Isaacs), d'après Romeo et al. 1993 et Bêche et al. 2008",
+      "year": "2025",
+      "url_or_doi": "https://www.harwellxps.guru/xpskb/cerium"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Étape manquante probable : la structure 3D est attribuée à un « hydrogen ions functionalized process », et le résumé comme la conclusion parlent de « sol-gel method followed by hydrothermal treatment », alors que les Méthodes ne décrivent ni sol-gel ni traitement acide du g-C3N4. L'acide nitrique (et la mélamine) figurent dans la liste Materials sans être utilisés, la dicyandiamide est utilisée sans y figurer, et un paragraphe des Résultats parle d'un nanocomposite « g-C3N4/TiO2/bentonite ». Une protonation du g-C3N4 par HNO3 (courante pour l'assemblage électrostatique) a pu être omise : un chimiste ne peut pas savoir s'il doit la faire.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le témoin ne change pas une seule variable. Le ternaire subit une seconde calcination de g-C3N4 sous air à 550 °C pendant 4 h, que ni g-C3N4 seul ni CeO2/g-C3N4 (450 °C) ne subissent ; les compositions sont inconnues. Or une recalcination de g-C3N4 sous air vers 500-550 °C l'exfolie par oxydation (Niu 2012 : 306 m2/g, Eg + 0,2 eV) ; cela suffit à expliquer une surface de 77,6 m2/g, supérieure à celle de tout mélange physique des constituants (≤ 29,9 m2/g, voir « surface maximale d'un mélange physique »), ainsi que le signal RPE plus fort. La « synergie kaolin/hétérojonction » n'est donc pas isolée. Témoin nécessaire : g-C3N4 recalciné seul dans les mêmes conditions (550 °C, 4 h, air), et composites de composition mesurée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P., Zhang L., Liu G., Cheng H.-M. (Adv. Funct. Mater. 22, 4763-4770)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "550 °C, 4 h, sous air avec du CeO2 (catalyseur d'oxydation) au contact : une part notable du g-C3N4 peut brûler (rendement d'exfoliation par oxydation de quelques % chez Niu 2012 à 500 °C, 2 h). La teneur finale en g-C3N4 doit être mesurée (ATG, analyse élémentaire) ; elle n'est pas donnée. Le kaolin, lui, devient du métakaolin amorphe (déshydroxylation 450-700 °C), ce qui explique la disparition de ses raies en DRX.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Dehydroxylation of Kaolinite: Evaluation of Activation Energy by Thermogravimetric Analysis and Density Functional Theory Insights",
+      "authors_or_publisher": "MDPI, Minerals 15(6), 607",
+      "year": "2025",
+      "url_or_doi": "https://www.mdpi.com/2075-163X/15/6/607"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Schéma de bandes non vérifiable : les électronégativités χ ne sont pas données. Les valeurs implicites (4,96 et 5,17 eV, voir « électronégativités implicites (Mulliken) ») s'écartent de celles souvent employées pour CeO2 (~5,56 eV), avec lesquelles ECB(CeO2) ≈ -0,32 à -0,40 V : la réduction de O2 en •O2- (-0,33 V) par les électrons de la BC de CeO2, centrale dans le mécanisme de type II proposé, deviendrait marginale. Un schéma en Z (électrons de CeO2 recombinant avec les trous de g-C3N4, •O2- produit par la BC de g-C3N4 vers -1,1 V) rend compte des mêmes piégeages (h+ et •O2-) : les essais montrés ne tranchent pas entre les deux.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les « décalages » de pics invoqués comme preuve de distorsion de réseau sont de 0,04° pour g-C3N4 (27,60 -> 27,64°), mesurés à 7°/min sans étalon interne : dans l'incertitude usuelle de position. La phrase compare d'ailleurs le ternaire à lui-même. Pas une preuve de liaison chimique entre phases.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Isothermes « de type IV, mésoporeux » : les diamètres 4V/S (6,6 nm pour le ternaire) et BJH (31,0 nm) diffèrent d'un facteur 4,7 (voir « diamètre de pore 4V/S ») ; pour des poudres non poreuses, la boucle vient des vides entre particules. La table BET est par ailleurs cohérente en interne (voir « cohérence interne de la Table 1 (BET) »). Le kaolin (12,6 m2/g) n'a pas la « grande surface spécifique » annoncée en introduction.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Essai photocatalytique : 30 à 40 mL prélevés sur 50 mL (voir « volume prélevé pendant l'essai photocatalytique »), sans retour du catalyseur ni correction de volume ; aucune photolyse à blanc (CIP sans catalyseur, λ > 420 nm) ni mesure de COT. La CIP est incolore : l'« effet de photosensibilisation » invoqué ne s'applique pas (il suppose un colorant qui absorbe dans le visible). Le kaolin seul adsorbe fortement la CIP (C/C0 ≈ 0,24 à l'obscurité, Fig. 6a) : une partie de « l'élimination » peut être de l'adsorption non mesurée par désorption. Les légendes des Fig. 9b et 9c (DMPO-•OH / DMPO-•O2-) sont inversées par rapport au texte ; le solvant du piégeage de •O2- (méthanol habituellement) n'est pas donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Calcination de g-C3N4 sous air : dégagement possible de NH3 et de composés azotés ; poudres fines (CeO2, g-C3N4, métakaolin) à manipuler avec protection respiratoire ; benzoquinone (toxique) et CIP pour les essais. Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Assemblage physique (liaisons hydrogène, interactions électrostatiques entre le kaolin chargé négativement, CeO2 et les groupes NH/NH2 du g-C3N4) pendant 24 h dans l'éthanol, puis calcination à 550 °C sous air. Cette calcination fait trois choses à la fois : elle exfolie et oxyde en partie le g-C3N4 (feuillets plus minces, surface plus grande, perte de masse), elle transforme le kaolin en métakaolin amorphe, et elle soude les contacts CeO2/g-C3N4. Le « processus de fonctionnalisation par ions hydrogène » invoqué n'a aucune étape correspondante dans les Méthodes. Le gain d'activité s'explique au moins en partie par l'exfoliation thermique du g-C3N4 et par l'adsorption sur le support ; la part de l'hétérojonction (type II ou Z) n'est pas isolée.",
+    "sources": [
+     {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P., Zhang L., Liu G., Cheng H.-M. (Adv. Funct. Mater. 22, 4763-4770)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     },
+     {
+      "title": "Kaolin (Deju R., Tuca C. et al.), Romanian Journal of Physics 66, 904 : déshydroxylation de la kaolinite 450-700 °C, métakaolinisation 550-900 °C",
+      "authors_or_publisher": "Romanian Journal of Physics (NIPNE)",
+      "year": "2021",
+      "url_or_doi": "https://rjp.nipne.ro/2021_66_1-2/RomJPhys.66.904.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses de kaolin/CeO2 et de g-C3N4, volumes d'éthanol (non donnés)",
+    "existence d'une étape de protonation du g-C3N4 par HNO3 (acide listé, non utilisé)",
+    "teneur réelle en g-C3N4 après 550 °C sous air (ATG)",
+    "témoin : g-C3N4 recalciné seul à 550 °C, 4 h, sous air",
+    "photolyse à blanc et bilan d'adsorption (désorption) de la CIP",
+    "volume prélevé pendant l'essai et retour du catalyseur",
+    "valeurs de χ utilisées pour les bandes"
+   ]
+  },
+  {
+   "label": "kaolin/g-C3N4",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "cohérence C/C0 final / constante",
+     "inputs": "C/C0 = 0,31 (Fig. 6a) ; k = 0,00657 min-1 ; 150 min",
+     "formula": "C/C0 après obscurité = 0,31/exp(-k t)",
+     "result": "exp(-0,986) = 0,373 -> C/C0 après obscurité 0,83 (adsorption ~17 %)",
+     "compared_to": "plausible",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Masses de kaolin et de g-C3N4 non données : la composition ne peut pas être refaite. Le protocole (550 °C, 4 h, sous air) recalcine le g-C3N4 comme dans le ternaire : ce binaire est en fait le meilleur témoin de l'effet de l'exfoliation thermique, et il est le deuxième plus actif (0,00657 min-1, 1,8 x g-C3N4 seul).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P., Zhang L., Liu G., Cheng H.-M. (Adv. Funct. Mater. 22, 4763-4770)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Dépôt physique du g-C3N4 sur le kaolin dans l'éthanol, puis exfoliation et oxydation partielle du g-C3N4 et déshydroxylation du kaolin à 550 °C sous air.",
+    "sources": [
+     {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P., Zhang L., Liu G., Cheng H.-M. (Adv. Funct. Mater. 22, 4763-4770)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses de kaolin et de g-C3N4",
+    "teneur en g-C3N4 après calcination"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les synthèses élémentaires sont chimiquement possibles : g-C3N4 par condensation urée + DCDA à 550 °C, CeO2 hydrothermal en NaOH ~6 mol/L à 180 °C (OH/Ce = 120, 0,517 g de CeO2 au plus), composites par mélange en suspension puis calcination. Les composites ne sont pas reproductibles (« a certain amount » partout sauf pour kaolin/CeO2). L'article comporte plusieurs incohérences internes : rendement de 90 % (et « complètement éliminée ») incompatible avec k et la Fig. 6a (~84 %) ; largeurs de bande différentes entre texte et Table 2 ; indexation (002)/(100) du g-C3N4 inversée ; pics Ce(IV) attribués à Ce(III) en XPS ; « sol-gel » et « fonctionnalisation par ions H+ » sans étape correspondante (HNO3 listé, non utilisé) ; paragraphe repris d'un article sur g-C3N4/TiO2/bentonite. La recalcination à 550 °C sous air exfolie le g-C3N4, ce qui suffit à expliquer la surface de 77,6 m2/g (> toute combinaison des constituants) : la synergie attribuée au kaolin n'est pas isolée. Le binaire CeO2/g-C3N4 est moins actif que g-C3N4 seul, ce qui va contre l'hétérojonction invoquée.",
+  "author_errors_suspected": [
+   "Indexation g-C3N4 inversée : 12,74° = (100), 27,60° = (002) ; « (110) » de g-C3N4 inexistant",
+   "90 % à 150 min (et « complete removal ») incompatibles avec k = 0,01022 min-1 et 24 % d'adsorption (≈ 84 %)",
+   "Eg : texte (g-C3N4 2,75 ; CeO2 2,92 eV) contre Table 2 (2,73 ; 2,75 eV) ; CB et VB inversées dans le texte",
+   "Ce 3d : composantes v, v'', u, u'' de Ce(IV) attribuées à Ce(III)",
+   "C 1s 284,8 eV (référence d'étalonnage) attribué à C-NH2",
+   "« sol-gel » et « hydrogen ions functionalized process » sans étape dans les Méthodes ; HNO3 et mélamine listés, non utilisés ; DCDA utilisée, non listée",
+   "Paragraphe sur un nanocomposite g-C3N4/TiO2/bentonite (texte repris d'un autre article)",
+   "CeO2 : 42 % de dégradation incompatible avec k = 0,00434 min-1 (≥ 48 %)",
+   "Légendes Fig. 9b/9c inversées par rapport au texte"
+  ],
+  "comparison_with_database": "g-C3N4 : 29,9 m2/g et 2,73 eV, entre la mélamine calcinée de PMC9078232 (27,4 m2/g) et le GCN de PMC10460902 (5,5 m2/g, 2,56 eV) ; la surface du ternaire (77,6 m2/g) est du même ordre que le g-C3N4 exfolié sous vide de PMC10460902 (VCN, 59,8 m2/g), ce qui conforte l'idée que le traitement thermique du g-C3N4 explique la surface. CeO2 : seule autre voie en base (PMC8125239, LaCoO3/CeO2) sans synthèse hydrothermale comparable."
+ },
+ "sources_not_found": [
+  "Source vérifiée pour la valeur χ(CeO2) ≈ 5,56 eV (Mulliken) : non trouvée dans les recherches faites ; utilisée seulement comme ordre de grandeur, statut « reserve »",
+  "Texte intégral de Mai et al. 2005 non lu : la correspondance 6 M NaOH / 100 °C -> bâtonnets, 180 °C -> cubes repose sur le résumé et sur l'article RSC d5cy01612f (titre non relevé)",
+  "Source pour la détection RPE de Ce3+ seulement à basse température : non trouvée (argument de chimie générale)"
+ ]
+}

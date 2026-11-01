@@ -1,0 +1,227 @@
+{
+  "pmcid": "PMC10350639",
+  "routes": [
+    {
+      "label": "AZ1",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de Si (TEOS)", "inputs": "27 mL TEOS ; densité 0,933 g/mL ; pureté 98 % ; M(TEOS) = 208,33 g/mol", "formula": "n = V·ρ·pureté / M", "result": "0,1185 mol Si, soit 7,12 g de SiO2 (M = 60,08 g/mol)", "compared_to": "source de silicium unique", "source": "PubChem, « Tetraethyl orthosilicate » (densité et masse molaire), https://pubchem.ncbi.nlm.nih.gov/compound/Tetraethyl-orthosilicate"},
+        {"what": "moles d'Al (AZ1)", "inputs": "0,3275 g Al(OH)3 ; pureté 99,6 % ; M = 78,00 g/mol", "formula": "n = m·pureté / M", "result": "4,18 mmol Al, soit 0,213 g d'Al2O3 (M = 101,96 g/mol)", "compared_to": "—", "source": "masses molaires standard (PubChem)"},
+        {"what": "rapport SiO2/Al2O3 nominal d'AZ1", "inputs": "7,12 g SiO2 ; 0,213 g Al2O3", "formula": "m(SiO2)/m(Al2O3) ; n(SiO2)/n(Al2O3) ; n(Si)/n(Al)", "result": "massique 33,4 ; molaire 56,7 ; Si/Al 28,3", "compared_to": "rapport massique annoncé 6,2 (équivalent Si/Al 5,26) : écart d'un facteur 5,4", "source": "valeurs de l'article"},
+        {"what": "conversion du libellé 6,2 en Si/Al", "inputs": "conversion de l'introduction de l'article : Si/Al = 1 ↔ SiO2/Al2O3 massique = 1,18", "formula": "Si/Al = (SiO2/Al2O3 massique) / (2·60,08/101,96)", "result": "6,2 → Si/Al = 5,26", "compared_to": "Si/Al nominal 28,3", "source": "valeurs de l'article ; masses molaires standard"},
+        {"what": "rapports molaires du gel", "inputs": "11,32 g TPABr (99 %, M = 266,26 g/mol) ; 100 mL H2O ; 0,1185 mol Si ; aucune base (OH−) ni fluorure", "formula": "n(TPA)/n(Si) ; n(H2O)/n(Si) ; n(OH−)/n(Si)", "result": "TPA/Si = 0,36 ; H2O/Si = 47 ; OH−/Si = 0", "compared_to": "gels ZSM-5 usuels : OH−/SiO2 ≈ 0,1–0,5 (minéralisant), TPA/Si ≈ 0,05–0,25", "source": "Cundy & Cox 2003 (fondateurs.md)"},
+        {"what": "éthanol libéré par l'hydrolyse du TEOS", "inputs": "0,1185 mol TEOS × 4 EtOH ; M = 46,07 g/mol ; ρ = 0,789 g/mL", "formula": "4·n(TEOS)·M/ρ", "result": "0,474 mol, ≈ 27,7 mL d'éthanol dans ≈ 130 mL de liquide", "compared_to": "pression en autoclave à 100 °C", "source": "stœchiométrie Si(OEt)4 + 4 H2O → Si(OH)4 + 4 EtOH"},
+        {"what": "diamètre de pore 4V/S d'AZ1", "inputs": "V = 1,39 cm3/g ; S = 458,05 m2/g", "formula": "4V/S", "result": "12,1 nm", "compared_to": "BJH annoncé 10,81 nm (écart 12 %, acceptable)", "source": "valeurs de l'article"},
+        {"what": "surface microporeuse implicite d'AZ1", "inputs": "S_BET = 458,05 ; S_externe = 464,71 m2/g", "formula": "S_micro = S_BET − S_ext", "result": "−6,66 m2/g (négatif)", "compared_to": "S_micro ≥ 0 par définition ; MFI cristallisée : S_micro typiquement > 250 m2/g", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le rapport massique SiO2/Al2O3 « 6,2 » ne correspond pas aux charges : 27 mL de TEOS et 0,3275 g d'Al(OH)3 donnent un rapport massique nominal de 33,4 (Si/Al = 28,3), voir « rapport SiO2/Al2O3 nominal d'AZ1 ». L'article n'indique pas d'analyse chimique d'AZ1. Le seul dosage publié (EDS de Co/H-AZ2 : Si 32,5 %, Al 3,91 % at.) donne Si/Al atomique = 8,31, exactement le « 8,3 » attribué à AZ2 comme rapport massique ; converti en massique ce serait 9,8. Les libellés 6,2 et 8,3 semblent mélanger rapport atomique Si/Al mesuré et rapport massique SiO2/Al2O3, et ne sont pas calculables à partir du protocole. Toute la conclusion « garder SiO2/Al2O3 aussi haut que possible » repose sur ces deux valeurs.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Le gel ne contient aucun minéralisant : ni NaOH, ni TPAOH, ni fluorure (TPABr est un sel neutre ; rapport OH−/Si = 0, voir « rapports molaires du gel »). La cristallisation des zéolithes MFI exige un milieu alcalin (OH−) ou fluoré pour dissoudre et redistribuer silice et alumine ; à pH proche de 7, Al(OH)3 est pratiquement insoluble et l'hydrolyse du TEOS est à son minimum de vitesse. À 100 °C pendant 12 h, ce gel ne peut guère donner qu'une silice/aluminosilicate amorphe contenant du TPA+ occlus, ce que confirment les deux bosses larges de DRX. Le nom « zéolithe ZSM5 amorphe » est contradictoire : ZSM-5 désigne une charpente cristalline (type MFI).", "status": "probleme", "basis": "litterature", "source": {"title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time", "authors_or_publisher": "C. S. Cundy, P. A. Cox, Chem. Rev.", "year": "2003", "url_or_doi": "10.1021/cr020060i"}},
+        {"aspect": "resultats", "finding": "Tableau 1 : surface externe (464,71 m2/g) supérieure à la surface BET totale (458,05 m2/g), ce qui donne une surface microporeuse négative (voir « surface microporeuse implicite d'AZ1 ») : physiquement impossible, c'est un artefact d'ajustement t-plot qui signifie en pratique « aucun micropore ». Même constat pour AZ2 (595 contre 490,87), H-AZ1 et les quatre composites. L'absence de microporosité confirme que le matériau n'est pas une zéolithe MFI (dont la surface est surtout microporeuse) mais un solide mésoporeux amorphe ; l'isotherme de type IV va dans le même sens.", "status": "probleme", "basis": "litterature", "source": {"title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)", "authors_or_publisher": "M. Thommes et al., Pure Appl. Chem.", "year": "2015", "url_or_doi": "10.1515/pac-2014-1117"}},
+        {"aspect": "mecanisme", "finding": "La « cristallisation assistée par la vapeur » (SAC / conversion de gel sec) consiste à sécher le gel puis à l'exposer à la vapeur, sans contact avec l'eau liquide, en général vers 150–180 °C. Ici le mélange liquide entier (≈ 130 mL) est mis en autoclave, vieilli à 80 °C puis « traité à la vapeur » à 100 °C : c'est en pratique un traitement hydrothermal doux, et le texte ne dit pas si le gel a été séché ni séparé de l'eau. Le protocole SAC n'est donc pas reproductible tel qu'écrit.", "status": "reserve", "basis": "litterature", "source": {"title": "Conversion of dry gel to microporous crystals in gas phase", "authors_or_publisher": "M. Matsukata, M. Ogura, T. Osaki, P. R. Hari Prasad Rao, M. Nomura, E. Kikuchi, Top. Catal.", "year": "1999", "url_or_doi": "10.1023/A:1019106421183"}},
+        {"aspect": "thermique", "finding": "Calcination à 300 °C pendant 4 h : l'élimination du TPA+ occlus dans les MFI se fait habituellement à l'air vers 500–550 °C. À 300 °C, le structurant reste en partie, ce qui est cohérent avec les bandes C–H en FTIR et les 18,7 % at. de carbone de l'EDS de Co/H-AZ2. Les composites sont ensuite calcinés à 400 °C, ce qui brûle davantage de résidus : la comparaison des textures support/composite (Tableau 1) mélange l'effet du cobalt et celui d'une calcination plus chaude.", "status": "reserve", "basis": "litterature", "source": {"title": "Characterization of zeolites by sorption capacity measurements (Verified Syntheses of Zeolitic Materials, 2nd ed.)", "authors_or_publisher": "IZA Synthesis Commission", "year": "2001", "url_or_doi": "https://www.iza-online.org/synthesis/VS_2ndEd/SorptionCapacity.htm"}},
+        {"aspect": "thermique", "finding": "Autoclave à 100 °C : pression de vapeur de l'eau ≈ 1,01 bar ; l'éthanol libéré (≈ 27,7 mL, voir « éthanol libéré par l'hydrolyse du TEOS », Teb = 78 °C) ajoute une pression partielle de l'ordre de 1 bar dans le mélange dilué : quelques bars au plus, acceptable. Le volume de l'autoclave et le taux de remplissage ne sont pas donnés pour ≈ 130 mL de liquide.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Cohérence interne des textures : 4V/S = 12,1 nm contre 10,81 nm BJH (voir « diamètre de pore 4V/S d'AZ1 ») ; les huit échantillons sont dans un écart de −16 à +19 % entre 4V/S et BJH, ce qui est cohérent. En revanche, le texte situe les mésopores entre 5,45 et 11,56 nm alors que le Tableau 1 descend à 2,52 nm (AZ2).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "FTIR : les bandes à 2351 et 2991 cm−1 sont attribuées au « groupe 1-heptyle » et celles à 1218 et 1451 cm−1 au « cycle imidazole », alors qu'aucun réactif heptylé ni imidazolé n'entre dans la synthèse (structurant = tétrapropylammonium). 2351 cm−1 correspond en outre au CO2 atmosphérique, pas à une liaison C–H. Ces attributions paraissent reprises d'un autre système ; les bandes C–H, si elles existent, viennent du TPA+ résiduel.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "TEOS inflammable et irritant ; éthanol libéré en quantité notable (≈ 28 mL) pendant l'agitation à 60 °C : hotte, pas de flamme. Autoclave à refroidir avant ouverture. Poudres fines d'aluminosilicate : éviter l'inhalation.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "En milieu quasi neutre (TPABr sans hydroxyde), le TEOS s'hydrolyse lentement et se condense en silice colloïdale qui piège des ions TPA+ ; Al(OH)3 se dissout très peu à ce pH et ne s'incorpore que partiellement (le reste peut subsister en particules d'hydroxyde ou d'alumine). Sans minéralisant, le chauffage doux (80 puis 100 °C) ne permet pas la réorganisation en charpente MFI : on obtient un aluminosilicate amorphe mésoporeux (agrégats de nanoparticules, porosité interparticulaire, isotherme de type IV, aucune microporosité). La calcination à 300 °C élimine une partie du TPA+ seulement. Les bosses de DRX vers 8° et 23° peuvent au mieux signaler des entités proto-zéolithiques, que seule une microporosité mesurable permettrait de confirmer.",
+        "sources": [
+          {"title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time", "authors_or_publisher": "C. S. Cundy, P. A. Cox, Chem. Rev.", "year": "2003", "url_or_doi": "10.1021/cr020060i"},
+          {"title": "The sol-gel process", "authors_or_publisher": "L. L. Hench, J. K. West, Chem. Rev.", "year": "1990", "url_or_doi": "10.1021/cr00099a003"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "dosage chimique (ICP ou FX) du rapport Si/Al d'AZ1 et d'AZ2 : les libellés 6,2 et 8,3 ne découlent pas des charges (nominal 33,4 et 48,1 en massique)",
+        "si une ZSM-5 est réellement visée : ajouter un minéralisant (NaOH ou TPAOH) et un traitement à 150–180 °C ; sinon, nommer le produit aluminosilicate amorphe mésoporeux",
+        "préciser si le gel est séché et séparé de l'eau (vraie SAC) ou chauffé en milieu liquide",
+        "volume de l'autoclave et taux de remplissage",
+        "calcination à 500–550 °C sous air (ATG pour vérifier la disparition du TPA+), atmosphère et rampe",
+        "microporosité réelle (t-plot correct, volume microporeux) et DRX sur 5–50° avec référence MFI"
+      ]
+    },
+    {
+      "label": "AZ2",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport SiO2/Al2O3 nominal d'AZ2", "inputs": "0,1185 mol Si (7,12 g SiO2) ; 0,2275 g Al(OH)3 à 99,6 % = 2,905 mmol Al = 0,148 g Al2O3", "formula": "m(SiO2)/m(Al2O3)", "result": "massique 48,1 ; molaire 81,6 ; Si/Al 40,8", "compared_to": "8,3 annoncé ; rapport des charges d'Al AZ1/AZ2 = 1,44 contre 8,3/6,2 = 1,34 annoncé", "source": "valeurs de l'article"},
+        {"what": "surface microporeuse implicite d'AZ2", "inputs": "S_BET = 490,87 ; S_ext = 595 m2/g", "formula": "S_BET − S_ext", "result": "−104 m2/g", "compared_to": "≥ 0", "source": "valeurs de l'article"},
+        {"what": "diamètre 4V/S d'AZ2", "inputs": "V = 0,26 cm3/g ; S = 490,87 m2/g", "formula": "4V/S", "result": "2,12 nm", "compared_to": "BJH 2,52 nm ; limite micro/méso IUPAC 2 nm", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Seule la masse d'Al(OH)3 change (−30,5 %), ce qui devrait multiplier le rapport par 1,44 (33,4 → 48,1 nominal, voir « rapport SiO2/Al2O3 nominal d'AZ2 ») ; les valeurs annoncées 6,2 → 8,3 ne suivent ni la valeur absolue ni la proportion (×1,34). L'article écrit aussi 6,3 au lieu de 6,2 dans la partie LSV.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Surface externe de 595 m2/g pour une surface BET de 490,87 m2/g : écart de 104 m2/g, impossible (voir « surface microporeuse implicite d'AZ2 »). Diamètre moyen 2,1–2,5 nm et volume 0,26 cm3/g : AZ2 est à la limite micro/méso, très différent d'AZ1 (10,8 nm, 1,39 cm3/g) alors que seul l'Al change de 30 % ; puis Co/AZ2 retrouve 0,72 cm3/g et 7,5 nm. Ces variations ne s'expliquent pas par le seul rapport Si/Al et suggèrent une variabilité d'échantillon (résidus de TPA+, séchage) non maîtrisée.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Même mécanisme qu'AZ1 (aluminosilicate amorphe sans minéralisant) ; moins d'Al(OH)3 ne change pas la nature du produit.", "sources": []},
+      "what_to_verify_before_repeating": ["dosage du Si/Al réel", "reproductibilité de la texture (deux synthèses indépendantes au même rapport)"]
+    },
+    {
+      "label": "H-AZ1",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "capacité d'échange maximale d'AZ1", "inputs": "si 6,2 est un rapport massique : Al2O3 = 1/7,2 de la masse ; nominal : 4,18 mmol Al pour 7,33 g d'oxydes", "formula": "n(Al)/m", "result": "2,72 mmol/g (libellé 6,2) ; 0,57 mmol/g (charges nominales)", "compared_to": "NH4NO3 1 M : 10 mL/g apportent 10 mmol/g, excès large dans les deux cas ; volume réel non donné", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Aucun cation alcalin n'entre dans la synthèse (pas de Na, pas de K) : les charges de la charpente, s'il y en a, sont compensées par TPA+ puis, après décomposition partielle à 300 °C, par H+. L'échange NH4+ n'a donc pas de Na+ à remplacer ; l'article parle pourtant d'une forme « sodique » implicite et cite Na 1s en XPS. La différence AZ → H-AZ n'est pas un simple passage à la forme protonée.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Calcination de la forme NH4+ à 300 °C pendant 3 h : la désammoniation des zéolithes ammonium se fait en général à 400–550 °C (les protocoles H-ZSM-5 calcinent la forme NH4 à 550 °C). À 300 °C une partie de NH4+ subsiste probablement.", "status": "reserve", "basis": "litterature", "source": {"title": "Characterization of zeolites by sorption capacity measurements (Verified Syntheses of Zeolitic Materials, 2nd ed.)", "authors_or_publisher": "IZA Synthesis Commission", "year": "2001", "url_or_doi": "https://www.iza-online.org/synthesis/VS_2ndEd/SorptionCapacity.htm"}},
+        {"aspect": "mecanisme", "finding": "Témoin à variables multiples : H-AZ diffère d'AZ par l'échange NH4NO3 à 60 °C, un lavage à l'eau, un séchage et une seconde calcination de 3 h (cumul 7 h à 300 °C), qui retirent davantage de TPA+ et modifient la texture. L'effet attribué aux « ions H+ » (capacité plus élevée) ne peut pas être séparé de ces traitements. Témoin nécessaire : AZ soumise au même cycle eau/séchage/calcination sans NH4NO3.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Surface externe 373,61 m2/g > BET 366,97 m2/g : même artefact t-plot qu'AZ1.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "L'échange par NH4NO3 lave surtout des TPA+ partiellement décomposés et des espèces faiblement liées ; la calcination à 300 °C libère une partie de NH3 et laisse quelques sites H+. L'acidité n'a pas été mesurée (pas de TPD-NH3 ni de pyridine-IR) : l'existence de sites H+ supplémentaires reste à démontrer.", "sources": []},
+      "what_to_verify_before_repeating": ["masse d'AZ et volume de solution NH4NO3, nombre d'échanges", "calcination de la forme NH4 à 450–550 °C", "témoin sans NH4NO3 ayant subi le même cycle thermique", "mesure de l'acidité (TPD-NH3)"]
+    },
+    {
+      "label": "H-AZ2",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "bilan des surfaces de H-AZ2", "inputs": "S_micro = 14,06 ; S_ext = 376 ; S_BET = 390,19 m2/g", "formula": "S_micro + S_ext", "result": "390,06 m2/g", "compared_to": "S_BET 390,19 : cohérent (seul échantillon cohérent du Tableau 1)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Seul échantillon dont la surface microporeuse est positive, mais elle ne vaut que 14 m2/g (3,6 % de la surface) : une ZSM-5 cristalline en a typiquement plus de 250. Cela confirme le caractère non zéolithique du support.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Comme H-AZ1.", "sources": []},
+      "what_to_verify_before_repeating": ["mêmes points que H-AZ1"]
+    },
+    {
+      "label": "Co/AZ1",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de Co et charge en Co3O4", "inputs": "1,766 g Co(NO3)2·6H2O à 99 % ; M = 291,03 g/mol ; Co3O4 M = 240,80 g/mol ; 2 g de support", "formula": "n(Co) = m·p/M ; m(Co3O4) = n(Co)/3·M", "result": "6,01 mmol Co = 0,354 g Co → 0,482 g Co3O4 ; Co = 14,3 % en masse du composite ; Co3O4 = 19,4 % ; Co/support = 17,7 %", "compared_to": "« 15 wt% » : cohérent avec la teneur en Co du composite, pas avec la solution", "source": "masses molaires standard (PubChem)"},
+        {"what": "teneur en Co de la solution d'imprégnation", "inputs": "0,354 g Co ; 1,766 g de sel + 1,5 g d'eau = 3,27 g de solution", "formula": "m(Co)/m(solution)", "result": "10,8 % en masse de Co (54 % de sel hydraté)", "compared_to": "« 15 wt% Co solution » annoncé", "source": "valeurs de l'article"},
+        {"what": "solubilité du nitrate de cobalt", "inputs": "1,099 g Co(NO3)2 anhydre (M = 182,94) ; eau totale 1,5 + 0,649 g d'hydratation", "formula": "m(anhydre)/m(eau)·100", "result": "51 g pour 100 g d'eau", "compared_to": "solubilité de Co(NO3)2 ≈ 84–97 g/100 mL d'eau entre 0 et 20 °C (ordre de grandeur de manuel) : soluble", "source": "chimie générale (valeur de manuel non revérifiée en ligne)"},
+        {"what": "volume de solution contre volume poreux", "inputs": "1,5 mL ; 2 g × V_pore (AZ1 1,39 ; AZ2 0,26 ; H-AZ1 1,05 ; H-AZ2 0,5 cm3/g)", "formula": "2·V_pore", "result": "2,78 / 0,52 / 2,10 / 1,00 mL", "compared_to": "1,5 mL : sous le volume poreux pour AZ1 et H-AZ1, 1,5 à 2,9 fois au-dessus pour H-AZ2 et AZ2", "source": "valeurs de l'article"},
+        {"what": "Bragg Co3O4 (raies annoncées)", "inputs": "λ = 1,54 Å ; 2θ = 31,54°, 37,19°, 56°, 65° ; a(Co3O4, 43-1003) = 8,084 Å", "formula": "d = λ/(2 sin θ) ; a = d·√(h²+k²+l²) ; 2θ théorique avec λ = 1,5406 Å", "result": "théorique : (220) 31,27°, (311) 36,85°, (422) 55,65°, (511) 59,36°, (440) 65,23° ; a déduit des raies annoncées ≈ 8,01 Å pour (220) et (311)", "compared_to": "56° indexé (511) par l'article", "source": "fiche 43-1003 citée par l'article ; NIST pour Cu Kα1"},
+        {"what": "teneur en Co de l'EDS de Co/H-AZ2", "inputs": "Si 32,5 ; Al 3,91 ; Co 10,4 ; O 33,5 % at.", "formula": "m(Co)/[m(SiO2)+m(Al2O3)+m(Co3O4)] ; O attendu = 2 Si + 1,5 Al + 4/3 Co", "result": "Co ≈ 20,5 % en masse ; O attendu 84,7 % at. (relatif) contre 33,5 mesuré", "compared_to": "14,3 % nominal ; « composition attendue » selon les auteurs", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "La quantité de cobalt est cohérente avec ≈ 15 % en masse de Co dans le composite (14,3 %, voir « moles de Co et charge en Co3O4 »). En revanche la solution n'est pas « à 15 wt% Co » (10,8 %, voir « teneur en Co de la solution d'imprégnation ») et la « mass-loading of 85% » n'a pas de sens physique (Co3O4 = 19,4 % du composite) ; c'est peut-être 85 % de support, mais l'article ne le dit pas.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "1,766 g de nitrate hexahydraté dans 1,5 mL d'eau : ≈ 51 g de sel anhydre pour 100 g d'eau, sous la solubilité de Co(NO3)2 (voir « solubilité du nitrate de cobalt ») : la solution est réalisable. Le même volume de 1,5 mL est appliqué à des supports de volumes poreux de 0,52 à 2,78 mL (voir « volume de solution contre volume poreux ») : imprégnation à sec pour AZ1/H-AZ1, imprégnation humide pour AZ2 ; la répartition du cobalt diffère donc d'un support à l'autre.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "redox", "finding": "Le nitrate de cobalt(II) hydraté se décompose à l'air en Co3O4 dès ≈ 250–300 °C ; à 400 °C pendant 4 h le seul produit attendu est Co3O4 spinelle, cohérent avec la DRX et l'XPS (Co2+/Co3+). L'atmosphère (air) n'est pas écrite mais seule une atmosphère oxydante est compatible.", "status": "ok", "basis": "litterature", "source": {"title": "Spectrothermal studies on the decomposition course of cobalt nitrate hexahydrate", "authors_or_publisher": "S. A. A. Mansour, Mater. Chem. Phys.", "year": "1994", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/0254058494900485"}},
+        {"aspect": "resultats", "finding": "Indexation DRX : la raie à 56° est attribuée à (511), alors que (511) de Co3O4 est à 59,4° et que 55,7° correspond à (422) (voir « Bragg Co3O4 »). Les raies (220) et (311) annoncées donnent a ≈ 8,01 Å contre 8,084 Å pour la fiche citée, soit un décalage systématique ≈ +0,3° (déplacement d'échantillon ou calibration). Taille de Scherrer de 6,5 nm plausible pour Co3O4 issu de nitrate à 400 °C sur support.", "status": "reserve", "basis": "litterature", "source": {"title": "Comparative study of cobalt, copper and zinc oxides for the electrochemical reduction of nitrate to ammonia (raies de Co3O4, fiche 00-043-1003)", "authors_or_publisher": "CNR, Electrochimica Acta 548", "year": "2026", "url_or_doi": "https://iris.cnr.it/bitstream/20.500.14243/560121/1/Electrochimica%20Acta%20548%20%282026%29%20147870.pdf"}},
+        {"aspect": "resultats", "finding": "XPS : les deux composantes Si 2p à 103,8 et 104,6 eV sont présentées comme un doublet de spin-orbite de 0,6 eV, mais elles sont séparées de 0,8 eV. Le déplacement vers les énergies de liaison plus hautes est interprété comme « H+ donneur d'électrons », alors qu'un déplacement vers le haut signale une densité électronique plus faible sur Si. Les « satellites » à 782,81 eV sont trop proches de la raie principale (779,98–781,67 eV) pour être des satellites de shake-up de Co2+ (attendus vers 786–789 eV). L'ordre « O 1s > Si 2p > Na 1s > Al 2p » cite un sodium absent de la synthèse, et la « désalumination » invoquée ne correspond à aucune étape du protocole.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Le texte affirme que Co/H-AZ1 et Co/H-AZ2 « présentent une surface spécifique élevée par rapport à leurs homologues », alors que le Tableau 1 donne l'inverse : 254,62 < 275,84 m2/g (Co/H-AZ1 contre Co/AZ1) et 298,98 < 348,32 m2/g (Co/H-AZ2 contre Co/AZ2). Le raisonnement qui suit (« la surface n'est pas le seul facteur ») repose sur cette lecture fausse, même si sa conclusion reste vraie avec les bons chiffres.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "EDS de Co/H-AZ2 présentée comme « composition attendue » : l'oxygène mesuré (33,5 % at.) est très inférieur à celui qu'exigent SiO2, Al2O3 et Co3O4 pour les cations mesurés (≈ 84,7 % at., voir « teneur en Co de l'EDS de Co/H-AZ2 »), et 18,7 % at. de carbone apparaissent ; la teneur en Co déduite (≈ 20,5 % en masse) dépasse la valeur nominale de 14,3 %. L'EDS est semi-quantitative pour O et C : elle ne peut pas confirmer la composition.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Le nitrate de cobalt (dinitrate de cobalt, CAS 10141-05-6) a une classification harmonisée CLP Carc. 1B (H350i), Muta. 2, Repr. 1B, Resp. Sens. 1, Skin Sens. 1 et figure sur la liste SVHC ; c'est aussi un comburant. La calcination dégage des NOx et peut réagir de façon exothermique avec les résidus organiques de TPA+ (nitrate + matière organique) : hotte, faible masse par creuset. Poudres de Co3O4 : CMR par inhalation.", "status": "reserve", "basis": "litterature", "source": {"title": "Cobalt dinitrate — Harmonised classifications (Annex VI CLP)", "authors_or_publisher": "ECHA (European Chemicals Agency)", "year": "2026", "url_or_doi": "https://chem.echa.europa.eu/100.030.353/harmonised"}}
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "La solution de nitrate remplit les pores du support (imprégnation à sec ou humide selon le volume poreux) ; au séchage à 60 °C le sel cristallise dans les pores ; à 400 °C sous air il fond dans son eau d'hydratation, se déshydrate, passe par des oxo/hydroxonitrates puis se décompose en Co3O4 spinelle avec dégagement de NO2/O2. Les cristallites de ≈ 6,5 nm sont limitées par la dispersion sur le support ; une partie du cobalt couvre la surface externe (baisse de l'intensité DRX du support).",
+        "sources": [
+          {"title": "Thermal decomposition of cobalt nitrato compounds: Preparation of anhydrous cobalt(II)nitrate and its characterisation by Infrared and Raman spectra", "authors_or_publisher": "C. Ehrhardt et al., Thermochim. Acta", "year": "2005", "url_or_doi": "10.1016/j.tca.2005.04.010"},
+          {"title": "Spectrothermal studies on the decomposition course of cobalt nitrate hexahydrate", "authors_or_publisher": "S. A. A. Mansour, Mater. Chem. Phys.", "year": "1994", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/0254058494900485"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "sens de « 15 wt% Co » et de « mass-loading of 85% » : retenir 0,354 g Co pour 2 g de support (14,3 % de Co dans le composite)",
+        "adapter le volume de solution au volume poreux de chaque support si l'on veut une vraie imprégnation à sec",
+        "atmosphère (air) et rampe de calcination ; comparaison avec les valeurs du schéma 1 (séchage 80 °C, calcination 500 °C)",
+        "dosage du cobalt (ICP) plutôt que l'EDS",
+        "comparer la texture du support calciné à 400 °C sans cobalt pour séparer l'effet du Co de celui de la calcination"
+      ]
+    },
+    {
+      "label": "Co/AZ2",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "volume poreux attendu par simple dilution", "inputs": "AZ2 : 0,26 cm3/g ; 2 g de support + 0,482 g Co3O4", "formula": "V_support·2/(2+0,482)", "result": "0,21 cm3/g", "compared_to": "0,72 cm3/g mesuré pour Co/AZ2 (×3,4)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Le volume poreux passe de 0,26 (AZ2) à 0,72 cm3/g (Co/AZ2) et le diamètre de 2,5 à 7,5 nm après dépôt de 19 % de Co3O4, alors qu'un dépôt dans les pores devrait au mieux diluer le volume (0,21 cm3/g attendus, voir « volume poreux attendu par simple dilution »). L'augmentation vient plus probablement de la calcination à 400 °C (combustion du TPA+ restant) ou de la porosité interparticulaire : la texture des composites n'est pas comparable à celle des supports.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "1,5 mL de solution pour 0,52 mL de volume poreux (voir calcul de Co/AZ1) : imprégnation humide, dépôt du cobalt en partie hors des pores, contrairement à Co/AZ1.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Comme Co/AZ1, avec une plus grande part de cobalt déposée à l'extérieur des grains.", "sources": []},
+      "what_to_verify_before_repeating": ["texture du support AZ2 calciné à 400 °C sans cobalt"]
+    },
+    {
+      "label": "Co/H-AZ1",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "capacité de Co/H-AZ1 en F/g", "inputs": "45,97 mA h g−1 ; ΔV = 0,5 V", "formula": "Cs = Qs·3,6/ΔV", "result": "331 F/g", "compared_to": "le texte écrit « 45.97 F g−1 » dans un passage : unité incohérente", "source": "équations (1) et (2) de l'article"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "La même grandeur est donnée en mA h g−1 (résumé, conclusion) et en F g−1 (Résultats) ; 45,97 mA h g−1 correspondraient à ≈ 331 F/g sur 0,5 V (voir « capacité de Co/H-AZ1 en F/g »). L'unité mA h g−1 est la seule cohérente avec les autres valeurs.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Comme Co/AZ1.", "sources": []},
+      "what_to_verify_before_repeating": ["unité de la capacité (mA h g−1)"]
+    },
+    {
+      "label": "Co/H-AZ2",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport Si/Al de l'EDS de Co/H-AZ2", "inputs": "Si 32,5 % at. ; Al 3,91 % at.", "formula": "Si/Al ; SiO2/Al2O3 massique = Si/Al·2·60,08/101,96", "result": "Si/Al = 8,31 ; SiO2/Al2O3 massique = 9,80", "compared_to": "libellé « rapport massique 8,3 »", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le « rapport massique SiO2/Al2O3 = 8,3 » coïncide avec le rapport atomique Si/Al mesuré par EDS sur Co/H-AZ2 (8,31) ; en massique il vaudrait 9,8 (voir « rapport Si/Al de l'EDS de Co/H-AZ2 »), et le nominal des charges est 48,1. L'unité du rapport central de l'étude n'est pas établie.", "status": "probleme", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Comme Co/AZ1.", "sources": []},
+      "what_to_verify_before_repeating": ["analyse élémentaire globale (ICP) du support et du composite"]
+    },
+    {
+      "label": "Electrode_Co_zeolite",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "fraction de Co3O4 dans l'électrode", "inputs": "16 : 2 : 2 (lu comme masses échantillon : noir de carbone : PVDF) ; Co3O4 = 19,4 % du composite", "formula": "16/20 × 0,194", "result": "80 % de composite, ≈ 15,5 % de Co3O4 dans le dépôt sec", "compared_to": "—", "source": "valeurs de l'article"},
+        {"what": "concentration de la solution HCl de lavage", "inputs": "8,3 mL d'HCl (concentration non donnée ; si 37 %, ≈ 12,0 mol/L) dans 50 mL d'eau", "formula": "8,3·12,0/58,3", "result": "≈ 1,7 mol/L si l'acide est à 37 %", "compared_to": "lavages usuels de mousse de nickel : 1–3 M", "source": "hypothèse sur l'acide commercial à 37 %"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Séchage à 110 °C pendant 1 h d'une pâte au DMSO (Teb = 189 °C) : le DMSO s'évapore lentement à cette température ; 1 h peut laisser du solvant dans une mousse de nickel épaisse. PVDF soluble dans le DMSO : choix de solvant correct (alternative au NMP).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Masse de matière active par électrode, volume de pâte et nature massique du rapport 16 : 2 : 2 non donnés : les capacités par gramme ne peuvent pas être recalculées, et la contribution de la mousse de nickel (voir Cell_3electrode_KOH) ne peut pas être estimée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Le DMSO traverse la peau et entraîne les solutés (sels de cobalt, CMR) : gants adaptés. HCl corrosif ; lavage acide de la mousse de nickel dégageant du H2 en petite quantité.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Électrode composite classique (matière active + noir de carbone conducteur + liant PVDF) déposée sur collecteur de nickel ; sans objet chimique particulier.", "sources": []},
+      "what_to_verify_before_repeating": ["masse de matière active par cm2", "concentration de l'HCl", "séchage plus long ou sous vide pour éliminer le DMSO"]
+    },
+    {
+      "label": "Cell_3electrode_KOH",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "conversion de la capacité de Co/H-AZ2", "inputs": "Qs = 72,5 mA h g−1 à 1 A g−1 ; ΔV = 0,5 V", "formula": "Δt = 3,6·Qs/I ; Cs = 3,6·Qs/ΔV", "result": "Δt = 261 s ; Cs = 522 F/g de composite", "compared_to": "—", "source": "équations (1) et (2) de l'article"},
+        {"what": "capacité rapportée au seul Co3O4", "inputs": "72,5 mA h g−1 de composite ; Co3O4 = 19,4 % du composite ; zéolithe isolante et inactive", "formula": "Qs / 0,194", "result": "≈ 373 mA h g−1 de Co3O4", "compared_to": "Co3O4 + OH− + H2O → 3 CoOOH + e− : 111 mA h g−1 (1 e− par Co3O4) ; 4 e− par Co3O4 (jusqu'à CoO2) : 445 mA h g−1 (≈ 3560 F/g sur 0,45 V)", "source": "F = 96 485 C/mol ; M(Co3O4) = 240,80 g/mol"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Si la zéolithe (isolante) n'apporte rien, 72,5 mA h g−1 de composite représentent ≈ 373 mA h g−1 de Co3O4 (voir « capacité rapportée au seul Co3O4 »), soit 3,4 fois la première oxydation Co3O4 → CoOOH et 84 % du maximum théorique à 4 électrons, atteint en 261 s à forte densité de courant (≈ 5 A par gramme de Co3O4). Dans la fenêtre 0–0,5 V contre Ag/AgCl en KOH, la mousse de nickel décapée à l'HCl forme Ni(OH)2/NiOOH et peut apporter une capacité importante, surtout avec une faible charge de matière active (non donnée). Aucun essai de mousse nue n'est rapporté : les capacités et leur classement peuvent être surestimés ou dominés par le collecteur.", "status": "probleme", "basis": "litterature", "source": {"title": "Exaggerated capacitance using electrochemically active nickel foam as current collector in electrochemical measurement", "authors_or_publisher": "W. Xing et al., J. Power Sources 196, 4123–4127", "year": "2011", "url_or_doi": "10.1016/j.jpowsour.2010.12.003"}},
+        {"aspect": "resultats", "finding": "Les « efficacités coulombiques » après 2000 cycles (62,4 % à 98 %) sont ensuite appelées « rétention de capacité » : ce sont deux grandeurs différentes (rapport décharge/charge d'un cycle contre capacité finale/initiale). Une efficacité coulombique de 62 % sur une électrode de supercondensateur signalerait une réaction parasite (dégagement d'O2 près de 0,5 V) ; le chiffre est plus probablement une rétention.", "status": "reserve", "basis": "litterature", "source": {"title": "Reviewing the fundamentals of supercapacitors and the difficulties involving the analysis of the electrochemical findings obtained for porous electrode materials", "authors_or_publisher": "L. M. Da Silva et al., Energy Storage Mater. 27, 555–590", "year": "2020", "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S2405829719310931"}},
+        {"aspect": "resultats", "finding": "Vocabulaire : les pics redox sont attribués à des « groupes fonctionnels oxygénés » et à une « électrosorption d'hydrogène », phénomènes des électrodes carbonées ou du platine aux potentiels négatifs, pas d'un oxyde de cobalt entre 0 et 0,5 V contre Ag/AgCl en KOH où le couple Co(II)/Co(III)/Co(IV) (et Ni(OH)2/NiOOH du collecteur) domine. La LSV est décrite avec un « potentiel de demi-vague » et un « courant limite » de 2 µA cm−2, notions de voltampérométrie d'espèces en solution sans signification pour un test de supercondensateur ; la notation « E1/2 = E2/2 = E3/3 » est incompréhensible. La LSV ne discrimine donc rien.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "KOH 1 M corrosif pour les yeux et la peau.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Stockage faradique de type batterie : Co3O4 + OH− + H2O ⇌ 3 CoOOH + e− puis CoOOH + OH− ⇌ CoO2 + H2O + e−, auquel s'ajoute probablement la réaction Ni(OH)2 + OH− ⇌ NiOOH + H2O + e− de la mousse de nickel décapée. Les courbes GCD non linéaires annoncées par les auteurs vont dans ce sens ; la capacité exprimée en mA h g−1 est l'unité correcte pour ce comportement.", "sources": [
+        {"title": "Supercapacitor Electrodes: Is Nickel Foam the Right Substrate for Active Materials?", "authors_or_publisher": "Materials (MDPI) 17, 1292", "year": "2024", "url_or_doi": "10.3390/ma17061292"}
+      ]},
+      "what_to_verify_before_repeating": ["mesurer la mousse de nickel nue traitée de la même façon (CV, GCD) et la soustraire", "donner la masse de matière active (mg cm−2)", "distinguer efficacité coulombique et rétention de capacité", "travailler sur un collecteur inerte (carbone vitreux, acier) pour confirmer l'effet du rapport Si/Al"]
+    }
+  ],
+  "article_level": {
+    "summary": "Le protocole se refait (réactifs courants, températures modestes), mais ce qu'il produit n'est pas ce qui est annoncé. (1) Les rapports SiO2/Al2O3 « 6,2 » et « 8,3 », seule variable de l'étude, ne découlent pas des charges (33,4 et 48,1 en massique nominal) ; 8,3 est le rapport atomique Si/Al mesuré par EDS sur Co/H-AZ2. (2) Sans minéralisant (ni OH− ni F−), à 100 °C, il ne peut se former qu'un aluminosilicate amorphe mésoporeux ; le Tableau 1 (surfaces externes supérieures aux surfaces BET, microporosité nulle ou de 14 m2/g) le confirme : parler de « ZSM5 amorphe » est contradictoire. (3) La forme « H » diffère de la forme de départ par plusieurs traitements, et aucun cation alcalin n'est présent à échanger. (4) Plusieurs interprétations semblent reprises d'autres systèmes (heptyle, imidazole, Na 1s, hydrogène électrosorbé, désalumination). (5) Les capacités rapportées à Co3O4 seul (≈ 373 mA h g−1) sont proches du maximum théorique, sans essai de la mousse de nickel nue. L'imprégnation au nitrate de cobalt et sa calcination en Co3O4 sont, elles, chimiquement cohérentes.",
+    "author_errors_suspected": [
+      "rapports SiO2/Al2O3 6,2 et 8,3 incompatibles avec les quantités de TEOS et d'Al(OH)3 (nominal 33,4 et 48,1) ; 8,3 = Si/Al atomique EDS",
+      "« zéolithe ZSM5 amorphe » : pas de minéralisant, pas de microporosité ; produit = aluminosilicate amorphe mésoporeux",
+      "Tableau 1 : surface externe > surface BET pour 7 échantillons sur 8 (microporosité négative)",
+      "FTIR attribué à un groupe 1-heptyle et à un cycle imidazole absents de la synthèse ; 2351 cm−1 = CO2 atmosphérique",
+      "XPS : doublet Si 2p annoncé à 0,6 eV pour des composantes séparées de 0,8 eV ; « H+ donneur d'électrons » contredit le déplacement vers les hautes énergies ; Na 1s sans sodium ; satellites Co 2p à 782,8 eV",
+      "texte : Co/H-AZ « surface plus élevée que leurs homologues », contredit par le Tableau 1",
+      "DRX : raie à 56° indexée (511) au lieu de (422)",
+      "imprégnation : « solution à 15 wt% Co » (réellement 10,8 %) et « mass-loading of 85% » sans signification",
+      "unité F g−1 pour 45,97 (ailleurs mA h g−1) ; 6,3 au lieu de 6,2 ; efficacité coulombique confondue avec rétention de capacité",
+      "schéma 1 (80 °C, 500 °C, 24 h) en désaccord avec le texte (60 °C, 400 °C, 12 h + 12 h)"
+    ],
+    "comparison_with_database": "Base : PMC8941405 (ZSM-5 ensemencée, 170 °C 48 h, calcination 550 °C 10 h, échange NH4+ à 80 °C puis calcination ; Si/Al ICP 37,3 ; S_ext t-plot 25 m2/g sur 390 m2/g BET, donc microporeuse) et PMC8981000 (ZSM-11 au TPAOH, 175 °C 18 h, calcination 550 °C 5 h). Les voies AZ de PMC10350639 en diffèrent sur tous les points qui font une zéolithe MFI : pas de base, 100 °C au lieu de 170–175 °C, calcination à 300 °C au lieu de 550 °C, surface quasi entièrement externe. Aucune autre voie Co3O4 sur support dans la base pour comparer l'imprégnation."
+  },
+  "sources_not_found": [
+    "solubilité de Co(NO3)2 dans l'eau (valeur de manuel 84–97 g/100 mL entre 0 et 20 °C non revérifiée sur PubChem pendant cette critique)",
+    "DOI de la revue Da Silva et al. 2020 (Energy Storage Mater. 27, 555–590) non relevé : URL ScienceDirect donnée à la place",
+    "auteurs de l'article Materials 2024, 17, 1292 (mousse de nickel) non relevés",
+    "aucune source trouvée décrivant une synthèse de ZSM-5 « amorphe » sans minéralisant à 100 °C"
+  ]
+}

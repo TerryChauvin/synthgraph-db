@@ -1,0 +1,505 @@
+{
+ "pmcid": "PMC5824763",
+ "routes": [
+  {
+   "label": "OVE_OH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport matière végétale/solvant",
+     "inputs": "2 g de plante ; 20 mL d'éthanol puis 20 mL d'eau",
+     "formula": "m / V",
+     "result": "100 mg DW/mL d'extrait aqueux",
+     "compared_to": "TPC 21,58 mg GAE/g DW × 0,1 g/mL = 2 158 µg/mL (table 2) : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "volume de la fiole jaugée",
+     "inputs": "20 mL d'éthanol filtrés dans une fiole de 20 mL, puis deux lavages du résidu « dans la même fiole »",
+     "formula": "somme des volumes",
+     "result": "> 20 mL si les lavages sont recueillis ; la fiole déborde, sauf pertes de solvant retenu par la plante",
+     "compared_to": "capacité 20 mL",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Éthanol absolu à 60 °C en bain à ultrasons ouvert : sous le point d'ébullition (78,4 °C) mais pression de vapeur élevée (≈ 0,47 bar) ; pertes par évaporation et vapeurs inflammables, sans conséquence sur l'extrait puisque l'éthanol est ensuite évaporé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Filtration de 20 mL dans une fiole de 20 mL puis deux lavages dans la même fiole : volume impossible tel qu'écrit (calcul « volume de la fiole jaugée ») ; sans effet sur la suite puisque tout est évaporé puis repris dans 20 mL d'eau, mais la température et la durée d'évaporation ne sont pas données.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'évaporation de l'éthanol puis la reprise dans l'eau et la centrifugation éliminent la plus grande partie des composés peu solubles dans l'eau et volatils (carvacrol, thymol : phénols monoterpéniques peu solubles et entraînables à la vapeur). L'extrait final est surtout une solution de polyphénols hydrosolubles (acide rosmarinique, flavonoïdes glycosylés) et de sucres, ce qui fragilise l'explication des auteurs par les « huiles volatiles » pour les nanoplaquettes.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TPC 21,58 mg GAE/g DW : ordre de grandeur habituel pour l'origan (les auteurs le comparent eux-mêmes au seuil 12–20 mg/g). L'attribution de la table 2 à OH plutôt qu'à OF n'est pas écrite (voir la limite de l'extraction).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Extraction solide-liquide assistée par ultrasons des polyphénols et terpénoïdes dans l'éthanol ; l'échange de solvant vers l'eau ne garde que la fraction hydrosoluble (acides phénoliques, flavonoïdes glycosylés, sucres) ; la centrifugation retire les insolubles.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S. (Green Chem.)",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température et durée d'évaporation de l'éthanol (dégradation des polyphénols)",
+    "finesse de broyage de la plante",
+    "quel extrait (OH ou OF) correspond à la table 2",
+    "doser le TPC de chaque lot d'extrait : il fixe le rapport réducteur/or"
+   ]
+  },
+  {
+   "label": "AuNP-OH-1mL",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'or",
+     "inputs": "20 mL de HAuCl4 1 mM ; M(Au) = 196,97 g/mol",
+     "formula": "C × V",
+     "result": "20 µmol Au = 3,94 mg Au ; 60 µmol d'électrons nécessaires (Au3+ → Au0)",
+     "compared_to": "—",
+     "source": "valeurs de l'article ; masse molaire IUPAC"
+    },
+    {
+     "what": "concentration finale en or",
+     "inputs": "20 µmol dans 20 + V mL (V = 0,25 à 2 mL)",
+     "formula": "n / V_total",
+     "result": "0,988 mM (0,25 mL) ; 0,952 mM (1 mL) ; 0,909 mM (2 mL) ; 187,6 µg Au/mL pour 1 mL OH",
+     "compared_to": "doses de cytotoxicité 0,25–4,0 µg/mL ; disques antimicrobiens",
+     "source": "calcul"
+    },
+    {
+     "what": "réducteur apporté (équivalent acide gallique)",
+     "inputs": "TPC de l'extrait 2 158 µg GAE/mL ; M(acide gallique) = 170,12 g/mol ; hypothèse 2 e− par équivalent (catéchol/galloyle → quinone)",
+     "formula": "V × 2,158 mg/mL / 170,12 ; × 2 e−",
+     "result": "0,25 mL : 3,2 µmol GAE, 6,3 µmol e− (11 % du besoin) ; 1 mL : 12,7 µmol GAE, 25 µmol e− (42 %) ; 2 mL : 25,4 µmol GAE, 51 µmol e− (85 %)",
+     "compared_to": "60 µmol e− pour réduire 20 µmol Au3+ ; à 4 e− par équivalent, 1 mL couvre 85 %",
+     "source": "valeurs de l'article (table 2)"
+    },
+    {
+     "what": "polyphénols consommés pendant la synthèse (1 mL OH)",
+     "inputs": "2 158 µg GAE apportés ; colloïde 31,27 µg GAE/mL × 21 mL = 657 µg",
+     "formula": "apport − reste ; e− nécessaires / GAE consommé",
+     "result": "1 501 µg = 8,8 µmol GAE consommés (70 %) ; 60 / 8,8 = 6,8 e− par équivalent consommé",
+     "compared_to": "2 à 4 e− par unité galloyle/catéchol oxydée",
+     "source": "valeurs de l'article (table 2) ; calcul"
+    },
+    {
+     "what": "A400 attendue pour une réduction complète",
+     "inputs": "[Au0] = 0,952 mM ; colloïde dilué 1:1 avant mesure (légende de la figure 1) → 0,476 mM ; repère de l'article : A400 = 1,2 ↔ 0,5 mM (cuve 1 cm)",
+     "formula": "1,2 × 0,476 / 0,5",
+     "result": "A400 ≈ 1,14 (non dilué : ≈ 2,29)",
+     "compared_to": "A400 mesurée 1,3 au plateau (1 à 2 mL)",
+     "source": "Scarabelli et al. 2015 cité par l'article ; incertitude jusqu'à 30 % selon Hendel et al. 2014"
+    },
+    {
+     "what": "pH attendu",
+     "inputs": "1 mM HAuCl4 (acide fort) ; 3 H+ libérés par Au réduit (oxydation du phénol) ; volume 21 mL",
+     "formula": "−log[H+]",
+     "result": "pH 3,02 avant réduction ; pH 2,42 si 4 H+ par Au, sans tampon",
+     "compared_to": "pH mesuré 2,5–3,2",
+     "source": "chimie générale"
+    },
+    {
+     "what": "diamètre déduit de la bande plasmon (modèle de Haiss)",
+     "inputs": "λspr = 534 nm ; λspr = 512 + 6,53·exp(0,0216·d) (constantes de Haiss et al. 2007, de mémoire)",
+     "formula": "d = ln((λ − 512)/6,53) / 0,0216",
+     "result": "d ≈ 56 nm",
+     "compared_to": "56 nm annoncé par les auteurs ; TEM 36,75 ± 16,82 nm",
+     "source": "Haiss et al. 2007 (DOI non vérifié)"
+    },
+    {
+     "what": "rapports de polyphénols colloïde/extrait",
+     "inputs": "TPC 21,58 et 6,25 mg GAE/g DW ; 2 158 et 31,27 µg/mL ; 100 mg DW pour 20 mL de HAuCl4",
+     "formula": "rapports ; 31,27 / 5 mg DW/mL",
+     "result": "21,58/6,25 = 3,45 ; 2 158/31,27 = 69,0 ; 6,25 retrouvé en rapportant à 20 mL (et non 21 mL : 6,57) ; facteur 69 = dilution 20× × consommation 3,45×",
+     "compared_to": "« ~3.5 times smaller » et « 69 times more » de l'article",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "or déposé sur un disque antimicrobien",
+     "inputs": "60 µL de colloïde 1 mL OH à 187,6 µg Au/mL",
+     "formula": "V × C",
+     "result": "≈ 11 µg Au par disque (plus l'extrait oxydé, HCl ~ 3–4 mM)",
+     "compared_to": "extrait témoin : 60 µL d'extrait à 10 %",
+     "source": "calcul"
+    },
+    {
+     "what": "fraction de colloïde à la dose maximale de cytotoxicité",
+     "inputs": "4,0 µg/mL ; 187,6 µg Au/mL (si la dose est en masse d'or)",
+     "formula": "4,0 / 187,6",
+     "result": "2,1 % v/v",
+     "compared_to": "IC50 annoncées 15,9 et 6,5 µg/mL, au-delà de la dose maximale testée",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Solution aqueuse à 85 °C sur plaque chauffante, récipient ouvert : sous 100 °C, réaction de 60 s ; évaporation négligeable. Ajout d'1 mL d'extrait froid : baisse de 3–4 °C seulement.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Bilan d'électrons (calcul « réducteur apporté ») : au TPC mesuré, 1 mL d'extrait n'apporte que 42 % (2 e− par équivalent) à 85 % (4 e−) des 60 µmol d'électrons nécessaires, et seulement 8,8 µmol GAE disparaissent (« polyphénols consommés »), soit 6,8 e− par équivalent consommé. La réduction « complète » à 1 mL exige donc d'autres réducteurs (sucres à 85 °C, produits d'oxydation encore actifs) ou une oxydation poussée des unités galloyle ; plausible mais non démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "A400 au plateau = 1,3 sur colloïde dilué 1:1 : pour 0,476 mM d'or, le repère A400 = 1,2 ↔ 0,5 mM donne 1,14 (calcul « A400 attendue ») ; le plateau est donc compatible avec une réduction complète, l'écart (+14 %) pouvant venir de l'absorption de l'extrait vers 400 nm et de la diffusion des grandes plaquettes. La méthode A400 a une incertitude jusqu'à 30 % selon la taille et l'enrobage ; aucun dosage de l'Au3+ résiduel (ICP du surnageant) n'est fait.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "In Situ Determination of Colloidal Gold Concentrations with UV–Vis Spectroscopy: Limitations and Perspectives",
+      "authors_or_publisher": "Analytical Chemistry (auteurs non confirmés par la recherche ; Hendel et al. de mémoire) — résumé lu sur CORE",
+      "year": "2014",
+      "url_or_doi": "https://core.ac.uk/works/49055071"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "pH final 2,5–3,2 cohérent avec HAuCl4 1 mM (pH 3,0) plus les 3 H+ libérés par or réduit (pH ≈ 2,4 sans tampon) : calcul « pH attendu ».",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : les Méthodes placent tous les maxima entre 522 et 546 nm, alors que les Résultats et la figure 1 donnent 534 à 560 nm (560 nm pour 0,25 mL OH, 556 nm pour 0,5 mL OF) ; aucune courbe n'est à 522 nm. Une des deux plages est fausse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs attribuent les nanoplaquettes triangulaires aux « huiles volatiles (carvacrol, thymol) contenant des groupes cétone ». Carvacrol (2-méthyl-5-isopropylphénol, C10H14O) et thymol sont des phénols sans carbonyle ; de plus ils sont peu solubles dans l'eau et en grande partie perdus à l'évaporation. L'argument chimique est faux ; la bande à 1 730 cm−1 de OH (C=O d'ester ou d'acide : acide rosmarinique, pectines méthylées, cires des fleurs) ne désigne pas ces molécules.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Carvacrol (CID 10364) — Chemical and Physical Properties",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Carvacrol"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les nanoplaquettes triangulaires d'or par extrait végétal (citronnelle) sont décrites et reliées à une réduction lente et à la composition de l'extrait ; ici elles sont les plus grandes à 0,25 mL (réducteur à ~11 % du besoin) et diminuent quand l'extrait augmente, ce qui pointe d'abord vers le rapport réducteur/or (cinétique de réduction lente, germes maclés plans en milieu chlorure acide) plutôt que vers une molécule propre aux fleurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Biological synthesis of triangular gold nanoprisms",
+      "authors_or_publisher": "Shankar S.S., Rai A., Ankamwar B., Singh A., Ahmad A., Sastry M. (Nature Materials 3, 482–488)",
+      "year": "2004",
+      "url_or_doi": "10.1038/nmat1152"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Diamètre déduit de la bande à 534 nm : 56 nm avec le modèle de Haiss (calcul « diamètre déduit »), contre 36,75 nm au TEM. Les auteurs en font « une preuve directe » d'une couche moléculaire dense ; or la forte polydispersité (écart-type 46 %), la présence de nanoplaquettes et la mesure sur colloïde non lavé décalent aussi la bande vers le rouge. Preuve non discriminante.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of Size and Concentration of Gold Nanoparticles from UV−Vis Spectra",
+      "authors_or_publisher": "Haiss W., Thanh N.T.K., Aveyard J., Fernig D.G. (Anal. Chem. 79, 4215–4221) — référence de l'article, DOI non vérifié",
+      "year": "2007",
+      "url_or_doi": "Anal. Chem. 2007, 79, 4215–4221 (DOI non vérifié)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PCS 42,22 nm (PDI 0,52) contre TEM 36,75 nm : un PDI > 0,5 rend la taille hydrodynamique peu fiable, et la moyenne en intensité pèse les grosses particules (∝ d6) ; l'écart PCS–TEM ne mesure pas l'épaisseur de la couche organique. À 0,25 mL, avec des plaquettes de 400–500 nm, un z-moyen de 74,8 nm presque égal au TEM (72,9 nm) est surprenant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Potentiel zêta de −22 à −26 mV en milieu acide : stabilité électrostatique seulement modérée (|ζ| < 30 mV) ; la stabilité de 30 mois observée relève plutôt d'une stabilisation stérique par les polyphénols. « Incredible colloidal stability for the whole pH domain » n'est pas démontrée (échantillon non précisé, pH intermédiaires non mesurés).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FTIR du culot sec : le culot est centrifugé une seule fois sans lavage ; les bandes CH2 à 2 847/2 915 cm−1 peuvent venir de matière organique co-sédimentée, non liée. Elles ne prouvent pas une couche de coiffage (preuve discriminante : lavages répétés, ou analyse du surnageant).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DPPH : la bande plasmon (534 nm) absorbe à 517 nm, longueur d'onde de mesure, et le mélange 1:1 avec l'éthanol peut faire agréger les particules ; aucun blanc échantillon (colloïde + éthanol sans DPPH) n'est décrit dans la formule (1). Les 70,61 % ne sont pas interprétables tels quels (biais possible dans les deux sens).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Quantifying the Antioxidant Capacity of Inorganic Nanoparticles: Challenges and Analytical Solutions",
+      "authors_or_publisher": "article PMC (auteurs non relevés ; page non ouverte, extrait du moteur de recherche)",
+      "year": "2025",
+      "url_or_doi": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12561802/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Antimicrobien : le témoin ne change pas une seule variable. Le colloïde porte ~11 µg d'or par disque, mais aussi l'extrait oxydé et un milieu acide (pH 2,5–3,2, HCl ~3–4 mM), alors que l'extrait témoin est à 10 % et non acidifié ; il manque un témoin HCl au même pH et un témoin surnageant (extrait oxydé sans particules). Les nanoparticules d'or seules ont une activité antibactérienne faible ou incertaine dans la littérature ; les zones de 21 et 28 mm ne peuvent pas être attribuées aux particules.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Antimicrobial Activity of Gold Nanoparticles and Ionic Gold",
+      "authors_or_publisher": "J. Environ. Sci. Health C 33(3), 286–327 (Zhang et al. ; liste d'auteurs non confirmée) — contenu connu par une citation secondaire",
+      "year": "2015",
+      "url_or_doi": "10.1080/10590501.2015.1055161"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Souches incohérentes entre sections : les Chemicals listent S. aureus ATCC 49444, L. monocytogenes ATCC 13076 et S. typhimurium ATCC 14028, la méthode antimicrobienne S. aureus ATCC 6538P, L. monocytogenes ATCC 13932 et S. enteritidis ATCC 13076. ATCC 13076 est une souche de Salmonella Enteritidis, pas de Listeria ; ATCC 13932 est bien L. monocytogenes (sérotype 4b). On ne sait pas quelles souches ont été testées.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Listeria monocytogenes ATCC 13932 (serotype 4b) — fiche produit",
+      "authors_or_publisher": "American Type Culture Collection",
+      "year": "2026",
+      "url_or_doi": "https://www.atcc.org/products/13932"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cytotoxicité : doses testées 0,25 à 4,0 µg/mL, viabilité encore de 83 % (HDF) et 67 % (WM35) à 4,0 µg/mL ; les IC50 de 15,9 ± 9,2 et 6,5 ± 3,8 µg/mL sont extrapolées au-delà de la dose maximale (4× et 1,6×), avec des écarts de ~60 %. Elles ne sont pas mesurées. L'unité de dose (masse d'or ? de matière sèche ?) n'est pas définie ; en or, 4 µg/mL ne représente que 2,1 % v/v de colloïde (calcul « fraction de colloïde »). La note de la figure 8 (« *p>0.05 as compared to control ») est vraisemblablement une coquille pour p < 0,05.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TPC du colloïde mesuré à 760 nm en présence d'or : l'échantillon 1 mL OH a une bande proche infrarouge qui peut absorber à 760 nm et gonfler un peu le TPC (dilution 2/25 limite l'effet). Les rapports 3,45 et 69 se recalculent exactement (calcul « rapports de polyphénols ») ; le facteur 69 est surtout la dilution (×20), pas une consommation supplémentaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HAuCl4 corrosif ; solution à 85 °C ; manipulation de souches de niveau 2 (Listeria, Salmonella, S. aureus, C. albicans) ; aucune précaution écrite. L'annotation de sécurité de l'extraction couvre ces points.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison avec la base : PMC5080270 (extrait d'A. capillaris, 80 °C, 1 h : 543 nm, 29,9 nm au TEM), PMC6814701 (extrait de Mimosa tenuiflora, 25 °C, 60 s : 550 nm, 40 nm), PMC4043712 (extrait de racine, 37 °C : 570 nm, triangles) : 534 nm et 37 nm sont dans la plage des synthèses par extraits ; la présence de plaquettes triangulaires y est fréquente.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 85 °C et pH ≈ 3, AuCl4− est réduit par les unités catéchol/galloyle des polyphénols (acide rosmarinique, acide caféique, flavonoïdes) oxydées en quinones (2 e−, 2 H+ chacune), avec contribution probable des sucres de l'extrait ; nucléation en rafale puis croissance (LaMer). Le rapport réducteur/or fixe le nombre de germes : à faible volume d'extrait (0,25 mL, ~11 % des électrons nécessaires), la réduction est lente et incomplète, favorisant des germes maclés plans qui croissent en nanoplaquettes triangulaires en milieu chlorure acide ; à 1 mL, nucléation plus abondante et particules plus petites ; au-delà, agrégation partielle ou croissance anisotrope (bande NIR). Les polyphénols oxydés et non oxydés adsorbés assurent une stabilisation surtout stérique. Le rôle des « cétones » carvacrol/thymol invoqué par les auteurs est à écarter (ce sont des phénols, en grande partie éliminés à l'évaporation).",
+    "sources": [
+     {
+      "title": "Biological synthesis of triangular gold nanoprisms",
+      "authors_or_publisher": "Shankar S.S., Rai A., Ankamwar B., Singh A., Ahmad A., Sastry M. (Nature Materials 3, 482–488)",
+      "year": "2004",
+      "url_or_doi": "10.1038/nmat1152"
+     },
+     {
+      "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+      "authors_or_publisher": "LaMer V.K., Dinegar R.H. (JACS)",
+      "year": "1950",
+      "url_or_doi": "10.1021/ja01167a001"
+     },
+     {
+      "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+      "authors_or_publisher": "Raveendran P., Fu J., Wallen S.L. (JACS)",
+      "year": "2003",
+      "url_or_doi": "10.1021/ja029267j"
+     },
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S. (Green Chem.)",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "doser le TPC de l'extrait utilisé et viser un rapport réducteur/or connu, pas un volume",
+    "doser l'or non réduit (ICP du surnageant) plutôt que se fier à A400",
+    "laver les particules (centrifugations répétées) avant FTIR, zêta et essais biologiques",
+    "témoins antimicrobiens : HCl au même pH, surnageant du colloïde, HAuCl4 1 mM",
+    "souches réellement utilisées (numéros ATCC contradictoires)",
+    "unité des doses de cytotoxicité et gamme encadrant l'IC50",
+    "blanc colloïde sans DPPH à 517 nm",
+    "plage réelle des maxima plasmon (522–546 contre 534–560 nm)"
+   ]
+  },
+  {
+   "label": "AuNP-OH-0.25mL",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "électrons apportés par 0,25 mL d'extrait",
+     "inputs": "0,25 mL × 2 158 µg GAE/mL = 540 µg = 3,2 µmol GAE ; 2 e− par équivalent",
+     "formula": "n × 2",
+     "result": "6,3 µmol e−, soit 11 % des 60 µmol nécessaires (21 % à 4 e−)",
+     "compared_to": "20 µmol Au3+",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Réduction nécessairement incomplète (calcul « électrons apportés ») : cohérent avec l'A400 plus basse que le plateau et avec des plaquettes de 400–500 nm et des agrégats (peu de germes, croissance lente). Une part de l'or reste en Au3+ dans le colloïde, ce qui compte pour tout usage biologique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TEM 72,9 ± 44,2 nm et PCS 74,8 nm alors que des plaquettes de 400–500 nm sont décrites : la moyenne TEM ne les inclut sans doute pas, et une PCS en intensité devrait les pondérer fortement ; les deux tailles ne décrivent pas la population réelle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réducteur très limitant : nucléation lente et peu abondante, croissance de germes maclés plans en plaquettes triangulaires (réduction lente, milieu chlorure acide), agrégation des petites particules mal coiffées.",
+    "sources": [
+     {
+      "title": "Biological synthesis of triangular gold nanoprisms",
+      "authors_or_publisher": "Shankar S.S., Rai A., Ankamwar B., Singh A., Ahmad A., Sastry M. (Nature Materials 3, 482–488)",
+      "year": "2004",
+      "url_or_doi": "10.1038/nmat1152"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "or résiduel en Au3+",
+    "distribution de taille incluant les plaquettes"
+   ]
+  },
+  {
+   "label": "AuNP-OF-1mL",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "comparaison des maxima OF/OH à volume égal",
+     "inputs": "OF : 556, 546, 536 nm (0,5, 1, 1,5 mL) ; OH : 544, 534, 536 nm",
+     "formula": "λ(OF) − λ(OH)",
+     "result": "+12, +12, 0 nm",
+     "compared_to": "affirmation « particules plus grosses qu'avec OH »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pas de taille TEM ni PCS pour OF ; « plus grosses qu'avec OH » est déduit des seules positions de bande, et ne vaut pas à 1,5 mL (536 nm dans les deux cas). Le TPC de l'extrait OF n'est pas donné, donc le rapport réducteur/or est inconnu : la différence OH/OF peut venir de la quantité de réducteur autant que de la nature des molécules.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Absence de plaquettes et de bande NIR avec OF attribuée par les auteurs au manque de « cétones » des fleurs ; carvacrol et thymol ne sont pas des cétones (voir AuNP-OH-1mL). Témoin non discriminant : OH et OF diffèrent par toute leur composition et par leur TPC.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Carvacrol (CID 10364) — Chemical and Physical Properties",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Carvacrol"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même réduction par les polyphénols ; la morphologie isotrope observée s'explique plus simplement par un autre rapport réducteur/or et une autre cinétique de réduction que par l'absence de cétones.",
+    "sources": [
+     {
+      "title": "Biological synthesis of triangular gold nanoprisms",
+      "authors_or_publisher": "Shankar S.S., Rai A., Ankamwar B., Singh A., Ahmad A., Sastry M. (Nature Materials 3, 482–488)",
+      "year": "2004",
+      "url_or_doi": "10.1038/nmat1152"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "TPC de l'extrait OF",
+    "tailles TEM des colloïdes OF"
+   ]
+  },
+  {
+   "label": "AuNP-OH-1mL_KI",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport iodure/or",
+     "inputs": "0,1 mL de KI 1 M (100 µmol) ; 0,4 mL de colloïde à 0,952 mM (0,38 µmol Au)",
+     "formula": "n(I−)/n(Au) ; C finale",
+     "result": "I−/Au ≈ 260 ; [KI] finale 0,2 M dans 0,5 mL",
+     "compared_to": "modification iodure de Xu et al. (argent) citée par l'article",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "KI 0,2 M final : force ionique élevée qui agrège un colloïde stabilisé à −22 mV ; l'agrégation crée des points chauds et peut expliquer, avec le nettoyage de surface invoqué, l'apparition du spectre du propranolol. Le volume d'analyte et la façon d'ajuster le pH à 10 ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les bandes à 464 et 585 cm−1 présentes sans analyte ne sont pas attribuées ; aucune vérification (spectre du KI seul avec le colloïde, du surnageant) ne permet de trancher.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Chimisorption de I− sur l'or qui déplace en partie les polyphénols adsorbés et laisse l'analyte cationique (propranolol protoné) s'approcher ; agrégation induite par le sel.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "volume et concentration de l'analyte avant mélange",
+    "réactif et méthode d'ajustement du pH"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse verte d'or par extrait d'origan à 85 °C : réalisable et cohérente dans son principe (pH final et A400 au plateau compatibles avec une réduction quasi complète à 1 mL d'extrait), mais le rapport réducteur/or n'est contrôlé que par un volume d'extrait au TPC variable, l'explication des nanoplaquettes repose sur une erreur de chimie (carvacrol et thymol présentés comme des cétones), et les propriétés biologiques sont mal établies (témoins antimicrobiens qui changent plusieurs variables, souches contradictoires, IC50 extrapolées hors de la gamme testée, DPPH sans blanc colloïde).",
+  "author_errors_suspected": [
+   "plage des maxima plasmon 522–546 nm dans les Méthodes contre 534–560 nm dans les Résultats",
+   "carvacrol et thymol décrits comme porteurs de groupes cétone",
+   "numéros ATCC et espèces de Salmonella/Listeria différents entre Chemicals et méthode antimicrobienne (ATCC 13076 attribué à Listeria)",
+   "IC50 de 15,9 et 6,5 µg/mL au-delà de la dose maximale testée (4,0 µg/mL)",
+   "« *p>0.05 as compared to control » dans la note de la figure 8",
+   "SEM annoncé dans les Méthodes, SD dans la table 2",
+   "filtration de 20 mL plus deux lavages dans une fiole de 20 mL"
+  ],
+  "comparison_with_database": "Synthèses d'or par extraits végétaux dans la base : PMC5080270 (543 nm, 29,9 nm), PMC6814701 (550 nm, 40 nm), PMC4043712 (570 nm, triangles), PMC4848276 (acide caféique, 85 °C). Position de bande et taille de PMC5824763 dans la même plage ; aucune valeur aberrante."
+ },
+ "sources_not_found": [
+  "DOI de Haiss et al., Anal. Chem. 2007, 79, 4215–4221 (non trouvé par la recherche)",
+  "liste d'auteurs et DOI de l'article « In Situ Determination of Colloidal Gold Concentrations with UV–Vis Spectroscopy » (seul le résumé CORE a été lu)",
+  "texte de Scarabelli et al. 2015 : la correspondance A400 = 1,2 ↔ 0,5 mM n'a pas été lue dans la source, elle est reprise de l'article",
+  "fiche ATCC de la souche 13076 (seule une table secondaire la donne comme Salmonella Enteritidis)",
+  "pages PMC et PubMed inaccessibles depuis l'environnement (DNS)"
+ ]
+}

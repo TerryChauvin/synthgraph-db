@@ -1,0 +1,218 @@
+{
+  "pmcid": "PMC3407523",
+  "routes": [
+    {
+      "label": "Ag-G0.5-30",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "masse molaire moyenne d'un résidu osidique de la gomme",
+         "inputs": "rapport molaire donné par l'article L-arabinose:D-galactose:D-mannose:D-xylose:acide D-glucuronique = 48:29:10:5:10 ; résidus anhydro : pentose 132,12 g/mol, hexose 162,14 g/mol, acide glucuronique 176,12 g/mol",
+         "formula": "(48×132,12 + 29×162,14 + 10×162,14 + 5×132,12 + 10×176,12) / 102",
+         "result": "≈ 148 g/mol par résidu",
+         "compared_to": "sert aux deux calculs suivants",
+         "source": "composition : article ; masses molaires : arithmétique sur les formules C5H8O4, C6H10O5, C6H8O6"},
+        {"what": "résidus osidiques et chaînes de gomme par litre",
+         "inputs": "0,5 % (w/v) = 5 g/L ; 0,1 % = 1 g/L ; 148 g/mol par résidu ; masse molaire de la gomme 8,94 × 10^7 g/mol (article)",
+         "formula": "c(résidus) = c_m / 148 ; c(chaînes) = c_m / 8,94e7",
+         "result": "0,5 % : 33,8 mmol/L de résidus et 56 nmol/L de chaînes ; 0,1 % : 6,8 mmol/L de résidus et 11 nmol/L de chaînes",
+         "compared_to": "Ag+ = 1 mmol/L : les extrémités réductrices des chaînes (≤ 56 nmol/L) ne peuvent réduire que ~0,006 % de l'argent ; il faut que la réduction vienne d'autres groupes (oxydation des OH, sucres libérés par hydrolyse, protéines)",
+         "source": "valeurs de l'article"},
+        {"what": "rapport massique gomme / argent",
+         "inputs": "Ag 1 mmol/L × 107,87 g/mol = 107,9 mg/L ; gomme 1 000 ou 5 000 mg/L",
+         "formula": "m(gomme)/m(Ag)",
+         "result": "0,1 % : 9,3 ; 0,5 % : 46",
+         "compared_to": "large excès de matière organique, mais pas de réducteur stœchiométrique identifié",
+         "source": "arithmétique"},
+        {"what": "absorbance attendue à réduction complète de 1 mM Ag+ (ordre de grandeur, approximation quasi statique)",
+         "inputs": "fraction volumique d'Ag f = 1e-3 mol/L × 10,28 cm3/mol / 1000 = 1,03e-5 ; σ/V à la résonance = 18π n_m^3 / (λ ε2) avec n_m = 1,333, λ = 412 nm, ε2 = 0,3 à 1 (argent massif à amorti par la taille) ; trajet 1 cm",
+         "formula": "A = (σ/V) × f × l / ln 10",
+         "result": "A ≈ 15 à 50 ; avec ε2 = 0,6 : A ≈ 24",
+         "compared_to": "absorbances lues sur la Fig. 2 : 0,32 (0,1 %, 30 min) à 2,9 (0,5 %, 60 min) ; si les spectres ne sont pas dilués (non dit), la fraction d'Ag+ réduite serait de l'ordre de 1 à 20 %",
+         "source": "théorie de Mie quasi statique (chimie générale) ; méthode de dosage des AgNP par extinction : Paramelle et al., Analyst 2014, 10.1039/C4AN00978A"},
+        {"what": "pression dans l'autoclave",
+         "inputs": "121 °C, « 103 kPa » donné par l'article",
+         "formula": "P_abs = P_jauge + 101,3 kPa",
+         "result": "103 kPa = 15 psi relatif ; ≈ 205 kPa absolu, soit la pression de vapeur saturante de l'eau à 121 °C",
+         "compared_to": "cycle standard de stérilisation (121 °C, 15 psi)",
+         "source": "MUCLecture 2022 (cours d'autoclave) ; CASRAI, guide de sécurité autoclave"},
+        {"what": "Bragg et paramètre de maille",
+         "inputs": "λ = 1,5406 Å ; 2θ = 38,3 / 44,6 / 64,8 / 77,6 / 81,9° ; (111) (200) (220) (311) (222)",
+         "formula": "d = λ / (2 sin θ) ; a = d √(h²+k²+l²)",
+         "result": "d = 2,348 / 2,030 / 1,438 / 1,229 / 1,175 Å (identiques à l'article) ; a = 4,067 / 4,060 / 4,066 / 4,077 / 4,071 Å, moyenne 4,068 Å",
+         "compared_to": "article : a = 4,061 Å (égal à la seule raie (200)) ; fiche JCPDS 04-0783 : a = 4,0862 Å, raies attendues à 38,11 / 44,30 / 64,44 / 77,40 / 81,54° ; écart de −0,4 à −0,6 % et décalage systématique de +0,2 à +0,4° en 2θ",
+         "source": "longueur d'onde de l'article ; a de l'argent : fiche JCPDS citée par l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique",
+         "finding": "121 °C et 103 kPa : 103 kPa est une pression relative (15 psi) ; 205 kPa absolus = pression de vapeur saturante de l'eau à 121 °C, cohérent avec un autoclave de stérilisation (calcul « pression dans l'autoclave »). La chaîne de chauffe et de refroidissement d'un autoclave de laboratoire (montée, palier, détente lente pour les liquides) dure souvent plus que le palier lui-même ; la durée « 10 à 60 min » est vraisemblablement le palier, et l'histoire thermique réelle dépend du volume de liquide et du cycle, non donnés. Pour la série en temps (10–60 min), cette incertitude est du même ordre que la variable étudiée.",
+         "status": "reserve",
+         "basis": "litterature",
+         "source": {"title": "Autoclave operating safety: steam burns", "authors_or_publisher": "CASRAI", "year": "s.d.", "url_or_doi": "https://casrai.org/guides/autoclave-operating-safety-steam-burns"}},
+        {"aspect": "bilan",
+         "finding": "La gomme apporte 6,8 à 33,8 mmol/L de résidus osidiques (≈ 3 OH chacun) pour 1 mmol/L d'Ag+ : la capacité réductrice potentielle est largement suffisante, mais les extrémités réductrices des chaînes (11 à 56 nmol/L, calcul « résidus osidiques et chaînes de gomme par litre ») ne comptent pas ; la réduction exige l'oxydation d'alcools (lente sans base) ou la libération de sucres réducteurs par hydrolyse. Le rendement de réduction n'est pas mesuré.",
+         "status": "ok",
+         "basis": "chimie_generale"},
+        {"aspect": "resultats",
+         "finding": "Rendement de réduction probablement faible : à réduction complète, 1 mM d'Ag en petites sphères donnerait une absorbance de l'ordre de 15 à 50 à 412 nm sur 1 cm (calcul « absorbance attendue à réduction complète »), contre 0,32 à 2,9 mesuré. Si les spectres n'ont pas été dilués (l'article ne le dit pas), seule une fraction de l'ordre de 1 à 20 % de l'argent serait sous forme métallique, et la solution contiendrait surtout de l'Ag+ libre ou complexé par la gomme. Cela concorde avec la croissance continue de l'absorbance avec le temps (pas de plateau à 60 min). La valeur 1 mM ne décrit donc pas la teneur en nanoparticules.",
+         "status": "reserve",
+         "basis": "litterature",
+         "source": {"title": "A rapid method to estimate the concentration of citrate capped silver nanoparticles from UV-visible light spectra", "authors_or_publisher": "Paramelle D., Sadovoy A., Gorelik S., Free P., Hobley J., Fernig D. G. (Analyst, RSC)", "year": "2014", "url_or_doi": "10.1039/C4AN00978A"}},
+        {"aspect": "solubilite",
+         "finding": "AgNO3 1 mM est très soluble. La gomme est un sel mixte Ca/Mg/K/Na (article) ; toute trace de chlorure dans la gomme précipite AgCl dès ~0,2 µM de Cl− (Ksp AgCl ≈ 1,8 × 10^-10 à 25 °C, avec [Ag+] = 1 mM). La DRX, enregistrée de 35 à 85°, exclut les deux raies les plus fortes d'AgCl (111) à ~27,8° et (200) à ~32,2° ; seule (220) à ~46,2° est dans la plage, ce qui ne permet pas d'écarter une phase AgCl minoritaire.",
+         "status": "reserve",
+         "basis": "chimie_generale"},
+        {"aspect": "resultats",
+         "finding": "Bragg recalculé : les d de l'article sont justes, mais le paramètre de maille moyen est 4,068 Å (l'article donne 4,061 Å, qui est la valeur de la seule raie (200)) et toutes les raies sont décalées de +0,2 à +0,4° par rapport à la fiche 04-0783 (a = 4,0862 Å) (calcul « Bragg et paramètre de maille »). Un écart de −0,4 à −0,6 % est plus grand que la contraction de maille attendue pour des particules de 5 à 30 nm ; un dépôt de solution séchée sur lame de verre (épaisseur non contrôlée, décalage d'échantillon) l'explique mieux. « En accord avec la fiche » est donc approximatif ; l'échantillon mesuré n'est pas dit.",
+         "status": "reserve",
+         "basis": "chimie_generale"},
+        {"aspect": "mecanisme",
+         "finding": "Preuve IR non discriminante (contrôles 4 et 7) : (1) la bande à 2122 cm−1 de la gomme, attribuée à des « espèces carbonyle », est dans la région où absorbe la bande de combinaison flexion + libration de l'eau (~2100–2130 cm−1) ; les carbonyles absorbent vers 1650–1800 cm−1, pas à 2122 cm−1. Sa disparition ne prouve pas la consommation de carbonyles, elle peut traduire une teneur en eau différente des lyophilisats. (2) Les bandes à 2368/2341 et 2345/2304 cm−1 sont dans la région du CO2 atmosphérique. (3) Le « déplacement » 1311 → 1385 cm−1 coïncide avec la bande ν3 de l'ion nitrate (~1380–1385 cm−1), attendue dans un culot centrifugé puis lyophilisé à partir d'une solution d'AgNO3 1 mM probablement peu réduite. (4) La bande nouvelle à 1728 cm−1 peut venir de la protonation des carboxylates (la réduction d'Ag+ par des alcools libère H+, contre-ion nitrate) autant que d'une oxydation des OH. La conclusion « confirme que la réduction est couplée à l'oxydation des hydroxyles » n'est pas démontrée par ces spectres ; il faudrait un spectre de gomme autoclavée sans AgNO3, un lavage des particules et un témoin NaNO3.",
+         "status": "probleme",
+         "basis": "litterature",
+         "source": {"title": "The Bend plus Libration Combination Band Is an Intrinsic, Collective, and Strongly Solute-Dependent Reporter on the Hydrogen Bonding Network of Liquid Water", "authors_or_publisher": "Verma P. K., Kundu A., Puretz M., Dhoonmoon C., Chegwidden O. S., Londergan C. H., Cho M. (J. Phys. Chem. B 122, 2587–2599)", "year": "2018", "url_or_doi": "https://pr.ibs.re.kr/handle/8788114/4617"}},
+        {"aspect": "mecanisme",
+         "finding": "Mécanisme plus probable que l'oxydation directe des OH par Ag+ : à 121 °C et pH 4,5–5,5 (gomme acide, article), les résidus L-arabinofuranosyle des chaînes latérales, très sensibles à l'hydrolyse acide, sont libérés en premier et créent des extrémités réductrices (arabinose libre, oligosaccharides) qui réduisent Ag+ ; les protéines de la gomme (2,7 %, résidus tyrosine, tryptophane) contribuent aussi. Ce schéma explique l'augmentation continue de l'absorbance avec la durée d'autoclavage (la quantité de réducteur croît avec le temps) mieux qu'une oxydation à l'air, et le faible avancement en milieu acide (la réduction de Ag+ par les sucres est rapide en milieu basique, lente en milieu acide).",
+         "status": "reserve",
+         "basis": "litterature",
+         "source": {"title": "Selective hydrolysis of arabinogalactan into arabinose and galactose over heterogeneous catalysts", "authors_or_publisher": "Kusema B. T. et al., Åbo Akademi (Catalysis Letters)", "year": "2011", "url_or_doi": "https://research.abo.fi/sv/publications/selective-hydrolysis-of-arabinogalactan-into-arabinose-and-galact/"}},
+        {"aspect": "cinetique",
+         "finding": "Durées de 10 à 60 min à 121 °C : cohérentes avec la synthèse à l'amidon soluble en autoclave (121 °C, 15 psi, 5 min, particules de 10 à 34 nm), la référence que citent les auteurs pour leur mécanisme. L'observation d'une réduction plus lente et instable à température ambiante est cohérente.",
+         "status": "ok",
+         "basis": "litterature",
+         "source": {"title": "A novel one-pot 'green' synthesis of stable silver nanoparticles using soluble starch", "authors_or_publisher": "Vigneshwaran N., Nachane R. P., Balasubramanya R. H., Varadarajan P. V. (Carbohydrate Research 341)", "year": "2006", "url_or_doi": "PubMed 16716274 (https://glycosmos.org/pubannotation/16716274)"}},
+        {"aspect": "resultats",
+         "finding": "Pic plasmon « autour de 412 nm » pour tous les échantillons, y compris celui-ci, polydisperse et agrégé (31,6 ± 21,7 nm, CV 69 %) : on attendrait un élargissement et un épaulement vers le rouge pour des agrégats et des particules > 30 nm. Valeur dans l'ordre de grandeur de l'argent (400–420 nm pour de petites sphères dans l'eau ; 415–455 nm dans les autres synthèses de la base), mais la position commune à toute la série n'est pas compatible avec des tailles de 5,7 à 31,6 nm sans précision supplémentaire.",
+         "status": "reserve",
+         "basis": "comparaison_base"},
+        {"aspect": "securite",
+         "finding": "Autoclavage de liquides en flacon : bouchons desserrés ou flacon non étanche (un flacon fermé subit ~1 bar de différence de pression), cycle « liquides » à détente lente (ébullition éclair à l'ouverture), flacon en verre borosilicaté à moitié plein au plus. AgNO3 est oxydant et corrosif ; la poudre de gomme tamisée à 38 µm est un aérosol combustible et inhalable. Rien de cela n'est écrit.",
+         "status": "reserve",
+         "basis": "chimie_generale"},
+        {"aspect": "bilan",
+         "finding": "Protocole incomplet pour la série en concentration : la solution mère de gomme est à 0,5 %, l'AgNO3 à 1 mM ; ni l'ordre d'ajout, ni la forme de l'AgNO3 (solide ou solution mère), ni la dilution ne sont dits. Si l'AgNO3 est ajouté en solution, l'échantillon « 0,5 % » ne peut pas être à 0,5 % de gomme et 1 mM d'Ag à la fois sans solution mère plus concentrée. À vérifier avant de refaire (ou fixer : AgNO3 solide dissous dans la gomme diluée).",
+         "status": "reserve",
+         "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Complexation d'Ag+ par les carboxylates (acide glucuronique) et les groupes aminés des protéines de la gomme ; pendant l'autoclavage à 121 °C en milieu acide (pH 4,5–5,5), hydrolyse progressive des liaisons glycosidiques les plus labiles (arabinofuranosides des chaînes latérales) qui libère des sucres réducteurs, oxydés par Ag+ en acides aldoniques ; nucléation d'Ag0 puis croissance limitée par l'adsorption des polysaccharides et des protéines (stabilisation stérique). La réduction reste partielle et croît avec la durée ; une gomme plus diluée donne moins de germes stabilisés par unité de volume mais une meilleure séparation stérique relative des particules. L'oxydation directe des hydroxyles par Ag+ et par l'air, proposée par les auteurs, n'est pas exclue mais n'est pas démontrée par les spectres IR présentés.",
+        "sources": [
+          {"title": "A novel one-pot 'green' synthesis of stable silver nanoparticles using soluble starch", "authors_or_publisher": "Vigneshwaran N. et al. (Carbohydrate Research)", "year": "2006", "url_or_doi": "PubMed 16716274"},
+          {"title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles", "authors_or_publisher": "Raveendran P., Fu J., Wallen S. L. (JACS)", "year": "2003", "url_or_doi": "10.1021/ja029267j"},
+          {"title": "Selective hydrolysis of arabinogalactan into arabinose and galactose over heterogeneous catalysts", "authors_or_publisher": "Kusema B. T. et al. (Catalysis Letters)", "year": "2011", "url_or_doi": "https://research.abo.fi/sv/publications/selective-hydrolysis-of-arabinogalactan-into-arabinose-and-galact/"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "volume de solution par flacon, type de flacon, bouchon desserré, cycle de l'autoclave (montée, palier, détente) : la durée nominale de 10–60 min n'a de sens qu'avec ce cycle",
+        "ordre et forme d'ajout de l'AgNO3 et préparation des dilutions de gomme à partir de la solution mère à 0,5 %",
+        "dilution éventuelle des solutions pour les spectres UV-Vis ; doser l'argent métallique (extinction, Paramelle 2014) ou l'Ag+ résiduel (électrode sélective, ICP après ultrafiltration) pour connaître le rendement",
+        "absence d'AgCl : DRX à partir de 25° (raies 27,8 et 32,2°) ; teneur en chlorure de la gomme",
+        "vitesse et durée de la centrifugation de la solution mère de gomme"
+      ]
+    },
+    {
+      "label": "Ag-G0.1-30",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "coefficient de variation de la taille MET",
+         "inputs": "5,7 ± 0,2 nm (article)",
+         "formula": "CV = σ / moyenne",
+         "result": "3,5 %",
+         "compared_to": "31,6 ± 21,7 nm (CV 69 %) à 0,5 % de gomme et 27,2 ± 11,5 nm (CV 42 %) à 60 min ; une dispersion de 0,2 nm est inférieure à la distance (111) de l'argent (0,236 nm) et proche de l'incertitude de mesure d'un diamètre en MET",
+         "source": "valeurs de l'article ; d(111) de la fiche JCPDS 04-0783"},
+        {"what": "fraction d'Ag+ réduite (ordre de grandeur)",
+         "inputs": "A(412 nm) = 0,32 (lecture Fig. 2a) ; A attendue à réduction complète ≈ 15 à 50 (calcul de la voie Ag-G0.5-30)",
+         "formula": "A_mesurée / A_complète",
+         "result": "≈ 0,6 à 2 % si le spectre n'est pas dilué",
+         "compared_to": "la dose « 5 µg de nanoparticules » de l'essai antibactérien suppose une masse d'argent métallique connue",
+         "source": "calcul"},
+        {"what": "volume de suspension correspondant à 5 µg d'argent",
+         "inputs": "Ag total 107,9 µg/mL (1 mM) ; 5 µg",
+         "formula": "V = 5 / 107,9",
+         "result": "46 µL si tout l'argent est compté, dont seulement ~1 à 2 % sous forme métallique d'après l'absorbance",
+         "compared_to": "puits de 6 mm de diamètre (article) : ~50 µL est compatible avec le volume d'un puits de gélose",
+         "source": "arithmétique"}
+      ],
+      "checks": [
+        {"aspect": "resultats",
+         "finding": "Taille 5,7 ± 0,2 nm (CV 3,5 %, calcul « coefficient de variation de la taille MET ») : une telle monodispersité dépasse ce qu'obtiennent les meilleures synthèses colloïdales par injection à chaud (~5 %) et est très improbable pour une réduction lente par un polysaccharide naturel ; 0,2 nm est inférieur à une distance interréticulaire de l'argent. Le nombre de particules mesurées n'est pas donné et la phrase « près de 70 % des particules à 5,7 nm » décrit une classe d'histogramme. L'écart-type est probablement une erreur-type ou la largeur d'une classe ; ne pas retenir « quasi monodisperse » sans recompter.",
+         "status": "probleme",
+         "basis": "chimie_generale"},
+        {"aspect": "resultats",
+         "finding": "Essai antibactérien : la dose « 5 µg de nanoparticules d'argent » n'est pas traçable. L'article ne mesure ni le rendement de réduction ni la teneur en argent des particules, et l'absorbance (0,32) suggère qu'une faible fraction de l'argent est métallique (calcul « fraction d'Ag+ réduite »). La suspension déposée contient donc probablement surtout de l'Ag+ non réduit : les zones d'inhibition « comparables au témoin AgNO3 » peuvent venir de l'Ag+ résiduel, pas des particules. Le témoin positif « AgNO3 à une concentration d'argent de 5 µg » est lui-même ambigu (5 µg d'AgNO3 ou d'Ag).",
+         "status": "probleme",
+         "basis": "chimie_generale"},
+        {"aspect": "mecanisme",
+         "finding": "Témoin qui change plusieurs variables (contrôle 5) : passer de 0,5 à 0,1 % de gomme change à la fois le rapport gomme/Ag (46 → 9,3), le pouvoir réducteur, la viscosité et l'avancement (A 1,2 → 0,32). La baisse de taille ne peut pas être attribuée à la seule « concentration de gomme » ; comparer à avancement égal (même absorbance) l'aurait établi.",
+         "status": "reserve",
+         "basis": "chimie_generale"},
+        {"aspect": "resultats",
+         "finding": "La DRX, l'IR et le Raman ne sont pas rattachés à un échantillon (doute de l'extraction) ; l'IR porte sur des culots centrifugés et lyophilisés, ce qui inclut la gomme non liée et les sels (nitrate). Ces caractérisations ne décrivent pas spécifiquement cette voie.",
+         "status": "reserve",
+         "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Même chimie que la voie de base ; à 0,1 % de gomme, moins de réducteur libéré par unité de temps, donc avancement faible (A ≈ 0,32) et peu de croissance en 30 min : petites particules, mais on ne peut pas trancher entre « taille fixée par la gomme » et « réaction arrêtée tôt ».",
+        "sources": [
+          {"title": "Size-controlled silver nanoparticles synthesized over the range 5–100 nm", "authors_or_publisher": "Agnihotri S., Mukherji S., Mukherji S. (RSC Advances)", "year": "2014", "url_or_doi": "10.1039/c3ra44507k"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "nombre de particules comptées et définition de l'incertitude (écart-type ou erreur-type)",
+        "teneur en argent métallique et en Ag+ résiduel de la suspension avant l'essai antibactérien (lavage par centrifugation ou ultrafiltration, puis ICP)",
+        "concentration exacte du témoin AgNO3 (5 µg d'Ag ou d'AgNO3)"
+      ]
+    },
+    {
+      "label": "Ag-G0.1-60",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "coefficient de variation de la taille MET",
+         "inputs": "27,2 ± 11,5 nm (article)",
+         "formula": "σ / moyenne",
+         "result": "42 %",
+         "compared_to": "5,7 ± 0,2 nm à 30 min (CV 3,5 %)",
+         "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "cinetique",
+         "finding": "Croissance et apparition de nanoprismes hexagonaux et polygonaux en prolongeant l'autoclavage : cohérent avec une réduction lente qui se poursuit sur des germes existants (croissance anisotrope des germes maclés et plaquettaires en régime de faible sursaturation) et avec le mûrissement. Le passage de 5,7 à 27,2 nm suppose environ 100 fois plus d'argent par particule, ce qui demande soit une réduction nettement plus avancée, soit une coalescence : compatible avec la réduction partielle à 30 min.",
+         "status": "ok",
+         "basis": "chimie_generale"},
+        {"aspect": "resultats",
+         "finding": "Cohérence entre sections (contrôle 6) : la série UV-Vis en durée est faite à 0,5 % de gomme, mais l'effet de la durée sur la taille est montré à 0,1 % ; aucun spectre ni absorbance n'est donné pour cet échantillon, de sorte que son avancement n'est pas connu.",
+         "status": "reserve",
+         "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Poursuite de la réduction par les sucres libérés par hydrolyse, croissance sur les germes existants, coalescence des particules mal stabilisées à faible concentration de gomme et croissance anisotrope des germes maclés (prismes).",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "spectre UV-Vis de cet échantillon (avancement, bande plasmon des prismes vers le rouge)"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "Synthèse verte simple et plausible d'argent par autoclavage d'AgNO3 1 mM dans une solution de gomme ghatti (121 °C, 103 kPa relatifs = vapeur saturante). La chimie de base est cohérente avec la synthèse à l'amidon en autoclave citée par les auteurs, mais trois points affaiblissent les conclusions : (1) le rendement de réduction n'est pas mesuré et l'absorbance (0,32 à 2,9 contre ~15 à 50 attendu à réduction complète, si non dilué) suggère qu'une faible fraction de l'argent est métallique, ce qui rend la dose « 5 µg de nanoparticules » de l'essai antibactérien non traçable et l'activité attribuable à l'Ag+ résiduel ; (2) la dispersion 5,7 ± 0,2 nm (CV 3,5 %) est invraisemblable ; (3) la preuve IR du mécanisme repose sur une bande à 2122 cm−1 attribuée à tort à des carbonyles (région de la bande de combinaison de l'eau) et sur un « déplacement » vers 1385 cm−1 qui coïncide avec le nitrate.",
+    "author_errors_suspected": [
+      "bande IR à 2122 cm−1 attribuée à des « espèces carbonyle » (région de la bande de combinaison flexion + libration de l'eau, ~2100–2130 cm−1) ; sa disparition invoquée comme preuve de l'oxydation",
+      "bande à 1385 cm−1 lue comme déplacement du carboxylate, alors qu'elle coïncide avec le nitrate résiduel",
+      "écart-type 0,2 nm sur 5,7 nm (CV 3,5 %), probablement erreur-type ou largeur de classe",
+      "paramètre de maille 4,061 Å donné « en accord » avec 4,0862 Å, alors que la moyenne des cinq raies est 4,068 Å et que toutes les raies sont décalées de +0,2 à +0,4°",
+      "dose de nanoparticules (5 µg) non mesurée ; témoin positif AgNO3 ambigu"
+    ],
+    "comparison_with_database": "Autres synthèses d'argent dans la base (compare.py « silver ») : gélatine PMC3107715 (28 °C, 48 h, λmax 445 nm), amidon sonochimique PMC3920662 (λmax 420 nm), Tween 80 PMC3503618 (100 °C, 3 j, 415 nm), Aloe vera PMC4735866 (455 nm), Ganoderma PMC3833323 (420 nm). λmax 412 nm et tailles 5–30 nm sont dans la gamme de la base ; c'est la seule voie en autoclave, et la plus rapide (≤ 60 min). Aucune de ces publications ne donne la dispersion très étroite revendiquée ici."
+  },
+  "sources_not_found": [
+    "valeurs tabulées des coefficients d'extinction de Paramelle et al. 2014 (site RSC injoignable depuis l'environnement) : l'estimation de l'absorbance à réduction complète repose sur la formule quasi statique de Mie, à prendre comme ordre de grandeur",
+    "pression de vapeur saturante de l'eau à 121 °C sur le NIST WebBook (injoignable) : valeur reprise d'un cours d'autoclave et de l'arithmétique 103 + 101,3 kPa",
+    "DOI de Verma et al. 2018 (J. Phys. Chem. B 122, 2587) non relevé : URL du dépôt IBS donnée",
+    "DOI de Kusema et al. 2011 (Catalysis Letters) non relevé : URL du dépôt Åbo Akademi donnée"
+  ]
+}

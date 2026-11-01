@@ -1,0 +1,77 @@
+{
+ "pmcid": "PMC12311843",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "stabilité vs migration d'halogénures (TBA-Cl) : préparation de la solution de TBA-Cl, FP(B/I)@S et FP(B/I)@S@P (et FP(B/I)@O)",
+   "extracted": "Aucune quantité ni préparation du TBA-Cl : la caractérisation « stability tests » ne donne que « 370 nm UV excitation source; open-air atmosphere, 55–65% humidity » ; le résultat ne dit que 5, puis 25 μL de solution TBA-Cl.",
+   "article_says": "prepared by dissolving 5.5 mg TBA-Cl in 5.1 mL toluene, followed by sonication until complete",
+   "fix": "ajouter au protocole de l'essai (conditions de la caractérisation ou réactif) : 5,5 mg de TBA-Cl dans 5,1 mL de toluène, sonication jusqu'à dissolution ; ajouts de 5 μL successifs à 1,5 mL de dispersion de NC dans le toluène (~2 mg/mL selon l'annexe 2.8). Noter l'écart avec le texte principal (50 μL de dispersion dans 1,5 mL de toluène) en annotation limite_reproductibilite.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "FP(B/I)@S@P et FA-Cs10@S@P, réactif PMMA",
+   "extracted": "PMMA 50 mg, pureté « 99.9% », fournisseur Sigma-Aldrich ; masse molaire absente",
+   "article_says": "PMMA (MW-350 000, 99.9%)",
+   "fix": "ajouter la masse molaire 350 000 (grade / purity_text ou note du réactif) aux deux réactifs PMMA",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "FP(B/I)@S étape 2 (ajout du précurseur), addition_rate = dropwise hérité de FP(B/I)@O",
+   "extracted": "FP(B/I)@S hérite de l'étape 2 du parent : « injected dropwise », agitation « vigorous »",
+   "article_says": "Here, 250 μL of the final precursor was added to the round-bottom flask containing 5 mL CHCl3 with the desired amount of TEOS solvent.",
+   "fix": "pour FP(B/I)@S l'article dit « added », sans « dropwise » ; soit ajouter une variation addition_rate (non cité) soit annoter que « dropwise » est hérité du parent (l'agitation vigoureuse est bien citée dans la phrase de 4 h)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "FA-Cs10@S@P étape 5 purify : purification_details, centrifuge_speed, centrifuge_duration en not_stated",
+   "extracted": "not_stated: purification_details, centrifuge_speed, centrifuge_duration",
+   "article_says": "same way as described for FP(B/I)@O NCs.",
+   "fix": "l'annexe renvoie explicitement à la purification de FP(B/I)@O (toluène + ACN 1 : 1, 9000 rpm, 2 min) : ne pas déclarer « non cité » mais renvoyer à l'étape 4–5 de FP(B/I)@O avec cette citation, en précisant que la valeur est héritée par renvoi de l'auteur",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "FP(B/I)@O, XRD : positions des pics",
+   "extracted": "« cubic α-FAPbI3-type pattern, slightly shifted to higher angles (Br substitution) » sans positions",
+   "article_says": "The prominent XRD peaks at 14.09°, 20.10°, 24.7°, 28.73°, and 32.23°, corresponding to diffractions from the (100), (110), (111), (200), and (210) lattice planes",
+   "fix": "ajouter les cinq positions et les plans (le texte les donne pour « all NCs », patterns presque semblables) dans le résultat XRD",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "WLED_device, résultat CRI selon le courant",
+   "extracted": "CRI = 76.85 sans mention de la constance avec le courant",
+   "article_says": "The CRI values didn't change over different driving currents.",
+   "fix": "ajouter un résultat ou une précision : CRI inchangé de 10 à 70 mA",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs FP(B/I)@O ; absence de mecanisme_auteurs pour FP(B/I)@S",
+   "extracted": "« nucléation et une croissance rapides (5 min) lors de l'injection ... dans le chloroforme, mauvais solvant »",
+   "article_says": "The reaction continued for 5 min for the nucleation and growth of the NCs.",
+   "fix": "« rapides » et « mauvais solvant » ne sont pas dans la citation : les retirer ou passer en mecanisme_analyse. Le schéma de la Fig. 1a (hydrolyse puis condensation du TEOS, liaison H silanol/PMMA C=O) est une vue des auteurs que l'extraction range en « analyse » : on peut ajouter un mecanisme_auteurs pour FP(B/I)@S s'appuyant sur la légende « sequential encapsulation of TEOS and PMMA around FAPb(Br/I)3 NCs » et le texte « steric hindrance from excessive Si–O–Si bonding »",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 7,
+  "not_stated_checked": 40,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "quantité de TEOS de l'échantillon FP(B/I)@S utilisé pour le PMMA non écrite (« 2 mL of silica-coated NCs »), ni concentration ou volume de redispersion des NC",
+  "volumes de toluène et d'ACN du lavage, température de centrifugation, atmosphère, vitesse d'agitation, durée de dissolution des précurseurs",
+  "source d'eau pour l'hydrolyse du TEOS non indiquée ; film des capteurs (méthode de dépôt, épaisseur) et paramètres de la spin-coating de la LED non donnés",
+  "essai TBA-Cl : le texte (50 μL de dispersion dans 1,5 mL de toluène) et l'annexe (5 μL ajoutés à 1,5 mL de dispersion à ~2 mg/mL) divergent ; volumes d'ajout intermédiaires et proportions du mélange vert/rouge en solution non précisés",
+  "PL des échantillons à 50 et 150 μL de TEOS seulement dans la Fig. S1 (annexe figure absente du dépôt)"
+ ],
+ "mechanism_check": "ok, avec réserve : mecanisme_auteurs de FP(B/I)@O contient « rapides » et « mauvais solvant » absents de la citation ; schéma Fig. 1a non repris côté auteurs",
+ "notes": "Lecture des figures 1, 4, 5, 6, 8, 9 : aucune valeur du texte n'est contredite (rétentions 8/49/65 %, baisses UV 58/46/22 %, cycles thermiques, décalages de 25 et 13 nm, Sa max ~0,033 K-1 lu sur figure contre 0,032 cité). Aucune valeur extraite n'est marquée from_figure. La Fig. 5c confirme que Sr augmente avec la température (12,5 % K-1 à 363 K) : la phrase du texte « increases as the temperature decreases » vaut pour Sa seulement, l'annotation limite_reproductibilite de l'extracteur est exacte. Les tables t1-t3 du dépôt sont des formules (tau moyen, Sa, Sr), pas des données. Sources de méthode (cit44, cit36 x3, cit33/cit39) complètes et correctement placées ; le renvoi cit36 de l'essai TBA-Cl est en role « autre » (acceptable). Le renvoi 11,36 % K-1 de FP(B/I)@O (Table S3) est correct. La ligne FA-Cs10@S@P 5,62 % K-1 de la Table S3 renvoie à la réf. 4, pas à ce travail : correctement non extraite."
+}

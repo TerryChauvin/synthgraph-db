@@ -1,0 +1,87 @@
+{
+ "pmcid": "PMC4214824",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "HFET_800C_1min / SAG_HFET reactifs (substrat)",
+   "extracted": "AlGaN/GaN heterostructure [substrate] sans empilement de couches",
+   "article_says": "The schematic of the cross-sectional view of the HFETs for evaluation is shown in Figure 3a.",
+   "fix": "Fig. 3a/3b (image) donne l'empilement du wafer : i-GaN 2 nm / u-AlGaN 25 nm / i-GaN 1 μm / couche tampon 300 nm / substrat Silicon ; l'ajouter au réactif substrat (citation = légende/image Fig. 3, valeur from_figure).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "HFET_800C_1min step 2 not_stated: composition",
+   "extracted": "composition du métal ohmique non citée (MANQUE ohmic_metal_stack_of_the_evaluation_device)",
+   "article_says": "The schematic of the cross-sectional view of the HFETs for evaluation is shown in Figure 3a.",
+   "fix": "Fig. 3a/3b étiquette les électrodes ohmiques « Ti/Al/Ti/Au » : la composition (sans épaisseurs) est lisible sur la figure ; de plus « The following processes were similar with the fabrication of Schottky diode mentioned above » renvoie au Ti/Al/Ti/Au (50/200/40/40 nm) de la diode sans le dire explicitement. Renseigner la composition (from_figure), laisser les épaisseurs en not_stated.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "SAG_HFET step 7 not_stated: method",
+   "extracted": "méthode de dépôt des multicouches ohmiques non citée",
+   "article_says": "in which a T-shaped Schottky gate is fabricated first and then used as a mask directly for ohmic metal evaporation",
+   "fix": "Le Background décrit le procédé SAG avec dépôt des métaux ohmiques par évaporation, avec la grille en T en masque : renseigner method = evaporation (citation du Background) à l'étape 7, ou signaler l'inférence.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiN_N2_15 step 1 / 5 (distance ohmique-Schottky)",
+   "extracted": "aucun paramètre pour la distance de séparation entre contact ohmique et contact Schottky",
+   "article_says": "The ohmic contact was placed on the same side as the Schottky contact with a separating distance of 15 μm to simplify the process.",
+   "fix": "Ajouter un paramètre (separation_distance = 15 μm) sur l'étape de dépôt du contact ou de définition du motif ; absent du JSON.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiN_N2_5/15/40/60/85 résultats (SBH, idéalité, fuite, redressement)",
+   "extracted": "seuls rugosité, XPS et fuite lue sur figure ; la hauteur de barrière n'est un résultat d'aucune branche de la série (seulement une annotation)",
+   "article_says": "The average SBH calculated from the thermionic emission theory for the samples created with different N2/Ar sputtering gas ratio is around 0.5 to 0.6 eV, with ideality factors that range from 1.05 ~ 1.4",
+   "fix": "Ajouter en résultats des branches TiN (5, 15, 40, 60, 85 %) schottky_barrier_height = « around 0.5 to 0.6 eV » et ideality_factor « 1.05 ~ 1.4 » en value_text (valeur de groupe, citation exacte), et le redressement / fuite « approximately 10−5 A » (« The I-V curves of the other TiN contact samples are comparable to each other, showing good rectification characteristics and a reverse leakage current of approximately 10−5 A »), notamment pour 5 % et 60 % qui n'ont aucune lecture de fuite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "HFET_800C_1min step 6 anneal (citation et base)",
+   "extracted": "citation = phrase de résultat sur la résistance de contact ; duration = 1 min posée comme valeur de base",
+   "article_says": "The deposited ohmic and gate electrodes were then annealed together by changing the annealing temperature and annealing time.",
+   "fix": "La citation de l'étape devrait être cette phrase (opération), et la durée de 1 min n'est une base que par convention de l'extracteur (les durées 0,5, 1, 3 et 10 min sont comparées à égalité) : le signaler. Le texte dit aussi « different temperatures » alors que seul 800 °C est présenté (déjà en doute).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "SAG_HFET step 1 coat",
+   "extracted": "citation ne couvre que ZEP520A du bas et LOR 5B",
+   "article_says": "The upper layer was also a ZEP520A (500 nm) layer.",
+   "fix": "La couche supérieure ZEP520A (500 nm) est dans une autre phrase ; ajouter cette citation à l'étape 1.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_analyse (TiN_N2_15)",
+   "extracted": "empoisonnement de la cible, azote atomique ionisé, film « plus dense » : explications sans appui dans l'article",
+   "article_says": "Examination of the AFM and XPS implies that the possession of similar film structure and composition causes the work function and SBH of the TiN to be essentially independent of the N2/Ar sputtering gas ratio",
+   "fix": "L'article n'explique ni la saturation de la teneur en N (≈ 85 %) ni le minimum de rugosité à 15 % ; garder l'annotation en spéculation explicite (« probablement ») sans mécanisme présenté comme acquis, ou la raccourcir.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 13,
+  "branches_extracted": 13,
+  "not_stated_checked": 32,
+  "not_stated_wrong": 2
+ },
+ "reproducibility_gaps": [
+  "cible de pulvérisation, épaisseur et durée de dépôt des films de la série non données",
+  "puissance et pression du TiN de 10 nm et du TiN de grille (≈ 200 nm) non données",
+  "conditions de dépôt du TiN de la grille en T non données (« optimized conditions »)",
+  "cuisson, dose, tension d'accélération, révélateurs des résines ZEP520A / LOR 5B non donnés",
+  "atmosphère et rampe du recuit à 800 °C non données",
+  "métal ohmique du HFET d'évaluation : épaisseurs non écrites",
+  "pas de températures de recuit autres que 800 °C malgré « different temperatures »"
+ ],
+ "mechanism_check": "à revoir : mecanisme_analyse (empoisonnement de cible, film plus dense) sans appui dans l'article ; formulé au conditionnel mais développé",
+ "notes": "Valeurs lues sur figures vérifiées contre Fig. 2a (fuite à -6 V : 0 % ≈ 0,1 A ; 15 % ≈ 2e-5 ; 40 % ≈ 1e-5 ; 85 % ≈ 4e-5 ; Ni ≈ 4e-6) et Fig. 4 (Id max ≈ 355/430/435/320 mA/mm ; fuite à -10 V ≈ 2e-5/2.5e-4/3e-4/1e-3 A) : toutes dans les 10 %/un chiffre significatif. Rugosité, XPS (5 valeurs pour 5-85 %), Table 1, turn-on 0,38/0,75 V, SAG (−4 V, 540 mA/mm, 160 mS/mm ; Fig. 6b lit ≈ 155 mS/mm au pic) correctement attribués. Inventaire complet (13 échantillons + T-gate sur Si et littérature hors voies). L'identification de l'échantillon 0 % au « contact de Ti pur » est une inférence déjà signalée en doute (légende Fig. 2a 0 %, comportement ohmique). method_sources : seul B9 est un renvoi de méthode ; B16 (résultats antérieurs), B10, B11-B15 relèvent du contexte : conforme."
+}

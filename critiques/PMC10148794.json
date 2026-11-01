@@ -1,0 +1,79 @@
+{
+  "pmcid": "PMC10148794",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "faux",
+      "where": "PTF reagents, glass substrate (amount/unit)",
+      "extracted": "amount = 10, unit = mm",
+      "article_says": "dropped onto a 10 mm × 10 mm glass substrate",
+      "fix": "remplacer par une dimension complète « 10 mm × 10 mm » (value_text) au lieu de 10 mm",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "sample_inventory : échantillons NC5.1 et mélange NC5.1 + NC5.5 (fichier Peer Review, Fig. R1)",
+      "extracted": "absents de l'inventaire et des voies",
+      "article_says": "intentionally mixed two sets of NCs with slightly different average sizes (Fig. R1a)",
+      "fix": "ajouter à l'inventaire NC5.1 (lot un peu plus petit que NC5, synthèse non décrite) et le mélange NC5.1 + NC5.5, avec la raison « préparation non décrite, réponse aux relecteurs » ; pas de voie à créer faute de protocole",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "NC5 outcomes : grandeurs optiques mesurées sur NC5 (Fig. 2, 12 K)",
+      "extracted": "seule l'énergie de structure fine ~1,7 meV est reprise",
+      "article_says": "The biexciton binding energy is then estimated to be ~50 meV at 12 K.",
+      "fix": "ajouter si l'on veut garder les propriétés du matériau : énergie de liaison du biexciton ~50 meV à 12 K (Fig. 2, NC5 selon la réponse aux relecteurs) et période d'oscillation ~2,5 ps (« an oscillation period of ~2.5 ps, corresponding to an energy of ~1.7 meV »). Pic de PL d'environ 2,45 eV lisible sur Fig. 1c (lecture graphique, from_figure)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "PTF steps 1 et 2 atmosphere",
+      "extracted": "atmosphere présente seulement à l'étape 3 (recuit) ; absente des étapes 1 (dissolution) et 2 (dépôt)",
+      "article_says": "All procedures are done in a nitrogen-filled glove box",
+      "fix": "ajouter atmosphere = nitrogen-filled glove box aux étapes 1 et 2 (la phrase dit « all procedures »)",
+      "confidence": "sure"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "NC6 steps 4, 5, 7, 8 (température et atmosphère)",
+      "extracted": "« room temperature » porté seulement par l'étape 6 ; aucune atmosphère",
+      "article_says": "The synthesis of NC6, NC8, and NC12 was performed according to a previously reported method under room temperature ambient conditions.",
+      "fix": "ajouter temperature = room temperature (et atmosphère « ambient ») aux étapes d'ajout, d'injection de DDAB et d'agitation, ou le noter en caractéristique de voie, car la phrase vaut pour toute la synthèse",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "NC5 step 7 description",
+      "extracted": "« Ajouter de l'acétate d'éthyle ... jusqu'à turbidité »",
+      "article_says": "To separate the NCs, ethyl acetate was added to the crude solution in a volume ratio of 2:1 and the mixture became turbid.",
+      "fix": "supprimer « jusqu'à » : l'article dit que le mélange est devenu trouble, pas que l'ajout s'arrête à la turbidité ; le rapport 2:1 (acétate d'éthyle : brut, ordre non écrit) fixe la quantité",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "NC6/NC8/NC12/PTF résultats : valeurs lues sur Fig. 3b (durées de vie de spin τs)",
+      "extracted": "aucune valeur from_figure ; seules les températures des maxima (texte) sont reprises",
+      "article_says": "Extracted exciton spin lifetimes at different temperatures for NCs with three sizes and polycrystalline thin film.",
+      "fix": "facultatif : lire τs à basse et haute température par échantillon (échelle log, 2 chiffres au plus) en from_figure, ou noter dans limite_reproductibilite que Fig. 3b n'est pas reprise ; le doute « Figures » dit déjà qu'aucune valeur n'est lue",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 6,
+    "branches_extracted": 6,
+    "not_stated_checked": 30,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "quantité de Cs2CO3 et volume d'acide octanoïque du stock de Cs-octanoate (NC6, NC8, NC12) absents de l'article",
+    "centrifugations et redispersions de NC6/NC8/NC12 renvoyées à la méthode publiée (CR53), conditions non données",
+    "NC5 : volume de toluène de redispersion, agitation, atmosphère après dégazage et température de la solution après injection non écrits",
+    "PTF : quantités de CsBr et PbBr2 (seulement 0,2 M et 1:1) et durée du spin-coating absentes",
+    "NC solids : taille de NC utilisée, substrat, concentration du colloïde, durée du dépôt absents",
+    "fournisseurs et puretés de tous les réactifs non cités",
+    "Source Data (Fig. 2 et 3) non dans le corpus ; aucune annexe de synthèse (le SI ne contient que des notes théoriques et des légendes)"
+  ],
+  "mechanism_check": "ok : les annotations de mécanisme sont marquées interprétation (« Probablement », « vraisemblablement ») et le texte n'en donne aucun ; aucun mecanisme_auteurs sans appui",
+  "notes": "Les sections Méthodes sont courtes et l'extraction les reprend de façon fidèle : toutes les quantités, durées, températures de NC5, NC6 et PTF correspondent au texte (vérifié valeur par valeur), ainsi que les maxima de τs (NC6 320 K, NC8 260 K, NC12 200 K) et les énergies de structure fine (1,6 / 1,2 / 1,1 meV, cohérentes avec Fig. 3c : Ω ≈ 2,4 ; 1,8 ; 1,7 ps^-1). method_sources complet : CR52 (NC5) et CR53 (NC6/8/12) sont les deux seuls renvois de préparation ; CR39 (CTA) est un renvoi de technique de mesure sans « according to », non retenu. L'attribution de ~1,7 meV à NC5 repose sur la réponse aux relecteurs (« for sample NC5 ») ; Fig. 2j confirme que NC5 est dans la série. Noms de propriétés hétérogènes (nanocrystal_edge_length pour NC5, nanocrystal_size pour NC6-12) : détail de normalisation, pas un constat. Aucune case déclarée not_stated n'est fausse ; les deux constats non_cite_a_tort sont des atmosphères omises sans être déclarées « non cité »."
+}

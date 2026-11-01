@@ -1,0 +1,343 @@
+{
+ "pmcid": "PMC7023346",
+ "routes": [
+  {
+   "label": "PAN_OMMT_fibers",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur en PAN de la solution d'électrofilage",
+     "inputs": "3 g PAN ; 20 mL DMF × 0,944 g/mL = 18,88 g ; 0,15 g O-MMT",
+     "formula": "m(PAN) / (m(PAN) + m(DMF) + m(O-MMT))",
+     "result": "13,6 % en masse",
+     "compared_to": "solutions PAN/DMF électrofilées usuellement à 8–15 % en masse",
+     "source": "valeurs de l'article ; densité du DMF 0,944 g/mL (NIST Chemistry WebBook, https://webbook.nist.gov/chemistry/)"
+    },
+    {
+     "what": "teneur en O-MMT",
+     "inputs": "0,15 g O-MMT ; 3 g PAN",
+     "formula": "m(O-MMT)/m(PAN) et m(O-MMT)/(m(PAN)+m(O-MMT))",
+     "result": "5,0 % par rapport au PAN ; 4,8 % des solides secs de la membrane",
+     "compared_to": "charges d'argile habituelles dans les nanofibres composites (1–10 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "durée d'électrofilage pour 400 mg de membrane",
+     "inputs": "solides 3,15 g ; volume de solution ≈ 20 + 3/1,18 + 0,15/1,8 ≈ 22,6 mL ; débit 0,5 mL/h",
+     "formula": "V = 0,4 g / (3,15 g / 22,6 mL) ; t = V / débit ; t_total = 20 mL / 0,5 mL/h",
+     "result": "≈ 2,9 mL soit ≈ 5,7 h pour 400 mg (rendement de collecte 100 %) ; ≈ 40–45 h pour épuiser toute la solution",
+     "compared_to": "durée d'électrofilage non écrite par l'article",
+     "source": "valeurs de l'article ; densités PAN ≈ 1,18 g/cm3 et argile ≈ 1,8 g/cm3 estimées (ordre de grandeur)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Séchage du PAN et de l'O-MMT à 50 °C, sonication de 3 h dans le DMF (point d'ébullition 153 °C) : aucun conflit. La température du bain à ultrasons n'est pas donnée ; 3 h de sonication chauffent le bain mais sans risque d'ébullition du DMF.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "L'article écrit que l'O-MMT est « fully dissolved » dans le DMF : une argile ne se dissout pas, elle se disperse (gonflement et exfoliation partielle des feuillets organophiles modifiés au CTAB). Le mot est impropre ; la dispersion obtenue n'est pas caractérisée (pas de DRX de la distance interfeuillets, pas de MET), donc l'état intercalé ou exfolié de l'argile dans les fibres n'est pas établi.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fibres de 138 ± 23 nm avec perles à 13,6 % en masse de PAN (voir calcul « teneur en PAN ») : la masse molaire de 50 000 g/mol est basse pour le PAN d'électrofilage (souvent 150 000 g/mol), ce qui donne peu d'enchevêtrement et explique des perles et des fibres fines même à concentration élevée. Ordre de grandeur plausible.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "DMF : solvant classé toxique pour la reproduction (catégorie 1B CLP), absorbé par la peau, qui s'évapore du jet pendant l'électrofilage ; travailler sous hotte ventilée. Haute tension 15 kV : enceinte isolée. Poudre d'argile organo-modifiée (contenant du CTAB) à ne pas inhaler. L'article ne mentionne aucune précaution.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dispersion des feuillets d'O-MMT (rendus organophiles par les cations CTA+) dans le DMF, adsorption ou intercalation partielle des chaînes de PAN, puis étirement électrohydrodynamique du jet à 15 kV et évaporation rapide du DMF qui fige les fibres ; la faible masse molaire du PAN (instabilité capillaire de Rayleigh du jet peu visqueux) explique les perles.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durée d'électrofilage et masse de membrane collectée",
+    "diamètre de l'aiguille, humidité et température de la salle (non donnés)",
+    "état de dispersion de l'O-MMT (DRX de la raie d001)",
+    "vitesse de rotation du collecteur"
+   ]
+  },
+  {
+   "label": "PAN_OMMT_TiO2",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "effet de la dilution par l'eau sur le rapport Ti:HCl",
+     "inputs": "sol Ti(OC4H9)4 + HCl 6 mol/L, puis ajout du sol dans l'eau désionisée « jusqu'à ce que le rapport Ti:HCl devienne 0,83:1 »",
+     "formula": "n(Ti)/n(HCl) avant dilution = n(Ti)/n(HCl) après dilution (l'eau n'apporte ni Ti ni HCl)",
+     "result": "le rapport Ti:HCl est fixé dès le mélange butoxyde + HCl ; l'ajout d'eau ne peut pas l'amener à 0,83:1",
+     "compared_to": "consigne de l'article",
+     "source": "arithmétique (conservation de la matière)"
+    },
+    {
+     "what": "lecture molaire du rapport Ti:HCl = 0,83:1 avec HCl 6 mol/L",
+     "inputs": "1 L HCl 6 mol/L (≈ 20 % en masse, densité ≈ 1,10 : 6 mol HCl, ≈ 881 g soit 48,9 mol H2O) ; Ti(OC4H9)4 M = 340,3 g/mol, densité ≈ 1,00 g/mL",
+     "formula": "n(Ti) = 0,83 × 6 = 4,98 mol ; m = 4,98 × 340,3 ; n(BuOH) libéré = 4 × 4,98 ; h = n(H2O)/n(Ti)",
+     "result": "≈ 1,69 kg (≈ 1,7 L) de butoxyde par litre d'acide ; ≈ 1,48 kg de n-butanol libéré ; h ≈ 9,8",
+     "compared_to": "solubilité du n-butanol dans l'eau ≈ 63–73 g/L à 25 °C : le butanol libéré formerait une phase organique séparée sauf dilution d'environ 20 fois ; les solutions de pontage au titane usuelles ont un rapport HCl/Ti voisin de 2 (Ti/HCl ≈ 0,5)",
+     "source": "masses molaires et densités usuelles ; solubilité du n-butanol : valeurs de manuel (PubChem CID 263, à confirmer) ; rapport usuel : revue Beilstein J. Nanotechnol. 2018 citée dans checks"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La consigne « ajouter le sol dans l'eau jusqu'à ce que le rapport Ti:HCl devienne 0,83:1 » est impossible telle qu'écrite (voir calcul « effet de la dilution par l'eau sur le rapport Ti:HCl ») : diluer ne change pas un rapport de quantités de matière. Les auteurs ont probablement voulu dire autre chose (rapport fixé au mélange, concentration de Ti visée, rapport H2O/Ti ou HCl/Ti). Aucune quantité de butoxyde, d'acide ni d'eau n'est donnée : le sol ne peut pas être refait.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Si 0,83:1 est un rapport molaire, le mélange initial contient plus de butoxyde que d'acide en volume et libère environ 1,5 kg de n-butanol par litre d'HCl 6 mol/L (voir calcul « lecture molaire »), très au-delà de la solubilité du butanol dans l'eau (≈ 63–73 g/L) : le « sol homogène » annoncé n'est obtenu qu'avec une forte dilution, non chiffrée. Le protocole de pontage d'argile cité (réf. 38) emploie des solutions acides diluées de polycations de titane ; les recettes de pontage rapportent un rapport HCl/Ti voisin de 2.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Photocatalytic and adsorption properties of TiO2-pillared montmorillonite obtained by hydrothermally activated intercalation of titanium polyhydroxo complexes",
+      "authors_or_publisher": "Beilstein Journal of Nanotechnology (Beilstein-Institut)",
+      "year": "2018",
+      "url_or_doi": "https://www.beilstein-journals.org/bjnano/articles/9/36"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le dépôt n'est séché qu'à 60 °C pendant 10 min, sans calcination (le PAN ne la supporterait pas). Un TiO2 issu d'un sol acide vieilli à température ambiante peut contenir de petits cristallites d'anatase ou de brookite, mais il reste en grande partie hydraté et peu cristallin ; l'article ne donne ni DRX ni Raman, donc la phase et la teneur en TiO2 de la membrane sont inconnues. La voie à basse température citée (réf. 38) revendique justement une activité photocatalytique sans calcination, mais sur argile pontée et non sur fibres de PAN.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Low-Temperature Synthesis and Photocatalytic Activity of TiO2 Pillared Montmorillonite",
+      "authors_or_publisher": "Zhang G.K., Ding X., He F., Yu X., Zhou J., Hu Y., Xie J. (Langmuir)",
+      "year": "2008",
+      "url_or_doi": "10.1021/la702649v"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La seule preuve du dépôt est une image MEB où les fibres « collent davantage entre elles » : ni EDX, ni ATG (teneur en TiO2), ni DRX. Le dépôt de TiO2 n'est donc pas démontré ; collage des fibres et gonflement du PAN dans un milieu acide aqueux contenant du butanol suffiraient à produire cet aspect.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Butoxyde de titane : liquide combustible, hydrolyse exothermique au contact de l'acide aqueux, libère du n-butanol (inflammable, irritant) ; HCl 6 mol/L corrosif et émettant des vapeurs : ajout goutte à goutte sous hotte, gants et lunettes. Non mentionné par l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "En HCl concentré, le butoxyde de titane s'hydrolyse entièrement (h ≈ 10) mais la forte acidité protone les ponts oxo et freine la condensation : on obtient des espèces cationiques de type titanyle TiO2+ / Ti(OH)2 2+ et de petits oligomères hydroxo-chloro, stables plusieurs jours. Le vieillissement de 5 jours fait croître ces oligomères (et éventuellement de petits nucléi d'anatase ou de rutile, favorisé par Cl−), qui s'adsorbent sur les fibres pendant l'immersion de 12 h. Sans calcination, le dépôt est un oxyde de titane hydraté peu cristallin et de teneur inconnue. L'attraction électrostatique invoquée plus tard (enzyme anionique / TiO2 cationique) suppose une surface positive, cohérente avec une titane hydratée sous son point de charge nulle (pH ≈ 6) à pH 4.",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K. (Chem. Rev.)",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     },
+     {
+      "title": "Low-Temperature Synthesis and Photocatalytic Activity of TiO2 Pillared Montmorillonite",
+      "authors_or_publisher": "Zhang G.K., Ding X., He F., Yu X., Zhou J., Hu Y., Xie J. (Langmuir)",
+      "year": "2008",
+      "url_or_doi": "10.1021/la702649v"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de Ti(OC4H9)4, d'HCl 6 mol/L et d'eau (à reprendre de la réf. 38 en le signalant)",
+    "sens réel du rapport 0,83:1 (molaire ? Ti/HCl ou HCl/Ti ?)",
+    "teneur en TiO2 de la membrane (ATG) et phase (DRX, Raman)",
+    "tenue du PAN dans le sol acide pendant 12 h"
+   ]
+  },
+  {
+   "label": "Lac_PAN_OMMT_TiO2",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "charge maximale possible de laccase",
+     "inputs": "100 mL × 0,3 g/L de laccase = 30 mg ; membrane 400 mg",
+     "formula": "m(Lac offerte) / m(membrane)",
+     "result": "75 mg/g au plus (adsorption totale de l'enzyme offerte)",
+     "compared_to": "charge annoncée 342 mg/g de membrane, soit 0,342 × 400 = 137 mg d'enzyme : 4,6 fois la quantité offerte",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport des Vmax immobilisée / libre",
+     "inputs": "Vmax 292,71 et 595,24 µmol/(mg·min)",
+     "formula": "292,71 / 595,24",
+     "result": "0,49",
+     "compared_to": "activité retenue annoncée 82,5 %",
+     "source": "valeurs de l'article (Table 1)"
+    },
+    {
+     "what": "vitesse attendue dans le dosage à l'ABTS avec la Vmax annoncée",
+     "inputs": "0,1 mL de laccase à 0,3 g/L = 0,03 mg ; Vmax 595,24 µmol/(mg·min) ; volume 3,0 mL ; ε420(ABTS•+) = 36 000 M−1 cm−1 ; ABTS 2,9 mL × 15 mM = 43,5 µmol",
+     "formula": "v = 595,24 × 0,03 ; ΔA/min = v / 3,0 mL × ε × 1 cm ; t = 43,5 / v",
+     "result": "v ≈ 17,9 µmol/min, soit ≈ 6,0 mM/min et ΔA420 ≈ 214 par minute ; tout l'ABTS serait oxydé en ≈ 2,4 min",
+     "compared_to": "un spectrophotomètre lit A < 2–3 ; la laccase commerciale de T. versicolor de Sigma-Aldrich est titrée ≥ 0,5 U/mg de poudre",
+     "source": "valeurs de l'article ; ε420 : Wikipedia « ABTS » ; titre de l'enzyme : fiche Sigma-Aldrich 38429"
+    },
+    {
+     "what": "rapport ABTS / colorant dans le test au cristal violet",
+     "inputs": "20 µL × 15 mM ABTS = 0,30 µmol ; 40 mL × 50 mg/L CV = 2,0 mg ; M(CV, chlorure) = 407,98 g/mol",
+     "formula": "n(CV) = 2,0 / 407,98 ; n(ABTS)/n(CV)",
+     "result": "n(CV) ≈ 4,9 µmol ; ABTS/CV ≈ 0,06",
+     "compared_to": "rôle de médiateur (catalytique, régénéré par la laccase) : quantité sous-stœchiométrique cohérente",
+     "source": "valeurs de l'article ; masse molaire du chlorure de cristal violet (PubChem)"
+    },
+    {
+     "what": "enzyme et argile contenues dans 100 mg de membrane pour le test au CV",
+     "inputs": "charge annoncée 342 mg/g ; charge maximale 75 mg/g ; O-MMT 4,8 % des solides de la membrane",
+     "formula": "100 mg × charge ; 100 mg × 0,048",
+     "result": "34 mg d'enzyme selon l'article (impossible), 7,5 mg au plus ; ≈ 4,8 mg d'O-MMT (moins avec le TiO2 et l'enzyme)",
+     "compared_to": "laccase libre : 0,1 mL × 0,3 g/L = 0,03 mg d'enzyme, 250 fois moins au moins",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "colorant retiré à 100 mg/L",
+     "inputs": "40 mL × 100 mg/L = 4,0 mg CV ; 92 % retiré ; 100 mg de membrane",
+     "formula": "0,92 × 4,0 mg / 0,1 g",
+     "result": "3,7 mg retirés, soit ≈ 37 mg de CV par gramme de membrane",
+     "compared_to": "capacité d'adsorption de CV des membranes PAN/argile de l'ordre de quelques dizaines de mg/g : l'adsorption seule pourrait expliquer une grande partie de l'élimination",
+     "source": "valeurs de l'article ; ordre de grandeur, pas de source vérifiée"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La charge annoncée de 342 mg de laccase par gramme de membrane (Table 1, texte et conclusion) est impossible avec le protocole écrit : 400 mg de membrane dans 100 mL d'une solution à 0,3 g/L ne peuvent fixer que 30 mg d'enzyme, soit 75 mg/g au maximum (voir calcul « charge maximale possible de laccase »). Soit la concentration, le volume ou la masse de membrane sont faux, soit la charge est rapportée à autre chose (masse de TiO2 ? mg de poudre commerciale contre mg de protéine ?), soit la méthode de dosage (différence de protéines par Bradford avant et après) est faussée, par exemple par la désorption de composants du sol ou de l'argile. L'article ne dit pas comment la charge est mesurée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vmax de la laccase libre de 595 µmol/(mg·min) : avec 0,03 mg d'enzyme dans le dosage décrit, la variation d'absorbance serait d'environ 214 par minute et l'ABTS serait épuisé en 2,4 min (voir calcul « vitesse attendue dans le dosage à l'ABTS »), mesure impossible sans dilution non décrite. La valeur dépasse aussi d'environ mille fois le titre de la laccase commerciale de T. versicolor de Sigma-Aldrich (≥ 0,5 U/mg de poudre), alors que l'article dit employer une laccase Sigma sans purification. L'unité ou la normalisation de Vmax est probablement erronée (µmol/L·min, ou par g).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Laccase from Trametes versicolor, powder, light brown, ≥0.5 U/mg (produit 38429), fiche produit",
+      "authors_or_publisher": "Sigma-Aldrich (Merck), fiche fournisseur",
+      "year": "consultée 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/product/sigma/38429"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Activité retenue de 82,5 % alors que le rapport des Vmax immobilisée/libre est de 0,49 (voir calcul « rapport des Vmax immobilisée / libre ») : le dosage d'activité se fait à 15 mM d'ABTS, concentration saturante pour Km ≈ 0,12–0,35 mM, donc le rapport des vitesses devrait approcher celui des Vmax. Les deux chiffres ne sont compatibles que si la normalisation (mg d'enzyme fixée) diffère entre les deux mesures ; non expliqué.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Définition fausse dans les Méthodes : Km y est décrit comme « la concentration d'enzyme » à laquelle la vitesse atteint Vmax/2 ; c'est la concentration de substrat (ici l'ABTS). Les valeurs données (0,12 et 0,35 mM, dans la plage 0,1–1 mM testée) sont bien des concentrations d'ABTS, donc l'erreur est de vocabulaire, sans effet sur les nombres.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Incohérences entre sections : (1) la fixation est décrite comme une adsorption électrostatique, mais la stabilité thermique est attribuée à une « covalent immobilization » ; (2) les Résultats donnent un optimum à pH 3 pour l'enzyme libre et immobilisée, la Conclusion dit que l'optimum de l'enzyme immobilisée s'est déplacé vers un pH plus élevé ; (3) l'argile qui « adsorbe H+ » et acidifie le microenvironnement devrait justement déplacer l'optimum apparent vers un pH plus élevé, ce que les auteurs écartent ensuite par une compétition avec TiO2+/Ti(OH)2 2+ non démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Adsorption électrostatique à pH 4 : les laccases fongiques acides ont un point isoélectrique d'environ 3 à 4,5, donc une charge nette faiblement négative ou nulle à pH 4, et la titane hydratée (point de charge nulle ≈ 6) est positive : attraction plausible mais faible. Une enzyme seulement adsorbée peut désorber pendant les lavages et les cycles ; aucune mesure de relargage n'est faite, si bien que la perte d'activité au fil des réutilisations (60 % après 8 cycles à 30 °C, < 50 % après 2 cycles à 50 °C) peut venir d'une fuite d'enzyme et pas seulement d'une dénaturation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison enzyme libre / immobilisée déséquilibrée et sans témoin d'adsorption : la laccase libre (0,03 mg, voir calcul « enzyme et argile contenues dans 100 mg de membrane ») est comparée à 100 mg de membrane qui adsorbe à elle seule le cristal violet (≈ 37 mg/g suffisent pour 92 % d'élimination, voir calcul « colorant retiré à 100 mg/L »). Il manque la membrane PAN/O-MMT/TiO2 sans enzyme (adsorption seule, avec et sans UV) et la membrane avec enzyme inactivée. La « synergie » adsorption + biocatalyse + photocatalyse et le gain de ~20 % sous UV ne sont donc pas démontrés : le gain sous UV peut venir de la photolyse directe du colorant ou du TiO2 seul. La présence d'ABTS dans les essais avec la membrane n'est pas précisée. Les auteurs de la référence citée sur le PAN/O-MMT ont mesuré séparément l'adsorption, ce qui montre que le témoin est faisable.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Laccase immobilized on PAN/O-MMT composite nanofibers support for substrate bioremediation: a de novo adsorption and biocatalytic synergy",
+      "authors_or_publisher": "Li G., Nandgaonkar A., Lu K., Krause W., Wei Q., Lucia L. (RSC Adv.)",
+      "year": "2016",
+      "url_or_doi": "10.1039/C6RA00220J"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Élimination » du cristal violet mesurée par l'absorbance à 590 nm seulement : adsorption, décoloration et dégradation ne sont pas distinguées (ni COT ni identification de produits). Avec la laccase libre, des particules insolubles apparaissent dès 25 mg/L (couplage oxydatif ou précipitation de colorant avec l'ABTS oxydé) : la baisse d'absorbance peut alors être une précipitation et non une dégradation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve de l'immobilisation par CLSM avec laccase marquée au FITC sans protocole de marquage ni témoin : du FITC libre ou hydrolysé, adsorbé sur la membrane (argile cationique, titane), donnerait la même fluorescence verte. Le témoin attendu est la membrane traitée par une solution de FITC sans enzyme, ou une enzyme marquée purifiée par dessalage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Adsorption à 25 °C pendant 3 h, stockage à 4 °C, dosages de 20 à 70 °C : compatibles avec une laccase fongique (optimum apparent 50 °C, dénaturation au-delà de 60 °C) ; optimum de pH 3 avec l'ABTS habituel pour les laccases fongiques. Valeurs de Km (0,12 et 0,35 mM) d'un ordre de grandeur courant pour la laccase avec l'ABTS ; hausse de Km après immobilisation attendue (diffusion).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Laccase en poudre : sensibilisant respiratoire possible ; cristal violet : toxique, suspecté cancérogène ; UV : protection des yeux et de la peau ; FITC : sensibilisant. L'article ne mentionne pas la source ni la puissance de la lampe UV, ni de précaution.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Adsorption physique de la laccase (pI acide, faiblement anionique à pH 4) sur une surface de titane hydratée cationique et sur l'argile, par interactions électrostatiques, liaisons hydrogène et hydrophobes ; pas de liaison covalente. L'élimination du cristal violet mesurée combine surtout l'adsorption du colorant cationique sur l'argile et les fibres (part non mesurée), l'oxydation par la laccase en présence éventuelle d'ABTS comme médiateur, et sous UV une photolyse directe ou une photocatalyse par un TiO2 peu cristallin ; la part de chaque contribution n'est pas établie faute de témoins.",
+    "sources": [
+     {
+      "title": "Laccase-Polyacrylonitrile Nanofibrous Membrane: Highly Immobilized, Stable, Reusable, and Efficacious for 2,4,6-Trichlorophenol Removal",
+      "authors_or_publisher": "Xu R., Chi C., Li F., Zhang B. (ACS Appl. Mater. Interfaces)",
+      "year": "2013",
+      "url_or_doi": "10.1021/am403849q"
+     },
+     {
+      "title": "Laccase immobilized on PAN/O-MMT composite nanofibers support for substrate bioremediation: a de novo adsorption and biocatalytic synergy",
+      "authors_or_publisher": "Li G., Nandgaonkar A., Lu K., Krause W., Wei Q., Lucia L. (RSC Adv.)",
+      "year": "2016",
+      "url_or_doi": "10.1039/C6RA00220J"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "méthode de dosage de la charge en enzyme (Bradford ? différence avant/après ?) et sa cohérence avec 30 mg offerts pour 400 mg de membrane",
+    "unité de Vmax et dilution de l'enzyme dans le dosage",
+    "espèce et titre (U/mg) de la laccase Sigma utilisée",
+    "relargage de l'enzyme pendant les lavages et les cycles",
+    "témoins : membrane sans enzyme (adsorption seule, avec et sans UV), enzyme inactivée, FITC seul",
+    "présence et dose d'ABTS dans les essais au CV avec la membrane ; lampe UV (longueur d'onde, puissance)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La membrane PAN/O-MMT électrofilée est décrite de façon cohérente (13,6 % de PAN, 5 % d'argile), mais le dépôt de TiO2 ne peut pas être refait : aucune quantité n'est donnée et la consigne de dilution « jusqu'à Ti:HCl = 0,83:1 » est impossible (l'eau ne change pas ce rapport). La charge en laccase annoncée (342 mg/g) dépasse de 4,6 fois ce que la solution d'immobilisation contient (75 mg/g au maximum), et la Vmax de 595 µmol/(mg·min) est incompatible avec le dosage décrit et avec le titre d'une laccase commerciale. La synergie adsorption-biocatalyse-photocatalyse n'est pas démontrée faute de témoin membrane sans enzyme. Ni la phase ni la teneur du TiO2 (séché à 60 °C) ne sont caractérisées.",
+  "author_errors_suspected": [
+   "charge en laccase de 342 mg/g impossible avec 30 mg d'enzyme pour 400 mg de membrane (75 mg/g au plus)",
+   "Vmax de 595,24 µmol/(mg·min) incompatible avec 0,03 mg d'enzyme dans 3 mL (ΔA420 ≈ 214/min) : unité ou normalisation probablement erronée",
+   "consigne « ajouter dans l'eau jusqu'à Ti:HCl = 0,83:1 » impossible (la dilution ne change pas le rapport)",
+   "Km défini comme une concentration d'enzyme au lieu de substrat",
+   "immobilisation décrite comme électrostatique puis qualifiée de covalente ; optimum de pH inchangé (Résultats) contre déplacé (Conclusion)",
+   "activité retenue 82,5 % contre rapport des Vmax 0,49 non expliqué"
+  ],
+  "comparison_with_database": "Seule autre publication de la base avec de la laccase : PMC5466191 (laccase de Pleurotus ostreatus partiellement purifiée, activité spécifique 112,5 puis 204 U/mg après précipitation au sulfate d'ammonium). Une enzyme partiellement purifiée y atteint ≈ 200 U/mg ; les 595 µmol/(mg·min) annoncés ici pour une poudre commerciale non purifiée sont environ trois fois plus élevés que cette préparation enrichie et mille fois au-dessus du titre Sigma-Aldrich de la laccase de T. versicolor, ce qui renforce le doute sur l'unité. Aucune autre membrane électrofilée PAN/argile dans la base."
+ },
+ "sources_not_found": [
+  "texte intégral de la réf. 38 (Zhang et al., Langmuir 2008) : protocole et sens du rapport Ti:HCl non consultés (page PubMed injoignable depuis l'environnement) ; une revue de 2018 attribue à un « Zhang et al. » une voie à basse température à partir de TiCl4, ce qui laisse un doute sur le précurseur du protocole d'origine",
+  "source primaire vérifiée du point isoélectrique de la laccase de T. versicolor (seules des valeurs de pI ≈ 3–3,5 pour des laccases de Trametes/Coriolus ont été vues dans les résultats de recherche, pages non ouvertes) : basé sur la chimie générale",
+  "valeur PubChem de la solubilité du n-butanol (sources secondaires 63–73 g/L à 25 °C)",
+  "capacité d'adsorption du cristal violet de membranes PAN/argile : ordre de grandeur non sourcé"
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "pmcid": "PMC12552603",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "method_sources : renvoi CR29 de la voie Fe3O4 absent",
+   "extracted": "method_sources ne contient que CR30 (Zr-MOF)",
+   "article_says": "Magnetic Fe3O4 nanoparticles were prepared by one-pot hydrothermal method.",
+   "fix": "ajouter method_sources {route: Fe3O4, ref_id: CR29, role: protocole_adapte, quote: cette phrase} ; corpus/refs/PMC12552603.txt place [[CR29]] (Kiani, Alinezhad & Ghasemi, travail antérieur des auteurs) à la fin de cette phrase, qui décrit la préparation, avant le protocole « Briefly »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Zr-MOF-glutaraldehyde-Adn@Fe3O4 outcomes, Table 2, Freundlich nF",
+   "extracted": "Freundlich_R2 0.95, Freundlich_KF 22.13, Freundlich_1/nF 0.32 ; pas de nF",
+   "article_says": "NF | 3.07",
+   "fix": "ajouter l'outcome Freundlich_nF = 3.07 (quote « NF | 3.07 », rangée de la section Freundlich entre KF et 1/NF ; cohérent : 1/3.07 = 0.33)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Zr-MOF-glutaraldehyde-Adn@Fe3O4 outcomes, recyclage du catalyseur, Fig. 17a",
+   "extracted": "seulement « over 98% » (texte) et 84 % (Conclusion) ; doute disant que la figure 17a est un histogramme sans étiquettes non lu",
+   "article_says": "its performance was maintained over 98% in the synthesis of tetrahydrobenzo[b]pyran after at least 6 consecutive uses (Fig. 17a)",
+   "fix": "la figure 17a est lisible : barres roses à environ 96, 96, 94, 93, 93 et 91 % pour les runs 1 à 6 (±2 %, axe nommé « Adsorption (%) » alors qu'il s'agit de catalyse). Ajouter ces six valeurs avec from_figure « Fig. 17a » et un doute : la figure (≈ 91 % au run 6) n'est cohérente ni avec « over 98% » ni avec 84 % de la Conclusion. Retirer « figure non lue » de la limite de reproductibilité",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Zr-MOF-glutaraldehyde-Adn@Fe3O4 characterization FT-IR (638.12 cm−1)",
+   "extracted": "« new band at 638.12 cm−1 attributed to Fe–O vibration (written 'F-O') » rangé sur le composite, sans doute à ce sujet",
+   "article_says": "A new band at 638.12 cm−1, attributed to the F-O tensile vibration, is present in the FT-IR spectrum of Zr-MOF-glutaraldehyde-Adn.",
+   "fix": "l'article nomme le spectre de Zr-MOF-glutaraldehyde-Adn (sans Fe3O4) ; le rattachement au composite est justifié par la Fig. 4 (étiquette O-Fe-O sur la courbe du composite) et par la phrase suivante, mais c'est une correction de l'extracteur : ajouter un doute qui le dit, et garder « F-O » dans la citation",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Fe3O4 step 1 (dissolve) duration 30 min",
+   "extracted": "duration = 30 min portée par l'étape de dissolution sous N2",
+   "article_says": "dissolved in 40 mL of distilled water under N2. After 30 min, 1 mL solution of NH3.H2O was dropwise added",
+   "fix": "l'article ne dit pas qu'on agite ou dissout pendant 30 min : c'est un délai avant l'ajout d'ammoniaque ; la valeur est déjà en doute chez l'extracteur, la garder mais sans l'imputer à une opération de dissolution (ou la déclarer en not_stated pour la durée de dissolution)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Zr-MOF-glutaraldehyde-Adn@Fe3O4 outcomes, Table 7 entry 9 (sans catalyseur)",
+   "extracted": "thbp_yield_Table7_entry_9_H2O_nocatalyst_50C = 5 %, quote = la seule rangée du tableau",
+   "article_says": "Only 5% of the desired product was obtained in the absence of the catalyst after 7 h of reaction.",
+   "fix": "ajouter à la citation ou à un outcome le temps de 7 h, seule durée de réaction donnée pour le tableau 7",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Zr-MOF-glutaraldehyde-Adn@Fe3O4, conditions fixes des séries de la Fig. 12 et du recyclage de l'adsorbant",
+   "extracted": "valeurs de la Fig. 12 et MB_removal_run_1..6 sans les conditions fixes dans les outcomes ; les conditions des séries sont seulement dans un doute et celles du recyclage nulle part",
+   "article_says": "The effect of adsorbent dosage on dye uptake was investigated by changing the amount of catalyst from 5 mg to 40 mg (pH = 7, dye concentration = 10 mg/L, and contact time = 10 min).",
+   "fix": "consigner dans les conditions de la caractérisation « MB adsorption » (ou en value_text) : pH série = 10 mg, 10 mg/L, 10 min ; dose = pH 7, 10 mg/L, 10 min ; concentration = pH 7, 10 mg, 10 min ; temps = pH 7, 10 mg/L, 10 mg ; recyclage (6 cycles) = « The experiments were conducted with the optimized operating parameters such as pH 7, catalyst dosage 10 mg, initial concentration of 10 mg/L, and contact time 15 min. »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "essai catalytique, procédure générale : traitement final non repris",
+   "extracted": "caractérisation « catalytic one-pot synthesis » : quantités, 50 °C, TLC, champ de 1,4 T ; pas de traitement final",
+   "article_says": "The incorporated magnetic catalyst was separated from the product by the application of a 1.4 T magnetic field followed by pouring the reaction product onto crushed ice for 10 min.",
+   "fix": "compléter les conditions : dissolution du produit par de l'éthanol chaud, séparation magnétique, versement sur glace pilée 10 min, filtration, recristallisation dans l'éthanol à 94 % (5 ml) ; flacon de 10 ml",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "caractérisations après usage et TGA des quatre échantillons",
+   "extracted": "absentes",
+   "article_says": "As shown in Fig. 17b, the XRD spectra of the recovered catalyst were a good match with those of the fresh sample.",
+   "fix": "ajouter en caractérisations du composite : DRX du catalyseur récupéré identique au frais (Fig. 17b) ; FT-IR, DRX et MEB de l'adsorbant après MB (Fig. 15b-d, « roughness on the surface was reduced ») ; et pour la TGA « Four samples showed a slight mass loss at around 100 ᵒC, originating from the removal of H2O molecules and surface-adsorbed organic solvent. » (perte à 100 °C des quatre échantillons)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "sample_inventory : rangée « Fresh Zr-MOF-glutaraldehyde-Adn » du Table 5",
+   "extracted": "absente de l'inventaire ; seul le doute dit que le nom est probablement tronqué",
+   "article_says": "Fresh Zr-MOF-glutaraldehyde-Adn | 120 | 0.01",
+   "fix": "inscrire cet échantillon à l'inventaire (route null, why : libellé de rangée dont les valeurs 120 / 0.01 sont celles du composite du tableau 1, nom probablement tronqué) ; ne pas rattacher les valeurs à Zr-MOF-glutaraldehyde-Adn (610 ; 0.03)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 5,
+  "branches_extracted": 5,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Fe3O4 : concentration de la solution d'ammoniaque, pH final, séchage de la poudre, rendement absents ; méthode dite « hydrothermale » alors que 50 °C sous N2, et renvoi CR29 non repris",
+  "Zr-MOF : volumes de DMF et d'HCl du mélange 5:1, concentration d'HCl, récipient, vitesse de centrifugation, nombre de lavages, durée de séchage à 100 °C absents",
+  "Glutaraldéhyde : concentration et forme (aqueux ou pur), HCl non dosé en concentration ; vitesses d'agitation absentes pour les trois greffages et le dépôt de Fe3O4",
+  "Table 8 : les aldéhydes et produits sont des images absentes du texte ; seuls quatre produits ont leurs RMN en annexe (phényle, 4-Cl, 4-NO2, 4-OH) sans lien avec les entrées 1 à 7",
+  "Volume de la solution de MB (donc qe expérimental) et unités des constantes des tableaux 2 et 4 absents",
+  "Volume poreux de 0.04 cm3/g du Zr-MOF incompatible avec l'isotherme de la Fig. 5a (≈ 300 cm3 STP/g à p/p0 = 1, soit ≈ 0.47 cm3/g) : valeur de l'article, à signaler comme incohérence",
+  "Recyclage catalytique : 98 % (texte), ≈ 91 % (Fig. 17a), 84 % (Conclusion) contradictoires"
+ ],
+ "mechanism_check": "ok : les annotations mecanisme_auteurs ne disent que ce que les auteurs écrivent (imine C=N à 1622 cm−1 pour le glutaraldéhyde, rien de précis pour l'adénosine et Fe3O4) ; les hypothèses sont étiquetées mecanisme_analyse. Les mécanismes d'adsorption (π-π, remplissage de pores, électrostatique, liaisons H) et catalytique (Knoevenagel, Michael, cyclisation, Fig. 18) des auteurs ne sont pas annotés, ce qui est acceptable hors formation du matériau.",
+ "notes": "Valeurs de la Fig. 12 (19) relues sur l'image : toutes conformes aux étiquettes imprimées (écart 0 %). Fig. 15a conforme aux six valeurs du texte. Rangées sans nom : Table 2 (qmax, KL au Langmuir ; KF, nF, 1/nF au Freundlich ; KT, B au Temkin) et Table 4 (qe 9.11 au pseudo-premier ordre ; qe Cal et Exp au pseudo-second) correctement attribuées, vérifié par RL = 1/(1+KL·C0) = 0.213 ≈ 0.208 à 10 mg/L et 1/nF = 1/3.07 = 0.33 ; K1 et qe sont dans la rangée du pseudo-premier ordre. Table 5 : la rangée « Fresh » (120 ; 0.01) porte les valeurs du composite, l'extraction ne l'a pas dupliquée, à juste titre. Table 8 : colonnes images illisibles ; rangées de durée et rendement lues dans l'ordre, rien à contrôler. Fig. 3 montre (422) alors que le texte écrit (442) : le texte est recopié tel quel, doute déjà posé. EDS (Fig. 8) : l'ordre C, N, O, Zr, Fe n'est pas vérifiable sur l'image."
+}

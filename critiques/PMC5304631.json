@@ -1,0 +1,113 @@
+{
+ "pmcid": "PMC5304631",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "Au-citrate : aucune étape de nettoyage de la verrerie (ni dans les étapes, ni dans le matériel)",
+   "extracted": "absent (le seul écho est l'annotation securite_analyse, qui mentionne l'eau régale)",
+   "article_says": "All glassware was cleaned in aqua regia and rinsed with ultrapure water.",
+   "fix": "ajouter une étape 0 « clean » (verrerie à l'eau régale, rinçage à l'eau ultrapure) à Au-citrate, avec cette citation",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Au-PEG-anti-VEGF (et branches EDC) : rapports par nanoparticule des réactifs de couplage",
+   "extracted": "aucun rapport par particule ; seuls les volumes et masses (57.3 µL, 30 µg, 2 µg, 75 µg) sont saisis",
+   "article_says": "The ratios were chosen that per 1 Au NP 7.5 × 106 EDC molecules, 50 antibodies, 103 TAMRA molecules, and 2.5 × 104 amine-PEG molecules were added for reaction.",
+   "fix": "ajouter en amount_text ou paramètre de l'étape 1/5/7/9 : « 50 antibodies per NP » (sans ambiguïté) et les autres rapports avec exposants aplatis signalés ; contrôle fait par le critique : 4 pmol de NP x 50 = 200 pmol = 30 µg / 150 kDa, 57.3 µL x 100 mg/mL / 191.7 g/mol ≈ 30 µmol = 4 pmol x 7.5e6, 75 µg / 750 g/mol = 100 nmol = 4 pmol x 2.5e4, ce qui confirme les exposants (10^6 et 10^4) et une masse de 750 Da",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Au-PEG-anti-VEGF et Au-PEG-control, réactif amine-PEG : masse molaire absente de la fiche",
+   "extracted": "« amine-PEG (methoxy-PEG-amine) », 75 µg, sans masse molaire (seulement dans un doute)",
+   "article_says": "Third ligand short metoxy-PEG-amine (amine-PE; Mw = 750 kDa, Rap Polymer #12750-2, Tuebingen, Germany)",
+   "fix": "noter Mw = 750 kDa tel qu'écrit dans le champ du réactif, avec renvoi à l'annotation limite_reproductibilite (750 Da probable : 75 µg correspondent à 2.5e4 PEG par particule pour 4 pmol de NP seulement avec 750 g/mol)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Table 1, RP/NP : valeurs non reproductibles à partir des lignes du même tableau (annotation limite_reproductibilite à compléter)",
+   "extracted": "RP/NP = 2.7, 2.4 (anti-HRP*) et 6.2, 6.3 (anti-VEGF*) recopiés ; aucune mention de l'écart",
+   "article_says": "RP/NP | 2.7 | 2.4 | 6.2 | 6.3",
+   "fix": "ajouter à limite_reproductibilite : cP/cNP donne 6.67/2.2 = 3.0, 4.33/1.5 = 2.9, 16.67/2.0 = 8.3 et 7.47/0.5 = 14.9, et non 2.7, 2.4, 6.2, 6.3 ; CP et cP, eux, se recalculent bien à partir de I, I0 et ΔI/ΔCP. Ne pas corriger les valeurs RP/NP : ce sont celles de l'article",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Au-PEG-anti-VEGF / Au-PEG-anti-HRP, résultats Fig. 16 : une seule condition sur quatre, et sans la référence VEGF seul",
+   "extracted": "110 % et 100 % (anti-VEGF), 100 % et 100 % (anti-HRP) à 48 h et 16 ng/mL de VEGF ; aucune valeur pour 24 h, ni pour 12 ng/mL, ni pour le VEGF seul",
+   "article_says": "The number of cells was normalized to 100% for untreated control cells. *p < 0.01; **p < 0.001 (versus cells treated with VEGF only).",
+   "fix": "ajouter au moins la référence « VEGF seul » lue sur la figure (≈ 143 % à 16 ng/mL, 48 h, panneaux b et d ; ≈ 127 % à 12 ng/mL) sans quoi 110/100 % ne signifient rien ; idéalement aussi 12 ng/mL et 24 h (panneaux a, c). Lecture des valeurs extraites : ≈ 111 et ≈ 105 % (b), ≈ 104 et ≈ 105 % (d), soit un écart de 5 points au plus avec 110/100/100/100, sous le seuil de 10 %",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources, B28-nanomaterials-05-01297 (Au-PEG-anti-VEGF_pH8, role autre)",
+   "extracted": "B28 listée comme source de méthode",
+   "article_says": "with the motivation to take advantage of linking antibodies in an oriented manner",
+   "fix": "supprimer l'entrée : le renvoi justifie le choix d'un pH élevé (renvoi de contexte), pas un protocole nécessaire pour refaire l'essai (règle du 2026-10-13) ; B21 (pH 12, « attaches faster ») est dans le même cas et correctement absent",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Au-PEG/anti-VEGF, Au-PEG/anti-HRP, Au-PEG/control : étapes 2 à 10 et citations",
+   "extracted": "étapes recopiées du protocole EDC, dont « Add the antibody (30 µg) immediately after cleaning » (citation « Immediately after the NP cleaning ») alors que ces branches n'ont, d'après l'extraction elle-même, ni activation ni colonne PD-10, et « block the remaining reactive carboxylic groups » (aucun carboxyle activé sans EDC)",
+   "article_says": "the conjugation reactions were repeated but without addition of EDC.",
+   "fix": "marquer ces étapes comme héritées par hypothèse (champ de note ou annotation) et retirer « after cleaning » de la description de l'étape d'ajout d'anticorps ; l'article ne dit pas si le tampon MES, les 20 min et le dessalage ont été gardés (déjà en doute, mais les étapes sont présentées comme citées)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Au-citrate étape 4 : température non portée ; formule du citrate de croissance",
+   "extracted": "étape 4 : paramètres = délai de deux minutes seulement, `temperature` absente aussi de not_stated ; réactif « sodium citrate (growth injection, 60 mM) » avec formule Na3C6H5O7 (anhydre)",
+   "article_says": "For further NP growth, then 1 mL sodium citrate (60 mM) and 1 mL of HAuCl4 solution (25 mM) were sequentially injected with a time delay of two minutes between the two injections",
+   "fix": "ajouter `temperature` à not_stated de l'étape 4 (90 °C probable mais non écrit pour les injections) ; formule du citrate de croissance : laisser vide ou « sodium citrate » (l'article ne dit pas si c'est le dihydrate)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "FITC-antibody étapes 1 et 6, caractérisation fluorescence : protocole Bradford et ordonnées à l'origine",
+   "extracted": "étapes « measure » sans paramètre ; seules les pentes 4447.1 et 5498.3 sont saisies, pas les ordonnées à l'origine (−464.28 ; −3549.4) ni la plage de travail",
+   "article_says": "Following the indication of the guide, in order to get the high concentration curve, 10 μL of NP solution sample were mixed with 300 μL of Coomassie reagent, previously equilibrated at room temperature.",
+   "fix": "ajouter aux étapes de dosage : 10 µL d'échantillon + 300 µL de réactif (courbe 100–1500 µg/mL) ou 150 µL + 150 µL (1–25 µg/mL), mélange 30 s, incubation 10 min, lecture à 595 nm ; ajouter I0 de chaque anticorps aux résultats de la courbe d'étalonnage",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Au-PEG-anti-VEGF étape 3 (purification sur PD-10) : dilution",
+   "extracted": "aucune mention de la dilution",
+   "article_says": "During this step, the NP volume was roughly diluted twice.",
+   "fix": "ajouter en note de l'étape 3 (déjà impliquée par le réglage à 2 mL de l'étape 4)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Au-PEG-anti-VEGF_pH8 : succeeded = false",
+   "extracted": "succeeded: false (essai « raté »)",
+   "article_says": "the activation process was not working as well as at pH 6.5",
+   "fix": "l'article dit moins efficace, pas échoué : remplacer par succeeded true/null avec le résultat qualitatif déjà saisi, ou annoter que « false » signifie ici « abandonné pour efficacité moindre »",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 12,
+  "branches_extracted": 12,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "exposants perdus dans le texte (« 105 PEG molecules », « 7.5 × 106 EDC », « 103 TAMRA », « 2.5 × 104 amine-PEG ») : seuls ceux d'EDC, de TAMRA et du PEG-amine se recalculent à partir des masses ; le nombre de PEG par particule (105 = 10^5 ?) n'a pas de contrôle croisé, et la masse du PEG-amine est écrite 750 kDa (750 Da probable)",
+  "pégylation : concentration de NP, volume, durée, température et tampon de lavage absents ; pureté et origine du PEG-thiol non données hors fournisseur",
+  "concentration de départ de 208 nM pour le couplage non expliquée (le lot brut est à ≈ 11.1 nM, et l'or introduit ne permet pas plus de ≈ 1.3 nM) : concentration par centrifugation ? non dit",
+  "durée de la première agitation à 100 °C, température des 30 min finales et ordre des deux injections (citrate puis HAuCl4 ?) non écrits ; aucun rendement ni purification des NP de citrate",
+  "répétition sans EDC : tampon, activation fictive, dessalage non décrits",
+  "essai à pH 8 : anticorps, quantités et durée non donnés",
+  "marquage FITC : masse de FITC, quantité d'anticorps de départ et protection de la lumière non donnés (rapport 750 FITC par protéine seulement) ; nature de « fresh buffer » pour les lavages non dite",
+  "Table 1 : RP/NP incompatible avec cP/cNP de la même colonne, donc le nombre d'anticorps par particule (2.4 à 6.3) n'est pas reproductible tel qu'écrit",
+  "pas d'annexe : aucune donnée supplémentaire à lire"
+ ],
+ "mechanism_check": "ok : le mécanisme des auteurs (déprotonation du thiol à pH 12) est cité ; les annotations d'analyse (Turkevich/Bastús, activation EDC en O-acylisourée) sont étiquetées hypothèses et compatibles avec le texte ; un rappel utile : EDC sans NHS donne un ester instable, ce qui peut expliquer la faible efficacité à pH 8",
+ "notes": "Le nombre de constats reste modéré : les tableaux 2 et 3 (24 valeurs) et Fig. 2, 11, 13, 16 vérifiés sans erreur de valeur ni d'attribution. Fragile dans ma lecture : (1) la répartition des colonnes de Table 1 entre HRP* et VEGF* se fait sur l'en-tête répété, mais l'ordre est cohérent avec les pentes de Fig. 5 qui redonnent bien CP ; (2) l'article parle de « Au NPs dispersed in water » à 208 nM sans dire qu'il s'agit des Au-PEG, l'extraction a supposé l'intermédiaire Au-PEG (raisonnable, déjà en doute) ; (3) la lecture 105 % vs 100 % sur Fig. 16 est à ±5 points. Non retenus comme constats : A = 0.23 -> 10.6 nM et non 11.1 nM (déjà en doute), valeur 38.0 nm d'Au-PEG-anti-VEGF* (déjà en doute, tableau retenu), cellules A549/HUVEC et Fig. 14-15 (hors matériau synthétisé, déclarés dans l'inventaire)."
+}

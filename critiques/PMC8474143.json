@@ -1,0 +1,71 @@
+{
+  "pmcid": "PMC8474143",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "QDs-HSQ step 4 (etch) duration = 1 h",
+      "extracted": "duration 1 h pour la gravure HF du HSQ, cité sur la phrase « The suspension turned yellow after stirring for 1 h »",
+      "article_says": "The suspension turned yellow after stirring for 1 h, indicating that the Si QDs were released from SiO2 matrix.",
+      "fix": "cette phrase date le jaunissement, pas la durée de gravure ; pour le SiO l'extracteur a écarté la même tournure (5 h) au profit de la durée explicite (6 h). Traiter le HSQ de la même façon : déclarer duration non citée à l'étape 4 (ou garder 1 h avec une annotation limite_reproductibilite disant que c'est la durée de jaunissement), le doute existant ne suffit pas pour une valeur présentée comme citée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "QDs-SiO step 4 (etch) duration, conflit 5 h / 6 h",
+      "extracted": "6 h (la valeur 5 h du SI Section S1 n'est que dans un doute, nulle part dans les données ni dans une annotation)",
+      "article_says": "The suspension turned yellow after stirring for 5 h, indicating that the Si QDs were released from SiO2 matrix.",
+      "fix": "ajouter une annotation limite_reproductibilite : le SI donne 5 h (Section S1) et 6 h (Section S3 et Table S1, « etching for 6 h ») pour la même gravure ; l'article ne tranche pas",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "Table S1, rangée 3 (SiO, gravure 3 h, 870 nm, 10±1 %) : aucune branche",
+      "extracted": "échantillon dans sample_inventory avec route null, résultats perdus (870 nm, 10±1 % ne figurent dans aucune voie)",
+      "article_says": "920 oC 30 min 3 h 850 nm 10±1% 3 h 870 nm 10±1%",
+      "fix": "le tableau est aplati : la rangée 3 ne porte que « 3 h 870 nm 10±1% » ; T et t sont des cellules fusionnées, très probablement celles de la rangée 2 (920 °C, 30 min) ou à vérifier sur le PDF. Créer la branche avec duration étape 4 = 3 h et les deux résultats, et déclarer le recuit incertain par un doute, plutôt que perdre l'échantillon. L'article dit que le PLQY est resté « all around 10%, up to 15% », donc cette rangée fait partie de la comparaison.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "TES_T2-1000_etch-1h et TES_T2-1000_etch-2h : masse de poudre (100 mg) et volume de HF (10 mL) hérités de QDs-TES",
+      "extracted": "aucune variation de masse ; elles héritent donc 100 mg et 10 mL de la voie de base",
+      "article_says": "TES 600 oC 1 h 1000oC 1 h 6 h 10 mL 50 mg 800 nm 30±3%",
+      "fix": "la Table S4 (qui contient ces deux rangées : 1 h → 920 nm, 2 h → 860 nm) place 10 mL et 50 mg à côté de la rangée 6 h ; selon la lecture des cellules fusionnées, ces rangées ont 50 mg ou pas de masse indiquée, jamais 100 mg de façon citée. Ajouter la masse 50 mg ou la déclarer non citée avec un doute explicite sur ces deux branches (le doute actuel n'est pas porté sur les branches)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "TES_T2-900/925/950_etch-0.5h et TES_T2-1100_etch-2h (Table S5) : masse de poudre et volume de HF hérités",
+      "extracted": "100 mg et 10 mL de HF hérités de QDs-TES",
+      "article_says": "mild etching conditions (detailed in Table S5) were chosen to liberate free-standing Si QDs from the oxide matrix, minimizing the impact of HF etching on the dimension of Si QD.",
+      "fix": "la Table S5 ne donne que recuit, durée de gravure, pic et PLQY : ni masse de poudre ni quantité de HF. Ces valeurs ne sont pas citées pour ces branches ; l'héritage est une hypothèse (la Table S3 montre que la masse ne change pas le pic, ce qui la rend peu gênante mais pas citée). Mentionner dans un doute ou une annotation limite_reproductibilite.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "QDs-HSQ/OSTE et QDs-SiO/OSTE hérités de QDs-TES/OSTE (quantités de monomères, 2 mg de QDs, 30 s d'UV)",
+      "extracted": "branches avec parent QDs-TES/OSTE, seules les QDs changent ; toutes les étapes et quantités du parent sont héritées",
+      "article_says": "After being embedded in OSTE, all samples showed an improved PLQY, enhanced by approximately 10–15 additional percent.",
+      "fix": "le SI ne décrit qu'un protocole générique (« ~2 mg of Si QDs ») sans dire que HSQ et SiO ont suivi exactement ces quantités ; la règle « pas d'héritage non fondé » demande au moins un doute porté sur la branche (il n'est que dans la liste générale) ou des not_stated pour les quantités",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 16,
+    "branches_extracted": 15,
+    "not_stated_checked": 49,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "atmosphère du pré-recuit à 600 °C (phrase ambiguë), vitesses de montée et de descente de tous les recuits, type de four et de nacelle, masse de xérogel recuite par essai",
+    "agitation (vitesse), durée du mélange HNO3/éthanol, nombre et volume des lavages à l'éthanol du gel, pression du vide de séchage, température de vieillissement (72 h)",
+    "température de la gravure HF et de la centrifugation ; durée réelle de gravure HSQ ; 5 h contre 6 h pour SiO",
+    "masse de poudre et quantité de HF des Tables S5, S6 et de la rangée 3 de la Table S1 ; recuit de la rangée 3 de la Table S1",
+    "conditions exactes (T2, durée de gravure) des sept lots de la Table S9",
+    "passage des QDs du toluène au monomère allyle pour l'OSTE (élimination du toluène ? concentration) ; puissance de la lampe UV, moule, charge finale en QDs ; protocole OSTE de HSQ et SiO non décrit",
+    "pureté et fournisseur du ligand pour HSQ et SiO ; pureté des réactifs OSTE ; conditions de mesure du PLQY pour les échantillons en OSTE (440 nm générique)"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs appuyés sur des citations exactes ; mecanisme_analyse (HNO3 catalyseur, bain de glace, dismutation de HSiO1,5) est bien une interprétation étiquetée. Réserve mineure : securite_analyse dit que le SiH4 pyrophorique est libéré « selon les auteurs » ; les auteurs parlent de silane/SiH4 sans le qualifier de pyrophorique.",
+  "notes": "Extraction globalement fidèle : toutes les valeurs numériques des Tables 1, S1 à S9 et des Fig. S7 vérifiées contre le texte, aucune valeur fausse, aucune rangée mal attribuée avec certitude. Fragile : les tableaux S1, S2, S4 sont aplatis, la lecture des cellules fusionnées (Table S2 rangée t1 = 0 h ; masse et HF de la Table S4 ; rangée 3 de la Table S1) ne peut pas être confirmée sans le PDF de l'annexe, absent du dépôt. Les figures S1 à S7 de l'annexe ne sont pas en image ; l'attribution a)/b) de la Fig. S7 (SiO 136 µs, HSQ 216 µs) suit la légende et la phrase « the PL lifetime of QDs-SiO measured at 878 nm is much shorter », cohérente. Fig. 6b lue : SiO ≈ 9,55, HSQ ≈ 6,35, TES ≈ 6,6 contre 9,5 / 6,4 / 6,6 extraits (écart < 1 %) ; barres d'erreur ≈ ±1,0 (SiO), ±0,65 (HSQ), ±0,7 (TES), non reprises. Fig. 3 : les 7 points (825, 850, 885, 920, 985 nm ; 850, 860 nm) coïncident avec les Tables S5 et S6. Les incertitudes ± des tables (40±4 %, 40±10 %*) ne sont que dans les citations, pas en champ séparé. method_sources : ref6 (HSQ) et ref51 (déconvolution numérique) suffisent ; aucun autre renvoi de méthode dans corpus/refs."
+}

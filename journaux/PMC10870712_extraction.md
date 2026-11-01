@@ -1,0 +1,14 @@
+# Journal d'extraction PMC10870712 (Cs2TiBr6 par micro-ondes)
+
+- Découpage : voie de base = procédure générale jusqu'à la trempe dans la glace (210 °C, 30 min), « as recovered ». Le recuit 130 °C, 18 h, N2 est une voie `post_treatment` fille, parce que la Fig. 2b compare « 210 °C » et « 210 °C + TT » et que l'article dit que le recuit a été mis au point après le criblage pour éviter la dégradation (« Then, a postsynthetic treatment was performed immediately after material's recovery »).
+- Branches de criblage (120/30, 120/15, 210/15, 150/30, 180/30) héritent des huit étapes de la base. L'article dit seulement « previously optimized from a screening study of reaction time and temperature » : héritage du lavage et de la trempe non explicite, consigné en doute.
+- 120 °C/15 min a pour parent 120 °C/30 min (une seule variation de durée) ; 120 °C et 210 °C/15 min sont lus dans « 120 and 210 °C, for 15 and 30 min » (Fig. 2a).
+- 150 et 180 °C : seule trace = étiquettes « 150°C », « 180°C » des figures S2/S3 du SI. Variation marquée `from_figure` Fig. S2 avec la légende en citation. Aucun résultat chiffré : le SI donne des nombres non étiquetés (S3a : 77.7, 77.7, 52.6, 42.1, 19.9, 22.3, 47.4, 57.9, 80.1 ; S1a : 69, 25, 20, 26, 31, 75, 80, 74 ; « 210°C-15 min » écrit deux fois) ; l'attribution par monotonie serait une déduction, refusée. Seules les valeurs confirmées par le texte sont extraites (80 %, 56 nm à 210 °C ; 45 nm à 120 °C/15 min).
+- « 80% yield of Cs2TiBr6 » = pourcentage de phase DRX (méthode du standard interne, SI) : mis en outcome, rendement de voie déclaré non cité.
+- Fig. 5b : valeurs imprimées sur la figure (97,3 ; 73,7 ; 73,7 ; 50,7 pour Cs2TiBr6 ; 2,7 ; 26,3 ; 32,1 ; 49,3 pour CsBr) recopiées avec `from_figure` ; 73,7 + 32,1 ≠ 100 à 24 h : incohérence de l'article gardée en doute, pas corrigée.
+- TGA : résidu 69,21 % sans atmosphère explicite, gardé sans atmosphère ; texte « nitrogen and air » (méthodes) contre « oxygen flow » (résultats) noté en doute.
+- Rapport TiBr4:CsBr = 3,5 mmol : 0,92 mmol (3,8:1, loin de 1:2) : valeur littérale, doute et annotation de limite.
+- Tests de stabilité (air, O2, N2, 130 °C, 200 °C, lumière), TGA, XPS, PL : outcomes/caractérisations de la voie TT, pas des branches (règle des tests du matériau fini).
+- method_sources vide : seuls renvois proches des méthodes = ref19 (contexte du recuit), Scherrer (ref29-30) et DFT/VASP (ref31-32), exclus par la règle (équation d'analyse, calcul, contexte). La procédure est entièrement décrite dans l'article.
+- Mélanges avec 10 % de corindon (étalon DRX) et diffractogramme CsBr de référence : inventaire avec `route: null`.
+- Figures lues : Fig. 2a/2b (qualitatif), 3 (Eg = 1,83 eV, confirme le texte), 5 (valeurs de 5b). Figures S1–S6 absentes du dépôt (seules les légendes et nombres extraits du PDF de SI sont dans le texte).

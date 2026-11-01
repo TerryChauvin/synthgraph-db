@@ -1,0 +1,16 @@
+# PMC10200858 — critique scientifique (journal de décisions)
+
+- Fer : % atomiques EDS convertis en % massiques (Fe ≈ 10,8 % pour Fe-γ–CS–SBA-15, 5,9 % pour Fe-SBA-15) ; contre l'ICP-MS (21,68 et 11,28 mg/kg) le facteur est ≈ 5 000 et presque identique pour les deux échantillons → `probleme` (erreur d'unité ou de dilution probable côté ICP-MS), mais l'EDS n'est pas retenue comme vraie non plus (O/Si = 1,47 pour Fe-SBA-15, impossible pour SiO2).
+- XPS : Fe2p « non déterminé » alors que l'EDS donne 3,9 % at. de fer ; ajouté au même `probleme` (trois mesures du fer mutuellement incompatibles).
+- Fe/Si EDS = 0,139 contre 0,143 engagé (incorporation ≈ 97 %) dans ≈ 2 M HCl : jugé `reserve` et non `probleme`, car Vinu 2005 montre qu'une incorporation en milieu très acide est possible selon le rapport H2O/HCl.
+- Pores : 4V/S recalculé (7,0 et 6,5 nm) contre BJH 3,4 et 3,1 nm ; avec l'hystérèse H1 (impossible sous ≈ 4 nm selon Thommes 2015), le BJH est très probablement l'artéfact de désorption (Groen 2003) → `probleme` ; l'écart HRTEM/BJH signalé par l'orchestrateur est expliqué par là.
+- d100 recalculé par Bragg (λ déclarée 0,154184 nm, 2θ = 0,68°) : 12,99 nm, a0 = 15,00 nm → l'unité manquante de d100 est le nm ; d100 identique pour les deux échantillons, donc l'« élargissement » HRTEM implique des parois plus minces, pas un réseau dilaté (reserve).
+- Acidité : 60 g de HCl 4 M (densité ≈ 1,066 interpolée sur la table Anton Paar) = 0,225 mol ; après TEOS (7,8 mL) et 50 mL de FeCl3, ≈ 2,0 M. Sert à deux réserves : amines du chitosane entièrement protonées (N1s 401,56 eV plutôt NH3+ que NH2–Fe) et hydrolyse du chitosane à 100 °C (« Acid hydrolysis of chitosans », Carbohydr. Polym. 2001, Ea 130–160 kJ/mol).
+- Point de la figure 12 à 0,02 g : qe ≈ 190 mg/g > Qmax 176,7 mg/g ; laissé en `reserve` (valeur lue sur figure, volume non répété dans la légende, Qmax de forme linéarisée).
+- C/N EDS = 18,9 contre 6–8 pour le chitosane ; C/Si EDS (0,61) proche du C/Si nominal du chitosane (0,53) : la part du carbone due au P123 résiduel est indéterminable → réserve, pas de conclusion sur la teneur en chitosane.
+- Fe-SBA-15 : verdict `invérifiable`, faisabilité `non_reproductible` (protocole absent). Absence totale de carbone en EDS malgré un retrait du P123 par Soxhlet seulement dans la voie de base → témoin probablement traité autrement, `probleme` de témoin (contrôle 5). Cohérent avec la consigne de l'orchestrateur : la correction retire l'héritage des étapes.
+- Comparaison base : PMC6812203 (2θ(100) 0,96°) et PMC11099149 (pores 7,35 nm) pour des recettes voisines ; d = 13 nm ici est inhabituellement grand à 100 °C, noté dans `comparison_with_database`.
+- Recherches web : 9 (Zhao 1998, Groen 2003 deux fois, Fe-SBA-15 en milieu acide, DOI de Vinu 2005, N1s NH3+, hydrolyse acide du chitosane, fiche P123, densité de HCl 4 M) et 2 lectures de pages injoignables (NCL, eng.uc.edu) ; doi.org injoignable : aucun DOI vérifié.
+- N1s de R–NH3+ : seules des sources faibles (brevets, annexes) trouvées ; point traité en chimie générale, aucune source citée.
+- Auteurs de l'article Carbohydr. Polym. 2001 non confirmés : cité avec la mention « non confirmés », sans DOI inventé.
+- Rien ajouté à fondateurs.md ni à constantes.md (Crossref bloqué, consigne).

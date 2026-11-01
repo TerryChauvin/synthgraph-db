@@ -1,0 +1,497 @@
+{
+ "pmcid": "PMC10870029",
+ "routes": [
+  {
+   "label": "Cs_oleate",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [
+    {
+     "what": "moles de Cs2CO3 et de Cs",
+     "inputs": "0,2035 g Cs2CO3 ; M(Cs2CO3) = 2×132,905 + 12,011 + 3×15,999 = 325,82 g/mol",
+     "formula": "n = m/M ; n(Cs) = 2 n(Cs2CO3)",
+     "result": "n(Cs2CO3) = 0,625 mmol ; n(Cs) = 1,249 mmol",
+     "compared_to": "Protesescu 2015 : 0,814 g Cs2CO3 pour 40 mL ODE et 2,5 mL OA, soit exactement 4 fois cette recette",
+     "source": "masses atomiques IUPAC (chimie générale) ; valeurs de l'article"
+    },
+    {
+     "what": "moles d'acide oléique et rapport OA/Cs",
+     "inputs": "0,625 mL OA à 90 % ; densité 0,887 g/mL à 25 °C (fiche Sigma-Aldrich 364525) ; M = 282,46 g/mol",
+     "formula": "n(OA) = V·ρ·pureté/M ; n(OA)/n(Cs)",
+     "result": "n(OA) ≈ 1,77 mmol (1,96 mmol sans correction de pureté) ; OA/Cs ≈ 1,41 (1,57)",
+     "compared_to": "Cs2CO3 + 2 RCOOH → 2 RCOOCs + H2O + CO2 : il faut OA/Cs ≥ 1 ; excès d'environ 40 %",
+     "source": "fiche fournisseur Sigma-Aldrich 364525 ; valeurs de l'article"
+    },
+    {
+     "what": "concentration de l'oléate de césium",
+     "inputs": "1,249 mmol Cs dans 10 mL ODE + 0,625 mL OA ≈ 10,6 mL",
+     "formula": "c = n(Cs)/V",
+     "result": "≈ 0,118 mol/L",
+     "compared_to": "Protesescu 2015 : solution de Cs-oléate ≈ 0,125 M (même recette)",
+     "source": "calcul ; Protesescu 2015"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "OA en léger excès par rapport à la neutralisation complète de Cs2CO3 (calcul « moles d'acide oléique et rapport OA/Cs » : OA/Cs ≈ 1,4) : la conversion totale en oléate de césium est possible, l'excès d'acide aide à garder l'oléate en solution à chaud. La recette est celle de Protesescu et al. divisée par 4.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I): Novel Optoelectronic Materials Showing Bright Emission with Wide Color Gamut", "authors_or_publisher": "Protesescu L., Yakunin S., Bodnarchuk M. I., Krieg F., Caputo R., Hendon C. H., Yang R. X., Walsh A., Kovalenko M. V. (Nano Letters)", "year": "2015", "url_or_doi": "10.1021/nl5048779"}
+    },
+    {
+     "aspect": "thermique",
+     "finding": "120 °C sous vide dans l'ODE (point d'ébullition ≈ 315 °C) : pas de perte de solvant notable ; le vide élimine H2O et CO2 et déplace la réaction. Protesescu sèche 1 h à 120 °C puis termine la réaction à 150 °C sous N2 ; ici tout se fait à 120 °C sous vide « jusqu'à réaction complète », sans durée. Le dégagement de CO2 sous vide peut faire mousser : monter le vide progressivement. L'oléate de césium précipite dans l'ODE à température ambiante : il faut le réchauffer (≈ 100–120 °C) avant l'injection, ce que l'article fait (0,4 mL injectés à 120 °C).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit par les auteurs : Cs2CO3 est hygroscopique et irritant ; dégagement gazeux sous vide (piège froid, montée progressive du vide) ; ballon à 120 °C sous vide puis sous N2.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Neutralisation acide-base : Cs2CO3 + 2 C17H33COOH → 2 C17H33COOCs + H2O + CO2 ; le vide à 120 °C élimine l'eau et le CO2, ce qui rend la réaction totale. L'oléate de césium, soluble à chaud dans l'ODE, est la source de Cs+ de l'injection à chaud.",
+    "sources": [{"title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I)", "authors_or_publisher": "Protesescu L. et al. (Nano Letters)", "year": "2015", "url_or_doi": "10.1021/nl5048779"}]
+   },
+   "what_to_verify_before_repeating": [
+    "durée du chauffage à 120 °C sous vide (non donnée) : attendre la fin du dégagement gazeux et une solution limpide, ou finir à 150 °C sous N2 comme Protesescu",
+    "réchauffer l'oléate de césium avant de le prélever (il précipite à froid)"
+   ]
+  },
+  {
+   "label": "CsPbBr3_NC",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de PbBr2 telles qu'écrites (0,69 mg)",
+     "inputs": "0,69 mg PbBr2 ; M(PbBr2) = 207,2 + 2×79,904 = 367,01 g/mol ; 5 mL ODE",
+     "formula": "n = m/M ; c = n/V",
+     "result": "n(Pb) = 1,88 µmol ; n(Br) = 3,76 µmol ; c ≈ 0,38 mmol/L",
+     "compared_to": "Protesescu 2015 : 0,069 g PbBr2 (0,188 mmol) dans 5 mL ODE, soit 100 fois plus",
+     "source": "masses atomiques IUPAC ; Protesescu 2015"
+    },
+    {
+     "what": "moles de Cs injectées",
+     "inputs": "0,4 mL d'oléate de césium à ≈ 0,118 mol/L (voie Cs_oleate)",
+     "formula": "n = c·V",
+     "result": "n(Cs) ≈ 47 µmol",
+     "compared_to": "Protesescu 2015 : 0,4 mL à 0,125 M = 50 µmol",
+     "source": "calcul"
+    },
+    {
+     "what": "rapport Pb/Cs et produit maximal selon la masse de PbBr2",
+     "inputs": "cas écrit : 1,88 µmol Pb, 3,76 µmol Br ; cas Protesescu : 188 µmol Pb, 376 µmol Br ; 47 µmol Cs ; M(CsPbBr3) = 579,82 g/mol",
+     "formula": "Pb/Cs ; n(CsPbBr3)max = min(n(Cs), n(Pb), n(Br)/3) ; m = n·M",
+     "result": "écrit : Pb/Cs = 0,04 (Cs 25 fois en excès), Br/Pb = 2 < 3, CsPbBr3 ≤ 1,25 µmol = 0,73 mg ; Protesescu : Pb/Cs = 4, CsPbBr3 ≤ 47 µmol = 27 mg (Cs limitant)",
+     "compared_to": "CsPbBr3 exige Cs:Pb:Br = 1:1:3 ; un fort excès de Cs favorise Cs4PbBr6 (Palazon 2017)",
+     "source": "calcul ; Protesescu 2015"
+    },
+    {
+     "what": "masse de nanocristaux nécessaire aux couches actives",
+     "inputs": "40 mg/mL au total, rapport massique 100:1:X",
+     "formula": "c(NC) = 40·X/(101+X)",
+     "result": "X = 2 : 0,78 mg/mL ; X = 6 : 2,24 mg/mL ; X = 10 : 3,60 mg/mL",
+     "compared_to": "0,73 mg au plus par synthèse si 0,69 mg PbBr2 : insuffisant pour 1 mL de solution 100:1:6, a fortiori pour la série complète et les films de GIXD",
+     "source": "calcul"
+    },
+    {
+     "what": "ligands par plomb",
+     "inputs": "0,5 mL OA (0,887 g/mL, 90 %) ; 0,5 mL OAm (0,813 g/mL, M = 267,49) ; Pb 188 µmol (Protesescu) ou 1,88 µmol (écrit)",
+     "formula": "n = V·ρ·pureté/M ; n(ligand)/n(Pb)",
+     "result": "OA ≈ 1,41 mmol ; OAm ≈ 1,37 mmol (pureté 90 % déclarée) ; OA/Pb ≈ 7,5 (Protesescu) ou ≈ 750 (écrit)",
+     "compared_to": "OA/OAm ≈ 1:1, rapport standard qui donne des cubes (Almeida 2018)",
+     "source": "fiches Sigma-Aldrich 364525 (OA) et O7805 (OAm) ; calcul"
+    },
+    {
+     "what": "nombre de charges correspondant à 84 µC/cm²",
+     "inputs": "Q = 84 µC/cm² ; e = 1,602×10⁻¹⁹ C ; maille pseudo-cubique de CsPbBr3 a ≈ 5,87 Å",
+     "formula": "N = Q/e ; densité de faces de maille = 1/a²",
+     "result": "N ≈ 5,2×10¹⁴ charges/cm², contre 2,9×10¹⁴ faces de maille par cm² : près de deux monocouches ioniques complètes par cm² d'électrode",
+     "compared_to": "densités d'ions mobiles mesurées par courants transitoires de l'ordre de 10¹⁵ cm⁻³ dans MAPbBr3 (≈ 10¹⁰ cm⁻² pour 100 nm)",
+     "source": "calcul ; constantes CODATA ; AMOLF / Advanced Electronic Materials 2024"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "0,69 mg de PbBr2 est incompatible avec le reste du protocole (calculs « rapport Pb/Cs et produit maximal selon la masse de PbBr2 » et « masse de nanocristaux nécessaire aux couches actives ») : Cs serait 25 fois en excès et le brome insuffisant (Br/Pb = 2), ce qui oriente vers Cs4PbBr6 ou un produit sous-stœchiométrique en Br, et une synthèse donnerait au plus 0,73 mg de CsPbBr3, moins que ce qu'exige 1 mL d'une seule solution 100:1:6. Toutes les autres quantités (5 mL ODE, 0,5 mL OA, 0,5 mL OAm, 0,4 mL de Cs-oléate, 170 °C, 5 s) sont celles de Protesescu et al., qui utilisent 0,069 g (0,188 mmol). Il s'agit très probablement d'une erreur d'unité ou d'un facteur 100 des auteurs ; peser 0,69 mg sur une balance analytique (± 0,1 mg) serait d'ailleurs imprécis à 15 %.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {"title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I): Novel Optoelectronic Materials Showing Bright Emission with Wide Color Gamut", "authors_or_publisher": "Protesescu L. et al. (Nano Letters)", "year": "2015", "url_or_doi": "10.1021/nl5048779"}
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Avec 0,069 g (lecture Protesescu), Pb/Cs = 4 et Br/Cs = 8 : le césium est limitant et l'excès de PbBr2 et de bromure maintient la phase CsPbBr3 plutôt que Cs4PbBr6, qui apparaît quand Cs ou l'amine sont en excès. L'excès de plomb non réagi (≈ 75 %) est éliminé au lavage.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "Ligand-Mediated Transformation of Cesium Lead Bromide Perovskite Nanocrystals to Lead Depleted Cs4PbBr6 Nanocrystals", "authors_or_publisher": "Palazon F. et al. (Journal of the American Chemical Society)", "year": "2017", "url_or_doi": "10.1021/jacs.7b01409"}
+    },
+    {
+     "aspect": "thermique",
+     "finding": "ODE (point d'ébullition ≈ 315 °C) à 120 °C sous vide puis 170 °C sous N2 : compatible. Injection à 170 °C pendant 5 s puis bain de glace : protocole classique d'injection à chaud ; Protesescu obtient des cubes de 4 à 15 nm en faisant varier la température de 140 à 200 °C, donc une taille intermédiaire est attendue ici, mais l'article ne donne ni taille ni spectre en texte (figure S12 absente).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Nanocrystals of Cesium Lead Halide Perovskites (CsPbX3, X = Cl, Br, and I)", "authors_or_publisher": "Protesescu L. et al. (Nano Letters)", "year": "2015", "url_or_doi": "10.1021/nl5048779"}
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "PbBr2 est peu soluble dans l'ODE seul ; il se dissout après ajout d'OA et d'OAm à 120 °C (complexes oléate/oléylammonium-bromoplombate). À 37,6 mmol/L (lecture Protesescu), c'est la concentration standard ; l'ordre « PbBr2 + ODE séché 1 h sous vide, puis ligands » est cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Purification : antisolvant acétate de méthyle (10 mL pour ≈ 6,4 mL de brut, puis 3 mL pour 1,5 mL d'hexane), centrifugation 8500 rpm à 5 °C, puis redispersion dans l'hexane et dernière centrifugation dont on garde le surnageant : schéma classique qui retire l'excès de ligands et les gros agrégats. L'acétate de méthyle est l'antisolvant employé pour les boîtes CsPbI3 ; mais les ligands OA/OAm de CsPbBr3 sont très dynamiques et des lavages répétés peuvent les arracher et faire agréger les nanocristaux. Ni la masse finale, ni la concentration de la dispersion, ni la façon de passer de l'hexane au DCB (figure S12 : « DCB-diluted ») ne sont données ; or le rapport massique 100:1:X des couches actives suppose une masse de nanocristaux connue (séchage et pesée, ou dosage par absorbance), avec ou sans ligands.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Highly Dynamic Ligand Binding and Light Absorption Coefficient of Cesium Lead Bromide Perovskite Nanocrystals", "authors_or_publisher": "De Roo J. et al. (ACS Nano)", "year": "2016", "url_or_doi": "10.1021/acsnano.5b06295"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La densité de charge d'interface ≈ 84 µC/cm² mesurée sur le dispositif à trous seuls ITO/PEDOT:PSS/CsPbBr3 NC/MoO3/Ag correspond à ≈ 5,2×10¹⁴ charges/cm² (calcul « nombre de charges correspondant à 84 µC/cm² »), soit près de deux monocouches ioniques complètes, alors que les densités d'ions mobiles mesurées par courants transitoires dans les pérovskites bromées sont de l'ordre de 10¹⁵ cm⁻³. La valeur est plus élevée que la polarisation rémanente de ferroélectriques classiques ; l'intégration d'un courant transitoire ne distingue pas les ions migrants d'une charge capacitive, de réactions électrochimiques aux électrodes ou du remplissage de pièges électroniques. Ni l'épaisseur du film de nanocristaux ni le mode d'intégration ne sont donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Ion migration and space charge zones in metal halide perovskites through short circuit transient current and numerical simulations", "authors_or_publisher": "AMOLF (page de publication) ; Advanced Electronic Materials, Wiley", "year": "2024", "url_or_doi": "https://amolf.nl/publications/ion-migration-and-space-charge-zones-in-metal-halide-perovskites-through-short-circuit-transient-current-and-numerical-simulations"}
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit par les auteurs : PbBr2 et nanocristaux au plomb toxiques (reprotoxiques), déchets à part ; injection d'une seringue de liquide à 120 °C dans un ballon à 170 °C ; acétate de méthyle (point d'ébullition ≈ 57 °C) et hexane (≈ 69 °C) très inflammables ; oléylamine corrosive.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Injection à chaud de type LaMer : l'oléate de césium injecté dans la solution sursaturée de bromoplombates (PbBr2 solubilisé par OA/oléylammonium) provoque une nucléation en rafale de CsPbBr3 (Cs+ + PbBr3− → CsPbBr3), le césium étant le réactif limitant ; la croissance, très rapide (quelques secondes), est arrêtée par la trempe à la glace, et la taille est fixée surtout par la température (≈ 4–15 nm sur 140–200 °C). Le rapport OA/OAm ≈ 1:1 et l'équilibre acide-base oléate/oléylammonium donnent des cubes ; à température ambiante la phase est orthorhombique (Pnma) et non cubique, contrairement à ce qu'on lit souvent.",
+    "sources": [
+     {"title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols", "authors_or_publisher": "LaMer V. K., Dinegar R. H. (JACS)", "year": "1950", "url_or_doi": "10.1021/ja01167a001"},
+     {"title": "Role of Acid–Base Equilibria in the Size, Shape, and Phase Control of Cesium Lead Bromide Nanocrystals", "authors_or_publisher": "Almeida G. et al. (ACS Nano)", "year": "2018", "url_or_doi": "10.1021/acsnano.7b08357"},
+     {"title": "On the crystal structure of colloidally prepared CsPbBr3 quantum dots", "authors_or_publisher": "Cottingham P., Brutchey R. L. (Chem. Commun.)", "year": "2016", "url_or_doi": "10.1039/c6cc01088a"}
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de PbBr2 : 0,69 mg est très probablement 0,069 g (0,188 mmol, recette Protesescu) ; à confirmer auprès des auteurs",
+    "pureté de l'oléylamine : « 90 % » n'est pas un grade courant chez Sigma-Aldrich (70 % technique ou ≥ 98 %) ; l'impureté de l'amine change l'équilibre acide-base",
+    "taille, phase et concentration des nanocristaux (figure S12 absente du dépôt) ; méthode de passage de l'hexane au DCB et de pesée des nanocristaux pour le rapport 100:1:X",
+    "ligands résiduels après les deux lavages à l'acétate de méthyle (masse de ligands comptée ou non dans X)"
+   ]
+  },
+  {
+   "label": "Film_100:1:0",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "vecteurs de diffusion des pics de P3HT",
+     "inputs": "d(100) = 16,1 Å ; d(010) = 3,83 Å (tableau 1)",
+     "formula": "q = 2π/d",
+     "result": "q(100) = 0,390 Å⁻¹ ; q(010) = 1,640 Å⁻¹",
+     "compared_to": "P3HT : lamelles ≈ 1,6 nm (q ≈ 0,4 Å⁻¹), π–π ≈ 0,38–0,39 nm (q ≈ 1,6 Å⁻¹)",
+     "source": "calcul ; GISAXS wiki « P3HT »"
+    },
+    {
+     "what": "largeur de pic impliquée par g(010) = 5,5 %",
+     "inputs": "g = 0,055 ; q0 = 1,640 Å⁻¹ ; équation (2) lue comme g = √(Δq/(2π q0)) (racine perdue à l'extraction du texte)",
+     "formula": "Δq = g²·2π·q0",
+     "result": "Δq ≈ 0,031 Å⁻¹",
+     "compared_to": "largeur plausible pour l'empilement π–π d'un P3HT recuit",
+     "source": "calcul"
+    },
+    {
+     "what": "fraction massique de nanocristaux dans les branches",
+     "inputs": "rapport 100:1:X, X = 2 à 10",
+     "formula": "w = X/(101+X)",
+     "result": "X = 2 : 1,9 % ; X = 6 : 5,6 % ; X = 10 : 9,0 % en masse",
+     "compared_to": "faible fraction volumique (CsPbBr3 ≈ 4,5 fois plus dense que le P3HT), compatible avec une cristallinité presque inchangée jusqu'à X = 6",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Espacement lamellaire 16,0–16,2 Å et π–π 3,83–3,84 Å (tableau 1) : valeurs typiques du P3HT régiorégulier semi-cristallin (calcul « vecteurs de diffusion des pics de P3HT »). Le texte écrit « ≈ 16 et 3.84 Å », arrondi compatible.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "P3HT", "authors_or_publisher": "GISAXS wiki (gisaxs.com, K. Yager)", "year": "s.d.", "url_or_doi": "https://gisaxs.com/index.php/P3HT"}
+    },
+    {
+     "aspect": "thermique",
+     "finding": "PFN–Br recuit à 140 °C, couche active recuite à 150 °C 10 min sous N2 : bien en dessous de la fusion du P3HT (≈ 205–230 °C), recuit standard des mélanges P3HT:PCBM ; le DCB (point d'ébullition ≈ 180 °C) est éliminé. Mais 150 °C dépasse les transitions orthorhombique → tétragonale (≈ 88 °C) et → cubique (≈ 130 °C) de CsPbBr3 : réversibles, elles ne posent pas de problème de phase, mais à cette température les ligands OA/OAm labiles peuvent se désorber et les nanocristaux s'agréger ou coalescer dans la matrice. L'état des nanocristaux après recuit n'est montré qu'indirectement (GIXD d'un film de NC seul, figure S2 ; coupes TEM figure S10 où les NC ne sont pas commentés).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Cell refinement of CsPbBr3 perovskite nanoparticles and thin films", "authors_or_publisher": "Tenailleau C., Aharon S., Cohen B.-E., Etgar L. (Nanoscale Advances)", "year": "2019", "url_or_doi": "10.1039/c8na00122g"}
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La concentration des solutions des films de GIXD n'est pas donnée (40 mg/mL seulement pour les diodes, « except for the total concentration ») : l'épaisseur et donc la cristallinité des films de GIXD peuvent différer de celles des couches actives des diodes ; la comparaison morphologie/performances repose sur l'hypothèse que les films sont équivalents.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : 1,2-dichlorobenzène toxique (hotte, boîte à gants), plasma O2, méthanol inflammable et toxique ; nanocristaux au plomb dans la solution.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dépôt à la tournette d'un mélange P3HT:PC71BM très riche en donneur (100:1) puis recuit à 150 °C : cristallisation du P3HT en lamelles (≈ 16 Å) avec empilement π–π (≈ 3,8 Å) ; le PC71BM, très minoritaire, forme des domaines isolés qui piègent les électrons. Les nanocristaux, en fraction massique ≤ 9 %, perturbent l'empilement π–π au-delà de X = 6 (hausse de g(010)) par interaction des ligands aliphatiques avec les chaînes hexyle, comme le disent les auteurs.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "concentration et température de dissolution de la solution des films de GIXD",
+    "solvant de la dispersion de nanocristaux ajoutée au DCB (hexane résiduel ou non)",
+    "durées de rotation, puissance et durée du plasma O2"
+   ]
+  },
+  {
+   "label": "PMOPD_100:1:0",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "polarisation des courants illuminés",
+     "inputs": "J = 1,61×10⁻³ … 1,15×10⁻³ A/cm² sous 520 nm et 1,24×10⁻⁵ W/cm² ; hc/q = 1239,84 nm·V",
+     "formula": "R = J/P ; EQE = R·1239,84/λ",
+     "result": "EQE ≈ 30 960 %, 33 840 %, 37 300 %, 42 880 %, 29 030 %, 22 110 % pour X = 0, 2, 4, 6, 8, 10",
+     "compared_to": "EQE à −5 V du tableau 2 : 30 800, 33 700, 37 100, 42 500, 28 800, 22 000 % (écart < 1,1 %) : les courants illuminés ont été mesurés à −5 V",
+     "source": "calcul ; constantes CODATA"
+    },
+    {
+     "what": "puissance équivalente de bruit par unité de surface et détectivité",
+     "inputs": "NEP = 1,30×10⁻¹⁶ W Hz⁻⁰·⁵ ; A = 0,09 cm²",
+     "formula": "P_NEP = NEP/A ; D* = √A/NEP",
+     "result": "P_NEP = 1,44×10⁻¹⁵ W cm⁻² (Hz⁻⁰·⁵) ; D* = 2,31×10¹⁵ Jones",
+     "compared_to": "article : 1,45×10⁻¹⁵ W cm⁻² et 2,30×10¹⁵ Jones",
+     "source": "calcul"
+    },
+    {
+     "what": "plage dynamique linéaire sans nanocristaux",
+     "inputs": "P_max = 1,24×10⁻⁴ W/cm² ; P_NEP = 1,45×10⁻¹⁵ W/cm²",
+     "formula": "LDR = 20 log10(P_max/P_NEP)",
+     "result": "218,6 dB",
+     "compared_to": "article : 219 dB",
+     "source": "calcul"
+    },
+    {
+     "what": "barrières de Schottky contre travaux de sortie de Table S1",
+     "inputs": "HOMO du P3HT 5,20 eV ; travail de sortie de la cathode 4,487 (obscurité) et 4,852 eV (éclairé)",
+     "formula": "φB = HOMO − W",
+     "result": "0,713 et 0,348 eV",
+     "compared_to": "φB du texte : 0,713/0,348 eV (identiques ; les travaux de sortie sont tirés des φB)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "largeur de bande à partir du produit gain-bande passante",
+     "inputs": "G·B = 1,76×10⁷ Hz ; EQE de pic à −20 V = 2 000 000 % (G = 20 000)",
+     "formula": "B = G·B/G",
+     "result": "B = 880 Hz",
+     "compared_to": "« 879 dB » dans le texte : l'unité est le hertz, pas le décibel",
+     "source": "calcul"
+    },
+    {
+     "what": "temps de vie contre bande passante",
+     "inputs": "τ = 319,7 µs (sans NC) et 415,6 µs (100:1:6)",
+     "formula": "f = 1/(2πτ) ; rapport des τ",
+     "result": "f ≈ 498 et 383 Hz ; τ(6)/τ(0) = 1,30",
+     "compared_to": "bandes passantes 879 et 775 Hz (rapport 1,13) : même ordre de grandeur, pas de proportionnalité stricte (mesures différentes : transitoire à 50 Hz contre diagramme de Bode)",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les courants illuminés sont donnés sans tension ; le calcul « polarisation des courants illuminés » montre qu'ils correspondent exactement aux EQE à −5 V du tableau 2, la même polarisation que les courants d'obscurité. Cohérent, mais à écrire.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "D* = √A/NEP et P_NEP = NEP/A sont recalculés à 0,5 % près, et LDR = 218,6 dB ≈ 219 dB (calculs « puissance équivalente de bruit… » et « plage dynamique linéaire sans nanocristaux ») : grandeurs internes cohérentes. La LDR utilise P_NEP extrapolée comme borne basse et non une mesure de linéarité jusqu'à 10⁻¹⁵ W/cm² : 219 dB est une limite calculée, pas une plage mesurée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Largeur de bande « 879 dB » : le produit G·B = 1,76×10⁷ Hz divisé par le gain (20 000) donne 880 Hz (calcul « largeur de bande à partir du produit gain-bande passante ») ; l'unité correcte est le hertz (bande passante à −3 dB). Erreur d'unité des auteurs.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Évaporation thermique de MoO3 (30 nm) et Ag (100 nm) à ≈ 5×10⁻⁶ torr, PFN–Br à 140 °C, recuit à 150 °C sous N2 : architecture inversée standard (cathode ITO/PFN–Br, anode MoO3/Ag de travail de sortie 5,0 eV proche du HOMO du P3HT à 5,2 eV). Couche de 185 nm à 1000 rpm depuis 40 mg/mL de DCB : ordre de grandeur plausible.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les EQE de 10⁶ % sont mesurés avec une lampe Xe et un monochromateur dont l'éclairement n'est pas donné ; dans une photodiode à photomultiplication le gain dépend fortement de l'intensité lumineuse, donc les EQE du tableau 2 et la comparaison avec le tableau 3 ne sont reproductibles qu'avec la puissance incidente du montage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Photomultiplication par injection assistée par pièges : les électrons photogénérés restent piégés dans les domaines isolés de PC71BM (1 % en masse) près de la cathode ITO/PFN–Br ; leur charge courbe les bandes et amincit la barrière de Schottky pour les trous (φB 0,713 → 0,348 eV sous éclairement), d'où une injection de nombreux trous par photon absorbé (gain = τ_r/τ_transit).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durées de rotation, volume de solution et traitement éventuel de l'ITO avant PFN–Br",
+    "puissance incidente lors des mesures d'EQE",
+    "vitesse d'évaporation de MoO3 et Ag"
+   ]
+  },
+  {
+   "label": "PMOPD_100:1:6",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "plage dynamique linéaire avec nanocristaux",
+     "inputs": "P_max = 1,24×10⁻⁵ W/cm² ; P_NEP = 8,40×10⁻¹⁶ W/cm²",
+     "formula": "LDR = 20 log10(P_max/P_NEP)",
+     "result": "203,4 dB",
+     "compared_to": "article : 213 dB ; il faudrait P_max = 3,75×10⁻⁵ W/cm² pour 213 dB",
+     "source": "calcul"
+    },
+    {
+     "what": "détectivité avec nanocristaux",
+     "inputs": "NEP = 7,56×10⁻¹⁷ W Hz⁻⁰·⁵ ; A = 0,09 cm²",
+     "formula": "D* = √A/NEP ; P_NEP = NEP/A",
+     "result": "D* = 3,97×10¹⁵ Jones ; P_NEP = 8,40×10⁻¹⁶ W cm⁻²",
+     "compared_to": "article : 3,97×10¹⁵ Jones et 8,40×10⁻¹⁶ W cm⁻²",
+     "source": "calcul"
+    },
+    {
+     "what": "produit gain-bande passante",
+     "inputs": "EQE à −20 V = 2 840 000 % (G = 28 400) ; bande passante 775 (Hz)",
+     "formula": "G·B",
+     "result": "2,20×10⁷ Hz",
+     "compared_to": "article : 2,14×10⁷ Hz (écart 3 %) ; confirme que « 775 dB » est en Hz",
+     "source": "calcul"
+    },
+    {
+     "what": "photocourant à −20 V contre limite de charge d'espace",
+     "inputs": "EQE 2,84×10⁶ % à 520 nm ; P = 1,24×10⁻⁵ W/cm² ; L = 185 nm ; εr = 2,7 ; μh = 10⁻⁴ cm² V⁻¹ s⁻¹ (Table S1) ; V = 20 V",
+     "formula": "R = EQE·λ/1239,84 ; Jph = R·P ; J_SCLC = (9/8) ε0 εr μ V²/L³",
+     "result": "R ≈ 11 900 A/W ; Jph ≈ 0,148 A/cm² (13 mA sur 0,09 cm²) ; J_SCLC ≈ 1,7 A/cm²",
+     "compared_to": "Jph < J_SCLC : un tel gain est physiquement possible avec la mobilité des trous retenue",
+     "source": "calcul ; constantes CODATA ; Table S1"
+    },
+    {
+     "what": "barrières de Schottky contre travaux de sortie de Table S1",
+     "inputs": "HOMO 5,20 eV ; W = 4,491 (obscurité) et 4,899 eV (éclairé)",
+     "formula": "φB = HOMO − W",
+     "result": "0,709 et 0,301 eV",
+     "compared_to": "texte : 0,709/0,301 eV",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "gain attendu de l'allongement du temps de vie",
+     "inputs": "τ : 319,7 → 415,6 µs ; EQE à −20 V : 2 000 000 → 2 840 000 %",
+     "formula": "rapports",
+     "result": "τ × 1,30 ; EQE × 1,42",
+     "compared_to": "les auteurs écrivent eux-mêmes que + 30 % de durée de vie n'explique pas tout le gain",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "LDR de la diode 100:1:6 : avec les valeurs mêmes de l'article (P_max = 1,24×10⁻⁵ W/cm², P_NEP = 8,40×10⁻¹⁶ W/cm²) et l'équation (8), on obtient 203 dB et non 213 dB (calcul « plage dynamique linéaire avec nanocristaux ») ; le même calcul redonne bien 219 dB pour la diode sans NC. Erreur de calcul ou de recopie des auteurs ; la Conclusion aggrave la confusion en attribuant « 219 dB » et une NEP de « 7.56 × 10⁻¹⁷ W cm⁻² » (au lieu de W Hz⁻⁰·⁵) aux diodes hybrides.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Largeur de bande « 775 dB » : G·B / G = 754 Hz et G × 775 Hz = 2,20×10⁷ Hz ≈ 2,14×10⁷ Hz (calcul « produit gain-bande passante ») : l'unité est le hertz. Même erreur d'unité que pour la diode sans NC.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "D*, P_NEP, φB et le photocourant sont cohérents entre eux (calculs « détectivité avec nanocristaux », « barrières de Schottky… », « photocourant à −20 V contre limite de charge d'espace ») ; un D* de 4×10¹⁵ Jones mesuré avec le bruit réel reste exceptionnel (les auteurs le disent record). Les incohérences mineures relevées ailleurs : « EQE spectra (Figure 2) » au lieu de la figure 3 ; légende de la figure 4b « NC-free and NC-free » ; simulation (Table S1) faite à 550 nm et 3,80×10⁻⁶ W/cm² alors que les mesures R–V qu'elle ajuste sont à 520 nm et 1,24×10⁻⁵ W/cm², sans explication ; mobilités dites « reprises de la littérature » dans le texte de l'annexe mais « based on SCLC analyses » dans Table S1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin insuffisant : la seule référence est la diode sans rien ajouter (100:1:0). La dispersion de nanocristaux apporte aussi des ligands OA/OAm (oléate, oléylammonium), éventuellement du bromure d'oléylammonium et des complexes de PbBr2 non éliminés, et des traces d'hexane ; ces espèces ioniques mobiles pourraient à elles seules produire une double couche électrique comparable à celle du PFN–Br que les auteurs ont déjà utilisée. Il faudrait un témoin « ligands seuls » (même masse de ligands lavés, ou surnageant de lavage) et un témoin de nanocristaux non polarisables de même taille et mêmes ligands. La mesure de 84 µC/cm² est faite sur un film de NC pur, pas dans le mélange à 5,6 % en masse ; elle ne prouve pas la polarisation des NC dispersés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire : un nanocristal neutre « polarisé » par un champ porte un dipôle (Cs+/Pb2+ d'un côté, Br− ou lacunes de l'autre), pas une charge nette positive ; l'attraction nette des électrons piégés exige une séparation de charge à l'échelle du film (accumulation d'ions de signes opposés près des électrodes) ou une perte de Br− par les NC. L'article parle de « positively polarized CsPbBr3 NCs » sans dire lequel ; la hausse de profondeur effective de piège (0,614 → 0,699 eV) vient d'un ajustement de simulation avec un seul niveau de piège, non d'une mesure directe, et l'admittance thermique (figure S11) donne des densités de pièges comparables.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le gain supplémentaire est compatible avec un renforcement de la courbure de bande près de la cathode par des charges ioniques mobiles réparties dans la couche active, ce qui abaisse la barrière d'injection des trous sous éclairement (0,348 → 0,301 eV). Ces charges peuvent venir de la migration d'ions des nanocristaux CsPbBr3 sous −20 V (hypothèse des auteurs), mais aussi des ligands ioniques (oléylammonium/oléate, bromure) apportés avec eux ; les données ne départagent pas ces deux origines. La baisse au-delà de 100:1:6 suit la perte de cristallinité du P3HT (hausse de g(010)), plausible.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "LDR de la diode hybride (203 dB selon les valeurs publiées, 213 dB dans le texte, 219 dB dans la Conclusion)",
+    "unité des bandes passantes (Hz, pas dB)",
+    "témoin ligands seuls ou surnageant de lavage ajouté à 100:1:0",
+    "dépendance de l'EQE à l'intensité lumineuse et durée de polarisation avant mesure (la migration d'ions est lente)"
+   ]
+  },
+  {
+   "label": "PMOPD_F8T2_100:1:6",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rapport d'amélioration de l'EQE avec F8T2",
+     "inputs": "EQE 10 300 % (sans NC) et 23 000 % (100:1:6)",
+     "formula": "rapport",
+     "result": "× 2,23",
+     "compared_to": "× 1,42 avec P3HT à −20 V",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le protocole des diodes au F8T2 n'est pas décrit (fournisseur, masse molaire, solvant, concentration, recuit, épaisseur) ; on ne sait pas si le recuit à 150 °C, adapté au P3HT, a été conservé pour le F8T2, polymère cristallin-liquide aux transitions différentes. L'amélioration × 2,2 ne peut pas être reproduite ni jugée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même schéma que pour le P3HT (piégeage des électrons dans le PC71BM minoritaire, injection de trous assistée), avec l'effet des nanocristaux ou de leurs ligands ; non vérifiable faute de protocole.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "protocole complet des diodes au F8T2 (absent de l'article et de l'annexe)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse des nanocristaux est la recette d'injection à chaud de Protesescu et al. (2015) reprise à l'identique, sauf la masse de PbBr2 écrite 0,69 mg au lieu de 0,069 g : telle qu'écrite, elle mettrait le césium 25 fois en excès, manquerait de brome et ne fournirait pas assez de nanocristaux pour les couches actives. Les films et diodes suivent une architecture inversée standard ; leurs grandeurs dérivées (D*, P_NEP, φB, EQE à −5 V) se recalculent à 1 % près, mais la LDR de la diode hybride (213 dB annoncés, 203 dB recalculés) et l'unité des bandes passantes (dB au lieu de Hz) sont fausses. Le mécanisme de polarisation ionique des nanocristaux n'est pas séparé d'un effet des ligands ioniques apportés avec eux, faute de témoin.",
+  "author_errors_suspected": [
+   "PbBr2 « 0.69 mg » au lieu de 0,069 g (facteur 100) dans la synthèse des nanocristaux",
+   "LDR de la diode 100:1:6 : 213 dB annoncés, 203 dB avec les P_max et P_NEP publiés",
+   "bandes passantes 879 et 775 « dB » : unité hertz (confirmé par G·B / G)",
+   "Conclusion : LDR « 219 dB » et NEP « 7.56 × 10⁻¹⁷ W cm⁻² » attribuées aux diodes hybrides (valeur de la diode sans NC ; unité W Hz⁻⁰·⁵ dans les Résultats)",
+   "renvoi « EQE spectra (Figure 2) » au lieu de la figure 3 ; légende 4b « NC-free and NC-free »",
+   "simulation à 550 nm et 3,80×10⁻⁶ W/cm² pour ajuster des mesures à 520 nm et 1,24×10⁻⁵ W/cm²"
+  ],
+  "comparison_with_database": "compare.py « CsPbBr3 » : PMC7184584 prépare aussi l'oléate de césium à 120 °C sous vide (2 h) et injecte à 130 °C en microfluidique ; PMC5122874, PMC6409700 et PMC7578857 sont des précipitations à température ambiante (LARP, antisolvant). L'injection à 170 °C pendant 5 s de PMC10870029 est dans la gamme de Protesescu (140–200 °C) ; aucune valeur éloignée sauf la masse de PbBr2."
+ },
+ "sources_not_found": [
+  "texte intégral de Protesescu 2015 non ouvert (accès réseau refusé) : les quantités 0,814 g Cs2CO3/40 mL ODE/2,5 mL OA et 0,069 g PbBr2 (0,188 mmol)/5 mL ODE/0,5 mL OA/0,5 mL OAm/0,4 mL de Cs-oléate 0,125 M sont citées de mémoire et corroborées par des extraits de recherche reprenant la recette (0,069 g = 0,188 mmol, injection de 0,4 mL à 170 °C), à confirmer",
+  "aucune source trouvée donnant des densités de charge ionique surfacique (µC/cm²) mesurées par intégration de courant transitoire sur des films de nanocristaux CsPbBr3",
+  "aucune source cherchée pour un témoin ligands seuls dans des photodiodes organiques à nanocristaux de pérovskite"
+ ]
+}

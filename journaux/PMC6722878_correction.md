@@ -1,0 +1,15 @@
+# Journal de correction PMC6722878
+
+- Constat 1 (dégradation par N-EM) : outcome qualitatif `stability_in_N-ethylmorpholine_solution` sur la voie UiO-66, `value_text` = mots de l'article (« UiO-66 particles were degraded by co-catalyst (N-EM) »), citation de la phrase de 3.3 ; caractérisation PXRD ajoutée avec la légende de la Fig. S2 (0,45 mol/L, 24 h) ; entrée d'inventaire de route UiO-66 ; annotation `tendance_observee` sur le ralentissement après 6 h (citation « The decrease in the MPO conversion rate… pH = 12 »).
+- Constat 2 (constantes k, Fig. S4) : rejeté comme valeurs. Les cinq k sont imprimés dans un ordre non monotone (0,0032 ; 0,00232 ; 0,00133 ; 0,00161 ; 0,000086) sans lien explicite avec les films, et sans unité ; l'attribution par ordre croissant serait une déduction. Valeurs et ordre consignés dans l'annotation `limite_reproductibilite` sur l'annexe.
+- Constat 3 : les trois essais de gélification deviennent des voies de base indépendantes (parent null, variation supprimée), avec UiO-66 en réactif `amount` non cité ; pas de MEK ni de 10 wt.% (le texte ne les donne pas pour ces essais). Doute ajouté. Le critique proposait un `value_text` « not stated for this test » : non repris (note, pas un mot de l'article).
+- Constat 4 : étape 15 de DSPD1 « dry » 48 h à température ambiante, citée de la légende de la Fig. 2 (seul texte qui décrit un séchage de film DSPD) ; la méthode de dépôt reste non citée, doute précisant que l'étape ne vaut que pour les films de la Fig. 2. Les 150 μm pulvérisés ne sont pas attribués aux films de traction (0,25 mm). Les branches DSPD2 à 4 en héritent.
+- Constat 5 : `peel_strength_glass_without_glycerol` ajouté à `not_stated` de 6,5 et 15,3 wt.% ; la phrase de conclusion (« difficult to peel off… ») est qualitative et générale, non citée comme valeur ; doute ajouté.
+- Constat 6 (Fig. 10) : lu sur l'image, 7 points ajoutés (MPO : 0,5 / 3 / 10 min ; eau : 0,5 / 1 / 3 / 10 min), `from_figure` + légende ; les points existants concordent.
+- Constat 7 (Fig. 7) : accepté, valeurs à 6 h et 12 h lues sur l'image pour les quatre films et le film nu (4 et 6,5 %).
+- Constat 8 : étape 6 scindée en `cool` (40 °C) et `add` (acétone 200 mL) ; étapes suivantes renumérotées ; doute « étapes 3, 5, 10, 11 » mis à jour en 3, 5, 11, 12.
+- Constat 9 : `fill_fraction` retiré de `not_stated`, paramètre en `value_text` « DMF (6 L) in a 10 L bottle » (citation « dissolved in DMF (6 L) in a 10 L bottle ») ; le ≈ 61 % calculé n'est que dans l'annotation de reproductibilité.
+- Constat 10 : annotation `resume` reformulée (2,5 et 4,9 % ne gélifient pas ; seul 2,5 % a servi aux films).
+- Constat 11 : ZrCl4 ajouté à `securite_analyse`.
+- Science : HCl (0,86 mol / 94,94 mL), rendement 58 % et pH 12 vs N-EM 0,45 mol/L en annotations `limite_reproductibilite` (aucune valeur modifiée) ; Katz et al. 2015 nommé sans DOI ; réserves regroupées en une annotation brève ; `mecanisme_analyse` en hypothèse pour UiO66+DSPD3_gelled.
+- Non appliqué : conditions de l'essai MPO renvoyées à B3 : `method_sources` déjà présent (B3, deux rôles), rien à ajouter.

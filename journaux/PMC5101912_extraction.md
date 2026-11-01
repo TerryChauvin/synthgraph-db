@@ -1,0 +1,17 @@
+# Journal d'extraction PMC5101912 (Au-RGO)
+
+- Découpage : voie de base Au-RGO (photoréduction UV de l'acétate d'or dans GO / 2-propanol), branche RGO (témoin « without using metal salts ») et voie `device` Filtre_Au-RGO (10 mg d'Au-RGO sur filtre 0,22 μm). Le GO n'est pas une voie : sa synthèse est renvoyée à un travail antérieur (CIT0032) sans détail, il entre comme réactif de départ (précurseur, 1 mg ml–1) et figure dans `method_sources` (protocole_complet).
+- RGO : l'article dit « similar procedure », pas « same ». Je n'ai pas hérité des étapes d'Au-RGO (règle sur l'héritage non fondé) : étapes propres sans dissolution du sel d'or, durées et températures en `not_stated`. La désoxygénation sous N2 est liée dans l'article à l'ajout de l'acétate d'or ; je ne l'ai pas reprise pour RGO (doute noté).
+- Séries de pH (2 à 10), de température (20 à 60 °C) et de colorants : conditions d'essai du matériau fini, donc `outcomes` de la voie Au-RGO et non branches (règle « tests du matériau fini »). Elles figurent dans `sample_inventory` avec la voie Au-RGO et la raison.
+- Tableaux 3 et 5 : chaque rangée est citée entière et attribuée par la ligne (K1, R2, K2 ; ΔG par température). K2 est en `value_text` car « 1.52×10–4 » ne passe pas le contrôle numérique de la citation. Pour ΔG, la rangée « 30 | −7.07 » ne porte que la température et la valeur.
+- ΔH° : tableau 5 = 8,33 kJ mol–1, texte = 8,72. Les deux sont extraites sous deux noms de propriété, doute noté, aucune n'est corrigée.
+- Tableau 2 : 34,3 mg g–1 pour Au-RGO, incompatible avec les 17 à 20 μmol g–1 du texte (≈ 90 μmol g–1 si on convertit avec M ≈ 381). Recopié tel quel, doute noté, aucune conversion.
+- Tableau 4 : en-têtes et valeurs mal alignés dans le texte ; lecture Q0 = 38,71, KL = 0,227, n = 2,39, KF = 34,1 (303 K, pH 6). L'unité « μmol g–1 » donnée par les auteurs pour KL n'est pas reprise.
+- Tableau 6 : la rangée « Rh123-RGO » va à la voie RGO, « Rh123-Au-RGO » à Au-RGO ; le Rh123 libre n'a pas de voie (échantillon de référence non synthétisé).
+- « RGO and Au-RGO show ID/IG of 1.01 and 1.12, respectively » : ordre de la phrase RGO puis Au-RGO ; GO (0,98) sans voie.
+- Figures lues (10 valeurs) : 5a (RGO ≈ 16 μmol g–1), 5c (pH 4 et 8 ≈ 17), 5d (30, 40, 50 °C ≈ 19, 20, 20), 9b/9c (≈ 100 % au cycle 1 ; ≈ 82 % Rh123 et ≈ 90 % violet de cristal au cycle 10). Ces valeurs sont à 2 chiffres significatifs, citation = légende. Le texte dit que la capacité au 10e cycle est « almost same as the first cycle », la figure 9b montre une baisse à ≈ 82 % : les deux sont gardées, doute noté.
+- Figure 5c : pH 2 se lit ≈ 16 à 10 min alors que le texte donne 15,3 ; texte retenu. Figure 5d : l'axe va jusqu'à 300 min, alors que les autres séries sont à 10 min ; lecture « plateau » non écrite par les auteurs, doute noté.
+- Filtre témoin (sans Au-RGO) : pas de voie, rien n'est préparé ; ses valeurs (≈ 19 % Rh123 et ≈ 12 % violet de cristal au cycle 1 puis ≈ 3 à 4 %) sont dans une annotation `tendance_observee` (valeurs lues sur figure, sans citation numérique).
+- 2-propanol : pureté « analytical grade » reprise de la phrase « All other chemicals used in this study were of analytical grade » (le 2-propanol n'est pas dans la liste des produits Sigma) ; fournisseur non cité.
+- Annexe : la section Supporting Information du fichier ne contient que les équations des modèles (cinétique, isothermes, thermodynamique), pas de table ni de protocole ; aucune annexe absente.
+- Sécurité : aucune précaution dans l'article, donc seulement `securite_analyse`.

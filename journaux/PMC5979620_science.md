@@ -1,0 +1,14 @@
+# PMC5979620 — critique scientifique (journal de décisions)
+
+- Acide tartrique : je compte les valences de Jain sur la seule base du texte (M(NO3)2 = −10, C4H6O6 = +10). Le rapport des Méthodes (= 1, donc 1,5 mmol) tombe pile sur φ = 1 ; celui des Résultats (« 1:2 », 3 mmol) donne φ = 2. Je classe l'écart en `probleme` : il change le régime de combustion.
+- Je ne tranche pas entre les deux lectures. Le résidu TGA (≈ 20 %) semblait favoriser le rapport 1 (18–24 % contre 14–17 % calculés), mais la courbe perd 55 % avant 245 °C : le précurseur était humide. Indice écarté.
+- HNO3 : 150 µL à 69 % donnent ≈ 2,3 mmol, soit 0,15 mol/L, contre « 0.24 × 10−3 m » dans les Résultats (facteur ≈ 640). Hypothèse : une quantité (2,4 × 10−3 mol) écrite comme une concentration. La masse volumique 1,41 g/mL est une valeur de manuel non revérifiée en ligne : notée dans sources_not_found.
+- HRTEM : d(331) = 1,86 Å avec a = 8,11 Å ; 2,4 Å correspond à (311) = 2,445 Å, et la Fig. 2a marque bien « (311/222) ». Je classe en `probleme` (erreur des auteurs) malgré une conséquence faible, parce que la règle de Bragg du PLAUSIBILITE le demande.
+- Fig. 1a : relue sur l'image. Elle écrit Co(NO3)2·3H2O et une équation sans carbone dans les réactifs, mais avec du CO2 dans les produits. J'ai mis à la place une équation équilibrée à φ = 1, avec ½ O2 pour Co(II) → Co(III) : `reserve`, et le mécanisme est `a_revoir`.
+- « Ni(II)/Co(III)-tartaric complexes » en solution : contesté (solution violette de Co(II), Co3+ instable), sans source web ; repose sur la chimie générale.
+- Preuve de phase : la largeur de Scherrer (≈ 2,4°) rend NiCo2O4 et Co3O4 indiscernables en DRX et SAED. Reserve plutôt que problème, car l'EDS global est à 1:2. Sources : Cabo 2009 (stabilité thermique) et le manuscrit OSTI (NiO ségrège vers 450 °C), utilisé seulement pour la stabilité.
+- Conductivité de 4 S/cm, comparée à trois sources : brevet US 7 011 732 (0,06 et 0,003 Ω·cm), fiche BGU (25,8 S/cm à 450 °C ; DOI non relevé, signalé). Valeur jugée plausible pour des grains de 4 nm.
+- Cellule : Zhang 2015 (10.1038/ncomms7142) sert de référence pour la voie à l'acétate (recuit à 100 °C pendant 5 min contre 85 °C ici) : `reserve`. Les PCE recalculés à partir de Jsc × Voc × FF correspondent tous à la Table 1.
+- Témoin de PL (« reference structure without HTL ») non décrit et à plusieurs variables (substrat et cristallisation) : `reserve` (contrôle 5).
+- Varma 2016 (Chem. Rev.) : DOI 10.1021/acs.chemrev.6b00279 confirmé par un lien ScienceDirect et la page ACS (116, 14493) ; Jain 1981 : DOI confirmé par OpenAlex. Crossref n'a pas été interrogé.
+- Recherches web : 8 recherches et 1 lecture de page (PubChem 2-méthoxyéthanol : Téb 124,1 °C, H360FD, peroxydable). Rien n'est ajouté à fondateurs.md ni à constantes.md (consigne).

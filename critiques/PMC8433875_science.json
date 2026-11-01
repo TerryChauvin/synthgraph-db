@@ -1,0 +1,318 @@
+{
+ "pmcid": "PMC8433875",
+ "routes": [
+  {
+   "label": "Sn(SBut)2",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan de la thiolyse du stannylène",
+     "inputs": "Sn[N(SiMe3)2]2 + 2 HSBut (aucune quantité donnée dans l'article)",
+     "formula": "Sn[N(SiMe3)2]2 + 2 HSC(CH3)3 → Sn(SC(CH3)3)2 + 2 HN(SiMe3)2",
+     "result": "2 équivalents de thiol par Sn au minimum ; sous-produit HN(SiMe3)2 volatil, éliminé avec le solvant",
+     "compared_to": "« After removing all volatile components, bright yellow needle-like crystals were obtained » : cohérent (HMDS et thiol en excès partent sous vide)",
+     "source": "chimie_generale (stœchiométrie)"
+    },
+    {
+     "what": "masse molaire de Sn(SBut)2",
+     "inputs": "Sn 118,71 ; S 32,06 ; C 12,011 ; H 1,008 g/mol",
+     "formula": "M(SnS2C8H18)",
+     "result": "297,06 g/mol",
+     "compared_to": "1,671 g = 5,625 mmol dans la voie Complex_1 (article : 5,624 mmol)",
+     "source": "masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Thiolyse à 0 °C dans le toluène : le 2-méthylpropane-2-thiol bout vers 62–65 °C, il reste donc liquide et peu volatil à 0 °C ; aucune contrainte de récipient.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "2-Methyl-2-propanethiol, 99%, Thermo Scientific (fiche produit)", "authors_or_publisher": "Fisher Scientific", "year": "consulté en 2026", "url_or_doi": "https://fishersci.pt/shop/products/2-methyl-2-propanethiol-99-thermo-scientific/10572731"}
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité, durée ni rendement pour Sn(SBut)2 ; le rapport thiol/Sn doit être d'au moins 2 (calcul « bilan de la thiolyse du stannylène »). Un défaut de thiol laisserait de l'amidure Sn–N(SiMe3)2 résiduel, que l'article ne contrôle que par RMN 1H/119Sn « prior to the measurements ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Les auteurs signalent que Sn(SR)2 est « prone to oxidation upon heating » et que 1 en solution prolongée donne Sn(SBut)4 + disulfure. Ces deux produits sont oxydés (Sn(II)→Sn(IV) et RS−→RSSR) : sous atmosphère strictement inerte, il faudrait un réducteur en contrepartie (dismutation en Sn(0)) ; la formation simultanée des deux trahit plutôt une entrée d'O2. L'exclusion de l'air et de la lumière est donc essentielle, et la pureté de Sn(SBut)2 doit être vérifiée en RMN 119Sn avant usage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Thiol très malodorant et inflammable (point d'ébullition ≈ 64 °C), amidure d'étain sensible à l'air ; toluène séché sur Na/benzophénone. Rien d'exotique mais travail en rampe à vide ou boîte à gants obligatoire.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Protonolyse des liaisons Sn–N du stannylène de Lappert par le thiol (thiol nettement plus acide que l'amine HN(SiMe3)2), avec départ de l'hexaméthyldisilazane volatil ; Sn(SBut)2 forme ensuite un réseau polymère par liaisons Sn←S (décrit par les auteurs à partir de la littérature).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": ["quantités (≥ 2 éq. de HSBut par Sn) et durée, à reprendre de la référence du stannylène", "pureté RMN 119Sn de Sn(SBut)2 (absence de Sn(SBut)4)", "conservation à l'abri de la lumière et de l'air"]
+  },
+  {
+   "label": "Complex_1",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de ligand et de thiolate, rapport L/Sn",
+     "inputs": "1,185 g Htfb-dmeda (C8H13F3N2O, 210,20 g/mol) ; 1,671 g Sn(SBut)2 (297,06 g/mol)",
+     "formula": "n = m/M ; n(L)/n(Sn)",
+     "result": "5,638 mmol (article 5,640) ; 5,625 mmol (article 5,624) ; L/Sn = 1,003",
+     "compared_to": "« An equivalent amount of the ligand » : stœchiométrique 1:1",
+     "source": "masses atomiques IUPAC (C 12,011 ; H 1,008 ; F 18,998 ; N 14,007 ; O 15,999 ; S 32,06 ; Sn 118,71)"
+    },
+    {
+     "what": "masse molaire de 1 et rendement",
+     "inputs": "C12H21F3N2OSSn ; 5,624 mmol de Sn (réactif limitant) ; rendement 82 %",
+     "formula": "M ; m_théo = n × M ; 0,82 × m_théo",
+     "result": "M = 417,08 g/mol ; m_théo = 2,346 g ; 82 % = 1,92 g",
+     "compared_to": "masse obtenue non donnée par l'article",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "analyse élémentaire recalculée",
+     "inputs": "C12H21F3N2OSSn, M = 417,08 ; trouvé C 34,63 ; H 5,09 ; N 6,97 ; S 8,23 %",
+     "formula": "w = n × A / M ; écart = trouvé − calculé",
+     "result": "calculé C 34,56 ; H 5,08 ; N 6,72 ; S 7,69 % (article : H 5,09) ; écarts +0,07 ; +0,01 ; +0,25 ; +0,54",
+     "compared_to": "tolérance usuelle des revues ± 0,4 % : S hors tolérance",
+     "source": "masses atomiques IUPAC ; tolérance : Kuveke et al. 2022"
+    },
+    {
+     "what": "perte de masse ATG théorique et résidu observé",
+     "inputs": "M(1) = 417,08 ; M(SnS) = 150,77 ; Δm exp = 57 %",
+     "formula": "1 − M(résidu)/M(1) ; M(résidu) observé = 0,43 × 417,08",
+     "result": "SnS : perte 63,9 % (article 64 %) ; résidu observé 179 g/mol par Sn ; pertes attendues : Sn 71,5 % ; SnO2 63,9 % ; SnF2 62,4 % ; Sn2S3 (par Sn) 60,0 % ; SnS2 56,2 %",
+     "compared_to": "57 % mesuré : résidu plus lourd que SnS de ≈ 28 g/mol par Sn, proche de SnS2 ou de SnS + C/F résiduels",
+     "source": "masses atomiques IUPAC"
+    },
+    {
+     "what": "masses EI-MS (isotope 120Sn)",
+     "inputs": "masses monoisotopiques C 12,000 ; H 1,00783 ; F 18,9984 ; N 14,0031 ; O 15,9949 ; S 31,9721 ; 120Sn 119,9022",
+     "formula": "somme des masses",
+     "result": "[M]+ 418,03 ; [M−SC4H9]+ 328,99 ; [L]+ 209,09 ; [SnSC4H9]+ 208,94 ; Sn(SBut)4 [M]+ 476,07",
+     "compared_to": "m/z 418, 329, 209 et 476 de l'article : concordants",
+     "source": "masses isotopiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport ligand/Sn = 1,003 (calcul « moles de ligand et de thiolate, rapport L/Sn ») : l'« équivalent » annoncé est respecté ; le thiol libéré (1 éq., bp ≈ 64 °C) part avec le toluène sous vide.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Analyse élémentaire : S trouvé 8,23 % contre 7,69 % calculé, écart +0,54 % au-delà de la tolérance ± 0,4 % habituellement exigée (calcul « analyse élémentaire recalculée ») ; N +0,25 %. Un excès de soufre est compatible avec une trace de Sn(SBut)2 ou de Sn(SBut)4 (S 21,6 % et 26,9 %) co-sublimée. La tolérance elle-même est discutée (Kuveke 2022), donc signe faible, mais la pureté du sublimat repose sur la seule RMN.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "An International Study Evaluating Elemental Analysis", "authors_or_publisher": "R. Kuveke, …, R. L. Melen (ACS Central Science 8(7), 855–863)", "year": "2022", "url_or_doi": "ACS Cent. Sci. 2022, 8, 855–863 (DOI non vérifié dans cette session)"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "ATG : perte de 57 % contre 63,9 % pour SnS pur ; le résidu (≈ 179 g/mol par Sn) est plus lourd que SnS et proche de SnS2 (perte 56,2 %) ou de SnS contenant ≈ 28 g/mol de C, F, N ou O par Sn (calcul « perte de masse ATG théorique et résidu observé »). Les auteurs ne caractérisent pas ce résidu ; sous N2 à pression ambiante, la décomposition ne serait donc pas aussi « propre » que le dit le texte. Par ailleurs le texte affirme que 1 « sublimes without leaving any residue » alors que l'ATG laisse 43 % de résidu : les deux tiennent seulement si l'on distingue sublimation sous vide (10−3 mbar) et chauffage à pression ambiante, ce que l'article ne fait pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Sublimation à 90–100 °C sous 10−3 mbar, bien en dessous de la décomposition ATG (250–275 °C) : fenêtre de volatilité cohérente ; la synthèse à 0 °C puis ambiante dans le toluène (bp 111 °C) ne pose pas de problème.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'annotation de l'extraction suppose que le N–H du ligand est « plus acide que le thiol libéré ». C'est peu probable : un alcanethiol a un pKa ≈ 10–11 dans l'eau, alors que le N–H d'une énaminone (amide vinylogue, même activée par CF3) est nettement moins acide. La protonolyse est plutôt entraînée par la chélation tridentate O,N,N (trois liaisons au Sn, rupture du polymère Sn←S) et par l'élimination du thiol volatil sous vide.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "RMN 119Sn : −159 ppm (149,2 MHz) et −157 ppm (111,9 MHz, texte 2.1.2), avec des largeurs de 300 et 400 Hz ; l'écart de 2 ppm est inférieur à la largeur de raie, donc sans conséquence. Le texte parle de « dimers of tin(II) » pour la plage de référence alors que 1 est monomère : comparaison à prendre comme indicative.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Composé organostannique sensible à l'air et à la lumière, ligand fluoré ; sublimation sous vide avec piège froid. Pas de danger particulier non écrit hors toxicité des organostanniques.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Protonolyse d'une liaison Sn–SBut de Sn(SBut)2 par le N–H du ligand Htfb-dmeda : Sn(SBut)2 + HL → Sn(SBut)(L) + HSBut. Le moteur est la formation d'un chélate O,N,N à trois points (Sn←O carbonyle, Sn–N amido, Sn←NMe2) qui sature la sphère de coordination et casse le réseau polymère Sn←S, et le départ du thiol volatil sous vide ; ce n'est pas une différence d'acidité favorable (le thiol est l'acide le plus fort des deux).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": ["pureté du sublimat (RMN 119Sn et analyse S) pour exclure Sn(SBut)2/Sn(SBut)4 co-sublimés", "synthèse du ligand selon la référence citée (non décrite ici)", "stockage sous inerte et à l'abri de la lumière"]
+  },
+  {
+   "label": "SnS_FTO_350",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan de décomposition de 1 en SnS",
+     "inputs": "Sn(SC4H9)(C8H12F3N2O)",
+     "formula": "C12H21F3N2OSSn → SnS + C4H8 + C8H13F3N2O (HL)",
+     "result": "bilan exact : C 12 = 4 + 8 ; H 21 = 8 + 13 ; masse des volatils 266,3 g/mol, soit 63,9 % de 417,08",
+     "compared_to": "perte théorique « 64 % » des auteurs ; un seul H disponible (celui transféré par β-élimination du tert-butyle) pour reformer HL",
+     "source": "chimie_generale"
+    },
+    {
+     "what": "vitesse de croissance sur FTO",
+     "inputs": "≈ 80 nm en 30 min",
+     "formula": "e/t",
+     "result": "≈ 2,7 nm/min",
+     "compared_to": "≈ 33 nm/min sur Mo-SLG dans des conditions « similaires » (voie SnS_Mo_350) : facteur ≈ 12",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "position de la raie (040) de SnS",
+     "inputs": "b = 11,19 Å (herzenbergite, Pbnm) ; λ(Cu Kα1) = 1,5406 Å supposée (longueur d'onde GI-XRD non donnée)",
+     "formula": "d040 = b/4 ; 2θ = 2 arcsin(λ/2d)",
+     "result": "d040 = 2,80 Å ; 2θ ≈ 31,97°",
+     "compared_to": "raie distincte des raies du SnO2 du FTO (26,6 ; 33,9 ; 37,9°) : l'orientation (040) peut être lue sans recouvrement",
+     "source": "paramètres de maille : Handbook of Mineralogy, herzenbergite"
+    },
+    {
+     "what": "pression de travail",
+     "inputs": "p < 10−6 bar",
+     "formula": "1 bar = 1000 mbar = 10^5 Pa",
+     "result": "< 10−3 mbar = 0,1 Pa",
+     "compared_to": "même ordre que la pression de sublimation de purification (10−3 mbar à 90–100 °C) : Tp = 130 °C donne un flux plus fort, cohérent",
+     "source": "chimie_generale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Tp = 130 °C (sous la décomposition ATG de 250–275 °C) et Ts = 350 °C (au-dessus) : le précurseur se volatilise sans se décomposer et se décompose sur le substrat chaud ; réacteur à paroi froide sous < 0,1 Pa (calcul « pression de travail »), donc pas de décomposition en phase gazeuse attendue.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le bilan C12H21F3N2OSSn → SnS + C4H8 + HL est exact (calcul « bilan de décomposition de 1 en SnS ») : la β-élimination du tert-butyle (isobutène) fournit l'hydrogène qui reprotone le ligand. C'est la voie de décomposition classique des tert-butylthiolates métalliques en CVD (isobutène et tert-butylthiol comme sous-produits majeurs). Les auteurs l'évoquent seulement (« inherent decomposition mechanism ») sans analyser les gaz.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "Mechanistic Studies of the Chemical Vapor Deposition of Ceramic and Metal Films From Organometallic Precursors (thèse, dépôts de MoS2 et TiS2 à partir de tert-butylthiolates)", "authors_or_publisher": "Jinwoo Cheon, University of Illinois at Urbana-Champaign (IDEALS)", "year": "1993", "url_or_doi": "https://ideals.illinois.edu/items/72456"}
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : l'article affirme « no incorporation of N or O in the final products » et un SnS « phase-pure », mais ne montre aucune analyse de composition des films (ni EDX, ni XPS, ni Raman) ; seuls XRD, MEB et HRTEM/SAED sont donnés. Le fluor du groupe CF3 n'est jamais discuté. La XRD ne voit pas les phases amorphes ou minoritaires (SnS2, Sn2S3, SnO2, SnF2), précisément celles qu'il faudrait exclure, et l'ATG laisse un résidu plus lourd que SnS (voie Complex_1). L'argument « launch vehicle » repose sur la fragmentation EI-MS en phase gazeuse, qui ne dit rien de la chimie de surface à 350 °C.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le résumé annonce l'étude des vitesses de croissance à 300–450 °C, mais seuls les dépôts à 350 °C sont décrits ; aucune donnée ne soutient la plage annoncée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "≈ 80 nm en 30 min sur FTO (2,7 nm/min) contre ≈ 1 µm en 30 min sur Mo-SLG dans des conditions dites « similaires » (calcul « vitesse de croissance sur FTO ») : facteur 12. Une partie s'explique par la morphologie (plaquettes verticales poreuses sur Mo contre flocons à plat sur FTO, l'épaisseur MEB n'est pas une masse déposée), mais sans masse de précurseur, géométrie ni flux, l'épaisseur n'est pas transposable d'un substrat à l'autre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Orientation (040) sur FTO : (040) est la raie forte attendue de SnS en réglage Pbnm (d = 2,80 Å, 2θ ≈ 32° en Cu Kα, calcul « position de la raie (040) de SnS »), séparée des raies du SnO2 ; la fiche PDF 39-354 est bien l'herzenbergite. La surface (040) de basse énergie favorisée à basse température est l'explication usuelle. L'hypothèse d'une interphase SnO1−xSx pour l'adhérence n'est pas étayée (les auteurs le reconnaissent).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {"title": "Herzenbergite SnS (fiche minéralogique, Pbnm, a = 4,329, b = 11,192, c = 3,984 Å)", "authors_or_publisher": "Handbook of Mineralogy, Mineralogical Society of America", "year": "2001–2005", "url_or_doi": "https://www.handbookofmineralogy.org/pdfs/herzenbergite.pdf"}
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : pièges froids sous vide (au N2 liquide, risque de condensation d'O2 si le circuit est ouvert à l'air), effluents contenant isobutène inflammable, thiol malodorant et ligand fluoré dont la pyrolyse partielle peut donner des composés fluorés acides ; chauffage par induction. Les dépôts SnS grattés (TEM) sont des nanopoudres à ne pas inhaler.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Sublimation de 1 à 130 °C, transport en régime moléculaire (< 0,1 Pa) vers le substrat à 350 °C, rupture de la liaison S–C(tert-butyle) par β-élimination d'isobutène, transfert de l'hydrogène au ligand qui part sous forme HL, d'où SnS sans changement de degré d'oxydation (Sn(II) dans le précurseur et le produit) ; croissance en feuillets (040) à plat sur l'oxyde (interactions de van der Waals) et en plaquettes verticales sur Mo (liaison covalente des bords).",
+    "sources": [{"title": "Mechanistic Studies of the Chemical Vapor Deposition of Ceramic and Metal Films From Organometallic Precursors", "authors_or_publisher": "Jinwoo Cheon, University of Illinois at Urbana-Champaign", "year": "1993", "url_or_doi": "https://ideals.illinois.edu/items/72456"}]
+   },
+   "what_to_verify_before_repeating": ["composition des films (EDX ou XPS : Sn/S, N, O, F) avant de conclure à du SnS pur", "masse de précurseur, distance source–substrat, géométrie du tube : l'épaisseur en dépend", "longueur d'onde et angle d'incidence de la GI-XRD", "nature du résidu ATG (SnS2 ? carbone ?)"]
+  },
+  {
+   "label": "SnS_Mo_350",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "vitesse de croissance sur Mo-SLG par durée",
+     "inputs": "440 nm / 15 min ; 1 µm / 30 min ; 2 µm / 60 min",
+     "formula": "e/t",
+     "result": "29,3 ; 33,3 ; 33,3 nm/min",
+     "compared_to": "« around 33 nm per minute » : cohérent ; la droite passe près de l'origine (petit retard d'incubation possible à 15 min)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Épaisseur proportionnelle au temps (≈ 33 nm/min, calcul « vitesse de croissance sur Mo-SLG par durée ») : régime stationnaire plausible tant que la source n'est pas épuisée. Le texte écrit « a linear relationship between the growth rate and deposition time » : c'est l'épaisseur qui est linéaire en temps, la vitesse est constante (vocabulaire inexact, sans conséquence sur les données).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction interne : la conclusion dit que les films sur Mo-SLG ne montrent « no such preference » d'orientation, alors que les résultats décrivent des plaquettes « vertically oriented to the substrate surface » (60 min) et que la discussion attribue au Mo une orientation (040) perpendiculaire / (101) parallèle. Il y a donc une texture, différente de celle du FTO, et non une absence de texture.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SAED : des « diffraction spots » indexés selon un axe de zone [0 −1 2] sont décrits « as a ring diffraction pattern » ; un cliché d'axe de zone donne des taches, un cliché en anneaux un agrégat polycristallin. Le réglage de maille de COD 9008785 n'est pas donné et les plans (200) de l'HRTEM ont des distances très différentes selon le réglage (2,16 Å en Pbnm, a = 4,33 Å ; 5,6 Å en Pnma, a = 11,2 Å) alors que la XRD utilise le réglage Pbnm ((040)). Indexation à refaire avec un réglage unique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Herzenbergite SnS (fiche minéralogique)", "authors_or_publisher": "Handbook of Mineralogy, Mineralogical Society of America", "year": "2001–2005", "url_or_doi": "https://www.handbookofmineralogy.org/pdfs/herzenbergite.pdf"}
+    },
+    {
+     "aspect": "thermique",
+     "finding": "350 °C sur Mo : pas de sulfuration notable attendue du Mo en MoS2 à cette température sans H2S (la littérature MOCVD signale un peu de MoS2 vers 470 °C) ; non vérifié par les auteurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {"title": "Dépôt MOCVD de SnS sur Mo à 470 °C (Swansea University, dépôt institutionnel Cronfa, notice 40702)", "authors_or_publisher": "Swansea University (Cronfa) — titre et auteurs non lus, extrait de recherche seulement", "year": "non vérifiée (fichier déposé en 2018)", "url_or_doi": "https://cronfa.swan.ac.uk/Record/cronfa40702"}
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Même décomposition que sur FTO ; sur le Mo métallique, l'accrochage des bords des feuillets SnS (liaisons covalentes) favorise la croissance de plaquettes verticales, d'où une épaisseur apparente forte pour une masse déposée modeste.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": ["durée exacte de l'échantillon de la figure 7", "réglage de maille utilisé pour l'indexation SAED/HRTEM", "absence de MoS2 à l'interface"]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse du précurseur cohérente et chiffrée (rapport 1:1 exact, masses EI-MS et analyse élémentaire recalculées concordantes sauf S +0,54 %). Le bilan de décomposition en SnS + isobutène + HL est exact. Le point faible est la caractérisation des films : aucune analyse de composition (N, O, F, rapport Sn/S) alors que l'article conclut à l'absence d'incorporation d'hétéroatomes, et un résidu d'ATG plus lourd que SnS non expliqué. Le protocole CVD est incomplet (masse de précurseur, géométrie), et le facteur 12 de vitesse entre FTO et Mo-SLG n'est pas discuté.",
+  "author_errors_suspected": [
+   "« no incorporation of N or O » affirmé sans EDX/XPS des films",
+   "« sublimes without leaving any residue » contre 43 % de résidu ATG (57 % de perte au lieu de 64 %)",
+   "analyse élémentaire : S 8,23 % trouvé contre 7,69 % calculé (hors tolérance ± 0,4 %)",
+   "conclusion « no such preference » sur Mo-SLG contredite par les plaquettes verticales décrites",
+   "« linear relationship between the growth rate and deposition time » au lieu de l'épaisseur",
+   "SAED « spots » d'axe de zone présentés « as a ring diffraction pattern » ; réglage de maille non précisé",
+   "résumé : 300–450 °C annoncés, seul 350 °C décrit"
+  ],
+  "comparison_with_database": "Les autres voies SnS de la base (PMC5327880 précipitation dans l'éthylène glycol, PMC13333848 sonochimie, PMC10458794 hétérostructure hydrothermale) sont des voies en solution ; aucune autre CVD de SnS à précurseur unique n'est extraite, pas de comparaison chiffrée possible."
+ },
+ "sources_not_found": [
+  "pKa fiable du 2-méthylpropane-2-thiol et du N–H de l'énaminone Htfb-dmeda (seule une valeur non fiable trouvée) : comparaison d'acidité laissée en ordre de grandeur",
+  "fiche COD 9008785 (site crystallography.net injoignable depuis cette session) : réglage de maille non vérifié",
+  "article publié de Cheon, Gozum et Girolami sur la CVD de MoS2/TiS2 à partir de tert-butylthiolates (seule la thèse de 1993 a été trouvée)",
+  "DOI de Kuveke et al. 2022 non vérifié (Crossref et PMC injoignables)"
+ ]
+}

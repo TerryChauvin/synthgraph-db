@@ -1,0 +1,502 @@
+{
+ "pmcid": "PMC11736836",
+ "routes": [
+  {
+   "label": "TiO2_sol",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "eau apportée par HNO3 à 65 %",
+     "inputs": "0,49 mol HNO3 par Ti ; HNO3 65 % m/m ; M(HNO3) = 63,01 g/mol ; M(H2O) = 18,015 g/mol",
+     "formula": "n(H2O) = 0,49 × (63,01/0,65 − 63,01)/18,015",
+     "result": "0,92 mol H2O par Ti (1,88 mol H2O par mol HNO3)",
+     "compared_to": "rapport H2O/Ti déclaré : 0,82 — l'eau de l'acide seule dépasse déjà la valeur déclarée",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "rapport d'hydrolyse total h = H2O/Ti",
+     "inputs": "0,82 (eau ultrapure ajoutée, lecture la seule possible) + 0,92 (eau de l'acide) ; éthanol > 99,8 % : au plus 0,2 % d'eau, soit ≤ 0,14 mol par Ti",
+     "formula": "h = 0,82 + 0,92 (+ ≤ 0,14)",
+     "result": "h ≈ 1,74 (jusqu'à ≈ 1,9 si l'éthanol porte 0,2 % d'eau)",
+     "compared_to": "h = 0,82 si on lit le rapport comme l'eau totale (impossible avec HNO3 à 65 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "volume de sol par mole de Ti",
+     "inputs": "Ti(OBu)4 340,32 g/mol, 1,00 g/mL ; EtOH 27,95 mol × 46,07 g/mol, 0,789 g/mL ; HNO3 65 % 47,5 g, 1,39 g/mL ; H2O 0,82 × 18,015 g",
+     "formula": "V = Σ m/ρ (additivité des volumes)",
+     "result": "340 + 1632 + 34 + 15 ≈ 2021 mL par mol Ti",
+     "compared_to": "—",
+     "source": "Sigma-Aldrich 244112 (Ti(OBu)4) ; table de densité HNO3 (ChemLin) ; densité de l'éthanol 0,789 g/mL (valeur usuelle, PubChem)"
+    },
+    {
+     "what": "concentrations du sol",
+     "inputs": "1 mol Ti et 0,49 mol HNO3 dans ≈ 2,02 L ; masse totale ≈ 1690 g",
+     "formula": "c = n/V ; % TiO2 = 79,87/1690",
+     "result": "[Ti] ≈ 0,49 mol/L ; [HNO3] ≈ 0,24 mol/L ; ≈ 39,5 g TiO2/L, soit ≈ 4,7 % m/m d'équivalent TiO2",
+     "compared_to": "sols de trempage habituels : 0,1–0,5 mol/L de Ti",
+     "source": "calcul à partir des rapports de l'article"
+    },
+    {
+     "what": "butanol libéré",
+     "inputs": "4 BuO par Ti ; 27,95 EtOH par Ti",
+     "formula": "x(BuOH) = 4/(4 + 27,95) dans les alcools",
+     "result": "≈ 12,5 % molaire des alcools est du butanol en fin d'hydrolyse ou d'échange",
+     "compared_to": "milieu de dispersion supposé « éthanol » pour la DLS et le calcul de pression capillaire",
+     "source": "stœchiométrie"
+    },
+    {
+     "what": "largeur DLS attendue d'après l'indice de polydispersité",
+     "inputs": "PDI = 0,098 ; d = 2,7 nm",
+     "formula": "σ/d ≈ √PDI ; FWHM ≈ 2,355 σ (loi normale)",
+     "result": "σ/d ≈ 0,31 ; FWHM ≈ 2,0 nm",
+     "compared_to": "FWHM déclarée 2,7 nm (même ordre ; la distribution en intensité n'est pas gaussienne)",
+     "source": "définition du PDI des cumulants (ISO 22412), arithmétique"
+    },
+    {
+     "what": "HNO3 65 % en mol/L",
+     "inputs": "ρ = 1,39 g/mL ; 65 % m/m",
+     "formula": "c = 1390 × 0,65 / 63,01",
+     "result": "≈ 14,3 mol/L (acide concentré ajouté à de l'éthanol)",
+     "compared_to": "—",
+     "source": "table de densité HNO3 (ChemLin)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport H2O/Ti = 0,82 ne peut pas compter l'eau de l'acide nitrique à 65 % : 0,49 mol HNO3 à 65 % apportent déjà 0,92 mol d'eau par Ti (calcul « eau apportée par HNO3 à 65 % »). La seule lecture cohérente est que 0,82 désigne l'eau ultrapure ajoutée, et le rapport d'hydrolyse réel est alors h ≈ 1,7–1,9 (calcul « rapport d'hydrolyse total »), soit le double de la valeur affichée. L'article ne le dit pas ; un chimiste qui viserait h = 0,82 en eau totale ne pourrait pas utiliser l'acide à 65 %, et un sol refait avec de l'acide plus concentré ou dilué n'aurait pas la même chimie. Le rapport H2O/Ti est le paramètre principal du sol (taille des oligomères, stabilité).",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "thermique",
+     "finding": "60 °C est sous le point d'ébullition de l'éthanol (78,4 °C), mais la pression de vapeur de l'éthanol à 60 °C est ≈ 0,46 atm (équation d'Antoine, NIST) : en récipient ouvert pendant 2 h, une partie notable de l'éthanol s'évapore et la concentration change. Le récipient (fermé, à reflux, ouvert) n'est pas indiqué, ni la température du vieillissement d'un jour.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Ti(OBu)4 est miscible à l'éthanol ; à [Ti] ≈ 0,49 mol/L et [HNO3] ≈ 0,24 mol/L (calcul « concentrations du sol »), avec h < 2 en milieu acide, on attend un sol limpide d'oligomères et non un précipité : cohérent avec l'absence de particules en MET et un diamètre DLS de 2,7 nm.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Sol-gel chemistry of transition metal oxides",
+      "authors_or_publisher": "J. Livage, M. Henry, C. Sanchez — Progress in Solid State Chemistry 18, 259–341",
+      "year": "1988",
+      "url_or_doi": "10.1016/0079-6786(88)90005-2"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "L'acide nitrique concentré (≈ 14,3 mol/L, calcul « HNO3 65 % en mol/L ») réagit violemment avec les alcools (CAMEO : « ignites upon contact with alcohols ») et peut former des nitrates d'alkyle ; il faut l'ajouter goutte à goutte, de préférence prédilué, à l'éthanol froid, sous hotte, jamais chauffer le mélange concentré ni stocker les déchets éthanol/HNO3 en flacon fermé. À 0,24 mol/L dans le sol final et 60 °C, le risque est faible mais l'ordre d'addition n'est pas donné. Ti(OBu)4 et l'éthanol sont inflammables.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Nitric acid, other than red fuming — Reactivity profile (« ignites upon contact with alcohols… »)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consultée 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/19337"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Potentiel zêta +20,3 mV : la référence des auteurs (« limite de stabilité ±25 mV en milieu aqueux », point isoélectrique de l'anatase à pH 5,8) ne s'applique pas directement : le sol est éthanolique (≈ 12 % molaire de butanol parmi les alcools, calcul « butanol libéré »), le pH n'y est pas défini de la même façon, et les espèces sont des oligomères amorphes, pas de l'anatase. Le signe positif reste cohérent avec un milieu acide. La viscosité et l'indice du milieu utilisés pour la DLS (éthanol pur ? mélange éthanol–butanol, plus visqueux) ne sont pas donnés : si l'on a pris l'éthanol pur, le diamètre de 2,7 nm est sous-estimé.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "FWHM de 2,7 nm et PDI de 0,098 sont du même ordre (calcul « largeur DLS attendue » : ≈ 2,0 nm pour une loi normale) ; 2,7 nm est proche de la limite basse de la DLS pour des espèces peu diffusantes : valeur plausible mais fragile, comme l'admettent les auteurs (MET et AFM ne voient pas de particules).",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans 28 équivalents d'éthanol, Ti(OBu)4 échange rapidement une partie de ses butoxydes contre des éthoxydes (Ti(OBu)4−x(OEt)x + x BuOH). L'eau (h ≈ 1,7–1,9 en comptant l'eau de l'acide, et non 0,82) hydrolyse partiellement les alcoxydes, réaction très rapide pour Ti qui n'est pas ralentie par l'acide ; c'est la condensation qui est freinée : en milieu HNO3 (H+/Ti ≈ 0,5), les groupes Ti–OH sont protonés (Ti–OH2+), l'olation et l'oxolation sont limitées et les oligomères oxo-alcoxydes portent une charge positive qui les tient dispersés (zêta +20 mV). Avec h < 2, on obtient des oligomères ou petits clusters oxo-alcoxydes (≈ 2–3 nm) et non des particules de TiO2. Au trempage, l'évaporation concentre ces espèces et le gel se forme sur le substrat ; au recuit, la condensation s'achève, les groupes organiques et les nitrates partent (≤ 400 °C) et l'anatase cristallise (attendue vers 350–450 °C pour une poudre). L'extraction écrit que l'acide « ralentit l'hydrolyse » et retient h = 0,82 : les deux points sont à corriger.",
+    "sources": [
+     {
+      "title": "Sol-gel chemistry of transition metal oxides",
+      "authors_or_publisher": "J. Livage, M. Henry, C. Sanchez — Progress in Solid State Chemistry 18, 259–341",
+      "year": "1988",
+      "url_or_doi": "10.1016/0079-6786(88)90005-2"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "si le rapport H2O/Ti = 0,82 est l'eau ajoutée seule (lecture imposée par le calcul : l'acide à 65 % apporte déjà 0,92 H2O/Ti) ; viser alors h ≈ 1,7 en eau totale",
+    "quantités absolues (ex. pour 0,01 mol Ti : 3,40 g Ti(OBu)4, 12,9 g EtOH, 0,475 g HNO3 à 65 %, 0,148 g H2O) et ordre d'addition (acide prédilué dans l'éthanol avant l'alcoxyde)",
+    "récipient fermé ou à reflux à 60 °C, température et fermeture pendant le vieillissement d'un jour",
+    "viscosité du milieu prise pour la DLS (mélange éthanol–butanol)"
+   ]
+  },
+  {
+   "label": "TiO2_coating_quartz",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "porosité Lorentz–Lorenz recalculée (n_bulk = 2,400)",
+     "inputs": "n_eff = 2,0341 (UV–vis) ; 2,0504 (SAR) ; 2,1294 (EP) — film sur quartz",
+     "formula": "p = 1 − L(n_eff)/L(2,400), L(n) = (n² − 1)/(n² + 2), air L = 0",
+     "result": "16,7 % ; 15,8 % ; 11,8 %",
+     "compared_to": "déclaré 17 ; 16 ; 12 % — exact",
+     "source": "équation SI6 de l'article"
+    },
+    {
+     "what": "porosité Lorentz–Lorenz avec l'indice de l'anatase dense",
+     "inputs": "n(anatase, film, 633 nm) = 2,48–2,49 (pris à 2,485) ; mêmes n_eff",
+     "formula": "p = 1 − L(n_eff)/L(2,485)",
+     "result": "19,2 % ; 18,4 % ; 14,6 %",
+     "compared_to": "17 ; 16 ; 12 % avec n_bulk = 2,400 : la porosité dépend de l'indice choisi pour le squelette, de ≈ 3 points",
+     "source": "Möls et al., Optical Materials 2019, 10.1016/j.optmat.2019.109335"
+    },
+    {
+     "what": "porosité fermée",
+     "inputs": "porosité totale EP 12 % ; porosité ouverte 6 %",
+     "formula": "12 − 6",
+     "result": "6 points",
+     "compared_to": "« approximately 6 % (on quartz) » : exact",
+     "source": "tableau 3 de l'article"
+    },
+    {
+     "what": "classe de pores",
+     "inputs": "r_ads = 4,1 nm ; r_des = 2,2 nm (quartz)",
+     "formula": "d = 2r",
+     "result": "8,2 nm et 4,4 nm",
+     "compared_to": "mésopores IUPAC : 2–50 nm",
+     "source": "Thommes et al. 2015 (IUPAC), 10.1515/pac-2014-1117"
+    },
+    {
+     "what": "vitesse de retrait",
+     "inputs": "12 cm/min",
+     "formula": "120 mm / 60 s",
+     "result": "2 mm/s",
+     "compared_to": "régime de trempage courant (≈ 1–10 mm/s)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Recuit à 450 °C, 30 min, 5 °C/min sous air (atmosphère non écrite, implicite dans un four de laboratoire) : suffisant pour brûler les butoxydes et nitrates résiduels et rester bien en dessous de la transition anatase → rutile (≥ 600 °C en général). Vocabulaire : un « drying oven » (étuve) ne monte pas d'ordinaire à 450 °C ; Nabertherm B170 désigne un contrôleur de four : il s'agit vraisemblablement d'un four à moufle.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "D. A. H. Hanaor, C. C. Sorrell — J. Mater. Sci. 46, 855–874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les porosités Lorentz–Lorenz sont exactement recalculées avec n_bulk = 2,400 (calcul « porosité Lorentz–Lorenz recalculée »). Mais 2,400 n'est ni l'indice de l'anatase dense à 633 nm (2,48–2,49 pour des films d'anatase) ni justifié par une source : avec 2,485, les porosités passent de 17/16/12 % à 19/18/15 % sur quartz (calcul « avec l'indice de l'anatase dense »). Les porosités absolues sont donc conventionnelles ; seules les comparaisons entre méthodes et substrats, faites avec la même valeur, sont robustes. Les écarts quartz/silicium (16 contre 10 % en SAR) sont du même ordre que l'écart entre méthodes sur le même film (17 à 12 %), comme le disent les auteurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Influence of phase composition on optical properties of TiO2: Dependence of refractive index and band gap on formation of TiO2-II phase in thin films",
+      "authors_or_publisher": "K. Möls, L. Aarik, H. Mändar, A. Kasikov, A. Niilisk, R. Rammula, J. Aarik — Optical Materials 96, 109335",
+      "year": "2019",
+      "url_or_doi": "10.1016/j.optmat.2019.109335"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Isotherme de type IV à hystérèse H2, r_ads 3,9–4,1 nm et r_des 2,2–2,4 nm (diamètres 4,4–8,2 nm, mésopores IUPAC) : cohérent avec des pores en bouteille dont le col fixe la désorption. Porosité ouverte de 6–7 % pour 10–12 % de porosité totale : plausible pour un film xérogel de 50 nm recuit à 450 °C (pores fermés au retrait). La porosimétrie ellipsométrique par adsorption d'un alcool est une méthode établie pour ces films.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of pore size distribution in thin films by ellipsometric porosimetry",
+      "authors_or_publisher": "M. R. Baklanov, K. P. Mogilnikov, V. G. Polovinkin, F. N. Dultsev — J. Vac. Sci. Technol. B 18, 1385–1391",
+      "year": "2000",
+      "url_or_doi": "10.1116/1.591390"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'anatase n'est démontrée que sur une poudre (sol séché en masse, 450 °C), pas sur les films (aucun pic DRX : « too thin »). La poudre change plusieurs variables à la fois (épaisseur, absence de substrat et de contrainte, volume de matière organique, échange gazeux) : ce n'est pas un témoin valable de la phase des films de 50 nm, dont la température de début de cristallisation augmente quand l'épaisseur diminue. Il faudrait une DRX en incidence rasante ou un Raman (bande Eg à 144 cm⁻¹) sur le film, ou des franges de réseau en MET en coupe (non décrites). material.phase = null pour les films est donc juste.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Tailoring the structural and surface properties of TiO2 thin films and TiO2-based nanolayers, with heat treatments, layer thickness, and oxide mixtures (thèse ; chap. 4 : hausse exponentielle de la température de début de cristallisation quand l'épaisseur diminue)",
+      "authors_or_publisher": "Università di Salerno, dépôt ELEA (thèse de doctorat ; auteur non relevé)",
+      "year": "2021",
+      "url_or_doi": "http://elea.unisa.it:8080/xmlui/handle/10556/6253"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Épaisseurs 53 (UV–vis), 56 (SAR) et 54 nm (EP) en une seule immersion à 2 mm/s dans un sol à ≈ 0,49 mol/L de Ti (≈ 40 g/L d'équivalent TiO2) : ordre de grandeur habituel. Indices effectifs 2,03–2,13 comparables à celui d'un film sol-gel d'anatase recuit à 400 °C de la base (PMC5521283 « TiO2_400C » : n(633 nm) = 1,98), plus poreux.",
+     "status": "ok",
+     "basis": "comparaison_base",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Modèle UV–vis : couche homogène identique sur les deux faces du quartz (le trempage revêt les deux faces), ce qui est correct ; mais le tableau 2 donne pour le même film des indices de 2,0341 (UV–vis), 2,0504 (SAR) et 2,1294 (EP) : la porosité varie de 17 à 12 % selon la méthode. Les auteurs l'attribuent à l'incertitude sur substrat transparent ; un chimiste doit retenir la valeur de l'ellipsométrie (12 % totale, 6 % ouverte) comme la plus fiable et non la valeur UV–vis.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Trempage-retrait : le film liquide s'amincit par drainage et évaporation, les oligomères se concentrent et gélifient sur le substrat ; les forces capillaires du séchage compactent le gel (porosité faible, 10–17 %). Au recuit à 450 °C, la matière organique et les nitrates partent et le squelette se densifie ; la cristallisation en anatase du film est probable mais non démontrée (pas de DRX en incidence rasante).",
+    "sources": [
+     {
+      "title": "Sol-gel chemistry of transition metal oxides",
+      "authors_or_publisher": "J. Livage, M. Henry, C. Sanchez — Progress in Solid State Chemistry 18, 259–341",
+      "year": "1988",
+      "url_or_doi": "10.1016/0079-6786(88)90005-2"
+     },
+     {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "D. A. H. Hanaor, C. C. Sorrell — J. Mater. Sci. 46, 855–874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "humidité et température pendant le trempage, temps d'immersion, nombre de couches (une seule ?)",
+    "atmosphère et type de four (étuve ou four à moufle) au recuit",
+    "indice du TiO2 dense retenu pour Lorentz–Lorenz (2,400 dans l'article, 2,48–2,49 pour l'anatase)",
+    "phase du film par DRX en incidence rasante ou Raman"
+   ]
+  },
+  {
+   "label": "TiO2_coating_Si",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport O/Ti XPS",
+     "inputs": "O 55,4 / Ti 26,8 at % avant ; 63,7 / 32,1 après décapage",
+     "formula": "O/Ti",
+     "result": "2,07 et 1,98",
+     "compared_to": "déclaré 2,1 et 2,0 ; TiO2 : 2",
+     "source": "tableau 1 de l'article"
+    },
+    {
+     "what": "porosité Lorentz–Lorenz recalculée",
+     "inputs": "n_eff = 2,1698 (SAR) ; 2,1607 (EP) ; n_bulk = 2,400 puis 2,485",
+     "formula": "p = 1 − L(n_eff)/L(n_bulk)",
+     "result": "9,9 % et 10,3 % (2,400) ; 13,1 % et 12,7 % (2,485)",
+     "compared_to": "déclaré 10 % et 10 %",
+     "source": "équation SI6 ; Möls et al. 2019 pour 2,48–2,49"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "securite",
+     "finding": "Plasma O2 basse pression (0,4 mbar, 300 W, 10 min) : traitement standard d'activation du silicium (élimine les organiques, hydroxyle la silice native) ; ozone et rayonnement UV du plasma, rien d'inhabituel.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS : O/Ti = 55,4/26,8 = 2,07 avant décapage et 63,7/32,1 = 1,98 après (recalcul exact). Avant décapage, 17,8 % at de carbone de contamination portent aussi de l'oxygène (C–O, C=O) compté dans O : le rapport 2,1 n'est pas une preuve de stœchiométrie. Après décapage par agrégats d'argon, 1,98 est cohérent avec TiO2 (léger épaulement Ti3+ attribué au décapage, plausible). L'écart spin-orbite Ti 2p de 5,7 eV correspond à Ti4+ dans TiO2.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La composante O 1s à 531,3 eV est attribuée à des « oxygen vacancy/defects » : cette attribution est contestée ; une lacune n'émet pas de photoélectron, et le signal à 531–532 eV vient surtout d'hydroxyles et d'espèces adsorbées (Idriss 2021). Les auteurs attribuent déjà 532,3 eV aux OH : la composante à 531,3 eV ne prouve pas de lacunes d'oxygène dans le film.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "On the wrong assignment of the XPS O1s signal at 531–532 eV attributed to oxygen vacancies in photo- and electro-catalysts for water splitting and other materials applications",
+      "authors_or_publisher": "H. Idriss — Surface Science 712, 121894",
+      "year": "2021",
+      "url_or_doi": "10.1016/j.susc.2021.121894"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence interne mineure : le texte compare l'épaisseur MET (51 nm) à « SAR (52 ± 1 nm) and EP (52 nm) », alors que le tableau 3 donne 50 nm en EP pour le film sur Si. Les trois mesures (50–52 nm) restent concordantes.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": null
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les porosités Lorentz–Lorenz sont exactement recalculées avec n_bulk = 2,400 (calcul « porosité Lorentz–Lorenz recalculée »). Mais 2,400 n'est ni l'indice de l'anatase dense à 633 nm (2,48–2,49 pour des films d'anatase) ni justifié par une source : avec 2,485, les porosités passent de 17/16/12 % à 19/18/15 % sur quartz (calcul « avec l'indice de l'anatase dense »). Les porosités absolues sont donc conventionnelles ; seules les comparaisons entre méthodes et substrats, faites avec la même valeur, sont robustes. Les écarts quartz/silicium (16 contre 10 % en SAR) sont du même ordre que l'écart entre méthodes sur le même film (17 à 12 %), comme le disent les auteurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Influence of phase composition on optical properties of TiO2: Dependence of refractive index and band gap on formation of TiO2-II phase in thin films",
+      "authors_or_publisher": "K. Möls, L. Aarik, H. Mändar, A. Kasikov, A. Niilisk, R. Rammula, J. Aarik — Optical Materials 96, 109335",
+      "year": "2019",
+      "url_or_doi": "10.1016/j.optmat.2019.109335"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Isotherme de type IV à hystérèse H2, r_ads 3,9–4,1 nm et r_des 2,2–2,4 nm (diamètres 4,4–8,2 nm, mésopores IUPAC) : cohérent avec des pores en bouteille dont le col fixe la désorption. Porosité ouverte de 6–7 % pour 10–12 % de porosité totale : plausible pour un film xérogel de 50 nm recuit à 450 °C (pores fermés au retrait). La porosimétrie ellipsométrique par adsorption d'un alcool est une méthode établie pour ces films.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of pore size distribution in thin films by ellipsometric porosimetry",
+      "authors_or_publisher": "M. R. Baklanov, K. P. Mogilnikov, V. G. Polovinkin, F. N. Dultsev — J. Vac. Sci. Technol. B 18, 1385–1391",
+      "year": "2000",
+      "url_or_doi": "10.1116/1.591390"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'anatase n'est démontrée que sur une poudre (sol séché en masse, 450 °C), pas sur les films (aucun pic DRX : « too thin »). La poudre change plusieurs variables à la fois (épaisseur, absence de substrat et de contrainte, volume de matière organique, échange gazeux) : ce n'est pas un témoin valable de la phase des films de 50 nm, dont la température de début de cristallisation augmente quand l'épaisseur diminue. Il faudrait une DRX en incidence rasante ou un Raman (bande Eg à 144 cm⁻¹) sur le film, ou des franges de réseau en MET en coupe (non décrites). material.phase = null pour les films est donc juste.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Tailoring the structural and surface properties of TiO2 thin films and TiO2-based nanolayers, with heat treatments, layer thickness, and oxide mixtures (thèse ; chap. 4 : hausse exponentielle de la température de début de cristallisation quand l'épaisseur diminue)",
+      "authors_or_publisher": "Università di Salerno, dépôt ELEA (thèse de doctorat ; auteur non relevé)",
+      "year": "2021",
+      "url_or_doi": "http://elea.unisa.it:8080/xmlui/handle/10556/6253"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme sur quartz ; le plasma O2 rend la silice native hydrophile (Si–OH), ce qui améliore le mouillage par le sol éthanolique et l'ancrage par condensation Ti–O–Si. Une porosité un peu plus faible sur Si (10 % contre 12–16 %) peut venir du substrat ou de l'incertitude des mesures sur quartz, comme le disent les auteurs.",
+    "sources": [
+     {
+      "title": "Sol-gel chemistry of transition metal oxides",
+      "authors_or_publisher": "J. Livage, M. Henry, C. Sanchez — Progress in Solid State Chemistry 18, 259–341",
+      "year": "1988",
+      "url_or_doi": "10.1016/0079-6786(88)90005-2"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "délai entre plasma et trempage (la surface activée se recontamine en quelques heures)",
+    "mêmes réserves que sur quartz (humidité, four, phase du film)"
+   ]
+  },
+  {
+   "label": "TiO2_powder_80C",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de TiO2 attendue par volume de sol séché",
+     "inputs": "[Ti] ≈ 0,49 mol/L ; M(TiO2) = 79,87 g/mol",
+     "formula": "m = c × M",
+     "result": "≈ 39,5 g de TiO2 par litre de sol (≈ 4 g pour 100 mL) après calcination ; plus à 80 °C (gel hydraté, organiques résiduels)",
+     "compared_to": "quantité de sol séchée et masse de poudre non données",
+     "source": "calcul « concentrations du sol » de la voie TiO2_sol"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Séchage 2 h (température non donnée) puis 80 °C, 40 min : le xérogel reste amorphe, attendu ; sous 300 °C un gel d'alcoxyde de titane hydrolysé à h < 2 conserve des groupes organiques et ne cristallise pas en air sec.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "D. A. H. Hanaor, C. C. Sorrell — J. Mater. Sci. 46, 855–874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le séchage en masse d'un sol contenant HNO3 et des alcools concentre l'acide dans le résidu organique ; au début du chauffage, dégagement de NOx possible : séchage sous hotte.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Nitric acid, other than red fuming — Reactivity profile (« ignites upon contact with alcohols… »)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consultée 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/19337"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Évaporation des alcools et de l'eau ; le gel d'oxo-alcoxyde de titane reste amorphe à 80 °C, avec groupes organiques et nitrates résiduels.",
+    "sources": [
+     {
+      "title": "Sol-gel chemistry of transition metal oxides",
+      "authors_or_publisher": "J. Livage, M. Henry, C. Sanchez — Progress in Solid State Chemistry 18, 259–341",
+      "year": "1988",
+      "url_or_doi": "10.1016/0079-6786(88)90005-2"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de sol séché, température et récipient du séchage de 2 h"
+   ]
+  },
+  {
+   "label": "TiO2_powder_450C",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "450 °C, 30 min : anatase seule, attendue pour un xérogel de titane (cristallisation amorphe → anatase vers 350–450 °C, rutile au-delà de ≈ 600 °C). Résultat cohérent avec la base (PMC5873029 : anatase à 500 °C ; PMC5521283 : anatase à 400 °C).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "D. A. H. Hanaor, C. C. Sorrell — J. Mater. Sci. 46, 855–874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'anatase n'est démontrée que sur une poudre (sol séché en masse, 450 °C), pas sur les films (aucun pic DRX : « too thin »). La poudre change plusieurs variables à la fois (épaisseur, absence de substrat et de contrainte, volume de matière organique, échange gazeux) : ce n'est pas un témoin valable de la phase des films de 50 nm, dont la température de début de cristallisation augmente quand l'épaisseur diminue. Il faudrait une DRX en incidence rasante ou un Raman (bande Eg à 144 cm⁻¹) sur le film, ou des franges de réseau en MET en coupe (non décrites). material.phase = null pour les films est donc juste.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Tailoring the structural and surface properties of TiO2 thin films and TiO2-based nanolayers, with heat treatments, layer thickness, and oxide mixtures (thèse ; chap. 4 : hausse exponentielle de la température de début de cristallisation quand l'épaisseur diminue)",
+      "authors_or_publisher": "Università di Salerno, dépôt ELEA (thèse de doctorat ; auteur non relevé)",
+      "year": "2021",
+      "url_or_doi": "http://elea.unisa.it:8080/xmlui/handle/10556/6253"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Combustion des organiques et départ des nitrates puis cristallisation du xérogel amorphe en anatase à 450 °C ; pas de rutile à cette température.",
+    "sources": [
+     {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "D. A. H. Hanaor, C. C. Sorrell — J. Mater. Sci. 46, 855–874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "la poudre ne prouve pas la phase des films de 50 nm"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Protocole sol-gel classique et cohérent (Ti(OBu)4 dans 28 équivalents d'éthanol, HNO3 0,49/Ti, sol d'oligomères stables à ≈ 0,5 mol/L de Ti, trempage-retrait, recuit à 450 °C), avec des grandeurs dérivées exactes (porosités Lorentz–Lorenz, O/Ti, porosité fermée). Le point faible est le rapport d'hydrolyse : 0,82 H2O/Ti ne peut pas inclure l'eau de l'acide à 65 % (0,92 H2O/Ti à elle seule), donc le h réel est ≈ 1,7–1,9, double de la valeur affichée. Réserves : récipient à 60 °C, quantités absolues et ordre d'addition absents (HNO3 concentré + éthanol), indice de 2,400 retenu pour TiO2 dense (porosités sous-estimées de ≈ 3 points si le squelette est de l'anatase), phase des films déduite d'une poudre, composante O 1s à 531,3 eV attribuée à des lacunes. La série ReaxFF n'a pas été jugée (hors périmètre).",
+  "author_errors_suspected": [
+   "rapport H2O/Ti = 0,82 incompatible avec l'eau totale si HNO3 est à 65 % : l'eau ajoutée seule est donnée, sans le dire",
+   "épaisseur EP sur Si citée à 52 nm dans le texte, 50 nm au tableau 3",
+   "attribution de la composante O 1s à 531,3 eV à des lacunes d'oxygène",
+   "référence à la stabilité colloïdale « aqueuse » (±25 mV) et au point isoélectrique de l'anatase pour un sol éthanolique d'oligomères amorphes"
+  ],
+  "comparison_with_database": "PMC5521283 (sol de Ti(OBu)4 chélaté à l'acétylacétone, film recuit à 400 °C, anatase, n(633 nm) = 1,98) et PMC5873029 (anatase à 500 °C) : conditions et résultats du même ordre ; les indices 2,03–2,17 d'ici indiquent des films moins poreux."
+ },
+ "sources_not_found": [
+  "source primaire de l'indice n_bulk = 2,400 retenu par les auteurs pour TiO2 dense (non cité dans l'article)",
+  "valeur d'indice d'un film de TiO2 amorphe dense à 633 nm (non relevée)"
+ ]
+}

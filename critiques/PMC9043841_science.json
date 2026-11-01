@@ -1,0 +1,903 @@
+{
+ "pmcid": "PMC9043841",
+ "routes": [
+  {
+   "label": "NiFe-LDH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "ammoniac apporté",
+     "inputs": "1 mL NH3 à 28 % ; masse volumique ≈ 0,90 g/mL (valeur usuelle de l'ammoniaque 28–30 %, fiche fournisseur non consultée) ; M(NH3) = 17,03 g/mol",
+     "formula": "n = V × ρ × w / M",
+     "result": "≈ 14,8 mmol NH3",
+     "compared_to": "OH− nécessaire à la précipitation complète : 2 n(Ni) + 3 n(Fe) = 2,10 (9:1) ; 2,20 (4:1) ; 2,33 (2:1) ; 2,50 mmol (1:1)",
+     "source": "arithmétique ; masse volumique : valeur usuelle non sourcée"
+    },
+    {
+     "what": "rapport NH3 / OH− nécessaire",
+     "inputs": "14,8 mmol NH3 ; 2,10 à 2,50 mmol OH− nécessaires",
+     "formula": "n(NH3) / [2 n(Ni) + 3 n(Fe)]",
+     "result": "5,9 (1:1) à 7,0 (9:1)",
+     "compared_to": "excès d'ammoniac d'un facteur ≈ 6–7 : la précipitation est complète du point de vue acide–base, mais l'excès complexe Ni2+ en ammines",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pH final estimé (tampon NH4+/NH3)",
+     "inputs": "NH4+ = 2,33 mmol (formé, cas 2:1) + 1,0 mmol (apporté par 0,5 mmol (NH4)2S2O8) = 3,33 mmol ; NH3 libre = 14,8 − 2,33 = 12,5 mmol ; pKa(NH4+) = 9,25 à 25 °C (valeur de manuel)",
+     "formula": "pH = pKa + log(n NH3 / n NH4+)",
+     "result": "pH ≈ 9,8 (complexation de Ni2+ par NH3 négligée)",
+     "compared_to": "domaine de précipitation des LDH NiFe (pH ≈ 8–10, coprécipitation à pH constant, Cavani 1991) : compatible",
+     "source": "arithmétique ; pKa : chimie générale"
+    },
+    {
+     "what": "Ni2+ libre à l'équilibre avec β-Ni(OH)2 au pH final",
+     "inputs": "log *Ks (β-Ni(OH)2 + 2H+ ⇌ Ni2+ + 2H2O) = 11,67 à 25 °C ; pH 9,82",
+     "formula": "log[Ni2+] = 11,67 − 2 pH",
+     "result": "[Ni2+] ≈ 1×10−8 mol/L, soit ≈ 2 nmol dans 200 mL (négligeable)",
+     "compared_to": "la perte réelle de Ni est gouvernée par les complexes [Ni(NH3)n]2+ (≈ 0,06 mol/L de NH3 libre), dont les constantes n'ont pas été consultées : la perte n'est pas chiffrable ici",
+     "source": "Palmer et al. 2010, 10.1080/00958972.2010.492215"
+    },
+    {
+     "what": "pouvoir oxydant du persulfate",
+     "inputs": "0,5 mmol S2O8 2− (2 e− par ion) ; Ni(II) présent : 0,5 (1:1) à 0,9 mmol (9:1)",
+     "formula": "n(e−) = 2 n(S2O8 2−) ; comparé à n(Ni)",
+     "result": "1,0 mmol e− : de quoi oxyder tout le Ni(II) en Ni(III) dans tous les échantillons",
+     "compared_to": "XPS : Ni2+ seul (Ni 2p3/2 855,7 eV, satellite à +5,9 eV) ; Fe déjà Fe(III) dans FeCl3 : le persulfate n'a pas de rôle redox visible",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "anions disponibles contre charge du feuillet",
+     "inputs": "cas 2:1 : charge du feuillet x = 1/3 par métal → 0,333 mmol de charges pour 1 mmol de métal ; Cl− apporté = 2 × 0,667 + 3 × 0,333 = 2,33 mmol ; sulfate possible = 2 × 0,5 = 1,0 mmol si le persulfate est réduit ; CO2 dissous initial ≈ négligeable à l'échelle de 0,17 mmol",
+     "formula": "bilan de charges",
+     "result": "0,167 mmol de CO3 2− ou SO4 2− (ou 0,333 mmol Cl−) suffisent à compenser la charge",
+     "compared_to": "les trois anions sont en concurrence ; le carbonate ne peut venir que du CO2 de l'air pendant la synthèse, le lavage et le séchage",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pH initial de la solution de sels (avant ammoniac)",
+     "inputs": "cas 2:1 : [Fe3+] = 0,333 mmol / 200 mL = 1,67 mmol/L ; pKa1 de [Fe(H2O)6]3+ ≈ 2,2 (valeur de manuel)",
+     "formula": "[H+] ≈ √(Ka × C)",
+     "result": "pH ≈ 2,5",
+     "compared_to": "Fe(III) précipite dès pH ≈ 2–3, Ni(II) au-delà de pH ≈ 7 : l'ajout goutte à goutte (pH croissant) précipite d'abord le fer, puis le nickel",
+     "source": "arithmétique ; pKa : chimie générale"
+    },
+    {
+     "what": "rapports Ni/Fe recalculés à partir des teneurs ICP",
+     "inputs": "Ni et Fe (g/kg) du tableau S1 ; M(Ni) = 58,693 ; M(Fe) = 55,845 g/mol",
+     "formula": "(m_Ni / M_Ni) / (m_Fe / M_Fe)",
+     "result": "8,78 ; 4,13 ; 2,03 ; 1,05",
+     "compared_to": "8,81 ; 4,14 ; 2,03 ; 1,05 annoncés : cohérent (écart ≤ 0,3 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse de solide par mole de métal (ICP)",
+     "inputs": "somme des moles Ni + Fe par kg : 8,775 ; 9,111 ; 7,675 ; 9,178 mol/kg",
+     "formula": "1000 / (n_Ni + n_Fe)",
+     "result": "114,0 (9:1) ; 109,8 (4:1) ; 130,3 (2:1) ; 109,0 g/mol (1:1)",
+     "compared_to": "formule idéale M(1−x)Fe(x)(OH)2(CO3)x/2·0,5H2O : 104,4 ; 107,1 ; 110,8 ; 115,3 g/mol. 2:1 : ≈ 1 H2O de plus par métal (plausible) ; 1:1 : solide plus riche en métal qu'un LDH carbonaté ne peut l'être (voir branche Ni1Fe1)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse théorique par lot de 200 mL",
+     "inputs": "1 mmol de métal ; 130,3 g/mol de métal (Ni2Fe1, ICP)",
+     "formula": "m = n × M",
+     "result": "≈ 0,13 g par lot",
+     "compared_to": "« gram level » : il faut ≥ 7,7 lots, soit ≥ 1,5 L de solution à la même concentration (rendement 100 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Bragg et indexation",
+     "inputs": "λ = 1,54178 Å ; (003) lu vers 2θ ≈ 11,5° et (110) vers 2θ ≈ 60° sur la fig. 2A (lecture ± 0,5°) ; HRTEM : 0,257 et 0,198 nm",
+     "formula": "d = λ / (2 sin θ) ; a = 2 d(110) ; c = 3 d(003) ; 1/d² = 4(h²+hk+k²)/(3a²) + l²/c²",
+     "result": "d(003) ≈ 7,7 Å ; a ≈ 3,08 Å ; c ≈ 23,1 Å ; d(012) calculé = 2,60 Å ; d(018) = 1,96 Å",
+     "compared_to": "0,257 et 0,198 nm annoncés : accord à 1–1,5 % ; d(003) ≈ 7,7 Å typique d'un LDH à CO3 2− ou Cl− intercalé, pas d'un LDH à sulfate (≈ 8,8–11 Å)",
+     "source": "valeurs de l'article (fig. 2A lue)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Coprécipitation à température ambiante en bécher ouvert, séchage à 60 °C sous air : aucune contrainte thermique ; un LDH NiFe carbonaté est stable bien au-delà de 60 °C (déshydroxylation vers 200–400 °C).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrotalcite-type anionic clays: Preparation, properties and applications",
+      "authors_or_publisher": "F. Cavani, F. Trifirò, A. Vaccari, Catalysis Today 11 (1991) 173–301",
+      "year": "1991",
+      "url_or_doi": "10.1016/0920-5861(91)80068-K"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Tous les éléments du produit sont apportés ; l'ammoniac est en excès d'un facteur 6 à 7 sur les OH− nécessaires (calcul « rapport NH3 / OH− nécessaire ») et fixe le pH final vers 9,8 (« pH final estimé »). La recette ne donne que le total des sels (1 mmol) : il faut calculer soi-même les masses pour chaque rapport (ex. 2:1 : 0,667 mmol NiCl2·6H2O = 158,5 mg et 0,333 mmol FeCl3·6H2O = 90,1 mg).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Avec ≈ 0,06 mol/L de NH3 libre à pH ≈ 9,8, une partie du Ni(II) peut rester en solution sous forme d'ammines [Ni(NH3)n]2+ (surnageant bleuté) ; le Ni2+ libre seul est négligeable (« Ni2+ libre… » : ≈ 1×10−8 mol/L). Le rendement n'est pas donné et la décantation ne dure que « a few minutes » : la composition du solide peut dériver vers le fer si l'excès d'ammoniac est plus fort (volume ou lot différent). Les rapports ICP proches des rapports nominaux montrent que la perte est faible dans les conditions de l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Solubility measurements of crystalline β-Ni(OH)2 in aqueous solution as a function of temperature and pH",
+      "authors_or_publisher": "D. A. Palmer et al., Journal of Coordination Chemistry 63 (2010), Taylor & Francis",
+      "year": "2010",
+      "url_or_doi": "10.1080/00958972.2010.492215"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le persulfate (0,5 mmol, 1 mmol d'électrons) suffirait à oxyder tout le Ni(II) (« pouvoir oxydant du persulfate ») ; en milieu alcalin fort il sert d'ailleurs à préparer NiOOH. Or l'XPS ne montre que Ni2+ et le fer est introduit déjà à l'état Fe(III). Le rôle du persulfate n'est ni expliqué ni testé (pas d'essai sans persulfate) : à pH ≈ 9,8, à température ambiante et en quelques minutes, il a probablement peu réagi, et l'annotation selon laquelle il « maintiendrait l'état Fe(III) » est sans objet (Fe(III) dès le départ).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation of nickel oxyhydroxide by a new electrolysis method (introduction : NiOOH préparé classiquement par hypochlorite ou persulfate de potassium en milieu alcalin fort)",
+      "authors_or_publisher": "E. Shangguan et al., International Journal of Hydrogen Energy (Elsevier)",
+      "year": "2010",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S0360319910001692"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Contrôle 5 (témoin) : aucun échantillon sans persulfate ni à concentration différente ; l'attribution du caractère « ultrafin » à la méthode (rapide, sans tensioactif) n'est pas démontrée par un témoin. Un essai sans (NH4)2S2O8, à même pH final, serait le témoin minimal.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande IR à 1115 cm−1 attribuée aux ions CO3 2− (fig. S2) : le mode ν3 du carbonate intercalé dans un LDH est vers 1360–1400 cm−1 (Kloprogge 2002). 1115 cm−1 correspond à la région du ν3 du sulfate (≈ 1100 cm−1 pour SO4 2− libre, chimie générale), produit possible de la réduction du persulfate. L'attribution des auteurs est fausse ; le d(003) ≈ 7,7 Å (« Bragg et indexation ») plaide pour un LDH à carbonate ou chlorure, avec du sulfate au plus adsorbé. Le soufre n'a pas été dosé (XPS survey seulement, peu sensible).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Infrared and Raman study of interlayer anions CO3 2−, NO3−, SO4 2− and ClO4− in Mg/Al-hydrotalcite",
+      "authors_or_publisher": "J. T. Kloprogge, D. Wharton, L. Hickey, R. L. Frost, American Mineralogist 87 (2002) 623",
+      "year": "2002",
+      "url_or_doi": "https://ui.adsabs.harvard.edu/abs/2002AmMin..87..623K/abstract"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contrôle 7 (preuve discriminante) : des raies DRX très larges indexées sur une seule fiche (JCPDS 40-0215) pour quatre compositions de x = 0,1 à 0,5 ne distinguent pas un LDH pur d'un mélange LDH + oxyhydroxyde de fer peu cristallisé, ni un LDH d'un α-Ni(OH)2 dopé Fe pour x = 0,1. Seules les distances HRTEM de Ni2Fe1 sont vérifiées (« Bragg et indexation », accord à 1–1,5 %).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrotalcite-type anionic clays: Preparation, properties and applications",
+      "authors_or_publisher": "F. Cavani, F. Trifirò, A. Vaccari, Catalysis Today 11 (1991) 173–301",
+      "year": "1991",
+      "url_or_doi": "10.1016/0920-5861(91)80068-K"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Précipitation et décantation en quelques minutes, sans mûrissement : cohérent avec des feuillets petits et peu cristallisés (DRX large), pas avec des cristaux bien ordonnés ; aucun contradiction avec ce que montrent les auteurs.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contrôle 6 (cohérence entre sections) : le texte conclut que Ni1Fe1 et Ni4Fe1 ont les plus grandes surfaces actives alors que ses propres Cdl placent Ni2Fe1 (950,4) et Ni4Fe1 (729,7) en tête et Ni1Fe1 (542,8) en dernier ; la fig. 3C porte un axe « Overpotential (mV) » gradué de 0 à 0,60, ce qui ne peut être que des volts (263 mV = 0,263 V) ; le transfert de charge de la fig. 4E est attribué à Ni4Fe1 dans le texte et à Ni2Fe1 dans la légende.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : NiCl2 est classé Carc. 1A (inhalation), Muta. 2, Repr. 1B, Resp. Sens. 1 et Skin Sens. 1 (CLP harmonisé) ; la poudre de LDH nickelé séchée est à manipuler comme un composé de nickel cancérogène par inhalation (pesée en enceinte, pas de poussière). Ammoniaque 28 % (vapeurs, hotte), persulfate d'ammonium (oxydant, sensibilisant respiratoire), KOH 1 M corrosif.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "nickel dichloride (CAS 7718-54-9) — classification CLP harmonisée : Carc. 1A ; Muta. 2 ; Repr. 1B ; Acute Tox. 3 ; STOT RE 1 ; Skin Irrit. 2 ; Resp. Sens. 1 ; Skin Sens. 1",
+      "authors_or_publisher": "ECHA (Agence européenne des produits chimiques)",
+      "year": "2024",
+      "url_or_doi": "https://echa.europa.eu/legislation-obligation/-/obligations/100.028.858"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Au départ la solution est acide (pH ≈ 2,5 par hydrolyse de Fe3+). L'ammoniac ajouté goutte à goutte fait monter le pH : Fe(III) s'hydrolyse et condense d'abord (dès pH 2–3), puis Ni(II) précipite au-delà de pH ≈ 7 en incorporant le fer dans des feuillets brucitiques ; le tampon NH4+/NH3 fixe le pH final vers 9,8 et l'excès de NH3 garde un peu de Ni en ammines. Faute de mûrissement (quelques minutes, 5 mmol/L de métal), on obtient des plaquettes petites, minces et peu cristallisées. La charge des feuillets est compensée par CO3 2− (CO2 de l'air, pendant la synthèse, le lavage et le séchage) et/ou Cl− (d(003) ≈ 7,7 Å) ; le sulfate issu du persulfate est au plus adsorbé (bande à 1115 cm−1). Le persulfate a probablement peu réagi : son rôle n'est pas établi. Méthode à pH croissant plutôt qu'à pH constant : pour x ≥ 0,33 (Ni2Fe1, Ni1Fe1), une ségrégation d'oxyhydroxyde de fer est possible.",
+    "sources": [
+     {
+      "title": "Hydrotalcite-type anionic clays: Preparation, properties and applications",
+      "authors_or_publisher": "F. Cavani, F. Trifirò, A. Vaccari, Catalysis Today 11 (1991) 173–301",
+      "year": "1991",
+      "url_or_doi": "10.1016/0920-5861(91)80068-K"
+     },
+     {
+      "title": "Infrared and Raman study of interlayer anions CO3 2−, NO3−, SO4 2− and ClO4− in Mg/Al-hydrotalcite",
+      "authors_or_publisher": "J. T. Kloprogge, D. Wharton, L. Hickey, R. L. Frost, American Mineralogist 87 (2002) 623",
+      "year": "2002",
+      "url_or_doi": "https://ui.adsabs.harvard.edu/abs/2002AmMin..87..623K/abstract"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "calculer et peser les masses de NiCl2·6H2O et FeCl3·6H2O pour le rapport visé (non données)",
+    "noter le pH final et la couleur du surnageant (Ni en ammines) ; doser Ni et Fe du solide (ICP) pour vérifier le rapport",
+    "faire un essai sans persulfate pour savoir s'il sert à quelque chose",
+    "contrôler l'anion intercalé : bande ν3 du carbonate vers 1360 cm−1, dosage du soufre",
+    "centrifugation (vitesse, durée) et nombre de lavages à fixer soi-même",
+    "travailler en enceinte ventilée : sels et poudres de nickel cancérogènes par inhalation"
+   ]
+  },
+  {
+   "label": "Ni9Fe1-LDH",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport 9:1",
+     "inputs": "0,9 mmol Ni ; 0,1 mmol Fe ; masses molaires des hexahydrates (masses atomiques standard)",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O (237,69 g/mol) : 213.9 mg ; FeCl3·6H2O (270,30 g/mol) : 27.0 mg",
+     "compared_to": "non donné par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fraction trivalente x",
+     "inputs": "Fe/(Ni+Fe) ICP = 0,897 / 8,775",
+     "formula": "x = n_Fe / (n_Ni + n_Fe)",
+     "result": "x = 0,102",
+     "compared_to": "domaine habituel d'un LDH pur : 0,20 ≤ x ≤ 0,33 (Cavani 1991)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "x = 0,10 (« fraction trivalente x ») est sous le domaine habituel des LDH purs (0,20–0,33) : le solide est plutôt un α-Ni(OH)2 / hydroxyde de nickel dopé au fer qu'un LDH stœchiométrique ; la fiche JCPDS unique ne le distingue pas. La masse par mole de métal (114 g/mol) est compatible avec un hydroxyde hydraté.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrotalcite-type anionic clays: Preparation, properties and applications",
+      "authors_or_publisher": "F. Cavani, F. Trifirò, A. Vaccari, Catalysis Today 11 (1991) 173–301",
+      "year": "1991",
+      "url_or_doi": "10.1016/0920-5861(91)80068-K"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pour un échantillon pauvre en fer, l'activité OER mesurée dépend des impuretés de fer de l'électrolyte KOH, qui s'incorporent dans Ni(OH)2 pendant les cycles ; la pureté du KOH n'est pas dite : la comparaison 9:1 contre 2:1 est sensible à ce facteur.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Nickel–Iron Oxyhydroxide Oxygen-Evolution Electrocatalysts: The Role of Intentional and Incidental Iron Incorporation",
+      "authors_or_publisher": "L. Trotochaud, S. L. Young, J. K. Ranney, S. W. Boettcher, J. Am. Chem. Soc. 136 (2014) 6744–6753",
+      "year": "2014",
+      "url_or_doi": "10.1021/ja502379c"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même mécanisme que la voie de base ; avec peu de fer, la phase formée est plus proche d'un α-Ni(OH)2 dopé Fe.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "doser le fer de l'électrolyte KOH ou le purifier (Trotochaud 2014)",
+    "vérifier la phase (α-Ni(OH)2 contre LDH)"
+   ]
+  },
+  {
+   "label": "Ni4Fe1-LDH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport 4:1",
+     "inputs": "0,8 mmol Ni ; 0,2 mmol Fe",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O (237,69 g/mol) : 190.2 mg ; FeCl3·6H2O (270,30 g/mol) : 54.1 mg",
+     "compared_to": "non donné par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "écarts d'énergie totale DFT entre modèles (tableau S2)",
+     "inputs": "E(Ni9Fe1) = −66291,8524 ; E(Ni4Fe1) = −65314,1320 ; E(Ni2Fe1) = −62869,9265 ; E(Ni1Fe1) = −60394,0037 eV ; supercellule de 30 métaux (27:3, 24:6, 20:10, 15:15 attendus)",
+     "formula": "ΔE / nombre de substitutions Ni→Fe",
+     "result": "Ni9→Ni2 : 3421,93 eV / 7 = 488,85 eV par substitution ; Ni9→Ni4 : 977,72 eV = 2 × 488,86 ; Ni4→Ni2 : 2444,21 = 5 × 488,84 ; Ni2→Ni1 : 2475,92 = 5 × 495,18",
+     "compared_to": "un modèle 24:6 demanderait 3 substitutions depuis 27:3 (≈ 1467 eV) : l'écart observé correspond à 2 substitutions, soit un modèle Ni25Fe5 (Ni/Fe = 5)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les énergies totales du tableau S2 sont exactement additives à 488,85 eV par substitution Ni→Fe entre Ni9Fe1, Ni4Fe1 et Ni2Fe1 (« écarts d'énergie totale DFT ») : le modèle « Ni4Fe1 » ne contient que 5 Fe sur 30 (Ni/Fe = 5), pas 6 (Ni/Fe = 4). Le modèle Ni1Fe1 s'écarte de 31,7 eV de l'additivité (structure ou nombre d'atomes différents). Déduction arithmétique, à confirmer auprès des auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même mécanisme que la voie de base.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "peser les sels au rapport 4:1 (masses non données)"
+   ]
+  },
+  {
+   "label": "Ni2Fe1-LDH",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport 2:1",
+     "inputs": "0,667 mmol Ni ; 0,333 mmol Fe",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O (237,69 g/mol) : 158.5 mg ; FeCl3·6H2O (270,30 g/mol) : 90.1 mg",
+     "compared_to": "non donné par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "cohérence Tafel entre 10 et 20 mA cm−2",
+     "inputs": "η = 263 mV à 10 et 283 mV à 20 mA cm−2",
+     "formula": "b = Δη / log(20/10)",
+     "result": "66 mV par décade",
+     "compared_to": "60,0 mV par décade annoncé : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "charge rédox maximale du Ni déposé et pic Ipa",
+     "inputs": "20 µg de catalyseur ; 5,146 mol Ni/kg (ICP) ; aire 0,0707 cm2 ; 1 e− par Ni ; Ipa = 13,70 ν^1/2 − 11,42 (fig. 3A)",
+     "formula": "Q = m × c_Ni × F / A ; pic nernstien d'une couche mince : ip = Q ν F / (4RT)",
+     "result": "Q ≈ 140 mC cm−2 ; ip max ≈ 13,7 mA cm−2 à 10 mV s−1 et 205 mA cm−2 à 150 mV s−1 ; Ipa ajusté : 31,9 et 156 mA cm−2",
+     "compared_to": "à 10 mV s−1, le pic annoncé dépasse 2,3 fois le maximum possible pour une oxydation à 1 e− de tout le Ni déposé",
+     "source": "valeurs de l'article ; constantes F, R"
+    },
+    {
+     "what": "courant normalisé par Cdl (fig. 4C)",
+     "inputs": "j à 1,82 V lus sur la fig. 3B : ≈ 370 ; 225 ; 165 ; 92 mA cm−2 (2:1 ; 4:1 ; 9:1 ; 1:1) ; Cdl = 950,4 ; 729,7 ; 703,1 ; 542,8 µF cm−2",
+     "formula": "j / Cdl, rapports à Ni2Fe1",
+     "result": "rapports 1,26 ; 1,66 ; 2,30",
+     "compared_to": "rapports annoncés 1,3 ; 1,7 ; 2,3 : cohérent ; la valeur absolue 5,6 « mA cm−2 » suppose une capacité spécifique ≈ 14 µF cm−2 non indiquée",
+     "source": "valeurs de l'article (fig. 3B lue à ± 5 %)"
+    },
+    {
+     "what": "potentiel de l'EIS en RHE",
+     "inputs": "0,45 V vs Ag/AgCl (3,3 M KCl) ; E(Ag/AgCl) ≈ 0,20 V vs ESH ; pH(KOH 1 M) ≈ 14",
+     "formula": "E_RHE = E_Ag/AgCl + 0,20 + 0,059 pH",
+     "result": "≈ 1,48 V vs RHE (η ≈ 250 mV)",
+     "compared_to": "dans la montée OER de Ni2Fe1 : cohérent ; la formule de conversion utilisée par les auteurs n'est pas écrite",
+     "source": "chimie générale (valeurs approchées)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "x = 0,33, limite haute du domaine des LDH purs ; la masse par mole de métal (130 g/mol, ICP) indique ≈ 1 H2O de plus par métal que la formule idéale : plausible pour des nanofeuillets hydratés.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrotalcite-type anionic clays: Preparation, properties and applications",
+      "authors_or_publisher": "F. Cavani, F. Trifirò, A. Vaccari, Catalysis Today 11 (1991) 173–301",
+      "year": "1991",
+      "url_or_doi": "10.1016/0920-5861(91)80068-K"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "263 mV à 10 mA cm−2 et 60 mV par décade sont dans la gamme connue des LDH NiFe (tableau S4 des auteurs : 220–302 mV) ; la cohérence Tafel est vérifiée (« cohérence Tafel… »). Mais la pente est ajustée sur 0,15 à 0,3 décade seulement (fig. 3D), juste après le pic Ni2+/Ni3+, et ni la compensation de chute ohmique ni la conversion Ag/AgCl → RHE ne sont décrites : les valeurs à 1,8 V (349,1 mA cm−2 sur 0,07 cm2, soit ≈ 25 mA) sont sensibles à la chute iR.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le pic Ipa à basse vitesse dépasse la charge que tout le nickel déposé peut fournir (« charge rédox maximale… ») : le courant de pic contient sans doute du courant d'OER ou de fond, ou la charge déposée n'est pas 20 µg. Pour un film mince, un pic de surface varie comme ν et non ν^1/2 : l'interprétation « diffusion de OH− » de la pente Ipa–ν^1/2 n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DFT : les énergies d'adsorption recalculées à partir des tableaux S2–S3 sont exactes (−2,709 ; −2,916 ; −3,292 ; −2,632 eV ; formation 4,656 ; 3,685 ; 3,067 ; 4,220 eV), mais les énergies des mêmes surfaces nues diffèrent entre les deux tableaux de 0,17 à 0,23 eV, ce qui est du même ordre que les écarts discutés entre échantillons. Les énergies absolues (H2O = −463,7 eV) ne ressemblent pas aux énergies PAW de VASP annoncé (de l'ordre de −14 eV pour H2O, valeur de mémoire non sourcée) ; une adsorption de H2O à −3,3 eV est très forte pour une molécule d'eau non dissociée ; l'énergie de liaison d'un OH ne mesure pas la formation de NiOOH (étape électrochimique Ni(OH)2 + OH− → NiOOH + H2O + e−).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Stabilité 12 h à 10 mA cm−2 : durée courte pour conclure à une « excellent stability » ; usage courant en recherche, sans contradiction interne.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même mécanisme que la voie de base ; Ni2Fe1 (x = 0,33) est à la limite haute de solubilité du fer dans le feuillet.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "peser 158,5 mg NiCl2·6H2O et 90,1 mg FeCl3·6H2O pour 1 mmol au total",
+    "décrire la correction iR et la conversion en RHE avant de comparer le surpotentiel",
+    "pureté du KOH (fer) à indiquer"
+   ]
+  },
+  {
+   "label": "Ni1Fe1-LDH",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport 1:1",
+     "inputs": "0,5 mmol Ni ; 0,5 mmol Fe",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O (237,69 g/mol) : 118.8 mg ; FeCl3·6H2O (270,30 g/mol) : 135.2 mg",
+     "compared_to": "non donné par l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse par mole de métal contre formules possibles",
+     "inputs": "ICP : 109,0 g/mol de métal ; LDH idéal x = 0,5 à carbonate et 0,5 H2O : 115,3 g/mol ; Ni(OH)2 : 92,7 g/mol ; FeOOH : 88,85 g/mol (masses atomiques standard)",
+     "formula": "comparaison directe ; mélange Ni(OH)2 + FeOOH 1:1 = (92,7 + 88,85)/2",
+     "result": "mélange hydroxyde + oxyhydroxyde : 90,8 g/mol ; LDH x = 0,5 : 115,3 g/mol ; mesuré : 109,0 g/mol",
+     "compared_to": "le solide est plus riche en métal que le LDH x = 0,5 le plus sec possible (hors anhydre) : compatible avec une part d'oxyhydroxyde de fer séparée",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "x = 0,5 dépasse le domaine des LDH purs (≤ 0,33, Cavani 1991) ; au-delà d'environ 25 % de fer, les (oxy)hydroxydes Ni–Fe séparent une phase riche en fer (Trotochaud 2014). La masse par mole de métal (« masse par mole de métal… ») est trop basse pour un LDH x = 0,5 et va dans le même sens. La DRX large et la fiche unique ne peuvent pas exclure une ferrihydrite peu cristallisée. La chute d'activité de Ni1Fe1 (135,5 mV par décade ; Ipa quasi nul, pente 0,01396) est cohérente avec une phase de fer inactive qui dilue et masque le nickel.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Nickel–Iron Oxyhydroxide Oxygen-Evolution Electrocatalysts: The Role of Intentional and Incidental Iron Incorporation",
+      "authors_or_publisher": "L. Trotochaud, S. L. Young, J. K. Ranney, S. W. Boettcher, J. Am. Chem. Soc. 136 (2014) 6744–6753",
+      "year": "2014",
+      "url_or_doi": "10.1021/ja502379c"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Coprécipitation à pH croissant : à x = 0,5, une fraction du Fe(III) précipite séparément en oxyhydroxyde (ferrihydrite) avant le Ni(II) ; produit probable : LDH NiFe (x ≈ 0,25–0,33) + oxyhydroxyde de fer amorphe.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "rechercher une phase de fer séparée (Mössbauer, DRX lente, cartographie EDX)"
+   ]
+  },
+  {
+   "label": "Ni2Fe1-LDH_gram_scale",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume nécessaire pour 1 g de Ni2Fe1",
+     "inputs": "0,13 g par lot de 200 mL (1 mmol de métal × 130,3 g/mol)",
+     "formula": "V = 200 mL × 1 g / 0,13 g",
+     "result": "≥ 1,5 L (≈ 7,7 mmol de métal, 7,7 mL d'ammoniaque 28 %, 3,85 mmol de persulfate) à rendement 100 %",
+     "compared_to": "l'article dit seulement « increasing the volume of container » ; aucune quantité ni masse (fig. S5 absente)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "En passant à ≥ 1,5 L, l'ajout goutte à goutte de ≥ 7,7 mL d'ammoniaque dure plus longtemps et le mélange est moins homogène : le gradient de pH local (fer précipité avant le nickel) peut changer la composition et l'épaisseur ; aucune caractérisation du lot du gramme n'est donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même mécanisme que la voie de base, à plus grand volume.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "quantités exactes du lot du gramme à fixer par proportion",
+    "vérifier composition (ICP) et phase du lot agrandi"
+   ]
+  },
+  {
+   "label": "CoFe_9:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Co/Fe 9:1",
+     "inputs": "0.900 mmol Co ; 0.100 mmol Fe ; CoCl2·6H2O 237,93 g/mol ; FeCl3·6H2O 270,30 g/mol",
+     "formula": "m = n × M",
+     "result": "CoCl2·6H2O : 214.1 mg ; FeCl3·6H2O : 27.0 mg ; persulfate : 1,0 mmol e− pour 0.90 mmol de Co(II)",
+     "compared_to": "non donné par l'article ; le persulfate peut oxyder tout le Co(II)",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Avec Co(II), l'ammoniac et le persulfate (1 mmol d'électrons, de quoi oxyder tout le cobalt), le cobalt peut passer en Co(III) : en ammines [Co(NH3)6]3+ solubles et inertes (perte de cobalt) ou en CoOOH. La phase (LDH CoFe, CoOOH, spinelle) n'est pas identifiée : pas de DRX, d'ICP ni d'XPS, seulement des images MET ; le rapport 9:1 à 1:1 est celui de la légende, non mesuré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "CoFe_4:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Co/Fe 4:1",
+     "inputs": "0.800 mmol Co ; 0.200 mmol Fe ; CoCl2·6H2O 237,93 g/mol ; FeCl3·6H2O 270,30 g/mol",
+     "formula": "m = n × M",
+     "result": "CoCl2·6H2O : 190.3 mg ; FeCl3·6H2O : 54.1 mg ; persulfate : 1,0 mmol e− pour 0.80 mmol de Co(II)",
+     "compared_to": "non donné par l'article ; le persulfate peut oxyder tout le Co(II)",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Avec Co(II), l'ammoniac et le persulfate (1 mmol d'électrons, de quoi oxyder tout le cobalt), le cobalt peut passer en Co(III) : en ammines [Co(NH3)6]3+ solubles et inertes (perte de cobalt) ou en CoOOH. La phase (LDH CoFe, CoOOH, spinelle) n'est pas identifiée : pas de DRX, d'ICP ni d'XPS, seulement des images MET ; le rapport 9:1 à 1:1 est celui de la légende, non mesuré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "CoFe_2:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Co/Fe 2:1",
+     "inputs": "0.667 mmol Co ; 0.333 mmol Fe ; CoCl2·6H2O 237,93 g/mol ; FeCl3·6H2O 270,30 g/mol",
+     "formula": "m = n × M",
+     "result": "CoCl2·6H2O : 158.6 mg ; FeCl3·6H2O : 90.1 mg ; persulfate : 1,0 mmol e− pour 0.67 mmol de Co(II)",
+     "compared_to": "non donné par l'article ; le persulfate peut oxyder tout le Co(II)",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Avec Co(II), l'ammoniac et le persulfate (1 mmol d'électrons, de quoi oxyder tout le cobalt), le cobalt peut passer en Co(III) : en ammines [Co(NH3)6]3+ solubles et inertes (perte de cobalt) ou en CoOOH. La phase (LDH CoFe, CoOOH, spinelle) n'est pas identifiée : pas de DRX, d'ICP ni d'XPS, seulement des images MET ; le rapport 9:1 à 1:1 est celui de la légende, non mesuré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "CoFe_1:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Co/Fe 1:1",
+     "inputs": "0.500 mmol Co ; 0.500 mmol Fe ; CoCl2·6H2O 237,93 g/mol ; FeCl3·6H2O 270,30 g/mol",
+     "formula": "m = n × M",
+     "result": "CoCl2·6H2O : 119.0 mg ; FeCl3·6H2O : 135.2 mg ; persulfate : 1,0 mmol e− pour 0.50 mmol de Co(II)",
+     "compared_to": "non donné par l'article ; le persulfate peut oxyder tout le Co(II)",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Avec Co(II), l'ammoniac et le persulfate (1 mmol d'électrons, de quoi oxyder tout le cobalt), le cobalt peut passer en Co(III) : en ammines [Co(NH3)6]3+ solubles et inertes (perte de cobalt) ou en CoOOH. La phase (LDH CoFe, CoOOH, spinelle) n'est pas identifiée : pas de DRX, d'ICP ni d'XPS, seulement des images MET ; le rapport 9:1 à 1:1 est celui de la légende, non mesuré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "NiCo_9:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Ni/Co 9:1",
+     "inputs": "0.900 mmol Ni ; 0.100 mmol Co ; NiCl2·6H2O 237,69 g/mol ; CoCl2·6H2O 237,93 g/mol",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O : 213.9 mg ; CoCl2·6H2O : 23.8 mg",
+     "compared_to": "non donné par l'article ; sans Fe(III), un LDH exige un cation trivalent : seul Co(III) formé par oxydation peut le fournir",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Sans fer, la série NiCo ne peut donner un LDH que si une partie du Co(II) est oxydée en Co(III) (par le persulfate ou l'air) ; sinon on obtient un hydroxyde Ni/Co(OH)2 de type α ou β. Une partie du cobalt et du nickel peut rester en ammines. La phase n'est pas identifiée (MET seulement), la composition n'est pas mesurée : ici le persulfate a peut-être un rôle, non discuté par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "NiCo_4:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Ni/Co 4:1",
+     "inputs": "0.800 mmol Ni ; 0.200 mmol Co ; NiCl2·6H2O 237,69 g/mol ; CoCl2·6H2O 237,93 g/mol",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O : 190.2 mg ; CoCl2·6H2O : 47.6 mg",
+     "compared_to": "non donné par l'article ; sans Fe(III), un LDH exige un cation trivalent : seul Co(III) formé par oxydation peut le fournir",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Sans fer, la série NiCo ne peut donner un LDH que si une partie du Co(II) est oxydée en Co(III) (par le persulfate ou l'air) ; sinon on obtient un hydroxyde Ni/Co(OH)2 de type α ou β. Une partie du cobalt et du nickel peut rester en ammines. La phase n'est pas identifiée (MET seulement), la composition n'est pas mesurée : ici le persulfate a peut-être un rôle, non discuté par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "NiCo_2:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Ni/Co 2:1",
+     "inputs": "0.667 mmol Ni ; 0.333 mmol Co ; NiCl2·6H2O 237,69 g/mol ; CoCl2·6H2O 237,93 g/mol",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O : 158.5 mg ; CoCl2·6H2O : 79.3 mg",
+     "compared_to": "non donné par l'article ; sans Fe(III), un LDH exige un cation trivalent : seul Co(III) formé par oxydation peut le fournir",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Sans fer, la série NiCo ne peut donner un LDH que si une partie du Co(II) est oxydée en Co(III) (par le persulfate ou l'air) ; sinon on obtient un hydroxyde Ni/Co(OH)2 de type α ou β. Une partie du cobalt et du nickel peut rester en ammines. La phase n'est pas identifiée (MET seulement), la composition n'est pas mesurée : ici le persulfate a peut-être un rôle, non discuté par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "NiCo_1:1",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses de sels pour 1 mmol au rapport Ni/Co 1:1",
+     "inputs": "0.500 mmol Ni ; 0.500 mmol Co ; NiCl2·6H2O 237,69 g/mol ; CoCl2·6H2O 237,93 g/mol",
+     "formula": "m = n × M",
+     "result": "NiCl2·6H2O : 118.8 mg ; CoCl2·6H2O : 119.0 mg",
+     "compared_to": "non donné par l'article ; sans Fe(III), un LDH exige un cation trivalent : seul Co(III) formé par oxydation peut le fournir",
+     "source": "arithmétique (le rapport des sels n'est donné que pour le produit, légende de la fig. S4)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Sans fer, la série NiCo ne peut donner un LDH que si une partie du Co(II) est oxydée en Co(III) (par le persulfate ou l'air) ; sinon on obtient un hydroxyde Ni/Co(OH)2 de type α ou β. Une partie du cobalt et du nickel peut rester en ammines. La phase n'est pas identifiée (MET seulement), la composition n'est pas mesurée : ici le persulfate a peut-être un rôle, non discuté par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Le chlorure de cobalt est classé cancérogène par inhalation (Carc. 1B, H350i), Muta. 2 et Repr. 1B (fiche ECHA) : mêmes précautions que pour les sels de nickel ; non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "fiche ECHA CHEM 100.028.718 (chlorure de cobalt) — Carc. 1B H350i ; Muta. 2 H341 ; Repr. 1B H360F (identification de la fiche lue dans l'extrait de recherche, à confirmer)",
+      "authors_or_publisher": "ECHA CHEM",
+      "year": "2024",
+      "url_or_doi": "https://chem.echa.europa.eu/100.028.718/harmonised"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Coprécipitation par l'ammoniac comme pour NiFe, avec oxydation possible de Co(II) en Co(III) par le persulfate ; phase finale non établie.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identifier la phase (DRX) et doser la composition (ICP)",
+    "noter la couleur du surnageant (ammines de cobalt)"
+   ]
+  },
+  {
+   "label": "GC_electrode_ink",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [
+    {
+     "what": "masse de catalyseur déposée et charge surfacique",
+     "inputs": "4 mg dans 1 mL + 30 µL ; 5 µL déposés ; disque de 3 mm : A = π × 0,15² = 0,0707 cm2",
+     "formula": "m = 4 mg × 5 / 1030 ; m / A",
+     "result": "19,4 µg ; 0,275 mg cm−2 (0,283 mg cm−2 avec les 20 µg arrondis des auteurs)",
+     "compared_to": "0,285 mg cm−2 annoncé : cohérent à 3 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "proportion de Nafion",
+     "inputs": "30 µL de Nafion 5 % en masse ; masse volumique de la solution ≈ 0,87–0,92 g/mL (valeur usuelle, non sourcée)",
+     "formula": "m(Nafion) = 30 µL × ρ × 0,05",
+     "result": "≈ 1,3–1,4 mg pour 4 mg de catalyseur, soit ≈ 25 % en masse du dépôt sec",
+     "compared_to": "proportions usuelles des encres pour OER (10–30 %) : cohérent",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Encre et dépôt standard ; le séchage de la goutte n'est pas décrit, et 20 µg par électrode rendent la comparaison entre échantillons sensible à l'homogénéité de l'encre (sonication 1 h dans un bain dont la température n'est pas donnée).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Sans objet (mise en forme d'électrode).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "séchage du dépôt (air, température)",
+    "température du bain à ultrasons"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La coprécipitation à température ambiante (5 mmol/L de métaux, ammoniac en excès d'un facteur 6–7, pH final ≈ 9,8) est chimiquement plausible et facile à refaire, mais la recette ne donne ni les masses de sels, ni le rôle du persulfate, ni le rendement. Les rapports ICP sont cohérents (recalculés à 0,3 % près). Les compositions extrêmes sont hors du domaine des LDH purs (x = 0,1 et 0,5) et rien ne prouve l'absence de phase de fer séparée dans Ni1Fe1. L'attribution de la bande IR à 1115 cm−1 au carbonate est fausse (région du sulfate). Plusieurs incohérences internes dans les résultats : conclusion sur les Cdl contraire aux valeurs, axe de la fig. 3C en mV pour des volts, légende contre texte pour la fig. 4E, énergies des surfaces nues différentes entre les tableaux S2 et S3, modèle DFT « Ni4Fe1 » qui semble contenir Ni25Fe5.",
+  "author_errors_suspected": [
+   "bande IR à 1115 cm−1 attribuée à CO3 2− (le ν3 du carbonate intercalé est vers 1360–1400 cm−1)",
+   "conclusion « surfaces actives les plus élevées pour Ni1Fe1 et Ni4Fe1 » contraire aux Cdl donnés",
+   "axe de la fig. 3C en mV gradué de 0 à 0,60 (des volts)",
+   "fig. 4E attribuée à Ni4Fe1 dans le texte, à Ni2Fe1 dans la légende",
+   "énergies des surfaces nues différentes de 0,17–0,23 eV entre les tableaux S2 et S3",
+   "modèle DFT Ni4Fe1 compatible par additivité des énergies avec 5 Fe sur 30 et non 6 (déduction)",
+   "énergies absolues de l'ordre de −463,7 eV pour H2O, peu compatibles avec le code VASP annoncé (à confirmer)"
+  ],
+  "comparison_with_database": "Aucune autre voie LDH ou hydroxyde de Ni–Fe dans la base (compare.py « NiFe », « double hydroxide », « hydroxide », « Ni(OH)2 » : seule PMC9043841)."
+ },
+ "sources_not_found": [
+  "constantes de formation des ammines de nickel(II) (log β1–β6) : non trouvées dans les recherches faites, perte de Ni en solution non chiffrée",
+  "source vérifiée pour l'énergie totale VASP-PBE de H2O (≈ −14 eV) : non trouvée, valeur de mémoire",
+  "masse volumique de l'ammoniaque 28 % et de la solution de Nafion 5 % : valeurs usuelles, non vérifiées"
+ ]
+}

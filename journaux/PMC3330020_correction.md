@@ -1,0 +1,10 @@
+# Journal de correction PMC3330020
+
+- Fidélité 1 (carbone vs logβ) : phrase de `comparaison_branches` réécrite. Les teneurs 2,3 ; 3,2 ; 4,8 ; 5,1 wt.% (SGAc, SGOc, SGEg, SGEn) sont mises en regard des logβ 8,3 ; 5,22 ; 9,67 ; 9,70 ; la proportionnalité des auteurs ne vaut que pour oxalate, éthanediol, éthylènediamine, l'acide acétique est hors tendance pour le carbone aussi. La phrase de `tendance_observee` (« sauf pour l'acide acétique ») était déjà cohérente, laissée telle quelle.
+- Fidélité 2 (fenêtre CV) : valeur du texte (2,0 à 4,5 V) conservée dans la caractérisation ; doute ajouté (axe de la figure 3 d'environ 2,8 à 4,2 V). Le critique situait la fenêtre dans les « conditions » : pas de modification de la citation.
+- Fidélité 3 (pics de CV) : rejeté comme valeurs. Le texte n'imprime aucune position de pic (« smaller compared to others »), la figure 3 n'est pas numérisée dans cette base, et lire des valeurs sur la courbe sans citation contredit la règle. Remplacé par une annotation `limite_reproductibilite` sur Cell_LiFePO4C ; le doute existant sur les figures qualitatives reste.
+- Fidélité 4 (outcome cell_voltage_window) : outcome retiré. La même citation (« between 2.5 and 4.3 V vs. Li+/Li at room temperature ») reste portée par la caractérisation galvanostatique, donc aucune citation perdue.
+- Science : les 8 `probleme` viennent de l'article, convertis en 6 annotations `limite_reproductibilite` regroupées par voie (SGAc x2, SGEg, SGOc, SGEn ; la solubilité de l'acide acétique et le pH 6,5 groupés ensemble, logβ 8,3 groupé avec l'argument du champ cristallin). Aucune valeur ni citation modifiée. Source nommée : Harvey, Analytical Chemistry 2.1 (Martell & Smith), sans URL comme demandé.
+- `mecanisme_analyse` (SGAc) : l'acide ascorbique ajouté comme source de carbone, présenté en hypothèse, avec combustion nitrate/organique puis pyrolyse sous N2. `mecanisme_auteurs` non touché.
+- Les pourcentages de diprotonation de l'éthylènediamine (69 à 92 %) viennent des décisions de l'orchestrateur, issus du critique scientifique ; non vérifiés dans l'article.
+- Aucun doute périmé sur l'absence de marqueurs `[[id]]` dans refs trouvé.

@@ -1,0 +1,769 @@
+{
+ "pmcid": "PMC9038048",
+ "routes": [
+  {
+   "label": "Extract_mature",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport solide/solvant de l'extraction",
+     "inputs": "30 g de poudre ; 250 mL de méthanol",
+     "formula": "m/V",
+     "result": "120 g/L (1:8,3 m/V)",
+     "compared_to": "rapports Soxhlet usuels 1:5 à 1:20 (ordre de grandeur)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse d'extrait sec consommée par synthèse",
+     "inputs": "4 mL à 10^5 μg/mL (XML)",
+     "formula": "V × c",
+     "result": "400 mg d'extrait sec par lot de 20 mL de HAuCl4",
+     "compared_to": "rendement d'extraction non donné : impossible de savoir combien de lots donne 30 g de feuilles",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Soxhlet « à 35–45 °C » avec du méthanol : le point d'ébullition du méthanol est 337,8 K (64,7 °C) ; un Soxhlet ne fonctionne que si le ballon bout et que la vapeur atteint le réfrigérant. 35–45 °C ne peut être que la température dans la chambre d'extraction (ou une extraction sous pression réduite non dite). Le chauffage du ballon doit dépasser 65 °C.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Methyl Alcohol — Phase change data (Tboil = 337,8 ± 0,3 K)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C67561&Mask=4"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Évaporateur rotatif à 45 °C sous pression réduite : compatible avec le méthanol (Téb 64,7 °C à 1 atm).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Methyl Alcohol — Phase change data (Tboil = 337,8 ± 0,3 K)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C67561&Mask=4"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "« Kept frozen at 8 °C » : 8 °C n'est pas une congélation (réfrigérateur). Incohérence de vocabulaire ; la conservation réelle (4–8 °C ou −20 °C) change la stabilité des polyphénols et doit être fixée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Après évaporation du solvant, l'extrait sec est remis à 10^5 μg/mL (100 mg/mL) dans « 2 % DMSO dans l'eau » (voir calcul « masse d'extrait sec »). Un extrait méthanolique de feuilles (chlorophylles, lipides, terpènes) ne se dissout pas entièrement à 100 mg/mL dans un milieu à 98 % d'eau : on aura une suspension, et l'ordre des opérations (homogénéisation, centrifugation 2 min, filtration 0,45 μm) est décrit avant cette remise en solution, ce qui laisse la teneur réellement dissoute inconnue.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Rendement d'extraction et masse d'extrait sec non donnés : on ne peut pas vérifier que 30 g de feuilles suffisent pour préparer la solution à 100 mg/mL utilisée (400 mg par synthèse).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Méthanol (Téb 64,7 °C) chauffé au Soxhlet pendant 10 h : vapeurs toxiques et très inflammables ; hotte, pas de flamme, chauffe-ballon et réfrigérant alimenté en continu. Non mentionné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Methyl Alcohol — Phase change data (Tboil = 337,8 ± 0,3 K)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C67561&Mask=4"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Extraction solide-liquide au méthanol des composés polaires et moyennement polaires des feuilles : glycosides de flavonols (kaempférol, quercétine-3-O-glucoside, rutine), acides phénoliques (gallique, syringique, chlorogénique), glucosinolates, sucres ; ces polyphénols sont les réducteurs attendus pour Au(III).",
+    "sources": [
+     {
+      "title": "Phenolics of Moringa oleifera leaves",
+      "authors_or_publisher": "Manguro L. O. A., Lemmen P. (Natural Product Research)",
+      "year": "2007",
+      "url_or_doi": "10.1080/14786410601035811"
+     },
+     {
+      "title": "Maximizing total phenolics, total flavonoids contents and antioxidant activity of Moringa oleifera leaf extract by the appropriate extraction method",
+      "authors_or_publisher": "Vongsak B. et al. (Industrial Crops and Products), notice Europe PMC AGR",
+      "year": "2013",
+      "url_or_doi": "https://europepmc.org/article/AGR/IND500604935"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température réelle du ballon du Soxhlet (≥ 65 °C pour le méthanol)",
+    "rendement en extrait sec (g pour 30 g de feuilles)",
+    "façon de préparer la solution à 100 mg/mL dans 2 % de DMSO : dissolution complète ou suspension, filtration après remise en solution",
+    "température de conservation réelle (« frozen » ou 8 °C)",
+    "teneur en polyphénols de l'extrait (Folin) pour normaliser d'un lot de feuilles à l'autre"
+   ]
+  },
+  {
+   "label": "gnp-citrate",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'or",
+     "inputs": "20 mL × 394 μg/mL HAuCl4·3H2O = 7,88 mg ; M = 393,83 g/mol",
+     "formula": "m/M",
+     "result": "0,0200 mmol Au (1,00 mM dans 20 mL)",
+     "compared_to": "Turkevich-Frens : 0,25–1 mM",
+     "source": "masses molaires IUPAC (arithmétique) ; HAuCl4·3H2O 393,83 g/mol, Na3C6H5O7·2H2O 294,10 g/mol, Au 196,97 g/mol"
+    },
+    {
+     "what": "moles de citrate (valeur du XML : 10^5 μg/mL)",
+     "inputs": "4 mL × 100 mg/mL = 400 mg Na3C6H5O7·2H2O ; M = 294,10 g/mol",
+     "formula": "m/M",
+     "result": "1,36 mmol",
+     "compared_to": "-",
+     "source": "masses molaires IUPAC (arithmétique) ; HAuCl4·3H2O 393,83 g/mol, Na3C6H5O7·2H2O 294,10 g/mol, Au 196,97 g/mol"
+    },
+    {
+     "what": "rapport molaire citrate/Au",
+     "inputs": "1,36 mmol ; 0,0200 mmol",
+     "formula": "n(cit)/n(Au)",
+     "result": "68:1",
+     "compared_to": "Turkevich-Frens 0,5:1 à 4:1 (Dong 2020) ; 1,5:1 suffit au bilan d'électrons ; extensions jusqu'à ~18:1 rapportées",
+     "source": "valeurs de l'article ; Dong et al. 2020"
+    },
+    {
+     "what": "rapport molaire si l'on lisait 105 μg/mL (texte aplati)",
+     "inputs": "4 mL × 105 μg/mL = 0,42 mg ; 294,10 g/mol",
+     "formula": "m/M ÷ n(Au)",
+     "result": "0,0014 mmol, soit 0,07:1 (réduction possible ≤ 5 % de l'or)",
+     "compared_to": "lecture fausse : l'annotation mecanisme_analyse de l'extraction repose sur elle",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentrations finales et force ionique",
+     "inputs": "1,36 mmol citrate et 0,0200 mmol Au dans 24 mL",
+     "formula": "n/V ; I = ½ Σ c z²",
+     "result": "[citrate] 56,7 mM ; [Au] 0,834 mM ; I ≈ 0,34 mol/L",
+     "compared_to": "Turkevich classique : citrate ≈ 1–4 mM",
+     "source": "arithmétique"
+    },
+    {
+     "what": "concentration annoncée de la dispersion finale",
+     "inputs": "7,88 mg HAuCl4·3H2O dans 24 mL",
+     "formula": "m/V",
+     "result": "328 μg/mL (exprimé en HAuCl4·3H2O) = 164 μg/mL d'Au = 0,834 mM Au",
+     "compared_to": "328 μg/mL de l'article : simple dilution, pas un rendement",
+     "source": "arithmétique"
+    },
+    {
+     "what": "fraction massique d'or dans le résidu sec non lavé",
+     "inputs": "3,94 mg Au ; 400 mg citrate dihydraté",
+     "formula": "m(Au)/(m(Au)+m(cit))",
+     "result": "≈ 1 %",
+     "compared_to": "EDX annexe S3B : Au 0,26 % en masse (C 27,8 %, O 31,8 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Bragg (λ Cu Kα 1,5406 Å, non déclarée par l'article)",
+     "inputs": "2θ = 38,3 / 38,1 / 44,4 / 64,5 / 77,5°",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "2,348 / 2,360 / 2,039 / 1,444 / 1,231 Å",
+     "compared_to": "d annoncés 2,3555 / 2,039 / 1,44 / 1,229 Å = a/√(h²+k²+l²) avec a = 4,0789 Å (fiche JCPDS 04-0784) ; a³ = 67,86 Å³",
+     "source": "NIST X-ray Transition Energies (Cu Kα1) via references/constantes.md ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport citrate/Au vaut 68:1 (calcul « rapport molaire citrate/Au »), environ 17 fois au-dessus du haut de la plage Turkevich-Frens (0,5:1 à 4:1). La réduction est donc possible en quantité de réducteur, mais ce n'est pas le protocole standard annoncé (« standard protocol given by Chayanika Devi et al. »). Il reste environ 57 mM de citrate libre (force ionique ≈ 0,34 M) dans la dispersion, qui n'est jamais lavée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of Precision Gold Nanoparticles Using Turkevich Method",
+      "authors_or_publisher": "Dong J. et al. (KONA Powder and Particle Journal), via PMC",
+      "year": "2020",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7062369"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Réduction au citrate à 60 °C, sans durée après l'ajout : la méthode de Turkevich se fait à ébullition (100 °C) ; en dessous de ~90 °C la réduction, donc la nucléation, est nettement plus lente (Dong 2020), et à température ambiante elle demande un pH et un rapport ajustés (Tyagi 2016). Le « changement de couleur » sert de seul critère de fin : il faut une durée et un suivi UV.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A Facile pH Controlled Citrate-Based Reduction Method for Gold Nanoparticle Synthesis at Room Temperature",
+      "authors_or_publisher": "Tyagi H. et al. (Nanoscale Research Letters)",
+      "year": "2016",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4987575"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Avec un tel excès de citrate (pH du mélange probablement > 6,5, non mesuré), Ji et al. montrent que AuCl4− passe à des formes hydroxylées [AuCl2(OH)2]−, [AuCl(OH)3]− moins réactives, ce qui ralentit encore la réduction à 60 °C. Le pH de la réaction doit être mesuré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille TEM 15–20 nm et plasmon à 535 nm : ordre de grandeur cohérent avec un excès de citrate (le diamètre plafonne vers 12–20 nm aux grands rapports, Kimling 2006). La fraction massique d'or attendue dans le résidu sec non lavé est ≈ 1 % (calcul « fraction massique d'or ») : l'EDX à 0,26 % d'Au et 60 % de C + O le confirme ; ce dépôt est surtout du citrate de sodium.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Turkevich method for gold nanoparticle synthesis revisited",
+      "authors_or_publisher": "Kimling J., Maier M., Okenve B., Kotaidis V., Ballot H., Plech A. (J. Phys. Chem. B)",
+      "year": "2006",
+      "url_or_doi": "10.1021/jp061667w"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX : les distances d annoncées (2,3555 ; 2,039 ; 1,44 ; 1,229 Å) et a = 4,0789 Å sont exactement celles de la fiche JCPDS 04-0784, identiques à la quatrième décimale pour les deux échantillons, et ne correspondent pas aux 2θ lus (38,3° donne 2,348 Å, 38,1° donne 2,360 Å ; calcul « Bragg ») : elles sont recopiées de la fiche, non mesurées. La « cell volume (D) » de 67,85 est a³ (67,86 Å³) sans unité. L'article donne aussi deux positions pour la raie (111), 38,3 et 38,1°.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Bande interdite » de 2,08–2,12 eV par tracé de Tauc : l'or est un métal, il n'a pas de bande interdite ; 2,08 eV correspond à 596 nm, c'est-à-dire le flanc rouge de la bande plasmon. La valeur dépend de la forme du plasmon, pas d'une transition à seuil ; elle ne mesure pas une stabilité. Le suivi correct est la position et la largeur du plasmon et le diamètre DLS dans le temps.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hémolyse de 23 à 112 % pour 0,25–5 μL/mL de dispersion, soit 0,08–1,6 μg/mL de HAuCl4 avant dilution 1:5 dans l'essai (0,016–0,33 μg/mL). Des AuNP au citrate ne lysent pas les érythrocytes jusqu'à 20 μM d'or (≈ 4 μg/mL) (PubMed 24771436). Une hémolyse > 100 % est impossible : la lecture à 540 nm coïncide avec le plasmon des AuNP (535 nm), et la dispersion contient ~57 mM de citrate libre, qui chélate le calcium. Les rôles des témoins sont inversés : le SDS est le témoin positif de lyse totale, le PBS le témoin négatif (protocole NCL).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Analysis of Hemolytic Properties of Nanoparticles (protocole NCL ; > 5 % = hémolytique ; témoin positif de lyse totale)",
+      "authors_or_publisher": "Nanotechnology Characterization Laboratory (NCI), NCBI Bookshelf",
+      "year": "non relevée",
+      "url_or_doi": "https://www.ncbi.nlm.nih.gov/books/NBK604925"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Photodégradation du bleu de méthylène : des « solutions de travail » d'AuNP à 1–5 × 10−3 M sont impossibles à partir d'une dispersion à 0,834 mM d'or (calcul « concentration annoncée »), sauf concentration non décrite (facteur 1,2 à 6). 200 μL de bleu à 3 × 10−2 M dans 2–3 mL donnent ≈ 2,4 mM, soit A664 ≈ 160 (ε = 6,71 × 10^4 M−1 cm−1), non mesurable sans dilution. Un ln(At/A0) positif signifierait une hausse de l'absorbance. La source de lumière n'est pas décrite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Supporting Information, c9re00456d : coefficient d'absorption molaire du bleu de méthylène à 665 nm = 6,71 × 10^4 M−1 cm−1",
+      "authors_or_publisher": "Royal Society of Chemistry, Reaction Chemistry & Engineering (annexe)",
+      "year": "2019",
+      "url_or_doi": "https://www.rsc.org/suppdata/c9/re/c9re00456d/c9re00456d1.pdf"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Décoloration du bleu de méthylène sans témoin discriminant : le citrate libre (57 mM) et, pour GNP, les polyphénols libres réduisent le bleu de méthylène en leuco-bleu incolore sans photocatalyse. Le témoin « i » (bleu seul) ne sépare pas cet effet de celui des particules. Il faudrait le surnageant sans particules, à l'obscurité et sous lumière.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HAuCl4·3H2O corrosif et sensibilisant ; nanoparticules en dispersion (pas d'aérosol). Pas de danger thermique (60 °C, eau, récipient ouvert).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réduction de type Turkevich : le citrate s'oxyde en acétonedicarboxylate en réduisant Au(III) en Au(I), puis la dismutation et la réduction donnent Au(0). Il se forme des germes de ~2 nm, qui croissent par agrégation et coalescence ; à pH bas, Ji et al. décrivent une attache aléatoire en nanofils, puis un mûrissement intraparticulaire, ce qui recoupe la description des auteurs (amas de 2,5 nm, chaînes, effondrement vers 7 nm). Le citrate adsorbé donne le potentiel zêta de −31 mV. Avec 68 équivalents de citrate et un pH probablement > 6,5, la voie se rapproche plutôt du mode nucléation-croissance à haut pH de Ji et al., plus lent à 60 °C.",
+    "sources": [
+     {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "Turkevich J., Stevenson P. C., Hillier J. (Discuss. Faraday Soc.)",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     },
+     {
+      "title": "Controlled nucleation for the regulation of the particle size in monodisperse gold suspensions",
+      "authors_or_publisher": "Frens G. (Nature Phys. Sci.)",
+      "year": "1973",
+      "url_or_doi": "10.1038/physci241020a0"
+     },
+     {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     },
+     {
+      "title": "Turkevich method for gold nanoparticle synthesis revisited",
+      "authors_or_publisher": "Kimling J., Maier M., Okenve B., Kotaidis V., Ballot H., Plech A. (J. Phys. Chem. B)",
+      "year": "2006",
+      "url_or_doi": "10.1021/jp061667w"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration réelle de la solution de citrate (10^5 μg/mL = 100 mg/mL selon le XML) et rapport citrate/Au de 68:1 visé ou non",
+    "durée de réaction à 60 °C après l'ajout, et pH du mélange",
+    "rendement en Au(0) par A400 (Hendel 2014) plutôt que la concentration nominale de 328 μg/mL",
+    "lavage par centrifugation avant les essais biologiques et catalytiques (citrate libre ~57 mM)",
+    "longueur d'onde DRX et positions de raies mesurées (pas celles de la fiche)"
+   ]
+  },
+  {
+   "label": "GNP",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'or",
+     "inputs": "20 mL × 394 μg/mL HAuCl4·3H2O ; 393,83 g/mol",
+     "formula": "m/M",
+     "result": "0,0200 mmol Au (3,94 mg d'Au)",
+     "compared_to": "-",
+     "source": "masses molaires IUPAC (arithmétique) ; HAuCl4·3H2O 393,83 g/mol, Na3C6H5O7·2H2O 294,10 g/mol, Au 196,97 g/mol"
+    },
+    {
+     "what": "électrons nécessaires",
+     "inputs": "Au(III) → Au(0) : 3 e− ; 0,0200 mmol",
+     "formula": "3 n(Au)",
+     "result": "0,060 mmol e−",
+     "compared_to": "-",
+     "source": "arithmétique"
+    },
+    {
+     "what": "masse d'extrait (valeur du XML : 10^5 μg/mL)",
+     "inputs": "4 mL × 100 mg/mL",
+     "formula": "V × c",
+     "result": "400 mg d'extrait sec, soit ≈ 100 g d'extrait par g d'Au",
+     "compared_to": "Moringa aqueux : 10 mL d'extrait pour 190 mL de HAuCl4 1 mM (PMC11920177), concentration de l'extrait non relevée",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pouvoir réducteur phénolique de l'extrait",
+     "inputs": "400 mg ; 13,23 g équivalent acide chlorogénique / 100 g d'extrait (Vongsak 2013) ; M(acide chlorogénique) = 354,31 g/mol ; 2 à 4 e− par molécule (catéchol → quinone)",
+     "formula": "m × w / M × n(e−)",
+     "result": "0,149 mmol, soit 0,30–0,60 mmol e−, 5 à 10 fois les 0,060 mmol nécessaires",
+     "compared_to": "réduction complète possible",
+     "source": "Vongsak et al. 2013 ; arithmétique"
+    },
+    {
+     "what": "lecture fausse 105 μg/mL (texte aplati)",
+     "inputs": "4 mL × 105 μg/mL = 0,42 mg",
+     "formula": "même calcul",
+     "result": "≤ 0,003 mmol e−, soit ≤ 5 % de l'or réductible",
+     "compared_to": "à ne pas retenir : exposant perdu",
+     "source": "arithmétique"
+    },
+    {
+     "what": "DMSO apporté",
+     "inputs": "2 % de 4 mL = 80 μL ; d = 1,10 ; M = 78,13 g/mol",
+     "formula": "V d / M",
+     "result": "1,1 mmol (≈ 47 mM dans 24 mL)",
+     "compared_to": "co-solvant, sans rôle redox attendu à 75 °C",
+     "source": "arithmétique (densité et M usuelles du DMSO)"
+    },
+    {
+     "what": "rapport massique extrait/or dans la dispersion finale",
+     "inputs": "400 mg d'extrait ; 3,94 mg d'Au ; 24 mL",
+     "formula": "m/V",
+     "result": "extrait ≈ 16,7 mg/mL contre Au 0,164 mg/mL (100:1)",
+     "compared_to": "la dispersion n'est ni lavée ni dialysée (filtration 0,22 μm et centrifugation 5000 rpm qui garde les particules de 20 nm dans le surnageant)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Avec 100 mg/mL (XML), l'extrait apporte 5 à 10 fois les électrons nécessaires (calcul « pouvoir réducteur phénolique ») : la réduction complète de 1 mM d'Au(III) est plausible. La lecture « 105 μg/mL » du texte aplati rendrait la synthèse impossible (≤ 5 % de l'or réduit) : elle vient de l'exposant perdu, pas de l'article.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Maximizing total phenolics, total flavonoids contents and antioxidant activity of Moringa oleifera leaf extract by the appropriate extraction method",
+      "authors_or_publisher": "Vongsak B. et al. (Industrial Crops and Products), notice Europe PMC AGR",
+      "year": "2013",
+      "url_or_doi": "https://europepmc.org/article/AGR/IND500604935"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "75 °C en récipient ouvert, solution aqueuse à 2 % de DMSO : sous l'ébullition (100 °C), acceptable. La durée (« jusqu'au brun rougeâtre ») n'est pas donnée ; un brun rougeâtre plutôt que rouge rubis indique des particules plus grosses ou agrégées, ou la couleur propre de l'extrait (400 mg dans 24 mL).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plasmon à 540 nm contre 535 nm pour le citrate : c'est un décalage vers le ROUGE de 5 nm (longueur d'onde plus grande), pas « vers le bleu », et il va avec des particules un peu plus grosses au TEM (14–30 nm contre 15–20 nm). L'explication par une « diminution de taille / confinement » contredit les propres données des auteurs ; à 15–30 nm, le confinement quantique ne joue pas pour l'or.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tauc : 2,08–2,13 eV (596–582 nm) est le flanc rouge du plasmon, pas une bande interdite de l'or métallique ; la conclusion « stable car bande interdite proche du citrate » n'a pas de base physique (voir gnp-citrate).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin manquant pour toutes les activités biologiques (DPPH, hémolyse, histologie cérébrale) : la dispersion GNP contient environ 100 fois plus d'extrait libre que d'or (calcul « rapport massique extrait/or »), et l'extrait seul, à la même concentration, n'est jamais testé. L'effet antioxydant plus fort (IC50 1,9 contre 2,33 μg/mL), la moindre hémolyse et la « régénération neuronale » peuvent venir entièrement de l'extrait libre (polyphénols antioxydants), sans rien prouver sur l'or. Il faut des particules lavées et l'extrait seul comme témoins.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Phenolics of Moringa oleifera leaves",
+      "authors_or_publisher": "Manguro L. O. A., Lemmen P. (Natural Product Research)",
+      "year": "2007",
+      "url_or_doi": "10.1080/14786410601035811"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DPPH : IC50 = 1,9 et 2,33 μg/mL alors que les concentrations testées vont de 30 à 270 μg/mL : l'IC50 est en dehors, sous la plage mesurée (extrapolation non dite), et on ne sait pas si les μg/mL se rapportent à HAuCl4, à Au ou à la masse totale (Au + extrait).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Hémolyse 5,1–45,6 % à 0,016–0,33 μg/mL de HAuCl4 dans l'essai, avec lecture à 540 nm sur le plasmon même des GNP (540 nm) : la mesure est contaminée par l'absorbance des particules non sédimentées à 2000 rpm, et le témoin de l'extrait seul manque (voir gnp-citrate).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Analysis of Hemolytic Properties of Nanoparticles (protocole NCL ; > 5 % = hémolytique ; témoin positif de lyse totale)",
+      "authors_or_publisher": "Nanotechnology Characterization Laboratory (NCI), NCBI Bookshelf",
+      "year": "non relevée",
+      "url_or_doi": "https://www.ncbi.nlm.nih.gov/books/NBK604925"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDX : Au 19,2 % en masse pour GNP alors que le résidu sec non lavé devrait contenir ≈ 1 % d'or (3,94 mg Au pour 400 mg d'extrait) ; soit l'extrait a été en grande partie retiré (non décrit), soit la zone analysée n'est pas représentative. L'EDX ne quantifie pas le rendement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Histologie : dose « 0,025 mM d'or par jour » sans volume, voie ni masse corporelle : ce n'est pas une dose (mg/kg). Une durée d'une semaine et 5 souris par groupe, sans témoin extrait seul, ne permettent pas d'attribuer l'effet neuroprotecteur aux particules.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Solution d'extrait à 100 mg/mL dans 2 % de DMSO aqueux : solubilité complète peu probable (voir Extract_mature) ; la quantité réelle de réducteur dissous dépend de la préparation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "DMSO (2 %) : il facilite le passage cutané de HAuCl4 et des phénols ; gants nitrile. HAuCl4 corrosif. Pas de risque thermique à 75 °C.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Les polyphénols de l'extrait méthanolique (glycosides de kaempférol et de quercétine, rutine, acides gallique, syringique et chlorogénique) réduisent Au(III) en Au(0) par transfert d'électrons depuis leurs groupes catéchol et galloyle, qui s'oxydent en quinones. À 75 °C, avec 5 à 10 équivalents d'électrons, la nucléation est rapide ; la croissance passe par agrégation et coalescence comme dans la voie au citrate. Protéines, glycosides et quinones s'adsorbent ensuite et stabilisent les particules (FTIR O–H, C=O ; zêta −15,7 mV, plus faible en valeur absolue que le citrate car la stabilisation est en partie stérique). L'extrait libre très abondant reste dans la dispersion.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S. (Green Chem.)",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     },
+     {
+      "title": "Phenolics of Moringa oleifera leaves",
+      "authors_or_publisher": "Manguro L. O. A., Lemmen P. (Natural Product Research)",
+      "year": "2007",
+      "url_or_doi": "10.1080/14786410601035811"
+     },
+     {
+      "title": "Maximizing total phenolics, total flavonoids contents and antioxidant activity of Moringa oleifera leaf extract by the appropriate extraction method",
+      "authors_or_publisher": "Vongsak B. et al. (Industrial Crops and Products), notice Europe PMC AGR",
+      "year": "2013",
+      "url_or_doi": "https://europepmc.org/article/AGR/IND500604935"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration réelle de l'extrait (10^5 μg/mL selon le XML) et teneur en polyphénols",
+    "pH du mélange réactionnel de base (non donné ; l'essai en pH suggère 6)",
+    "durée de réaction à 75 °C, vitesse d'agitation",
+    "rendement en Au(0) par A400 (Hendel 2014)",
+    "lavage des particules (centrifugation à vitesse suffisante pour sédimenter des particules de 20 nm, ou dialyse) avant tout essai biologique ; témoin extrait seul à même concentration"
+   ]
+  },
+  {
+   "label": "GNP_immature",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "énergie des « bandes interdites » en longueur d'onde",
+     "inputs": "3,9 / 3,95 eV (immatures) ; 4,11 / 3,53 eV (âgées)",
+     "formula": "λ = 1239,84 / E",
+     "result": "318 / 314 nm ; 302 / 351 nm",
+     "compared_to": "domaine UV où absorbent les transitions interbandes d de l'or et les polyphénols de l'extrait, loin du plasmon (≈ 540 nm)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les seules données de la branche (feuilles immatures) sont des valeurs de Tauc de 3,5 à 4,1 eV (calcul « énergie des bandes interdites »), soit 300 à 350 nm : c'est le bord UV dominé par l'extrait et les transitions interbandes de l'or, pas une propriété des particules. « No band gap observed » à 30 jours ne prouve aucune instabilité. Sans position ni largeur de plasmon, sans DLS ni TEM, la comparaison des maturités n'est pas vérifiable.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La composition (teneur en phénols) d'un extrait varie avec l'âge des feuilles, mais à masse d'extrait égale (400 mg, si le même protocole est appliqué, ce qui n'est pas dit), aucune mesure de teneur en réducteur n'est donnée : la variable comparée n'est pas mesurée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même réduction par les polyphénols que GNP ; une teneur en réducteurs et en protéines différente selon l'âge des feuilles modifierait la vitesse de nucléation et la stabilisation, mais l'article ne donne aucune mesure qui le montre.",
+    "sources": [
+     {
+      "title": "Maximizing total phenolics, total flavonoids contents and antioxidant activity of Moringa oleifera leaf extract by the appropriate extraction method",
+      "authors_or_publisher": "Vongsak B. et al. (Industrial Crops and Products), notice Europe PMC AGR",
+      "year": "2013",
+      "url_or_doi": "https://europepmc.org/article/AGR/IND500604935"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "protocole exact (même masse d'extrait, 75 °C) pour cette maturité",
+    "teneur en polyphénols de l'extrait",
+    "suivi du plasmon (position, largeur) et DLS au lieu du tracé de Tauc"
+   ]
+  },
+  {
+   "label": "GNP_old",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "énergie des « bandes interdites » en longueur d'onde",
+     "inputs": "3,9 / 3,95 eV (immatures) ; 4,11 / 3,53 eV (âgées)",
+     "formula": "λ = 1239,84 / E",
+     "result": "318 / 314 nm ; 302 / 351 nm",
+     "compared_to": "domaine UV où absorbent les transitions interbandes d de l'or et les polyphénols de l'extrait, loin du plasmon (≈ 540 nm)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Les seules données de la branche (feuilles âgées) sont des valeurs de Tauc de 3,5 à 4,1 eV (calcul « énergie des bandes interdites »), soit 300 à 350 nm : c'est le bord UV dominé par l'extrait et les transitions interbandes de l'or, pas une propriété des particules. « No band gap observed » à 30 jours ne prouve aucune instabilité. Sans position ni largeur de plasmon, sans DLS ni TEM, la comparaison des maturités n'est pas vérifiable.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La composition (teneur en phénols) d'un extrait varie avec l'âge des feuilles, mais à masse d'extrait égale (400 mg, si le même protocole est appliqué, ce qui n'est pas dit), aucune mesure de teneur en réducteur n'est donnée : la variable comparée n'est pas mesurée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même réduction par les polyphénols que GNP ; une teneur en réducteurs et en protéines différente selon l'âge des feuilles modifierait la vitesse de nucléation et la stabilisation, mais l'article ne donne aucune mesure qui le montre.",
+    "sources": [
+     {
+      "title": "Maximizing total phenolics, total flavonoids contents and antioxidant activity of Moringa oleifera leaf extract by the appropriate extraction method",
+      "authors_or_publisher": "Vongsak B. et al. (Industrial Crops and Products), notice Europe PMC AGR",
+      "year": "2013",
+      "url_or_doi": "https://europepmc.org/article/AGR/IND500604935"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "protocole exact (même masse d'extrait, 75 °C) pour cette maturité",
+    "teneur en polyphénols de l'extrait",
+    "suivi du plasmon (position, largeur) et DLS au lieu du tracé de Tauc"
+   ]
+  },
+  {
+   "label": "GNP_pH3.4",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pH d'une solution 1 mM de HAuCl4",
+     "inputs": "0,0200 mmol dans 20 mL ; acide fort monoprotique",
+     "formula": "pH = −log[H+]",
+     "result": "≈ 3,0 (sans hydrolyse)",
+     "compared_to": "pH 3,4 annoncé : proche du pH naturel",
+     "source": "arithmétique"
+    },
+    {
+     "what": "déplacement du plasmon à 22 jours",
+     "inputs": "annexe S7 : 543 → 543 nm",
+     "formula": "Δλ",
+     "result": "0 nm",
+     "compared_to": "pH 6 : 535 → 535 nm (0 nm) ; pH 9,6 : 535 → 545 nm (+10 nm)",
+     "source": "valeurs de l'annexe"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Une solution de HAuCl4 à 1 mM a un pH ≈ 3 (acide fort, 1 mM d'H+) ; pH 3,4 est donc proche du pH naturel, alors que pH 6 et 9,6 demandent une base, que l'article ne nomme pas. Au-dessus de pH ≈ 6,2, AuCl4− passe à des complexes hydroxylés moins réactifs (Ji 2007), alors que les phénols, déprotonés, deviennent plus réducteurs : deux effets opposés que l'essai ne sépare pas. Le pH est-il celui de HAuCl4 avant l'ajout ou celui du mélange avec 400 mg d'extrait ?",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs classent pH 3,4 comme le moins stable, mais leur annexe montre un plasmon inchangé (543 → 543 nm, calcul « déplacement ») après 22 jours, comme à pH 6 ; seul pH 9,6 se décale (+10 nm). La conclusion contredit les données (Méthodes et Résultats contre annexe) ; le plasmon plus rouge à pH 3,4 (543 nm) indique seulement des particules un peu plus grosses dès le départ.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À pH acide, AuCl4− (la forme la plus oxydante) domine, mais les phénols protonés réduisent plus lentement : moins de germes, donc des particules un peu plus grosses (plasmon à 543 nm). Rien dans les spectres n'indique une déstabilisation dans le temps.",
+    "sources": [
+     {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "agent et moment de l'ajustement du pH",
+    "pH final du mélange",
+    "suivi par DLS en plus du plasmon"
+   ]
+  },
+  {
+   "label": "GNP_pH6",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "déplacement du plasmon à 22 jours",
+     "inputs": "annexe S8 : 535 → 535 nm",
+     "formula": "Δλ",
+     "result": "0 nm",
+     "compared_to": "stable",
+     "source": "valeurs de l'annexe"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Une solution de HAuCl4 à 1 mM a un pH ≈ 3 (acide fort, 1 mM d'H+) ; pH 3,4 est donc proche du pH naturel, alors que pH 6 et 9,6 demandent une base, que l'article ne nomme pas. Au-dessus de pH ≈ 6,2, AuCl4− passe à des complexes hydroxylés moins réactifs (Ji 2007), alors que les phénols, déprotonés, deviennent plus réducteurs : deux effets opposés que l'essai ne sépare pas. Le pH est-il celui de HAuCl4 avant l'ajout ou celui du mélange avec 400 mg d'extrait ?",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plasmon inchangé à 22 jours (calcul « déplacement ») : stabilité cohérente avec les données ; mais pH 3,4 montre la même stabilité, donc « le plus stable » n'est pas démontré.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Près de pH 6, les complexes Au(III) restent assez réactifs et une partie des phénols et carboxyles est déprotonée : réduction rapide et charge de surface négative qui stabilise.",
+    "sources": [
+     {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "agent d'ajustement du pH",
+    "pH de la voie GNP de base (est-ce pH 6 ?)"
+   ]
+  },
+  {
+   "label": "GNP_pH9.6",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "déplacement du plasmon à 22 jours",
+     "inputs": "annexe S9 : 535 → 545 nm",
+     "formula": "Δλ",
+     "result": "+10 nm (vers le rouge)",
+     "compared_to": "agrégation partielle ou croissance",
+     "source": "valeurs de l'annexe"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Une solution de HAuCl4 à 1 mM a un pH ≈ 3 (acide fort, 1 mM d'H+) ; pH 3,4 est donc proche du pH naturel, alors que pH 6 et 9,6 demandent une base, que l'article ne nomme pas. Au-dessus de pH ≈ 6,2, AuCl4− passe à des complexes hydroxylés moins réactifs (Ji 2007), alors que les phénols, déprotonés, deviennent plus réducteurs : deux effets opposés que l'essai ne sépare pas. Le pH est-il celui de HAuCl4 avant l'ajout ou celui du mélange avec 400 mg d'extrait ?",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "+10 nm vers le rouge en 22 jours : cohérent avec une agrégation lente, à confirmer par DLS ; à pH 9,6 les polyphénols s'oxydent aussi à l'air (brunissement), ce qui peut changer la couche de stabilisation.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "À pH 9,6, Au(III) est surtout sous forme [AuCl(OH)3]−/[Au(OH)4]−, moins oxydante ; les phénolates sont plus réducteurs mais s'auto-oxydent. La couche organique oxydée stabilise moins bien, d'où l'agrégation lente vue par le déplacement du plasmon.",
+    "sources": [
+     {
+      "title": "Size control of gold nanocrystals in citrate reduction: the third role of citrate",
+      "authors_or_publisher": "Ji X., Song X., Li J., Bai Y., Yang W., Peng X. (J. Am. Chem. Soc.)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ja074447k"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base utilisée (NaOH ?) et force ionique ajoutée",
+    "DLS à 0 et 22 jours"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le texte de corpus/text a perdu l'exposant : le XML donne « 10<sup>5</sup> μg mL−1 » pour la solution de citrate et pour l'extrait, soit 10^5 μg/mL = 100 mg/mL, et non 105 μg/mL. Tous les calculs ci-dessous utilisent 100 mg/mL. Avec 100 mg/mL, les deux voies sont chimiquement plausibles : le citrate est à 68 équivalents par Au, très au-dessus des recettes Turkevich-Frens, et l'extrait apporte 5 à 10 fois les électrons nécessaires. Les faiblesses portent sur l'interprétation : tracés de Tauc appliqués à un métal (« bande interdite » de l'or), décalage du plasmon appelé « bleu » alors qu'il est rouge, distances d recopiées de la fiche JCPDS, classement en pH contredit par l'annexe, IC50 hors de la plage mesurée, hémolyse > 100 % lue à la longueur d'onde du plasmon avec des témoins inversés, et concentrations d'or du test au bleu de méthylène supérieures à celle du stock. Surtout, aucune dispersion n'est lavée : citrate libre (≈ 57 mM) et extrait libre (≈ 16,7 mg/mL, 100 fois la masse d'or) restent présents, et l'extrait seul n'est jamais testé, si bien que les avantages biologiques et « photocatalytiques » attribués aux particules vertes ne sont pas démontrés. Pour l'orchestrateur : l'annotation mecanisme_analyse de gnp-citrate (0,07 citrate par or) et les mentions « 105 μg mL−1 » de l'extraction viennent de l'exposant perdu (aussi « ∼10 CFU mL−1 », probablement 10^8 dans le XML) ; à corriger dans les annotations, les citations restant celles du texte.",
+  "author_errors_suspected": [
+   "« Bande interdite » de nanoparticules d'or métalliques obtenue par tracé de Tauc (2,08–4,11 eV) et utilisée comme critère de stabilité",
+   "Décalage 535 → 540 nm appelé « blue shift » et attribué à une diminution de taille, alors que c'est un décalage vers le rouge et que les particules GNP sont plus grosses au TEM",
+   "Distances d et paramètre a recopiés de la fiche JCPDS 04-0784 (identiques pour les deux échantillons), incohérents avec les 2θ 38,1/38,3° ; « cell volume (D) 67,85 » sans unité",
+   "pH 3,4 déclaré le moins stable alors que l'annexe montre un plasmon inchangé (543/543 nm) ; l'annexe écrit « stables à pH 6 et 9,6 » puis le contraire pour 9,6",
+   "Témoins de l'hémolyse inversés (SDS appelé témoin négatif) et hémolyse de 112,22 %",
+   "IC50 DPPH de 1,9–2,33 μg/mL hors de la plage testée (30–270 μg/mL)",
+   "Concentrations d'AuNP de 1–5 × 10−3 M au-dessus de la dispersion mère (0,83 mM d'Au) ; ln(At/A0) positif ; « 3 h » d'irradiation contre un axe de 10–30 min ; « 10, 20 and 20 min »",
+   "Extraits « frozen at 8 °C » ; Soxhlet au méthanol « à 35–45 °C »",
+   "Aucun témoin extrait seul ni particules lavées pour les essais biologiques et catalytiques"
+  ],
+  "comparison_with_database": "Voies au citrate de la base : PMC5304631 (Au-citrate, reflux 100 °C puis 90 °C, 20,9 nm, 530 nm), PMC9034142 (Frens, ébullition 1 h, 530 nm), PMC7786535 (sonochimique, 16,2 nm) : toutes à ébullition ou activées, aucune à 60 °C ; 60 °C et 68 équivalents de citrate sont isolés. Voies vertes : PMC5080270 (Artemisia, 80 °C, 1 h, 543 nm, ≈ 30 nm), PMC6814701 (Mimosa, 25 °C, 550 nm, 40 nm), PMC4043712 (37 °C, 5 h, 570 nm) : 75 °C, 540 nm et 14–30 nm sont dans la norme. Les potentiels zêta d'AuNP vertes de la base (−17,7 mV, PMC4848276 ; −29,2 mV après lavage, PMC5080270) encadrent les −15,7 mV ; PMC5080270 lave l'extrait par centrifugation avant les essais, ce que PMC9038048 ne fait pas."
+ },
+ "sources_not_found": [
+  "source pour l'invalidité du tracé de Tauc sur des nanoparticules métalliques (recherche faite, seuls des articles qui l'appliquent ont été trouvés) : jugement fondé sur la physique de l'or (métal, plasmon)",
+  "protocole au citrate de Devi C., Kalita P., Barthakur M., Mater. Today: Proc. 2016, 3, 3439 (cit26, sans DOI dans corpus/refs) : non consulté, on ne sait pas s'il prescrit aussi 10^5 μg/mL de citrate et 60 °C",
+  "concentration de l'extrait aqueux de Moringa de PMC11920177 : non relevée"
+ ]
+}

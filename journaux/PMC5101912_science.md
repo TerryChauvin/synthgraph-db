@@ -1,0 +1,16 @@
+# PMC5101912 — critique scientifique (journal de décisions)
+
+- Verdict Au-RGO « douteuse » et non « cohérente » : la photoréduction elle-même est plausible, mais les résultats rattachés à la voie contiennent plusieurs impossibilités de bilan ; « reproductible_avec_reserves » plutôt que « non_reproductible », parce que la chimie est connue même si la source UV manque.
+- Problème de bilan d'adsorption : q_max = C0/(m/V) = 10 μM / 0,5 g/L = 20 μmol/g ; 31 (violet de cristal) et 20,60 (Rh123, 60 °C) donnent un Ce négatif. Phrase retenue : « The desired dye concentration used in this study was 10 μM » ; seuls les essais d'isotherme disent explicitement changer la concentration.
+- Tableau 2 : 34,3 mg/g = 90 μmol/g avec M(Rh123·HCl) ≈ 380,8 g/mol, contre Q0 = 14,7 mg/g ; la comparaison avec le GO (29 mg/g) s'inverse : classé `probleme`.
+- Isothermes : qL et qF calculés à Ce = 1, 5, 10 μM diffèrent d'un facteur 3 à 5, et les deux courbes ne se croisent nulle part ; KL supposé en L/μmol (unité du tableau fausse).
+- Ea : régression ln K2 / (1/T) sur 5 points = 43,3 kJ/mol ; 16,8 sans 20 °C ≈ 17,45 annoncé. Le point à 20 °C est aussi incohérent avec K1 (t½ 41 s contre 379 s). Classé `probleme` parce que le critère des auteurs (< 40 kJ/mol) bascule.
+- ΔH° : régression des ΔG°(T) → 8,81 kJ/mol, ΔS° 0,052 ; le texte (8,72) est le bon, le tableau (8,33) non. ΔG°(20 °C) retrouvé avec Kd = q/Ce en L/g (13,2 → −6,28 kJ/mol) : constante dimensionnée, source Lima et al. 2019 (DOI tiré de la recherche, non vérifié sur Crossref).
+- Bilan d'or : 3 mM × 196,97 = 0,59 mg d'Au par mg de GO → 37–46 % d'Au attendu sans lavage, contre 30 % en ATG ; mis en `reserve` (séparation non décrite probable) et non en `probleme`, car le rapport Au/C XPS (0,03) concorde avec 30 %.
+- Sécurité en `probleme` : séchage en étuve d'une dispersion dans le 2-propanol (point d'éclair 53 °F, LIE 2 %), source NOAA CAMEO / OSHA.
+- Filtre : 1 μmol de colorant sur 10 cycles contre 0,39 μmol au plus (10 mg × Q0) ; 10 μM supposé (concentration générale de l'étude), d'où la formulation « soit régénération non décrite, soit concentration plus faible ».
+- DRX contre HRTEM : franges (002) à 0,356 nm dans l'Au-RGO, alors que les auteurs déduisent l'absence de réempilement de la disparition du pic à 24° ; laissé en `reserve` (l'HRTEM est locale).
+- FRET : R0 recalculé ≈ 39 nm avec κ² = 2/3 et n = 1,333 (non donnés) ; la distance de 36,3 nm n'est pas reproductible sans E, laissée en `reserve`.
+- Mécanisme : celui d'El-Shall (GO photocatalyseur, alcool qui piège les trous ; Moussa et al. 2011, corrigé en 2024 pour la DRX seulement) préféré à une photolyse directe seule, complété par le cycle acétone triplet / radical du 2-propanol (Flyunt et al. 2016). Témoin sans GO absent : `reserve`.
+- Sources écartées : brevet US sur la photoréduction par radicaux cétyle (pas de revue par les pairs) ; fiche Wikipedia de l'acétate d'or gardée seulement comme source secondaire (solubilité « slight », décomposition 140–170 °C selon la fiche).
+- Recherches web : 9 (plus une page RSC non joignable). DOI non vérifiés : 10.1039/c6nr00156d, 10.1039/C1JM11228G, 10.1016/j.molliq.2018.10.048, et 10.1021/ac0702084 (Haiss, de mémoire). Rien n'est ajouté à fondateurs.md ni à constantes.md.

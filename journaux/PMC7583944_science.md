@@ -1,0 +1,15 @@
+# PMC7583944 — critique scientifique (journal de décisions)
+
+- Cystéine (voie L-cysteine_Cit-Au-SPIONs) classée `probleme` : la perte de thiol en plus du témoin (0,44–0,46 µmol) dépasse le nombre d'atomes d'or (0,127 µmol à 25 µg/mL) et vaut 150 à 200 fois une monocouche sur des sphères de 29 nm (4,3–6,3 thiols/nm², Hinterwirth 2013). Elle ne bouge presque pas quand l'or triple. Le même calcul de monocouche reproduit le témoin Cit-SPIONs (3,1 % calculés, 2,3 % mesurés), ce qui valide la méthode d'estimation.
+- Hypothèse retenue pour cette perte : oxydation de la cystéine en cystine (invisible au dosage d'Ellman) plutôt que liaison. La recherche web sur l'oxydation de la cystéine par Au(III) ou par des NP d'or n'a rien donné d'utilisable : aucune source citée pour ce point, il est présenté comme hypothèse à tester (témoins proposés).
+- Ms de Cit-Au-SPIONs classée `probleme` : les auteurs parlent d'or « paramagnétique ». Henry & Rogers 1956 donnent pour l'or χ = −0,142 × 10⁻⁶ cgs/g (diamagnétique). La dilution massique par l'or (Au/Fe 0,30) prévoit 44 A·m²/kg ; on mesure 22. J'ai attribué le reste aux sels de la poudre lyophilisée non lavée, ce que l'article ne chiffre pas.
+- Branche 130 °C classée `probleme` (et non la voie de base) : 110 et 130 °C sont des consignes de bain, et le liquide aqueux est plafonné à ~100 °C. L'ébullition est d'ailleurs observée à 130 °C.
+- Bilan redox de l'or : je l'ai laissé en `reserve` et non en `probleme`. La monocouche de citrate (0,019/Fe, avec l'hypothèse de 2 citrates/nm²) est 7 fois trop faible, mais le citrate libre résiduel après 6 h de dialyse est inconnu. Le Fe(II) de la magnétite (77 % mobilisé) est une alternative appuyée par Lyon 2004 (Au3+ réduit sur γ-Fe2O3 ou Fe3O4 partiellement oxydé).
+- Plasmon à 520 nm : je ne l'ai pas utilisé comme preuve d'absence de coquille. Lyon 2004 montre qu'une coquille épaissie revient vers 525 nm. La réserve « coquille non démontrée » repose surtout sur les cristallites d'or de 29 nm.
+- Taille d'oxyde de 35 nm : l'explication par recouvrement (311)/(111) est rejetée par le calcul (2,5° d'écart pour des largeurs de 0,24–0,52°).
+- Paramètre de maille de l'oxyde : 8,357 Å recalculé contre 8,37 Å annoncé. Écart dans l'arrondi de 2θ, donc pas d'erreur des auteurs. Le recalcul indique plutôt de la maghémite.
+- Série de pH avec citrate : recalculée avec les pKa de l'acide citrique ; ≈ 1,5–2,2 mM d'acide neutralisé dans les quatre cas, ce qui confirme l'explication des auteurs (`ok` implicite dans le calcul).
+- Forme du citrate : le dihydraté est déduit de 293,3 mg/mL ≈ 1 M et de Mühlberger 2020 (Cells, même groupe), seule source en accès libre trouvée sur le protocole Cit-SPION. Mühlberger 2019 (IJN) n'a pas été lu.
+- Elbialy 2014 et Kumar 2007 sont cités d'après la liste de références de l'article (DOI de l'article), non ouverts. Turkevich 1951 vient de fondateurs.md.
+- Aucun ajout à fondateurs.md ni à constantes.md (Crossref bloqué, consigne).
+- 8 appels web (7 recherches, 1 lecture de page).

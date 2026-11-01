@@ -1,0 +1,519 @@
+{
+ "pmcid": "PMC10556056",
+ "routes": [
+  {
+   "label": "ZnS1",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "taux de remplissage de l'autoclave, à froid et à 220 °C",
+     "inputs": "50 ml de solution aqueuse dans une cuve de 100 ml ; masse volumique de l'eau 997 kg/m3 à 25 °C et ≈ 840 kg/m3 (liquide saturé) à 220 °C",
+     "formula": "V(220 °C) = 50 × 997/840 ; taux = V/100",
+     "result": "50 % à froid ; ≈ 59 ml soit ≈ 59 % à 220 °C",
+     "compared_to": "limite usuelle de remplissage des chemises PTFE : 2/3 (≈ 66 %)",
+     "source": "valeurs de l'article ; masses volumiques : tables de vapeur (NIST WebBook, fluide « water »)"
+    },
+    {
+     "what": "pression de vapeur de l'eau à 220 °C",
+     "inputs": "eau saturée à 220 °C",
+     "formula": "P_sat(220 °C) lue en table",
+     "result": "≈ 2,3 MPa (≈ 23 bar), hors gaz de décomposition",
+     "compared_to": "pression de service des autoclaves PTFE de laboratoire (quelques dizaines de bar ; limite en température 220–250 °C selon le fabricant)",
+     "source": "NIST WebBook, fluide « water » (table de saturation)"
+    },
+    {
+     "what": "gaz libérés par l'hydrolyse de la thiourée (ordre de grandeur, quantités HYPOTHÉTIQUES)",
+     "inputs": "SC(NH2)2 + 2 H2O → CO2 + 2 NH3 + H2S (4 molécules de gaz par thiourée) ; hypothèse : Zn 0,1 mol/L dans 50 ml (5 mmol), S/Zn = 3 (15 mmol thiourée), 10 mmol de thiourée en excès ; espace libre ≈ 41 ml à 220 °C ; T = 493 K",
+     "formula": "P = n R T / V (gaz parfait, aucun gaz dissous)",
+     "result": "jusqu'à ≈ 40 bar en plus de la vapeur d'eau si tout restait en phase gaz (borne haute ; NH3 et CO2 se dissolvent en grande partie sous forme de carbonate d'ammonium)",
+     "compared_to": "les consignes d'usage des autoclaves PTFE interdisent les réactifs qui dégagent des gaz sans calcul préalable",
+     "source": "stœchiométrie de l'hydrolyse : PMC6409558 (2019) ; quantités : hypothèse du critique, l'article ne donne aucune quantité"
+    },
+    {
+     "what": "HCl ajouté (ordre de grandeur, HYPOTHÉTIQUE)",
+     "inputs": "« five drops » ; hypothèse : 1 goutte ≈ 0,05 ml de HCl 37 % (≈ 12 mol/L)",
+     "formula": "n = 5 × 0,05 ml × 12 mol/L",
+     "result": "≈ 3 mmol HCl, soit ≈ 0,06 mol/L dans 50 ml (pH initial ≈ 1,2) — si le HCl est concentré ; inconnu en réalité",
+     "compared_to": "NH3 libéré : 2 mmol par mmol de thiourée hydrolysée, ce qui neutralise ≈ 3 mmol de HCl dès 1,5 mmol de thiourée : le pH final dépend donc du rapport S/Zn",
+     "source": "hypothèse du critique (article : concentration du HCl non donnée)"
+    },
+    {
+     "what": "rapport S/Zn nominal contre ICP-OES (ZnS1)",
+     "inputs": "S/Zn nominal = 1 ; ICP-OES : S 27,66 %at, Zn 72,34 %at, S/Zn = 0,38",
+     "formula": "fraction du Zn liée en ZnS si tout le S mesuré est dans ZnS = S/Zn(ICP)",
+     "result": "au plus 38 % du Zn dans ZnS ; 62 % du Zn hors sulfure",
+     "compared_to": "ZnS monophasé : S/Zn = 1 (écart de quelques % au plus pour des lacunes)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Bragg : d111 et a à partir des 2θ du Tableau 1",
+     "inputs": "λ = 1,5406 Å ; 2θ = 28,68 / 28,60 / 28,69 / 28,64 / 28,51° (ZnS0.67, ZnS1, ZnS1.5, ZnS2, ZnS3)",
+     "formula": "d = λ / (2 sin θ) ; a = d √3",
+     "result": "d = 3,110 / 3,119 / 3,109 / 3,114 / 3,128 Å ; a = 5,387 / 5,402 / 5,385 / 5,394 / 5,418 Å",
+     "compared_to": "Tableau 1 : d = 3,11–3,12 Å, a = 5,38–5,42 Å (accord) ; sphalérite a ≈ 5,41 Å (valeur « Standard » du Tableau 1). Le texte écrit « 5.39 nm » : unité fausse (Å)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Scherrer : largeur de raie impliquée par D = 2,9 nm",
+     "inputs": "D = 2,9 nm (ZnS1), 2θ = 28,60°, K = 0,9, λ = 0,15406 nm",
+     "formula": "β = Kλ / (D cos θ)",
+     "result": "β ≈ 0,049 rad ≈ 2,8° (2θ) ; ε = β/(4 tan θ) ≈ 48 × 10−3",
+     "compared_to": "colonne « Scherrer » ε = 48,4 × 10−3 du Tableau 2 (accord : ce ε n'est que la largeur totale réécrite, pas une déformation mesurée)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "écart de bande interdite attendu par confinement pour D ≈ 2,9 nm (Brus)",
+     "inputs": "R = 1,45 nm ; me* = 0,28, mh* = 0,59, εr = 8,1 ; Eg massif ≈ 3,6–3,7 eV ; rayon de Bohr de l'exciton ≈ 2,5 nm",
+     "formula": "ΔE = h²/(8 m0 R²)(1/me* + 1/mh*) − 1,786 e²/(4π ε0 εr R)",
+     "result": "ΔE ≈ 0,94 − 0,22 ≈ +0,7 eV (Brus surestime en confinement fort ; même divisé par deux, ≥ +0,3 eV) : Eg attendu ≥ 3,9 eV",
+     "compared_to": "Eg mesuré ZnS1 = 3,32 eV, sous la valeur massive, et quasi identique à ZnS1.5 (27,2 nm) = 3,30 eV",
+     "source": "paramètres : Ogbu et al. 2025 (Table 1) ; Eg massif : PMC9101784"
+    },
+    {
+     "what": "énergie des émissions de PL contre Eg",
+     "inputs": "λ = 365, 383, 473 nm ; Eg (Tableau 3) = 3,32 eV (ZnS1), 3,30 (ZnS1.5), 3,28 (ZnS2)",
+     "formula": "E (eV) = 1239,84 / λ (nm)",
+     "result": "365 nm = 3,40 eV ; 383 nm = 3,24 eV ; 473 nm = 2,62 eV ; seuils d'absorption : 3,28–3,49 eV ↔ 355–378 nm",
+     "compared_to": "une émission de défaut (IZn → BV) doit être sous Eg ; 3,40 eV > 3,28–3,32 eV",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "distance réticulaire HRTEM 0,209 nm contre la sphalérite",
+     "inputs": "a = 5,40 Å ; plans (111), (200), (220), (311)",
+     "formula": "d = a / √(h²+k²+l²)",
+     "result": "d111 = 0,312 nm ; d200 = 0,270 nm ; d220 = 0,191 nm ; d311 = 0,163 nm ; (wurtzite d102 ≈ 0,227, d110 ≈ 0,191 nm)",
+     "compared_to": "0,209 nm ne correspond à aucun plan de ZnS (coïncide avec Zn métal (101) ≈ 0,209 nm, phase improbable ici) : étalonnage ou mesure à revoir",
+     "source": "valeurs de l'article ; géométrie cubique"
+    },
+    {
+     "what": "UDSM/UDEDM : module d'Young impliqué et densité d'énergie recalculée",
+     "inputs": "Tableau 2, plan noté (110) [lire (111)] : ZnS0.67 ε 2,92/3,66 × 10−3, σ 0,25/0,30 GPa ; ZnS1 −1,63/1,96, −0,15/0,16 ; ZnS1.5 1,29/1,49, 0,11/0,13 ; ZnS2 1,09/1,26, 0,09/0,11 ; ZnS3 1,55/1,78, 0,01/0,15 ; u annoncé 582,34 / 167,513 / 974,52 / 693,5 / 138,997 kJ m−3",
+     "formula": "Y = σ/ε ; u = ε σ / 2 (= ε² Y / 2)",
+     "result": "Y (UDSM) ≈ 86 / 92 / 85 / 83 / 6,5 GPa ; u recalculé ≈ 549 / 157 / 97 / 69 / 134 kJ m−3",
+     "compared_to": "u annoncé : accord à ±7 % pour ZnS0.67, ZnS1, ZnS3, mais facteur 10,0 trop grand pour ZnS1.5 (974,5 contre 97) et ZnS2 (693,5 contre 69) ; σ UDSM de ZnS3 (0,01 GPa) implique Y = 6,5 GPa au lieu de ≈ 85 GPa (probablement 0,13 GPa)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface BET contre taille MEB (sphères denses)",
+     "inputs": "ρ(ZnS sphalérite) ≈ 4,09 g/cm3 ; S = 16,77 / 5,57 / 14,233 / 10,652 / 10,534 m2/g ; grains MEB 25,8 / 57,7 / 93,9 / 158 / 85,4 nm",
+     "formula": "d_BET = 6 / (ρ S) ; S_MEB = 6 / (ρ d)",
+     "result": "d_BET ≈ 88 / 263 / 103 / 138 / 139 nm ; S attendue des grains MEB ≈ 57 / 25 / 16 / 9 / 17 m2/g ; S attendue pour des cristallites isolées de 2,9 nm ≈ 500 m2/g",
+     "compared_to": "BET 3 à 5 fois plus faible que les grains MEB pour ZnS0.67 et ZnS1 : agrégats frittés et compacts ; les « points quantiques » de 2,8–2,9 nm ne sont pas des particules libres",
+     "source": "valeurs de l'article ; masse volumique de la sphalérite (valeur de manuel)"
+    },
+    {
+     "what": "dose de catalyseur et concentration de colorant du test",
+     "inputs": "0,03 g ZnS dans 25 ml ; 10 mg MB dans 1 L ; M(MB, chlorure anhydre) = 319,85 g/mol",
+     "formula": "c = m/V ; n = m/M",
+     "result": "1,2 g/L de catalyseur ; MB 10 mg/L ≈ 31 µmol/L",
+     "compared_to": "conditions usuelles des tests de décoloration (0,5–1 g/L, 10–20 mg/L)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "220 °C en autoclave fermé : pression de vapeur de l'eau ≈ 23 bar, remplissage ≈ 59 % à chaud (voir « taux de remplissage de l'autoclave, à froid et à 220 °C » et « pression de vapeur de l'eau à 220 °C ») : acceptable pour le volume. Mais 220 °C est la limite maximale annoncée pour les chemises PTFE courantes (sûreté 200 °C) et le PTFE flue au-dessus de 150 °C : risque de déformation de la chemise et de fuite, surtout répété 5 fois. L'article appelle par ailleurs cette voie « low-temperature hydrothermal route ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal autoclave reactor — data sheet (Teflon-lined autoclave, max 220 °C ; safe 200 °C)",
+      "authors_or_publisher": "Techinstro, fiche fournisseur",
+      "year": "2017",
+      "url_or_doi": "https://www.techinstro.com/wp-content/uploads/2015/08/HYDROTHERMAL-DATA-SHEET.pdf"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "L'hydrolyse de la thiourée à 220 °C dégage NH3, CO2 et H2S (4 molécules de gaz par thiourée) : avec un excès de thiourée (S/Zn = 2 et 3), la surpression peut atteindre plusieurs dizaines de bar en borne haute pour une concentration de 0,1 mol/L (voir « gaz libérés par l'hydrolyse de la thiourée », quantités hypothétiques). À l'ouverture, H2S (très toxique) et NH3 se dégagent : refroidir complètement, ouvrir sous hotte. Thiourée : Carc. 2 H351, Repr. 2 H361d. ZnCl2 et HCl corrosifs. Aucune précaution n'est écrite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thiourea — Safety Data Sheet (CLP : Carc. 2 H351, Repr. 2 H361d, Acute Tox. 4 H302, Aquatic Chronic 2 H411)",
+      "authors_or_publisher": "EDQM (Conseil de l'Europe), fiche de données de sécurité",
+      "year": "2023",
+      "url_or_doi": "https://sds.edqm.eu/pdf/SDS/EDQM_202000228_1.0_SDS_EN.pdf"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Zn et S sont apportés (ZnCl2, thiourée) ; produit blanchâtre compatible avec ZnS. Mais aucune quantité, ni concentration, ni volume d'eau, ni concentration du HCl ne sont donnés : le rapport S/Zn est la seule donnée de composition, et on ignore lequel des deux réactifs varie entre échantillons. La concentration absolue pilote la sursaturation, donc la taille : la synthèse ne peut être refaite à l'identique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le rapport [S]/[Zn] du bain ne fixe pas la stœchiométrie du solide. Pour S/Zn < 1 (ZnS0.67), au plus 66 % du Zn peut précipiter en ZnS ; le Zn2+ en excès reste dissous (ZnCl2 très soluble, milieu acidifié) et part au lavage : on attend un ZnS presque stœchiométrique avec un rendement réduit, pas un ZnS lacunaire en soufre. De même, la thiourée en excès reste en solution ou part en H2S. Les lacunes invoquées (quelques % au plus dans un cristal) ne peuvent pas être « dosées » par le rapport des précurseurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le branchement S/Zn change plusieurs variables à la fois : l'hydrolyse libère 2 NH3 par thiourée, qui neutralisent le HCl (quantité fixe, « five drops ») ; le pH final, la force ionique et la complexation Zn–thiourée/Zn–NH3 changent donc avec le rapport (voir « HCl ajouté », hypothétique). Le saut de taille entre S/Zn = 1 (2,9 nm) et 1,5 (27 nm) est compatible avec un changement de régime de pH plutôt qu'avec la stœchiométrie. Témoin manquant : rapport S/Zn variable à pH final mesuré et fixé (ou concentration de Zn fixe et déclarée).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Coordination Complex Transformation-Assisted Fabrication for Hollow Chestnut-Like Hierarchical ZnS with Enhanced Photocatalytic Hydrogen Evolution",
+      "authors_or_publisher": "article en accès libre (PMC6409558), auteurs non relevés",
+      "year": "2019",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6409558"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "ICP-OES (Tableau 3, voir « rapport S/Zn nominal contre ICP-OES (ZnS1) ») : S/Zn = 0,38 pour ZnS1 et 0,22 pour ZnS0.67. Un solide monophasé ZnS ne peut pas contenir 62–78 % de son zinc hors sulfure ; ce n'est plus un « défaut » mais une seconde phase (ZnO, hydroxychlorure de zinc, Zn adsorbé) que la DRX ne montre pas, ou une analyse fausse. L'explication des auteurs (perte de H2S à la digestion) diminue le soufre mais ne peut pas expliquer S/Zn = 1,89 pour ZnS3 : un excès de 0,9 S par Zn signifie du soufre hors réseau (S élémentaire, polysulfures, résidus de thiourée), pas des lacunes de zinc. La composition ne prouve donc ni lacunes de S ni lacunes de Zn.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cristallites de 2,8–2,9 nm (ZnS0.67, ZnS1) présentées comme « quantum dots like » : sous le rayon de Bohr de l'exciton (≈ 2,5 nm, soit D ≈ 5 nm), on attend Eg ≥ 3,9 eV (voir « écart de bande interdite attendu par confinement »). Or Eg = 3,46 et 3,32 eV, sous la valeur massive (≈ 3,6–3,7 eV), et ZnS1 (2,9 nm) a le même Eg que ZnS1.5 (27,2 nm). Soit la largeur des raies ne vient pas de la taille (désordre, déformation, phase mal cristallisée ; le Tableau 2 donne ε SSP = 51 × 10−3, irréaliste), soit le tracé de Tauc est faussé par une queue d'absorption sous le gap. Les deux conclusions « quantum dots » et « Eg réduit par les défauts » ne peuvent être vraies ensemble.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Engineering of CdSe, CdS, and ZnS Quantum Dots for Narrow Bandgap Devices Using the Effective Mass Approximation (Table 1 : ZnS Eg 3,70 eV, me* 0,28, mh* 0,59, εr 8,1, rayon de Bohr ≈ 2,5 nm)",
+      "authors_or_publisher": "Ogbu et al. — Int. J. Mater. Sci. Eng. (SSRG) 11(3) 11–14",
+      "year": "2025",
+      "url_or_doi": "https://www.internationaljournalssrg.org/IJMSE/2025/Volume11-Issue3/IJMSE-V11I3P103.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PL : émission à 365 nm = 3,40 eV, attribuée à un état de Zn interstitiel, au-dessus des Eg du Tableau 3 pour ZnS1 (3,32), ZnS1.5 (3,30) et ZnS2 (3,28 eV) (voir « énergie des émissions de PL contre Eg »). Une émission par un niveau de défaut ne peut pas dépasser le gap ; c'est plus probablement une émission proche du bord de bande, ce qui indique un gap réel ≥ 3,4 eV et des Eg de Tauc sous-estimés.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Activité « sous lumière visible » non démontrée : produit blanchâtre, réflectance « very high » de 400 à 1200 nm selon les auteurs, seuils à 355–378 nm (voir « énergie des émissions de PL contre Eg »). Le test est fait au soleil sans filtre (la part UV du rayonnement solaire, ≈ 5 %, suffit à exciter ZnS), sans essai à blanc (photolyse du MB), sans valeur d'adsorption à l'obscurité, avec un éclairement mesuré en lux (grandeur photopique, aveugle à l'UV) qui varie de 48 à 79 klux au cours de l'essai, et une efficacité non rattachée à une durée. Le MB est en outre une sonde déconseillée (photosensibilisation, réduction réversible en leuco-MB). Le classement 83,78 / 64 / 61,5 / 72 / 82 % n'a ni répétition ni barre d'erreur.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Using Dyes for Evaluating Photocatalytic Properties: A Critical Review",
+      "authors_or_publisher": "Rochkind, Pasternak, Paz — Molecules (MDPI)",
+      "year": "2015",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6272780/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Grandeurs dérivées du Tableau 2 recalculées (voir « UDSM/UDEDM : module d'Young impliqué et densité d'énergie recalculée ») : u UDEDM de ZnS1.5 (974,52 kJ m−3) et ZnS2 (693,5) sont exactement 10 fois les valeurs tirées de leurs propres ε et σ (97 et 69) ; σ UDSM de ZnS3 = 0,01 GPa implique Y = 6,5 GPa contre ≈ 85 GPa pour les autres. Le classement des densités d'énergie entre échantillons est donc faux. Le tableau indexe par ailleurs un plan (110), interdit dans la blende (lire (111)).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "HRTEM de ZnS1 : franges de 0,209 nm, présentées avec la SAED comme confirmant la blende, ne correspondent à aucun plan de ZnS cubique (d111 0,312 ; d200 0,270 ; d220 0,191 nm) ni hexagonal (voir « distance réticulaire HRTEM 0,209 nm contre la sphalérite ») : étalonnage du grandissement, mesure ou attribution à revoir ; cette image ne confirme pas la phase.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS : Zn 2p3/2 passe de 1021,26 eV (ZnS0.67) à 1022,68 eV (ZnS3) et S 2p3/2 de 161,23 à 162,31 eV : les deux éléments se décalent dans le même sens d'environ 1,1–1,4 eV, signature typique d'une charge ou d'un recalage C 1s différent plutôt que d'un changement chimique ; le paramètre Auger Zn LMM manque pour trancher. Les composantes « défaut » de ZnS3 (163,16 / 164,26 eV) tombent dans la zone du soufre élémentaire et des polysulfures (S 2p3/2 ≈ 163,5–164 eV), cohérent avec l'excès de S de l'ICP, pas avec des lacunes de Zn. Pour ZnS1, la composante défaut à 162,23 eV recouvre le pic 2p1/2 lié (162,44 eV) : le « 18 % de défauts » dépend entièrement de l'ajustement. Le texte et la légende ne s'accordent pas sur les échantillons mesurés (ZnS0.67, ZnS2, ZnS3 contre ZnS0.67, ZnS1, ZnS3).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surfaces BET (5,6–16,8 m2/g) 3 à 5 fois inférieures à celles des grains MEB pour ZnS0.67 et ZnS1, et ≈ 100 fois inférieures à celle de cristallites libres de 2,9 nm (voir « surface BET contre taille MEB ») : les poudres sont des agrégats denses ; la notion de « quantum dots » de la conclusion (taille « dans la gamme des points quantiques ») contredit TEM (46,5 nm), MEB et BET.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : TO ≈ 270 et LO ≈ 340 cm−1, valeurs usuelles de ZnS cubique (légèrement basses, compatibles avec des cristallites désordonnées). Les auteurs parlent de décalage « towards the shorter wavelength » pour des nombres d'onde Raman : vocabulaire inexact (il faut dire vers les nombres d'onde plus hauts ou plus bas). La raie faible à 26,93° attribuée à un peu de wurtzite correspond bien à d(100) ≈ 3,31 Å de la wurtzite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "12 h à 220 °C est très au-delà du temps nécessaire à l'hydrolyse complète de la thiourée et à la cristallisation de ZnS (précipitation homogène en quelques heures à 120–180 °C dans les voies usuelles ; base : PMC10386591, PMC5465224 à 180 °C, 6 h) : la durée n'est pas limitante ; elle favorise le mûrissement, ce qui rend d'autant plus surprenantes des cristallites de 2,8 nm à S/Zn ≤ 1.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À l'ambiante, ZnCl2 et thiourée forment des complexes [Zn(tu)n]2+ en milieu acidifié (HCl empêche Zn(OH)2). En chauffant au-delà de ≈ 150 °C, la thiourée s'hydrolyse (SC(NH2)2 + 2 H2O → CO2 + 2 NH3 + H2S) ; H2S/HS− précipite ZnS de façon homogène, et le NH3 libéré consomme le HCl et fait monter le pH. Le solide formé est ZnS cubique quasi stœchiométrique quel que soit le rapport des précurseurs : le réactif en excès reste en solution (Zn2+) ou part en gaz (H2S) et ne crée pas de lacunes en proportion du rapport. La taille dépend surtout de la sursaturation et du pH final : à S/Zn ≤ 1, peu de NH3, milieu resté acide, croissance freinée (petites cristallites désordonnées) ; à S/Zn ≥ 1,5, le HCl est neutralisé, croissance et mûrissement plus rapides. L'excès de soufre mesuré pour ZnS3 (ICP 1,89, composantes XPS à 163–164 eV) s'explique mieux par du soufre élémentaire ou des polysulfures adsorbés que par des lacunes de Zn.",
+    "sources": [
+     {
+      "title": "Synthesis of zinc sulphide nanoparticles by thiourea hydrolysis and their characterization for electrochemical capacitor applications",
+      "authors_or_publisher": "Jayalakshmi, Rao — J. Power Sources 157, 624–629 (Elsevier)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jpowsour.2005.08.001"
+     },
+     {
+      "title": "Coordination Complex Transformation-Assisted Fabrication for Hollow Chestnut-Like Hierarchical ZnS with Enhanced Photocatalytic Hydrogen Evolution",
+      "authors_or_publisher": "article en accès libre (PMC6409558), auteurs non relevés",
+      "year": "2019",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6409558"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités et concentrations de ZnCl2 et de thiourée, et lequel des deux varie entre les échantillons",
+    "concentration du HCl et pH avant et après traitement",
+    "température maximale admise par la chemise PTFE (220 °C est sa limite habituelle) et pression attendue avec l'excès de thiourée",
+    "ouverture de l'autoclave sous hotte (H2S, NH3)",
+    "rendement massique en ZnS (attendu ≤ 66 % du Zn pour ZnS0.67)",
+    "phase secondaire riche en Zn (ZnO, hydroxychlorure) ou soufre élémentaire : DRX lente, ATG, Raman de S8 (≈ 220 et 470 cm−1)",
+    "dosage S/Zn par une méthode sans perte de H2S (combustion, EDX sur pastille, XRF)",
+    "photocatalyse : essai à blanc sans catalyseur, adsorption à l'obscurité, filtre λ > 420 nm, irradiance en W/m2, durée de référence"
+   ]
+  },
+  {
+   "label": "ZnS0.67",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport S/Zn nominal contre ICP-OES (ZnS0.67)",
+     "inputs": "S/Zn nominal = 0.66 ; ICP-OES S/Zn = 0.22",
+     "formula": "fraction du Zn liée en ZnS si tout le S mesuré est dans ZnS = S/Zn(ICP)",
+     "result": "0.22 : au plus 22 % du Zn dans ZnS",
+     "compared_to": "ZnS monophasé : S/Zn = 1 (écart de quelques % au plus pour des lacunes)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taille de cristallite et Eg (ZnS0.67)",
+     "inputs": "D Scherrer = 2.8 nm ; Eg = 3.46 eV",
+     "formula": "comparaison au rayon de Bohr (≈ 2,5 nm) et à Eg massif (≈ 3,6–3,7 eV)",
+     "result": "D sous 2 × rayon de Bohr : confinement fort attendu (Eg ≥ 3,9 eV)",
+     "compared_to": "Eg mesuré 3.46 eV",
+     "source": "valeurs de l'article ; Ogbu et al. 2025 ; PMC9101784"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "S/Zn = 0,66 : la thiourée est limitante ; au plus 66 % du Zn peut former ZnS, le reste est lavé. L'ICP donne S/Zn = 0,22 (voir « rapport S/Zn nominal contre ICP-OES (ZnS0.67) ») : 78 % du Zn hors sulfure dans un solide que la DRX dit monophasé ZnS — incompatible ; ce n'est pas une mesure de lacunes de S.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Meilleure activité (83,78 %) et plus grande surface BET (16,77 m2/g, la plus élevée de la série) : l'avantage peut venir de la surface et de l'adsorption du MB autant que des lacunes de S ; sans normalisation par la surface ni essai à l'obscurité, la conclusion « lacunes » n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que ZnS1 (hydrolyse de la thiourée, précipitation homogène de ZnS) ; seul le réactif en excès et le pH final changent.",
+    "sources": [
+     {
+      "title": "Synthesis of zinc sulphide nanoparticles by thiourea hydrolysis and their characterization for electrochemical capacitor applications",
+      "authors_or_publisher": "Jayalakshmi, Rao — J. Power Sources 157, 624–629 (Elsevier)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jpowsour.2005.08.001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quelle quantité (Zn ou thiourée) a été changée pour obtenir ce rapport",
+    "pH final",
+    "rendement",
+    "phase secondaire ou soufre libre"
+   ]
+  },
+  {
+   "label": "ZnS1.5",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport S/Zn nominal contre ICP-OES (ZnS1.5)",
+     "inputs": "S/Zn nominal = 1.5 ; ICP-OES S/Zn = 0.4",
+     "formula": "fraction du Zn liée en ZnS si tout le S mesuré est dans ZnS = S/Zn(ICP)",
+     "result": "0.4 : au plus 40 % du Zn dans ZnS",
+     "compared_to": "ZnS monophasé : S/Zn = 1 (écart de quelques % au plus pour des lacunes)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taille de cristallite et Eg (ZnS1.5)",
+     "inputs": "D Scherrer = 27.2 nm ; Eg = 3.3 eV",
+     "formula": "comparaison au rayon de Bohr (≈ 2,5 nm) et à Eg massif (≈ 3,6–3,7 eV)",
+     "result": "D > 5 nm : pas de confinement attendu, Eg proche du massif",
+     "compared_to": "Eg mesuré 3.3 eV",
+     "source": "valeurs de l'article ; Ogbu et al. 2025 ; PMC9101784"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "u UDEDM = 974,52 kJ m−3 contre ≈ 97 kJ m−3 recalculé à partir des ε et σ du même tableau (voir le calcul UDSM/UDEDM de ZnS1) : erreur d'un facteur 10. ICP S/Zn = 0,40 malgré un excès nominal de thiourée : la mesure ne suit pas le rapport.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que ZnS1 (hydrolyse de la thiourée, précipitation homogène de ZnS) ; seul le réactif en excès et le pH final changent.",
+    "sources": [
+     {
+      "title": "Synthesis of zinc sulphide nanoparticles by thiourea hydrolysis and their characterization for electrochemical capacitor applications",
+      "authors_or_publisher": "Jayalakshmi, Rao — J. Power Sources 157, 624–629 (Elsevier)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jpowsour.2005.08.001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quelle quantité (Zn ou thiourée) a été changée pour obtenir ce rapport",
+    "pH final",
+    "rendement",
+    "phase secondaire ou soufre libre"
+   ]
+  },
+  {
+   "label": "ZnS2",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport S/Zn nominal contre ICP-OES (ZnS2)",
+     "inputs": "S/Zn nominal = 2 ; ICP-OES S/Zn = 0.73",
+     "formula": "fraction du Zn liée en ZnS si tout le S mesuré est dans ZnS = S/Zn(ICP)",
+     "result": "0.73 : au plus 73 % du Zn dans ZnS",
+     "compared_to": "ZnS monophasé : S/Zn = 1 (écart de quelques % au plus pour des lacunes)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taille de cristallite et Eg (ZnS2)",
+     "inputs": "D Scherrer = 36.7 nm ; Eg = 3.28 eV",
+     "formula": "comparaison au rayon de Bohr (≈ 2,5 nm) et à Eg massif (≈ 3,6–3,7 eV)",
+     "result": "D > 5 nm : pas de confinement attendu, Eg proche du massif",
+     "compared_to": "Eg mesuré 3.28 eV",
+     "source": "valeurs de l'article ; Ogbu et al. 2025 ; PMC9101784"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "u UDEDM = 693,5 kJ m−3 contre ≈ 69 kJ m−3 recalculé (facteur 10). ε UDM écrit −0,25 × 10−3 dans le texte et −0,025 × 10−3 dans le Tableau 2. Eg minimal de la série (3,28 eV) alors que le résumé parle d'un Eg « réduit » vers 3,49 eV : le sens de l'évolution est mal écrit.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Excès de thiourée (S/Zn = 2) : plus de NH3, CO2 et H2S en fin de traitement, surpression plus forte que pour ZnS1 ; ouverture sous hotte.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Coordination Complex Transformation-Assisted Fabrication for Hollow Chestnut-Like Hierarchical ZnS with Enhanced Photocatalytic Hydrogen Evolution",
+      "authors_or_publisher": "article en accès libre (PMC6409558), auteurs non relevés",
+      "year": "2019",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6409558"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que ZnS1 (hydrolyse de la thiourée, précipitation homogène de ZnS) ; seul le réactif en excès et le pH final changent.",
+    "sources": [
+     {
+      "title": "Synthesis of zinc sulphide nanoparticles by thiourea hydrolysis and their characterization for electrochemical capacitor applications",
+      "authors_or_publisher": "Jayalakshmi, Rao — J. Power Sources 157, 624–629 (Elsevier)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jpowsour.2005.08.001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quelle quantité (Zn ou thiourée) a été changée pour obtenir ce rapport",
+    "pH final",
+    "rendement",
+    "phase secondaire ou soufre libre"
+   ]
+  },
+  {
+   "label": "ZnS3",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport S/Zn nominal contre ICP-OES (ZnS3)",
+     "inputs": "S/Zn nominal = 3 ; ICP-OES S/Zn = 1.89",
+     "formula": "fraction du Zn liée en ZnS si tout le S mesuré est dans ZnS = S/Zn(ICP)",
+     "result": "1.89 : excès de 0.89 S par Zn hors ZnS",
+     "compared_to": "ZnS monophasé : S/Zn = 1 (écart de quelques % au plus pour des lacunes)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taille de cristallite et Eg (ZnS3)",
+     "inputs": "D Scherrer = 28.6 nm ; Eg = 3.49 eV",
+     "formula": "comparaison au rayon de Bohr (≈ 2,5 nm) et à Eg massif (≈ 3,6–3,7 eV)",
+     "result": "D > 5 nm : pas de confinement attendu, Eg proche du massif",
+     "compared_to": "Eg mesuré 3.49 eV",
+     "source": "valeurs de l'article ; Ogbu et al. 2025 ; PMC9101784"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "ICP S/Zn = 1,89 (voir « rapport S/Zn nominal contre ICP-OES (ZnS3) ») : 0,9 S par Zn hors du réseau ZnS. La perte de H2S invoquée par les auteurs ne peut qu'abaisser S/Zn ; cet excès indique du soufre élémentaire, des polysulfures ou des résidus de thiourée, cohérent avec les composantes XPS à 163,16/164,26 eV — pas des lacunes de Zn (qui ne laisseraient qu'un écart de quelques %).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Eg = 3,49 eV, le plus élevé, pour des cristallites de 28,6 nm sans confinement : la valeur ne suit ni la taille ni la composition. σ UDSM = 0,01 GPa incompatible avec ε = 1,55 × 10−3 (Y = 6,5 GPa). Bonne activité (82 %) avec une surface moyenne (10,5 m2/g) : une contribution du soufre de surface ou d'une photosensibilisation par le MB n'est pas exclue.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "S/Zn = 3 : excès maximal de thiourée, la surpression de gaz de décomposition est la plus forte de la série (voir « gaz libérés par l'hydrolyse de la thiourée », borne haute ≈ 40 bar pour 0,1 mol/L de Zn) ; ouverture sous hotte (H2S).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thiourea — Safety Data Sheet (CLP : Carc. 2 H351, Repr. 2 H361d, Acute Tox. 4 H302, Aquatic Chronic 2 H411)",
+      "authors_or_publisher": "EDQM (Conseil de l'Europe), fiche de données de sécurité",
+      "year": "2023",
+      "url_or_doi": "https://sds.edqm.eu/pdf/SDS/EDQM_202000228_1.0_SDS_EN.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que ZnS1 (hydrolyse de la thiourée, précipitation homogène de ZnS) ; seul le réactif en excès et le pH final changent.",
+    "sources": [
+     {
+      "title": "Synthesis of zinc sulphide nanoparticles by thiourea hydrolysis and their characterization for electrochemical capacitor applications",
+      "authors_or_publisher": "Jayalakshmi, Rao — J. Power Sources 157, 624–629 (Elsevier)",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jpowsour.2005.08.001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quelle quantité (Zn ou thiourée) a été changée pour obtenir ce rapport",
+    "pH final",
+    "rendement",
+    "phase secondaire ou soufre libre"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La voie hydrothermale (ZnCl2 + thiourée acidifiés, 220 °C, 12 h) donne de façon plausible du ZnS cubique, mais elle n'est pas reproductible à l'identique (aucune quantité, aucune concentration) et elle travaille à la limite de température des chemises PTFE avec un dégagement de gaz non signalé. L'interprétation centrale — le rapport S/Zn du bain crée des lacunes de S ou de Zn en proportion — n'est pas soutenue : le réactif en excès part au lavage ou en gaz ; l'ICP (S/Zn 0,22 à 1,89) est incompatible avec un solide monophasé et l'excès de S de ZnS3 ne peut venir d'une perte de H2S ; les « quantum dots » de 2,8–2,9 nm n'ont pas d'Eg confiné ; une émission PL (3,40 eV) dépasse les Eg annoncés ; l'activité « visible » est mesurée au soleil sans filtre ni blanc. Plusieurs grandeurs dérivées sont fausses (u UDEDM × 10 pour ZnS1.5 et ZnS2, σ de ZnS3, franges HRTEM 0,209 nm, « 5.39 nm »).",
+  "author_errors_suspected": [
+   "densité d'énergie UDEDM de ZnS1.5 et ZnS2 trop grande d'un facteur 10 (974,52 et 693,5 au lieu de ≈ 97 et 69 kJ m−3)",
+   "σ UDSM de ZnS3 = 0,01 GPa (Y implicite 6,5 GPa ; probablement 0,13)",
+   "plan (110) au lieu de (111) dans le Tableau 2 (réflexion interdite en blende)",
+   "paramètre de maille « 5.39 nm » au lieu de 5,39 Å",
+   "franges HRTEM de 0,209 nm attribuées implicitement à la blende, sans plan correspondant",
+   "émission PL à 365 nm (3,40 eV) attribuée à un défaut alors qu'elle dépasse les Eg de trois échantillons",
+   "ICP-OES : S/Zn = 1,89 expliqué par une perte de soufre, qui ne peut que l'abaisser",
+   "résumé : Eg « reduced from 3.28 to 3.49 eV » (sens inversé) ; ZnS2.5 cité dans la section UV sans exister",
+   "Zn 2p1/2 et 2p3/2 inversés pour ZnS2 ; échantillons XPS différents entre texte et légende",
+   "Raman : décalage « towards the shorter wavelength » pour des nombres d'onde"
+  ],
+  "comparison_with_database": "Autres ZnS hydrothermaux de la base : PMC10386591 (rGO-ZnS, Zn(NO3)2 + Na2S puis 180 °C, 6 h) et PMC5465224 (ZnS/ZnO sur mousse de Ni, 180 °C, 6 h). La présente voie est plus chaude (220 °C) et plus longue (12 h) et la seule à partir de thiourée ; aucune autre voie de la base ne fait varier S/Zn. Les autres entrées « ZnS » sont des coquilles de points quantiques (PMC6720160, PMC7692729, PMC8982036), non comparables."
+ },
+ "sources_not_found": [
+  "aucune source consultée pour la position S 2p du soufre élémentaire et des polysulfures (≈ 163,5–164 eV) : valeur de manuel (base XPS du NIST), non ouverte",
+  "auteurs de l'article PMC6409558 non relevés (titre et URL seulement)",
+  "DOI de la revue Rochkind et al. (Molecules 2015) non vérifié ; URL PMC donnée à la place"
+ ]
+}

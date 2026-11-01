@@ -1,0 +1,16 @@
+# PMC9609168 — critique scientifique (journal de décisions)
+
+- DRX → `probleme` : Bragg (λ = 1,5406 Å) ; a(Ag) = 4,077 Å tiré de la raie à 38,2° ; les indices (210), (122), (231), (142), (241) sont interdits en cfc ; a(AgCl) = 5,554 Å tiré de la raie à 27,8° redonne 32,21 / 46,19 / 54,77 / 57,43° (écart ≤ 0,1° avec les raies observées). Source : Durán et al. 2014 (JCPDS 31-1238). L'attribution au « JCPDS » de l'argent est donc fausse.
+- EDX (tableau 2) : Cl/Ag = 0,37 atomique (mêmes valeurs en masse et en % at.), donc ≈ 37 % de l'argent en AgCl. Rangé avec la DRX dans le même `probleme`, pour ne pas compter deux fois un même défaut.
+- Test DPPH → `probleme` : 0,004 g/100 mL → 0,101 mM, 50,7 µM après mélange 1:1 ; l'ascorbate (1,85 DPPH par molécule, Brand-Williams 1995) devrait éteindre ≈ 100 % du radical dès 15,6 µg/mL ; le tableau donne 8,4 %. C'est un résultat et non la synthèse, mais il sert d'argument « antioxydant » ; gardé en `probleme` parce que la référence du test elle-même ne fonctionne pas.
+- Pouvoir réducteur : modèle glucose à 2 e− (Raveendran 2003), 8,1 mg nécessaires pour 9 × 10−5 mol Ag+ contre 10 mg de biomasse nominale. Laissé en `reserve` : la composition de l'extrait est inconnue, et des polyphénols réduiraient davantage par unité de masse.
+- Fraction dissoute de l'extrait (≈ 37 %) estimée à partir de la préparation GC-MS (60 mg pour 163 mg) : conditions différentes, donc ordre de grandeur seulement, signalé comme tel.
+- Chlorure : BG11 ≈ 0,51 mM de Cl− (recette CCAP) ; il en faudrait ≈ 1,2 mg par lot pour Cl/Ag = 0,37 si tout l'argent est récupéré. Sans rendement, je n'ai pas conclu à une contamination : `reserve`.
+- Plasmon à 404,5 nm contre « hexagonal » : des nanoprismes de 25 nm d'arête résonnent vers 500 nm (PMC6965570) ; j'en conclus à des polyèdres 3D vus en projection, pas à des plaquettes. `reserve`, car les épaisseurs ne sont pas mesurées.
+- FTIR : bande d'association de l'eau à ≈ 2125 cm−1 (PMC12155183) au lieu d'un isothiocyanate. Le 1645,3 cm−1 identique dans les deux spectres m'a fait pencher pour l'eau. Le nitrate (≈ 1380 cm−1) est cité de mémoire en chimie générale, sans source.
+- GC-MS : 24 pics, somme des aires 99,99 % → le tableau est complet et c'est le « 21 composés » du texte qui est faux (constat sur l'article, pas sur l'extraction). FAME et 1-octène après 48 h sous vide à 50 °C : signalés comme artefacts possibles, sans source web (raisonnement de chimie générale).
+- Identité de la souche : amorces 27F/1492R (bactériennes) ; le barcoding de Coelastrella se fait en 18S-ITS (Krivina et al. 2025). Recherche sur le gène d'OM471999 restée sans résultat : notée dans `sources_not_found`.
+- Ksp(AgCl) ≈ 1,8 × 10−10 utilisé sans source web (valeur de manuel) ; aucune constante ajoutée à constantes.md (consigne : Crossref bloqué).
+- Sources écartées : PMC12457600 (AgCl « vert » 2025, indexation fantaisiste en (140), (131)) et IOP 2017 (raies AgCl non reconnues) ; elles ne servent pas d'appui.
+- DOI non vérifiés sur Crossref (bloqué) : 10.1186/2193-1801-3-645 (vu dans la fiche PMC), 10.1016/S0023-6438(95)80008-5 (vu sur ScienceDirect et HAL), 10.1007/s00284-025-04293-z (vu sur PubMed). Les DOI de fondateurs.md (Raveendran, Agnihotri, Iravani) sont déjà vérifiés.
+- 6 recherches web.

@@ -1,0 +1,91 @@
+{
+ "pmcid": "PMC9778285",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "MW_gel reagent triethanolamine (TEA) role",
+   "extracted": "role = stabilizer",
+   "article_says": "then gradually adding triethanolamine drop by drop in a molar ratio of ZnAc:TEA = 5:1",
+   "fix": "l'article ne donne aucun rôle à la TEA (simple « starting ingredient ») ; RUNBOOK réserve `stabilizer` aux cas où l'article emploie le mot. Mettre un rôle neutre (autre/ligand) ou garder en le signalant comme lecture de l'extracteur ; le rôle chimique va dans mecanisme_analyse.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "SG_gel variations (temperature 50 °C vs parent 60 °C ; duration two hours vs parent 10 min, step_order 3)",
+   "extracted": "temperature 50 °C (parent 60 °C), duration two hours (parent 10 min), power et frequency « absent », tous rattachés à l'étape 3 (micro-ondes) de MW_gel",
+   "article_says": "In the case of the classical sol–gel method (SG), the precursors were homogenized at 50 °C for two hours on a heated plate, without being exposed to microwaves.",
+   "fix": "l'homogénéisation SG de 2 h à 50 °C remplace à la fois l'étape 1 (15 min à 50 °C) et l'étape 3 (10 min à 60 °C) de MW_gel ; comparer 50 °C à 60 °C et 2 h à 10 min comme une variation de la seule étape micro-ondes est une lecture de l'extracteur. Conserver les étapes propres de SG_gel mais expliciter dans un doute (ou dans la variation) que la correspondance étape à étape n'est pas donnée par l'article ; la variation « power/frequency absent » est, elle, bien fondée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MW@500, SG@500 (FTIR, UV-Vis) ; MW@650, SG@650 (UV-Vis) : characterizations",
+   "extracted": "seuls XRD et SEM sur les poudres à 500 °C ; pas d'entrée FTIR ni UV–Vis (instrument, conditions, résultat) ; pas d'entrée UV–Vis à 650 °C (seulement le résultat band_gap)",
+   "article_says": "Increasing the thermal treatment temperature led to obtaining the characteristic spectra of ZnO.",
+   "fix": "ajouter sur les 4 voies concernées une caractérisation UV–Vis (Perkin Elmer Lambda 35, sphère d'intégration, 900–300 nm, Spectralon, Kubelka–Munk ; spectres ZnO caractéristiques, forte absorption sous 400 nm) et sur MW@500/SG@500 une caractérisation FTIR (Nicolet 6700, KBr) avec la phrase de conclusion « The FTIR spectra of the thermally treated samples showed the formation of the crystalline phase of ZnO by the structure of the bands at 450/475 cm−1. » (attention : en 2.2.3 la bande à 450 cm−1 est attribuée à Zn3(VO4)2 à 650 °C ; contradiction interne à mettre en doute).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MW@500, MW@650, SG@500, SG@650 band_gap (longueurs d'onde de coupure, Fig. 7c,d)",
+   "extracted": "band_gap seul (3.17, 3.19, 3.15, 3.17 eV)",
+   "article_says": "For this purpose, the E = hc/λcut-off formula was used.",
+   "fix": "ajouter en `from_figure` Fig. 7c/7d les longueurs d'onde de coupure inscrites sur la figure : MW@500 391 nm, MW@650 389 nm, SG@500 393 nm, SG@650 391 nm (lues sur l'image, valeurs imprimées ; 1240/λ redonne 3,17 / 3,19 / 3,15 / 3,17 eV). Ajouter aussi la méthode (E = hc/λcut-off) dans les conditions du band_gap.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "MW_gel/SG_gel doubts and limite_reproductibilite ; characterizations SEM conditions",
+   "extracted": "SEM : accelerating voltage 10 and 20 kV, high vacuum (conditions des Méthodes) ; aucun doute sur le désaccord avec la figure",
+   "article_says": "at an accelerating voltage of 10 and 20 kV in high vacuum mode",
+   "fix": "les bandeaux des micrographies de la Fig. 4 portent « HV 30.00 kV » (6 images, 40 000 x, barre 3 µm) ; ajouter un doute : tension annoncée 10 et 20 kV, tension lue sur la figure 30 kV. Ne pas changer la valeur extraite.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MW@500, SG@500, MW@650 particle_size_SEM / grain_size_hexagonal_SEM",
+   "extracted": "30–250 nm (MW@500), 30–170 nm (SG@500), 80–200 nm (hexagonaux MW@650)",
+   "article_says": "The particle size of these nanostructures was found to be within the range of 30–250 nm for MW and 30–170 nm for SG.",
+   "fix": "valeurs conformes au texte, mais la Fig. 4 (barre 3 µm = ≈ 390 px) montre des hexagones MW@500 d'environ 0,6–1 µm et des hexagones MW@650 supérieurs à 1 µm, soit 3 à 5 fois plus que les tailles écrites. Incohérence article/figure à noter en doute et en limite_reproductibilite (ne pas corriger la valeur).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MW_gel outcome total_weight_loss_up_to_550C = 74.1 % ; SG_gel 70.7 %",
+   "extracted": "74.1 % (MW), 70.7 % (SG) « up to 550 °C »",
+   "article_says": "The TG curve for the MW gel indicated a weight loss of around 74.1 percent up to 550 °C",
+   "fix": "valeurs conformes au texte, mais la somme des rangées de la Table 1 jusqu'à 550 °C vaut 73,85 % (MW) et 70,31 % (SG) ; 74,1 et 70,7 % ne sont atteints qu'avec la rangée 550–1000 °C (Σ du tableau). Ajouter un doute (texte « up to 550 °C » contre Σ du tableau incluant 550–1000 °C).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MW_gel : observation de la solution (Results 2.1)",
+   "extracted": "absente",
+   "article_says": "Utilizing the microwave-assisted sol–gel technique (MW), white-pink solutions were produced.",
+   "fix": "ajouter l'aspect des solutions « white-pink » (voie MW) en résultat qualitatif de MW_gel ; l'article ne dit pas la couleur de la voie SG.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 39,
+  "not_stated_wrong": 0,
+  "values_checked": 90,
+  "values_wrong": 0,
+  "from_figure_values": 0
+ },
+ "reproducibility_gaps": [
+  "quantités des précurseurs (acétate de zinc, acétylacétonate de vanadyle, éthanol, TEA) et base du 2 mol% (par rapport à Zn ?) absentes de l'article ; aucune annexe",
+  "pureté et fournisseur de l'acétylacétonate de vanadyle, de l'éthanol absolu et de la TEA (seul « reagent grade » ; Merck pour l'acétate de zinc)",
+  "durée de gélification, vitesse d'agitation, récipient et marque/modèle du réacteur micro-ondes (mode de régulation à 60 °C, pression)",
+  "voie SG : l'article ne dit pas si la TEA est ajoutée ni si l'étape de 15 min est conservée",
+  "traitement thermique : atmosphère, vitesse de montée, four, vitesse de refroidissement, creuset non donnés (seulement 300/500/650 °C, 1 h)",
+  "gels analysés en ATD/ATG et IR : non dit s'ils sont séchés à 100 °C/24 h avant analyse (perte de 7 % jusqu'à 100 °C)",
+  "tailles de grains à 300 °C absentes ; tailles de grains écrites en désaccord avec l'échelle des micrographies de la Fig. 4",
+  "teneur réelle en vanadium non mesurée (EDX qualitatif à 650 °C seulement)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs appuyé par les citations (attribution des nanobâtonnets à Zn3(VO4)2, vanadium amorphe en surface « higher probability ») ; l'extraction écrit que le vanadium est « d'abord » dans un composé amorphe, alors que l'article propose aussi son incorporation dans le réseau à 500 °C (nuance, non retenue comme constat).",
+ "notes": "Extraction globalement fidèle : 90 valeurs relues contre le texte et les 2 tableaux, 0 fausse ; rangées de Table 1 (rangées sans nom attribuées par position, MW avant SG) et de Table 2 (nom d'échantillon écrit) correctement attribuées ; « 404478 » bien lu 404 et 478. Aucune valeur from_figure à vérifier. Figures ouvertes : Fig. 1 (pics ATD 79/136/335/404/478/807 et 75/140/325/470/805 conformes au texte), Fig. 4 (étiquettes MW/SG 300, 500, 650 : la légende « 350 °C » est bien une coquille), Fig. 7 (coupures 391/389/393/391 nm cohérentes avec 3,17/3,19/3,15/3,17 eV). method_sources vide : juste (aucun renvoi de méthode ; Williamson–Hall B49 est une formule d'analyse, B47/B48 des diagrammes de phase, B28 une attribution de bande). Contradictions internes de l'article non relevées dans doubts : bande à 450 cm−1 attribuée à Zn3(VO4)2 en 2.2.3 mais à ZnO dans les conclusions ; fiche ICDD 26-1451/36-1451 déjà en doute. Choix de découpage discutable mais acceptable : gels en voies `intermediate` avec résultats de gel, poudres en voies de base/branches."
+}

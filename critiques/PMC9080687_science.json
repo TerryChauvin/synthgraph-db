@@ -1,0 +1,680 @@
+{
+ "pmcid": "PMC9080687",
+ "routes": [
+  {
+   "label": "Cl_normal_90C_2.5h",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration en Pb si MAI:PbCl2 = 3:1 à 25 wt% dans le DMF (rapport et solvant supposés, non écrits)",
+     "inputs": "M(MAI) = 158,97 g/mol ; M(PbCl2) = 278,11 g/mol ; masse d'une « formule » 3 MAI + PbCl2 = 755,0 g ; 1 g de solution = 0,25 g de solides + 0,75 g de DMF (ρ = 0,944 g/mL → 0,794 mL)",
+     "formula": "n(Pb) = 0,25/755,0 ; C ≈ n(Pb)/V(DMF) (volume des solides négligé, borne haute)",
+     "result": "0,331 mmol de Pb par g ; ≈ 0,42 mol/L",
+     "compared_to": "à 30 wt% (texte principal) : ≈ 0,54 mol/L ; si le rapport était 1:1 : ≈ 0,72 mol/L à 25 wt% — la concentration réelle dépend d'un rapport non donné",
+     "source": "masses molaires PubChem ; densité du DMF PubChem/NIST"
+    },
+    {
+     "what": "bilan halogène du système MAI + PbCl2 3:1",
+     "inputs": "3 CH3NH3I + PbCl2",
+     "formula": "3 MAI + PbCl2 → CH3NH3PbI3 + 2 CH3NH3Cl↑ (MACl à éliminer au recuit)",
+     "result": "2 MACl à évacuer par Pb",
+     "compared_to": "MAPbI3−xClx avec x faible : le Cl part presque entièrement, d'où le recuit long",
+     "source": "chimie générale ; Dualeh et al. 2014 (rapport 1:3 PbCl2:MAI dans le DMF)"
+    },
+    {
+     "what": "PCE recalculée = Jsc × Voc × FF (Tableau S1)",
+     "inputs": "normal 90 °C : 17,0 mA cm−2 ; 0,86 V ; 59,9 % — témoin 65 °C : 16,1 ; 0,52 ; 49,1 — thiourée 75 °C : 17,9 ; 0,93 ; 60,3 — urée 65 °C : 20,9 ; 1,02 ; 61,0 ; éclairement 100 mW cm−2",
+     "formula": "PCE (%) = Jsc·Voc·FF / 100 mW cm−2",
+     "result": "8,76 ; 4,11 ; 10,04 ; 13,00 %",
+     "compared_to": "annoncé 8,8 ; 4,1 ; 10,1 ; 13,0 % : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "position des raies (110) et (220) de MAPbI3 et (001) de PbI2 en q (Bragg, Cu Kα)",
+     "inputs": "2θ ≈ 14,1° (110), 28,4° (220), 12,7° (PbI2 001) ; λ = 0,154056 nm (Cu Kα1, NIST ; longueur d'onde non déclarée par l'article)",
+     "formula": "q = 4π sin θ / λ ; d = λ / (2 sin θ)",
+     "result": "(110) q ≈ 10,0 nm−1 (d = 0,628 nm) ; (220) q ≈ 20,0 nm−1 ; PbI2 (001) q ≈ 9,0 nm−1",
+     "compared_to": "axe de la Fig. S6 de 5 à 30 nm−1 : les deux raies citées et la raie de PbI2 sont dans la plage mesurée",
+     "source": "NIST X-ray Transition Energies Database (Cu Kα1) ; positions 2θ usuelles de MAPbI3 tétragonal, chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport MAI:PbCl2, le solvant et le volume déposé ne sont pas donnés (SI : « dissolving MAI and lead(II) chloride at 25 wt% », sans solvant ; le DMF n'est nommé que pour la solution d'additif). Le rapport fixe la stœchiométrie : en 3:1 (usage habituel), 2 MACl par Pb doivent partir au recuit ; en 1:1, on n'obtient pas l'iodure MAPbI3−xClx. La formule visée ne peut donc pas être contrôlée et la synthèse ne peut pas être refaite à l'identique (voir calcul « concentration en Pb si MAI:PbCl2 = 3:1 »).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of Annealing Temperature on Film Morphology of Organic–Inorganic Hybrid Perovskite Solid-State Solar Cells",
+      "authors_or_publisher": "Dualeh A., Tétreault N., Moehl T. et al. (Advanced Functional Materials, Wiley)",
+      "year": "2014",
+      "url_or_doi": "10.1002/adfm.201304022"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Concentration de la solution : 25 wt% dans le SI, « 30 wt% of MAPbI3−xClx precursor » dans le texte principal ; écart de ≈ 30 % sur la teneur en Pb (≈ 0,42 contre ≈ 0,54 mol/L en 3:1), donc sur l'épaisseur du film.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Recuit à 90 °C pendant 2,5 h sur plaque : sous le point d'ébullition du DMF (153 °C), sans risque d'ébullition. La durée longue est cohérente avec le départ lent du MACl dans les films issus de PbCl2 ; Dualeh et al. montrent que la conversion exige une température suffisante et qu'un recuit trop chaud forme du PbI2. Atmosphère de recuit (boîte à gants ou air) non indiquée.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of Annealing Temperature on Film Morphology of Organic–Inorganic Hybrid Perovskite Solid-State Solar Cells",
+      "authors_or_publisher": "Dualeh A., Tétreault N., Moehl T. et al. (Advanced Functional Materials, Wiley)",
+      "year": "2014",
+      "url_or_doi": "10.1002/adfm.201304022"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Électrode arrière : « ITO/PEDOT:PSS/MAPbI3−xClx/PCBM/Ag » dans le texte, « …/PC61BM/Al » dans le SI. Al directement sur PCBM sans couche d'interface est possible mais donne en général un Voc et un FF plus faibles ; il faut savoir quel métal a donné les valeurs du Tableau S1.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "PCE recalculées depuis Jsc, Voc et FF du Tableau S1 : 8,76 / 4,11 / 10,04 / 13,00 % contre 8,8 / 4,1 / 10,1 / 13,0 % annoncés (calcul « PCE recalculée ») ; « increase in PCEs of 34.7% from 9.8 to 13.2% » : (13,2 − 9,8)/9,8 = 34,7 %, juste (meilleures cellules).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve de conversion : les auteurs comparent l'intensité des raies (110) et (220) entre films (Fig. S6, échelle log). L'intensité dépend aussi de l'épaisseur, de la couverture (82,7 à 98,9 %) et de la texture ; elle ne prouve pas à elle seule une « meilleure cristallinité ». Les raies d'un intermédiaire chloré ou de PbI2 (q ≈ 9 nm−1, dans la plage mesurée, calcul « position des raies ») ne sont pas discutées : il faudrait les montrer absentes, ou donner la largeur à mi-hauteur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit par les auteurs : PbCl2 et sels de plomb (toxiques pour la reproduction), DMF (reprotoxique), chlorobenzène ; plasma O2. Manipulation en boîte à gants ou sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Le film MAI/PbCl2 (probablement 3:1 dans le DMF) sèche en un intermédiaire riche en chlorure (jaune) ; au recuit, le MACl en excès se sublime lentement et la phase MAPbI3 (avec très peu de Cl résiduel) cristallise (brun foncé). À 65–75 °C le départ du MACl est trop lent, d'où un film resté jaune et mal couvrant ; à 90 °C il faut ≈ 2,5 h.",
+    "sources": [
+     {
+      "title": "Effect of Annealing Temperature on Film Morphology of Organic–Inorganic Hybrid Perovskite Solid-State Solar Cells",
+      "authors_or_publisher": "Dualeh A., Tétreault N., Moehl T. et al. (Advanced Functional Materials, Wiley)",
+      "year": "2014",
+      "url_or_doi": "10.1002/adfm.201304022"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "rapport MAI:PbCl2 (3:1 attendu) et solvant (DMF probable) à demander aux auteurs",
+    "concentration : 25 ou 30 wt%",
+    "vitesse et durée de dépôt à la tournette, volume déposé",
+    "atmosphère du recuit",
+    "métal de l'électrode (Ag ou Al)"
+   ]
+  },
+  {
+   "label": "Cl_normal_65C_4.5h",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Jsc attendu d'après l'IPCE maximal de 17 % (même forme de spectre que la cellule à l'urée)",
+     "inputs": "cellule urée 65 °C : Jsc = 20,9 mA cm−2 pour un IPCE maximal de 77 % ; témoin 65 °C : IPCE maximal 17 %, Jsc annoncé 16,1 mA cm−2",
+     "formula": "Jsc ≤ IPCE_max × (Jsc/IPCE_max de la cellule urée) = 0,17 × 20,9/0,77",
+     "result": "≈ 4,6 mA cm−2 au plus (Jsc/IPCE_max annoncé : 94,7 mA cm−2 par unité d'IPCE, contre 27,1 pour l'urée)",
+     "compared_to": "Jsc du Tableau S1 : 16,1 mA cm−2, 3,5 fois trop grand ; le flux photonique AM1.5G au-dessus de 1,55 eV ne peut donner que ≈ 26–27 mA cm−2 à IPCE 100 %",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "« the maximum of IPCE located at 600 nm increased from 17% to 77% » : un IPCE qui ne dépasse pas 17 % ne peut pas produire Jsc = 16,1 mA cm−2 (au plus ≈ 4,6 mA cm−2, calcul « Jsc attendu d'après l'IPCE maximal »). Or le SI dit que l'EQE sert à calibrer les densités de courant. Soit la valeur de 17 % est fausse (ou se rapporte à une autre cellule), soit le Jsc du Tableau S1 l'est.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rs = 3,7 Ω cm2 pour le témoin mal converti, contre 12,9 Ω cm2 pour le film à 90 °C et 18,2 Ω cm2 avec urée : une résistance série plus faible pour le film le moins couvrant est inattendue (Voc 0,52 V, shunts probables) ; la méthode d'extraction de Rs et Rsh n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Conversion incomplète du précurseur chloré à 65 °C (départ du MACl trop lent) : (110) visible mais (220) faible, film jaune, couverture 82,7 %.",
+    "sources": [
+     {
+      "title": "Effect of Annealing Temperature on Film Morphology of Organic–Inorganic Hybrid Perovskite Solid-State Solar Cells",
+      "authors_or_publisher": "Dualeh A., Tétreault N., Moehl T. et al. (Advanced Functional Materials, Wiley)",
+      "year": "2014",
+      "url_or_doi": "10.1002/adfm.201304022"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "comparer l'intégrale de l'IPCE au Jsc mesuré",
+    "durée réelle : 2 h (texte) ou 2,5 h (Fig. S3) pour les essais sans additif sous 75 °C"
+   ]
+  },
+  {
+   "label": "Cl_urea1_65C_4.5h",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité d'urée selon l'unité retenue (système MAPbI3−xClx)",
+     "inputs": "solution d'additif : urée 25 wt% dans le DMF (ρ ≈ 1,0 g/mL supposé) ; « 1 % » lu comme 1 vol% de cette solution dans 1 mL de précurseur ; Pb ≈ 0,42 mol/L (calcul de la voie Cl_normal_90C_2.5h, hypothèse 3:1 à 25 wt%) ; M(urée) = 60,06 g/mol",
+     "formula": "n(urée) = 0,01 mL × 1,0 g/mL × 0,25 / 60,06 ; rapport n(urée)/n(Pb)",
+     "result": "0,042 mmol d'urée par mL de précurseur ; ≈ 10 mol% par Pb",
+     "compared_to": "si « 1 % » = 1 wt% des solides : ≈ 4 mol% ; si 1 mol% : 1 mol% — un facteur ≈ 10 sépare les lectures possibles",
+     "source": "masses molaires PubChem ; hypothèses de lecture indiquées"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "L'unité de la concentration d'additif n'est pas définie : « 0.5%, 1%, and 3% » (texte), « 0.5,1, and 3 vol% » (SI), ajout d'une solution à 25 wt% « at different concentrations ». Selon la lecture, le rapport urée/Pb va de ≈ 1 à ≈ 10 mol% pour « 1 % » (calcul « quantité d'urée selon l'unité retenue ») ; la condition optimale annoncée n'est donc pas transposable.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Urée : fusion 133 °C, décomposition au-delà (PubChem) ; à 65 °C elle n'est pas volatile et reste dans le film. C'est conforme au rôle décrit par Lee et al. (urée non volatile, retarde la croissance puis se loge aux joints de grains), mais aucune mesure (IR, XPS) ne montre où elle se trouve ni si elle reste dans la cellule finie.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A Bifunctional Lewis Base Additive for Microscopic Homogeneity in Perovskite Solar Cells",
+      "authors_or_publisher": "Lee J.-W., Bae S.-H., Hsieh Y.-T., De Marco N., Wang M., Sun P., Yang Y. (Chem, Cell Press)",
+      "year": "2017",
+      "url_or_doi": "10.1016/j.chempr.2017.05.020"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Urée à 25 wt% dans le DMF, agitée une nuit : la solubilité de l'urée dans le DMF n'a pas été vérifiée (non trouvée dans les sources lues) ; une solution non limpide changerait la dose réelle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Voc = 1,02 V sur PEDOT:PSS : élevé pour cette architecture (souvent 0,85–0,95 V) mais pas impossible ; IPCE maximal 77 % cohérent avec Jsc = 20,9 mA cm−2 ; PCE recalculée 13,00 % (calcul de la voie de base).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le témoin à 65 °C, 4,5 h ne diffère que par l'additif (même température et durée) : comparaison valable. En revanche l'amélioration est aussi comparée au film à 90 °C (autre température) ; seule la paire à 65 °C isole l'effet de l'urée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'urée (donneur C=O) forme un adduit de Lewis avec Pb2+ dans la solution et dans le film humide, ce qui retarde la nucléation et favorise des grains plus gros et une couverture continue ; non volatile à 65 °C, elle reste aux joints de grains où elle peut passiver Pb2+ sous-coordonné. Le départ du MACl reste l'étape lente, d'où le recuit de 4,5 h.",
+    "sources": [
+     {
+      "title": "A Bifunctional Lewis Base Additive for Microscopic Homogeneity in Perovskite Solar Cells",
+      "authors_or_publisher": "Lee J.-W., Bae S.-H., Hsieh Y.-T., De Marco N., Wang M., Sun P., Yang Y. (Chem, Cell Press)",
+      "year": "2017",
+      "url_or_doi": "10.1016/j.chempr.2017.05.020"
+     },
+     {
+      "title": "Lewis Acid–Base Adduct Approach for High Efficiency Perovskite Solar Cells",
+      "authors_or_publisher": "Accounts of Chemical Research, American Chemical Society (auteurs non confirmés par la recherche web)",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.accounts.5b00440"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "unité et définition exactes de « 1 % » (vol% de la solution à 25 wt%, wt% ou mol%)",
+    "limpidité de la solution d'urée à 25 wt% dans le DMF",
+    "présence d'urée résiduelle (IR) dans le film recuit"
+   ]
+  },
+  {
+   "label": "Cl_thiourea0.5_75C_2.5h",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité de thiourée pour « 0,5 % » lu comme 0,5 vol% d'une solution à 25 wt%",
+     "inputs": "0,005 mL × 1,0 g/mL × 0,25 g/g ; M(thiourée) = 76,12 g/mol ; Pb ≈ 0,42 mol/L (hypothèse 3:1, 25 wt%)",
+     "formula": "n(thiourée) = 0,005 × 0,25 / 76,12 ; n/n(Pb)",
+     "result": "0,016 mmol/mL ; ≈ 3,9 mol% par Pb",
+     "compared_to": "même ambiguïté d'unité que pour l'urée",
+     "source": "masses molaires PubChem"
+    },
+    {
+     "what": "PCE recalculée (Tableau S1, thiourée 75 °C)",
+     "inputs": "17,9 mA cm−2 ; 0,93 V ; 60,3 %",
+     "formula": "Jsc·Voc·FF/100",
+     "result": "10,04 %",
+     "compared_to": "annoncé 10,1 % : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Température optimale : « 0.5% thiourea at 70 °C for 2.5 hours » dans un paragraphe, 75 °C partout ailleurs (Fig. 1b, Fig. S4d, Tableau S1).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin : la cellule à la thiourée (75 °C) n'a de témoin sans additif mesuré en dispositif qu'à 90 °C et 65 °C ; le film sans additif à 75 °C n'a que MEB et GIWAXS. L'effet propre de la thiourée sur le rendement à 75 °C n'est donc pas isolé ; « IPCE increased from 73.9% to 83.9% » ne dit pas quelle cellule sert de départ.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Thiourée : fusion ≈ 176–178 °C (PubChem) ; à 75 °C elle reste dans le film. Les complexes plomb–thiourée se décomposent en PbS à plus haute température (au-delà de ≈ 150 °C) : pas de risque à 75 °C, mais une absorption parasite de PbS serait à exclure si l'on recuit plus chaud.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Thiourée : classée cancérogène et reprotoxique de catégorie 2 (classification CLP, ECHA) ; non signalé par les auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme l'urée, la thiourée (donneur C=S, base de Lewis plus molle, affinité plus forte pour Pb2+) forme un adduit avec le plomb, ralentit la cristallisation et améliore la couverture ; l'affinité plus forte expliquerait qu'une dose plus faible (0,5 %) suffise.",
+    "sources": [
+     {
+      "title": "Lewis Acid–Base Adduct Approach for High Efficiency Perovskite Solar Cells",
+      "authors_or_publisher": "Accounts of Chemical Research, American Chemical Society (auteurs non confirmés par la recherche web)",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.accounts.5b00440"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température : 70 ou 75 °C",
+    "cellule de référence de l'IPCE à 73,9 %"
+   ]
+  },
+  {
+   "label": "Cl_urea1_90C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "accélération apparente de la conversion par l'additif à 90 °C",
+     "inputs": "sans additif : brun foncé après 2,5 h (9000 s) ; avec 0,5–3 % d'urée ou de thiourée : « within 10 seconds »",
+     "formula": "9000 s / 10 s",
+     "result": "facteur ≈ 900",
+     "compared_to": "aucun mécanisme donné pour un tel facteur",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Passage du jaune au brun en 10 s avec 0,5 % d'additif contre 2,5 h sans : l'élimination de 2 MACl par Pb ne peut guère être accélérée d'un facteur ≈ 900 par quelques mol% d'urée (calcul « accélération apparente »). Le brunissement rapide pourrait venir d'une autre voie (cristallisation d'une phase intermédiaire colorée, ou film plus mince) ; aucun DRX ne caractérise ces films ni l'« over-crystallization » (aspect opaque à 30 min).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hypothèse : l'additif modifie l'intermédiaire de solvatation et provoque une nucléation rapide d'une phase sombre avant le départ complet du MACl ; l'aspect opaque à 30 min serait une rugosité ou une recristallisation en gros grains. Non démontré par l'article.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "DRX d'un film à 90 °C après 10 s et après 30 min avec additif"
+   ]
+  },
+  {
+   "label": "I_normal_100C_10min",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masses dans la solution MAPbI3 1,2 M",
+     "inputs": "1,2 mol/L PbI2 (461,01 g/mol) et MAI (158,97 g/mol), rapport 1:1",
+     "formula": "m = C × M",
+     "result": "553 mg/mL de PbI2 ; 191 mg/mL de MAI",
+     "compared_to": "concentration usuelle des dépôts avec antisolvant",
+     "source": "masses molaires PubChem"
+    },
+    {
+     "what": "rapport DMSO/Pb (DMF:DMSO 4:1 en volume)",
+     "inputs": "≈ 0,2 mL de DMSO par mL de solution ; ρ = 1,10 g/mL ; M = 78,13 g/mol ; Pb 1,2 mmol/mL",
+     "formula": "n(DMSO) = 0,2 × 1,10 / 78,13 ; rapport à n(Pb)",
+     "result": "2,8 mmol/mL ; DMSO/Pb ≈ 2,3",
+     "compared_to": "≥ 1 nécessaire pour l'adduit MAI·PbI2·DMSO : suffisant",
+     "source": "densité du DMSO PubChem"
+    },
+    {
+     "what": "précurseur NiOx",
+     "inputs": "Ni(acac)2 129 mg (256,91 g/mol, anhydre) dans 5 mL d'éthanol ; HCl 38 wt%, 50 µL, ρ = 1,19 g/mL",
+     "formula": "n(Ni) = 0,129/256,91 ; n(HCl) = 0,050 × 1,19 × 0,38 / 36,46",
+     "result": "0,50 mmol de Ni (≈ 0,10 mol/L) ; 0,62 mmol de HCl (HCl/Ni ≈ 1,2)",
+     "compared_to": "solution diluée, compatible avec ≈ 20 nm de NiOx",
+     "source": "masses molaires PubChem"
+    },
+    {
+     "what": "PCE recalculée (Tableau 1, témoin 100 °C)",
+     "inputs": "19,0 mA cm−2 ; 1,05 V ; 73,8 %",
+     "formula": "Jsc·Voc·FF/100",
+     "result": "14,72 %",
+     "compared_to": "annoncé 14,4 ± 0,3 % : écart de 2 % admissible (moyenne de produits ≠ produit de moyennes)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface active",
+     "inputs": "« fixed at 0.01 cm2 » et « 10 mm2 » dans le même paragraphe du SI",
+     "formula": "10 mm2 = 0,10 cm2",
+     "result": "rapport 10",
+     "compared_to": "les deux valeurs ne peuvent pas être vraies",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression d'évaporation",
+     "inputs": "« vacuum level of 10−7 Pa »",
+     "formula": "1 Pa = 10−2 mbar = 7,50 × 10−3 Torr",
+     "result": "10−9 mbar = 7,5 × 10−10 Torr",
+     "compared_to": "évaporateurs thermiques courants : 10−4 Pa (≈ 10−6 Torr)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "position des raies (110) et (220) de MAPbI3 et (001) de PbI2 en q (Bragg, Cu Kα)",
+     "inputs": "2θ ≈ 14,1° (110), 28,4° (220), 12,7° (PbI2 001) ; λ = 0,154056 nm (Cu Kα1, NIST ; longueur d'onde non déclarée par l'article)",
+     "formula": "q = 4π sin θ / λ ; d = λ / (2 sin θ)",
+     "result": "(110) q ≈ 10,0 nm−1 (d = 0,628 nm) ; (220) q ≈ 20,0 nm−1 ; PbI2 (001) q ≈ 9,0 nm−1",
+     "compared_to": "axe de la Fig. S6 de 5 à 30 nm−1 : les deux raies citées et la raie de PbI2 sont dans la plage mesurée",
+     "source": "NIST X-ray Transition Energies Database (Cu Kα1) ; positions 2θ usuelles de MAPbI3 tétragonal, chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "PbI2 + MAI à 1,2 M dans DMF:DMSO 4:1, agité à 60 °C : soluble, DMSO en quantité suffisante pour l'adduit MAI–PbI2–DMSO (DMSO/Pb ≈ 2,3, calcul « rapport DMSO/Pb »). Méthode de l'antisolvant toluène (300 µL vers 6 s) conforme à Jeon et al.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Solvent engineering for high-performance inorganic–organic hybrid perovskite solar cells",
+      "authors_or_publisher": "Jeon N. J., Noh J. H., Kim Y. C., Yang W. S., Ryu S., Seok S. I. (Nature Materials)",
+      "year": "2014",
+      "url_or_doi": "10.1038/nmat4014"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "NiOx cuit à 320 °C, 45 min, à l'air : suffisant pour décomposer Ni(acac)2 en NiOx ; recuit de la pérovskite à 100 °C, 10 min, sous l'ébullition du DMF (153 °C) et du DMSO (189 °C) : conditions usuelles. Atmosphère du recuit non dite.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surface active donnée deux fois avec un facteur 10 (0,01 cm2 et 10 mm2 = 0,1 cm2, calcul « surface active ») ; le SI dit aussi que les mesures sont faites « in the ambient environment » puis « inside a glove box ». Jsc et PCE dépendent directement de la surface ; une cellule de 0,01 cm2 sans masque d'ouverture surestime souvent le Jsc par les bords.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« 10−7 Pa » correspond à 10−9 mbar, un ultravide inhabituel pour un évaporateur thermique (calcul « pression d'évaporation ») : probable confusion d'unité (10−7 Torr, ou 10−4 Pa).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "TRPL : τ1 = 10,3 ns, τ2 = 2,3 ns, τ3 = 41,1 ns, sans amplitudes ni durée moyenne ; les auteurs ne discutent que τ1 et τ2. Lee et al. rapportent pour MAPbI3 avec et sans urée des durées de vie de 200 à 750 ns ; des durées de quelques dizaines de ns indiquent un film sur couche extractrice (NiOx) ou très défectueux. Le substrat de la mesure n'est pas dit ; sans amplitudes, « l'urée prolonge la durée de vie » n'est pas démontré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A Bifunctional Lewis Base Additive for Microscopic Homogeneity in Perovskite Solar Cells",
+      "authors_or_publisher": "Lee J.-W., Bae S.-H., Hsieh Y.-T., De Marco N., Wang M., Sun P., Yang Y. (Chem, Cell Press)",
+      "year": "2017",
+      "url_or_doi": "10.1016/j.chempr.2017.05.020"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« GIWAXS » mesuré sur un diffractomètre de laboratoire (X'Pert PRO MRD, incidence ≈ 0,5°), longueur d'onde non donnée ; les raies (110) et (220) sont bien dans la plage (calcul « position des raies »). Comparer leurs intensités entre films ne suffit pas à prouver une meilleure cristallinité (épaisseur, texture).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : PbI2 (reprotoxique), DMF (reprotoxique), DMSO (pénétration cutanée des solutés de plomb), toluène et chlorobenzène inflammables, HCl 38 % corrosif, cuisson de Ni(acac)2 (composés du nickel cancérogènes) ; évaporation sous vide.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'antisolvant toluène sursature brutalement la solution et fige un film d'adduit MAI–PbI2–DMSO ; le recuit chasse le DMSO et convertit l'adduit en MAPbI3 tétragonal. À 85 °C puis 65 °C la décomposition de l'adduit en 10–20 min est incomplète sans additif, d'où la baisse du rendement et des grains plus petits.",
+    "sources": [
+     {
+      "title": "Solvent engineering for high-performance inorganic–organic hybrid perovskite solar cells",
+      "authors_or_publisher": "Jeon N. J., Noh J. H., Kim Y. C., Yang W. S., Ryu S., Seok S. I. (Nature Materials)",
+      "year": "2014",
+      "url_or_doi": "10.1038/nmat4014"
+     },
+     {
+      "title": "Lewis Acid–Base Adduct Approach for High Efficiency Perovskite Solar Cells",
+      "authors_or_publisher": "Accounts of Chemical Research, American Chemical Society (auteurs non confirmés par la recherche web)",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.accounts.5b00440"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "surface active réelle et usage d'un masque d'ouverture",
+    "atmosphère des mesures J–V",
+    "conditions de dépôt du PC61BM (vitesse, durée)",
+    "vide d'évaporation réel"
+   ]
+  },
+  {
+   "label": "I_normal_65C_20min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "PCE recalculée (Tableau S2, témoin 65 °C)",
+     "inputs": "14,1 mA cm−2 ; 0,98 V ; 51,0 %",
+     "formula": "Jsc·Voc·FF/100",
+     "result": "7,05 %",
+     "compared_to": "annoncé 7,0 % : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Durée du recuit à 65 °C : « At an annealed temperature of 65 °C (10 min) » dans le texte, « 65 °C (20min) » dans le Tableau S2, la légende Fig. S5 et la conclusion.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "À 65 °C, 20 min, l'adduit MAI–PbI2–DMSO (DMSO bout à 189 °C) est probablement mal décomposé ; aucun diagramme de diffraction n'est montré pour les films MAPbI3 à 65 °C, donc la phase réellement obtenue (pérovskite seule ou mélange avec l'intermédiaire) n'est pas établie.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Solvent engineering for high-performance inorganic–organic hybrid perovskite solar cells",
+      "authors_or_publisher": "Jeon N. J., Noh J. H., Kim Y. C., Yang W. S., Ryu S., Seok S. I. (Nature Materials)",
+      "year": "2014",
+      "url_or_doi": "10.1038/nmat4014"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Conversion partielle de l'adduit DMSO à basse température : grains de 93 nm, shunts (Rsh 157 Ω cm2), FF 51 %.",
+    "sources": [
+     {
+      "title": "Solvent engineering for high-performance inorganic–organic hybrid perovskite solar cells",
+      "authors_or_publisher": "Jeon N. J., Noh J. H., Kim Y. C., Yang W. S., Ryu S., Seok S. I. (Nature Materials)",
+      "year": "2014",
+      "url_or_doi": "10.1038/nmat4014"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "durée : 10 ou 20 min",
+    "DRX du film à 65 °C (raie de l'intermédiaire à bas angle)"
+   ]
+  },
+  {
+   "label": "I_urea1_85C_10min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité d'urée pour « 1 % » dans le précurseur MAPbI3 1,2 M, selon la lecture",
+     "inputs": "Pb 1,2 mmol/mL ; urée 60,06 g/mol ; MAPbI3 619,98 g/mol ; lecture A : 1 vol% d'une solution d'urée à 25 wt% dans le DMF (protocole du système chloré, ρ ≈ 1,0) ; lecture B : 1 wt% des solides MAPbI3 ; lecture C : 1 mol%",
+     "formula": "A : 0,01 × 0,25 / 60,06 / 1,2e-3 ; B : 0,01 × 619,98 / 60,06 ; C : 1 %",
+     "result": "A ≈ 3,5 mol% ; B ≈ 10,3 mol% ; C = 1 mol% par Pb",
+     "compared_to": "Lee et al. 2017 : 4 mol% d'urée (la lecture A est la plus proche)",
+     "source": "masses molaires PubChem ; Lee et al. 2017"
+    },
+    {
+     "what": "PCE recalculée (Tableau 1 et Tableau S3)",
+     "inputs": "moyenne 22,4 ; 1,06 ; 77,9 — meilleure 22,58 ; 1,06 ; 78,5 — balayages 0,2 s : 22,09/1,06/78,7 et 22,25/1,07/77,4 ; 0,1 s : 22,74/1,06/77,6",
+     "formula": "Jsc·Voc·FF/100",
+     "result": "18,50 ; 18,79 ; 18,43 ; 18,43 ; 18,71 %",
+     "compared_to": "annoncé 18,5 ; 18,8 ; 18,4 ; 18,4 ; 18,7 % : cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La préparation de l'additif pour MAPbI3 n'est pas décrite et l'unité de « 1 % » n'est pas définie : selon la lecture, 1 à 10 mol% d'urée par Pb (calcul « quantité d'urée pour 1 % »). La condition record (18,8 %) n'est pas reproductible telle qu'écrite ; la lecture « 1 vol% de la solution à 25 wt% » donne ≈ 3,5 mol%, proche des 4 mol% de Lee et al.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "A Bifunctional Lewis Base Additive for Microscopic Homogeneity in Perovskite Solar Cells",
+      "authors_or_publisher": "Lee J.-W., Bae S.-H., Hsieh Y.-T., De Marco N., Wang M., Sun P., Yang Y. (Chem, Cell Press)",
+      "year": "2017",
+      "url_or_doi": "10.1016/j.chempr.2017.05.020"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Grains de 935 nm à 85 °C contre 369 nm à 100 °C : une croissance plus forte à plus basse température est inhabituelle ; elle est possible si l'urée retarde la nucléation (moins de germes), mais la Fig. 2 a une barre d'échelle de 100 nm, donc peu de grains par image : la méthode de comptage et le nombre de grains ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A Bifunctional Lewis Base Additive for Microscopic Homogeneity in Perovskite Solar Cells",
+      "authors_or_publisher": "Lee J.-W., Bae S.-H., Hsieh Y.-T., De Marco N., Wang M., Sun P., Yang Y. (Chem, Cell Press)",
+      "year": "2017",
+      "url_or_doi": "10.1016/j.chempr.2017.05.020"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "18,8 % (Jsc 22,58 mA cm−2, FF 78,5 %) en structure inversée NiOx/PC61BM/BCP : dans la gamme publiée pour MAPbI3 avec additif (Lee et al. : 18,25 % en structure normale à 100 °C). IPCE maximal 87,4 % compatible avec ce Jsc. Hystérésis faible conforme à la structure inversée. Réserve sur la surface active (voie I_normal_100C_10min).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "A Bifunctional Lewis Base Additive for Microscopic Homogeneity in Perovskite Solar Cells",
+      "authors_or_publisher": "Lee J.-W., Bae S.-H., Hsieh Y.-T., De Marco N., Wang M., Sun P., Yang Y. (Chem, Cell Press)",
+      "year": "2017",
+      "url_or_doi": "10.1016/j.chempr.2017.05.020"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'urée se coordonne à PbI2 (adduit de Lewis C=O→Pb) en concurrence avec le DMSO, ralentit la cristallisation après l'antisolvant et réduit le nombre de germes, d'où des grains plus gros ; non volatile à 85 °C, elle reste aux joints de grains et passive Pb2+ sous-coordonné (Rsh plus élevé, R1 plus faible en EIS).",
+    "sources": [
+     {
+      "title": "A Bifunctional Lewis Base Additive for Microscopic Homogeneity in Perovskite Solar Cells",
+      "authors_or_publisher": "Lee J.-W., Bae S.-H., Hsieh Y.-T., De Marco N., Wang M., Sun P., Yang Y. (Chem, Cell Press)",
+      "year": "2017",
+      "url_or_doi": "10.1016/j.chempr.2017.05.020"
+     },
+     {
+      "title": "Lewis Acid–Base Adduct Approach for High Efficiency Perovskite Solar Cells",
+      "authors_or_publisher": "Accounts of Chemical Research, American Chemical Society (auteurs non confirmés par la recherche web)",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.accounts.5b00440"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "préparation et dose d'urée pour MAPbI3 (mol% par Pb)",
+    "statistique de taille de grains (nombre de grains, grandissement)",
+    "surface active"
+   ]
+  },
+  {
+   "label": "I_thiourea0.5_65C_20min",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "PCE recalculée (Tableau S2, thiourée 65 °C)",
+     "inputs": "17,8 mA cm−2 ; 0,99 V ; 50,0 %",
+     "formula": "Jsc·Voc·FF/100",
+     "result": "8,81 %",
+     "compared_to": "annoncé 8,8 % : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "taille de grains contre rendement à 65 °C",
+     "inputs": "témoin 93,2 nm / 7,0 % ; urée 608,9 nm / 15,9 % ; thiourée 895,2 nm / 8,8 %",
+     "formula": "comparaison de rangs",
+     "result": "les plus gros grains (thiourée) donnent un rendement proche du témoin",
+     "compared_to": "affirmation des auteurs : la taille de grains est « a key factor » du rendement",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Avec 0,5 % de thiourée à 65 °C, grains de 895 nm mais PCE 8,8 %, FF 50 % et Rsh 172,7 Ω cm2, presque comme le témoin à grains de 93 nm (calcul « taille de grains contre rendement ») : les données des auteurs contredisent l'idée que la taille de grains est le facteur clé ; une conversion incomplète ou des résidus de thiourée (ou des trous entre gros grains) limitent plutôt la cellule. Aucun DRX à 65 °C ne permet de trancher.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Hypothèse : la thiourée, plus fortement liée à Pb2+ que l'urée, retarde la conversion de l'adduit à 65 °C ; de gros domaines se forment mais restent partiellement non convertis ou séparés par des vides, d'où des shunts. Non démontré par l'article.",
+    "sources": [
+     {
+      "title": "Lewis Acid–Base Adduct Approach for High Efficiency Perovskite Solar Cells",
+      "authors_or_publisher": "Accounts of Chemical Research, American Chemical Society (auteurs non confirmés par la recherche web)",
+      "year": "2016",
+      "url_or_doi": "10.1021/acs.accounts.5b00440"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "DRX et couverture du film thiourée à 65 °C"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les deux protocoles sont chimiquement plausibles et conformes aux méthodes connues (MAI/PbCl2 recuit longuement ; MAPbI3 1,2 M DMF:DMSO avec antisolvant toluène). Toutes les PCE recalculées depuis Jsc, Voc et FF concordent. Les points faibles sont des omissions et des contradictions : rapport MAI:PbCl2 et solvant non donnés, unité de la concentration d'additif indéfinie (1 à 10 mol% selon la lecture), surface active donnée avec un facteur 10, et un IPCE de 17 % incompatible avec un Jsc de 16,1 mA cm−2. Les preuves de mécanisme (intensités GIWAXS, durées TRPL sans amplitudes) sont indicatives, pas discriminantes, et la thiourée à 65 °C contredit le lien grains–rendement avancé.",
+  "author_errors_suspected": [
+   "IPCE maximal de 17 % pour le témoin MAPbI3−xClx à 65 °C, incompatible avec Jsc = 16,1 mA cm−2 (au plus ≈ 4,6 mA cm−2)",
+   "surface active : 0,01 cm2 et 10 mm2 (= 0,1 cm2) dans le même paragraphe ; mesures « ambient » puis « inside a glove box »",
+   "concentration du précurseur chloré : 25 wt% (SI) contre 30 wt% (texte)",
+   "électrode du système chloré : Ag (texte) contre Al (SI)",
+   "température optimale de la thiourée : 70 °C contre 75 °C",
+   "durée du recuit à 65 °C pour MAPbI3 : 10 min (texte) contre 20 min (Tableau S2, conclusion)",
+   "vide d'évaporation « 10−7 Pa », probablement une erreur d'unité",
+   "unité de l'additif : %, vol% et solution à 25 wt% sans définition du rapport final"
+  ],
+  "comparison_with_database": "Seule autre voie MAPbI3 en solution comparable : PMC6548969 « PSC_solution_control » (dissolution à 60 °C, antisolvant, recuit 100 °C 10 min, PCE 19,7 %) : les conditions du témoin I_normal_100C_10min (60 °C 2 h, antisolvant, 100 °C 10 min) sont du même ordre ; son rendement (14,4 %) est plus bas, cohérent avec une structure inversée NiOx sans additif. Aucune autre voie MAPbI3−xClx issue de PbCl2 dans la base."
+ },
+ "sources_not_found": [
+  "valeur tabulée du Jsc de Shockley–Queisser pour 1,55–1,6 eV (Rühle 2016 identifié mais table non lue) : l'incohérence IPCE/Jsc est démontrée par comparaison interne à la cellule à l'urée",
+  "article PCCP 2016 (10.1039/C6CP06347K) sur la sublimation du MACl : titre et auteurs non confirmés, non utilisé",
+  "solubilité de l'urée dans le DMF à 25 wt% : non trouvée",
+  "auteurs de l'Account « Lewis Acid–Base Adduct Approach… » (10.1021/acs.accounts.5b00440) non confirmés par la recherche"
+ ]
+}

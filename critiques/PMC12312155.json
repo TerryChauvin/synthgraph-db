@@ -1,0 +1,111 @@
+{
+ "pmcid": "PMC12312155",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "PL_mix4, PL_mix5, NC_mix4, NC_mix5 : étapes 1 et 2 héritées de PL_mix2 (voie sans étapes propres, seule la variation premixed_component/temperature est portée)",
+   "extracted": "étape 1 « Prémélanger la 2-MeIM et le CTAB dans l'eau à 25 °C » puis étape 2 « Ajouter la solution du ligand métallique (Co) au prémélange » ; variation premixed_component = metal ligand sur l'étape 1 seulement",
+   "article_says": "(4) premixing metal ligand and CTAB (25 °C), in which the metal ligand was premixed with CTAB in water at 25 °C prior to the addition of 2-MeIM",
+   "fix": "donner à PL_mix4 et NC_mix4 leurs propres steps : 1 prémélange du métal (Co) et du CTAB dans l'eau à 25 °C ; 2 ajout de la solution de 2-MeIM ; l'ordre d'ajout hérité est inversé. PL_mix5 et NC_mix5 (enfants de mix4) suivent avec 100 °C",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "RD-1, RD, PL, NC : résultats TGA des Tables S1 et S2 (annexe) absents ; RD-1 et RD sans résultat sous N2",
+   "extracted": "seuls les pourcentages du texte (RD-1 58 % air, 44 % N2 ; RD 28 % premier palier air ; PL 35 / 63 % ; NC 64 / 59 %) ; aucune plage de température des Tables S1/S2",
+   "article_says": "The onset and final temperatures for mass loss are presented in Tables S1 and S2.",
+   "fix": "ajouter en résultats par échantillon, étiquetés « après le test de stabilité », les plages et pertes de l'annexe : air (1er / 2e palier °C ; perte %) RD-1 149–306 / 390–450 ; 33,7 ; RD 36–212 / 360–408 ; 24 ; PL – / 350–561 ; 35 ; NC 64–196 / 250–425 ; 64. N2 : RD-1 156–301 / 477–625 ; 56 ; RD 119–215 / 489–622 ; 45 ; PL – / 323–551 ; 63 ; NC 32–148 / 340–528 ; 59. Noter que 33,7 % (RD-1 air) et 56 % (RD-1 N2) contredisent 58 % et 44 % du texte : garder les deux en citation, annoter limite_reproductibilite",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "NC (et PL) : résultats de stabilité absents ou incomplets",
+   "extracted": "NC n'a ni xrd_after_stability_test ni ftir_ctab_residue ; PL et NC n'ont pas la remarque TGA sur l'absence de perte liée au CTAB",
+   "article_says": "Despite the initial XRD curve of the nanocubes suggesting that the desired structure was not formed after contact with water, peaks that initially had low intensity were not detected in the poststability test analysis, indicating potential particle degradation.",
+   "fix": "ajouter à NC : xrd_after_stability_test = pics initialement faibles non détectés après le test, dégradation possible ; ftir_ctab_residue = « With regard to the surfactant-containing particles, both still exhibited CTAB in their structure. » ; ajouter à PL et NC : « the plate (PL) and nanocube (NC) morphologies did not show significant weight losses related to the presence of CTAB in the particles »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "ST_140_1800, ST_120_1800, ST_140_450, ST_120_450 : résultats de la série agitation x température",
+   "extracted": "seulement la phase XRD et la TGA ; la comparaison forte/faible agitation et la dépendance en température de la cristallinité ne sont qu'en annotation (comparison_branches), pas en résultats",
+   "article_says": "Regardless of the synthesis temperature, mixtures subjected to vigorous stirring and emulsion formation yielded particles with higher crystallinity, more regular morphologies, and more homogeneous size distributions than those synthesized under weak stirring conditions.",
+   "fix": "ajouter sur ST_140_1800 et ST_120_1800 (ou sur les deux branches 450 rpm) un résultat « cristallinité plus haute, morphologies plus régulières, tailles plus homogènes que sous faible agitation » ; ajouter sur ST_140_1800 « the XRD peak intensities were higher for samples synthesized at 140 °C compared to 120 °C » (citation : « Additionally, the XRD peak intensities were higher for samples synthesized at 140 °C compared to 120 °C, indicating that higher temperatures promote better crystallinity. ») ; ajouter les débuts de perte de masse du texte : ST_120_450 premier palier dès 100 °C, second à 305 °C",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "RD, PL : températures de perte de masse du texte non reprises",
+   "extracted": "RD : seul le premier palier de 28 % ; PL : seulement les pertes totales 35 % et 63 %",
+   "article_says": "The second stage, related to the degradation of the ZIF structure, occurs at 350 °C and continues until 500 °C.",
+   "fix": "ajouter RD tga_second_stage_air = 350 à 500 °C ; PL tga_onset_air = environ 350 °C et tga_onset_n2 = 323 °C (« a single weight loss occurs at approximately 350 °C in air and 323 °C in N2 ») ; RD premier palier débutant à 120 °C",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (CTAB)",
+   "extracted": "« Plus la concentration de CTAB est faible ou nulle, plus la structure résiste au test (RD stable, PL et NC dégradés) »",
+   "article_says": "After stability testing in water, the surface area of the NC sample was reduced to zero, indicating complete dissolution of the structure.",
+   "fix": "NC (0,075 %) se dégrade plus que PL (0,12 %) : BET 333,75 vers 0 contre 794,545 vers 594,545. La tendance monotone est fausse ; reformuler en « les échantillons sans CTAB résistent, ceux avec CTAB se dégradent, NC plus que PL »",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "ST_140_1800 et branches : material.morphology « plaquettes régulières » / « plaquettes » et réactif CTAB sans quantité",
+   "extracted": "morphologie « plaquettes régulières » pour la série agitation x température, CTAB listé comme réactif",
+   "article_says": "vigorous stirring can produce crystals with more homogeneous sizes, especially in plate-like morphologies.",
+   "fix": "l'article ne dit pas que cette série contient du CTAB ni laquelle des compositions (PL ou NC) elle emploie ; la Fig. 5 montre surtout des cristaux polyédriques épais ou hexagonaux (5a, 5c) et des plaquettes (5b). Mettre la morphologie à « non cité » et noter le CTAB en doubt",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "RD step 2 (ajout lent de la solution b) et step 10 (recuit 300 °C), hérités du protocole des particules à CTAB",
+   "extracted": "RD : « Ajouter lentement la solution b … » avec citation sur l'émulsification du CTAB ; recuit 300 °C 150 min",
+   "article_says": "After complete emulsification was achieved, solution b was slowly added to solution a while constant agitation was being maintained.",
+   "fix": "la phrase suppose l'émulsion de CTAB, absente pour RD ; déjà en doubt. Déclarer le mode d'ajout et le recuit de RD « non cités / inférés du protocole à CTAB » (not_stated + doubt) au lieu de les écrire comme étapes citées",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "PL_mix2..5 et NC_mix2..5 : concentration de CTAB déclarée non citée",
+   "extracted": "CTAB sans quantité dans PL_mix2 ; variation de NC_mix2 en texte « defined CTAB ratio for nanocube morphology »",
+   "article_says": "XRD curves of ZIF-67 synthesized with defined CTAB ratios for producing (a) plate morphology (PL) and (b) Nanocube morphology (NC).",
+   "fix": "la légende de Fig. 1 renvoie aux rapports définis pour PL et NC, et le Tableau 1 donne PL = 0.12 et NC = 0.075 % w/w : citer cette légende et « PL | hydrothermal | 0.12 | plate-like » / « NC | hydrothermal | 0.075 | nanocube » en valeur de la variation de NC_mix2 (0.075 % w/w, parent 0.12 % w/w) au lieu du texte vague",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "RD FTIR : bande large avant test",
+   "extracted": "CARAC FTIR : « bande OH à 3026 cm–1 » seulement",
+   "article_says": "but a band shift between 2406 and 3554 cm–1 before the stability test was evident.",
+   "fix": "ajouter la plage 2406–3554 cm–1 (bande large chevauchant les bandes C–H) à côté de 3026 cm–1 ; l'article donne deux lectures, noter l'incohérence",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "RD et RD-1 : tailles de particules et pertes TGA (limite_reproductibilite d'origine article)",
+   "extracted": "RD average_particle_size = 400 nm ; RD-1 300 nm ; RD-1 perte air 58 %",
+   "article_says": "whereas the RD images showed larger, less aggregated particles, with an average particle size of 400 nm and a size distribution ranging from 180 to 500 nm",
+   "fix": "ne pas changer les valeurs (citées) mais annoter limite_reproductibilite : sur la Fig. 10 (barres de 2 µm), les particules RD mesurent environ 1 à 2 µm et celles de RD-1 environ 1 µm, loin de 400 et 300 nm ; sur la Fig. 9 (air), RD-1 perd environ 67 % à 450 °C (résidu ≈ 33 %, ce qui ressemble aux 33,7 % de la Table S1) contre 58 % au texte, et RD perd environ 32 % au premier palier contre 28 %",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 21,
+  "branches_extracted": 20,
+  "not_stated_checked": 10,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "rendement non donné",
+  "protocole du témoin RD-1 (quantités, température, durée, lavage, centrifugation) renvoyé à une étude antérieure du groupe (identifiée ref28 par inférence), et recuit à 300 °C non dit pour RD-1",
+  "durée d'émulsion, vitesse d'agitation après l'ajout, rampe de chauffe, chemise de l'autoclave et gaz inerte du recuit non cités",
+  "série de criblage (Fig. 1 à 3 et 5, S1, S2) : durée et température de réaction, concentration de CTAB et post-traitement non écrites ; condition 1 sur NC sans résultat ; correspondance forte = 1800 rpm et faible = 450 rpm supposée",
+  "rapport 1:32:1800 écrit Zn2+ alors que le cobalt est utilisé ; 65,36 mmol pour 2,179 mmol de Co donne 30:1, pas 32:1 ; rapport MeIM:H2O = 120 incohérent avec 1800/32 ≈ 56",
+  "conditions de BET (température 73 K, probablement 77 K ; dégazage), instruments et conditions XRD et TGA, centrifugation et séchage du test de stabilité non cités",
+  "valeurs TGA du texte, des Tables S1/S2 et des courbes Fig. 6 et 9 discordantes à plusieurs endroits"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (micelles de CTAB concentrant MeIM et Co–MeIM, excluant OH–) a son appui dans le texte ; seule l'annotation de tendance sur le CTAB est à corriger",
+ "notes": "Les corps d'article et d'annexe ne contiennent que du texte : refs/PMC12312155.txt n'a aucun renvoi [[id]] dans le corps, la vérification de method_sources se fait donc par les noms d'auteurs ; ref22 (Yang 2018) et ref28 (Pacheco 2024, mêmes auteurs) sont plausibles, ref21 (Pan 2011) bien en role autre. Aucune valeur from_figure dans l'extraction. Les 20 voies correspondent à ma propre liste : 4 échantillons du Tableau 1, 5 conditions PL, 4 conditions NC (Fig. 3, la condition 1 n'ayant pas de résultat), 4 combinaisons agitation x température, 3 conditions MeIM:H2O = 120 (Fig. S2 a à c). Les 4 branches mix4/mix5 sont le point le plus sérieux. Correspondance de la Fig. 5 vérifiée : a = 120/forte, b = 120/faible, c = 140/forte, d = 140/faible. Écarts texte/figure relevés mais pas des constats (valeurs du texte conservées) : Fig. 6 air, 120/forte ≈ 62 % de perte contre 51 % au texte."
+}

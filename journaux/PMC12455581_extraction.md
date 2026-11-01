@@ -1,0 +1,15 @@
+# Journal d'extraction PMC12455581
+
+- **Voie de base.** Deux voies de base indépendantes : « ZIF-67 » (précipitation dans le méthanol) et « ZIF-67 : Ni (1 : 2) » (post-traitement de ZIF-67 dans l'éthanol avec Ni(NO3)2). Les branches 1 : 1 et 1 : 4 dérivent de 1 : 2 par la seule masse de nitrate de nickel (0,2 et 0,8 g contre 0,4 g), selon « 0.2 g, 0.4 g, and 0.8 g of Ni (NO3) 2·6H2O … 1 : 1, 1 : 2, and 1 : 4, respectively ». J'ai choisi 1 : 2 comme base car c'est l'échantillon optimal et celui du dispositif.
+- **ZIF-67 non parent de ZIF-67 : Ni.** Les étapes diffèrent (ZIF-67 devient réactif, intermédiaire ; autre solvant) : pas d'héritage. ZIF-67 apparaît dans la voie au nickel comme réactif `intermediate` de 0,2 g.
+- **Pâte d'électrode.** Les Méthodes décrivent une seule préparation pour tous les échantillons (« ZIF-67 and ZIF-67 : Ni (1 : X) electrodes »), donc une seule voie `device` sans branche. Les mesures trois électrodes sont rangées en résultats des voies matériau, pas de l'électrode.
+- **Cellule asymétrique.** Voie `device` séparée ; le charbon actif de coque d'arachide n'a pas de voie (réf. 11, préparation non décrite) : un réactif `active_material` de 1 mg et une entrée `method_sources` (cit11, rôle précurseur).
+- **Fournisseurs et puretés.** La phrase « were supplied by LABCHEM » de Materials énumère les réactifs nommément : fournisseur extrait pour chacun ; seule la pureté de KOH (99 %) est écrite. Acétone et HCl ne sont pas dans cette liste : fournisseur « non cité ».
+- **Rs contredit par la figure.** Texte : Rs = 0,27, 0,29, 0,20 Ω pour 1 : 1, 1 : 2, 1 : 4 ; encart de la Fig. 6(d) : 0,24 (1 : 1), 0,20 (1 : 2), 0,27 (1 : 4). Le texte dit aussi que 1 : 2 a le plus faible Rs. Valeurs du texte extraites telles quelles, doute consigné.
+- **Rétention de la cellule.** Résumé 99,8 % après 10 000 cycles ; résultats « 61.7% and 99.8% » (rétention, efficacité coulombique). Retenu : le détail des résultats.
+- **Capacité de 1 : 2 à 1 A g−1.** 161,2 (résumé) préféré à 161 (phrase « respectively ») ; les trois autres viennent de la phrase « respectively » dont j'ai écrit l'ordre ZIF-67, 1 : 1, 1 : 2, 1 : 4.
+- **Figures lues.** Fig. 6(c) à 20 A g−1 (28, 53, 81, 65 mA h g−1, lecture graphique ±2) ; étiquettes imprimées de la Fig. 6(e) (62,85 % et 69,35 %) pour les rétentions de 1 : 1 et 1 : 4 ; étiquette de la Fig. 2(a) (344,06 nm). L'encart de la Fig. 2(b) est illisible : non extrait.
+- **Table S1 (XPS atomique).** Les valeurs sont sur la ligne suivant le nom de l'élément ; la citation « Ni 2p 17.41 » (jointe) est acceptée par le contrôle ; attribuée à 1 : 2 d'après la légende de Table S1.
+- **Table 3, ZIF-67//AC.** Valeurs (7,5 W h kg−1, 546,9 W kg−1) rangées dans les résultats de la voie ZIF-67 car la cellule n'a aucun protocole ; échantillon d'inventaire sans voie.
+- **Passage « immersion in an alkaline solution ».** Incompatible avec la synthèse décrite ; consigné en doute, aucune donnée n'en dépend.
+- **Bioprocédé / annexes.** Pas de figures d'annexe en image (S1 à S8) : annotation `limite_reproductibilite` ; Table S1 présente dans le texte.

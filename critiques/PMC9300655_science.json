@@ -1,0 +1,229 @@
+{
+  "pmcid": "PMC9300655",
+  "routes": [
+    {
+      "label": "CNT-HNO3",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "thermique",
+          "finding": "Reflux à 120 °C (bain d'huile) : l'azéotrope HNO3/eau (68 % m/m) bout à 120,5 °C. Un bain à 120 °C amène donc tout juste le mélange à l'ébullition ; le reflux réel est faible, la température du liquide est plutôt de 110-118 °C. Compatible avec une oxydation, mais la consigne du bain devrait être supérieure au point d'ébullition pour un vrai reflux.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "bilan",
+          "finding": "HNO3 70 % m/m, densité 1,41 g/mL : 1,41 × 0,70 × 1000 / 63,01 = 15,7 mol/L. L'annonce « 15 mol L-1 » est cohérente avec l'acide commercial à peine dilué. Rapport 100 mg de CNT pour 100 mL (1 mg/mL), soit ~1,5 mol de HNO3 pour ~8 mmol de C : très large excès d'oxydant.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Le reflux dans HNO3 concentré crée bien des groupes carboxyle et hydroxyle sur les MWCNT, au prix d'un raccourcissement des tubes et de défauts supplémentaires (c'est le traitement le plus dégradant des quatre comparés par la source). 5 h à reflux est dans la gamme usuelle.",
+          "status": "ok",
+          "basis": "litterature",
+          "source": {"title": "Chemical oxidation of multiwalled carbon nanotubes", "authors_or_publisher": "Datsyuk V., Kalyva M., Papagelis K., Parthenios J., Tasis D., Siokou A., Kallitsis I., Galiotis C. — Carbon 46, 833-840", "year": "2008", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0008622308000717"}
+        },
+        {
+          "aspect": "bilan",
+          "finding": "Incohérence d'échelle entre les étapes : un lot traite 100 mg de CNT, alors que l'étape suivante consomme 0,7 g de CNT séchés. Il faut au moins 7 lots (davantage avec les pertes de masse dues à l'oxydation et aux lavages par centrifugation), ou bien une des deux masses est erronée. Le rendement massique de l'étape n'est pas donné.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "100 mL de HNO3 ~15,7 mol/L à l'ébullition pendant 5 h avec du carbone : dégagement de NOx (NO2 toxique), à faire sous hotte avec réfrigérant et piège ; risque non mentionné. Centrifugation d'une suspension d'acide concentré : diluer avant. Nanotubes secs pulvérulents : risque d'inhalation.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Attaque oxydante de HNO3 sur les défauts et les extrémités des tubes : ouverture des bouts, oxydation des carbones sp3/défauts en C-OH, C=O puis -COOH, avec raccourcissement des tubes et élimination partielle du carbone amorphe et des résidus de catalyseur ; les -COOH servent ensuite de sites d'ancrage des cations Cu2+.",
+        "sources": [
+          {"title": "Chemical oxidation of multiwalled carbon nanotubes", "authors_or_publisher": "Datsyuk V. et al. — Carbon 46, 833-840", "year": "2008", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0008622308000717"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "température réelle du liquide (viser un reflux franc, bain > 125 °C) et présence d'un réfrigérant",
+        "masse de CNT récupérée par lot, pour dimensionner le nombre de lots nécessaires aux 0,7 g de l'étape suivante",
+        "taux de fonctions acides après traitement (titrage ou XPS), non mesuré par les auteurs"
+      ]
+    },
+    {
+      "label": "CuO-CNT",
+      "verdict": "douteuse",
+      "feasibility": "non_reproductible",
+      "checks": [
+        {
+          "aspect": "thermique",
+          "finding": "Volume de liquide : 50 mL (dispersion de CNT) + 50 mL (solution de CuSO4) + 5 mL (HMTA) = 105 mL, transférés dans un autoclave de 100 mL. Le remplissage dépasse 100 % : impossible tel qu'écrit. Même à 100 % le protocole serait dangereux : l'eau liquide se dilate d'environ 11 % entre 20 et 170 °C (densité 0,998 → 0,897 g/mL), un autoclave plein passe donc en pression hydraulique bien au-delà des 7,9 bar de pression de vapeur de l'eau à 170 °C. Soit seule une fraction du mélange est chargée, soit un des volumes est faux.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "bilan",
+          "finding": "Ni la concentration (ou la masse) de CuSO4·5H2O ni celle de HMTA ne sont données. Le rapport Cu/CNT, la charge en CuO et le rapport HMTA/Cu sont donc inconnus : le produit ne peut pas être refait à l'identique. Aucune teneur en Cu (EDS, ICP, ATG) n'est rapportée pour la retrouver a posteriori.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "HMTA s'hydrolyse à chaud en ammoniac et formaldéhyde ; l'ammoniac fournit lentement les OH- qui précipitent l'hydroxyde puis l'oxyde. CuO est effectivement obtenu avec HMTA et un sel de cuivre(II) en solution dès 100 °C (avec NaOH en complément dans la source). La voie est donc chimiquement plausible à 170 °C.",
+          "status": "ok",
+          "basis": "litterature",
+          "source": {"title": "Low-Temperature Synthesis of Flower-Shaped CuO Nanostructures by Solution Process: Formation Mechanism and Structural Properties", "authors_or_publisher": "Vaseem M., Umar A., Kim S. H., Hahn Y.-B. — J. Phys. Chem. C", "year": "2008", "url_or_doi": "10.1021/jp710358j"}
+        },
+        {
+          "aspect": "solubilite",
+          "finding": "Avec un sulfate de cuivre et une base faible libérée lentement, le premier solide attendu à pH 4-7 est un hydroxysulfate (brochantite Cu4(OH)6SO4), que l'on prépare couramment par précipitation à partir de CuSO4. Sa conversion complète en CuO demande assez de base (Cu(OH)2 : Ksp ≈ 1e-14 à 2e-20 selon les tables) ; sans le rapport HMTA/Cu on ne peut pas dire si elle est atteinte. Les auteurs n'indexent que CuO en DRX, sans pH final.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Synthesis, characterization, and thermal decomposition kinetics of copper hydroxide sulfate (Cu4(OH)6SO4)", "authors_or_publisher": "Güner E. K. et al. — Asia-Pacific Journal of Chemical Engineering (Wiley)", "year": "2021", "url_or_doi": "10.1002/apj.2583"}
+        },
+        {
+          "aspect": "redox",
+          "finding": "Le formaldéhyde issu de HMTA (puis l'acide formique) est un réducteur : en conditions hydrothermales à 150-180 °C (423-453 K), la conversion réductrice CuO → Cu2O par l'acide formique est rapportée, avec début de Cu métallique à 180 °C. À 170 °C pendant 12 h, en présence de carbone, une part de Cu2O est donc possible selon la quantité de HMTA (non donnée). La couleur noire du solide ne prouve rien (les CNT sont noirs).",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Reaction Pathway in the Hydrothermal Synthesis of Metal Nanoparticles Using Formic Acid (citant Chang et Zeng, Langmuir 2005, 21, 1074, doi 10.1021/la047671l)", "authors_or_publisher": "ACS Applied Nano Materials", "year": "2024", "url_or_doi": "10.1021/acsanm.4c03972"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "CuO monoclinique en particules quasi sphériques de 20-40 nm sur les CNT : ordre de grandeur habituel pour un CuO hydrothermal sur support carboné. Pas de séchage ni de masse récupérée indiqués ; le produit est « gardé pour la synthèse suivante » sans préciser sous quelle forme (humide ou sec) ni en quelle quantité.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "Autoclave à 170 °C (pression de vapeur de l'eau ≈ 7,9 bar, plus NH3 et gaz de décomposition de HMTA) : le remplissage doit rester ≤ 70-80 %. Formaldéhyde (cancérogène) et ammoniac libérés à l'ouverture : ouvrir sous hotte. Non mentionné.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Adsorption de Cu2+ sur les -COO- des CNT oxydés ; à chaud, hydrolyse de HMTA (C6H12N4 + 6 H2O → 6 HCHO + 4 NH3) qui élève lentement le pH ; précipitation hétérogène d'un hydroxysulfate ou de Cu(OH)2 sur les tubes, puis déshydratation en CuO (ténorite) à 170 °C ; réduction partielle possible en Cu2O par le formaldéhyde si HMTA est en excès.",
+        "sources": [
+          {"title": "Low-Temperature Synthesis of Flower-Shaped CuO Nanostructures by Solution Process: Formation Mechanism and Structural Properties", "authors_or_publisher": "Vaseem M., Umar A., Kim S. H., Hahn Y.-B. — J. Phys. Chem. C", "year": "2008", "url_or_doi": "10.1021/jp710358j"},
+          {"title": "A comparison of ZnO nanowires grown using hexamethylenetetramine and ammonium hydroxide on Al:ZnO nanoparticle seed layer (hydrolyse de HMTA en ammoniac et formaldéhyde)", "authors_or_publisher": "Journal of Materials Science: Materials in Electronics (Springer)", "year": "2023", "url_or_doi": "10.1007/s10854-023-10992-9"},
+          {"title": "Synthesis, characterization, and thermal decomposition kinetics of copper hydroxide sulfate (Cu4(OH)6SO4)", "authors_or_publisher": "Güner E. K. et al. — Asia-Pacific Journal of Chemical Engineering", "year": "2021", "url_or_doi": "10.1002/apj.2583"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "concentrations de CuSO4·5H2O et de HMTA (absentes de l'article) : à demander aux auteurs ou à fixer soi-même, par exemple HMTA/Cu ≥ 1",
+        "volume réellement chargé dans l'autoclave de 100 mL (105 mL annoncés) : ne pas dépasser 70-80 mL",
+        "phase obtenue par DRX (CuO vs Cu2O vs brochantite) et pH final de la liqueur mère",
+        "teneur en cuivre du composite (ATG sous air ou ICP)",
+        "forme et quantité de CuO-CNT transmise à l'étape ZnS (séché ou redispersé, dans quel volume)"
+      ]
+    },
+    {
+      "label": "ZnS/CuO-CNT",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "redox",
+          "finding": "Survie de CuO en présence de thioacétamide à 170 °C : douteuse. La thioacétamide s'hydrolyse en H2S ; CuO + H2S → CuS + H2O a un ΔG° d'environ −128 kJ/mol à 25 °C (ΔfG° : CuO −129,7 ; H2S(g) −33,4 ; CuS −53,6 ; H2O(l) −237,1 kJ/mol). Des nanoparticules de CuO de 40 nm sont sulfurées en covellite CuS et en CuxSy amorphes par le sulfure dissous dès la température ambiante, avec réduction partielle de Cu(II) en Cu(I). Après 12 h à 170 °C, on attend donc CuS/Cu2-xS (au moins en coquille) et non CuO intact. Les auteurs n'indexent pourtant que CuO et ZnS, « sans pic additionnel », sans XPS ni EDS pour trancher.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {"title": "Sulfidation of copper oxide nanoparticles and properties of resulting copper sulfide", "authors_or_publisher": "Ma R., Stegemeier J., Levard C. et al. — Environmental Science: Nano (RSC)", "year": "2014", "url_or_doi": "10.1039/c4en00018h"}
+        },
+        {
+          "aspect": "solubilite",
+          "finding": "Compétition Zn/Cu pour le soufre : Ksp(ZnS) ≈ 2e-25 contre Ksp(CuS) ≈ 8e-37, soit K ≈ 2,5e11 pour ZnS + Cu2+ → CuS + Zn2+. De plus la précipitation Zn2+ + H2S → ZnS + 2 H+ libère 4 mmol de H+ pour 2 mmol de Zn (2 mmol nets après protonation de l'acétate issu de la thioacétamide), soit ~0,02 mol/L dans ~100 mL, pH ≈ 1,7 : CuO se dissout à ce pH et le Cu2+ libéré capte le sulfure avant le zinc. Avec S/Zn = 1,00 exactement (2 mmol/2 mmol), tout soufre pris par le cuivre manque au zinc : ZnS sous-stœchiométrique en rendement et Zn2+ résiduel en solution.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {"title": "Solubility Products (Ksp, d'après le CRC Handbook of Chemistry and Physics 84e éd. et Lange's Handbook 15e éd.) ; CuS : table Cengage « Solubility Product Constants (Ksp at 25 °C) », https://cxp.cengage.com/contentservice/assets/owms01h/references/chemtables/gen_chem/ksp.html", "authors_or_publisher": "University of Texas at Austin, gchem", "year": "2004", "url_or_doi": "https://gchem.cm.utexas.edu/data/section2.php?target=ksp-constants.php"}
+        },
+        {
+          "aspect": "bilan",
+          "finding": "Zn 2 mmol, S 2 mmol : ZnS maximal = 2 mmol × 97,47 g/mol = 195 mg, pour 0,7 g de CNT au départ et une quantité de CuO inconnue. Le rapport Zn/Cu du composite n'est ni fixé par le protocole ni mesuré. CTAB 2 mmol = 0,73 g dans ≥ 50 mL, soit ≥ 40 mmol/L (≈ 40 fois la CMC, ~0,9-1 mmol/L) : autant de tensioactif en masse que de CNT.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Volume : 50 mL de solution Zn/thioacétamide/CTAB + la « dispersion de CuO-CNT » dont le volume n'est pas donné, dans un autoclave de 100 mL. Si la dispersion provient des ~105 mL de l'étape précédente ou d'une redispersion de 50 mL, le remplissage atteint ou dépasse 100 % : même impossibilité qu'à l'étape CuO-CNT. Pression de vapeur de l'eau à 170 °C ≈ 7,9 bar, plus H2S.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "redox",
+          "finding": "Calcination 400 °C, 1 h, argon, au contact intime du carbone : C + 2 CuO → 2 Cu + CO2 est très favorable (ΔG° ≈ −135 kJ/mol à 25 °C). CuO nanométrique se réduit en Cu2O bien en dessous de la température du massif : complètement à 250 °C sous CO, et dès 150-240 °C sous vide pour des nanofils. CuO resté éventuellement intact après l'étape hydrothermale risque donc d'être réduit en Cu2O/Cu à 400 °C sous argon sur CNT (avec en plus les produits de pyrolyse du CTAB comme réducteurs). L'atmosphère inerte protège les CNT et ZnS mais pas l'état Cu(II).",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "Formation of stable Cu2O from reduction of CuO nanoparticles", "authors_or_publisher": "Pike J., Chan S.-W., Zhang F., Wang X., Hanson J. — Applied Catalysis A: General", "year": "2006", "url_or_doi": "10.1016/j.apcata.2006.02.008"}
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Aucun lavage ni séchage n'est décrit entre l'autoclave et la calcination. Le CTAB (fusion avec décomposition vers 240-250 °C) est alors pyrolysé sous argon à 400 °C : dépôt carboné et espèces bromées/aminées, qui modifient surface, charge de surface et BET. Soit un lavage a été omis de la description, soit le « composite » contient ces résidus.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Attribution FTIR : les auteurs placent l'élongation Zn-S à 497 et 998 cm-1. Les modes de réseau de ZnS sont à 274 cm-1 (TO) et 348 cm-1 (LO), hors de la fenêtre FTIR usuelle ; une bande vers 1000 cm-1 ne peut pas être Zn-S et tombe dans le domaine des sulfates/C-O (des sulfates de surface sont décrits sur ZnS hydrothermal, et l'étape précédente utilise CuSO4). Le FTIR ne prouve donc pas la formation de ZnS ; seule la DRX (111), (220), (311) le soutient.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {"title": "In-Depth Study of ZnS Nanoparticle Surface Properties with a Combined Experimental and Theoretical Approach", "authors_or_publisher": "Dengo N. et al. — J. Phys. Chem. C", "year": "2020", "url_or_doi": "10.1021/acs.jpcc.9b11323"}
+        },
+        {
+          "aspect": "resultats",
+          "finding": "BET 106,54 m2/g, volume poreux 0,283 cm3/g, diamètre moyen 10,67 nm : cohérents entre eux (4V/S = 4 × 0,283 / 106,54 = 10,6 nm) et plausibles pour des MWCNT de diamètre < 15 nm chargés de particules denses. En revanche « isotherme de type II » et « texture mésoporeuse/microporeuse » sont contradictoires (type II = solide non poreux ou macroporeux ; boucle H3 = pores en fente entre agrégats). pHzpc 5,3 plausible pour un carbone oxydé chargé de sulfure/oxyde.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "Thioacétamide : cancérogène (catégorie 1B), libère H2S (toxique aigu, ~2 mmol ≈ 45 mL de gaz au maximum) à l'ouverture de l'autoclave ; milieu final acide. Ouvrir sous hotte après refroidissement complet. Rien de cela n'est mentionné.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Hydrolyse de la thioacétamide à chaud (CH3CSNH2 + 2 H2O → CH3COO- + NH4+ + H2S), précipitation hétérogène de ZnS sphalérite sur les CNT et les particules préexistantes, le CTAB limitant la croissance et l'agrégation ; en parallèle, et de façon thermodynamiquement prioritaire, sulfuration de CuO (directe par H2S/HS-, ou par dissolution acide puis reprécipitation de Cu2+) en CuS/Cu2-xS, de sorte que la phase cuivrée réelle est probablement un cœur d'oxyde résiduel sous une coquille de sulfure, voire un sulfure de cuivre ; la calcination à 400 °C sous argon cristallise ZnS, pyrolyse le CTAB et peut réduire le CuO restant en Cu2O au contact du carbone. Le mécanisme « ZnS + CuO intacts » sous-entendu par les auteurs est à revoir.",
+        "sources": [
+          {"title": "Sulfidation of copper oxide nanoparticles and properties of resulting copper sulfide", "authors_or_publisher": "Ma R., Stegemeier J., Levard C. et al. — Environmental Science: Nano", "year": "2014", "url_or_doi": "10.1039/c4en00018h"},
+          {"title": "Direct Observation of the Kinetics of Gas-Solid Reactions (sulfuration de CuO en CuS par H2S à température ambiante, suivie par XAS et microscopie X)", "authors_or_publisher": "OSTI / US Department of Energy (manuscrit accepté)", "year": "n.d.", "url_or_doi": "https://www.osti.gov/servlets/purl/1484837"},
+          {"title": "Formation of stable Cu2O from reduction of CuO nanoparticles", "authors_or_publisher": "Pike J. et al. — Applied Catalysis A: General", "year": "2006", "url_or_doi": "10.1016/j.apcata.2006.02.008"},
+          {"title": "CuO reduction induced formation of CuO/Cu2O hybrid oxides (réduction de nanofils de CuO dès 150 °C sous vide)", "authors_or_publisher": "Groupe G. Zhou, Binghamton University — Chemical Physics Letters", "year": "n.d.", "url_or_doi": "http://ws.binghamton.edu/me/Zhou/Zhou-publications/CPL-CuO%20reduction%20induced%20formation%20of%20CuO-Cu2O%20hybrid%20oxides.pdf"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "état chimique du cuivre dans le produit final : XPS Cu 2p (satellites de Cu(II)) et S 2p, DRX à la recherche de covellite CuS, digénite/chalcocite et Cu2O",
+        "rapports Zn/Cu/S du composite (EDS ou ICP) et Zn2+ résiduel dans la liqueur mère",
+        "quantité et volume de la dispersion de CuO-CNT engagée ; volume total dans l'autoclave de 100 mL (≤ 70-80 mL)",
+        "pH avant et après le traitement hydrothermal",
+        "lavage (eau/éthanol) et séchage avant calcination, pour éliminer CTAB et sels, absents du protocole",
+        "rampe de chauffe et débit d'argon de la calcination, non donnés",
+        "ouverture de l'autoclave sous hotte (H2S)"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "Trois étapes enchaînées : oxydation des CNT par HNO3 (cohérente), dépôt hydrothermal de CuO avec CuSO4/HMTA (plausible en principe mais quantités de Cu et de HMTA absentes et volume chargé supérieur à celui de l'autoclave), puis dépôt de ZnS par thioacétamide sur CuO-CNT et calcination sous argon. Le point de fond est chimique : CuO ne devrait pas survivre intact à 12 h à 170 °C dans une solution qui libère H2S et s'acidifie (CuS est ~1e11 fois moins soluble que ZnS, et la sulfuration de CuO nanométrique est rapportée dès l'ambiante), ni forcément à 400 °C sous argon au contact du carbone. La nature « ZnS/CuO » du composite repose sur une seule DRX indexée, sans analyse élémentaire ni XPS ; l'adsorbant est probablement un CNT chargé de ZnS et d'un (oxy)sulfure de cuivre. Les performances d'adsorption ne sont pas remises en cause par cela, mais la composition annoncée et la reproductibilité le sont.",
+    "author_errors_suspected": [
+      "105 mL de liquide (50 + 50 + 5 mL) annoncés dans un autoclave de 100 mL à l'étape CuO-CNT",
+      "concentrations de la solution de CuSO4·5H2O et de la solution de HMTA non données",
+      "100 mg de CNT traités par lot à l'acide, mais 0,7 g de CNT oxydés utilisés à l'étape suivante",
+      "bande FTIR à 998 cm-1 attribuée à Zn-S (modes de réseau de ZnS à 274 et 348 cm-1)",
+      "le matériau est appelé « ZnO/CuO-CNT » dans la section sur les effluents réels, au lieu de ZnS/CuO-CNT",
+      "isotherme dite de type II avec boucle H3 décrite comme texture « mésopores et micropores »",
+      "aucun lavage ni séchage décrit entre le traitement hydrothermal au CTAB et la calcination",
+      "le modèle RSM est dit à cinq variables alors que le plan en compte six (X1 à X6), avec 27 termes ajustés sur 32 essais (4 degrés de liberté résiduels), ce qui rend le R2 de 0,999 peu informatif"
+    ],
+    "comparison_with_database": "compare.py \"CuO\" et compare.py \"ZnS\" ne renvoient que les voies de PMC9300655 lui-même pour ces deux phases (la seule autre entrée, PMC6702676, est un ZnSe sur nanofibres de carbone par sélénisation à 650 °C sous vide, non comparable). Aucune comparaison interne à la base n'est donc possible."
+  },
+  "sources_not_found": [
+    "aucun article trouvé montrant la conservation de CuO après un traitement hydrothermal à la thioacétamide (ni l'inverse dans ces conditions exactes : 170 °C, 12 h, sur CNT) ; le jugement s'appuie sur la sulfuration de CuO à l'ambiante et sur les Ksp",
+    "pas de source trouvée donnant la température de début de réduction de CuO par des nanotubes de carbone sous argon ; l'appui porte sur la réduction de CuO nanométrique sous CO et sous vide",
+    "pas de source trouvée pour le système exact CuSO4 + HMTA en hydrothermal à 170 °C (les sources utilisent le nitrate de cuivre, ou la précipitation de brochantite à partir de CuSO4)",
+    "température de décomposition du CTAB (~240-250 °C) et classement de danger de la thioacétamide donnés de mémoire (fiches de sécurité non consultées)",
+    "DOI de Datsyuk et al., Carbon 2008 non relevé sur la page consultée (URL ScienceDirect fournie) ; DOI et année des deux documents en accès libre de l'OSTI (1484837) et du groupe Zhou (Chem. Phys. Lett.) non vérifiés",
+    "les pages de Vaseem 2008, Pike 2006, Dengo 2020, Güner 2021 et de l'article ACS Appl. Nano Mater. 2024 n'ont été lues que par leurs extraits de recherche, pas en texte intégral ; les noms d'auteurs de Dengo et de Güner (co-auteurs) sont à confirmer"
+  ]
+}

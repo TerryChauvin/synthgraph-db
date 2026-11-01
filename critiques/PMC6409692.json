@@ -1,0 +1,96 @@
+{
+ "pmcid": "PMC6409692",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "AgNPs reagent 'Milli-Q water (reaction medium)' not_stated [purity, supplier] (idem eau de redispersion et de remise en suspension dans les trois voies)",
+   "extracted": "not_stated: purity, supplier",
+   "article_says": "Water was purified using a Milli-Q (18.2 MΩ) water system from Millipore (Madrid, Spain).",
+   "fix": "renseigner pour l'eau Milli-Q : qualité 18.2 MΩ, fournisseur/système Millipore (Madrid, Spain), avec cette citation ; retirer purity et supplier de not_stated",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "AgNPs@R6G@BSA outcomes bound_R6G_remaining_concentration (9.8 × 10−7 M) et bound_R6G_per_mass_Ag (4.1 × 10−10 mol/mg)",
+   "extracted": "valeurs rattachées à la voie AgNPs@R6G@BSA (fin du protocole, après la BSA)",
+   "article_says": "The remaining concentration of R6G in AgNPs was calculated to be 9.8 × 10−7 M (4.1 × 10−10mol R6G/mg AgNPs).",
+   "fix": "le dosage compare le surnageant « after incubation with the particles and centrifugation » à un blanc de 120 µL R6G + 0,65 mL d'eau, sans mention de la BSA ; l'arithmétique le confirme : 0,65 mL × 2,84 mg/mL = 1,846 mg Ag ; 1,846 mg × 4,1e-10 mol/mg = 7,6e-10 mol ; 7,6e-10 mol / 9,8e-7 M = 0,77 mL = 0,65 + 0,12 mL, soit le mélange AgNPs + R6G avant ajout des 2 mL de BSA (volume 2,77 mL après). Rattacher les deux valeurs à AgNPs@R6G (ou à la fois noter l'ambiguïté en doute) plutôt qu'à AgNPs@R6G@BSA",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "AgNPs characterization DLS : result « 153.6 ± 0.9 nm, PDI 0.184 ± 0.006 (PBS, pH 7.4) »",
+   "extracted": "milieu PBS pH 7.4 donné pour la valeur 153.6 nm / PDI 0.184",
+   "article_says": "Synthesized AgNPs showed a hydrodynamic diameter by DLS of 153.6 ± 0.9 nm.",
+   "fix": "la phrase ne donne aucun milieu ni âge de l'échantillon ; « PBS (pH = 7.4) » vient de la phrase précédente sur la stabilité (immédiatement et un mois après) et la méthode dit « milli-Q water or PBS ». Retirer « (PBS, pH 7.4) » du résultat de 153,6 nm et du PDI, ou le marquer comme non précisé (not_stated: medium, age)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "AgNPs step 4 centrifuge, description « the cycle is done 3 times in total » (repetitions = 3)",
+   "extracted": "3 cycles au total",
+   "article_says": "This process was repeated 3 times to remove unreacted reagents, resulting in a final dispersion of AgNPs.",
+   "fix": "« repeated 3 times » peut signifier 3 cycles au total ou 1 + 3 ; retirer « in total » de la description et noter l'ambiguïté (annotation limite_reproductibilite ou doute)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "AgNPs step 2 (ajout de l'acide ascorbique) not_stated 'temperature' alors que step 3 donne temperature = ice bath",
+   "extracted": "step 2 : temperature not_stated ; step 3 : temperature = ice bath",
+   "article_says": "A solution containing silver nitrate (3.06 mM) and sodium citrate (6.2 mM) was prepared in 25 mL of Milli-Q water in a round bottom flask dipped in an ice bath and was stirred at 700 rpm.",
+   "fix": "traiter les étapes 1 à 3 de la même façon : la solution est dans le ballon plongé dans la glace avant et pendant l'ajout ; soit renseigner ice bath en step 2 avec la même citation, soit retirer la température de step 3 (l'article ne dit pas explicitement que le bain reste pendant les 5 min)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "value_text et annotations : 2.7 × 107 (AEF), 8 × 105 et 2 × 108 (contribution EM), 9.8 × 10−7 M, 4.1 × 10−10 mol/mg",
+   "extracted": "« 2.7 × 107 », « 8 × 105 », « 2 × 108 » (exposants aplatis)",
+   "article_says": "Therefore, the EM component for the 785 nm laser could be almost 3 orders of magnitude higher than at 633 nm, leading us to expect a much higher AEF at 785 nm.",
+   "fix": "le texte du corpus a perdu les exposants (défaut de sections.py) : 2 × 108 / 8 × 105 = 250, « almost 3 orders of magnitude », donc 8 × 10^5 et 2 × 10^8 ; l'AEF est 2.7 × 10^7. Écrire la puissance de dix explicitement (10^7, 10^5, 10^8) dans value_text et dans les annotations (résumé, conclusion_auteurs, limites), en gardant la citation telle quelle",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "AgNPs@R6G reagent « AgNPs suspension (route AgNPs) » : concentration de la suspension absente de la ligne de réactif",
+   "extracted": "0.65 mL, sans concentration ; 2.84 mg/mL rangé seulement en résultat 'suspension_concentration' de la voie AgNPs",
+   "article_says": "A volume of 0.65 mL of the AgNPs suspension (2.84 mg/mL) was incubated with 120 µL of R6G 10−3 M.",
+   "fix": "porter 2.84 mg/mL (et la concentration de R6G 10−3 M, déjà en paramètre d'étape) sur la ligne de réactif de AgNPs@R6G ; sans cela un lecteur de la voie 2 ne voit pas la masse d'Ag mise en jeu",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "résultats de calcul DFT non transcrits (alors que FEM et contribution EM le sont)",
+   "extracted": "aucune sortie DFT",
+   "article_says": "Notably, the Raman intensity is 1 order of magnitude higher when compared to isolated R6G (area under the curve for the peak 1545 cm−1; calculated SERS = 429,898/isolated R6G = 39,682).",
+   "fix": "ajouter en résultat de la voie AgNPs@R6G@BSA (ou en annotation) l'exhaussement calculé par DFT (Ag10 / R6G, pic 1545 cm−1 : 429,898 contre 39,682) et le tableau S1 (correspondance expérience/calcul : 1646/1695, 1509/1544, 1452/1464, 1363/1386, 1307/1335, 1307/1322 cm−1), ou expliquer en doute pourquoi les calculs FEM seuls sont gardés",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fig. 6 : valeurs de la figure non reprises (MTT à 0.5, 1.5, 15 µg/mL ; cytométrie à 25 µg/mL ; phases S et G2)",
+   "extracted": "MTT 70 et 140 µg/mL ; G1 témoin et 140 µg/mL seulement",
+   "article_says": "Flow cytometry analysis of cell cycle after 24 h of treatment with increasing concentrations of AgNP@R6G@BSA (C).",
+   "fix": "la Fig. 6C porte trois camemberts : témoin (G1 72 %, S 20 %, G2 8 %), 25 µg/mL (G1 71 %, S 23 %, G2 6 %) et 140 µg/mL (G1 70 %, S 21 %, G2 9 %) ; la concentration 25 µg/mL n'apparaît dans aucun texte (méthodes : 0,5 à 140). Fig. 6A : barres lues ≈ 115 (0.5), ≈ 114 (1.5), ≈ 108 (15) % ; les valeurs lues sur la figure (70 → 83 %, 140 → 55 %, G1 72/70 %) sont, elles, exactes. Ajouter ces points en from_figure ou noter en annotation la concentration de 25 µg/mL non décrite",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 3,
+  "branches_extracted": 3,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "Température de l'étape de réduction et des 3 cycles de centrifugation/lavage : seul « ice bath » est cité ; on ne sait pas si le bain reste pendant les 5 min ni quelle est la température de centrifugation",
+  "Nombre exact de cycles de lavage (« repeated 3 times » : 3 ou 4), volume d'eau de redispersion, vitesse en g et rotor",
+  "Volume final de la suspension d'AgNPs : 2.84 mg/mL pesé après séchage est environ 8,5 fois la concentration maximale d'Ag possible dans la synthèse (≈ 8,4 mg Ag dans ≈ 25,5 mL, soit 0,33 mg/mL), donc l'article implique une concentration non décrite ; la masse séchée inclut aussi le citrate adsorbé",
+  "Rendement et conversion de Ag+ non donnés ; l'acide ascorbique (≈ 28 µmol, 57 µmol d'électrons) est sous-stœchiométrique vis-à-vis de ≈ 78 µmol d'Ag+",
+  "Composition, pH et concentration du PBS de la solution de BSA ; volume de remise en suspension finale et concentration de la sonde (donnée seulement en µg/mL dans les essais)",
+  "Température, agitation de l'incubation R6G (2 h) et BSA (nuit) ; l'article ne dit pas si AgNPs@R6G est isolé avant ajout de la BSA, ni comment l'échantillon AgNP@R6G des mesures DLS/Raman a été préparé",
+  "Préparation de l'échantillon AgNP@BSA (Fig. 4D) non décrite ; aucune donnée DLS de l'annexe Fig. S1 (légende seule dans le dépôt)",
+  "Le sens de 9.8 × 10^-7 M et 4.1 × 10^-10 mol/mg (R6G restant ou lié) n'est pas clair : 4.1e-10 mol/mg × 1.85 mg = 7.6e-10 mol, soit 0,6 % des 1.2e-7 mol de R6G ajoutés"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs reprend les passages sur la basse température, le réducteur doux et l'amine latérale de la R6G ; le bilan de matière de mecanisme_analyse (78 µmol Ag+, 28 µmol ascorbate, 155 µmol citrate) est juste",
+ "notes": "Valeurs vérifiées sur figure : Fig. 6A (70 µg/mL ≈ 83 %, 140 µg/mL ≈ 55 %), Fig. 6C (G1 72 % témoin, 70 % à 140 µg/mL), Fig. 1 (SPR max ≈ 800 nm, long axe ≈ 18, court axe ≈ 12 nm sur histogrammes) : écarts < 10 %. Désaccords internes de l'article non tranchés : Fig. 6A porte un astérisque au-dessus de 70 et 140 µg/mL alors que le texte dit « not detrimental ... up to 70 µg/mL » ; légende Fig. 1 « 650–1350 nm » alors que l'axe s'arrête à 1000 nm ; légende Fig. 4A « pure R6G solution » contre le texte « pure solid R6G crystals ». La longueur d'onde des spectres de la Fig. 4 n'est pas écrite (785 nm supposé d'après le Bruker de 2.7). method_sources : B29 (méthodologie du calcul Raman) est cohérent ; B51 (logiciel), B54 (données Johnson et Christy), B55, B56, B57, B58, B59 (AEF) ne sont pas des méthodes de préparation. La mention « mutagène suspecté » de la R6G dans securite_analyse relève du critique scientifique, non vérifiée ici (pas de web)."
+}

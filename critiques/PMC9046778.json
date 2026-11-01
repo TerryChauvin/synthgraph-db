@@ -1,0 +1,69 @@
+{
+ "pmcid": "PMC9046778",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "ZnS-0.003 outcome RhB_degradation_efficiency (80.3 %)",
+   "extracted": "80.3 % rattaché à ZnS-0.003, citation « followed by 0.005 mol (86.39%) and 0.03 mol (80.30%) »",
+   "article_says": "followed by 0.005 mol (86.39%) and 0.03 mol (80.30%)",
+   "fix": "la citation écrit 0.03 mol, échantillon qui n'existe pas ; l'attribution à 0.003 mol est une déduction (coquille supposée). Elle est cohérente avec Fig. 11A (courbe 0.003 mol vers 80 % à 210 min) et avec Fig. 11B (ln(C0/C) ≈ 1.6 = ln(1/0.197)). Garder la valeur mais ajouter from_figure 'Fig. 11A' et une annotation limite_reproductibilite signalant la coquille ; le doute existant doit rester visible sur la fiche.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS-0.01 / ZnS-0.02 outcomes XPS (Table 1) : incohérences internes de l'article",
+   "extracted": "ZnS-0.02 Zn 10.83 at% (doute déjà noté) ; ZnS-0.01 S/Zn 0.866 recopié sans remarque",
+   "article_says": "10 mmol NaBH4 | 36.36 | 42.61 | 0.866",
+   "fix": "36.36/42.61 = 0.853, pas 0.866 (écart non signalé dans les doutes) ; de même 20 mmol : 35.50/10.83 ≠ 0.869 (35.50/0.869 ≈ 40.9). Valeurs fidèles à l'article : ne pas corriger, mais ajouter les deux cas à une annotation limite_reproductibilite.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnS-0.003, ZnS-0.005 outcomes PL_intensity",
+   "extracted": "PL_intensity présent seulement pour ZnS-0, ZnS-0.01, ZnS-0.02",
+   "article_says": "The PL intensities increased gradually with the addition of NaBH4 until the concentration of 0.005 mol of NaBH4 was reached, after which they drop significantly when 0.01 mol of NaBH4 was added.",
+   "fix": "ajouter un résultat qualitatif PL_intensity pour 0.003 et 0.005 mol (« augmente par rapport au témoin, croissant jusqu'à 0.005 mol »). Fig. 6 confirme l'ordre 0 ≈ 0.01 < 0.003 < 0.005 ≲ 0.02 ; les annotations disent qu'ils ne sont « pas repris une à une », mais le texte les décrit.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "outcomes XPS Zn 2p et S 2p des échantillons avec NaBH4",
+   "extracted": "seules les énergies Zn 2p du témoin (1021.1 / 1044.1 eV) sont extraites ; rien pour les autres échantillons ni pour S 2p",
+   "article_says": "the asymmetric form of each peak is consistent with a second doublet offset from the first by 0.7–0.9 eV",
+   "fix": "ajouter pour ZnS-0.003, 0.005, 0.01 et 0.02 un résultat XPS_Zn_2p_second_doublet_offset = 0.7–0.9 eV (valeur d'ensemble, non par échantillon : l'article ne les sépare pas) ; et pour S 2p, « 2p1/2 162.1–162.2 eV, 2p3/2 160.9–161.0 eV » (« 162.1–162.2 eV and 160.9–161.0 eV, respectively »), à rattacher à tous les échantillons.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnS-0.01 outcome crystallite_size_XRD",
+   "extracted": "13.9 nm (texte)",
+   "article_says": "0.010 | 13.8 | 3.55 | 0.0123",
+   "fix": "le doute est noté ; la Table 4 donne 13.8 nm pour le même échantillon. Choix du texte acceptable (phrase « respectively » plus explicite), mais une annotation limite_reproductibilite devrait mentionner les deux valeurs.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "securite_analyse (route ZnS-0.01)",
+   "extracted": "danger H2 cité pour NaBH4 seulement ; Zn + NaOH non cité",
+   "article_says": "The suspension was transferred to a 125 ml Teflon-lined autoclave, sealed, and placed in a furnace at 230°C for 12 h.",
+   "fix": "ajouter que la poudre de zinc dans NaOH 21 M concentrée dégage aussi de l'hydrogène (formation de zincate) dans un autoclave scellé à 230 °C, risque de surpression indépendant de NaBH4 (et présent pour le témoin sans NaBH4). Interprétation, à garder dans une annotation de sécurité et non comme donnée de l'article.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 5,
+  "branches_extracted": 5,
+  "not_stated_checked": 19,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "température, durée et agitation du mélange Zn + S dans NaOH 21 M (l'article dit seulement que la suspension est ensuite refroidie à température ambiante) ; granulométrie et pureté de la poudre de Zn et du soufre",
+  "mode d'ajout de NaBH4 (solide ou solution, vitesse), vitesse d'agitation de 2 h, volume ajouté et remplissage réel de l'autoclave de 125 mL",
+  "vitesse et durée de centrifugation, nombre exact et volume des lavages, atmosphère de séchage",
+  "photocatalyse : volume de la solution de rhodamine B, concentration « 4 mg/ml » probablement fautive, lampe UV (puissance, distance, longueur d'onde) non décrite ; test H2 dit « visible light » avec LED 100 W, durée du test (≈ 530 min lue sur Fig. 12) et normalisation de l'unité mmol non précisées",
+  "aucune donnée de rendement ; pas de matériel supplémentaire (pas de section Supporting Information)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs s'appuie sur la phrase sur les noyaux nombreux ; mecanisme_analyse est signalée comme hypothèse ; l'article ne détecte pas les lacunes de S. Sécurité : voir constat Zn + NaOH.",
+ "notes": "Cinq échantillons, tous dans l'inventaire (0, 0.003, 0.005, 0.01, 0.02 mol), aucune branche manquante ni inventée ; l'étape 'add' NaBH4 est correctement retirée du témoin ZnS-0, et la lecture littérale de l'agitation de 2 h pour le témoin est un choix défendable (doute déjà posé). Valeurs Fig. 11A et Fig. 12 relues : 26.3/18.7/20.3/17.7/13.4 mmol (Fig. 12) contre 26/19/20/18/13, écart < 3 % ; Fig. 11A témoin ≈ 65.5 % contre 65. Méthodes : aucun renvoi de préparation (method_sources vide est correct ; les renvois sont de contexte ou des contraintes d'ajustement XPS). ZnS-0.01 est choisi comme voie de base alors que l'article n'en désigne pas : sans conséquence."
+}

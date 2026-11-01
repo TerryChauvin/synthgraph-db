@@ -1,0 +1,135 @@
+{
+ "pmcid": "PMC11393933",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "routes HLW-ZNT, ACN-ZNT, hexane-ZNT (kind post_treatment)",
+   "extracted": "trois voies post_treatment (eau bouillante, acétonitrile, hexane) avec outcome pore_volume_loss",
+   "article_says": "To determine the cause of degradation, NaH ZNT samples were subjected to treatment in boiling water, acetonitrile, or hexane (polar-protic, polar-aprotic, nonpolar) for 18 h.",
+   "fix": "Ce sont des essais de stabilité de NaH-ZNT (section « Stability Experiments », but : trouver la cause de la dégradation, produit non réutilisé). Règle du RUNBOOK : stabilité = outcomes de la voie, pas voie. Supprimer les trois voies et ajouter à NaH-ZNT trois outcomes dont le nom porte les conditions (perte de volume poreux après 18 h dans l'eau bouillante = 38 %, dans l'acétonitrile = 21 %, dans l'hexane = 24 %), avec la citation des deux phrases de pertes ; ajouter l'observation TEM (nanotubes plus courts après l'eau bouillante, débris). Les autres traitements (NH4NO3, chlorures solides, échanges sur solide non calciné) peuvent rester des voies.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "ACN-ZNT et hexane-ZNT, variation « water (boiling) replaced by acetonitrile / hexane » (héritage de HLW-ZNT, température « boiling »)",
+   "extracted": "ACN-ZNT et hexane-ZNT héritent de l'étape 1 de HLW-ZNT, donc de la température « boiling »",
+   "article_says": "NaH ZNT samples were subjected to treatment in boiling water, acetonitrile, or hexane (polar-protic, polar-aprotic, nonpolar) for 18 h.",
+   "fix": "L'article ne dit pas que l'acétonitrile et l'hexane étaient portés à ébullition ; si les voies sont gardées, ne pas hériter la température (déclarer temperature non cité pour ces deux solvants). Le doute est déjà écrit, mais la donnée héritée reste. Devient sans objet si le constat précédent est appliqué.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "HCl-ZNT, succeeded = true",
+   "extracted": "succeeded: true ; seul outcome : SAR 15 → 8",
+   "article_says": "In the case of HCl ion exchange, there is also likely some desilication occurring, contributing to the degradation",
+   "fix": "L'article range l'échange HCl parmi les échanges conventionnels qui dégradent la structure (désilication, SAR 15 → 8) ; les autres échanges classiques sont mis à succeeded = false. Mettre HCl-ZNT à false par cohérence et ajouter un outcome de dégradation citant cette phrase. Si l'orchestrateur préfère traiter HCl comme les solvants (essai de stabilité), le rendre outcome de NaH-ZNT.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "H-MFI_H-BEA, outcomes absents (Fig. 5)",
+   "extracted": "voie sans outcome ; l'inventaire annonce results_in = Fig. 5",
+   "article_says": "CO2 conversions and product selectivities for the different zeolites tested are shown in Figure 5.",
+   "fix": "Ajouter les résultats de Fig. 5 pour les deux références préparées par les auteurs : MFI-20 (CO ≈ 40 %, aromatiques ≈ 17 %, conversion ≈ 6 %, C10+/aromatiques ≈ 72 %) et BEA (CO ≈ 40 %, aromatiques ≈ 39 %, conversion ≈ 5,5 %, C10+/aromatiques ≈ 97 %), lus sur la figure (from_figure Fig. 5, 2 chiffres significatifs). Le texte appuie « Conventional BEA* shows almost all C10+ ». Séparer MFI et BEA en deux voies pour que chaque résultat ait son échantillon (deux matériaux préparés indépendamment = deux voies de base).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "inventaire et voie H-MFI_H-BEA : correspondance MFI-20 / BEA = CBV2314 / CP814E",
+   "extracted": "« MFI-20 and BEA (commercial, Zeolyst, proton forms) » rattachés à la voie de calcination",
+   "article_says": "The proton form of ZSM-5 (MFI) and BEA* were prepared from the ammonium cationic form provided from Zeolyst International Inc. (CBV2314 and CP814E).",
+   "fix": "L'étiquette « MFI-20 » n'apparaît que sur la Fig. 5 ; l'article ne dit pas qu'il s'agit du CBV2314 (le texte parle seulement de « MFI of similar Si/Al »). Garder le rattachement mais le dire dans l'annotation de la voie (hypothèse) ; le doute existe déjà, non reporté dans l'inventaire.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "NaH-ZNT et TBA-Al-ZNT, résultats de stabilité en phase gaz (Fig. S3, S10)",
+   "extracted": "aucun outcome de stabilité thermique ni de pastillage",
+   "article_says": "The ZNTs were conversely quite stable in the gas phase under high temperatures, as seen in the in situ XRD patterns up to 800 °C under dry or humid N2 (Figure S3).",
+   "fix": "Ajouter un outcome à NaH-ZNT et à TBA-Al-ZNT : structure ZNT conservée jusqu'à 800 °C sous N2 sec ou humide (point de rosée 15 °C, légende de Fig. S3), isothermes avant/après. Même chose pour Fig. S10 (XRD et N2 avant/après pastillage de NaH-ZNT, TBA-Al-ZNT et TBA-Al:Fe-ZNT-8), dont la légende est dans l'annexe. Les conditions de l'XRD in situ (rampe 10 °C/min, paliers de 30 min, 70 SCCM N2) sont dans la méthode.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "NaH-ZNT (Na-SDA-ZNT non calciné), résultats de TGA (Fig. S4)",
+   "extracted": "aucun outcome sur la perte de masse du SDA",
+   "article_says": "TGA combustion experiments show a ∼ 43 wt % loss of SDA upon calcination (Figure S4).",
+   "fix": "Ajouter à NaH-ZNT : perte de SDA à la calcination ≈ 43 % en masse (TGA) ; ≈ 17 % en masse de BCPh10Qui compensent la charge de réseau (« equates to ∼17 wt % of BCPh10Qui that is balancing framework charge ») ; ≈ 26 % en masse non compensant (« The remaining 26 wt % SDA that is not balancing charge… »). Fig. S4 donne aussi 37 % après deux extractions méthanol/acide formique (conditions d'extraction non écrites : à mettre dans limite_reproductibilite).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "TBA-Al-ZNT, réactif « deionized water (18.2 MΩ) », not_stated purity",
+   "extracted": "purity déclarée non citée",
+   "article_says": "1.5–3.1 g of DI H2O, (18.2 MΩ) was added",
+   "fix": "La qualité de l'eau est donnée (18,2 MΩ) : la mettre en purity avec cette citation (comme l'extracteur l'a fait dans le nom du réactif) au lieu de not_stated.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "TBA-Al-B-ZNT-1, -2, -4, -8 (et TBA-B-ZNT, ternaire), réactif « boric acid solution » amount 0.25 g",
+   "extracted": "0,25 g de solution à 1 % attribués à chacun des échantillons Al/B = 1, 2, 4, 8, ainsi qu'à TBA-B-ZNT (Al/B = 0) et au ternaire",
+   "article_says": "0.25 g of boric acid solution (1 wt % in H2O)",
+   "fix": "La phrase donne une seule valeur pour toute la série, alors que Si/(Al + T) = 30 est constant : avec 0,5 g de Ludox SM-30 (≈ 2,5 mmol Si), 0,25 g de solution à 1 % (≈ 0,040 mmol B) ne convient qu'à Al/B = 1 ; Al/B = 8 demanderait ≈ 0,06 g, Al/B = 0 ≈ 0,5 g. L'article ne dit pas quelle masse va à quel échantillon : mettre amount_text « 0.25 g (recette de la série ; masse par échantillon non citée) » ou déclarer amount non cité pour -2, -4, -8, TBA-B-ZNT, comme pour le sulfate de fer.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TBA-Al-ZNT_7d, _15d, _21d : citation des variations et succeeded",
+   "extracted": "les trois variations citent la légende de Fig. 1 (A–D) ; succeeded vide pour 21 d",
+   "article_says": "Figure 1 (A) XRD patterns of NaH ZNT and TBA–Al ZNT after 7 and 11 d crystallization time, respectively",
+   "fix": "Dans cette phrase « respectively » associe 7 d à NaH-ZNT et 11 d à TBA-Al-ZNT ; le TBA-Al à 7 d, 15 d et 21 d n'est attesté que par la légende de Fig. 1D (courbes 7, 11, 15, 21 d), pas par ce texte. Citer « (D) XRD patterns of TBA Al–ZNT at different crystallization times » avec from_figure. Pour 21 d, l'article dit que le prolongement au-delà de 11 jours donne le MEL 2D (« ripening occurs directly to a 2D MEL phase ») : succeeded = false cohérent avec la branche 160 °C ; le 15 d reste ambigu (doute déjà écrit).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "TBA-Al-Fe-ZNT-1, série en temps (Fig. S7)",
+   "extracted": "aucune branche ni annotation",
+   "article_says": "Similar ripening was observed in Fe3+ containing TBA ZNT gels (discussed below, Figure S7).",
+   "fix": "La légende de Fig. S7 (« TBA-Al:Fe-ZNT-1 synthesized at different crystallization times ») ne donne pas les durées et l'image n'est pas dans le dépôt : pas de branche possible, mais ajouter une annotation tendance_observee / limite_reproductibilité (mûrissement observé aussi avec Fe, durées non lisibles).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TBA-Al-ZNT, échelle de la synthèse (scale)",
+   "extracted": "scale = null",
+   "article_says": "The synthesis was successfully scaled up three times.",
+   "fix": "Mentionner dans une annotation ou dans scale que la synthèse TBAOH a été reproduite à plus grande échelle (trois fois), sans quantité donnée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "NH4NO3-exchange-1M/0.1M/0.01M et SSIE-* : succeeded = false sans outcome",
+   "extracted": "succeeded false, aucun outcome",
+   "article_says": "Early in the work with ZNTs, it was observed that conventional solid and liquid phase ion exchanges on calcined NaH ZNTs resulted in framework degradation.",
+   "fix": "L'échec est déduit d'une phrase générale (résumé : dégradation en phases 2D, nanocristaux 3D ou amorphes) qu'aucun outcome ne porte ; ajouter un outcome « dégradation de la structure » avec cette citation sur la voie de base de chaque série, en gardant le doute sur l'application à chaque concentration ou chaque sel.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "catalyse, durée des essais",
+   "extracted": "« steady state after 10 h of run time » seul",
+   "article_says": "deactivation of ZNT in the 12 h runs used here is unlikely",
+   "fix": "Contradiction interne : la méthode dit « Data were collected at steady state after 10 h of run time » et les résultats parlent d'essais de 12 h. À mettre en doute, sans corriger.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 45,
+  "branches_extracted": 45,
+  "not_stated_checked": 60,
+  "not_stated_wrong": 2
+ },
+ "reproducibility_gaps": [
+  "Quantités par échantillon pour toutes les voies TBAOH : l'article ne donne que des plages (TBAOH 1,65 g à 40 % ou 3,3 g à 20 %, Al2(SO4)3 0,0135–0,027 g, Fe2(SO4)3 0,0019–0,0086 g, eau 1,5–3,1 g) et une seule masse de solution de bore pour toute la série.",
+  "Quantité de NaOH ajoutée dans les gels mixtes Na:TBA (0,09 à 5,2) et dans les gels Na Al/Fe, Na B, Na Al/B ; quantités de TEOS, Ludox HS-30, NaCl et NaOH « trace » dans les essais de Table 1.",
+  "Durée de cristallisation de chaque échantillon Fe et B (plage 7–11 d seulement), durée de l'essai à 160 °C, durées de la série Fe-1 (Fig. S7).",
+  "Taux de remplissage et volume de l'autoclave de la voie NaOH, vitesses d'agitation, vitesse et durée de centrifugation, séparation et lavage après les échanges d'ions.",
+  "Échange solide : rapport sel/zéolithe et atmosphère du four ; échange sur solide non calciné : volume de solution ; traitements solvants : volume et récipient, séchage après traitement ; rapport solide/liquide de l'échange à 1 M (écrit seulement pour 0,1 et 0,01 M).",
+  "Préparation du ZnO–ZrO2 (« coprécipitation » seule), masse de catalyseur et de SiC ; Fe-1, -4, -8 non montrés en catalyse alors que le texte discute l'effet de la teneur en Fe.",
+  "Pureté et fournisseur de presque tous les réactifs (sauf TBAOH Macron, Zeolyst) ; rendements, sauf TBA-Al-ZNT (30 %) et TBA-Al/B-ZNT-1 (22 %) ; Table S3 : signe de Q4 pour TBA-Al-ZNT absent."
+ ],
+ "mechanism_check": "ok",
+ "notes": "Valeurs de tableaux (Tables 1, 2, 3, S2, S3, S4) vérifiées rangée par rangée contre le texte : aucune erreur d'attribution ni de valeur. Fig. 5 relue sur l'image : conversion, CO, aromatiques et C10+/aromatiques de NaH-ZNT, TBA-Al-ZNT et « Al,Fe-ZNT 2:1 » dans la marge de lecture (écart < 1 point). Fig. 1D relue : descriptions cohérentes. Ce qui reste fragile : le rattachement de « Al,Fe-ZNT 2:1 » à TBA-Al/Fe-ZNT-2 (hypothèse déjà en doute ; peut aussi viser le gel Al/Fe de 2 sans autre précision) ; les gels sans Al à Si/Fe = 30 et de silice pure n'ont ni voie ni outcome de la voie parente, seulement la phrase de résultat. Les figures S1 à S13 et Fig. 3 et 4 ne sont pas dans le dépôt (seules 7 images du corps) : non contrôlées. Les quotes de l'extraction sont toutes des sous-chaînes du texte (contrôle automatique)."
+}

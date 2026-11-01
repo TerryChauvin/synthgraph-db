@@ -1,0 +1,14 @@
+# Journal de la critique de fidélité PMC6369825
+
+- Ma liste d'échantillons avant ouverture : 2 extraits (OLE, RLE), 2 AgNPs de base (250 mg/l, 80 °C, pH 7), séries OLE et RLE en concentration (20, 100), température (20, 40), pH (3, 5, 6, 11), temps (5, 15, 30, 60, 120, 180 min, 24 h), plus le témoin AgNO3 du Kirby–Bauer. Identique à l'inventaire de l'extracteur (36 entrées) ; aucun échantillon manquant. Le témoin AgNO3 est en route null dans l'inventaire : voir constat 3.
+- Les pH 7 des Tableau 1 (3 rangées 250/80/7.0) correspondent bien au même échantillon que la base : pas de branche manquante.
+- Valeurs de figure : Fig. 1 à 4 ouvertes. Écarts maximaux de lecture sous 5 % (OLE pH 7 de Fig. 3 : 1,15 contre 1,2 ; RLE pH 5 : 1,14 contre 1,2). Aucun constat sur les `from_figure`. Le 24 h OLE de Fig. 4a est ≈ 1,5 contre « superposé au 180 min (1,6) » : dans la tolérance, non signalé.
+- Tableaux 3 et 4 relus sur les images g010 et g011 : colonnes OLE/RLE bien attribuées, ordre des bactéries correct (S. aureus, S. enterica, E. coli dans Tableau 4 ; S. aureus, E. coli, S. enterica dans Tableau 3).
+- Constat 1 (sûr) : aucune condition des essais antibactériens (grep sur CFU, McFarland, Mueller, 37 °C, 96 puits = 0 occurrence). Sert la reproductibilité des CMI.
+- Constat 2 (sûr) : l'origine des feuilles est écrite (JUST, Irbid, juin 2014) ; l'extracteur ne l'a utilisée que comme citation de la branche RLE puis a déclaré `leaf_origin_supplier` manquant.
+- Constat 3 (probable) : zones d'inhibition du témoin AgNO3 non extraites ; probable car l'inventaire justifie l'absence de voie, mais la valeur de comparaison est la conclusion des auteurs.
+- Constat 4 (probable) : lavage de la verrerie à l'acide nitrique : préparation générique, pas une étape de voie ; je laisse à l'orchestrateur le choix étape ou annotation.
+- Constat 6 (probable, mineur) : pH 7 de l'étape 5 vient de la légende Fig. 5 ; le texte (« reducing the pH during the ultrafiltration process to 7 ») suggère un pH de synthèse élevé. Je ne demande pas de changer la valeur, seulement de reprendre le doute dans l'annotation de limites.
+- Écartés : pH 2 du texte contre pH 3 du tableau (doute déjà posé et tranché correctement) ; absence de durée de base (doute posé, « 3 h » approximatif) ; pourcentages d'augmentation d'absorbance seulement en annotation (tendances, acceptable) ; ref-23 ISO 22412 hors method_sources (formule d'analyse, règle du 2026-10-13).
+- method_sources contrôlé contre corpus/refs : ref-12, 21, 26, 45, 37, 8, 9 présents ; aucun renvoi de méthode oublié. Les ref-45 et ref-37 pour l'AAS sont en rôle `autre`, acceptable.
+- Annotation `securite_analyse` : « fulminate d'argent » imprécis pour le Tollens vieilli (nitrure/imide d'argent) ; laissé en note pour la critique scientifique, pas un écart avec l'article.

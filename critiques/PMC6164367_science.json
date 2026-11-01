@@ -1,0 +1,601 @@
+{
+ "pmcid": "PMC6164367",
+ "routes": [
+  {
+   "label": "TiO2-rGO(1 wt%)-M",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction massique de graphène",
+     "inputs": "4 g de TiO2 ; 40 mg ou 200 mg de GO/rGO",
+     "formula": "m(G)/(m(TiO2)+m(G))",
+     "result": "0,99 % (40 mg) ; 4,76 % (200 mg) ; « 1 et 5 wt% » sont rapportés à la masse de TiO2",
+     "compared_to": "désignation 1 / 5 wt%",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "carbone attendu, mélanges rGO",
+     "inputs": "rGO à 98 wt% C (analyse élémentaire) ; 40 ou 200 mg pour 4 g de TiO2 (TiO2 de départ : 0 wt% C)",
+     "formula": "m(G)·0,98/(4000+m(G))",
+     "result": "0,97 wt% (1 %) ; 4,67 wt% (5 %)",
+     "compared_to": "mesuré 1,05 et 4,54 wt% (M)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "carbone attendu, mélanges GO",
+     "inputs": "GO à 46 wt% C ; 40 ou 200 mg pour 4 g de TiO2",
+     "formula": "m(G)·0,46/(4000+m(G))",
+     "result": "0,46 wt% (1 %) ; 2,19 wt% (5 %)",
+     "compared_to": "mesuré 0,50 et 1,80 wt% (M) : 1,80 est 18 % sous l'attendu",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "SBET attendu d'un simple mélange",
+     "inputs": "TiO2 312 m2/g ; rGO 62, GO 33 m2/g ; fractions 0,99 % et 4,76 %",
+     "formula": "(1−f)·312 + f·S(G)",
+     "result": "≈ 310 (1 %) et ≈ 300 m2/g (5 %)",
+     "compared_to": "mesuré 281, 268 (rGO) ; 253, 266 (GO)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Scherrer sans correction instrumentale",
+     "inputs": "λ = 1,54056 Å ; 2θ = 25,4° ; K = 0,9 ; FWHM 0,79° (TiO2 de départ), 0,49° (TiO2-H2O-rGO(1 wt%)-A)",
+     "formula": "d = Kλ/(β cos θ), β en radians",
+     "result": "10,3 nm et 16,6 nm",
+     "compared_to": "tableau 1 : 12 et 22 nm",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Scherrer avec soustraction linéaire d'un élargissement instrumental de 0,115°",
+     "inputs": "mêmes valeurs, β = FWHM − 0,115°",
+     "formula": "d = Kλ/((FWHM−b) cos θ)",
+     "result": "12,1 nm et 21,7 nm ; les 17 rangées sont retrouvées à ± 1 nm",
+     "compared_to": "tableau 1 (10 à 22 nm)",
+     "source": "valeurs de l'article ; b ajusté par l'analyse, non donné par l'article"
+    },
+    {
+     "what": "surface géométrique des cristallites d'anatase",
+     "inputs": "ρ(anatase) ≈ 3,89 g/cm3 (valeur de manuel, non revérifiée ici) ; d = 12 nm (départ), 18 nm (-A sans liquide), 22 nm (eau)",
+     "formula": "S = 6000/(ρ·d) m2/g",
+     "result": "129, 86 et 70 m2/g",
+     "compared_to": "SBET 312, 94 et 83 m2/g : rapport 2,4 pour le TiO2 de départ, 1,1–1,2 après 200 °C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre moyen de pore 4V/S",
+     "inputs": "Vtotal 0,27 cm3/g, SBET 312 m2/g (départ) ; 0,35 et 83 (H2O-rGO 1 %)",
+     "formula": "4V/S",
+     "result": "3,5 nm et 16,9 nm",
+     "compared_to": "classes IUPAC : mésopores (2–50 nm)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Carbone mesuré cohérent avec la charge pour les mélanges au rGO (1,05 et 4,54 wt% contre 0,97 et 4,67 attendus, voir « carbone attendu, mélanges rGO »). Pour TiO2-GO(5 wt%)-M, 1,80 wt% contre 2,19 attendus (−18 %) : mélange au mortier hétérogène à l'échelle de la prise d'essai de l'analyseur, ce que les auteurs disent eux-mêmes en XPS (« manual mixing of GO with TiO2 is inefficient »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SBET des mélanges 253–281 m2/g contre ≈ 300–310 m2/g pour un simple mélange (« SBET attendu d'un simple mélange »), sans traitement thermique. Les auteurs l'attribuent à des agrégats ; la non-monotonie (GO 1 % : 253, GO 5 % : 266) indique plutôt une dispersion de mesure d'environ ±10 %. À prendre comme ordre de grandeur de la reproductibilité de la BET.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte dit que la hausse de la FWHM des mélanges (0,79 → 0,87–0,93°) « may suggest the increase of the crystallinity » : c'est l'inverse, une raie plus large signifie des cristallites plus petites ou plus désordonnées. Un mélange au mortier avec 1–5 % de graphène ne peut pas changer la taille des cristallites de TiO2 : l'écart 12 → 10 nm mesure la répétabilité DRX (± 0,1° de FWHM, ± 2 nm).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les tailles de cristallites du tableau 1 ne sont retrouvées par Scherrer qu'en soustrayant un élargissement instrumental d'environ 0,115° (« Scherrer avec soustraction linéaire… ») ; ni la constante K ni la correction instrumentale ne sont données. Un lecteur qui applique Scherrer brut aux FWHM du tableau obtient des tailles 15–25 % plus petites.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le TiO2 de départ a une SBET 2,4 fois supérieure à la surface géométrique de cristallites de 12 nm (« surface géométrique des cristallites ») et 0,11 cm3/g de micropores : il contient une fraction amorphe ou hydratée très divisée (TiO2 issu du procédé au sulfate, prétraitement renvoyé à un autre article). « Anatase 99 % » n'est que le rapport anatase/rutile et ne renseigne pas sur la fraction amorphe.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs disent calculer la distribution de taille de pores par l'équation de Dubinin-Radushkevich ; DR ne donne qu'un volume microporeux, pas une distribution méso. Vmeso est en fait Vtotal − Vmicro (vérifié sur 16 des 17 rangées).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes et al. — Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Broyage au mortier de poudres nanométriques de TiO2 et de GO/rGO sans protection mentionnée : risque d'inhalation (masque FFP3 ou hotte, gants).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Aucune réaction : dispersion mécanique des feuillets entre les agglomérats de TiO2. Les petites variations de SBET et de FWHM relèvent de la dispersion des mesures plutôt que d'une interaction chimique.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durée et énergie du broyage au mortier (non données)",
+    "prétraitement du TiO2 du procédé au sulfate (renvoi [B27]) : teneur en sulfate, fraction amorphe, humidité",
+    "homogénéité du mélange avant analyse élémentaire (prises d'essai multiples)",
+    "constante de Scherrer et correction instrumentale utilisées"
+   ]
+  },
+  {
+   "label": "TiO2-rGO(1 wt%)-A",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "cohérence Vmeso = Vtotal − Vmicro",
+     "inputs": "17 rangées du tableau 1",
+     "formula": "Vtotal − Vmicro",
+     "result": "vérifiée pour 16 rangées ; TiO2-GO(5 wt%)-A : 0,31 − 0,04 = 0,27 cm3/g contre 0,31 donné",
+     "compared_to": "colonne Vmeso",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "effet de la charge en graphène sur Vmicro après 200 °C",
+     "inputs": "Vmicro 0,03 (1 %) et 0,04 (5 %) cm3/g pour rGO-A ; 0,03 et 0,04 pour GO-A ; 0,03/0,03 pour H2O-rGO",
+     "formula": "comparaison 1 % contre 5 %",
+     "result": "aucune baisse supplémentaire quand la charge en feuillets est multipliée par 5",
+     "compared_to": "affirmation « blocking by rGO and GO sheets »",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface géométrique des cristallites d'anatase",
+     "inputs": "ρ(anatase) ≈ 3,89 g/cm3 (valeur de manuel, non revérifiée ici) ; d = 12 nm (départ), 18 nm (-A sans liquide), 22 nm (eau)",
+     "formula": "S = 6000/(ρ·d) m2/g",
+     "result": "129, 86 et 70 m2/g",
+     "compared_to": "SBET 312, 94 et 83 m2/g : rapport 2,4 pour le TiO2 de départ, 1,1–1,2 après 200 °C",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Traitement « sans milieu liquide » à 200 °C dans le réacteur fermé, sans durée ni vitesse de chauffe ni séchage final écrits. Le TiO2 de départ porte de l'eau adsorbée (perte de masse ATG à 70–130 °C, citée par les auteurs) : en enceinte close, cette eau donne une atmosphère de vapeur, donc un traitement en vapeur plutôt qu'à sec.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Après 200 °C, la SBET (94 m2/g) rejoint la surface géométrique de cristallites de 18 nm (86 m2/g, voir « surface géométrique des cristallites d'anatase ») : la perte de surface s'explique par la croissance des cristallites et la disparition de la fraction microporeuse, cohérent avec l'interprétation des auteurs.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les auteurs attribuent la baisse du volume microporeux au traitement thermique « as well as blocking by rGO and GO sheets ». Les données le contredisent : Vmicro vaut 0,03–0,04 cm3/g à 1 % comme à 5 % de graphène (« effet de la charge en graphène sur Vmicro »), alors qu'une obturation par les feuillets augmenterait avec la charge. Il manque surtout le témoin TiO2 seul traité à 200 °C (à sec, dans l'eau, dans le butanol) : sans lui, aucun effet ne peut être attribué au graphène.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le tableau 1 donne Vmeso = 0,31 cm3/g pour TiO2-GO(5 wt%)-A alors que Vtotal − Vmicro = 0,27 cm3/g ; les 16 autres rangées vérifient l'égalité (« cohérence Vmeso = Vtotal − Vmicro ») : erreur de saisie probable dans l'article.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Croissance de 12 à 16–18 nm en quelques heures à 200 °C : trop rapide pour une anatase bien cristallisée (le grossissement thermique demande en général plusieurs centaines de °C), mais plausible pour une poudre à fraction amorphe et hydratée qui cristallise sous vapeur.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Cristallisation et mûrissement de la fraction amorphe et hydratée du TiO2 du procédé au sulfate sous la vapeur de l'eau adsorbée, avec frittage des agrégats : croissance des cristallites à 16–18 nm, perte des micropores, SBET ramenée à la surface géométrique. Le graphène n'y joue pas de rôle mesurable (Vmicro identique à 1 et 5 %).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "durée du palier à 200 °C et séchage final pour les échantillons sans liquide (non écrits)",
+    "humidité résiduelle du TiO2 avant traitement",
+    "faire le témoin TiO2 seul dans les mêmes conditions",
+    "valeur réelle de Vmeso de TiO2-GO(5 wt%)-A (0,27 ou 0,31 cm3/g)"
+   ]
+  },
+  {
+   "label": "TiO2-GO(5 wt%)-A",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur en carbone si le GO était entièrement réduit",
+     "inputs": "200 mg de GO à 46 wt% C (92 mg C) ; rGO à 98 wt% C",
+     "formula": "92/(4000 + 92/0,98)",
+     "result": "2,25 wt% contre 2,19 wt% sans réduction",
+     "compared_to": "argument des auteurs : « no significant changes in carbon content » ⇒ pas de réduction",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport atomique C/O de surface du GO et du rGO (XPS)",
+     "inputs": "GO 52 wt% C (reste O) ; rGO 92 wt% C",
+     "formula": "(wC/12,011)/(wO/15,999)",
+     "result": "C/O ≈ 1,4 (GO) ; ≈ 15 (rGO)",
+     "compared_to": "GO de Hummers usuel C/O ≈ 2 ; rGO thermique ≥ 10",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Vmeso de TiO2-GO(5 wt%)-A",
+     "inputs": "Vtotal 0,31 ; Vmicro 0,04",
+     "formula": "Vtotal − Vmicro",
+     "result": "0,27 cm3/g",
+     "compared_to": "0,31 cm3/g dans le tableau 1",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Réduction du GO décrite de quatre façons incompatibles : Résumé « did not cause the reduction » ; Résultats, XPS « almost total reduction of GO » (C 1s proche de TiO2-rGO(5 wt%)-A) mais FTIR « typical peaks characteristic for GO » ; même section : « Mixing of GO with TiO2 in the autoclave results in the almost identical spectrum for both small and high concentration of GO… similar to… TiO2-GO(1 wt%)-M » (donc pas de rGO) ; Conclusions « caused a reduction of GO to rGO… for samples containing 5 wt% of GO ». Un lecteur ne peut pas savoir dans quel état est le GO de cet échantillon.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'argument « pas de changement de la teneur en carbone ⇒ pas de réduction » ne prouve rien : le carbone est conservé lors de la désoxygénation, et une réduction complète ne ferait passer le composite que de 2,19 à 2,25 wt% de C (« teneur en carbone si le GO était entièrement réduit »), sous la dispersion de mesure (1,80–2,50 selon l'échantillon). Seul un rapport C/O de surface (XPS) ou en volume (analyse O) peut trancher.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le GO est réduit en milieu hydrothermal dès 180 °C (déshydratation, Zhou 2009), et la base contient deux réductions hydrothermales de GO à 180–200 °C (PMC5028751, PMC12093138). La preuve de non-réduction des auteurs porte sur TiO2-GO(1 wt%)-A, traité sans liquide : le résumé, qui parle de « hydrothermal treatment », généralise un essai sans eau ajoutée. Les échantillons TiO2-H2O-GO ne sont pas analysés en XPS.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal Dehydration for the \"Green\" Reduction of Exfoliated Graphene Oxide to Graphene and Demonstration of Tunable Optical Limiting Properties",
+      "authors_or_publisher": "Zhou, Bao, Tang, Zhong, Loh — Chem. Mater. 21, 2950",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm9006603"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Ti 2p : les auteurs écrivent « the shift between Ti 2p3/2 and Ti 2p5/2 is 5.7 eV » ; le niveau 2p5/2 n'existe pas, le doublet est 2p3/2–2p1/2. La valeur de 5,7 eV est bien celle de l'anatase (5,72 eV). Le Ti 2p3/2 étant fixé arbitrairement à 459,0 eV, sa position ne dit rien (les auteurs le reconnaissent) ; seules l'absence d'épaulement à 455–457 eV et la largeur de 1,3 eV sont informatives.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Resolving surface chemical states in XPS analysis of first row transition metals, oxides and hydroxides: Sc, Ti, V, Cu and Zn (tableau 3 : anatase Ti 2p3/2 458,59 eV, écart 2p1/2–2p3/2 5,72 eV)",
+      "authors_or_publisher": "Biesinger, Lau, Gerson, Smart — Appl. Surf. Sci. 257, 887",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.apsusc.2010.07.086"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve d'absence de Ti–O–C par l'absence de bande à 799 cm−1 en FTIR/DRS : à 95–99 wt% de TiO2, cette zone est dominée par l'absorption du réseau Ti–O–Ti (bande large sous 1000 cm−1, que les auteurs placent à 954 cm−1), qui masquerait une bande de liaisons interfaciales peu nombreuses. L'absence de décalage UV-visible n'est pas chiffrée (pas de gap de Tauc). La conclusion « pas de liaison covalente » est vraisemblable, mais aucune des trois techniques n'est discriminante à cette dilution.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Vmeso = 0,31 cm3/g dans le tableau 1 contre Vtotal − Vmicro = 0,27 cm3/g (« Vmeso de TiO2-GO(5 wt%)-A ») : coquille probable de l'article.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Composition du GO : XPS 52 wt% C, soit C/O ≈ 1,4 (« rapport atomique C/O de surface »), GO très oxydé ; rGO 98 wt% C en volume (C/O ≈ 15 en surface), valeur de rGO réduit à haute température. La méthode de réduction du rGO n'est pas décrite (renvoi). Ordres de grandeur compatibles avec la chimie du GO.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer, Park, Bielawski, Ruoff — Chem. Soc. Rev.",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 200 °C en enceinte close, les époxydes et hydroxyles du GO se déshydratent et se décomposent d'abord en surface (désoxygénation partielle, rétablissement de domaines sp2), ce qui explique un C 1s de surface proche du rGO alors que le FTIR voit encore C=O et C–OH en volume. Le TiO2 n'est que déposé sur les feuillets ; une condensation Ti–OH + HOOC– reste possible en faible quantité, mais aucune technique utilisée ne peut la détecter à cette dilution.",
+    "sources": [
+     {
+      "title": "Hydrothermal Dehydration for the \"Green\" Reduction of Exfoliated Graphene Oxide to Graphene and Demonstration of Tunable Optical Limiting Properties",
+      "authors_or_publisher": "Zhou, Bao, Tang, Zhong, Loh — Chem. Mater. 21, 2950",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm9006603"
+     },
+     {
+      "title": "The chemistry of graphene oxide",
+      "authors_or_publisher": "Dreyer, Park, Bielawski, Ruoff — Chem. Soc. Rev.",
+      "year": "2010",
+      "url_or_doi": "10.1039/B917103G"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "état réel du GO après traitement : rapport C/O par XPS et analyse de l'oxygène, Raman ID/IG",
+    "refaire la comparaison réduite / non réduite sur les échantillons TiO2-H2O-GO (vraiment hydrothermaux)",
+    "Vmeso réel de cet échantillon"
+   ]
+  },
+  {
+   "label": "TiO2-H2O-rGO(1 wt%)-A",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "eau introduite",
+     "inputs": "5 cm3 d'eau ; 4 g de TiO2 (M = 79,87 g/mol)",
+     "formula": "n = m/M",
+     "result": "278 mmol H2O pour 50 mmol TiO2 (H2O/TiO2 ≈ 5,5) ; 1,25 mL d'eau par g de poudre : pâte humide, pas une suspension",
+     "compared_to": "« reaction suspension »",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "eau nécessaire pour saturer la cuve à 200 °C",
+     "inputs": "masse volumique de la vapeur saturée à 200 °C : 7,861 kg/m3 ; pression de saturation 15,549 bar (NIST)",
+     "formula": "m_sat = 7,861 g/L × V(cuve)",
+     "result": "V = 250 mL → 2,0 g ; 640 mL → 5,0 g ; 800 mL → 6,3 g",
+     "compared_to": "5 g d'eau introduits : si la cuve dépasse ≈ 640 mL, toute l'eau est vapeur et la pression reste sous 15,5 bar",
+     "source": "NIST Chemistry WebBook (eau)"
+    },
+    {
+     "what": "taux de remplissage",
+     "inputs": "5 cm3 de liquide ; cuves Berghof de la série BR ≈ 30 à 2230 mL",
+     "formula": "V(liquide)/V(cuve)",
+     "result": "de 17 % (cuve de 30 mL) à < 1 % (cuve de 800 mL et plus) ; cuve non précisée",
+     "compared_to": "taux usuels 50–80 % en hydrothermal",
+     "source": "fiche fabricant Berghof"
+    },
+    {
+     "what": "Scherrer avec soustraction linéaire d'un élargissement instrumental de 0,115°",
+     "inputs": "mêmes valeurs, β = FWHM − 0,115°",
+     "formula": "d = Kλ/((FWHM−b) cos θ)",
+     "result": "12,1 nm et 21,7 nm ; les 17 rangées sont retrouvées à ± 1 nm",
+     "compared_to": "tableau 1 (10 à 22 nm)",
+     "source": "valeurs de l'article ; b ajusté par l'analyse, non donné par l'article"
+    },
+    {
+     "what": "diamètre moyen de pore 4V/S",
+     "inputs": "Vtotal 0,27 cm3/g, SBET 312 m2/g (départ) ; 0,35 et 83 (H2O-rGO 1 %)",
+     "formula": "4V/S",
+     "result": "3,5 nm et 16,9 nm",
+     "compared_to": "classes IUPAC : mésopores (2–50 nm)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "200 °C en réacteur Berghof fermé : pression de vapeur de l'eau 15,5 bar à 200 °C (NIST), bien sous la limite de 200 bar des cuves de la série BR. Le volume de la cuve n'est pas donné et le modèle cité, « BLH-800 », semble désigner un module de chauffage Berghof plutôt qu'une cuve. Avec 5 g d'eau, toute l'eau est vaporisée si la cuve dépasse ≈ 640 mL (« eau nécessaire pour saturer la cuve ») : le TiO2 voit alors de la vapeur sous 15,5 bar, pas une « suspension ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Saturation Properties for Water (NIST Standard Reference Database 69)",
+      "authors_or_publisher": "NIST Chemistry WebBook",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C7732185&Type=SatP&TLow=200&THigh=200&TInc=1&TUnit=C&PUnit=bar"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Taux de remplissage entre < 1 % et 17 % selon la cuve (« taux de remplissage ») : très loin des 50–80 % habituels ; la pression et la phase (liquide ou vapeur) dépendent du volume de cuve non écrit, ce qui rend l'essai difficile à transposer à un autre réacteur.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "High-pressure Reactors — tableau des volumes de cuve (BR-25 à BR-2000, ≈ 30 à 2230 mL ; BR-700 : 980 mL, insert PTFE 800 mL)",
+      "authors_or_publisher": "Berghof Products + Instruments GmbH (fiche fabricant)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.berghof-instruments.com/en/products/high-pressure-reactors"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les cristallites sont plus grosses dans l'eau (22 et 20 nm) qu'à sec (18 et 16 nm) ou dans le butanol (19 et 15 nm), et la SBET (83–87 m2/g) est proche de la surface géométrique (≈ 70–77 m2/g) : l'eau favorise le mûrissement par dissolution-reprécipitation, résultat cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Carbone mesuré 1,07 wt% (1 %) et 4,80 wt% (5 %) contre 0,97 et 4,67 attendus : rGO conservé, sans apport de carbone par le milieu.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Ouvrir la soupape à 200 °C détend brutalement de la vapeur à ≈ 15 bar (ou du butanol, voir la voie au butanol) : à faire vers une évacuation, sans s'exposer au jet ; refroidir avant d'ouvrir la cuve. Aucune précaution n'est écrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La « réduction hydrothermale » du GO, que l'étude vise, n'est examinée que sur les échantillons sans liquide ; les TiO2-H2O-GO ne sont décrits que par la DRX, la BET et le carbone. La conclusion générale sur la méthode hydrothermale repose donc en partie sur des échantillons qui ne sont pas hydrothermaux.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrothermal Dehydration for the \"Green\" Reduction of Exfoliated Graphene Oxide to Graphene and Demonstration of Tunable Optical Limiting Properties",
+      "authors_or_publisher": "Zhou, Bao, Tang, Zhong, Loh — Chem. Mater. 21, 2950",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm9006603"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sous vapeur d'eau à 200 °C, la fraction amorphe et hydratée du TiO2 se dissout et se redépose sur les cristallites d'anatase (mûrissement d'Ostwald hydrothermal) : croissance à 20–22 nm, plus forte qu'à sec, et perte des micropores. Le rGO, déjà très réduit (98 wt% C), reste inerte ; les nanoparticules se déposent physiquement sur les feuillets. Pour le GO, une déshydratation partielle est attendue dès 180 °C (Zhou 2009) mais n'a pas été mesurée sur ces échantillons.",
+    "sources": [
+     {
+      "title": "Hydrothermal Dehydration for the \"Green\" Reduction of Exfoliated Graphene Oxide to Graphene and Demonstration of Tunable Optical Limiting Properties",
+      "authors_or_publisher": "Zhou, Bao, Tang, Zhong, Loh — Chem. Mater. 21, 2950",
+      "year": "2009",
+      "url_or_doi": "10.1021/cm9006603"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de la cuve et taux de remplissage (5 mL de liquide dans une cuve de plusieurs centaines de mL = vapeur seule)",
+    "pression atteinte et vitesse de chauffe",
+    "température et conduite du dégazage de 1 h « without pressure »",
+    "témoin TiO2 seul dans l'eau à 200 °C"
+   ]
+  },
+  {
+   "label": "TiO2-ButOH-GO(5 wt%)-A",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "butanol introduit",
+     "inputs": "5 cm3 ; densité 0,81 ; M = 74,12 g/mol (CAMEO)",
+     "formula": "n = V·ρ/M",
+     "result": "4,05 g = 54,6 mmol (≈ 1,1 mol par mol de TiO2)",
+     "compared_to": "50 mmol TiO2",
+     "source": "NOAA CAMEO Chemicals"
+    },
+    {
+     "what": "pression de vapeur du 1-butanol à 200 °C",
+     "inputs": "Antoine NIST (Hessel et Geiseler, 391–479 K) : A = 4,39031 ; B = 1254,502 ; C = −105,246 ; T = 473,15 K",
+     "formula": "log10 P(bar) = A − B/(T+C)",
+     "result": "≈ 9,6 bar ; 54,6 mmol saturent ≈ 224 mL de cuve (gaz parfait) ; T < Tc = 562 K",
+     "compared_to": "cuve non précisée",
+     "source": "NIST Chemistry WebBook (1-butanol)"
+    },
+    {
+     "what": "carbone en excès dans les échantillons au butanol",
+     "inputs": "attendu 0,97 / 4,67 (rGO 1/5 %), 0,46 / 2,19 (GO 1/5 %) ; mesuré 1,62 / 6,27 / 1,76 / 8,38 wt%",
+     "formula": "mesuré − attendu",
+     "result": "+0,65 et +1,60 (rGO) ; +1,30 et +6,19 wt% (GO)",
+     "compared_to": "eau : +0,10/+0,13 (rGO), +0,10/−0,20 (GO)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "butyle retenu dans TiO2-ButOH-GO(5 wt%)-A",
+     "inputs": "excès 6,19 wt% de C sur ≈ 4,4 g de solide ; C4H9 = 4 C",
+     "formula": "m(C) = 0,0619 × 4,4 g ; n(butyle) = n(C)/4",
+     "result": "≈ 0,27 g C ≈ 22 mmol C ≈ 5,6 mmol de groupes butyle, ≈ 10 % du butanol introduit, retenus après 1 h de dégazage à 200 °C et 24 h à 105 °C sous vide",
+     "compared_to": "Téb du 1-butanol 117,7 °C (390,6 K, NIST) : un butanol physisorbé serait parti",
+     "source": "valeurs de l'article ; NIST"
+    },
+    {
+     "what": "capacité d'une surface de TiO2 en butoxyde",
+     "inputs": "SBET ≈ 100 m2/g ; ≈ 5 OH/nm2 (ordre de grandeur courant, non sourcé ici)",
+     "formula": "n = S·5/NA ; C = n·4·12,011",
+     "result": "≈ 0,83 mmol/g, soit jusqu'à ≈ 4 wt% de C sur le seul TiO2",
+     "compared_to": "excès de 0,65 à 6,19 wt% observés",
+     "source": "arithmétique ; densité de OH supposée"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "1-butanol à 200 °C en cuve fermée : 83 °C au-dessus de son point d'ébullition (117,7 °C), pression de vapeur ≈ 9,6 bar, sous la température critique (562 K) (« pression de vapeur du 1-butanol à 200 °C ») ; les 54,6 mmol sont entièrement vaporisées si la cuve dépasse ≈ 220 mL.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "1-Butanol — Phase change data (paramètres d'Antoine, Hessel et Geiseler 1965, 391–479 K ; Tc 562 K)",
+      "authors_or_publisher": "NIST Chemistry WebBook",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C71363&Mask=4"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Excès de carbone de +6,19 wt% sur l'attendu (8,38 contre 2,19), soit ≈ 5,6 mmol de groupes butyle (≈ 10 % du butanol introduit) restés après 1 h de dégazage à 200 °C et 24 h à 105 °C sous vide (« butyle retenu »). Un butanol simplement adsorbé (Téb 117,7 °C) serait parti : il s'agit de butyle lié chimiquement, par estérification des COOH ou ouverture des époxydes du GO par l'alcool, ou de butoxyde sur les Ti–OH du TiO2. L'interprétation des auteurs, du butanol qui « couvre » le graphène, est trop faible.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Reduction of graphite oxide using alcohols",
+      "authors_or_publisher": "Dreyer, Murali, Zhu, Ruoff, Bielawski — J. Mater. Chem. 21, 3443",
+      "year": "2011",
+      "url_or_doi": "10.1039/C0JM02704A"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'« affinité particulière du butanol pour le GO » n'est pas démontrée : sans témoin TiO2 + butanol sans graphène, on ne sait pas quelle part du carbone retenu est portée par le TiO2. Les alcools se dissocient en alcoxydes (Ti–O–R) sur la surface du TiO2, et une surface de ≈ 100 m2/g peut porter jusqu'à ≈ 4 wt% de C en butoxyde (« capacité d'une surface de TiO2 en butoxyde »). La croissance de l'excès avec la charge en GO (+1,30 → +6,19 wt%), plus forte qu'avec le rGO (+0,65 → +1,60), plaide toutefois pour une part greffée sur les groupes oxygénés du GO.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Inductive Effect of Alkyl Chains on Alcohol Dehydration at Bridge-Bonded Oxygen Vacancies of TiO2(110)",
+      "authors_or_publisher": "Kim, Kay, White, Dohnálek (notice OSTI 920519)",
+      "year": "non vérifiée (notice OSTI)",
+      "url_or_doi": "https://www.osti.gov/biblio/920519"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les liaisons Ti–O–C que l'article cherche peuvent aussi se former entre le TiO2 et le butanol (butoxyde de surface) : les bandes C–H à 2963, 2937 et 2876 cm−1 et l'épaulement C 1s à 286 eV ne distinguent pas un butyle greffé sur le TiO2, un butyle greffé sur le GO (ester ou éther) et un butanol adsorbé. Cela fragilise la conclusion « pas de Ti–O–C » pour toute la série au butanol.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dégazage de vapeur de butanol à 200 °C par la soupape : liquide inflammable (point éclair 84 °F ≈ 29 °C, LIE 1,4 %, auto-inflammation 650 °F ≈ 343 °C) ; à évacuer vers une hotte, loin de toute source d'ignition et des résistances chauffantes. Aucune précaution n'est écrite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "N-BUTYL ALCOHOL (point éclair 84 °F, auto-inflammation 650 °F, LIE 1,4 %, densité 0,81, M = 74,12)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/277"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "SBET la plus élevée de la série A (122 m2/g) et cristallites les plus petites (15 nm) : le butanol limite le mûrissement (moins de dissolution-reprécipitation que dans l'eau) ; la SBET reste proche de la surface géométrique (103 m2/g), résultat cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "En vapeur ou liquide de butanol à 200 °C, l'alcool réagit avec les groupes oxygénés du GO (estérification des COOH de bord, ouverture des époxydes en éthers butyliques) et réduit en partie le GO, comme d'autres alcools primaires (Dreyer 2011) ; il se fixe aussi en butoxyde sur les Ti–OH du TiO2. Ces butyles greffés résistent au dégazage et au séchage sous vide, d'où l'excès de carbone, croissant avec la charge en GO. Le TiO2 cristallise moins que dans l'eau, faute de dissolution-reprécipitation.",
+    "sources": [
+     {
+      "title": "Reduction of graphite oxide using alcohols",
+      "authors_or_publisher": "Dreyer, Murali, Zhu, Ruoff, Bielawski — J. Mater. Chem. 21, 3443",
+      "year": "2011",
+      "url_or_doi": "10.1039/C0JM02704A"
+     },
+     {
+      "title": "Inductive Effect of Alkyl Chains on Alcohol Dehydration at Bridge-Bonded Oxygen Vacancies of TiO2(110)",
+      "authors_or_publisher": "Kim, Kay, White, Dohnálek (notice OSTI 920519)",
+      "year": "non vérifiée (notice OSTI)",
+      "url_or_doi": "https://www.osti.gov/biblio/920519"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "témoins TiO2 + butanol et GO + butanol seuls, dans les mêmes conditions",
+    "nature du carbone retenu : ATG-SM ou désorption programmée, FTIR de la bande C=O d'ester vers 1735 cm−1",
+    "volume de cuve et pression atteinte",
+    "évacuation sûre des vapeurs de butanol à l'ouverture de la soupape"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Protocole simple (mélange au mortier, puis 200 °C dans un réacteur Berghof, soit à sec, durée non écrite, soit 4 h avec 5 mL d'eau ou de 1-butanol) et chimiquement plausible ; les résultats texturaux sont cohérents entre eux (SBET après 200 °C ≈ surface géométrique des cristallites de Scherrer, tailles retrouvées avec une correction instrumentale d'environ 0,115°). Les faiblesses viennent de l'article : volume de cuve et taux de remplissage non donnés (avec 5 mL dans une cuve de plusieurs centaines de mL, le TiO2 voit de la vapeur et non une suspension) ; durée non écrite pour les échantillons sans liquide ; aucun témoin TiO2 seul traité ; récit contradictoire sur la réduction du GO, fondé sur un échantillon sans liquide et sur un argument de teneur en carbone non discriminant ; carbone retenu dans la série au butanol (jusqu'à +6 wt%) interprété comme un recouvrement alors qu'il s'agit de butyle lié chimiquement.",
+  "author_errors_suspected": [
+   "Tableau 1 : Vmeso de TiO2-GO(5 wt%)-A = 0,31 cm3/g alors que Vtotal − Vmicro = 0,27 cm3/g (16 autres rangées cohérentes).",
+   "Texte : teneur en carbone de TiO2-GO(1 wt%)-A donnée à 0,50 wt% contre 0,44 dans le tableau (0,50 est la valeur du mélange M).",
+   "Hausse de la FWHM présentée comme une hausse de cristallinité (c'est l'inverse).",
+   "« Ti 2p5/2 » au lieu de Ti 2p1/2.",
+   "Réduction du GO : résumé (« did not cause »), résultats (XPS « almost total reduction », FTIR GO intact, spectres autoclave « similar to TiO2-GO(1 wt%)-M ») et conclusions (« caused a reduction… 5 wt% ») incompatibles ; la non-réduction est tirée d'un échantillon sans liquide et d'un argument de teneur en carbone qui ne peut pas détecter une réduction (2,19 contre 2,25 wt%).",
+   "Baisse des micropores attribuée en partie au « blocking by rGO and GO sheets » alors que Vmicro est identique à 1 et 5 % de graphène.",
+   "« Mesopores' volume increased twice » : facteur 1,4 à 2,1 selon l'échantillon (0,16 → 0,22–0,34 cm3/g).",
+   "Distribution de taille de pores « based on the Dubinin-Radushkevich equation » : DR ne donne que le volume microporeux.",
+   "Renvois de figures décalés : FTIR à 954 cm−1 « see Figure 4 » (c'est la Fig. 3) ; lettres de la Fig. 4 dans le texte (4a GO/rGO, 4b Ti 2p, 4e deux fois) différentes de la légende ; Fig. 2 attribuée aux échantillons au butanol dans le texte et aux échantillons sans liquide dans la légende."
+  ],
+  "comparison_with_database": "compare.py « graphene » : deux réductions hydrothermales de GO dans la base, PMC5028751 (180 °C, 24 h, éthanol/HCl, GO réduit en rGO selon les auteurs) et PMC12093138 (réduction hydrothermale à 200 °C). L'absence de réduction affirmée ici à 200 °C s'écarte de ces voies, mais elle porte sur des échantillons à sec et à 1–5 wt% de GO dilué dans le TiO2. compare.py « TiO2 » : 45 voies, aucune autre étude de TiO2 commercial simplement traité avec du graphène."
+ },
+ "sources_not_found": [
+  "Volume de la cuve du « BLH-800 » : sur le site Berghof, « BLH » désigne un module de chauffage (« BLH and BAH heating combination ») ; aucune fiche « BLH-800 » trouvée. Volumes de cuve de la série BR : 30 à 2230 mL.",
+  "Jiang et al. (bande Ti–O–C à 799 cm−1) et l'article antérieur du groupe sur le prétraitement du TiO2 (renvoi [B27]) : non recherchés.",
+  "Densité d'hydroxyles de surface du TiO2 (≈ 5 OH/nm2) et masse volumique de l'anatase (3,89 g/cm3) : ordres de grandeur de manuel, non revérifiés dans une source pendant cette critique."
+ ]
+}

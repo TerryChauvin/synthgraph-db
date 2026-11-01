@@ -1,0 +1,16 @@
+# PMC12455581 — critique scientifique (journal de décisions)
+
+- Masses molaires des nitrates : 291,03 (Co) et 290,79 g/mol (Ni). Un premier calcul avait oublié un O par nitrate (259 g/mol). Corrigé avant d'écrire.
+- ZIF-67 : M[Co(mim)2] = 221,13 g/mol. L'annotation `mecanisme_analyse` de l'extraction donne « environ 227 » : écart sans effet sur Ni:Co ≈ 1,5, donc non signalé comme problème.
+- XRD de ZIF-67 classé `probleme` sur un calcul fait sans constante externe : sin θ(022) doit valoir 2 sin θ(011) sur toute maille cubique. Avec (011) à 8,2°, (022) tomberait à 16,44° et non à 14,7°. La référence Wiley 2023 (7,3° pour (011)) ne sert que de confirmation.
+- Le « pore diameter » de la Table 2 vaut exactement 4V/S pour ZIF-67 (3,20 contre 3,21 nm). C'est donc une moyenne et non un mode DFT ; d'où la réserve sur le mot « mésopores » appliqué à ZIF-67.
+- Point central : la voie au nitrate de nickel est jugée « douteuse » (identité du produit), pas « incohérente ». Le protocole est faisable ; c'est le nom « hybrid-MOF » que les données contredisent : N/(Ni+Co) = 0,018 en XPS, surface microporeuse nulle (S_méso = S_BET), indices (003)/(006)/(018) d'hydroxyde lamellaire.
+- Mécanisme préféré à celui des auteurs : gravure de ZIF-67 par Ni2+ hydraté puis coprécipitation d'un LDH Ni–Co (Jiang 2013, Hu 2015). Je n'ai lu que les résumés de ces deux articles, ce qui est noté dans `sources_not_found`. L'annexe de Jiang 2013 sur rsc.org a renvoyé 404.
+- Rayons ioniques : valeurs de Shannon lues sur la table d'Imperial College (abulafia.mt.ic.ac.uk), qui reprend Shannon 1976 ; DOI confirmé sur Wiley. Les 0,69 et 0,65 Å de l'article comparent Ni2+ en octaèdre à Co2+ bas spin, ce qui est incohérent : le bon point de comparaison est le haut spin (0,745 Å) ou le tétraèdre (0,58 contre 0,55 Å).
+- Cellule : `probleme` fondé sur l'éq. 2 avec les masses déclarées. Il faudrait C−ΔV− = 3,6 × 161,2 × 3,5 / 1 = 2031 F·V/g. Avec les masses inversées, on trouve 166, valeur plausible. Même inversées, la charge de la cellule (0,201 mA h) dépasse ce que 1 mg d'électrode positive fournit. Je dis donc « probablement inversées » sans l'affirmer.
+- Rétention 99,8 % (résumé) contre 61,7 % (résultats) : classé `probleme` d'article et non doute d'extraction, puisque l'extraction a déjà retenu 61,7 %.
+- Mousse de nickel sans essai à blanc : réserve et non problème, car l'article ne compare que des échantillons sur le même support. Sources : Xing 2011 (DOI lu dans la bibliographie de Dojčinović 2024, sur PMC) et Dojčinović 2024.
+- BET de ZIF-67 de référence : Langmuir 2025 (1414 m2/g, Co(NO3)2/Hmim 1:8 dans le méthanol), lu en extrait seulement, auteurs non relevés. L'article Wiley 2023 sur les positions XRD a son titre tronqué dans l'extrait. Les deux sont signalés comme incomplets.
+- Qian 2012 (Mater. Lett.) n'est cité que pour la stabilité thermique de ZIF-67 (350 °C), d'après le résumé de la notice EPA HERO.
+- Rien n'est ajouté à `fondateurs.md` ni à `constantes.md` : Crossref est bloqué, consigne de l'orchestrateur.
+- Recherches web : 7 (3 WebSearch, 4 Parallel search) et 4 lectures de page, dont 2 en échec (DNS, 404) et 1 page derrière identification (dépôt d'Anvers, inutilisée).

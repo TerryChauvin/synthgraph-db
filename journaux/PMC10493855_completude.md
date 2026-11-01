@@ -1,0 +1,12 @@
+# Journal — test de complétude PMC10493855
+
+- Article court (une synthèse en trois temps, un capteur) : l'extraction d'origine était déjà dense ; la liste A ne contenait que 2 nombres (0,19 V et 16,9589 Å). Le reste des ajouts vient de la relecture complète.
+- 0,19 V : les trois potentiels de pic CV (R −0,75, O1 0,20, R1 0,19) sont ajoutés ensemble en outcomes de l'électrode Ag/ZIF-8@ZIF-67/GCE, avec la phrase de l'article pour citation. Le signe moins unicode du texte passe le contrôle de citation.
+- Paramètres de maille (16,9910 et 16,9589 Å) : renvoi aux références 1–3 de l'annexe (non présentes dans corpus/refs), donc rangés en `comparisons` sans `ref_id`. L'ordre « respectively » est lu ZIF-8 puis ZIF-67, comme l'annotation déjà présente.
+- Valeurs d'introduction (LOD ~1 et ~0,1 μmol/L, plage de la HPLC-MS) : en `comparisons`. Le premier renvoi couvre quatre références (cit32, cit36–38) : `ref_id` laissé vide, références citées dans `conditions`. La plage de la HPLC-MS est marginale mais sert de point de comparaison.
+- Simulation DRX (Text S2) : j'ai d'abord créé une voie `kind: calcul`, mais `load.py check` exige `yield` ou `not_stated: [yield]` sur toute voie de base, ce qui n'a pas de sens pour un calcul. Voie retirée ; l'information est dans une caractérisation de la voie ZIF-8@ZIF-67. À signaler à l'orchestrateur : la grille devrait exempter `kind: calcul`.
+- Table S1 : 300 rangées de courants bruts, non extraites (courbes). Le minimum brut de la colonne 2,6-DCNP (−6,400 μA à −0,604 V) diffère de la lecture graphique de la Fig. 5a (≈ 5,8 μA, déjà extraite avec `from_figure`) : noté en doute, valeur non modifiée. Le pas de 0,004 V et la plage −0,404 à −0,900 V sont observés dans la table, pas écrits par les auteurs : donc en doute, pas en paramètre.
+- Conditions de mesure absentes de l'article (DRX, SEM, HRTEM, XPS, BET, CV, DPV) : une condition absente va dans `doubts`, pas dans `not_stated`, d'après la précision du prompt.
+- Légende de la Fig. S4 (« 2,6-DCNP is 20 mg/L ») : condition de l'optimisation ; la citation de l'entrée est la phrase du texte principal, la précision de l'annexe est dans `conditions`.
+- Rien n'a été modifié ni retiré ; entrées `characterizations` existantes laissées avec `conditions: null`.
+- Aucune figure ouverte : les résultats chiffrés absents du texte (Fig. 2b, 3a, 4b, 5a) étaient déjà lus par l'extracteur ; Rct (Fig. 3b) non chiffré dans l'article.

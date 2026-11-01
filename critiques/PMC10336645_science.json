@@ -1,0 +1,553 @@
+{
+ "pmcid": "PMC10336645",
+ "routes": [
+  {
+   "label": "PN-CDs_mixture",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de précurseurs",
+     "inputs": "HEDP 100 mg (206,03 g/mol) ; urée 100 mg (60,06 g/mol) ; formamide 10 mL × 1,1334 g/mL (45,04 g/mol)",
+     "formula": "n = m / M",
+     "result": "HEDP 0,485 mmol (0,971 mmol P) ; urée 1,665 mmol ; formamide 251,6 mmol",
+     "compared_to": "rôles annoncés : HEDP source de P, urée et formamide sources de N",
+     "source": "valeurs de l'article ; M(HEDP) PubChem CID 3305 ; densité et M du formamide NOAA CAMEO"
+    },
+    {
+     "what": "rapports molaires formamide / précurseurs",
+     "inputs": "251,6 mmol formamide ; 1,665 mmol urée ; 0,485 mmol HEDP",
+     "formula": "n(FA)/n(urée) ; n(FA)/n(HEDP)",
+     "result": "151 ; 518",
+     "compared_to": "le formamide n'est pas un simple solvant : il apporte ≈ 99 % du C et du N",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "part de l'azote apportée par l'urée",
+     "inputs": "N urée 2 × 1,665 = 3,33 mmol ; N formamide 251,6 mmol",
+     "formula": "N(urée) / N(total)",
+     "result": "1,3 %",
+     "compared_to": "les auteurs disent l'azote « derived from urea, formamide and HEDP »",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport P/C apporté contre P/C des produits",
+     "inputs": "P 0,971 mmol ; C 2×0,485 + 1,665 + 251,6 = 254,3 mmol ; tableau S2 : bCDs P 1,26 / C 48,13 %, gCDs P 3,65 / C 42,54 % (massiques)",
+     "formula": "P/C atomique = (P%/30,974)/(C%/12,011)",
+     "result": "charge 0,0038 ; bCDs 0,0102 ; gCDs 0,0333 (enrichissement en P × 2,7 et × 8,7)",
+     "compared_to": "enrichissement plausible si le HEDP réagit sélectivement ou s'il reste du HEDP non éliminé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de HEDP dans la charge",
+     "inputs": "0,485 mmol dans 10 mL",
+     "formula": "c = n / V",
+     "result": "0,049 mol/L",
+     "compared_to": "acide fort (pKa1 1,35) : catalyse acide possible de la décomposition du formamide",
+     "source": "valeurs de l'article ; pKa ChemBK (source secondaire)"
+    },
+    {
+     "what": "taux de remplissage de l'autoclave",
+     "inputs": "10 mL de solution ; autoclave de 50 mL",
+     "formula": "V(liquide)/V(autoclave)",
+     "result": "20 %",
+     "compared_to": "domaine habituel 20–80 % ; ciel gazeux ≈ 40 mL",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression de vapeur du formamide à 180 °C",
+     "inputs": "Antoine (NIST, Stull 1947) A 7,5852, B 3881,305, C 27,655 ; T = 453,15 K",
+     "formula": "log10 P(bar) = A − B/(T + C)",
+     "result": "0,33 bar",
+     "compared_to": "Téb 210 °C : 180 °C reste sous l'ébullition ; la pression vient surtout des gaz de décomposition",
+     "source": "NIST Chemistry WebBook, formamide"
+    },
+    {
+     "what": "pression des gaz de décomposition (ordre de grandeur)",
+     "inputs": "HCONH2 → CO + NH3 (2 mol de gaz par mol) ; 1 % ou 5 % de 251,6 mmol décomposés ; urée totalement décomposée en NH3 + HNCO (3,33 mmol) ; ciel 40 mL ; 453 K ; gaz parfait, solubilité de NH3 ignorée",
+     "formula": "P = nRT/V",
+     "result": "1 % → ≈ 4,7 bar ; 5 % → ≈ 24 bar ; urée seule → ≈ 3,1 bar",
+     "compared_to": "autoclave PTFE de laboratoire : limite usuelle de quelques dizaines de bar (à vérifier sur la notice)",
+     "source": "chimie générale ; voie de décomposition NOAA CAMEO"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "180 °C en autoclave fermé, sous le point d'ébullition du formamide (210 °C ; pression de vapeur ≈ 0,33 bar, voir « pression de vapeur du formamide à 180 °C ») et taux de remplissage de 20 % : pas d'incohérence. Mais 180 °C est exactement la température de début de décomposition du formamide (CO + NH3, 180–210 °C) : la pression réelle dépend du taux de décomposition, inconnu (≈ 5 bar pour 1 %, ≈ 24 bar pour 5 %, voir « pression des gaz de décomposition »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "FORMAMIDE — Chemical Datasheet (décomposition en CO et NH3 à partir de 180–210 °C ; Téb 410 °F à 760 mmHg avec décomposition ; densité 1,1334)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals (données USCG 1999, NTP 1992)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/11433"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le formamide fournit ≈ 99 % du carbone et de l'azote (151 fois plus de moles que l'urée, 518 fois plus que le HEDP ; l'urée ne fournit que 1,3 % de l'azote, voir « part de l'azote apportée par l'urée ») : c'est le vrai précurseur, et le rôle propre de l'urée n'est pas démontré (aucun essai sans urée). Le P est enrichi dans les produits (P/C atomique 0,010 et 0,033 contre 0,0038 dans la charge), ce qui est compatible avec une incorporation sélective du HEDP ou avec du HEDP résiduel.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non signalé par les auteurs : le formamide est classé Repr. 1B (H360D dans l'entrée harmonisée ; H360FD chez certains fournisseurs), Carc. 2 (H351) et STOT RE 2, et figure sur la liste des substances extrêmement préoccupantes de l'ECHA. Sa température de décomposition (180 °C, fiche Thermo Fisher) est celle de la synthèse ; les produits de décomposition sont CO, NH3 et HCN. Ouvrir l'autoclave froid sous hotte (CO inodore), manipuler le brut et les fractions avec gants, ne pas chauffer au-delà de 180 °C sans connaître la tenue en pression du récipient.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Safety Data Sheet — Formamide (Carc. 2 H351, Repr. 1B H360FD, STOT RE 2 H373 ; température de décomposition 180 °C ; produits de décomposition CO, NH3, HCN, NOx)",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur ACR42374)",
+      "year": "2023",
+      "url_or_doi": "https://assets.thermofisher.com/DirectWebViewer/private/document.aspx?prd=ACR42374~~PDF~~MTR~~CLP1~~EE~~2023-10-11+13:21:59~~Formamide~~"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Statut réglementaire du formamide (SVHC pour ses propriétés CMR, reprotoxique) confirmé par le document de l'ECHA ; à mentionner dans tout protocole destiné à des applications biomédicales, où des traces de solvant doivent être exclues.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Support document for identification of formamide as a substance of very high concern because of its CMR properties (EC 200-842-0, index CLP 616-052-00-8)",
+      "authors_or_publisher": "ECHA",
+      "year": "2012",
+      "url_or_doi": "https://echa.europa.eu/documents/10162/e2c630c4-db4b-ddd5-a71d-0ff2d743e96e"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "12 h à 180 °C est une durée courante pour la carbonisation solvothermale de petites molécules ; pas d'incohérence.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« Hydrolysis, dehydration and fragmentation of small molecules » ne décrit rien de précis. La chimie connue du formamide chauffé (≈ 160 °C) est une condensation en hétérocycles azotés (purine, pyrimidines), via HCN issu de sa déshydratation, et le formamide favorise les phosphorylations : c'est un chemin plus probable vers des oligomères azotés et des esters phosphorés que la « fragmentation ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Formamide chemistry and the origin of informational polymers",
+      "authors_or_publisher": "Saladino R., Crestini C., Ciciriello F., Costanzo G., Di Mauro E. (Chem. Biodivers. 4, 694–720)",
+      "year": "2007",
+      "url_or_doi": "10.1002/cbdv.200790059"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement du brut, masse sèche et méthode d'isolement non donnés : aucune concentration massique ultérieure (8 mg/mL, 0,08 mg/mL, 10–160 µg/mL) ne peut être rattachée à une masse pesée de points de carbone.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 180 °C, en milieu acide (HEDP ≈ 0,05 M), le formamide se décompose partiellement (CO + NH3 ; HCN + H2O) et se condense en hétérocycles azotés (purine, pyrimidines, triazines) ; l'urée donne NH3 et HNCO (biuret, acide cyanurique). Ces espèces polymérisent en oligomères très riches en azote (N/C atomique 0,6–0,7 d'après le tableau S2), puis se carbonisent partiellement en domaines de 2–4 nm. Le HEDP, qui porte déjà une liaison P–C, se greffe sous forme de phosphonates ou d'esters P–O–C (phosphorylation favorisée dans le formamide). Les espèces les plus phosphonatées et carboxylées sont anioniques et seront retenues sur la résine. Une part de l'émission bleue peut venir de fluorophores moléculaires plutôt que de points de carbone (Essner 2018).",
+    "sources": [
+     {
+      "title": "Formamide chemistry and the origin of informational polymers",
+      "authors_or_publisher": "Saladino R., Crestini C., Ciciriello F., Costanzo G., Di Mauro E. (Chem. Biodivers. 4, 694–720)",
+      "year": "2007",
+      "url_or_doi": "10.1002/cbdv.200790059"
+     },
+     {
+      "title": "From Formamide to RNA, the Path Is Tenuous but Continuous (rappelle Yamada 1978 : formamide liquide chauffé à 160 °C → purine)",
+      "authors_or_publisher": "Saladino R. et al. (Life, PMC4390857)",
+      "year": "2015",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4390857"
+     },
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al. (Chem. Mater.)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "tenue en pression de l'autoclave de 50 mL à 180 °C avec le formamide (décomposition en CO et NH3)",
+    "ouverture à froid sous hotte : CO, NH3, traces de HCN",
+    "rendement : lyophiliser une aliquote du brut et la peser",
+    "essai témoin sans urée et sans HEDP pour savoir ce que chacun apporte"
+   ]
+  },
+  {
+   "label": "bCDs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "HEDP déposé sur la colonne (borne haute, si rien n'a réagi)",
+     "inputs": "1 mL de brut ; 0,0485 mmol de HEDP par mL",
+     "formula": "n = c × V",
+     "result": "0,049 mmol de HEDP, soit ≤ 0,19 méq de charges anioniques en déprotonation complète",
+     "compared_to": "30 mL de résine : capacité non donnée par l'article, mais très supérieure à la charge quelle que soit la valeur usuelle ; tout anion sera retenu",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport volume de résine / volume déposé",
+     "inputs": "30 mL de DOWEX 1 × 8 ; 1 mL de brut",
+     "formula": "V(résine)/V(dépôt)",
+     "result": "30",
+     "compared_to": "chromatographie préparative d'échange d'ions : rapport confortable",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse d'un point de carbone de 2 nm contre le seuil de dialyse",
+     "inputs": "diamètre 2 nm ; masse volumique supposée 1,5 g/cm3 (hypothèse) ; NA 6,022 × 10^23",
+     "formula": "M = ρ × (π d³/6) × NA",
+     "result": "≈ 3,8 kDa",
+     "compared_to": "membrane de 2 kDa : seuil du même ordre que la masse d'un point ; pertes possibles, et oligomères de 2–4 kDa retenus avec les points",
+     "source": "chimie générale (masse volumique supposée)"
+    },
+    {
+     "what": "composition atomique de bCDs (tableau S2)",
+     "inputs": "C 48,13 ; H 1,04 ; O 15,81 ; N 33,76 ; P 1,26 % (massiques) ; somme exacte 100,00",
+     "formula": "x = %m / M, rapports à C",
+     "result": "N/C 0,60 ; O/C 0,25 ; H/C 0,26 ; P/C 0,010 ; sans H : C 53,8, N 32,4, O 13,3, P 0,55 % atomiques",
+     "compared_to": "« doping » : 32 % atomiques d'azote ne sont pas un dopage ; H/C 0,26 très faible pour un matériau riche en amides",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constantes radiatives de bCDs",
+     "inputs": "QY 0,2033 ; τ 6,194 ns",
+     "formula": "kr = QY/τ ; knr = (1 − QY)/τ",
+     "result": "kr ≈ 3,3 × 10^7 s−1 ; knr ≈ 1,3 × 10^8 s−1",
+     "compared_to": "ordre de grandeur habituel des points de carbone et des fluorophores organiques",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergies d'émission annoncées et lues",
+     "inputs": "460 nm (texte, « couleur sous UV ») ; ≈ 440 nm (Fig. 2b, λex 380 nm)",
+     "formula": "E(eV) = 1239,84 / λ(nm)",
+     "result": "2,70 eV contre 2,82 eV",
+     "compared_to": "écart de 0,12 eV entre la valeur citée et le spectre montré",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le maximum d'émission de 460 nm est déclaré « according to the color under the UV lamp » : ce n'est pas une mesure spectrale. Le seul spectre montré (Fig. 2b, λex 380 nm) culmine vers 440 nm. La valeur à retenir est celle du spectre, avec la longueur d'onde d'excitation.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Phrase physiquement impossible : « excitation wavelength shifted from 400 nm to 600 nm, resulting in the PL peak gradually changing from 380 (orange) to 450 nm (dark blue) ». Une émission à 380 nm sous excitation de 400–600 nm serait anti-Stokes, 380 nm est de l'UV et non de l'orange, et les Méthodes limitent l'excitation à 380–450 nm. Les Fig. 2b/2e montrent au contraire un maximum qui glisse d'environ 430 à 470 nm quand λex passe de 380 à 450 nm.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les auteurs écrivent « the doping concentrations of P and O are approximately 1.26 and 33.76% » : dans le tableau S2, 33,76 % est la teneur en N ; O vaut 15,81 %. Le tableau contient en outre l'hydrogène, que la XPS ne détecte pas : c'est une analyse élémentaire (combustion, O probablement par différence, sommes exactement 100,00), et non le résultat XPS annoncé par le texte.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Déconvolution N 1s du texte : 398,7 eV attribué au N-oxyde pyridinique et 398,92 eV au N pyridinique. Le N-oxyde pyridinique se trouve au-dessus de 402 eV, et deux composantes séparées de 0,22 eV sont plus proches que la résolution d'un spectromètre XPS de laboratoire (largeur à mi-hauteur ≈ 1 eV) ; la Fig. 3b place d'ailleurs le N-oxyde vers 401,7 eV et le N quaternaire vers 400,7 eV. Le texte annonce aussi « six peaks » en C 1s, mais n'en donne et n'en montre que trois.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Metal-free catalysis based on nitrogen-doped carbon nanomaterials: a photoelectron spectroscopy point of view (pyridinique 398–399 eV, pyrrolique 399,5–400,5 eV, graphitique 400–401 eV, oxydes d'azote > 402 eV)",
+      "authors_or_publisher": "Beilstein Journal of Nanotechnology 9 (auteurs non relevés)",
+      "year": "2018",
+      "url_or_doi": "https://www.beilstein-journals.org/bjnano/articles/9/191"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Avec N/C ≈ 0,6 (voir « composition atomique de bCDs »), le matériau est un oligomère ou polymère très azoté (type hétérocycles condensés ou nitrure de carbone, où N 1s ≈ 398,6 eV correspond à C–N=C et ≈ 400 eV à N–(C)3) plutôt qu'un carbone graphitique dopé : les étiquettes pyridinique/pyrrolique/graphitique, conçues pour des réseaux graphéniques faiblement dopés, sont discutables ici.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Fraction neutre éluée à l'eau avec la fraction non retenue : elle contient aussi tout ce qui est neutre dans le brut (formamide, urée, fluorophores moléculaires). Seule la dialyse à 2 kDa, sans durée donnée, les sépare, et un point de 2 nm pèse ≈ 3,8 kDa (voir « masse d'un point de carbone de 2 nm ») : séparation incomplète probable. Le rendement quantique de 20 % peut venir en partie de fluorophores moléculaires ; aucune preuve (chromatographie, spectre RMN, MS) ne l'exclut.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al. (Chem. Mater.)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique de 20,33 % (quatre chiffres significatifs) mesuré par la méthode relative sans nommer l'étalon ni son rendement, à λex = 374 nm. Sur la Fig. 2c, l'absorbance à 374 nm n'est pas résolue du fond : l'IUPAC recommande un étalon nommé, absorbance ≤ 0,1 et plusieurs dilutions. Valeur plausible pour des points de carbone azotés, mais non vérifiable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M. (Pure Appl. Chem.)",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Durée de vie de 6,194 ns et kr ≈ 3,3 × 10^7 s−1 (voir « constantes radiatives de bCDs ») : ordre de grandeur habituel. Mesure à λém = 500 nm, soit sur le flanc rouge de l'émission bleue.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raman : un seul rapport AD/AG ≈ 1,065 est donné « for the bCDs and gCDs », alors que le texte affirme que la bande G baisse et que la bande D monte du bleu au vert. Une valeur unique ne peut pas porter cette tendance ; pour un carbone amorphe (stade 2 de Ferrari et Robertson), ce rapport renseigne sur la taille des domaines aromatiques, pas directement sur l'azote graphitique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Interpretation of Raman spectra of disordered and amorphous carbon",
+      "authors_or_publisher": "Ferrari A. C., Robertson J. (Phys. Rev. B 61, 14095)",
+      "year": "2000",
+      "url_or_doi": "10.1103/physrevb.61.14095"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "HRTEM : des franges de 0,22 nm attribuées à (100) du graphite (d100 ≈ 0,213 nm) dans des particules de ≈ 2 nm, avec une DRX amorphe : coexistence fréquente dans les articles sur les points de carbone, mais quelques franges sur des points de 2 nm ne prouvent pas un cœur graphitique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cytotoxicité (MTT, 24 h, U2OS et 143B, > 90 % de viabilité à 160 µg/mL) : valeurs habituelles pour des points de carbone. Mais la base massique n'est pas définie (pas de séchage ni de pesée décrits), le formamide résiduel n'est pas dosé, et le milieu change entre les sections (McCoy's 5A et MEM achetés, « DMEM » pour la microscopie confocale). La lignée s'écrit U2OS (lettre O), non « U20S ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Fraction peu chargée : oligomères et domaines carbonés azotés pauvres en phosphonates et carboxylates, qui traversent la résine échangeuse d'anions avec la fraction non retenue. L'émission bleue (≈ 440 nm sous 380 nm) est attribuable à des états de surface ou à des fluorophores moléculaires azotés liés ou adsorbés, plutôt qu'à un effet de taille démontré.",
+    "sources": [
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "Essner J. B. et al. (Chem. Mater.)",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     },
+     {
+      "title": "Graphitic Nitrogen Triggers Red Fluorescence in Carbon Dots",
+      "authors_or_publisher": "Holá K., Sudolská M., Kalytchuk S., Nachtigallová D., Rogach A. L., Otyepka M., Zbořil R. (ACS Nano 11, 12402–12410)",
+      "year": "2017",
+      "url_or_doi": "10.1021/acsnano.7b06399"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "spectres d'émission complets avec λex et maximum mesurés (et non la couleur sous lampe UV)",
+    "étalon du rendement quantique (sulfate de quinine par exemple) et absorbance ≤ 0,1",
+    "durée de dialyse et dosage du formamide résiduel avant les essais cellulaires",
+    "masse sèche de la fraction (lyophilisation) pour définir les µg/mL",
+    "contrôle de l'absence de fluorophores moléculaires (Essner 2018)"
+   ]
+  },
+  {
+   "label": "gCDs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "HEDP déposé sur la colonne (borne haute, si rien n'a réagi)",
+     "inputs": "1 mL de brut ; 0,0485 mmol de HEDP par mL",
+     "formula": "n = c × V",
+     "result": "0,049 mmol de HEDP, soit ≤ 0,19 méq de charges anioniques en déprotonation complète",
+     "compared_to": "30 mL de résine : capacité non donnée par l'article, mais très supérieure à la charge quelle que soit la valeur usuelle ; tout anion sera retenu",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport volume de résine / volume déposé",
+     "inputs": "30 mL de DOWEX 1 × 8 ; 1 mL de brut",
+     "formula": "V(résine)/V(dépôt)",
+     "result": "30",
+     "compared_to": "chromatographie préparative d'échange d'ions : rapport confortable",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masse d'un point de carbone de 2 nm contre le seuil de dialyse",
+     "inputs": "diamètre 2 nm ; masse volumique supposée 1,5 g/cm3 (hypothèse) ; NA 6,022 × 10^23",
+     "formula": "M = ρ × (π d³/6) × NA",
+     "result": "≈ 3,8 kDa",
+     "compared_to": "membrane de 2 kDa : seuil du même ordre que la masse d'un point ; pertes possibles, et oligomères de 2–4 kDa retenus avec les points",
+     "source": "chimie générale (masse volumique supposée)"
+    },
+    {
+     "what": "composition atomique de gCDs (tableau S2)",
+     "inputs": "C 42,54 ; H 2,16 ; O 16,73 ; N 34,92 ; P 3,65 % (massiques) ; somme exacte 100,00",
+     "formula": "x = %m / M, rapports à C",
+     "result": "N/C 0,70 ; O/C 0,30 ; H/C 0,61 ; P/C 0,033 ; sans H : C 49,2, N 34,6, O 14,5, P 1,64 % atomiques",
+     "compared_to": "bCDs : P/C 0,010 ; gCDs 3,3 fois plus riches en P",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constantes radiatives de gCDs",
+     "inputs": "QY 0,0192 ; τ 2,09 ns",
+     "formula": "kr = QY/τ ; knr = (1 − QY)/τ",
+     "result": "kr ≈ 9,2 × 10^6 s−1 ; knr ≈ 4,7 × 10^8 s−1",
+     "compared_to": "bCDs : kr 3,3 × 10^7 ; knr 1,3 × 10^8 s−1. La chute du QY vient surtout de knr (× 3,6), mais kr baisse aussi (÷ 3,6)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergies d'émission annoncées et lues",
+     "inputs": "510 nm (texte, « couleur sous UV ») ; ≈ 430 nm (Fig. 2e, λex 380 nm)",
+     "formula": "E(eV) = 1239,84 / λ(nm)",
+     "result": "2,43 eV contre 2,88 eV",
+     "compared_to": "écart de 0,45 eV : le spectre montré n'est pas vert",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "état de protonation dans HCl 1,0 M",
+     "inputs": "pH ≈ 0 ; pKa1 HEDP 1,35 ; pKa des acides carboxyliques ≈ 4",
+     "formula": "fraction déprotonée = 1/(1 + 10^(pKa − pH))",
+     "result": "≈ 4 % de la première fonction phosphonique déprotonée ; carboxyles ≈ 0,01 %",
+     "compared_to": "l'élution par HCl 1 M marche à la fois par déplacement par Cl− et par neutralisation des groupes acides : logique de séparation cohérente",
+     "source": "pKa ChemBK (source secondaire) ; chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'émission « verte » à 510 nm n'est mesurée nulle part : elle est déduite de la couleur sous lampe UV, et le spectre montré pour les gCDs (Fig. 2e, λex 380 nm) culmine vers 430 nm, au même endroit que celui des bCDs (Fig. 2b). L'écart de 0,45 eV (voir « énergies d'émission annoncées et lues ») invalide la comparaison bleu/vert telle qu'elle est documentée ; la Fig. S9, censée montrer les spectres, n'est pas lisible dans le dépôt.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rôle de l'azote graphitique : le texte situe l'azote graphitique « croissant » à 401,6–401,3 eV, alors que la Fig. 3b/3e étiquette ce pic N-oxyde pyridinique et place le N quaternaire vers 400,7 eV ; aucune proportion n'est chiffrée pour aucune fraction. Les phrases sont reprises de Holá et al. 2017, où l'azote graphitique n'augmente qu'entre les fractions jaune et rouge, les fractions bleue et verte y étant dominées par l'azote amide. L'affirmation n'est donc pas démontrée ici.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphitic Nitrogen Triggers Red Fluorescence in Carbon Dots",
+      "authors_or_publisher": "Holá K., Sudolská M., Kalytchuk S., Nachtigallová D., Rogach A. L., Otyepka M., Zbořil R. (ACS Nano 11, 12402–12410)",
+      "year": "2017",
+      "url_or_doi": "10.1021/acsnano.7b06399"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Source de Holá et al. confirmée par une revue : dans le système acide citrique/urée/formamide, b- et g-C-dots sont dominés par l'azote des amides de surface, et l'azote graphitique augmente pour les fractions jaune et rouge.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Towards Red Emissive Systems Based on Carbon Dots (revue, section 2.1.1 résumant Holá 2017)",
+      "authors_or_publisher": "revue en accès libre, PMC8400426 (auteurs non relevés)",
+      "year": "2021",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8400426"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Co-dopage » au phosphore non démontré. (1) Le HEDP porte déjà une liaison P–C : un pic « P–C » en P 2p ne distingue pas un P inséré dans le réseau carboné d'un phosphonate greffé ou adsorbé. (2) Les deux composantes « P–C » (≈ 132,5 eV) et « P–O » (≈ 133,5 eV), séparées d'environ 1 eV avec un rapport d'aire voisin de 2:1, ressemblent au doublet spin-orbite P 2p3/2 – P 2p1/2 (Δ = 0,87 eV) d'une seule espèce. (3) Le HEDP non réagi est un anion retenu par la résine et élué par HCl avec les gCDs ; seule une dialyse de durée inconnue l'élimine. La teneur en P de 3,65 % peut donc inclure du précurseur résiduel.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Phosphorus — XPS Periodic Table (P 2p : composantes spin-orbite rapprochées, Δ = 0,87 eV ; phosphate ≈ 133 eV)",
+      "authors_or_publisher": "Thermo Fisher Scientific",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.thermofisher.com/uk/en/home/materials-science/learning-center/periodic-table/non-metal/phosphorus.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Écart de spin-orbite du P 2p confirmé par une seconde source : 0,86 ± 0,05 eV ; P lié au carbone et à l'oxygène (PO(C6H5)3) à 132,6 eV, soit la position du pic que les auteurs attribuent à « P–C ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Phosphorus — XPS Reference Pages (écart P 2p3/2 – P 2p1/2 = 0,86 ± 0,05 eV ; PO(C6H5)3 132,6 eV)",
+      "authors_or_publisher": "M. Biesinger, xpsfitting.com",
+      "year": "2013",
+      "url_or_doi": "http://www.xpsfitting.com/2013/01/phosphorus.html"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Logique de la séparation : la DOWEX 1 × 8 est un échangeur d'anions fortement basique (triméthylammonium, forme Cl−) ; les espèces neutres passent à l'eau, les phosphonates (pKa1 1,35) et carboxylates sont retenus à pH neutre, puis HCl 1,0 M les libère par excès de Cl− et par protonation (voir « état de protonation dans HCl 1,0 M »). C'est cohérent avec gCDs plus riches en P (P/C 0,033 contre 0,010). Mais la séparation trie par charge, pas par couleur : rien ne garantit qu'une fraction chargée émette plus au rouge.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "DOWEX Resin Properties (DOWEX 1 X : échangeur d'anions fortement basique de type gel, type I, groupe triméthylammonium, forme Cl− à la livraison)",
+      "authors_or_publisher": "SERVA Electrophoresis (fiche fournisseur)",
+      "year": "2011",
+      "url_or_doi": "https://www.serva.de/www_root/documents/DOWEX-%20Resin%20Properties.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique de 1,92 % avec un étalon non nommé et une absorbance non résolue du fond à 374 nm (Fig. 2c) : incertitude relative probablement grande. La durée de vie de 2,09 ns est mesurée à λém = 500 nm, alors que le spectre montré culmine vers 430 nm.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Standards for photoluminescence quantum yield measurements in solution (IUPAC Technical Report)",
+      "authors_or_publisher": "Brouwer A. M. (Pure Appl. Chem.)",
+      "year": "2011",
+      "url_or_doi": "10.1351/pac-rep-10-09-31"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "UV-vis : le texte annonce une transition n–π* « obvious » à 340 nm, mais la Fig. 2c ne montre pour les gCDs qu'une bande vers 255–265 nm et aucune bande nette à 340 nm. La bande IR à 1017 cm−1, attribuée à C–N, tombe aussi dans le domaine des élongations P–O et P–O–C des phosphonates (≈ 950–1100 cm−1), justement présentes ici.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Texte résiduel d'un autre article : « The spectra of the bCDs and rCDs displayed no obvious peaks… » mentionne des « rCDs » (points rouges) qui n'existent pas dans cette étude, comme dans le schéma bleu/vert/jaune/rouge de Holá et al. ; la Fig. S6 parle de « hydrochloric acid solutions » alors que la courbe porte des concentrations de NaCl. Cohérence entre sections faible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cytotoxicité (> 92,6 % de viabilité jusqu'à 160 µg/mL) : plausible, mais la fraction sort de HCl 1,0 M, et la neutralité après dialyse, la base massique et le chlorure résiduel ne sont pas contrôlés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Fraction anionique : domaines azotés portant des groupes phosphonate et carboxylate (et peut-être du HEDP résiduel), retenus sur les sites triméthylammonium puis libérés par HCl 1,0 M (échange par Cl− et protonation). Le rendement quantique plus faible correspond à un knr 3,6 fois plus grand. Il peut s'expliquer par l'extinction liée aux groupes phosphonate et carbonyle ou par l'agrégation, sans qu'un rôle de l'azote graphitique soit démontré ; la couleur verte elle-même reste à mesurer.",
+    "sources": [
+     {
+      "title": "Graphitic Nitrogen Triggers Red Fluorescence in Carbon Dots",
+      "authors_or_publisher": "Holá K., Sudolská M., Kalytchuk S., Nachtigallová D., Rogach A. L., Otyepka M., Zbořil R. (ACS Nano 11, 12402–12410)",
+      "year": "2017",
+      "url_or_doi": "10.1021/acsnano.7b06399"
+     },
+     {
+      "title": "DOWEX Resin Properties (DOWEX 1 X : échangeur d'anions fortement basique de type gel, type I, groupe triméthylammonium, forme Cl− à la livraison)",
+      "authors_or_publisher": "SERVA Electrophoresis (fiche fournisseur)",
+      "year": "2011",
+      "url_or_doi": "https://www.serva.de/www_root/documents/DOWEX-%20Resin%20Properties.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "spectre d'émission des gCDs à plusieurs λex avec maximum mesuré (le vert n'est pas montré)",
+    "quantification XPS N 1s de chaque composante, avec attributions corrigées (N-oxyde > 402 eV)",
+    "ajustement P 2p avec doublets spin-orbite (Δ 0,87 eV, rapport 2:1) avant de parler de liaisons P–C",
+    "RMN 31P ou dosage du HEDP résiduel après dialyse",
+    "durée de dialyse et pH final de la fraction éluée par HCl"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse solvothermale simple et reproductible dans son principe : HEDP et urée dans le formamide, 180 °C, 12 h, autoclave rempli à 20 %. Le formamide, qui fournit 99 % du C et du N, est un reprotoxique de catégorie 1B qui commence à se décomposer (CO, NH3, HCN) précisément à 180 °C, ce que l'article ne signale pas. La séparation par échange d'anions est logique (tri par charge). En revanche, la caractérisation qui fonde les conclusions est faible : émissions « 460/510 nm » lues à la couleur sous lampe UV alors que les spectres montrés culminent tous deux vers 430–440 nm ; attributions XPS N 1s erronées et non chiffrées pour l'azote graphitique, repris de Holá et al. 2017 ; « P–C » et doublet P 2p non discriminants ; tableau S2 présenté comme XPS alors qu'il contient H ; teneur en N de 32–35 % atomiques qualifiée de « dopage ».",
+  "author_errors_suspected": [
+   "maxima d'émission 460 et 510 nm « selon la couleur sous UV », contredits par les Fig. 2b/2e (≈ 440 et ≈ 430 nm sous λex 380 nm)",
+   "phrase PL impossible : excitation 400–600 nm donnant une émission de 380 nm « orange » à 450 nm",
+   "« P et O ≈ 1,26 et 33,76 % » : 33,76 % est N dans le tableau S2 (O = 15,81 %)",
+   "tableau S2 présenté comme résultat XPS alors qu'il contient l'hydrogène (analyse élémentaire)",
+   "N 1s : N-oxyde pyridinique placé à 398,7 eV dans le texte et à 401,7 eV dans la figure ; azote graphitique situé à 401,6–401,3 eV, sur le pic étiqueté N-oxyde",
+   "C 1s « six peaks » pour trois composantes listées et montrées",
+   "un seul rapport AD/AG pour deux échantillons supposés différer en D et G",
+   "« rCDs » et formulations reprises de Holá et al. 2017 (texte résiduel)",
+   "lignée « U20S » pour U2OS ; DMEM pour la microscopie confocale, alors que seuls McCoy's 5A et MEM sont achetés"
+  ],
+  "comparison_with_database": "compare.py « carbon dots » : 27 voies de base. Aucune autre synthèse dans le formamide ni avec du HEDP. Seule autre séparation chromatographique d'un mélange de points de carbone : PMC10131834 (colonne de silice, gradient acétate d'éthyle/éthanol, tri par polarité et non par charge). Les rendements quantiques de la base s'étendent de 0,2 % (PMC10077337) à des valeurs aberrantes > 100 % (PMC10583617) ; 20 % et 1,9 % sont dans la plage habituelle."
+ },
+ "sources_not_found": [
+  "capacité d'échange de la DOWEX 1 × 8 (méq/mL) : non relevée sur une fiche lue, non utilisée comme chiffre",
+  "DOI de la revue « Towards Red Emissive Systems Based on Carbon Dots » et de l'article du Beilstein J. Nanotechnol. 2018 : non vus, URL citées à la place",
+  "pKa du HEDP sur une source primaire (PubChem ne les affichait pas dans l'extrait) : source secondaire ChemBK utilisée",
+  "aucune source lue sur la position N 1s des nitrures de carbone (398,6 / 400 eV) : valeur de chimie générale, non sourcée"
+ ]
+}

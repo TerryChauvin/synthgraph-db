@@ -1,0 +1,86 @@
+{
+ "pmcid": "PMC3998862",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "AH-AgNPs_4C / _25C / _40C / _50C / _60C, step 1 duration (« until crimson was observed ») et steps 2-4",
+   "extracted": "hérite de la durée « until crimson was observed » et de la centrifugation, du lavage et de la redispersion du parent",
+   "article_says": "We further prearranged various temperatures from 4°C to 60°C and different reaction times to observe the peak wavelength of AH-AgNPs and investigate the influence of temperature and reaction time on the yield of AH-AgNPs.",
+   "fix": "la série en température est un suivi cinétique (Fig. 2 : absorbance suivie de 0 à 600 min, lecture sur la figure) : ajouter à chaque branche une variation de duration (« different reaction times », valeur_text) plutôt que d'hériter de « until crimson was observed » ; déclarer les steps 2-4 non applicables ou en not_stated avec doute (on ne centrifuge pas un point cinétique)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "les 18 branches d'optimisation, héritage des steps 2-4 (centrifuge, wash, disperse)",
+   "extracted": "les 18 branches héritent des quatre étapes de AH-AgNPs",
+   "article_says": "The UV-visible absorption spectrum was recorded to evaluate the optimal characterization and analyze the synthesis rate of AH-AgNPs obtained under different reaction conditions at a wavelength of 300–800 nm using a UV-1800 PC UV-visible spectrophotometer",
+   "fix": "l'article ne dit pas que les mélanges des séries ont été centrifugés, lavés et redispersés avant la mesure UV (« Based on the AH-AgNP preparation » seulement) ; lecture littérale peu fondée, donner aux branches leurs propres steps (étape 1 seule) ou déclarer les steps 2-4 non cités ; le doute existe déjà mais la structure contredit la règle d'héritage non fondé",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "AH_extract reagent « deionized water » et AH-AgNPs reagent « deionized water (redispersion) » : not_stated purity et supplier",
+   "extracted": "purity et supplier déclarés non cités pour l'eau",
+   "article_says": "Water in this study was provided by the Milli-Q water-purification system (EMD Millipore, Billerica, MA, USA).",
+   "fix": "renseigner supplier « Milli-Q water-purification system (EMD Millipore, Billerica, MA, USA) » avec cette phrase en supplier_quote (elle vise nommément l'eau de toute l'étude) ; purity reste non citée",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "AH-AgNPs_ext2min / ext5min / ext30min / ext60min, variation sur le réactif « A. herba extract (route AH_extract) »",
+   "extracted": "value_text « extraction time of 2 minutes » (idem 5, 30, 60), sans valeur numérique",
+   "article_says": "Based on the AH-AgNP preparation, the extraction time of A. herba was predetermined at 2, 5, 15, 30, and 60 minutes to evaluate the influence on the yield of AH-AgNPs.",
+   "fix": "la durée d'extraction est le paramètre duration de l'étape 1 de AH_extract (15 minutes) : coder la variation en value_num 2 / 5 / 30 / 60 et unit minutes (ou créer les branches de AH_extract et faire pointer les branches AH-AgNPs vers elles) pour que la série soit comparable numériquement",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "AH-AgNPs_1.5mM outcomes",
+   "extracted": "seul l'absorbance 0,9 est notée ; le décalage de la bande n'est porté que par AH-AgNPs_2mM",
+   "article_says": "However, the absorption wavelength was slightly shifted when AgNO3 concentrations were higher than 1.0 mM, at which the comparative agglomeration was also speculated to be due to the broadening of peak width at half height.",
+   "fix": "« higher than 1.0 mM » couvre aussi 1,5 mM (la Fig. 3 montre son pic décalé vers ≈ 445 nm contre ≈ 425 nm à 1 mM) : ajouter le résultat uv_vis_absorption_wavelength à la branche 1,5 mM",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Bare_AgNPs_citrate outcome hydrodynamic_size 26.42 nm et caractérisation « DLS »",
+   "extracted": "26.42 nm étiqueté hydrodynamic_size, technique DLS",
+   "article_says": "In addition, the morphology of bare AgNPs also showed similar results for size (26.42±3.2 nm) and zeta potential (−28.3±4.7 mV, Figures S1 and S2).",
+   "fix": "l'article dit « morphologic characterization of bare AgNPs was performed as per the method described earlier » (MET et DLS) sans dire quelle technique donne 26,42 nm : renommer la propriété en particle_size (technique non précisée) ou ajouter un doute ; ne pas affirmer « hydrodynamique »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources Bare_AgNPs_citrate b30 et b31, role",
+   "extracted": "role « autre » (le journal d'extraction dit protocole_adapte) ; citation = phrase de contexte « widely used »",
+   "article_says": "Due to the reductive ability, sodium citrate has been widely used for the preparation of AgNP systems in previous papers.",
+   "fix": "les deux renvois précèdent immédiatement « Briefly, 10 mL of 1% sodium citrate solution was added dropwise… » (protocole abrégé, volume d'AgNO3 absent) : role protocole_adapte, et citer aussi cette phrase « Briefly » ; incohérence journal/JSON à lever",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "AH-AgNPs outcomes, stabilité à 2 mois",
+   "extracted": "seuls 445 nm puis 450 nm sont notés",
+   "article_says": "As shown in Figure 5, the absorption peak of AH-AgNPs shifted slightly from 445 to 450 nm, but no significant changes in peak intensity were observed.",
+   "fix": "ajouter l'observation « no significant changes in peak intensity » (stabilité à 2 mois, température ambiante) comme résultat texte de AH-AgNPs",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 21,
+  "branches_extracted": 21,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 2
+ },
+ "reproducibility_gaps": [
+  "durée de réaction de AH-AgNPs de base (« until crimson was observed » ; 8 h lue seulement comme plateau de la Fig. 2)",
+  "température de l'eau et chauffage de l'extrait (« boiled » seulement), taille et nature du filtre, durée de conservation de l'extrait, partie de la plante (« Fresh » herb achetée à un fournisseur pharmaceutique)",
+  "solvant et volume des 3 lavages, température de centrifugation, concentration finale en argent, rendement",
+  "citrate : volume de la solution d'AgNO3, moment et quantité d'acide phosphorique (pH 4,0–6,0), purification",
+  "préparation des échantillons MTT (dispersion des nanoparticules, solutions mères), conditions de lyophilisation pour DRX/FTIR",
+  "Figures S1 et S2 (MET/DLS du citrate) absentes du dépôt"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs appuyé par la citation FTIR (consommation des groupes hydroxyle), mecanisme_analyse formulé en hypothèse",
+ "notes": "Aucune valeur numérique fausse : lectures de figure vérifiées sur les images (Fig. 1 : 0,40/0,68/1,0/0,90/0,80 ; Fig. 2 à 480 min : 0,27/0,94/0,80/0,68/0,64 ; Fig. 3 : 0,20/0,41/0,90/0,90/0,95 ; Fig. 4 : 0,80/1,09/1,13/0,53/0,46/0,41 ; Fig. 6B : 11,22 nm ; Fig. 10A : 58/72 et 23/57 % ; Fig. 10B : 11470), toutes à moins de 0,03 unité. Inventaire complet (23 échantillons, 2 sans voie justifiés). Écarts de l'article lui-même, hors extraction : bande à 447/445 nm dans le texte contre ≈ 425 nm sur les Fig. 1 et 3 pour 1 mM ; l'absorbance optimale varie de 0,90 à 1,13 selon les figures (déjà en doute). Dangers non signalés (méthanol des dosages, réactif de Folin) : mineur, hors synthèse."
+}

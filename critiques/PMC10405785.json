@@ -1,0 +1,49 @@
+{
+  "pmcid": "PMC10405785",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "deduit",
+      "where": "NGQDs-130, NGQDs-150, NGQDs-190, NGQDs-210 : étapes héritées de NGQDs (sonication 30 min, agitation 20 min, durée 7 h de l'étape 4, dialyse 2 jours, refroidissement)",
+      "extracted": "Branches enfants de NGQDs avec une seule variation (temperature, étape 4) : elles héritent donc de toutes les autres étapes et valeurs du parent, dont duration = 7 h et la dialyse de 2 jours.",
+      "article_says": "Fig. S1† displays a photograph of NGQDs prepared by hydrothermal process at 130 to 210 °C.",
+      "fix": "L'article ne dit nulle part que ces quatre échantillons suivent le protocole de NGQDs (ni « same process » ni durée, ni sonication, ni dialyse). Soit leur donner des étapes propres limitées à ce qui est écrit (hydrothermal à 130/150/190/210 °C, durée non citée, purification non citée), soit garder le parent mais ajouter une variation « duration » et « purification » avec value_text « not stated », ou déclarer ces étapes dans not_stated avec renvoi au doute déjà écrit. Le doute existe mais la structure hérite quand même.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "faux",
+      "where": "method_sources[0] (route NGQDs, ref_id cit43, role « autre »)",
+      "extracted": "Suryawanshi et al. (cit43) classé comme source de méthode pour l'essai de détection Ag+.",
+      "article_says": "Suryawanshi et al. demonstrated the PL on–off–on switching behavior of Am-GQDs for Ag+ ions.",
+      "fix": "Retirer l'entrée : la phrase décrit un résultat de la littérature (contexte et interprétation), pas une préparation ni un protocole « according to / as described in ». Les auteurs donnent eux-mêmes les volumes et concentrations de l'essai (« 680 μL of AgNO3 (3 mM) and 220 μL of l-cysteine (3 mM) »). method_sources doit être une liste vide, ce qui correspond à mon propre relevé de refs/ (cit19 et cit29 sont des équations d'analyse, cit41 et cit39 du contexte).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_auteurs, route NGQDs, première entrée (quote)",
+      "extracted": "Texte : les auteurs relient le graphène turbostratique à la vitesse de refroidissement et à la haute pression ; quote : seulement la phrase sur la pression.",
+      "article_says": "In 2023, our previous study showed that the main factor of the growth of turbostratic graphene was the fast cooling rate only.",
+      "fix": "Soit retirer « vitesse de refroidissement » du texte de l'annotation, soit citer aussi cette phrase : le refroidissement rapide vient d'une étude antérieure des auteurs (cit41), alors que la présente synthèse dit « naturally cooled down », sans vitesse de refroidissement mesurée.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 6,
+    "branches_extracted": 6,
+    "not_stated_checked": 25,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "pureté et fournisseur du saccharose, de l'éthylènediamine et de l'eau déionisée absents (aucune phrase générale « analytical grade »)",
+    "masse volumique ou pureté de l'éthylènediamine non donnée (2 mL en volume) ; pH initial non donné",
+    "volume de l'autoclave et taux de remplissage (50 mL de solution) non donnés ; vitesse de chauffe non donnée ; refroidissement « naturel » sans durée",
+    "dialyse : milieu, volume, renouvellement de l'eau et suite (séchage ou conservation en solution) non donnés ; seule la coupure MW500 et la durée de 2 jours sont écrites",
+    "rendement massique de synthèse non donné (le « relative yield » du Table S1 est un rapport de pentes de PL)",
+    "série 130/150/190/210 °C : aucun protocole écrit (durée, purification), seulement légende de Fig. S2 et Table S1 ; images de Fig. S1 à S4 absentes du dépôt",
+    "rendement quantique : standard de référence, indice de réfraction et concentrations mesurées non cités",
+    "essai Ag+ : volume de la solution de NGQDs et concentration non donnés ; échelle de la Fig. 4d non quantifiable",
+    "vitesse d'agitation, puissance et fréquence de sonication, température de sonication non données"
+  ],
+  "mechanism_check": "ok : les citations des mecanisme_auteurs soutiennent les affirmations (réserve mineure sur le refroidissement, voir constat 3) ; mecanisme_analyse est rédigé comme hypothèse.",
+  "notes": "Mon inventaire (6 échantillons : NGQDs 170 °C, GQDs sans éthylènediamine, et NGQDs à 130/150/190/210 °C de Fig. S1, Fig. S2 et Table S1) est identique à celui de l'extraction. Les neuf entrées de sample_inventory sont cohérentes (essai Ag+, e-GQDs200 et Am-GQDs sans voie, avec raison). Valeurs lues sur figure vérifiées en ouvrant corpus/fig/PMC10405785/d3ra04402e-f1.jpg : Fig. 1e NGQDs ≈ 1600 (lu ≈ 1590) et GQDs ≈ 370 (lu ≈ 370) ; Fig. 1b pic à 360 nm d'excitation ≈ 450 nm (lu ≈ 445–450) ; Fig. 1c ≈ 440 nm (lu ≈ 440) : aucun écart supérieur à 10 %. Table S1 : l'attribution des rangées est correcte (cellule « NGQDs » fusionnée, aplatie avant la rangée 210 °C ; recoupement 3168.8 / 4.9 avec le texte). Les valeurs de FTIR (GQDs 1014, NGQDs 1074, respectivement) et de Raman sont bien attribuées. Fragile : les citations de rangées de Table S1 (« 130 1269.1 2.0 ») et la citation de légende de Fig. S2 passent seulement après normalisation des sauts de ligne, ce n'est pas une sous-chaîne exacte du fichier (cellules sur des lignes séparées). La position de la bande G des GQDs (texte 1548 cm−1, Fig. 2c environ 1585 cm−1) est déjà en doute : écart interne à l'article, valeur du texte correctement extraite. Fig. 1e porte un axe « Time (ns) » incohérent avec 1 h (déjà noté). Le pic DRX net à ≈ 29,8° de la Fig. 2a n'est pas commenté par l'article (non repris, pas un constat). Les caractérisations des GQDs omettent FTIR, XRD et TEM alors que la FTIR des GQDs (1014 cm−1) est bien dans les outcomes : mineur, non signalé comme constat."
+}

@@ -1,0 +1,695 @@
+{
+ "pmcid": "PMC9822379",
+ "routes": [
+  {
+   "label": "NFO-G-Ar",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de ferrite et de nitrates pour 1 g de catalyseur à 15 % en masse",
+     "inputs": "0,15 g NiFe2O4 par g de catalyseur ; M(LiBH4) = 21,78 g/mol ; M(NiFe2O4) = 234,38 ; M(CoFe2O4) = 234,62 ; M(Ni(NO3)2·6H2O) = 290,79 ; M(Co(NO3)2·6H2O) = 291,03 ; M(Fe(NO3)3·9H2O) = 403,99 (masses atomiques IUPAC)",
+     "formula": "n = m/M ; m(nitrate) = n × M",
+     "result": "NiFe2O4 0,640 mmol → 0,186 g Ni(NO3)2·6H2O et 0,517 g Fe(NO3)3·9H2O (1,28 mmol Fe) ; mêmes valeurs à 0,1 % près pour CoFe2O4",
+     "compared_to": "Fe/M = 2 : stœchiométrie MFe2O4 respectée par les concentrations 0,09/0,045 M",
+     "source": "valeurs de l'article ; masses molaires calculées"
+    },
+    {
+     "what": "volume de solution d'imprégnation",
+     "inputs": "0,640 mmol Ni à 0,045 M ; 1,28 mmol Fe à 0,09 M ; 0,85 g de graphène par g de catalyseur ; 5 à 7 imprégnations",
+     "formula": "V = n/C",
+     "result": "14,2 mL de chaque solution par g de catalyseur : 33,5 mL/g de graphène si deux solutions séparées (16,7 mL/g si une solution mixte aux deux concentrations), soit ≈ 2,4 à 6,7 mL/g de graphène par imprégnation",
+     "compared_to": "l'humidité naissante suppose un volume par passe proche du volume poreux du support (non donné pour ces nanoplaquettes) ; les 5–7 passes s'expliquent par la dilution",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "teneur métallique réelle après réduction sous H2/Ar",
+     "inputs": "fraction massique d'O dans NiFe2O4 = 4 × 16,00/234,38 = 0,273 ; 0,15 g de ferrite sur 0,85 g de graphène",
+     "formula": "m(métal) = 0,15 × (1 − 0,273) ; w = m(métal)/(0,85 + m(métal))",
+     "result": "0,109 g de métal, soit ≈ 11,4 % en masse (et non 15 % de « NiFe2O4 »)",
+     "compared_to": "libellé « 15 wt% NiFe2O4/graphene (treated in H2Ar) »",
+     "source": "calcul"
+    },
+    {
+     "what": "hydrogène fourni par le flux 5 % H2/Ar contre besoin de réduction",
+     "inputs": "100 mL/min × 5 % × 240 min ; 24,45 L/mol à 25 °C ; NiFe2O4 + 4 H2 → FeNi + Fe + 4 H2O, 0,640 mmol ferrite/g",
+     "formula": "n(H2) fourni = 1,2 L/24,45 ; besoin = 4 × 0,640 mmol",
+     "result": "≈ 49 mmol fournis contre 2,6 mmol par g de catalyseur",
+     "compared_to": "excès d'environ 19 fois pour 1 g : réduction complète non limitée par l'hydrogène",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Concentrations 0,045 M (Ni) et 0,09 M (Fe) au rapport 1:2 de NiFe2O4 ; pour 1 g de catalyseur il faut 0,186 g de nitrate de Ni et 0,517 g de nitrate de Fe (voir « moles de ferrite et de nitrates »). La masse de graphène et le volume par passe ne sont pas donnés, mais se déduisent de la charge visée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Nitrates hydratés de Fe(III), Ni(II), Co(II) solubles dans l'éthanol à 0,05–0,1 M ; 14,2 mL de chaque solution par g de catalyseur, soit 2,4 à 6,7 mL/g de graphène par passe (voir « volume de solution d'imprégnation ») : beaucoup pour une vraie humidité naissante sur des plaquettes peu poreuses ; séchage entre passes non décrit, et on ne sait pas si les deux solutions sont mélangées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "620 °C, 4 h sous Ar : décomposition complète des nitrates (bien en dessous de 400 °C) et cristallisation de la spinelle ; la base contient d'autres NiFe2O4 cristallisées à 600 °C (PMC10574157 recuit 600 °C, PMC8398574 600 °C sous Ar).",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "redox",
+     "finding": "FeNi à côté de NiFe2O4 sous Ar : réduction carbothermique partielle par le graphène à 620 °C, plausible (NiO est le plus réductible des oxydes en jeu). Mais FeNi (Ni:Fe 1:1) prélève relativement plus de Ni que la ferrite n'en contient (1:2) : le reste est forcément plus riche en Fe (Ni1−xFe2+xO4 ou Fe3O4), ce que la DRX ne peut pas distinguer (voir « résultats »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Spinelles indiscernables en DRX à pics larges : a(NiFe2O4) ≈ 8,35 Å, a(CoFe2O4) ≈ 8,39–8,41 Å (PMC7550332 : 8,413 Å ; PMC8347744 : 8,410 Å), a(Fe3O4) ≈ 8,40 Å. L'attribution « NiFe2O4 » ou « CoFe2O4 » stœchiométrique sur la seule fiche ICDD n'exclut pas une ferrite non stœchiométrique ou de la magnétite ; il faudrait une analyse EDS ou Mössbauer des particules.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Calcul de structure électronique de NiFe2O4 (J. Magn. Magn. Mater. 240, 436) — a = 8,35 Å",
+      "authors_or_publisher": "J. Magn. Magn. Mater. (Elsevier), pdf auteur NTHU",
+      "year": "2002",
+      "url_or_doi": "http://www.phys.nthu.edu.tw/~jeng/paper/02/JMMM240.436.pdf"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nitrates métalliques (oxydants) imprégnés sur du carbone puis chauffés : mélange oxydant + combustible, risque de déflagration au chauffage si la charge est forte, et dégagement de NOx (four ventilé). Ni(NO3)2 et Co(NO3)2 : sensibilisants, cancérogènes (classement CLP Carc. 1A/1B) ; nanoplaquettes de graphène inhalables.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Déshydratation puis décomposition des nitrates (< 400 °C) en oxydes amorphes Fe–Ni dispersés sur le graphène, cristallisation de la spinelle inverse NiFe2O4 vers 400–600 °C ; à 620 °C, au contact du carbone, réduction carbothermique partielle (Ni2+ puis Fe3+/Fe2+) en particules FeNi (CO/CO2 dégagés), la spinelle résiduelle s'enrichissant en fer.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "masse de graphène et volume de chaque imprégnation (solutions séparées ou mélangées ?)",
+    "séchage entre les 5 à 7 passes",
+    "vitesse de chauffe et de refroidissement du four",
+    "composition réelle de la spinelle (EDS/Mössbauer), car FeNi prélève du Ni"
+   ]
+  },
+  {
+   "label": "NFO-G-H2Ar",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur métallique réelle après réduction sous H2/Ar",
+     "inputs": "fraction massique d'O dans NiFe2O4 = 4 × 16,00/234,38 = 0,273 ; 0,15 g de ferrite sur 0,85 g de graphène",
+     "formula": "m(métal) = 0,15 × (1 − 0,273) ; w = m(métal)/(0,85 + m(métal))",
+     "result": "0,109 g de métal, soit ≈ 11,4 % en masse (et non 15 % de « NiFe2O4 »)",
+     "compared_to": "libellé « 15 wt% NiFe2O4/graphene (treated in H2Ar) »",
+     "source": "calcul"
+    },
+    {
+     "what": "hydrogène fourni par le flux 5 % H2/Ar contre besoin de réduction",
+     "inputs": "100 mL/min × 5 % × 240 min ; 24,45 L/mol à 25 °C ; NiFe2O4 + 4 H2 → FeNi + Fe + 4 H2O, 0,640 mmol ferrite/g",
+     "formula": "n(H2) fourni = 1,2 L/24,45 ; besoin = 4 × 0,640 mmol",
+     "result": "≈ 49 mmol fournis contre 2,6 mmol par g de catalyseur",
+     "compared_to": "excès d'environ 19 fois pour 1 g : réduction complète non limitée par l'hydrogène",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "NiFe2O4 + 4 H2 → FeNi + Fe + 4 H2O : le bilan Ni:Fe = 1:2 donne exactement FeNi + Fe-bcc, ce que montre la DRX. H2 en excès d'environ 19 fois pour 1 g (voir « hydrogène fourni par le flux »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le libellé « 15 wt% NiFe2O4 » ne décrit plus l'échantillon : après départ de l'oxygène, la charge métallique est d'environ 11,4 % (voir « teneur métallique réelle après réduction »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Particules Fe/FeNi nanométriques fraîchement réduites : potentiellement pyrophoriques à l'air ; le transfert sans passivation exige la boîte à gants (les auteurs y manipulent tout). Balayage à l'argon avant et après le H2 à 620 °C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Décomposition des nitrates puis réduction par H2 des oxydes Ni–Fe dès 300–500 °C : Ni2+ se réduit d'abord et sert de germe à la réduction de Fe ; à 620 °C les particules s'alliant donnent FeNi (fcc) + Fe (bcc), avec coalescence en amas (observée en STEM-EDS) favorisée par l'absence d'oxyde d'ancrage.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "passivation ou transfert sous inerte du catalyseur réduit",
+    "charge métallique réelle"
+   ]
+  },
+  {
+   "label": "CFO-G-Ar",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de ferrite et de nitrates pour 1 g de catalyseur à 15 % en masse",
+     "inputs": "0,15 g NiFe2O4 par g de catalyseur ; M(LiBH4) = 21,78 g/mol ; M(NiFe2O4) = 234,38 ; M(CoFe2O4) = 234,62 ; M(Ni(NO3)2·6H2O) = 290,79 ; M(Co(NO3)2·6H2O) = 291,03 ; M(Fe(NO3)3·9H2O) = 403,99 (masses atomiques IUPAC)",
+     "formula": "n = m/M ; m(nitrate) = n × M",
+     "result": "NiFe2O4 0,640 mmol → 0,186 g Ni(NO3)2·6H2O et 0,517 g Fe(NO3)3·9H2O (1,28 mmol Fe) ; mêmes valeurs à 0,1 % près pour CoFe2O4",
+     "compared_to": "Fe/M = 2 : stœchiométrie MFe2O4 respectée par les concentrations 0,09/0,045 M",
+     "source": "valeurs de l'article ; masses molaires calculées"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Co3C est isostructural de Fe3C (cémentite, Pnma ; a = 5,00/5,05 Å, b = 6,61/6,69 Å, c = 4,44/4,49 Å) : avec des pics larges et une phase minoritaire, distinguer « Fe3C + Co3C » d'une seule cémentite mixte (Fe,Co)3C n'est pas possible sans affinement ni EDS.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "mp-20925: Co3C (Orthorhombic, Pnma, 62)",
+      "authors_or_publisher": "Materials Project (LBNL)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://next-gen.materialsproject.org/materials/mp-20925"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Co3C est un carbure métastable qui se décompose en Co + C dès 300–350 °C selon le diagramme Co–C ; sa présence après 4 h à 620 °C et refroidissement est surprenante, et plaide pour une cémentite mixte riche en Fe (plus stable) plutôt que pour Co3C pur.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Diagrammes Co–C et Ni–C (traduction anglaise d'un article russe ; carbures Co3C et Ni3C métastables)",
+      "authors_or_publisher": "Vertman A. A., Grigorovich V. K., Nedumov N. A. et al. (dépôt ChinaXiv, traduction)",
+      "year": "≈1965 (non vérifié)",
+      "url_or_doi": "https://f004.backblazeb2.com/file/chinaxiv/english_pdfs/ru-196501.59565.pdf"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Sous Ar, carburation (Fe3C) à côté de CoFe2O4 : réduction carbothermique partielle du Fe, plausible à 620 °C au contact du graphène. L'introduction de l'article range Fe3C et Co3C parmi les phases « obtenues sous H2/Ar », alors que les Résultats les placent dans CFO-G-Ar (sous Ar).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Décomposition des nitrates et cristallisation de la spinelle CoFe2O4 ; réduction carbothermique locale d'une partie du fer (et du cobalt) par le graphène et carburation en cémentite (Fe,Co)3C au contact du carbone, plutôt que deux carbures séparés Fe3C et Co3C.",
+    "sources": [
+     {
+      "title": "mp-20925: Co3C (Orthorhombic, Pnma, 62)",
+      "authors_or_publisher": "Materials Project (LBNL)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://next-gen.materialsproject.org/materials/mp-20925"
+     },
+     {
+      "title": "Diagrammes Co–C et Ni–C (traduction anglaise d'un article russe ; carbures Co3C et Ni3C métastables)",
+      "authors_or_publisher": "Vertman A. A., Grigorovich V. K., Nedumov N. A. et al. (dépôt ChinaXiv, traduction)",
+      "year": "≈1965 (non vérifié)",
+      "url_or_doi": "https://f004.backblazeb2.com/file/chinaxiv/english_pdfs/ru-196501.59565.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "identification des carbures par affinement ou EDS (cémentite mixte ?)",
+    "mêmes réserves d'imprégnation que NFO-G-Ar"
+   ]
+  },
+  {
+   "label": "CFO-G-H2Ar",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur métallique réelle après réduction sous H2/Ar",
+     "inputs": "fraction massique d'O dans NiFe2O4 = 4 × 16,00/234,38 = 0,273 ; 0,15 g de ferrite sur 0,85 g de graphène",
+     "formula": "m(métal) = 0,15 × (1 − 0,273) ; w = m(métal)/(0,85 + m(métal))",
+     "result": "0,109 g de métal, soit ≈ 11,4 % en masse (et non 15 % de « NiFe2O4 »)",
+     "compared_to": "libellé « 15 wt% NiFe2O4/graphene (treated in H2Ar) »",
+     "source": "calcul"
+    },
+    {
+     "what": "hydrogène fourni par le flux 5 % H2/Ar contre besoin de réduction",
+     "inputs": "100 mL/min × 5 % × 240 min ; 24,45 L/mol à 25 °C ; NiFe2O4 + 4 H2 → FeNi + Fe + 4 H2O, 0,640 mmol ferrite/g",
+     "formula": "n(H2) fourni = 1,2 L/24,45 ; besoin = 4 × 0,640 mmol",
+     "result": "≈ 49 mmol fournis contre 2,6 mmol par g de catalyseur",
+     "compared_to": "excès d'environ 19 fois pour 1 g : réduction complète non limitée par l'hydrogène",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "CoFe2O4 + 4 H2 → « CoFe2 » + 4 H2O : rapport Co:Fe = 1:2 conservé, cohérent avec une seule phase métallique. Le mot « intermétallique » est impropre : Fe–Co à 67 % de Fe est une solution solide cubique centrée α-(Fe,Co) (l'ordre B2 n'existe qu'autour de 50:50) ; la fiche ICDD citée décrit un alliage, pas un composé défini.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nanoparticules Fe–Co réduites potentiellement pyrophoriques ; Co cancérogène (poussières) : manipulation sous inerte et protection respiratoire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réduction complète de la spinelle par H2 à 620 °C en alliage bcc Fe0,67Co0,33, le cobalt facilitant la réduction du fer (germination sur Co métallique).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "transfert sous inerte",
+    "charge métallique réelle (≈ 11 % et non 15 %)"
+   ]
+  },
+  {
+   "label": "LiBH4-G",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "capacité théorique LiBH4 → LiH + B + 3/2 H2",
+     "inputs": "3 H libérés sur 4 ; M(H) = 1,008 ; M(LiBH4) = 21,78 g/mol",
+     "formula": "3 × 1,008 / 21,78",
+     "result": "13,88 % en masse (18,51 % pour les 4 H)",
+     "compared_to": "13,8 wt% des auteurs ; 13,9 wt% chez Mauron 2008",
+     "source": "calcul ; Mauron et al. 2008"
+    },
+    {
+     "what": "origine du 6,14 wt% réversible",
+     "inputs": "fraction de LiBH4 dans le composite 1:1 = 0,5 ; normalisé 5e désorption complète : NFO-Ar 0,89, NFO-H2Ar 0,91, CFO-Ar 0,87, CFO-H2Ar 0,87, LiBH4-G 0,86",
+     "formula": "w = normalisé × 13,8 × 0,5",
+     "result": "NFO-Ar 6,14 ; NFO-H2Ar 6,28 ; CFO 6,00 ; LiBH4-G 5,93 wt% (si même rapport 1:1)",
+     "compared_to": "6,14 wt% = exactement LiBH4-G-NFO-Ar (résumé) ; la conclusion l'attribue à l'échantillon H2/Ar, qui donnerait 6,28 wt% et serait bien le plus élevé",
+     "source": "valeurs du tableau 1 et des Méthodes"
+    },
+    {
+     "what": "volume de LiBH4 à loger par g d'hôte",
+     "inputs": "rapport massique 1:1 ; masse volumique de LiBH4 0,666 g/mL (Sigma-Aldrich)",
+     "formula": "V = 1 g / 0,666 g/mL",
+     "result": "1,50 mL de LiBH4 par g de catalyseur/graphène",
+     "compared_to": "nanoplaquettes de graphène de 500 m²/g, sans volume poreux donné ; la fusion-infiltration classique vise des charges de 25 à 33 % dans des carbones poreux",
+     "source": "Sigma-Aldrich, fiche 62460"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport LiBH4/graphène non donné : le témoin n'est pas décrit. Si c'est 1:1 comme les composites, il contient 0,5 g de LiBH4 et 0,5 g de graphène, alors que les composites ont 0,425 g de graphène et 0,075 g de ferrite : le témoin change donc la quantité de carbone en même temps qu'il retire le catalyseur ; si le rapport est autre, la normalisation et la comparaison ne tiennent plus.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "300 °C sous 80 atm H2 : au-dessus de la fusion de LiBH4 (275 °C avec décomposition selon Sigma-Aldrich ; 270 °C pour les auteurs) et sous pression d'hydrogène qui empêche la décomposition : conditions habituelles de fusion-infiltration (300 °C, 60 bar dans la revue « Tuning LiBH4 for Hydrogen Storage », Molecules). Durée non donnée (30 min dans la littérature).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Tuning LiBH4 for Hydrogen Storage: Destabilization, Additive, and Nanoconfinement Approaches",
+      "authors_or_publisher": "Molecules (MDPI), revue en accès libre PMC6982930",
+      "year": "2019 (en ligne 31/12/2019)",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6982930"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« Nanoconfinement » non démontré : 1 g de LiBH4 par g de support représente 1,50 mL (voir « volume de LiBH4 à loger par g d'hôte »), bien plus que le volume poreux de nanoplaquettes de graphène non poreuses ; l'essentiel du LiBH4 est entre ou sur les feuillets, pas confiné. Les cristaux de 7–14 nm vus en MET ne prouvent pas un confinement de toute la masse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention 0,86 après 5 cycles sans catalyseur ni pores, avec réhydrogénation à 450 °C sous 80 atm : élevée. Un mélange physique LiBH4–graphite garde < 30 % de capacité après 3 cycles (réhydrogénation 100 bar, 400 °C), et LiBH4 massif ne se reforme qu'à 600 °C sous 155 bar. La durée de 24 h peut en expliquer une partie, mais la base de normalisation (masse de LiBH4 pesée, correction du blanc du Sievert) doit être vérifiée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermodynamically Tuned Nanophase Materials for Reversible Hydrogen Storage (rapport final DOE)",
+      "authors_or_publisher": "HRL Laboratories (Vajo J. J. et al.), OSTI",
+      "year": "non lu (rapport DOE)",
+      "url_or_doi": "https://www.osti.gov/servlets/purl/1027504"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "LiBH4 : réagit avec l'eau en dégageant H2 (inflammation possible au contact de l'humidité, NOAA CAMEO) ; H260, H301, H314 (Sigma-Aldrich). Hydrogène à 80 atm et 300–450 °C : réacteur certifié H2, fragilisation des aciers, détection de fuite. Décomposition possible avec traces de diborane (toxique).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "LITHIUM BOROHYDRIDE, Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/993"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le LiBH4 fondu (≥ 275 °C) mouille le carbone et s'étale en couches minces entre les plaquettes de graphène (dispersion plutôt que confinement en pores) ; sous 80 atm H2 il ne se décompose pas. En désorption, LiBH4 → LiH + B (+ Li2B12H12 intermédiaire) ; la réhydrogénation partielle à 450 °C/80 atm est favorisée par la petite taille des domaines et le contact intime LiH/B.",
+    "sources": [
+     {
+      "title": "Tuning LiBH4 for Hydrogen Storage: Destabilization, Additive, and Nanoconfinement Approaches",
+      "authors_or_publisher": "Molecules (MDPI), revue en accès libre PMC6982930",
+      "year": "2019 (en ligne 31/12/2019)",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6982930"
+     },
+     {
+      "title": "Enhanced Hydrogen Storage Kinetics of LiBH4 in Nanoporous Carbon Scaffolds",
+      "authors_or_publisher": "Gross A. F., Vajo J. J., Van Atta S. L., Olson G. L. (J. Phys. Chem. C)",
+      "year": "2008",
+      "url_or_doi": "10.1021/jp711066t"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "rapport LiBH4/graphène du témoin",
+    "durées de broyage et d'hydrogénation",
+    "base de la normalisation des quantités désorbées"
+   ]
+  },
+  {
+   "label": "LiBH4-G-NFO-Ar",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "capacité théorique LiBH4 → LiH + B + 3/2 H2",
+     "inputs": "3 H libérés sur 4 ; M(H) = 1,008 ; M(LiBH4) = 21,78 g/mol",
+     "formula": "3 × 1,008 / 21,78",
+     "result": "13,88 % en masse (18,51 % pour les 4 H)",
+     "compared_to": "13,8 wt% des auteurs ; 13,9 wt% chez Mauron 2008",
+     "source": "calcul ; Mauron et al. 2008"
+    },
+    {
+     "what": "origine du 6,14 wt% réversible",
+     "inputs": "fraction de LiBH4 dans le composite 1:1 = 0,5 ; normalisé 5e désorption complète : NFO-Ar 0,89, NFO-H2Ar 0,91, CFO-Ar 0,87, CFO-H2Ar 0,87, LiBH4-G 0,86",
+     "formula": "w = normalisé × 13,8 × 0,5",
+     "result": "NFO-Ar 6,14 ; NFO-H2Ar 6,28 ; CFO 6,00 ; LiBH4-G 5,93 wt% (si même rapport 1:1)",
+     "compared_to": "6,14 wt% = exactement LiBH4-G-NFO-Ar (résumé) ; la conclusion l'attribue à l'échantillon H2/Ar, qui donnerait 6,28 wt% et serait bien le plus élevé",
+     "source": "valeurs du tableau 1 et des Méthodes"
+    },
+    {
+     "what": "plafond de normalisation imposé par la pureté de LiBH4",
+     "inputs": "LiBH4 > 95 % (Sigma) ; normalisé 1re désorption complète 0,99 pour les quatre composites catalysés",
+     "formula": "normalisé max ≈ pureté si la masse pesée sert de base",
+     "result": "0,95 au plus pour LiBH4 pur à 95 % ; 0,99 le dépasse de 4 points",
+     "compared_to": "hydrogène d'autre origine (réaction de LiBH4 avec les oxydes, groupements de surface du carbone) ou base de normalisation non dite",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "part de LiBH4 que les borures peuvent immobiliser",
+     "inputs": "composite 1:1 : 0,5 g LiBH4 (22,95 mmol) et 0,075 g NiFe2O4 (0,320 mmol, 0,960 mmol de métal) par g",
+     "formula": "n(métal)/n(LiBH4) avec 1 B par métal (MB) au plus",
+     "result": "4,2 % du bore au plus (moins avec Fe2B)",
+     "compared_to": "baisse observée 0,99 → 0,89–0,91 (8 à 10 %) et, sans catalyseur ni borure, LiBH4-G 0,95 → 0,86 (9,5 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "part de LiBH4 que l'oxygène de la ferrite peut oxyder en Li3BO3",
+     "inputs": "1,28 mmol O par g de composite ; Li3BO3 : 3 O et 3 Li par B",
+     "formula": "n(B) = n(O)/3 ; n(Li) = n(O)",
+     "result": "0,43 mmol B (1,9 % du LiBH4) mais 1,28 mmol Li (5,6 % du Li)",
+     "compared_to": "Li3BO3 vu dans tous les échantillons, y compris LiBH4-G (oxydation de surface)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "volume de LiBH4 à loger par g d'hôte",
+     "inputs": "rapport massique 1:1 ; masse volumique de LiBH4 0,666 g/mL (Sigma-Aldrich)",
+     "formula": "V = 1 g / 0,666 g/mL",
+     "result": "1,50 mL de LiBH4 par g de catalyseur/graphène",
+     "compared_to": "nanoplaquettes de graphène de 500 m²/g, sans volume poreux donné ; la fusion-infiltration classique vise des charges de 25 à 33 % dans des carbones poreux",
+     "source": "Sigma-Aldrich, fiche 62460"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le 6,14 wt% réversible est exactement 0,89 × 13,8 × 0,5 (voir « origine du 6,14 wt% »), c'est-à-dire la valeur normalisée de LiBH4-G-NFO-Ar ramenée à la masse du composite : le résumé a raison. La conclusion attribue ce 6,14 wt% « le plus élevé » à l'échantillon traité sous H2/Ar, qui donnerait 6,28 wt% (0,91) : la phrase de conclusion mélange les deux échantillons. Ce 6,14 wt% est calculé, pas mesuré séparément.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparer 6,14 wt% de matériau à « l'objectif DOE de 5,5 wt% » est trompeur : l'objectif DOE 2025 porte sur le système complet (1,8 kWh/kg, soit 0,055 kg H2/kg de système, réservoir et auxiliaires compris), et la réhydrogénation demande ici 450 °C et 80 atm pendant 24 h.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "DOE Technical Targets for Onboard Hydrogen Storage for Light-Duty Vehicles",
+      "authors_or_publisher": "U.S. Department of Energy, Hydrogen and Fuel Cell Technologies Office",
+      "year": "page consultée 2026",
+      "url_or_doi": "https://www.energy.gov/eere/fuelcells/doe-technical-targets-onboard-hydrogen-storage-light-duty-vehicles"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Normalisé 0,99 en première désorption complète, au-dessus du plafond de 0,95 fixé par la pureté de LiBH4 (> 95 %) (voir « plafond de normalisation »). Une partie de l'hydrogène vient probablement d'autre chose que LiBH4 → LiH + B (réaction de LiBH4 avec les oxydes qui libère les 4 H, groupements de surface) : « tous les échantillons catalysés atteignent le maximum théorique » ne prouve pas une décomposition complète.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs expliquent la baisse 1re → 5e désorption par la formation de borures. Or les métaux du catalyseur ne peuvent immobiliser que 4,2 % du bore au plus (voir « part de LiBH4 que les borures peuvent immobiliser »), alors que la baisse vaut 8 à 10 %, et le témoin LiBH4-G, sans aucun borure, perd autant (0,95 → 0,86). La formation de borures n'explique donc pas la perte de capacité ; l'oxydation en Li3BO3, la ségrégation du bore et les intermédiaires Li2B12H12 sont plus probables.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La conclusion dit NiFe2O4 « plus efficace que les borures et carbures » ; or toutes les températures de pic comparées sont mesurées après 5 cycles, quand la DRX ne montre plus de ferrite mais FeB, Fe2B, NiB, LiBH4 et Li3BO3. Le catalyseur mesuré est le borure issu de la ferrite : l'effet « ferrite contre intermétallique » n'est pas isolé, et les écarts (349 contre 353 °C) sont faibles, sans répétition ni barre d'erreur.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Ea de Kissinger 127 kJ/mol (4 vitesses, 1 à 7 K/min) : plausible pour du LiBH4 dispersé sur carbone et catalysé (103 kJ/mol dans un aérogel de carbone par la méthode d'Ozawa ; 98–111 kJ/mol avec Ni sur carbone poreux, contre 146–150 kJ/mol pour LiBH4 massif). Les températures de pic aux 4 vitesses ne sont pas données : calcul non vérifiable. Kissinger donne une énergie d'activation apparente (cinétique), pas des « paramètres thermodynamiques » comme l'écrit le résumé ; sans Ea du témoin LiBH4-G, on ne sépare pas l'effet du graphène de celui du catalyseur.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Enhanced Hydrogen Storage Kinetics of LiBH4 in Nanoporous Carbon Scaffolds",
+      "authors_or_publisher": "Gross A. F., Vajo J. J., Van Atta S. L., Olson G. L. (J. Phys. Chem. C)",
+      "year": "2008",
+      "url_or_doi": "10.1021/jp711066t"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Réhydrogénation entre cycles à 450 °C sous 80 atm H2 pendant 24 h : bien plus douce que pour LiBH4 massif (600 °C, 155 bar, Mauron 2008) mais comparable à d'autres LiBH4 dispersés ou catalysés (450 °C, 8 MPa sur Ni nanoporeux).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Enhanced Low-Temperature Hydrogen Storage in Nanoporous Ni-Based Alloy Supported LiBH4",
+      "authors_or_publisher": "Frontiers in Chemistry (article PMC7174709)",
+      "year": "2020",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7174709"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Pendant l'hydrogénation à 300 °C, LiBH4 (réducteur fort) réduit la ferrite : l'oxygène part en Li3BO3 (jusqu'à 5,6 % du Li, voir « part de LiBH4 que l'oxygène de la ferrite peut oxyder ») et en H2O, qui hydrolyse à son tour du LiBH4. Ce phénomène est connu avec les additifs oxydes, dont la réversibilité se dégrade par accumulation de Li3BO3.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrogen storage properties of modified lithium borohydrides",
+      "authors_or_publisher": "IAEA INIS (notice)",
+      "year": "2008",
+      "url_or_doi": "https://inis.iaea.org/records/1rrvp-w6q16"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Broyage manuel prolongé de LiBH4 avec des nanoparticules métalliques et d'oxyde : sous argon sec uniquement (LiBH4 réagit avec l'humidité). Ouverture d'un réacteur après cycles sous H2 : purge. Poussières Ni/Co (cancérogènes) et borures nanométriques : boîte à gants, filtre. Hexane pour la MET : inflammable.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Lithium borohydride ≥95.0 % (réf. 62460), fiche produit",
+      "authors_or_publisher": "Sigma-Aldrich (fiche fournisseur)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.sigmaaldrich.com/US/en/product/aldrich/62460"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 300 °C sous H2, LiBH4 fondu s'étale sur le graphène et réduit la ferrite au contact (Li3BO3, H2O, métal) ; pendant les cycles, Fe/Ni réduits réagissent avec le bore de la décomposition et forment FeB, Fe2B, NiB, qui servent de germes hétérogènes à LiH/B et abaissent la barrière apparente (Ea 127 kJ/mol). La perte de capacité au cyclage vient surtout de l'oxydation (Li3BO3) et de la ségrégation du bore, pas de la formation des borures, limitée à ≈ 4 % du bore.",
+    "sources": [
+     {
+      "title": "Hydrogen storage properties of modified lithium borohydrides",
+      "authors_or_publisher": "IAEA INIS (notice)",
+      "year": "2008",
+      "url_or_doi": "https://inis.iaea.org/records/1rrvp-w6q16"
+     },
+     {
+      "title": "Tuning LiBH4 for Hydrogen Storage: Destabilization, Additive, and Nanoconfinement Approaches",
+      "authors_or_publisher": "Molecules (MDPI), revue en accès libre PMC6982930",
+      "year": "2019 (en ligne 31/12/2019)",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6982930"
+     },
+     {
+      "title": "High-loading LiBH4 Confined in Structurally Tunable Ni Catalyst-decorated Porous Carbon Scaffold for Fast Hydrogen Desorption",
+      "authors_or_publisher": "PubMed 36811292 (Wiley-VCH)",
+      "year": "2023",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/36811292"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base de normalisation (masse de LiBH4 pesée, blanc du Sievert)",
+    "durée du broyage et de l'hydrogénation",
+    "répétabilité des températures de pic (écarts de 4 à 30 °C)",
+    "températures de pic aux 4 vitesses pour refaire le tracé de Kissinger"
+   ]
+  },
+  {
+   "label": "LiBH4-G-NFO-H2Ar",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "origine du 6,14 wt% réversible",
+     "inputs": "fraction de LiBH4 dans le composite 1:1 = 0,5 ; normalisé 5e désorption complète : NFO-Ar 0,89, NFO-H2Ar 0,91, CFO-Ar 0,87, CFO-H2Ar 0,87, LiBH4-G 0,86",
+     "formula": "w = normalisé × 13,8 × 0,5",
+     "result": "NFO-Ar 6,14 ; NFO-H2Ar 6,28 ; CFO 6,00 ; LiBH4-G 5,93 wt% (si même rapport 1:1)",
+     "compared_to": "6,14 wt% = exactement LiBH4-G-NFO-Ar (résumé) ; la conclusion l'attribue à l'échantillon H2/Ar, qui donnerait 6,28 wt% et serait bien le plus élevé",
+     "source": "valeurs du tableau 1 et des Méthodes"
+    },
+    {
+     "what": "part de LiBH4 que les borures peuvent immobiliser",
+     "inputs": "composite 1:1 : 0,5 g LiBH4 (22,95 mmol) et 0,075 g NiFe2O4 (0,320 mmol, 0,960 mmol de métal) par g",
+     "formula": "n(métal)/n(LiBH4) avec 1 B par métal (MB) au plus",
+     "result": "4,2 % du bore au plus (moins avec Fe2B)",
+     "compared_to": "baisse observée 0,99 → 0,89–0,91 (8 à 10 %) et, sans catalyseur ni borure, LiBH4-G 0,95 → 0,86 (9,5 %)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pic à 353 °C contre 349 °C pour NFO-Ar : 4 °C d'écart, sans répétition. La meilleure dispersion invoquée pour les catalyseurs Ar n'est pas séparée du changement de phase (ferrite contre métal), et après 5 cycles les deux sont des borures. Le 0,91 normalisé donnerait 6,28 wt% de composite : c'est cet échantillon qui aurait « la plus haute capacité réversible », mais pas 6,14 wt%.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Mêmes réactions que pour LiBH4-G-NFO-Ar : réduction des oxydes résiduels par LiBH4 et formation de borures limitée à ≈ 4 % du bore (voir « part de LiBH4 que les borures peuvent immobiliser »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que LiBH4-G-NFO-Ar : le catalyseur réellement actif au 5e cycle est le borure (FeB, Fe2B, NiB ou CoB) formé à partir du métal ou de l'oxyde de NFO-G-H2Ar.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "répétabilité des températures de pic",
+    "durées de broyage et d'hydrogénation"
+   ]
+  },
+  {
+   "label": "LiBH4-G-CFO-Ar",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "origine du 6,14 wt% réversible",
+     "inputs": "fraction de LiBH4 dans le composite 1:1 = 0,5 ; normalisé 5e désorption complète : NFO-Ar 0,89, NFO-H2Ar 0,91, CFO-Ar 0,87, CFO-H2Ar 0,87, LiBH4-G 0,86",
+     "formula": "w = normalisé × 13,8 × 0,5",
+     "result": "NFO-Ar 6,14 ; NFO-H2Ar 6,28 ; CFO 6,00 ; LiBH4-G 5,93 wt% (si même rapport 1:1)",
+     "compared_to": "6,14 wt% = exactement LiBH4-G-NFO-Ar (résumé) ; la conclusion l'attribue à l'échantillon H2/Ar, qui donnerait 6,28 wt% et serait bien le plus élevé",
+     "source": "valeurs du tableau 1 et des Méthodes"
+    },
+    {
+     "what": "part de LiBH4 que les borures peuvent immobiliser",
+     "inputs": "composite 1:1 : 0,5 g LiBH4 (22,95 mmol) et 0,075 g NiFe2O4 (0,320 mmol, 0,960 mmol de métal) par g",
+     "formula": "n(métal)/n(LiBH4) avec 1 B par métal (MB) au plus",
+     "result": "4,2 % du bore au plus (moins avec Fe2B)",
+     "compared_to": "baisse observée 0,99 → 0,89–0,91 (8 à 10 %) et, sans catalyseur ni borure, LiBH4-G 0,95 → 0,86 (9,5 %)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pic à 369 °C. Les carbures (Fe,Co)3C présents dans le catalyseur ne sont plus signalés après cycles ; FeB, Fe2B et CoB sont formés. L'effet propre de la ferrite ne peut pas être isolé des borures formés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Mêmes réactions que pour LiBH4-G-NFO-Ar : réduction des oxydes résiduels par LiBH4 et formation de borures limitée à ≈ 4 % du bore (voir « part de LiBH4 que les borures peuvent immobiliser »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que LiBH4-G-NFO-Ar : le catalyseur réellement actif au 5e cycle est le borure (FeB, Fe2B, NiB ou CoB) formé à partir du métal ou de l'oxyde de CFO-G-Ar.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "répétabilité des températures de pic",
+    "durées de broyage et d'hydrogénation"
+   ]
+  },
+  {
+   "label": "LiBH4-G-CFO-H2Ar",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "origine du 6,14 wt% réversible",
+     "inputs": "fraction de LiBH4 dans le composite 1:1 = 0,5 ; normalisé 5e désorption complète : NFO-Ar 0,89, NFO-H2Ar 0,91, CFO-Ar 0,87, CFO-H2Ar 0,87, LiBH4-G 0,86",
+     "formula": "w = normalisé × 13,8 × 0,5",
+     "result": "NFO-Ar 6,14 ; NFO-H2Ar 6,28 ; CFO 6,00 ; LiBH4-G 5,93 wt% (si même rapport 1:1)",
+     "compared_to": "6,14 wt% = exactement LiBH4-G-NFO-Ar (résumé) ; la conclusion l'attribue à l'échantillon H2/Ar, qui donnerait 6,28 wt% et serait bien le plus élevé",
+     "source": "valeurs du tableau 1 et des Méthodes"
+    },
+    {
+     "what": "part de LiBH4 que les borures peuvent immobiliser",
+     "inputs": "composite 1:1 : 0,5 g LiBH4 (22,95 mmol) et 0,075 g NiFe2O4 (0,320 mmol, 0,960 mmol de métal) par g",
+     "formula": "n(métal)/n(LiBH4) avec 1 B par métal (MB) au plus",
+     "result": "4,2 % du bore au plus (moins avec Fe2B)",
+     "compared_to": "baisse observée 0,99 → 0,89–0,91 (8 à 10 %) et, sans catalyseur ni borure, LiBH4-G 0,95 → 0,86 (9,5 %)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pic à 378 °C, soit 1,5 °C sous le témoin LiBH4-G (379,5 °C) : sans barre d'erreur, ce catalyseur n'a pas d'effet démontré sur la température de pic. Aucune image STEM-EDS n'est montrée pour lui, bien que le texte le cite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Mêmes réactions que pour LiBH4-G-NFO-Ar : réduction des oxydes résiduels par LiBH4 et formation de borures limitée à ≈ 4 % du bore (voir « part de LiBH4 que les borures peuvent immobiliser »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même mécanisme que LiBH4-G-NFO-Ar : le catalyseur réellement actif au 5e cycle est le borure (FeB, Fe2B, NiB ou CoB) formé à partir du métal ou de l'oxyde de CFO-G-H2Ar.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "répétabilité des températures de pic",
+    "durées de broyage et d'hydrogénation"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Préparation des catalyseurs cohérente : concentrations de nitrates au rapport MFe2O4, décomposition à 620 °C, réduction H2/Ar dont la stœchiométrie explique exactement FeNi + Fe et CoFe2. La fusion-infiltration (300 °C, 80 atm) suit les conditions habituelles. Les points faibles sont dans l'interprétation : 6,14 wt% = 0,89 × 13,8 × 0,5, attribué à l'échantillon H2/Ar dans la conclusion ; perte de capacité attribuée aux borures alors qu'ils ne peuvent immobiliser que 4 % du bore et que le témoin perd autant ; supériorité de la « ferrite » affirmée à partir de mesures faites quand seuls des borures subsistent ; normalisation à 0,99 au-dessus de la pureté de LiBH4 (95 %) ; « nanoconfinement » non démontré avec 1,5 mL de LiBH4 par g de graphène non poreux. Remarque pour l'orchestrateur : trois composites portent l'application « batterie » dans l'extraction, alors que l'article traite du stockage d'hydrogène.",
+  "author_errors_suspected": [
+   "Conclusion : « the same composition, but using treatment in H2/Ar, presents the highest reversible storing capacity of 6.14 wt% » ; 6,14 wt% correspond à LiBH4-G-NFO-Ar (0,89), l'échantillon H2/Ar donnerait 6,28 wt%.",
+   "Introduction : Fe3C et Co3C « obtained under reducing atmosphere H2/Ar », alors que les Résultats les trouvent dans CFO-G-Ar (sous Ar) ; « MFe2O4 (M=Fe, Co) » pour M = Ni, Co.",
+   "Résumé : « thermodynamic parameters … by Kissinger plot » ; Kissinger donne une énergie d'activation (cinétique).",
+   "Perte de capacité 1er → 5e cycle attribuée aux borures alors que le témoin sans borure perd autant.",
+   "Comparaison d'une capacité de matériau à l'objectif DOE, qui porte sur un système."
+  ],
+  "comparison_with_database": "NiFe2O4 cristallise vers 600 °C dans les autres voies de la base (PMC10574157 recuit 600 °C ; PMC8398574 600 °C sous Ar donne NiO + NiFe2O4) : 620 °C est cohérent. Paramètres de maille de CoFe2O4 dans la base : 8,410 et 8,413 Å (PMC8347744, PMC7550332), proches de la magnétite. Aucune autre publication sur LiBH4 dans la base."
+ },
+ "sources_not_found": [
+  "Volume poreux des nanoplaquettes de graphène Sigma-Aldrich 500 m²/g : non trouvé (le calcul de 1,5 mL de LiBH4 par g ne peut donc pas être comparé à une valeur sourcée).",
+  "Paramètre de maille de Fe3O4 (≈ 8,396 Å) : valeur de manuel, pas de source relue ici.",
+  "Températures de pic aux 4 vitesses de chauffe (figure 7) : non publiées en texte, Kissinger non recalculable."
+ ]
+}

@@ -1,0 +1,412 @@
+{
+ "pmcid": "PMC9713890",
+ "routes": [
+  {
+   "label": "FeHA_coal_ash",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "phosphate apporté",
+     "inputs": "20 mL de NaH2PO4 0,5 M",
+     "formula": "n = C × V",
+     "result": "10,0 mmol P",
+     "compared_to": "Ca/P = 1,67 pour Ca10(PO4)6(OH)2",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "spéciation de la solution de phosphate à pH 10",
+     "inputs": "pKa2 = 7,20 ; pKa3 = 12,35 de H3PO4",
+     "formula": "fraction HPO4(2−) = 1/(1 + 10^(pKa2−pH) + 10^(pH−pKa3))",
+     "result": "99,4 % HPO4(2−), PO4(3−)/HPO4(2−) = 0,0045 : la « solution de NaH2PO4 à pH 10 » est en fait ≈ Na2HPO4 (≈ 10 mmol de NaOH ajoutés) ; capacité basique ≈ 10 mmol H+ avant de redescendre vers pH ≈ 7, ≈ 20 mmol jusqu'à pH ≈ 2",
+     "compared_to": "acide du lixiviat (calcul suivant)",
+     "source": "pKa de manuel (chimie générale)"
+    },
+    {
+     "what": "acide apporté par 3 mL de HCl (concentration non donnée)",
+     "inputs": "hypothèse A : HCl 37 % (ρ = 1,18 g/mL, M = 36,46 g/mol) ; hypothèse B : HCl 1 M",
+     "formula": "n = V × ρ × w / M ; n = C × V",
+     "result": "A : 35,9 mmol (≈ 12 M ; ≈ 6 M dans la suspension 3 + 3 mL) ; B : 3,0 mmol",
+     "compared_to": "capacité basique du phosphate ≈ 10 mmol (calcul précédent)",
+     "source": "densité et titre usuels de HCl concentré (chimie générale, PubChem)"
+    },
+    {
+     "what": "cations lixiviables de 1,0 g de cendre (composition non donnée, fourchettes typiques)",
+     "inputs": "CaO 2–30 % (M = 56,08) ; Fe2O3 5–15 % (M = 159,69) ; Al2O3 15–30 % (M = 101,96)",
+     "formula": "n(M) = m × w × (atomes M par formule) / M",
+     "result": "Ca 0,36–5,35 mmol ; Fe 0,63–1,88 mmol ; Al 2,9–5,9 mmol (si tout lixivié)",
+     "compared_to": "P apporté 10 mmol ; HCl consommé par dissolution complète ≤ 2 Ca + 3 Fe + 3 Al ≈ 10,7 + 5,6 + 17,7 ≈ 34 mmol au maximum (Al de la mullite peu lixivié à 60 °C en 1 h)",
+     "source": "fourchettes de composition des cendres volantes : Ahmaruzzaman 2010 (classe F : CaO < 10 % ; classe C : 10–30 %) ; masses molaires calculées"
+    },
+    {
+     "what": "rapport P/Ca du mélange de précipitation",
+     "inputs": "P 10 mmol ; Ca 0,36–5,35 mmol",
+     "formula": "n(P)/n(Ca)",
+     "result": "1,9 à 28 (Ca/P = 0,04 à 0,53)",
+     "compared_to": "HA : P/Ca = 0,60 (Ca/P = 1,67) ; brushite/monétite CaHPO4 : P/Ca = 1",
+     "source": "valeurs de l'article et hypothèses ci-dessus"
+    },
+    {
+     "what": "acidité libérée par la précipitation de HA à partir de HPO4(2−)",
+     "inputs": "10 Ca2+ + 6 HPO4(2−) + 2 H2O → Ca10(PO4)6(OH)2 + 8 H+",
+     "formula": "n(H+) = 0,8 × n(Ca précipité)",
+     "result": "0,3 à 4,3 mmol H+ supplémentaires pour 0,36 à 5,35 mmol de Ca",
+     "compared_to": "capacité basique résiduelle du phosphate",
+     "source": "bilan de charge (chimie générale)"
+    },
+    {
+     "what": "proportion de fer dans le solide si Fe/Ca = 0,57 (EDS)",
+     "inputs": "Fe/Ca atomique = 0,57",
+     "formula": "Fe/(Fe+Ca) ; écriture sur 10 cations",
+     "result": "36 % des cations ; Ca6,37Fe3,63(PO4)6(OH)2 si tout le fer était substitué",
+     "compared_to": "limite de substitution Fe3+ : x < 0,1 dans Ca5−xFex(PO4)3OH, soit Fe/Ca < 0,02 ; au plus ≈ 0,2–0,5 Fe pour 10 Ca selon d'autres travaux (Fe/Ca ≤ 0,05)",
+     "source": "Florida Atlantic University (notice FAU, Ca5−xFex(PO4)3OH) ; Avakyan et al. 2021"
+    },
+    {
+     "what": "étalonnage en énergie du spectre EDS (figure 1C, lecture en pixels)",
+     "inputs": "O Kα (0,525 keV) à x = 39,5 px ; Ca Kα (3,69 keV) à x = 141 px ; pic majeur non légendé à x = 70,2 px ; petit pic non légendé à x = 87 px",
+     "formula": "E = 0,525 + (x − 39,5) / 32,07 px·keV⁻¹",
+     "result": "pic majeur à ≈ 1,48 keV ; petit pic à ≈ 2,01 keV ; Fe Kα attendu à x ≈ 228 px, où aucun pic ne dépasse le bruit",
+     "compared_to": "Al Kα 1,487 keV ; Si Kα 1,740 keV ; P Kα 2,013 keV ; Fe Kα 6,40 keV",
+     "source": "énergies de raies X tabulées (NIST X-ray Transition Energies Database, https://physics.nist.gov/PhysRefData/XrayTrans/) ; lecture de la figure 1C (± 0,05 keV)"
+    },
+    {
+     "what": "hauteurs des pics EDS (figure 1C)",
+     "inputs": "échelle 5000 coups ↔ 273 px",
+     "formula": "coups ≈ 18,3 × hauteur en px",
+     "result": "pic à 1,48 keV ≈ 5000 coups ; P Kα ≈ 200 ; Ca Kα ≈ 150 ; O Kα ≈ 150 ; Fe Kα < 70 (non distinct du bruit)",
+     "compared_to": "un solide à 36 % de fer parmi les cations donnerait un Fe Kα du même ordre que Ca Kα à 20 kV",
+     "source": "lecture de la figure 1C"
+    },
+    {
+     "what": "Bragg sur la raie fine vers 26° (figure 1D)",
+     "inputs": "2θ ≈ 25,8° (lecture ± 0,3°) ; Cu Kα λ = 1,5406 Å",
+     "formula": "d = λ / (2 sin θ) ; c = 2 d(002)",
+     "result": "d = 3,45 Å ; c ≈ 6,90 Å",
+     "compared_to": "HA (002) : 2θ = 25,88°, c = 6,88 Å (fiche 09-0432) ; quartz (101) : 26,64°",
+     "source": "valeurs lues sur la figure ; longueur d'onde Cu Kα (NIST)"
+    },
+    {
+     "what": "écart spin-orbite Fe 2p et position de Fe 2p3/2",
+     "inputs": "texte : 707 et 720,6 eV ; figure 2D : ≈ 708 et ≈ 721 eV",
+     "formula": "ΔE = E(2p1/2) − E(2p3/2)",
+     "result": "ΔE = 13,6 eV (texte : « 13.5 ») ; Fe 2p3/2 à 707 eV",
+     "compared_to": "Fe métal 706,7 eV ; FeO 709,6 eV ; Fe2O3 710,8 eV ; phosphates de Fe(III) plus haut encore",
+     "source": "Thermo Fisher XPS Simplified (d'après Biesinger et al. 2011)"
+    },
+    {
+     "what": "écart texte/figure des énergies XPS de la matrice",
+     "inputs": "texte : Ca 2p 348, O 1s 531, P 2p 135 eV ; figure 2 : Ca 2p3/2 ≈ 349, O 1s ≈ 533, P 2p ≈ 135,5 eV",
+     "formula": "figure − texte ; figure − référence",
+     "result": "O 1s : +2 eV entre figure et texte ; Ca 2p3/2 : ≈ +2 eV au-dessus de la référence de HA (347,0 eV)",
+     "compared_to": "HA : Ca 2p3/2 = 347,00 eV (NIST, référencé à C 1s)",
+     "source": "NIST XPS Database ; lecture des figures 2A–2C (± 0,5 eV)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le pH 10 annoncé est celui de la solution de phosphate, pas celui du milieu de précipitation. 10 mmol de HPO4(2−) (voir « spéciation de la solution de phosphate à pH 10 ») neutralisent au plus ≈ 10 mmol d'acide avant que le pH redescende vers 7, ≈ 20 mmol avant pH 2. Avec 3 mL de HCl concentré (35,9 mmol, voir « acide apporté par 3 mL de HCl »), l'acide restant après lixiviation d'1 g de cendre dépasse très probablement cette capacité, d'autant que la précipitation de HA libère encore des H+ (voir « acidité libérée par la précipitation de HA »). Le mélange final serait acide, domaine où l'hydroxyapatite ne précipite pas (on la prépare à pH 9–11 ; en dessous de pH ≈ 4–5, ce sont brushite/monétite ou phosphate de fer amorphe qui se forment). La concentration de HCl et le pH final, qui décident de la phase obtenue, ne sont pas donnés.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai et al., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le phosphate est en large excès sur le calcium : P/Ca = 1,9 à 28 selon la teneur en CaO de la cendre (voir « rapport P/Ca du mélange de précipitation »), contre 0,60 pour HA. Un tel excès, en milieu peu alcalin, oriente vers des phosphates acides de calcium et vers FePO4·nH2O / AlPO4 plutôt que vers une apatite stœchiométrique. La composition de la cendre (Ca, Fe, Al, Si, métaux traces) n'étant pas donnée, la stœchiométrie n'est pas vérifiable et le produit dépend du lot de cendre.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "A review on the utilization of fly ash",
+      "authors_or_publisher": "M. Ahmaruzzaman, Progress in Energy and Combustion Science 36 (2010) 327–363",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.pecs.2009.11.003"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fe/Ca = 0,57 (EDS) correspond à 36 % de fer parmi les cations, soit Ca6,37Fe3,63(PO4)6(OH)2 si tout était substitué (voir « proportion de fer dans le solide »). La substitution de Fe3+ dans HA est limitée à x < 0,1 dans Ca5−xFex(PO4)3OH (Fe/Ca < 0,02), l'hématite apparaissant au-delà ; même les valeurs hautes de la littérature restent un ordre de grandeur en dessous. L'essentiel du fer est donc vraisemblablement dans une autre phase (phosphate ou oxyhydroxyde de Fe(III) amorphe, invisible en DRX). « Pas de pic d'oxyde de fer » ne prouve pas la substitution : le nom « Fe-doped / iron-substituted HA » n'est pas établi.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Simultaneous x-ray and neutron diffraction Rietveld refinements of nanophase Fe substituted hydroxyapatite (Ca5−xFex(PO4)3OH : HAp monophasée seulement pour x < 0,1, hématite au-delà ; coprécipitation à 37 et 80 °C)",
+      "authors_or_publisher": "Florida Atlantic University (groupe T. Leventouri, V. Kathriarachchi), notice du dépôt institutionnel",
+      "year": "non indiquée dans la notice consultée",
+      "url_or_doi": "https://fau.isle.flvc.org/node/64079"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le spectre EDS de la figure 1C est dominé par un pic non légendé à ≈ 1,48 keV (≈ 5000 coups), position de Al Kα (1,487 keV) plutôt que de Si Kα (1,740 keV) ; le phosphore (≈ 2,01 keV, ≈ 200 coups) n'est pas légendé, et Fe Kα (6,40 keV) ne se distingue pas du bruit (voir « étalonnage en énergie du spectre EDS » et « hauteurs des pics EDS »). Soit l'aluminium vient de l'échantillon (les cendres volantes contiennent 15–30 % d'Al2O3, lixivié puis précipité en phosphate/hydroxyde d'Al au même titre que Ca et Fe), soit du porte-échantillon, ce qui indique une couche trop mince pour une analyse quantitative. Dans les deux cas, le spectre montré ne soutient pas le rapport Fe/Ca = 0,57 annoncé, et ni Ca/P ni la teneur en Al ne sont donnés.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "A review on the utilization of fly ash",
+      "authors_or_publisher": "M. Ahmaruzzaman, Progress in Energy and Combustion Science 36 (2010) 327–363",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.pecs.2009.11.003"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La DRX (figure 1D) montre une apatite mal cristallisée : massif large vers 32° (211/112/300 non résolus), raies larges vers 40, 47 et 50°, raie plus fine à 2θ ≈ 25,8° qui donne c ≈ 6,90 Å, cohérent avec HA (002) (voir « Bragg sur la raie fine vers 26° ») plutôt qu'avec le quartz (26,64°). Le fond haut et bosselé indique une part amorphe importante. La présence d'une apatite nanocristalline est plausible ; sa proportion et la nature de la fraction amorphe (riche en Fe, Al ?) ne le sont pas. Le diffractogramme est tracé de ≈ 3 à 90°, pas sur la plage 20–60° annoncée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Fe 2p3/2 à 707 eV (texte ; ≈ 708 eV sur la figure 2D) est la position du fer métallique (706,7 eV), pas de Fe3+ (Fe2O3 710,8 eV ; phosphates de Fe(III) encore plus haut) ; aucun satellite de Fe3+ n'est discuté (voir « écart spin-orbite Fe 2p »). L'attribution à Fe(III) n'est donc pas soutenue par la valeur donnée, et une lecture littérale (Fe0) contredirait à la fois la chimie (aucun réducteur dans le protocole, milieu aéré) et la DRX (« pas de fer métallique »). Le référencement de charge n'est pas décrit, et les pics de la matrice sur la figure sont ≈ 2 eV plus hauts que le texte et que la référence de HA (Ca 2p3/2 347,0 eV, voir « écart texte/figure des énergies XPS ») : l'échelle d'énergie de l'article n'est pas fiable. L'écart 720,6 − 707 vaut 13,6 eV, non 13,5.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "XPS Simplified, periodic table – Iron (Fe 2p3/2 : Fe métal 706,7 eV ; FeO 709,6 eV ; Fe2O3 710,8 eV ; d'après Biesinger et al., Appl. Surf. Sci. 257 (2011) 2717)",
+      "authors_or_publisher": "Thermo Fisher Scientific",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://www.thermofisher.cn/cn/en/home/materials-science/learning-center/periodic-table/transition-metal/iron.html"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Lixiviation à 60 °C pendant 1 h : température compatible avec l'eau (Téb 100 °C) mais, si HCl est concentré, dégagement notable de HCl gazeux en récipient ouvert (hotte, couvercle ou réfrigérant). Le titre « synthesized by a facile method at room temperature » contredit l'étape à 60 °C (seule la précipitation est à température ambiante).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Une cendre de charbon contient surtout SiO2 et Al2O3 (aluminosilicates vitreux, mullite, quartz) ; HCl à 60 °C dissout CaO/CaCO3, une partie des oxydes de fer et peu d'aluminosilicate. Le rendement de lixiviation de Ca et Fe n'est pas mesuré, ni la masse de produit : la quantité de précipité et sa composition sont inconnues.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A review on the utilization of fly ash",
+      "authors_or_publisher": "M. Ahmaruzzaman, Progress in Energy and Combustion Science 36 (2010) 327–363",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.pecs.2009.11.003"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Les cendres de charbon contiennent des éléments traces toxiques (As, Pb, Cr, Cd, Hg…) que HCl lixivie et que le phosphate coprécipite : le matériau présenté comme alternative « non toxique » au papier à l'acétate de plomb peut contenir du plomb et de l'arsenic, et aucune analyse élémentaire (ICP) n'est donnée. Poudre de cendre et nanoparticules sèches : protection respiratoire (silice cristalline possible). HCl concentré : corrosif, vapeurs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "A review on the utilization of fly ash",
+      "authors_or_publisher": "M. Ahmaruzzaman, Progress in Energy and Combustion Science 36 (2010) 327–363",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.pecs.2009.11.003"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "15 min d'agitation après ajout lent, sans mûrissement ni traitement thermique : compatible avec une apatite nanocristalline mal cristallisée ou un phosphate de calcium amorphe, comme le suggèrent la DRX large et la taille ≈ 20 nm.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai et al., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Comparaison avec la base : les autres voies d'hydroxyapatite par précipitation fixent le pH du milieu réactionnel (pH 9–10 pour PMC9036687, 10–12 pour PMC5750015, pH 7 sous hydrothermal pour PMC8136633, avec OCP en phase secondaire) ; ici seul le pH de la solution ajoutée est donné, à l'inverse de ces protocoles.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "HCl dissout surtout CaO/CaCO3, une partie des oxydes de fer (Fe3+) et un peu d'aluminium de la cendre ; le lixiviat reste acide. L'ajout de Na2HPO4 (la « solution de NaH2PO4 à pH 10 ») neutralise partiellement l'acide : selon le pH atteint, il coprécipite un phosphate de calcium déficitaire (apatite nanocristalline et/ou phosphate de calcium amorphe, brushite si le pH reste bas), du phosphate de fer(III) hydraté amorphe et du phosphate/hydroxyde d'aluminium. Le fer est très probablement surtout dans la fraction amorphe (Fe/Ca = 0,57 dépasse d'un ordre de grandeur la limite de substitution), une petite partie seulement pouvant occuper les sites Ca(I)/Ca(II) de l'apatite. La couleur jaune du produit est celle du phosphate/oxyhydroxyde de Fe(III), pas une preuve de substitution.",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai et al., Acta Biomaterialia",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     },
+     {
+      "title": "Simultaneous x-ray and neutron diffraction Rietveld refinements of nanophase Fe substituted hydroxyapatite (Ca5−xFex(PO4)3OH : HAp monophasée seulement pour x < 0,1, hématite au-delà ; coprécipitation à 37 et 80 °C)",
+      "authors_or_publisher": "Florida Atlantic University (groupe T. Leventouri, V. Kathriarachchi), notice du dépôt institutionnel",
+      "year": "non indiquée dans la notice consultée",
+      "url_or_doi": "https://fau.isle.flvc.org/node/64079"
+     },
+     {
+      "title": "Iron in Hydroxyapatite: Interstitial or Substitution Sites?",
+      "authors_or_publisher": "L. Avakyan, E. Paramonova, V. Bystrov, J. Coutinho, S. Gomes, G. Renaudin, Nanomaterials 11 (2021) 2978",
+      "year": "2021",
+      "url_or_doi": "10.3390/nano11112978"
+     },
+     {
+      "title": "A review on the utilization of fly ash",
+      "authors_or_publisher": "M. Ahmaruzzaman, Progress in Energy and Combustion Science 36 (2010) 327–363",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.pecs.2009.11.003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "composition de la cendre (FRX ou ICP : CaO, Fe2O3, Al2O3, SiO2, éléments traces) et type (volante classe F/C ou de foyer)",
+    "concentration de HCl et quantité d'acide restant dans le lixiviat",
+    "pH du mélange après ajout du phosphate (et base employée pour amener la solution de phosphate à pH 10)",
+    "masse de produit et rendement de lixiviation de Ca et Fe",
+    "Ca/P, Fe/Ca, Al et métaux traces du produit par ICP, plutôt que par un spectre EDS dominé par un pic non attribué",
+    "attribution XPS du fer avec référencement de charge (C 1s 284,8 eV) ; Mössbauer ou affinement de Rietveld pour distinguer fer substitué et phase amorphe de fer",
+    "conditions de séchage (température, durée)"
+   ]
+  },
+  {
+   "label": "FeHA_test_strip",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de solide dans la « solution mère 3 mM »",
+     "inputs": "3 mM ; HA Ca10(PO4)6(OH)2 M = 1004,6 g/mol",
+     "formula": "m/V = C × M",
+     "result": "≈ 3,0 g/L si 3 mM se rapporte à la formule HA ; ≈ 0,30 g/L si à Ca ; indéterminé tel qu'écrit",
+     "compared_to": "HA insoluble dans l'eau : il s'agit d'une suspension, pas d'une solution",
+     "source": "masse molaire calculée"
+    },
+    {
+     "what": "signal de la limite de détection",
+     "inputs": "pente 0,8406 unité d'intensité par ppm ; LOD 70 ppb",
+     "formula": "ΔI = pente × LOD ; σ(blanc) = pente × LOD / 3",
+     "result": "ΔI = 0,059 unité ; σ(blanc) = 0,020 unité",
+     "compared_to": "lecture « Color Picker » en niveaux entiers 0–255 (pas de 1 unité ≡ 1,19 ppm)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "signal attendu à 0,5 ppm (borne basse de la gamme linéaire)",
+     "inputs": "y = 0,8406x + 42,309",
+     "formula": "ΔI = 0,8406 × 0,5",
+     "result": "0,42 unité",
+     "compared_to": "écart lu sur la figure 4A entre les deux premiers points ≈ 5 unités (≈ 38 et ≈ 43)",
+     "source": "valeurs de l'article et de la figure 4A"
+    },
+    {
+     "what": "résolution exigée par le tableau 2",
+     "inputs": "dopage 2 ppm mesuré 1,95 ppm, RSD 1,8 %",
+     "formula": "ΔI = 0,8406 × 0,05 ; σ = 0,8406 × 0,018 × 2",
+     "result": "écart de 0,042 unité ; écart-type de 0,030 unité",
+     "compared_to": "pas de lecture de 1 unité",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "cohérence de la droite d'étalonnage avec les points lus",
+     "inputs": "intensités lues 57, 80, 97, 132, 148 à 15, 40, 70, 100, 130 ppm",
+     "formula": "y = 0,8406x + 42,309",
+     "result": "calculé 54,9 ; 75,9 ; 101,2 ; 126,4 ; 151,6 (écarts ≤ 6 unités)",
+     "compared_to": "R² = 0,9909 annoncé",
+     "source": "valeurs de l'article et de la figure 4A"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Limite de détection de 70 ppb incompatible avec la mesure : avec la pente de 0,8406 unité/ppm, 70 ppb donnent 0,059 unité d'intensité et supposent un écart-type du blanc de 0,020 unité (voir « signal de la limite de détection »), alors qu'une application de pipette de couleur lit des niveaux entiers (pas de 1 unité ≡ 1,19 ppm) et qu'un papier imprégné varie de plusieurs unités d'une bandelette à l'autre. De même, la borne basse de 0,5 ppm donne 0,42 unité (voir « signal attendu à 0,5 ppm »), et le tableau 2 distingue 1,95 de 2 ppm (0,042 unité). La sensibilité réelle est plutôt de l'ordre de quelques ppm ; la méthode de calcul de la LOD (σ du blanc, nombre de répétitions, moyenne sur une zone) n'est pas donnée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Mécanisme de détection « PO4(3−) remplacé par S2− » non démontré : en solution aqueuse S2− est négligeable (pK2 de H2S ≈ 17–19), l'espèce réactive est HS−. Fe3+ et le sulfure réagissent d'abord par oxydoréduction (Fe3+ → Fe2+, S(−II) → S0), et Fe2S3 est un solide instable au-dessus de 20 °C qui donne FeS + S (sa couleur est décrite de façon contradictoire, noire ou jaune-vert) : attribuer durablement la couleur verte de la bandelette à Fe2S3 à température ambiante n'est pas étayé. Aucune caractérisation de la bandelette après exposition (DRX, XPS S 2p, Raman) ne distingue sulfure de fer, soufre colloïdal ou simple adsorption ; l'échange d'anions phosphate/sulfure dans l'apatite n'a pas de précédent cité.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Iron(III) sulfide (Fe2S3 : décrit « black powder » dans le texte et « yellow-green » dans l'encadré ; se décompose au-dessus de 20 °C en FeS + S ; Fe3+ + sulfure en milieu alcalin donne FeS + S)",
+      "authors_or_publisher": "Wikipedia (source secondaire ; renvoie à Holleman–Wiberg et Greenwood–Earnshaw)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Iron(III)_sulfide"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les étalons sont des solutions de Na2S·xH2O (x non donné) exprimées en « ppm de H2S » : la conversion Na2S → H2S (M 78,04 → 34,08 g/mol), la teneur en eau du sel (variable) et l'oxydation à l'air des solutions de sulfure ne sont pas traitées ; sans titrage iodométrique des étalons, l'échelle en ppm est incertaine. L'essai à pH 4–7 fait passer le sulfure en H2S moléculaire volatil (pK1 ≈ 7) : la baisse de réponse en milieu acide peut venir de la perte de H2S plutôt que de la chimie du fer.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Estimates of the second dissociation constant of H2S from the surface sulfidation of crystalline sulfur (pK2 = 17,4 ± 0,3 à 25 °C)",
+      "authors_or_publisher": "Migdisov et al., Geochimica et Cosmochimica Acta (notice du dépôt geologyscience.ru)",
+      "year": "2002",
+      "url_or_doi": "https://repository.geologyscience.ru/handle/123456789/30354"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La « solution mère 3 mM » de Fe-HA est une suspension d'un solide insoluble de formule inconnue (voir « masse de solide dans la solution mère 3 mM ») : la charge de matière active par bandelette n'est pas reproductible tant que la masse par volume, la dispersion (ultrasons ?) et la durée d'immersion ne sont pas données.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Na2S libère H2S (gaz très toxique) au contact d'un acide ; les essais à pH 4–7 et les solutions dopées sont à préparer sous hotte. Na2S est corrosif.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "NOAA CAMEO Chemicals (sulfure de sodium, sulfure d'hydrogène, acide chlorhydrique)",
+      "authors_or_publisher": "NOAA",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Sélectivité vis-à-vis des thiols (GSH, cystéine) à 10 fois la concentration : plausible pour un réactif à base de Fe3+ si le signal vient de la précipitation de sulfure de fer, mais le thiosulfate et le persulfate (oxydant) devraient aussi modifier un pigment de Fe(III) ; le résultat n'est appuyé que par une seule mesure par espèce, sans barre d'erreur visible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le papier imprégné porte un solide jaune riche en Fe(III) (phosphate ou oxyhydroxyde de fer associé à l'apatite). HS− réduit Fe3+ en Fe2+ en s'oxydant en soufre, puis Fe2+ + HS− précipite un sulfure de fer(II) (mackinawite) sombre ; le mélange jaune + noir apparaît vert-olive. La réponse augmente avec le pH parce que la fraction HS− (pK1 ≈ 7) croît et que H2S volatil se perd moins. Ce n'est pas un échange d'anions dans le réseau de l'apatite.",
+    "sources": [
+     {
+      "title": "Iron(III) sulfide (Fe2S3 : décrit « black powder » dans le texte et « yellow-green » dans l'encadré ; se décompose au-dessus de 20 °C en FeS + S ; Fe3+ + sulfure en milieu alcalin donne FeS + S)",
+      "authors_or_publisher": "Wikipedia (source secondaire ; renvoie à Holleman–Wiberg et Greenwood–Earnshaw)",
+      "year": "consulté en 2026",
+      "url_or_doi": "https://en.wikipedia.org/wiki/Iron(III)_sulfide"
+     },
+     {
+      "title": "Estimates of the second dissociation constant of H2S from the surface sulfidation of crystalline sulfur (pK2 = 17,4 ± 0,3 à 25 °C)",
+      "authors_or_publisher": "Migdisov et al., Geochimica et Cosmochimica Acta (notice du dépôt geologyscience.ru)",
+      "year": "2002",
+      "url_or_doi": "https://repository.geologyscience.ru/handle/123456789/30354"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de Fe-HA par litre de la suspension d'imprégnation, mode de dispersion et durée d'immersion",
+    "titrage des étalons de Na2S (teneur réelle en sulfure) et conversion en ppm de H2S",
+    "écart-type du blanc sur plusieurs bandelettes et calcul de la LOD (3σ/pente)",
+    "volume de goutte, temps de lecture et éclairage pour la photo au smartphone",
+    "caractérisation de la bandelette après exposition (DRX, XPS S 2p) pour identifier le produit coloré"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Protocole très court et sous-spécifié : cendre de composition inconnue, HCl sans concentration, pH du milieu de précipitation non mesuré alors que l'acide restant peut dépasser la capacité tampon des 10 mmol de phosphate. La caractérisation ne prouve pas une hydroxyapatite substituée au fer : Fe/Ca = 0,57 est un ordre de grandeur au-dessus de la limite de substitution, le spectre EDS montré est dominé par un pic non légendé (≈ Al Kα) et ne montre pas de fer, et Fe 2p3/2 à 707 eV est la position du fer métallique, pas de Fe3+. Le produit est plus vraisemblablement une apatite nanocristalline mêlée de phosphates de Fe et d'Al amorphes. Pour le capteur, une LOD de 70 ppb est incompatible avec une lecture d'intensité en niveaux entiers et une pente de 0,84 unité/ppm.",
+  "author_errors_suspected": [
+   "Fe 2p3/2 à 707 eV attribué à Fe3+ (position du fer métallique ; Fe2O3 à 710,8 eV) ; écart 13,6 eV écrit 13,5",
+   "énergies XPS de la matrice décalées de ≈ 2 eV entre la figure 2 et le texte (O 1s 533 contre 531 eV), sans référencement de charge décrit",
+   "pic EDS majeur à ≈ 1,48 keV (Al Kα) non légendé ni discuté ; Fe Kα non visible alors que Fe/Ca = 0,57 est annoncé",
+   "« solution de NaH2PO4 à pH 10 » : à pH 10 l'espèce est HPO4(2−) (≈ Na2HPO4), et le pH du mélange avec le lixiviat acide n'est pas donné",
+   "« room temperature » alors que la lixiviation est à 60 °C",
+   "LOD de 70 ppb et résolution du tableau 2 (0,05 ppm) incompatibles avec la pente de 0,84 unité/ppm d'une lecture smartphone",
+   "mécanisme d'échange PO4(3−)/S2− et formation de Fe2S3 (instable au-dessus de 20 °C) sans preuve ; S2− négligeable en solution aqueuse",
+   "plage DRX annoncée 20–60° alors que la figure va de ≈ 3 à 90°"
+  ],
+  "comparison_with_database": "compare.py « hydroxyapatite » : 18 voies de base. Les précipitations de HA de la base règlent le pH du milieu réactionnel (PMC9036687 pH 9–10 puis 160 °C ; PMC5750015 pH 10–12 ; PMC8136633 pH 7 sous hydrothermal, avec OCP secondaire) ; aucune n'utilise un lixiviat acide de composition inconnue. Aucune autre voie de la base ne revendique un taux de fer comparable (Fe/Ca = 0,57)."
+ },
+ "sources_not_found": [
+  "texte intégral de Biesinger et al. 2011 (Appl. Surf. Sci. 257, 2717) non consulté : valeurs Fe 2p prises sur la page Thermo Fisher qui le cite",
+  "texte intégral de PMC8625999 (Avakyan 2021) inaccessible depuis ce poste (hôte NCBI non résolu) : seul le résumé a été lu",
+  "année et DOI de l'étude FAU sur Ca5−xFex(PO4)3OH non trouvés dans la notice",
+  "aucune source primaire trouvée sur la couleur de Fe2S3 (Wikipedia contradictoire : « black powder » et « yellow-green »)",
+  "aucune source sur un échange PO4(3−)/S2− dans l'apatite"
+ ]
+}

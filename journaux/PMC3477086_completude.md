@@ -1,0 +1,13 @@
+# Journal — test de complétude PMC3477086
+
+- L'extraction d'origine était déjà dense : les 9 nombres de la liste A sont tous des valeurs de la littérature citées en introduction ou en discussion (paramètres de maille, bandes interdites, énergie excitonique, rayons ioniques), aucun résultat de l'étude. Je les ai mis en `comparisons` (une entrée par valeur) avec `ref_id` B10 (ZnO) et B11 (CdO) quand l'article les renvoie ; les rayons ioniques n'ont pas de renvoi.
+- Les 60 meV apparaissent deux fois : seule la première occurrence est une entrée de comparaison, la seconde est déjà dans la citation du pic excitonique (verdict `deja_present`).
+- Les bandes interdites de ZnO pur et de CdO sont des valeurs massives, pas celles des échantillons : elles ne vont pas en `outcomes`.
+- Fig. 4 (Tauc) ouverte : les intersections des droites d'extrapolation donnent environ 3,46 à 3,38 eV, mais la lecture graphique est trop incertaine (à 2 chiffres significatifs tout vaut 3,4 eV) : non relevée, signalée dans un doute. Fig. 3 et 6 ouvertes : le texte donne déjà le pic à environ 340 nm, rien d'autre de chiffrable.
+- La méthode Debye-Scherrer et celle de Brus/Tauc sont rangées en `characterizations` de ZnO_0Cd (voie de base, qui porte déjà les autres mesures) ; l'article n'écrit pas les valeurs de Scherrer, donc aucun `outcome`.
+- DRX sans impureté CdO : l'article le dit pour les spectres 2a,b (0 et 5 % de Cd) ; rattaché à ZnO_Cd5 seulement, sans instrument (déjà sur la voie de base).
+- Bandes FT-IR Zn-O-Zn (457) et Cd=O (1 420) : le texte les rapporte pour le spectre modifié et non modifié ; l'échantillon non modifié n'a pas de voie, donc rattachées à TOPO_ODA_modified avec un doute. Je ne tranche pas l'attribution chimique de « Cd=O » (déjà critiquée dans une annotation existante).
+- Tendances qualitatives (émission UV accrue par le Cd, taille TEM plus petite, effet de l'excès de TOPO) : l'article les écrit pour la série entière, reportées sur chaque voie concernée avec un doute ; les phrases sur le décalage vers le bleu de la PL ne désignent pas d'échantillon précis, non ajoutées.
+- Ajouts `not_stated` limités à ce que le texte ne dit nulle part après recherche (« atmosphere », « inert », « dropwise », « replicate » absents ; volume de lavage au chloroforme non donné) ; les noms suivent le vocabulaire existant.
+- Une condition de mesure non citée (plage 2θ, pas, appareil FT-IR, nombre de particules en TEM) est dans un doute, faute de champ `not_stated` pour les caractérisations.
+- Aucune valeur, citation ni annotation existante modifiée : comparaison avant/après faite par script (aucune clé perdue ni changée).

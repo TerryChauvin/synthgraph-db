@@ -1,0 +1,131 @@
+{
+  "pmcid": "PMC7932996",
+  "routes": [
+    {
+      "label": "AI-extract",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "charge de l'extraction", "inputs": "10 g de poudre de feuilles ; 100 mL d'eau distillée", "formula": "m/V", "result": "100 g/L de feuille sèche (rapport 1:10 m/v, conforme à l'article)", "compared_to": "rapport 1:10 annoncé", "source": "valeurs de l'article"},
+        {"what": "équivalent feuille apporté à une synthèse", "inputs": "5 mL d'extrait à 100 g/L de feuille ; 45 mL d'AgNO3 1 mM (7,64 mg d'AgNO3, voir AI-AgNPs)", "formula": "5 mL × 100 g/L ; puis 500 mg / 7,64 mg", "result": "0,5 g de feuille sèche par synthèse, soit ≈ 65 g de feuille par g d'AgNO3", "compared_to": "masse d'extrait sec non donnée (rendement d'extraction inconnu)", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Bain-marie à 50 °C pendant 30 min, bien en dessous de l'ébullition de l'eau (100 °C) : pas de perte de solvant notable ; conditions douces qui extraient polyphénols et protéines sans les dénaturer complètement.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "La concentration de l'extrait (matière sèche en mg/mL) et sa teneur en polyphénols ne sont pas mesurées : la quantité de réducteur apportée à l'AgNO3 n'est connue qu'en équivalent feuille (≈ 0,5 g par synthèse, voir « équivalent feuille apporté à une synthèse »). Pour un extrait de feuilles, cet excès de masse rend très probable un réducteur largement suffisant pour 45 µmol d'Ag+, mais le lot de feuilles (saison, âge, séchage à l'air de durée non dite) change la composition.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "L'analyse GC-MS (Tableau 1) ne porte pas sur l'extrait aqueux utilisé pour la synthèse mais sur des extraits à l'hexane et à l'acétate d'éthyle de feuilles broyées dans l'azote liquide ; les sesquiterpènes majoritaires (γ-élémène, caryophyllène) sont insolubles dans l'eau et non réducteurs. La Discussion parle pourtant de « GC-MS analysis of AI-extract ». La composition de l'extrait aqueux réducteur n'est donc pas établie.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Extraction aqueuse douce des composés hydrosolubles de la feuille (polyphénols, flavonoïdes glycosylés, sucres, protéines, ions minéraux dont le chlorure) ; ce sont ces composés, et non les terpènes identifiés en GC-MS, qui réduisent Ag+ ensuite.", "sources": [{"title": "Green synthesis of metal nanoparticles using plants", "authors_or_publisher": "Iravani S., Green Chemistry", "year": "2011", "url_or_doi": "10.1039/c1gc15386b"}]},
+      "what_to_verify_before_repeating": ["mesurer la matière sèche de l'extrait (mg/mL) et, si possible, ses phénols totaux", "durée et température du séchage des feuilles à l'air", "utiliser l'extrait frais (stockage non précisé)"]
+    },
+    {
+      "label": "AI-AgNPs",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "quantité d'Ag+ par synthèse", "inputs": "45 mL × 1 mM AgNO3 ; M(AgNO3) = 169,87 g/mol ; M(Ag) = 107,87 g/mol", "formula": "n = C × V ; m = n × M", "result": "45 µmol d'Ag+ ; 7,64 mg d'AgNO3 ; au plus 4,85 mg d'Ag métallique", "compared_to": "« high yield » annoncé sans valeur", "source": "valeurs de l'article ; masses molaires PubChem (https://pubchem.ncbi.nlm.nih.gov/compound/Silver-nitrate)"},
+        {"what": "concentration d'Ag+ après mélange", "inputs": "45 µmol dans 50 mL", "formula": "n/V", "result": "0,90 mM", "compared_to": "1 mM annoncé (avant dilution par l'extrait)", "source": "valeurs de l'article"},
+        {"what": "seuil de précipitation d'AgCl", "inputs": "Ks(AgCl) ≈ 1,8 × 10⁻¹⁰ à 25 °C (valeur de manuel, CRC Handbook) ; [Ag+] = 0,90 mM", "formula": "[Cl⁻]min = Ks/[Ag+]", "result": "≈ 2 × 10⁻⁷ mol/L de chlorure suffisent à précipiter AgCl", "compared_to": "un extrait de feuilles contient des chlorures très au-dessus de ce seuil", "source": "chimie générale"},
+        {"what": "Bragg et paramètre de maille pic par pic", "inputs": "λ(Cu Kα1) = 1,5406 Å ; 2θ = 39,24 / 44,12 / 63,52 / 77,80° indexés (111)/(200)/(220)/(311)", "formula": "d = λ/(2 sin θ) ; a = d√(h²+k²+l²)", "result": "d = 2,294 / 2,051 / 1,463 / 1,227 Å ; a = 3,973 / 4,102 / 4,139 / 4,068 Å (écart de 4,2 % entre extrêmes)", "compared_to": "Ag cfc a = 4,0862 Å (JCPDS 04-0783) : 2θ attendus 38,12 / 44,28 / 64,43 / 77,47° ; écarts +1,12 / −0,16 / −0,91 / +0,33°", "source": "NBS Monograph 25 (a = 4,08625 Å) ; fiche JCPDS 04-0783"},
+        {"what": "rapport d(200)/d(111)", "inputs": "d(111) = 2,294 Å ; d(200) = 2,051 Å", "formula": "d200/d111", "result": "0,894", "compared_to": "√3/2 = 0,866 pour tout réseau cubique", "source": "géométrie du réseau cubique"},
+        {"what": "série de dilution de la CMI", "inputs": "solution mère 50 mg/mL ; dilutions de 2 en 2", "formula": "50 000 µg/mL / 2ⁿ", "result": "25 000 ; 12 500 ; 6 250 ; 3 125 ; 1 562,5 ; 781,25 ; 390,6 µg/mL", "compared_to": "CMI et CMB de 390 et 780 µg/mL : termes 6 et 7 de la série, cohérent", "source": "valeurs de l'article"},
+        {"what": "nombre de synthèses pour la solution mère de CMI", "inputs": "50 mg/mL ; au plus 4,85 mg d'Ag par synthèse de 50 mL", "formula": "50 / 4,85", "result": "≥ 10,3 synthèses par mL de solution mère (à rendement 100 % et en ne comptant que l'argent)", "compared_to": "rendement non donné", "source": "valeurs de l'article"},
+        {"what": "baisse de l'absorbance plasmon en milieu salin", "inputs": "A400 (lue sur Fig. 1B) : 0,25 dans l'eau ; 0,095 dans NaCl 0,9 % ; 0,13 dans le DMEM ; 0,20 après 28 j dans l'eau (Fig. 1C)", "formula": "1 − A/A(eau)", "result": "−62 % dans NaCl 0,9 % ; −48 % dans le DMEM ; −20 % après 28 jours dans l'eau", "compared_to": "« stable in all the five solutions tested »", "source": "valeurs de l'article (lues sur figure, ± 0,01)"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Réaction à température ambiante (25 °C) en erlenmeyer ouvert, à l'obscurité, sous agitation orbitale : pas de contrainte thermique ; l'obscurité limite la photoréduction de l'AgNO3 et la photodécomposition d'AgCl éventuel.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "Une synthèse de 50 mL fournit au plus 4,85 mg d'argent (voir « quantité d'Ag+ par synthèse ») ; la solution mère de CMI à 50 mg/mL exige donc au moins une dizaine de synthèses par mL (voir « nombre de synthèses pour la solution mère de CMI »), et toutes les concentrations biologiques (µg/mL) se rapportent à une poudre séchée à l'air dont la fraction d'argent n'est pas mesurée (matière organique de l'extrait co-centrifugée). Le « high yield » n'est pas chiffré.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "Le chlorure apporté par l'extrait de feuilles suffit à précipiter AgCl dès 2 × 10⁻⁷ mol/L (voir « seuil de précipitation d'AgCl ») ; de nombreuses synthèses par extrait végétal donnent un mélange Ag/AgCl (raies AgCl à 27,8, 32,2, 46,2, 54,8, 57,5°). La plage XRD 20–80° couvre ces raies, mais l'article ne liste que quatre pics et l'EDX ne mentionne pas Cl ; à vérifier sur le diffractogramme brut.", "status": "reserve", "basis": "litterature", "source": {"title": "Phytofabrication of Silver/Silver Chloride Nanoparticles Using Aqueous Leaf Extract of Oedera genistifolia: Characterization and Antibacterial Potential", "authors_or_publisher": "Okaiyeto K. et al.", "year": "2019", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6930575"}},
+        {"aspect": "redox", "finding": "L'agent d'ajustement à pH 7 n'est pas nommé. Avec NaOH, une addition locale trop concentrée peut précipiter Ag2O/AgOH dans un mélange à 0,9 mM d'Ag+ ; avec HCl, tout l'argent part en AgCl. L'ordre (extrait ajouté, puis pH ajusté) signifie aussi que la réduction a commencé avant l'ajustement (couleur brune en 5 min).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les quatre pics XRD ne donnent pas un même paramètre de maille : a = 3,973 à 4,139 Å selon le pic, et le pic (111) est décalé de +1,1° par rapport à Ag (38,12°) tandis que (220) l'est de −0,9° (voir « Bragg et paramètre de maille pic par pic ») ; le rapport d(200)/d(111) = 0,894 au lieu de 0,866 pour tout réseau cubique. Un décalage de zéro ou de hauteur d'échantillon donnerait un écart de même signe ou variant régulièrement avec l'angle : ce n'est pas le cas. Les positions publiées ne peuvent pas venir d'un seul réseau cfc ; l'attribution à l'argent cfc est plausible (couleur, plasmon, EDX) mais les valeurs de 2θ ne la démontrent pas telles qu'écrites.", "status": "probleme", "basis": "litterature", "source": {"title": "Standard X-ray Diffraction Powder Patterns, Section 6 (NBS Monograph 25), paramètre de l'argent a = 4,08625 Å à 25 °C", "authors_or_publisher": "National Bureau of Standards (NIST)", "year": "1968", "url_or_doi": "https://nvlpubs.nist.gov/nistpubs/legacy/mono/nbsmonograph25-6.pdf"}},
+        {"aspect": "resultats", "finding": "Les auteurs déclarent les AI-AgNPs « stable in all the five solutions tested », mais leurs propres absorbances à 400 nm (Fig. 1B) chutent de 62 % dans NaCl 0,9 % et de 48 % dans le DMEM par rapport à l'eau (voir « baisse de l'absorbance plasmon en milieu salin ») : c'est la signature d'une agrégation par la force ionique et/ou d'une chloruration de surface, pas d'une stabilité. La conclusion de stabilité contredit les données.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Spectres UV-Vis annoncés « in wavelength range of 100–900 nm » : impossible avec un spectrophotomètre UV-Vis en solution aqueuse (l'eau et les cuves en quartz absorbent sous ≈ 190 nm ; en dessous il faut un appareil sous vide). Probablement 200–900 nm ou 300–900 nm ; sans effet sur la synthèse mais à corriger avant de comparer des spectres.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Plasmon à 400 nm pour des sphères de 33 nm : légèrement plus bleu que la relation taille–plasmon de référence (≈ 405–420 nm pour 30–40 nm), mais dans l'incertitude d'une couronne organique et d'une distribution large ; compatible avec des particules d'argent. Les synthèses vertes de la base donnent 420–460 nm (PMC4735866 : 455 nm ; PMC4973716 : 438 nm ; PMC3700086 : 420–425 nm).", "status": "ok", "basis": "litterature", "source": {"title": "Size-controlled silver nanoparticles synthesized over the range 5–100 nm using the same protocol and their antibacterial efficacy", "authors_or_publisher": "Agnihotri S., Mukherji S., Mukherji S., RSC Advances", "year": "2014", "url_or_doi": "10.1039/c3ra44507k"}},
+        {"aspect": "cinetique", "finding": "Durée de réaction de 24 h dans les Méthodes contre 18 h dans les Résultats (« optimized ») ; la couleur apparaît en 5 min et l'absorbance est suivie toutes les 6 h. Un chimiste ne sait pas laquelle appliquer ; prolonger expose à la croissance et à l'agrégation.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "CMI et CMB de 390 à 780 µg/mL sont cohérentes avec la série de dilution (voir « série de dilution de la CMI ») mais 10 à 100 fois plus élevées que les valeurs usuelles des nanoparticules d'argent biosynthétisées (≈ 1–100 µg/mL contre E. coli et S. aureus). Cela s'explique si la poudre pesée est surtout organique, ou si l'argent est en partie AgCl ; l'activité « renforcée » annoncée doit être rapportée à la teneur réelle en argent (ICP ou ATG).", "status": "reserve", "basis": "litterature", "source": {"title": "Green synthesis of silver nanoparticles using plant extracts and their antimicrobial activities: a review of recent literature", "authors_or_publisher": "Vanlalveni C. et al., RSC Advances", "year": "2021", "url_or_doi": "10.1039/D0RA09941D"}},
+        {"aspect": "resultats", "finding": "Le doublement de l'activité DPPH/ABTS des AI-AgNPs par rapport à l'extrait (à masse égale) n'est pas discriminant : l'argent métallique peut lui-même réduire ou former le radical ABTS•+ (réaction catalysée par les nanoparticules d'argent), et la suspension brune absorbe encore à 515 nm où l'on lit le DPPH ; aucun blanc « nanoparticules sans radical » n'est décrit. Il faudrait ce blanc et un témoin d'argent nu (citrate) pour attribuer l'effet à la couronne organique.", "status": "reserve", "basis": "litterature", "source": {"title": "Catalytic effects of silver plasmonic nanoparticles on the redox reaction leading to ABTS˙+ formation studied using UV-visible and Raman spectroscopy", "authors_or_publisher": "Garcia-Leis A., Jancura D., Antalik M., Garcia-Ramos J.V., Sanchez-Cortes S., Jurasekova Z., Phys. Chem. Chem. Phys.", "year": "2016", "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/27711470"}},
+        {"aspect": "securite", "finding": "AgNO3 : oxydant, corrosif, tache la peau, très toxique pour le milieu aquatique (récupérer les eaux de lavage). Poudre de nanoparticules séchée à l'air : à manipuler sans inhalation. Les étapes biologiques annexes utilisent du tétroxyde d'osmium (très toxique, volatil) et de l'isoflurane, non signalés comme dangers.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Les polyphénols et flavonoïdes hydrosolubles de l'extrait (et non les sesquiterpènes vus en GC-MS) réduisent Ag+ en Ag0 par transfert d'électrons, favorisé par leur déprotonation à pH neutre ; les quinones formées, les protéines et les polysaccharides s'adsorbent sur les germes et limitent la croissance (couronne organique). Le chlorure de l'extrait peut précipiter une part de l'argent en AgCl, partiellement photoréduit ; le travail à l'obscurité le conserve. Les attributions FTIR des auteurs sont fausses : 2252→2048 cm⁻¹ n'est pas une élongation C=C d'alcène (1620–1680 cm⁻¹) mais une zone de triples liaisons ou de bruit/CO2 ; 1408→1445 cm⁻¹ n'est pas une déformation N–H d'amine primaire (≈ 1580–1650 cm⁻¹) mais plutôt COO⁻ symétrique ou déformation C–H/O–H ; l'argent métallique n'a pas de bande IR, donc aucun « pic de 1700 à 1300 cm⁻¹ » ne peut prouver sa formation. Le FTIR ne permet pas de désigner les groupes réducteurs.", "sources": [{"title": "Green synthesis of metal nanoparticles using plants", "authors_or_publisher": "Iravani S., Green Chemistry", "year": "2011", "url_or_doi": "10.1039/c1gc15386b"}, {"title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles", "authors_or_publisher": "Raveendran P., Fu J., Wallen S.L., JACS", "year": "2003", "url_or_doi": "10.1021/ja029267j"}]},
+      "what_to_verify_before_repeating": ["choisir entre 18 h et 24 h de réaction (suivre le plasmon jusqu'au plateau)", "nommer et doser l'agent d'ajustement de pH (NaOH dilué goutte à goutte, jamais HCl)", "enregistrer le diffractogramme sur 20–80° et chercher les raies d'AgCl (27,8 ; 32,2 ; 46,2°) ; vérifier Cl en EDX", "mesurer la masse sèche obtenue par synthèse et sa teneur en argent (ICP ou ATG) avant d'exprimer les doses en µg/mL", "prévoir ≥ 10 synthèses pour 1 mL de suspension mère à 50 mg/mL", "vérifier la redispersion de la poudre séchée à l'air (ultrasons) avant les tests biologiques"]
+    },
+    {
+      "label": "PF127_pristine",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "masse de PF127 par volume de gel", "inputs": "30 % m/v", "formula": "0,30 g/mL", "result": "300 mg de PF127 par mL de PBS (3 g pour 10 mL)", "compared_to": "gamme usuelle des gels thermosensibles : 15–30 %", "source": "valeurs de l'article"},
+        {"what": "pH mesuré après dilution à 1 %", "inputs": "gel à 30 % dans le PBS (pH ≈ 7,4) dilué 100 fois à l'eau distillée", "formula": "tampon dilué 100 fois : ≈ 0,1 mM de phosphate ; eau en équilibre avec le CO2 de l'air : pH ≈ 5,6", "result": "le pH mesuré (5,7–5,8) est celui de l'eau distillée carbonatée, pas celui du gel", "compared_to": "pH 5,7–5,8 annoncé (5,5–5,8 en Discussion)", "source": "chimie générale"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Méthode à froid (PBS glacé, agitation une nuit en chambre froide) : c'est la méthode standard, la solubilité du poloxamère 407 augmentant à basse température ; à 30 % le gel se forme bien entre l'ambiante et 37 °C, ce qui concorde avec la transition 22–37 °C rapportée.", "status": "ok", "basis": "litterature", "source": {"title": "Mucosal Applications of Poloxamer 407-Based Hydrogels: An Overview", "authors_or_publisher": "Giuliano E. et al., Pharmaceutics", "year": "2018", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6161217"}},
+        {"aspect": "resultats", "finding": "Le pH de 5,7–5,8 est mesuré après dilution du gel à 1 % dans l'eau distillée : le tampon PBS est alors 100 fois dilué et la valeur lue est proche du pH de l'eau distillée au contact de l'air (≈ 5,6) (voir « pH mesuré après dilution à 1 % ») ; il ne renseigne pas sur le pH du gel appliqué sur la plaie, probablement voisin de 7,4. La Discussion donne en plus 5,5–5,8 contre 5,7–5,8 dans les Résultats.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "La viscosité est mesurée « at 4 °C by an ostwald viscometer » (état liquide : possible), mais le texte affirme aussi qu'elle augmente avec la température : un viscosimètre capillaire ne mesure pas un gel ; aucune valeur n'est donnée.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Au-dessus de la concentration et de la température micellaires critiques, les blocs PPO du poloxamère se déshydratent et forment des micelles ; à 30 % les micelles s'empilent en phase cubique compacte, d'où le gel à 37 °C, réversible au froid.", "sources": [{"title": "Mucosal Applications of Poloxamer 407-Based Hydrogels: An Overview", "authors_or_publisher": "Giuliano E. et al., Pharmaceutics", "year": "2018", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6161217"}]},
+      "what_to_verify_before_repeating": ["concentration en % m/v ou m/m (la température de gélification en dépend)", "mesurer le pH du gel non dilué"]
+    },
+    {
+      "label": "AgNPs-PF127_1mg",
+      "verdict": "douteuse",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {"what": "concentration en nanoparticules du gel selon le volume (non donné)", "inputs": "1 mg d'AI-AgNPs ; volume de gel V inconnu ; 20 µL appliqués par plaie", "formula": "C = 1 mg / V ; dose = C × 20 µL", "result": "V = 1 mL → 1 mg/mL et 20 µg par plaie ; V = 10 mL → 0,1 mg/mL et 2 µg par plaie : un facteur 10 selon l'hypothèse", "compared_to": "aucune concentration donnée par l'article", "source": "valeurs de l'article"},
+        {"what": "fraction d'une synthèse nécessaire", "inputs": "1 mg ; au plus 4,85 mg d'Ag par synthèse", "formula": "1 / 4,85", "result": "≥ 0,21 synthèse par gel de 1 mg (0,62 pour 3 mg)", "compared_to": "rendement non donné", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Les charges « 0,3, 1 et 3 mg » sont des masses ajoutées à un volume de gel PF127 jamais donné : la concentration de nanoparticules dans le gel, donc la dose appliquée par plaie (20 µL), ne peut pas être reconstituée (voir « concentration en nanoparticules du gel selon le volume (non donné) »). Toute la relation dose–cicatrisation est irreproductible telle qu'écrite.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "« Clear solution » après agitation alors que le gel chargé est « pale ash brown » : la suspension est colorée, au mieux limpide ; c'est un vocabulaire, pas une dissolution des nanoparticules.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Zone d'inhibition « enhanced » du gel (13–20 mm) contre la poudre à 1 000 µg/mL (10,3–18,7 mm) : la charge du gel utilisée sur les disques et le volume déposé ne sont pas donnés, et aucun disque de PF127 seul n'est décrit. La comparaison change donc la dose et le support à la fois ; elle ne prouve pas un renforcement par le gel.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Cicatrisation : le témoin PF127 seul (groupe II) est présent, ce qui isole l'effet des nanoparticules (75,77 % contre 94,54 % au jour 10) ; résultat cohérent dans sa logique, mais n = 6 et la dose est inconnue.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Les nanoparticules sont simplement dispersées dans la phase micellaire du poloxamère (pas de liaison chimique) ; la libération sur la plaie se fait par érosion et dissolution du gel et par relargage progressif d'Ag+ à partir des particules oxydées.", "sources": []},
+      "what_to_verify_before_repeating": ["fixer le volume de gel par charge (ex. 1 mg dans 1 mL) et exprimer la concentration en mg d'Ag par mL", "doser l'argent du gel (ICP)", "préparer un disque témoin de PF127 seul"]
+    },
+    {
+      "label": "AgNPs-PF127_0.3mg",
+      "verdict": "douteuse",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {"what": "rapport de charge avec la voie de base", "inputs": "0,3 mg contre 1 mg, même volume de gel supposé", "formula": "0,3/1", "result": "0,3 fois la concentration de la voie de base, valeur absolue inconnue", "compared_to": "volume de gel non donné", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Même défaut que la voie de base : la concentration réelle dépend d'un volume de gel non donné.", "status": "probleme", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Identique à la voie de base.", "sources": []},
+      "what_to_verify_before_repeating": ["volume de gel par charge"]
+    },
+    {
+      "label": "AgNPs-PF127_3mg",
+      "verdict": "douteuse",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {"what": "rapport de charge avec la voie de base", "inputs": "3 mg contre 1 mg", "formula": "3/1", "result": "3 fois la concentration de la voie de base, valeur absolue inconnue ; ≥ 0,62 synthèse d'AI-AgNPs", "compared_to": "volume de gel non donné", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Seule l'absence d'irritation est rapportée, à une concentration inconnue (volume de gel non donné) ; le test d'irritation à la charge la plus forte est une bonne pratique, mais sa marge de sécurité ne peut pas être chiffrée.", "status": "probleme", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Identique à la voie de base.", "sources": []},
+      "what_to_verify_before_repeating": ["volume de gel par charge"]
+    }
+  ],
+  "article_level": {
+    "summary": "Synthèse verte classique de nanoparticules d'argent par extrait aqueux de neem (45 µmol d'Ag+ par lot, ≤ 4,85 mg d'Ag), puis incorporation dans un gel de Pluronic F-127 à 30 %. La chimie de synthèse est plausible et simple à refaire, mais plusieurs données des auteurs ne tiennent pas : positions XRD incompatibles avec un seul réseau cfc, attributions FTIR fausses, stabilité affirmée malgré une chute de 62 % du plasmon dans NaCl 0,9 %, durée 18 h contre 24 h, et surtout charge des gels en mg sans volume, ce qui rend la dose de cicatrisation irreproductible.",
+    "author_errors_suspected": [
+      "2θ XRD (39,24 ; 44,12 ; 63,52 ; 77,80°) incompatibles avec un même paramètre de maille (a de 3,97 à 4,14 Å) ; Ag attendu à 38,12 ; 44,28 ; 64,43 ; 77,47°",
+      "FTIR : bande 2252→2048 cm⁻¹ attribuée à C=C d'alcène, 1408→1445 cm⁻¹ à N–H d'amine primaire, « pic de 1700 à 1300 cm⁻¹ » présenté comme preuve de formation de l'argent",
+      "stabilité « dans les cinq solutions » contredite par A400 −62 % dans NaCl 0,9 % et −48 % dans le DMEM",
+      "UV-Vis « 100–900 nm » impossible en solution aqueuse",
+      "durée de réaction 24 h (Méthodes) contre 18 h (Résultats)",
+      "GC-MS faite sur extraits hexane/acétate d'éthyle mais présentée en Discussion comme « GC-MS analysis of AI-extract » ; des esters triméthylsilylés apparaissent sans étape de silylation décrite (artefact de colonne ou de bibliothèque probable)",
+      "coupes de TEM « 20–30 μm thick » : impossibles en transmission (coupes ultrafines ≈ 50–100 nm), probablement des nm",
+      "« lyophilized in liquid nitrogen using a mortar and pestle » : broyage cryogénique, pas une lyophilisation",
+      "« MIB » pour MBC ; pH des gels 5,7–5,8 (Résultats) contre 5,5–5,8 (Discussion), mesuré dans un gel dilué 100 fois dans l'eau distillée"
+    ],
+    "comparison_with_database": "Synthèses vertes d'Ag de la base : PMC4735866 (Aloe vera, 455 nm, 30,5 nm DLS), PMC4973716 (Eucalyptus, 438 nm, 50–70 nm), PMC3998862 (Agrimoniae, (111) à 38,52°), PMC3700086 (Streptomyces, AgNO3 1 mM, 420–425 nm). Le plasmon à 400 nm pour 33 nm est le plus bleu de la série mais plausible ; le pic (111) à 39,24° est le plus éloigné des 38,1–38,5° des autres voies de la base."
+  },
+  "sources_not_found": [
+    "article antérieur des auteurs (« according to our previous paper ») non identifié dans le texte : non recherché",
+    "teneur en chlorure et en phénols totaux de l'extrait aqueux de feuilles de neem : pas de source chiffrée retenue",
+    "DOI de Garcia-Leis et al. 2016 et de Giuliano et al. 2018 non vérifiés sur Crossref (bloqué) ; cités par leur URL PubMed/PMC"
+  ]
+}

@@ -1,0 +1,532 @@
+{
+ "pmcid": "PMC5567205",
+ "routes": [
+  {
+   "label": "PTO_solgel",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'acétylacétone",
+     "inputs": "10 mL ; densité 0,975 g/mL ; M(C5H8O2) = 100,12 g/mol",
+     "formula": "V × ρ / M",
+     "result": "0,0974 mol",
+     "compared_to": "« equal molar » : si le référent est le plomb, n(Pb) ≈ 0,097 mol",
+     "source": "densité et masse molaire : PubChem « Acetylacetone » (valeurs de manuel, non relues dans cette session)"
+    },
+    {
+     "what": "masses de précurseurs impliquées (si acac équimolaire au Pb et Ti stœchiométrique)",
+     "inputs": "0,0974 mol ; M(Pb(OAc)2·3H2O) = 379,33 ; M(Ti(OC4H9)4) = 340,32 g/mol, ρ ≈ 1,00 g/mL",
+     "formula": "n × M",
+     "result": "Pb(OAc)2·3H2O ≈ 36,9 g ; Ti(OBu)4 ≈ 33,1 g (≈ 33 mL)",
+     "compared_to": "échelle d'une préparation de laboratoire courante ; quantités absentes de l'article",
+     "source": "arithmétique sur hypothèse"
+    },
+    {
+     "what": "masse théorique de PbTiO3 et nombre de lots de calcination",
+     "inputs": "0,0974 mol ; M(PbTiO3) = 303,07 g/mol ; lots de 2 g",
+     "formula": "n × M ; m/2 g",
+     "result": "≈ 29,5 g, soit ≈ 15 lots de 2 g",
+     "compared_to": "calcination « in small batch (2 g) » : cohérent avec une préparation de cette taille",
+     "source": "arithmétique sur hypothèse"
+    },
+    {
+     "what": "eau disponible pour l'hydrolyse du titane",
+     "inputs": "3 H2O par Pb(OAc)2·3H2O ; Pb:Ti = 1:1",
+     "formula": "h = n(H2O)/n(Ti)",
+     "result": "h ≈ 3 (plus l'eau d'estérification acide acétique + butanol libéré)",
+     "compared_to": "h ≥ 2 suffit à former un réseau Ti–O–Ti (alcoxyde tétra-substitué)",
+     "source": "valeurs de l'article ; Doeuff et al. 1987 pour l'estérification"
+    },
+    {
+     "what": "rapport c/a et distances interréticulaires de PbTiO3 tétragonal",
+     "inputs": "a = 3,905 Å ; c = 4,156 Å (article)",
+     "formula": "c/a ; d(hkl) = 1/√((h²+k²)/a² + l²/c²)",
+     "result": "c/a = 1,064 ; d(100) = 3,905 Å ; d(001) = 4,156 Å ; d(110) = 2,761 Å ; d(101) = 2,846 Å",
+     "compared_to": "frange 4,1 Å attribuée à (100) dans l'article : elle correspond à (001) ; 2,7 Å ≈ (110) acceptable",
+     "source": "valeurs de l'article (arithmétique)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Pb et Ti sont apportés par l'acétate de plomb et le butoxyde de titane ; « stoichiometric ratio » sans référent ni quantité. Avec 10 mL d'acac « equal molar » au plomb (voir calculs « moles d'acétylacétone »), la préparation porterait sur ≈ 0,1 mol, soit ≈ 30 g de PbTiO3 et ≈ 15 lots de 2 g : ordre de grandeur cohérent, mais rien n'est écrit. Aucun excès de plomb n'est annoncé ; à 450 °C la volatilisation de PbO est négligeable (elle devient notable au-dessus de ~800 °C), donc l'absence d'excès est acceptable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Acétate de plomb trihydraté soluble dans l'acide acétique chaud ; l'acide acétique est aussi un modificateur connu des alcoxydes de titane (carboxylates pontants, estérification avec le butanol libéré qui fournit de l'eau in situ). L'acac chélate Ti et ralentit l'hydrolyse : schéma classique d'un sol PbTiO3 stable.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrolysis of titanium alkoxides: modification of the molecular precursors by acetic acid",
+      "authors_or_publisher": "S. Doeuff, M. Henry, C. Sanchez, J. Livage (J. Non-Cryst. Solids 89, 206–216)",
+      "year": "1987",
+      "url_or_doi": "J. Non-Cryst. Solids 89 (1987) 206–216 — DOI non vérifié (Crossref bloqué), référence confirmée seulement par des citations"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Séchage « in air at 120 °C » en récipient ouvert : acide acétique (Téb ≈ 118 °C), butan-1-ol (≈ 118 °C) et acac (≈ 140 °C) s'évaporent ; les acétates et acac liés au métal ne partent qu'à la calcination. « to remove organic residuals » est donc exagéré pour 120 °C, sans conséquence. Durée de séchage non donnée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination 450 °C, 1 h, air : à la limite basse des températures de cristallisation de la pérovskite PbTiO3 par sol-gel (Lanki et al. obtiennent la phase tétragonale pure à 460 °C, l'analyse thermique suggérant d'abord 680 °C ; un pyrochlore Pb–Ti–O intermédiaire est souvent rapporté sous 500 °C). La phase pure annoncée (Fig. S1) est plausible mais sensible à la vitesse de chauffe et à la masse du lot, non données. La phrase « calcined (450 °C) at below the Curie temperature (490 °C) » n'a pas de portée sur la formation de phase : quelle que soit la température de calcination, PbTiO3 est tétragonal au refroidissement sous Tc ≈ 490 °C.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Application of lower temperature for crystallization of PbTiO3 nanopowders by the Sol-gel method",
+      "authors_or_publisher": "M. Lanki, A. Nourmohammadi, S.M.H. Feiz, E. Rahmati Adarmanabadi (arXiv)",
+      "year": "2014",
+      "url_or_doi": "https://arxiv.org/abs/1410.5306"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Paramètres a = 3,905 Å et c = 4,156 Å (c/a = 1,064) identiques à ceux du massif : pour des particules de 18–40 nm, une tétragonalité un peu réduite serait attendue ; les valeurs semblent prises sur la fiche JCPDS plutôt qu'affinées. La frange de 4,1 Å est attribuée à (100) alors qu'elle correspond à (001) (d(100) = 3,905 Å) (voir calculs « rapport c/a et distances »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Formule du butoxyde écrite « Ti(OC(CH3))4 » : fausse ; le titanium(IV) butoxide est Ti(OC4H9)4 (Ti(O-nBu)4). À ne pas confondre avec un tert-butoxyde Ti(OC(CH3)3)4, de réactivité différente.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : acétate de plomb (reprotoxique cat. 1A selon la classification CLP harmonisée des composés du plomb, toxicité cumulative), acide acétique glacial (corrosif, inflammable), acac et butoxyde de titane inflammables, poudre nanométrique de PbTiO3 inhalable ; calcination d'organiques à ventiler. Classification à confirmer sur ECHA.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dissolution de Pb(OAc)2·3H2O dans l'acide acétique ; l'acétylacétone et l'acétate chélatent ou pontent Ti(OBu)4, ce qui ralentit l'hydrolyse ; l'eau d'hydratation du sel de plomb (h ≈ 3) et l'eau d'estérification acide acétique + butanol hydrolysent lentement le titane et donnent un gel mixte Pb–O–Ti homogène. Le séchage élimine les solvants ; la calcination brûle acétates et acac (~300–400 °C) puis cristallise PbTiO3, souvent via un pyrochlore Pb–Ti–O transitoire, en pérovskite tétragonale vers 450–500 °C. L'annotation mecanisme_analyse de l'extraction est compatible.",
+    "sources": [
+     {
+      "title": "Hydrolysis of titanium alkoxides: modification of the molecular precursors by acetic acid",
+      "authors_or_publisher": "S. Doeuff, M. Henry, C. Sanchez, J. Livage (J. Non-Cryst. Solids 89, 206–216)",
+      "year": "1987",
+      "url_or_doi": "J. Non-Cryst. Solids 89 (1987) 206–216 — DOI non vérifié (Crossref bloqué), référence confirmée seulement par des citations"
+     },
+     {
+      "title": "Application of lower temperature for crystallization of PbTiO3 nanopowders by the Sol-gel method",
+      "authors_or_publisher": "M. Lanki, A. Nourmohammadi, S.M.H. Feiz, E. Rahmati Adarmanabadi (arXiv)",
+      "year": "2014",
+      "url_or_doi": "https://arxiv.org/abs/1410.5306"
+     },
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "L.L. Hench, J.K. West (Chem. Rev.)",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer les quantités (Pb:Ti = 1:1, référent de l'acac « equal molar ») : l'article ne donne que 10 mL d'acac",
+    "température et durée du chauffage de la solution de plomb, durée du séchage à 120 °C, rampe de calcination",
+    "contrôler par DRX l'absence de pyrochlore après 450 °C/1 h ; prévoir 500 °C si besoin",
+    "utiliser le butoxyde Ti(OC4H9)4 (n-butoxyde), non un tert-butoxyde"
+   ]
+  },
+  {
+   "label": "PbNPTO_EBI",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "densité de courant recalculée",
+     "inputs": "I = 39,7 nA (Table S1) ; disque de rayon 25 nm (diamètre 50 nm, Fig. S9) ou rayon 50 nm (Table S1)",
+     "formula": "J = I / (π r²)",
+     "result": "r = 25 nm : 2,02 × 10^7 A/m² ; r = 50 nm : 5,05 × 10^6 A/m²",
+     "compared_to": "J annoncé 2,02 × 10^7 A/m² : le diamètre (pas le rayon) vaut 50 nm ; « Beam radius 50 nm » de la Table S1 est faux",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "flux et débit de dose électronique",
+     "inputs": "J = 2,02 × 10^7 A/m² ; e = 1,602 × 10^-19 C ; 1 m² = 10^20 Å²",
+     "formula": "J/e",
+     "result": "2,5 × 10^11 e/s dans le faisceau ; 1,26 × 10^6 e/(Å²·s) ; dose 2,5 × 10^7 e/Å² à 20 s, 1,0 × 10^8 e/Å² à 80 s",
+     "compared_to": "≈ 2 × 10^3 A/cm², sonde condensée ; Egerton et al. 2004 : le perçage des oxydes apparaît au-dessus d'un seuil de densité de courant, l'endommagement dépend du débit et pas seulement de la dose",
+     "source": "arithmétique ; Egerton et al. 2004"
+    },
+    {
+     "what": "vitesse réduite des électrons de 300 keV",
+     "inputs": "E0 = 300 keV ; mec² = 511,0 keV",
+     "formula": "γ = 1 + E0/mec² ; β = √(1 − 1/γ²)",
+     "result": "β = 0,7765",
+     "compared_to": "0,7760 (annexe) : accord",
+     "source": "constantes CODATA (arithmétique)"
+    },
+    {
+     "what": "énergie maximale transférée aux noyaux (Emax)",
+     "inputs": "E0 = 0,300 MeV ; 2mec² = 1,022 MeV ; M = A × 931,494 MeV (Pb 207,2 ; Ti 47,867 ; O 15,999)",
+     "formula": "Emax = 2E0(E0 + 2mec²)/(Mc²)",
+     "result": "Pb 4,11 eV ; Ti 17,8 eV ; O 53,2 eV",
+     "compared_to": "article : 4,3 / 18,8 / 56,4 eV, soit 4,6 %, 5,7 % et 6,0 % trop haut ; écart proche du rapport 318 349,44 eV / 300 000 eV = 1,061 de la Table S1 (« Energy of electron 318349.44 ev »), qui laisse penser qu'une énergie erronée a été utilisée",
+     "source": "arithmétique (constantes CODATA, masses atomiques IUPAC)"
+    },
+    {
+     "what": "énergie de sublimation du Pb par atome",
+     "inputs": "ΔsubH(Pb) ≈ 195 kJ/mol ; F = 96 485 C/mol",
+     "formula": "ΔsubH / (NA e)",
+     "result": "≈ 2,0 eV/atome",
+     "compared_to": "Emax(Pb) = 4,1 eV > Es ≈ 2,0 eV : la pulvérisation de surface des atomes de Pb métalliques est énergétiquement permise à 300 keV (critère Es = énergie de sublimation d'Egerton 2004)",
+     "source": "ΔsubH : valeur de manuel (NIST WebBook « lead »), non relue dans cette session"
+    },
+    {
+     "what": "électroneutralité de Pb1-xTiO3-y avec Ti4+ inchangé",
+     "inputs": "Pb2+, Ti4+, O2- ; Ti 2p inchangé après irradiation (article)",
+     "formula": "2(1 − x) + 4 = 2(3 − y)",
+     "result": "y = x ; bilan global PbTiO3 → x Pb + Pb1-xTiO3-x + x/2 O2",
+     "compared_to": "équation (3) de l'article : cohérente en masse ; « + yVO » double-compte les lacunes déjà dans Pb1-xTiO3-y, et y n'est pas libre",
+     "source": "arithmétique"
+    },
+    {
+     "what": "perte d'oxygène maximale compatible avec Ti4+ et Pb retenu dans la zone analysée",
+     "inputs": "composition PbTiO(3−x) (Pb métal resté sur place) ; at.% O = (3 − x)/(5 − x) ; initial 60 at.%",
+     "formula": "x pour at.% O = 54, 50, 48, 40",
+     "result": "54 % → x = 0,65 ; 50 % → x = 1,0 ; 48 % → x = 1,15 (impossible) ; 40 % → x = 1,67 (impossible)",
+     "compared_to": "annexe : « reduction of oxygen around 10 to 20 at.% » : en points d'at.% (60 → 40–50) il faudrait réduire tout le Pb ou plus ; en relatif (60 → 48–54) la borne haute reste impossible sans réduire Ti",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "atomes de Pb dans une particule de 7 nm et dans une particule de PbTiO3 de 30 nm",
+     "inputs": "ρ(Pb) = 11,34 g/cm³, M = 207,2 → 33,0 at/nm³ ; maille PbTiO3 a²c = 0,0634 nm³ (1 Pb)",
+     "formula": "(4/3)π r³ × n",
+     "result": "Pb de 7 nm : ≈ 5 900 atomes ; PbTiO3 de 30 nm : ≈ 2,2 × 10^5 Pb ; une particule de 7 nm = 2,7 % du Pb",
+     "compared_to": "x de quelques % par particule de Pb : compatible avec la conservation de la phase tétragonale observée",
+     "source": "densité du Pb : valeur de manuel (CRC), arithmétique"
+    },
+    {
+     "what": "croissance 4 → 7 nm entre 20 et 40 s",
+     "inputs": "diamètres 4 et 7 nm",
+     "formula": "(7/4)³ ; diamètre équivalent de deux sphères de 4 nm = 4 × 2^(1/3)",
+     "result": "7 nm = 5,4 volumes de 4 nm ; fusion de deux sphères de 4 nm → 5,0 nm",
+     "compared_to": "« about twice the width » : une largeur de 7 nm traduit soit deux particules accolées non sphéroïdisées, soit un apport continu de Pb depuis la matrice (≥ 5 particules de 4 nm)",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "distances interréticulaires Pb cfc et litharge α-PbO",
+     "inputs": "a(Pb) = 4,950 Å ; litharge a = 3,9744 Å, c = 5,0219 Å",
+     "formula": "d111 = a/√3 ; d110 = a/√2 ; d101 tétragonal",
+     "result": "Pb d111 = 2,858 Å, d200 = 2,475 Å ; litharge d110 = 2,811 Å, d101 = 3,118 Å",
+     "compared_to": "frange d(111) = 2,8 Å : ne distingue pas Pb de α-PbO (110) à elle seule ; la discrimination vient des FFT d'axe de zone [110] avec (1-11), (-111), (002) et de l'angle de macle 70,53°",
+     "source": "litharge : AIST d'après Boher et al. 1985 ; Pb : valeur de manuel (arithmétique)"
+    },
+    {
+     "what": "angle entre plans {111} cfc",
+     "inputs": "cos θ = 1/3",
+     "formula": "arccos(1/3)",
+     "result": "70,53°",
+     "compared_to": "70,53° de l'article : exact",
+     "source": "arithmétique"
+    },
+    {
+     "what": "écarts XPS",
+     "inputs": "Pb 4f7/2 138,0 et 4f5/2 142,9 eV ; Ti 2p3/2 459,2 et 2p1/2 464,8 eV ; Pb0 136,3 eV",
+     "formula": "différences",
+     "result": "Pb 4f : 4,9 eV ; Ti 2p : 5,6 eV ; décalage Pb2+ → Pb0 : 1,7 eV",
+     "compared_to": "Pb métal 4f7/2 = 136,9 eV, écart 4,87 eV (Thermo) ; PbO 137,8–137,9 eV (NIST) ; Ti4+ 2p ≈ 5,7 eV : écarts cohérents, Pb0 à 136,3 eV ≈ 0,6 eV sous la référence",
+     "source": "Thermo Fisher XPS ; NIST XPS"
+    },
+    {
+     "what": "position du niveau de Fermi dans la bande interdite",
+     "inputs": "Eg = 3,4 eV ; EF − VBM = 1,65 ± 0,1 et 2,05 ± 0,1 eV",
+     "formula": "Eg/2 ; Eg − (EF − VBM)",
+     "result": "milieu de bande 1,70 eV ; après irradiation EF est à 1,35 eV sous la bande de conduction",
+     "compared_to": "« weakly p-type » : 1,65 ± 0,1 contre 1,70 eV, indiscernable de l'intrinsèque ; « Fermi level moves near to the conduction band » : 1,35 eV en dessous, à peine au-dessus du milieu de bande",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "limite de Schottky de la barrière pour les trous",
+     "inputs": "Eg = 3,4 eV ; χ(PbTiO3) = 3,5 eV ; φ(Pb) = 4,3 eV",
+     "formula": "φBp = Eg + χ − φm",
+     "result": "2,6 eV",
+     "compared_to": "2,6 eV de l'article : exact ; mesure 2,05 eV entre 1,95 (Bardeen, Robertson) et 2,6 eV",
+     "source": "valeurs de l'article ; Robertson 2000"
+    },
+    {
+     "what": "rapport de surface entre spot irradié en MET et spot d'analyse XPS",
+     "inputs": "disque de 25 nm de rayon ; spot XPS typique de l'ESCALAB 250 de l'ordre de quelques centaines de µm (rayon pris à 250 µm, non donné par l'article)",
+     "formula": "(r_MET / r_XPS)²",
+     "result": "≈ 10^-8",
+     "compared_to": "une composante Pb0 nette et un déplacement du VBM de 0,4 eV exigent qu'une fraction notable de la surface analysée ait été irradiée",
+     "source": "arithmétique sur hypothèse de spot"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Densité de courant annoncée retrouvée avec un faisceau de 50 nm de diamètre (voir calculs « densité de courant recalculée ») ; la Table S1 écrit à tort « Beam radius 50 nm » et « Energy of electron 318349.44 ev » pour un faisceau de 300 keV. Débit de dose ≈ 1,3 × 10^6 e/(Å²·s) (voir calculs « flux et débit de dose ») : conditions d'une sonde condensée, très au-dessus de l'imagerie HRTEM courante ; c'est ce chiffre (et la durée) qu'il faut reproduire.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Emax recalculés à 300 keV : Pb 4,1, Ti 17,8, O 53,2 eV ; l'article donne 4,3 / 18,8 / 56,4 eV, 5–6 % trop haut, cohérent avec l'énergie erronée de 318 keV de la Table S1 (voir calculs « énergie maximale transférée »). Conséquence de fond : 4 eV est très en dessous des énergies de déplacement en volume (~20–30 eV pour la plupart des solides) : le Pb ne peut pas être déplacé par choc en volume, contrairement à « such high energies are able to generate the atomic displacement » écrit pour les trois éléments. Seul O (53 eV) peut l'être.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire physique inversé : l'article écrit que, dans un isolant comme PbTiO3, « the knock-on displacement process is quenched due to the high density of the delocalized electron (while favourable in the conducting material) ». C'est la radiolyse (endommagement par diffusion inélastique) qui est éteinte dans les conducteurs par les électrons délocalisés ; le déplacement par choc (élastique) ne dépend que de E0 et de l'énergie seuil, dans tout matériau. Egerton et al. : la désorption KF des oxydes de transition continue « until the material becomes sufficiently conducting to screen the positive oxygen ion ». La conclusion pratique s'inverse : dans PbTiO3 isolant la radiolyse est favorisée, et elle s'arrête quand la surface devient métallique (riche en Pb), ce qui peut expliquer la saturation puis la décomposition.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Knotek–Feibelman invoqué avec un trou de cœur sur Pb2+ : le modèle KF suppose un cation de valence maximale (sans électron de valence, ex. Ti4+ d0) pour que la désexcitation passe par un Auger interatomique depuis l'oxygène. Pb2+ garde sa paire 6s² et n'est pas de valence maximale (Pb4+ l'est) ; dans PbTiO3 le site KF « classique » est Ti4+. La perte d'O par ESD est plausible, mais le schéma « trou de cœur sur Pb2+ » n'est pas le mécanisme KF au sens propre ; la rupture préférentielle de Pb–O s'explique mieux par la faible énergie de la liaison Pb–O et par l'électroneutralité (y = x, voir calculs « électroneutralité »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ion desorption by core-hole Auger decay",
+      "authors_or_publisher": "M.L. Knotek, P.J. Feibelman (Phys. Rev. Lett. 40, 964)",
+      "year": "1978",
+      "url_or_doi": "10.1103/PhysRevLett.40.964 (DOI non vérifié sur Crossref ; référence citée par les sources lues)"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Emax(Pb) = 4,1 eV dépasse l'énergie de sublimation du Pb métallique (≈ 2,0 eV/atome, voir calculs « énergie de sublimation ») : selon le critère d'Egerton, la pulvérisation des atomes de Pb de surface des nanocristaux formés est permise à 300 keV (faible rendement près du seuil). Le texte écrit d'ailleurs « the volatilization of Pb does take place in this process, as an alternative it forms… », phrase qui contredit la suite (il faut probablement lire « does not »). La perte de Pb n'est pas exclue par les données montrées.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "EDS : « reduction of oxygen around 10 to 20 at.% ». Avec Ti4+ inchangé (Ti 2p identique) et le Pb métal resté dans la zone analysée, la composition est PbTiO(3−x) et l'O ne peut descendre qu'à 50 at.% au plus (x = 1, tout le Pb réduit) ; une baisse de 10–20 points (vers 40–50 at.%) ou même de 20 % relatifs (vers 48 at.%) est impossible sans réduire Ti (voir calculs « perte d'oxygène maximale »). La quantification de l'oxygène par EDS en MET (élément léger, absorption, projection à travers les particules de Pb) est trop imprécise pour fonder la formule Pb1-xTiO3-y ; de plus la formule dérivée PbaTiOb (a > 1, b < 3) désigne la zone analysée entière, pas la matrice : la lacune en site A n'est mesurée nulle part, elle est déduite de l'équation (3).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS de l'échantillon « irradié » : le protocole manque (renvoyé à l'annexe, qui ne le donne pas). L'irradiation décrite se fait sur des particules isolées, dans un spot de 50 nm de diamètre en MET ; un spot XPS de laboratoire couvre de l'ordre de 10^8 fois cette surface (voir calculs « rapport de surface »). La composante Pb0 nette (136,3 eV) et le déplacement du VBM de 0,4 eV ne peuvent pas provenir de cette procédure telle qu'écrite : il a fallu irradier une surface macroscopique autrement, ou le Pb0 provient d'une autre cause (réduction sous rayons X ou par décapage Ar+ ; l'article cite lui-même Zhu et al., Pb0 créé par pulvérisation Ar+). En outre le survol XPS montre moins de Pb après irradiation alors que l'EDS montre un excès de Pb et que des particules de Pb sont censées couvrir la surface : contradiction non discutée. La conclusion « n-type après EBI » repose sur cet échantillon.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Valeurs XPS : écart spin-orbite Pb 4f 4,9 eV (réf. 4,87 eV), Ti 2p 5,6 eV, Pb 4f7/2 du réseau 138,0 eV : cohérents. Pb0 à 136,3 eV est 0,6 eV sous la valeur du Pb métal (136,9 eV) et le décalage de 1,7 eV dépasse l'écart Pb métal / PbO (≈ 1,0 eV) : possible charge différentielle entre particules métalliques et pérovskite isolante, non discutée (référence en énergie non donnée).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Lead — XPS periodic table (Pb 4f7/2 : Pb métal 136,9 eV, écart spin-orbite 4,87 eV)",
+      "authors_or_publisher": "Thermo Fisher Scientific, XPS Simplified",
+      "year": "consulté 2026",
+      "url_or_doi": "https://www.thermofisher.cn/cn/en/home/materials-science/learning-center/periodic-table/other-metal/lead.html"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« weakly p-type » (EF − VBM = 1,65 ± 0,1 eV contre milieu de bande 1,70 eV) est indiscernable d'un matériau intrinsèque ; après irradiation EF reste 1,35 eV sous la bande de conduction : « peculiar n-type feature », « Fermi level moves near to the conduction band » surévaluent un déplacement de 0,4 eV (voir calculs « position du niveau de Fermi »). Limite de Schottky 2,6 eV correctement calculée ; constantes de PbTiO3 (χ = 3,5 eV, Eg = 3,4 eV) prises chez Robertson, non relues ici.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Band offsets of wide-band-gap oxides and implications for future electronic devices",
+      "authors_or_publisher": "J. Robertson (J. Vac. Sci. Technol. B 18, 1785)",
+      "year": "2000",
+      "url_or_doi": "10.1116/1.591472 (existence confirmée ; valeurs PbTiO3 χ = 3,5 eV, Eg = 3,4 eV non relues)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve discriminante Pb métal contre PbO : la frange isolée d(111) = 2,8 Å ne suffit pas (α-PbO (110) = 2,81 Å, voir calculs « distances interréticulaires ») ; les FFT en axe de zone [110] avec (1-11), (-111), (002), les macles {111} à 70,53°, l'EDS à 99 at.% Pb et la composante XPS basse énergie forment ensemble une identification acceptable du Pb métal.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Structure cristalline de α-PbO (litharge), P4/nmm, a = 3,9744 Å, c = 5,0219 Å (d'après Boher, Garnier, Gavarri, Hewat, J. Solid State Chem. 57, 343, 1985)",
+      "authors_or_publisher": "AIST (base de structures, groupe Nomura)",
+      "year": "1985 (données) ; consulté 2026",
+      "url_or_doi": "https://unit.aist.go.jp/mmri/ja/organization/db-nomura/common/struc-coord/a-PbO-c.html"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Échauffement calculé 15,6 K (1 s) à 17,9 K (200 s) : ordre de grandeur plausible pour ~1 µW déposé, mais le modèle suppose une conduction radiale dans un milieu continu, alors qu'une particule de 25–30 nm posée sur un film de carbone a un contact thermique mauvais ; la valeur est un calcul, non une mesure. Comparer à 1500 K (fusion de PbTiO3) est sans objet ; la grandeur pertinente est la mobilité du Pb : T/Tf(Pb) = 300/600,6 K ≈ 0,5, donc diffusion de surface et coalescence rapides du Pb dès l'ambiante, ce qui suffit à expliquer coalescence, mûrissement et fluctuations structurales.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« the Pb nanoparticles are superparamagnetic in nature » et « we designed the superparamagnetic nature Pb nanocrystals » : aucune mesure magnétique dans l'article ; le plomb massif est diamagnétique (et supraconducteur sous 7,2 K) ; le superparamagnétisme du Pb nanométrique repose sur une seule étude non reproduite (Theivasanthi & Alagar 2013), alors que les mesures SQUID de Bernardi et al. 2006 montrent un diamagnétisme de fluctuations. Affirmation non fondée par ce travail.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Innovation of Superparamagnetism in Lead Nanoparticles",
+      "authors_or_publisher": "T. Theivasanthi, M. Alagar (arXiv)",
+      "year": "2013",
+      "url_or_doi": "https://arxiv.org/abs/1402.1431"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire : « the electron-nucleus interaction leads to the ionization of few atoms » : l'ionisation vient de la diffusion inélastique électron–électron, pas de l'interaction électron–noyau (élastique). « KeV » pour keV. Sans effet sur le protocole.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "MET 300 kV opéré par du personnel formé ; poudres de PbTiO3 et grilles contenant du Pb à traiter comme déchets de plomb. Rien de spécifique au-delà de l'annotation de l'extraction.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Sous une sonde condensée de 300 keV (≈ 1,3 × 10^6 e/(Å²·s)), la radiolyse de l'oxyde isolant (désorption stimulée de l'oxygène, au sens KF via les sites Ti4+ de valence maximale et l'Auger interatomique depuis O, plus le déplacement balistique de O, Emax = 53 eV) arrache de l'oxygène de surface ; l'électroneutralité impose que les électrons laissés réduisent un nombre égal de Pb2+ (y = x, Ti4+ inchangé), soit PbTiO3 → x Pb + Pb1-xTiO3-x + x/2 O2. Le Pb0, très mobile à l'ambiante (T/Tf ≈ 0,5), diffuse en surface, nuclée en particules de ~4 nm, grossit par apport continu et coalescence (macles au-dessus de ~7 nm) ; la réaction ralentit quand la surface devient conductrice (écrantage, Egerton 2004), puis la dose prolongée amorphise la matrice. Le choc direct sur Pb (Emax = 4 eV) ne déplace pas le Pb en volume mais peut pulvériser le Pb métallique de surface (Es ≈ 2 eV).",
+    "sources": [
+     {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     },
+     {
+      "title": "Ion desorption by core-hole Auger decay",
+      "authors_or_publisher": "M.L. Knotek, P.J. Feibelman (Phys. Rev. Lett. 40, 964)",
+      "year": "1978",
+      "url_or_doi": "10.1103/PhysRevLett.40.964 (DOI non vérifié sur Crossref ; référence citée par les sources lues)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "noter la durée d'irradiation, le mode (TEM parallèle ou sonde STEM), le vide de la colonne et l'épaisseur des particules : l'effet dépend du débit de dose, pas seulement de la dose",
+    "utiliser J = 2,02 × 10^7 A/m² avec un faisceau de 50 nm de DIAMÈTRE (Table S1 erronée : rayon et énergie)",
+    "définir comment préparer un échantillon irradié mesurable en XPS (irradiation d'une surface macroscopique, ex. MEB ou canon à électrons) et contrôler la réduction de Pb2+ par les rayons X ou l'Ar+ sur un témoin non irradié",
+    "quantifier O par EELS plutôt que par EDS pour établir la lacune en oxygène",
+    "vérifier la perte éventuelle de Pb par pulvérisation (bilan Pb/Ti avant/après sur la même zone)"
+   ]
+  },
+  {
+   "label": "EBI_40s",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "croissance 4 → 7 nm",
+     "inputs": "4 nm à 20 s, 7 nm à 40 s",
+     "formula": "(7/4)³ ; 4 × 2^(1/3)",
+     "result": "5,4 volumes de 4 nm ; deux sphères fusionnées donneraient 5,0 nm",
+     "compared_to": "« about twice the width » : particules accolées ou apport continu de Pb",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Croissance d'un facteur 5,4 en volume en 20 s (voir calculs « croissance 4 → 7 nm ») : cohérente avec l'apport continu de Pb0 et la coalescence décrite (Fig. S3) ; la largeur de 7 nm « about twice » 4 nm suggère deux particules encore accolées. Une seule particule suivie : pas de statistique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Coalescence de particules de Pb voisines plus apport de Pb0 depuis la matrice ; mobilité élevée du Pb à l'ambiante.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "suivre plusieurs particules pour une statistique taille–temps"
+   ]
+  },
+  {
+   "label": "EBI_prolonged",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "dose cumulée au-delà de 175 s",
+     "inputs": "1,26 × 10^6 e/(Å²·s) × 175 s",
+     "formula": "débit × durée",
+     "result": "> 2,2 × 10^8 e/Å²",
+     "compared_to": "durée « prolonged » non chiffrée",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Décomposition complète, boules de Pb autour d'une matrice amorphe, particule émergente à 99 at.% Pb : issue attendue d'une radiolyse prolongée d'un oxyde de Pb (perte d'O, Pb réduit, réseau Ti–O amorphisé). Durée non chiffrée : non reproductible tel quel.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Prolongement de la désorption d'oxygène et de la réduction du Pb jusqu'à épuisement du réseau pérovskite ; la matrice Ti–O restante s'amorphise.",
+    "sources": [
+     {
+      "title": "Radiation damage in the TEM and SEM",
+      "authors_or_publisher": "R.F. Egerton, P. Li, M. Malac (Micron 35, 399–409)",
+      "year": "2004",
+      "url_or_doi": "10.1016/j.micron.2004.02.003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "chiffrer la durée « prolonged »"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le sol-gel de PbTiO3 est classique et chimiquement cohérent, mais sans quantités (seuls 10 mL d'acac, « equal molar ») et calciné à la limite basse de cristallisation (450 °C). La partie irradiation est un phénomène connu de radiolyse d'oxyde de plomb sous sonde condensée ; la densité de courant se recalcule (faisceau de 50 nm de diamètre). Trois points fragilisent les conclusions : la physique de l'endommagement est mal énoncée (choc et radiolyse inversés, Emax gonflés de 5–6 %, KF sur Pb2+), la perte d'oxygène EDS annoncée dépasse ce qu'autorise l'électroneutralité avec Ti4+ inchangé, et l'échantillon « irradié » de l'XPS n'a pas de protocole compatible avec une irradiation en MET de 50 nm, alors que le caractère « n » repose dessus.",
+  "author_errors_suspected": [
+   "Table S1 : « Beam radius 50 nm » au lieu du diamètre (J = 2,02 × 10^7 A/m² exige r = 25 nm) et « Energy of electron 318349.44 ev » pour 300 keV",
+   "Emax 4,3 / 18,8 / 56,4 eV au lieu de 4,1 / 17,8 / 53,2 eV à 300 keV",
+   "choc élastique et radiolyse inversés (« knock-on … quenched due to the high density of the delocalized electron »)",
+   "« the volatilization of Pb does take place » contredit la phrase suivante (sans doute « does not »)",
+   "formule du butoxyde « Ti(OC(CH3))4 » au lieu de Ti(OC4H9)4",
+   "frange de 4,1 Å attribuée à (100) au lieu de (001)",
+   "perte d'oxygène EDS de 10–20 at.% incompatible avec Ti4+ inchangé",
+   "protocole d'irradiation de l'échantillon XPS absent et incompatible avec un spot MET de 50 nm",
+   "« superparamagnetic » Pb affirmé sans mesure"
+  ],
+  "comparison_with_database": "Aucune autre voie PbTiO3 ou titanate de plomb dans la base (compare.py « PbTiO3 » et « lead titanate » : seule PMC5567205)."
+ },
+ "sources_not_found": [
+  "texte intégral d'Egerton et al. 2004 non lu en entier (extraits seulement) : la phrase sur l'extinction de la radiolyse par les électrons de conduction n'a pas été lue telle quelle ; l'appui utilisé est l'extrait « until the material becomes sufficiently conducting to screen the positive oxygen ion »",
+  "valeurs PbTiO3 (χ = 3,5 eV, Eg = 3,4 eV, limite de Bardeen 1,95 eV) dans Robertson 2000 non relues",
+  "DOI de Doeuff et al. 1987 et de Knotek & Feibelman 1978 non vérifiés (Crossref bloqué)",
+  "aucune source trouvée sur la cristallisation à 450 °C exactement pour la recette acétate/butoxyde/acac"
+ ]
+}

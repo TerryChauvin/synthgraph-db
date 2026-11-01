@@ -1,0 +1,18 @@
+# Journal d'extraction PMC8830207
+
+- **Trois voies de base, une par ligand** (T-cat0.1p, T-dop0.05, T-asc0.1). Le protocole « typique » est commun, mais les trois hybrides sont des matériaux distincts comparés par les auteurs ; chaque famille a ses branches en c, [Ti], h, solvant ou additif. Évite des variations de remplacement de ligand sur chaque branche.
+- **Base du catéchol = T-cat0.1p** (précipité, 1-propanol seul, [Ti] = 0,85, h = 4) : ce sont les conditions communes de la série T-cat0.01p à T-cat0.4p et des mélanges Hacac/citrate/dea (tableau S1). Les gels chimiques T-cat0.1 et T-cat0.05 en sont des branches avec étapes propres.
+- **Pas d'héritage non fondé pour les précipités** : « The chemical or physical wet gels … were left aging … dried … ground » ne vise que les gels. Les cinq précipités (T-cat0.1p, 0.05p, 0.01p, T-dop0.05p, T-asc0.1p) s'arrêtent à l'ajout de la solution d'hydrolyse ; le devenir du précipité est en `missing_fields` et en doute. Les gels physiques T-cat0.2p/0.4p, eux, reçoivent vieillissement, séchage, broyage (étapes propres).
+- **Quantités** : l'article ne donne aucune masse ni aucun volume. [Ti] (mol/L), c et h (mol/mol Ti) sont extraits comme `amount` avec ces unités, citation = rangée du tableau 1 ou du tableau S1 (cellules du SI recollées par retour à la ligne). Volumes de solvant : non cités.
+- **Tableau S1 contre texte** : [Ti] de T-cat0.1C/D = 0,52 (S1) alors que le texte dit 0,5 ; S1 retenu. Temps de gélification de T-asc0.2 : « few hours » dans le texte, 3 h dans S1 ; la rangée S1 est citée.
+- **ATG** : Méthodes « heating in air » contre légendes des figures 2 et S6 « N2 » ; les deux versions sont notées dans `conditions`, sans trancher.
+- **Noms T-cat0.01 / T-cat0.1 / T-cat0.4** (teneurs théoriques 1,5 / 12 / 35 %, « respectively ») : la figure S6 les étiquette T-cat001p, T-cat01p, T-cat04p ; attribués aux échantillons « p ». 12 % est aussi donné à T-cat0.1 puisque le texte écrit ce nom.
+- **Échantillon à c = 0,2 du catéchol** (absorption vers le proche IR) : rattaché à T-cat0.2p, seul échantillon du tableau S1 avec ce c.
+- **T-cat0.1A** : ordre des ajouts (HCl 0,1 mol/L, h = 4, pH ∼4, puis NH3 à pH ∼10) pris dans le texte des résultats ; deux étapes propres (ajout de la solution acide puis `adjust_ph`). Agitation de 30 min reprise de la procédure type pour A, C et D (doute).
+- **Cyclohexane** : la solution (ligand ou hydrolyse) qui le contient n'est pas dite ; ni la quantité de HCl du T-cat0.1. Déclarés non cités.
+- **Ligand pour T-asc0.1p** : l'éthanol remplace le 1-propanol (« identical conditions »), solution exacte non précisée (doute).
+- **Évolution RPE dans le temps** (T-cat0.01p à 1, 2, 24 mois ; −50 % T-dop0.05 ; −90 % T-asc0.05) : rangée en `outcomes` des voies concernées. FTIR après 12 mois de « a TiO2-asc sample » rattaché à T-asc0.1 d'après la figure S11 (doute).
+- **Groupes** (gap indirect 1,8 à 1,9 eV, bande de transfert à 420 nm, pertes de masse 30 à 35 % de la série catéchol, photocourants visibles) : annotations `tendance_observee`, pas de valeur recopiée par voie.
+- **Électrode ITO/PET** (broyage de 15 mg, doctor blade, séchage à ca. 60 °C) : voie `device` unique pour les échantillons 0,05 et la référence.
+- **Référence TiO2 sol-gel amorphe** : sans voie (protocole non décrit). Plages (« c de 0,01 à 0,4 », « [Ti] de 1,0 à 0,3 », « h de 4 à 2 ») : pas de branche pour les bornes ; annotation.
+- **Figures** : ouvert Fig. 2, Fig. 5 et le graphique de couverture ; les valeurs sont dans le texte, rien n'est lu sur figure. Cartes de photocourant et EQE (S13, absente du dossier) non chiffrées.

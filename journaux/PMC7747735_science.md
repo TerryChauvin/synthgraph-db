@@ -1,0 +1,16 @@
+# PMC7747735 — critique scientifique (journal de décisions)
+
+- Mg/Al réel du support : je classe en `reserve` et non en `probleme`. Viswanathan 2020 (Sādhanā) donne, pour chaque sel seul, 73 % de Mg précipité à pH 9,0, d'où ≈ 1:2,6 si les cations précipitaient indépendamment ; mais la co-précipitation (hydroxyde mixte) peut retenir plus de Mg, et l'article ne mesure pas Mg/Al.
+- Surface 86 → 144 m2/g après 20 % de Co3O4 : `probleme`. Par dilution, on attend au plus ≈ 80 m2/g (0,796 × 86 + 0,204 × 54). Le facteur 2 constant entre 4V/S et BJH, sur les seuls catalyseurs au Co, renforce le doute ; les supports, eux, s'accordent à ±15 %.
+- Scherrer et HRTEM non discriminants : `probleme`. J'ai recalculé d(111), d(220) et d(311) pour a = 8,08 Å : les trois valeurs annoncées valent pour les deux phases. Les auteurs reconnaissent eux-mêmes que les raies se superposent, puis interprètent quand même la taille.
+- Phase active : `probleme` sur la voie 15Co/800MA. Le H2 produit (≈ 9,8 mmol/h) suffit à réduire les 0,59 mmol de Co3O4 du lit en ≈ 4 min. J'ai renoncé à un calcul d'Ellingham chiffré : les ΔG° me venaient de mémoire, sans source lue. Je m'appuie sur la RTP de l'article et sur Cherepanova 2023 (Co3O4 → CoO → Co).
+- Équilibre EB ⇌ ST + H2 : faute de source pour les données NIST, je pars de la conversion d'équilibre ≈ 40 % sans diluant à 600 °C (Gomez Sanz 2015), j'en tire K ≈ 0,19 atm puis ≈ 69 % pour CO2/EB ≈ 6,6. Les 60–62 % sous N2 sont donc cohérents : pas de constat de dépassement de l'équilibre.
+- Base du rendement en CO non définie ; en la supposant rapportée au CO2 alimenté, ≈ 73 % du H2 est consommé par RWGS : plausible, `reserve`.
+- Total d'acidité de 800MA : 0,542 par somme contre 0,510 annoncé. L'écart est égal aux sites faibles, d'où le soupçon d'un total calculé sans eux ; les sept autres lignes sont justes. `probleme` (erreur de l'article).
+- Régénération classée `incoherente`. Le texte dit « aucun changement », la figure 8 montre −11 points à 20 h (valeurs lues par l'extraction, que j'ai prises telles quelles). La température de régénération manque.
+- CA et CM en `invérifiable` : base « 15 wt% Co3O4 » (≈ 11 % de Co) contre 15 % de Co pour la série ; supports d'origine inconnue.
+- 600MA : prétraitement à 650 °C sous N2 (annexe), au-dessus de sa calcination à 600 °C ; je l'ai noté comme réserve sur l'interprétation de l'activité.
+- Mécanisme du support : je rejette « Al(OH)3 stable jusqu'à 600 °C » (déshydroxylation de la boehmite finie vers 600 °C, J. Mater. Sci. Lett. 1997 ; effondrement des hydroxydes Mg–Al vers 400 °C, Adhikari 2010) et je propose : hydroxyde mixte puis oxyde amorphe, puis spinelle et γ-Al2O3 à 600 °C, puis spinelle unique, peut-être riche en alumine.
+- Sources retenues : Viswanathan 2020, Adhikari 2010, Gomez Sanz 2015, Cherepanova 2023, rapport OSTI 1185327 (titre non relevé, gardé pour a = 8,083 et 7,915 Å), Thommes 2015 (fondateurs.md). Les DOI n'ont pas été vérifiés sur Crossref (bloqué) ; rien n'a été ajouté à fondateurs.md ni à constantes.md.
+- WebFetch échouait (DNS) ; je suis passé par Parallel Search. 6 recherches et 3 lectures de pages.
+- Densités (MgAl2O4 3,58 ; Co3O4 6,11 ; EB 0,867) et masses molaires prises de mémoire : signalé dans `sources_not_found`.

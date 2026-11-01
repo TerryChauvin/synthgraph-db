@@ -1,0 +1,99 @@
+{
+ "pmcid": "PMC9054543",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "MZ-27 outcomes stability_BTEX_selectivity_HDPE_start_to_end et _PP_start_to_end (value_text « after 300 min »)",
+   "extracted": "from 87.6% to 79.3% after 300 min (HDPE) ; from 80% to 65.7% after 300 min (PP)",
+   "article_says": "BTEX selectivity decreased from 87.6% to 79.3% for HDPE, and from 80% to 65.7% for PP after 300 min.",
+   "fix": "Les valeurs 79,3 % et 65,7 % sont celles du texte, mais la Fig. 7 (axe jusqu'à 600 min) les situe au dernier point, vers 600 min : à 300 min la courbe BTEX du PP est vers 76 % et celle du HDPE vers 80 %. Et la méthode dit « for 600 min ». Remplacer « after 300 min » dans value_text par « dernier point de la Fig. 7 (texte : after 300 min ; méthode et Fig. 7 : 600 min) », ou retirer la durée de la valeur (le doute existe déjà).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MZ-27 characterization « catalyst stability test (MZ-27) », conditions",
+   "extracted": "550 °C sous N2 ; 0.3 g de plastique toutes les 5 min ; liquide collecté 1 min toutes les 30 min",
+   "article_says": "The stability of the catalysts was determined by continuous catalytic cracking of HDPE and PP over MZ-27 at 550 °C in N2 stream for 600 min.",
+   "fix": "ajouter à `conditions` la durée totale (600 min selon la méthode) et la mention HDPE et PP ; la masse de catalyseur de l'essai de stabilité n'est pas donnée (0,5 g n'est cité que pour l'essai de craquage standard).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "NH3-TPD characterization, conditions (définition faible / moyen / fort)",
+   "extracted": "300 mg ; prétraitement 200 °C 1 h sous He ; ... ; détecteur TCD (sans les plages de température des trois classes d'acidité)",
+   "article_says": "The weak acid, medium acid and strong acid were defined in the temperature region 100–230 °C, 230–350 °C, and 350–550 °C, respectively, in NH3-TPD curves.",
+   "fix": "ajouter à `conditions` les plages 100–230 / 230–350 / 350–550 °C et la décomposition par ajustement gaussien (« peak area from Gaussian fitting of the NH3-TPD profiles ») : sans elles, les colonnes weak/medium/strong de la Table 2 ne sont pas interprétables.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "XRD characterization / outcomes relative_crystallinity (définition)",
+   "extracted": "relative_crystallinity = 70.1 % (MZ-27) etc., sans la référence",
+   "article_says": "The relative crystallinity (calculated based on the sum of peak area between 22.5–25° in XRD pattern of the ZSM-5 samples compared to that of HZ-150)",
+   "fix": "noter dans `conditions` de la caractérisation XRD que la cristallinité relative est calculée sur la somme des aires de pic entre 22,5 et 25° par rapport à HZ-150 (HZ-150 = 100 % par définition).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "catalytic cracking test characterization, conditions (charges)",
+   "extracted": "0.5 g de catalyseur ; 550 °C ; N2 40 mL min−1 ; 1.0 g de plastique ... ; produits refroidis à environ −10 °C",
+   "article_says": "HDPE and PP were dried at 80 °C for 2 h before use.",
+   "fix": "ajouter le séchage des charges (80 °C, 2 h), leur forme (« cylindrical pellets with particle size about 4 mm », densités 951 et 910 kg m−3) et que les données sont « the average value of three parallel experiments » (répétition x3 des Tables 3 et 4).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MZ-27 et MZ-80 outcomes (SEM, taille de particule comparée aux témoins)",
+   "extracted": "morphology seulement (sphères d'aiguilles ; « coffin »)",
+   "article_says": "Compared with HZ-27, the particle size of the aggregates of MZ-27 were larger, and the needle-like crystals in the aggregates were obviously larger and more dispersive.",
+   "fix": "ajouter une résultat qualitatif de MZ-27 (agrégats et aiguilles plus grands que HZ-27) et de MZ-80 (« a larger particle of MZ-80 compared to HZ-80 »), ou une annotation `comparaison_branches` : c'est l'effet visible de la cellulose sur la morphologie.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "HZ-150 outcomes (rendement en oléfines légères, HDPE)",
+   "extracted": "absent (doute « texte de l'article, 37,6 % » : non extrait)",
+   "article_says": "The maximum light olefin yield (37.6%) in our study was achieved over the weakest acidic catalyst (HZ-150).",
+   "fix": "extraire HDPE_light_olefin_yield = 37.6 % pour HZ-150 avec cette citation : valeur numérique donnée par les auteurs (cohérente avec 85,4 % x 44,0 % = 37,6 %), et le texte la compare à Artetxe et al. (58 wt %).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MZ-27, HZ-27, MZ-80, MZ-150 outcomes spent_catalyst_TGA_weight_loss_HDPE_Fig6a / PP_Fig6b",
+   "extracted": "spent_catalyst_TGA_weight_loss_* = 2.4 / 2.9 / 1.8 / 1.6 % (HDPE), 1.5 / 2.0 / 1.5 / 0.8 % (PP), sans plage de température",
+   "article_says": "The order of weight loss between 200–800 °C (coke amount) for different catalysts was: HZ-27 > MZ-27 > MZ-80 > MZ-150.",
+   "fix": "les flèches de la Fig. 6 mesurent bien la perte à partir de 200 °C (plateau de départ vers 200 °C, lu sur l'image, valeurs et attribution aux courbes confirmées) ; préciser dans le nom de propriété ou une note « perte de masse 200–800 °C (coke) », sinon on la confond avec la perte totale, eau physisorbée comprise (~5–7 % sur les courbes).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "outcomes N2 (tous échantillons) : diamètre de pore principal",
+   "extracted": "absent (seul large_pores_diameter 3–14 nm pour MZ-27 et MZ-80)",
+   "article_says": "As shown in Fig. 3(b), the major pore diameter of all samples was around 3 nm.",
+   "fix": "ajouter major_pore_diameter ≈ 3 nm en annotation de groupe (tendance_observee) ou en résultat des six voies.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 61,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masses ou volumes de Ludox, NaOH, NaAlO2, TPABr, H2SO4 et eau : seule la composition molaire 200SiO2–xAl2O3–35NaOH–10TPABr–15H2SO4–2445H2O est donnée (« a certain amount »), ni la masse de gel, ni le volume d'eau des solutions I et II",
+  "concentration et volume de l'acide « moderate concentrated » ajouté pour pH 9 (H2SO4 98 % en Materials) ; mesure du pH non décrite",
+  "température, durée et agitation de la préparation du gel ; vitesse d'ajout « drop by drop »",
+  "taux de remplissage et volume de l'autoclave, vitesse de montée, refroidissement",
+  "atmosphère et vitesse de chauffe des deux calcinations (550 °C, 6 h) ; type de filtration",
+  "l'agitation de 4 h après MCS est-elle conservée pour HZ-X sans MCS (l'article dit seulement « no addition of MCS »)",
+  "correspondance des précurseurs B et C avec HZ-80 et HZ-150 non écrite ; rapports « Si/Al » en réalité SiO2/Al2O3 (200/7,4 = 27)",
+  "les 4 h d'échange NH4Cl : par échange ou au total ; agitation ; pression de pastillage",
+  "réacteur de craquage : dimensions, lit, température de la phase de chauffe, masse de catalyseur de l'essai de stabilité, conditions de la TGA (vitesse, masse) et origine exacte des catalyseurs usés de la Fig. 6",
+  "durée de l'essai de stabilité contradictoire (600 min en méthode et Fig. 7 ; 300 min dans le texte)",
+  "plage XRD écrite « 5–50 °C » (2θ probable)"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Lecture indépendante faite avant l'extraction : 6 catalyseurs (MZ-27/80/150, HZ-27/80/150), intermédiaires NaZSM-5, MCS, précurseurs A, B, C, charges HDPE et PP, catalyseurs usés ; l'inventaire de l'extracteur est équivalent. Les 464 valeurs de tableau (Tables 1 à 5) ont été recontrôlées par script contre le texte : colonne, tableau (HDPE ou PP) et nom de ligne justes, aucune valeur absente, aucune valeur fausse. Les 8 valeurs de la Fig. 6 sont justes (écart < 0,1 point) et bien rattachées aux courbes. Fragile : (1) la variation de NaAlO2 des branches HZ-80 et HZ-150 repose sur la numérotation (HZ-X ~ MZ-X) sans phrase explicite, déjà en doute ; (2) le retrait de l'agitation de 4 h dans HZ-27 est une hypothèse (déjà en doute) ; (3) incohérences internes de la Table 5 (propylbenzène et 1-éthyl-3-méthylbenzène du HDPE semblent inversés ; benzène 8,8 contre 8,7) : valeurs recopiées fidèlement, doute présent. method_sources (cit19, cit20) complet : aucun autre renvoi de méthode dans corpus/refs."
+}

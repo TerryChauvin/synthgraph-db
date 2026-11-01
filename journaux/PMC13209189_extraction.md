@@ -1,0 +1,17 @@
+# Journal d'extraction PMC13209189 (SiC, centres colorés)
+
+- Découpage : 20 échantillons = 2 niveaux d'Al (0 / 10 mol%) x 2 niveaux de broyage (0 / 3 h) x 5 températures (1050 à 1450 °C). Une voie par échantillon, étiquetée « Al-durée-T » (ex. « 0%-3 h-1050 °C »), noms repris de la légende de la figure 1 et du texte.
+- Voie de base : « 0%-3 h-1050 °C » (Al-libre, HEBM 3 h, 1050 °C). Les auteurs ne désignent aucune référence ; ce choix tient au fait que c'est le protocole complet (HEBM) et l'échantillon aux signatures RPE les plus riches. Consigné en doute.
+- Séries en température : une branche par valeur explicitement listée (« 1050, 1150, 1250, 1350, and 1450 °C »), variation sur l'étape 5 (maintien à la température cible), parent = tête de série.
+- Série avec Al : variation nommée « additive » (parent_value « none »), réactif « aluminum powder » ajouté à la branche (10 mol%, pureté ≥ 91 % complexométrique, fournisseur non cité). La base de « 10 mol% » n'est pas donnée : doute.
+- Série sans broyage (0 h) : voie « 0%-0 h-1050 °C » avec ses propres étapes (mélange maison à 75 RPM toute la nuit, sans billes ni argon cité) plutôt qu'un héritage de l'étape de broyage ; la variation porte sur milling_speed et duration de l'étape 1. L'étape de mélange ne dit rien de l'atmosphère : not_stated. Les étapes 2 à 10 sont reprises car le texte les applique à tous les échantillons (« the samples »).
+- « 10%-0 h-1050 °C » a pour parent « 0%-0 h-1050 °C » (même mélange, seul l'Al change) ; « 10%-3 h-1050 °C » a pour parent la base.
+- Rampe de 5 °C/min : phrase générale du four, attribuée aux deux étapes de chauffage (palier 200 °C et palier cible).
+- Rendement, taille de cristallites et polytypes : valeurs lues sur la figure 1 par analyse de pixels du diagramme en barres (axe commun 0-100), arrondies à l'entier, seuil de 3 % pour les polytypes minoritaires. Citation = légende de la figure 1, `from_figure` = « Fig. 1a-d ». Marqueurs de taille cachés derrière ceux du rendement pour 10%-0 h-1050 °C et 10%-3 h-1050 °C : lectures ≈ 33 et ≈ 11 nm, doute.
+- Rendement de voie : non repris dans `yield` (la figure n'est pas une citation de valeur) ; case déclarée not_stated et valeur placée en outcome avec from_figure.
+- Texte contre figure : « about 50 % at 1150 °C » sans broyage contre 37 % et 58 % sur la figure 1a/1b ; figure retenue pour les résultats, texte cité en doute.
+- 0%-3 h-1050 °C : « did not contain 3C-SiC » est cité en outcome texte (value_text) en plus des teneurs 4H et 6H lues sur la figure.
+- Contradiction signalée : le texte donne 0%-0 h-1050 °C comme l'échantillon au signal PL IR le plus intense, mais cet échantillon n'est pas dans la légende de la figure 4 ; la courbe la plus intense y est 0%-3h-1150 °C. Texte reproduit sans valeur chiffrée.
+- Caractérisations RPE : un enregistrement par signal D (1,3 GHz, 270 MHz, 650-780 MHz) sur la voie de base, deux sur 0%-3 h-1150 °C (le signal 270 MHz y est absent). Les résultats PL visible et NIR « par groupe » vont en annotations de tendance, pas rattachés à une voie.
+- Réactifs non quantifiés : Si, C, PTFE sans aucune masse ni rapport dans l'article ; not_stated [amount]. L'eau de l'HF/HNO3/H2O et les acides reçoivent amount_text « 1:1:10 » (nature du rapport non précisée).
+- Bioprocédé, annexes : Figures S1-S3 et Table S7 absentes du dépôt (aucune section Supporting Information) ; annotation limite_reproductibilite « Annexe absente du dépôt ». `method_sources` vide : aucun renvoi de protocole (les études antérieures [B17], [B25] sont citées comme contexte).

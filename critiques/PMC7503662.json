@@ -1,0 +1,81 @@
+{
+ "pmcid": "PMC7503662",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "band_gap des routes g-C3N4, CeO2 et kaolin/CeO2/g-C3N4 (Table 2 vs texte 3.1 vs Fig. 4b)",
+   "extracted": "g-C3N4 = 2.73 eV et CeO2 = 2.75 eV (Table 2), kaolin/CeO2/g-C3N4 = 2.73 eV (texte) : la valeur 2.92 eV n'est attribuée à aucun échantillon et 2.73 eV est attribué à deux échantillons",
+   "article_says": "Hence, band gaps of 2.73, 2.75 and 2.92 eV were calculated for kaolin/CeO2/g-C3N4 composite, g-C3N4 and CeO2, respectively.",
+   "fix": "Le texte et la Table 2 se contredisent (texte : composite 2.73, g-C3N4 2.75, CeO2 2.92 ; Table 2 : g-C3N4 2.73, CeO2 2.75), et la Fig. 4b porte trois étiquettes distinctes 2.73, 2.75, 2.92 pour trois échantillons. Le mélange retenu (Table 2 pour deux, texte pour le troisième) ne correspond à aucune lecture cohérente de l'article. Garder chaque valeur avec sa source (Table 2 / texte) ou une seule source pour les trois, et ajouter une annotation limite_reproductibilite signalant le conflit ; ECB et EVB de la Table 2 restent cohérents avec Table 2 (1.82 - (-0.91) = 2.73 ; 2.04 - (-0.71) = 2.75).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "résultats Fig. 6a, voies CeO2, g-C3N4 et kaolin/CeO2/g-C3N4",
+   "extracted": "Efficacité de dégradation à 150 min en % (texte) pour CeO2, g-C3N4 et le ternaire, mais C/C0 à 150 min lu sur la figure seulement pour kaolin/CeO2, kaolin/g-C3N4 et CeO2/g-C3N4",
+   "article_says": "(a) Photocatalytic degradation of ciprofloxacin (CIP) under visible light irradiation",
+   "fix": "Ajouter la propriété CIP_C_over_C0_end_of_irradiation_visible_light (from_figure Fig. 6a) pour CeO2 (≈ 0.58), g-C3N4 (≈ 0.49) et le ternaire (≈ 0.16), afin que les six échantillons aient la même propriété comparable ; lecture par moi de la Fig. 6a à 150 min : kaolin/CeO2 ≈ 0.37, kaolin/g-C3N4 ≈ 0.31, CeO2/g-C3N4 ≈ 0.55, ce qui confirme les trois valeurs déjà saisies.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "route CeO2 (branche de kaolin/CeO2), héritage des étapes 6 et 7",
+   "extracted": "Branche rattachée à kaolin/CeO2 avec pour seule variation « kaolin absent », donc héritage des 9 étapes dont la dispersion du kaolin dans l'éthanol (suspension B) et l'ajout de la suspension A à B",
+   "article_says": "For comparison, CeO2 was synthesized using a similar method without kaolin.",
+   "fix": "Sans kaolin, les étapes 6 (suspension B de kaolin dans l'éthanol) et 7 (ajout A dans B) n'ont plus d'objet, et le séchage 80 °C et la calcination 450 °C ne sont pas écrits pour CeO2 seul. Seules les étapes 1 à 4 (dissolution, autoclave 180 °C 24 h, refroidissement, lavage) sont certaines par similitude. Marquer les étapes 5 à 9 comme non établies (not_stated ou retirées de la branche) plutôt qu'héritées ; le doute existe déjà mais l'héritage reste dans les données.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "CIP_degradation_efficiency_150_min du ternaire (90 %) contre Fig. 6a",
+   "extracted": "90 % (texte), avec un doute sur les lectures de figure mais sans annotation limite_reproductibilite",
+   "article_says": "and 90% degradation efficiency of CIP was achieved after 150 min",
+   "fix": "La Fig. 6a donne C/C0 ≈ 0.16 à 150 min pour le ternaire (≈ 84 % dégradé par rapport au début de la phase sombre), alors que les valeurs de CeO2 (42 % ↔ C/C0 ≈ 0.58) et g-C3N4 (51 % ↔ ≈ 0.49) du même texte concordent avec la figure ; la conclusion écrit « CIP was completely removed within 150 min », ce qui contredit à la fois 90 % et la figure. Ajouter une annotation limite_reproductibilite sur la voie du ternaire (valeur du texte conservée, incohérence de l'article).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (« le composite ternaire est le plus actif ») et échantillon kaolin",
+   "extracted": "Ternaire présenté comme le plus actif, courbe du kaolin absente des données",
+   "article_says": "In the case of all samples, the kaolin/CeO2/g-C3N4 composite showed superior photocatalytic activity",
+   "fix": "Sur la Fig. 6a, le kaolin seul atteint C/C0 ≈ 0.08 à 150 min (≈ 0.24 déjà à -30 min dans le noir), soit moins que le ternaire (≈ 0.16) : l'élimination de la CIP par le kaolin est surtout de l'adsorption, et la comparaison « activité photocatalytique » du ternaire se fait par la constante de vitesse (Fig. 6b), où le kaolin n'apparaît pas. Préciser dans l'annotation (limite_reproductibilite) que la hiérarchie vaut pour k et non pour le C/C0 final, et ajouter les C/C0 du kaolin (≈ 0.24 à -30 min, ≈ 0.19 à 0 min, ≈ 0.08 à 150 min, from_figure) dans l'inventaire ou en résultat rattaché à une voie témoin.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "échantillon kaolin (route null) et XRD de CeO2",
+   "extracted": "Aucune des valeurs de Table 1 pour le kaolin, ni les pics XRD du kaolin (24.98°, 38.54°, 62.46°), ni la référence XRD de CeO2 (JCPDS No.43-1002) n'est saisie",
+   "article_says": "kaolin | 268.517 | 0.0507 | 13.6668 | 37.946 | 12.628",
+   "fix": "Le kaolin n'ayant pas de voie, ses données (surface 12.628 m2/g, volume poreux 0.0507 cm3/g, diamètre 13.6668 nm) sont perdues ; les mettre dans une annotation rattachée au ternaire ou à la branche kaolin/g-C3N4 (matière première), et ajouter à la voie CeO2 la caractérisation XRD (JCPDS No.43-1002). Faible valeur, à l'appréciation de l'orchestrateur.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations limite_reproductibilite : méthode annoncée « sol-gel » et phrase sur g-C3N4/TiO2/bentonite",
+   "extracted": "Ces deux incohérences de l'article ne figurent que dans les doutes, pas dans une annotation limite_reproductibilite",
+   "article_says": "novel ternary kaolin/CeO2/g-C3N4 composite was prepared by sol-gel method followed by hydrothermal treatment",
+   "fix": "Un chimiste doit savoir que le protocole écrit ne contient aucune étape sol-gel (hydrothermal seulement pour CeO2, puis mélange en suspension et calcinations à 450 °C puis 550 °C) et que « g-C3N4/TiO2/bentonite nanocomposite » (3.2) vient d'un autre travail ; ajouter une annotation limite_reproductibilite (route null).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Quantités de kaolin/CeO2 et de g-C3N4 (« a certain amount ») dans le ternaire, le binaire CeO2/g-C3N4 et le binaire kaolin/g-C3N4 : rapports massiques des composants inconnus, absents de l'article et de l'annexe",
+  "Volumes d'éthanol des dispersions du ternaire et du binaire kaolin/g-C3N4 ; quantité de CeO2 prélevée pour la suspension A du binaire CeO2/g-C3N4",
+  "Atmosphère et four des calcinations (450 °C, 550 °C), vitesse de refroidissement ; four utilisé pour g-C3N4 non précisé ; vitesse de centrifugation et séparation du précipité CeO2 non précisées",
+  "Protocole exact de CeO2 seul (« a similar method without kaolin »)",
+  "Rôle de l'acide nitrique et de la mélamine cités en Materials mais absents des protocoles ; origine et pureté de la dicyandiamide ; fournisseur et composition du kaolin purifié",
+  "Rendements non donnés ; taux de remplissage de l'autoclave non écrit (60 mL dans 100 mL, seulement déductible)",
+  "Essai photocatalytique : distance lampe-réacteur, température du réacteur, pH de la solution de CIP non donnés ; concentrations des piégeurs IPA, EDTA-2Na et BQ non données ; protocole de récupération et de lavage du catalyseur entre les quatre cycles non décrit",
+  "EIS et photocourant (électrodes, électrolyte, potentiel), EPR avec DMPO (solvant, concentration) et paramètres d'acquisition EPR non décrits",
+  "Valeurs du ternaire à 150 min non concordantes dans l'article (texte 90 %, conclusion « completely removed », Fig. 6a ≈ 84 %, Fig. 6d ≈ 93 %, Fig. 9a ≈ 96 %)"
+ ],
+ "mechanism_check": "ok : les annotations mecanisme_auteurs se limitent à ce que l'article écrit (processus « hydrogen ions functionalized », polymérisation thermique) ; mecanisme_analyse est bien marqué comme interprétation. Rien de dangereux omis dans securite_analyse.",
+ "notes": "Valeurs from_figure vérifiées sur les images : Fig. 6a (0.37, 0.31, 0.54 à 150 min : écart ≤ 0.02, bon), Fig. 6b (constantes imprimées dans la légende, toutes correctes et bien attribuées aux couleurs : CeO2/g-C3N4 0.00268, CeO2 0.00434, kaolin/g-C3N4 0.00657, kaolin/CeO2 0.00547, ternaire 0.01022, g-C3N4 0.00359 ; 0.01022/0.00434 = 2.36 et /0.00359 = 2.85 concordent avec le texte), Fig. 6d (≈ 93.5, 90.3, 87.7, 84.7), Fig. 9a (≈ 96, 81, 21, 48). Tableau 1 : toutes les valeurs de g-C3N4, CeO2 et du ternaire sont correctes. Étapes et quantités des cinq protocoles (texte et annexe) relues : correctes, pas d'étape manquante. method_sources : seule la référence B48 (g-C3N4) est un renvoi de méthode, bien saisie ; B45, B49 à B54 sont des renvois de contexte ou d'interprétation. La Fig. 4a ne montre pas de courbe CeO2/g-C3N4 alors que le texte l'annonce (incohérence de l'article, sans effet sur l'extraction). La lecture de la Fig. 4b ne permet pas de trancher l'attribution des trois étiquettes de band gap."
+}

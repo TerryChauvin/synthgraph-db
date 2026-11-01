@@ -1,0 +1,265 @@
+{
+  "pmcid": "PMC3659320",
+  "routes": [
+    {
+      "label": "MoS2-1L-sapphire",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Mo et S sont bien apportés. M(MoCl5) = 273,2 g/mol : 1 mg = 3,7 µmol, 4 mg = 14,6 µmol, 50 mg = 183 µmol. 1 g de soufre = 31,2 mmol d'atomes S. Rapport S/Mo = 8500 (1 mg), 2100 (4 mg), 170 (50 mg), pour un besoin de 7 (voir redox). Une monocouche de MoS2 (a = 0,316 nm, soit 1,16e15 Mo/cm2) sur 1 cm x 3 cm ne contient que 5,8 nmol de Mo, soit 1,6 µg de MoCl5 : 1 mg de MoCl5 apporte déjà environ 630 fois le Mo d'une monocouche. Le seuil de 1 mg et les marches du tableau S1 ne viennent donc pas de la stœchiométrie mais du transport (moins de 0,2 % du Mo finit sur le substrat).",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "redox",
+          "finding": "Mo(V) doit être réduit en Mo(IV) sans H2 : le seul réducteur présent est le soufre. Bilan équilibré possible : 2 MoCl5 + 14 S -> 2 MoS2 + 5 S2Cl2 (10 électrons échangés), soit S/Mo minimal de 7. L'argon est compatible avec un sulfure (pas d'oxygène). Les auteurs écrivent seulement « MoCl5 + S -> MoS2 » sans sous-produit chloré ; le devenir du chlore (S2Cl2, point d'ébullition 138 °C, ou SCl2/Cl2) n'est pas discuté.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "thermique",
+          "finding": "MoCl5 fond à 194 °C et bout à 268 °C sous 1 atm (moins sous 2 Torr). Placé au centre du four chauffé à 28 °C/min, il atteint 268 °C après environ 8,7 min, alors que la rampe jusqu'à 850 °C dure 29,5 min ((850-25)/28). Les 1 à 50 mg sont donc entièrement vaporisés environ 20 min avant le palier de 10 min à 850 °C, à un moment où les substrats (1 à 7 cm du centre) sont vers 250-300 °C et où la source de soufre, si sa température suit celle du centre en proportion (300 °C quand le centre est à 850 °C), n'est qu'à environ 105 °C, soit une pression de vapeur du soufre d'environ 1 Pa. Le protocole écrit (« held at a setting temperature for 10 min ») ne dit pas où se trouve le molybdène pendant le palier : recondensation sur une paroi froide, réduction en chlorures inférieurs moins volatils, ou four préchauffé puis nacelles poussées. Tel qu'écrit, la dose de Mo vue par le substrat à 850 °C n'est pas définie.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {
+            "title": "Molybdenum(V) chloride (points de fusion 194 °C et d'ébullition 268 °C, sensible à l'humidité, hydrolyse en HCl)",
+            "authors_or_publisher": "Wikipedia, valeurs concordantes avec la fiche MilliporeSigma et WebElements",
+            "year": "consulté en 2026",
+            "url_or_doi": "https://en.wikipedia.org/wiki/Molybdenum(V)_chloride"
+          }
+        },
+        {
+          "aspect": "cinetique",
+          "finding": "Les informations complémentaires estiment le flux de sublimation du soufre à 0,015 mol/s. Sur le palier de 10 min cela ferait 9 mol, soit environ 290 g de soufre, alors que 1 g (0,031 mol) est chargé : à ce flux la charge serait épuisée en 2 s. De plus, à 300 °C le soufre est liquide (fusion à 115 °C) : la « taille de particule 0,1 mm » utilisée pour calculer la surface n'existe plus, et sa pression de vapeur (1 kPa à 235 °C, 10 kPa à 318 °C, donc environ 5 kPa ou 40 Torr à 300 °C) dépasse la pression totale de 2 Torr, ce qui correspond à une ébullition limitée par l'apport de chaleur et non à une sublimation de Hertz-Knudsen. L'équation S2, qui sert à relier la masse de MoCl5 et la pression totale à la pression partielle de Mo, repose sur ce flux.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {
+            "title": "Sulfur (table de pression de vapeur : 1 Pa à 375 K, 1 kPa à 508 K, 10 kPa à 591 K, 100 kPa à 717 K ; fusion 115,21 °C, ébullition 444,6 °C)",
+            "authors_or_publisher": "Wikipedia (table reprise du CRC Handbook, non consulté directement)",
+            "year": "consulté en 2026",
+            "url_or_doi": "https://en.wikipedia.org/wiki/Sulfur"
+          }
+        },
+        {
+          "aspect": "cinetique",
+          "finding": "Débit d'argon : 50 sccm = 50 cm3/min à 0 °C et 1 atm = 2,23 mmol/min = 3,7e-5 mol/s (volume molaire 22,4 L/mol). Les auteurs écrivent « ~0.0001 mol/s », soit 2,7 fois trop. Sans conséquence sur la synthèse, mais le modèle S1-S2 compare ce nombre aux flux de sublimation.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Le mécanisme des auteurs suppose des « espèces MoS2 gazeuses » en équilibre réversible avec le film, et une pression de vapeur du film qui croît avec le nombre de couches. Or MoS2 ne se vaporise pas de façon congruente : la littérature de métallurgie donne une dissociation en molybdène et soufre gazeux au-dessus de 1370 °C (1600-1700 °C sous vide pour la mener à terme). À 850 °C la pression d'équilibre d'une espèce MoS2(g) est donc négligeable devant les pressions mises en jeu (2 Torr), et aucune de ces pressions n'est mesurée dans l'article. L'arrêt de la croissance couche par couche est observé (tableau S1), mais son explication par une pression de vapeur dépendant du nombre de couches reste une hypothèse non étayée par une grandeur.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {
+            "title": "Extractive Metallurgy Division - Molybdenum by Direct Thermal Dissociation of Molybdenum Disulfide",
+            "authors_or_publisher": "AIME (Transactions of the Metallurgical Society), notice OneMine ; auteurs non relevés",
+            "year": "1962",
+            "url_or_doi": "https://onemine.org/documents/extractive-metallurgy-division-molybdenum-by-direct-thermal-dissociation-of-molybdenum-disulfide"
+          }
+        },
+        {
+          "aspect": "thermique",
+          "finding": "850 °C sous Ar à 2 Torr : compatible avec le tube (quartz, utilisable jusqu'à environ 1100 °C) et avec les substrats (saphir, SiO2/Si, graphite sans oxygène). Le film de MoS2 est stable à cette température sous vapeur de soufre. La pression de 2 Torr avec 50 sccm d'Ar suppose un pompage continu, non décrit.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Épaisseur AFM 0,68 nm (monocouche) et 1,40 nm (bicouche) : cohérent avec l'espacement entre couches du 2H-MoS2, c/2 = 0,615 nm, et avec un rapport de 2,06 entre les deux. Paramètre a mesuré 0,32 nm contre 0,316 nm. Photoluminescence à 670 nm (1,85 eV) et 620 nm (2,00 eV) : cohérent avec le gap direct de 1,8 eV annoncé et l'écart spin-orbite d'environ 0,15 eV entre excitons A et B.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Δk Raman de 20,4 cm-1 pour la monocouche, contre 19,4 cm-1 pour la monocouche exfoliée mesurée par les auteurs eux-mêmes. La référence de la méthode confirme le sens de variation (E12g baisse, A1g monte avec l'épaisseur), mais l'attribution du nombre de couches par Δk seul est décalée de 1 cm-1 par rapport à l'exfolié : pour les branches sans AFM (séries en pression, en débit, en température de substrat), le nombre de couches repose sur l'étalonnage interne du tableau S1.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {
+            "title": "Anomalous Lattice Vibrations of Single- and Few-Layer MoS2",
+            "authors_or_publisher": "C. Lee, H. Yan, L. E. Brus, T. F. Heinz, J. Hone, S. Ryu, ACS Nano 4, 2695",
+            "year": "2010",
+            "url_or_doi": "10.1021/nn1003937"
+          }
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Pression : les Méthodes donnent « around 2 Torr », le tableau S1 « 2-3 Torr ». Or avec 4 mg de MoCl5 le film passe de 1 couche à 2 Torr (Δk 20,4) à 2 couches à 10 Torr (Δk 23,2) : la fenêtre monocouche est étroite et une lecture de jauge à 1 Torr près compte. Type de jauge et point de mesure non donnés.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "MoCl5 s'hydrolyse à l'air humide en dégageant HCl : peser 1 à 4 mg à l'air libre fausse la masse réellement introduite, alors que cette masse est le paramètre de contrôle (1-4 mg = 1 couche, 5-15 mg = 2 couches). L'article ne dit pas si la pesée se fait en boîte à gants. Les effluents contiennent du soufre en large excès (1 g condensé en aval de la pompe) et des chlorures de soufre corrosifs : piège froid et protection de la pompe non mentionnés.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {
+            "title": "Molybdenum(V) chloride (hygroscopique, hydrolyse avec dégagement de HCl)",
+            "authors_or_publisher": "Wikipedia, concordant avec les fiches fournisseurs",
+            "year": "consulté en 2026",
+            "url_or_doi": "https://en.wikipedia.org/wiki/Molybdenum(V)_chloride"
+          }
+        }
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Hypothèse du critique, non démontrée par une source propre à ce système : MoCl5 (ébullition 268 °C) passe en phase gazeuse dès le début de la rampe ; le molybdène arrive au substrat sous forme de chlorures ou chlorosulfures gazeux (MoClx, MoSxCly), pas de MoS2(g). Ces espèces réagissent à la surface chaude avec la vapeur de soufre (S2 à S8) pour former MoS2, le chlore partant en S2Cl2/SCl2 (2 MoCl5 + 14 S -> 2 MoS2 + 5 S2Cl2). Le nombre de couches serait fixé par la dose de Mo reçue par le substrat (masse de MoCl5, pression totale qui allonge le temps de séjour) et par la barrière de nucléation d'une couche sur une couche complète, plus haute que sur le substrat nu et dépendante du substrat (saphir contre HOPG), ce qui rend compte des marches du tableau S1 sans invoquer une pression de vapeur de MoS2 solide.",
+        "sources": [
+          {
+            "title": "Recent advances in controlled synthesis of two-dimensional transition metal dichalcogenides via vapour deposition techniques",
+            "authors_or_publisher": "Y. Shi, H. Li, L.-J. Li, Chemical Society Reviews 44, 2744-2756",
+            "year": "2015",
+            "url_or_doi": "10.1039/C4CS00256C"
+          },
+          {
+            "title": "Extractive Metallurgy Division - Molybdenum by Direct Thermal Dissociation of Molybdenum Disulfide",
+            "authors_or_publisher": "AIME, notice OneMine ; auteurs non relevés",
+            "year": "1962",
+            "url_or_doi": "https://onemine.org/documents/extractive-metallurgy-division-molybdenum-by-direct-thermal-dissociation-of-molybdenum-disulfide"
+          }
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "où se trouve le MoCl5 pendant la rampe : nacelle au centre dès le départ (vaporisé vers 200-270 °C, 20 min avant le palier) ou introduite à chaud",
+        "profil de température réel de la zone du soufre et du substrat (thermocouple), la valeur de 300 °C étant une estimation des auteurs",
+        "pesée et chargement du MoCl5 sous atmosphère sèche (boîte à gants), masse réelle à 0,5 mg près",
+        "pression totale mesurée à 0,5 Torr près, type de jauge, pompage continu avec piège à soufre et à chlorures",
+        "distance du substrat donnant la monocouche (plage 1-7 cm seulement)",
+        "nombre de couches confirmé par AFM et non par Δk seul"
+      ]
+    },
+    {
+      "label": "MoS2-MoCl5-5to15mg",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Les auteurs affirment un rapport molaire soufre/MoCl5 « > 1000:1 ». Avec 1 g de soufre (31,2 mmol), ce n'est vrai que sous 8,5 mg de MoCl5 (31,2 µmol). À 15 mg le rapport est de 570, à 35 mg de 240, à 50 mg de 170. L'excès reste très supérieur au besoin (7), donc l'hypothèse de réaction complète du MoCl5 tient, mais la valeur écrite est fausse pour les bicouches, tricouches et quadricouches.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Les plages se touchent à 15 mg (5-15 mg = 2 couches, 15-25 mg = 3 couches), le texte porte « 5-10 15 mg » et rien n'est dit entre 4 et 5 mg. La figure S19 donne 2 couches (Δk 23,2 cm-1, borne haute de la plage bicouche 22,4-23,2) pour 15 mg à 2 Torr : à 15 mg le résultat est à la limite entre 2 et 3 couches.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Même mécanisme que la voie de base : dose de Mo plus forte, donc franchissement de la barrière de nucléation de la deuxième couche.", "sources": []},
+      "what_to_verify_before_repeating": ["masse de MoCl5 choisie au milieu de la plage (environ 10 mg) et non à 15 mg", "nombre de couches contrôlé par AFM"]
+    },
+    {
+      "label": "MoS2-15mg-750Torr",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "resultats",
+          "finding": "Plaques triangulaires de 100 à 200 nm, soit 150 à 300 couches de 0,65 nm, à 750 Torr contre 2 couches à 2 Torr avec la même masse (15 mg). Sens attendu : à pression proche de 1 atm la diffusion en phase gazeuse est environ 375 fois plus lente (coefficient de diffusion inversement proportionnel à la pression, 750/2), le temps de séjour plus long et la sursaturation locale plus forte, d'où une croissance en îlots épais plutôt qu'en film. Le résultat n'est décrit que par une image (Fig. S19d) et la branche à 250 Torr n'a aucun résultat écrit.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "thermique",
+          "finding": "À 750 Torr le soufre à 300 °C (pression de vapeur d'environ 40 Torr) ne bout plus : son débit vers le substrat est alors fixé par l'argon (50 sccm) et non plus par l'ébullition. Le régime d'apport du soufre change donc entre 2 Torr et 750 Torr, ce que le modèle S2 des auteurs (flux de soufre toujours dominant) ne prend pas en compte.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Croissance tridimensionnelle par sursaturation élevée à pression proche de l'atmosphère.", "sources": []},
+      "what_to_verify_before_repeating": ["la pression de 750 Torr suppose un four non pompé ou une vanne presque fermée : montage non décrit"]
+    },
+    {
+      "label": "MoS2-2L-HOPG",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "resultats",
+          "finding": "Bicouche sur HOPG (Δk 22,4 cm-1) contre monocouche sur saphir (20,4 cm-1) dans le même essai, substrats côte à côte. Le témoin (monocouche transférée sur HOPG, Δk inchangé à 20,4) écarte un effet du substrat sur le Raman. Le graphite est stable à 850 °C sous Ar et vapeur de soufre. Un seul essai rapporté, sans AFM sur HOPG.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Les auteurs y voient une preuve que la pression de vapeur du film dépend du substrat. L'observation est aussi compatible avec une simple différence de nucléation et de mobilité de surface sur une surface de van der Waals, sans équilibre de vapeur : le résultat ne départage pas les deux lectures.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Nucléation et croissance facilitées sur une surface de van der Waals (épitaxie de van der Waals), d'où une deuxième couche à dose de Mo égale.", "sources": []},
+      "what_to_verify_before_repeating": ["HOPG fraîchement clivé", "épaisseur vérifiée par AFM sur une marche"]
+    },
+    {
+      "label": "MoS2-sub2-650C",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "thermique",
+          "finding": "3 couches à 650 °C contre 2 couches à 850 °C dans le même essai : un substrat plus froid condense davantage, sens attendu. Mais les deux substrats ne sont pas à la même distance de la source (le gradient du four donne la température), donc température et appauvrissement du gaz en Mo varient ensemble. Les températures sont « estimées », sans mesure. La voie de base annonce une monocouche à 850 °C alors que sub1 à 850 °C donne 2 couches : masse de MoCl5 de cet essai non donnée.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Sursaturation plus forte sur le substrat froid ; la lecture des auteurs (pression de vapeur du film plus basse à 650 °C) n'est pas chiffrée.", "sources": []},
+      "what_to_verify_before_repeating": ["température du substrat mesurée par thermocouple à sa position", "masse de MoCl5 utilisée"]
+    },
+    {
+      "label": "FET_MoS2-1L",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "checks": [
+        {
+          "aspect": "resultats",
+          "finding": "Géométrie cohérente avec le masque : une grille 100 mesh a un pas de 254 µm ; avec des barreaux de 30 µm l'ouverture fait 224 µm, proche de W = 230 µm, et L = 30 µm est la largeur du barreau. Capacité de 280 nm de SiO2 : 3,9 x 8,854e-12 / 280e-9 = 1,23e-4 F/m2 (12,3 nF/cm2), valeur que le lecteur doit recalculer car les auteurs ne la donnent pas.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Mobilité de 0,003 à 0,03 cm2/V.s, jugée « reasonably comparable » à l'exfolié. La référence du domaine cite pour les monocouches exfoliées antérieures 0,5 à 3 cm2/V.s : la valeur de l'article est 17 à 1000 fois plus basse. Dans la base, PMC4639899 (MoS2 par CVD à partir de MoO3 et S) donne 10 cm2/V.s sur SiO2, soit 300 à 3000 fois plus. La conclusion de qualité électrique « comparable » n'est pas soutenue par le chiffre ; les grains de quelques dizaines à centaines de nm sur un canal de 30 µm l'expliquent sans doute.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {
+            "title": "Single-layer MoS2 transistors",
+            "authors_or_publisher": "B. Radisavljevic, A. Radenovic, J. Brivio, V. Giacometti, A. Kis, Nature Nanotechnology 6, 147",
+            "year": "2011",
+            "url_or_doi": "10.1038/nnano.2010.279"
+          }
+        },
+        {
+          "aspect": "securite",
+          "finding": "Méthode de transfert du film (du saphir vers Si/SiO2) non décrite et renvoi bibliographique erroné (b25 sans rapport) : étape non refaisable à partir de l'article seul. Un transfert par voie humide depuis le saphir emploie en général une base chaude ou HF dilué.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {"assessment": "absent", "proposed": null, "sources": []},
+      "what_to_verify_before_repeating": ["méthode de transfert du film", "technique et vide d'évaporation Ti/Au", "mesure de mobilité sous vide pour comparer à la littérature"]
+    }
+  ],
+  "article_level": {
+    "summary": "La chimie de fond est cohérente : Mo et S apportés, soufre en excès de 170 à 8500 fois, réduction Mo(V) vers Mo(IV) par le soufre sous argon, 850 °C compatible avec le montage, et les caractérisations (0,68 nm, a = 0,32 nm, PL à 670 et 620 nm) sont dans les ordres de grandeur du MoS2. Trois points ne tiennent pas tels qu'écrits : (1) le MoCl5, qui bout à 268 °C, est vaporisé environ 20 min avant le palier à 850 °C si la nacelle est au centre du four dès le départ ; (2) le flux de soufre de 0,015 mol/s du modèle épuiserait le gramme chargé en 2 s et traite comme une poudre sublimée un soufre liquide en ébullition ; (3) le mécanisme d'auto-limitation repose sur une pression de vapeur de MoS2 solide et une espèce MoS2 gazeuse dont rien n'indique l'existence à 850 °C. Les observations (marches du nombre de couches avec la masse et la pression) restent des données ; c'est leur modèle et la description de l'apport des précurseurs qui sont à revoir.",
+    "author_errors_suspected": [
+      "flux de sublimation du soufre « 0.015 mol/s » incompatible avec 1 g de soufre sur 10 min (9 mol nécessaires contre 0,031 mol)",
+      "rapport molaire soufre/MoCl5 « > 1000:1 » faux au-delà de 8,5 mg de MoCl5 (170:1 à 50 mg)",
+      "débit de 50 sccm converti en « ~0.0001 mol/s » au lieu de 3,7e-5 mol/s",
+      "plage bicouche écrite « 5-10 15 mg » dans le texte et plages qui se chevauchent à 15 mg dans le tableau S1",
+      "mobilité de 0,003-0,03 cm2/V.s présentée comme comparable à l'exfolié (0,5-3 cm2/V.s dans la littérature citée)",
+      "pression typique « around 2 Torr » (Méthodes) contre « 2-3 Torr » (tableau S1)"
+    ],
+    "comparison_with_database": "compare.py \"MoS2\" : une seule autre voie, PMC4639899 (CVD à partir de MoO3 et S, 750 °C, 10 min, monocouche sur SiO2/Si). Durée identique (10 min) et température voisine (850 °C ici). Mobilité 10 cm2/V.s sur SiO2 dans PMC4639899 contre 0,003-0,03 ici. Aucune autre voie au MoCl5 dans la base pour comparer les masses et la pression."
+  },
+  "sources_not_found": [
+    "Aucune étude trouvée du mécanisme de la réaction MoCl5 + S en CVD ni de ses sous-produits chlorés (S2Cl2, SCl2) : l'équation bilan et le mécanisme proposé sont un raisonnement de chimie générale.",
+    "Aucune reproduction indépendante trouvée de l'auto-limitation couche par couche avec MoCl5 ; la revue de Shi, Li et Li (2015) est citée comme cadre général, son texte intégral n'a pas été ouvert.",
+    "Pression de vapeur ou de dissociation chiffrée de MoS2 à 850 °C : non trouvée (JANAF et mesures de Knudsen non consultés) ; seuls les seuils de dissociation au-dessus de 1370 °C ont été trouvés. Cannon, Nature 183, 1612 (1959), doi 10.1038/1831612a0, repéré mais texte non accessible.",
+    "Valeurs de Δk par nombre de couches dans Lee et al. 2010 : seul le résumé a été lu (sens de variation), les valeurs chiffrées n'ont pas été vérifiées.",
+    "Mobilité des monocouches exfoliées en grille arrière sous air : seule la plage 0,5-3 cm2/V.s du résumé de Radisavljevic et al. 2011 a été confirmée, pas le texte intégral.",
+    "Table de pression de vapeur du soufre : lue sur Wikipedia, pas dans le CRC Handbook lui-même."
+  ]
+}

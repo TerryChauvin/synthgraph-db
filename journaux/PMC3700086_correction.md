@@ -1,0 +1,11 @@
+# Journal de correction PMC3700086
+
+- Fidélité 1 (doses des disques) : les doses (30, 15, 5, 15 mcg/disque) viennent de la phrase de la Discussion « vancomycin (30mcg/disk), followed by erythromycin (15mcg/disk)... ». Le format n'a pas de paramètre pour une caractérisation : elles sont ajoutées aux `conditions` de l'essai de synergie, phrase recopiée entre guillemets. J'ai ajouté aussi la préculture une nuit en Mueller-Hinton, 37 °C, 200 rpm (même paragraphe), non demandée mais soutenue par le texte.
+- Fidélité 2 (b21) : entrée `method_sources` sur la voie `Streptomyces_supernatant`, rôle `autre`, citation « The cultural characteristics of the strain ... (ISP) » ; b21 existe dans corpus/refs. Le bioprocédé reste hors périmètre : seul le renvoi est consigné.
+- Fidélité 3 (séchage) : étapes `dry` (order 3) et `grind` (order 4) ajoutées à `AgNP_Streptomyces`, citation « were dried, powdered, and used for XRD analysis », avec `not_stated` (température, durée, méthode...) et sans paramètre. « drying » retiré du `not_stated` de la voie (contredit). Doute posé : ces étapes concernent l'échantillon de DRX, rattachement aux autres essais inconnu.
+- Fidélité 4 (préculture en puits) : ajoutée aux conditions de l'essai en puits (Mueller-Hinton, 37 °C, 200 rpm, citation de la phrase) ; durée et température d'incubation après dépôt restent non citées.
+- Note Fig. 5 (Length = 68.13 nm) : annotation `limite_reproductibilite` seulement ; figure ouverte et panneau vérifié (Length 68.13 nm, Width 30.47 nm, Height 60.94 nm, image 7.8 µm). La valeur extraite n'est pas modifiée.
+- Science : les 4 `probleme` deviennent 4 annotations `limite_reproductibilite` (DRX/AgCl, FT-IR, témoins, tableau de synergie) sans modifier de valeur. Les sources Kubasheva 2020 et Verma 2018 ne sont pas nommées (DOI non vérifiés, décision de l'orchestrateur).
+- Tableau de synergie : 6 pourcentages sur 31 incohérents listés dans un doute (valeurs imprimées conservées, y compris 26.67 et 24.16) ; le désaccord texte (vancomycine) / tableau (érythromycine) est dans l'annotation.
+- `mecanisme_analyse` réécrit (verdict « a_revoir ») : glucose insuffisant, AgCl possible, FT-IR non probant, nitrate réductase non testée, en hypothèse ; `mecanisme_auteurs` inchangé.
+- Aucun doute ne mentionnait l'absence de marqueurs `[[id]]` : rien à supprimer.

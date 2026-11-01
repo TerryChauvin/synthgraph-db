@@ -1,0 +1,64 @@
+{
+  "pmcid": "PMC9181973",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "mineur",
+      "where": "LNCM-800 succeeded=false",
+      "extracted": "succeeded = false pour la voie LNCM-800",
+      "article_says": "it can be inferred that the raw materials cannot be completely converted to the target LiNi0.5Co0.2Mn0.3O2 cathode material at the calcination temperature of 800 °C",
+      "fix": "l'article parle de conversion incomplète et d'impuretés, jamais d'échec de synthèse ; l'échantillon est caractérisé et testé comme les trois autres. Soit passer succeeded à true (avec l'annotation sur la conversion incomplète), soit garder false en le disant explicitement dans le doute (déjà signalé). Le 1100 °C (89,1 mAh g−1, grains surdimensionnés) est laissé à true : traitement asymétrique.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "LNCM-800 outcomes (TG, Fig. 2)",
+      "extracted": "pas de perte de masse pour le segment 340-627 °C",
+      "article_says": "The mass loss between 340 °C and 627 °C is mainly caused by the decomposition of MnCO3 and CoCO3.",
+      "fix": "Fig. 2 porte l'étiquette « -16.92 % » entre les niveaux 340 °C et 627 °C ; valeur absente du texte, à ajouter en from_figure (mixture_TG_mass_loss_340_627C = 16.92 %, Fig. 2), car les autres segments (2,54 ; 17,01 ; 43,87) sont tous repris.",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "résultat de comparaison co-précipitation",
+      "extracted": "valeur 159 mAh g−1 présente seulement dans sample_inventory, aucun résultat ni annotation",
+      "article_says": "is higher than that of the cathode materials synthesized using the co-precipitation method (159 mAh g−1)",
+      "fix": "noter la valeur de référence 159 mAh g−1 (annotation ou résultat de comparaison) et signaler en limite_reproductibilite que l'affirmation de l'article est contredite par ses propres chiffres pour 800 °C (148/134 mAh g−1 < 159).",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "LNCM-800 TG-DSC (caractérisation et résultats mixture_*)",
+      "extracted": "« mélange broyé des quatre carbonates » ; résultats TG-DSC rangés sur la voie LNCM-800",
+      "article_says": "The thermal decomposition behaviors of the mixture in the range of room temperature to 1100 °C were investigated using TG-DSC analysis (NETZSCH STA 449 F5 Jupiter) at the heating rate of 10 K min−1.",
+      "fix": "l'article dit « the mixture » / « raw materials » (légende Fig. 2), sans préciser qu'il s'agit du mélange après broyage ni si le Li2CO3 est en excès de 5 %. Marquer le caractère non cité de l'état de l'échantillon TG-DSC et préciser que ces résultats ne sont pas ceux de l'échantillon calciné à 800 °C ; les valeurs « théoriques » (16,77 ; 40,71 %) reposent sur une stœchiométrie non donnée.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "LNCM-1000 outcome primary_particle_size = 2 μm",
+      "extracted": "primary_particle_size = 2 μm",
+      "article_says": "high crystallinity and uniform particle size of about 2 μm",
+      "fix": "l'article dit « particle size », pas « primary particle size » ; renommer en particle_size_SEM (ou value_text) pour ne pas ajouter « primary ». Sur la Fig. 4c les cristallites facettées mesurent environ 2 à 3 µm (barre 2 µm), la valeur reste compatible.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 4,
+    "branches_extracted": 4,
+    "not_stated_checked": 24,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "masses ou quantités absolues des précurseurs, masse de charge et volume d'alcool (seulement « stoichiometric amounts », excès Li2CO3 de 5 % sans base de calcul)",
+    "séchage de la boue alcoolique après broyage, vitesse de montée et de refroidissement, débit d'O2, four et creuset, tamisage éventuel",
+    "« 7 h at various temperatures » : palier ou durée totale non précisé",
+    "vitesse de 500 rad/min (unité probablement erronée, tr/min ?), taille et nombre de billes, volume du pot",
+    "pureté et fournisseur du Li2CO3, de l'alcool (nature : éthanol ?), grade « CP » du CoCO3·xH2O (x inconnu)",
+    "pile : charge massique, épaisseur, volume d'électrolyte, définition de 1 C en mA g−1, nombre de cellules, calibre de poinçonnage",
+    "rétention sur 50 cycles non reliée à une capacité de référence identifiable (les rapports recalculés donnent la première décharge à 0,1 C, pas le cycle 1 à 0,5 C de la Fig. 6)",
+    "TG-DSC : atmosphère « air » (légende Fig. 2) non donnée dans les Méthodes, masse d'échantillon et creuset absents"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs reprend les trois étapes TG-DSC et la catalyse de la décomposition de Li2CO3 par les oxydes, tous deux au texte ; mecanisme_analyse est étiqueté analyse de Claude",
+  "notes": "Extraction globalement très fidèle : 92 valeurs vérifiées, aucune valeur fausse ni mauvaise attribution. Les 13 valeurs from_figure relues sur Fig. 6 et 7a sont exactes (écart ≤ 1 mAh g−1). Points fragiles de l'article lui-même : (1) l'affirmation que 800 °C dépasse 159 mAh g−1 est contredite par 148/134 ; (2) « no peak of the impurity phase » contredit « contaminated by the rock salt » à 800 °C (doute déjà signalé) ; (3) la rétention sur 50 cycles est incohérente avec les valeurs du cycle 1 de la Fig. 6 (ex. 107,9/117 = 92 % et non 80,52 %), déjà signalé. Pas de renvoi de méthode dans corpus/refs (Section 2 sans [[B…]]), method_sources vide à juste titre. Non-constat écarté : 148,1 (Résumé) vs 149,8 (retour à 0,5 C), documenté en doute."
+}

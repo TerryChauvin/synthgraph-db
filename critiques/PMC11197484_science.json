@@ -1,0 +1,239 @@
+{
+ "pmcid": "PMC11197484",
+ "routes": [
+  {
+   "label": "DPPABr",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "concentration de HBr 48 % m", "inputs": "48 % m ; densité ≈ 1,49 g/mL (valeur de manuel, à confirmer sur la fiche Aladdin) ; M(HBr) = 80,91 g/mol", "formula": "c = 1490 × 0,48 / 80,91", "result": "≈ 8,8 mol/L", "compared_to": "rapport 1:1 avec DPPA : ≈ 0,113 mL de HBr 48 % par mmol d'amine, avec ≈ 0,08 g (4,3 mmol) d'eau par mmol", "source": "valeurs de l'article ; masses molaires IUPAC"},
+    {"what": "masse molaire de DPPABr", "inputs": "C15H18BrN (Ph2CH-CH2-CH2-NH3+ Br−)", "formula": "15×12,011 + 18×1,008 + 14,007 + 79,904", "result": "292,22 g/mol (DPPA libre C15H17N : 211,31 g/mol)", "compared_to": "sert au calcul des masses de la voie per-DPPA", "source": "masses atomiques IUPAC"}
+   ],
+   "checks": [
+    {"aspect": "bilan", "finding": "Neutralisation amine + HBr 1:1 → bromure d'ammonium : bilan exact. Aucune quantité n'est donnée ; le léger excès d'acide habituel n'est pas précisé, mais l'excès de HBr part à l'évaporation et l'amine libre au lavage à l'acétate d'éthyle (sel ionique peu soluble dans EA).", "status": "ok", "basis": "chimie_generale"},
+    {"aspect": "solubilite", "finding": "« Éthanol absolu » perd son sens puisque HBr est apporté en solution aqueuse à 48 % (≈ 4 mmol d'eau par mmol d'amine, voir « concentration de HBr 48 % m ») ; sans conséquence pour le sel, l'eau part à l'évaporateur rotatif et au séchage sous vide 60 °C / 12 h.", "status": "ok", "basis": "chimie_generale"},
+    {"aspect": "securite", "finding": "HBr 48 % : corrosif ; la neutralisation est exothermique, l'ajout à < 10 °C en bain de glace est la bonne précaution (non justifiée par les auteurs). Travailler sous hotte.", "status": "ok", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Transfert de proton de HBr à l'amine primaire (pKa de RNH3+ ≈ 10–11) → R-NH3+ Br− ; cristallisation du sel à l'évaporation, purification par lavage dans un solvant peu polaire (EA) où le sel est insoluble.", "sources": []},
+   "what_to_verify_before_repeating": ["quantités (non données) : partir de 1,00 éq. d'amine et 1,00–1,05 éq. de HBr", "pureté du sel par RMN 1H (absence d'amine libre et d'eau) avant la pesée pour la solution précurseur"]
+  },
+  {
+   "label": "n-BABr",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "masse molaire de n-BABr", "inputs": "C4H12BrN", "formula": "4×12,011 + 12×1,008 + 14,007 + 79,904", "result": "154,05 g/mol", "compared_to": "—", "source": "masses atomiques IUPAC"}
+   ],
+   "checks": [
+    {"aspect": "securite", "finding": "n-butylamine : très volatile (Éb ≈ 78 °C), inflammable et corrosive ; la neutralisation par HBr est plus exothermique par unité de masse que pour DPPA : ajout lent à froid indispensable.", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Même réaction acide-base que DPPABr.", "sources": []},
+   "what_to_verify_before_repeating": ["n-BABr est hygroscopique : sécher et stocker en boîte à gants"]
+  },
+  {
+   "label": "per-DPPA",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "masses par mL de solution 0,15 M", "inputs": "DPPABr:CsI:PbBr2:PbI2 = 0,75:1:0,2:0,8 ; M = 292,22 / 259,81 / 367,01 / 461,01 g/mol ; 0,15 M rapporté à Cs (= Pb total, puisque 0,2 + 0,8 = 1)", "formula": "m = c × rapport × M", "result": "CsI 38,97 mg ; PbI2 55,32 mg ; PbBr2 11,01 mg ; DPPABr 32,87 mg par mL de DMF", "compared_to": "base ambiguë seulement si 0,15 M désignait la somme des sels ; sur Cs ou sur Pb le résultat est identique", "source": "valeurs de l'article ; masses atomiques IUPAC"},
+    {"what": "fraction de bromure dans la solution à x = 0,75", "inputs": "Br = x (DPPABr) + 2×0,2 (PbBr2) = 1,15 ; I = 1 (CsI) + 2×0,8 (PbI2) = 2,6", "formula": "Br/(Br+I)", "result": "1,15/3,75 = 0,307 ; 65 % du bromure (0,75/1,15) arrive avec le ligand", "compared_to": "Br0,3I0,7 du nom du film : exact à x = 0,75 seulement (voir branches)", "source": "valeurs de l'article"},
+    {"what": "n nominal et bilan de Cs pour L2Csn-1PbnX3n+1", "inputs": "L/Pb = x = 0,75 ; Cs/Pb = 1", "formula": "n = 2/x ; Cs requis = (n−1)/n = 1 − x/2", "result": "<n> = 2,67 ; Cs requis 0,625 par Pb, Cs apporté 1,0 → excès de 0,375 CsX par Pb (37,5 %)", "compared_to": "la formule DPPA2Csn-1PbnX3n+1 ne peut être satisfaite avec Cs:Pb = 1 pour aucun n fini ; la composition réelle est « CsPbX3 + 0,75 DPPABr »", "source": "valeurs de l'article"},
+    {"what": "bilan des charges de la solution", "inputs": "cations : x DPPA+ + 1 Cs+ + 1 Pb2+ ; anions : x + 0,4 + 1 + 1,6", "formula": "Σ(+) − Σ(−)", "result": "(x + 3) − (x + 3) = 0", "compared_to": "neutre pour tout x", "source": "valeurs de l'article"},
+    {"what": "GIWAXS : distances et axe d'empilement", "inputs": "q = 0,717 et 0,822 Å−1 ; λ = 1,24 Å ; indexation (060) n = 2 et (080) n = 3", "formula": "d = 2π/q ; b = k × d ; 2θ = 2 asin(qλ/4π)", "result": "d = 8,763 et 7,644 Å (2θ = 8,11° et 9,30°) ; b(n=2) = 52,6 Å, b(n=3) = 61,2 Å ; Δb = 8,6 Å ; q1/q2 = 0,872 (≈ 7/8)", "compared_to": "série (BA)2(MA)n-1PbnI3n+1 : b = 39,347 (n = 2) et 51,959 Å (n = 3), Δb = 12,6 Å, soit deux couches d'octaèdres de ≈ 6,3 Å par maille (Stoumpos 2016)", "source": "Stoumpos et al., Chem. Mater. 2016, 10.1021/acs.chemmater.6b00847"},
+    {"what": "angle critique et profondeur sondée en GIWAXS", "inputs": "λ = 1,24 Å ; αi = 0,1° ; densité électronique de CsPbI3 ≈ 296 e/249 Å3 = 1,19 e/Å3 (maille cubique a ≈ 6,29 Å, ordre de grandeur) ; re = 2,818×10−5 Å", "formula": "αc = λ √(re ρe/π) ; z ≈ λ / (4π √(αc² − αi²)) (absorption négligée)", "result": "αc ≈ 0,23° ; αi = 0,1° < αc → onde évanescente, z ≈ 3 nm", "compared_to": "film de 70 nm : à 0,1° le GIWAXS ne voit que les premiers nanomètres", "source": "chimie_generale (optique des rayons X en incidence rasante)"},
+    {"what": "émission attendue du seul effet de composition (n = ∞)", "inputs": "Eg CsPbI3 = 1,73 eV, CsPbI2Br = 1,92 eV, CsPbBr3 = 2,35 eV ; interpolation linéaire par morceaux en fraction de Br", "formula": "Eg(f) ; λ = 1239,84/Eg", "result": "x = 0,75 (f = 0,307) : 1,905 eV → ≈ 651 nm", "compared_to": "PL mesurée 626,6 nm : ≈ 24 nm de décalage attribuable au confinement (petits n, nanoparticules de 5–10 nm)", "source": "Sutton et al., Adv. Energy Mater. 2016, 10.1002/aenm.201502458 ; Beal et al., J. Phys. Chem. Lett. 2016, 10.1021/acs.jpclett.6b00002"}
+   ],
+   "checks": [
+    {"aspect": "thermique", "finding": "Recuit 95 °C / 10 min en boîte à gants, sous le point d'ébullition du DMF (153 °C) et du toluène (110,6 °C) : suffisant pour un film de 70 nm ; aucun risque de décomposition des sels d'ammonium à cette température.", "status": "ok", "basis": "chimie_generale"},
+    {"aspect": "solubilite", "finding": "0,15 M en Cs dans le DMF : CsI seul y est peu soluble, mais la complexation par PbX2 (plumbates [PbXn]2−n) augmente la solubilité du sel de césium ; à 0,15 M la solution est réaliste (filtrée à 0,22 µm). Mélange à préparer dans l'ordre PbX2 puis CsI.", "status": "ok", "basis": "litterature", "source": {"title": "Solution-Grown CsPbBr3 Perovskite Single Crystals for Photon Detection", "authors_or_publisher": "Chemistry of Materials (ACS) ; auteurs non relevés sur la page consultée", "year": "2016", "url_or_doi": "10.1021/acs.chemmater.6b04298"}},
+    {"aspect": "bilan", "finding": "Cs:Pb = 1 avec 0,75 DPPABr : la formule L2Csn-1PbnX3n+1 laisse 0,375 CsX par Pb sans place (calcul « n nominal et bilan de Cs »). Cet excès peut finir en CsX ou en phase riche en Cs (Cs4PbX6) ; l'XRD de la Fig. S4d n'est pas commentée. Pratique courante (« CsPbX3 + x ligand »), mais le nom du film est une notation, pas une stœchiométrie.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "mecanisme", "finding": "Explication par l'ordre de solubilité « CsPbBr3 presque insoluble, CsPbI3 ≈ 0,6 mmol/mL, ligand très soluble » : la solution ne contient ni CsPbBr3 ni CsPbI3 mais des ions et des iodo/bromoplumbates mélangés ; la paire la moins soluble dans le DMF est Cs+/Br− (CsBr peu soluble dans le DMF). L'argument reste qualitatif, et 65 % du bromure arrive avec le ligand qu'on retrouve en surface, alors que le bromure est mesuré en bas : il faut une redistribution des halogénures que la solubilité seule n'explique pas.", "status": "reserve", "basis": "litterature", "source": {"title": "Effective Control of the Growth and Photoluminescence Properties of CsPbBr3/Cs4PbBr6 Nanocomposites by Solvent Engineering", "authors_or_publisher": "ACS Omega (ACS) ; auteurs non relevés", "year": "2019", "url_or_doi": "10.1021/acsomega.9b02248"}},
+    {"aspect": "mecanisme", "finding": "Gradient « petits n en haut, grands n en bas » : c'est le gradient « inverse » ; le plus souvent, les films quasi-2D sur verre ont les petits n en bas, et la distribution change sur PEDOT:PSS. Le sens dépend du cation espaceur, du substrat et de l'antisolvant. L'échantillon TOF-SIMS est fait sur Si traité O2 (section 2.2.9), le dispositif sur TFB : le gradient mesuré n'est pas forcément celui du film de la LED.", "status": "reserve", "basis": "litterature", "source": {"title": "Tailoring vertical phase distribution of quasi-two-dimensional perovskite films via surface modification of hole-transporting layer", "authors_or_publisher": "Liu et al. (accès libre, PMC6382759)", "year": "2019", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6382759"}},
+    {"aspect": "resultats", "finding": "Cohérence entre sections : TOF-SIMS « Pb2+ much higher on the surface » contre STEM-EDS « significant decrease [of Pb] near the surface », alors que les auteurs déclarent les deux mesures concordantes. Le régime transitoire des premiers cycles de pulvérisation (effet de matrice sur les rendements d'ions secondaires) rend le point de surface du TOF-SIMS peu quantitatif. De plus, le SIMS détecte des ions Pb+ et non « Pb2+ ».", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "resultats", "finding": "Indexation GIWAXS : avec (060) pour n = 2 et (080) pour n = 3, l'axe long passe de 52,6 à 61,2 Å (Δb = 8,6 Å), alors qu'une couche d'octaèdres de plus ajoute ≈ 12,6 Å par maille dans la série RP au BA (calcul « GIWAXS : distances et axe d'empilement »). L'attribution reste fragile, comme l'admet l'annexe (pas de référence pour DPPA). Le lavage, qui retire un pic et pas l'autre, plaide néanmoins pour deux phases distinctes.", "status": "reserve", "basis": "litterature", "source": {"title": "Ruddlesden–Popper Hybrid Lead Iodide Perovskite 2D Homologous Semiconductors", "authors_or_publisher": "Stoumpos, Cao, Clark, Young, Rondinelli, Jang, Hupp, Kanatzidis", "year": "2016", "url_or_doi": "10.1021/acs.chemmater.6b00847"}},
+    {"aspect": "resultats", "finding": "Incidence de 0,1° sous l'angle critique (≈ 0,23° à 1,24 Å, calcul « angle critique ») : le GIWAXS ne sonde que les premiers ≈ 3–5 nm. Cela soutient l'attribution de la phase n = 2 orientée à la surface, mais contredit l'introduction (le GIWAXS « invalid for vertical structure characterization owing to the high penetration ability of X-rays ») : en variant l'angle autour de αc, on obtient précisément un profil en profondeur. Ce contrôle discriminant n'a pas été fait.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "resultats", "finding": "PL 626,6 nm à x = 0,75 contre ≈ 651 nm attendus pour un CsPb(Br0,31I0,69)3 massif (calcul « émission attendue ») : un décalage de 24 nm, cohérent avec des nanoparticules de 5–10 nm et des domaines de petit n. Ordre de grandeur plausible.", "status": "ok", "basis": "litterature", "source": {"title": "Bandgap-Tunable Cesium Lead Halide Perovskites with High Thermal Stability for Efficient Solar Cells", "authors_or_publisher": "Sutton et al., Advanced Energy Materials", "year": "2016", "url_or_doi": "10.1002/aenm.201502458"}},
+    {"aspect": "securite", "finding": "Sels de plomb (reprotoxiques, CLP Repr. 1A pour les composés du plomb), DMF (Repr. 1B), toluène (inflammable, Repr. 2) : aucune précaution n'est écrite ; travail en boîte à gants N2, déchets plombés à part.", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "a_revoir", "proposed": "Dans le DMF, Pb2+ forme des iodo/bromoplumbates qui solubilisent Cs+ ; DPPA+ reste libre (sel d'ammonium très soluble). Le toluène versé à 6 s sursature brutalement tout le film humide (LARP in situ) : nucléation de nanocristaux de 5–10 nm. Le cation DPPA+, amphiphile et volumineux, se concentre à l'interface liquide/antisolvant et y fait croître les phases de petit n (gradient « inverse », déjà décrit pour les espaceurs longs) ; la phase la moins soluble, riche en Cs+/Br−, précipite tôt près du substrat. La redistribution I/Br observée (iodure en haut alors que 65 % du bromure arrive avec le ligand) n'est pas expliquée par la seule solubilité. Le recuit à 95 °C chasse le DMF résiduel.", "sources": [{"title": "Impact of Alkyl Chain Length on the Formation of Regular- and Reverse-Graded Quasi-2D Perovskite Thin Films", "authors_or_publisher": "article en accès libre (PMC10762656)", "year": "2023", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10762656"}, {"title": "Solution-Grown CsPbBr3 Perovskite Single Crystals for Photon Detection", "authors_or_publisher": "Chemistry of Materials (ACS)", "year": "2016", "url_or_doi": "10.1021/acs.chemmater.6b04298"}]},
+   "what_to_verify_before_repeating": ["volume déposé, durée de rotation et substrat (non donnés)", "base de la concentration 0,15 M (Cs = Pb, donc sans ambiguïté sauf si somme des sels)", "XRD du film pour un excès de CsX ou une phase Cs4PbX6 (excès de Cs de 37,5 % par rapport à la formule)", "profil en profondeur à refaire sur le vrai empilement ITO/PEDOT:PSS/TFB, pas sur Si"]
+  },
+  {
+   "label": "per-DPPA_x0.25",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "fraction de Br et n nominal à x = 0,25", "inputs": "Br = 0,25 + 0,4 = 0,65 ; I = 2,6", "formula": "Br/(Br+I) ; n = 2/x", "result": "Br/X = 0,200 ; <n> = 8", "compared_to": "nom Br0,3I0,7 : faux (Br0,2I0,8)", "source": "valeurs de l'article"},
+    {"what": "émission attendue d'un massif de même composition", "inputs": "f = 0,200 ; Eg CsPbI3 1,73, CsPbI2Br 1,92 eV", "formula": "Eg = 1,73 + 0,57 f ; λ = 1239,84/Eg", "result": "1,844 eV → ≈ 672 nm", "compared_to": "PL mesurée 669 nm : émission de type massif, confinement presque nul", "source": "Sutton et al. 2016, 10.1002/aenm.201502458"}
+   ],
+   "checks": [
+    {"aspect": "resultats", "finding": "Témoin qui change deux variables : faire varier x change aussi le rapport Br/I (0,20 à x = 0,25 ; 0,39 à x = 1,25), car DPPABr apporte du bromure. Sur le décalage total de 669 à 575 nm, environ 38 nm (672 → 634 nm, valeurs en n = ∞) viennent de la seule composition en halogénures et non des domaines de petit n. La formule DPPA2Csn-1Pbn(Br0,3I0,7)3n+1 n'est exacte qu'à x = 0,75. Témoin propre : remplacer DPPABr par DPPAI/DPPABr en proportions telles que Br/X reste à 0,30.", "status": "probleme", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Peu de ligand (n nominal 8) : domaines surtout 3D, émission proche de celle d'un CsPb(Br0,2I0,8)3 massif.", "sources": []},
+   "what_to_verify_before_repeating": ["nommer la composition réelle CsPb(Br0,2I0,8)3 + 0,25 DPPABr"]
+  },
+  {
+   "label": "per-DPPA_x0.50",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "fraction de Br, n nominal et émission massive attendue à x = 0,50", "inputs": "Br = 0,90 ; I = 2,6", "formula": "Br/(Br+I) ; n = 2/x ; Eg = 1,73 + 0,57 f", "result": "Br/X = 0,257 ; <n> = 4 ; ≈ 661 nm", "compared_to": "PL ≈ 640 nm (lue sur la Fig. 1a)", "source": "valeurs de l'article ; Sutton et al. 2016"}
+   ],
+   "checks": [
+    {"aspect": "resultats", "finding": "Même réserve que pour la série : le rapport Br/I change avec x (0,257 ici au lieu de 0,30) ; le décalage est dû en partie à la composition.", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Intermédiaire entre x = 0,25 et 0,75.", "sources": []},
+   "what_to_verify_before_repeating": []
+  },
+  {
+   "label": "per-DPPA_x1.00",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "fraction de Br, n nominal et émission massive attendue à x = 1,00", "inputs": "Br = 1,40 ; I = 2,6", "formula": "Br/(Br+I) ; n = 2/x ; Eg = 1,92 + 0,645 (f − 1/3)", "result": "Br/X = 0,350 ; <n> = 2 ; ≈ 642 nm ; excès de Cs = 0,5 par Pb", "compared_to": "PL ≈ 600 nm (lue sur la Fig. 1a)", "source": "valeurs de l'article ; Sutton et al. 2016"}
+   ],
+   "checks": [
+    {"aspect": "resultats", "finding": "Rapport Br/I changé (0,35) et excès de Cs de 50 % par rapport à la formule de n = 2 : le pic excitonique n = 1 apparaît, cohérent avec un excès de ligand.", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Ligand abondant : domaines n = 1–2 majoritaires.", "sources": []},
+   "what_to_verify_before_repeating": []
+  },
+  {
+   "label": "per-DPPA_x1.25",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "fraction de Br et n nominal à x = 1,25", "inputs": "Br = 1,25 + 0,4 = 1,65 ; I = 2,6", "formula": "Br/(Br+I) ; n = 2/x ; excès Cs = x/2", "result": "Br/X = 0,388 ; <n> = 1,6 ; excès de Cs 0,625 par Pb", "compared_to": "nom Br0,3I0,7 : faux (≈ Br0,39I0,61)", "source": "valeurs de l'article"},
+    {"what": "émission attendue d'un massif de même composition", "inputs": "f = 0,388 ; Eg CsPbI2Br 1,92, CsPbBr3 2,35 eV", "formula": "Eg = 1,92 + 0,645 (f − 1/3)", "result": "1,955 eV → ≈ 634 nm", "compared_to": "PL mesurée 575 nm : ≈ 59 nm de confinement ; les 38 nm restants du décalage de la série (672 → 634 nm) viennent de la composition", "source": "Sutton et al. 2016, 10.1002/aenm.201502458"}
+   ],
+   "checks": [
+    {"aspect": "resultats", "finding": "Le décalage 669 → 575 nm présenté comme effet du ligand (petits n) mélange deux variables : environ 40 % (38 nm sur 94 nm) s'explique par la hausse de Br/X de 0,20 à 0,39. Formule Br0,3I0,7 inexacte pour cette branche.", "status": "probleme", "basis": "chimie_generale"},
+    {"aspect": "bilan", "finding": "Avec Cs:Pb = 1 et <n> = 1,6, l'excès de Cs (62,5 % du Pb) ne peut pas entrer dans une phase L2Csn-1PbnX3n+1 : une phase secondaire (CsX, Cs4PbX6) est probable. Non vérifiée par les auteurs.", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Excès de ligand : n = 1–2 dominants, émission confinée ; Cs en excès probablement rejeté hors de la phase quasi-2D.", "sources": []},
+   "what_to_verify_before_repeating": ["XRD pour une phase riche en Cs", "composition réelle à indiquer"]
+  },
+  {
+   "label": "per-n-BA",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "formule du cation", "inputs": "CH3(CH2)3NH3+", "formula": "décompte des H", "result": "C4H9NH3+ : formule de l'article exacte", "compared_to": "—", "source": "chimie_generale"}
+   ],
+   "checks": [
+    {"aspect": "bilan", "finding": "La quantité de n-BABr (même x = 0,75 ou non) n'est pas écrite ; « same method » suggère x = 0,75. Comme pour DPPA, Br/X dépend de x.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "resultats", "finding": "L'absence de relation Br/I complémentaire est attribuée à une « coordination » plus faible de n-BA, PEA et PBA « que de DPPABr », sans mesure ni source (référence vide dans le texte). Hypothèse non étayée.", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Même LARP in situ ; ligand court, ségrégation de surface comparable.", "sources": []},
+   "what_to_verify_before_repeating": ["rapport n-BABr:Pb utilisé"]
+  },
+  {
+   "label": "per-PEA",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "formule du cation", "inputs": "C6H5CH2CH2NH3+", "formula": "décompte des H (5 + 4)", "result": "C8H9NH3+ : formule de l'article exacte", "compared_to": "—", "source": "chimie_generale"}
+   ],
+   "checks": [
+    {"aspect": "bilan", "finding": "Quantité de PEABr non écrite (x = 0,75 présumé).", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Même LARP in situ.", "sources": []},
+   "what_to_verify_before_repeating": ["rapport PEABr:Pb utilisé"]
+  },
+  {
+   "label": "per-PBA",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "formule du cation 4-phénylbutylammonium", "inputs": "C6H5(CH2)4NH3+", "formula": "décompte des H du groupe R : 5 (phényle) + 8 (4 CH2)", "result": "R = C10H13 → C10H13NH3+ (C10H16N+)", "compared_to": "article : (C10H12NH3)2… — il manque un H", "source": "chimie_generale"}
+   ],
+   "checks": [
+    {"aspect": "bilan", "finding": "Formule des auteurs (C10H12NH3)2Csn-1Pbn(Br0.3I0.7)3n+1 fausse : le cation 4-phénylbutylammonium est C10H13NH3+ (voir calcul). Erreur d'écriture sans effet sur le protocole, mais la formule ne doit pas être reprise.", "status": "probleme", "basis": "chimie_generale"},
+    {"aspect": "bilan", "finding": "Quantité de PBABr non écrite (x = 0,75 présumé).", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Même LARP in situ.", "sources": []},
+   "what_to_verify_before_repeating": ["rapport PBABr:Pb utilisé"]
+  },
+  {
+   "label": "per-DPPA_washed",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "épaisseur retirée au lavage", "inputs": "70 nm → 50 nm (AFM)", "formula": "(70 − 50)/70", "result": "20 nm, soit ≈ 29 % du film", "compared_to": "bien plus que la « very thin layer of ligands » : le lavage dissout aussi de la pérovskite (domaines de petit n riches en ligand)", "source": "valeurs de l'article"},
+    {"what": "composition du mélange de lavage", "inputs": "IPA 20 % en volume, EA 80 %", "formula": "—", "result": "IPA:EA = 1:4 (v/v)", "compared_to": "IPA dissout les halogénures d'ammonium, EA est un non-solvant de la pérovskite", "source": "valeurs de l'article"}
+   ],
+   "checks": [
+    {"aspect": "resultats", "finding": "Disparition du pic n = 2 (GIWAXS) et de l'absorption à ≈ 560 nm, baisse de PL à 10 % : cohérent avec le retrait des domaines n = 2 donneurs d'énergie et de la couche de passivation. Mais le GIWAXS à 0,1° ne voit que les premiers nm (voir per-DPPA) : « n = 3 presque inchangé » ne vaut que pour la nouvelle surface.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "solubilite", "finding": "IPA à 20 % dans EA : les sels d'ammonium et les phases de petit n sont solubles dans l'IPA ; la perte de 29 % de l'épaisseur le confirme. Volume, nombre de lavages et séchage non donnés.", "status": "reserve", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Dissolution sélective, par l'IPA, des sels d'ammonium de surface et des domaines de petit n riches en ligand ; les domaines 3D, peu solubles dans IPA/EA, restent.", "sources": []},
+   "what_to_verify_before_repeating": ["volume et nombre de gouttes de lavage", "teneur en eau des solvants (≤ 50 ppm annoncés)"]
+  },
+  {
+   "label": "per-DPPA_LE",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "solution de ligands PEABr/PEAI", "inputs": "4,5 mg PEABr (C8H12BrN, 202,10 g/mol) ; 5,7 mg PEAI (C8H12IN, 249,10 g/mol) ; 4 mL", "formula": "n = m/M ; c = Σn/V", "result": "PEABr 22,3 µmol ; PEAI 22,9 µmol ; Br:I = 0,97 ; c totale 11,3 mM (2,55 mg/mL)", "compared_to": "Br:I = 1:1 annoncé : cohérent", "source": "valeurs de l'article ; masses atomiques IUPAC"},
+    {"what": "ligand apporté contre Pb du film (ordre de grandeur)", "inputs": "film 70 nm ; maille cubique a ≈ 6,2 Å (hypothèse) → 6,97 mmol/cm3 ; goutte de 50 µL (hypothèse, volume non donné)", "formula": "n(Pb) = e × S × 1/(a³ NA) ; n(PEAX) = 50 µL × 11,3 mM", "result": "≈ 49 nmol Pb/cm² (borne haute) contre ≈ 565 nmol de PEAX par goutte", "compared_to": "excès d'environ 10 fois sur tout le Pb du film, bien plus encore sur les sites de surface", "source": "valeurs de l'article ; hypothèses signalées"},
+    {"what": "épaisseur après échange", "inputs": "50 → 40 nm", "formula": "(50 − 40)/50", "result": "−20 % de plus ; 43 % du film initial perdu au total", "compared_to": "un échange de ligands seul ne retire pas 10 nm : l'IPA de la solution redissout encore", "source": "valeurs de l'article"}
+   ],
+   "checks": [
+    {"aspect": "resultats", "finding": "Preuve discriminante absente : la remontée de la PL à 43 % et la baisse d'épaisseur ne distinguent pas un vrai échange DPPA+ → PEA+ d'une simple passivation de surface par un dépôt de PEAX, ou d'une seconde dissolution par l'IPA. Aucune mesure (TOF-SIMS, XPS, RMN du film dissous) ne montre que DPPA+ est remplacé. Témoin manquant : même goutte d'IPA/EA sans PEAX.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "bilan", "finding": "La solution apporte I et Br à 1:1 (Br/X = 0,5) sur un film à Br/X ≈ 0,3 : un échange d'halogénures de surface est possible ; il pourrait contribuer au décalage de l'EL (638 nm) par rapport à la PL du film brut (626,6 nm), en plus du retrait des petits n.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "thermique", "finding": "Recuit 90 °C / 5 min, sans atmosphère précisée (boîte à gants présumée) ; compatible avec IPA (Éb 82,5 °C) et EA (Éb 77 °C).", "status": "ok", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "a_revoir", "proposed": "Le plus probable : la goutte d'IPA/EA chargée en PEAX redissout encore la surface (−10 nm) et laisse une couche mince de PEA+/halogénures qui passive les défauts de surface (PL 10 → 43 %) ; l'échange stricto sensu de DPPA+ n'est pas démontré.", "sources": []},
+   "what_to_verify_before_repeating": ["rapport IPA:EA de la solution de ligands (non donné)", "volume déposé et point de départ des 40 s", "contrôle avec le seul mélange de solvants"]
+  },
+  {
+   "label": "PeLED_pristine",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "efficacité en courant et densité de courant au maximum de luminance (pristine)", "inputs": "EQE 2 % ; λ ≈ 627 nm présumée (EL non donnée, PL du film) ; V(627) ≈ 0,30 ; Km = 683 lm/W ; Lambertien", "formula": "CE = EQE × Km × V × (1239,84/λ) / π ; J = L/CE", "result": "CE ≈ 2,6 cd/A ; J ≈ 0,14 mA/cm² à 3,5 cd/m² (si EQE max et luminance max coïncident)", "compared_to": "dispositif optimisé ≈ 7,9 mA/cm² au minimum : rapport ≈ 60, ordre de grandeur des « two orders of magnitude » annoncés", "source": "valeurs de l'article ; CIE 1924 V(620) = 0,381, V(630) = 0,265"}
+   ],
+   "checks": [
+    {"aspect": "thermique", "finding": "PEDOT:PSS 150 °C / 15 min sous air, TFB 120 °C / 30 min sous N2 : conditions standard. Plasma O2 de 5 s sur TFB pour le mouillage : courant, mais il peut oxyder le polymère transporteur de trous ; durée et puissance critiques (puissance non donnée).", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "resultats", "finding": "Le recuit à 95 °C du film n'est pas rappelé dans la section dispositif (renvoi « as described above ») ; la PL et l'EL du dispositif de départ ne sont pas données.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "securite", "finding": "Évaporation sous vide (< 2×10−4 Pa), plasma O2, chlorobenzène (nocif, déchet halogéné) : équipement standard d'une salle de LED ; aucune précaution écrite.", "status": "ok", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Couche de ligands DPPA+ isolante et domaines n = 2 orientés parallèlement au substrat en surface : forte barrière à l'injection d'électrons depuis TPBi, d'où le faible courant.", "sources": []},
+   "what_to_verify_before_repeating": ["puissance du plasma O2 sur TFB", "spectre EL du dispositif de départ"]
+  },
+  {
+   "label": "PeLED_optimized",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {"what": "efficacité en courant au pic d'EQE (optimisé)", "inputs": "EQE 9,7 % ; λ = 638 nm ; V(638) ≈ 0,193 (interpolé entre V(630) = 0,265 et V(640) = 0,175) ; Km = 683 lm/W ; Lambertien", "formula": "CE = EQE × Km × V × (1239,84/λ) / π", "result": "CE ≈ 7,9 cd/A ; à 623 cd/m², J ≥ 7,9 mA/cm²", "compared_to": "valeurs cohérentes avec une LED rouge à 638 nm ; largeur spectrale (37 nm) négligée", "source": "valeurs de l'article ; CIE 1924 (fonction d'efficacité lumineuse photopique)"}
+   ],
+   "checks": [
+    {"aspect": "resultats", "finding": "Témoin qui change plusieurs variables : la hausse du courant de deux décades est attribuée à une barrière d'injection d'électrons plus basse, mais le film passe aussi de 70 à 40 nm (−43 %), perd ses domaines n = 2 et reçoit un autre ligand. Aucun dispositif « lavé seulement » ni dispositif à électrons seuls n'isole l'effet de l'injection.", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "resultats", "finding": "Incohérences entre sections : test de vie « at a constant voltage of 4.0 V » dans le texte contre « constant current density mode » dans la légende de la Fig. S8 ; EQE moyen 7,4 % (± 2,3 %) dans le résumé et l'introduction contre 7,5 % dans les Résultats ; 623,4 contre 623 cd/m².", "status": "reserve", "basis": "chimie_generale"},
+    {"aspect": "resultats", "finding": "Décalage de l'EL vers le rouge sous forte tension : cohérent avec la ségrégation des halogénures (domaines riches en iode) des pérovskites mixtes I/Br, comme le disent les auteurs. T50 ≈ 6 min à 100 cd/m² : courte, mais typique de ce type de dispositif.", "status": "ok", "basis": "litterature", "source": {"title": "Reversible photo-induced trap formation in mixed-halide hybrid perovskites for photovoltaics", "authors_or_publisher": "Hoke, Slotcavage, Dohner, Bowring, Karunadasa, McGehee — Chemical Science", "year": "2015", "url_or_doi": "10.1039/c4sc03141e"}},
+    {"aspect": "resultats", "finding": "EQE max 9,7 % et 623 cd/m² à 638 nm : dans la fourchette des LED rouges in situ de la Table S1 de l'article (634–640 nm : EQE 5,3–12,4 %, 201–9218 cd/m²) ; pas de valeur hors ordre de grandeur.", "status": "ok", "basis": "chimie_generale"}
+   ],
+   "mechanism": {"assessment": "ok", "proposed": "Le retrait de la couche de ligands et des domaines n = 2 orientés à plat, plus la passivation par PEA+, abaissent la barrière d'injection depuis TPBi et réduisent l'épaisseur résistive ; la recombinaison se fait dans les domaines de n plus grand (émission à 638 nm).", "sources": []},
+   "what_to_verify_before_repeating": ["mode du test de vie (tension ou courant constant)", "encapsulation (non dite)", "dispositif témoin lavé sans PEAX"]
+  }
+ ],
+ "article_level": {
+  "summary": "Les protocoles (sel d'ammonium, film LARP in situ, lavage, échange, LED) sont chimiquement cohérents et réalisables avec un équipement standard ; leurs manques sont des volumes et des durées, pas des impossibilités. Les faiblesses sont dans l'interprétation : la série x fait varier en même temps le ligand et le rapport Br/I (la formule Br0,3I0,7 n'est exacte qu'à x = 0,75) ; le gradient est expliqué par une solubilité d'espèces (CsPbBr3, CsPbI3) qui n'existent pas en solution ; le TOF-SIMS est fait sur Si et non sur l'empilement de la LED ; le TOF-SIMS et l'EDS se contredisent sur le Pb de surface ; l'échange de ligands n'est pas démontré.",
+  "author_errors_suspected": [
+   "formule DPPA2Csn-1Pbn(Br0.3I0.7)3n+1 appliquée à toute la série x, alors que Br/X va de 0,20 (x = 0,25) à 0,39 (x = 1,25)",
+   "cation 4-phénylbutylammonium écrit C10H12NH3 au lieu de C10H13NH3 ; « 4-phenylbuylammonium » (coquille)",
+   "Pb en surface : « much higher » (TOF-SIMS) contre « significant decrease » (EDS), présentés comme concordants",
+   "test de vie à tension constante (texte) contre courant constant (légende Fig. S8) ; EQE moyen 7,4 contre 7,5 %",
+   "légende Fig. S1 : (f) « positive polarity » pour per-PBA, au lieu de négative selon le schéma (d)–(e)",
+   "« quasi-2D all inorganic perovskite » pour un film qui contient un cation organique (DPPA+)",
+   "introduction : GIWAXS jugé « invalid » pour la structure verticale, alors que l'incidence de 0,1° utilisée (sous l'angle critique ≈ 0,23°) ne sonde que quelques nm"
+  ],
+  "comparison_with_database": "Aucune autre pérovskite quasi-2D Cs/Pb/(Br,I) dans la base. PMC6864515 (films de CsPb(Br0.3I0.7)3, sans PL chiffrée) et PMC10037322 (CsPbIBr2) ne sont pas comparables en procédé. PMC11036359 (monocouches n = 1 bromées) : émission vers 407–410 nm, sans rapport avec n = 2–3 iodés."
+ },
+ "sources_not_found": [
+  "solubilité de CsPbI3 dans le DMF (≈ 0,6 mmol/mL, citée par les auteurs sans référence lisible) : pas de source primaire trouvée dans les recherches faites",
+  "référence soutenant une « coordination » plus forte de DPPA+ que de PEA+/BA+/PBA+ (référence vide dans le texte)",
+  "fiche fournisseur de la densité de HBr 48 % (valeur de manuel ≈ 1,49 g/mL utilisée, non vérifiée)"
+ ]
+}

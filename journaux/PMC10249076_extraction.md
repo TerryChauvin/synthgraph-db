@@ -1,0 +1,18 @@
+# Journal d'extraction PMC10249076 (YIG, hydrothermal vs sol–gel auto-combustion)
+
+- Découpage : deux voies de base indépendantes (`YIG_hydrothermal`, `YIG_solgel`), aucune branche. L'article compare deux méthodes de synthèse du même matériau, pas un paramètre balayé ; les deux protocoles ont des étapes différentes, donc pas d'héritage possible.
+- Frittage micro-ondes (préfrittage 1000 °C, remeulage et repressage, frittage 1250 °C 30 min) gardé dans chaque voie, pas en `post_treatment` séparé : il fait partie du protocole de synthèse décrit en continu et s'applique aux deux échantillons.
+- Concentrations 1 et 3 mg/mL en hyperthermie : conditions de test du matériau fini, donc `outcomes` (SAR_concentration_1_mg_mL / 3_mg_mL), pas des branches.
+- Table 3 : les rangées « | 3 | 146 » et « | 3 | 101 » n'ont pas de cellule de technique (cellule fusionnée). Attribution par position sous « hydrothermal » puis « sol–gel auto combustion » ; consigné en doute. Pour 1 mg/mL, le résumé (237 sol–gel, 214 hydrothermal) confirme la table.
+- Table 1 : colonnes hydrothermal puis sol–gel (en-tête « hydrothermal | sol–gel auto combustion ») ; rangée entière en citation. Exposants aplatis par `sections.py` (« × 1014 », « gcm3 ») : valeurs gardées, unités écrites en interprétant l'exposant, noté en doute.
+- Table 2 : valeurs Ms, Mr, Hc prises dans les rangées « present work » (par nom de technique) plutôt que dans la phrase « respectively » ; les deux sont cohérents. Rangées de littérature = échantillons d'inventaire sans voie.
+- Figures lues (2 valeurs) : gap de Tauc, Fig. 2a (hydrothermal) 2.25 eV et Fig. 2b (sol–gel) 2.24 eV, étiquettes visibles sur l'image ; la conclusion donne ∼2.25 eV pour les deux, d'où deux outcomes distincts (texte, lecture de figure).
+- Figures 3b/3c (courbes de chauffage) non relevées : la légende ne dit pas quel panneau est quel échantillon, et les courbes semblent contredire l'ordre des SAR (panneau b plus rapide que c). Consigné en doute et en limite de reproductibilité.
+- Contradiction de l'article : champ magnétique 35.33 kA/m (résumé) contre 35.2 kAm–1 (corps). Pas de valeur de paramètre tranchée ; les deux dans les conditions de la caractérisation.
+- Annexe : le PDF d'annexe ne contient que les légendes des figures S1 à S4 (schémas, EDX, transmittance) ; le contenu des schémas est absent, signalé en `limite_reproductibilite` (« Annexe absente du dépôt »).
+- Réactifs : Y2O3, HNO3 (70 %) et Fe(NO3)3·9H2O avec pureté et fournisseur tirés de la phrase des précurseurs (citée en `supplier_quote`). Fournisseur recopié « Sigma-Aldrich, India » / « Merck, India » tel qu'écrit. Eau, NH4OH, acide citrique, ammoniaque, éthylène glycol : pureté et fournisseur non cités.
+- Y2O3 « dissous dans l'eau » : lecture littérale conservée, doute posé (HNO3 sert probablement à le dissoudre). HNO3 classé `acid`.
+- Éthylène glycol : rôle `additive` (non listé dans le vocabulaire, mais déjà utilisé dans PMC6199062) ; pas de rôle exact dans l'article (réaction/gélification/anti-agglomération).
+- `method_sources` vide : les renvois ref20 (pH 11) et ref21 (chauffage micro-ondes) justifient un choix et ne fournissent pas de protocole ; refs 22 à 39 = analyse de données ou comparaison littérature.
+- Four micro-ondes de la voie sol–gel : le texte dit « the microwave furnace » sans description ; fréquence 2.45 GHz non reprise pour cette voie (doute).
+- Mécanismes : `mecanisme_auteurs` limité à des phrases réellement écrites (pH 11 ; éthylène glycol anti-agglomération) ; `mecanisme_analyse` en hypothèse (précipitation d'hydroxydes ; type Pechini). Pas de `securite_auteurs` : aucune précaution écrite.

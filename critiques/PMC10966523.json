@@ -1,0 +1,71 @@
+{
+ "pmcid": "PMC10966523",
+ "verdict": "corrections_majeures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "8 branches des autres supports (KBr/NaBr II@ZSM-5, SBA-15, AlPO-5, SOD) : quantités et étapes héritées (0,1 g de support, 400 µL, 4 M, 0,0367 g PbBr2, 0,0213 g CsBr, 20 min, 100 °C)",
+   "extracted": "Branches sans étape propre ni quantité (steps vides) rattachées à KBr II@SAPO-34 / NaBr II@SAPO-34 ; la citation de branche est la phrase « same processes »",
+   "article_says": "The CsPbBr3@porous materials were synthesized by the same processes of CsPbBr3@SAPO-34.",
+   "fix": "Cette phrase unique ne donne ni la masse de support, ni les volumes, ni les durées pour ces supports : les quantités héritées sont supposées, pas citées. Déclarer explicitement l'héritage (not_stated sur masse de support et volumes, doute déjà posé mais données présentées comme celles du parent) et ajouter une annotation limite_reproductibilite dans chaque branche, pas seulement sur KBr II@SAPO-34.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "KBr II@ZSM-5 (et 7 autres) variations[0] et réactif intermédiaire hérité",
+   "extracted": "Variation « KBr I@SAPO-34 (voie KBr I@SAPO-34) remplacé par ZSM-5 zeolite » ; la branche hérite de l'étape II du parent, qui trempe l'intermédiaire KBr I@SAPO-34",
+   "article_says": "The KBr I/NaBr I@SAPO-34 was soaked into 400 μL CsBr aqueous solution and ultrasonic treated for 20 min.",
+   "fix": "Le changement de support concerne l'étape I (immersion du support dans PbBr2-KBr/NaBr, ultrasons, recuit 100 °C), pas l'intermédiaire de l'étape II. Telle qu'enregistrée, la branche ZSM-5 n'a pas d'étape I et trempe encore un intermédiaire à base de SAPO-34. Créer les intermédiaires KBr/NaBr I@<support> (ou donner aux 8 branches leurs deux étapes) et placer la variation sur le support de l'étape I.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "SBA-15, AlPO-5, SOD : broyage du support non enregistré",
+   "extracted": "Aucune mention du broyage dans les réactifs, étapes ou limites de reproductibilité (0 occurrence)",
+   "article_says": "irregular shapes and incomplete channel structures of these porous materials caused by grinding during synthesis",
+   "fix": "Les trois supports (SBA-15, AlPO-5, SOD) auraient été broyés alors que SAPO-34 et ZSM-5 sont décrits intacts : « same processes » ne peut donc pas être pris au pied de la lettre pour ces trois branches x2. Ajouter une étape ou un not_stated « broyage du support (méthode, durée non données) » dans les 6 branches concernées et l'annoter.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Témoins DMSO@SAPO-34, DMSO@ZSM-5, DMSO@SBA-15, DMSO@AlPO-5, DMSO@SOD et film DMSO (inventaire : route null)",
+   "extracted": "Six échantillons sans voie ('protocole non décrit') ; leurs résultats comparatifs (Fig. 5c,f ; Fig. 3a-c ; Fig. 4c) ne sont en base nulle part, sauf quelques valeurs en annotation",
+   "article_says": "The pure CsPbBr3@SAPO‐34 composite (denoted as “DMSO@SAPO‐34”) was fabricated as a control for reference from the precursor solution of PbBr2 and CsBr in DMSO, the details of which were given in our previously reported work.",
+   "fix": "Ce sont des échantillons synthétisés (méthode en une étape dans le DMSO, réf. advs7159-bib-0038) et comparés aux voies aqueuses, pas des produits commerciaux : créer des voies courtes avec succeeded (false pour SAPO-34 et ZSM-5 'sans luminescence vive', true pour SBA-15, AlPO-5, SOD) et method_sources advs7159-bib-0038. Résultats à enregistrer : DMSO@SAPO-34 bord d'absorption ~535 nm, Eg ~2.32 eV ; DMSO@ZSM-5 jaune, PL ~463 et 530 nm ; PL lue sur Fig. 5f : SBA-15 518 nm, AlPO-5 518 nm, SOD 513 nm (absents de la base).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "SAPO-34 pristine : propriétés du réactif substrat",
+   "extracted": "Réactif « SAPO-34 zeolite » avec 0,1 g seulement ; taille moyenne et diamètre de pore uniquement dans l'inventaire / une annotation",
+   "article_says": "owns a rectangular morphology with an average particle size of 24.49 µm",
+   "fix": "Ajouter au réactif SAPO-34 (ou au résultat « SAPO-34 pristine ») la taille moyenne 24,49 µm (Fig. 2a,b) et le diamètre de pore ~0,68 nm (Fig. S2) : un chimiste doit connaître la taille de cristal du support pour refaire l'imprégnation.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "KBr II film / NaBr II film, volumes 60 μL",
+   "extracted": "value_num 60, unit « μL »",
+   "article_says": "60 L PbBr2-KBr/NaBr aqueous solution was dripped onto the glass and annealed for 5 min at 100C",
+   "fix": "Le symbole µ est une glyphe de police symbole (U+F06D) dans le texte extrait : l'unité µL est lue, non écrite en clair. Garder le doute visible ; 60 µL est très probable (équivalent au « equal volume » de l'étape I du texte principal, qui n'en donne pas la valeur).",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 24,
+  "branches_extracted": 16,
+  "not_stated_checked": 30,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "masse de support, volumes et durées des étapes pour ZSM-5, SBA-15, AlPO-5, SOD (seulement « same processes »)",
+  "broyage des supports SBA-15, AlPO-5, SOD : méthode, durée, taille obtenue non données",
+  "fournisseur, rapport Si/Al et origine des supports poreux (SAPO-34, ZSM-5, AlPO-5, SBA-15, SOD) non donnés",
+  "méthode de retrait de la solution en excès (filtration, pipette ?), puissance et température du bain à ultrasons, atmosphère et rampe de recuit non donnés",
+  "protocole des témoins DMSO renvoyé à la réf. advs7159-bib-0038",
+  "concentration des solutions PbBr2-KBr/NaBr et CsBr pour les films non écrite ; taille du verre, puissance de la lampe UV-ozone non données",
+  "Tableaux S1, S2 et figures S1-S7 absents du dépôt (XPS, TRPL, pores, Tauc des autres supports)"
+ ],
+ "mechanism_check": "ok : les citations des mecanisme_auteurs (complexe [PbBr4]2−, facteurs de tolérance < 0,8, nucléation de petits n induite par Na+) sont dans le texte ; les points d'hypothèse restent marqués comme tels",
+ "notes": "Valeurs numériques du texte (29/41 nm, 31,37/5,30 ns, 38,5/37,5 %, 2,31 eV, 65,89/67,12 %, 481→506 nm, 511/515/524 nm) toutes concordantes. Les 12 valeurs lues sur Fig. 5d,e (SBA-15 508/507, AlPO-5 508/503, SOD 505/516, ZSM-5 511/477, SAPO-34 513/483) vérifiées sur l'image : écart nul. Annexe absente (tables S1-S2, figures S) : non vérifiable. Le chiffre de branches de l'article est une estimation (12 aqueux, 2 une étape, 2 films finaux, 2 films étape I, 6 DMSO)."
+}

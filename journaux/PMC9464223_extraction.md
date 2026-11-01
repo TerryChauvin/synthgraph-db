@@ -1,0 +1,18 @@
+# Journal d'extraction PMC9464223
+
+- Voie de base = NS (P123 seul, Table 1 « NS | 1:0.00 »), et non NSG-1 %. La phrase des Méthodes dissout P123 et gélatine ensemble, mais NS n'a pas de gélatine ; chaque NSG-x% hérite du protocole de NS et ajoute le réactif gélatine (variation « gelatin », parent_value « none »). Les trois avertissements de load.py (nom de variation sans correspondance dans le parent) sont voulus : la gélatine n'existe pas dans NS. La citation de l'étape 1 de NS parle de gélatine, signalé en doute.
+- Quantités : l'article ne donne que des rapports molaires (1 TEOS : 0,017 P123 : 5,68 HCl : 197 H2O) et le rapport massique P123:gélatine. Ils sont saisis comme `amount` avec une unité « molar ratio to TEOS » / « w/w ratio to P123 » (précédent dans PMC7518261) ; aucune masse absolue inventée.
+- HCl : « 37% v/v » placé en `purity` (c'est une concentration de solution concentrée), avec la phrase de l'étape 1 en `supplier_quote` ; fournisseur non cité.
+- Étape 3 « at the same temperature » : 40 °C seulement implicite, donc `temperature` en `not_stated` (règle des valeurs implicites), pas extraite.
+- Calcination 550 °C (Méthodes) contre 500 °C (section FTIR) : 550 retenu, doute écrit.
+- Étape « stirred until homogeneous » : `duration` en value_text « until homogeneous », pas de nombre.
+- Tableaux 2 et 3 : chaque colonne de chaque rangée est un résultat de sa voie (rangée citée en entier, attribution par le nom d'échantillon). Table 3 : k2 est imprimé en min−1, recopié tel quel.
+- Table 5 : chaque rangée porte deux séries indépendantes (dose d'adsorbant ↔ qmax ; concentration initiale ↔ qe) ; chaque nombre est rangé dans sa série avec la rangée en citation. La colonne « qmax » des doses est nommée capacité d'adsorption (le texte la décrit ainsi).
+- Série dose / concentration / isothermes : le texte dit seulement « NSG ». Rattachée à NSG-1 % car 168,49 et 168,45 mg/g (Table 5) = 168,1 (Table 3, NSG-1 %), et 84 % de retrait à 50 mg et 50 mg/L = 84 % de NSG-1 % sur la Fig. 7b. Doute explicite ; l'inventaire porte une entrée dédiée.
+- Figures lues (12 valeurs, ± 2 points) : Fig. 7b (retrait par échantillon, seul le résultat 67–84 % étant écrit sans attribution), Fig. 10a (retrait selon Co), Fig. 11 (retrait selon la dose). 70 mg : 94 % pris dans le texte plutôt que 95 % lu sur la courbe.
+- Fig. 7b contredit le texte : le texte dit que le retrait augmente de 67 à 84 % avec la gélatine, la figure donne NS ≈ 39 %, 4 % ≈ 67 %, 2 % ≈ 72 %, 1 % ≈ 84 %. Les lectures de la figure sont gardées, la contradiction est en doute.
+- Fig. 2 : histogrammes gradués en nm contre 4–9 µm dans le texte ; histogrammes non lus, valeurs du texte (NS 4–5 µm ; NSG-1 % « slightly increased »). Le « 6–9 µm » commun à NSG-2 % et 4 % est un résultat de groupe : annotation `tendance_observee`, pas de valeur recopiée sur les deux voies.
+- Résumé contre Table 2 (467→510 m2/g, 3,5→6,0 nm, etc.) : Table 2 et TEM extraits, résumé écarté, doute écrit.
+- Table 4 : R2 de Langmuir 0,999 (tableau) contre 0,990 (texte) ; tableau retenu. Freundlich : citation partielle de la rangée (« 1.312 mg/g) (g/mg )1/n | n = 10.4 | 0.819 ») car le début de la rangée est du LaTeX parasite.
+- Aucun renvoi de méthode à extraire : [[CR32]] et [[CR33]] ne portent que sur les équations cinétiques ; `method_sources` vide. Aucune annexe, aucune section Supporting Information dans le texte et aucun renvoi à une annexe.
+- Test d'adsorption du bleu de méthylène rangé en `characterizations` (conditions et instrument) et en `outcomes`, pas en voie ni en branche ; durée « 20 min » incohérente avec les courbes jusqu'à 300 min, doute écrit.

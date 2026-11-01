@@ -1,0 +1,687 @@
+{
+ "pmcid": "PMC7033158",
+ "routes": [
+  {
+   "label": "Fe2O3",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire BH4-/Fe3+",
+     "inputs": "NaBH4 0,2 mol/L ; FeCl3 0,05 mol/L ; volumes non donnés (hypothèse 1:1 en volume, comme dans la recette de référence)",
+     "formula": "c(NaBH4)·V / c(FeCl3)·V",
+     "result": "4,0 (si volumes égaux)",
+     "compared_to": "stœchiométrie 4 Fe3+ + 3 BH4- -> 4 Fe0 : 0,75 BH4-/Fe3+ ; excès ≈ 5,3 fois",
+     "source": "Zhang 2003, équation (4), https://semspub.epa.gov/work/09/1142160.pdf"
+    },
+    {
+     "what": "excès de réducteur",
+     "inputs": "rapport 4,0 ; besoin 0,75",
+     "formula": "4,0 / 0,75",
+     "result": "≈ 5,3",
+     "compared_to": "recette nZVI : « excessive borohydride is typically needed »",
+     "source": "Zhang 2003"
+    },
+    {
+     "what": "hydrogène dégagé (borne haute)",
+     "inputs": "1 L de NaBH4 0,2 mol/L ; 4 H2 par BH4- à hydrolyse complète ; volume molaire 24,3 L/mol à 23 °C",
+     "formula": "0,2 × 4 × 24,3",
+     "result": "≈ 19 L de H2 par litre de solution de NaBH4",
+     "compared_to": "aucune mention de dégagement gazeux ni de hotte dans l'article",
+     "source": "arithmétique (gaz parfait)"
+    },
+    {
+     "what": "Bragg des pics attribués à Fe2O3",
+     "inputs": "λ = 1,5418 Å (déclarée) ; 2θ = 33,2 ; 35,6 ; 40,9 ; 54,1 ; 62,5 ; 64,1°",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 2,698 ; 2,522 ; 2,206 ; 1,695 ; 1,486 ; 1,453 Å",
+     "compared_to": "hématite (a = 5,0317, c = 13,737 Å) : (104) 2,697 ; (110) 2,516 ; (113) 2,205 ; (116) 1,693 ; (214) 1,485 ; (300) 1,453 Å -> 2θ calculés 33,21 ; 35,69 ; 40,93 ; 54,16 ; 62,54 ; 64,11°",
+     "source": "Webmineral Hematite (PDF 33-664) https://webmineral.com/data/Hematite.shtml"
+    },
+    {
+     "what": "diamètre de pore 4V/S Fe2O3",
+     "inputs": "Vp = 0,93 cm³/g ; SBET = 158 m²/g",
+     "formula": "4 Vp / SBET",
+     "result": "23,5 nm",
+     "compared_to": "Dp annoncé 22,6 nm : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constante pseudo-premier ordre Fe2O3 sous UV",
+     "inputs": "77,38 % en 120 min",
+     "formula": "k = -ln(1 - X) / t",
+     "result": "0,0124 min-1",
+     "compared_to": "k annoncé 0,0124 min-1 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constante pseudo-premier ordre Fe2O3 sous visible",
+     "inputs": "38,03 % en 120 min",
+     "formula": "k = -ln(1 - X) / t",
+     "result": "0,0040 min-1",
+     "compared_to": "k annoncé 0,0039 min-1 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "longueur d'onde du seuil Eg = 2,2 eV",
+     "inputs": "Eg = 2,2 eV ; hc = 1239,84 eV·nm",
+     "formula": "λ = 1239,84 / Eg",
+     "result": "564 nm",
+     "compared_to": "balayage DRS 200-600 nm : seuil dans la plage",
+     "source": "arithmétique"
+    },
+    {
+     "what": "niveaux du plan composite (CRCD)",
+     "inputs": "centre 52,5 mg/L, 2,75 g/L, pH 7 ; axiaux 100 mg/L, 5 g/L, pH 12 ; α = 2^(3/4)",
+     "formula": "x(±1) = centre ± (axial - centre)/1,682",
+     "result": "RhB 24,26/80,74 ; Fe2O3 1,41/4,09 ; pH 4,03/9,97 ; α = 1,682",
+     "compared_to": "Table 1 : 24,25/80,74 ; 1,41/4,08 ; 4,03/9,97 : plan rotatif correct",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration molaire de RhB à l'optimum",
+     "inputs": "24,25 mg/L ; M(C28H31ClN2O3) = 479,0 g/mol",
+     "formula": "c / M",
+     "result": "5,06 × 10-5 mol/L",
+     "compared_to": "ordre de grandeur habituel des essais de photocatalyse",
+     "source": "PubChem CID 6694 (formule)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Le protocole (NaBH4 0,2 mol/L + FeCl3·6H2O 0,05 mol/L, agitation, filtration, lavage à l'éthanol) est exactement la recette de Wang et Zhang (1997) des nanoparticules de fer zérovalent (nZVI) : 4 Fe3+ + 3 BH4- + 9 H2O -> 4 Fe0 + 3 H2BO3- + 12 H+ + 6 H2. Le borohydrure RÉDUIT le fer ; ce n'est pas une « précipitation chimique » d'oxyde. Le produit brut attendu est du Fe0 (avec bore) recouvert d'une coquille d'oxyde, pas Fe2O3 (voir calcul « rapport molaire BH4-/Fe3+ », excès ≈ 5,3).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Nanoscale iron particles for environmental remediation: An overview",
+      "authors_or_publisher": "Zhang W.-X., J. Nanopart. Res. 5, 323-332",
+      "year": "2003",
+      "url_or_doi": "https://semspub.epa.gov/work/09/1142160.pdf"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Les réductions par le borohydrure en milieu aqueux donnent du fer et des borures/borates de fer selon les conditions (ordre d'addition, aération) : le produit peut contenir du bore, que l'article n'analyse pas (ni EDX ni XPS). Le chlorure (FeCl3) et le sodium sont éliminés par lavage, dont le nombre n'est pas donné.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Borohydride Reductions of Metal Ions. A New Understanding of the Chemistry Leading to Nanoscale Particles of Metals, Borides, and Metal Borates",
+      "authors_or_publisher": "Glavee G. N., Klabunde K. J., Sorensen C. M., Hadjipanayis G. C., Langmuir 8, 771-773",
+      "year": "1992",
+      "url_or_doi": "https://www.phys.ksu.edu/personal/sor/publications/1992/borohydride.pdf"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les six pics DRX donnés correspondent tous à l'hématite α-Fe2O3 (calcul « Bragg des pics attribués à Fe2O3 », écarts ≤ 0,1°). Or l'oxydation à température ambiante de nZVI à l'air ou dans l'eau donne une coquille de magnétite/maghémite et d'oxyhydroxydes, pas de l'hématite, qui demande un chauffage (transformation maghémite -> hématite vers 350-500 °C). Le Fe2O3 « seul » n'a pas d'étape de séchage ni de calcination écrite : soit l'échantillon a été chauffé sans que ce soit dit, soit le diffractogramme montré est celui d'un échantillon calciné (les hybrides le sont à 450 °C). L'identité de phase du témoin n'est donc pas établie par le protocole écrit.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesizing Nanoscale Iron Particles for Rapid and Complete Dechlorination of TCE and PCBs",
+      "authors_or_publisher": "Wang C.-B., Zhang W.-X., Environ. Sci. Technol. 31(7), 2154-2156",
+      "year": "1997",
+      "url_or_doi": "10.1021/es970039c"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradiction entre DRX et IR : la bande à 611 cm-1 est attribuée à des liaisons M(tétraédrique)-O-M(octaédrique), ce qui décrit une structure spinelle (magnétite ou maghémite) ; l'hématite (corindon) n'a que du fer octaédrique et présente ses bandes Fe-O vers 540 et 470 cm-1. Soit la phase est un spinelle (et l'indexation hématite est fausse), soit l'attribution IR est fausse ; aucune technique discriminante (Raman, Mössbauer, aimantation) n'est montrée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Vibrational Spectroscopic Characterization of Hematite, Maghemite, and Magnetite Thin Films Produced by Vapor Deposition",
+      "authors_or_publisher": "Jubb A. M., Allen H. C., ACS Appl. Mater. Interfaces",
+      "year": "2010",
+      "url_or_doi": "10.1021/am1004943"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "23 ± 0,5 °C en solution aqueuse à l'air : compatible (eau, ébullition 100 °C). La réaction est exothermique et dégage du H2 ; maintenir 23 ± 0,5 °C pendant l'ajout demande un bain thermostaté non décrit.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "« pH ≈ 7 maintenu constant » : une solution de FeCl3 0,05 mol/L est acide (hydrolyse de Fe3+, pH ≈ 2) et la réaction libère 12 H+ pour 4 Fe tandis que l'hydrolyse du borohydrure en excès alcalinise (borates). Aucun acide, base ou tampon n'est indiqué : le pH ≈ 7 est au mieux le pH final du mélange, pas un paramètre contrôlé. Le solvant (eau) et les volumes ne sont pas écrits, d'où un rapport BH4-/Fe non calculable sans hypothèse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Textures cohérentes en elles-mêmes (calcul « diamètre de pore 4V/S Fe2O3 » : 23,5 nm contre 22,6 nm annoncé). 158 m²/g est élevé mais plausible pour un oxyde de fer nanométrique non calciné. Eg = 2,2 eV conforme à l'hématite (≈ 2,1-2,2 eV). Les constantes cinétiques se retrouvent à partir des taux de dégradation.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le potentiel zêta (−13,3 mV) est donné sans pH de mesure. Un oxyde de fer est chargé positivement en dessous de son point de charge nulle (pH ≈ 7-9 pour les oxydes de fer(III)) : à pH 4,03 (test d'adsorption) la surface serait positive. L'argument « compatibilité de charge avec la RhB cationique » ne vaut donc qu'à pH élevé, et à pH 9,97 la RhB (pKa ≈ 3,7) est surtout zwitterionique, pas cationique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Self-N-doped biochar from soybean carbonization… adsorption of rhodamine B (pKa de RhB = 3,7 : cation -> zwitterion au-dessus)",
+      "authors_or_publisher": "Zhang et al., BioResources 18(4), 7460",
+      "year": "2023",
+      "url_or_doi": "https://bioresources.cnr.ncsu.edu/wp-content/uploads/2023/09/BioRes_18_4_7460_Zhang_YZGGWKXS_Self_N_Doped_Biochar_Soybean_Carboniz_22806.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoins incohérents entre sections : l'adsorption à l'obscurité est mesurée à pH 4,03, 0,7 g/L de catalyseur et 20 mg/L de RhB, alors que les essais photocatalytiques sont à pH 9,97, 1,41 g/L et 24,25 mg/L ; la photolyse est sur 60 min et non 120 min. Les pourcentages d'adsorption (4,71-10,32 %) et de photolyse (14 %, 4 %) ne peuvent pas être soustraits des dégradations à 120 min. Le texte invoque aussi la « dégradation du phénol » (copie d'un autre article).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Plan composite : l'optimum retenu (1,41 g/L, 24,25 mg/L, pH 9,97) est un point factoriel (−1, −1, +1) et non le maximum du modèle quadratique ; l'effet linéaire de [Fe2O3] est positif (+1,3) alors que l'optimum est au niveau bas, et l'effet RhB négatif pousserait vers 5 mg/L. Les 16 autres réponses ne sont pas publiées : l'optimisation n'est pas vérifiable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit : NaBH4 au contact d'une solution acide de FeCl3 dégage vivement du H2 (jusqu'à ≈ 19 L par litre de solution de NaBH4, calcul « hydrogène dégagé ») : hotte, pas de flamme, récipient ouvert. Le nZVI fraîchement filtré est pyrophorique une fois sec. NaBH4 : solide inflammable au contact de l'eau (NOAA CAMEO Chemicals).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Réduction de Fe3+ par BH4- en excès (≈ 5 fois la stœchiométrie si volumes égaux) : nucléation rapide de Fe0 (avec bore) en chaînes de particules de 10-100 nm, dégagement de H2 ; au lavage et à l'air, formation d'une coquille d'oxyde (magnétite/maghémite, oxyhydroxydes). L'hématite indexée en DRX demande un chauffage au-dessus de ≈ 350-500 °C (maghémite -> hématite) : elle suppose une calcination non écrite, probablement celle à 450 °C appliquée aux hybrides. Le mot « précipitation » est impropre : c'est une réduction suivie d'une oxydation.",
+    "sources": [
+     {
+      "title": "Nanoscale iron particles for environmental remediation: An overview",
+      "authors_or_publisher": "Zhang W.-X., J. Nanopart. Res. 5, 323-332",
+      "year": "2003",
+      "url_or_doi": "https://semspub.epa.gov/work/09/1142160.pdf"
+     },
+     {
+      "title": "Synthesizing Nanoscale Iron Particles for Rapid and Complete Dechlorination of TCE and PCBs",
+      "authors_or_publisher": "Wang C.-B., Zhang W.-X., Environ. Sci. Technol. 31(7), 2154-2156",
+      "year": "1997",
+      "url_or_doi": "10.1021/es970039c"
+     },
+     {
+      "title": "Borohydride Reductions of Metal Ions. A New Understanding of the Chemistry Leading to Nanoscale Particles of Metals, Borides, and Metal Borates",
+      "authors_or_publisher": "Glavee G. N., Klabunde K. J., Sorensen C. M., Hadjipanayis G. C., Langmuir 8, 771-773",
+      "year": "1992",
+      "url_or_doi": "https://www.phys.ksu.edu/personal/sor/publications/1992/borohydride.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes des deux solutions et ordre d'addition (NaBH4 dans FeCl3, comme Wang et Zhang ?)",
+    "le Fe2O3 témoin a-t-il été séché puis calciné à 450 °C comme les hybrides ? sinon, quelle phase (DRX + Raman) ?",
+    "teneur en bore et en Fe0 résiduel du produit brut",
+    "pH réellement mesuré en fin de réaction (aucun réactif d'ajustement n'est donné)",
+    "pH de mesure du potentiel zêta",
+    "dégagement de H2 (hotte) et caractère pyrophorique du solide sec"
+   ]
+  },
+  {
+   "label": "AgNPs",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité de NaBH4",
+     "inputs": "75 mL × 0,002 mol/L",
+     "formula": "c × V",
+     "result": "0,15 mmol",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "quantité d'AgNO3",
+     "inputs": "25 mL × 0,001 mol/L",
+     "formula": "c × V",
+     "result": "0,025 mmol",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport NaBH4/Ag+",
+     "inputs": "0,15 mmol ; 0,025 mmol",
+     "formula": "n(BH4-)/n(Ag+)",
+     "result": "6",
+     "compared_to": "stœchiométrie Ag+ + BH4- + 3 H2O -> Ag0 + B(OH)3 + 3,5 H2 : 1 ; recette de Solomon et al. : 30 mL × 0,002 M / 2 mL × 0,001 M = 30",
+     "source": "Solomon et al. 2007 (recette reprise par https://chemistry.beloit.edu/edetc/nanolab/silver/index.html)"
+    },
+    {
+     "what": "masse d'argent par lot",
+     "inputs": "0,025 mmol ; M(Ag) = 107,87 g/mol",
+     "formula": "n × M",
+     "result": "2,7 mg d'Ag dans 100 mL (27 mg/L)",
+     "compared_to": "charge sur Fe2O3 inconnue : 2,7 mg pour 1 g de Fe2O3 = 0,27 % en masse",
+     "source": "arithmétique"
+    },
+    {
+     "what": "durée d'addition",
+     "inputs": "25 mL à 1 goutte/s ; goutte ≈ 0,05 mL",
+     "formula": "25 / 0,05 s",
+     "result": "≈ 500 s ≈ 8 min",
+     "compared_to": "10-15 min annoncées : cohérent avec un ajout d'AgNO3 goutte à goutte",
+     "source": "arithmétique (volume de goutte usuel)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Réduction de Ag+ par BH4- dans la glace, AgNO3 ajouté goutte à goutte (1 goutte/s) : c'est la recette de Solomon et al. (2007), qui donne un sol jaune de particules d'environ 10-12 nm stabilisées par le borohydrure adsorbé. Excès de réducteur 6 fois (calcul « rapport NaBH4/Ag+ »), suffisant ; la recette de référence en utilise 30 fois. Le bain de glace ralentit l'hydrolyse de NaBH4.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and Study of Silver Nanoparticles",
+      "authors_or_publisher": "Solomon S. D., Bahadory M., Jeyarajasingam A. V., Rutkowsky S. A., Boritz C., Mulfinger L., J. Chem. Educ. 84(2), 322-325",
+      "year": "2007",
+      "url_or_doi": "10.1021/ed084p322"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Solutions millimolaires de NaBH4 et AgNO3 dans l'eau (solvant non écrit mais évident) : très en dessous des solubilités. Le sens de l'addition est ambigu dans la phrase, mais 1 goutte/s pour 25 mL donne ≈ 8 min, cohérent avec l'ajout d'AgNO3 dans NaBH4 (calcul « durée d'addition »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Sans stabilisant (ni citrate ni PVP), ces sols s'agrègent en quelques heures ou à l'ajout de sel ; l'article ne dit ni comment les AgNPs sont récupérées (colloïde ajouté tel quel ? centrifugation ?) ni le délai avant l'imprégnation.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and Study of Silver Nanoparticles",
+      "authors_or_publisher": "Solomon S. D., Bahadory M., Jeyarajasingam A. V., Rutkowsky S. A., Boritz C., Mulfinger L., J. Chem. Educ. 84(2), 322-325",
+      "year": "2007",
+      "url_or_doi": "10.1021/ed084p322"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Un lot ne contient que 2,7 mg d'argent (calcul « masse d'argent par lot ») : pour une charge de quelques % sur Fe2O3, il faudrait plusieurs lots ou de grands volumes, et la quantité d'AgNPs utilisée n'est pas donnée. Aucune teneur en Ag n'est mesurée dans les hybrides.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dégagement de H2 modeste (≈ 0,5 mmol au plus) ; AgNO3 oxydant et corrosif, tache la peau. Risque faible à cette échelle.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réduction rapide de Ag+ par BH4- en excès à 0 °C : nucléation éclair (type LaMer) de Ag0, croissance limitée par la faible concentration et par l'adsorption de BH4-/borates qui charge négativement la surface ; particules d'environ 10 nm, sans stabilisant stérique, donc sujettes à l'agrégation.",
+    "sources": [
+     {
+      "title": "Synthesis and Study of Silver Nanoparticles",
+      "authors_or_publisher": "Solomon S. D., Bahadory M., Jeyarajasingam A. V., Rutkowsky S. A., Boritz C., Mulfinger L., J. Chem. Educ. 84(2), 322-325",
+      "year": "2007",
+      "url_or_doi": "10.1021/ed084p322"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "sens de l'addition (AgNO3 goutte à goutte dans NaBH4 refroidi, comme Solomon et al.)",
+    "forme sous laquelle les AgNPs sont utilisées (sol frais, concentré, poudre) et délai",
+    "nombre de lots et masse d'Ag réellement apportée par gramme de Fe2O3",
+    "spectre UV-visible du sol (plasmon vers 400 nm) pour contrôler la taille avant imprégnation"
+   ]
+  },
+  {
+   "label": "TiNPs-Fe2O3",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S TiNPs-Fe2O3",
+     "inputs": "Vp = 0,02 cm³/g ; SBET = 304 m²/g",
+     "formula": "4 Vp / SBET (×1000 pour nm)",
+     "result": "0,26 nm",
+     "compared_to": "Dp annoncé 2,9 nm (facteur 11) ; 0,26 nm est inférieur à la taille de N2 (≈ 0,36 nm)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre de pore 4V/S P25 (contrôle)",
+     "inputs": "Vp = 0,07 cm³/g ; SBET = 56 m²/g",
+     "formula": "4 Vp / SBET",
+     "result": "5,0 nm",
+     "compared_to": "Dp annoncé 4,8 nm : cohérent (la méthode des auteurs marche pour P25 et Fe2O3)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface d'un mélange Fe2O3 + P25",
+     "inputs": "SBET(Fe2O3) = 158 m²/g ; SBET(P25) = 56 m²/g (Table 2) ; fraction massique w de P25",
+     "formula": "S = (1 - w)·158 + w·56",
+     "result": "entre 56 et 158 m²/g quel que soit w",
+     "compared_to": "304 m²/g annoncé : impossible par simple dépôt, d'autant que la calcination à 450 °C réduit la surface",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface géométrique de P25",
+     "inputs": "d = 21 nm ; ρ(TiO2) ≈ 3,9 g/cm³",
+     "formula": "S = 6 / (ρ d)",
+     "result": "≈ 73 m²/g",
+     "compared_to": "fiche Evonik : 35-65 m²/g ; Table 2 : 56 m²/g",
+     "source": "Evonik TDS P25 ; La Zara 2020 (21 nm)"
+    },
+    {
+     "what": "seuil d'absorption Eg = 2,0 eV",
+     "inputs": "Eg = 2,0 eV ; hc = 1239,84 eV·nm",
+     "formula": "λ = 1239,84 / Eg",
+     "result": "620 nm",
+     "compared_to": "balayage DRS déclaré 200-600 nm : seuil hors de la plage mesurée",
+     "source": "arithmétique ; plage : valeurs de l'article"
+    },
+    {
+     "what": "constante k TiNPs-Fe2O3 sous UV",
+     "inputs": "88,03 % en 120 min",
+     "formula": "-ln(1 - X)/t",
+     "result": "0,0177 min-1",
+     "compared_to": "annoncé 0,0173 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constante k TiNPs-Fe2O3 sous visible",
+     "inputs": "48,36 % en 120 min",
+     "formula": "-ln(1 - X)/t",
+     "result": "0,0055 min-1",
+     "compared_to": "annoncé 0,0055 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "gain relatif sous UV et visible (Ti)",
+     "inputs": "88,03/77,38 ; 48,36/38,03",
+     "formula": "X_hybride / X_Fe2O3 - 1",
+     "result": "+13,8 % ; +27,2 %",
+     "compared_to": "annoncés +13,8 % et +27,2 % : cohérents",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "position des raies anatase et rutile",
+     "inputs": "anatase 25,2 ; 37,8 ; 48,2 ; 53,8 ; 55,0° ; rutile 27,4°",
+     "formula": "comparaison directe",
+     "result": "conformes à l'anatase (101, 004, 200, 105, 211) et au rutile (110)",
+     "compared_to": "P25 = anatase + rutile ; la fiche JCPDS 21-1272 citée est celle de l'anatase seule",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Données texturales physiquement impossibles : Vp = 0,02 cm³/g pour 304 m²/g donne un diamètre 4V/S de 0,26 nm (calcul « diamètre de pore 4V/S TiNPs-Fe2O3 »), plus petit qu'une molécule de N2, contre 2,9 nm annoncé ; la même formule redonne bien Dp pour P25 et pour Fe2O3. Une des trois valeurs (Vp, SBET ou Dp) est fausse.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem. 87, 1051",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Une surface de 304 m²/g est hors d'atteinte d'un dépôt de P25 (56 m²/g) sur un oxyde à 158 m²/g suivi d'une calcination à 450 °C pendant 4 h : un mélange ne peut dépasser la surface de son constituant le plus divisé (calcul « surface d'un mélange Fe2O3 + P25 »), et le frittage la fait baisser. Aucun mécanisme créant une porosité nouvelle n'est proposé.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le MET montre des particules sphériques d'environ 3 nm présentées comme les TiNPs ; or P25 a une taille primaire moyenne d'environ 21 nm (35-65 m²/g selon Evonik). Des objets de 3 nm ne sont pas du P25 : soit ce sont d'autres particules, soit la mesure est erronée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "AEROXIDE TiO2 P 25, Technical Data Sheet (BET 35-65 m²/g)",
+      "authors_or_publisher": "Evonik Operations GmbH (fiche fournisseur)",
+      "year": "2025",
+      "url_or_doi": "https://products.evonik.com/assets/or/ld/AEROXIDE_TiO2_P_25_TDS_EN_EN_TDS_PV_52043891_en_GB_WORLD.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Eg = 2,0 eV correspond à un seuil vers 620 nm (calcul « seuil d'absorption Eg = 2,0 eV »), hors du balayage DRS déclaré (200-600 nm) : la valeur ne peut pas avoir été extrapolée (Tauc/Kubelka-Munk) depuis ces spectres. Par ailleurs, ajouter TiO2 (3,2 eV) ne peut pas abaisser la bande interdite de l'oxyde de fer : un composite garde les seuils de ses phases.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune masse de Fe2O3 ni de P25, aucun milieu d'imprégnation (eau ? éthanol ?), aucune séparation ni séchage avant calcination : la composition de l'hybride est inconnue, et le terme « titanium nanoparticles » désigne en fait TiO2 (pas du titane métallique). La voie ne peut pas être refaite telle qu'écrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "450 °C sous air (atmosphère non dite) : compatible avec P25 (la transformation anatase -> rutile du P25 commence au-delà de ≈ 600 °C) et avec l'hématite, qui est la forme stable ; les résidus de nZVI ou de spinelle du Fe2O3 brut s'oxyderaient en hématite à cette température.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change plusieurs variables : Fe2O3 seul n'a pas d'imprégnation, de calcination à 450 °C, de broyage ni de tamisage écrits, alors que les hybrides les subissent. Les écarts de surface, de bande interdite et d'activité peuvent venir du traitement thermique autant que des nanoparticules. Témoin nécessaire : Fe2O3 agité 90 min dans le même milieu, calciné 450 °C 4 h et tamisé, sans nanoparticules.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve de l'hybridation : la DRX « sans nouveaux pics » avec raies de l'anatase montre seulement un mélange physique P25 + oxyde de fer ; aucune analyse (XPS, EDX, MET-EDX) ne prouve un contact ou une hétérojonction. Les gains d'activité sont correctement calculés (calcul « gain relatif sous UV et visible (Ti) »), mais ne distinguent pas l'effet du P25, lui-même photocatalyseur actif sous UV, d'un effet de « piégeage d'électrons ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Broyage et tamisage de poudres nanométriques (P25, oxyde de fer) non protégés dans l'article : risque d'inhalation (TiO2 en poudre fine classé cancérogène suspecté par inhalation, CLP H351) ; four ventilé à 450 °C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dépôt physique, par agitation en suspension, d'agrégats de P25 (≈ 21 nm, anatase + rutile) sur l'oxyde de fer, puis calcination à 450 °C qui oxyde complètement le fer en hématite, élimine eau et borates et soude partiellement les particules (frittage, baisse attendue de la surface). Le gain d'activité sous UV s'explique d'abord par la présence de TiO2 actif ; une hétérojonction TiO2/α-Fe2O3 est possible mais non démontrée. Le « piégeage d'électrons » par TiO2 invoqué par les auteurs est un mécanisme de métal noble, pas d'un semiconducteur.",
+    "sources": [
+     {
+      "title": "AEROXIDE TiO2 P 25, Technical Data Sheet (BET 35-65 m²/g)",
+      "authors_or_publisher": "Evonik Operations GmbH (fiche fournisseur)",
+      "year": "2025",
+      "url_or_doi": "https://products.evonik.com/assets/or/ld/AEROXIDE_TiO2_P_25_TDS_EN_EN_TDS_PV_52043891_en_GB_WORLD.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses de Fe2O3 et de P25 (teneur en TiO2)",
+    "milieu et volume d'imprégnation, séparation et séchage avant calcination",
+    "valeurs SBET / Vp / Dp à remesurer (incompatibles entre elles)",
+    "taille réelle des particules de TiO2 sur l'hybride (MET avec échelle, EDX)",
+    "spectre DRS étendu au-delà de 700 nm pour Eg",
+    "témoin Fe2O3 traité exactement comme l'hybride (agitation, 450 °C, tamis)"
+   ]
+  },
+  {
+   "label": "AgNPs-Fe2O3",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "diamètre de pore 4V/S AgNPs-Fe2O3",
+     "inputs": "Vp = 1,60 cm³/g ; SBET = 505 m²/g",
+     "formula": "4 Vp / SBET",
+     "result": "12,7 nm",
+     "compared_to": "Dp annoncé 3,5 nm (facteur 3,6)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface géométrique de sphères d'Ag de 3 nm",
+     "inputs": "d = 3 nm ; ρ(Ag) = 10,49 g/cm³",
+     "formula": "6 / (ρ d)",
+     "result": "191 m²/g",
+     "compared_to": "même de l'argent pur de 3 nm, non agrégé, n'atteint pas 505 m²/g",
+     "source": "arithmétique (densité de l'argent, valeur de manuel)"
+    },
+    {
+     "what": "taille d'hématite équivalente à 505 m²/g",
+     "inputs": "S = 505 m²/g ; ρ = 5,26 g/cm³",
+     "formula": "d = 6 / (ρ S)",
+     "result": "2,3 nm",
+     "compared_to": "hématite de 2 nm intacte après 4 h à 450 °C : invraisemblable ; Fe2O3 seul = 158 m²/g",
+     "source": "arithmétique ; densité calculée de l'hématite 5,28 (Webmineral)"
+    },
+    {
+     "what": "seuil d'absorption Eg = 1,8 eV",
+     "inputs": "Eg = 1,8 eV",
+     "formula": "λ = 1239,84 / Eg",
+     "result": "689 nm",
+     "compared_to": "balayage DRS 200-600 nm : seuil hors de la plage",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg des raies dites « de l'argent » (étalon AgNO3)",
+     "inputs": "λ = 1,5418 Å ; 2θ = 30,2 ; 35,6 ; 43,6 ; 62,3° indexées (001), (111), (200), (220)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 2,959 ; 2,522 ; 2,076 ; 1,490 Å",
+     "compared_to": "Ag cfc (a = 4,086 Å) : (111) 2,359 Å à 38,15° ; (200) 2,043 Å à 44,34° ; (220) 1,445 Å à 64,50°. Rapport d111/d200 mesuré 1,215 contre 1,155 pour un cfc : ce ne sont pas des raies d'argent métallique ; 35,6° coïncide avec l'hématite (110)",
+     "source": "Ali et al. 2023 (JCPDS 04-0783)"
+    },
+    {
+     "what": "constantes k AgNPs-Fe2O3",
+     "inputs": "94,10 % (UV) et 58,36 % (visible) en 120 min",
+     "formula": "-ln(1 - X)/t",
+     "result": "0,0236 et 0,0073 min-1",
+     "compared_to": "annoncés 0,022 (résumé 0,0222) et 0,0070 : proches (ajustement sur tous les points)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "gain relatif sous visible (Ag)",
+     "inputs": "58,36 / 38,03",
+     "formula": "X_hybride / X_Fe2O3 - 1",
+     "result": "+53,5 %",
+     "compared_to": "annoncé +55,4 % : erreur des auteurs (les trois autres gains sont exacts)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "perte d'activité au recyclage",
+     "inputs": "58,36 % (cycle I) ; 53,69 % (cycle VI)",
+     "formula": "1 - 53,69/58,36",
+     "result": "8,0 % relatif (4,67 points)",
+     "compared_to": "« about 8 % » : cohérent ; 6 cycles = 5 réutilisations",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "température de Tammann de l'argent",
+     "inputs": "fusion de Ag : 961,8 °C (1235 K)",
+     "formula": "0,5 × T_fusion (K)",
+     "result": "≈ 617 K ≈ 344 °C",
+     "compared_to": "calcination à 450 °C, au-dessus : frittage des AgNPs attendu",
+     "source": "arithmétique (point de fusion de l'argent, valeur de manuel)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "SBET = 505 m²/g est hors d'ordre de grandeur pour un oxyde de fer calciné à 450 °C décoré d'argent : de l'argent pur en sphères de 3 nm n'offre que 191 m²/g, et 505 m²/g correspondrait à de l'hématite de 2,3 nm (calculs « surface géométrique de sphères d'Ag de 3 nm » et « taille d'hématite équivalente à 505 m²/g »). Le diamètre 4V/S (12,7 nm) ne correspond pas non plus au Dp annoncé (3,5 nm).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem. 87, 1051",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les raies attribuées à l'argent (30,2 ; 35,6 ; 43,6 ; 62,3°, données pour un « étalon AgNO3 » mais indexées comme un cubique) ne sont pas celles de l'argent métallique cfc (38,1 ; 44,3 ; 64,4 ; 77,4°) ni d'AgNO3 ; or c'est Ag0 qui doit être présent (Ag2O se décompose bien en dessous de 450 °C). Avec ≈ 2,7 mg d'Ag par lot (voie AgNPs), une teneur de quelques dixièmes de % en masse ne serait de toute façon pas détectable en DRX : « silver characteristic peaks were identified » n'est pas soutenu.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Analysis of Crystallographic Structures and Properties of Silver Nanoparticles Synthesized Using PKL Extract and Nanoscale Characterization Techniques (Ag cfc, JCPDS 04-0783, a = 4,086 Å ; pics 38,07/44,29/64,44/77,34°)",
+      "authors_or_publisher": "Ali M. H. et al., ACS Omega 8(31), 28133",
+      "year": "2023",
+      "url_or_doi": "10.1021/acsomega.3c01261"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Eg = 1,8 eV implique un seuil vers 689 nm, hors du balayage 200-600 nm (calcul « seuil d'absorption Eg = 1,8 eV »). De plus, des nanoparticules d'argent métallique n'abaissent pas la bande interdite d'un semiconducteur : leur absorption plasmonique (vers 400-450 nm) et la couleur foncée faussent l'extrapolation de Kubelka-Munk. La « réduction de la bande interdite » est un artefact probable, pas une propriété.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "AgNPs de ≈ 10 nm (recette de Solomon) calcinées 4 h à 450 °C, au-dessus de la température de Tammann de l'argent (≈ 344 °C) : on attend coalescence et croissance, pas des particules de 3 nm. La taille MET de 3 nm, identique à celle annoncée pour les TiNPs, est douteuse.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and Study of Silver Nanoparticles",
+      "authors_or_publisher": "Solomon S. D., Bahadory M., Jeyarajasingam A. V., Rutkowsky S. A., Boritz C., Mulfinger L., J. Chem. Educ. 84(2), 322-325",
+      "year": "2007",
+      "url_or_doi": "10.1021/ed084p322"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Erreur de calcul des auteurs : gain sous visible +53,5 % et non +55,4 % (calcul « gain relatif sous visible (Ag) »). Constante k sous UV 0,022 dans les Résultats contre 0,0222 dans le résumé ; recalcul à 120 min : 0,0236 min-1. Recyclage cohérent (perte relative 8,0 %), mais aucune analyse du catalyseur après usage (lixiviation de l'argent, ions Ag+ actifs ?).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantité d'AgNPs, forme (sol ou poudre) et teneur finale en Ag non données : la branche hérite de toutes les lacunes de la voie TiNPs-Fe2O3 (masse de Fe2O3, milieu d'imprégnation, séchage, atmosphère).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Broyage et tamisage d'une poudre nanométrique contenant de l'argent : inhalation à éviter (hotte, masque FFP3) ; non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Adsorption du sol d'Ag (chargé négativement par BH4-/borates) sur l'oxyde de fer, puis calcination à 450 °C sous air : oxydation complète de l'oxyde de fer en hématite, décomposition des borates résiduels, frittage des AgNPs en particules plus grosses ancrées à la surface (Ag reste métallique, Ag2O n'étant pas stable à 450 °C). Un effet de piégeage d'électrons par Ag0 (contact Schottky) et d'absorption plasmonique est plausible pour l'activité sous visible, mais la teneur en Ag, l'état chimique (XPS) et la surface ne sont pas établis.",
+    "sources": [
+     {
+      "title": "Synthesis and Study of Silver Nanoparticles",
+      "authors_or_publisher": "Solomon S. D., Bahadory M., Jeyarajasingam A. V., Rutkowsky S. A., Boritz C., Mulfinger L., J. Chem. Educ. 84(2), 322-325",
+      "year": "2007",
+      "url_or_doi": "10.1021/ed084p322"
+     },
+     {
+      "title": "Analysis of Crystallographic Structures and Properties of Silver Nanoparticles Synthesized Using PKL Extract and Nanoscale Characterization Techniques (Ag cfc, JCPDS 04-0783, a = 4,086 Å ; pics 38,07/44,29/64,44/77,34°)",
+      "authors_or_publisher": "Ali M. H. et al., ACS Omega 8(31), 28133",
+      "year": "2023",
+      "url_or_doi": "10.1021/acsomega.3c01261"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse d'Ag déposée par gramme de Fe2O3 (ICP ou EDX)",
+    "DRX lente de l'hybride autour de 38,1° et 44,3° (Ag cfc) et XPS Ag 3d",
+    "remesure de SBET, Vp et Dp (505 m²/g incompatible avec 3,5 nm et 1,60 cm³/g)",
+    "spectre DRS jusqu'à 800 nm et séparation du plasmon de l'absorption de l'hématite",
+    "taille des AgNPs après calcination (MET avec échelle)",
+    "argent lixivié après recyclage"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse de Fe2O3 est en réalité la recette des nanoparticules de fer zérovalent (réduction de FeCl3 par NaBH4) : le produit brut n'est pas un oxyde, et l'hématite indexée en DRX demande une calcination que l'article n'écrit pas ; l'IR (sites tétraédriques) contredit l'hématite. Les AgNPs suivent une recette éprouvée (Solomon 2007). Les hybrides ne sont pas reproductibles (aucune quantité) et leurs résultats sont physiquement incohérents : couples SBET/Vp/Dp impossibles (4V/S 0,26 nm et 12,7 nm contre 2,9 et 3,5 nm), surfaces de 304 et 505 m²/g inatteignables par dépôt de P25 (56 m²/g) ou d'Ag sur un oxyde à 158 m²/g calciné à 450 °C, bandes interdites de 2,0 et 1,8 eV hors de la plage DRS mesurée (200-600 nm), particules de 3 nm incompatibles avec P25 (21 nm), raies DRX « d'argent » qui ne sont pas celles d'Ag cfc. Le témoin Fe2O3 diffère des hybrides par plusieurs traitements (calcination, broyage).",
+  "author_errors_suspected": [
+   "« chemical precipitation » pour une réduction par le borohydrure (produit Fe0, pas Fe2O3)",
+   "formule FeCl3·H2O écrite pour l'hexahydrate",
+   "Table 2 : Vp/SBET/Dp incompatibles pour TiNPs-Fe2O3 (4V/S = 0,26 nm) et AgNPs-Fe2O3 (4V/S = 12,7 nm)",
+   "Eg 2,0 et 1,8 eV annoncées alors que le balayage DRS s'arrête à 600 nm (2,07 eV)",
+   "raies DRX attribuées à l'argent (30,2/35,6/43,6/62,3°) qui ne sont pas celles d'Ag métallique ; fiche JCPDS 21-1272 (anatase) citée aussi pour le rutile",
+   "bande IR à 611 cm-1 attribuée à des sites tétraédriques/octaédriques (spinelle) alors que la DRX indexe l'hématite",
+   "gain sous visible de AgNPs-Fe2O3 : +53,5 % et non +55,4 %",
+   "TiNPs de 3 nm au MET alors que P25 a des particules de ≈ 21 nm",
+   "conditions des témoins d'adsorption (pH 4,03 ; 0,7 g/L ; 20 mg/L) différentes de celles de la photocatalyse ; mention de « phenol molecule » dans le mécanisme",
+   "RhB dite cationique à pH 9,97 alors qu'elle est zwitterionique au-dessus de pH ≈ 3,7"
+  ],
+  "comparison_with_database": "compare.py « Fe2O3 » : seules les voies de cet article (PMC7033158) ; aucune autre synthèse d'hématite ou de nZVI dans la base. compare.py « Ag » : les autres AgNPs de la base (PMC3107715, PMC3833323, PMC4735866) sont des réductions vertes ou à la gélatine, sans comparaison directe avec la voie au borohydrure ; PMC9048217 (Ag/AgCl@ZIF-8, 985 m²/g) doit sa surface au MOF, ce qui ne s'applique pas ici."
+ },
+ "sources_not_found": [
+  "Glavee et al., Inorg. Chem. 1995 (réduction de Fe(II)/Fe(III) par le borohydrure) : non trouvé par la recherche ; remplacé par Glavee et al., Langmuir 1992",
+  "point de charge nulle de l'hématite (compilations Kosmulski) : valeur non lue dans les extraits ; le constat zêta reste en chimie générale",
+  "source primaire de la température de transformation maghémite -> hématite (350-500 °C) : non lue, valeur de manuel",
+  "Vérification Crossref impossible (proxy 403) : aucun ajout à fondateurs.md ni à constantes.md"
+ ]
+}

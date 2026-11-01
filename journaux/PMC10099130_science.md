@@ -1,0 +1,15 @@
+# PMC10099130 — critique scientifique
+
+- 30 mL contre électrodes : 20 × 16 cm à 4 cm d'écart, soit 1,28 L entre les plaques. 30 mL ne mouillent que ≈ 0,5 cm de hauteur. Si j = 11,4 mA cm–2 porte sur toute la plaque, I = 3,65 A, ce qui donne 1,9 g de Fe en 30 min (≈ 1,1 mol/L). Classé `probleme` : on ne peut pas reconstituer le courant total.
+- DSC : les auteurs disent « exothermique » pour la perte d'eau et « endothermique » pour la transformation vers 550 °C. La déshydratation est endothermique. Song 2002 rapporte que les FePO4 anhydres issus des dihydrates sont métastables face au FePO4 trigonal, donc leur conversion est exothermique. Classé `probleme`. Je n'ai trouvé aucune source qui chiffre directement l'exotherme, d'où la note dans `sources_not_found`.
+- XPS à 30,5 et 20,3 % de Fe2+ : incompatible avec FePO4·2H2O monophasé (neutralité des charges). Classé `probleme` au titre de la preuve discriminante, avec une demande de dosage au dichromate. La « tendance » ne repose que sur deux points.
+- ATG : 22,5 % et 21,59 % de perte donnent 2,43 et 2,31 H2O (19,3 % attendu pour 2 H2O). Laissé en `reserve`, mais repris dans la voie LFP : Li/Fe réel ≈ 1,05 si la pesée suit la formule théorique.
+- Mésoporosité : les Méthodes annoncent un porosimètre à mercure, les légendes S8 et S9 des isothermes N2 et du DFT, et seulement sur LFP/C. Aucun chiffre. Classé `probleme` (cohérence entre sections), avec Thommes 2015 tiré de fondateurs.md.
+- Cyclage : 104,1 / 134,7 = 77,3 % et non 85,5 %. Le « rendement coulombique » de 85 % est en fait une rétention. Classé `probleme` sur la voie pile.
+- DLi : trois rapports I/II différents, 1,47 (pentes CV au carré), 5,76 (2,4² du texte) et 5,03 (tableau S3). Mis en `reserve`, car A et C ne sont pas donnés.
+- Rietveld LFP/C-I : Rwp 35 %, et contraction isotrope de 0,3 % sur a, b et c. J'y vois une erreur de zéro, pas un effet chimique. `reserve`.
+- Bragg HRTEM : d(211) = 3,01 Å et d(101) = 4,27 Å, contre 0,302 et 0,431 nm. Cohérent.
+- Mécanisme : j'ai préféré une explication par la sursaturation, avec la séquence amorphe → métastrengite par dissolution–reprécipitation (Roncal-Herrero 2009, pH 1,6, ≈ 100 °C), à l'argument électrostatique des auteurs. Celui-ci n'explique pas la frontière entre cristallin et amorphe. Le calcul Ksp de Fe(OH)3 à pH 2,5 donne [Fe3+]max ≈ 9 × 10–5 M et soutient l'amorphe à pH 2,5. Pour pH 1,0, l'hypothèse de la complexation par H3PO4 1,5 M n'est pas sourcée.
+- J'ai ajouté les branches FP-III et FP-IV : le pH change la spéciation, donc la chimie. Je n'ai pas ajouté LFP/C-II à IV, qui ne changent que le précurseur.
+- Sources : les pages MDPI, PMC, COD et Leeds étaient injoignables (DNS). Roncal-Herrero, Song et Materials 2025 ne sont connus que par les extraits du moteur de recherche. Le DOI de Song n'a pas été lu, et je n'ai rien ajouté à fondateurs.md ni à constantes.md (Crossref bloqué).
+- Constantes prises de mémoire de manuel et signalées comme telles : pKa1(H3PO4) = 2,15, Ksp(Fe(OH)3) ≈ 2,8 × 10–39 (CRC), densités de H3PO4 85 % et de H2O2 30 % (fiches fournisseurs).

@@ -1,0 +1,414 @@
+{
+ "pmcid": "PMC9609168",
+ "routes": [
+  {
+   "label": "Algal_extract",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentration nominale de l'extrait",
+     "inputs": "500 mg de poudre de biomasse lyophilisée dans 500 mL d'eau distillée",
+     "formula": "C = m / V",
+     "result": "1,0 mg/mL de biomasse mise en suspension (et non de matière dissoute)",
+     "compared_to": "« 1 mg/mL aqueous algal extract » des tests biologiques",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "fraction extractible estimée",
+     "inputs": "préparation GC-MS de la même souche : 163 mg de biomasse → 60 mg de résidu sec (eau à 80 °C, ultrasons, 24 h, filtre 0,22 µm)",
+     "formula": "60 / 163",
+     "result": "≈ 37 % ; par analogie, l'extrait à 60 °C/30 min contient au plus ≈ 0,37 mg/mL de matière dissoute",
+     "compared_to": "1 mg/mL nominal",
+     "source": "calcul sur valeurs de l'article (conditions d'extraction différentes : ordre de grandeur seulement)"
+    },
+    {
+     "what": "chlorure apporté par le milieu de culture BG11",
+     "inputs": "CaCl2·2H2O 0,036 g/L (M = 147,0 g/mol) ; MnCl2·4H2O 1,81 mg/L (M = 197,9 g/mol)",
+     "formula": "2 × n(CaCl2) + 2 × n(MnCl2) par litre",
+     "result": "≈ 0,51 mmol/L de Cl− dans le milieu",
+     "compared_to": "biomasse lavée 4 fois à l'eau : chlorure résiduel non nul mais non mesuré",
+     "source": "CCAP, recette BG11, https://www.ccap.ac.uk/wp-content/uploads/MR_BG11.pdf ; masses molaires IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "« boiled at 60 °C » : l'eau bout à 100 °C sous 1 atm ; il s'agit d'un chauffage au bain-marie à 60 °C, sans danger ni problème de récipient. Le mot « boiled » est impropre (même tournure dans la préparation DPPH).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La biomasse ne se « dissout » pas : 1 mg/mL est une charge de poudre, pas une concentration d'extrait. Par analogie avec la préparation GC-MS (≈ 37 % extractible, voir calcul « fraction extractible estimée »), la matière dissoute est sans doute ≤ 0,4 mg/mL. Toutes les doses « d'extrait » (IC50, DPPH, MIC) sont donc des doses nominales de biomasse, ce qui doit être dit quand on compare à d'autres extraits.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Matériel biologique : l'isolat n'est pas déposé dans une collection de cultures (seule une séquence ON819612 l'est) ; le nom « strain BA_Chlo4 » est celui d'une souche d'un autre auteur (OM471999). L'identification moléculaire utilise les amorces bactériennes universelles du 16S (27F/1492R), qui amplifient le 16S plastidial mais aussi toute bactérie associée ; le barcoding usuel de Coelastrella repose sur 18S-ITS1-5.8S-ITS2. Un chimiste ne peut pas obtenir exactement la même biomasse, et la composition de l'extrait dépend des conditions de culture (température, lumière, âge) non données.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Testing the Effectiveness of DNA Barcoding Markers and Species Delimitation Methods Within the Genus Coelastrella (Sphaeropleales, Chlorophyta)",
+      "authors_or_publisher": "Krivina E., Sinetova M., Starikov A., Anissimova O., Temraleeva A. — Curr. Microbiol. 82, 311",
+      "year": "2025",
+      "url_or_doi": "10.1007/s00284-025-04293-z"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le milieu BG11 apporte ≈ 0,5 mmol/L de chlorure (voir calcul « chlorure apporté par le milieu de culture BG11 ») et la biomasse contient ses propres chlorures ; l'extrait n'est pas exempt de Cl−, ce qui conditionne la formation d'AgCl dans la voie C@Ag-NPs.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "BG11 (Blue-Green Medium) — Media Preparation Recipe",
+      "authors_or_publisher": "CCAP, Culture Collection of Algae and Protozoa (SAMS)",
+      "year": "2026",
+      "url_or_doi": "https://www.ccap.ac.uk/wp-content/uploads/MR_BG11.pdf"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Étapes sans danger chimique notable (eau à 60 °C, lyophilisation, centrifugation 4700 rpm). Travail sur micro-organismes isolés de sol : précautions microbiologiques usuelles.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Extraction à l'eau chaude (60 °C, 30 min) de la fraction hydrosoluble de cellules lyophilisées et broyées : polysaccharides, protéines et peptides solubles, sucres, pigments hydrosolubles, sels (dont chlorures et phosphates). Les lipides neutres passent peu dans l'eau. Ce mélange porte les groupes réducteurs (sucres réducteurs, résidus tyrosine/cystéine, polyphénols) invoqués ensuite.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S. — Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "conditions de culture (température, éclairement, volume de milieu, densité cellulaire à 15 jours)",
+    "masse de matière sèche réellement dissoute (pesée d'un aliquote séché)",
+    "teneur en chlorure de l'extrait (électrode ou chromatographie ionique)",
+    "identité de la souche par 18S/ITS"
+   ]
+  },
+  {
+   "label": "Extract_GCMS",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rendement d'extraction",
+     "inputs": "163 mg de biomasse ; 60 mg de résidu blanc",
+     "formula": "m(résidu) / m(biomasse)",
+     "result": "36,8 %",
+     "compared_to": "aucune valeur de référence dans l'article ; biomasse sèche ou humide non précisée",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "nombre de pics et somme des aires du tableau 1",
+     "inputs": "20 rangées, dont 4 composés à deux pics (1-chlorotétradécane, méthyl 12-méthyltétradécanoate, caféine, oléate de méthyle)",
+     "formula": "compte des aires ; Σ aires %",
+     "result": "24 pics ; Σ = 99,99 %",
+     "compared_to": "texte : « 24 chromatographic peaks » et « 21 phytochemical compounds »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le tableau 1 est complet (24 pics, somme des aires 99,99 %, voir calcul « nombre de pics et somme des aires du tableau 1 ») mais ne contient que 20 composés : le « 21 » du texte est une erreur de comptage des auteurs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le filtrat est séché 48 h sous vide à 50 °C, puis le résidu est analysé. Des composés volatils comme le 1-octène (Téb ≈ 121 °C) ou le 1-heptanol (Téb ≈ 176 °C) ne devraient pas subsister en quantité notable (4,58 % pour le 1-octène) après 48 h sous vide à 50 °C ; leur présence suggère une contamination, un artefact du solvant de dilution (non nommé) ou de l'injecteur à 270 °C (pyrolyse).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Esters méthyliques d'acides gras (palmitate 34 %, stéarate 18,5 %, oléate 19 %) dans un extrait aqueux filtré à 0,22 µm : les FAME ne sont pas des constituants natifs habituels et sont très peu solubles dans l'eau ; on les obtient typiquement par transestérification (méthanol, catalyseur) lors de la préparation. Le solvant de dilution et une éventuelle dérivatisation ne sont pas décrits. Ces composés ne peuvent donc pas servir de preuve des « agents de coiffage » de C@Ag-NPs sans contrôle.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Mélange à 80 °C puis ultrasons 30 min et macération 24 h : la température pendant la sonication et la macération n'est pas donnée (refroidissement probable) ; extraction non comparable à celle de l'extrait de synthèse (60 °C, 30 min, 1 mg/mL contre 1,63 mg/mL). La GC-MS ne caractérise donc pas l'extrait réellement utilisé pour réduire Ag+.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Aucun danger particulier (eau chaude, étuve sous vide).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "La GC-MS ne voit que la fraction volatile et thermostable du résidu ; protéines et polysaccharides, que les auteurs tiennent pour réducteurs, n'y apparaissent pas (ils le reconnaissent). La forte part de FAME indique plutôt une transestérification des lipides pendant la préparation qu'une composition native de l'extrait aqueux.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "solvant de dilution avant injection et absence de méthanol/catalyseur",
+    "biomasse sèche ou humide (163 mg)",
+    "blanc de procédé (eau seule traitée de la même façon)"
+   ]
+  },
+  {
+   "label": "C@Ag-NPs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "argent engagé",
+     "inputs": "90 mL d'AgNO3 1,0 × 10−3 mol/L ; M(Ag) = 107,87 g/mol ; M(AgNO3) = 169,87 g/mol",
+     "formula": "n = C × V ; m = n × M",
+     "result": "9,0 × 10−5 mol Ag+ = 9,71 mg Ag (15,3 mg AgNO3) ; [Ag+] = 0,90 mmol/L après ajout de 10 mL d'extrait",
+     "compared_to": "masse maximale de Ag0 récupérable par lot de 100 mL : 9,7 mg",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "pouvoir réducteur nécessaire",
+     "inputs": "9,0 × 10−5 mol e− (Ag+ + e− → Ag0) ; modèle : sucre réducteur type glucose, 2 e− par molécule (M = 180,16 g/mol)",
+     "formula": "m(glucose) = n(Ag)/2 × M",
+     "result": "8,1 mg d'équivalent glucose",
+     "compared_to": "10 mL d'extrait à 1 mg/mL nominal = 10 mg de biomasse, dont ≈ 3,7 mg dissous (voir Algal_extract) : réduction complète de Ag+ peu probable",
+     "source": "calcul ; stœchiométrie glucose/Ag+ selon Raveendran et al. 2003 (10.1021/ja029267j)"
+    },
+    {
+     "what": "Bragg avec Cu Kα (λ = 1,5406 Å) pour les huit raies",
+     "inputs": "2θ = 27,8 ; 32,1 ; 38,2 ; 46,2 ; 54,8 ; 57,39 ; 64,5 ; 77,0°",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d = 3,207 ; 2,786 ; 2,354 ; 1,963 ; 1,674 ; 1,604 ; 1,444 ; 1,237 Å",
+     "compared_to": "voir les deux calculs suivants",
+     "source": "valeurs de l'article ; λ Cu Kα1 de references/constantes.md (NIST)"
+    },
+    {
+     "what": "raies attendues pour l'argent cubique à faces centrées",
+     "inputs": "a(Ag) tiré de la raie (111) à 38,2° : a = d111 × √3 = 4,077 Å",
+     "formula": "d(hkl) = a / √(h²+k²+l²) ; 2θ = 2 arcsin(λ/2d)",
+     "result": "(111) 38,2° ; (200) 44,4° ; (220) 64,5° ; (311) 77,6° ; une raie (210) serait à 50,0°, (122) à 69,1°, (231) à 90,0° — mais ces indices mixtes sont interdits en cfc",
+     "compared_to": "attributions des auteurs : 27,8° (210), 32,1° (122), 46,2° (231), 54,8° (142), 57,39° (241) — impossibles pour Ag",
+     "source": "calcul ; règle d'extinction cfc (h, k, l tous pairs ou tous impairs)"
+    },
+    {
+     "what": "raies attendues pour AgCl (chlorargyrite, cubique NaCl)",
+     "inputs": "a(AgCl) tiré de 27,8° pris comme (111) : a = 5,554 Å",
+     "formula": "d(hkl) = a / √(h²+k²+l²)",
+     "result": "(111) 27,80° ; (200) 32,21° ; (220) 46,19° ; (311) 54,77° ; (222) 57,43° ; (420) 76,67°",
+     "compared_to": "raies observées 27,8 ; 32,1 ; 46,2 ; 54,8 ; 57,39° (écart ≤ 0,1°) ; AgCl JCPDS 31-1238 : 27,9 ; 32,3 ; 46,3 ; 55,0 ; 57,6 ; 76,9° (Durán et al. 2014)",
+     "source": "calcul ; Durán et al., SpringerPlus 2014, 10.1186/2193-1801-3-645"
+    },
+    {
+     "what": "part de l'argent sous forme d'AgCl d'après l'EDX",
+     "inputs": "tableau 2 : Ag 80,10 % en masse (41,27 % at.) ; Cl 9,79 % en masse (15,34 % at.) ; M(Cl) = 35,45 g/mol",
+     "formula": "Cl/Ag atomique ; m(Ag dans AgCl) = m(Cl) × 107,87/35,45",
+     "result": "Cl/Ag = 0,37 ; Ag lié à Cl = 29,8 % en masse ; AgCl ≈ 39,6 % en masse ; Ag0 ≈ 50,3 % en masse ; ≈ 37 % de l'argent sous forme AgCl si tout le chlore est dans AgCl",
+     "compared_to": "« Ag-NPs » présentées comme argent métallique",
+     "source": "valeurs de l'article ; masses molaires IUPAC"
+    },
+    {
+     "what": "chlorure nécessaire pour Cl/Ag = 0,37",
+     "inputs": "9,0 × 10−5 mol Ag au plus dans le solide",
+     "formula": "n(Cl) = 0,37 × n(Ag)",
+     "result": "3,3 × 10−5 mol = 1,19 mg de Cl, à fournir par 10 mL d'extrait (10 mg de biomasse nominale)",
+     "compared_to": "≈ 12 % de la masse de biomasse en chlorure si tout Ag est récupéré : très élevé pour une biomasse lavée ; ou bien une petite fraction seulement de Ag est récupérée (rendement non donné)",
+     "source": "calcul sur valeurs de l'article"
+    },
+    {
+     "what": "seuil de précipitation d'AgCl",
+     "inputs": "Ksp(AgCl) ≈ 1,8 × 10−10 à 25 °C ; [Ag+] = 0,9 mmol/L",
+     "formula": "[Cl−] seuil = Ksp / [Ag+]",
+     "result": "≈ 2 × 10−7 mol/L",
+     "compared_to": "tout chlorure de l'extrait au-dessus de 0,2 µmol/L précipite AgCl dès le mélange",
+     "source": "chimie générale (produit de solubilité tabulé d'AgCl)"
+    },
+    {
+     "what": "argent dans les doses d'AgNO3 du test de diffusion",
+     "inputs": "500 µg/mL d'AgNO3",
+     "formula": "500 × 107,87/169,87",
+     "result": "318 µg/mL d'argent (2,94 mmol/L)",
+     "compared_to": "500 µg/mL de poudre C@Ag-NPs dont ≤ 80 % d'argent (EDX, dont ≈ 37 % en AgCl) ; Ch@Ag-NPs à 99,5 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité de l'acide ascorbique du test DPPH",
+     "inputs": "DPPH 0,004 g/100 mL (M = 394,32 g/mol) mélangé 1:1 avec l'échantillon ; acide ascorbique (M = 176,12 g/mol) ; 1,85 DPPH réduit par ascorbate",
+     "formula": "[DPPH]final = 0,1014 mM / 2 ; [Asc]final = c/2/M ; % max = min(100, 1,85 [Asc]/[DPPH])",
+     "result": "[DPPH]final = 50,7 µM ; à 31,25 µg/mL : Asc 88,7 µM → capacité 164 µM, extinction attendue ≈ 100 % ; à 15,6 µg/mL ≈ 100 % ; à 7,8 µg/mL ≈ 81 % ; à 3,9 µg/mL ≈ 40 %",
+     "compared_to": "tableau 4 : 10,1 % à 31,25 ; 8,4 % à 15,6 ; 5,4 % à 7,8 ; 2,9 % à 3,9 µg/mL ; 82,7 % seulement à 1000 µg/mL",
+     "source": "valeurs de l'article ; Brand-Williams et al. 1995, 10.1016/S0023-6438(95)80008-5"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Phase mal attribuée : cinq des huit raies DRX (27,8 ; 32,1 ; 46,2 ; 54,8 ; 57,39°) sont celles d'AgCl cubique (écart ≤ 0,1°, voir « raies attendues pour AgCl ») et les indices que les auteurs leur donnent pour l'argent ((210), (122), (231), (142), (241)) sont interdits en cfc (voir « raies attendues pour l'argent cubique à faces centrées »). L'EDX confirme : Cl/Ag = 0,37 atomique, soit ≈ 40 % en masse d'AgCl. Le matériau est un composite Ag/AgCl (≈ 37 % de l'argent en AgCl), pas des Ag-NPs « cristallines » pures ; la confusion est classique dans les synthèses « vertes ».",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Biogenic silver nanoparticles associated with silver chloride nanoparticles (Ag@AgCl) produced by laccase from Trametes versicolor",
+      "authors_or_publisher": "Durán N., Cuevas R., Cordi L., Rubilar O., Diez M.C. — SpringerPlus",
+      "year": "2014",
+      "url_or_doi": "10.1186/2193-1801-3-645"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La raie (200) de l'argent, attendue vers 44,4° et normalement la deuxième plus intense, ne figure pas dans la liste ; la raie à 77° peut être Ag(311) (77,6°) ou AgCl(420) (76,7°). Seules 38,2° et 64,5° sont propres à Ag0 : la part métallique réelle est à vérifier sur le diffractogramme (figure 6).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Impact of Plant Species on the Synthesis and Characterization of Biogenic Silver Nanoparticles: A Comparative Study of Brassica oleracea, Corylus avellana, and Camellia sinensis",
+      "authors_or_publisher": "auteurs non relevés (article en accès libre, PMC)",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11643465"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Pour expliquer Cl/Ag = 0,37, l'extrait devrait apporter ≈ 1,2 mg de chlorure par lot si tout l'argent était récupéré (voir « chlorure nécessaire pour Cl/Ag = 0,37 »), ce qui est beaucoup pour 10 mg de biomasse lavée ; soit l'extrait (ou l'eau, la verrerie) contient plus de chlorure que prévu, soit une petite fraction seulement de l'argent est récupérée. Le rendement n'étant pas donné, on ne peut pas trancher.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Réduire 9 × 10−5 mol Ag+ demande l'équivalent de ≈ 8 mg de glucose (voir « pouvoir réducteur nécessaire »), alors que 10 mL d'extrait n'apportent que 10 mg de biomasse nominale (≈ 4 mg dissous). La réduction est donc probablement partielle : Ag+ résiduel, AgCl, et Ag0 minoritaire, cohérent avec l'EDX et la DRX. La masse de poudre utilisée ensuite comme « dose de NPs » n'est pas de l'argent métallique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+      "authors_or_publisher": "Raveendran P., Fu J., Wallen S.L. — JACS",
+      "year": "2003",
+      "url_or_doi": "10.1021/ja029267j"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Lumière fluorescente pendant 24 h sans témoin à l'obscurité ni témoin AgNO3 seul éclairé : AgNO3 et surtout AgCl sont photosensibles (photoréduction d'AgCl en Ag/AgCl), et une partie de la réduction peut être photochimique. L'article attribue tout à l'extrait (protéines) sans témoin discriminant.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Biogenic silver nanoparticles associated with silver chloride nanoparticles (Ag@AgCl) produced by laccase from Trametes versicolor",
+      "authors_or_publisher": "Durán N., Cuevas R., Cordi L., Rubilar O., Diez M.C. — SpringerPlus",
+      "year": "2014",
+      "url_or_doi": "10.1186/2193-1801-3-645"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Maximum unique à 404,5 nm : cohérent avec des particules d'argent de 10–20 nm quasi sphériques ou polyédriques (Agnihotri et al. 2014). Des nanoplaquettes hexagonales ou triangulaires d'arête ≈ 15–25 nm présenteraient un mode dipolaire dans le plan vers 500 nm ou au-delà (nanoprismes de 25 nm d'arête : ≈ 500 nm). L'« hexagonal dominant » du MET est donc la projection 2D de polyèdres 3D (cuboctaèdres, décaèdres), non des plaquettes ; le titre « hexagonal Ag-NPs » surinterprète.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Combined Use of Anisotropic Silver Nanoprisms with Different Aspect Ratios for Multi-Mode Plasmon-Exciton Coupling",
+      "authors_or_publisher": "auteurs non relevés (article en accès libre, PMC)",
+      "year": "2020",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6965570"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : l'EDX ne mesure pas une « absorption optique » à 3 keV mais la raie d'émission X Ag Lα (≈ 2,98 keV), présente aussi pour AgCl : elle ne prouve pas le caractère métallique. « Energy diffraction X-ray » désigne en fait la spectroscopie X à dispersion d'énergie. « Zeta potential (>−30 mV) » doit se lire |ζ| > 30 mV.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "FTIR : 2098 cm−1 (extrait), attribué à un isothiocyanate, coïncide avec la bande d'association de l'eau (≈ 2125 cm−1, combinaison flexion + libration) ; 1645,3 cm−1, présent à l'identique dans l'extrait et les NPs, coïncide avec la flexion de l'eau (1645 cm−1), et 3436 cm−1 avec l'élongation O–H de l'eau. Le spectre de l'extrait peut être dominé par l'eau, ce qui ne prouve pas que « les protéines dominent ». 1521,7 cm−1 (« nitro ») est plus probablement l'amide II, et 1397,7 cm−1 peut être du nitrate résiduel (ν3 ≈ 1380 cm−1) ou un carboxylate.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Microheterogeneity in Liquid Water Associated with Hydrogen-Bond Cooperativity — IR Spectroscopic and MD Simulation Study of Temperature Effect",
+      "authors_or_publisher": "auteurs non relevés (article en accès libre, PMC)",
+      "year": "2025",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12155183"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Test DPPH incohérent avec la stœchiométrie de la référence : à 50,7 µM de DPPH final, l'acide ascorbique (≈ 2 DPPH réduits par molécule) devrait éteindre ≈ 100 % du radical dès 15,6 µg/mL et ≈ 80 % à 7,8 µg/mL (voir « capacité de l'acide ascorbique du test DPPH »), or le tableau 4 donne 8,4 % et 5,4 %, et seulement 82,7 % à 1000 µg/mL (série non monotone : 30,6 % à 125 et 31,9 % à 62,5 µg/mL). Le test (fraîcheur du DPPH, concentrations, calcul) est donc douteux, et les plateaux constants de C@Ag-NPs (≈ 22 % de 1,95 à 31 µg/mL) et de l'extrait (≈ 15 %) ressemblent à un décalage de fond (mélange eau/éthanol, diffusion des particules, absence de blanc échantillon) plutôt qu'à un effet dose.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Use of a free radical method to evaluate antioxidant activity",
+      "authors_or_publisher": "Brand-Williams W., Cuvelier M.E., Berset C. — LWT Food Sci. Technol. 28, 25–30",
+      "year": "1995",
+      "url_or_doi": "10.1016/S0023-6438(95)80008-5"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoins qui changent plusieurs variables : les doses sont exprimées en masse de poudre lyophilisée (C@Ag-NPs ≤ 80 % Ag dont ≈ 37 % en AgCl, plus la couronne organique) contre Ch@Ag-NPs commerciales (99,5 %, < 100 nm, taille non mesurée) et AgNO3 à 500 µg/mL (= 318 µg/mL d'argent, voir « argent dans les doses d'AgNO3 du test de diffusion »). La supériorité attribuée à la petite taille ne peut pas être séparée de la teneur en argent, de l'AgCl et de l'Ag+ résiduel ; il faudrait doser l'argent total (ICP) et comparer à argent égal, avec un témoin AgCl.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : la diffusion en gélose est décrite à 500 µg/mL pour l'extrait (2.2.9) et commentée à « 1 mg/mL » en 3.7 ; la microdilution (100 µL à 1 mg/mL en colonne 1, puis ajout de 100 µL de suspension bactérienne) laisse un facteur 2 d'ambiguïté sur les concentrations finales (500 → 0,98 µg/mL) ; la MIC de S. aureus (< 0,98 µg/mL) est sous la plus basse concentration testée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3 : oxydant, corrosif, tache la peau, très toxique pour le milieu aquatique ; poudre nanométrique lyophilisée à ne pas inhaler ; centrifugation à 13 000 rpm en tubes adaptés ; déchets argentés à collecter à part. Article muet sur ces points.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dès le mélange, le chlorure de l'extrait précipite AgCl (Ksp ≈ 1,8 × 10−10 : seuil ≈ 0,2 µM de Cl− à 0,9 mM d'Ag+). Les groupes réducteurs de l'extrait (sucres réducteurs, polysaccharides, résidus tyrosine/cystéine, polyphénols) réduisent lentement une partie de Ag+ en Ag0, et la lumière fluorescente photoréduit en surface une partie de l'AgCl : on obtient un composite Ag/AgCl (≈ 37 % de l'argent en AgCl d'après l'EDX, raies AgCl en DRX), coiffé par des biomolécules anioniques (ζ ≈ −33 mV). Le plasmon à 404,5 nm vient de la fraction Ag0 de 10–20 nm ; la couleur jaune d'or est celle de cette fraction. Le rôle des esters d'acides gras de la GC-MS dans le coiffage n'est pas démontré.",
+    "sources": [
+     {
+      "title": "Biogenic silver nanoparticles associated with silver chloride nanoparticles (Ag@AgCl) produced by laccase from Trametes versicolor",
+      "authors_or_publisher": "Durán N., Cuevas R., Cordi L., Rubilar O., Diez M.C. — SpringerPlus",
+      "year": "2014",
+      "url_or_doi": "10.1186/2193-1801-3-645"
+     },
+     {
+      "title": "Size-controlled silver nanoparticles synthesized over the range 5–100 nm using the same protocol and their antibacterial efficacy",
+      "authors_or_publisher": "Agnihotri S., Mukherji S., Mukherji S. — RSC Adv.",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ra44507k"
+     },
+     {
+      "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+      "authors_or_publisher": "Raveendran P., Fu J., Wallen S.L. — JACS",
+      "year": "2003",
+      "url_or_doi": "10.1021/ja029267j"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "diffractogramme complet : présence de Ag(200) à 44,4° et rapport des intensités AgCl(111)/Ag(111)",
+    "dosage du chlorure de l'extrait et de l'argent total du solide (ICP), rendement en masse",
+    "témoins à l'obscurité et AgNO3 seul sous la même lumière",
+    "pH du mélange, agitation, intensité lumineuse",
+    "blanc échantillon (particules sans DPPH) et contrôle acide ascorbique frais pour le test DPPH",
+    "doses biologiques exprimées en argent, avec témoin AgCl"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse verte unique (AgNO3 1 mM, 90 mL, + 10 mL d'extrait aqueux de microalgue à 1 mg/mL nominal, 24 h sous lumière fluorescente). La chimie de base est plausible mais le produit n'est pas de l'argent pur : cinq raies DRX sur huit sont celles d'AgCl, attribuées à tort à des indices interdits de l'argent cfc, et l'EDX donne Cl/Ag = 0,37 (≈ 40 % en masse d'AgCl). Le pouvoir réducteur de 10 mg de biomasse suffit à peine pour 9 × 10−5 mol d'Ag+. Le test DPPH est incompatible avec la stœchiométrie de l'acide ascorbique de référence. Les comparaisons biologiques sont faites à masse de poudre et non à masse d'argent.",
+  "author_errors_suspected": [
+   "raies DRX d'AgCl (27,8 ; 32,1 ; 46,2 ; 54,8 ; 57,39°) attribuées à des plans (210), (122), (231), (142), (241) de l'argent, interdits en cfc",
+   "21 composés annoncés pour 20 dans le tableau 1 (24 pics, somme des aires 99,99 %)",
+   "acide ascorbique à 8,4 % d'extinction du DPPH à 15,6 µg/mL alors que la stœchiométrie prévoit ≈ 100 %",
+   "bande 2098 cm−1 attribuée à un isothiocyanate (bande d'association de l'eau)",
+   "« boiled at 60 °C », « energy diffraction X-ray », « optical absorption » à 3 keV, « (>−30 mV) »",
+   "extrait testé à 500 µg/mL (Méthodes) ou 1 mg/mL (Résultats) en diffusion"
+  ],
+  "comparison_with_database": "compare.py « Ag » : les synthèses vertes à AgNO3 1 mM de la base donnent un plasmon entre 396 et 450 nm (PMC3107715 445 nm, PMC3700086 420–425 nm, PMC7760056 450 nm, PMC9034142 396 nm) et des tailles de 6 à 30 nm ; C@Ag-NPs (404,5 nm, 14,5 nm) est dans la plage. PMC9048217 (Ag/AgCl@ZIF-8) est un exemple de la base où la phase AgCl est correctement identifiée."
+ },
+ "sources_not_found": [
+  "nature du gène de la séquence OM471999 (18S, ITS ou 16S) : non trouvée par la recherche web",
+  "valeur de référence de la teneur en chlorure d'une biomasse de Coelastrella lavée : non cherchée"
+ ]
+}

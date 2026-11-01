@@ -1,0 +1,96 @@
+{
+ "pmcid": "PMC6278251",
+ "verdict": "corrections_majeures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "HAp outcome XPS_Ca2p3/2_peak = 347.27 eV (et 7ZnHAp sans valeur Ca 2p)",
+   "extracted": "350.94 eV (Ca 2p1/2) et 347.27 eV (Ca 2p3/2) rattachés à HAp",
+   "article_says": "The high-resolution XPS spectra of Ca 2p for the HAp and 7ZnHAp samples have two peak values associated with the bonding energy values of 350.94 eV (Ca 2p1/2) and 347.27 eV (Ca 2p3/2), respectively.",
+   "fix": "La phrase vise les deux échantillons. La Fig. 5 (g005) donne HAp = 350.94 et 347.4 eV (5a), 7ZnHAp = 350.74 et 347.24 eV (5b) : 350.94 est bien celui de HAp, mais 347.27 ne correspond à aucun des deux pics HAp (347.4) et est proche de celui de 7ZnHAp (347.24). Remplacer l'outcome HAp Ca 2p3/2 par 347.4 eV avec from_figure « Fig. 5a » (ou le garder en value_text « 347.27 (texte, valeur commune aux deux échantillons) ») et ajouter un doute sur le désaccord texte/figure.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "7ZnHAp outcomes Ca 2p",
+   "extracted": "aucune valeur Ca 2p pour 7ZnHAp (le doute dit « aucune valeur chiffrée n'est donnée pour 7ZnHAp »)",
+   "article_says": "For the 7ZnHAp sample it was observed that the two peaks position are slightly shifted to lower values.",
+   "fix": "Ajouter pour 7ZnHAp XPS_Ca2p1/2 = 350.74 eV et XPS_Ca2p3/2 = 347.24 eV, from_figure « Fig. 5b » (étiquettes lisibles sur l'image), quote = légende de la Fig. 5 : « The high-resolution XPS spectra for Ca 2p of HAp (a) and 7HApZn samples (b). ». Corriger le doute en conséquence (le journal de l'extracteur dit que les figures 3 à 7 n'ont pas été ouvertes).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "HAp et 7ZnHAp outcomes FEM_velocity_biphasic_medium_E*_nu* (Tableau 3, 9 + 9 valeurs)",
+   "extracted": "vitesses du Tableau 3 rangées comme résultats du matériau (p. ex. HAp E10_nu0.2 = 1458.6 m/s)",
+   "article_says": "Based on the results obtained from modeling for a series of values of the Young modulus and the Poisson coefficient, an interpolation program c (E, ν) was performed.",
+   "fix": "Le Tableau 3 est une grille de simulation : chaque vitesse est calculée pour un couple (E, ν) imposé, ce n'est pas une propriété mesurée du gel. À sortir des outcomes (les ranger dans l'annotation ou dans les conditions de la caractérisation « ultrasound velocity and FEM modelling », en précisant « sortie de simulation »). Les seuls résultats du matériau sont les vitesses expérimentales et les couples (E, ν) ajustés (voir constat suivant).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "HAp et 7ZnHAp outcomes FEM_velocity_biphasic_medium_<f>_MHz (Tableau 2, 5 + 5 valeurs)",
+   "extracted": "vitesses simulées à 3.75–6.25 MHz rangées comme résultats du matériau",
+   "article_says": "The velocity values in the biphasic media according to frequency for HAp (solid phase: E = 10 Gpa, ν = 0.3, 5% water volume ratio, R = 13nm) and 7ZnHAp (solid phase: E = 6 Gpa, ν = 0.3, volumetric ratio in water 5%, R = 9.7 nm) dispersions were presented in Table 2.",
+   "fix": "Sortie du modèle FEM à paramètres d'entrée fixés (E, ν, R, 5 % vol.), quasi constante en fréquence (1454.0–1454.1 ; 1460.5 ; Fig. 9 : axe 1454–1454.1 et 1460.5–1460.5) : à garder hors des outcomes, comme le Tableau 3. La légende du Tableau 2 (E = 2 GPa, R = 4.98 nm) contredit le texte. Noter que la valeur simulée 7ZnHAp (1460.5, E = 6 GPa) ne reproduit pas la vitesse expérimentale 1476.02 : la phrase « almost identical value » ne vaut que pour HAp (1454.1 contre 1454.17).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "HAp et 7ZnHAp outcomes (couples E, ν ajustés)",
+   "extracted": "aucun résultat (E, ν) ; le journal de l'extracteur dit que les Fig. 10-11 reprennent les tableaux",
+   "article_says": "The results obtained after the algorithm for the interpolation has been applied of the velocity c versus (E, ν) were presented in Figure 10 and Figure 11.",
+   "fix": "Fig. 10 et 11 ne sont pas une répétition des tableaux : elles donnent la courbe des couples (E, ν) compatibles avec la vitesse expérimentale. Lecture approximative : HAp E ≈ 10.5–12 GPa avec ν ≈ 0.29–0.26 (Fig. 11a) ; 7ZnHAp E ≈ 3.3–5.0 GPa avec ν ≈ 0.29–0.20 (Fig. 11b). Ajouter ces deux intervalles en outcomes from_figure (« Fig. 11a », « Fig. 11b »), 2 chiffres significatifs.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "faux",
+   "where": "annotation comparaison_branches (phrase sur le module d'Young)",
+   "extracted": "Le modèle ultrasonore donne un module d'Young plus faible pour 7ZnHAp (6 GPa contre 10 GPa) avec un rayon de particule plus petit (9,7 nm contre 13 nm)",
+   "article_says": "7ZnHAp (solid phase: E = 6 Gpa, ν = 0.3, volumetric ratio in water 5%, R = 9.7 nm)",
+   "fix": "6 GPa et 10 GPa sont des paramètres d'entrée de la simulation du Tableau 2, pas un résultat du modèle. Les Fig. 10-11 et le Tableau 3 donnent pour 7ZnHAp des couples ajustés à E ≈ 3.3–5 GPa (1476.2 m/s à E = 3, ν = 0.3, proche de 1476.02 expérimental) et pour HAp E ≈ 10.5–12 GPa. Reformuler : E plus faible pour 7ZnHAp d'après l'ajustement, et signaler l'incohérence interne (E = 6 GPa en entrée).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "7ZnHAp et HAp, étapes 1 à 3 (rapports de précurseurs)",
+   "extracted": "aucun paramètre de rapport ; 1.67 et 0.07 n'apparaissent que dans une citation de method_sources et dans une annotation",
+   "article_says": "The molar ratio of precursors, [Ca + Zn]/P, in the ZnHAp sol was minded to be equal to 1.67 according to our previous studies",
+   "fix": "Seule information stœchiométrique de l'article : ajouter en paramètres (étape 3 ou réactifs) (Ca + Zn)/P = 1.67 (value_num 1.67, quote ci-dessus) et Zn/(Zn + Ca) = 0.07 (quote : « with various Zn/(Zn + Ca) ion ratios (xZn = 0 and xZn = 0.07) »), et Zn/(Zn + Ca) = 0 pour HAp (variation à exprimer en ratio, pas seulement « absent »). Sans cela les quantités ne peuvent pas être recalculées.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "7ZnHAp outcome XPS_Zn2p3/2_peak ; outcomes C 1s",
+   "extracted": "Zn 2p3/2 = 1022.4 eV seul ; aucune valeur C 1s",
+   "article_says": "A decomposition of the maxima of the corresponding energy interval C1s was performed for both samples.",
+   "fix": "Fig. 7 : déconvolution en 1022.15 et 1023.52 eV (enveloppe à ≈ 1022.4) ; Fig. 3 : C 1s HAp 284.81, 286.61, 288.59, 290.09 eV ; 7ZnHAp 284.8, 286.84, 289.06, 290.05 eV. À ajouter si l'on veut les composantes (C 1s sert de référence de charge : intérêt faible).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation tendance_observee (stabilité)",
+   "extracted": "vitesse ultrasonore plus élevée pour le gel dopé (1476,02 contre 1454,17 m/s), lue par les auteurs comme une meilleure stabilité",
+   "article_says": "The parameter pair (E, ν) increases with the stability of solutions.",
+   "fix": "Les auteurs fondent la stabilité sur le couple (E, ν), pas sur la vitesse seule ; reformuler, et dire que l'argument « 7ZnHAp more stable » vient de la comparaison des couples et de la taille de particule.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 2,
+  "branches_extracted": 2,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "aucune quantité de réactif (masses, concentrations, volumes d'éthanol), seulement (Ca + Zn)/P = 1.67 et xZn = 0.07",
+  "concentration et volume de NH4OH, mode d'addition pour tenir pH 11",
+  "vitesse d'agitation, vase et atmosphère de l'étape à 100 °C (éthanol absolu au-dessus de son point d'ébullition : reflux ou récipient fermé non précisé)",
+  "séparation du gel entre les cinq lavages, séchage ou obtention de la poudre pour XRD/XPS",
+  "contradiction 100 °C (Méthodes) contre « at room temperature » (Conclusion)",
+  "protocole de HAp (xZn = 0) non décrit séparément",
+  "paramètres du modèle FEM contradictoires (légende Tableau 2 : E = 2 GPa, R = 4.98 nm ; texte : E = 10 et 6 GPa, R = 13 et 9.7 nm ; Tableau 3 : 1476.2 m/s à E = 3 GPa)",
+  "15 min (Résultats) contre 30 min (Méthodes) d'agitation de la suspension avant mesure ultrasonore ; température de mesure non donnée"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Aucune annexe dans le texte. Les sections Ca 2p et P 2p : P 2p vérifié sur Fig. 6 (134.13/133.18 HAp, 133.78/132.91 7ZnHAp), O 1s sur Fig. 4 (531.4 ; 531.07/532.67), tous conformes. Tableaux 1 à 3 : toutes les valeurs et les rangées HAp (E = 10, 11, 12) et 7ZnHAp (E = 3, 4, 6) sont bien attribuées ; la répétition 1468.3 dans la rangée E = 4 est dans l'article. Non retenu comme constat : HAp lue comme la même voie sans zinc (« various Zn/(Zn + Ca) ion ratios (xZn = 0 and xZn = 0.07) » couvre les deux ; doute déjà déclaré). method_sources : B57 adapté, B58/B59 et B35 en « autre », MAUD/COMSOL/MATLAB/SDP écartés comme outils d'analyse : conforme à la règle du 13/10. Lecture des figures à 2 chiffres significatifs ; Fig. 10-11 sont des surfaces et courbes lues à ±0.1 GPa environ."
+}

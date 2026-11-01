@@ -1,0 +1,78 @@
+{
+ "pmcid": "PMC9912144",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "Ta-ZnO110 et Ta-ZnO170, résultat photocourant (Fig. 7B)",
+   "extracted": "seuls ZnO150 (1.4 μA cm−2) et Ta-ZnO150 (4.9 μA cm−2) ont un photocourant ; rien pour Ta-ZnO110 et Ta-ZnO170",
+   "article_says": "During on/off switching cycles, the photo responses of ZnO, Ta-ZnO110, Ta-ZnO150, and Ta-ZnO170 were tested under visible light.",
+   "fix": "ajouter à Ta-ZnO110 et Ta-ZnO170 un résultat photocourant lu sur la Fig. 7B (plateaux ≈ 3.5 et ≈ 4.3 μA cm−2, lecture à 2 chiffres, from_figure 'Fig. 7B', citation = légende de la Fig. 7) ; contrôle : ZnO ≈ 1.4 et Ta-ZnO150 ≈ 4.9 retrouvés sur la même figure",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Ta-ZnO150, caractérisation photocatalytique : essais avec piégeurs (Fig. 9)",
+   "extracted": "les valeurs 20.96 / 1.2 / 82.4 / 89.28 % sont en résultats, mais ni la concentration des piégeurs (1 mM), ni leur identité, pureté et fournisseur n'apparaissent dans les conditions ni en réactifs ; 'mM' est absent du JSON",
+   "article_says": "In our study, 1 mM scavengers were added to the reactive solution before illumination.",
+   "fix": "compléter les conditions de la caractérisation photocatalytique (piégeurs AgNO3, EDTA, isopropanol, 1,4-benzoquinone, 1 mM, ajoutés avant illumination ; Résultats : après l'équilibre dans le noir) et rappeler la pureté et le fournisseur donnés en Matériaux (AgNO3 99.9 %, EDTA >99 %, isopropanol 99.5 %, 1,4-benzoquinone 98 %, Merck)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Ta-ZnO150, Tableau 5 (MB et TOC, SSL et HL)",
+   "extracted": "seuls H (%) MB et TOC sont repris ; concentrations initiale et finale absentes (le doute dit « non reprises »)",
+   "article_says": "SSL | 5.95 | 0.6426 | 89.2 | 3.52 | 0.42 | 88.07",
+   "fix": "ajouter, par rangée SSL et HL, MB initial 5.95 mg L−1, MB final 0.6426 / 1.214 mg L−1, TOC initial 3.52 mg L−1, TOC final 0.42 / 0.86 mg L−1 (rangées entières en citation) ; elles éclairent l'écart 7 ppm (Méthodes) contre 5.95 mg L−1",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Ta-ZnO150 et ZnO150, XPS Zn 2p (caractérisation et doute absent)",
+   "extracted": "ZnO150 : Zn2p3/2 1021.3 et Zn2p1/2 1044.4 eV ; Ta-ZnO150 : 1022 et 1045 eV",
+   "article_says": "However, in Ta-ZnO150, these peaks are shifted lower in their locations.",
+   "fix": "ne pas changer les valeurs (le texte tranche), mais ajouter un doute et une note de reproductibilité : les valeurs écrites pour Ta-ZnO150 (1022 / 1045) sont plus hautes que celles de ZnO150 (1021.3 / 1044.4), alors que le texte parle d'un décalage vers le bas ; sur la Fig. 3B le pic de Ta-ZnO150 (courbe noire) est à plus basse énergie que celui de ZnO (≈ 1021 contre ≈ 1022), ce qui suggère que les deux jeux de valeurs sont permutés dans le texte",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Ta-ZnO110, succeeded = false",
+   "extracted": "succeeded: false",
+   "article_says": "It can be seen that the Ta-doped ZnO crystals are formed from 110 °C to 170 °C.",
+   "fix": "les auteurs écrivent aussi que la réaction est « incomplète » à 110 °C, mais obtiennent du wurtzite et 87.0 % de dégradation ; ils ne rapportent pas d'échec. Mettre succeeded: true (réaction incomplète signalée en annotation) ou garder false en le justifiant dans le doute déjà écrit",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Ta-ZnO110, FT-IR : bande à 875 cm−1",
+   "extracted": "875, 1078, 1427 et 1540 cm−1",
+   "article_says": "In addition, Ta-ZnO110 has the presence of absorption peaks at 875, 1078, 1427, and 1540 cm−1",
+   "fix": "valeurs du texte conservées ; ajouter un doute : la Fig. 4 étiquette la première bande à 845 cm−1 (et non 875), les trois autres concordent (1078, 1427, 1540)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnO150, morphologie (Fig. 2A)",
+   "extracted": "material.morphology = null, aucun résultat de morphologie",
+   "article_says": "In summary, the hydrothermal temperature of 150 °C is an appropriate temperature to synthesize both ZnO and Ta-ZnO materials with a more uniform rod shape and smaller size.",
+   "fix": "ajouter un résultat morphologie pour ZnO150 (forme de bâtonnets, d'après cette phrase et la Fig. 2A où l'on voit des bâtonnets) sans largeur chiffrée, l'article n'en donne pas",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "protocole de l'échantillon témoin ZnO150 (non dopé) absent : réactifs, quantités, durée, lavage, séchage",
+  "solvant de la solution de NaOH 0.5 M non nommé (eau supposée), température de cette solution et vitesse d'ajout (« slowly ») non chiffrées",
+  "volume de l'autoclave et taux de remplissage non donnés (150 mL de mélange), vitesse d'agitation, température et durée de la dissolution non données",
+  "liquides de lavage : phrase tronquée « washing and ethanol », nombre de lavages (« several times »), atmosphère de séchage",
+  "préparation de l'électrode de photocourant (« pasted into the working electrode ») sans détail ; paramètres XRD (pas, plage, constante de Scherrer 0.9 visible seulement dans l'image de l'équation)",
+  "essai photocatalytique : distance lampe-solution, pH de la solution de MB, volume et mode d'ajout des piégeurs, date et heure des essais en lumière solaire non donnés ; MB à 7 ppm (Méthodes) contre 5.95 mg L−1 initial (Tableau 5)"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Liste d'échantillons : Ta-ZnO110, Ta-ZnO150, Ta-ZnO170 (Méthodes, ordre « respectively » vérifié), ZnO150 (non décrit en Méthodes, présent aux Tableaux 1-4 et Figs 2, 5-8) ; HL, SSL, SL et piégeurs sont des conditions d'essai de Ta-ZnO150 : l'inventaire de l'extracteur est complet. Aucun constat sur les quantités (1.098 g de dihydrate = 5.0 mmol ; 0.036 g de TaCl5 = 0.10 mmol, soit 2 %), les rangées des Tableaux 1-4, les valeurs de la phrase « respectively » (77.0/87.0/97.8/92.8 ; 3542/3106/2141/2601), ni l'ordre des piégeurs, tous vérifiés sur le texte et sur les Figs 7B, 8A, 8B, 8E-F, 9. Fragile : la température de chaque branche vient de la seule phrase « respectively » (« at a specific temperature » dans l'étape), lecture raisonnable. Hors constat : tendance_observee dit « bonne cristallinité » pour 150 °C alors que les auteurs la citent surtout pour 170 °C (150 °C : forme uniforme, petite taille) ; mecanisme_auteurs écrit que Ta5+ « substitue » Zn2+ alors que le texte dit « can enter ZnO lattice defects or partially displace » ; légende Fig. 3 (Ta3d en C) contredit le texte (Ta4d en D, conforme à l'image) ; Fig. 8E légende 'Ta-ZnO-SL'. method_sources vide : correct (les renvois cit36-38 sont de contexte, cit47-48 formule de Tauc)."
+}

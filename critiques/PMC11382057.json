@@ -1,0 +1,130 @@
+{
+ "pmcid": "PMC11382057",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "MW 0.4 Ga–LLZO outcomes (taille du précurseur et de la poudre)",
+   "extracted": "aucun résultat de taille pour le précurseur ; la poudre n'a que d50 = 0,80 μm et la mesure marquée sur Fig. 2f",
+   "article_says": "nanostructured 0.4 Ga–LLZO precursors (<50 nm) and powders (<800 nm)",
+   "fix": "ajouter à la branche MW 0.4 Ga–LLZO deux résultats : taille du précurseur < 50 nm et taille de la poudre calcinée < 800 nm (valeurs bornées, value_text). Noter que d50 = 0,80 μm et 810 nm sur l'encart de Fig. 2f dépassent le « <800 nm » : incohérence de l'article.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MW 0.2 et MW 0.3 Ga–LLZO outcomes (taille du précurseur)",
+   "extracted": "aucun résultat de taille de précurseur ; l'annotation tendance_observee la classe en « valeur de groupe, non répartie sur les voies »",
+   "article_says": "Fig. 2a–c demonstrates the uniform morphology of the as-synthesized MW 0.2–0.4 Ga–LLZO precursors, which are approximately 50 nm in size",
+   "fix": "la légende de Fig. 2 attribue (a), (b), (c) à 0,2 / 0,3 / 0,4 : ranger « environ 50 nm » comme résultat de chacune des trois branches (citation de cette phrase)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MW 0.4 Ga–LLZO caractérisation SEM-EDS : préparation de l'échantillon par abrasion ionique",
+   "extracted": "conditions : « ion-milled pellet cross-section » ; instrument « Gatan Model 691 polishing » ; aucun paramètre de préparation",
+   "article_says": "samples with a thickness of 75 μm were fabricated by grinding the pellet using sandpapers with progressively finer grits (400, 600, 800, and 1200 grit)",
+   "fix": "compléter les conditions de la caractérisation (ou créer une voie « échantillon abrasé ionique ») : pastille montée dans un tube de laiton avec époxy G1 et durcisseur ; amincie à 75 μm au papier 400, 600, 800, 1200 ; polie au drap et à la suspension de diamant ; polissage final faisceau 2 keV, 3° vers le haut pour les canons gauche et droit, 15 min, Gatan 691. Aucun de ces mots (epoxy, 2 keV, 75 μm) n'apparaît dans le JSON.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "MW 0.2 et MW 0.3 Ga–LLZO outcomes (phase)",
+   "extracted": "pas de résultat de phase pour ces deux branches (doute noté par l'extracteur)",
+   "article_says": "The XRD patterns of the calcined MW 0.2–0.4 Ga–LLZO powders are presented in Fig. 1a",
+   "fix": "ajouter phase = cubic garnet pour 0,2 et 0,3 : Fig. 1a (lue) montre les trois diffractogrammes 0,20 / 0,30 / 0,40 comparés à la référence « Cubic LLZO », et le texte écrit « confirming that a cubic phase is formed when the Ga content in LLZO is > 0.2 mol% » ; mettre une réserve pour 0,2 (borne ambiguë « > 0.2 »).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Li/MW 0.4 Ga–LLZO/Li symmetric cell, R_bulk/R_gb/R_Li-LLZO after_cycling",
+   "extracted": "valeurs « after cycling » sans durée de cyclage ; le résultat de durée dit « over 1700 h »",
+   "article_says": "we observe that the resistance after 1600 h cycling is significantly lower than that before cycling",
+   "fix": "qualifier les trois valeurs « après cyclage » par « après 1600 h » (et non 1700 h) dans le nom de propriété ou value_text",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Li/MW 0.4 Ga–LLZO/Li symmetric cell R_bulk_after_cycling = 46 Ω",
+   "extracted": "46 Ω (texte) ; le doute est consigné mais aucune annotation limite_reproductibilite ne le signale à l'utilisateur de la fiche",
+   "article_says": "Rb decreased from 76 to 46 Ω",
+   "fix": "le Tableau S2 de l'annexe donne 43 Ω pour Rbulk après cyclage (46 dans le texte). Garder 46 en citation du texte, ajouter une annotation limite_reproductibilite sur l'écart 46/43 Ω ; éventuellement un second résultat tiré du Tableau S2.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MW 0 Ga–LLZO variation « gallium nitrate = absent »",
+   "extracted": "absent",
+   "article_says": "The MW xGa–LLZO (x: 0–0.45 mol%) ceramic samples were fabricated using the MW-assisted solvothermal method.",
+   "fix": "la citation ne dit pas que Ga(NO3)3 est omis pour x = 0 ; c'est une déduction raisonnable. Marquer la valeur comme déduite de x = 0 (le doute existe, le champ de la variation devrait le dire), ou ajouter dans value_text « (x = 0, omission déduite) ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MW 0.4 Ga–LLZO step 1 dissolve molar_ratio et variations molar_ratio de MW 0.2 / 0.3 (Li:La:Zr:Ga = 5.8:3:2:0.4 ; 6.4:3:2:0.2 ; 6.1:3:2:0.3)",
+   "extracted": "rapport Li:La:Zr:Ga présenté comme paramètre de l'étape de dissolution",
+   "article_says": "5.8:3:2:0.4 | 12.9902 | 1.04 × 10−3 | 0.32",
+   "fix": "la légende de Tableau 1 parle de paramètres de maille, conductivité et énergie d'activation : la colonne Li:La:Zr:Ga décrit la composition nominale du matériau (Li7−3xGaxLa3Zr2O12, cf. Fig. 1a), pas forcément le rapport introduit, qui comprend un excès de 20 % de LiOH. Écrire explicitement « composition nominale du produit » dans le libellé du paramètre et ne pas l'utiliser pour calculer des masses.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MW 0.4 Ga–LLZO outcome Li_ion_conductivity",
+   "extracted": "value_text « 1.04 × 10−3 » sans value_num (alors que MW 0.2, MW 0.3 et SG 0.4 ont value_num 0.000191, 0.000384, 0.000113)",
+   "article_says": "5.8:3:2:0.4 | 12.9902 | 1.04 × 10−3 | 0.32",
+   "fix": "renseigner value_num = 0.00104 (S cm−1) comme pour les autres branches, pour que compare.py puisse les ranger côte à côte",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "MW 0.2 et MW 0.3 Ga–LLZO material.formula",
+   "extracted": "formula = null",
+   "article_says": "6.4:3:2:0.2 | 12.9934 | 1.91 × 10−4 | 0.38",
+   "fix": "formule nominale Li6.4Ga0.2La3Zr2O12 et Li6.1Ga0.3La3Zr2O12 (Tableau 1, et Fig. 1a : Li7−3xGaxLa3Zr2O12), comme pour MW 0.4 qui porte Li5.8Ga0.4La3Zr2O12",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Li/MW 0.4 Ga–LLZO/Li symmetric cell outcomes (profil de cyclage Fig. 7c)",
+   "extracted": "seulement la durée (1700 h) et une phrase de stabilité ; rien sur le profil de tension",
+   "article_says": "Although the voltage initially fluctuated",
+   "fix": "ajouter un résultat « fluctuation initiale de la tension, puis profil stable » et, lu sur Fig. 7c (from_figure), une polarisation de l'ordre de ±0,03 à ±0,04 V (l'encart de 1500–1600 h a un axe de ±0,04 V) ; à marquer approximatif",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MW 0.4 et SG 0.4 Ga–LLZO outcomes, Tableau S1 (d10, d90, uniformité de volume)",
+   "extracted": "seulement d50 et surface spécifique ; l'extracteur écrit que les cellules du Tableau S1 sont éclatées sur plusieurs lignes",
+   "article_says": "The particle size distributions and surface area of MW 0.4 Ga–LLZO and SG 0.4 Ga–LLZO after calcination are presented in Figs. S9 and S10 and Table S1.",
+   "fix": "ajouter d10 0,19 / d90 2,07 / uniformité 1,04 (MW) et d10 1,37 / d90 37,88 / uniformité 2,56 (SG), avec comme citation la phrase ci-dessus (la valeur est dans le tableau de l'annexe du fichier texte) ; le d90 de 37,88 μm du SG est utile à un chimiste",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_auteurs (MW 0.4 Ga–LLZO) : « le Ga3+ stabilise la phase cubique en créant des lacunes de Li »",
+   "extracted": "la création de lacunes de Li est donnée comme cause de la stabilisation de la phase cubique",
+   "article_says": "Studies have shown that Ga3+ doping creates Li+ vacancies that enhance Li+ migration",
+   "fix": "l'article dit que les lacunes facilitent la migration de Li+ (introduction, d'après la littérature) et, séparément, que le dopage aliovalent stabilise la phase cubique ; séparer les deux affirmations, ou supprimer le lien de causalité qui n'est pas écrit",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 12,
+  "branches_extracted": 12,
+  "not_stated_checked": 70,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "quantités absolues de nitrates, LiOH/LiNO3, acide citrique, diéthylène glycol, eau, NH3·H2O (seulement « stoichiometric amounts » et excès de 20 %)",
+  "base de l'excès de 20 % de LiOH/LiNO3 (molaire ou massique, par rapport à quelle teneur en Li) non précisée",
+  "rapport acide citrique/métaux, ordre d'addition et température de dissolution absents",
+  "puissance, rampe de chauffe et pression du four micro-ondes MARS-5, taux de remplissage du vase",
+  "lavage éventuel du précipité après centrifugation (aucun solvant de lavage cité) et atmosphère de séchage à 250 °C",
+  "vitesses de chauffe et de refroidissement de la calcination et du frittage ; atmosphère et type de creuset de frittage (creuset d'alumine cité, atmosphère non citée) ; creuset de calcination",
+  "temps de maintien de la pression de 3000 psi et masse de poudre par pastille (diamètre 12 mm cité, épaisseur finale ~1 mm, diamètre final ~10 mm)",
+  "échantillons x = 0,1, 0,15, 0,25, 0,35 et 0,45 : rapports Li:La:Zr:Ga et résultats seulement dans des figures d'annexe absentes du dépôt",
+  "épaisseur de l'or, paramètres de pulvérisation, température de recuit « the required temperature » avant chaque mesure ; dimensions exactes de chaque pastille (la conductivité calculée avec ~10 mm et ~1 mm ne retombe pas sur les valeurs publiées : environ 4,8 × 10−4 S cm−1 pour 265 Ω au lieu de 1,04 × 10−3)",
+  "dimensions et pression des feuilles de Li, niveau d'eau et d'oxygène de la boîte à gants, pression de sertissage de la pile bouton"
+ ],
+ "mechanism_check": "à revoir légèrement : le lien « lacunes de Li, donc phase cubique stabilisée » dans mecanisme_auteurs n'est pas écrit tel quel ; le reste (chauffage micro-ondes homogène, précurseur nanostructuré, grossissement des grains, LiGaO2 aux joints du sol–gel) suit l'article",
+ "notes": "Extraction globalement fidèle : toutes les valeurs numériques de texte, de tableau et d'encart de figure que j'ai comparées sont correctes ; les trois mesures lues sur Fig. 2d, 2e, 2f (1,00 μm × 796 nm ; 825 × 917 nm ; 810 × 621 nm) sont exactes sur l'image (écart nul). Mes 12 échantillons (9 teneurs MW, SG 0.4, cellule Au, cellule Li) recoupent exactement l'inventaire. Aucune source de méthode : les renvois bib41 (densité théorique), bib42–45 (diffractogrammes de référence) et bib55 (équation de conductivité) ne sont pas des méthodes de préparation, method_sources = [] est correct. À signaler sans constat (l'extraction cite l'article) : (1) Fig. 6d, la deuxième demi-ellipse du sol–gel s'étend à peu près de 1000 à 4100 Ω alors que le texte écrit 2216 Ω de résistance totale ; (2) le texte dit à la fois que MW 0.4 a « the smallest grains » et que la conductivité vient du grossissement des grains ; (3) Table S2 43 Ω contre texte 46 Ω ; (4) 1600 h dans une phrase et 1700 h dans le reste de l'article. Les doutes 1 à 7 de l'extracteur sont tous honnêtes. Je n'ai pas lu Fig. 5 ni les figures S1–S12 (absentes)."
+}

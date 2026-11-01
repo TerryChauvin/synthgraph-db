@@ -1,0 +1,813 @@
+{
+ "pmcid": "PMC8838941",
+ "routes": [
+  {
+   "label": "HTC powder",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carbone apporté par 100 g de WRN",
+     "inputs": "amidon 21,36 g (C6H10O5 : 72,06/162,14 = 44,4 % C) ; protéines 1,91 g (~53 % C) ; lipides 0,4 g (~77 % C)",
+     "formula": "Σ m_i × w_C,i",
+     "result": "≈ 10,8 g C (matière organique sèche 23,7 g ; le reste, ≈ 76 g, est de l'eau)",
+     "compared_to": "-",
+     "source": "formule de l'amidon (arithmétique) ; teneurs en C des protéines et lipides : valeurs moyennes de manuel, approximatives"
+    },
+    {
+     "what": "taux de remplissage de l'autoclave à 200 °C",
+     "inputs": "eau ≈ 76 g (WRN) + 200 g = 276 g ; masse volumique de l'eau liquide à 200 °C ≈ 0,865 g/mL ; solide ≈ 15 mL ; capacité 500 mL",
+     "formula": "(276/0,865 + 15)/500",
+     "result": "≈ 67 % à 200 °C (≈ 58 % à froid)",
+     "compared_to": "limite usuelle 70–80 %",
+     "source": "NIST WebBook (eau saturée)"
+    },
+    {
+     "what": "pression dans l'autoclave",
+     "inputs": "eau saturée à 200 °C",
+     "formula": "P_sat(200 °C)",
+     "result": "≈ 15,5 bar (1,55 MPa), plus un peu de CO2 de décomposition",
+     "compared_to": "liner PTFE usuel ≤ 220–250 °C",
+     "source": "NIST WebBook (eau saturée)"
+    },
+    {
+     "what": "rendement massique et rétention du carbone dans le solide",
+     "inputs": "13,7 g de poudre HTC à 51,03 % C ; 23,7 g de matière organique sèche ; 10,8 g C apporté",
+     "formula": "13,7/23,7 ; 13,7×0,5103/10,8",
+     "result": "rendement 58 % sur matière sèche ; 6,99 g C, soit ≈ 65 % du carbone dans le solide",
+     "compared_to": "hydrochars de saccharides : solide riche en C, une partie du carbone reste dissoute (furanes, acides)",
+     "source": "Sevilla & Fuertes 2009 pour l'ordre de grandeur"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "200 °C, 10 h en autoclave PTFE de 500 mL : remplissage ≈ 67 % à chaud et pression de vapeur ≈ 15,5 bar (voir calculs « taux de remplissage » et « pression ») : acceptable pour un autoclave de laboratoire.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "NIST Chemistry WebBook, Thermophysical Properties of Fluid Systems (water, saturation)",
+      "authors_or_publisher": "NIST",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Rendement 58 % sur matière sèche et 65 % du carbone retenu dans le solide (calcul « rendement massique »). La teneur en C de 51 % n'est que modestement au-dessus de celle de l'amidon (44,4 %) : cohérent avec un produit « partiellement carbonisé » comme le disent les auteurs. L'état de séchage de la poudre (13,7 g secs ou humides ?) et la teneur en cendres (sel, additifs du WRN) ne sont pas donnés : C+H+N = 56,8 %, le reste (43 %) mélange O et cendres.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Hydrolyse de l'amidon en glucose, déshydratation en 5-hydroxyméthylfurfural, polymérisation/aromatisation en microsphères lisses : schéma classique de la carbonisation hydrothermale des saccharides, compatible avec les sphères lisses et la très faible surface (0,18 m2/g) observées.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15(16), 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Affirmation « valorisation complète sans pollution secondaire » : sur ≈ 10,8 g de C apportés par 100 g de WRN, seuls ≈ 4,1 g finissent dans les produits (3,64 g dans l'AC, 0,44 g dans le composite ; voir calculs des voies AC et CQDs/TiO2). Environ 3,8 g de C restent dans la phase liquide, dont l'essentiel repart avec le surnageant de la préparation du composite, et ≈ 3,4 g partent en CO/CO2/K2CO3 à l'activation ; s'y ajoutent les eaux de lavage KCl/HCl. L'affirmation est donc exagérée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse de l'amidon en glucose, isomérisation/déshydratation en HMF, polycondensation et aromatisation en sphères de carbone hydrothermal (phase solide) ; les produits solubles (HMF, acides lévulinique et formique, oligomères, petits domaines aromatiques oxygénés) restent dans la phase liquide brune.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15(16), 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en eau et en sel du lot de WRN (rendement rapporté à 100 g humides)",
+    "état de séchage de la poudre HTC avant pesée",
+    "taux de remplissage ≤ 70 % à chaud et température maximale du liner PTFE"
+   ]
+  },
+  {
+   "label": "CQDs solution",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "carbone dissous dans la phase liquide",
+     "inputs": "C apporté ≈ 10,8 g ; C dans la poudre HTC ≈ 6,99 g ; gaz négligés",
+     "formula": "10,8 − 6,99",
+     "result": "≈ 3,8 g C dans ≈ 200 mL, soit ≈ 19 g C/L (borne haute)",
+     "compared_to": "-",
+     "source": "calculs de la voie HTC powder"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "La phase liquide d'une carbonisation hydrothermale d'amidon contient surtout des molécules (HMF, acides organiques, oligomères furaniques) et peu de nanoparticules : l'appellation « CQDs solution » désigne en réalité un mélange dominé par des espèces moléculaires, non caractérisé ici (le MET n'est fait que sur la fraction dialysée).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15(16), 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Fraction soluble de la carbonisation hydrothermale : produits de déshydratation et de fragmentation des sucres (HMF, acides lévulinique et formique), oligomères et petits domaines carbonés oxygénés ; seule une partie est sous forme de points de carbone.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15(16), 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     },
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "J. B. Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en carbone organique dissous de la solution (COT)",
+    "porosité du filtre utilisé"
+   ]
+  },
+  {
+   "label": "CQDs",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "distances interréticulaires du graphite",
+     "inputs": "maille hexagonale a = 2,464 Å, c = 6,711 Å",
+     "formula": "1/d² = 4/3·(h²+hk+k²)/a² + l²/c²",
+     "result": "(002) 0,336 nm ; (100) 0,213 nm ; (101) 0,203 nm ; (004) 0,168 nm ; (110) 0,123 nm ; (020) 0,107 nm",
+     "compared_to": "0,283 nm attribué par les auteurs à (020)",
+     "source": "paramètres de maille du graphite (valeurs de manuel)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Frange de 0,283 nm attribuée au plan (020) du « carbone » : dans le graphite, (020) vaut 0,107 nm et aucune distance n'existe vers 0,28 nm (calcul « distances interréticulaires du graphite »). Les points de carbone graphitiques montrent d'habitude 0,21 nm (100) ou 0,34 nm (002). L'indexation est fausse ; la valeur `lattice_spacing_020` doit être lue comme une frange non attribuée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Dialyse de 24 h sans seuil de coupure indiqué : la séparation entre points de carbone et fluorophores moléculaires (HMF, oligomères) n'est pas démontrée ; aucune donnée de photoluminescence ni de rendement quantique dans le texte (Fig. S1 absente). La nature « quantum dot » repose sur un MET de particules de 1,5–2,5 nm seulement.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "J. B. Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Membrane, volume et renouvellement du dialysat non donnés : la fraction obtenue dépend fortement du seuil de coupure (100–500 Da contre 1–3,5 kDa).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Points de carbone formés par condensation et aromatisation des produits solubles de l'amidon (HMF, oligomères) pendant la carbonisation hydrothermale ; la fraction retenue par dialyse mélange probablement petits domaines sp2 oxygénés et oligomères fluorescents.",
+    "sources": [
+     {
+      "title": "Chemical and structural properties of carbonaceous products obtained by hydrothermal carbonization of saccharides",
+      "authors_or_publisher": "M. Sevilla, A. B. Fuertes, Chem. Eur. J. 15(16), 4195–4203",
+      "year": "2009",
+      "url_or_doi": "10.1002/chem.200802097"
+     },
+     {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "J. B. Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "seuil de coupure de la membrane de dialyse",
+    "spectres d'émission et rendement quantique avant/après dialyse",
+    "indexation des franges MET contre le graphite (0,21 et 0,34 nm attendus)"
+   ]
+  },
+  {
+   "label": "AC",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de KOH",
+     "inputs": "27,4 g ; M(KOH) = 56,106 g/mol",
+     "formula": "m/M",
+     "result": "0,488 mol",
+     "compared_to": "-",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "moles de C dans la poudre HTC",
+     "inputs": "13,7 g × 51,03 % C ; M(C) = 12,011",
+     "formula": "m·w/M",
+     "result": "6,99 g C = 0,582 mol",
+     "compared_to": "-",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "rapports KOH/HTC",
+     "inputs": "27,4 g KOH ; 13,7 g HTC ; 0,488 mol KOH ; 0,582 mol C",
+     "formula": "m/m ; n/n",
+     "result": "2:1 en masse ; KOH/C = 0,84 mol/mol",
+     "compared_to": "rapports usuels 2–4 en masse (Wang & Kaskel 2012)",
+     "source": "Wang & Kaskel 2012"
+    },
+    {
+     "what": "carbone consommable par 6 KOH + 2 C → 2 K + 3 H2 + 2 K2CO3",
+     "inputs": "0,488 mol KOH",
+     "formula": "n(KOH)/3 × 12,011",
+     "result": "≈ 1,95 g C (28 % du C de la poudre)",
+     "compared_to": "perte réelle de C : 6,99 − 3,64 = 3,35 g (réactions secondaires de K2CO3/K2O avec C au-delà de 700 °C, volatils)",
+     "source": "Wang & Kaskel 2012"
+    },
+    {
+     "what": "masse et carbone de l'AC",
+     "inputs": "31,6 % de 13,7 g ; 84,17 % C",
+     "formula": "0,316 × 13,7 ; × 0,8417",
+     "result": "4,33 g d'AC (cohérent avec 4,3 g/100 g WRN et 43 g/kg) ; 3,64 g C, soit 52 % du C de la poudre HTC",
+     "compared_to": "-",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "chaleur de dissolution du KOH dans la pâte",
+     "inputs": "0,488 mol ; ΔH_dissolution(KOH) ≈ −57,6 kJ/mol ; ≈ 27 mL d'eau (solution CMC à 1 %)",
+     "formula": "n × ΔH",
+     "result": "≈ 28 kJ dégagés dans ≈ 70 g de pâte : élévation de température théorique de plus de 100 K (ébullition locale)",
+     "compared_to": "solubilité du KOH ≈ 120 g/100 g d'eau à 25 °C : 27,4 g dans 27 g d'eau est proche de la saturation",
+     "source": "valeur de manuel de ΔH_dissolution(KOH) ; arithmétique"
+    },
+    {
+     "what": "diffraction : Bragg avec la longueur d'onde déclarée",
+     "inputs": "λ déclarée 0,15418 Å (sic) ; 2θ = 25° et 43°",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "avec λ = 1,5418 Å : d = 0,356 nm et 0,210 nm ; avec 0,15418 Å tel qu'écrit : 0,0356 nm (absurde)",
+     "compared_to": "graphite : d(002) = 0,3355 nm, d(100) = 0,2134 nm",
+     "source": "paramètres de maille du graphite (valeurs de manuel)"
+    },
+    {
+     "what": "volume poreux total implicite (4V/S)",
+     "inputs": "S_BET = 1250,35 m2/g ; largeur moyenne 2,4773 nm",
+     "formula": "V = d·S/4",
+     "result": "≈ 0,77 cm3/g, dont 0,405 cm3/g de micropores (≈ 52 %)",
+     "compared_to": "isotherme type I + IV attendue pour une telle fraction microporeuse",
+     "source": "Thommes et al. 2015 (classes)"
+    },
+    {
+     "what": "plafond d'adsorption imposé par la dose",
+     "inputs": "dose 7 g/L ; C0 = 25 et 100 mg/L ; A(Pb) = 207,2 ; A(Cr) = 52,00",
+     "formula": "q_max = C0/(A·D)",
+     "result": "25 mg/L : Pb 0,01724 mmol/g, Cr 0,0687 mmol/g ; 100 mg/L : Pb 0,0689 mmol/g (14,3 mg/g), Cr 0,275 mmol/g (14,3 mg/g)",
+     "compared_to": "q_e expérimentaux de la cinétique : Pb 0,0172, Cr 0,0680 mmol/g, soit 99,8 % et 99 % d'élimination",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "qm convertis en mg/g",
+     "inputs": "Pb 0,0583 mmol/g × 207,2 ; Cr 0,180 mmol/g × 52,00",
+     "formula": "q × A",
+     "result": "12,08 et 9,36 mg/g",
+     "compared_to": "valeurs de l'article : 12,08 et 9,36 mg/g (exactes)",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "Langmuir contre Freundlich pour Cr(VI) (Table 3)",
+     "inputs": "Langmuir qm 0,180 mmol/g, b 1,0415 L/mg ; Freundlich Kf 0,0134 mmol/g, 1/n 0,2085",
+     "formula": "q_L = qm·b·Ce/(1+b·Ce) ; q_F = Kf·Ce^(1/n)",
+     "result": "Ce = 1 : 0,092 contre 0,013 ; Ce = 10 : 0,164 contre 0,022 ; Ce = 36 : 0,175 contre 0,028 mmol/g (écart d'un facteur 6 à 7)",
+     "compared_to": "pour Pb(II) les deux modèles concordent à ±20 % (Ce = 10 : 0,052 contre 0,055)",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "équilibre attendu à C0 = 100 mg/L (Langmuir + bilan de matière)",
+     "inputs": "q = (100 − Ce)/(A·7) = isotherme de Langmuir",
+     "formula": "résolution numérique",
+     "result": "Pb : Ce ≈ 20 mg/L, q ≈ 0,055 mmol/g ; Cr : Ce ≈ 36 mg/L, q ≈ 0,175 mmol/g",
+     "compared_to": "-",
+     "source": "valeurs de l'article (arithmétique)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "KOH/HTC 2:1 en masse, KOH/C 0,84 mol/mol ; rendement 31,6 % et 52 % du carbone conservé (calculs « rapports KOH/HTC », « masse et carbone de l'AC ») : dans la gamme des activations KOH de hydrochars. La CMC-Na (≈ 0,27 g) n'apporte qu'un liant négligeable.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "KOH activation of carbon-based materials for energy storage",
+      "authors_or_publisher": "J. Wang, S. Kaskel, J. Mater. Chem. 22, 23710–23725",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2jm34066f"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "800 °C sous N2, 90 min : au-dessus de 700 °C K2CO3 et K2O sont réduits par le carbone et du potassium métallique se forme (éb. 759 °C), qui s'intercale puis se dépose en partie aux extrémités froides du tube. Vitesse de chauffe et débit de N2 non donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "KOH activation of carbon-based materials for energy storage",
+      "authors_or_publisher": "J. Wang, S. Kaskel, J. Mater. Chem. 22, 23710–23725",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2jm34066f"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Sécurité non écrite : (1) 27,4 g de KOH dans ≈ 27 mL de solution aqueuse dégagent ≈ 28 kJ (calcul « chaleur de dissolution ») : projection et ébullition locale possibles, ajouter le KOH par portions sous refroidissement ; (2) potassium métallique pyrophorique dans le produit et le tube après activation : refroidir sous N2 et désactiver avant de mettre à l'eau ; (3) le lavage à HCl 10 % d'un produit contenant K, K2CO3 et KOH dégage H2 et CO2 avec effervescence.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "KOH activation of carbon-based materials for energy storage",
+      "authors_or_publisher": "J. Wang, S. Kaskel, J. Mater. Chem. 22, 23710–23725",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2jm34066f"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "1250 m2/g, volume microporeux 0,405 cm3/g et largeur moyenne 2,48 nm : ordre de grandeur habituel pour une activation KOH 2:1 à 800 °C. Dans la base, l'AC de pelures d'orange activé par KOH à 600 °C (PMC11001879) atteint 2134 m2/g et le charbon de balle de riz activé par NaOH (PMC10754887) 469 m2/g : la valeur ici est intermédiaire.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire : « isotherme de type II avec boucle H2/H4 » pour un solide dont ≈ 52 % du volume poreux est microporeux (calcul « volume poreux total implicite ») ; le type II décrit un solide non poreux ou macroporeux. Le mot juste est un type composite I + IV(a) (boucle H4). De même, « graphitisation plus élevée » avec un pic (002) large à 25° (d ≈ 0,356 nm contre 0,3355 nm pour le graphite, calcul « Bragg ») décrit un carbone turbostratique désordonné, pas graphitique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "M. Thommes et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Coquilles de l'article à corriger avant usage : longueur d'onde Cu Kα écrite 0,15418 Å (il faut 1,5418 Å ou 0,15418 nm, calcul « Bragg ») ; vitesse de chauffe du dégazage BET « 10 °C/s » (sans doute °C/min) ; unité de K2 dans la Table 5 « g·mmol·min−1 » au lieu de g·mmol−1·min−1 (équation 5) ; titre de la Table 7 « kinetic adsorption parameters » pour une photocatalyse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Table 3, Cr(VI) : les paramètres de Langmuir (qm 0,180 mmol/g, b 1,04 L/mg) et de Freundlich (Kf 0,0134 mmol/g, 1/n 0,2085) ne peuvent pas décrire les mêmes points : à Ce = 10 mg/L ils prédisent 0,164 et 0,022 mmol/g, un facteur 7 (calcul « Langmuir contre Freundlich »), alors que les deux R2 dépassent 0,99. Pour Pb(II) les deux jeux concordent. Kf du Cr(VI) est probablement faux d'un facteur ≈ 10 (unité ou recopie). Les paramètres de Freundlich du Cr(VI) ne sont pas utilisables.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre sections : le résumé dit que l'adsorption suit l'isotherme de Freundlich, la section 3.2 et la Table 3 concluent à un meilleur accord de Langmuir.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La cinétique est mesurée à 25 mg/L avec 7 g/L d'adsorbant : les q_e expérimentaux (Pb 0,0172, Cr 0,0680 mmol/g) sont le plafond d'élimination totale (0,01724 et 0,0687 mmol/g, calcul « plafond d'adsorption ») : l'adsorbant est très en excès et l'essai mesure l'épuisement de la solution. Un bon R2 du pseudo-second ordre dans ce régime ne prouve pas une chimisorption ; la conclusion « contrôlée par chimisorption » n'est pas étayée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Cr(VI) dosé seul (diphénylcarbazide) : sur charbon actif à pH acide, une partie du Cr(VI) est réduite en Cr(III) par les groupes de surface et peut rester en solution ; la « capacité d'adsorption » du Cr(VI) est alors surestimée. Il faut doser le chrome total (ICP ou SAA) dans le filtrat pour distinguer adsorption et réduction.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Activated carbons and low cost adsorbents for remediation of tri- and hexavalent chromium from water",
+      "authors_or_publisher": "D. Mohan, C. U. Pittman Jr., J. Hazard. Mater. 137, 762–811",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jhazmat.2006.06.060"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Activation KOH : 6 KOH + 2 C → 2 K + 3 H2 + 2 K2CO3 vers 400–600 °C, puis décomposition de K2CO3 (CO2) et réduction de K2CO3/K2O par le carbone au-delà de 700 °C, avec intercalation du potassium métallique qui écarte les feuillets ; le lavage acide élimine les sels de potassium et libère la porosité micro- et mésoporeuse.",
+    "sources": [
+     {
+      "title": "KOH activation of carbon-based materials for energy storage",
+      "authors_or_publisher": "J. Wang, S. Kaskel, J. Mater. Chem. 22, 23710–23725",
+      "year": "2012",
+      "url_or_doi": "10.1039/c2jm34066f"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ajout du KOH par portions, sous refroidissement",
+    "vitesse de chauffe et débit de N2 (non donnés)",
+    "désactivation du potassium métallique avant lavage",
+    "dosage du chrome total en plus du Cr(VI)",
+    "refaire l'ajustement de Freundlich du Cr(VI) à partir des données"
+   ]
+  },
+  {
+   "label": "AC-Cr",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "prise de masse maximale",
+     "inputs": "100 mg/L ; 7 g/L ; Cr retenu ≈ 0,175 mmol/g (Langmuir + bilan) ; si fixé comme HCrO4− (117 g/mol)",
+     "formula": "q × M",
+     "result": "Cr ≈ 9,1 mg/g (0,9 %) ; HCrO4− ≈ 20 mg/g (2 %)",
+     "compared_to": "-",
+     "source": "calculs de la voie AC"
+    },
+    {
+     "what": "dilution attendue du carbone",
+     "inputs": "84,17 % C ; prise de masse 1–2 %",
+     "formula": "84,17/(1 + Δm)",
+     "result": "83,4 à 82,5 % C",
+     "compared_to": "mesuré 82,95 % : cohérent",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "perte de surface BET",
+     "inputs": "1250,35 → 793,12 m2/g",
+     "formula": "(S0 − S)/S0",
+     "result": "−37 % pour une prise de masse de 1–2 %",
+     "compared_to": "-",
+     "source": "valeurs de l'article (arithmétique)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Une prise de masse de 1–2 % (calcul « prise de masse maximale ») ne peut pas, par simple dilution, faire perdre 37 % de la surface BET. Un bouchage de micropores reste possible mais n'est pas démontré : il manque le témoin « AC agité 12 h dans l'eau à pH 5 sans métal, puis séché pareil », qui séparerait l'effet du métal de celui du traitement humide et du séchage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuves de chimisorption faibles : bande « Cr–O » à 629 cm−1 sur un spectre de carbone (zone peu spécifique) et « déplacement vers les petits angles » de pics de diffraction larges (002)/(100) d'un carbone turbostratique ; ni XPS Cr 2p (Cr(VI)/Cr(III)) ni dosage du Cr total.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Activated carbons and low cost adsorbents for remediation of tri- and hexavalent chromium from water",
+      "authors_or_publisher": "D. Mohan, C. U. Pittman Jr., J. Hazard. Mater. 137, 762–811",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jhazmat.2006.06.060"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "pH 5 : Cr(VI) présent surtout sous forme HCrO4− ; PZC de l'AC = 5,83, surface chargée positivement à pH 5, ce qui favorise l'adsorption anionique. Agent d'ajustement du pH non précisé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Adsorption électrostatique de HCrO4− sur une surface protonée (pH < PZC), suivie d'une réduction partielle de Cr(VI) en Cr(III) par les groupes oxygénés du carbone, Cr(III) restant fixé ou repassant en solution.",
+    "sources": [
+     {
+      "title": "Activated carbons and low cost adsorbents for remediation of tri- and hexavalent chromium from water",
+      "authors_or_publisher": "D. Mohan, C. U. Pittman Jr., J. Hazard. Mater. 137, 762–811",
+      "year": "2006",
+      "url_or_doi": "10.1016/j.jhazmat.2006.06.060"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "témoin sans métal pour la perte de surface BET",
+    "XPS Cr 2p et dosage du chrome total"
+   ]
+  },
+  {
+   "label": "AC-Pb",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "prise de masse maximale",
+     "inputs": "100 mg/L ; 7 g/L ; Pb retenu ≈ 0,055 mmol/g ; si fixé avec ses nitrates (Pb(NO3)2 = 331,2 g/mol)",
+     "formula": "q × M",
+     "result": "Pb ≈ 11,4 mg/g (1,1 %) ; Pb(NO3)2 ≈ 18 mg/g (1,8 %)",
+     "compared_to": "-",
+     "source": "calculs de la voie AC"
+    },
+    {
+     "what": "dilution attendue du carbone et apport d'azote",
+     "inputs": "84,17 % C ; 1,30 % N ; prise de masse ≤ 1,8 % ; N du nitrate 28/331",
+     "formula": "84,17/1,018 ; 1,30 + 1,8 × 28/331",
+     "result": "C ≥ 82,7 % ; N ≤ 1,45 %",
+     "compared_to": "mesuré C 80,99 %, N 1,84 % : baisse de C et hausse de N plus fortes que ne l'explique Pb(NO3)2 seul",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "perte de surface BET",
+     "inputs": "1250,35 → 803,25 m2/g",
+     "formula": "(S0 − S)/S0",
+     "result": "−36 %",
+     "compared_to": "-",
+     "source": "valeurs de l'article (arithmétique)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Même constat que pour AC-Cr : −36 % de surface BET pour ≈ 1–2 % de prise de masse, et une baisse de C (84,17 → 80,99 %) et une hausse de N (1,30 → 1,84 %) plus fortes que l'apport de Pb(NO3)2 (calcul « dilution attendue ») : le traitement humide de 12 h et le séchage modifient sans doute l'AC lui-même (oxydation, eau résiduelle). Témoin sans métal nécessaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "100 mg/L de Pb(II) (4,8×10−4 mol/L) à pH 5 : sous le pH de précipitation de Pb(OH)2 à cette concentration, donc l'élimination n'est pas une précipitation. Agent d'ajustement du pH non précisé (éviter les chlorures ou sulfates en excès).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande « Pb–O » à 660 cm−1 et déplacement des pics larges de diffraction : preuves peu discriminantes de complexation ; ni XPS Pb 4f ni désorption ne sont montrées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Complexation de Pb2+ par les groupes carboxyle et phénol déprotonés de la surface (échange d'ions H+/Pb2+), limitée à pH 5 par une surface encore majoritairement protonée (PZC 5,83), ce qui est cohérent avec la faible capacité (0,058 mmol/g).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "témoin AC sans métal soumis au même traitement",
+    "XPS Pb 4f ou désorption acide pour confirmer la fixation"
+   ]
+  },
+  {
+   "label": "CQDs/TiO2",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "bilan de masse du composite",
+     "inputs": "2,5 g de TiO2 engagés ; 2,9 g de composite ; 15,24 % C",
+     "formula": "2,9 × 0,1524 ; 2,9 − 2,5",
+     "result": "0,442 g de C contre 0,40 g de prise de masse au plus",
+     "compared_to": "le carbone seul dépasse la prise de masse, avant même H et O de la matière organique",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "composition implicite du composite",
+     "inputs": "fraction de C dans la matière organique déposée 50–60 %",
+     "formula": "m_org = 0,442/w_C ; m_TiO2 = 2,9 − m_org",
+     "result": "matière organique 0,74–0,88 g ; TiO2 2,02–2,16 g (70–75 % en masse) ; perte de TiO2 non dite 0,34–0,48 g (13–19 %)",
+     "compared_to": "l'annotation de l'extraction suppose ≈ 85 % de TiO2",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "fraction du carbone de la phase liquide fixée",
+     "inputs": "≈ 3,8 g C dissous ; 0,44 g dans le composite",
+     "formula": "0,44/3,8",
+     "result": "≈ 12 %",
+     "compared_to": "le reste part avec le surnageant de centrifugation",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "énergie des photons à 405 nm et seuils de TiO2",
+     "inputs": "E = 1239,84/λ ; rutile ≈ 3,0 eV ; anatase ≈ 3,2 eV",
+     "formula": "1239,84/λ",
+     "result": "405 nm = 3,06 eV ; seuil rutile ≈ 413 nm ; anatase ≈ 387 nm ; 1,55 eV ↔ 800 nm",
+     "compared_to": "P25 contient du rutile qui absorbe à 405 nm",
+     "source": "valeurs de bande interdite de manuel ; Scanlon et al. 2013 pour le contexte anatase/rutile"
+    },
+    {
+     "what": "éclairement 8×10^4 lx converti en puissance à 405 nm",
+     "inputs": "V(400 nm) = 0,000396 ; V(410 nm) = 0,00121 ; K_m = 683 lm/W",
+     "formula": "E_e = E_v/(683·V(λ))",
+     "result": "≈ 1,0×10^5 à 3,0×10^5 W/m2, soit 10 à 30 W/cm2",
+     "compared_to": "une lampe de 20 W ne peut pas fournir ≈ 100 à 300 fois le rayonnement solaire total (≈ 0,1 W/cm2)",
+     "source": "HyperPhysics, table V(λ) photopique CIE"
+    },
+    {
+     "what": "charge en colorant par cycle",
+     "inputs": "50 mL × 20 mg/L ; 0,2 g de catalyseur ; 7 cycles",
+     "formula": "m_colorant/m_cat",
+     "result": "5 mg/g par cycle ; 35 mg/g cumulés sur 7 cycles",
+     "compared_to": "capacité de monocouche de bleu de méthylène sur ≈ 50 m2/g (P25) ≈ 20 mg/g (≈ 1,3 nm2 par molécule, estimation)",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "constantes apparentes contre les taux annoncés",
+     "inputs": "Kapp MB 0,1238 ; MG 0,2586 ; MV 0,3032 ; RhB 0,1949 min−1 ; 1 − exp(−k·t)",
+     "formula": "taux prévu et k nécessaire = ln(C0/C)/t",
+     "result": "MB 10 min : 71 % prévus contre 81,84 % ; MG 10 min : 92,5 % contre 99 % (k nécessaire ≥ 0,46) ; MV 10 min : 95,2 % contre 99 % (k ≥ 0,46) ; RhB 30 min : 99,7 % contre 99 % (cohérent)",
+     "compared_to": "-",
+     "source": "valeurs de l'article (arithmétique)"
+    },
+    {
+     "what": "distances interréticulaires de TiO2",
+     "inputs": "anatase a = 3,785 Å, c = 9,514 Å ; rutile a = 4,594 Å, c = 2,959 Å",
+     "formula": "1/d² = (h²+k²)/a² + l²/c²",
+     "result": "anatase (213) 0,149 nm (accord) ; anatase (004) 0,238 nm (et non 0,114 nm ; (008) = 0,119 nm) ; rutile (220) 0,162 nm, rutile (211) 0,169 nm",
+     "compared_to": "auteurs : 0,149 (213), 0,114 (004), 0,169 (220)",
+     "source": "paramètres de maille de manuel (fiches anatase et rutile)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Bilan de masse : le carbone mesuré (0,442 g) dépasse la prise de masse possible (0,40 g) avant même H et O (calcul « bilan de masse »). Le chiffre n'est cohérent que si 13–19 % du TiO2 sont perdus au centrifugeage et lavage, ce que l'article ne dit pas ; le composite contient alors 25–30 % de matière organique, pas ≈ 15 %. La méthode de dosage du carbone n'est pas décrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La solution n'est pas dialysée avant imprégnation : ce qui se fixe sur le TiO2 à 85 °C est surtout un mélange de molécules (acides, HMF, oligomères) et de petits domaines carbonés, pas des points de carbone purs. Les franges de 0,283 nm sur le composite ne prouvent pas la présence de CQDs (indexation fausse, voir voie CQDs).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Artifacts and Errors Associated with the Ubiquitous Presence of Fluorescent Impurities in Carbon Nanodots",
+      "authors_or_publisher": "J. B. Essner et al., Chem. Mater.",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.chemmater.7b04446"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Indexation des franges de TiO2 : 0,114 nm n'est pas l'anatase (004), qui vaut 0,238 nm ; 0,169 nm correspond au rutile (211), pas (220), qui vaut 0,162 nm (calcul « distances interréticulaires de TiO2 »). Une frange de 0,114 nm est à la limite de résolution d'un MET à 200 kV : à interpréter avec prudence.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS C 1s : les pics à 288,37 eV (AC) et 289,20 eV (composite) sont attribués à « C=C » ; dans ces plages on trouve les groupes O–C=O (carboxyle, ester, carboxylate), le C=C sp2 étant vers 284,5 eV. Le pic à 289,2 eV indique donc des carboxyles ou carboxylates sur le composite, en contradiction avec la conclusion tirée de l'IR (« bande carboxyle disparue »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande interdite « 1,55 eV » du composite tirée d'un tracé de Kubelka–Munk : le composite contient 70–75 % de TiO2 (calcul « composition implicite »), dont la bande interdite ne change pas en déposant du carbone. Le seuil à 1,55 eV (≈ 800 nm) est l'absorption de la matière carbonée ou un fond, pas un rétrécissement de la bande de TiO2. Le tracé de Tauc d'un semi-conducteur modifié doit être corrigé de ce fond. La valeur `band_gap = 1,55 eV` ne doit pas être lue comme une bande interdite.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "How To Correctly Determine the Band Gap Energy of Modified Semiconductor Photocatalysts Based on UV–Vis Spectra",
+      "authors_or_publisher": "P. Makuła, M. Pacia, W. Macyk, J. Phys. Chem. Lett. 9, 6814–6817",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.jpclett.8b02892"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Lumière visible » à 405 nm : 3,06 eV, au-dessus du seuil du rutile (≈ 3,0 eV) contenu dans P25 (calcul « énergie des photons ») : le TiO2 seul est excité directement, comme le montre la dégradation de 59,85 % du bleu de méthylène en 80 min. L'essai à 405 nm ne distingue pas une sensibilisation visible par les CQDs d'une excitation directe de TiO2 ; il faudrait un essai avec filtre λ > 420–450 nm. Le signal DMPO-·OH « sous lumière visible » s'explique aussi par les trous de TiO2 excité directement.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Band alignment of rutile and anatase TiO2",
+      "authors_or_publisher": "D. O. Scanlon et al., Nat. Mater. 12, 798–801",
+      "year": "2013",
+      "url_or_doi": "10.1038/nmat3697"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pas d'étape d'équilibre d'adsorption à l'obscurité ni de témoin d'adsorption seul : 4 g/L de composite riche en matière organique avec cinq colorants cationiques (bleu de méthylène, vert malachite, violet de méthyle, fuchsine, rhodamine B) ; les 81,84 % (MB) et 99 % (MG, MV) en 10 min mélangent adsorption et dégradation, et les colorants peuvent aussi sensibiliser le TiO2. Le recyclage sur 7 cycles (35 mg/g cumulés, au-delà d'une monocouche estimée à ≈ 20 mg/g) plaide pour une vraie dégradation à long terme, mais les vitesses initiales et les Kapp ne sont pas interprétables comme activité photocatalytique.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Using Dyes for Evaluating Photocatalytic Properties: A Critical Review",
+      "authors_or_publisher": "M. Rochkind, S. Pasternak, Y. Paz, Molecules 20(1), 88–110",
+      "year": "2015",
+      "url_or_doi": "10.3390/molecules20010088"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Source lumineuse : « 20 W 405 nm, 8×10^4 lux ». Le lux est pondéré par la sensibilité de l'œil, presque nulle à 405 nm : 8×10^4 lx y correspondent à 10–30 W/cm2 (calcul « éclairement »), impossible pour une lampe de 20 W. La valeur concerne sans doute la lampe xénon ou un luxmètre hors de sa plage ; l'irradiance réelle à 405 nm (mW/cm2) est inconnue, ce qui empêche de reproduire la dose de lumière.",
+     "status": "probleme",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "Luminous Efficacy Tables (V(λ) photopique CIE)",
+      "authors_or_publisher": "HyperPhysics, Georgia State University",
+      "year": "consulté 2026",
+      "url_or_doi": "https://hyperphysics.gsu.edu/hbase/vision/efficacy.html"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Les Kapp de la Table 7 ne reproduisent pas les taux du texte : vert malachite et violet de méthyle « 99 % en 10 min » demanderaient k ≥ 0,46 min−1 contre 0,26 et 0,30 (calcul « constantes apparentes »). Ces écarts confirment que les premiers points ne suivent pas une loi du premier ordre (adsorption initiale rapide).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Étuve à 85 °C pendant 3 h avec ≈ 200 mL d'eau : récipient ouvert ou fermé non dit ; l'évaporation partielle change la concentration et donc la charge en carbone.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "TiO2 P25 nanométrique (inhalation), colorants toxiques (vert malachite, violet de méthyle, fuchsine), source 405 nm de forte puissance (protection oculaire) : déjà notés dans l'annotation de sécurité.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Formation : adsorption des acides et oligomères carbonés de la phase liquide sur les Ti–OH de P25 par coordination carboxylate (mono- ou bidentate) plutôt qu'estérification ; le chauffage à 85 °C favorise l'ancrage et la condensation. Activité : à 405 nm, excitation directe du rutile de P25 et transfert de charge anatase/rutile, avec contribution possible de complexes de transfert de charge ligand–TiO2 et de la sensibilisation par les colorants ; le schéma des auteurs (électrons transférés des CQDs vers TiO2 puis « restés sur les CQDs » pour réduire O2) est contradictoire et l'oxydation de l'eau en ·OH par les trous d'un CQD n'est pas démontrée.",
+    "sources": [
+     {
+      "title": "Band alignment of rutile and anatase TiO2",
+      "authors_or_publisher": "D. O. Scanlon et al., Nat. Mater. 12, 798–801",
+      "year": "2013",
+      "url_or_doi": "10.1038/nmat3697"
+     },
+     {
+      "title": "Using Dyes for Evaluating Photocatalytic Properties: A Critical Review",
+      "authors_or_publisher": "M. Rochkind, S. Pasternak, Y. Paz, Molecules 20(1), 88–110",
+      "year": "2015",
+      "url_or_doi": "10.3390/molecules20010088"
+     },
+     {
+      "title": "How To Correctly Determine the Band Gap Energy of Modified Semiconductor Photocatalysts Based on UV–Vis Spectra",
+      "authors_or_publisher": "P. Makuła, M. Pacia, W. Macyk, J. Phys. Chem. Lett. 9, 6814–6817",
+      "year": "2018",
+      "url_or_doi": "10.1021/acs.jpclett.8b02892"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer l'irradiance à 405 nm (radiomètre, mW/cm2)",
+    "ajouter 30–60 min d'équilibre à l'obscurité et un témoin d'adsorption",
+    "essai avec filtre λ > 420 nm pour isoler l'effet visible",
+    "masse de TiO2 récupérée et méthode de dosage du carbone",
+    "récipient (ouvert/fermé) de l'étape à 85 °C"
+   ]
+  },
+  {
+   "label": "CQDs/TiO2-4",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "matière organique implicite",
+     "inputs": "4,96 % C ; fraction de C de la matière organique 50–60 %",
+     "formula": "w_C/0,5–0,6",
+     "result": "8–10 % de matière organique",
+     "compared_to": "voie de base : 25–30 %",
+     "source": "valeurs de l'article (arithmétique)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La façon d'obtenir 4,96 % de carbone (volume de solution, masse de TiO2, dilution) est renvoyée à la Table S2 et à la Fig. S7, absentes : la branche ne peut pas être refaite. La comparaison 93,3 % contre 99,87 % à 80 min est faible et non répétée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même formation que la voie de base, avec moins de matière carbonée déposée.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "Table S2 de l'annexe : rapport solution/TiO2 qui donne 4,96 % C"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La carbonisation hydrothermale de l'amidon (200 °C, autoclave rempli à ≈ 67 % à chaud) et l'activation KOH 2:1 à 800 °C sont des voies classiques et cohérentes. Les bilans de matière tiennent pour HTC et AC (4,33 g d'AC par 100 g de WRN), mais le composite CQDs/TiO2 annonce plus de carbone (0,44 g) que sa prise de masse (0,40 g), sauf perte de TiO2 non dite. Côté résultats : paramètres de Freundlich du Cr(VI) incompatibles avec ceux de Langmuir, cinétique d'adsorption mesurée à élimination totale, pas d'équilibre à l'obscurité en photocatalyse, « bande interdite » de 1,55 eV qui est un seuil d'absorption du carbone, éclairement en lux impossible à 405 nm, et indexations MET fausses (graphite (020) à 0,283 nm, anatase (004) à 0,114 nm).",
+  "author_errors_suspected": [
+   "Kf de Freundlich du Cr(VI) (Table 3) incompatible d'un facteur 6–7 avec les paramètres de Langmuir du même jeu de données",
+   "frange de 0,283 nm attribuée au plan (020) du carbone (graphite (020) = 0,107 nm) ; 0,114 nm attribuée à l'anatase (004) (0,238 nm) ; 0,169 nm attribuée au rutile (220) (0,162 nm ; 0,169 nm = (211))",
+   "bande interdite de 1,55 eV attribuée au composite TiO2 (≈ 70–75 % de TiO2)",
+   "8×10^4 lux pour une lampe de 20 W à 405 nm (≈ 10–30 W/cm2)",
+   "λ(Cu Kα) écrite 0,15418 Å ; dégazage à 10 °C/s ; unité de K2 ; titre de la Table 7",
+   "pics XPS C 1s à 288,4 et 289,2 eV attribués à C=C (en fait O–C=O)",
+   "« isotherme de type II » pour un charbon à 52 % de volume microporeux",
+   "résumé (Freundlich) contre section 3.2 (Langmuir)",
+   "« sans pollution secondaire » alors que ≈ 60 % du carbone du WRN n'est pas dans les produits"
+  ],
+  "comparison_with_database": "AC comparé aux charbons activés de la base : PMC11001879 (pelures d'orange, KOH, 600 °C, 2134 m2/g) et PMC10754887 (balle de riz, NaOH, 850 °C, 469 m2/g) ; 1250 m2/g est dans la plage. Points de carbone : PMC6769153 et PMC7022538 rapportent des franges de 0,21–0,22 nm, conformes au graphite (100), contrairement aux 0,283 nm ici. Pas d'autre composite CQDs/TiO2 ni d'autre hydrochar dans la base."
+ },
+ "sources_not_found": [
+  "table officielle CVRL/CIE de V(λ) à 405 nm (site inaccessible) : encadrement par les valeurs à 400 et 410 nm de HyperPhysics",
+  "pas de vérification en ligne des pages de NIST WebBook (pression de vapeur de l'eau à 200 °C ≈ 1,55 MPa, valeur de manuel) ni de la chaleur de dissolution du KOH (≈ −57,6 kJ/mol, valeur de manuel)",
+  "auteurs de Sevilla & Fuertes 2009 non affichés par l'extrait du dépôt d'Oviedo (titre, revue, pages et DOI confirmés)",
+  "DOI de Mohan & Pittman 2006 (10.1016/j.jhazmat.2006.06.060) donné de mémoire : titre, revue, volume et pages confirmés par la recherche, DOI non affiché ; à vérifier sur Crossref depuis le PC"
+ ]
+}

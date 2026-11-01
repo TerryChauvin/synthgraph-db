@@ -1,0 +1,15 @@
+# Journal de correction PMC8184743
+
+- Constat 1 (Ni2O3) : suivi la décision de l'orchestrateur. Doute « 5 mol.% Ni-ZnO, phases » réécrit pour les trois voies Ni (figure 1 et tableau 1) ; valeur du texte (« no other crystalline phase ») conservée dans les résultats, aucun résultat de phase ajouté depuis la figure. Les étiquettes de la figure 1 ne figurent pas dans le texte : elles sont signalées dans le doute et l'annotation, sans citation.
+- Annotation limite_reproductibilite (route nulle) sur les phases Ni : positions 56.72° et 66.67° du tableau 1 confondues à 0,04° avec ZnO (110) et (200) ; indice (004) à 66.67° contradictoire. L'annotation comparaison_branches ne dit plus « phase unique » sans réserve.
+- Constat 2 : second résultat optical_band_gap = 2.8 eV ajouté à 1 mol.% Ag, citation « They were 2.8 eV, 2 eV and 1.8 eV for 1, 3 and 5 mol.% Ag, respectively. ». Le 2.9 du tableau 3 est gardé ; doute reformulé (les deux valeurs sont extraites).
+- Constat 3 : value_text de l'absorption à 3 mol.% Ag changé en « (with 3 and 5 mol.% Ag) » ; citation inchangée.
+- Constat 4 : annotation mecanisme_analyse de la voie 1 mol.% Ag-ZnO réécrite ; « calcination à l'air » remplacé par « atmosphère non précisée (probablement l'air) », et fond remplacé par l'hypothèse composite Ag/ZnO du critique scientifique (présentée comme hypothèse).
+- Constat 5 : annotation tendance_observee ajoutée avec la citation « The intensity of Ag peaks increased with increasing AgNO3 amount. ». Les raies Ag du tableau 2 ne sont pas extraites (facultatif, absentes du tableau 3, en-tête brouillé).
+- Constat 6 : annotation tendance_observee de transmittance entre séries, deux phrases contiguës prises du texte comme citation unique. Résultat textuel plutôt que résultat par voie, car il compare les séries.
+- Plage UV-visible contradictoire : le doute existait déjà ; ajout d'une annotation limite_reproductibilite. Application du protocole au ZnO pur : déjà dans le doute 0 et l'annotation de limites existante, pas dupliquée.
+- Critique scientifique : les trois `probleme` deviennent des annotations limite_reproductibilite (ZnO : équation 5 et suspension ; 3 mol.% Ag réécrite ; 5 mol.% Ag nouvelle), valeurs numériques inchangées. Source citée : Makuła et al. 2018.
+- Réserves regroupées en annotations : Ni non démontré (maille non contractée), procédé sous-décrit avec masses calculées pour les deux bases (marquées hypothèse du critique), tailles Ag incluant les raies de l'argent et a constant à 3,2667 Å (décalage instrumental probable), attributions IRTF. Sécurité ajoutée à securite_analyse (xérogel riche en combustible, Jain et al. 1981).
+- mecanisme_analyse de la voie ZnO réécrit en hypothèse (pas de polyestérification sans polyol) ; mecanisme_auteurs non touché. Aucune voie retirée ni renommée.
+- Aucun doute sur les marqueurs `[[id]]` du fichier refs n'était présent.
+- Non appliqué : rien de refusé ; le tableau 1 (tailles par raie) reste non extrait (choix de l'extracteur, déjà en doute).

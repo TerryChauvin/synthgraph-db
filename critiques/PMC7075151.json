@@ -1,0 +1,89 @@
+{
+  "pmcid": "PMC7075151",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "non_cite_a_tort",
+      "where": "CQDs_PC_4h reagents phthalic acid, formamide, glycerol (not_stated purity) ; WLED_CQDs_PC A-gel, B-gel (not_stated purity)",
+      "extracted": "purity déclarée non citée pour les 5 réactifs",
+      "article_says": "All chemicals were commercially available and used without further purification.",
+      "fix": "phrase générale couvrant tous les réactifs (RUNBOOK règle 6) : renseigner purity en texte (« used without further purification », sans grade chiffré) avec cette phrase en citation, ou garder not_stated en précisant dans la limite de reproductibilité que seul l'absence de purification est donnée, jamais un grade ; à trancher par l'orchestrateur",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "CQDs_PC_2h, 6h, 8h, 10h : héritage des étapes 1, 3-6 et des réactifs du parent CQDs_PC_4h",
+      "extracted": "branches sans étapes propres, qui héritent dissolution, filtration, séchage et broyage de CQDs_PC_4h, avec une seule variation de durée à l'étape 2",
+      "article_says": "the PL spectra of the samples prepared at 453 K for different times (2, 4, 6, 8 and 10 h) were measured under 480 nm excitation light (Figure 5b, c)",
+      "fix": "le texte ne dit pas que ces échantillons suivent le protocole 2.2 (quantité d'acide phtalique, solvant, filtration, séchage) ; seul 453 K est écrit. Le doute existe déjà : le garder, et déclarer le protocole des branches comme déduit dans limite_reproductibilité (déjà fait) ; ne pas élargir",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "WLED_CQDs_PC reagent 'CQDs_PC_4h (CQDs/PC phosphor)'",
+      "extracted": "luminophore relié à la voie de 4 h",
+      "article_says": "CQDs/PC phosphor (50 mg) was mixed evenly with 0.2 mL of A-gel, and then 0.2 mL of B-gel was added (the volume ratio of A to B is 1:1).",
+      "fix": "l'article n'écrit pas la durée de synthèse du luminophore de la LED ; le lien vers CQDs_PC_4h est une inférence (signalée en doute). Garder le lien mais le nom du réactif ne devrait pas affirmer « 4h »",
+      "confidence": "probable"
+    },
+    {
+      "severity": "attribution",
+      "where": "CQDs_PC_4h outcomes residual_weight_after_10h_at_393K_in_air / 423K (Fig. 7b)",
+      "extracted": "résultats de stabilité thermique rangés dans la voie 4 h",
+      "article_says": "The effect of temperature on the stability of CQDs/PC was also investigated by keeping the samples at 393 and 423 K separately for 1, 2, 4, 6 and 10 h",
+      "fix": "l'article n'identifie pas l'échantillon chauffé (durée de synthèse non écrite) ; rattachement à la voie 4 h non fondé par le texte, déjà noté en doute. Valeurs lues sur la figure vérifiées : 393 K environ 98 à 98,5 % et 423 K environ 87 % à 10 h, soit à moins de 1,5 point",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "CQDs_PC_4h outcomes residual weight (Fig. 7b), points à 1, 2, 4 et 6 h",
+      "extracted": "seulement les valeurs à 10 h",
+      "article_says": "keeping the samples at 393 and 423 K separately for 1, 2, 4, 6 and 10 h, and the ratio of remaining weight of the samples is shown in Figure 7b",
+      "fix": "Fig. 7b montre la perte de masse à 423 K décroissant de ≈ 98 % (1 h) à ≈ 87 % (10 h), et 393 K quasi plat ≈ 99-98 % ; ajouter si la série est jugée utile, avec from_figure",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "CQDs_PC_4h outcomes tau1/tau2/alpha2 (Fig. 6)",
+      "extracted": "seulement alpha1 = 75.85 % et tau_ave = 4.48 ns",
+      "article_says": "The proportion of τ1 (that is α1) is 75.85%, which plays a leading role in the radiation lifetime",
+      "fix": "Fig. 6 donne en plus τ1 = 2.42 ns, τ2 = 6.79 ns, α2 = 24.15 % (lecture exacte des étiquettes) : ajouter en outcomes avec from_figure « Fig. 6 »",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "CQDs_PC_4h outcomes XPS_C/N/O_content unit",
+      "extracted": "unité « % »",
+      "article_says": "the element content of C, N and O in CQDs/PC phosphor is 74.3%, 11.9% and 13.8%, respectively",
+      "fix": "le tableau de la Fig. 4a est étiqueté « At% » (pourcentage atomique) ; préciser at% dans la propriété ou l'unité (le texte dit seulement « element content »)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "échantillon de référence phthalimide crystals, XPS (inventaire route null)",
+      "extracted": "valeurs XPS du phtalimide pur absentes",
+      "article_says": "Compared with the element content of C, N and O in phthalimide crystals (67.6%, 9.9%, 22.5%), the content of C and N are increased in CQDs/PC, which is caused by the existence of CQDs.",
+      "fix": "ajouter une annotation tendance_observee ou comparaison citant cette phrase (C 67,6 / N 9,9 / O 22,5 % pour le phtalimide contre 74,3 / 11,9 / 13,8 % pour CQDs/PC), puisque la référence n'a pas de voie",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 6,
+    "branches_extracted": 6,
+    "not_stated_checked": 17,
+    "not_stated_wrong": 1
+  },
+  "reproducibility_gaps": [
+    "fournisseur et pureté du glycérol absents (la phrase « Glycerol OE-625 silicone LED encapsulation AB glue » désigne la colle)",
+    "pureté de tous les réactifs : seule l'absence de purification supplémentaire est écrite",
+    "volumes séparés de formamide et de glycérol (20 mL au total, rapport 1:1, calculable mais non écrit)",
+    "vitesse de chauffe, remplissage de l'autoclave, vitesse de refroidissement absents",
+    "aucun lavage du solide filtré, séchage (température, durée, atmosphère) et broyage non décrits, rendement non donné",
+    "les échantillons de 2, 6, 8 et 10 h : protocole non écrit explicitement",
+    "durée de synthèse du luminophore de la LED et de l'échantillon de stabilité thermique non précisée",
+    "enduction (méthode, épaisseur), durcissement de la colle (température, durée), durée de mélange absents",
+    "modèle de la puce LED et courant d'excitation non donnés (3.0 V seulement en légende de la Fig. 8)"
+  ],
+  "mechanism_check": "ok : mecanisme_auteurs cite la phrase du paragraphe 2.2 ; le mecanisme_analyse est formulé en hypothèse",
+  "notes": "Article court, sans annexe ni renvoi de méthode : method_sources vide est correct (les [[B31]]-[[B34]] portent sur des attributions XPS et de lattice spacing, donc interprétation). Les cinq rendements quantiques de la Fig. 5c ont été vérifiés sur l'image (17,0 ; 20,3 ; 16,9 ; 15,2 ; 2,3 %), tous exacts. CCT 5340 K confirmé par la Fig. 8b (le résumé dit 5430 K, doute déjà noté). Je n'ai pas relevé de citation fausse : toutes les citations sont des sous-chaînes du texte."
+}

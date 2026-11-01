@@ -1,0 +1,16 @@
+# PMC6913939 — critique scientifique (journal de décisions)
+
+- Fig. 1A lue (schéma d'amination) : éthylènediamine + NaBH4, eau, température ambiante, OH du C6 du galactose remplacé par NH2. Jugé `probleme` : ni substitution d'un alcool sans activation ni amination réductrice sans carbonyle ; l'éthylènediamine greffée donnerait –NH–CH2CH2–NH2. Seule source trouvée pour une amination réductrice de guar oxydé : brevet US 4 683 298 (année non vérifiée).
+- « 67,79 % » de substitution : à partir des absorbances lues sur la Fig. 1C (0,148 et 0,475), (Ab − Gb)/Ab ≈ 69 %. J'en déduis la formule de l'équation (1), absente du texte. Jugé `probleme` : ce n'est pas un DS, et il dépasse les 33 % permis par le schéma (galactose ≈ 1/3 des unités).
+- NaBH4 : listé dans les réactifs et présent sur la Fig. 1A, sans purification de l'AGG décrite. J'ai mis la réduction « sans réactif » en `reserve` plutôt qu'en `probleme`, car on ne peut pas prouver qu'il reste du NaBH4. Dai et al. 2016 (guar + NaBH4 → Ag NPs et réticulation par borate) a été retenu comme appui ; PMC n'a pas pu être ouvert (DNS), donc l'appui vient du résumé seul.
+- Composition sèche du patch (3 mL coulés supposés pour le calcul, résultat en fractions, indépendant du volume) : CaCl2 ≈ 61 %, glycérol 15 %, polymères 24 %, Ag 0,13 %. Ce calcul fonde trois constats : EDX, EGCG et porosité.
+- EDX 11,43 % d'Ag : jugé `probleme` (× 21 à × 89 la valeur nominale, Ag/Ca × 400). La Fig. 3B montre Cl K et Pt M absents du tableau (somme 65,39 %), lu sur l'image.
+- Libération d'EGCG : ε(274 nm, tampon pH 7) = 8 400 M−1 cm−1 (Snitsarev 2013) préféré aux 11 500 de Merck Index cités par le même article, parce qu'il est mesuré en milieu aqueux. Absorbance attendue ≈ 0,005 (au plus 0,02 sans le sel) → `probleme`. L'hypothèse la plus défavorable aux auteurs n'a pas été retenue : j'ai donné aussi le cas « polymères seuls ».
+- Viscosité « Pa » : |η*| recalculé à partir des modules lus sur la Fig. 3E (HG-Ag ≈ 290 Pa·s, HG ≈ 13 Pa·s) ; aucune correspondance avec 24 983 et 1030 → `probleme` sur la voie HG (porte la méthode).
+- Libération d'argent : les valeurs de la Fig. 4A ne sont pas monotones, donc ce ne sont pas des valeurs cumulées. Mis en `reserve` : la masse de patch en DMEM n'est pas donnée, donc pas d'incohérence prouvée.
+- Chlorure : Cl−/Ag ≈ 900 dans le mélange final. Levard 2013 a été retenu pour la dissolution d'Ag NPs en chlorocomplexes ; Ksp(AgCl) est cité de mémoire, avec la mention « à confirmer » (pas de recherche dédiée).
+- Zêta légèrement négatif pour un polymère aminé à « 68 % » : `reserve` (chimie générale, pKa des amines primaires), pas de source cherchée.
+- Comparaison avec la base (compare.py « silver ») : PMC3407523, PMC3107715 et PMC3920662 demandent chaleur, base ou longue durée, ce qui appuie la réserve sur la température non donnée.
+- Branche 10 ppm : `invérifiable`, car sa préparation est absente des Méthodes.
+- Constats biologiques (âge et poids des rats, plaie de 10 mm², sang de souris) : regroupés en une seule `reserve` sur HG-Ag-EGCG, hors du cœur de la synthèse.
+- Recherches web : 9 (dont 2 lectures de PMC échouées, DNS). Crossref bloqué : 4 DOI non vérifiés ; rien n'a été ajouté à fondateurs.md ni à constantes.md.

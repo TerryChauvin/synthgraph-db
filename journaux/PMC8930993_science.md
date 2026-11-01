@@ -1,0 +1,17 @@
+# PMC8930993 — critique scientifique (journal de décisions)
+
+- PPy, persulfate : 0,819 mg = 3,59 µmol pour 15,6 mmol de pyrrole, ce qui donne au plus ≈ 0,2 mg de PPy, moins que les 5 mg utilisés ensuite → `probleme`. Lu en grammes, le rapport reste 0,23 contre ≈ 1,17 (2,33 e- par motif) et l'optimum 1,25 (Blinova 2007) : verdict `incoherente` / `non_reproductible`, pas une simple coquille.
+- Sulfuration : 52,3 mg de Na2S·9H2O = 0,218 mmol S pour 0,249 mmol nécessaires (rapport 0,87), avant même le soufre capté par la mousse de Ni → `probleme` bilan.
+- DRX : j'ai ouvert la Fig. 4. Le pic indexé (111) est vers 19° (calcul : 16,35° pour a = 9,384 Å). La courbe b (NiCo2S4@PPy) a ses pics forts vers 19,2/32,6/38,1/51,5/58,2/61,8°, que j'ai comparés à β-Ni(OH)2 calculé (ICDD 14-0117 : 19,26/33,06/38,55/52,1/59,05/62,72) et à β-Co(OH)2 (JCPDS 30-0443 via Arbi 2024 : 19,4/32,6/37,8/57,7/61,6). La correspondance avec un hydroxyde riche en Co est meilleure qu'avec NiCo2S4. Les 2θ du texte reprennent la fiche, pas la figure. Classé `probleme` (preuve discriminante) ; lecture de la figure à ±0,5°, d'où la formulation « suggère » plutôt que « prouve ».
+- XPS S 2p (Fig. 5e ouverte) : la composante la plus forte est à ≈ 168-169 eV (sulfate, Thermo Fisher) et n'est pas citée. L'écart de 1,9 eV entre 161,5 et 163,4 eV n'est pas un doublet (1,18 eV), et l'ordre 2p1/2/2p3/2 est inversé → `probleme`. La FTIR à 1107 cm-1 (ν3 du sulfate plutôt que M–S) est rattachée au même constat, en `reserve`.
+- Gaine de PPy : un PPy préformé, insoluble, ne peut pas donner une couche conforme de 2,5 nm par simple traitement hydrothermal. Les travaux cités en annexe (Yan 2016, Liang 2018) font une polymérisation in situ. Classé `probleme` (mécanisme), sans source web : c'est de la chimie générale.
+- Capacité : 2,54 A/g × 542 s = 1377 C/g = 382 mAh/g, au-dessus du maximum de 950 C/g (264 mAh/g) que j'ai calculé pour NiCo2S4 avec 3 e- par formule. La mousse de Ni est électroactive (Xing 2011) et un pic de mousse nue se voit sur la Fig. 6a → `probleme`. Le nombre d'électrons est mon hypothèse, et le constat tient même avec 3 e-, ce qui est généreux.
+- Masse active estimée à ≈ 0,4-1 mg par une intégration grossière de la Fig. 6a (±50 %), et masse du dispositif ≈ 2 mg d'après la Fig. 8b : ce sont des ordres de grandeur, signalés comme tels dans `calculs`.
+- Rétention à 9,09 A/g : 72 % (texte), 75 % (Fig. 6e et capacités volumiques), 78,6 % (Table S-1). 72 % imposerait ΔV = 0,588 V, plus que la fenêtre → `reserve`, pas `probleme` (écart de présentation).
+- Laser « Ar ion 1064 nm » : contradiction physique (Ar+ émet à 488/514,5 nm), notée en `reserve` sans recherche web.
+- NiCo2O4 à 250 °C : les sources lues calcinent à 300-400 °C → `reserve` (aucune DRX de l'oxyde dans l'article).
+- Témoin NiCo2S4/NF : aucun protocole → `invérifiable` / `non_reproductible`. La phrase « hydrothermal … ended with a calcination » contredit l'ordre des Méthodes.
+- ASC : E = ½CV² et P = IV/2 se recalculent exactement ; seules la base de masse et la contribution de la mousse sont en `reserve`.
+- Sources : DOI de Brousse 2015 et de Xing 2011 relevés dans les résultats de recherche, non vérifiés sur Crossref (bloqué). Ni3S2 sur mousse en solution de Na2S : deux sources dont les auteurs ne sont pas relevés, dit dans `sources_not_found`.
+- compare.py : aucune autre voie NiCo2S4 ou NiCo2O4 ; PPy comparé à PMC8495851 (≈ 0,8 mol d'oxydant par mol de monomère).
+- 7 recherches web, aucune ouverture de page complète.

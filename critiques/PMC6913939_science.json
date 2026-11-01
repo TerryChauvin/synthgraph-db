@@ -1,0 +1,571 @@
+{
+ "pmcid": "PMC6913939",
+ "routes": [
+  {
+   "label": "AGG",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "unités osidiques de la gomme de guar par rapport à la substitution annoncée",
+     "inputs": "guar : galactomannane, rapport mannose:galactose ≈ 2:1 ; schéma Fig. 1A : NH2 seulement en C6 du galactose",
+     "formula": "fraction d'unités galactose = 1/(1+2)",
+     "result": "≈ 33 % des unités portent un C6 de galactose latéral",
+     "compared_to": "« degree of substitution of amino groups to be 67.79% » : impossible par unité osidique si seul le C6 du galactose est aminé comme dessiné",
+     "source": "chimie générale (structure du guar)"
+    },
+    {
+     "what": "formule implicite du « % amine substitution » (Fig. 1C)",
+     "inputs": "absorbances lues sur la Fig. 1C : GG ≈ 0,148 ; AGG ≈ 0,475 (à 420 nm)",
+     "formula": "(Ab − Gb)/Ab × 100",
+     "result": "≈ 69 %, proche des 67,79 % annoncés",
+     "compared_to": "un degré de substitution exige une courbe d'étalonnage (glycine ou glucosamine) et la masse d'unités osidiques ; ce rapport vaut 100 % dès que le blanc GG tend vers 0, quelle que soit la quantité d'amine",
+     "source": "valeurs lues sur la figure (précision ± 0,02)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Le schéma de la Fig. 1A (éthylènediamine, eau, température ambiante, NaBH4) remplace directement un OH primaire du galactose par NH2. Un alcool ne se substitue pas par une amine dans l'eau sans activation (tosylate, halogénure, époxyde) ; NaBH4 ne sert qu'en amination réductrice, qui exige un carbonyle (guar oxydé au periodate, cycles ouverts). Et l'éthylènediamine greffée donnerait –NH–CH2CH2–NH2, pas –NH2. Le schéma n'est pas une réaction possible telle que dessinée, et le protocole est renvoyé à un « prior art » non cité dans le texte.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Process for the preparation of aminated polysaccharide derivatives (brevet US 4 683 298)",
+      "authors_or_publisher": "USPTO",
+      "year": "non vérifiée (brevet des années 1980)",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4683298"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le « degré de substitution » 67,79 % correspond à (Ab − Gb)/Ab avec les absorbances de la Fig. 1C (voir calculs) : c'est la part du signal TNBS au-dessus du blanc GG, pas un nombre d'amines par unité osidique. Il dépasse en outre le maximum de 33 % permis par le schéma (C6 du galactose seulement). L'équation (1) manque dans le texte. L'axe « Absorbance (nm) » porte une unité fausse.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve de l'amination : la bande à 1574 cm−1 de l'AGG (Fig. 1B), absente du GG, est compatible avec la déformation N–H d'amine primaire. Le texte attribue 1144 cm−1 à la liaison glycosidique et 1141 cm−1 à l'alcool primaire : deux attributions à 3 cm−1 d'écart sur la même bande, ce qui est confus. Une analyse élémentaire (N %) aurait donné un vrai degré de substitution.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Éthylènediamine : corrosive, inflammable, sensibilisante. NaBH4 : dégage H2 au contact de l'eau. Le dosage TNBS se fait à 60 °C puis HCl 6 M à 40 °C ; l'acide picrylsulfonique est explosif à sec (fiche fournisseur) : ne pas laisser sécher la solution.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Picrylsulfonic acid solution 5 % (w/v) in H2O, P2297 — fiche produit et FAQ (« explosive when dry »)",
+      "authors_or_publisher": "Sigma-Aldrich / Merck (fiche fournisseur)",
+      "year": "consultée 2026",
+      "url_or_doi": "https://sigmaaldrich.com/CL/es/product/sigma/p2297"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "La voie la plus probable avec éthylènediamine et NaBH4 est une amination réductrice : oxydation préalable du guar (periodate → dialdéhydes par ouverture des cycles, ou oxydation en C6), condensation de l'éthylènediamine en imine, réduction de l'imine par NaBH4, d'où des greffons –NH–CH2CH2–NH2. Sans l'étape d'oxydation, ni l'éthylènediamine ni NaBH4 ne réagissent avec les OH du guar. Le brevet US 4 683 298 décrit cette amination réductrice d'un guar oxydé (avec NaBH3CN et acétate d'ammonium).",
+    "sources": [
+     {
+      "title": "Process for the preparation of aminated polysaccharide derivatives (brevet US 4 683 298)",
+      "authors_or_publisher": "USPTO",
+      "year": "non vérifiée (brevet des années 1980)",
+      "url_or_doi": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4683298"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "retrouver la référence « prior art » de l'amination et son étape d'activation (oxydation ou époxyde)",
+    "purification de l'AGG (dialyse) avant usage : sinon NaBH4 ou borate résiduels",
+    "doser l'azote (analyse élémentaire) pour un vrai degré de substitution, et étalonner le TNBS"
+   ]
+  },
+  {
+   "label": "Ag@AGG",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité et concentration d'argent",
+     "inputs": "300 µL × 26 mM AgNO3 ; volume final 5 + 0,3 = 5,3 mL ; M(Ag) = 107,87 g/mol",
+     "formula": "n = C × V ; C' = n/Vtot",
+     "result": "7,8 µmol Ag+ = 0,841 mg Ag ; [Ag] ≈ 1,47 mM (≈ 159 mg/L) dans le mélange",
+     "compared_to": "le texte dit « AGG solution can easily reduce 26mM AgNO3 » : 26 mM est la concentration de la solution mère, pas celle de la réaction (18 fois moindre)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport réducteur / argent",
+     "inputs": "AGG 5 mL × 1 % = 50 mg ; unité anhydrohexose 162,14 g/mol ; 7,8 µmol Ag+",
+     "formula": "n(unités) = 50/162,14 ; n(unités)/n(Ag)",
+     "result": "≈ 0,31 mmol d'unités osidiques ; ≈ 40 unités par Ag+ ; Ag/polymère = 1,7 % en masse",
+     "compared_to": "il faut 1 électron par Ag+ : le polymère est en grand excès, la limite est la cinétique (température non donnée), pas la quantité",
+     "source": "valeurs de l'article ; masse molaire calculée"
+    },
+    {
+     "what": "rapport taille DLS / taille TEM",
+     "inputs": "DLS 217 ± 10 nm ; TEM 6–12 nm ; histogramme Fig. 2D",
+     "formula": "217/12 et 217/6 ; somme des barres de l'histogramme",
+     "result": "facteur 18 à 36 ; ≈ 18 particules comptées seulement",
+     "compared_to": "une distribution de taille demande en général plusieurs centaines de particules",
+     "source": "valeurs de l'article et de la Fig. 2D (lecture)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "L'AGG est présenté comme seul réducteur (« reagent-free », « chemical-free »). Or NaBH4 sert à l'amination (Fig. 1A) et aucune purification de l'AGG n'est décrite : un NaBH4 résiduel réduit Ag+ en quelques secondes en colloïde jaune, et le borate formé réticule le guar (Dai et al. 2016). Le témoin qui manque : même essai avec l'AGG dialysé, et avec le GG non aminé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Silver nanoparticles-containing dual-function hydrogels based on a guar gum-sodium borohydride system",
+      "authors_or_publisher": "L. Dai, B. Nadeau, X. An, D. Cheng, Z. Long, Y. Ni, Scientific Reports 6:36497",
+      "year": "2016",
+      "url_or_doi": "10.1038/srep36497"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La température de réaction a été « optimisée » mais n'est pas donnée ; les réductions d'Ag+ par des polysaccharides de la base demandent chaleur ou base (gomme ghatti à 121 °C, PMC3407523 ; gélatine 48 h à 28 °C, PMC3107715 ; amidon à pH 11 sous ultrasons, PMC3920662). Une réduction complète en 30 min à température ambiante par une amine aliphatique est peu probable sans réducteur résiduel ou sans chauffage.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande plasmon : maximum vers 420–430 nm et très large (Fig. 2B, de ≈ 330 à > 600 nm). Des particules d'argent monodisperses de 5–10 nm donnent une bande étroite vers 395–405 nm (Agnihotri 2014) : la largeur et le décalage traduisent agrégats ou forte polydispersité, en accord avec la DLS à 217 nm plutôt qu'avec « monodisperse ». Le rendement de réduction (Ag0/Ag total) n'est pas mesuré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Size-controlled silver nanoparticles synthesized over the range 5–100 nm using the same protocol and their antibacterial efficacy",
+      "authors_or_publisher": "S. Agnihotri, S. Mukherji, S. Mukherji, RSC Advances",
+      "year": "2014",
+      "url_or_doi": "10.1039/c3ra44507k"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Zêta −2,6 à −1,59 mV : un polymère portant des amines primaires (pKa ≈ 9–10, protonées à pH neutre) avec « 67,79 % » de substitution devrait donner un potentiel nettement positif. Un potentiel légèrement négatif suggère peu d'amines libres ou un écrantage ; il contredit le degré de substitution annoncé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DLS 217 nm contre TEM 6–12 nm (calcul « rapport taille DLS / taille TEM ») : dans une solution à ≈ 0,94 % d'AGG, la DLS mesure surtout les pelotes de polymère, pas les particules ; l'explication par « hydratation » des auteurs ne suffit pas. Histogramme établi sur ≈ 18 particules.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX : longueur d'onde écrite « 1.54187 nm » au lieu de 0,154187 nm (1,54187 Å) ; balayage 20–80° à « 0.02/min » ferait 3000 min (50 h), sans doute un pas de 0,02°. Diffractogrammes en annexe absente : la phase cfc de l'argent n'est pas vérifiable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "AgNO3 : oxydant, corrosif, tache la peau ; NaBH4 résiduel possible (H2). Pas de risque thermique (pas de chauffage décrit).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Réduction de Ag+ par les groupes réducteurs du polymère (extrémités réductrices, aldéhydes résiduels si l'AGG vient d'un guar oxydé) et très probablement par NaBH4 ou borohydrure résiduel de l'amination ; nucléation rapide puis stabilisation stérique par les chaînes d'AGG qui coordonnent l'argent par leurs amines. La bande plasmon large et la DLS indiquent des amas de particules dans le réseau de polymère. Les amines seules réduisent Ag+ lentement et surtout à chaud.",
+    "sources": [
+     {
+      "title": "Silver nanoparticles-containing dual-function hydrogels based on a guar gum-sodium borohydride system",
+      "authors_or_publisher": "L. Dai, B. Nadeau, X. An, D. Cheng, Z. Long, Y. Ni, Scientific Reports 6:36497",
+      "year": "2016",
+      "url_or_doi": "10.1038/srep36497"
+     },
+     {
+      "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+      "authors_or_publisher": "P. Raveendran, J. Fu, S. L. Wallen, JACS",
+      "year": "2003",
+      "url_or_doi": "10.1021/ja029267j"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température et agitation de la réaction (non données)",
+    "AGG purifié (dialyse) avant la réduction, et témoin GG non aminé",
+    "conversion Ag+ → Ag0 (ICP sur filtrat d'ultrafiltration) avant l'ajout de CaCl2"
+   ]
+  },
+  {
+   "label": "HG",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "calcium contre carboxylates de l'alginate",
+     "inputs": "CaCl2 2,5 % w/v = 25 g/L (M = 110,98 anhydre ; 147,01 dihydraté) ; alginate 1 % dilué au tiers = 3,33 g/L, unité uronate sodique 198,11 g/mol ; boîte à œufs : 1 Ca pour 2 COO−",
+     "formula": "[Ca] = 25/M ; [COO−] = 3,33/198,11 ; [Ca]/([COO−]/2)",
+     "result": "[Ca2+] ≈ 0,225 M (0,170 M si dihydraté) ; [COO−] ≈ 16,8 mM ; Ca en excès d'un facteur ≈ 20–27",
+     "compared_to": "gélification ionotrope : quelques mM de Ca2+ suffisent ; un tel excès gélifie l'alginate instantanément au contact",
+     "source": "valeurs de l'article ; masses molaires calculées"
+    },
+    {
+     "what": "composition sèche théorique d'un patch (pour 3 mL de mélange 1:1:1)",
+     "inputs": "1 mL de chaque solution à 1 % w/v (AGG ou Ag@AGG dilué 5/5,3 → 9,43 mg ; SA 10 mg ; gélatine 10 mg) ; glycérol 0,5 % v/v × 3 mL = 15 µL × 1,261 g/mL ; CaCl2 2,5 % w/v × 3 mL = 75 mg (anhydre supposé) ; EGCG 50 µg/mL × 3 mL = 0,15 mg ; Ag 0,159 mg",
+     "formula": "somme des masses non volatiles ; fraction = m(i)/Σm",
+     "result": "≈ 123,6 mg de solide sec par 3 mL ; CaCl2 ≈ 61 %, glycérol ≈ 15 %, polymères ≈ 24 %",
+     "compared_to": "les auteurs ne décrivent aucun lavage : le sel reste dans le patch",
+     "source": "valeurs de l'article ; densité du glycérol 1,261 g/mL (valeur de manuel, à confirmer sur PubChem)"
+    },
+    {
+     "what": "viscosité complexe tirée des modules de la Fig. 3E",
+     "inputs": "HG-Ag à 0,398 rad/s : G' ≈ 55 Pa, G'' ≈ 100 Pa ; HG : G'' ≈ 5 Pa, G' ≈ 1 Pa",
+     "formula": "|η*| = √(G'² + G''²)/ω",
+     "result": "HG-Ag ≈ 290 Pa·s ; HG ≈ 13 Pa·s",
+     "compared_to": "« relative material viscosity » 24 983 et 1030 « Pa » : ni la valeur ni l'unité (Pa au lieu de Pa·s) ne correspondent aux modules mesurés",
+     "source": "lecture de la Fig. 3E (± 10 %)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "CaCl2 à 2,5 % w/v dans le mélange représente ≈ 61 % de la masse sèche du patch (calcul « composition sèche théorique ») et aucun lavage n'est décrit : le patch lyophilisé est surtout du sel hygroscopique. On ne sait pas non plus si 2,5 % est la concentration finale ou celle d'une solution ajoutée, ni si CaCl2 est anhydre ou dihydraté.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Ajouter CaCl2 à 0,2 M directement dans une solution d'alginate gélifie celle-ci au contact (calcul « calcium contre carboxylates ») : on obtient des grumeaux, pas une solution « homogénéisée » puis coulée. Les gels d'alginate homogènes se font par gélification interne lente (CaCO3 + glucono-δ-lactone) ou par diffusion (Lee & Mooney 2012). L'ordre d'ajout et la méthode d'homogénéisation sont à préciser.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Alginate: properties and biomedical applications",
+      "authors_or_publisher": "K. Y. Lee, D. J. Mooney, Progress in Polymer Science 37(1):106–126",
+      "year": "2012",
+      "url_or_doi": "10.1016/j.progpolymsci.2011.06.003"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La « interaction de coordination entre l'AGG, les ions calcium (cationiques) et SA » : Ca2+ ponte les blocs guluronate de l'alginate (boîte à œufs) ; une amine protonée ne coordonne pas Ca2+ mais forme un complexe polyélectrolyte avec les carboxylates de l'alginate (et la gélatine porte les deux charges). Le mélange AGG cationique + alginate anionique peut coacerver dès le mélange, avant le calcium.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Alginate: properties and biomedical applications",
+      "authors_or_publisher": "K. Y. Lee, D. J. Mooney, Progress in Polymer Science 37(1):106–126",
+      "year": "2012",
+      "url_or_doi": "10.1016/j.progpolymsci.2011.06.003"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rhéologie : la « relative material viscosity » en Pa est une unité de contrainte, pas de viscosité ; les valeurs (1030 à 24 983) sont incompatibles avec les modules de la Fig. 3E (|η*| ≈ 13 à 290 Pa·s, calcul « viscosité complexe »). La légende parle de « Young's modulus » alors que G' et G'' sont des modules de cisaillement, et la méthode mélange un écoulement à 100 s−1 pendant 10 s et un balayage en fréquence. L'état de l'échantillon (0,5 g de patch sec ou réhydraté) n'est pas dit. Les valeurs de viscosité ne sont pas exploitables.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Porosité par déplacement d'éthanol : l'éthanol dissout le glycérol (miscible) et une partie du CaCl2 (soluble dans l'éthanol), qui forment ≈ 76 % de la masse sèche ; la variation de masse mesure aussi cette extraction. Le gonflement de 1400–1800 % en eau inclut de même la dissolution du sel.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Congélation à −20 °C puis lyophilisation (−105 °C = température du condenseur) : compatible ; la porosité vient des cristaux de glace. Pas de chauffage.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dissolution de CaCl2 anhydre exothermique ; gants cryogéniques pour le lyophilisateur. Pas d'autre risque notable.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Réticulation ionique de l'alginate par Ca2+ (boîte à œufs sur les blocs G), à laquelle s'ajoute un complexe polyélectrolyte entre les amines protonées de l'AGG (et de la gélatine) et les carboxylates de l'alginate ; le glycérol plastifie. La congélation à −20 °C forme des cristaux de glace dont la sublimation laisse les pores ; l'excès de CaCl2 non lavé reste dans les parois.",
+    "sources": [
+     {
+      "title": "Alginate: properties and biomedical applications",
+      "authors_or_publisher": "K. Y. Lee, D. J. Mooney, Progress in Polymer Science 37(1):106–126",
+      "year": "2012",
+      "url_or_doi": "10.1016/j.progpolymsci.2011.06.003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration finale et forme (anhydre ou dihydraté) de CaCl2, ordre et mode d'ajout",
+    "volume coulé par puits et masse sèche d'un patch",
+    "lavage éventuel du sel avant lyophilisation",
+    "protocole rhéologique (oscillation ou écoulement, échantillon sec ou réhydraté)"
+   ]
+  },
+  {
+   "label": "HG-EGCG",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur en EGCG du patch",
+     "inputs": "EGCG 50 µg/mL × 3 mL = 0,15 mg ; masse sèche ≈ 123,5 mg par 3 mL (voir HG) ; M(EGCG) = 458,37 g/mol",
+     "formula": "0,15/123,5 ; [EGCG] = 50 µg/mL / 458,37",
+     "result": "≈ 0,12 % en masse du patch sec (≈ 0,5 % des polymères) ; ≈ 0,11 mM dans le mélange",
+     "compared_to": "hausse de viscosité annoncée de 1030 à 12 429 « Pa » (× 12)",
+     "source": "valeurs de l'article ; masse molaire calculée"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Une multiplication par 12 de la « viscosité » pour 0,5 % d'EGCG rapporté aux polymères est forte mais pas impossible (les polyphénols galloylés réticulent la gélatine par liaisons hydrogène et, après oxydation en quinones, par liaisons covalentes avec les amines de la gélatine et de l'AGG). Le « Intramolecular hydrogen bonding » des auteurs devrait être intermoléculaire pour rigidifier un réseau. Voir la réserve sur l'unité et les valeurs de viscosité (voie HG).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "EGCG soluble dans l'eau à 50 µg/mL sans difficulté ; mais il s'oxyde à pH neutre et en présence d'amines (brunissement, Fig. 3A) : ajouté juste avant congélation, il est en partie préservé ; la durée entre ajout et congélation n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin : HG-EGCG ne change que l'ajout d'EGCG à la matrice HG ; comparaison valable. La DO à 24 h lue sur figure (E. coli 12, B. subtilis 8,4) est hors de l'échelle habituelle d'une DO600 mesurée sans dilution (> 2–3) ; à interpréter avec prudence.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "L'EGCG se lie à la gélatine et à l'AGG par liaisons hydrogène et interactions hydrophobes des cycles galloyle ; son oxydation partielle en quinones peut ajouter des liaisons covalentes avec les amines, ce qui rigidifie le réseau.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "délai entre l'ajout d'EGCG et la congélation, à l'abri de la lumière",
+    "dosage de l'EGCG resté intact dans le patch (HPLC) plutôt que la quantité ajoutée"
+   ]
+  },
+  {
+   "label": "HG-Ag",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "argent contre chlorure dans le mélange final",
+     "inputs": "Ag : 0,159 mg par mL d'Ag@AGG, dilué au tiers → ≈ 0,49 mM ; CaCl2 0,225 M → Cl− ≈ 0,45 M ; Ksp(AgCl) ≈ 1,8 × 10−10",
+     "formula": "[Cl−] = 2 [CaCl2] ; [Ag+]max libre = Ksp/[Cl−]",
+     "result": "Cl−/Ag ≈ 900 ; tout Ag+ non réduit précipite en AgCl ou passe en complexes AgCl2− (Ag+ libre ≈ 4 × 10−10 M)",
+     "compared_to": "le patch « Ag » contient donc Ag0, AgCl et chlorocomplexes en proportions inconnues",
+     "source": "valeurs de l'article ; Ksp de manuel (à confirmer)"
+    },
+    {
+     "what": "teneur nominale en argent du patch",
+     "inputs": "0,159 mg Ag pour ≈ 123,5 mg de solide sec (voir HG)",
+     "formula": "m(Ag)/m(sec)",
+     "result": "≈ 0,13 % en masse (0,33 % sans CaCl2, 0,54 % rapporté aux seuls polymères)",
+     "compared_to": "« induced crystallinity » invoquée pour un G' maximal",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "Ag@AGG est mélangé à CaCl2 ≈ 0,2 M : en présence d'O2 et d'un fort excès de chlorure, les nanoparticules d'argent se dissolvent en partie en chlorocomplexes AgClx(x−1)− et tout Ag+ résiduel précipite en AgCl (calcul « argent contre chlorure »). L'activité antibactérienne et la libération mesurée peuvent venir de ces espèces dissoutes plutôt que des particules (Levard et al. 2013). La DRX a été faite sur les particules seules, pas dans le patch.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Effect of Chloride on the Dissolution Rate of Silver Nanoparticles and Toxicity to E. coli",
+      "authors_or_publisher": "C. Levard et al., Environmental Science & Technology 47(11):5738–5745",
+      "year": "2013",
+      "url_or_doi": "10.1021/es400396f"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin à plusieurs variables : remplacer l'AGG par Ag@AGG apporte aussi du nitrate, des produits d'oxydation de l'AGG, un éventuel NaBH4/borate résiduel (qui réticule le guar, Dai 2016) et dilue l'AGG de 6 %. Le saut de « viscosité » (× 24) et de G' attribué à une « induced crystallinity » par ≈ 0,13 % d'argent n'est pas démontré ; témoin utile : HG avec AGG ayant subi le même traitement sans AgNO3 (ou avec NaNO3).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Silver nanoparticles-containing dual-function hydrogels based on a guar gum-sodium borohydride system",
+      "authors_or_publisher": "L. Dai, B. Nadeau, X. An, D. Cheng, Z. Long, Y. Ni, Scientific Reports 6:36497",
+      "year": "2016",
+      "url_or_doi": "10.1038/srep36497"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nanoparticules d'argent dans une matrice sèche : découper ou broyer le patch sous hotte (poussières).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Mêmes liaisons que HG ; l'argent (Ag0 et ions) peut ajouter des points de coordination avec les amines et les carboxylates, et un borate résiduel réticuler les diols du guar. Au contact du CaCl2 concentré, une partie de l'argent passe en AgCl ou en chlorocomplexes.",
+    "sources": [
+     {
+      "title": "Effect of Chloride on the Dissolution Rate of Silver Nanoparticles and Toxicity to E. coli",
+      "authors_or_publisher": "C. Levard et al., Environmental Science & Technology 47(11):5738–5745",
+      "year": "2013",
+      "url_or_doi": "10.1021/es400396f"
+     },
+     {
+      "title": "Silver nanoparticles-containing dual-function hydrogels based on a guar gum-sodium borohydride system",
+      "authors_or_publisher": "L. Dai, B. Nadeau, X. An, D. Cheng, Z. Long, Y. Ni, Scientific Reports 6:36497",
+      "year": "2016",
+      "url_or_doi": "10.1038/srep36497"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "spéciation de l'argent dans le patch (DRX ou XPS : Ag0 contre AgCl)",
+    "témoin AGG traité sans argent pour isoler l'effet mécanique de l'argent"
+   ]
+  },
+  {
+   "label": "HG-Ag-EGCG",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "argent nominal contre EDX",
+     "inputs": "Ag nominal ≈ 0,13 % (patch entier) ou 0,54 % (polymères seuls) ; EDX : Ag 11,43 % ; Ca nominal 75 mg × 40,08/110,98 = 27,1 mg pour 0,159 mg Ag",
+     "formula": "11,43/0,128 ; 11,43/0,537 ; (Ag/Ca)EDX / (Ag/Ca)nominal = (11,43/4,87)/(0,159/27,1)",
+     "result": "EDX 21 à 89 fois la teneur nominale ; rapport Ag/Ca 400 fois le rapport nominal",
+     "compared_to": "« Ag concentration in HG-Ag-EGCG was recorded to be 11.43% »",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "somme des éléments du tableau EDX",
+     "inputs": "Ag 11,43 ; C 25,65 ; O 18,28 ; Na 5,16 ; Ca 4,87 % en masse",
+     "formula": "Σ",
+     "result": "65,39 % ; le spectre (Fig. 3B) montre aussi Cl K et Pt M (métallisation), absents du tableau",
+     "compared_to": "100 % attendu ; Cl attendu d'après le CaCl2 (Cl/Ca = 1,77 en masse)",
+     "source": "valeurs de l'article et Fig. 3B"
+    },
+    {
+     "what": "absorbance attendue de l'EGCG libéré (PBS)",
+     "inputs": "5 mg de patch ; EGCG 0,15 mg pour 123,5 mg de sec → 6,1 µg (25 µg si l'on ne compte que les polymères) ; volume 2 + 20 mL ; ε(274 nm, tampon pH 7) ≈ 8 400 M−1 cm−1",
+     "formula": "C = m/(V × 458,37) ; A = ε C ℓ (ℓ = 1 cm)",
+     "result": "à 100 % de libération : 0,28 µg/mL (0,60 µM), A ≈ 0,005 ; au plus 1,15 µg/mL, A ≈ 0,02 ; à 18,6 % (jour 1) A ≈ 0,001–0,004",
+     "compared_to": "limite pratique d'un spectrophotomètre UV ≈ 0,01 d'absorbance ; gélatine, AGG et argent absorbent aussi vers 270 nm",
+     "source": "valeurs de l'article ; ε de Snitsarev et al. 2013"
+    },
+    {
+     "what": "argent libéré contre argent contenu",
+     "inputs": "Fig. 4A : 2,7 ; 3,1 ; 3,8 ; 4,1 ; 3,6 ; 3,6 ; 3,7 ppm aux jours 1–15 ; 10 mL de DMEM ; Ag nominal 1,28 µg par mg de patch",
+     "formula": "4,1 mg/L × 10 mL ; Σ des valeurs × 10 mL si milieu renouvelé ; masse de patch nécessaire = m(Ag)/1,28",
+     "result": "41 µg d'Ag pour 4,1 ppm → ≥ 32 mg de patch ; si milieu renouvelé, ≈ 246 µg → ≥ 190 mg de patch (> un patch entier de ≈ 124 mg pour 3 mL coulés)",
+     "compared_to": "masse de patch mise en DMEM non donnée ; en PBS : 5 mg",
+     "source": "valeurs de l'article et Fig. 4A (lecture ± 0,1 ppm)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "EDX : Ag 11,43 % en masse contre ≈ 0,13 % nominal (≈ 0,5 % même sans sel ni glycérol), et Ag/Ca 400 fois trop élevé (calcul « argent nominal contre EDX »). Le tableau omet Cl et Pt visibles sur le spectre et ne somme qu'à 65,39 % ; la raie Ag L (≈ 2,98 keV) est voisine de Cl Kβ (2,82 keV) dans un spectre dominé par Cl. Valeur d'un pointé local sur un grain, semi-quantitative, pas une teneur du patch ; il faudrait une AAS ou ICP sur patch digéré (les auteurs ont l'AAS).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Libération d'EGCG suivie par UV : dans les conditions décrites en PBS (5 mg de patch, 22 mL), l'absorbance attendue à 100 % de libération est ≈ 0,005 (au plus 0,02), et ≈ 0,001–0,004 au jour 1 (calcul « absorbance attendue de l'EGCG libéré ») : en dessous de ce qu'un spectrophotomètre distingue, avec en plus l'absorption de la gélatine et des fragments de polymère vers 270 nm. En DMEM (acides aminés aromatiques, rouge de phénol) c'est pire. Les pourcentages de 18,6/59,8/79,8 % ne peuvent pas venir d'un dosage UV direct tel que décrit ; une HPLC serait nécessaire. Le texte attribue en outre au milieu de culture les valeurs de la courbe PBS (Fig. 4D), la Fig. 4B (DMEM) donnant ≈ 27/51/82 %.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Spectral Properties of (-)-Epigallocatechin 3-O-Gallate (EGCG) Fluorescence in Different Solvents: Dependence on Solvent Polarity",
+      "authors_or_publisher": "V. Snitsarev et al., PLoS ONE 8(11):e79834",
+      "year": "2013",
+      "url_or_doi": "10.1371/journal.pone.0079834"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Argent : les valeurs de la Fig. 4A ne croissent pas de façon monotone (4,1 puis 3,6 ppm) : ce sont des concentrations par prélèvement, pas une « cumulative release » ; 4,1 ppm est le maximum (légende). Si le milieu est renouvelé, la somme ≈ 246 µg exige plus d'argent qu'un patch entier n'en contient (calcul « argent libéré contre argent contenu ») ; la masse de patch en DMEM n'est pas donnée. L'AAS mesure l'argent total (ions, chlorocomplexes, particules), pas des « Ag NPs ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "L'EGCG est lui-même réducteur de Ag+ et s'oxyde à pH 7,4 ; dans HG-Ag-EGCG, il réduit l'Ag+ résiduel et se consomme en partie. La couleur orange foncé (Fig. 3A) traduit aussi l'oxydation de l'EGCG. Le plateau de libération à ≈ 80 % peut refléter une dégradation de l'EGCG pendant 15 jours à 37 °C plutôt qu'une rétention.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cicatrisation : le texte dit « complete wound closure » au jour 15 alors que la Fig. 6B montre ≈ 12 % de plaie restante. Plaies de « 10 mm2 » (≈ 3,2 × 3,2 mm) très petites pour un modèle d'excision chez le rat (souvent 10 mm de diamètre) ; rats de 180–220 g annoncés à « 3–5 weeks », âge incompatible avec ce poids ; coagulation testée sur sang de souris alors que l'étude porte sur le rat ; n = 3 par groupe et par temps.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HNO3 pour la digestion AAS ; nanoparticules d'argent : manipuler les patchs secs sans générer de poussière.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Matrice HG (alginate–Ca2+ et complexe polyélectrolyte avec l'AGG) contenant de l'argent sous forme Ag0, AgCl et chlorocomplexes du fait du CaCl2 concentré, et de l'EGCG en partie oxydé et lié à la gélatine. L'effet antibactérien est surtout attribuable à l'argent dissous (ion), l'EGCG étant bactériostatique.",
+    "sources": [
+     {
+      "title": "Effect of Chloride on the Dissolution Rate of Silver Nanoparticles and Toxicity to E. coli",
+      "authors_or_publisher": "C. Levard et al., Environmental Science & Technology 47(11):5738–5745",
+      "year": "2013",
+      "url_or_doi": "10.1021/es400396f"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "teneur en argent du patch par AAS/ICP après digestion, pas par EDX",
+    "dosage de l'EGCG par HPLC, avec une masse de patch suffisante et un blanc HG-Ag",
+    "masse de patch et renouvellement du milieu dans l'essai de libération en DMEM"
+   ]
+  },
+  {
+   "label": "HG-Ag-EGCG_10ppm",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentrations d'EGCG comparées",
+     "inputs": "50 µg/mL (Méthodes) ; 10 et 50 ppm (Fig. 5)",
+     "formula": "1 ppm (m/v, solution aqueuse) ≈ 1 µg/mL",
+     "result": "10 ppm ≈ 10 µg/mL, soit 5 fois moins d'EGCG ; ≈ 0,02 % du patch sec",
+     "compared_to": "branche absente des Méthodes",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La formulation à 10 ppm n'apparaît que dans la légende de la Fig. 5 et une phrase des Résultats ; sa préparation n'est pas décrite (même protocole supposé). Le constat « 50 ppm did not augment the inhibitory effect » repose sur des photos de halos sans mesure de diamètre : non quantifié.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même formation que HG-Ag-EGCG ; l'effet antibactérien dominé par l'argent explique qu'une variation de l'EGCG d'un facteur 5 change peu le halo.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "confirmer que seule la concentration d'EGCG change",
+    "mesurer les diamètres de halo"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Les quantités ne sont données que pour l'étape argent (300 µL d'AgNO3 26 mM dans 5 mL d'AGG à 1 %) et sont stœchiométriquement possibles. L'amination du guar, dessinée comme une substitution directe d'un OH par NH2 avec éthylènediamine et NaBH4 à température ambiante, n'est pas une réaction possible sans activation, et son protocole est renvoyé à une référence. Le « degré de substitution » de 67,79 % est un rapport d'absorbances, pas un DS. Le patch contient environ 60 % de CaCl2 non lavé, ce qui transforme une partie de l'argent en AgCl ou chlorocomplexes et fausse porosité et gonflement. Deux résultats sont incompatibles avec le bilan de matière : 11,43 % d'argent à l'EDX contre environ 0,13 % nominal, et une libération d'EGCG suivie par UV alors que l'absorbance attendue est de l'ordre de 0,005. Les « viscosités » en Pa ne correspondent pas aux modules mesurés.",
+  "author_errors_suspected": [
+   "schéma d'amination (Fig. 1A) chimiquement impossible tel que dessiné ; NaBH4 non rattaché à une étape",
+   "« % amine substitution » = (Ab − Gb)/Ab, pas un degré de substitution ; axe « Absorbance (nm) »",
+   "EDX : Ag 11,43 % présenté comme la teneur du patch (≈ 0,13 % nominal), Cl et Pt omis, somme 65,39 %",
+   "libération d'EGCG : valeurs de la courbe PBS attribuées au milieu de culture ; dosage UV sous la limite de détection",
+   "libération d'argent appelée « cumulative » alors que les valeurs ne sont pas monotones",
+   "viscosité exprimée en Pa et sans rapport avec les modules G', G'' ; « Young's modulus » pour des modules de cisaillement",
+   "longueur d'onde Cu Kα « 1.54187 nm » (Å) ; balayage 0,02°/min impossible en pratique",
+   "« 26 mM AgNO3 » réduit : concentration de la solution mère, 1,47 mM en réaction",
+   "jour 15 : « complete wound closure » contre ≈ 12 % de plaie restante sur la Fig. 6B ; rats de 180–220 g à « 3–5 weeks »"
+  ],
+  "comparison_with_database": "Synthèses vertes d'argent de la base : gomme ghatti à 121 °C en autoclave (PMC3407523, 31,6 nm, plasmon à 412 nm), gélatine 48 h à 28 °C (PMC3107715, 445 nm), amidon à pH 11 sous ultrasons (PMC3920662, 420 nm). Toutes demandent chaleur, base ou longue durée ; une réduction en 30 min sans température donnée par un polysaccharide aminé est en marge, ce qui renforce l'hypothèse d'un réducteur résiduel (NaBH4). Plasmon à 420 nm dans la plage de la base, mais pour des particules plus grosses."
+ },
+ "sources_not_found": [
+  "référence « prior art » de l'amination du guar par l'éthylènediamine et NaBH4 : non retrouvée par recherche web",
+  "Crossref injoignable : DOI 10.1016/j.progpolymsci.2011.06.003, 10.1021/es400396f, 10.1038/srep36497, 10.1371/journal.pone.0079834 confirmés par les pages d'éditeur ou de PMC trouvées en recherche, non vérifiés sur Crossref",
+  "PMC (ncbi.nlm.nih.gov) injoignable depuis la session : article de Dai et al. 2016 non ouvert, contenu pris du résumé"
+ ]
+}

@@ -1,0 +1,420 @@
+{
+ "pmcid": "PMC9412554",
+ "routes": [
+  {
+   "label": "PI",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire PMDA:ODA",
+     "inputs": "ODA 3,97 g, M = 200,24 g/mol ; PMDA 4,33 g, M = 218,12 g/mol",
+     "formula": "n = m/M ; n(PMDA)/n(ODA)",
+     "result": "ODA 19,83 mmol ; PMDA 19,85 mmol ; rapport 1,001",
+     "compared_to": "polycondensation équimolaire (1:1) attendue pour une haute masse molaire",
+     "source": "masses molaires PubChem"
+    },
+    {
+     "what": "teneur en solide de la solution de PAA",
+     "inputs": "3,97 + 4,33 = 8,30 g de monomères ; 35 mL DMF × 0,944 g/mL = 33,04 g",
+     "formula": "8,30 / (8,30 + 33,04)",
+     "result": "20,1 % en masse",
+     "compared_to": "25 % annoncé ; 25 % demanderait 24,9 g = 26,4 mL de DMF",
+     "source": "densité du DMF 0,944 g/mL (PubChem)"
+    },
+    {
+     "what": "DMF à ajouter pour passer à 15 %",
+     "inputs": "8,30 g de PAA ; 33,04 g de DMF déjà présents",
+     "formula": "8,30/0,15 − 8,30 − 33,04",
+     "result": "≈ 14 g (≈ 14,8 mL) de DMF supplémentaire",
+     "compared_to": "dilution non décrite dans l'article",
+     "source": "arithmétique"
+    },
+    {
+     "what": "champ d'électrofilage",
+     "inputs": "15 kV ; 15 cm",
+     "formula": "U/d",
+     "result": "1 kV/cm",
+     "compared_to": "plage usuelle 0,5–2 kV/cm",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Monomères strictement équimolaires (rapport 1,001, voir « rapport molaire PMDA:ODA ») : cohérent avec la forte viscosité observée après 8 h. La sublimation préalable des monomères est un bon point.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La teneur en solide recalculée est 20,1 % et non 25 % (voir « teneur en solide de la solution de PAA ») ; puis l'électrofilage est fait à 15 % sans dilution décrite (≈ 14,8 mL de DMF à ajouter si l'on part de 20 %). Les deux pourcentages ne peuvent pas être reproduits tels quels : il faut décider de la concentration réelle (masse/masse) et de la façon de diluer.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Température et atmosphère de la polycondensation non données (habituellement ambiante ou 0–25 °C, sous N2 sec, le PMDA s'hydrolysant à l'humidité). Imidation thermique sans aucun programme (température finale, paliers, durée, atmosphère) : c'est l'étape qui fixe le taux d'imidation et donc la tenue chimique des fibres dans les deux étapes hydrothermales suivantes.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Section FTIR : les auteurs affirment que les pics à 3426, 1720, 1648 et 1498 cm−1 « indiquent la présence de groupes amide » et que le pic à 1648 cm−1 (« amide tertiaire ») montre que l'imidation est complète. C'est l'inverse : la bande amide I vers 1650–1660 cm−1 appartient à l'acide polyamique et disparaît quand l'imidation est complète ; les marqueurs de l'imide sont le doublet C=O 1780/1720 cm−1, le C–N vers 1380 cm−1 et 725 cm−1. La bande à 1780 cm−1 n'est pas citée. Le même pic à 1648 cm−1 reçoit en outre trois attributions (OH de TiO2, amide, Ti–O). Le taux d'imidation du PI n'est donc pas démontré, et une bande à 1648 cm−1 persistante après les traitements hydrothermaux peut aussi signaler une réouverture des cycles imide.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "IR studies of polyimides I: effects of chemical and physical changes during cure (amide band disappears; imide bands ~1780, 1720, 1380, 725 cm-1)",
+      "authors_or_publisher": "Nokia Bell Labs (publication record)",
+      "year": "inconnue (notice consultée en résumé seulement)",
+      "url_or_doi": "https://www.nokia.com/bell-labs/publications-and-media/publications/ir-studies-of-polyimides-i-effects-of-chemical-and-physical-changes-during-cure"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "DMF reprotoxique (CLP Repr. 1B) ; PMDA irritant et sensible à l'eau ; haute tension 15 kV. Aucune mention de sécurité dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Attaque nucléophile de l'amine de l'ODA sur le carbonyle de l'anhydride du PMDA dans le DMF : ouverture du cycle et formation de l'acide polyamique (PAA) de haute masse (viscosité) ; électrofilage du PAA ; cyclodéshydratation thermique (habituellement par paliers jusqu'à 250–300 °C) en polyimide PMDA-ODA avec départ d'eau ; suivi par la disparition de l'amide I (~1660 cm−1) et l'apparition des bandes imide 1780/1720/1380/725 cm−1. Hypothèse de l'extraction confirmée.",
+    "sources": [
+     {
+      "title": "IR studies of polyimides I: effects of chemical and physical changes during cure (amide band disappears; imide bands ~1780, 1720, 1380, 725 cm-1)",
+      "authors_or_publisher": "Nokia Bell Labs (publication record)",
+      "year": "inconnue (notice consultée en résumé seulement)",
+      "url_or_doi": "https://www.nokia.com/bell-labs/publications-and-media/publications/ir-studies-of-polyimides-i-effects-of-chemical-and-physical-changes-during-cure"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration réelle de la solution de PAA (20 % recalculé, pas 25 %) et façon de la diluer à 15 %",
+    "programme d'imidation thermique (paliers, température finale, atmosphère)",
+    "taux d'imidation par FTIR (bande 1780 et 1380 cm−1, disparition de l'amide ~1660 cm−1)",
+    "débit, aiguille et durée d'électrofilage",
+    "conduire la polycondensation sous gaz sec"
+   ]
+  },
+  {
+   "label": "PI/TiO2",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "quantité de titane et d'acide",
+     "inputs": "Ti 0,04–0,05 g, M = 47,867 g/mol ; HCl 1 mol/L × 33 mL",
+     "formula": "n = m/M ; n = C·V",
+     "result": "Ti 0,84–1,04 mmol ; HCl 33 mmol",
+     "compared_to": "2 Ti + 6 HCl → 2 TiCl3 + 3 H2 : 2,5–3,1 mmol HCl consommés, HCl en excès d'un facteur ≈ 11",
+     "source": "masse molaire PubChem"
+    },
+    {
+     "what": "TiO2 maximal formé",
+     "inputs": "Ti 0,84–1,04 mmol ; M(TiO2) = 79,87 g/mol",
+     "formula": "n(Ti) × M(TiO2)",
+     "result": "0,067–0,083 g de TiO2 pour 0,1 g de fibres PI (40–45 % en masse du composite au plus)",
+     "compared_to": "taux de charge non mesuré par les auteurs",
+     "source": "arithmétique"
+    },
+    {
+     "what": "dihydrogène dégagé et pression partielle",
+     "inputs": "1,5 H2 par Ti ; 1,25–1,57 mmol H2 ; ciel gazeux supposé 17 mL (autoclave de 50 mL) ; 160 °C",
+     "formula": "p = nRT/V",
+     "result": "≈ 3,3 bar de H2 (autoclave de 50 mL) ; ≈ 0,8 bar (autoclave de 100 mL)",
+     "compared_to": "pression de vapeur de l'eau à 160 °C ≈ 6,2 bar ; total ≈ 9–10 bar, acceptable pour un autoclave à chemise PTFE",
+     "source": "NIST WebBook (eau saturée)"
+    },
+    {
+     "what": "oxygène disponible pour Ti(III) → Ti(IV)",
+     "inputs": "air du ciel gazeux : 17 mL (autoclave de 50 mL) ou 67 mL (100 mL), 20,95 % O2, 24,47 L/mol à 25 °C ; besoin : 1 e− par Ti, 4 e− par O2",
+     "formula": "n(O2) dispo = 0,2095·V/24,47 ; n(O2) requis = n(Ti)/4",
+     "result": "disponible 0,15 mmol (50 mL) ou 0,57 mmol (100 mL) ; requis 0,21–0,26 mmol",
+     "compared_to": "suffisant seulement si le ciel gazeux dépasse ≈ 25–30 mL : le volume d'autoclave, non donné, conditionne l'oxydation complète par O2",
+     "source": "arithmétique"
+    },
+    {
+     "what": "contrôle de Bragg des raies du rutile",
+     "inputs": "λ = 0,15406 nm ; a = 4,593 Å, c = 2,959 Å (JCPDS 21-1276) ; 2θ annoncés 27,45 ; 36,09 ; 41,23 ; 54,32 ; 56,64 ; 69,01°",
+     "formula": "1/d² = (h²+k²)/a² + l²/c² ; 2θ = 2 asin(λ/2d)",
+     "result": "calculé : (110) 27,44 ; (101) 36,08 ; (111) 41,24 ; (211) 54,32 ; (220) 56,64 ; (301) 69,01°",
+     "compared_to": "écarts ≤ 0,01° : indexation juste ; l'accord parfait suggère que les positions recopiées sont celles de la fiche et non mesurées",
+     "source": "arithmétique ; λ Cu Kα1 NIST"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "La section Materials cite « Titania powder » (TiO2) alors que la synthèse et le mécanisme (2 Ti + 6 HCl → 2 TiCl3 + 3 H2) emploient du titane métal ; TiO2 en poudre ne se dissoudrait presque pas dans HCl 1 mol/L à 160 °C et ne donnerait pas de nanobâtonnets par dissolution-croissance. La lecture « titane métal » est la seule chimiquement cohérente ; pureté, granulométrie et fournisseur du titane restent inconnus.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "33 mL de solution à 160 °C en autoclave fermé : pression de vapeur de l'eau ≈ 6,2 bar, plus ≈ 1–3 bar de H2 (voir « dihydrogène dégagé et pression partielle »). Volume d'autoclave non donné : il faut au moins 40–50 mL pour rester sous 80 % de remplissage.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "NIST Chemistry WebBook, Thermophysical Properties of Fluid Systems (water, saturation)",
+      "authors_or_publisher": "NIST",
+      "year": "2023",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/fluid/"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le mécanisme des auteurs (Ti(III) oxydé par l'oxygène dissous) exige ≈ 0,21–0,26 mmol de O2 ; l'eau aérée en apporte ≈ 0,01 mmol et le ciel gazeux d'un autoclave de 50 mL ≈ 0,15 mmol (voir « oxygène disponible »). Dans un petit autoclave, l'oxydation de Ti(III) serait incomplète par O2 seul ; Ti(III) peut alors rester en solution (violette) ou être oxydé lentement par l'eau à chaud. Le volume de l'autoclave et la couleur de la solution finale seraient à noter.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Rutile en milieu HCl : cohérent ; l'acidité chlorhydrique et les températures modérées favorisent le rutile par dissolution-reprécipitation de complexes Ti(IV) (chaînes d'octaèdres TiO6 partageant des arêtes opposées, croissance selon [001]).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "Hanaor D.A.H., Sorrell C.C., J. Mater. Sci. 46, 855-874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Tenue des fibres PI dans HCl 1 mol/L à 160 °C pendant 16 h : les cycles imide du PMDA-ODA s'hydrolysent en milieu aqueux chaud (le PMDA-ODA est réputé faible en milieu acide ou basique), et toute fraction d'acide polyamique résiduelle (imidation non démontrée, voir voie PI) s'hydrolyse plus vite encore. L'article ne montre ni l'état du polymère après traitement (FTIR comparé avant/après, masse, tenue mécanique) ni la fraction de TiO2 précipitée hors des fibres.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bâtonnets de 800–1000 nm × 50–200 nm : ordre de grandeur habituel pour le rutile hydrothermal en milieu HCl. Ti 2p3/2 459,3 eV et Ti 2p1/2 464,7 eV : écart 5,4 eV, un peu sous la valeur habituelle de 5,7 eV pour Ti4+ dans TiO2, sans conséquence sur l'attribution Ti4+.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Dégagement de H2 (1,3–1,6 mmol) dans un autoclave fermé : ouverture à froid, sous hotte, sans flamme. HCl 1 mol/L corrosif. Poudre de titane fine inflammable (non mentionné).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Dissolution oxydante du titane par H+ (Ti → Ti3+ + 3/2 H2), hydrolyse de Ti3+ en TiOH2+, oxydation en Ti(IV) par O2 (limitée par l'air piégé dans l'autoclave), formation de complexes chloro-hydroxo de Ti(IV) qui, en milieu chlorhydrique acide, condensent en octaèdres TiO6 partageant des arêtes en chaînes selon [001] : nanobâtonnets de rutile nucléés de façon hétérogène sur les fibres (sites polaires du polyimide, groupes carboxyle issus d'une hydrolyse partielle).",
+    "sources": [
+     {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "Hanaor D.A.H., Sorrell C.C., J. Mater. Sci. 46, 855-874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "titane métal (et non TiO2) : pureté, granulométrie",
+    "volume de l'autoclave (oxygène disponible, taux de remplissage)",
+    "état du polyimide après HCl 1 mol/L à 160 °C (FTIR, masse)",
+    "masse de TiO2 réellement fixée sur les fibres (ATG)",
+    "durée et lavages du séchage à 60 °C"
+   ]
+  },
+  {
+   "label": "PI/TiO2@MoS2",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "rapport minimal thioacétamide:Mo",
+     "inputs": "MoO4^2− + 3 H2S + 2 H+ → MoS2 + S + 4 H2O (Mo VI → IV, 2 e− fournis par un S(−II) → S(0)) ; 1 H2S par thioacétamide",
+     "formula": "n(TAA)/n(Mo) ≥ 3",
+     "result": "au moins 3 thioacétamides par Mo (2 pour MoS2, 1 comme réducteur)",
+     "compared_to": "« a small amount » des deux réactifs : rapport inconnu, la stœchiométrie ne peut pas être contrôlée",
+     "source": "bilan redox, arithmétique"
+    },
+    {
+     "what": "pression de vapeur de l'eau à 200 °C",
+     "inputs": "eau saturée à 200 °C",
+     "formula": "lecture de table",
+     "result": "≈ 15,5 bar, plus H2S et NH3 issus de la thioacétamide",
+     "compared_to": "limite usuelle d'un autoclave à chemise PTFE ≈ 200–220 °C : on est à la limite haute ; taux de remplissage inconnu",
+     "source": "NIST WebBook (eau saturée)"
+    },
+    {
+     "what": "énergie au seuil d'absorption",
+     "inputs": "seuil 450 nm",
+     "formula": "E = 1239,84/λ",
+     "result": "2,76 eV",
+     "compared_to": "Eg annoncée 2,7 eV : cohérent entre eux ; rutile 3,0 eV ↔ 413 nm (et non 3,2 eV ↔ 387 nm, valeur de l'anatase utilisée par les auteurs comme référence)",
+     "source": "arithmétique ; Hanaor 2011, Morgunov 2021"
+    },
+    {
+     "what": "positions de raies de 2H-MoS2",
+     "inputs": "a = 3,16 Å, c = 12,30 Å (JCPDS 37-1492), λ = 1,5406 Å",
+     "formula": "1/d² = 4(h²+hk+k²)/3a² + l²/c²",
+     "result": "(002) 14,39° ; (100) 32,7° ; (110) 58,4°",
+     "compared_to": "raies « faibles » attribuées sans positions chiffrées ; (110) de MoS2 à 58,4° voisine des raies du rutile",
+     "source": "arithmétique"
+    },
+    {
+     "what": "écarts de spin-orbite XPS",
+     "inputs": "Mo 229,5 / 232,8 eV ; S 162,3 / 163,8 eV",
+     "formula": "différence",
+     "result": "Mo 3d : 3,3 eV ; S 2p : 1,5 eV",
+     "compared_to": "MoS2 : Mo 3d ≈ 3,1–3,2 eV (229,5/232,7) ; S 2p ≈ 1,2–1,3 eV (162,2/163,5)",
+     "source": "arXiv:1906.05436"
+    },
+    {
+     "what": "concentration de colorant",
+     "inputs": "MB 5 mg/L, M = 319,85 g/mol ; 0,02 g de catalyseur ; volume non donné",
+     "formula": "C = m/(M·V)",
+     "result": "15,6 µmol/L ; charge en catalyseur (g/L) inconnue",
+     "compared_to": "impossible de comparer l'activité à d'autres travaux sans le volume",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Molybdate, thioacétamide et eau donnés comme « a small amount » / non chiffrés ; masse de fibres PI/TiO2 et volume d'autoclave absents. Le rapport S/Mo (au moins 3, voir « rapport minimal thioacétamide:Mo ») et la charge en MoS2 ne peuvent pas être fixés : la voie n'est pas reproductible telle qu'écrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "200 °C pendant 24 h en autoclave : ≈ 15,5 bar de vapeur d'eau plus H2S/NH3 (voir « pression de vapeur de l'eau à 200 °C »), limite haute d'usage d'une chemise PTFE. Conditions courantes pour MoS2 hydrothermal (base : PMC10458794, sulfuration à la thioacétamide à 200 °C, 24 h ; PMC12199321, 180 °C, 12 h).",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS : les auteurs attribuent 229,5 eV à Mo 3d3/2 et 232,8 eV à Mo 3d5/2. C'est inversé : la composante 3d5/2 est toujours à plus basse énergie de liaison (Mo4+ dans MoS2 : 3d5/2 ≈ 229,5 eV, 3d3/2 ≈ 232,7 eV). Les valeurs restent compatibles avec Mo4+, mais l'extraction reproduit l'inversion ; écart S 2p de 1,5 eV un peu au-dessus de 1,2–1,3 eV attendu.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Wafer-Scale and Deterministic Patterned Growth of Monolayer MoS2 via Vapor-Liquid-Solid Method (XPS: Mo 3d5/2 229.5 eV, Mo 3d3/2 232.7 eV, S 2p3/2 162.2 eV, S 2p1/2 163.5 eV)",
+      "authors_or_publisher": "arXiv:1906.05436",
+      "year": "2019",
+      "url_or_doi": "https://arxiv.org/pdf/1906.05436"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bande interdite « 2,7 eV » tirée d'un tracé de Tauc (transition directe) sur un composite contenant du MoS2 noir : l'absorption de MoS2 (1,2–1,9 eV) dans le visible déplace le seuil apparent sans abaisser la bande interdite du TiO2 ; la valeur est celle d'un mélange. De plus la référence « TiO2 nu ≈ 3,2 eV » est celle de l'anatase ; le TiO2 ici est du rutile (≈ 3,0 eV, 413 nm), et aucun spectre de PI/TiO2 n'est montré pour comparaison. La conclusion « MoS2 diminue la bande interdite » n'est pas démontrée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Review of the anatase to rutile phase transformation",
+      "authors_or_publisher": "Hanaor D.A.H., Sorrell C.C., J. Mater. Sci. 46, 855-874",
+      "year": "2011",
+      "url_or_doi": "10.1007/s10853-010-5113-0"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Morphologie du MoS2 décrite tantôt en « nanosphères » (MEB), tantôt en « nanofeuillets » (résumé, EDS, conclusion), et « quelques feuillets » enroulés sur des « nanoceintures ultrafines de TiO2 » : cette dernière phrase reprend presque mot pour mot le titre de Zhou et al. (Small 2013), et le TiO2 ici est en bâtonnets. L'EDS seul ne peut pas prouver un revêtement de « quelques feuillets » : il faudrait une MET haute résolution (franges 0,62 nm) ou le Raman (écart E2g–A1g).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of few-layer MoS2 nanosheet-coated TiO2 nanobelt heterostructures for enhanced photocatalytic activities",
+      "authors_or_publisher": "Zhou W., Yin Z., Du Y., Huang X., Zeng Z., Fan Z., Liu H., Wang J., Zhang H., Small 9(1), 140-147",
+      "year": "2013",
+      "url_or_doi": "https://researchportalplus.anu.edu.au/en/publications/synthesis-of-few-layer-mossub2sub-nanosheet-coated-tiosub2sub-nan/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "DRX : raies du rutile identiques à 0,01° près aux valeurs de la fiche 21-1276 (voir « contrôle de Bragg des raies du rutile ») et raies MoS2 « faibles » sans positions ; la figure 4 montre un échantillon PI/MoS2 dont la préparation n'est pas décrite. Le polytype 2H n'est pas distingué de 1T par ces raies faibles.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Photocatalyse : 30 min d'obscurité seulement, alors que MoS2 adsorbe fortement le bleu de méthylène (Zhou 2013) et que les auteurs notent eux-mêmes une baisse « due à l'adsorption » ; ni témoin d'adsorption à l'obscurité sur 180 min, ni photolyse sans catalyseur, ni piégeurs de radicaux, ni volume de solution. Le gain de PI/TiO2@MoS2 sur PI/TiO2 (C/C0 0,05 contre 0,30) peut donc mêler adsorption et photocatalyse. Le texte parle aussi de « molybdenum dioxide » (MoO2) pour MoS2.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of few-layer MoS2 nanosheet-coated TiO2 nanobelt heterostructures for enhanced photocatalytic activities",
+      "authors_or_publisher": "Zhou W., Yin Z., Du Y., Huang X., Zeng Z., Fan Z., Liu H., Wang J., Zhang H., Small 9(1), 140-147",
+      "year": "2013",
+      "url_or_doi": "https://researchportalplus.anu.edu.au/en/publications/synthesis-of-few-layer-mossub2sub-nanosheet-coated-tiosub2sub-nan/"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Deuxième exposition des fibres PI à l'eau chaude (200 °C, 24 h), en présence de NH3/acide acétique issus de l'hydrolyse de la thioacétamide : risque d'hydrolyse des cycles imide plus fort qu'à l'étape TiO2 ; l'intégrité du PI après les deux traitements n'est pas contrôlée (pas de FTIR du composite final comparé au PI).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Transfert des électrons de la bande de conduction de TiO2 vers MoS2 : schéma courant pour les hétérostructures TiO2/MoS2 (MoS2 cocatalyseur), plausible ; non étayé ici par une mesure (photoluminescence, photocourant, piégeurs).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of few-layer MoS2 nanosheet-coated TiO2 nanobelt heterostructures for enhanced photocatalytic activities",
+      "authors_or_publisher": "Zhou W., Yin Z., Du Y., Huang X., Zeng Z., Fan Z., Liu H., Wang J., Zhang H., Small 9(1), 140-147",
+      "year": "2013",
+      "url_or_doi": "https://researchportalplus.anu.edu.au/en/publications/synthesis-of-few-layer-mossub2sub-nanosheet-coated-tiosub2sub-nan/"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Thioacétamide : cancérogène (CIRC 2B, H350), libère H2S toxique par hydrolyse acide ou à chaud : ouvrir l'autoclave refroidi, sous hotte. Non mentionné par l'article.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Thioacetamide, Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "2024",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/16062"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse de la thioacétamide à chaud (CH3CSNH2 + 2 H2O → CH3COO− + NH4+ + H2S) ; H2S/HS− réduit Mo(VI) en Mo(IV) (MoO4^2− + 3 H2S + 2 H+ → MoS2 + S + 4 H2O) avec formation de thio-oxomolybdates intermédiaires ; nucléation hétérogène de MoS2 sur la surface hydroxylée des bâtonnets de rutile, la courbure et le confinement du support limitant l'empilement selon c (feuillets peu nombreux, agrégats en fleurs ou « sphères »). Hypothèse de l'extraction confirmée et précisée.",
+    "sources": [
+     {
+      "title": "Synthesis of few-layer MoS2 nanosheet-coated TiO2 nanobelt heterostructures for enhanced photocatalytic activities",
+      "authors_or_publisher": "Zhou W., Yin Z., Du Y., Huang X., Zeng Z., Fan Z., Liu H., Wang J., Zhang H., Small 9(1), 140-147",
+      "year": "2013",
+      "url_or_doi": "https://researchportalplus.anu.edu.au/en/publications/synthesis-of-few-layer-mossub2sub-nanosheet-coated-tiosub2sub-nan/"
+     },
+     {
+      "title": "Thioacetamide, Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "2024",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/16062"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses de molybdate et de thioacétamide (rapport TAA/Mo ≥ 3, souvent 4–5 en pratique)",
+    "volume d'eau, masse de fibres PI/TiO2 et volume d'autoclave (taux de remplissage ≤ 70 % à 200 °C)",
+    "nature du MoS2 (MET haute résolution, Raman) et charge en MoS2 (ATG, ICP)",
+    "témoins photocatalytiques : adsorption à l'obscurité 180 min, photolyse sans catalyseur, volume et charge en g/L",
+    "tracé de Tauc de PI/TiO2 pour comparaison",
+    "intégrité du polyimide après les deux étapes hydrothermales"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse en trois étages chimiquement plausible (PAA équimolaire puis polyimide électrofilé, rutile par dissolution du titane dans HCl 1 mol/L à 160 °C, MoS2 par molybdate et thioacétamide à 200 °C), mais seule la première étape est chiffrée de façon complète, et encore avec une teneur en solide fausse (20 % recalculé contre 25 % annoncé) et sans programme d'imidation. L'étape MoS2 n'a aucune quantité : non reproductible telle qu'écrite. Plusieurs interprétations sont erronées : pic amide à 1648 cm−1 pris pour une preuve d'imidation complète, Mo 3d3/2 et 3d5/2 inversés, « bande interdite » de 2,7 eV d'un mélange comparée à l'anatase alors que le TiO2 est du rutile.",
+  "author_errors_suspected": [
+   "teneur en solide 25 % incompatible avec 8,30 g de monomères dans 35 mL de DMF (20,1 %)",
+   "« Titania powder » dans Materials contre poudre de titane métal dans la synthèse et le mécanisme",
+   "bande amide à 1648 cm−1 présentée comme preuve d'imidation complète (c'est la marque de l'acide polyamique) ; 1648 cm−1 attribué à trois vibrations",
+   "Mo 3d3/2 (229,5 eV) et Mo 3d5/2 (232,8 eV) inversés",
+   "référence TiO2 3,2 eV (anatase) pour un TiO2 rutile (3,0 eV) ; Tauc appliqué à un composite",
+   "MoS2 nommé nanosphères, nanofeuillets, et « molybdenum dioxide » ; TiO2 nommé « nanobelts » dans une phrase reprise de Zhou et al. 2013",
+   "échantillon PI/MoS2 de la figure 4 sans préparation décrite"
+  ],
+  "comparison_with_database": "Aucune autre voie rutile sur fibres polymères dans la base. Sulfuration hydrothermale molybdate/thioacétamide à 200 °C, 24 h : mêmes conditions que PMC10458794 ; PMC12199321 à 180 °C, 12 h ; PMC12079599 (thiourée) à 200 °C, 8 h. Les conditions de l'article sont donc habituelles, seules les quantités manquent. Rutile en milieu HCl hydrothermal : PMC5028751 et PMC2964502 traitent d'autres précurseurs (anatase majoritaire), pas de point de comparaison direct."
+ },
+ "sources_not_found": [
+  "donnée chiffrée de stabilité hydrolytique du Kapton/PMDA-ODA en eau acide à 150–200 °C (fiche DuPont « Summary of properties » repérée mais inaccessible depuis le cloud) : réserve fondée sur la chimie générale seulement",
+  "source primaire sur l'oxydation de Ti(III) par l'oxygène dissous en autoclave (Fujihara et al., cité par l'article sans référence lisible dans le texte) non retrouvée",
+  "DOI de Zhou et al., Small 2013, 9, 140-147 non relevé (notice de dépôt institutionnel ANU utilisée) ; notice Bell Labs « IR studies of polyimides I » sans auteurs ni année lus"
+ ]
+}

@@ -1,0 +1,15 @@
+# Journal d'extraction PMC9374656
+
+- Voie de base : Si0.7Ge0.3, choisie parce que c'est l'échantillon montré aux figures 1, 2 et 5a (« Si0.7Ge0.3 samples »). L'article ne désigne aucune référence ; les cinq autres compositions sont des branches dont la couche amorphe « a-SiGe » est remplacée (règle du réactif remplacé), avec le même protocole (« sequentially prepared … (x = 0, 0.15, …) » : un seul protocole pour toutes les compositions, héritage fondé).
+- Recuit : « annealed at 400 °C (20 h) for x = 0 and 375 °C (20 h) for x = 0.15, … » ; la base est à 375 °C et la branche Si porte une variation `temperature` (étape 3, 400 °C). Aucune raison donnée par l'article, notée en doute.
+- Deux familles de voies : les échantillons sur polyimide (Hall, EDX, Fig. 2) sont des voies `material` ; ceux sur feuille de Mo (Raman, EBSD, électrochimie) sont des voies `device` « Anode_… », car les Méthodes les rangent dans « Cell fabrication » (poinçonnage, séchage, pile bouton). Étape 1 des voies dispositif sans paramètres : « The SiGe preparation process was the same as that used for the polyimide substrate » ne répète aucune valeur, donc aucune valeur n'est recopiée.
+- Masses de SiGe (85 à 214 μg) : une phrase donne les six valeurs avec « for x = … » ; attribuées par la valeur de x écrite, jamais par la position. Elles portent la variation du réactif « couche SiGe sur Mo » entre voies dispositif.
+- Résultats Hall (Fig. 2e) : conductivité et concentration de trous de chaque composition lues sur figure (axes logarithmiques, ±20 %), la légende servant de citation ; le texte n'écrit que « up to 1200 S cm−1 ». Pour x = 1 la lecture (≈ 1300) dépasse un peu 1200 : lecture de figure gardée, doute noté.
+- Capacités (Fig. 5b : cycles 1, 50, 100 ; Fig. 6a : 0,1 C et 10 C) lues sur figure ; pour x = 0,3 les valeurs du texte (1700, 810 mAh g–1, 48 %, 97 %) sont préférées et seule la valeur du cycle 50 vient de la figure. Cycles 10 et 20 et courbes de la Fig. 4 non extraits (trop denses). Marqueur du cycle 1 de x = 1 masqué dans la Fig. 5b : lecture ≈ 1250, doute noté.
+- 10 C : le texte donne « below 50 » pour x = 0 et 0,15 et « above 500 » pour x = 0,8 et 1 ; gardé en `value_text`, sans chiffre inventé. Les valeurs figure de x = 0,3 et 0,6 à 10 C (≈ 260, 410) complètent.
+- Fig. 6a : « 0.1 C » pris comme régime des 10 premiers cycles, noté « first cycle in rate test » pour ne pas le confondre avec le 1 C de la Fig. 5.
+- Fig. 6b (comparaison à la littérature) : échantillons des Réfs. 24, 26, 27, 30, laissés sans voie dans l'inventaire.
+- Résultat de groupe (p-type pour tous, rétention en fonction de x, récupération après 10 C) : annotations `tendance_observee`, pas de valeur recopiée sur chaque voie.
+- Pureté et fournisseur : aucune phrase générale dans l'article, tout est en `not_stated`. « Celgard 2400 » est un nom de produit, non pris comme fournisseur.
+- `method_sources` vide : renvois CR6 et CR34–CR38 de contexte ; CR39/CR40 (composition par Raman) est une relation d'analyse.
+- Pas de Supporting Information citée dans l'article : aucune annexe absente. Fig. 1 et Fig. 3b (photos, images SEM/IPF) non converties en valeurs.

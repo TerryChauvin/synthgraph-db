@@ -1,0 +1,15 @@
+# PMC10262014 — critique scientifique (journal de décisions)
+
+- Autoclave « H1clave HV-25 » : identifié par recherche web comme le stérilisateur à vapeur Hirayama HICLAVE HV-25 (25 L, 105–126 °C, 3–22 psi). 121 °C = consigne de stérilisation ; pression ≈ 0,2 MPa abs, cohérente avec l'appareil. Classé `reserve` (et non `probleme`) : la synthèse reste faisable, mais le récipient intérieur n'est pas décrit et NaOH chaud attaque le verre.
+- Bilan : 0,6 g Zn(OAc)2·2H2O = 2,73 mmol ; 40 mmol NaOH ; OH/Zn = 14,6 ; NaOH libre 0,73–0,86 M. [Zn] 0,068 M contre ≈ 0,034 M de solubilité (compilation IUPAC-NIST, NaOH 0,93 M, ambiante, extrait de recherche seulement) : rendement possiblement très inférieur au théorique (0,222 g) → `reserve`.
+- `probleme` répété sur chaque branche LI : hydrolyse basique de l'anion alkylsulfate et attaque de OH− en C2 de l'imidazolium à 121 °C dans ≈ 0,8 M NaOH. Source retenue : exemple comparatif du brevet US 7 252 791 (pH 1–2 à 80 °C dans l'eau) ; Holbrey 2002 (Green Chem.) écarté comme appui car son texte n'a pas pu être lu (pubs.rsc.org injoignable) et l'extrait ne mentionne pas l'hydrolyse.
+- Stabilité alcaline des imidazoliums : source = brevet US 11 242 432 (extrait de recherche) ; aucune revue lue en entier (pages PMC/Springer inaccessibles par DNS). Laissé en `reserve`.
+- Quantités de LI : masse volumique supposée 1,2–1,3 g/mL (non vérifiée) ; à 2,5 %, ≈ 2 LI par Zn et ≈ 5 mmol, d'où jusqu'à 15–20 % du NaOH libre consommable par hydrolyse.
+- Franges HRTEM 0,75 et 1,0 nm (Fig. 3f, 3g) → `probleme` : d max de la wurtzite = c = 0,52 nm (réflexion interdite), d(100) = 0,281 nm ; calculé avec a = 3,2498 Å, c = 5,2066 Å (JCPDS 36-1451, valeurs de mémoire signalées). Hypothèse retenue : moirés de feuillets superposés (FESEM : nanofeuillets croisés à ≈ 60°).
+- Franges 0,25 nm : entre d(002) 0,260 et d(101) 0,248 nm, plus proche de (101) → `reserve` sur l'axe [0001] déduit.
+- Eg 2,63 eV (471 nm) → `probleme` : l'effet de taille quantique invoqué n'existe pas à 20–900 nm (rayon de Bohr ≈ 2,34 nm, Nanoscale Res. Lett. 2011, 6:338, auteurs non relevés) et élargirait Eg. Les autres Eg basses (2,90–3,05 eV) laissées en `reserve`.
+- I(100)/I(002) : référence JCPDS ≈ 57/44 = 1,30 (de mémoire) ; les rapports ≈ 1 peuvent venir d'orientation préférentielle de feuillets ; chambre Guinier–Hägg (film) et intensités à 4 chiffres signalées.
+- Contradiction interne relevée (section DRX : [C2mim]CH3SO4 favorise [001] ; résumé et mécanisme : LI protègent (0001)) et « énergie de surface minimale selon [001] » (inverse de la réalité, Wang 2004) → `reserve`.
+- Mécanisme retenu : déshydratation du zincate Zn(OH)4 2− → ZnO + H2O + 2 OH− (Baruah & Dutta 2009), croissance rapide sur (0001) ; équations des auteurs non équilibrées ou inadaptées au milieu.
+- Comparaison base : PMC3497326 (120 °C, 18 h, pH 13) et PMC4531889 (90 °C) ; aucune Eg de ZnO aussi basse.
+- Recherches web : 7 recherches + 4 lectures de pages, toutes en échec (DNS : pubs.rsc.org, pmc.ncbi.nlm.nih.gov, link.springer.com, srdata.nist.gov). Aucun DOI vérifié contre Crossref.

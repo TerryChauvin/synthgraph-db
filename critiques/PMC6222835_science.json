@@ -1,0 +1,599 @@
+{
+ "pmcid": "PMC6222835",
+ "routes": [
+  {
+   "label": "HO-[PECH-MIM]Cl",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles d'épichlorhydrine",
+     "inputs": "39,2 mL ; masse volumique 1,18 g/mL ; M 92,52 g/mol",
+     "formula": "V·ρ/M",
+     "result": "46,3 g ; 0,500 mol",
+     "compared_to": "monomère",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "moles d'éthylène glycol",
+     "inputs": "2,8 mL ; ρ 1,113 g/mL ; M 62,07 g/mol",
+     "formula": "V·ρ/M",
+     "result": "3,12 g ; 0,0502 mol (0,100 mol OH)",
+     "compared_to": "amorceur diol",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "moles de BF3·OEt2",
+     "inputs": "2 mL ; ρ ≈ 1,15 g/mL ; M 141,93 g/mol",
+     "formula": "V·ρ/M",
+     "result": "0,0162 mol",
+     "compared_to": "EG/BF3 ≈ 3,1",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "degré de polymérisation visé et Mn théorique du PECH",
+     "inputs": "0,500 mol ECH ; 0,0502 mol EG ; conversion totale",
+     "formula": "n(ECH)/n(EG) ; (m(ECH)+m(EG))/n(EG)",
+     "result": "≈ 10 motifs par chaîne ; Mn ≈ 983 g/mol ; masse théorique 49,4 g",
+     "compared_to": "PECH utilisé ensuite : 40 g (cohérent avec 49,4 g théoriques moins pertes)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport N-méthylimidazole / Cl du PECH",
+     "inputs": "40 g PECH contenant 40 × 0,500/49,4 = 0,405 mol CH2Cl ; NMI 65 mL × 1,03 g/mL / 82,10 g/mol = 0,815 mol",
+     "formula": "n(NMI)/n(Cl)",
+     "result": "2,0",
+     "compared_to": "quaternisation complète : 1,0 ; excès d'un facteur 2",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "Mn attendu du PIIL quaternisé à 100 %",
+     "inputs": "Mn PECH 983 ; 10 motifs ; + 82,10 g/mol par motif quaternisé",
+     "formula": "983 + 10 × 82,10",
+     "result": "≈ 1800 g/mol",
+     "compared_to": "CPG annexe : 1261 (étalon PS, THF), soit ≈ 3 motifs quaternisés sur 10 si la CPG était juste",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapport ECH/EG ≈ 10 (calcul « degré de polymérisation visé ») : chaîne courte à deux extrémités OH, cohérent avec un PECH-diol oligomère ; BF3 à ≈ 0,32 équivalent par EG, quantité usuelle pour une polymérisation cationique par monomère activé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Polymérisation à 0 °C avec ajout lent : bonne pratique (ouverture de cycle exothermique). Distillations à « 0,09 MPa, 70 °C » puis « 0,1 MPa, 90 °C » : en pression absolue, 0,1 MPa est la pression atmosphérique et à 0,09 MPa le 1,2-dichloroéthane (Téb 83,5 °C à 1 atm) ne distillerait pas à 70 °C ; il s'agit sûrement d'un vide relatif lu au manomètre (≈ −0,09 MPa, soit ≈ 10 kPa absolus). L'article ne le dit pas : un chimiste qui règle 0,09 MPa absolus n'enlèvera ni le DCE ni l'excès de N-méthylimidazole (Téb ≈ 198 °C).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Quaternisation à 50 °C pendant 10 h dans le toluène : les motifs –CH2Cl du PECH sont des chlorures primaires β-ramifiés, peu réactifs en SN2 ; les exemples publiés de quaternisation du PECH par la 1-méthylimidazole se font à ≈ 80 °C pendant 48 à 72 h dans l'acétonitrile. Avec 2 équivalents de NMI seulement 10 h à 50 °C, la quaternisation est probablement partielle, ce que suggère aussi la masse molaire CPG (calcul « Mn attendu du PIIL quaternisé à 100 % »). Le taux de quaternisation n'est pas mesuré (pas d'intégration RMN ni d'analyse Cl/N du PIIL).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Syntheses, characterizations and functions of cationic polyethers with imidazolium-based ionic liquid moieties",
+      "authors_or_publisher": "S. Hayano, K. Ota, H. T. Ban (Polym. Chem. 9, 948)",
+      "year": "2018",
+      "url_or_doi": "10.1039/c7py01985h"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Masse molaire 1261 mesurée par CPG dans le THF contre étalons polystyrène : un polyimidazolium chlorure est un polyélectrolyte très hygroscopique, peu soluble dans le THF et qui s'adsorbe sur les colonnes ; la valeur n'est au mieux qu'un ordre de grandeur, sans dispersité ni indication de dissolution. Le « résidu ATG 4,2 % » n'est pas discuté (sels de bore ou de fluor restants ?).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrits : épichlorhydrine (cancérogène 1B, alkylante, volatile), BF3·OEt2 (corrosif, libère HF/BF3 au lavage à l'eau de l'étape 5), 1,2-dichloroéthane (cancérogène), N-méthylimidazole (corrosive). Lavage aqueux d'un milieu contenant BF3 : eaux de lavage acides fluorées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Polymérisation cationique par ouverture de cycle de l'ECH, BF3·OEt2 activant le monomère et l'éthylène glycol servant d'amorceur (mécanisme du monomère activé, qui limite les cycliques et donne un PECH-diol d'environ 10 motifs), puis quaternisation SN2 partielle des motifs chlorométhyle par la N-méthylimidazole, donnant des motifs glycidyl-méthylimidazolium chlorure.",
+    "sources": [
+     {
+      "title": "Syntheses, characterizations and functions of cationic polyethers with imidazolium-based ionic liquid moieties",
+      "authors_or_publisher": "S. Hayano, K. Ota, H. T. Ban (Polym. Chem. 9, 948)",
+      "year": "2018",
+      "url_or_doi": "10.1039/c7py01985h"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pression réelle des distillations (vide relatif ou pression absolue)",
+    "taux de quaternisation (RMN 1H intégrée ou analyse N/Cl) après 10 h à 50 °C ; allonger la durée ou monter à 80 °C si partiel",
+    "élimination de l'excès de NMI (Téb ≈ 198 °C) à 90 °C sous vide",
+    "neutralisation et traitement des eaux de lavage contenant BF3"
+   ]
+  },
+  {
+   "label": "HOOC-[PECH-MIM]Cl",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fonctions du PECH engagé",
+     "inputs": "8,2 g de PECH ; si c'est le PECH-diol de la voie –OH : 0,500 mol Cl et 0,100 mol OH pour 49,4 g",
+     "formula": "8,2 × n/49,4",
+     "result": "0,083 mol CH2Cl ; 0,0167 mol OH terminaux",
+     "compared_to": "sites carboxyméthylables",
+     "source": "valeurs de l'article (hypothèse : PECH de la voie –OH, non dite par l'annexe)"
+    },
+    {
+     "what": "acide chloroacétique",
+     "inputs": "18 g ; M 94,50 g/mol",
+     "formula": "m/M",
+     "result": "0,190 mol (11 équivalents par OH)",
+     "compared_to": "0,0167 mol OH",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "base apportée par Na2CO3",
+     "inputs": "4 g ; M 105,99 g/mol ; 2 équivalents de base par mole",
+     "formula": "2·m/M",
+     "result": "0,0755 équivalent, soit 40 % de l'acide chloroacétique",
+     "compared_to": "acide chloroacétique libre restant ≥ 0,115 mol",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "pH avant ajout de HCl (estimation en phase aqueuse)",
+     "inputs": "0,115 mol ClCH2COOH libre ; 0,0755 mol ClCH2COO− ; pKa 2,87",
+     "formula": "pH = pKa + log(base/acide)",
+     "result": "≈ 2,7",
+     "compared_to": "pH visé par les auteurs « 3~4 » atteint en AJOUTANT HCl (7 mL ; si HCl 37 % : ≈ 0,084 mol)",
+     "source": "pKa de l'acide chloroacétique : valeur de manuel (2,87), non revérifiée en ligne"
+    },
+    {
+     "what": "gain de masse attendu par carboxyméthylation complète des OH",
+     "inputs": "0,0167 mol OH × 58,04 g/mol (–CH2COOH − H)",
+     "formula": "n·ΔM",
+     "result": "+0,97 g, soit 9,17 g attendus",
+     "compared_to": "HOOC-[PECH]Cl obtenu : 8,4 g (+0,2 g)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport NMI / Cl et taux de quaternisation apparent",
+     "inputs": "3,65 g HOOC-[PECH]Cl ≈ 0,037 mol Cl ; NMI 4,8 mL × 1,03 / 82,10 = 0,060 mol ; produit 5,36 g",
+     "formula": "n(NMI)/n(Cl) ; (5,36 − 3,65)/82,10/n(Cl)",
+     "result": "NMI/Cl = 1,63 ; gain 1,71 g = 0,021 mol NMI fixée, ≈ 56 % des Cl quaternisés (sans pertes)",
+     "compared_to": "masse maximale à 100 % : 6,68 g",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le milieu reste acide pendant toute la réaction (calcul « base apportée par Na2CO3 » : la base ne neutralise que 40 % de l'acide chloroacétique) ; son pH estimé est ≈ 2,7 (calcul « pH avant ajout de HCl »). Ajouter 7 mL d'acide chlorhydrique ne peut que faire baisser le pH : « amener le pH à 3~4 avec HCl » est impossible tel qu'écrit. Soit la base réelle était en excès (NaOH ?), soit l'ordre ou le réactif de l'ajustement est faux. De plus le pH n'a pas de sens défini dans l'acétonitrile presque anhydre.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Une fonction –COOH terminale ne peut naître que d'une O-alkylation de Williamson (R–O− + ClCH2COO− → R–O–CH2–COO−), qui exige un alcoolate, donc une base forte en excès (procédé de la carboxyméthylcellulose : NaOH concentrée). Ici, avec un excès d'acide et Na2CO3 insoluble dans l'acétonitrile, les seules réactions possibles sont l'estérification de l'OH par l'acide chloroacétique ou l'attaque du carboxylate sur un –CH2Cl : toutes deux donnent un ester chloroacétique (R–O–CO–CH2Cl), sans –COOH libre. Le gain de masse observé (+0,2 g contre +0,97 g attendus, calcul « gain de masse attendu ») indique au mieux ≈ 20 % de transformation. La présence de –COOH n'est pas établie.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : le signal RMN à δ 5,11 attribué au H de –COOH est hors de la zone habituelle d'un acide carboxylique (≈ 10–13 ppm, ou échangé dans D2O ; solvant RMN non donné) ; aucun titrage acide ni bande C=O à 1720–1740 cm−1 sur le PIIL seul n'est rapportée dans le texte (la seule bande à 1720 cm−1 est sur le catalyseur greffé et serait aussi celle d'un ester). Un ester chloroacétique ou un reste d'acide chloroacétique expliquerait aussi les observations.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "80 °C dans l'acétonitrile (Téb ≈ 82 °C) sous réfrigérant : acceptable. Quaternisation à 80 °C pendant 24 h sans solvant, NMI/Cl = 1,63 : taux apparent ≈ 56 % (calcul « rapport NMI / Cl et taux de quaternisation apparent »), cohérent avec une quaternisation partielle.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Acide chloroacétique : toxique par contact cutané (toxicité systémique, brûlures), à manipuler avec gants ; dégagement de CO2 à l'ajout de Na2CO3 dans un ballon chaud.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dans les conditions écrites (acide chloroacétique en excès, Na2CO3 sous-stœchiométrique, acétonitrile), la réaction la plus probable est une estérification partielle des OH terminaux en chloroacétates (R–O–CO–CH2Cl) et la formation de chloroacétate de sodium, pas une carboxyméthylation ; la quaternisation par la NMI touche ensuite environ la moitié des –CH2Cl (et peut aussi toucher le –CH2Cl de l'ester chloroacétique, plus réactif). Un véritable PECH–O–CH2–COOH demanderait l'alcoolate (NaH ou NaOH en excès) avant l'ajout de chloroacétate.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "nature et quantité réelles de la base, et sens de l'ajustement de pH",
+    "preuve du –COOH (titrage acido-basique, IR C=O du PIIL, RMN 13C ≈ 170–175 ppm) contre un ester chloroacétique",
+    "origine du PECH de 8,2 g (non dite par l'annexe)",
+    "concentration de l'HCl ajouté"
+   ]
+  },
+  {
+   "label": "H2N-[PECH-MIM]Cl",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "volume de toluène par gramme de PECH",
+     "inputs": "rapport massique toluène:PECH = 2:1 ; ρ toluène 0,867 g/mL",
+     "formula": "2/0,867",
+     "result": "≈ 2,3 mL de toluène par g de PECH",
+     "compared_to": "seule quantité donnée ; brome, ammoniac et NMI sans quantité",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "bilan de la décoloration brome + ammoniac",
+     "inputs": "3 Br2 + 8 NH3 → N2 + 6 NH4Br",
+     "formula": "stœchiométrie",
+     "result": "8 NH3 consomment 3 Br2 en dégageant N2 : la décoloration rouge-brun → incolore est attendue même sans aucune amination du polymère",
+     "compared_to": "critère de fin de réaction des auteurs",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité de brome, d'ammoniac (ni sa forme : gaz, solution aqueuse ?) ni de N-méthylimidazole (« at a certain mass ratio ») : la voie ne peut pas être refaite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le brome ne réagit pas avec un polyéther saturé ni avec un chlorure d'alkyle à 20–50 °C ; dans le toluène, il réagit avec le solvant (bromation benzylique à la lumière → bromure de benzyle, ou bromation du noyau si un acide de Lewis est présent) en libérant HBr. L'ammoniac neutralise ensuite HBr et détruit l'excès de Br2 (calcul « bilan de la décoloration ») : la décoloration n'est pas un indicateur d'amination. La substitution d'un –CH2Cl par NH3 à 30 °C en 3 h est très lente. Le rôle du brome n'est pas expliqué et l'introduction de –NH2 n'est pas chimiquement justifiée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : le seul indice de –NH2 est un signal RMN à δ 4,48 (échangeable, comme l'eau d'un polyélectrolyte hygroscopique, souvent vers 4,5–4,8 ppm) ; en IR la bande N–H est dite « couverte » par l'OH. Aucun dosage d'amine (ninhydrine, titrage, analyse N avant quaternisation) n'est donné.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Brome : très toxique et corrosif ; il réagit violemment avec l'ammoniac (dégagement de N2, exotherme) et avec les composés organiques ; le bromure de benzyle éventuellement formé dans le toluène est lacrymogène. Aucune de ces précautions n'est écrite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Bromine — Chemical Datasheet (reactivity profile)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026-10-14 (extrait de recherche, page non ouverte)",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/257"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Mécanisme non établi. Le plus probable : bromation partielle du toluène (HBr libéré), puis neutralisation et destruction du brome par l'ammoniac ; amination du PECH faible ou nulle à 30 °C ; la N-méthylimidazole quaternise ensuite les –CH2Cl restants. Une amination réelle demanderait par exemple ammoniac en autoclave à chaud, ou azoture puis réduction, ou Gabriel.",
+    "sources": [
+     {
+      "title": "Bromine — Chemical Datasheet (reactivity profile)",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026-10-14 (extrait de recherche, page non ouverte)",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/257"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantités de brome, d'ammoniac et de NMI (à obtenir des auteurs ou des références S3)",
+    "dosage des amines du H2N-[PECH]Cl avant quaternisation",
+    "produits bromés du toluène dans la phase organique"
+   ]
+  },
+  {
+   "label": "HO-[PECH-MIM]Cl/[ZnBr2]",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "quantité de ZnBr2",
+     "inputs": "« a given amount » ; aucune masse de PIIL",
+     "formula": "—",
+     "result": "rapport Zn/imidazolium incalculable",
+     "compared_to": "les halogénozincates actifs ont 2 cations imidazolium par Zn ([ZnX4]2−)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "« Chauffé à reflux 24 h » sans solvant nommé : un liquide ionique n'a pas de pression de vapeur notable, donc la température de « reflux » n'est pas définie ; elle ne peut être que celle d'un solvant résiduel (eau, NMI ?) qui n'est pas dit. La température réelle est inconnue.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Quantité de ZnBr2 non donnée (calcul « quantité de ZnBr2 ») : la stœchiométrie de l'anion halogénozincate, qui commande l'activité (ordre [ZnBr4]2− > [ZnBr2Cl2]2− ≫ [ZnCl4]2−), est inconnue.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Imidazolium zinc tetrahalide-catalyzed coupling reaction of CO2 and ethylene oxide or propylene oxide",
+      "authors_or_publisher": "H. S. Kim et al. (J. Catal. 220, 44–46)",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0021-9517(03)00238-0"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Couleur rouge-brun : les halogénozincates d'imidazolium sont incolores ; un brunissement à chaud signale plutôt une dégradation du polymère ou de l'imidazolium (ou des impuretés bromées, pour la branche –NH2). Les 100 % de conversion et 97–99 % de sélectivité avec 2,5 % massique à 120 °C, 2,5 MPa, 1 h sont dans l'ordre de grandeur des systèmes imidazolium/ZnBr2.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Imidazolium zinc tetrahalide-catalyzed coupling reaction of CO2 and ethylene oxide or propylene oxide",
+      "authors_or_publisher": "H. S. Kim et al. (J. Catal. 220, 44–46)",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0021-9517(03)00238-0"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "ZnBr2 se combine aux chlorures d'imidazolium pour former des anions halogénozincates [ZnBr2Cl2]2−/[ZnBr2Cl]− ; dans la catalyse, Zn2+ (acide de Lewis) active l'oxygène de l'époxyde, un halogénure ouvre le cycle sur le carbone le moins substitué (CH2), l'alcoolate insère CO2 et le carbonate se referme en libérant l'halogénure.",
+    "sources": [
+     {
+      "title": "Imidazolium zinc tetrahalide-catalyzed coupling reaction of CO2 and ethylene oxide or propylene oxide",
+      "authors_or_publisher": "H. S. Kim et al. (J. Catal. 220, 44–46)",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0021-9517(03)00238-0"
+     },
+     {
+      "title": "Synthesis of cyclic carbonates from epoxides and CO2",
+      "authors_or_publisher": "M. North, R. Pasquale, C. Young (Green Chem. 12, 1514–1539)",
+      "year": "2010",
+      "url_or_doi": "10.1039/C0GC00065E"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de ZnBr2 et de PIIL (rapport Zn/imidazolium)",
+    "solvant et température réelle du « reflux »",
+    "origine de la couleur brune (dégradation ?)"
+   ]
+  },
+  {
+   "label": "ZSM-5-HO-[PECH-MIM]Cl/[ZnBr2]",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diffraction : distance réticulaire du pic à 23,1°",
+     "inputs": "2θ = 23,1° ; λ Cu Kα1 = 1,5406 Å (anode non dite par l'article)",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "3,85 Å",
+     "compared_to": "raies fortes de la MFI à 23,1 / 23,9 / 24,4° 2θ (Cu) : cohérent",
+     "source": "λ : NIST X-ray Transition Energies (valeur de constantes.md)"
+    },
+    {
+     "what": "quantités du greffage",
+     "inputs": "masses de PIIL composite, de ZSM-5 et volume d'acétonitrile non donnés",
+     "formula": "—",
+     "result": "taux de charge visé incalculable",
+     "compared_to": "charge mesurée 1,121 mmol/g (catalyseur –COOH seulement)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "La « condensation entre le chlore du PIIL et l'hydrogène de la ZSM-5 avec départ de HCl » formant une liaison covalente n'est pas une réaction connue dans ces conditions (70 °C, acétonitrile) : un chlorure d'alkyle ne s'ancre sur un silanol qu'avec un agent de couplage (silane chloropropylé) ou à haute température. Les protons acides d'une H-ZSM-5 peuvent en revanche s'échanger avec les cations imidazolium (échange d'ions, départ de HCl si le contre-ion est Cl−) : c'est un ancrage électrostatique, pas covalent. Le polymère (Mn ≈ 1–2 kg/mol) n'entre pas dans les canaux de 0,55 nm : ancrage en surface externe seulement.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : l'IR montre la présence d'imidazole (1655 cm−1, qui recouvre aussi la déformation de l'eau adsorbée vers 1630–1640 cm−1) et non une liaison Si–O–C ; la bande « C–O–C » à 1275 cm−1 est voisine de la bande d'élongation asymétrique externe de la MFI (≈ 1220–1230 cm−1). Ni dégagement de HCl mesuré, ni test de lixiviation à chaud, ni RMN du solide ne distinguent greffage covalent, échange d'ions et adsorption.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La perte de masse entre 550 et 700 °C est attribuée à « la décomposition d'une partie du tamis moléculaire » : la ZSM-5 est stable jusqu'à ≈ 800 °C et ne perd sa surface qu'au-delà de 1025 °C ; la courbe de la ZSM-5 seule de la Figure 5 est d'ailleurs plate. Cette perte vient plus probablement de la volatilisation de ZnBr2 (Téb ≈ 697 °C, fusion 394 °C) ou de la combustion de coke (atmosphère d'ATG non dite).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Gas adsorption properties of ZSM-5 zeolites heated to extreme temperatures",
+      "authors_or_publisher": "M. Pérez-Page, J. Makel, K. Guan, S. Zhang, J. Tringe, R. H. R. Castro, P. Stroeve (Ceram. Int. 42, 15423–15431)",
+      "year": "2016",
+      "url_or_doi": "10.1016/j.ceramint.2016.06.193"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Greffage à 70 °C dans l'acétonitrile (Téb ≈ 82 °C) : sous la température d'ébullition, mais montage (ouvert, réfrigérant) non dit ; évaporation à 65 °C et séchage à « 0,08 MPa » (vide relatif probable, comme ailleurs dans l'article). Acceptable.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Aucune masse de PIIL, de ZSM-5 ni de solvant : la charge visée ne peut pas être reproduite ; le rapport Si/Al et la forme (H, Na) de la ZSM-5 commerciale ne sont pas donnés, alors que l'ancrage proposé repose sur ses protons. L'article parle aussi de « notre ZSM-5 synthétisée » alors que 3.1 la dit commerciale.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Poudre de zéolithe fine (inhalation) ; HCl éventuellement dégagé ; essai catalytique sous 2,5 MPa à 130 °C avec oxyde de propylène (très inflammable, cancérogène 1B) dans un autoclave de 300 mL rempli à 50 % : la cycloaddition est exothermique (les auteurs le disent), ≈ 2,1 mol converties en 45 min ; un serpentin de refroidissement et un disque de rupture sont nécessaires.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Ancrage le plus probable : échange d'ions entre les cations imidazolium du PIIL et les protons/cations de compensation de la ZSM-5, plus adsorption du polymère et des halogénozincates sur la surface externe (liaisons hydrogène avec les silanols) ; pas de liaison covalente démontrée. En catalyse, le mécanisme reste celui des halogénozincates d'imidazolium (activation de l'époxyde par Zn, ouverture par l'halogénure).",
+    "sources": [
+     {
+      "title": "Imidazolium zinc tetrahalide-catalyzed coupling reaction of CO2 and ethylene oxide or propylene oxide",
+      "authors_or_publisher": "H. S. Kim et al. (J. Catal. 220, 44–46)",
+      "year": "2003",
+      "url_or_doi": "10.1016/S0021-9517(03)00238-0"
+     },
+     {
+      "title": "Synthesis of cyclic carbonates from epoxides and CO2",
+      "authors_or_publisher": "M. North, R. Pasquale, C. Young (Green Chem. 12, 1514–1539)",
+      "year": "2010",
+      "url_or_doi": "10.1039/C0GC00065E"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "Si/Al et forme (H ou Na) de la ZSM-5",
+    "masses de PIIL composite, de zéolithe et d'acétonitrile",
+    "test de lixiviation à chaud (filtrer le catalyseur à mi-réaction) pour distinguer greffage et dissolution",
+    "atmosphère de l'ATG et dosage Zn/Br du solide"
+   ]
+  },
+  {
+   "label": "ZSM-5-HOOC-[PECH-MIM]Cl/[ZnBr2]",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire C/N du catalyseur frais",
+     "inputs": "N 3,149 % ; C 7,744 % (Tableau 3, rangée 1)",
+     "formula": "(7,744/12,011)/(3,149/14,007)",
+     "result": "6,447/2,248 mmol/g = 2,87",
+     "compared_to": "motif quaternisé C7H11N2O+Cl− : C/N = 3,5 au minimum (motifs non quaternisés, extrémités EG et –CH2COOH l'augmentent)",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "charge en imidazolium tirée de N",
+     "inputs": "2,248 mmol N/g ; 2 N par imidazolium",
+     "formula": "n(N)/2",
+     "result": "1,124 mmol/g",
+     "compared_to": "« PIIL grafted » 1,121 mmol/g : l'unité est le motif imidazolium, pas la chaîne",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "C/N après cycles et C/N de la matière perdue",
+     "inputs": "rangée 2 : N 2,275 %, C 7,131 % ; rangée 3 : N 2,256 %, C 7,059 %",
+     "formula": "C/N ; ΔC/ΔN entre rangées 1 et 2",
+     "result": "C/N = 3,66 et 3,65 ; matière perdue : ΔC/ΔN = 0,510/0,624 = 0,82",
+     "compared_to": "aucune espèce organique du système n'a C/N < 2 (NMI et acétonitrile : 2)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "part organique d'après C",
+     "inputs": "C 7,744 % ; fraction de C du motif C7H11N2OCl (174,6 g/mol) = 48 %",
+     "formula": "7,744/0,48",
+     "result": "≈ 16 % massique de PIIL",
+     "compared_to": "perte ATG ≈ 47–49 % (résidu 51–53 % lu sur Fig. 5a)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rendement du cycle 1",
+     "inputs": "conversion 98,3 % ; sélectivité 97,4 % (Tableau 2, rangée 6)",
+     "formula": "rendement = conversion × sélectivité (relation suivie par le Tableau 1, toutes rangées)",
+     "result": "95,7 %",
+     "compared_to": "« yield 97,4 % » en 2.7",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "contrôle du plan orthogonal L9",
+     "inputs": "9 rangées du Tableau 2",
+     "formula": "sommes Knj et étendues R",
+     "result": "toutes les valeurs K et R (23,5/25,4 ; 22,9/18,4 ; 7,5/7,6) se recalculent exactement",
+     "compared_to": "Tableau 2",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "charge catalytique et TON",
+     "inputs": "PO 150 mL × 0,83 g/mL / 58,08 = 2,14 mol ; catalyseur 2,5 % de 124,5 g = 3,11 g ; 1,121 mmol imidazolium/g",
+     "formula": "n(imidazolium) ; TON = 0,983 × n(PO)/n(imidazolium)",
+     "result": "3,49 mmol (0,16 % molaire) ; TON ≈ 600 en 0,75 h",
+     "compared_to": "ordre de grandeur des systèmes imidazolium/ZnBr2",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session"
+    },
+    {
+     "what": "pression de vapeur de l'oxyde de propylène à 130 °C",
+     "inputs": "Téb 34 °C ; ΔHvap ≈ 27 kJ/mol (approximation de Clausius-Clapeyron)",
+     "formula": "P = 101,3 exp[−ΔH/R (1/403 − 1/307)]",
+     "result": "≈ 1,2 MPa",
+     "compared_to": "pression totale 2,5 MPa : pression partielle de CO2 initiale ≈ 1,3 MPa",
+     "source": "valeurs de manuel (PubChem/NIST), non revérifiées en ligne dans cette session ; ordre de grandeur"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le C/N du catalyseur frais (2,87, calcul « rapport molaire C/N du catalyseur frais ») est inférieur au minimum possible pour le PIIL (3,5) : une espèce riche en azote non liée au polymère (NMI libre en excès, acétonitrile piégé dans les micropores après séchage à 65 °C) est présente. La « charge en PIIL » de 1,121 mmol/g, calculée à partir de N seul, est donc surestimée, et la part dite « adsorbée physiquement » (0,318 mmol/g) perdue aux premiers cycles peut être en partie ce résidu azoté plutôt que du PIIL. La matière perdue entre frais et 2e rangée aurait un C/N de 0,82 (calcul « C/N après cycles »), impossible pour toute espèce du système sans apport de carbone (résidus de carbonate de propylène) : l'analyse élémentaire ne permet pas la répartition chimisorbé/physisorbé annoncée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La perte ATG (≈ 47–49 %) est trois fois plus forte que la part organique déduite du carbone (≈ 16 %, calcul « part organique d'après C ») : le reste devrait être ZnBr2 (non dosé) et de l'eau ; sans la quantité de ZnBr2, l'ATG ne peut pas confirmer la charge.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérences entre sections : en 2.7 le « rendement » du cycle 1 vaut 97,4 %, alors que conversion × sélectivité de la même condition donne 95,7 % (calcul « rendement du cycle 1 ») ; 97,4 % est la sélectivité. La note du Tableau 3 dit « réutilisé 2 fois » et « 8 fois », le texte « trois et huit cycles », la Table S1 « 1, 2, 8 ». Le plan L9 se recalcule exactement (calcul « contrôle du plan orthogonal L9 »), mais l'« optimum » retenu est la meilleure rangée, pas la combinaison des meilleurs niveaux (en sélectivité : 2,5 MPa, 110 °C, 0,75 h).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La procédure dit que la réaction s'arrête « quand le débit de CO2 est nul », alors que le plan orthogonal impose des durées de 0,75, 1 et 1,25 h : on ne sait pas laquelle des deux règles a fixé la fin des essais. Le rendement est calculé (conversion × sélectivité) et non pesé, bien que l'annexe décrive une pesée après distillation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Activité : TON ≈ 600 en 45 min (calcul « charge catalytique et TON ») ; plausible pour un halogénozincate d'imidazolium. Mais le catalyseur greffé, qui contient ≈ 5 fois moins de PIIL par gramme que le PIIL composite pur à la même charge de 2,5 %, donne presque la même conversion (96 % contre 100 %) : soit l'activité est surtout portée par ZnBr2 et une espèce lixiviée en solution, soit la conversion est limitée par autre chose que le catalyseur. Un test de filtration à chaud manque.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of cyclic carbonates from epoxides and CO2",
+      "authors_or_publisher": "M. North, R. Pasquale, C. Young (Green Chem. 12, 1514–1539)",
+      "year": "2010",
+      "url_or_doi": "10.1039/C0GC00065E"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Pression de vapeur du PO à 130 °C ≈ 1,2 MPa (calcul « pression de vapeur ») : la pression totale affichée de 2,5 MPa ne correspond qu'à ≈ 1,3 MPa de CO2 ; l'effet « pression » du plan L9 mélange donc pression partielle de CO2 et température. Autoclave de 300 mL avec 150 mL de PO (50 % de remplissage, ≈ 182 mL de PC en fin de réaction) : remplissage acceptable.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "La meilleure activité de la version –COOH est attribuée par les auteurs à l'acidité de PIIL –COOH physisorbé ; comme la présence de –COOH n'est pas démontrée (voie HOOC-[PECH-MIM]Cl) et que le C/N indique un résidu azoté libre, l'écart de 0,5 point de conversion entre les trois catalyseurs greffés (95,8–96,3 %) est dans l'incertitude d'un essai unique et ne permet pas de classer les fonctions terminales.",
+    "sources": [
+     {
+      "title": "Synthesis of cyclic carbonates from epoxides and CO2",
+      "authors_or_publisher": "M. North, R. Pasquale, C. Young (Green Chem. 12, 1514–1539)",
+      "year": "2010",
+      "url_or_doi": "10.1039/C0GC00065E"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dosage de Cl, Br et Zn du catalyseur frais et usé (ICP, titrage)",
+    "élimination de la NMI libre et de l'acétonitrile avant l'analyse élémentaire (C/N)",
+    "test de filtration à chaud et dosage du Zn dans le PC",
+    "nombre réel de cycles des échantillons du Tableau 3"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Le schéma général (PECH-diol par polymérisation cationique de l'ECH, quaternisation par la N-méthylimidazole, association à ZnBr2, dépôt sur ZSM-5, cycloaddition CO2/oxyde de propylène) est chimiquement plausible et la catalyse par halogénozincates d'imidazolium est bien établie. Mais les deux fonctionnalisations qui font l'objet de la comparaison sont mal fondées : la voie –COOH est écrite dans un milieu acide où une carboxyméthylation est impossible et où l'ajustement de pH par HCl va dans le mauvais sens ; la voie –NH2 utilise du brome au rôle inexpliqué, sans quantités, avec une décoloration qui ne prouve pas l'amination. L'ancrage « covalent » sur ZSM-5 n'est soutenu par aucune mesure discriminante, l'analyse élémentaire (C/N 2,87 < 3,5) montre un résidu azoté libre, et la perte ATG à 550–700 °C est attribuée à tort à la décomposition de la zéolithe. Quantités de ZnBr2, de PIIL et de ZSM-5 absentes : catalyseurs non reproductibles à l'identique.",
+  "author_errors_suspected": [
+   "ajustement du pH « à 3~4 » par ajout d'HCl dans un milieu déjà à pH ≈ 2,7 (voie –COOH)",
+   "fonction –COOH et –NH2 affirmées sans preuve discriminante (δ 5,11 pour –COOH ; δ 4,48 pour –NH2)",
+   "perte ATG 550–700 °C attribuée à la décomposition de la ZSM-5 (stable jusqu'à ≈ 800 °C) ; ZnBr2 (Téb ≈ 697 °C) plus probable",
+   "C/N du catalyseur frais (2,87) inférieur au minimum du PIIL (3,5) : charge en PIIL surestimée",
+   "« rendement » du cycle 1 (97,4 %) égal à la sélectivité ; nombre de cycles du 2e échantillon du Tableau 3 donné de trois façons",
+   "« notre ZSM-5 synthétisée » contre ZSM-5 commerciale (3.1) ; pressions de distillation données sans préciser vide relatif ou pression absolue",
+   "fabricants d'instruments inexacts (TM3000 attribué à Keyence, D/max-2400 à « RKC ») : sans effet sur la chimie"
+  ],
+  "comparison_with_database": "Aucune autre publication de la base ne porte sur des liquides ioniques polyéther-imidazolium ; compare.py « ZSM-5 » ne renvoie que des synthèses hydrothermales de la zéolithe (PMC8941405, PMC9056161, PMC9425827), sans recoupement possible avec ce greffage."
+ },
+ "sources_not_found": [
+  "aucune source ouverte pour une valeur d'enthalpie de réaction PO + CO2 → PC (exothermicité seulement admise)",
+  "conditions exactes de quaternisation du PECH dans Hayano 2018 non lues (pages RSC inaccessibles depuis cet environnement) ; l'ordre de grandeur 80 °C, 48–72 h vient d'exemples de brevets vus en extrait",
+  "références S1–S3 des auteurs (Plastics 2015 ; Acta Petrol Sin 2017 ; Chem Ind Eng Prog 2017) non trouvées en ligne",
+  "PubChem (ZnBr2, PO, acide chloroacétique) non ouvert : constantes de manuel signalées comme non revérifiées"
+ ]
+}

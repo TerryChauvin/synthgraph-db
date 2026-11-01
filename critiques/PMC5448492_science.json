@@ -1,0 +1,496 @@
+{
+ "pmcid": "PMC5448492",
+ "routes": [
+  {
+   "label": "FeSi10-500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "volume de lot pour le rapport 255 EtOH : 4 TEOS : 9 H2O2 (30 %)",
+     "inputs": "EtOH 255 mol × 46,07 g/mol / 0,789 g/mL ; TEOS 4 mol × 208,33 g/mol / 0,933 g/mL ; H2O2 9 mol × 34,01 g/mol à 30 % m/m, densité 1,11",
+     "formula": "Σ m/ρ",
+     "result": "EtOH 14,89 L ; TEOS 0,893 L ; H2O2 30 % 1,020 kg = 0,919 L ; total 16,7 L (17,4 L si 40 H2O ajoutés en plus) ; EtOH ≈ 89 % du volume",
+     "compared_to": "sol de silice dilué de type « dépôt de membrane »",
+     "source": "masses molaires et densités PubChem (ethanol, tetraethyl orthosilicate, hydrogen peroxide)"
+    },
+    {
+     "what": "concentrations dans le sol",
+     "inputs": "4 mol Si ; x = 0,4 (Fe/Si 10 %) ou 2 (50 %) ; V = 16,7 L",
+     "formula": "n/V",
+     "result": "[Si] ≈ 0,24 mol/L (≈ 1,4 % m de SiO2) ; [Fe] ≈ 0,024 mol/L (10 %) ; 0,12 mol/L (50 %)",
+     "compared_to": "Fe(NO3)3·9H2O très soluble dans l'eau et l'éthanol : pas de limite de solubilité du sel",
+     "source": "arithmétique"
+    },
+    {
+     "what": "x pour chaque Fe/Si",
+     "inputs": "Fe/Si = x/4",
+     "formula": "x = 4 × Fe/Si",
+     "result": "2 % → 0,08 ; 5 % → 0,2 ; 10 % → 0,4 ; 25 % → 1 ; 33 % → 1,32 ; 50 % → 2",
+     "compared_to": "plage annoncée x = 0–2 : cohérente",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "eau apportée par H2O2 à 30 %",
+     "inputs": "9 mol H2O2 = 306,1 g ; solution à 30 % m/m = 1020,3 g",
+     "formula": "(m_sol − m_H2O2)/18,015",
+     "result": "39,6 mol H2O",
+     "compared_to": "« 40 H2O » du rapport molaire : coïncidence quasi exacte → les 40 H2O sont vraisemblablement l'eau de la solution de H2O2",
+     "source": "arithmétique ; masses molaires PubChem"
+    },
+    {
+     "what": "rapport H2O/Si selon x (si 40 H2O = eau de H2O2)",
+     "inputs": "39,6 + 9x mol H2O pour 4 Si",
+     "formula": "(39,6 + 9x)/4",
+     "result": "x = 0 : 9,9 ; x = 0,4 : 10,8 ; x = 1 : 12,2 ; x = 2 : 14,4",
+     "compared_to": "texte : « H2O/Si kept constant » et « water of crystallization was taken into account »",
+     "source": "arithmétique"
+    },
+    {
+     "what": "pH naturel estimé du sol à 10 % Fe (eau pure, première hydrolyse seule)",
+     "inputs": "C(Fe3+) = 0,024 mol/L ; log *β1 ≈ −2,19 (Fe3+ + H2O = FeOH2+ + H+)",
+     "formula": "h² /(C − h) = *β1",
+     "result": "pH ≈ 2,0 ; pour pH 1,70 il faut [H+] = 0,020 mol/L, soit 0,83 H+ libéré par Fe",
+     "compared_to": "pH le plus bas de la série : 1,70 (après ajout d'ammoniaque, donc pH naturel ≤ 1,70)",
+     "source": "Flynn 1984 (hydrolyse de Fe(III)) ; arithmétique"
+    },
+    {
+     "what": "solubilité de la ferrihydrite à pH 1,7 et 2,1",
+     "inputs": "log *Ks0 (Fe(OH)3 + 3H+ = Fe3+ + 3H2O) pris entre 3,0 et 3,5",
+     "formula": "[Fe3+]max = *Ks0 × [H+]³",
+     "result": "pH 1,7 : 8–25 mmol/L ; pH 2,1 : 0,5–1,6 mmol/L",
+     "compared_to": "[Fe] = 24 mmol/L à 10 % : sursaturation ×15 à ×50 à pH 2,1 (en milieu aqueux ; l'éthanol à 89 % déplace les activités)",
+     "source": "ordre de grandeur de manuel pour la ferrihydrite (Flynn 1984) ; calcul indicatif"
+    },
+    {
+     "what": "diamètre moyen 4V/S (contrôle du rayon « ~10 Å »)",
+     "inputs": "plateau N2 lu Fig. 4 (cm3 STP/g) et BET Fig. 5a (m2/g) : 0 % 130/400 ; 2 % 100/300 ; 5 % 100/310 ; 10 % 110/320 ; 25 % 77/230 ; 33 % 63/200 ; 50 % 73/220 ; 1 cm3 STP N2 = 0,001547 cm3 liquide",
+     "formula": "Vp = V_STP × 0,001547 ; d = 4Vp/S",
+     "result": "d = 2,01 ; 2,06 ; 2,00 ; 2,13 ; 2,07 ; 1,95 ; 2,05 nm → rayon ≈ 10–10,6 Å",
+     "compared_to": "rayon moyen annoncé 10 Å ± 0,5 : cohérent (le rayon annoncé est 2V/S)",
+     "source": "densité de N2 liquide à 77 K 0,808 g/cm3, 22 414 cm3/mol (chimie générale) ; valeurs lues sur figures (extraction)"
+    },
+    {
+     "what": "surface par mole de silice à 500 °C, recalculée avec Fe2O3 (Fe/Si = r)",
+     "inputs": "masse par mol Si = 60,08 + r × 79,85 g (½ Fe2O3 par Fe) ; S BET Fig. 5a",
+     "formula": "S × (60,08 + 79,85 r)",
+     "result": "0 % 24 000 ; 2 % 18 500 ; 5 % 19 900 ; 10 % 21 800 ; 25 % 18 400 ; 33 % 17 300 ; 50 % 22 000 m2/mol",
+     "compared_to": "Fig. 5b (lu) : 24 000 ; 19 000 ; 21 000 ; 25 000 ; 24 000 ; 22 000 ; 31 000",
+     "source": "masses molaires SiO2 60,08 et Fe2O3 159,69 (PubChem) ; arithmétique"
+    },
+    {
+     "what": "masse de Fe implicite dans la Fig. 5b",
+     "inputs": "Fig. 5b / Fig. 5a = masse par mol Si ; 13 points (500 et 700 °C)",
+     "formula": "(F/S − 60,08)/r",
+     "result": "151–180 g par mol de Fe à 500 °C, 139–176 g à 700 °C, moyenne ≈ 162 g/mol",
+     "compared_to": "M(Fe2O3) = 159,69 g/mol, soit une Fe2O3 comptée par atome de Fe au lieu de ½ (79,85 g) : masse d'oxyde de fer doublée",
+     "source": "arithmétique sur valeurs lues (±10 m2/g ; ±1000 m2/mol)"
+    },
+    {
+     "what": "surface par mole de silice à 700 °C, recalculée",
+     "inputs": "même formule ; S BET Fig. 5a à 700 °C : 100 ; 35 ; 130 ; 120 ; 90 ; 55 ; 87 m2/g",
+     "formula": "S × (60,08 + 79,85 r)",
+     "result": "0 % 6 000 ; 2 % 2 160 ; 5 % 8 330 ; 10 % 8 170 ; 25 % 7 200 ; 33 % 4 750 ; 50 % 8 700 m2/mol",
+     "compared_to": "Fig. 5b (lu) : 6 300 ; 2 200 ; 8 900 ; 9 200 ; 9 100 ; 6 500 ; 12 000",
+     "source": "arithmétique"
+    },
+    {
+     "what": "baisse de surface blanc → 2 % annoncée « 33 % »",
+     "inputs": "Fig. 5a : 400 → 300 m2/g (500 °C) ; 100 → 35 m2/g (700 °C)",
+     "formula": "(S0 − S2)/S0 et (S0 − S2)/S2",
+     "result": "500 °C : 25 % (rapporté au blanc) ou 33 % (rapporté à l'échantillon 2 %) ; 700 °C : 65 % (rapporté au blanc)",
+     "compared_to": "texte : 33 % et ~50 %",
+     "source": "arithmétique sur valeurs lues"
+    },
+    {
+     "what": "masse résiduelle attendue à 800 °C pour Fe/Si 50 % si le xerogel contenait le sel intact",
+     "inputs": "par mol Si : SiO2 60,08 g + 0,5 × Fe(NO3)3·9H2O 404,0 g (ou anhydre 241,86 g) → SiO2 + 0,25 Fe2O3 = 100,0 g",
+     "formula": "m_final / m_initial",
+     "result": "38 % (nonahydrate) ; 55 % (nitrate anhydre)",
+     "compared_to": "Fig. 1b (lu) : 65 % pour 50 % Fe (si la barre est la masse résiduelle), 70 % pour le blanc",
+     "source": "masses molaires PubChem ; arithmétique"
+    },
+    {
+     "what": "masse de l'espèce de fer dans le xerogel séché (Fe/Si 50 %)",
+     "inputs": "partie silice : 60,08/0,70 = 85,8 g par mol Si (perte du blanc) ; échantillon 50 % : 100,0/0,65 = 153,9 g",
+     "formula": "(153,9 − 85,8)/0,5",
+     "result": "≈ 136 g par mol de Fe",
+     "compared_to": "Fe(NO3)3·9H2O 404 ; Fe(OH)2NO3 ≈ 152 ; Fe(OH)3 106,9 g/mol → le fer est déjà largement dénitraté/hydrolysé au séchage à 60 °C",
+     "source": "arithmétique (hypothèse : la silice perd autant que le blanc)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapports internes cohérents : x = 0–2 pour 4 TEOS donne bien Fe/Si 0–50 % ; [Si] ≈ 0,24 mol/L et [Fe] ≈ 0,024 mol/L (voir calculs « volume de lot » et « concentrations »), sel de fer très soluble. Aucune quantité absolue, ni masse de xerogel, ni rendement : le lot doit être reconstruit à partir du rapport.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Eau : 9 mol de H2O2 à 30 % m/m apportent 39,6 mol d'eau (calcul « eau apportée par H2O2 à 30 % »), ce qui coïncide avec « 40 H2O ». Si c'est le cas, l'eau de cristallisation (9x, jusqu'à 18 mol) ne peut pas être compensée et H2O/Si passe de 9,9 à 14,4 (calcul « rapport H2O/Si selon x »), contrairement à « H2O/Si kept constant » et à « water of crystallization was taken into account ». Si au contraire 40 H2O s'ajoutent à l'eau de H2O2, H2O/Si ≈ 20, loin du « faible H2O/Si (<10) » de l'introduction. Les deux lectures ne sont pas compatibles avec le texte : la quantité d'eau libre ajoutée par échantillon est inconnue.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Mélange en bain de glace (EtOH, éb. 78 °C), séchage à 60 °C sous l'ébullition de l'éthanol, calcination sous air 500/700 °C à 1,5 °C/min : cohérent. La décomposition de Fe(NO3)3·9H2O est achevée bien avant 500 °C (Wieczorek-Ciurowa 1999, réf. B19 de l'article) ; la silice reste amorphe à 700 °C. Durée de séchage absente.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "pH : le pH le plus bas de la série (1,70, obtenu après ajout d'ammoniaque) suppose un pH naturel ≤ 1,70, soit ≥ 0,83 H+ libéré par Fe, alors que la première hydrolyse de Fe3+ à 0,024 mol/L ne donne que pH ≈ 2,0 dans l'eau (calcul « pH naturel estimé »). Le milieu contient ≈ 89 % d'éthanol : les pH mesurés sont des pH apparents d'électrode de verre en milieu hydroalcoolique, non transposables à un pH aqueux, et l'acidité vient peut-être aussi des stabilisants de H2O2. Le pH du sol non ajusté et la façon de le mesurer ne sont pas donnés.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrolysis of inorganic iron(III) salts",
+      "authors_or_publisher": "Flynn C.M. Jr., Chem. Rev. 84, 31-41",
+      "year": "1984",
+      "url_or_doi": "10.1021/cr00059a003 (DOI non vérifié : Crossref et doi.org injoignables ; référence bibliographique confirmée par recherche web)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Surface par mole de silice (Fig. 5b) : les 13 points lus sont reproduits si l'on compte une Fe2O3 entière (159,7 g) par atome de Fe au lieu d'une demie (79,85 g) — masse de Fe implicite moyenne ≈ 162 g/mol (calcul « masse de Fe implicite dans la Fig. 5b »). Recalculées correctement, les surfaces par mole de SiO2 à 500 °C (calcul « surface par mole de silice à 500 °C, recalculée ») sont toutes inférieures ou égales à celle du blanc (50 % : 22 000 et non 31 000 m2/mol) ; l'argument « l'oxyde de fer s'oppose à l'effondrement » ne tient plus à 500 °C. À 700 °C il subsiste en partie (5 %, 10 %, 25 %, 50 % : 7 200–8 700 contre 6 000 pour le blanc ; 33 % : 4 750, en dessous). Erreur de calcul probable des auteurs ; à confirmer sur les données brutes.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rayon de pore moyen ≈ 10 Å : recalculé 4V/S = 1,95–2,13 nm à partir des plateaux de la Fig. 4 et des surfaces de la Fig. 5a (calcul « diamètre moyen 4V/S ») : cohérent avec le rayon 2V/S annoncé. Un diamètre de 2 nm est à la frontière micro/méso de l'IUPAC (isotherme de type I(b)) ; la surface BET d'un solide microporeux est une surface apparente (critères de Rouquerol). Appeler ces solides « tamis moléculaires » est abusif pour la séparation de gaz (diamètres cinétiques 0,26–0,38 nm) : le rayon moyen 2V/S ne renseigne pas sur la fraction ultramicroporeuse.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure Appl. Chem.",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Preuve discriminante : l'absence de liaisons Fe–O–Si est déduite de l'absence de bande « vers 490 cm−1 », alors que les spectres sont enregistrés de 1300 à 580 cm−1 (section expérimentale) : la région invoquée n'a pas été mesurée. La conclusion « matrice mixte de silice et de particules d'oxyde de fer » n'est donc pas démontrée par l'IR ; aucune DRX ni microscopie ne l'appuie.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La bande à 667 cm−1 attribuée à Fe–O d'« oxyde de fer » est observée sur des xerogels non calcinés (Fig. 3a, 3b), où le fer est encore un aquo/hydroxo-complexe nitraté (calcul « masse de l'espèce de fer dans le xerogel séché ») et non un oxyde. Les bandes Fe–O de l'hématite sont vers 548 et 471 cm−1 (Vempati et al. 1990), hors de la plage mesurée. L'identité de la phase de fer après calcination (hématite, maghémite, Fe3+ dispersé dans la silice) reste inconnue.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Infrared vibrations of hematite formed from aqueous- and dry-thermal incubation of Si-containing ferrihydrite",
+      "authors_or_publisher": "Vempati R.K., Loeppert R.H., Sittertz-Bhatkar H., Burghardt R.C., Clays and Clay Minerals 38(3) 294-298",
+      "year": "1990",
+      "url_or_doi": "https://www.cambridge.org/core/journals/clays-and-clay-minerals/article/abs/infrared-vibrations-of-hematite-formed-from-aqueous-and-drythermal-incubation-of-sicontaining-ferrihydrite/487A10C01E927D84BA071EB3BC961A7A (DOI non vérifié)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "ATG : si la Fig. 1b porte bien la masse résiduelle (doute de l'extraction), l'échantillon à 50 % garde ≈ 65 % de sa masse, alors qu'un xerogel contenant le sel nonahydraté intact n'en garderait que 38 % (55 % pour le nitrate anhydre) (calcul « masse résiduelle attendue »). Le fer du xerogel séché à 60 °C pèse ≈ 136 g par mol de Fe : il est déjà largement hydrolysé et dénitraté (perte de HNO3 au séchage). L'attribution par les auteurs de la perte supplémentaire à la décomposition du nitrate nonahydraté surestime la part du nitrate ; la légende (« total weight loss ») et l'axe de la Fig. 1b doivent être clarifiés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre figures : à Fe/Si 10 %, la Fig. 5a donne ≈ 320 m2/g (500 °C) et ≈ 120 m2/g (700 °C), alors que toute la série pH de la Fig. 6 (pH 1,70–2,10, supposée à 10 % d'après la Fig. 3b) donne 280–370 m2/g et 150–260 m2/g. À 700 °C l'écart atteint un facteur 2 : soit la Fig. 6 n'est pas à 10 % Fe (la légende ne le dit pas), soit la reproductibilité d'un lot à l'autre est faible. Dans les deux cas les écarts de 20–50 m2/g entre compositions de la Fig. 5a sont à interpréter avec prudence (une seule mesure par point, pas de barre d'erreur).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Baisse de 33 % » du blanc à 2 % à 500 °C : les valeurs de la Fig. 5a (400 → 300 m2/g) donnent 25 % rapporté au blanc et 33 % seulement rapporté à l'échantillon à 2 % ; à 700 °C, 100 → 35 m2/g fait 65 % et non ~50 % (calcul « baisse de surface blanc → 2 % »). Pourcentages des auteurs à ne pas réutiliser sans recalcul.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non écrit dans l'article : Fe3+ catalyse la décomposition de H2O2 (dégagement d'O2, réaction exothermique, oxydation de type Fenton de l'éthanol) — d'où l'intérêt du bain de glace ; ne pas confiner le sol. Le séchage à 60 °C d'un sol à ≈ 89 % d'éthanol dans une étuve dégage des vapeurs inflammables (étuve non antidéflagrante à proscrire, ou évaporation préalable sous hotte) et concentre H2O2 résiduel avec des matières organiques. La calcination dégage NOx (four ventilé). CAMEO : H2O2 se décompose violemment au contact de composés métalliques et peut enflammer des combustibles.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrogen peroxide, aqueous solution, with not less than 8% but less than 20% / 20-60% hydrogen peroxide — Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/891"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "3 h d'agitation à 0 °C puis séchage : en catalyse acide (pH ≈ 2, près du point isoélectrique de la silice) l'hydrolyse du TEOS est rapide et la condensation lente, ce qui donne des polymères peu ramifiés et des xerogels microporeux après séchage : cohérent avec les isothermes de type I.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "L'hydrolyse de Fe3+ (et peut-être les stabilisants de H2O2) acidifie le sol à pH apparent ≈ 1,7–2, près du point isoélectrique de la silice : l'hydrolyse du TEOS est catalysée par l'acide et la condensation reste lente, d'où des chaînes de siloxane peu ramifiées qui s'empilent au séchage en un xerogel microporeux (rayon 2V/S ≈ 1 nm). Le fer reste dans le sol sous forme d'aquo/hydroxo-complexes de Fe(III) ; au séchage à 60 °C une partie du nitrate part sous forme de HNO3 avec l'eau et l'éthanol, et le fer se retrouve en hydroxo-nitrate/oxyhydroxyde amorphe (≈ 136 g par mol de Fe). À la calcination, déshydroxylation et décomposition du nitrate donnent un oxyde de Fe(III) (vraisemblablement hématite nanocristalline ou Fe3+ dispersé à faible teneur), tandis que la silice se densifie par condensation des silanols. H2O2 n'a pas de rôle redox nécessaire pour Fe(III) ; il est en partie décomposé par le fer. L'effet « anti-effondrement » de l'oxyde de fer n'est pas établi à 500 °C une fois la surface par mole de silice recalculée.",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     },
+     {
+      "title": "Hydrolysis of inorganic iron(III) salts",
+      "authors_or_publisher": "Flynn C.M. Jr., Chem. Rev. 84, 31-41",
+      "year": "1984",
+      "url_or_doi": "10.1021/cr00059a003 (DOI non vérifié : Crossref et doi.org injoignables ; référence bibliographique confirmée par recherche web)"
+     },
+     {
+      "title": "Infrared vibrations of hematite formed from aqueous- and dry-thermal incubation of Si-containing ferrihydrite",
+      "authors_or_publisher": "Vempati R.K., Loeppert R.H., Sittertz-Bhatkar H., Burghardt R.C., Clays and Clay Minerals 38(3) 294-298",
+      "year": "1990",
+      "url_or_doi": "https://www.cambridge.org/core/journals/clays-and-clay-minerals/article/abs/infrared-vibrations-of-hematite-formed-from-aqueous-and-drythermal-incubation-of-sicontaining-ferrihydrite/487A10C01E927D84BA071EB3BC961A7A (DOI non vérifié)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "quantité d'eau libre réellement ajoutée par échantillon (les 40 H2O sont-ils l'eau de H2O2 à 30 % ?) ; consulter Uhlmann et al. 2009 (réf. B17)",
+    "pH du sol non ajusté et méthode de mesure du pH en milieu à ≈ 89 % d'éthanol",
+    "durée du séchage à 60 °C et précautions contre les vapeurs d'éthanol dans l'étuve",
+    "recalculer la surface par mole de SiO2 avec ½ Fe2O3 par Fe avant d'en tirer une conclusion",
+    "identifier la phase de fer après calcination (DRX, IR jusqu'à 400 cm−1)",
+    "faire au moins deux lots par composition pour estimer la dispersion de la surface BET"
+   ]
+  },
+  {
+   "label": "FeSi0-500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport H2O/Si du blanc",
+     "inputs": "x = 0 ; 39,6 mol H2O de la solution de H2O2 (+ 40 H2O si ajoutés)",
+     "formula": "n(H2O)/4",
+     "result": "9,9 (ou ≈ 20)",
+     "compared_to": "échantillons au fer : 9,9 + 2,25 x (si 40 H2O = eau de H2O2)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "surface par mole de SiO2",
+     "inputs": "400 m2/g ; M(SiO2) 60,08",
+     "formula": "S × M",
+     "result": "24 000 m2/mol",
+     "compared_to": "Fig. 5b lue : 24 000 (pas de fer, pas d'erreur possible)",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change plusieurs variables : sans sel de fer, le sol perd la source d'acide (hydrolyse de Fe3+, pH ≈ 2) et l'eau de cristallisation ; son pH n'est pas donné et aucun acide n'est ajouté. La forte baisse de surface du blanc à 2 % Fe (et la différence de comportement en ATG) peut venir du changement de catalyse autant que du fer. Témoin à faire : blanc acidifié par HNO3 au même pH apparent, à H2O/Si égal.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Sans catalyseur acide, l'hydrolyse du TEOS en 3 h à 0 °C est lente ; une partie du TEOS non hydrolysé (éb. ≈ 168 °C) peut s'évaporer au séchage, ce qui modifie la masse de silice récupérée. Le blanc donne néanmoins 400 m2/g, valeur courante pour une silice sol-gel microporeuse calcinée à 500 °C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Hydrolyse et condensation du TEOS à pH non contrôlé (acidité éventuelle des stabilisants de H2O2), séchage en xerogel microporeux puis densification à la calcination.",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pH du sol blanc",
+    "présence ou non d'un catalyseur acide"
+   ]
+  },
+  {
+   "label": "FeSi50-500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "teneur en Fe2O3 du solide calciné",
+     "inputs": "Fe/Si 50 % : 60,08 g SiO2 + 0,5 × 79,85 g",
+     "formula": "39,9/100,0",
+     "result": "≈ 40 % m de Fe2O3",
+     "compared_to": "« iron oxide silica » : composite riche en fer",
+     "source": "masses molaires PubChem ; arithmétique"
+    },
+    {
+     "what": "surface par mole de SiO2 recalculée",
+     "inputs": "220 m2/g ; 100,0 g par mol Si",
+     "formula": "S × 100,0",
+     "result": "22 000 m2/mol",
+     "compared_to": "Fig. 5b lue : 31 000 ; blanc 24 000",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'augmentation de la surface par mole de silice de 33 à 50 % (17 300 → 22 000 m2/mol recalculés) subsiste, mais l'échantillon à 50 % reste sous le blanc (24 000) à 500 °C ; la valeur de 31 000 de la Fig. 5b provient du double comptage de Fe2O3 (voir FeSi10-500).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "[Fe] ≈ 0,12 mol/L dans un milieu à pH ≈ 1,7–2 : sursaturé vis-à-vis de la ferrihydrite (solubilité 0,5–25 mmol/L selon le pH) ; un sol stable au moins 3 h à 0 °C est plausible (précipitation lente à basse température) mais un vieillissement plus long risque de faire précipiter Fe(III).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrolysis of inorganic iron(III) salts",
+      "authors_or_publisher": "Flynn C.M. Jr., Chem. Rev. 84, 31-41",
+      "year": "1984",
+      "url_or_doi": "10.1021/cr00059a003 (DOI non vérifié : Crossref et doi.org injoignables ; référence bibliographique confirmée par recherche web)"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme FeSi10-500, avec une part de fer plus grande : la décomposition du nitrate vers 230–240 °C est visible en dTGA ; l'oxyde de Fe(III) formé (≈ 40 % m) cristallise vraisemblablement en hématite à 500–700 °C, phase non vérifiée.",
+    "sources": [
+     {
+      "title": "Infrared vibrations of hematite formed from aqueous- and dry-thermal incubation of Si-containing ferrihydrite",
+      "authors_or_publisher": "Vempati R.K., Loeppert R.H., Sittertz-Bhatkar H., Burghardt R.C., Clays and Clay Minerals 38(3) 294-298",
+      "year": "1990",
+      "url_or_doi": "https://www.cambridge.org/core/journals/clays-and-clay-minerals/article/abs/infrared-vibrations-of-hematite-formed-from-aqueous-and-drythermal-incubation-of-sicontaining-ferrihydrite/487A10C01E927D84BA071EB3BC961A7A (DOI non vérifié)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "phase de fer (DRX)",
+    "stabilité du sol (pas de précipité avant séchage)"
+   ]
+  },
+  {
+   "label": "FeSi10-pH1.70-500",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "[H+] à pH 1,70 rapporté au fer",
+     "inputs": "pH 1,70 ; [Fe] = 0,024 mol/L",
+     "formula": "10^−1,7 / [Fe]",
+     "result": "0,020 mol/L ; 0,83 H+ par Fe",
+     "compared_to": "pH ≈ 2,0 attendu pour la seule première hydrolyse de Fe3+ dans l'eau",
+     "source": "Flynn 1984 ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Surface à pH 1,70 : 370 m2/g (500 °C) et 260 m2/g (700 °C) contre 320 et 120 m2/g pour l'échantillon 10 % de la Fig. 5a : écart inexpliqué (voir FeSi10-500) ; quantité d'ammoniaque et moment de l'ajout non donnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "L'ammoniaque neutralise HNO3 en nitrate d'ammonium, qui reste dans le xerogel avec des résidus organiques : décomposition exothermique possible à la calcination (montée lente de 1,5 °C/min favorable).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "L'ammoniaque consomme une partie des protons issus de l'hydrolyse de Fe3+ ; la condensation de la silice s'accélère au-dessus du point isoélectrique (≈ pH 2), ce qui ouvre un peu le réseau et réduit la surface après calcination (370 → 280 m2/g de pH 1,70 à 2,10).",
+    "sources": [
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration et volume d'ammoniaque",
+    "étape d'ajout",
+    "pH naturel du sol"
+   ]
+  },
+  {
+   "label": "pH_above_2.10_precipitated",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [
+    {
+     "what": "solubilité de la ferrihydrite à pH 2,1",
+     "inputs": "log *Ks0 3,0–3,5 ; [Fe] = 0,024 mol/L",
+     "formula": "*Ks0 × [H+]³",
+     "result": "0,5–1,6 mmol/L ; sursaturation ×15–50",
+     "compared_to": "précipitation observée au-dessus de pH 2,10",
+     "source": "ordre de grandeur de manuel (Flynn 1984) ; arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "La précipitation au-delà de pH 2,10 est attendue : Fe(III) hydrolysé précipite en oxyhydroxyde à ce pH pour 0,024 mol/L, et la condensation de la silice s'accélère au-dessus de son point isoélectrique (≈ pH 2). Les auteurs ne distinguent pas les deux causes (« agglomerated and precipitated ») ; la couleur et l'analyse du précipité le diraient.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Hydrolysis of inorganic iron(III) salts",
+      "authors_or_publisher": "Flynn C.M. Jr., Chem. Rev. 84, 31-41",
+      "year": "1984",
+      "url_or_doi": "10.1021/cr00059a003 (DOI non vérifié : Crossref et doi.org injoignables ; référence bibliographique confirmée par recherche web)"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Précipitation d'oxyhydroxyde de Fe(III) amorphe (ferrihydrite) et/ou gélification-agrégation rapide de la silice au-dessus du point isoélectrique.",
+    "sources": [
+     {
+      "title": "Hydrolysis of inorganic iron(III) salts",
+      "authors_or_publisher": "Flynn C.M. Jr., Chem. Rev. 84, 31-41",
+      "year": "1984",
+      "url_or_doi": "10.1021/cr00059a003 (DOI non vérifié : Crossref et doi.org injoignables ; référence bibliographique confirmée par recherche web)"
+     },
+     {
+      "title": "The sol-gel process",
+      "authors_or_publisher": "Hench L.L., West J.K., Chem. Rev.",
+      "year": "1990",
+      "url_or_doi": "10.1021/cr00099a003"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "nature du précipité (Fe ou Si)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse sol-gel simple et plausible (TEOS/éthanol/H2O2 30 %/Fe(NO3)3·9H2O, 0 °C, séchage 60 °C, calcination 500–700 °C), mais protocole incomplet (aucune quantité absolue, eau libre ambiguë, pH apparent en milieu à 89 % d'éthanol) et conclusions mal étayées : la surface par mole de silice (Fig. 5b) semble calculée avec une Fe2O3 par Fe, ce qui crée l'effet « anti-effondrement » à 500 °C ; l'absence de Fe–O–Si est tirée d'une région IR non mesurée ; la phase de fer n'est pas identifiée.",
+  "author_errors_suspected": [
+   "Fig. 5b : masse d'oxyde de fer comptée comme Fe2O3 par atome de Fe (≈ 160 g au lieu de 79,85 g), surfaces par mole de silice surestimées de 15 à 40 % pour Fe/Si ≥ 10 %",
+   "absence de bande Fe–O–Si « à ~490 cm−1 » invoquée alors que les spectres s'arrêtent à 580 cm−1",
+   "« H2O/Si constant » incompatible avec un rapport fixe 40 H2O / 9 H2O2 (30 %) et x variable",
+   "baisse de 33 % (blanc → 2 %) calculée par rapport à l'échantillon à 2 % ; ~50 % à 700 °C contre 65 % d'après la Fig. 5a",
+   "légende de la Fig. 1b (« total weight loss ») apparemment en contradiction avec l'axe (masse résiduelle)"
+  ],
+  "comparison_with_database": "Seule voie « iron oxide silica » de la base. PMC3088885 (CoFe2O4/SiO2 sol-gel à partir de nitrates de Fe et Co) donne une masse résiduelle en ATG de 54 % pour un alcogel séché à température ambiante, du même ordre que les 65–76 % des xerogels séchés à 60 °C ici ; pas d'autre silice microporeuse sol-gel comparable (les autres silices de la base sont mésoporeuses à gabarit, 600–740 m2/g)."
+ },
+ "sources_not_found": [
+  "texte intégral de Uhlmann et al. 2009 (réf. B17) : impossible de vérifier si le rapport 255:4:9:40 et la prise en compte de l'eau de cristallisation y sont décrits",
+  "source primaire pour la position d'une bande Fe–O–Si dans un xerogel Fe–SiO2 (recherche web infructueuse ; l'article cite ~490 cm−1 via Komadel 1995 et Russell 1994)",
+  "DOI de Vempati et al. 1990 et de Flynn 1984 non vérifiés (Crossref et doi.org injoignables)"
+ ]
+}

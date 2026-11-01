@@ -1,0 +1,80 @@
+{
+ "pmcid": "PMC5456199",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "caractérisation rhéologie (Fig. 2) : absente de toutes les voies (NZ040, NZ080, Z0/PSS, MC pur)",
+   "extracted": "aucune entrée `characterizations` ni résultat de rhéologie ; l'inventaire range Fig. 2 en route null",
+   "article_says": "The temperature was increased from 293 to 363 K at 1 K/min by a Peltier module.",
+   "fix": "ajouter à NZ040 (et NZ080) une caractérisation « rheology » avec instrument (Paar Physica MCR301, cylindre concentrique à 1 s−1, cône-plan à 1 Hz) et conditions (293 à 363 K, 1 K/min, pH 11, MC 3,5 % et 6,8 % dans la PSS) ; lire Fig. 2 : le MC pur à 3,5 % (pH 11) gélifie vers 68–70 °C (G' passe de ≈ 2 à > 1000 Pa), alors que MC/PSS ne gélifie presque pas jusqu'à 90 °C (G' ≈ 5–10 Pa), en accord avec la phrase « The gelation in the alkaline precursor solution (Figure 2b) is much less pronounced than in the pure MC solutions. » ; c'est l'appui expérimental du mécanisme des auteurs",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Z0, NZ010, NZ020, NZ060, NZ080, NZ100 : EDXS et DRX absentes",
+   "extracted": "seul NZ040 porte les caractérisations XRD et EDXS (phase pure, composition à 10 % du nominal)",
+   "article_says": "Determination of the elemental composition using energy-dispersive X-ray spectroscopy (EDXS) corroborated that all obtained samples are indeed chemically pure nanosized zeolite NaA (Figure S4).",
+   "fix": "ajouter à chaque branche (ou une annotation tendance_observee de groupe) le résultat « chimiquement pur, zéolite NaA » ; la cristallinité > 90 % de tous les échantillons est déjà en annotation de groupe, mais pas la pureté de phase/EDXS",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation pourquoi_ces_donnees et réactif MC : base du pourcentage de Table 1",
+   "extracted": "« 0 ; 0,10 ; 0,20 ; 0,40 ; 0,60 ; 0,80 ; 1,00 g, soit 0 à 8,3 % de la solution » avec 16,5 g de PSS",
+   "article_says": "NZ040 | 0.4/3.5 | 100 ± 20 | −48 | 61",
+   "fix": "le calcul est faux : 0,40 g sur 16,5 g donne 2,4 % et 1,00 g donne 6,1 %, pas 3,5 % et 8,3 % ; le tableau implique une base d'environ 11–12 g (0,4/0,035 ; 1,0/0,083). Retirer « de la solution » et ne pas lier le % aux 16,5 g ; ajouter un doute et une limite_reproductibilité (base du « % of PSS » incohérente avec les 16,5 g des Méthodes ; le doute existant dit seulement « sans unité de base »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "NZ040 réactif methylcellulose, rôle",
+   "extracted": "role = template",
+   "article_says": "The MC was found to synthesize highly crystalline nanosized zeolite NaA crystals without any additional chemicals or structure-directing agents.",
+   "fix": "rôle `polymer` (gel de confinement) : les auteurs écrivent « template-free » et « without ... structure-directing agents » ; `template` fausse la lecture du réactif dans la base (doute déjà noté, mais la donnée structurée reste contradictoire)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "NZ040_calcined caractérisation FTIR, conditions",
+   "extracted": "samples heated at 573 K before measurement",
+   "article_says": "Figure 4 shows the Fourier-transform infrared (FTIR) spectra of nanocrystalline NaA zeolites after being heated at 573 K and pure MC powder at 373 K overnight.",
+   "fix": "la phrase vise « the nanocrystalline NaA zeolites » en général (lavés et calcinés), sans dire que l'échantillon calciné à 773 K a été de plus chauffé à 573 K ; reformuler les conditions en citant la phrase et dire que le traitement 573 K vaut pour les spectres a et b ; la même condition manque à la caractérisation FTIR de NZ040 (spectre a)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotations : zeta potentiel de groupe",
+   "extracted": "aucune annotation de groupe sur la phrase du potentiel zêta nano/micro",
+   "article_says": "We found that the zeta potential changed slightly from −47 ± 12 mV for synthesized nanosized particles to −40 ± 1.9 mV for micron-sized particles of zeolite A.",
+   "fix": "ajouter une tendance_observee de groupe avec cette citation (valeur de groupe, pas à recopier par voie) ; noter que −40 ± 1,9 mV ne coïncide pas avec Table 1 (Z0 −39, 4A −39)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "NZ040 annotation mecanisme_auteurs",
+   "extracted": "La MC gélifie à chaud dans la solution alcaline et le réseau limite la croissance des cristaux",
+   "article_says": "The gelation in the alkaline precursor solution (Figure 2b) is much less pronounced than in the pure MC solutions.",
+   "fix": "la citation de conclusion jointe ne dit pas que la MC gélifie dans la PSS ; ajouter cette nuance (gélification atténuée dans la solution alcaline, début décalé vers une plage où le gel peut se défaire) pour que l'annotation ne surestime pas le gel",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 8,
+  "branches_extracted": 8,
+  "not_stated_checked": 29,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "rendement en poudre et masse de produit non donnés (voie de base et PSS)",
+  "base du « % of PSS » de Table 1 incompatible avec les 16,5 g de PSS (0,4 g / 16,5 g = 2,4 %, pas 3,5 %)",
+  "« 27.0 g of SiO2 (HS-30 Ludox) » : masse de silice ou de suspension Ludox (HS-30 = 30 % massique) non précisée ; ordre et durée du mélange des réactifs du PSS non donnés",
+  "vitesse d'agitation (313 K 15 min, vigoureuse seulement pour les étapes citées), durée et puissance de sonication, nombre exact de cycles de lavage-centrifugation non donnés ; dispositif de chauffage à 355 K non précisé",
+  "calcination : atmosphère et four non donnés ; l'article ne dit pas clairement si les échantillons de Table 1 ont été calcinés (Méthodes) ou seulement lavés (Résultats, Conclusions)",
+  "pression de la figure 5 (isothermes CO2/N2 à 273 et 293 K) non écrite ; symboles de légende perdus, attribution des courbes recoupée seulement avec les 4,9 mmol/g du résumé",
+  "annexe : seules les légendes de Fig. S1–S6 sont dans le dépôt (courbes cinétiques et EDXS non lisibles)",
+  "le résumé annonce une étude de la durée et de la température de cristallisation qui n'est pas dans le corps de l'article"
+ ],
+ "mechanism_check": "à revoir : mecanisme_auteurs surestime la gélification dans la PSS (l'article la dit atténuée) ; mecanisme_analyse est correctement formulée en hypothèse",
+ "notes": "Extraction globalement fidèle : toutes les valeurs de Table 1 (7 rangées) et de Table 2 (8 colonnes, attribution par nom d'en-tête relue : Z0 −0.0035, NZ010 −0.0036, NZ020 −0.0038, NZ040 −0.0033/−0.0024*, NZ060 −0.0033/−0.0024*, NZ080 −0.0039, NZ100 −0.0036) sont justes. Les 28 valeurs lues sur Fig. 5 sont à ≤ 0,1 mmol/g de ma lecture (écart maximal 0,05 mmol/g, p. ex. NZ040 CO2 293 K : 4,85 lu contre 4,9 repris ; NZ080 CO2 273 K : 4,76 contre 4,8 ; N2 273 K NZ020/NZ100 ≈ 0,52 contre 0,5), donc sous les 10 % ; l'attribution des couleurs (noir CO2 273 K, rouge CO2 293 K, bleu N2 273 K, vert-bleu N2 293 K) est plausible physiquement (absorption plus forte à plus basse température). Deux sources de méthode (B21 et B36) correctes ; les renvois B14, B24–B26 (type II), B27, B28 et B32/B35 sont des renvois de contexte et n'en sont pas. Fragile : le choix « calcination = post-traitement NZ040 seulement » est une lecture et non un fait de l'article ; Figure 1 (MEB) et Figure 4 n'ont pas de valeur lisible hors texte."
+}

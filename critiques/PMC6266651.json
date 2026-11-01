@@ -1,0 +1,87 @@
+{
+  "pmcid": "PMC6266651",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "faux",
+      "where": "method_sources, entrée B21-materials-11-02112 (route V2C-NaF-HCl, role protocole_adapte)",
+      "extracted": "B21-materials-11-02112, protocole_adapte, quote « By that method, highly pure V2C MXene with good Li storage properties was synthesized »",
+      "article_says": "In 2017, we found a new method, sodium fluoride/hydrochloric acid (NaF + HCl) etching at 90 °C, to synthesize V2C MXene. By that method, highly pure V2C MXene with good Li storage properties was synthesized",
+      "fix": "Le renvoi B21 est dans l'introduction et rappelle une découverte antérieure du groupe (contexte) ; la section 2.1 (Experimental) ne renvoie à aucune référence pour la gravure NaF + HCl et n'écrit pas que le protocole actuel suit B21. Supprimer l'entrée, ou la garder avec role « autre » (jamais « protocole_adapte »), et ne rien compléter avec le contenu de B21. Le renvoi B25 (V2AlC, « synthesized by the molten salt method ») est bien un renvoi de méthode : à garder.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "method_sources, renvoi B22-materials-11-02112 absent",
+      "extracted": "aucune entrée pour B22",
+      "article_says": "This work was inspired by a report on synthesizing Ti3C2 MXene by lithium fluoride/hydrochloric acid (LiF + HCl) etching",
+      "fix": "Phrase de type « as reported » sur la gravure fluorure + HCl dont s'inspire la méthode : ajouter {route: V2C-NaF-HCl, ref_id: B22-materials-11-02112, role: autre}. Limite : c'est une inspiration, pas un protocole suivi ; l'entrée est facultative si l'orchestrateur ne retient que les renvois de protocole. Les renvois B28 (« fluoride salt (LiF/NaF/KF, etc.) + HCl was used to replace HF »), B1, B27, B15, B4 et B19 sont du contexte ou des comparaisons de résultats, pas des méthodes de préparation de cet article.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "V2C-NaF-HF : héritage des étapes de V2C-NaF-HCl (ultrasons 15 min, 90 °C, 72 h, agitation magnétique, centrifugation, lavage, séchage 80 °C)",
+      "extracted": "branche de V2C-NaF-HCl sans étapes propres ; temperature, duration, stirring_speed, work_up déclarés non cités seulement au niveau de la voie",
+      "article_says": "1.44 g V2AlC powders were soaked in NaF + HF solution without Cl−.",
+      "fix": "L'article ne donne pour cet essai ni température, ni durée, ni agitation, ni mélange aux ultrasons, ni traitement après réaction ; l'héritage fait apparaître 90 °C, 72 h, agitation, centrifugation, lavage et séchage comme s'ils étaient cités (le doute de l'extracteur le reconnaît). Soit faire de V2C-NaF-HF une voie de base avec ses seules étapes citées (dissolution des 0,50 g de NaF dans 1 mL de HF et 99 mL d'eau ; immersion de 1,44 g de V2AlC), soit ajouter des variations value_text « not stated » sur les paramètres hérités (étape 3 temperature et duration, étapes 4 à 6).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "attribution",
+      "where": "outcomes TG/DTA : V2C-Ar-375 (weight_loss_RT_to_375C_in_Ar 5,52 % ; main_weight_loss_temperature_range 70–120 °C), V2C-Ar-1000 (weight_loss_375_to_900C_in_Ar 5,48 % ; weak weight gain), V2C-air-150 (perte de masse RT–150 °C), V2C-air-1000 (pic exothermique 332 °C, pic endothermique ~660 °C, prise de masse)",
+      "extracted": "chaque segment de la courbe TG/DTA est rangé sur la branche dont la température est la borne du segment",
+      "article_says": "In Ar atmosphere, the TG curve of V2C MXene in Figure 3a is divided into two stages.",
+      "fix": "Ces valeurs viennent d'une seule courbe TG/DTA par atmosphère (rampe de RT à 1000 °C à 5 °C/min, figures 3a et 3b), et non d'échantillons maintenus à 375, 150 ou 1000 °C. Le texte ne dit pas que la perte de 5,52 % est celle de l'échantillon « chauffé à 375 °C » de la figure 3c. Conserver les valeurs (elles sont correctes et bien rattachées argon contre air) mais en préciser l'origine : nommer les propriétés « TG_… » ou « DTA_… », ajouter dans doubts que ce sont des segments d'une même rampe, et ne pas les lire comme résultat d'un traitement isotherme.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "V2C-Ar-375 outcomes XRD_002_peak_2theta_before_heating = 9,172° et basal_d_spacing_before_heating = 0,963 nm ; annotation limite_reproductibilite",
+      "extracted": "9,172° et 0,963 nm rangés comme résultats de l'échantillon chauffé à 375 °C ; l'écart avec 8,03° (V2C-NaF-HCl) n'est que dans doubts",
+      "article_says": "As shown in Figure 3c, the 2θ angle of the (002) peak shifted from 9.172° to 10.35°",
+      "fix": "Les valeurs « avant chauffage » décrivent le V2C de départ (« as-prepared V2C MXene etched by NaF + HCl »), pas la branche 375 °C. Valeur juste, rattachement discutable : les garder, mais ajouter dans l'annotation limite_reproductibilite que le même V2C donne 8,03° (c = 22,0 Å) dans la partie synthèse et 9,172° (d = 0,963 nm) dans la partie thermique, sans explication de l'article.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "V2C-Ar-150 material.phase = « V2C MXene » (et V2C-air-150, même champ)",
+      "extracted": "phase V2C MXene",
+      "article_says": "From the SEM image in Figure 4a, 150 °C treatment did not change the 2D structure of V2C MXene.",
+      "fix": "Pour V2C-Ar-150 l'article ne cite que l'image MEB (légende : « (a) 150 °C in Ar ») ; aucun diagramme XRD à 150 °C sous argon n'est cité. L'attribution argon (et non air) de la figure 4a est correcte. Mettre phase à null ou « 2D structure unchanged (SEM) » plutôt que d'affirmer une phase.",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "rôle (role) de NaF, LiF, KF·2H2O dans V2C-NaF-HCl, V2C-LiF-HCl, V2C-KF-HCl",
+      "extracted": "role « precursor »",
+      "article_says": "The etching solution was made by mixing fluoride with hydrochloric acid",
+      "fix": "Le fluorure est la source de F− de la solution de gravure : le vocabulaire du RUNBOOK propose « etchant ». Remplacer « precursor » par « etchant » (idem HF dans V2C-NaF-HF, aujourd'hui « acid »).",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "V2C-KF-HCl reagent potassium fluoride dihydrate, purity « ≥99 wt.% »",
+      "extracted": "purity ≥99 wt.% attribuée à KF·2H2O",
+      "article_says": "or KF (≥99 wt.%, Chemical Reagent Factory, Luoyang, China)",
+      "fix": "La pureté est donnée pour « KF » ; le produit pesé est KF·2H2O (4.48 g). Ajouter un doute : la pureté vaut pour le sel désigné « KF » par le fournisseur, l'article ne dit pas si c'est la forme dihydratée.",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 10,
+    "branches_extracted": 10,
+    "not_stated_checked": 33,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "V2AlC : aucune masse de V, Al, C ni de NaCl (seulement les rapports 2:1.2:1 molaire et 1:1 massique), échelle du lot inconnue",
+    "V2AlC : broyage à billes (vitesse, jarre, billes, rapport billes/poudre, atmosphère) non précisé ; vitesse de montée et refroidissement du four, débit d'argon, élimination du flux NaCl après recuit non cités",
+    "V2C : vitesse d'agitation, puissance et température des ultrasons, nature du récipient (résistant à HF), vitesse et durée de centrifugation, nombre et volume des lavages, pression du séchage sous vide, rendement non cités",
+    "NaF + HF : température, durée, agitation et traitement après réaction non cités ; concentration « 48 mol/L » de HF impossible pour une solution aqueuse commerciale (probablement 48 % en masse)",
+    "Traitements thermiques : durée de palier, masse de MXène, débit de gaz, four utilisé, et surtout si les échantillons des figures 3c, 3d et 4 ont été chauffés dans l'analyseur STA449C à 5 °C/min, non cités",
+    "Figures 3c et 3d : les températures des diagrammes XRD présentés ne sont pas listées dans le texte ; le diagramme XRD de l'échantillon à 150 °C sous argon n'est pas décrit",
+    "Écart non expliqué entre le pic (002) du V2C NaF + HCl : 8,03° (c = 22,0 Å) dans la partie synthèse et 9,172° (d = 0,963 nm) avant chauffage dans la partie thermique"
+  ],
+  "mechanism_check": "ok : les citations mecanisme_auteurs (Na+ hydraté, solubilité de LiF, concentration en Na+ pour Cl−, réaction d'oxydation dans l'air, oxygène libéré des terminaisons) sont bien dans l'article ; les calculs de mecanisme_analyse (≈0,048 mol de NaF, ≈0,010 mol de V2AlC, F/Al ≈ 4,7 ; HCl ≈ 3 mol/L après dilution) sont justes et rédigés comme des hypothèses.",
+  "notes": "Vérifié sans erreur : (1) les quatre rangées du tableau 2 sont bien rattachées (LiF + HCl 9.13 / 0.66 ; NaF + HCl 8.03 / 18.11 ; KF + HCl - / - ; NaF + HF 7.8 / 0.18), les deux rangées HF 40 % et 50 % viennent de la littérature et n'ont à juste titre pas de branche ; (2) les trois fluorures (2.00 g NaF, 1.24 g LiF, 4.48 g KF·2H2O) suivent l'ordre « respectively » et donnent bien 0,6 mol/L (≈0,048 mol dans 80 mL), purités et fournisseurs corrects ; (3) NaF + HF : 1 mL HF, 99 mL d'eau, 0,50 g NaF, 1,44 g de V2AlC corrects ; (4) V2C-Ar-150 : la légende de la figure 4 dit bien « 150 °C in Ar », donc argon et non air, et le texte cite la figure 4a dans la partie argon ; la branche est correcte. Fragile : la stabilité à 150 °C sous air repose sur la figure 3d (diagramme XRD dont la température n'est pas écrite) et la courbe TG, sans image MEB sous air ; la citation de conclusion « stable 2D structure » pour V2C-air-150 va plus loin que ces preuves (déjà signalé en doubts). Argon contre air : toutes les valeurs thermiques sont rangées dans le bon gaz (V2O3 et V8C7 sous Ar à 1000 °C ; V2O5 et NaV6O15, pics 332 et ~660 °C sous air). La vitesse 5 °C/min (heating_rate) est déclarée non citée pour les étapes de chauffage et inscrite seulement dans les conditions de l'analyse TG : lecture littérale prudente, je ne la conteste pas car le texte ne dit pas que les échantillons XRD/MEB ont suivi cette rampe. Sources B15, B4, B19 (comparaisons de rapport d'intensité) et B29/B30 (Raman), B31, B32 : identification ou comparaison de résultats, pas des méthodes."
+}

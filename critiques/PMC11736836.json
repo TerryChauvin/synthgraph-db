@@ -1,0 +1,89 @@
+{
+ "pmcid": "PMC11736836",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "method_sources (vide) — voie TiO2_sol, étape 2 (agitation 2 h, 60 °C, 400 rpm)",
+   "extracted": "method_sources = []",
+   "article_says": "The mixture was stirred for 2 h at 60 °C at 400 rpm.",
+   "fix": "ajouter une entrée de méthode pour ref43 (Trapalis et al., AFM study of TiO2 sol–gel films thermally treated under NH3), le renvoi [[ref43]] étant placé en fin de la phrase de préparation du sol dans corpus/refs ; rattacher à la voie TiO2_sol",
+   "confidence": "sure",
+   "ref_id": "ref43"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources — protocole de mesure SAR (voies TiO2_coating_quartz et TiO2_coating_Si)",
+   "extracted": "aucune source de méthode",
+   "article_says": "coatings on quartz and silicon substrates were studied by SAR using p-polarized light.",
+   "fix": "corpus/refs place [[ref48]] (et [[ref49]]) après cette phrase ; ce sont les références du montage et de l'évaluation SAR (Hild et al. 2004 ; Deák et al. 2007), dont le chimiste a besoin pour refaire la mesure : ajouter ref48 et ref49 comme sources de méthode de mesure, ou noter dans le journal pourquoi elles sont écartées (technique d'analyse). Les renvois ref45 (modèle de couche mince), ref46 (Lorentz–Lorenz) et ref44 (contexte) ne sont pas des sources de méthode",
+   "confidence": "probable",
+   "ref_id": "ref48"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiO2_coating_Si résultats XPS, composantes O 1s",
+   "extracted": "seule la composante lattice oxygen 530.0 eV est extraite (O_1s_lattice_oxygen_binding_energy)",
+   "article_says": "the components at 531.3 and 532.3 eV can be attributed to oxygen vacancy/defects (VO) and loosely adsorbed, dissociated oxygen or OH species (CO).",
+   "fix": "ajouter deux résultats : composante O 1s à 531.3 eV (lacunes/défauts d'oxygène, VO) et à 532.3 eV (oxygène faiblement adsorbé/OH, CO), même citation",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiO2_sol, caractérisation AFM (annexe 2.1) : échantillons C0/10, C0/100, C0/200",
+   "extracted": "CARAC AFM : « Individual particles not visible; dilution influences the structure through evaporation » ; aucune valeur d'annexe",
+   "article_says": "Sq = 455.5 pm, the mean roughness Sa = 353.2 pm.",
+   "fix": "ajouter à la caractérisation AFM (ou en résultats) Sq = 455.5 pm et Sa = 353.2 pm pour le sol dilué C0/10 (10 × 10 µm²) et la description de l'annexe pour C0/100 (trous et cratères, 1 × 1 µm²) et C0/200 (trous plus larges, structure en réseau) ; l'inventaire range ces échantillons en route null parce que sans résultat de matériau, ce qui n'est pas exact pour C0/10",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "TiO2_coating_quartz reagent « quartz glass slide » (grade)",
+   "extracted": "amount_text « 25 × 30 × 1.05 mm », supplier « Optilab Kft., Hungary » ; la référence Suprasil 1 n'est que dans la citation",
+   "article_says": "Quartz glass slides (25 × 30 × 1.05 mm, Suprasil 1, Optilab Kft., Hungary)",
+   "fix": "renseigner la qualité « Suprasil 1 » dans le champ purity/grade du réactif",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "TiO2_coating_quartz et TiO2_coating_Si reagent « 2-propanol » (pureté)",
+   "extracted": "aucune pureté",
+   "article_says": "2-propanol (2-PrOH, for analysis, ACS reagent)",
+   "fix": "renseigner purity « for analysis, ACS reagent » ; pas de fournisseur donné",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "not_stated de route : yield / scale incohérents entre voies",
+   "extracted": "not_stated = ['yield'] pour TiO2_sol, TiO2_coating_quartz, TiO2_powder_80C ; vide pour TiO2_coating_Si et TiO2_powder_450C ; aucune voie ne déclare scale non cité",
+   "article_says": "The molar ratios for titanium(IV) butoxide:EtOH:HNO3:H2O were 1:27.95:0.49:0.82.",
+   "fix": "harmoniser : déclarer yield (et scale : volume/masse de sol préparé, quantité de poudre) non cités sur toutes les voies, ou sur les voies filles s'il n'y a pas d'héritage ; l'article ne donne que des rapports molaires",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "securite_analyse",
+   "extracted": "butoxyde, éthanol, HNO3 65 %, plasma, four ; le 2-propanol n'est pas cité",
+   "article_says": "Solid substrates were cleaned using 2-propanol (2-PrOH, for analysis, ACS reagent) and ultrapure water.",
+   "fix": "ajouter le 2-propanol (inflammable) à l'annotation de sécurité",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 5,
+  "branches_extracted": 5,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "aucune quantité absolue du sol (masse ou volume de Ti(OBu)4, EtOH, HNO3, H2O) : seulement les rapports molaires 1:27.95:0.49:0.82",
+  "l'article ne dit pas si les 0.82 H2O comptent l'eau de l'acide nitrique à 65 % (HNO3 0.49 apporterait près de 0.9 H2O par Ti), ni si l'eau est ajoutée seule ; ordre d'addition, température de mélange initial et temps non donnés",
+  "température et conditions de stockage du vieillissement d'un jour non précisées",
+  "dépôt : temps d'immersion, humidité et température ambiantes, nombre de couches non donnés ; atmosphère du recuit et vitesse de refroidissement non donnés",
+  "nettoyage des substrats : durée, méthode (ultrasons ?) non donnés ; eau « ultrapure » (Matériaux) contre « distilled water » (Préparation)",
+  "poudres : volume de sol séché, température et atmosphère du séchage de 2 h non donnés",
+  "pH du sol non mesuré ; pH de la mesure du potentiel zêta non indiqué"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (petites espèces colloïdales de 2,7 nm, microphases compactes formées pendant le dépôt par évaporation, amorphe vers anatase au recuit) est appuyé par les passages sur le DLS et le protocole de simulation ; mecanisme_analyse est signalé « Probablement » et reste cohérent (0,82 H2O par Ti = hydrolyse partielle)",
+ "notes": "Lecture entière du texte et de l'annexe. Aucune valeur marquée from_figure : aucune figure ouverte (les résultats utilisés viennent des tableaux 1 à 3 et du texte). Valeurs des tableaux 1 à 3 contrôlées une à une, toutes justes et bien attribuées (quartz/Si, UV–vis/SAR/EP). Écart interne de l'article (« EP (52 nm) » dans le texte contre 50 nm au tableau 3 pour Si) déjà géré en doute par l'extracteur. La synthèse computationnelle (MD ReaxFF) est correctement exclue. Les ref22 ('our previous results/paper') servent de comparaison de résultats, pas de méthode. Constat sur ref48/ref49 laissé probable : on peut y voir une référence d'analyse de données plutôt qu'un protocole."
+}

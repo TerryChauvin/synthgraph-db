@@ -1,0 +1,71 @@
+{
+ "pmcid": "PMC7672297",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "AgNP_M_moribidii, étape de chauffage de 15 min entre le mélange et l'incubation de 24 h (figure 1)",
+   "extracted": "Pas d'étape de chauffage : mélange (étape 1) puis incubation 24 h (étape 2) ; signalé seulement en doute et en limite_reproductibilite",
+   "article_says": "(b) polychaete crude extracts with AgNO3 immediately after 15 min of the pre-incubation period",
+   "fix": "La figure 1 (gr1.jpg) montre une flèche Δ « Heated for 15 min » entre le mélange extrait + AgNO3 et l'incubation de 24 h, ce que le texte appelle « pre-incubation period » de 15 min. Ajouter une étape heat/pre-incubation de 15 min, température non citée (not_stated), citation ci-contre, ou à défaut une annotation limite_reproductibilite précise (déjà partiellement présente). Le texte ne dit pas qu'il y a chauffage : à trancher par l'orchestrateur.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "AgNP_M_moribidii étape 2, parameters temperature = 30 °C",
+   "extracted": "temperature 30 °C attribuée à l'incubation de 24 h",
+   "article_says": "After 24 h of incubation, the samples were kept at room temperature (30 °C ± 2)",
+   "fix": "La phrase place les 30 ± 2 °C après les 24 h d'incubation (conservation / observation périodique, la figure 1 dit « Periodically checked ... at room temperature » après « Incubated for 24 h »). La température de l'incubation elle-même n'est pas écrite : soit la rattacher à une étape d'observation après incubation, soit garder la valeur avec value_text « room temperature (30 °C ± 2) » et une mention explicite d'ambiguïté ; l'écart « ± 2 » est perdu dans value_num.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "M_moribidii_extract, collecte des polychètes (origine du matériel biologique)",
+   "extracted": "Aucune trace de la collecte ; réactif « Marphysa moribidii polychaetes » avec amount/purity/supplier non cités",
+   "article_says": "Polychaetes were collected during low tide from west coast of peninsular Malaysia.",
+   "fix": "Ajouter une étape ou un champ d'origine du réactif : collecte à marée basse sur la côte ouest de la Malaisie péninsulaire ; l'identification de l'espèce (Marphysa moribidii Idris, Hutchings and Arshad, 2014) est donnée en introduction. Utile pour la reproductibilité d'un extrait biologique.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Negative_control_AgNO3, variation « silver nitrate solution = 1 mM (parent_value: not stated) »",
+   "extracted": "Seconde variation : AgNO3 1 mM, valeur parent « not stated »",
+   "article_says": "Two types of negative controls were developed by mixing 10 mL of ddH2O with 90 mL of 1 mM AgNO3 solution.",
+   "fix": "L'article ne dit pas que la concentration diffère de celle de la synthèse, qui n'est pas donnée : ce n'est pas une variation comparée mais une information propre au témoin. La seule différence établie est le remplacement de l'extrait par ddH2O ; retirer la seconde variation et garder « 1 mM » dans le réactif ou la description du témoin (le doute correspondant existe déjà).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "AgNP_M_moribidii, résultat de la dilution en puits (figure 7) : plages 50 à 3,125 % et témoins",
+   "extracted": "well_dilution_inhibition = toutes les bactéries inhibées à 100 % (solution mère) ; rien sur les autres dilutions ni les témoins",
+   "article_says": "(1) 100%, (2) 50%, (3) 25%, (4) 12.5%, (5) 6.25%, (6), 3.125%, (7) growth control, (8) gentamycin, (9) AgNPs Sigma, (10) crude extract, (11) ddH2O, and (12) Sterility control.",
+   "fix": "Sur la plaque de gr7.jpg, la colonne 1 (100 %) est jaune (pas de formazan, croissance inhibée), les colonnes 2 à 6 (50 à 3,125 %) sont violettes comme le témoin de croissance (7), donc pas d'inhibition en dessous de 100 % ; la gentamycine (8) est jaune ; les AgNPs Sigma (9), l'extrait (10) et ddH2O (11) sont violets. Ajouter un résultat de lecture de plaque (from_figure Fig. 7, qualitatif) : inhibition seulement à 100 % de la solution mère, pas d'inhibition aux dilutions suivantes ; l'article ne le dit que pour 100 %. Lecture de couleur sur photographie, donc probable.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "AgNP_M_moribidii, résultats des zones d'inhibition (Table 1), notes de significativité",
+   "extracted": "value_text « 8.39 ± 0.12 mm (moyenne ± SEM) » etc., sans les exposants a,b",
+   "article_says": "Table 1 — aSignificantly different when compared to crude extract, p < 0.05.bSignificantly different when compared to ddH2O, p < 0.05.",
+   "fix": "Les rangées portent « a,b » (significativement différent de l'extrait et de ddH2O, p < 0.05) pour les huit bactéries ; l'annotation tendance_observee ne le mentionne pas. Ajouter la mention dans une annotation ou dans le value_text. Les huit valeurs numériques sont exactes.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 2,
+  "branches_extracted": 3,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "concentration de la solution de AgNO3 de la synthèse (1 mM n'est donné que pour le témoin négatif et le blanc UV-Vis)",
+  "masse ou nombre de polychètes pour 100 mL d'extrait, et pH de l'extrait",
+  "température et nature du « chauffage de 15 min » de la figure 1, et température réelle de l'incubation de 24 h",
+  "agitation, vitesse d'addition, purification et séparation des AgNPs (l'article évoque une étape de purification non décrite)",
+  "concentration de la solution mère d'AgNPs, impossible à déterminer selon les auteurs : pas de CMI calculable",
+  "durée et température d'incubation des boîtes du test de diffusion sur disque, non écrites (37 °C n'est donné que pour la subculture)",
+  "le renvoi à la publication des auteurs « In press » (optimisation des AgNPs, bib63) pourrait contenir les conditions manquantes"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs reprend la proposition de l'article (phénols oxydés en quinone, carboxyle de coiffage) ; mecanisme_analyse est rédigé comme hypothèse",
+ "notes": "Extraction globalement fidèle : les huit valeurs du tableau 1, DLS, TEM, SEM, UV-Vis, FTIR et XRD correspondent au texte, et les trois valeurs lues sur figure sont justes (Fig. 3 : maximum 1,27 lu pour 1,3 déclaré ; témoin AgNO3 ≤ 0,055 ; Fig. 4d : barre 30–40 nm = 36 %). Les cases not_stated vérifiées (concentration AgNO3, pureté, masse des polychètes, agitation, rendement, durées de broyage et de conservation) sont réellement absentes de l'article. method_sources : bib21 (Kirby-Bauer et CLSI), bib5 (CLSI), bib57 (turbidité) et bib63 (conservation de l'extrait) sont présents ; bib16 (MTT) est un renvoi d'interprétation et n'est pas à ajouter ; aucun renvoi de méthode manquant. Le second type de témoin négatif n'est pas décrit par les auteurs (doute déjà noté). La valeur 6.00 ± 0.00 pour K. pneumoniae vs « 6 mm » dans la phrase est cohérente (probablement le diamètre du disque, non donné). Désaccords d'interprétation sans texte : aucun à signaler."
+}

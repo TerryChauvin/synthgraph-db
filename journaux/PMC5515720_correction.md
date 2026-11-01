@@ -1,0 +1,12 @@
+# Journal de correction PMC5515720
+
+- Fidélité 1 (étapes de SiO2@C) : la `quote` des cinq étapes de la branche est maintenant la phrase « A reference SiO2@C composite without MWNT was obtained following the same preparation route. » Les paramètres et équipements gardent la citation de la voie de base, car le contrôle exige que le nombre figure dans la citation et que le renvoi n'en contient aucun. Doute « SiO2@C, protocole » complété (eau de la dispersion de MWNT non dite, citation par renvoi).
+- Fidélité 2 : `material.phase` de SiO2@C mis à `null` (les pics à 21° et 43° sont donnés pour le composite) ; doute ajouté, pas d'héritage de la voie de base.
+- Fidélité 3 et science (b) : une seule annotation `limite_reproductibilite` (route `null`) pour 475 mAh g−1 (résumé) contre ≈ 215–220 (texte, Fig. 8 et 10). La valeur 475 n'est pas extraite.
+- Fidélité 4 : deux résultats ajoutés sur SiO2@C_MWNT, pic cathodique 0–0.5 V et pic anodique 0.24–0.9 V, en `value_text` avec les citations du texte (sans « vs Li/Li+ », non écrit dans ces phrases).
+- Fidélité 5 : deux résultats ajoutés (stabilisation de la capacité après 10 cycles en `value_text`, efficacité coulombique ≈ 100 % en `value_num` 100). Le courant n'est pas précisé dans la phrase, donc non ajouté.
+- Fidélité 6 et science (a) : annotation sur l'atmosphère de la TGA (N2 des Méthodes contre « oxidization » des Résultats), avec la conséquence sur les 77,5 wt% de SiO2 ; valeurs non modifiées.
+- Fidélité 7 : rôle de l'acide citrique et de l'éthylène glycol remplacé par `precursor` (l'article parle de « starting materials » pour l'acide citrique et le TEOS) ; l'éthylène glycol n'a aucun rôle écrit, d'où un doute. L'interprétation Pechini reste dans `mecanisme_analyse`.
+- Réserves scientifiques annotées en `limite_reproductibilite` : 5,5 wt% MWNT = valeur de recette ; HRTEM (β-cristobalite ou graphite) contre DRX amorphe ; raie 26,1° indexée (200) au lieu de (002) ; ID/IG et « défauts Si–O » ; témoin non dosé ; « cathode » pour anode ; 95 Ω contre 30 Ω et base de masse des capacités.
+- `mecanisme_analyse` réécrit en hypothèse (polyestérification pendant la montée au-dessus de 100 °C, pas de réduction carbothermique à 1100 °C), `mecanisme_auteurs` non touché. `securite_analyse` des voies matériau et électrode complétées (TEOS point éclair, CO, MWNT CIRC, NMP reprotoxique 1B).
+- Sources du critique scientifique non revérifiées par l'agent (pas de web) ; elles sont citées par nom dans les annotations.

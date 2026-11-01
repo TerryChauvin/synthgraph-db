@@ -1,0 +1,888 @@
+{
+ "pmcid": "PMC8982036",
+ "routes": [
+  {
+   "label": "CdSe_precursor",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentrations dans 50 mL",
+     "inputs": "Cd(ClO4)2·6H2O 1,0 mmol ; NAC 3,0 mmol ; NaHSe 0,3 mmol ; 50 mL",
+     "formula": "c = n/V",
+     "result": "Cd 20 mM ; NAC 60 mM ; Se 6 mM",
+     "compared_to": "synthèses aqueuses de CdSe à ligand thiol : Cd en excès, quelques mM à quelques dizaines de mM",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapports molaires Cd:Se et NAC:Cd",
+     "inputs": "1,0 ; 0,3 ; 3,0 mmol",
+     "formula": "n(Cd)/n(Se) ; n(NAC)/n(Cd)",
+     "result": "Cd:Se = 3,3:1 ; NAC:Cd = 3:1",
+     "compared_to": "CdSe 1:1 : 70 % du Cd (2,3 équivalents de Se) reste en solution sous forme de complexe Cd–NAC",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "masses à peser",
+     "inputs": "M(Cd(ClO4)2·6H2O) = 419,4 g/mol ; M(NAC) = 163,19 g/mol (PubChem)",
+     "formula": "m = n × M",
+     "result": "0,419 g de sel de Cd ; 0,490 g de NAC",
+     "compared_to": "solubilité de la NAC 200 g/L : 9,8 g/L, soluble",
+     "source": "PubChem CID 12035"
+    },
+    {
+     "what": "fraction H2Se à pH 5,0",
+     "inputs": "pKa1(H2Se) ≈ 3,89 (valeur de manuel)",
+     "formula": "1/(1+10^(pH−pKa1))",
+     "result": "≈ 7 % du Se non lié sous forme H2Se",
+     "compared_to": "gaz très toxique",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le Se est le réactif limitant (Cd:Se = 3,3:1, voir calcul « rapports molaires Cd:Se et NAC:Cd ») : la solution de cœurs contient ≈ 2,3 équivalents de Cd2+ libre (complexé par la NAC) par Se. Cet excès est normal pour une synthèse aqueuse à ligand thiol, mais il compte pour les étapes de coque (voir MnQD_1.6nm_x4).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "À pH 8,5, Cd(OH)2 (Ksp ≈ 7×10⁻¹⁵, valeur de manuel) limiterait Cd2+ libre à ≈ 7×10⁻⁴ M, en dessous des 20 mM présents : la solution ne reste limpide que grâce à la complexation thiolate (NAC:Cd = 3, pKa SH 9,52). Cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "N-Acetyl-L-Cysteine, CID 12035 (solubilité 1 g dans 5 mL d'eau ; pKa 3,24 COOH, 9,52 SH)",
+      "authors_or_publisher": "PubChem (NIH), d'après HSDB / Remington's Pharmaceutical Sciences 16e éd.",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/12035"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "NaHSe « fraîchement préparé » sans protocole (réduction de Se par NaBH4 en général, dégagement de H2) ; l'acidification à pH 5,0 par HCl après ajout de NaHSe peut libérer H2Se (≈ 7 % du Se non lié, calcul « fraction H2Se à pH 5,0 »), gaz très toxique : hotte obligatoire, non écrit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La base qui amène le pH à 8,5 et la concentration de HCl dilué ne sont pas données : la force ionique et la dilution réelles sont inconnues.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Cd2+ forme des complexes thiolates Cd(NAC)n ; HSe− ajouté à pH 8,5 réagit avec ces complexes pour donner des amas Cd–Se–NAC, dont la croissance en nanocristaux de CdSe est déclenchée au chauffage ; l'abaissement du pH à 5 protone une partie des carboxylates et ralentit l'échange de ligand.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "préparation de NaHSe (Se:NaBH4, concentration) et manipulation sous hotte",
+    "base employée pour le pH 8,5",
+    "absence de trouble (Cd(OH)2) avant ajout de NaHSe"
+   ]
+  },
+  {
+   "label": "CdSe_1.6nm",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "diamètre par l'équation de Donegá",
+     "inputs": "E = 2,90 eV ; E(d) = 1,74 + 1/(0,22 d² − 0,36 d + 0,89)",
+     "formula": "résolution de 0,22 d² − 0,36 d + 0,89 = 1/(2,90 − 1,74)",
+     "result": "d = 1,55 nm (E(1,6 nm) = 2,88 eV)",
+     "compared_to": "1,6 nm annoncé",
+     "source": "Donegá et Koole 2009, équation lue dans une source secondaire (NSF PAR 10615871)"
+    },
+    {
+     "what": "pression de vapeur de l'eau",
+     "inputs": "200 °C ; 180 °C",
+     "formula": "table de saturation NIST",
+     "result": "≈ 15,5 bar à 200 °C ; 10,03 bar à 180 °C",
+     "compared_to": "limite des flacons CEM Discover : 300 psi = 20,7 bar",
+     "source": "NIST WebBook (10,028 bar à 180 °C lu ; 200 °C hors de l'extrait, valeur des tables de vapeur)"
+    },
+    {
+     "what": "volume contre flacon",
+     "inputs": "10 mL de solution",
+     "formula": "comparaison aux volumes de travail CEM",
+     "result": "10 mL > 7 mL (maximum du flacon de 10 mL) : flacon de 35 mL (2–25 mL) nécessaire",
+     "compared_to": "« reaction vessels » sans volume",
+     "source": "manuel CEM Discover SP"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Pic d'absorption à 2,90 eV → 1,55 nm par l'équation de Donegá (calcul « diamètre par l'équation de Donegá ») : le 1,6 nm annoncé est cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Size Dependence of the Spontaneous Emission Rate and Absorption Cross Section of CdSe and CdTe Quantum Dots",
+      "authors_or_publisher": "C. de Mello Donegá, R. Koole, J. Phys. Chem. C 113, 6511–6520",
+      "year": "2009",
+      "url_or_doi": "10.1021/jp811329r"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "200 °C en récipient fermé : pression de vapeur ≈ 15,5 bar, sous les 300 psi (20,7 bar) des flacons CEM (calcul « pression de vapeur de l'eau »). Mais l'article ne dit ni le récipient, ni le mode de chauffage (micro-ondes ou non), et 10 mL dépassent le volume de travail d'un flacon de 10 mL (calcul « volume contre flacon »). En chauffage conventionnel, 3 min ne suffisent pas à porter 10 mL à 200 °C.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CEM Discover SP Microwave Reactor Manual (volumes de travail : flacon 10 mL 0,2–7,0 mL ; flacon 35 mL 2,0–25,0 mL, scellés)",
+      "authors_or_publisher": "CEM Corporation (manuel hébergé par LBNL)",
+      "year": "2010",
+      "url_or_doi": "https://commons.lbl.gov/download/attachments/123536269/CEM%20Discover%20SP%20Microwave%20Reactor%20Manual.pdf"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Incohérence entre sections : 200 °C pendant 3 min donnent ici 1,6 nm, alors que la voie micro-ondes produit des cœurs de 1,6 à 2,7 nm entre 100 et 180 °C en 5 min (la plus grosse taille sans doute à la plus haute température). Une consigne plus chaude qui donne la plus petite taille suppose un autre mode de chauffage ou une autre mesure de la température ; la correspondance entre température et taille n'est pas donnée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Récipient fermé à ≈ 15 bar contenant du perchlorate et un thiol organique : en solution aqueuse diluée, le perchlorate est cinétiquement inerte, mais il ne faut jamais évaporer à sec ces mélanges perchlorate et matière organique (préparation des échantillons TEM, EDX et XPS).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Nucléation de CdSe à partir des complexes Cd–NAC et de HSe− au chauffage, croissance limitée par le Se (réactif limitant) ; la NAC sert de ligand de surface ; la PL large à ≈ 1,9–2 eV vient de pièges de surface, normale pour des CdSe de 1,6 nm non passivés.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "mode de chauffage et récipient de l'essai à 200 °C",
+    "correspondance entre température et taille (100–180 °C)",
+    "purification avant la mesure d'absorption"
+   ]
+  },
+  {
+   "label": "CdSe_Mn_1.6nm",
+   "verdict": "douteuse",
+   "feasibility": "reproductible",
+   "calculs": [
+    {
+     "what": "Mn par Se et par cation, essai direct",
+     "inputs": "Mn 0,02 mmol ; Cd 1,0 mmol ; Se 0,3 mmol",
+     "formula": "n(Mn)/n(Se) ; n(Mn)/n(Cd)",
+     "result": "Mn/Se = 0,067 ; Mn/Cd = 2 %",
+     "compared_to": "voie en coque à x = 4 : Mn/Se = 3,0 et Mn/Zn = 15 %, soit 45 fois plus de Mn par Se",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "fenêtre temporelle du déclin de la Fig. 1b",
+     "inputs": "axe 0–1200 ns ; temps de vie de l'émission du Mn de l'ordre de la ms (Fig. 3)",
+     "formula": "t_max/τ(Mn)",
+     "result": "1,2 µs / 1 ms ≈ 10⁻³ : une composante du Mn apparaîtrait comme un fond plat",
+     "compared_to": "déclins « identiques »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Témoin qui change plusieurs variables : l'essai de dopage direct ajoute 45 fois moins de Mn par Se que la voie en coque à x = 4 (calcul « Mn par Se et par cation, essai direct ») et utilise un autre chauffage (200 °C pendant 3 min, contre 100–180 °C pendant 5 min puis 80 et 140 °C). Son échec ne prouve pas que le dopage direct est impossible ni qu'il y a « auto-purification » ; le témoin juste serait un essai direct à Mn/Se ≈ 3 dans les mêmes conditions de chauffage. Erwin et al. 2005 montrent d'ailleurs que l'échec du dopage de CdSe tient à l'adsorption de Mn en surface pendant la croissance, et non à une expulsion intrinsèque.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Doping semiconductor nanocrystals",
+      "authors_or_publisher": "S. C. Erwin, L. Zu, M. I. Haftel, A. L. Efros, T. A. Kennedy, D. J. Norris, Nature 436, 91–94",
+      "year": "2005",
+      "url_or_doi": "10.1038/nature03832"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : la bande de défauts de CdSe (pic ≈ 1,93 eV, largeur ≈ 0,5 eV sur la Fig. 1a) recouvre la position de l'émission du Mn (≈ 2,05–2,1 eV), et le déclin de la Fig. 1b ne couvre que 1,2 µs alors que l'émission du Mn vit ≈ 1 ms (calcul « fenêtre temporelle du déclin de la Fig. 1b »). Une faible émission du Mn ne pouvait donc pas être vue ; il aurait fallu un déclin à l'échelle de la ms ou un dosage du Mn (ICP) après purification.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Comparaison avec la base : PMC9083121 (CdSe aqueux à l'acide 3-mercaptopropionique, croissance longue) mesure 0,25 à 1,2 % de Mn par EDS dans des CdSe dopés directement. Le dopage direct de CdSe en milieu aqueux n'est donc pas impossible en général.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 2 % Mn/Cd et avec une croissance rapide, le Mn2+ (ion dur, faible affinité pour les thiolates par rapport à Cd2+) reste surtout en solution sous forme de complexe et s'adsorbe peu sur les faces de CdSe zinc-blende (Erwin 2005) ; l'absence d'émission du Mn vient plus probablement d'une incorporation faible pour une raison cinétique ou d'adsorption que d'une auto-purification thermodynamique (Dalpian 2006, contesté par Du, Erwin, Efros et Norris 2008).",
+    "sources": [
+     {
+      "title": "Doping semiconductor nanocrystals",
+      "authors_or_publisher": "S. C. Erwin, L. Zu, M. I. Haftel, A. L. Efros, T. A. Kennedy, D. J. Norris, Nature 436, 91–94",
+      "year": "2005",
+      "url_or_doi": "10.1038/nature03832"
+     },
+     {
+      "title": "Self-Purification in Semiconductor Nanocrystals",
+      "authors_or_publisher": "G. M. Dalpian, J. R. Chelikowsky, Phys. Rev. Lett. 96, 226802",
+      "year": "2006",
+      "url_or_doi": "10.1103/PhysRevLett.96.226802"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dosage du Mn (ICP) dans les CdSe:Mn purifiés",
+    "déclin de la PL à l'échelle de la ms à 2,1 eV",
+    "essai direct à Mn/Se comparable à la voie en coque"
+   ]
+  },
+  {
+   "label": "ZnSMn_precursor",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentrations dans 20 mL",
+     "inputs": "Zn 1,2 ; NAC 8,7 ; Na2S·9H2O 0,24 ; Mn 0,18 mmol ; 20 mL",
+     "formula": "c = n/V",
+     "result": "Zn 60 mM ; NAC 435 mM ; S 12 mM ; Mn 9 mM",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport Mn/Zn",
+     "inputs": "0,18 et 1,2 mmol",
+     "formula": "n(Mn)/n(Zn)",
+     "result": "0,15",
+     "compared_to": "[Mn]/[Zn] = 0,15 annoncé dans les Résultats : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapports S/Zn et NAC/Zn",
+     "inputs": "0,24/1,2 ; 8,7/1,2",
+     "formula": "rapports molaires",
+     "result": "S/Zn = 0,20 ; NAC/Zn = 7,25",
+     "compared_to": "ZnS 1:1 : le Zn est en excès d'un facteur 5 par rapport au soufre",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "solubilité de la NAC",
+     "inputs": "8,7 mmol × 163,19 g/mol dans 20 mL",
+     "formula": "m/V",
+     "result": "71 g/L",
+     "compared_to": "solubilité 200 g/L (1 g dans 5 mL) : soluble",
+     "source": "PubChem CID 12035"
+    },
+    {
+     "what": "Mn2+ libre maximal à pH 10,5",
+     "inputs": "Ksp(Mn(OH)2) ≈ 1,9×10⁻¹³ (valeur de manuel) ; [OH−] = 3,2×10⁻⁴ M",
+     "formula": "Ksp/[OH−]²",
+     "result": "≈ 1,9×10⁻⁶ M",
+     "compared_to": "Mn total 9 mM, 4 700 fois plus",
+     "source": "chimie générale"
+    },
+    {
+     "what": "fraction de sulfure sous forme H2S à pH 4,0",
+     "inputs": "pKa1(H2S) ≈ 7,0 (valeur de manuel)",
+     "formula": "1/(1+10^(pH−pKa1))",
+     "result": "≈ 99,9 % (sulfure non lié)",
+     "compared_to": "—",
+     "source": "chimie générale"
+    },
+    {
+     "what": "base nécessaire pour pH 10,5",
+     "inputs": "NAC 8,7 mmol (COOH pKa 3,24 ; SH pKa 9,52)",
+     "formula": "≈ 1 équivalent pour COOH + 0,9 équivalent pour SH à pH 10,5",
+     "result": "≈ 16–17 mmol de NaOH",
+     "compared_to": "concentration de NaOH non donnée : dilution inconnue",
+     "source": "PubChem CID 12035"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Mn/Zn = 0,15 vérifié (calcul « rapport Mn/Zn »). Le soufre est le réactif limitant (S/Zn = 0,2) : x = S(ZnS:Mn)/Se(cœur) fixe donc la quantité de coque qui peut se former, pas seulement la quantité de Mn.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "À pH 10,5, Mn(OH)2 précipiterait au-delà de ≈ 2 µM de Mn2+ libre, contre 9 mM présents (calcul « Mn2+ libre maximal à pH 10,5 »). Les complexes Mn2+–NAC (thiolate et carboxylate) sont faibles. Le précurseur ne reste limpide que si la NAC (48 équivalents par Mn) et les amas Zn–S suffisent à retenir Mn2+ ; en milieu alcalin à l'air, Mn(II) s'oxyde facilement en Mn(III)/MnO(OH) brun. Il faut vérifier que la solution est incolore et limpide avant usage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Na2S ajouté à pH 4,0 : le sulfure non complexé est à ≈ 99,9 % sous forme H2S (calcul « fraction de sulfure sous forme H2S à pH 4,0 »). Dégagement possible de H2S toxique, et perte de soufre qui fausse la valeur nominale de x. Opérer sous hotte et ajouter Na2S lentement.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "NAC à 71 g/L, sous la solubilité de 200 g/L : soluble.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "N-Acetyl-L-Cysteine, CID 12035 (solubilité 1 g dans 5 mL d'eau ; pKa 3,24 COOH, 9,52 SH)",
+      "authors_or_publisher": "PubChem (NIH), d'après HSDB / Remington's Pharmaceutical Sciences 16e éd.",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/12035"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Les complexes Zn–NAC captent le sulfure en petits amas Zn–S–thiolate (le Zn en excès limite H2S libre) ; à pH 10,5 les thiolates déprotonés lient mieux Zn2+ et Mn2+, ce qui donne un réservoir de monomères pour la coque.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "concentration et volume de NaOH (≈ 16–17 mmol pour pH 10,5)",
+    "limpidité et couleur du précurseur (Mn(OH)2, oxydation)",
+    "ajout de Na2S sous hotte"
+   ]
+  },
+  {
+   "label": "ZnS_precursor",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentrations et rapports",
+     "inputs": "NAC 7,2 ; Zn 3,0 ; S 0,6 mmol ; 50 mL",
+     "formula": "c = n/V ; rapports",
+     "result": "Zn 60 mM ; NAC 144 mM ; S 12 mM ; NAC/Zn = 2,4 ; S/Zn = 0,2",
+     "compared_to": "mêmes concentrations en Zn et S que le précurseur ZnS:Mn, mais 3 fois moins de NAC par Zn",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Zn en excès d'un facteur 5 sur le soufre ; le soufre limite la quantité de coque ZnS (calcul « concentrations et rapports »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Ajout de Na2S à pH 4,0, puis ajustement à 4,5 : dégagement possible de H2S (pKa1 ≈ 7,0) ; hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réservoir de complexes Zn–NAC et d'amas Zn–S ; à 140 °C, la NAC peut en plus libérer du soufre par décomposition thermique du thiol, une source de soufre supplémentaire non comptée dans x.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "concentration de NaOH",
+    "ajout de Na2S sous hotte"
+   ]
+  },
+  {
+   "label": "ZnSCu_precursor",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentrations et rapports",
+     "inputs": "Zn 0,4 ; NAC 0,96 ; S 0,08 ; Cu 0,036 mmol ; 20 mL",
+     "formula": "c = n/V ; rapports",
+     "result": "Zn 20 mM ; S 4 mM ; Cu/Zn = 0,09 ; NAC/Zn = 2,4 ; NAC/Cu = 27",
+     "compared_to": "dopage Cu habituel dans ZnS/ZnSe : de l'ordre du % ou moins",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "redox",
+     "finding": "CuCl2 ajouté à une solution de thiol (27 NAC par Cu) : Cu(II) est réduit en Cu(I) par les thiols, avec formation de disulfure. Le dopant est donc Cu+ et non Cu2+, ce qui va avec le mécanisme d'émission invoqué (trou piégé sur le Cu).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and structural analysis of copper(II) cysteine complexes (réduction de Cu(II) en Cu(I) par la cystéine, avec formation de cystine)",
+      "authors_or_publisher": "Inorganica Chimica Acta (Elsevier), article S0020169308003319 (auteurs non relevés dans l'extrait)",
+      "year": "2008",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0020169308003319"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Cu/Zn = 9 % dans le précurseur (calcul « concentrations et rapports ») : taux élevé pour un dopage Cu ; un risque de formation de Cu2−xS ou de pièges non radiatifs existe. Aucun dosage du Cu n'est donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "La base de l'ajustement final à pH 6,0 n'est pas nommée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Réduction de Cu2+ en Cu+ par la NAC ; Cu+ complexé par les thiolates est incorporé avec Zn2+ dans les amas Zn–S, puis dans la coque.",
+    "sources": [
+     {
+      "title": "Synthesis and structural analysis of copper(II) cysteine complexes (réduction de Cu(II) en Cu(I) par la cystéine, avec formation de cystine)",
+      "authors_or_publisher": "Inorganica Chimica Acta (Elsevier), article S0020169308003319 (auteurs non relevés dans l'extrait)",
+      "year": "2008",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0020169308003319"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "base et pH final",
+    "dosage du Cu dans les QDs purifiés"
+   ]
+  },
+  {
+   "label": "ZnS_precursor_Cu",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "concentrations et rapports",
+     "inputs": "Zn 1,0 ; NAC 2,4 ; S 0,2 mmol ; 50 mL",
+     "formula": "c = n/V ; rapports",
+     "result": "Zn 20 mM ; S 4 mM ; NAC/Zn = 2,4 ; S/Zn = 0,2",
+     "compared_to": "mêmes rapports que ZnS_precursor, 3 fois plus dilué",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Rapports identiques à ceux de ZnS_precursor (calcul « concentrations et rapports »), solution 3 fois plus diluée ; cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Ajout de Na2S à pH 4,0 : H2S possible, hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme ZnS_precursor.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "base et pH final 6,0"
+   ]
+  },
+  {
+   "label": "MnQD_1.6nm_x4",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport des volumes imposé par x",
+     "inputs": "S du précurseur ZnS:Mn 12 mM ; Se de la solution de cœurs 6 mM",
+     "formula": "x = 12 V(ZnS:Mn) / (6 V(cœur)) donc V(ZnS:Mn)/V(cœur) = x/2",
+     "result": "x = 1 : 0,5 ; x = 4 : 2 ; x = 8 : 4",
+     "compared_to": "volumes non donnés dans l'article",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "bilan par Se à x = 4",
+     "inputs": "S = 4 Se ; Zn = 5 S ; Mn = 0,15 Zn ; Cd = 3,33 Se",
+     "formula": "rapports",
+     "result": "Zn 20, Mn 3, Cd 3,33 par Se ; Mn/(Cd+Zn) = 12,9 % ; Zn/Cd = 6,0 avant la coque ZnS",
+     "compared_to": "EDX : Mn 5 % des cations ; XPS Zn:Cd = 5,16 au stade cœur/coque",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "Cd libre contre soufre de coque",
+     "inputs": "Cd non lié ≈ 2,33 Se ; S de coque à x = 4 = 4 Se",
+     "formula": "2,33/4",
+     "result": "jusqu'à 58 % du soufre de la première coque peut précipiter CdS avant ZnS (Ksp(CdS) < Ksp(ZnS))",
+     "compared_to": "coque supposée « ZnS:Mn »",
+     "source": "chimie générale"
+    },
+    {
+     "what": "épaisseur de coque contre soufre apporté",
+     "inputs": "cœur 1,6 nm, QD 3,0 nm (TEM) ; a(CdSe zb) = 0,605 nm ; a(ZnS zb) = 0,541 nm (4 unités par maille)",
+     "formula": "[(3,0/1,6)³ − 1] × V(CdSe)/V(ZnS)",
+     "result": "≈ 7,8 ZnS par CdSe",
+     "compared_to": "S apporté : 4 par Se (ZnS:Mn à x = 4) + coque ZnS (quantité non donnée) : ordre de grandeur cohérent",
+     "source": "paramètres de maille de manuel"
+    },
+    {
+     "what": "écart des temps de vie texte contre figure",
+     "inputs": "〈τx=4〉 = 2,0 ms (texte) ; ≈ 1,21 ms (Fig. 3b, point x = 4, lu)",
+     "formula": "2,0/1,21",
+     "result": "facteur 1,65",
+     "compared_to": "même grandeur (« average decay time of Mn PL »)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression de vapeur aux températures de coque",
+     "inputs": "80, 120, 140 °C",
+     "formula": "table NIST",
+     "result": "0,47 ; 1,99 ; 3,62 bar",
+     "compared_to": "300 psi = 20,7 bar",
+     "source": "NIST WebBook"
+    },
+    {
+     "what": "volume final contre flacon",
+     "inputs": "V(cœur) + 2 V(cœur) à x = 4 (4 V(cœur) à x = 8) + coque ZnS",
+     "formula": "somme des volumes ≤ 25 mL (flacon CEM de 35 mL)",
+     "result": "V(cœur) ≤ 5 mL à x = 8 même sans la coque ZnS",
+     "compared_to": "10 mL utilisés pour l'essai direct",
+     "source": "manuel CEM Discover SP"
+    },
+    {
+     "what": "écart spin-orbite Cd 3d",
+     "inputs": "404,5 et 411,2 eV",
+     "formula": "différence",
+     "result": "6,7 eV",
+     "compared_to": "≈ 6,7–6,8 eV attendus pour Cd 3d (PMC9083121 : 6,8 eV)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence entre texte et figure : le texte donne 〈τx=4〉 = 2,0 ms, alors que la Fig. 3b (« average decay time of Mn PL ») place x = 4 à ≈ 1,2 ms, avec un maximum de 1,28 ms à x = 3 (calcul « écart des temps de vie texte contre figure », facteur 1,65). Les deux valeurs ne peuvent pas venir de la même formule de moyenne ; on ne sait pas laquelle est juste.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La solution de cœurs contient ≈ 2,3 équivalents de Cd2+ libre par Se (non purifiée avant la coque). À l'ajout du précurseur ZnS:Mn, ce Cd en excès entre en concurrence avec Zn pour le sulfure (CdS est plus insoluble que ZnS) : la première coque est probablement un alliage (Cd,Zn)S:Mn plutôt que ZnS:Mn (calcul « Cd libre contre soufre de coque »). Ce serait cohérent avec le fort décalage vers le rouge de l'émission de bord de bande (2,90 eV pour le cœur nu, 2,58 eV pour CdSe/ZnS non dopé sur la Fig. 4c), plus grand qu'avec une vraie coque ZnS.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Aucune purification n'est décrite avant les mesures d'EDX, d'XPS et de PLQY. Les cations sont en large excès sur les anions (Cd:Se = 3,3 ; Zn:S = 5), donc une solution non lavée contient des millimoles de Cd2+, Zn2+ et Mn2+ complexés. Les « 5 % at. de Mn » et les rapports Zn:Cd (5,16, très proche du 6,0 de la charge, voir calcul « bilan par Se à x = 4 ») ne peuvent pas être attribués aux seules QDs sans lavage (précipitation, dialyse). L'émission du Mn à l'échelle de la ms prouve en revanche que du Mn est bien dans un réseau.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Coques à 80, 120 et 140 °C en flacon scellé : 0,5 à 3,6 bar, très en dessous des 300 psi des flacons CEM (calcul « pression de vapeur aux températures de coque »). Les volumes ne sont pas donnés ; avec V(ZnS:Mn)/V(cœur) = x/2 (calcul « rapport des volumes imposé par x »), le volume total dépasse vite les 25 mL d'un flacon de 35 mL (calcul « volume final contre flacon »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CEM Discover SP Microwave Reactor Manual (volumes de travail : flacon 10 mL 0,2–7,0 mL ; flacon 35 mL 2,0–25,0 mL, scellés)",
+      "authors_or_publisher": "CEM Corporation (manuel hébergé par LBNL)",
+      "year": "2010",
+      "url_or_doi": "https://commons.lbl.gov/download/attachments/123536269/CEM%20Discover%20SP%20Microwave%20Reactor%20Manual.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille TEM de 3,0 nm sur un cœur de 1,6 nm : il faut ≈ 7,8 ZnS par CdSe (calcul « épaisseur de coque contre soufre apporté »), compatible avec les 4 S par Se de la coque ZnS:Mn plus la coque ZnS. PLQY de 51 % et temps de vie de l'ordre de la ms : ordres de grandeur habituels pour Mn2+ (transition 4T1 → 6A1 interdite de spin).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS : écart Cd 3d5/2–3d3/2 de 6,7 eV, cohérent (calcul « écart spin-orbite Cd 3d ») ; source Mg Kα 1253,6 eV correcte. Le paragraphe XPS écrit « CdSe/ZnSe:Mn/ZnS » pour un échantillon CdSe/ZnS:Mn/ZnS : faute de frappe des auteurs, et le x de l'échantillon XPS n'est pas donné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Composés du Cd (cancérogènes), H2S et H2Se possibles lors des ajustements acides, perchlorates à ne pas sécher avec la matière organique, flacons scellés jusqu'à 180 °C pour les cœurs (10 bar) : aucune précaution écrite hors piranha.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Croissance des cœurs de CdSe sans Mn, puis dépôt sur ces cœurs d'une coque (Zn,Cd)S:Mn à 80 °C, à partir des complexes Zn/Mn–NAC et du sulfure (et du Cd en excès), puis d'une coque ZnS à 140 °C, où la NAC peut fournir du soufre en plus. L'émission du Mn vient d'un transfert d'énergie de l'exciton du cœur vers les Mn2+ de la coque ; ce transfert demande que la fonction d'onde de l'exciton déborde dans la coque, ce qui est facile pour un cœur de 1,6 nm (Chen, Maiti et Son 2012 ; Yang et al. 2006 pour le contrôle de la position radiale). Le mot « auto-purification » ne s'impose pas : le procédé en coque contourne surtout la faible adsorption de Mn sur CdSe (Erwin 2005).",
+    "sources": [
+     {
+      "title": "Doping Location-Dependent Energy Transfer Dynamics in Mn-Doped CdS/ZnS Nanocrystals",
+      "authors_or_publisher": "H.-Y. Chen, S. Maiti, D. H. Son, ACS Nano 6, 583–591",
+      "year": "2012",
+      "url_or_doi": "10.1021/nn204452e"
+     },
+     {
+      "title": "Radial-Position-Controlled Doping in CdS/ZnS Core/Shell Nanocrystals",
+      "authors_or_publisher": "Y. Yang, O. Chen, A. Angerhofer, Y. C. Cao, J. Am. Chem. Soc.",
+      "year": "2006",
+      "url_or_doi": "10.1021/ja064818h"
+     },
+     {
+      "title": "Doping semiconductor nanocrystals",
+      "authors_or_publisher": "S. C. Erwin, L. Zu, M. I. Haftel, A. L. Efros, T. A. Kennedy, D. J. Norris, Nature 436, 91–94",
+      "year": "2005",
+      "url_or_doi": "10.1038/nature03832"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volumes réels de cœur, de ZnS:Mn et de ZnS (V(ZnS:Mn)/V(cœur) = x/2) et capacité du flacon",
+    "température de chauffage des cœurs de 1,6 nm",
+    "purification avant EDX, XPS et PLQY",
+    "quel temps de vie croire (2,0 ms ou ≈ 1,2 ms)",
+    "dosage du Cd dans la coque (Cd libre de la solution de cœurs)"
+   ]
+  },
+  {
+   "label": "MnQD_1.6nm_x8",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "densité locale de Mn dans la coque selon x",
+     "inputs": "Mn/Zn = 0,15 fixe dans le précurseur ZnS:Mn pour tous les x",
+     "formula": "Mn/(Zn+Mn) dans la coque dopée",
+     "result": "≈ 13 % pour x = 1 à 8 (constante)",
+     "compared_to": "« désactivation par concentration » invoquée au-delà de x ≈ 5",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "quantité totale fixe",
+     "inputs": "« the total amount of added ZnS:Mn and ZnS precursors was fixed »",
+     "formula": "n(ZnS) = total − n(ZnS:Mn)",
+     "result": "quand x augmente, la coque ZnS externe s'amincit",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "La « désactivation par concentration » suppose que la densité de Mn (paires Mn–Mn) augmente ; or Mn/Zn est fixé à 0,15 dans le précurseur pour tous les x (calcul « densité locale de Mn dans la coque selon x »). Augmenter x épaissit la coque dopée (plus de Mn par QD, à densité constante) et, à quantité totale fixe, amincit la coque ZnS externe (calcul « quantité totale fixe »). La baisse d'intensité et de temps de vie pour x ≥ 5 s'explique aussi bien par des Mn plus proches de la surface, moins bien protégés. Le terme « Mn preparation concentration » pour x est trompeur : x mesure la quantité de précurseur de coque, pas une concentration en Mn. Pour discriminer, il faudrait faire varier Mn/Zn à x fixe, ou garder la même épaisseur de ZnS externe.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Radial-Position-Controlled Doping in CdS/ZnS Core/Shell Nanocrystals",
+      "authors_or_publisher": "Y. Yang, O. Chen, A. Angerhofer, Y. C. Cao, J. Am. Chem. Soc.",
+      "year": "2006",
+      "url_or_doi": "10.1021/ja064818h"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le texte situe la baisse tantôt « at x > 5 », tantôt « x ≥ 5 », alors que la Fig. 2c montre déjà x = 5 sous x = 4 : incohérence mineure entre phrases.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À densité de Mn constante, la baisse au-delà de x ≈ 4–5 vient plus probablement de la position radiale des Mn (coque dopée plus épaisse, coque ZnS externe plus mince, Mn proches de la surface et de ses pièges) que d'une désactivation par concentration au sens strict ; Yang et al. 2006 montrent que le temps de vie et le rendement de l'émission du Mn dépendent de sa position radiale.",
+    "sources": [
+     {
+      "title": "Radial-Position-Controlled Doping in CdS/ZnS Core/Shell Nanocrystals",
+      "authors_or_publisher": "Y. Yang, O. Chen, A. Angerhofer, Y. C. Cao, J. Am. Chem. Soc.",
+      "year": "2006",
+      "url_or_doi": "10.1021/ja064818h"
+     },
+     {
+      "title": "Doping Location-Dependent Energy Transfer Dynamics in Mn-Doped CdS/ZnS Nanocrystals",
+      "authors_or_publisher": "H.-Y. Chen, S. Maiti, D. H. Son, ACS Nano 6, 583–591",
+      "year": "2012",
+      "url_or_doi": "10.1021/nn204452e"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "série à x fixe en faisant varier Mn/Zn",
+    "épaisseur de la coque ZnS externe pour chaque x"
+   ]
+  },
+  {
+   "label": "MnQD_2.2nm_x4",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "écart ΔE et facteur de Boltzmann",
+     "inputs": "Fig. 6 : bord de bande ≈ 2,35 eV, Mn ≈ 2,03 eV (2,2 nm) ; kT = 0,0257 eV à 298 K",
+     "formula": "exp(−ΔE/kT) avec ΔE = 0,1 à 0,32 eV",
+     "result": "4×10⁻⁶ (0,32 eV) à 2×10⁻² (0,1 eV)",
+     "compared_to": "vitesse de retour = k_ET × facteur ≈ 10⁹ s⁻¹ × 4×10⁻⁶ ≈ 4×10³ s⁻¹, supérieure à la décroissance du Mn (≈ 10³ s⁻¹)",
+     "source": "chimie générale, valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Le retour thermique de l'état 4T1 vers l'exciton est plausible même pour ΔE ≈ 0,3 eV : il suffit qu'il batte la décroissance du Mn, qui vit une milliseconde (calcul « écart ΔE et facteur de Boltzmann »). C'est le mécanisme de Beaulac et al. 2008 pour CdSe:Mn, qui place la bascule vers 3,3 nm avec Mn dans le cœur. Ici la bascule se fait vers 2 nm, ce qui va aussi avec un transfert plus lent vers des Mn placés dans la coque (moins de recouvrement avec l'exciton pour un gros cœur, Chen 2012). Les déclins de la Fig. S7 (absents du dépôt) trancheraient : un temps de vie du Mn qui raccourcit avec la taille indiquerait le retour thermique.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Spin-Polarizable Excitonic Luminescence in Colloidal Mn2+-Doped CdSe Quantum Dots",
+      "authors_or_publisher": "R. Beaulac, P. I. Archer, X. Liu, S. Lee, G. M. Salley, M. Dobrowolska, J. K. Furdyna, D. R. Gamelin, Nano Lett. 8, 1197–1201",
+      "year": "2008",
+      "url_or_doi": "10.1021/nl080195p"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Compétition entre transfert exciton → Mn (plus lent quand le cœur grossit et que l'exciton déborde moins dans la coque dopée) et retour thermique 4T1 → exciton (efficace dès que ΔE tombe vers 0,3 eV) ; les deux font monter l'émission de bord de bande pour d ≥ 2,2 nm.",
+    "sources": [
+     {
+      "title": "Spin-Polarizable Excitonic Luminescence in Colloidal Mn2+-Doped CdSe Quantum Dots",
+      "authors_or_publisher": "R. Beaulac, P. I. Archer, X. Liu, S. Lee, G. M. Salley, M. Dobrowolska, J. K. Furdyna, D. R. Gamelin, Nano Lett. 8, 1197–1201",
+      "year": "2008",
+      "url_or_doi": "10.1021/nl080195p"
+     },
+     {
+      "title": "Doping Location-Dependent Energy Transfer Dynamics in Mn-Doped CdS/ZnS Nanocrystals",
+      "authors_or_publisher": "H.-Y. Chen, S. Maiti, D. H. Son, ACS Nano 6, 583–591",
+      "year": "2012",
+      "url_or_doi": "10.1021/nn204452e"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "temps de vie du Mn selon la taille (Fig. S7)",
+    "dépendance en température du rapport Mn/bord de bande"
+   ]
+  },
+  {
+   "label": "MnQD_1.6nm_x2_ZnSe-conditions",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pression à 120 °C",
+     "inputs": "120 °C",
+     "formula": "table NIST",
+     "result": "1,99 bar",
+     "compared_to": "sans risque en flacon scellé",
+     "source": "NIST WebBook"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Essai qui change quatre variables à la fois (x = 2, 120 °C, 2 min, un seul ajout) par rapport à la voie retenue : il motive le changement de conditions, mais ne permet pas de dire laquelle compte. La conclusion des auteurs (« a higher Mn ion concentration is necessary ») est contredite par leur propre plan : Mn/Zn reste à 0,15, seule la quantité de coque (x) et le chauffage changent.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "À 120 °C pendant 2 min avec peu de précurseur (x = 2), la coque dopée est mince et incomplète ; une partie des cœurs n'est pas couverte et garde son émission de bord de bande.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "conditions complètes de la synthèse ZnSe de la réf. 21"
+   ]
+  },
+  {
+   "label": "CuQD_CdSe_1.6nm",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "écart entre bord de bande et émission du Cu",
+     "inputs": "bord de bande 2,7 eV (1,6 nm) et 2,3 eV (2,7 nm), Fig. 6 ; émission du Cu 1,9 et 1,5 eV",
+     "formula": "E(bord) − E(Cu)",
+     "result": "0,8 eV pour les deux tailles",
+     "compared_to": "écart constant attendu si l'émission recombine l'électron de la bande de conduction avec un trou piégé sur un niveau Cu fixe",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport cationique du mélange",
+     "inputs": "[ZnS:Cu]/[CdSe] = 0,5 (cations) ; Cu/Zn = 0,09",
+     "formula": "Cu par cation du cœur = 0,5 × 0,09/1,09",
+     "result": "≈ 4 Cu pour 100 cations du cœur",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'écart constant de 0,8 eV entre le bord de bande et l'émission du Cu pour les deux tailles (calcul « écart entre bord de bande et émission du Cu ») va avec l'attribution des auteurs (électron de la bande de conduction et trou localisé sur le Cu) : cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Les conditions de chauffage de la coque ZnS de la série Cu (« After microwave irradiation ») ne sont pas données, ni la préparation et la quantité des cœurs : l'expérience n'est pas refaisable telle qu'écrite, sauf à reprendre par hypothèse les 140 °C de la série Mn.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La phrase sur le déclin de CdSe/ZnS:Cu/ZnS nomme « ZnSe/ZnS:Cu/ZnS » : faute de copier-coller des auteurs ; aucune valeur de temps de vie n'est donnée pour les cœurs CdSe.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Cu+ (réduit par la NAC) incorporé dans la coque ZnS ; sous excitation, le trou se localise sur Cu+ (qui devient Cu2+ formellement) et se recombine avec l'électron du cœur de CdSe, d'où une émission qui suit la taille du cœur.",
+    "sources": [
+     {
+      "title": "Synthesis and structural analysis of copper(II) cysteine complexes (réduction de Cu(II) en Cu(I) par la cystéine, avec formation de cystine)",
+      "authors_or_publisher": "Inorganica Chimica Acta (Elsevier), article S0020169308003319 (auteurs non relevés dans l'extrait)",
+      "year": "2008",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0020169308003319"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "température et durée de la coque ZnS",
+    "quantité de cœurs",
+    "dosage du Cu"
+   ]
+  },
+  {
+   "label": "CuQD_ZnSe",
+   "verdict": "invérifiable",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "écart entre bord de bande et émission du Cu",
+     "inputs": "ZnSe/ZnS : bord de bande 3,3 eV ; ZnSe/ZnS:Cu/ZnS : 2,6 eV",
+     "formula": "différence",
+     "result": "0,7 eV",
+     "compared_to": "émission bleu-vert habituelle de ZnSe:Cu (≈ 2,5–2,6 eV)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "cinetique",
+     "finding": "Ni la préparation des cœurs ZnSe, ni leur quantité, ni les conditions de la coque ZnS ne sont décrites dans cet article (renvoi implicite à la réf. 21) : la voie n'est pas refaisable à partir de ce seul texte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Émission du Cu à 2,6 eV, 0,7 eV sous le bord de bande (calcul « écart entre bord de bande et émission du Cu »), avec un déclin de l'ordre de la µs : ordres de grandeur habituels pour ZnSe:Cu.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme pour CuQD_CdSe_1.6nm, avec un hôte ZnSe.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "protocole des cœurs ZnSe (réf. 21 : Nishimura et al., J. Mater. Chem. C 9, 693–701)",
+    "conditions de la coque ZnS"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie des précurseurs est cohérente : rapports annoncés vérifiés (Mn/Zn = 0,15), NAC soluble, pressions en flacon scellé acceptables, taille du cœur de 1,6 nm vérifiée par l'équation de Donegá. Quatre points faibles. (1) Le temps de vie moyen à x = 4 vaut 2,0 ms dans le texte et ≈ 1,2 ms sur la Fig. 3b. (2) Le témoin de dopage direct apporte 45 fois moins de Mn par Se, et sa mesure ne pouvait pas détecter une émission du Mn ; il ne prouve donc pas l'auto-purification. (3) La « désactivation par concentration » est invoquée alors que Mn/Zn est constant ; x change en réalité l'épaisseur de la coque dopée et de la coque externe. (4) Aucune purification n'est décrite, et le Cd en excès (Cd:Se = 3,3) participe probablement à la première coque. Volumes, températures des cœurs et conditions de la série Cu manquent.",
+  "author_errors_suspected": [
+   "〈τx=4〉 = 2,0 ms dans le texte contre ≈ 1,2 ms sur la Fig. 3b",
+   "« CdSe/ZnSe:Mn/ZnS » pour CdSe/ZnS:Mn/ZnS dans le paragraphe XPS",
+   "« ZnSe/ZnS:Cu/ZnS » à la place de CdSe/ZnS:Cu/ZnS pour le déclin de la Fig. S8b",
+   "baisse de l'émission du Mn située tantôt à x > 5, tantôt à x ≥ 5",
+   "x appelé « Mn preparation concentration » alors que Mn/Zn est fixe"
+  ],
+  "comparison_with_database": "Seule autre synthèse aqueuse de CdSe dopé Mn dans la base : PMC9083121 (MPA, Na2SeSO3, micro-ondes 60 s, ≈ 5,3 nm), qui mesure 0,25 à 1,2 % de Mn (EDS) dans des CdSe dopés directement, et un écart Cd 3d de 6,8 eV, proche des 6,7 eV d'ici. Le dopage direct en milieu aqueux n'est donc pas impossible en général ; l'échec rapporté ici tient probablement aux conditions de l'essai."
+ },
+ "sources_not_found": [
+  "équation de Donegá et Koole lue dans une source secondaire (NSF PAR 10615871) ; l'article original (10.1021/jp811329r) n'a pas été ouvert",
+  "Ksp de Mn(OH)2 (≈ 1,9×10⁻¹³), de Cd(OH)2 (≈ 7×10⁻¹⁵) et pKa de H2S et H2Se : valeurs de manuel non vérifiées en ligne",
+  "pression de vapeur de l'eau à 200 °C (≈ 15,5 bar) : la ligne 200 °C n'apparaît pas dans l'extrait NIST lu (180 °C : 10,028 bar lu)",
+  "auteurs de l'article Elsevier sur les complexes Cu(II)–cystéine non relevés"
+ ]
+}

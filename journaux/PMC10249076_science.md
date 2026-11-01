@@ -1,0 +1,16 @@
+# PMC10249076 — critique scientifique (décisions)
+
+- Table 1, a = 1,22 nm et ρ = 5,22 g/cm³ : classé `probleme` parce que les deux valeurs sont incompatibles entre elles (1,22 nm → 5,40 g/cm³ ; 5,22 g/cm³ → a = 1,2338 nm), pas seulement parce que 1,22 nm s'écarte de 1,2376 nm. La référence 1,2376 nm vient de la fiche JCPDS que les auteurs citent, recoupée par PMC9140988 (1,238 nm) ; aucune page web lisible ne l'a confirmée directement.
+- Densité de dislocations : 1/D² avec D en m redonne exactement 2,78 et 3,13 ×10^14 → l'unité est m-2, pas cm-2 (facteur 10^4). `probleme`.
+- Transparence « deep in the UV (<1000 nm) » : `probleme` par calcul simple (2,25 eV ↔ 551 nm), sans source web ; la recherche sur la fenêtre de transparence de YIG (≈ 1,1–5 µm) n'a donné que des extraits non lisibles en entier (Hild & Beregi 1986), non utilisés comme appui.
+- Figure 3b/c : attribution b = hydrothermal, c = sol–gel tranchée par le rapport SAR(3)/SAR(1) lu sur les pentes initiales (0,67 et 0,47) contre la Table 3 (0,68 et 0,43). Le doute de l'extracteur (44 °C atteint en 8 min contre 12 min) vient des températures de départ différentes (27,5 contre 25 °C), pas d'une contradiction.
+- SAR : la formule publiée n'a pas la masse du solvant. Recalcul avec l'hexane (2,27 J g-1 K-1 ; 0,655 g/mL) et les pentes de la 1re minute : ≈ 116/78 W/g (hydro) et ≈ 129/60 W/g (sol–gel), soit un facteur ≈ 1,7–1,9 sous la Table 3, presque constant → erreur systématique probable. Classé `probleme` malgré l'imprécision de lecture (± 0,5 °C), car la formule elle-même est incomplète.
+- Borne haute des pertes par hystérésis (4 μ0 Hc Ms f) ≈ 10 W/g : signalée dans le même constat pour dire que l'origine d'un SAR > 100 W/g n'est pas expliquée ; je n'affirme pas d'artefact, je demande un essai à blanc (hexane seul).
+- Fopase et al. : le résumé (via la page Sigma-Aldrich trouvée par recherche) donne 114,65 W/g à 1 mg/mL, pas 146,76 W/g. `reserve` (erreur de citation probable, 146 = valeur des auteurs à 3 mg/mL). DOI 10.1016/j.msec.2020.111163 déduit du numéro d'article, non vérifié.
+- Critère H·f de Hergt–Dutz (5×10^9 A m-1 s-1) : pris d'un article RSC 2024 qui le cite ; la recherche du DOI 10.1016/j.jmmm.2006.10.1156 n'a rien rendu, donc DOI non donné comme vérifié.
+- « Y2O3 dissous dans l'eau » : `reserve` et non `probleme` : l'acide nitrique est listé parmi les précurseurs, la dissolution acide est implicite ; seul l'ordre d'addition manque.
+- Hydrothermal à 195 °C : mécanisme `a_revoir` — j'estime (chimie générale, non sourcé) que le grenat ne se forme pas dans l'autoclave sans minéralisateur ; le grenat naît au frittage. Le titre « microwave-assisted hydrothermal » est un abus de mot (étuve à air chaud).
+- Combustion : rapport citrate/métal stœchiométrique ≈ 0,83 calculé par les valences des propergols (sans source web, chimie générale) ; 120 °C jugé comme consigne de plaque, l'allumage des gels nitrate–citrate se faisant plutôt vers 200–250 °C (ordre de grandeur, non sourcé).
+- Ms 24,8/26,4 emu/g comparé à ≈ 27 emu/g pour YIG massif (valeur de manuel non revérifiée en ligne) : `ok`.
+- Erreurs de l'introduction (Fe2+ en 16a, sites « tetragonal ») et « bcc … 160 atoms » mises au niveau article seulement : elles ne touchent pas la synthèse.
+- Recherches web : 9 (WebFetch et curl bloqués par le proxy : aucune page ouverte en entier).

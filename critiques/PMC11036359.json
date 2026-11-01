@@ -1,0 +1,112 @@
+{
+ "pmcid": "PMC11036359",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "PROT_ODE_150_HC_30s / _5min / _15min, DEP_ODE_150_5min, DEP_ODE_180_5min : résultat comparatif du chauffage de la complexation",
+   "extracted": "Branches HC sans résultat de taille ni de quantité (seuls PLQY, morphologie de HC_15min, PLE) ; la tendance n'existe que dans une annotation tendance_observee",
+   "article_says": "In all of these cases, we achieve a higher quantity of particles with decreased size, probably due to the heating of the complexation step.",
+   "fix": "ajouter à chaque branche à complexation chauffée un résultat qualitatif (plus de particules, plus petites que sans chauffage, Fig. S3, S4, 4, S5) ; pour HC_30s/5min/15min ajouter la croissance avec le temps d'agitation (SI : « as the mixing time increases, the particles grow and form rod-shaped particles »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "PROT_acetone_50C, PROT_ODE_120, PROT_ODE_150 : tendance de taille avec la température",
+   "extracted": "aucun résultat de taille ; seule la morphologie est notée",
+   "article_says": "showing a decrease in the size of the nanoparticles due to the decrease in the critical size",
+   "fix": "ajouter un résultat qualitatif « taille moyenne décroissante quand la température monte (Fig. S2a, c-e) » sur les branches 50 °C, 120 °C et 150 °C (sans chiffre : S2 absent du dépôt)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PROT_acetone_RT et DEP_acetone_RT : sous-produit de monocouches préféré",
+   "extracted": "seule la branche PROT_wet_precursor porte « AMTP monolayers (instead of OAM…) » ; aucune ligne sur la voie protonée sèche (OAM) ni sur la voie déprotonée (AMTP)",
+   "article_says": "The synthesis using the deprotonated precursor prefers the AMTP monolayers,",
+   "fix": "ajouter preferred_monolayer_byproduct = OAM monolayers sur la voie protonée à précurseur sec, et = AMTP monolayers sur la voie déprotonée (Fig. S8b noir et vert)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "OAM_monolayer et AMTP_monolayer : stacked_monolayer_d_spacing (3.6 nm, 1.6 nm)",
+   "extracted": "valeurs rangées en résultats des monocouches synthétisées séparément",
+   "article_says": "measurement (Fig. S8b) and by using Bragg’s law, we can measure the thickness of each one of the",
+   "fix": "les distances viennent des pics de sous-produits dans les diffractogrammes de la figure S8b (synthèses de l'hétérostructure), non d'un diffractogramme des monocouches OAM préparées à part (aucun n'est décrit) ; préciser l'origine dans la valeur ou déplacer les résultats vers les voies à sous-produit (PROT sèche pour OAM, déprotonée ou précurseur humide pour AMTP) ; Fig. S7 donne un empilement de monocouches AMTP, ce qui n'est vrai que pour AMTP",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "sample_inventory : Fig. 5b rattachée à PROT_ODE_150 et confondue avec S8b noir",
+   "extracted": "« Protonated route, lab XRD out-of-plane and in-plane (Fig. 5b, S8b black) » ; PROT_ODE_150 results_in contient Fig. 5b",
+   "article_says": "Here, we favor the AMTP monolayer using a hydrated precursor.",
+   "fix": "la figure 5b (courbe bleue, pics AMTP dominants) correspond au précurseur protoné hydraté, soit S8b bleu et la branche PROT_wet_precursor ; S8b noir (sec, pic OAM seul) est un autre échantillon ; retirer Fig. 5b de PROT_ODE_150",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PROT_ODE_150 step 4 duration",
+   "extracted": "0–15 min (échantillon de la Fig. 2d)",
+   "article_says": "The solution is stirred for 0–15 min",
+   "fix": "c'est la plage du protocole, pas la durée de cet échantillon ; mettre la durée en not_stated (la plage reste en doute/annotation)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "PROT_ODE_150 step 1 temperature (room temperature)",
+   "extracted": "room temperature, citation = « at room temperature or 120 °C »",
+   "article_says": "This figure compares the PL spectra of various syntheses with those of a protonated method where complexation was performed at room temperature without heating.",
+   "fix": "la citation actuelle est une alternative ; la valeur est soutenue par la phrase de S9b ci-contre (échantillon à 150 °C), à citer à la place ; PROT_ODE_120 n'a aucune phrase équivalente : laisser la température de l'étape 1 en not_stated ou doute pour 120 °C",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PROT_ODE_120 : variations",
+   "extracted": "seule la température (150 -> 120 °C) varie",
+   "article_says": "protonated precursors at 120˚C with more ligands (and more AMTP)",
+   "fix": "la légende S2 dit que l'échantillon à 120 °C a plus de ligands et plus d'AMTP, sans référence ni quantité ; noter cet écart (annotation limite_reproductibilite ou variation non chiffrée), la série en température n'est pas à iso-réactifs d'après l'article",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PROT_acetone_RT : résultats ; inventaire",
+   "extracted": "Fig. S10c (protonée, température ambiante) absente des results_in de PROT_acetone_RT ; aucun résultat sur le rendement",
+   "article_says": "material features are shown in Fig. S10b and c, belonging to the samples with lower product",
+   "fix": "ajouter S10c aux results_in et un résultat « rendement en produit plus faible » (qualitatif) sur PROT_acetone_RT",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "étape 2 des voies PROT_acetone_RT, DEP_acetone_RT, DEP_ODE_150_5min, PROT_ODE_150, OAM_monolayer : équipement",
+   "extracted": "small glass vial",
+   "article_says": "In a separate glass vial, 5 mL of acetone, 120 mg of the OAM-Br precursor, and 0.5 mL of OA are mixed",
+   "fix": "« glass vial » ; l'adjectif « small » ne s'applique qu'au premier flacon",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation mecanisme_analyse (OAM-Br)",
+   "extracted": "« HBr est probablement en léger excès »",
+   "article_says": "When the solution becomes clear, 5.5 mL of HBr is slowly added dropwise.",
+   "fix": "5 mL d'oléylamine (≈ 15 mmol, d ≈ 0,81, M 267,5) pour 5,5 mL de HBr à 47 % (≈ 47 mmol, d ≈ 1,48) : excès d'environ 3 équivalents, non léger ; corriger l'annotation (les lavages à l'acétonitrile retirent l'excès)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 17,
+  "branches_extracted": 17,
+  "not_stated_checked": 42,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "Tableau S4 (« Synthesis summary », tous les paramètres changés) absent du texte et des images du dépôt : il aurait fixé, échantillon par échantillon, solvant, température, quantités et temps",
+  "Figures S1-S14 (distributions de taille S2 et S5, cartes PL-PLE, diffractogrammes S7-S8) absentes : aucune taille numérique de particule",
+  "Température du premier flacon (DMSO) dans les voies en acétone, vitesse d'agitation, vitesse d'injection, temps de dissolution, vitesse de refroidissement, rendements",
+  "Durée d'agitation de l'échantillon protoné à 150 °C sans chauffage de complexation (Fig. 2d, 3, 6) : seule la plage 0–15 min est donnée",
+  "Température de l'étape DMSO des échantillons protonés à 120 et 150 °C non chauffés : déduite de la seule phrase de S9b",
+  "Quantités exactes de l'échantillon à 120 °C « with more ligands (and more AMTP) »",
+  "Conditions de synthèse des échantillons des figures 5a, 5b et S8b (solvant, température, temps)",
+  "Quantité de dispersion traitée et température des centrifugations du nettoyage ; nombre de lavages à l'acétonitrile des précurseurs"
+ ],
+ "mechanism_check": "ok : le schéma 1 (complexes A et B) et l'hypothèse du noyau neutre sont fidèles à l'article ; mecanisme_analyse (OAM-Br) sous-estime l'excès de HBr (voir constat)",
+ "notes": "Vérifié sur figure : Fig. 6d (PLE lus 322, 348, 353, 361 nm contre 320, 350, 350, 360 extraits), Fig. 6b (PL ≈ 430 nm), Fig. 6a (pic d'absorption lu ≈ 395-396 nm, extrait 400 nm, écart 1 %), Fig. 2b,c et 4a-d (morphologies conformes). La légende de 6d liste deux « blue » et pas de rouge : l'attribution rouge = protonée 150 °C est plausible (pic le plus décalé vers le rouge, cohérent avec « larger particles ») mais non écrite. Tableau S2 mal reconstitué : 412 et 430 nm peuvent être les deux pics du massif (Fig. 6c : ≈ 412 et ≈ 436), donc « cohérent avec le tableau S2 » dans le doute PL 430 nm n'est pas démontré ; la valeur 430 nm reste lue sur 6b. 120 °C pour le chauffage de complexation des branches HC protonées vient de l'alternative « room temperature or 120 °C » (déduction raisonnable, déjà en doute). Rattachement de PROT_wet_precursor à PROT_acetone_RT non confirmé (déjà en doute)."
+}

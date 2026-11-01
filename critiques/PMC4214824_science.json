@@ -1,0 +1,547 @@
+{
+ "pmcid": "PMC4214824",
+ "routes": [
+  {
+   "label": "TiN_N2_15",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction réelle de N2 dans le gaz",
+     "inputs": "N2:Ar = 1:17, 3:15, 7:11, 11:7, 15:3 sccm",
+     "formula": "100 × N2/(N2+Ar)",
+     "result": "5,6 ; 16,7 ; 38,9 ; 61,1 ; 83,3 %",
+     "compared_to": "pourcentages annoncés 5, 15, 40, 60, 85 % : arrondis au multiple de 5 le plus proche ; la voie « 15 % » est en fait à 16,7 % de N2",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "teneur en azote XPS lue comme rapport N/Ti",
+     "inputs": "80,49 ; 84,50 ; 87,20 ; 85,62 ; 82,06 « % »",
+     "formula": "si x = N/Ti : at.% N = 100·x/(1+x)",
+     "result": "44,6 ; 45,8 ; 46,6 ; 46,1 ; 45,1 at.% N (TiN0,80 à TiN0,87)",
+     "compared_to": "« Ti-rich » (at.% N < 50) : cohérent seulement si le « % » est un rapport N/Ti ; lu comme at.% N, 84,5 % donnerait N/Ti ≈ 5,4, impossible pour un nitrure de titane",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression de travail",
+     "inputs": "0,14 Pa",
+     "formula": "1 Torr = 133,32 Pa",
+     "result": "1,05 mTorr",
+     "compared_to": "régime habituel de la pulvérisation magnétron (≈ 1-10 mTorr) : plausible avec 18 sccm et un pompage turbomoléculaire",
+     "source": "conversion d'unités"
+    },
+    {
+     "what": "concentration de HCl 1:1",
+     "inputs": "HCl concentré ≈ 12 mol/L (37 %), dilué 1:1 en volume",
+     "formula": "12/2",
+     "result": "≈ 6 mol/L",
+     "compared_to": "nettoyage d'oxyde de GaN habituel ; acide corrosif (hypothèse : HCl concentré 37 %, non écrit)",
+     "source": "valeur courante du HCl 37 % ≈ 12 mol/L (chimie générale)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ti (cible, non nommée) + N2 (gaz réactif) apportent les deux éléments de TiN ; à 16,7 % de N2 (voir « fraction réelle de N2 dans le gaz ») le film est un TiNx. Le 0 % ne dépose que du titane.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les « actual nitrogen contents » de 80,49 à 87,20 % sont incompatibles avec la phrase « all of the TiN films are Ti-rich » s'ils sont des pourcentages atomiques (84,5 at.% N ⇒ N/Ti ≈ 5,4, aucun nitrure de titane n'existe à cette composition). Ils ne sont cohérents que s'ils expriment un rapport N/Ti ×100 (TiN0,80-0,87, soit 45-47 at.% N : voir « teneur en azote XPS lue comme rapport N/Ti »). La grandeur rangée dans la base sous « actual_nitrogen_content_XPS = 84,5 % » est donc d'unité ambiguë et ne doit pas être lue comme des at.%.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« Amorphous surface morphologies » est déduit d'images AFM : l'AFM ne renseigne pas sur la cristallinité. Le TiN pulvérisé à température ambiante est en général polycristallin (cubique NaCl, ou mélange Ti/Ti2N/TiN aux faibles rapports N2/Ar). Sans DRX, « amorphe » n'est qu'un mot sur l'aspect de surface.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Comparative study of TiNx films deposited by reactive ion beam sputtering at 77 and 300 K",
+      "authors_or_publisher": "Surface and Interface Analysis 16, 510-514 (ECASIA'89) ; auteurs non relevés",
+      "year": "1990",
+      "url_or_doi": "https://inis.iaea.org/records/2pcyv-3rf21"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le pourcentage annoncé « 15 % » vaut 16,7 % de N2 (et 85 % vaut 83,3 %) : un chimiste qui règle ses débits sur les pourcentages et non sur les sccm ne refait pas la même composition gazeuse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Le contact ohmique Ti/Al/Ti/Au est recuit à 800 °C (1 min) avant le dépôt de TiN : le film TiN de la diode n'est donc pas recuit. Atmosphère et rampe du recuit (RTA sous N2 habituel) non écrites.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Ni l'épaisseur des films de la série ni la durée de dépôt ne sont données ; la vitesse de 0,6 nm/min n'est donnée que pour le film de 10 nm, sans dire si la puissance (75 W) est la même. La série ne peut pas être refaite à épaisseur égale.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "HCl ≈ 6 mol/L (voir « concentration de HCl 1:1 ») : corrosif, vapeurs ; plasma O2 et alimentation haute tension du pulvérisateur ; N2/Ar asphyxiants en local confiné. Sécurité non écrite dans l'article, mais risques usuels de salle blanche.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Pulvérisation réactive : le Ti éjecté de la cible se nitrure à la surface du substrat (et de la cible, qui s'empoisonne quand le débit de N2 augmente) ; à 5-6 % de N2 le film est sous-nitruré (mélange possible Ti/Ti2N/TiNx), au-delà de ≈ 17 % le film est un TiNx proche de TiN0,85 (si l'XPS donne N/Ti) dont la composition varie peu. La baisse de N/Ti à 60-85 % de N2 n'est pas expliquée par les auteurs ; elle peut venir de l'XPS lui-même (pulvérisation préférentielle de N pendant le décapage Ar+, oxydation de surface) plus que du dépôt. Le mot « amorphe » de l'extraction et de l'article n'est pas étayé : sans DRX, attribuer la rugosité minimale à un film « plus amorphe » est une hypothèse.",
+    "sources": [
+     {
+      "title": "Comparative study of TiNx films deposited by reactive ion beam sputtering at 77 and 300 K",
+      "authors_or_publisher": "Surface and Interface Analysis 16, 510-514 (ECASIA'89) ; auteurs non relevés",
+      "year": "1990",
+      "url_or_doi": "https://inis.iaea.org/records/2pcyv-3rf21"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "la grandeur exacte de la « teneur en azote » XPS (rapport N/Ti ou at.%) dans la référence [10] des auteurs (Li et al., J. Vac. Sci. Technol. A 2014)",
+    "régler les débits en sccm (3:15) plutôt que le pourcentage arrondi",
+    "cible (Ti pur ?), distance cible-substrat, pression de base, épaisseur et durée de dépôt",
+    "atmosphère et rampe du recuit ohmique à 800 °C",
+    "cristallinité du film par DRX en incidence rasante si la phase importe"
+   ]
+  },
+  {
+   "label": "TiN_N2_0",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction de N2",
+     "inputs": "0:18 sccm",
+     "formula": "0/18",
+     "result": "0 % : dépôt de Ti métallique sous Ar pur",
+     "compared_to": "matériau Ti et non TiN",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Contact quasi ohmique du Ti pur sur n-GaN : attendu. Le Ti pulvérisé sous Ar est ohmique dès le dépôt sur n-GaN (réaction interfaciale qui crée des lacunes d'azote dans le GaN sous-jacent), alors que le TiN déposé avec N2 est redresseur. Travail de sortie du Ti ≈ 4,3 eV, proche de l'affinité électronique de GaN (≈ 4,1 eV).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Ohmic Contact Mechanism of Titanium-based Electrodes on n-type Gallium Nitride",
+      "authors_or_publisher": "Maeda M., Yamasaki T., Takahashi Y. (Transactions of JWRI 41(1), 45-48)",
+      "year": "2012",
+      "url_or_doi": "https://ir.library.osaka-u.ac.jp/repo/ouka/all/23155/jwri41_01-045.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rugosité 2,29 nm, six fois celle du film à 15 % : cohérent avec un film métallique polycristallin à grains plus gros ; la branche n'est pas un « TiN » et ne doit pas être comptée dans la série des nitrures.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Ti métallique ; à l'interface, le Ti capte de l'azote du GaN (formation de TiN/Ti2N interfacial) et laisse des lacunes d'azote donneuses, d'où un contact ohmique.",
+    "sources": [
+     {
+      "title": "Ohmic Contact Mechanism of Titanium-based Electrodes on n-type Gallium Nitride",
+      "authors_or_publisher": "Maeda M., Yamasaki T., Takahashi Y. (Transactions of JWRI 41(1), 45-48)",
+      "year": "2012",
+      "url_or_doi": "https://ir.library.osaka-u.ac.jp/repo/ouka/all/23155/jwri41_01-045.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "le contact Ti sert de témoin négatif (contact ohmique) et non de matériau de grille"
+   ]
+  },
+  {
+   "label": "TiN_N2_5",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "fraction réelle de N2",
+     "inputs": "1:17 sccm",
+     "formula": "1/18",
+     "result": "5,6 %",
+     "compared_to": "annoncé 5 %",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "N/Ti si l'XPS donne un rapport",
+     "inputs": "80,49",
+     "formula": "100·0,8049/1,8049",
+     "result": "44,6 at.% N (TiN0,80)",
+     "compared_to": "les autres films : TiN0,82-0,87",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "À un rapport de débits N2/Ar ≈ 0,06, les dépôts réactifs de TiNx sont à la limite entre un mélange Ti/Ti2N/TiN et un TiN cubique ; le libellé « TiN » de cette branche n'est pas démontré (pas de DRX). La teneur en azote la plus basse et la rugosité élevée (1,73 nm) vont dans le sens d'un film mixte.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Comparative study of TiNx films deposited by reactive ion beam sputtering at 77 and 300 K",
+      "authors_or_publisher": "Surface and Interface Analysis 16, 510-514 (ECASIA'89) ; auteurs non relevés",
+      "year": "1990",
+      "url_or_doi": "https://inis.iaea.org/records/2pcyv-3rf21"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cette branche n'apparaît ni sur les images AFM (Fig. 1 : 0, 15, 40, 85 %) ni sur les I-V de Fig. 2a : son caractère redresseur et sa barrière ne sont pas montrés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Régime métallique (cible non empoisonnée) : film probablement biphasé Ti2N + TiNx sous-stœchiométrique ; à confirmer par DRX.",
+    "sources": [
+     {
+      "title": "Comparative study of TiNx films deposited by reactive ion beam sputtering at 77 and 300 K",
+      "authors_or_publisher": "Surface and Interface Analysis 16, 510-514 (ECASIA'89) ; auteurs non relevés",
+      "year": "1990",
+      "url_or_doi": "https://inis.iaea.org/records/2pcyv-3rf21"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "phases du film à 5 % par DRX",
+    "caractère redresseur de la diode à 5 %"
+   ]
+  },
+  {
+   "label": "TiN_10nm",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "durée de dépôt du film de 10 nm",
+     "inputs": "10 nm ; 0,6 nm/min",
+     "formula": "10/0,6",
+     "result": "≈ 17 min",
+     "compared_to": "durée raisonnable",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface de la diode",
+     "inputs": "diamètre 166 µm",
+     "formula": "π·(83 µm)²",
+     "result": "2,16×10−4 cm²",
+     "compared_to": "—",
+     "source": "arithmétique"
+    },
+    {
+     "what": "constante de Richardson de n-GaN",
+     "inputs": "m* = 0,22 m0",
+     "formula": "A* = 120·m*/m0",
+     "result": "26,4 A cm−2 K−2",
+     "compared_to": "valeur théorique usuelle",
+     "source": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3835549/"
+    },
+    {
+     "what": "courant de saturation thermoïonique, TiN",
+     "inputs": "A* = 26,4 ; T = 300 K ; kT = 0,02585 eV ; φB = 0,59 eV (et 0,50 eV) ; S = 2,16×10−4 cm²",
+     "formula": "Is = S·A*·T²·exp(−φB/kT)",
+     "result": "6,3×10−8 A (φB = 0,59 eV) ; 2,0×10−6 A (φB = 0,50 eV)",
+     "compared_to": "fuite mesurée ≈ 1-4×10−5 A à −6 V (Fig. 2a, lecture graphique) : rapport 160-320 à 0,59 eV",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "abaissement de barrière par force image à −6 V",
+     "inputs": "ND = 3×10^17 cm−3 ; εr = 9,5 ; V = 6 + 0,5 V",
+     "formula": "Emax = √(2qND V/ε) ; ΔφB = √(qEmax/4πε)",
+     "result": "Emax ≈ 0,86 MV/cm ; ΔφB ≈ 0,11 eV, soit un facteur ≈ 80 sur Is",
+     "compared_to": "avec cet abaissement, Is calculé ≈ 5×10−6 A : même ordre que la mesure, comme l'écrivent les auteurs",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "énergie caractéristique de tunnel E00",
+     "inputs": "ND = 3×10^17 cm−3 ; m* = 0,22 ; εr = 9,5",
+     "formula": "E00 = 18,5×10−12·√(ND/(m*·εr)) eV",
+     "result": "≈ 7 meV",
+     "compared_to": "kT = 25,9 meV ≫ E00 : émission thermoïonique dominante, l'analyse TE et n = 1,07 sont cohérents",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "règle de Schottky-Mott",
+     "inputs": "Φ(TiN) ≈ 4,7 eV ; Φ(Ni) = 5,15 eV ; χ(GaN) ≈ 4,1 eV",
+     "formula": "φB = Φ − χ",
+     "result": "TiN 0,60 eV ; Ni 1,05 eV",
+     "compared_to": "mesures 0,59 et 0,87 eV : TiN conforme, Ni abaissé (ancrage du niveau de Fermi habituel)",
+     "source": "χ(GaN) ≈ 4,1 eV : valeur de manuel (chimie générale)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "SBH 0,59 eV, n = 1,07 et tension de seuil 0,38 V sont cohérents entre eux et avec Schottky-Mott (voir « règle de Schottky-Mott ») ; le dopage modéré rend l'émission thermoïonique dominante (voir « énergie caractéristique de tunnel E00 »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« those currents are in the same level for TiN » : sans force image, la fuite mesurée dépasse d'environ deux ordres le courant thermoïonique calculé à 0,59 eV ; avec l'abaissement par force image (≈ 0,11 eV à −6 V) l'écart retombe à un facteur 2-4. L'affirmation tient, mais seulement en tenant compte de cet abaissement, que l'article ne mentionne pas.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le film de 10 nm est déposé « 3:15 sccm » sans substrat, nettoyage, puissance ni pression écrits ; on ne sait pas s'il partage le protocole de la série (75 W, 0,14 Pa).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Contact Schottky TiNx/n-GaN dont la barrière suit approximativement le travail de sortie du TiN (≈ 4,7 eV) ; transport thermoïonique.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "puissance et pression du dépôt de 10 nm (supposées 75 W et 0,14 Pa)",
+    "température de mesure I-V (300 K supposé)"
+   ]
+  },
+  {
+   "label": "NiAu_10nm",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "durée de dépôt Ni/Au",
+     "inputs": "10 + 10 nm ; 1,0 nm/min",
+     "formula": "20/1,0",
+     "result": "≈ 20 min",
+     "compared_to": "raisonnable",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "courant thermoïonique, Ni",
+     "inputs": "φB = 0,87 eV ; S = 2,16×10−4 cm² ; A* = 26,4",
+     "formula": "Is = S·A*·T²·exp(−φB/kT)",
+     "result": "1,2×10−12 A",
+     "compared_to": "mesure ≈ 4×10−6 A (Fig. 2a) : 3×10^6 fois plus, même avec l'abaissement par force image (facteur ≈ 100) : cohérent avec la fuite assistée par défauts invoquée par les auteurs",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "écart de fuite Ni/TiN",
+     "inputs": "Ni ≈ 4×10−6 A ; TiN 1-4×10−5 A (Fig. 2a)",
+     "formula": "log10(I_TiN/I_Ni)",
+     "result": "0,4 à 1 ordre de grandeur",
+     "compared_to": "texte : « 1 ~ 2 orders of magnitude » ; résumé et conclusion : « comparable »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le texte dit la fuite du Ni « 1 ~ 2 ordres » plus basse que celle du TiN, le résumé et la conclusion la disent « comparable » ; la lecture de Fig. 2a donne 0,4 à 1 ordre (voir « écart de fuite Ni/TiN »). Incohérence de formulation entre sections.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fuite du Ni bien supérieure au thermoïonique (voir « courant thermoïonique, Ni ») : l'explication des auteurs (états d'interface Ni/GaN, effet tunnel assisté par défauts) est compatible.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Pulvérisation RF du Ni à 10 W : le Ni est ferromagnétique et écrante le champ d'un magnétron (cible mince ou aimants forts nécessaires) ; la très faible puissance explique la vitesse de 1 nm/min. Cible et épaisseur de cible non dites.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Contact Schottky Ni/n-GaN à barrière abaissée par ancrage du niveau de Fermi ; fuite dominée par un tunnel assisté par défauts d'interface.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "cible Ni (épaisseur) et substrat/nettoyage de la diode Ni"
+   ]
+  },
+  {
+   "label": "HFET_800C_1min",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "résistance de feuille de la grille attendue",
+     "inputs": "Au 70 nm, ρ(Au) = 2,44×10−8 Ω m ; W 30 nm et TiN 200 nm en parallèle (contribution plus faible)",
+     "formula": "Rs(Au) = ρ/t",
+     "result": "≈ 0,35 Ω/□ pour l'or seul ; ≈ 0,3 Ω/□ pour la pile",
+     "compared_to": "mesure 0,47 Ω/□ (avant prolongation) puis 0,67 Ω/□ à 10 min : plausible (résistivité des couches minces supérieure au massif) ; la hausse indique une dégradation de l'or (interdiffusion ou démouillage)",
+     "source": "ρ(Au) massif : valeur de manuel (CRC Handbook)"
+    },
+    {
+     "what": "durée de dépôt du TiN de grille",
+     "inputs": "≈ 200 nm ; 0,6 nm/min (vitesse du film de 10 nm)",
+     "formula": "200/0,6",
+     "result": "≈ 5,6 h",
+     "compared_to": "durée longue ; puissance non écrite pour ce film, la vitesse réelle peut différer",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "800 °C pendant 1-3 min sur TiNx riche en Ti au contact d'AlGaN : du Ti non nitruré réagit avec les nitrures III dès 700 °C (formation de TiN interfacial, phases Ti-Ga-N, vides à l'interface), ce qui appuie l'explication des auteurs de la hausse de fuite de grille avec la durée.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Ti/n-GaN contacts: interfacial reactions after rapid thermal annealing (TEM, EFTEM, XRD)",
+      "authors_or_publisher": "Lu C.Y., Davydov A.V., Josell D., Bendersky L.A. (J. Appl. Phys. 94, 245)",
+      "year": "2003",
+      "url_or_doi": "https://www.ctcms.nist.gov/~davydov/03Lu_Ti_GaN_JAP_94_245.pdf"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le courant de drain maximal (350, 430, 430, 320 mA/mm) dépend à la fois de la grille et du contact ohmique recuit en même temps : à 0,5 min le contact ohmique est probablement incomplètement allié. Ce témoin change deux variables ; il ne prouve pas seul la tenue de la grille. La fuite de grille et la résistance de feuille sont les mesures discriminantes ; un témoin utile serait une diode TiN recuite seule 0,5 à 10 min.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fuite de grille : le texte dit 10−5 → 10−4 A, la Fig. 4b montre ≈ 10−3 A à 10 min (lecture de l'extracteur, déjà annotée). Le résumé parle de recuits « at different temperatures » alors que seuls des résultats à 800 °C sont montrés (le reste est renvoyé à la réf. [16]).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Atmosphère du recuit (N2 ou Ar en RTA, habituel) non écrite ; sous air, W et TiN s'oxydent à 800 °C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Gravure ICP du mésa (gaz chlorés habituels, non nommés), recuit rapide à 800 °C : risques non mentionnés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Pendant le recuit, le contact Ti/Al/Ti/Au s'allie (formation de TiN interfacial qui active le contact ohmique) ; à la grille, le Ti non nitruré du TiNx réagit avec AlGaN et l'oxyde natif disparaît, ce qui augmente la fuite avec la durée ; l'or de la couche de couverture s'interdiffuse ou démouille (hausse de Rs).",
+    "sources": [
+     {
+      "title": "Ti/n-GaN contacts: interfacial reactions after rapid thermal annealing (TEM, EFTEM, XRD)",
+      "authors_or_publisher": "Lu C.Y., Davydov A.V., Josell D., Bendersky L.A. (J. Appl. Phys. 94, 245)",
+      "year": "2003",
+      "url_or_doi": "https://www.ctcms.nist.gov/~davydov/03Lu_Ti_GaN_JAP_94_245.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère, rampe et four (RTA) du recuit à 800 °C",
+    "pile ohmique du dispositif d'évaluation (non écrite)",
+    "conditions de dépôt du TiN de 200 nm (puissance, pression, durée)"
+   ]
+  },
+  {
+   "label": "SAG_HFET",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "épaisseur totale de la grille contre l'empilement de résines",
+     "inputs": "TiN/W/Au 200/50/200 nm = 450 nm ; résines 500 + 800 + 500 nm = 1,8 µm",
+     "formula": "comparaison",
+     "result": "450 nm < 1,8 µm",
+     "compared_to": "rapport favorable au lift-off, à condition d'un retrait (undercut) de la LOR, car la pulvérisation est peu directionnelle",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "débord de la tête de grille",
+     "inputs": "pied 0,5 µm ; tête 4 µm (HFET) contre 2 µm (Si)",
+     "formula": "(tête − pied)/2",
+     "result": "1,75 µm de chaque côté sur HFET contre 0,75 µm sur Si",
+     "compared_to": "la tête double de largeur : « enlarged slightly » sous-estime l'écart ; c'est ce débord qui fixe la distance grille-source/drain du procédé auto-aligné",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Lift-off d'une pile de 450 nm déposée par pulvérisation sur une tricouche ZEP/LOR/ZEP : faisable grâce au retrait de la LOR, mais la pulvérisation (non directionnelle, longue pour 200 nm de TiN, voir « durée de dépôt du TiN de grille ») chauffe et durcit la résine et recouvre les flancs. Conditions de dépôt de la grille en T non écrites (« optimized conditions »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Tête de grille de 4 µm sur HFET contre 2 µm sur Si, dite « slightly enlarged » : un facteur 2 change la distance d'accès (voir « débord de la tête de grille ») ; l'écart n'est pas expliqué.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Seuil ≈ −4 V alors que la grille n'est balayée que de −4 à 1 V : le pincement n'est atteint qu'à la limite du balayage ; « good pinch-off » n'est pas démontré par cette plage. 540 mA/mm et 160 mS/mm sont dans l'ordre de grandeur des HFET AlGaN/GaN à grille de 0,5 µm (modestes).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Démouillage (« ball-up ») de l'or à 800 °C : cohérent avec la mobilité de l'or bien en dessous de sa fusion (1064 °C) et avec l'interdiffusion Au-Al du contact ohmique.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Révélateurs non nommés : la LOR se développe dans des révélateurs à TMAH (type MF-319) ou à ions métalliques ; le TMAH est très toxique par voie cutanée (effets systémiques graves rapportés). ZEP520A (anisole) et son révélateur (acétate d'amyle) sont des solvants inflammables. Lithographie électronique : instrument blindé.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "LOR Lift-Off Resists Data Sheet",
+      "authors_or_publisher": "MicroChem (fiche fournisseur, copie hébergée par UPenn) : compatible avec les révélateurs TMAH (MF-319) et à ions métalliques",
+      "year": "non daté",
+      "url_or_doi": "https://www.seas.upenn.edu/~nanosop/documents/LOR_Data_Sheet.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Grille en T par lithographie électronique tricouche (ZEP haut pour la tête, LOR pour le retrait, ZEP bas pour le pied), dépôt TiN/W/Au, lift-off ; la tête sert de masque pour les métaux ohmiques, puis recuit commun à 800 °C qui allie le contact ohmique sans détruire le TiN.",
+    "sources": [
+     {
+      "title": "LOR Lift-Off Resists Data Sheet",
+      "authors_or_publisher": "MicroChem (fiche fournisseur, copie hébergée par UPenn) : compatible avec les révélateurs TMAH (MF-319) et à ions métalliques",
+      "year": "non daté",
+      "url_or_doi": "https://www.seas.upenn.edu/~nanosop/documents/LOR_Data_Sheet.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "doses d'exposition, cuissons et révélateurs des trois résines (non écrits)",
+    "conditions de dépôt TiN/W/Au de la grille en T",
+    "balayage de grille plus négatif que −4 V pour vérifier le pincement",
+    "atmosphère du recuit commun"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Procédé de pulvérisation réactive et de fabrication de HFET cohérent dans l'ensemble et conforme à la physique des contacts sur GaN (barrière TiN ≈ Schottky-Mott, Ti pur ohmique, transport thermoïonique justifié). Les points faibles sont la grandeur XPS (des « teneurs en azote » de 80-87 % incompatibles avec des films « riches en Ti » si ce sont des at.%), le mot « amorphe » tiré de l'AFM, des pourcentages de N2 arrondis (15 % = 16,7 %), un témoin de recuit qui mélange grille et contact ohmique, et des incohérences de formulation entre résumé, texte et figures (fuite Ni « comparable » ou « 1-2 ordres » plus faible ; fuite de grille 10−4 dans le texte, 10−3 sur la figure ; recuits « à différentes températures » non montrés).",
+  "author_errors_suspected": [
+   "« actual nitrogen contents » 80,49-87,20 % donnés comme pourcentages alors que les films sont dits riches en Ti : grandeur probablement N/Ti ×100",
+   "« amorphous » déduit de l'AFM sans DRX",
+   "« 15 % » de N2 pour 3:15 sccm (16,7 %) ; « 85 % » pour 15:3 (83,3 %)",
+   "fuite Ni « 1 ~ 2 orders » plus faible dans le texte, « comparable » dans le résumé et la conclusion",
+   "tête de grille 2 → 4 µm qualifiée de « slightly enlarged »",
+   "« good pinch-off » avec un balayage de grille qui s'arrête au seuil (−4 V)"
+  ],
+  "comparison_with_database": "compare.py « TiN » : seule autre voie TiN, PMC10342551 (APCVD à 900 °C à partir de TiO2 et N2, film fortement contaminé en O et Si) : procédé et objectif sans rapport, pas de comparaison utile des conditions."
+ },
+ "sources_not_found": [
+  "revue donnant le domaine d'homogénéité de TiNx (N/Ti ≈ 0,6-1,2) : non trouvée dans les recherches, l'argument repose sur la stœchiométrie (N/Ti ≈ 5 impossible)",
+  "auteurs de l'étude TiNx de Surface and Interface Analysis 16 (1990) 510-514 non relevés (pages IAEA et NIST injoignables depuis le cloud)",
+  "Li et al., J. Vac. Sci. Technol. A 32, 02B116 (2014), référence [10] des auteurs : non trouvée par la recherche, donc la définition de la teneur en azote XPS n'a pas pu être vérifiée"
+ ]
+}

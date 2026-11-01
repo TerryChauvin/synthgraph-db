@@ -1,0 +1,486 @@
+{
+ "pmcid": "PMC10574157",
+ "routes": [
+  {
+   "label": "NFO",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport molaire Fe:Ni des précurseurs",
+     "inputs": "Fe(NO3)3·9H2O et Ni(NO3)2·6H2O « in a 2:1 molar ratio » ; aucune masse donnée",
+     "formula": "n(Fe)/n(Ni)",
+     "result": "2:1 (si l'ordre d'énumération est celui du rapport)",
+     "compared_to": "NiFe2O4 : Fe/Ni = 2",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "positions de Bragg attendues pour NiFe2O4",
+     "inputs": "a = 8,3304 Å (NiFe2O4, carte JCPDS 10-0325, arXiv 2102.12385) ; λ = 1,540 56 Å (Cu Kα1, longueur d'onde non déclarée par l'article)",
+     "formula": "d = a/√(h²+k²+l²) ; 2θ = 2·arcsin(λ/2d)",
+     "result": "(111) 18,43° ; (220) 30,32° ; (311) 35,72° ; (222) 37,36° ; (400) 43,41° ; (422) 53,87° ; (511) 57,43° ; (440) 63,08°",
+     "compared_to": "article : (111) 22,5° ; (220) 30,2° ; (311) 35,3° ; (222) 36,4° ; (400) 43,2° ; (422) 53,7° ; (511) 57,4° ; (440) 63,2°",
+     "source": "NIST X-ray Transition Energies ; arXiv 2102.12385"
+    },
+    {
+     "what": "distance réticulaire du pic indexé (111) par les auteurs",
+     "inputs": "2θ = 22,5° ; λ = 1,540 56 Å",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "d = 3,95 Å, contre d(111) = 4,81 Å pour le spinelle ; aucune réflexion permise du spinelle Fd-3m n'est à 3,95 Å",
+     "compared_to": "d(111) = a/√3 = 4,81 Å",
+     "source": "calcul ; NIST (λ)"
+    },
+    {
+     "what": "écart sur (222)",
+     "inputs": "2θ = 36,4° (article) contre 37,36° calculé",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "d = 2,466 Å contre 2,405 Å attendu (écart 2,5 %, bien au-delà d'une variation de paramètre de maille, puisque (311) et (440) collent à ±0,4°)",
+     "compared_to": "d(222) = a/√12",
+     "source": "calcul"
+    },
+    {
+     "what": "masse molaire et capacité faradique théorique de NiFe2O4",
+     "inputs": "M = 58,693 + 2×55,845 + 4×15,999 = 234,38 g/mol ; F = 96 485 C/mol ; 1 e− par Ni (Ni2+/Ni3+)",
+     "formula": "Q = F/M",
+     "result": "411,7 C/g = 114 mAh/g",
+     "compared_to": "sert aux contrôles des électrodes",
+     "source": "masses atomiques IUPAC, constante de Faraday CODATA (chimie générale)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Fe:Ni = 2:1 est la stœchiométrie du spinelle NiFe2O4 (calcul « rapport molaire Fe:Ni des précurseurs ») ; les nitrates apportent tous les cations, l'oxygène vient de l'air et des nitrates au recuit. Mais aucune masse de sel, de feuilles de thé ni aucun volume d'extrait n'est donné : le rapport matière organique/nitrates, qui gouverne la gélification et une éventuelle auto-combustion, est inconnu.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Fe3+ et Ni2+ sont déjà les états d'oxydation du produit visé : le rôle « réducteur » de l'extrait de thé invoqué en introduction est inutile pour un oxyde, voire nuisible (réduction partielle en Fe2+/Ni0 dans un gel riche en carbone). Le recuit à 600 °C doit donc se faire sous air pour brûler le carbone et réoxyder ; l'atmosphère n'est pas écrite. Sous gaz inerte, le carbone résiduel peut réduire Ni2+ en Ni ou alliage FeNi.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Ébullition de l'extrait et chauffage à 80 °C en récipient ouvert : sous le point d'ébullition de l'eau (100 °C), sans problème. Séchage à 150 °C d'un gel nitrates + polyphénols : le nitrate de fer(III) nonahydraté fond vers 47 °C et se décompose sous ~125 °C ; le gel peut donc commencer à se décomposer, voire s'enflammer (combustion nitrate/combustible), dans l'étuve. Recuit 600 °C / 4 h : température usuelle de cristallisation de NiFe2O4 issu d'un gel ; cohérent avec la taille 13–25 nm et avec PMC8708305 (film recuit 600 °C, cristallites 17 nm).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Indexation XRD impossible telle qu'écrite : le pic attribué à (111) à 22,5° correspond à d = 3,95 Å, alors que (111) de NiFe2O4 est à 18,4° (d = 4,81 Å) ; (222) annoncé à 36,4° est attendu à 37,4° (calculs « positions de Bragg attendues pour NiFe2O4 », « distance réticulaire du pic indexé (111) par les auteurs », « écart sur (222) »). La figure 1a montre en plus plusieurs petits pics non indexés entre 15 et 28° : la pureté de phase n'est pas démontrée. Une raie vers 24,1° serait par exemple (012) de l'hématite α-Fe2O3, impureté fréquente de ces voies. Le texte annonce « seven characteristic peaks » et en liste huit.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Gamma irradiated nanostructured NiFe2O4: Effect of gamma-photon on morphological, structural, optical and magnetic properties",
+      "authors_or_publisher": "arXiv preprint 2102.12385",
+      "year": "2021",
+      "url_or_doi": "https://arxiv.org/pdf/2102.12385"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XPS : le spectre général attribue C à 532,07 eV et O à 285,81 eV, alors que O 1s est vers 530–532 eV et C 1s vers 285 eV (les deux sont permutés). L'attribution Ni 2p3/2 855,5/857,8 eV à Ni2+/Ni3+ est discutable : dans une ferrite inverse, ces deux composantes sont souvent attribuées à Ni2+ en sites octaédriques et tétraédriques. La présence de Ni3+ n'est pas démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non mentionné : nitrates de fer et de nickel oxydants ; gel nitrate + matière organique qui peut se décomposer brutalement (NOx, projection) à 150 °C et au début du recuit, à chauffer sous hotte et dans un creuset large. Composés du nickel cancérogènes par inhalation et sensibilisants ; nanopoudre de ferrite à ne pas inhaler.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CAMEO Chemicals (nitrate de fer(III), nitrate de nickel : oxydants)",
+      "authors_or_publisher": "NOAA",
+      "year": "",
+      "url_or_doi": "https://cameochemicals.noaa.gov/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Les polyphénols (catéchines) et acides organiques du thé complexent Fe3+ et Ni2+ (chélation par les groupes catéchol) et forment avec les nitrates un gel métal-organique, comme un sol-gel de type citrate/Pechini. Au séchage puis au début du recuit, la matière organique et les nitrates réagissent (combustion ou décomposition), ce qui donne un oxyde mixte amorphe intime. Celui-ci cristallise en spinelle inverse NiFe2O4 entre ~400 et 600 °C sous air. Le rôle « réducteur » de l'extrait n'est pas pertinent pour un oxyde : l'extrait sert de chélatant, de combustible et de limiteur de croissance. Un écart local à Fe:Ni = 2 ou une oxydation incomplète donne des phases secondaires (α-Fe2O3, NiO), compatibles avec les pics non indexés de la figure 1a.",
+    "sources": [
+     {
+      "title": "Green synthesis of metal nanoparticles using plants",
+      "authors_or_publisher": "Iravani S., Green Chem.",
+      "year": "2011",
+      "url_or_doi": "10.1039/c1gc15386b"
+     },
+     {
+      "title": "The evolution of 'sol–gel' chemistry as a technique for materials synthesis",
+      "authors_or_publisher": "Danks A. E., Hall S. R., Schnepp Z., Mater. Horiz.",
+      "year": "2016",
+      "url_or_doi": "10.1039/C5MH00260E"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masses de sels, de feuilles de thé et volume d'extrait (rapport organique/nitrates)",
+    "atmosphère du recuit (air indispensable) et vitesse de chauffe",
+    "décomposition brutale possible du gel à 150 °C : petit lot, creuset large, hotte",
+    "diffractogramme à refaire et à indexer avec Cu Kα déclaré ; rechercher α-Fe2O3 et NiO (pics vers 24°, 33°)",
+    "dosage Fe/Ni du produit (ICP plutôt que EDX)"
+   ]
+  },
+  {
+   "label": "NFO@CNT",
+   "verdict": "incoherente",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "composition EDAX attendue pour NiFe2O4:CNT = 1:1 en masse",
+     "inputs": "50 g NiFe2O4 (234,38 g/mol, 7 atomes) + 50 g C (12,011 g/mol)",
+     "formula": "n(NiFe2O4) = 0,2133 mol ; n(C) = 4,163 mol ; at% = n_i/Σn",
+     "result": "Ni 3,8 at% ; Fe 7,5 at% ; O 15,1 at% ; C 73,6 at% (C = 50 % en masse)",
+     "compared_to": "figure 2f : C 15,83 % en masse (30,38 at%), O 49,43 at%, Fe 12,35 at%, Ni 7,84 at%",
+     "source": "masses atomiques IUPAC ; tableau EDAX de la figure 2f"
+    },
+    {
+     "what": "rapport Ni/Fe mesuré par EDAX",
+     "inputs": "Ni 7,84 at% ; Fe 12,35 at% ; en masse Fe 29,92 %, Ni 19,96 %",
+     "formula": "Ni/Fe (at) ; Fe/Ni (masse)",
+     "result": "Ni/Fe = 0,63 (1:1,58) ; Fe/Ni massique = 1,50",
+     "compared_to": "NiFe2O4 : Ni/Fe = 0,50 ; Fe/Ni massique = 1,90 ; les auteurs écrivent « 1/2 »",
+     "source": "figure 2f ; calcul"
+    },
+    {
+     "what": "fraction massique de ferrite d'après Fe + Ni",
+     "inputs": "Fe + Ni = 49,88 % en masse ; (Fe + Ni) représente 170,38/234,38 = 72,7 % de la masse de NiFe2O4",
+     "formula": "w(NFO) = 49,88/0,727",
+     "result": "≈ 69 % en masse de ferrite (si le cation est tout en spinelle), donc ≤ 31 % de carbone",
+     "compared_to": "rapport annoncé 1:1 (50 % de CNT)",
+     "source": "calcul"
+    },
+    {
+     "what": "oxygène excédentaire",
+     "inputs": "O 49,43 at% ; Ni + Fe = 20,19 at%",
+     "formula": "O/(Ni+Fe)",
+     "result": "2,45",
+     "compared_to": "NiFe2O4 : 4/3 = 1,33",
+     "source": "calcul"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport NiFe2O4:CNT 1:1 annoncé n'est pas compatible avec l'EDAX de la figure 2f : 15,8 % en masse de carbone (dont une partie vient sans doute du support ou de la contamination) contre 50 % attendus, et ≈ 69 % en masse de ferrite d'après Fe + Ni (calculs « composition EDAX attendue pour NiFe2O4:CNT = 1:1 en masse » et « fraction massique de ferrite d'après Fe + Ni »). Le rapport Ni/Fe mesuré est 0,63 et non 1/2 comme écrit (calcul « rapport Ni/Fe mesuré par EDAX »), et l'oxygène est en fort excès (O/M = 2,45 contre 1,33), ce qui suggère des carbonates, des hydroxydes ou des groupes oxygénés. L'EDX est semi-quantitatif pour C et O, mais l'écart sur C est d'un facteur 3.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "La méthode d'association des nanotubes n'est pas décrite. Si les CNT étaient présents pendant la synthèse verte, le recuit à 600 °C pendant 4 h (sous air, l'atmosphère n'étant pas écrite) les brûlerait au moins en partie : l'oxydation des MWCNT à l'air commence vers 500–600 °C et les oxydes de Ni, Co ou Fe la catalysent et abaissent la température d'ignition. Si les CNT ont été mélangés après coup (dans l'encre), la « décoration » vue en TEM n'est qu'un mélange physique. Dans les deux cas, le titre (« NiFe2O4 … -Decorated Carbon Nanotubes ») n'est pas soutenu par une procédure.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Low-temperature catalytic oxidation of multi-walled carbon nanotubes",
+      "authors_or_publisher": "Leino A.-R., Mohl M., Kukkola J., Mäki-Arvela P., Kokkonen T., Shchukarev A., Kordas K., Carbon 57, 99–107",
+      "year": "2013",
+      "url_or_doi": "https://research.abo.fi/en/publications/low-temperature-catalytic-oxidation-of-multi-walled-carbon-nanotu/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille de 13–25 nm en TEM : ordre de grandeur habituel d'une ferrite issue d'un gel recuit à 600 °C. Comparaison avec la base : PMC8708305 (NFO-600, recuit 600 °C sous Ar) a des cristallites de 17 nm. La diffraction électronique n'indexe que (222), (311) et (400), sans discriminer une éventuelle phase secondaire.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nanotubes de carbone : poussière inhalable aux effets de type fibre (MWCNT longs) ; manipulation en hotte ou en boîte à gants, masque FFP3. Non mentionné.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Aucun mécanisme possible sans procédure. Lecture la plus probable : NiFe2O4 préformé (voie NFO) mélangé aux CNT par ultrasons dans l'encre éthanol/Nafion ; adsorption électrostatique et de van der Waals des nanoparticules sur les parois. Pour une vraie décoration, il faudrait une croissance in situ (gel ou précipitation sur des CNT oxydés) suivie d'un recuit sous gaz inerte pour préserver les nanotubes.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "méthode d'association NFO + CNT (in situ ou mélange) et atmosphère de recuit si in situ",
+    "type, fournisseur et prétraitement des CNT",
+    "teneur réelle en carbone (ATG sous air) contre le 1:1 annoncé"
+   ]
+  },
+  {
+   "label": "Electrode_GC_NFO",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse déposée et charge surfacique",
+     "inputs": "60 mg de matériau actif dans 1 mL d'éthanol + 1 mL de Nafion 5 % ; 50 µL déposés ; électrode 0,0707 cm²",
+     "formula": "60/2 × 0,050 ; m/A",
+     "result": "1,5 mg (concorde avec le texte) ; 21,2 mg/cm²",
+     "compared_to": "charges usuelles sur carbone vitreux : 0,1–1 mg/cm²",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "part de Nafion dans le dépôt",
+     "inputs": "1 mL de solution de Nafion à 5 % en masse, masse volumique ≈ 0,87–0,92 g/mL (ordre de grandeur des fiches fournisseur, non vérifié ici)",
+     "formula": "m(Nafion) = ρ × 1 mL × 0,05 ; fraction = m(Nafion)/(m(Nafion) + 60 mg)",
+     "result": "≈ 44–46 mg de Nafion dans l'encre, soit ≈ 1,1 mg par dépôt et ≈ 42–43 % des solides",
+     "compared_to": "liant habituel : 5–20 %",
+     "source": "calcul ; masse volumique approchée"
+    },
+    {
+     "what": "courant absolu et densité de courant géométrique",
+     "inputs": "5 et 17 A/g × 1,5 mg ; 0,0707 cm²",
+     "formula": "I = j_m × m ; I/A",
+     "result": "7,5 à 25,5 mA, soit 106 à 361 mA/cm²",
+     "compared_to": "sur un film de 21 mg/cm² épais et chargé de Nafion, chute ohmique forte",
+     "source": "calcul"
+    },
+    {
+     "what": "capacité théorique NiFe2O4 exprimée en F/g sur 0,4 V",
+     "inputs": "Q = 411,7 C/g (1 e− par Ni) ; ΔV = 0,4 V (ou 0,32 V, tableau 1)",
+     "formula": "C_max = Q/ΔV",
+     "result": "1029 F/g (0,4 V) ; 1286 F/g (0,32 V) ; avec γ-NiOOH (1,67 e− par Ni) ≈ 1720 F/g",
+     "compared_to": "450 F/g (1,0 M) et ≈ 550 F/g (2,0 M, figure) : 44–53 % du maximum à 1 e−, plausible",
+     "source": "masses atomiques IUPAC, F (CODATA)"
+    },
+    {
+     "what": "densité d'énergie recalculée",
+     "inputs": "C = 550 F/g (2,0 M, 5 A/g, figure 10b) ; ΔV = 0,4 ou 0,32 V",
+     "formula": "E = C·ΔV²/(2 × 3,6)",
+     "result": "12,2 Wh/kg (0,4 V) ; 7,8 Wh/kg (0,32 V)",
+     "compared_to": "11,2 Wh/kg annoncé : cohérent avec 0,4 V, pas avec la fenêtre de 0,32 V du tableau 1",
+     "source": "calcul"
+    },
+    {
+     "what": "densité de puissance recalculée",
+     "inputs": "j = 5 à 17 A/g ; ΔV = 0,4 V (ou 0,32)",
+     "formula": "P = j·ΔV/2 (= E/Δt pour une décharge linéaire)",
+     "result": "1000 à 3400 W/kg (0,4 V) ; 800 à 2720 W/kg (0,32 V) ; indépendante de C donc de la concentration de KOH",
+     "compared_to": "annoncé : 250 à 330 W/kg, croissant avec la concentration ; 330 W/kg correspond à j ≈ 1,7 A/g, hors de la gamme testée",
+     "source": "calcul"
+    },
+    {
+     "what": "coefficient de diffusion de OH− libre dans l'eau",
+     "inputs": "conductivité molaire limite λ°(OH−) ≈ 198 S cm² mol−1 à 25 °C (valeur de manuel) ; R = 8,314 ; T = 298,15 K ; F = 96 485",
+     "formula": "D = RTλ°/(z²F²) (Nernst–Einstein)",
+     "result": "D°(OH−) ≈ 5,3 × 10−5 cm² s−1 à dilution infinie (diminue quand la concentration augmente)",
+     "compared_to": "GC/NFO : 0,63 à 3,44 × 10−5 cm² s−1, croissant avec [KOH]",
+     "source": "chimie générale (relation de Nernst–Einstein)"
+    },
+    {
+     "what": "déplacement nernstien du couple Ni(OH)2/NiOOH",
+     "inputs": "Ni(OH)2 + OH− ⇌ NiOOH + H2O + e− ; référence Ag/AgCl indépendante du pH",
+     "formula": "ΔE = −0,059 × log([OH−]2/[OH−]1)",
+     "result": "−77 mV de 0,1 à 2,0 M",
+     "compared_to": "les auteurs observent un déplacement du pic vers les potentiels négatifs : sens correct",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Densités de puissance incompatibles avec les courants déclarés : pour une décharge galvanostatique entre 5 et 17 A/g sur 0,4 V (ou 0,32 V), P = j·ΔV/2 vaut au moins 800–1000 W/kg et ne dépend pas de la concentration de KOH. Or les auteurs annoncent 250–330 W/kg, qui croissent avec la concentration (calcul « densité de puissance recalculée »). Les densités d'énergie, elles, se retrouvent avec ΔV = 0,4 V, alors que le tableau 1 donne 0,32 V pour GC/NFO (calcul « densité d'énergie recalculée ») : on ne sait pas quelle fenêtre sert au calcul des capacités de GC/NFO. Si c'est 0,32 V, la capacité est surestimée de 25 % par rapport à 0,4 V.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les « coefficients de diffusion de OH− » obtenus par Randles–Sevcik ne sont pas physiquement interprétables. Randles–Sevcik suppose une espèce dissoute qui diffuse vers une électrode plane, avec C et A connus. Ici le couple redox est confiné dans un film poreux de 21 mg/cm² et l'électrolyte est en très large excès. Les valeurs (jusqu'à 3,4 × 10−5 cm² s−1) frôlent la diffusion de OH− libre dans l'eau (≈ 5,3 × 10−5, calcul « coefficient de diffusion de OH− libre dans l'eau ») et croissent avec la concentration, à l'inverse du comportement d'un ion libre. La diffusion du proton dans Ni(OH)2 solide est de plusieurs ordres de grandeur plus lente. Ces valeurs ne doivent pas être reprises comme propriétés du matériau.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Vocabulaire inversé sur l'exposant b (« w ») : b = 0,5 signifie un courant limité par la diffusion (comportement de type batterie), b = 1 un stockage capacitif contrôlé par la surface. Pour GC/NFO, b = 0,48–0,57 désigne un stockage faradique de type batterie, ce que disent les auteurs. Mais pour NFO@CNT, ils interprètent la hausse de b (0,54 → 0,68) comme un passage « vers un processus plus faradique », alors que c'est l'inverse : la contribution de surface et capacitive augmente. Le même paragraphe parle de « GC/NFO » au lieu de GC/NFO@CNT.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Pseudocapacitive oxide materials for high-rate electrochemical energy storage",
+      "authors_or_publisher": "Augustyn V., Simon P., Dunn B., Energy Environ. Sci. 7, 1597–1614",
+      "year": "2014",
+      "url_or_doi": "10.1039/C3EE44164D"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Un pic redox unique Ni(OH)2/NiOOH et b ≈ 0,5 désignent une électrode de type batterie : la grandeur pertinente est une capacité en mAh/g (ou C/g), pas une capacité en F/g calculée par C = IΔt/(mΔV). Les F/g dépendent de la fenêtre choisie et ne sont pas comparables à de vrais supercondensateurs. 450 F/g sur 0,4 V équivaut à 180 C/g = 50 mAh/g, 44 % de la capacité à 1 e− par Ni (calcul « capacité théorique NiFe2O4 exprimée en F/g sur 0,4 V ») : plausible.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J. W., J. Electrochem. Soc. 162(5), A5185–A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "50 µL d'encre sur un disque de carbone vitreux de 3 mm (0,0707 cm²) déborde largement du disque (on dépose d'habitude 5–10 µL) : la masse réellement sur le disque est incertaine, donc toutes les grandeurs par gramme aussi. Le dépôt contient en outre ≈ 42 % de Nafion (calcul « part de Nafion dans le dépôt ») et la charge de 21 mg/cm² est 20 à 200 fois la charge usuelle (calcul « masse déposée et charge surfacique »).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Fenêtre 0–0,4 V vs Ag/AgCl (KCl sat.) dans KOH 1 M (pH ≈ 14) : 0,4 V vs Ag/AgCl ≈ 1,42 V vs ERH (+0,197 + 0,059 × 14), sous le début du dégagement d'O2 sur les hydroxydes de Ni-Fe : choix cohérent. Le déplacement du pic vers les potentiels négatifs quand [KOH] augmente est conforme à Nernst (calcul « déplacement nernstien du couple Ni(OH)2/NiOOH »).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérences internes : (1) le texte donne Rs = 4,14 et 2,28 Ω cm² pour GC/NFO, valeurs du tableau 2 (NFO@CNT) ; le tableau 3 donne 12,11 et 1,46. (2) La conclusion compare R1 de NFO@CNT (3,43, circuit à un seul arc) et R2 de NFO (12,79, couche interne d'un circuit à deux arcs) : les deux grandeurs ne sont pas équivalentes. (3) Les exposants de CPE n = 0,25–0,40 (et 0,12 pour NFO@CNT à 0,1 M) sont trop bas pour qu'on lise Q comme une capacité de double couche. (4) Courant de cyclage écrit « 10 A g−1 cm−2 ». (5) La hausse de capacité de « 46 jusqu'à 82 % » de 0,1 à 2,0 M de la conclusion ne correspond pas aux figures (≈ 210 → 550 F/g, soit +160 %).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "KOH 0,1–2,0 M corrosif pour les yeux et la peau ; encre Nafion/éthanol inflammable. Non mentionné, risque courant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Pendant l'activation par CV dans KOH, la surface de NiFe2O4 s'hydroxyle et forme une couche Ni(OH)2/NiOOH (avec du fer incorporé). La charge stockée vient de Ni(OH)2 + OH− ⇌ NiOOH + H2O + e−, limitée par la diffusion du proton dans cette couche (b ≈ 0,5) : comportement de type batterie et non pseudocapacitif. Fe3+ n'est pas électroactif dans 0–0,4 V vs Ag/AgCl (ses couples sont vers −0,8 à −1,1 V).",
+    "sources": [
+     {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J. W., J. Electrochem. Soc. 162(5), A5185–A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     },
+     {
+      "title": "Pseudocapacitive oxide materials for high-rate electrochemical energy storage",
+      "authors_or_publisher": "Augustyn V., Simon P., Dunn B., Energy Environ. Sci. 7, 1597–1614",
+      "year": "2014",
+      "url_or_doi": "10.1039/C3EE44164D"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume déposé compatible avec le disque de 3 mm (5–10 µL) et masse réellement sur le disque",
+    "fenêtre utilisée pour les calculs de GC/NFO (0,32 ou 0,4 V)",
+    "exprimer les résultats en mAh/g ; recalculer énergie et puissance à partir des courbes de décharge",
+    "ne pas reprendre les coefficients de diffusion de Randles–Sevcik"
+   ]
+  },
+  {
+   "label": "Electrode_GC_NFO@CNT",
+   "verdict": "incoherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "capacité maximale possible du composite 1:1 en F/g sur 0,4 V",
+     "inputs": "50 % NiFe2O4 (1029 F/g à 1 e− par Ni ; ≈ 1720 F/g à 1,67 e−, γ-NiOOH) + 50 % CNT (double couche, quelques dizaines de F/g, borne haute 100 F/g)",
+     "formula": "C = 0,5 × C(NFO) + 0,5 × C(CNT)",
+     "result": "≈ 515–565 F/g (1 e−) ; ≈ 860–910 F/g (1,67 e−)",
+     "compared_to": "annoncé : 1169 F/g (1,0 M, 5 A/g) et ≈ 1500 F/g (2,0 M, figure 10a)",
+     "source": "calcul ; masses atomiques IUPAC, F (CODATA)"
+    },
+    {
+     "what": "capacité rapportée à la seule ferrite",
+     "inputs": "1169 F/g de composite, 50 % de NFO, ΔV = 0,4 V",
+     "formula": "C(NFO) = 1169/0,5 ; Q = C·ΔV ; n(e−)/Ni = Q·M/F",
+     "result": "2338 F/g de NFO, soit 935 C/g, soit 2,27 e− par Ni (3,6 e− par Ni pour 1500 F/g)",
+     "compared_to": "maximum ≈ 1 e− (Ni2+/Ni3+), 1,67 e− pour γ-NiOOH ; Fe inactif dans cette fenêtre",
+     "source": "calcul"
+    },
+    {
+     "what": "densité d'énergie et de puissance recalculées",
+     "inputs": "C ≈ 1500 F/g (2,0 M, 5 A/g) ; ΔV = 0,4 V ; j = 5 A/g",
+     "formula": "E = C·ΔV²/7,2 ; P = j·ΔV/2",
+     "result": "E = 33 Wh/kg ; P = 1000 W/kg",
+     "compared_to": "annoncé : 30,2 Wh/kg (cohérent) et 357 W/kg (incohérent)",
+     "source": "calcul"
+    },
+    {
+     "what": "coefficient de diffusion de OH− annoncé contre OH− libre",
+     "inputs": "6,41 × 10−5 cm² s−1 (2,0 M) ; D°(OH−) ≈ 5,3 × 10−5 cm² s−1 (Nernst–Einstein, λ° ≈ 198 S cm² mol−1)",
+     "formula": "rapport",
+     "result": "1,2 fois la diffusion de OH− libre à dilution infinie, dans un film poreux et en solution 2 M",
+     "compared_to": "un coefficient apparent dans un film doit être inférieur à D°",
+     "source": "chimie générale"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La capacité annoncée dépasse la limite faradique : 1169 F/g (1,0 M) et ≈ 1500 F/g (2,0 M) pour un composite qui ne contient que 50 % de NiFe2O4 exigeraient 2,3 à 3,6 électrons échangés par Ni dans 0,4 V. Or le couple Ni(OH)2/NiOOH en donne au plus ≈ 1 (1,67 pour γ-NiOOH), Fe3+ est inactif dans cette fenêtre et des CNT ne fournissent que quelques dizaines de F/g (calculs « capacité maximale possible du composite 1:1 en F/g sur 0,4 V » et « capacité rapportée à la seule ferrite »). Explications possibles : masse active sous-estimée (dépôt de 50 µL qui déborde le disque), contribution du carbone vitreux ou de l'oxydation du support, intégration erronée des temps de décharge.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le coefficient de diffusion de OH− annoncé à 2,0 M (6,41 × 10−5 cm² s−1) dépasse celui de OH− libre dans l'eau à dilution infinie (≈ 5,3 × 10−5), ce qui est physiquement impossible pour un transport dans un film (calcul « coefficient de diffusion de OH− annoncé contre OH− libre »). Le texte dit en outre que la diffusion à 2,0 M est « plus faible », contrairement à son propre chiffre. Randles–Sevcik est appliqué hors de son domaine.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Même incohérence de puissance que pour GC/NFO : 357 W/kg correspond à j ≈ 1,8 A/g, alors que la plus faible densité de courant testée est 5 A/g (P ≥ 1000 W/kg) (calcul « densité d'énergie et de puissance recalculées »).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La hausse de b (0,54 → 0,68) avec la concentration signifie une part croissante de stockage contrôlé par la surface (capacitif), pas « plus faradique » comme l'écrivent les auteurs. C'est cohérent avec l'ajout de CNT qui augmente le courant capacitif, ce que les auteurs notent ailleurs.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Pseudocapacitive oxide materials for high-rate electrochemical energy storage",
+      "authors_or_publisher": "Augustyn V., Simon P., Dunn B., Energy Environ. Sci. 7, 1597–1614",
+      "year": "2014",
+      "url_or_doi": "10.1039/C3EE44164D"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le circuit équivalent du tableau 2 (Rs, R1, Q1, W) diffère de celui de GC/NFO (deux arcs) ; Rs n'est pas monotone (3,71 Ω cm² à 0,5 M contre 4,14 à 1,0 M) et n(CPE) = 0,12 à 0,1 M n'a pas de sens capacitif. La comparaison « 3,43 contre 12,79 Ω cm² » de la conclusion mélange deux éléments de circuits différents.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rétention de 90,1 % après 2000 cycles et coagulation des particules en MEB : plausible ; cela suggère que la masse active évolue pendant l'essai.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même réaction que pour GC/NFO (Ni(OH)2/NiOOH de surface, type batterie). Les CNT améliorent la conduction électronique et la dispersion, d'où une meilleure utilisation du nickel et un R de transfert plus faible, et ajoutent une petite capacité de double couche. Ils ne peuvent pas porter la capacité au-delà de la limite faradique du nickel présent.",
+    "sources": [
+     {
+      "title": "To Be or Not To Be Pseudocapacitive?",
+      "authors_or_publisher": "Brousse T., Bélanger D., Long J. W., J. Electrochem. Soc. 162(5), A5185–A5189",
+      "year": "2015",
+      "url_or_doi": "10.1149/2.0201505jes"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse réellement sur le disque et masse servant au calcul (composite ou NFO seul)",
+    "capacité d'une électrode de CNT seuls et du carbone vitreux nu dans les mêmes conditions (témoins absents)",
+    "teneur réelle en CNT (ATG)",
+    "exprimer en mAh/g et recalculer la puissance avec P = j·ΔV/2"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La synthèse verte de NiFe2O4 (gel nitrates + extrait de thé, 150 °C puis 600 °C) est chimiquement plausible, mais elle n'est décrite qu'en rapports, sans masses ni atmosphère. Son indexation XRD est fausse ((111) placé à 22,5° au lieu de 18,4°, pics non indexés) : la pureté de phase n'est pas démontrée. La préparation du composite NiFe2O4@CNT n'est pas décrite, et l'EDAX (C 15,8 % en masse) contredit le rapport 1:1. Côté électrochimie, plusieurs résultats sont physiquement incohérents : capacité du composite au-delà de la limite faradique du nickel, puissances incompatibles avec les courants testés, coefficients de diffusion de Randles–Sevcik au niveau ou au-dessus de celui de OH− libre, interprétation de l'exposant b inversée. Électrode de type batterie présentée en F/g.",
+  "author_errors_suspected": [
+   "indexation XRD : (111) à 22,5° impossible pour NiFe2O4 (attendu 18,4°) ; « seven peaks » pour huit listés",
+   "XPS : positions de C 1s et O 1s permutées dans le spectre général",
+   "rapport Ni/Fe « 1/2 » alors que l'EDAX donne 0,63 ; teneur en carbone ≈ 16 % en masse contre 50 % pour NFO:CNT 1:1",
+   "densités de puissance (250–357 W/kg) incompatibles avec 5–17 A/g sur 0,4 V (≥ 1000 W/kg)",
+   "capacité de NFO@CNT (1169–1500 F/g) supérieure à la limite faradique du composite (≈ 550–900 F/g)",
+   "D(OH−) = 6,41 × 10−5 cm² s−1 supérieur à D° de OH− libre ; texte qui dit l'inverse du chiffre à 2,0 M",
+   "interprétation de b inversée (hausse de b lue comme « plus faradique »)",
+   "Rs de GC/NFO dans le texte (4,14 et 2,28) recopiés du tableau 2 de NFO@CNT ; fenêtre 0,32 V du tableau 1 contre 0,4 V utilisée ailleurs ; unité « A g−1 cm−2 » ; hausse de capacité « 46 à 82 % » non conforme aux figures"
+  ],
+  "comparison_with_database": "Seule autre NiFe2O4 de la base : PMC8708305 (film par évaporation, recuit 600 °C 1 h sous Ar, cristallites 17 nm, phase spinelle pure). Température de cristallisation et taille (13–25 nm ici) concordent. Aucune autre synthèse verte ni aucun composite ferrite/CNT dans la base pour comparer les capacités."
+ },
+ "sources_not_found": [
+  "DOI de Leino et al., Carbon 57 (2013) 99–107 : non trouvé (notice Åbo Akademi seulement, page non ouverte)",
+  "source primaire de λ°(OH−) ≈ 198 S cm² mol−1 / D°(OH−) ≈ 5,3 × 10−5 cm² s−1 : valeur de manuel recalculée par Nernst–Einstein, table repérée (PMC3673432) mais non ouverte (ncbi injoignable)",
+  "masse volumique de la solution de Nafion 5 % : fiche fournisseur non consultée",
+  "fiche JCPDS 54-0964 citée par l'article : non consultée ; paramètre de maille pris d'une prépublication (JCPDS 10-0325)"
+ ]
+}

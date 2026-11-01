@@ -1,0 +1,585 @@
+{
+ "pmcid": "PMC7759625",
+ "routes": [
+  {
+   "label": "Z5",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "aluminium de charpente maximal",
+     "inputs": "SiO2/Al2O3 = 80 → 80 Si pour 2 Al ; M(SiO2) = 60,08 ; M(AlO2H) = 59,99 g/mol",
+     "formula": "n(Al)/g = 2 / (80 × 60,08 + 2 × 59,99)",
+     "result": "≈ 406 μmol Al/g (forme H anhydre)",
+     "compared_to": "BAS totales mesurées (faibles + fortes) : 193,48 μmol/g",
+     "source": "valeurs de l'article ; masses atomiques IUPAC"
+    },
+    {
+     "what": "fraction de l'Al vue comme BAS",
+     "inputs": "BAS = 107,94 + 85,54 = 193,48 μmol/g ; Al ≈ 406 μmol/g",
+     "formula": "BAS / Al",
+     "result": "≈ 48 %",
+     "compared_to": "pyridine à 200 °C : couramment la moitié aux deux tiers des sites d'une HZSM-5 ; plausible pour une forme H, peu compatible avec une forme Na non échangée",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "diamètre moyen 4V/S contre colonne D",
+     "inputs": "V = 0,19 cm3/g ; S_BET = 354 m2/g ; D = 2,12 nm",
+     "formula": "4V/S",
+     "result": "2,15 nm ; idem 1NiZ5 3,56 (D 3,54), 2NiZ5 2,20 (2,21), 1Ni-Z5 2,24 (2,22), 2Ni-Z5 2,22 (2,23)",
+     "compared_to": "la colonne D est le diamètre moyen 4V/S de tout le volume poreux, pas un diamètre BJH",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "somme surface externe + microporeuse",
+     "inputs": "108 + 245 ; 129 + 163 ; 115 + 230 ; 111 + 228 ; 113 + 230",
+     "formula": "S_ext + S_micro",
+     "result": "353 ; 292 ; 345 ; 339 ; 343 m2/g",
+     "compared_to": "S_BET 354 ; 292 ; 345 ; 339 ; 343 : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "pression de vapeur de l'eau à 160 °C",
+     "inputs": "eau saturée à 160 °C",
+     "formula": "lecture de table",
+     "result": "0,618 MPa (≈ 6,2 bar), plus la pression partielle de l'éthanol libéré par l'hydrolyse du TEOS s'il n'a pas été évaporé",
+     "compared_to": "autoclave chemisé PTFE usuel (≤ 200–220 °C) : acceptable si le taux de remplissage est raisonnable (non donné)",
+     "source": "NIST WebBook, eau saturée (IAPWS-95)"
+    },
+    {
+     "what": "somme des acidités du Tableau 2",
+     "inputs": "quatre colonnes par rangée",
+     "formula": "LASf + BASf + LASF + BASF",
+     "result": "Z5 216,05 ; 1NiZ5 108,19 ; 2NiZ5 98,09 (écrit 98,81) ; 1Ni-Z5 232,91 ; 2Ni-Z5 202,84",
+     "compared_to": "colonne « Total »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité (TEOS, NaOH, Al2(SO4)3, TPABr, H2SO4, eau) : seul le rapport SiO2/Al2O3 « environ 80 » est donné, sans dosage ICP du produit. Le rapport OH/Si, TPA/Si et H2O/Si, qui fixent phase et taille des cristaux de MFI, sont inconnus : la synthèse ne peut pas être refaite telle quelle.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time",
+      "authors_or_publisher": "Cundy & Cox, Chem. Rev.",
+      "year": "2003",
+      "url_or_doi": "10.1021/cr020060i"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "100 °C 24 h puis 160 °C 48 h en autoclave PTFE : pression de vapeur de l'eau 0,618 MPa à 160 °C (calcul « pression de vapeur »), à quoi s'ajoute l'éthanol de l'hydrolyse du TEOS (agitation de nuit, récipient ouvert ou fermé non dit). Taux de remplissage non donné. Le schéma en deux paliers (nucléation à basse température, croissance à plus haute) est classique.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« hydrogenolysis of TEOS » : il s'agit d'une hydrolyse (Si–OEt + H2O → Si–OH + EtOH) ; l'hydrogénolyse demande H2 et un catalyseur. Erreur de vocabulaire sans conséquence sur le protocole.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination « sous air 6 h » sans température : la décomposition complète du TPA+ dans la MFI demande en général ≈ 500–550 °C ; les autres ZSM-5 de la base calcinent à 550 °C (PMC8941405, PMC9056161, PMC9425827).",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le gel contient Na+ ; après calcination le solide est en forme Na/H mixte et aucun échange NH4+ n'est décrit, alors que les BAS mesurées (≈ 48 % de l'Al, calcul « fraction de l'Al vue comme BAS ») supposent une forme largement protonée. PMC8941405 et PMC9056161 font un échange NH4+ à 80 °C puis recalcinent. Étape d'échange probablement omise ou Na+ résiduel non dosé.",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Isotherme dite « type IV » et « structure mésoporeuse préservée » pour une ZSM-5 classique : une MFI microporeuse donne une isotherme de type I (éventuellement avec boucle de condensation intergranulaire). Le BJH n'est pas valable dans les micropores (0,51–0,56 nm pour la MFI) ; la colonne D égale 4V/S (calcul « diamètre moyen 4V/S »), et le pic vers 3,8 nm de la Fig. 3B pour Z5 et les échantillons imprégnés est la signature connue de l'effet de résistance à la traction (fermeture forcée de la boucle vers P/P0 ≈ 0,42), artefact et non mésopores réels.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Pore size determination in modified micro- and mesoporous materials. Pitfalls and limitations in gas adsorption data analysis",
+      "authors_or_publisher": "Groen, Peffer, Pérez-Ramírez (Microporous Mesoporous Mater. 60, 1–17)",
+      "year": "2003",
+      "url_or_doi": "10.1016/S1387-1811(03)00339-1"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "S_BET 354 m2/g, S_micro 245, S_ext 108 m2/g : ordre de grandeur normal pour une ZSM-5 (390–442 m2/g ailleurs dans la base) ; une surface externe de 108 m2/g suggère des cristaux sub-microniques, à confirmer car leur taille comptée n'est pas donnée.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Incohérence interne : « the parent ZSM-5 zeolite had the highest crystallinity » pour expliquer ses BAS, alors que la DRX dit « the intensities of the typical peaks have no apparent variation after nickel modification ». Aucune cristallinité relative n'est chiffrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "NaOH et H2SO4 corrosifs, TEOS inflammable (libère de l'éthanol), TPABr irritant, autoclave sous ≈ 6 bar à 160 °C, poudre de zéolithe fine à ne pas inhaler ; rien n'est écrit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Hydrolyse basique du TEOS en oligomères silicatés ; l'aluminate (Al2(SO4)3 neutralisé par NaOH) se copolymérise ; le TPA+ organise des unités Si–O autour de lui (structuration MFI), Na+ compense une partie de la charge. Le palier à 100 °C favorise la nucléation, le palier à 160 °C la croissance de prismes MFI ; la calcination brûle le TPA+ et laisse des protons sur les Al compensés par le TPA, les Al compensés par Na+ restant non acides sans échange.",
+    "sources": [
+     {
+      "title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time",
+      "authors_or_publisher": "Cundy & Cox, Chem. Rev.",
+      "year": "2003",
+      "url_or_doi": "10.1021/cr020060i"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "composition molaire du gel (prendre une recette IZA de ZSM-5 au rapport Si/Al ≈ 40)",
+    "température de calcination (≈ 550 °C) et rampe",
+    "échange NH4+ avant calcination finale, teneur en Na résiduelle",
+    "rapport Si/Al réel par ICP",
+    "taux de remplissage de l'autoclave"
+   ]
+  },
+  {
+   "label": "1NiZ5",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "nickel apporté à 1 % massique",
+     "inputs": "1 g de zéolithe ; 1 % Ni ; M(Ni) = 58,69 g/mol",
+     "formula": "0,01 / 58,69",
+     "result": "170 μmol Ni/g (340 μéq de charge)",
+     "compared_to": "Al ≈ 406 μmol/g (calcul Z5) ; baisse des BAS 193,48 → 86,84 = −106,6 μmol/g",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "perte de surface microporeuse",
+     "inputs": "S_micro 245 (Z5) → 163 m2/g (1NiZ5)",
+     "formula": "(163 − 245)/245",
+     "result": "−33 %",
+     "compared_to": "Conclusion : « the microporous surface area, were hardly affected »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Le Ni(NO3)2 est dissous dans le mélange B acide puis versé dans le silicate sodique fortement basique : Ni2+ y précipite en hydroxyde ou réagit avec la silice en phyllosilicate de nickel. L'incorporation de Ni2+ tétraédrique en charpente MFI n'a été montrée que dans des conditions particulières (complexe tétraédrique [NiCl4]2−, milieu fluorure légèrement acide, contrôle par échange EDTA). L'affirmation « Al species can be replaced by Ni species in the zeolite framework » n'est appuyée ici par aucune mesure (ni UV-vis, ni RTP, ni ICP, ni paramètre de maille).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Ni-ZSM-5 and Cu-ZSM-5 Synthesized Directly from Aqueous Fluoride Gels",
+      "authors_or_publisher": "Chem. Mater. 13, 468–472 (auteurs non relevés)",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm000591s"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : les Méthodes donnent une DRX de 5 à 35° (2θ), or les raies principales de NiO (JCPDS 47-1049) sont à 37,2° (111) et 43,3° (200), hors de cette plage. « Aucune phase de Ni » ne prouve donc ni la dispersion de NiO ni du Ni de charpente ; si la Fig. 1 va bien jusqu'à 50° (doute de l'extraction), 1–2 % de Ni (1,27–2,55 % de NiO, calcul « NiO équivalent ») restent de toute façon près de la limite de détection d'une DRX de laboratoire. Il faudrait UV-vis en réflexion diffuse, RTP-H2 ou XPS, et un dosage ICP du Ni.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile green synthesis of silver doped NiO nanoparticles using aloe vera latex… (NiO JCPDS 47-1049 : 2θ 37,2 ; 43,3 ; 62,9 ; 75,4 ; 79,4°)",
+      "authors_or_publisher": "article PMC (auteurs non relevés)",
+      "year": "2025",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11730549/"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Contresens : la chute des BAS est « attributed to the decrease of Si/Al ». Une baisse de Si/Al signifie plus d'Al, donc plus de BAS ; c'est une hausse de Si/Al (moins d'Al de charpente) ou la compensation de charge par Ni2+ qui ferait baisser les BAS. Le Si/Al des produits n'est d'ailleurs pas mesuré.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Témoin qui change plusieurs variables : « appropriate amounts of Ni(NO3)2 and Al2(SO4)3 » — la quantité d'Al peut différer de Z5, le nitrate modifie la force ionique et l'alcalinité, la taille des cristaux change. La baisse de BAS (−106,6 μmol/g pour 1 % Ni, soit 170 μmol Ni/g) peut venir simplement d'un moindre Al incorporé ou de Ni2+ en position d'échange ; sans ICP (Si, Al, Ni, Na) aucune des hypothèses n'est départagée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cohérence entre sections : S_micro baisse de 33 % (calcul « perte de surface microporeuse ») et V passe à 0,26 cm3/g, alors que la conclusion dit la surface microporeuse « hardly affected » ; la phrase « fewer microporous structures were destroyed and fewer mesoporous structures were created » est contradictoire avec l'hystérèse décrite. Seul 1NiZ5 montre une vraie modification texturale.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "LAS faibles et fortes strictement identiques pour 1NiZ5 et 2NiZ5 (12,20 et 9,15 μmol/g) : coïncidence peu probable, possible recopie d'une rangée à l'autre.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nitrate de nickel : comburant, sensibilisant, cancérogène par inhalation ; aucune mention dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Plus probable : Ni2+ précipite dans le gel basique en Ni(OH)2 ou phyllosilicate très dispersé, qui perturbe la nucléation (cristaux plus petits, 1NiZ5 plus mésoporeux) et peut réduire l'Al incorporé ; une partie peut occuper des sites d'échange après calcination. L'incorporation tétraédrique en charpente n'est pas exclue mais n'est pas démontrée ; l'absence de hausse des LAS va contre un Ni2+ cationique abondant.",
+    "sources": [
+     {
+      "title": "Ni-ZSM-5 and Cu-ZSM-5 Synthesized Directly from Aqueous Fluoride Gels",
+      "authors_or_publisher": "Chem. Mater. 13, 468–472 (auteurs non relevés)",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm000591s"
+     },
+     {
+      "title": "Construction of Metal/Zeolite Hybrid Nanoframe Reactors via in-Situ-Kinetics Transformations",
+      "authors_or_publisher": "article PMC11363334 (auteurs non relevés)",
+      "year": "2024",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11363334"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "dosage ICP Si, Al, Ni, Na du produit",
+    "quantité d'Al2(SO4)3 réellement engagée par rapport à Z5",
+    "localisation du Ni (UV-vis DR, RTP-H2)",
+    "DRX étendue à 2θ ≥ 50°"
+   ]
+  },
+  {
+   "label": "2NiZ5",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "nickel apporté à 2 % massique",
+     "inputs": "2 % Ni ; M(Ni) = 58,69 g/mol",
+     "formula": "0,02 / 58,69",
+     "result": "341 μmol Ni/g (681 μéq)",
+     "compared_to": "Al ≈ 406 μmol/g ; baisse supplémentaire des BAS de 86,84 à 76,74 μmol/g seulement",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "acidité totale de 2NiZ5",
+     "inputs": "12,20 + 43,08 + 9,15 + 33,66",
+     "formula": "somme",
+     "result": "98,09 μmol/g",
+     "compared_to": "98,81 écrit au Tableau 2 (inversion de chiffres probable)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Le Ni(NO3)2 est dissous dans le mélange B acide puis versé dans le silicate sodique fortement basique : Ni2+ y précipite en hydroxyde ou réagit avec la silice en phyllosilicate de nickel. L'incorporation de Ni2+ tétraédrique en charpente MFI n'a été montrée que dans des conditions particulières (complexe tétraédrique [NiCl4]2−, milieu fluorure légèrement acide, contrôle par échange EDTA). L'affirmation « Al species can be replaced by Ni species in the zeolite framework » n'est appuyée ici par aucune mesure (ni UV-vis, ni RTP, ni ICP, ni paramètre de maille).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Ni-ZSM-5 and Cu-ZSM-5 Synthesized Directly from Aqueous Fluoride Gels",
+      "authors_or_publisher": "Chem. Mater. 13, 468–472 (auteurs non relevés)",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm000591s"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : les Méthodes donnent une DRX de 5 à 35° (2θ), or les raies principales de NiO (JCPDS 47-1049) sont à 37,2° (111) et 43,3° (200), hors de cette plage. « Aucune phase de Ni » ne prouve donc ni la dispersion de NiO ni du Ni de charpente ; si la Fig. 1 va bien jusqu'à 50° (doute de l'extraction), 1–2 % de Ni (1,27–2,55 % de NiO, calcul « NiO équivalent ») restent de toute façon près de la limite de détection d'une DRX de laboratoire. Il faudrait UV-vis en réflexion diffuse, RTP-H2 ou XPS, et un dosage ICP du Ni.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile green synthesis of silver doped NiO nanoparticles using aloe vera latex… (NiO JCPDS 47-1049 : 2θ 37,2 ; 43,3 ; 62,9 ; 75,4 ; 79,4°)",
+      "authors_or_publisher": "article PMC (auteurs non relevés)",
+      "year": "2025",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11730549/"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Contresens : la chute des BAS est « attributed to the decrease of Si/Al ». Une baisse de Si/Al signifie plus d'Al, donc plus de BAS ; c'est une hausse de Si/Al (moins d'Al de charpente) ou la compensation de charge par Ni2+ qui ferait baisser les BAS. Le Si/Al des produits n'est d'ailleurs pas mesuré.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Témoin qui change plusieurs variables : « appropriate amounts of Ni(NO3)2 and Al2(SO4)3 » — la quantité d'Al peut différer de Z5, le nitrate modifie la force ionique et l'alcalinité, la taille des cristaux change. La baisse de BAS (−106,6 μmol/g pour 1 % Ni, soit 170 μmol Ni/g) peut venir simplement d'un moindre Al incorporé ou de Ni2+ en position d'échange ; sans ICP (Si, Al, Ni, Na) aucune des hypothèses n'est départagée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Texture non monotone : 2NiZ5 (2 % Ni) retrouve les valeurs de Z5 (345 m2/g, S_micro 230, V 0,19, D 2,21) alors que 1NiZ5 était nettement modifié ; sans répétition ni ICP, l'effet « mésopores créés par le Ni de charpente » n'est pas établi.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Total écrit 98,81 contre 98,09 μmol/g recalculé (calcul « acidité totale de 2NiZ5 ») : faute de frappe des auteurs, sans effet sur les conclusions.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme 1NiZ5 : nickel probablement précipité ou en position d'échange ; doubler le Ni ne baisse plus guère les BAS, ce qui va contre un remplacement Al → Ni proportionnel à la charge en Ni.",
+    "sources": [
+     {
+      "title": "Ni-ZSM-5 and Cu-ZSM-5 Synthesized Directly from Aqueous Fluoride Gels",
+      "authors_or_publisher": "Chem. Mater. 13, 468–472 (auteurs non relevés)",
+      "year": "2001",
+      "url_or_doi": "10.1021/cm000591s"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ICP Si/Al/Ni",
+    "répétabilité de la texture de 1NiZ5 et 2NiZ5"
+   ]
+  },
+  {
+   "label": "1Ni-Z5",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "Ni à 1 % contre capacité d'échange",
+     "inputs": "170 μmol Ni/g = 340 μéq ; Al ≈ 406 μéq/g",
+     "formula": "2 n(Ni) / n(Al)",
+     "result": "0,84 : 1 % de Ni peut presque tout entier se placer en position d'échange",
+     "compared_to": "BAS −65 μmol/g (193,48 → 128,41) ; LAS +82 μmol/g (22,57 → 104,5)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "« impregnated with an excessive aqueous solution » : ni concentration, ni volume, ni durée, ni filtration, ni lavage, ni séchage, ni calcination. Avec une solution en excès filtrée, la teneur fixée dépend de l'échange et n'est pas égale à la teneur visée ; aucune teneur en Ni n'est mesurée.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs attribuent la baisse des BAS à une désalumination par la solution « acide » de nitrate de nickel. Une solution de sel de Ni2+ n'est que faiblement acide (hydrolyse de l'aquo-ion) et une désalumination notable d'une MFI à température ambiante est improbable ; l'explication la plus simple, documentée sur Ni/HZSM-5, est l'échange H+ → Ni2+ : baisse des BAS et apparition de LAS (Ni2+ coordinativement insaturé). Les ordres de grandeur concordent (calcul « Ni à 1 % contre capacité d'échange »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Vapor-Phase Hydrogenation of Levulinic Acid to γ-Valerolactone Over Bi-Functional Ni/HZSM-5 Catalyst",
+      "authors_or_publisher": "Frontiers in Chemistry 6:285 (auteurs non relevés)",
+      "year": "2018",
+      "url_or_doi": "10.3389/fchem.2018.00285"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : les Méthodes donnent une DRX de 5 à 35° (2θ), or les raies principales de NiO (JCPDS 47-1049) sont à 37,2° (111) et 43,3° (200), hors de cette plage. « Aucune phase de Ni » ne prouve donc ni la dispersion de NiO ni du Ni de charpente ; si la Fig. 1 va bien jusqu'à 50° (doute de l'extraction), 1–2 % de Ni (1,27–2,55 % de NiO, calcul « NiO équivalent ») restent de toute façon près de la limite de détection d'une DRX de laboratoire. Il faudrait UV-vis en réflexion diffuse, RTP-H2 ou XPS, et un dosage ICP du Ni.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile green synthesis of silver doped NiO nanoparticles using aloe vera latex… (NiO JCPDS 47-1049 : 2θ 37,2 ; 43,3 ; 62,9 ; 75,4 ; 79,4°)",
+      "authors_or_publisher": "article PMC (auteurs non relevés)",
+      "year": "2025",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11730549/"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« high dispersion of NiO species » : aucune calcination après imprégnation n'est écrite, donc le Ni est en nitrate ou en Ni2+ échangé tant que le solide n'est pas chauffé (il le sera seulement à 500 °C lors de la préparation du catalyseur NiMo). L'état du Ni au moment des mesures (Py-FTIR après dégazage) n'est pas défini.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Texture inchangée (339 contre 354 m2/g, V 0,19) : cohérent avec 1 % de Ni dispersé.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Échange ionique partiel H+ (et Na+) → Ni2+ pendant l'imprégnation, Ni2+ en position d'échange devenant site de Lewis après dégazage ; le reste du Ni forme NiO dispersé après chauffage. La désalumination invoquée par les auteurs n'est pas nécessaire et n'est pas prouvée (pas de RMN 27Al ni d'ICP).",
+    "sources": [
+     {
+      "title": "Vapor-Phase Hydrogenation of Levulinic Acid to γ-Valerolactone Over Bi-Functional Ni/HZSM-5 Catalyst",
+      "authors_or_publisher": "Frontiers in Chemistry 6:285 (auteurs non relevés)",
+      "year": "2018",
+      "url_or_doi": "10.3389/fchem.2018.00285"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration et volume de la solution de Ni, durée, filtration ou évaporation",
+    "séchage et calcination après imprégnation",
+    "teneur réelle en Ni (ICP)"
+   ]
+  },
+  {
+   "label": "2Ni-Z5",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "Ni à 2 % contre capacité d'échange",
+     "inputs": "341 μmol Ni/g = 681 μéq ; Al ≈ 406 μéq/g",
+     "formula": "2 n(Ni) / n(Al)",
+     "result": "1,68 : au moins 40 % du Ni ne peut pas être en position d'échange (NiO ou hydroxyde externe)",
+     "compared_to": "BAS 91,34 μmol/g restantes ; LAS 111,5 (+7 seulement par rapport à 1Ni-Z5)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Le doublement du Ni n'ajoute que 7 μmol/g de LAS et retire 37 μmol/g de BAS : cohérent avec un Ni excédentaire sous forme de NiO peu acide, non avec la désalumination invoquée (qui devrait croître avec la charge).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve non discriminante : les Méthodes donnent une DRX de 5 à 35° (2θ), or les raies principales de NiO (JCPDS 47-1049) sont à 37,2° (111) et 43,3° (200), hors de cette plage. « Aucune phase de Ni » ne prouve donc ni la dispersion de NiO ni du Ni de charpente ; si la Fig. 1 va bien jusqu'à 50° (doute de l'extraction), 1–2 % de Ni (1,27–2,55 % de NiO, calcul « NiO équivalent ») restent de toute façon près de la limite de détection d'une DRX de laboratoire. Il faudrait UV-vis en réflexion diffuse, RTP-H2 ou XPS, et un dosage ICP du Ni.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Facile green synthesis of silver doped NiO nanoparticles using aloe vera latex… (NiO JCPDS 47-1049 : 2θ 37,2 ; 43,3 ; 62,9 ; 75,4 ; 79,4°)",
+      "authors_or_publisher": "article PMC (auteurs non relevés)",
+      "year": "2025",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11730549/"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Saturation des sites d'échange puis NiO externe ; même remarque que 1Ni-Z5 sur la désalumination.",
+    "sources": [
+     {
+      "title": "Vapor-Phase Hydrogenation of Levulinic Acid to γ-Valerolactone Over Bi-Functional Ni/HZSM-5 Catalyst",
+      "authors_or_publisher": "Frontiers in Chemistry 6:285 (auteurs non relevés)",
+      "year": "2018",
+      "url_or_doi": "10.3389/fchem.2018.00285"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "teneur réelle en Ni",
+    "état du Ni (RTP-H2)"
+   ]
+  },
+  {
+   "label": "NiMo/Z5",
+   "verdict": "douteuse",
+   "feasibility": "non_reproductible",
+   "calculs": [
+    {
+     "what": "somme des sélectivités du Tableau 3",
+     "inputs": "dix lignes par colonne",
+     "formula": "Σ S_i",
+     "result": "NiMo/1Ni-Z5 99,57 ; NiMo/2Ni-Z5 99,87 ; NiMo/Z5 99,09 ; NiMo/1NiZ5 98,93 ; NiMo/2NiZ5 99,19 %",
+     "compared_to": "100 % : cohérent",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "« iso-sum »",
+     "inputs": "iso-C4 + iso-C5 + iso-C6 + iso-C7 + iso-C8 (NiMo/1Ni-Z5 : 8,90 + 23,56 + 11,08 + 6,84 + 9,83)",
+     "formula": "somme",
+     "result": "60,21 % ; idem pour les autres colonnes",
+     "compared_to": "« isomerization selectivity » : l'isomérisation au sens strict est iso-C8 seul (7,1–10,8 %)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "appariement des produits de craquage",
+     "inputs": "n-C8 → C3 + C5 ; NiMo/1Ni-Z5 : C5 = 36,53 %, C1–C3 = 0,35 % ; NiMo/Z5 : C5 32,48, C1–C3 1,74",
+     "formula": "en masse, m(C3)/m(C5) = 44,1/72,15 = 0,61 pour une scission primaire",
+     "result": "C3 attendu ≈ 22 % (1Ni-Z5) et ≈ 20 % (Z5) si tout le C5 vient de C8 → C3 + C5, contre 0,35 et 1,74 % rapportés",
+     "compared_to": "bilan fermé des produits",
+     "source": "stœchiométrie ; Tableau 3"
+    },
+    {
+     "what": "conversion la plus basse de la Fig. 5A",
+     "inputs": "275 °C : 22 à 34 % selon le catalyseur",
+     "formula": "lecture graphique (extraction)",
+     "result": "aucune conversion ≈ 20 % dans la plage 275–305 °C",
+     "compared_to": "« selectivity … obtained at ~20 % n-octane conversion »",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Catalyseur appelé « NiMo » mais seul précurseur du second métal : le métatungstate d'ammonium. C'est un catalyseur NiW(S), pas NiMo ; un chimiste qui suivrait le nom achèterait un précurseur de Mo. Teneurs en Ni et W déposées, nature de l'alumine (boehmite ?), liant et acide d'extrusion, calcination de l'extrudé : non donnés.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Sélectivités « at ~20 % conversion » alors que la Fig. 5A ne descend pas sous 22 % (275 °C) et que NiMo/1Ni-Z5 y est déjà à 34 % (calcul « conversion la plus basse ») : la condition de comparaison (température ou WHSV) n'est pas décrite.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bilan des produits non fermé : C1–C3 = 0,35–4 % pour 28–37 % de C5, alors qu'une scission C8 → C3 + C5 en produit ≈ 0,6 fois la masse de C5 (calcul « appariement »). Seuls les « liquid products » sont analysés : les gaz légers (C3, iC4 partiellement) sont perdus et les sélectivités comme la conversion sont biaisées. De plus « iso-sum » additionne des produits de craquage ramifiés (iC4–iC7) et l'iso-C8 : ce n'est pas une sélectivité d'isomérisation au sens usuel.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Explication « carbonium ions formed on LAS transform to BAS » : en hydroconversion bifonctionnelle l'alcane est déshydrogéné sur la phase sulfure, l'oléfine protonée sur les BAS ; la contribution des LAS (Ni2+, Al extra-réseau) n'est pas testée (pas d'essai sur zéolithe sans métal, pas d'empoisonnement sélectif). Hypothèse non démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Sulfuration par CS2 2 % vol. dans le cyclohexane à 360 °C sous H2 4 MPa (H2 non écrit pour la sulfuration) : CS2 très inflammable, température d'auto-inflammation 90 °C (194 °F), toxique neurologique ; la réaction dégage H2S. Réacteur sous pression d'H2 à 4 MPa : risque d'inflammation et de fuite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "CARBON DISULFIDE – Chemical Datasheet",
+      "authors_or_publisher": "NOAA CAMEO Chemicals",
+      "year": "consulté 2026",
+      "url_or_doi": "https://cameochemicals.noaa.gov/chemical/2813"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Température de la courbe de stabilité (Fig. 5B), rapport H2/huile et masse de catalyseur non donnés ; les conversions sont des lectures de figure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Calcination à 500 °C 4 h : décompose nitrate de nickel et métatungstate d'ammonium en NiO et WO3 dispersés ; sulfuration à 360 °C 4 h : conditions usuelles d'activation des NiW/NiMo.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Co-imprégnation des précurseurs Ni et W, calcination en oxydes (NiO, WO3, polytungstates sur l'alumine), puis sulfuration par l'H2S issu de l'hydrogénolyse du CS2 en phase NiWS (WS2 promu par Ni). En test, déshydrogénation de l'octane sur NiWS, isomérisation et craquage des oléfines sur les BAS de la zéolithe.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "remplacer le nom « NiMo » par NiW ou vérifier le précurseur réellement employé",
+    "teneurs en Ni et W, nature de l'alumine et du liant",
+    "condition de mesure des sélectivités",
+    "bilan de matière avec analyse des gaz"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Protocole de ZSM-5 classique dans son principe (TEOS/TPABr, deux paliers 100 puis 160 °C) mais sans aucune quantité, sans température de calcination ni échange NH4+ : non reproductible. Les modifications au nickel ne sont pas caractérisées en composition (pas d'ICP) ni en localisation ; la DRX déclarée (5–35°) ne couvre pas les raies de NiO, ce qui invalide l'argument « ni phase Ni ». L'analyse texturale confond microporosité et mésoporosité (isotherme « type IV », BJH sur micropores, pic à 3,8 nm typique d'un artefact). Le catalyseur dit NiMo est préparé avec du métatungstate (NiW). Les sélectivités sont données à « ~20 % » de conversion, hors de la plage mesurée, et sur les seuls produits liquides (bilan non fermé).",
+  "author_errors_suspected": [
+   "« hydrogenolysis of TEOS » pour hydrolyse",
+   "baisse des BAS « attribuée à la baisse de Si/Al » : sens inversé",
+   "catalyseur « NiMo » préparé avec du métatungstate d'ammonium (NiW)",
+   "total d'acidité de 2NiZ5 : 98,81 écrit pour 98,09",
+   "renvois au Tableau 2 pour la texture et au Tableau 3 pour l'acidité (décalage d'un numéro)",
+   "sélectivités « à ~20 % de conversion » incompatibles avec la Fig. 5A",
+   "isotherme « type IV » et « mésopores préservés » pour une MFI microporeuse",
+   "conclusion « surface microporeuse peu affectée » contredite par 1NiZ5 (−33 %)"
+  ],
+  "comparison_with_database": "ZSM-5 de la base : PMC9056161 (deux paliers 100/170 °C, échange NH4+, calcination 550 °C 5 h, Si/Al ICP 20), PMC8941405 (170 °C 48 h, échange NH4+, 550 °C 10 h, S_BET 390, S_ext 25 m2/g), PMC9425827 (S_BET 442). Z5 (354 m2/g) est dans l'ordre de grandeur ; sa surface externe élevée (108) indique de petits cristaux ; l'absence d'échange NH4+ et de température de calcination le distingue des autres protocoles."
+ },
+ "sources_not_found": [
+  "protocole de ZSM-5 « reported in the literature » : référence non identifiable dans le texte (renvoi vide)",
+  "auteurs des sources 10.3389/fchem.2018.00285, 10.1021/cm000591s et PMC11363334 non relevés (Crossref bloqué)",
+  "aucune source cherchée sur le pH des solutions de Ni(NO3)2 et la désalumination à l'ambiante : jugement fondé sur la chimie générale"
+ ]
+}

@@ -1,0 +1,119 @@
+{
+ "pmcid": "PMC6955683",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "échantillon « 40-min MASS + 1 h à 1400 °C » (Fig. S4), aucune voie",
+   "extracted": "inventaire : route null ; seul le cas 3 h est la voie MASS-1Mn ; doute « borne d'une plage »",
+   "article_says": "In addition, a 40-min MASS treatment was added before each SSR synthesis without ball mill grinding.",
+   "fix": "Fig. S4 compare explicitement MASS et SSR « with different reaction duration » (1 h et 3 h à 1400 °C) : l'échantillon MASS 1 h est un échantillon distinct comparé par les auteurs, pas une simple borne de plage. Créer une branche MASS-1Mn-1h (durée calcination 1 h, impuretés encore visibles ou non selon S4, annexe absente) ou à défaut un résultat explicite sur MASS-1Mn.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MASS-1Mn outcomes (comparaison avec/sans micro-ondes)",
+   "extracted": "outcomes : pureté de phase, gain de temps > 75 %, XRD après 40 min ; pas le résultat de la comparaison avec la SSR sans MASS",
+   "article_says": "We found that the diffraction peaks from impurities decrease substantially compared with the patterns without MASS treatment.",
+   "fix": "ajouter un résultat sur MASS-1Mn (et la branche 1 h si créée) : les pics d'impuretés diminuent nettement par rapport aux motifs SSR sans traitement MASS ; ajouter aussi « comparable with the materials prepared by the conventional SSR method with a two-step thermal treatment for 11 h » (seulement en annotation aujourd'hui)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "SSR-1400-1h et SSR-1400-3h, étape 5 (palier initial 1000 °C, 3 h) héritée",
+   "extracted": "branches héritant de SSR-1400 : étapes 1 à 8 dont le palier initial 1000 °C 3 h, avec seule l'étape 6 changée (1 h ou 3 h) ; doute signalé mais l'étape 5 n'est pas déclarée « non citée »",
+   "article_says": "Prolonging the duration of the SSR reaction from 1h to 3 h at 1400 °C, a slight decrease of the intensity of diffraction peaks from other impurity phases was observed.",
+   "fix": "l'article ne dit pas que ces essais ont subi le palier initial de 3 h à 1000 °C (RUNBOOK : pas d'héritage non fondé). Soit leur donner leurs propres steps sans l'étape 5, soit déclarer la présence/absence de l'étape 5 dans not_stated avec le doute. Ajouter aussi, en résultat de la branche 3 h, la « slight decrease » des impuretés par rapport à 1 h (absente des outcomes).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "MASS-1Mn : refroidissement et broyage final (missing_fields 'final_grinding_of_MASS_product'; not_stated cooling_rate seul)",
+   "extracted": "pas d'étape de refroidissement ni de rebroyage pour la voie MASS ; « final_grinding_of_MASS_product » déclaré manquant",
+   "article_says": "All the prepared samples were well ground again after they were cooled down naturally to room temperature.",
+   "fix": "la phrase vise « all the prepared samples » (placée dans le paragraphe SSR, donc ambiguïté) : ajouter à MASS-1Mn des étapes cool (refroidissement naturel) et grind (rebroyage) avec cette citation et un doute sur le périmètre, et retirer 'final_grinding_of_MASS_product' de missing_fields",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "Mesure de rémanence (Fig. 3, résultats total_afterglow_intensity_10min des 5 voies MASS) : aucune caractérisation ni condition",
+   "extracted": "MASS-0.25/0.5/2/4Mn n'ont que XRD ; les intensités de rémanence n'ont aucune condition de mesure",
+   "article_says": "Excitation lasted for 5 min by the light of an unfiltered Xenon arc lamp at an intensity of 1000 lux.",
+   "fix": "ajouter une caractérisation « persistent luminescence decay » (mêmes conditions pour toute la série) : excitation 5 min lampe Xe non filtrée 1000 lux, photodiode silicium Centronics OSD100-5T + Hamamatsu C9329, température ambiante, courbes 0–600 s calibrées en mW/sr/m², intensité intégrée sur 10 min (légende Fig. 3)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Rendements quantiques / absorption (Fig. S10–S13) : conditions de mesure absentes",
+   "extracted": "aucune caractérisation sphère intégrante ; seul « optimal_Mn_concentration_for_PL_IQE_EQE = 1% » en résultat de MASS-1Mn",
+   "article_says": "An integrating sphere (LabSphere GPS-SL series) was used to measure emission, absorption efficiency, the external quantum efficiency (EQE) and internal quantum efficiency (IQE) of the phosphor upon 325 nm excitation.",
+   "fix": "ajouter une caractérisation IQE/EQE/absorption (sphère LabSphere GPS-SL, excitation 325 nm, BaSO4 en standard réfléchissant), et noter pour les voies 0,25/2/4 % que l'émission, l'IQE et l'EQE sont inférieures à celles de 1 % (« decrease gradually with further increasing Mn4+ concentration ») ; l'absorption croît avec la teneur en Mn (« the amount of light absorption is also on the increase »)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "MASS-0.5Mn (TL, Fig. 7–10) : résultats des sections 3.5 et 3.6 non extraits",
+   "extracted": "seuls trap depth 0,78 eV et résumé TL ; doute dit que Fig. 9–10 ne sont rattachées à aucune voie, mais aucun résultat n'est repris",
+   "article_says": "It is interesting to note that there is a very slight thermal barrier for trap filling in the La2MgGeO6:Mn4+ phosphor, only seen at the very low charging temperature of −60 °C.",
+   "fix": "ajouter à MASS-0.5Mn (échantillon des TL, Fig. 7–8) : série de température de charge −60 à 80 °C par pas de 20 °C (piège région II ≈ 115 °C, région I ≈ −20 °C à −60 °C), durées de charge 3, 5, 8, 10, 15, 20 min (intensité TL croissante), et pour la rémanence en température « an ideal afterglow temperature at 80 °C » (Fig. 10, taux de Mn non précisé : doute à garder)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "MASS-0Mn, caractérisation « diffuse reflection (undoped host vs 1%Mn4+) »",
+   "extracted": "la mesure de réflexion diffuse est rangée dans la voie hôte non dopé MASS-0Mn ; ses bandes d'absorption ne sont pas reprises",
+   "article_says": "The absorption band covering 450 nm to 480 nm was attributed to the spin-allowed Mn4+: 4A2g → 4T2g transition, while that occurred from 310 nm supposedly originated from the Mn4+: 4A2g → 4T1g transition.",
+   "fix": "les deux bandes d'absorption (450–480 nm et à partir de 310 nm) sont un résultat de l'échantillon à 1 % (MASS-1Mn), l'hôte n'étant que la référence : déplacer la caractérisation sur MASS-1Mn (ou la dupliquer) et y ajouter ces bandes",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MASS-0Mn (préparation de l'hôte non dopé) et SSR-1400 (matériau « undoped host »)",
+   "extracted": "MASS-0Mn rattaché à MASS-1Mn comme variation MnO2 = 0 mol% ; SSR-1400 déclaré « La2MgGeO6 (undoped host) »",
+   "article_says": "Figure S2 presents XRD patterns of a series of La2MgGeO6 samples prepared at variable temperatures using the SSR method",
+   "fix": "l'article ne décrit pas la préparation de l'hôte x = 0 (liste « x = 0, 0.25, … » pour la sphère intégrante) ni ne dit que la série S2 est sans Mn ; le doute existe déjà mais le champ material « undoped host » est présenté comme acquis : écrire « La2MgGeO6 (dopage Mn non précisé) » pour SSR-1400, et marquer la voie MASS-0Mn comme préparation supposée",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "MASS-1Mn step 4 duration = 3 h (voie de base 1 % Mn)",
+   "extracted": "3 h, citation de la phrase « a 3-h thermal treatment … yielded the pure product of La2MgGeO6:Mn4+ »",
+   "article_says": "Then a thermal treatment at 1400 °C was carried out to form the final compounds with duration ranging from 1 to 3 h in air.",
+   "fix": "la phrase de 3 h ne nomme aucun taux de Mn ; la plage « 1 to 3 h » couvre les échantillons dopés. Valeur plausible mais non attribuée à l'échantillon à 1 % : garder 3 h avec le doute, et noter le périmètre dans la reproductibilité",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources, entrée B22 role 'autre'",
+   "extracted": "B22 « autre » avec la citation « The temperature profile of the microwave heating process follows a rapid temperature increase in a short period of time »",
+   "article_says": "The temperature profile of the microwave heating process follows a rapid temperature increase in a short period of time",
+   "fix": "renvoi de contexte (description d'un profil de température), pas une source de méthode au sens de la règle du 2026-10-13 : supprimer cette entrée ; B22 reste déjà source avec B23 et B24 via « The MASS procedure followed the previous work of Miranda de Carvalho et al. »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "MASS-1Mn caractérisation « temperature-dependent PL (thermal quenching) », instrument",
+   "extracted": "instrument : ProEM1600 EMCCD sur monochromateur Acton SP2300 ; conditions : 309 nm pour la série 75–415 K",
+   "article_says": "An Oxford Optistat CF cryostat with helium flow was used to investigate the temperature dependence of the optical spectra.",
+   "fix": "ajouter le cryostat Oxford Optistat CF (hélium) pour la série 75–415 K (pas de 20 K) ; la série jusqu'à 220 °C est celle de l'EMCCD",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 17,
+  "branches_extracted": 15,
+  "not_stated_checked": 34,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "masse (ou rapport molaire absolu) de chaque précurseur : seulement « stoichiometric amounts » et 0,4 g de mélange ; mode et durée de mélange avant micro-ondes absents",
+  "température atteinte pendant les micro-ondes, atmosphère dans le creuset, four domestique (puissance 1000 W seulement), rampe et four du traitement à 1400 °C de la voie MASS absents",
+  "durée de calcination de chaque échantillon dopé : « 1 to 3 h » dans les Méthodes, « 3-h » dans les Résultats, sans dire laquelle correspond à quel taux de Mn",
+  "SSR : volume d'éthanol, vitesse et billes du broyeur, atmosphère du palier initial à 1000 °C, taux de Mn de la série Fig. S2 non cités",
+  "préparation de l'hôte x = 0 et conditions des essais 1 h / 3 h (MASS et SSR) de Fig. S4 : palier initial et broyage non précisés",
+  "annexe S2–S16 : seules les légendes sont dans le dépôt (aucune image) ; XRD de S2 à S5, spectres S7–S13 et S15 non lisibles",
+  "Fig. 9 et 10 : taux de Mn non précisé"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (CO réducteur → Mn2+, calcination douce à l'air, taille des réactifs, chauffage homogène, formation préliminaire de l'hôte) suit les passages cités ; mecanisme_analyse est bien étiqueté comme interprétation",
+ "notes": "Valeurs lues sur Fig. 3 (encart) vérifiées à l'image : 0,25 % ≈ 5,4×10^4, 0,5 % ≈ 9,5×10^4, 1 % ≈ 7×10^4, 2 % ≈ 3,1×10^4, 4 % ≈ 3 à 4×10^3 : écarts avec l'extraction inférieurs à 10 % sauf le point à 4 % (lecture incertaine sur un petit encart, pas de constat). Fig. 5 : 93,4 % à 150 °C et ≈ 85,5 % à 220 °C conformes. Fig. 1 : cinq diffractogrammes sans pic parasite visible, conforme. Fragile dans ma propre lecture : l'article dit « 40-min MASS before each SSR synthesis » (S4), la lecture MASS 1 h / 3 h repose sur la légende « different reaction duration »."
+}

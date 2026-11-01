@@ -1,0 +1,167 @@
+{
+  "pmcid": "PMC11194767",
+  "routes": [
+    {
+      "label": "CuBTC-water-24h",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "quantités pour 100 mL de Na-BTC 0,1 M", "inputs": "H3BTC M = 210,14 g/mol ; NaOH M = 40,00 g/mol ; 3 acidités par BTC", "formula": "m = C × V × M ; n(NaOH) = 3 n(BTC)", "result": "2,10 g de H3BTC et 1,20 g de NaOH (0,030 mol) pour 100 mL", "compared_to": "« stoichiometric amount » (texte principal) contre « slightly higher than stoichiometric » (SI)", "source": "masses molaires atomiques IUPAC ; valeurs de l'article"},
+        {"what": "pH d'une solution stœchiométrique de Na3BTC 0,1 M", "inputs": "pKa3 = 4,7 (SI, réf. 3) ; Kb = Kw/Ka3 = 10^-9,3 ; C = 0,1 M", "formula": "[OH-] = √(C·Kb)", "result": "[OH-] = 7,1·10^-6 M ; pH ≈ 8,85", "compared_to": "pH « around 10 » annoncé", "source": "pKa de l'article (SI)"},
+        {"what": "excès de soude qui donne pH 10", "inputs": "pH 10 → [OH-] libre ≈ 1·10^-4 M ; NaOH stœchiométrique 0,3 M", "formula": "1·10^-4 / 0,3", "result": "≈ 0,03 % d'excès de NaOH : invisible à la pesée de pastilles", "compared_to": "« slightly higher than stoichiometric » (SI)", "source": "calcul"},
+        {"what": "pH de précipitation de Cu(OH)2 côté cuivre", "inputs": "Ksp(Cu(OH)2) ≈ 2,2·10^-20 (valeur de manuel) ; [Cu2+] = 0,1 M", "formula": "[OH-] = √(Ksp/[Cu2+]) ; pH = 14 + log[OH-]", "result": "pH ≈ 4,7", "compared_to": "solution de Na-BTC à pH 10 et contre-ions OH- de la membrane de l'autre côté", "source": "chimie générale (Ksp de manuel, non revérifié en ligne)"},
+        {"what": "exclusion de Donnan de Cu2+ dans l'eau", "inputs": "charge fixe X ≈ 1 M (texte) ; Cu(NO3)2 0,1 M (électrolyte 2:1) ; Donnan idéal c_Cu,m · c_NO3,m² = 4c³ avec c_NO3,m = X + 2 c_Cu,m", "formula": "résolution numérique", "result": "c_Cu dans la membrane ≈ 0,0039 M, soit ≈ 4 % de la solution", "compared_to": "localisation côté cuivre observée : exclusion forte, cohérente", "source": "calcul (modèle de Donnan idéal)"},
+        {"what": "matière d'un film dense de HKUST-1 de 20 µm", "inputs": "a = 26,343 Å (Chui 1999) ; Z = 16 Cu3(BTC)2 par maille ; M(Cu3(BTC)2) = 604,9 g/mol ; 20 µm × 1 cm²", "formula": "ρ = 16 M / (N_A a³) ; n = ρ V / M", "result": "ρ ≈ 0,88 g/cm³ ; 1,76 mg/cm² ; 8,7 µmol Cu et 5,8 µmol BTC par cm² (borne haute, film dense)", "compared_to": "1 mL de solution à 0,1 M contient 100 µmol : pas d'épuisement des réservoirs ; le plafond de 20 µm n'est pas un effet d'épuisement", "source": "calcul ; paramètre de maille Chui et al. 1999"},
+        {"what": "réserve d'OH- de la membrane sous forme hydroxyde", "inputs": "charge fixe ≈ 1 M (texte) ; épaisseur 112–125 µm (Fujifilm Type 1, littérature), prise à 120 µm", "formula": "n(OH-) = X × e ; n(Cu(OH)2) ≤ n(OH-)/2 ; épaisseur = n M / ρ avec M = 97,56 g/mol, ρ ≈ 3,37 g/cm³", "result": "≈ 12 µmol OH-/cm² ; jusqu'à 6 µmol Cu(OH)2/cm², soit ≈ 1,7 µm de Cu(OH)2 dense (borne haute)", "compared_to": "couche visible à 4 h et effet des OH- invoqué par les auteurs", "source": "calcul ; épaisseur d'après Amores et al. 2025 et fiche Fujifilm"},
+        {"what": "composition élémentaire théorique (H exclu) des phases possibles", "inputs": "Cu3(BTC)2 = C18O12Cu3 ; Cu3(BTC)2(H2O)3 ; Cu(HBTC)(H2O)3 = C9H10CuO9 ; Cu(OH)2 ; Cu2(OH)3NO3 ; CuO", "formula": "fraction atomique et O/Cu", "result": "HKUST-1 anhydre : C 0,545 O 0,364 Cu 0,091 (O/Cu = 4) ; hydraté O/Cu = 5 ; Cu(BTC)·3H2O : Cu 0,053 (O/Cu = 9) ; Cu(OH)2 O/Cu = 2 ; Cu2(OH)3NO3 O/Cu = 3 ; CuO O/Cu = 1", "compared_to": "le SI dit que les rapports Cu/O « font penser » à un hydroxyde ou oxyde ; la membrane ajoute de l'O, donc l'O/Cu mesuré est une borne haute de celui du film", "source": "calcul"},
+        {"what": "raies DRX attendues de HKUST-1 (Cu Kα)", "inputs": "a = 26,343 Å ; λ = 1,5406 Å ; Fm-3m", "formula": "d = a/√(h²+k²+l²) ; 2θ = 2 arcsin(λ/2d)", "result": "(111) 5,81° ; (200) 6,71° ; (220) 9,49° ; (222) 11,63° ; (400) 13,43°", "compared_to": "halo amorphe d'un polymère vers 15–25° : les raies de HKUST-1 tombent à part", "source": "calcul ; Chui et al. 1999"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le texte principal écrit « trimesic acid (benzene 1,2,3-tricarboxylic acid) » : l'acide trimésique est l'acide benzène-1,3,5-tricarboxylique ; le 1,2,3 est l'acide hémimellitique, qui ne donne pas HKUST-1. Le nom commercial et le fournisseur (Sigma-Aldrich, 98 %) désignent bien le bon composé, mais un chimiste qui commanderait d'après le nom systématique écrit se tromperait d'isomère.", "status": "probleme", "basis": "litterature", "source": {"title": "A chemically functionalizable nanoporous material [Cu3(TMA)2(H2O)3]n", "authors_or_publisher": "Chui, Lo, Charmant, Orpen, Williams (Science)", "year": "1999", "url_or_doi": "10.1126/science.283.5405.1148"}},
+        {"aspect": "bilan", "finding": "Contradiction soude stœchiométrique (texte) contre légèrement plus que stœchiométrique (SI) : une solution exactement stœchiométrique de Na3BTC 0,1 M est à pH ≈ 8,85 ; pH 10 suppose ≈ 0,03 % d'excès de NaOH (calculs « pH d'une solution stœchiométrique » et « excès de soude »). Les deux phrases sont compatibles, mais l'excès est trop petit pour être pesé : il faut ajuster au pH-mètre, et le pH réel dépend de la carbonatation des pastilles.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "0,1 M de BTC sous forme Na3BTC (21 g/L d'équivalent acide) : le sel trisodique est très soluble ; Cu(NO3)2·3H2O à 0,1 M dans l'eau ne pose aucun problème. Le réservoir de cuivre seul est acide (hydrolyse de Cu2+) et précipite Cu(OH)2 dès pH ≈ 4,7 (calcul « pH de précipitation »).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Température ambiante, réservoirs fermés, solvant eau : aucun risque d'ébullition ni de pression.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Exclusion de Donnan de Cu2+ très efficace avec une charge fixe de 1 M (≈ 4 % de la concentration externe dans la membrane, calcul « exclusion de Donnan ») : la localisation côté cuivre est cohérente. Réserve : la membrane Fujifilm Type I a des pores ouverts le long des fibres de renfort, remplis de solution électroneutre, et une sélectivité comparable à celle des membranes hétérogènes ; une fuite de cations par ces pores est possible, sans contredire les images.", "status": "ok", "basis": "litterature", "source": {"title": "Transport Characteristics of Fujifilm Ion-Exchange Membranes as Compared to Homogeneous Membranes АМХ and СМХ and to Heterogeneous Membranes MK-40 and MA-41", "authors_or_publisher": "Membranes (MDPI), auteurs non relevés", "year": "2019", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6680501"}},
+        {"aspect": "resultats", "finding": "Identité de la phase non démontrée, et la référence que les auteurs citent pour l'appuyer va dans l'autre sens. Siddiqui et al. 2022, cité dans le SI pour la morphologie en aiguilles « semblable à notre Cu-BTC », montrent qu'à température ambiante dans l'eau peu acide (pH 2,2–3,2) se forme le polymère de coordination non poreux Cu(BTC)·3H2O (chaînes, Cu:BTC = 1:1, aiguilles et barreaux), et que HKUST-1 immergé dans l'eau s'y transforme en 18–22 h. Ici, côté cuivre, le pH local est fixé par la rencontre de Cu2+ (acide) avec BTC3- et OH- (base) ; il peut aussi se former Cu(OH)2 (au-dessus de pH ≈ 4,7), un nitrate basique de cuivre ou un hydroxo-BTC de cuivre non poreux. Les morphologies observées (aiguilles, fleurs, plaques) sont typiques de ces phases et non des octaèdres de HKUST-1 ; l'EDS ne tranche pas (O/Cu de 4 pour HKUST-1 contre 2 pour Cu(OH)2 et 9 pour Cu(BTC)·3H2O, calcul « composition élémentaire », et la membrane fausse C et O). Le nom « Cu-BTC » du film doit être lu comme « solide cuivre–BTC de phase inconnue ».", "status": "probleme", "basis": "litterature", "source": {"title": "Room temperature synthesis of a luminescent crystalline Cu–BTC coordination polymer and metal–organic framework", "authors_or_publisher": "Siddiqui, Prado-Roller, Shiozawa (Materials Advances, RSC)", "year": "2022", "url_or_doi": "10.1039/D1MA00866H"}},
+        {"aspect": "resultats", "finding": "L'argument « la membrane gêne trop la caractérisation » ne vaut pas pour la DRX d'un film de 20 µm : les raies principales de HKUST-1 tombent entre 5,8 et 13,4° 2θ (calcul « raies DRX attendues »), loin du halo amorphe d'un polymère. Une DRX en incidence rasante ou sur fragments détachés aurait distingué HKUST-1, Cu(BTC)·3H2O et Cu(OH)2.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "Un film dense de 20 µm ne consomme que ≈ 8,7 µmol Cu et 5,8 µmol BTC par cm² (calcul « matière d'un film dense »), très peu devant le contenu des réservoirs : le plafond d'épaisseur entre 24 et 48 h ne vient pas d'un épuisement et l'explication des auteurs (couche qui freine le passage de BTC3-) est plausible. Les volumes des réservoirs ne sont pas donnés : le rendement ne peut pas être calculé.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Nitrate de cuivre (oxydant, nocif, toxique pour le milieu aquatique), soude en pastilles (corrosive, dissolution exothermique dans la suspension de BTC) ; pas de danger particulier à température ambiante en cellule fermée. Fragments de film détachés au séchage : poudre fine à ne pas inhaler.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Les anions BTC3- (et un peu d'OH-) traversent la membrane échangeuse d'anions, où ils remplacent les contre-ions ; Cu2+ en est exclu (Donnan, ≈ 4 % de la concentration externe). À la face côté cuivre, BTC3- rencontre Cu2+ dans une couche de diffusion dont le pH est intermédiaire entre la solution de cuivre (pH ≈ 4) et la membrane basique : il précipite un carboxylate de cuivre. Dans l'eau et sans co-solvant, la phase la plus probable est le polymère de coordination en chaînes Cu(HBTC)(H2O)3 (aiguilles, Cu:BTC 1:1), éventuellement mêlé de Cu(OH)2 ou de sels basiques aux temps courts quand les OH- de la membrane sont relâchés ; HKUST-1, instable dans l'eau à ces pH, n'est pas démontré. La croissance s'auto-limite quand la couche freine la diffusion de BTC3-.",
+        "sources": [
+          {"title": "Room temperature synthesis of a luminescent crystalline Cu–BTC coordination polymer and metal–organic framework", "authors_or_publisher": "Siddiqui, Prado-Roller, Shiozawa (Materials Advances, RSC)", "year": "2022", "url_or_doi": "10.1039/D1MA00866H"},
+          {"title": "Effect of HKUST-1 metal–organic framework in root and shoot systems, as well as seed germination", "authors_or_publisher": "Environmental Science and Pollution Research (Springer), auteurs non relevés", "year": "2024", "url_or_doi": "10.1007/s11356-023-31728-6"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "commander l'acide benzène-1,3,5-tricarboxylique (acide trimésique), pas l'isomère 1,2,3 écrit dans le texte",
+        "ajuster la solution de Na-BTC au pH-mètre (pH 10, ou 6,8 pour la variante titrée) plutôt que peser une quantité stœchiométrique de NaOH",
+        "forme ionique de la membrane à réception (chlorure ou hydroxyde) auprès du fournisseur",
+        "volumes des réservoirs et surface de membrane exposée (non donnés)",
+        "identifier la phase par DRX sur le film ou sur fragments (HKUST-1 : raies à 5,8 / 6,7 / 9,5 / 11,6° 2θ, Cu Kα) avant d'appeler le film HKUST-1"
+      ]
+    },
+    {
+      "label": "CuBTC-water-4h",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "réserve d'OH- de la membrane sous forme hydroxyde", "inputs": "charge fixe ≈ 1 M ; épaisseur ≈ 120 µm", "formula": "n(OH-) = X × e ; n(Cu(OH)2) ≤ n(OH-)/2", "result": "≈ 12 µmol OH-/cm², jusqu'à ≈ 1,7 µm de Cu(OH)2 dense", "compared_to": "couche d'aiguilles qui recouvre les fibres à 4 h", "source": "calcul (voir la voie de base)"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Les contre-ions OH- d'une membrane sous forme hydroxyde suffisent à former jusqu'à ≈ 1,7 µm de Cu(OH)2 dense par cm² (calcul « réserve d'OH- ») ; Cu(OH)2 cristallise classiquement en aiguilles. La structure en aiguilles à 4 h peut donc être du Cu(OH)2 et non un Cu-BTC à morphologie modifiée. L'argument EDS du SI (composition des synthèses titrées « presque identique ») ne le réfute pas : la membrane domine C et O, et les barres de la figure S2 ne distinguent pas les deux hypothèses.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Aux temps courts, les OH- relâchés par la membrane lors de l'échange avec BTC3- précipitent Cu2+ à la surface (Cu(OH)2 ou nitrate basique en aiguilles) ; la couche est ensuite recouverte par le carboxylate de cuivre.", "sources": []},
+      "what_to_verify_before_repeating": ["DRX ou Raman de la couche à 4 h (Cu(OH)2 contre carboxylate de cuivre)"]
+    },
+    {
+      "label": "CuBTC-water-4h-Cl",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "Cl- à apporter pour échanger la membrane", "inputs": "capacité 1,5–1,8 meq/g sec (littérature) ; charge fixe ≈ 1 M ; épaisseur ≈ 120 µm", "formula": "n = X × e", "result": "≈ 12 µmol/cm², soit ≈ 0,15 mmol pour un disque de 4 cm (12,6 cm²) : un bain de NaCl 0,5–1 M en large excès suffit", "compared_to": "procédure d'échange non donnée par l'article", "source": "calcul ; IEC d'après Amores et al. 2025"}
+      ],
+      "checks": [
+        {"aspect": "mecanisme", "finding": "Témoin bien construit : seule la forme ionique de la membrane change (OH- → Cl-), ce qui isole l'effet des contre-ions. Réserve : les auteurs disent que la forme native est OH- ; la forme de livraison de la Fujifilm Type I n'a pas pu être vérifiée ici, et les études de transport de ces membranes les conditionnent en NaCl (Cl- trouvé comme contre-ion en surface). Si la membrane était déjà sous forme Cl-, l'« échange » ne changerait rien et la différence de morphologie à 4 h aurait une autre cause.", "status": "reserve", "basis": "litterature", "source": {"title": "Transport Characteristics of Fujifilm Ion-Exchange Membranes as Compared to Homogeneous Membranes АМХ and СМХ and to Heterogeneous Membranes MK-40 and MA-41", "authors_or_publisher": "Membranes (MDPI), auteurs non relevés", "year": "2019", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6680501"}}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Sans OH- dans la membrane, la précipitation d'hydroxyde aux temps courts disparaît et seule la réaction Cu2+ + BTC3- donne la couche ; d'où la morphologie proche de celle à 24–48 h.", "sources": []},
+      "what_to_verify_before_repeating": ["concentration de NaCl, durée et nombre de bains d'échange (non donnés)", "forme ionique de la membrane à réception"]
+    },
+    {
+      "label": "CuBTC-water-4h-Cl-pH6.8",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "fraction de BTC totalement déprotonée à pH 6,8", "inputs": "pKa 3,1 / 3,8 / 4,7 (SI)", "formula": "α3 = 1/(1 + 10^(pKa3−pH) + 10^(pKa2+pKa3−2pH) + 10^(pKa1+pKa2+pKa3−3pH))", "result": "α3 ≈ 0,992", "compared_to": "pH 10 de la solution d'origine : la spéciation du ligand ne change presque pas, seul l'excès d'OH- est supprimé", "source": "pKa de l'article (SI)"}
+      ],
+      "checks": [
+        {"aspect": "mecanisme", "finding": "À pH 6,8, 99 % du BTC est déjà sous forme BTC3- (calcul « fraction de BTC ») : la titration supprime l'OH- libre sans changer la charge du ligand, donc sans changer l'enrichissement de Donnan. Comparé à la variante Cl- seule, c'est un témoin à une variable. Conclusion des auteurs (effet dominé par les OH- de la membrane, pas de la solution) cohérente.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Identique à la voie au chlorure : ligand BTC3- inchangé, OH- presque absent des deux côtés.", "sources": []},
+      "what_to_verify_before_repeating": ["quantité de NaOH réellement ajoutée pour atteindre pH 6,8"]
+    },
+    {
+      "label": "CuBTC-MeOH-4h",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "Cu(NO3)2·3H2O pour 100 mL à 0,1 M dans le méthanol", "inputs": "M = 241,60 g/mol", "formula": "m = C × V × M", "result": "2,42 g pour 100 mL", "compared_to": "concentration du BTC dans le méthanol non donnée : rapport Cu/BTC inconnu", "source": "valeurs de l'article"}
+      ],
+      "checks": [
+        {"aspect": "mecanisme", "finding": "H3BTC neutre dans le méthanol n'est ni enrichi par la membrane ni assez déprotoné : la croissance lente observée est attendue, et l'hypothèse des auteurs (dissociation plus faible du BTC et du cuivre) est cohérente. Les OH- éventuels de la membrane, non échangés par un trempage dans le méthanol, peuvent déprotoner une partie du BTC à l'interface.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "Méthanol (Téb 64,7 °C) à température ambiante en réservoirs fermés : sans problème. Méthanol toxique et inflammable : hotte.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Diffusion de H3BTC neutre à travers la membrane et déprotonation partielle à l'interface ; nucléation lente de quelques cristaux côté cuivre.", "sources": []},
+      "what_to_verify_before_repeating": ["concentration de l'acide trimésique dans le méthanol (non donnée)"]
+    },
+    {
+      "label": "ZIF8-MeOH-24h",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rapport molaire HMIM/Zn des solutions", "inputs": "Zn(NO3)2·6H2O 0,05 M ; HMIM 0,4 M", "formula": "0,4 / 0,05", "result": "8", "compared_to": "rapport Zn:Hmim 1:8 dans le méthanol de la synthèse de référence de Cravillon et al. 2009", "source": "valeurs de l'article ; Cravillon 2009 (via RSC Adv. 2021)"},
+        {"what": "masses pour 100 mL", "inputs": "Zn(NO3)2·6H2O M = 297,49 g/mol ; HMIM M = 82,10 g/mol", "formula": "m = C × V × M", "result": "1,49 g de nitrate de zinc et 3,28 g de HMIM pour 100 mL", "compared_to": "solubilités élevées dans le méthanol : sans problème", "source": "masses molaires atomiques IUPAC"},
+        {"what": "exclusion de Donnan de ZnNO3+ dans le méthanol", "inputs": "charge fixe X ≈ 50 mM (texte, d'après Shou et Tanioka) ; ZnNO3+NO3- traité en électrolyte 1:1 à 0,05 M (spéciation du SI)", "formula": "c+ = (−X + √(X² + 4c²))/2", "result": "c(ZnNO3+) dans la membrane ≈ 31 mM, soit ≈ 62 % de la solution", "compared_to": "≈ 4 % pour Cu2+ dans l'eau (voie Cu-BTC) ; « prevented … to a large extent » (texte)", "source": "calcul (modèle de Donnan idéal)"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Rapport HMIM/Zn = 8 (calcul « rapport molaire »), celui de la synthèse de référence de ZIF-8 en nanocristaux dans le méthanol à température ambiante. Concentrations cohérentes avec la littérature.", "status": "ok", "basis": "litterature", "source": {"title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework", "authors_or_publisher": "Cravillon et al. (Chem. Mater., ACS)", "year": "2009", "url_or_doi": "10.1021/cm900166h"}},
+        {"aspect": "mecanisme", "finding": "Avec une charge fixe de 50 mM et 0,05 M de ZnNO3+, l'exclusion de Donnan idéale est faible : la membrane contient ≈ 62 % de la concentration externe en cation (calcul « exclusion de Donnan de ZnNO3+ »). La localisation côté zinc ne peut donc pas être attribuée surtout à l'exclusion de Donnan. HMIM est neutre dans le méthanol (pKa N–H ≈ 14,5 pour l'imidazole ; HMIM n'est déprotoné qu'au contact du zinc) : il traverse la membrane par diffusion simple, 8 fois plus concentré que le zinc, et réagit à la face côté zinc, comme dans la contre-diffusion classique de Yao et al. où la couche épaisse se forme aussi côté métal. Il manque le témoin décisif : même cellule avec une membrane neutre dense de même épaisseur.", "status": "reserve", "basis": "litterature", "source": {"title": "Imidazole: Synthesis, Functionalization and Physicochemical Properties of a Privileged Structure in Medicinal Chemistry", "authors_or_publisher": "Molecules (MDPI), auteurs non relevés", "year": "2023", "url_or_doi": "https://www.mdpi.com/1420-3049/28/2/838"}},
+        {"aspect": "resultats", "finding": "Film de ≈ 0,5 µm en 24 h, cristaux carrés (vue 2D de dodécaèdres rhombiques ou de cubes tronqués) : ordre de grandeur plausible pour ZIF-8 à température ambiante. Phase non confirmée par DRX dans l'article (renvoi à une thèse) ; ZIF-8 dans le méthanol à Hmim/Zn = 8 donne normalement la phase sodalite.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Méthanol (toxique, inflammable), nitrate de zinc (oxydant), 2-méthylimidazole (lésions oculaires graves ; voir la fiche fournisseur et la classification ECHA) : hotte, gants, lunettes ; non mentionné par l'article.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "HMIM neutre diffuse à travers la membrane (non retenu par la charge fixe) et rencontre Zn2+/ZnNO3+ à la face côté zinc ; HMIM en excès y joue le rôle de base et de ligand (Zn2+ + 2 HMIM → Zn(mim)2 + 2 H+, H+ capté par HMIM). L'exclusion partielle des cations de zinc par la membrane méthanolique (faible charge fixe) limite la croissance côté HMIM sans l'empêcher (petits cristaux observés). La faible épaisseur (0,5 µm) vient d'une nucléation à faible flux de HMIM dans une couche de diffusion, pas d'un enrichissement de Donnan du ligand.",
+        "sources": [
+          {"title": "Rapid Room-Temperature Synthesis and Characterization of Nanocrystals of a Prototypical Zeolitic Imidazolate Framework", "authors_or_publisher": "Cravillon et al. (Chem. Mater., ACS)", "year": "2009", "url_or_doi": "10.1021/cm900166h"},
+          {"title": "Influence of the 2-methylimidazole/zinc nitrate hexahydrate molar ratio on the synthesis of zeolitic imidazolate framework-8 crystals at room temperature", "authors_or_publisher": "Zhang et al. (Scientific Reports)", "year": "2018", "url_or_doi": "10.1038/s41598-018-28015-7"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "volumes des réservoirs et surface exposée (non donnés)",
+        "DRX du film (raie (011) de ZIF-8 vers 7,3° 2θ, Cu Kα)",
+        "témoin avec une membrane neutre dense pour attribuer la localisation à l'exclusion de Donnan"
+      ]
+    },
+    {
+      "label": "ZIF8-water-NH3-16h",
+      "verdict": "incoherente",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {"what": "fraction de HMIM déprotoné (mim-) par l'ammoniaque", "inputs": "pKa N–H ≈ 14,5 (imidazole, ordre de grandeur pour HMIM) ; NH3 1 M : Kb = 1,8·10^-5 → [OH-] ≈ 4,2·10^-3 M, pH ≈ 11,6", "formula": "[mim-]/[HMIM] = 10^(pH − pKa)", "result": "≈ 1,4·10^-3 : moins de 0,2 % de HMIM déprotoné, même dans l'ammoniaque 1 M", "compared_to": "« to make sure that the HMIM was sufficiently dissociated, ammonia was added » (SI)", "source": "calcul ; pKa d'après Molecules 2023"}
+      ],
+      "checks": [
+        {"aspect": "mecanisme", "finding": "L'ammoniaque ne peut pas « dissocier » HMIM : la liaison N–H (pKa ≈ 14,5) n'est presque pas déprotonée à pH 11–12 (calcul « fraction de HMIM déprotoné ») ; elle ne fait qu'empêcher la protonation en imidazolium. HMIM reste neutre et n'est pas enrichi par la membrane. En revanche, OH- (contre-ion naturel d'une membrane échangeuse d'anions) et NH3 (neutre) traversent la membrane et font précipiter Zn(OH)2 dans le réservoir de zinc : le résultat opaque est la conséquence attendue du montage, pas une propriété du nitrate de zinc.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Conclusion du SI « zinc nitrate is an unsuitable precursor in water » contredite par la référence que les auteurs citent eux-mêmes : Kida et al. 2013 obtiennent du ZIF-8 très cristallin dans l'eau à partir de nitrate de zinc hexahydraté, à fort rapport Hmim/Zn ; l'hydroxyde et le nitrate basique de zinc n'apparaissent qu'à faible rapport Hmim/Zn. Pan et al. 2011 obtiennent aussi ZIF-8 dans l'eau avec Hmim/Zn = 70. L'échec vient du rapport local Hmim/Zn très faible côté zinc et de la base qui diffuse, pas du sel de zinc.", "status": "probleme", "basis": "litterature", "source": {"title": "Formation of high crystalline ZIF-8 in an aqueous solution", "authors_or_publisher": "Kida, Okita, Fujita, Tanaka, Miyake (CrystEngComm, RSC)", "year": "2013", "url_or_doi": "10.1039/C2CE26847G"}},
+        {"aspect": "bilan", "finding": "Aucune concentration, aucune quantité d'ammoniaque, aucune température : l'essai ne peut pas être refait ni jugé quantitativement.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Ammoniaque : vapeurs irritantes, travailler sous hotte ; non mentionné.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "OH- et NH3 du réservoir de HMIM traversent la membrane échangeuse d'anions ; côté zinc, Zn2+ précipite en Zn(OH)2 et nitrate basique de zinc tant que le rapport local Hmim/Zn reste faible (Kida 2013), d'où l'opacité du réservoir de zinc. ZIF-8 en milieu aqueux exige un grand excès de Hmim au contact du zinc (Pan 2011 : 70:1), que ce montage ne fournit pas.",
+        "sources": [
+          {"title": "Formation of high crystalline ZIF-8 in an aqueous solution", "authors_or_publisher": "Kida, Okita, Fujita, Tanaka, Miyake (CrystEngComm, RSC)", "year": "2013", "url_or_doi": "10.1039/C2CE26847G"},
+          {"title": "Rapid synthesis of zeolitic imidazolate framework-8 (ZIF-8) nanocrystals in an aqueous system", "authors_or_publisher": "Pan, Liu, Zeng, Zhao, Lai (Chem. Commun., RSC)", "year": "2011", "url_or_doi": "10.1039/c0cc05002d"}
+        ]
+      },
+      "what_to_verify_before_repeating": ["concentrations, quantité d'ammoniaque et température (non données)", "ne pas ajouter de base côté ligand avec une membrane échangeuse d'anions : OH- la traverse"]
+    }
+  ],
+  "article_level": {
+    "summary": "Méthode de croissance localisée de films de MOF sur une membrane échangeuse d'anions (Fujifilm Type I), à température ambiante. Les conditions sont simples et sans danger particulier ; la localisation côté métal dans l'eau est cohérente avec une forte exclusion de Donnan (charge fixe ≈ 1 M, Cu2+ réduit à ≈ 4 % dans la membrane). Deux faiblesses de fond : (1) la phase du film « Cu-BTC » n'est pas établie, et la référence citée par les auteurs (Siddiqui 2022) montre que dans l'eau se forme plutôt le polymère non poreux Cu(BTC)·3H2O, en aiguilles, et que HKUST-1 s'y transforme ; (2) dans le méthanol, la charge fixe annoncée (50 mM) égale la concentration de zinc, et l'exclusion de Donnan idéale est faible (≈ 62 %), donc la localisation de ZIF-8 vient surtout de la diffusion de HMIM neutre, sans témoin à membrane neutre. Erreurs de rédaction : acide trimésique nommé « benzene 1,2,3-tricarboxylic acid » ; essai ZIF-8 dans l'eau justifié par une « dissociation » de HMIM par l'ammoniaque impossible, et conclusion sur le nitrate de zinc contredite par la référence citée (Kida 2013).",
+    "author_errors_suspected": [
+      "acide trimésique désigné comme acide benzène-1,2,3-tricarboxylique (c'est le 1,3,5)",
+      "ammoniaque présentée comme agent de dissociation de HMIM (pKa N–H ≈ 14,5 : impossible) ; conclusion « zinc nitrate is an unsuitable precursor in water » contredite par Kida et al. 2013, cité par les auteurs",
+      "film appelé Cu-BTC (MOF) sans preuve de phase ; la référence invoquée (Siddiqui 2022) décrit dans l'eau un polymère de coordination non poreux distinct de HKUST-1",
+      "localisation de ZIF-8 dans le méthanol attribuée à l'exclusion de Donnan alors que la charge fixe annoncée (50 mM) égale la concentration du zinc"
+    ],
+    "comparison_with_database": "Cu-BTC : seule voie de la base en milieu purement aqueux à température ambiante ; PMC7648642 (HKUST-1 sur coton) passe par une voie solvothermale eau/éthanol à 110 °C, conditions classiques de HKUST-1. ZIF-8 : la voie méthanolique (Zn 0,05 M, HMIM 0,4 M, rapport 8) est proche de PMC10493855 (nitrate de zinc et 2-méthylimidazole dans le méthanol, température ambiante) ; la voie aqueuse de PMC10326808 (ZIF-8Lit) réussit dans l'eau, ce qui confirme que l'échec de ZIF8-water-NH3-16h tient au montage et non au nitrate de zinc."
+  },
+  "sources_not_found": [
+    "forme ionique de livraison (Cl- ou OH-) de la membrane Fujifilm Type 1 : non trouvée (seules épaisseur ≈ 112–125 µm et capacité 1,5–1,8 meq/g trouvées)",
+    "Shou et Tanioka (charge fixe ≈ 50 mM dans le méthanol) et Nowacka et al. (préparation du Na-BTC) : non recherchés, repris de l'article",
+    "Ksp de Cu(OH)2 (≈ 2,2·10^-20) et pKa de l'ion 2-méthylimidazolium : valeurs de manuel, non revérifiées en ligne"
+  ]
+}

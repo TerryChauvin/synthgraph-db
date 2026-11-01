@@ -1,0 +1,14 @@
+# Journal de correction PMC10148794
+
+- Substrat de verre PTF : `amount`/`unit` (10 mm) remplacés par `amount_text` « 10 mm × 10 mm », citation inchangée (« onto a 10 mm × 10 mm glass substrate »).
+- NC5.1 et mélange NC5.1 + NC5.5 : deux entrées de `sample_inventory` sans voie, avec `why` (préparation non décrite, apparus seulement dans la réponse aux relecteurs, Fig. R1a) ; aucune voie créée, faute de protocole.
+- PTF étapes 1 et 2 : paramètre `atmosphere` = « nitrogen-filled glove box », citation « All procedures are done in a nitrogen-filled glove box… » (même phrase que l'étape 3) ; descriptions complétées.
+- NC6 (donc NC8 et NC12 par héritage) : « room temperature » et « ambient conditions » ajoutés aux étapes 1 à 8, citation de la phrase générale « under room temperature ambient conditions ». Étapes 9 (centrifugations renvoyées à la méthode publiée) et 10 (réfrigérateur) laissées de côté : la phrase ne les couvre pas clairement ; noté en doute.
+- NC5 étape 7 : « jusqu'à turbidité » retiré de la description (l'article dit seulement « the mixture became turbid »), critère d'arrêt déclaré `not_stated` (`end_criterion`) et doute ajouté (sens du rapport 2:1 non écrit).
+- NC5 résultats : énergie de liaison du biexciton 50 meV (citation « binding energy is then estimated to be ~50 meV at 12 K », réponse aux relecteurs, ligne unique de la phrase coupée sur deux lignes) et période d'oscillation 2,5 ps. Valeur de l'article gardée malgré l'écart avec 2,46 − 2,39 eV (≈ 70 meV) : doute + annotation, aucune correction de valeur.
+- Pic de PL ≈ 2,45 eV lu sur Fig. 1c (proposé en option par le critique de fidélité) non repris : la décision de l'orchestrateur ne le demandait pas.
+- Fig. 3b : pas de lecture chiffrée ; une phrase ajoutée à l'annotation `limite_reproductibilite` générale pour dire que seuls les maxima écrits sont repris.
+- Critique scientifique : trois annotations `limite_reproductibilite` (NC5 : biexciton, Cs-oléate à 120 °C non dit limpide, pas de DRX pour NC5, Zn non dosé ; NC6 : stock de PbBr2 ambigu 0,123 ou 0,074 M, DRX non discriminante ; générale : série NC5 → NC12 qui mélange deux synthèses, phases secondaires du film PTF non exclues). Sources nommées par auteurs et année seulement, aucun DOI, aucun paramètre de maille cité de mémoire.
+- `mecanisme_analyse` NC5 réécrit en hypothèse (taille fixée surtout par l'équilibre bromure/température, trempe qui fige l'état ; ZnBr2 source de bromure en excès, rôle non donné par les auteurs). NC6 : nuance du critique reprise (TOPO et acide octylphosphonique surtout cinétiques ; surface finale passivée par le DDAB). `mecanisme_auteurs` : aucun, rien à toucher.
+- `securite_analyse` complétée (CO2 et moussage au dégazage, injection à 170 °C, projections) ; plomb et DMSO y figuraient déjà.
+- Aucun doute périmé sur les marqueurs `[[id]]` à retirer ; `load.py check` : 0 erreur, 0 avertissement.

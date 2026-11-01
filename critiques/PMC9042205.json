@@ -1,0 +1,63 @@
+{
+ "pmcid": "PMC9042205",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "attribution",
+   "where": "BMSN-550 yield (87.87 %) et résultat CARAC TG-DTA",
+   "extracted": "yield = 87.87 % (« 87.87% yield of BMSN was obtained »), rangé dans le champ rendement de la voie BMSN-550",
+   "article_says": "The total production of BMSN was observed 10.174 mg out of 11.950 mg after the calcination process, where 1.776 mg was removed from the synthesized raw sample.",
+   "fix": "87.87 % n'est pas un rendement de synthèse : c'est la masse restante en fin d'ATG (30–800 °C, sous azote) de l'échantillon brut non calciné (Fig. 2b : courbe « Non-calcinated » qui finit à ≈ 87,9 % à 800 °C), non rapportée au TEOS introduit, et non propre à 550 °C (la conclusion dit « 550–600 °C »). Mettre yield à null et déclarer yield dans not_stated pour BMSN-550 ; garder 87.87 % et 12.13 % comme résultat d'ATG (par ex. TG_residual_mass_800C) sur la branche BMSN-uncalcined, avec la citation actuelle. Retirer ou reporter sur BMSN-uncalcined la CARAC TG-DTA de BMSN-550. Le doute « rendement » et l'annotation limite_reproductibilite le disent déjà : le champ doit les suivre.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "BMSN-450 résultats FTIR (Si–O–Si asym., Si–O–Si sym., Si–OH)",
+   "extracted": "aucune valeur FTIR pour BMSN-450 (doute : « rien n'est extrait », étiquettes de la Fig. 1c jugées peu nettes)",
+   "article_says": "Spectral bands at 1102, 1105, 1113, 1115, and 1120 cm−1 were observed, representing the existence of asymmetrical vibration of a siloxane group (Si–O–Si) in the materials (non-calcinated and calcinated), which is comparable with previous literature.",
+   "fix": "Les étiquettes du spectre 450 °C sont lisibles sur la Fig. 1c : 1112 cm−1 (Si–O–Si asym.), 806 cm−1 (Si–O–Si sym.), 971 cm−1 (Si–OH), 1628 cm−1 (O–H) et 3451 cm−1 (O–H). Les ajouter en from_figure sur BMSN-450, et noter dans un doute l'écart avec le texte (1105 pour la liste Si–O–Si, 968 pour Si–OH, 801 au lieu de 806 pour le sym.). Les autres étiquettes lues (500, 550, 600 °C, non calciné) concordent avec le texte et la figure.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMSN-uncalcined, résultats d'ATG (première perte) ; BMSN-uncalcined TG_weight_loss_210-307_C = 3 %",
+   "extracted": "pertes ~3 % (210–307 °C), ~2 % (307–468 °C), ~1 % (468–600 °C) ; aucune valeur pour 30–210 °C",
+   "article_says": "The percentage (%) of weight in the synthesized material was already mentioned from 30 to 210 °C due to the eradication of absorbed surface water.",
+   "fix": "La perte de 30 à 210 °C (eau adsorbée) n'a aucune valeur dans le texte ; la Fig. 2b la montre d'environ 100 % à ≈ 92,5 % (≈ 7,5 %), à ajouter en from_figure (lecture à 2 chiffres significatifs). La même figure donne ≈ 1 % entre 210 et 307 °C, alors que le texte écrit ~3 % : garder le texte (l'article fait foi) mais l'ajouter au doute et à limite_reproductibilite. Le total 12.13 % de l'article n'est d'ailleurs pas la somme des pertes du texte (3+2+1 = 6 %).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMSN-550 étapes 2–3 (ajout de l'ammoniaque, de l'éthanol et du TEOS)",
+   "extracted": "étape 2 : ajout d'ammoniaque et d'éthanol ; étape 3 : ajout goutte à goutte du TEOS, comme deux opérations successives",
+   "article_says": "At the same time, 10 mL of TEOS was also added dropwise to the mixture whilst stirring the solution.",
+   "fix": "L'article place l'ajout du TEOS goutte à goutte « en même temps » que l'ammoniaque et l'éthanol (« added to the clear solution simultaneously »). Ajouter cette simultanéité dans la description des étapes 2 et 3 (ou noter la contradiction avec « dropwise ») ; ordre et durée de l'addition ne sont pas écrits.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "BMSN-550 et Biosurfactant : valeurs de l'ATG dans l'article",
+   "extracted": "TG_sample_mass_retained = 10.174 mg out of 11.950 mg (1.776 mg removed) ; 12.13 % / 87.87 %",
+   "article_says": "Therefore, the total percentage (%) weight loss and gain was observed to be 12.13 and 87.87% after calcination, respectively.",
+   "fix": "Incohérence interne de l'article, à ne pas corriger mais à annoter (limite_reproductibilite) : 10.174/11.950 = 85,1 % et 1.776/11.950 = 14,9 %, pas 87,87 % et 12,13 %. Le texte parle d'une masse « après la calcination » alors que l'ATG décrit est celle de l'échantillon non calciné.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 6,
+  "branches_extracted": 6,
+  "not_stated_checked": 8,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "durée, atmosphère et vitesse de montée en température de la calcination absentes (four à moufle seul)",
+  "température de la synthèse sol-gel et vitesse d'agitation non écrites",
+  "aucun rendement massique de silice par rapport au TEOS ; le « rendement » de 87,87 % est une masse restante d'ATG (échantillon non calciné), et les masses de l'article (10.174 et 11.950 mg) ne donnent pas ce pourcentage",
+  "masse de biosurfactant produite par litre de culture, volume de culture, volume de surnageant et de HCl 5 M non écrits (renvoi à Maity et al.)",
+  "fournisseurs de tous les réactifs sauf le TEOS (Fluka), pureté de l'ammoniaque non indiquée",
+  "nature et volume du récipient de calcination, masse calcinée non écrits",
+  "valeurs d'EDX par échantillon absentes (seul le résumé donne Si 56,09 % et O 42,13 % sans dire pour quelle température)"
+ ],
+ "mechanism_check": "ok : le mécanisme des auteurs (hydrolyse du TEOS par OH−, complexe Si–O–surfactine, condensation, élimination par calcination) est fidèlement rapporté ; l'analyse du chimiste est marquée comme hypothèse",
+ "notes": "Les 45 valeurs des tableaux 2 et 3 (XPS, BET) et les positions XRD larges ont été comparées une à une : toutes justes et bien attribuées à leur température. Les 9 étiquettes FTIR de la Fig. 1c lues par l'extracteur (500, 550, 600 °C, non calciné) concordent avec mon relevé sur l'image. Les valeurs from_figure ont pour citation la légende de la Fig. 1, qui ne contient pas les nombres : conforme à la règle du RUNBOOK, pas un constat. Les renvois cit15, cit16, cit22, cit25 et cit26 placés après la composition du milieu M9 ne sont pas introduits par « according to » : non signalés, la composition est donnée en entier. L'annotation « maille de 62,18 Å la même pour les quatre températures » est un peu plus forte que le texte (« almost the same »). La Fig. 2a trace une réflectance R (%) alors que le texte parle d'absorption : à garder en tête."
+}

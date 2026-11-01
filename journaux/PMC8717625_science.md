@@ -1,0 +1,16 @@
+# PMC8717625 — critique scientifique (journal de décisions)
+
+- Cs-oleate : 101,7 mg Cs2CO3 / 312,5 µL OA / 5 mL ODE = exactement le quart de la recette 0,407 g / 1,25 mL / 20 mL (OA/Cs2CO3 = 3,17) ; verdict cohérent. L'annotation de sécurité de l'extraction (surpression par le CO2) est surestimée : 0,31 mmol de CO2 ≈ 7 mL, pompés sous vide ; noté en `reserve`.
+- CsPbBr3 : recette de Protesescu à l'identique (0,188 mmol PbBr2, 0,4 mL de Cs-oleate ≈ 0,047 mmol de Cs) ; Cs:Pb = 0,25 est voulu par la méthode, pas une erreur. Source de la recette prise dans une adaptation en accès libre (Akkerman 2015, PMC4543997) plutôt que dans le SI de Protesescu, non relu.
+- Taille 5,9 nm à 180 °C jugée « petite pour la température » en `reserve` seulement : je n'ai pas trouvé de courbe taille-température chiffrée ; formulée « à vérifier ».
+- NH4BF4, 25 mL contre 0,25 mL : classé `probleme` (incohérence entre Méthodes et annexe, facteur 100 sur la dose). Je penche pour 0,25 mL (25 mL dépasse 4 fois le volume total de la synthèse) sans pouvoir le prouver ; la concentration des nanocristaux n'est donnée nulle part.
+- « 234±44 ns » : `probleme`, faute d'unité. Calcul décisif : la fenêtre BX haute (1 ns) doit valoir au moins 3 τBX selon l'annexe S4 ; 1/0,234 = 4,3 si ps, 0,004 si ns. Confirmé par Ashner 2019 (35–200 ps pour CsPbBr3) et par la mesure de 190 ps sur la particule de la Fig. 2.
+- Plages des pixels en « meV » : `probleme` mineur ; 30 pixels × 7,2 meV = 0,22 eV = 2,53 − 2,32 eV, donc des eV. Sans effet sur la synthèse.
+- PbI2 87/86,7 mg et TOPO 1,5/1,47 mg : simples arrondis (0,35 % et 2 %), pas un problème. En revanche la dose de TOPO elle-même (3,9 µmol, 2 % du plomb) ne peut jouer aucun rôle ; les voies à l'oxyde de phosphine en mettent ≈ 1 g (Almeida 2018 JACS). Erreur d'unité possible (g ?) mais non démontrable : la recette source (Pan 2020, réf. 13) est introuvable en accès libre ; laissé en `reserve`.
+- Octadécène à 180–280 °C : au-dessus du point d'éclair (154 °C, fiche Sigma), sous l'ébullition (315 °C) ; sous Ar c'est la pratique standard, donc `reserve` sécurité et non `probleme`. Ajout de la polymérisation de l'ODE à 280 °C (Dhaene 2019) : poly(ODE) non éliminé par un seul lavage à l'hexane.
+- 280 °C pour CsPbI3 jugé non aberrant grâce à Dutta 2018 (synthèses à ≈ 260 °C, meilleure stabilité de phase).
+- CsPbI3 : point de « preuve discriminante » ajouté. La population de 15 nm émet près du massif et tombe dans la fenêtre 1,76–1,93 eV ; les εb négatifs observés sous 1,845 eV pourraient venir de ces gros nanocristaux plutôt que d'un effet de ligands. L'article ne mesure pas la taille individuelle.
+- Purification CsPbI3 décrite de deux façons (Méthodes : « two-step centrifugation in hexane » ; annexe : culot lavé puis recentrifugé), fraction gardée non dite : `reserve`.
+- ⟨N⟩ = 0,28 : p(≥3)/p(≥2) = 9 % (15 % à 0,46) ; « ≪ » un peu généreux, mais les auteurs invoquent aussi le faible rendement des triexcitons : laissé `ok`.
+- Recherches web : 7. Recette Pan 2020 et protocole d'Ahmed 2018 non trouvés ; aucune référence ajoutée à fondateurs.md ni à constantes.md (Crossref bloqué).
+- DOI trouvés sur le web et non vérifiés sur Crossref : 10.1021/acs.nanolett.9b03088, 10.1021/acsenergylett.9b02041, 10.1021/acsnano.6b03908, 10.1002/anie.201803701, 10.1021/jacs.8b08978.

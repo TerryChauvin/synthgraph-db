@@ -1,0 +1,70 @@
+{
+ "pmcid": "PMC9960931",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "ZnO8.0, ZnO8.5, ZnO9.0, ZnO11.0 results: crystallinity (XRD, pH series)",
+   "extracted": "aucun résultat « crystallinity » (seuls ZnO7.5 et ZnO13.5 en ont un)",
+   "article_says": "Increasing the pH resulted in lower peak intensities for ZnO8.0 and ZnO8.5 materials.",
+   "fix": "ajouter un résultat crystallinity qualitatif pour ZnO8.0 et ZnO8.5 (intensités de pics plus faibles que ZnO7.5, réflexions plus larges), ZnO9.0 (cristallinité plus élevée : « The adjustment of the NaOH solution amount in order to reach pH 9.0 resulted in higher crystallinity »), ZnO11.0 (cristallinité abaissée : « strongly basic conditions of pH 11.0 and 13.5, successively lowered the crystallinity »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "ZnO100, ZnO110, ZnO160, ZnO180, ZnO200 results: FT-IR Zn–OH band (~570 cm-1)",
+   "extracted": "seul ZnO120 a un résultat IR (Zn–OH le moins marqué) ; la bande à ~570 cm-1 n'est enregistrée pour aucun autre échantillon",
+   "article_says": "However, for ZnO100, ZnO110, ZnO160, ZnO180, and ZnO200 samples, a band at ~570 cm−1 originating from Zn–OH bond is also prominent",
+   "fix": "ajouter à ces cinq branches un résultat FT-IR « Zn–OH band at ~570 cm−1 prominent » ; ajouter aussi pour ZnO100 et ZnO110 la bande 1042–812 cm−1 (O–H bending) plus intense (« more intense for the samples synthesized at lower temperature ranges (100–110 °C) »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "annotation pourquoi_ces_donnees (route globale), série 2",
+   "extracted": "« après avoir repéré la température qui convient (160 °C) »",
+   "article_says": "Moreover, after determining the most favorable reaction temperature for our system, the synthesis free of organic additives was carried out with altered pH from 7.5 to 13.5.",
+   "fix": "l'article ne dit pas que 160 °C est la température la plus favorable ; il dit seulement que la série en pH est faite à 160 °C (§2.3). Reformuler : « à 160 °C, température que les auteurs disent avoir jugée la plus favorable sans la nommer »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO11.0 / ZnO13.5 variations: pH rattaché à l'étape 4 (adjust_ph)",
+   "extracted": "VAR ph sur étape 4 (adjust_ph) et VAR soude « lowering the volume… » sans étape",
+   "article_says": "For subsequent reaction solutions, the pH was successively adjusted to 11.0, 9.0, 8.5, 8.0, and 7.5 by lowering the volume of the infused sodium hydroxide solution.",
+   "fix": "la grandeur manipulée est le volume de soude de l'étape 2 (ajout goutte à goutte) ; la VAR de la soude devrait porter step_order 2, le pH étant la mesure de contrôle. L'étape 4 « adjust_ph » se déroule pendant l'ajout (« The pH value was controlled with a pH-meter »), pas après le brassage",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO11.0 morphology",
+   "extracted": "nanosized particles without ordered superstructures",
+   "article_says": "Strongly basic conditions of pH 11.0 and 13.5 impeded superstructure formations, giving small elongated particles of ZnO.",
+   "fix": "ajouter « small elongated particles » (résumé) ; la figure 9E montre des particules allongées de l'ordre du micromètre, pas des nanoparticules, alors que « nanosized » vient de la conclusion",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "ZnO13.5 step 4 ph value_num",
+   "extracted": "value_num 13.5 (+ value_text ~13.5)",
+   "article_says": "Using the same volume of alkali solution as in the temperature-optimized synthesis, a pH of ~13.5 was obtained.",
+   "fix": "valeur approchée mesurée au pH-mètre : garder « ~13.5 » en value_text seul, sans valeur numérique exacte (c'est un résultat de mesure plus qu'un réglage)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 12,
+  "branches_extracted": 12,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "volume de soude de chaque échantillon de la série en pH absent (seul le pH final est donné) ; pour ZnO13.5, le volume est renvoyé à la série en température (« the same volume of alkali solution as in the temperature-optimized synthesis »), alors que les quantités de Zn et d'eau diffèrent (30 g dans 200 mL contre 4.4 g dans 1320 mL)",
+  "durée de dissolution de l'acétate de zinc, température de travail (ambiante non écrite), vitesse d'agitation, durée et vitesse d'ajout de la soude (série en température)",
+  "volume de l'autoclave et taux de remplissage de la série en pH ; vitesses de chauffe et de refroidissement (les deux séries)",
+  "nombre de lavages de la série en pH, volumes de lavage, type de filtre, rendement",
+  "valeurs de SBET de ZnO9.0 (maximum) et ZnO13.5 (minimum) non écrites (seulement la plage 9–21 m2 g-1)",
+  "aucune annexe (Supporting Information) dans l'article"
+ ],
+ "mechanism_check": "à revoir : l'annotation mecanisme_analyse de ZnO13.5 dit qu'aux pH plus bas « l'hydroxyde de zinc est partiellement redissous » ; Zn(OH)2 est au contraire le moins soluble vers pH 9–10 et se redissout en zincate à pH fort (ou en Zn2+ à pH < 7). Les annotations des auteurs (mecanisme_auteurs) sont bien appuyées par le texte.",
+ "notes": "Extraction très fidèle : les 12 échantillons, tous les tableaux 1 à 5 (peak position, tailles de cristallites, D[3,2], D[4,3], d10/d50/d90, SBET, volume et diamètre de pores) et les valeurs de texte (SBET 16/12/10/14 m2 g-1 en série pH, dimensions des bâtonnets et des roses) vérifiés sans écart. Aucune valeur n'est marquée from_figure ; les figures 9 et 12 ouvertes sont qualitatives (SEM avec échelles, schéma) et n'apportent pas de chiffre que le texte ne donne pas. method_sources vide : correct (seul renvoi en Méthodes = B30, équation de Scherrer, exclu par la règle). Le résumé annonce « 18–37 m2/g » contre 10–37 aux tableaux (déjà dans les doutes). Annotation conclusion_auteurs : « oxyde sans résidu de Zn(OH)2 » à 120 °C est un peu plus fort que « least pronounced » ; laissé de côté, la phrase « to achieve complete substrate conversion… min. 120 °C » le soutient en partie."
+}

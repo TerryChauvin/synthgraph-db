@@ -1,0 +1,79 @@
+{
+ "pmcid": "PMC5750015",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "Water-based step 3 (adjust_ph) : ordre et solution concernée",
+   "extracted": "étape 3, avant le transfert et l'ajout de DAHP : « Adjust the pH of the aqueous solution to 10–12 by dropwise addition of NH4OH solution »",
+   "article_says": "Ammonia solution (28–30%) was used to maintain the pH of the reaction mixtures in the 10–12 range.",
+   "fix": "le résumé parle de maintenir le pH des mélanges réactionnels, pas d'ajuster une solution avant mélange ; l'ordre (avant l'addition de DAHP) et la solution visée (CNTH) viennent de la figure 1 et du doute de l'extracteur, pas d'une phrase des Méthodes. Garder l'étape mais ajouter 'ordre et solution non précisés' (not_stated ou limite_reproductibilite), et nuancer la description de l'étape 3 ('the aqueous solutions' est au pluriel dans le texte)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Water-based step 6 (react) stirring_speed déclaré non cité",
+   "extracted": "stirring_speed dans not_stated de l'étape 6",
+   "article_says": "After complete addition of DAHP solution, reaction was continued for additional 4 h.",
+   "fix": "la figure 1 (légende : Schematic of the reaction schemes followed in calcium phosphate synthesis through sol–gel process) porte dans sa case « vigorous stirring at 40°C for 4 h (250 r.p.m.) », donc la vitesse pendant les 4 h est donnée par l'article, seulement sur l'image. Soit la lire avec from_figure='Fig. 1' (250 r.p.m., lecture sûre), soit garder not_stated mais l'écrire dans le doute avec sa source (c'est déjà dit dans doubts) ; à trancher par l'orchestrateur selon la règle 'lisible seulement sur une figure = non cité' du RUNBOOK",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Water-based succeeded=false",
+   "extracted": "succeeded: false pour la voie Water-based",
+   "article_says": "Water-based reaction medium, with highest dielectric constant, mainly produced β-calcium pyrophosphate (β-CPF) with a minor amount of HA.",
+   "fix": "les auteurs ne parlent d'échec nulle part : le produit (β-CPF majoritaire, matériau décrit dans material.name) est un résultat de la comparaison, pas un essai raté ; succeeded=false est une déduction de l'extracteur (but présumé = HA, Ca/P 1,67). Mettre true, ou garder false avec l'annotation qui explique le choix (le doute existe déjà)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "THF-based et DMF-based : héritage de l'étape 3 (adjust_ph par ajout goutte à goutte de NH4OH)",
+   "extracted": "les deux branches héritent de l'étape 3 « Adjust the pH of the aqueous solution … by dropwise addition » et ajoutent seulement la variation 'ammonia dilution water = 5 mL'",
+   "article_says": "For mixed (organic/water) solvent systems, NH4OH was added into 5 ml of water and then diluted with the organic solvent.",
+   "fix": "pour les systèmes mixtes l'article décrit une autre manière d'introduire NH4OH (dilué dans 5 mL d'eau puis dans le solvant organique) ; l'héritage de 'dropwise addition' à pH 10–12 n'est pas écrit pour ces branches. Ajouter à chaque branche une variation sur l'étape 3 (value_text = la phrase) ou un doute explicite sur ce point ; le doute sur le 5 mL existe mais pas sur l'héritage de l'étape",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Résultats crystallite_size (3 voies) : conditions de calcul absentes",
+   "extracted": "valeurs 19.4 / 27.0 / 25.2 nm avec la seule rangée du tableau 2 (« 19.4a | 27.0b | 25.2b »), sans les notes de bas de tableau",
+   "article_says": "Table 2. — ak-value of 0.89.bk-value of 1.",
+   "fix": "les exposants a et b portent le facteur de forme k de Scherrer (0,89 pour l'eau, 1 pour THF et DMF) et les raies utilisées sont (002) pour HA et (201) pour β-CPF ; sans cela le résultat n'est pas comparable. Ajouter une conditions dans la caractérisation XRD des trois voies (k, raie, logiciel Diffract Eva) ou une annotation, avec la citation « value was used as 1 for THF- and DMF-based synthesized powder and 0.89 for water-based powder due to the morphology difference » (à recopier exactement depuis corpus/text)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Constantes diélectriques des solvants purs (annotation seulement)",
+   "extracted": "7,58 / 36,7 / 80,1 cités uniquement dans l'annotation pourquoi_ces_donnees, aucun paramètre ni propriété",
+   "article_says": "Dielectric constants (ε) of THF, DMF and water are 7.58, 36.7 and 80.1, respectively.",
+   "fix": "les ajouter en propriété ou en paramètre des réactifs solvant (dielectric_constant) avec cette citation : c'est la grandeur que l'article fait varier",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Water-based step 6 temperature",
+   "extracted": "temperature = 40 °C",
+   "article_says": "All reactions were carried out at 40 ± 2°C for 4 h.",
+   "fix": "la tolérance ± 2 °C est perdue (value_num 40) ; la mentionner dans value_text ou la description de l'étape",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 3,
+  "branches_extracted": 3,
+  "not_stated_checked": 19,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "volumes de CNTH et de DAHP non donnés (seules 100 mmol, 60 mmol et 0,5 M le sont ; 200 mL et 120 mL se déduisent mais ne sont pas écrits)",
+  "proportion eau / solvant organique dans les mélanges THF/eau et DMF/eau non donnée, seule la constante diélectrique calculée du mélange (54,28 ; 37,4) l'est",
+  "volume et mode d'ajout de NH4OH, solution qui le reçoit, pH final après l'addition de DAHP non donnés",
+  "durée totale de l'addition de DAHP, atmosphère de calcination, vitesse de refroidissement, rendement non donnés",
+  "numérotation des schémas contradictoire entre le texte (2 = THF) et la figure 1 (2 = DMF)",
+  "conditions de dégazage et instrument BET non donnés ; conditions XRF non données",
+  "annexe de l'article limitée aux diffractogrammes ; données brutes sur Dryad (hors dépôt)"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs cite bien la phrase « we believe … » et le mecanisme_analyse est écrit comme hypothèse ; la stœchiométrie 100/60 = Ca/P 1,67 est juste",
+ "notes": "Mes trois échantillons (eau, DMF, THF) correspondent à l'inventaire de l'extracteur ; DMF-1 et DMF-2 sont des points d'analyse Raman, pas des échantillons. Toutes les valeurs du tableau 2 (6 propriétés x 3 échantillons) sont bien attribuées aux colonnes eau, DMF, THF, et les notes a et b suivent la même colonne. Aucune valeur from_figure, donc rien à mesurer sur image ; figure 1 ouverte et lue (ordre des schémas, 250 r.p.m. pour 4 h, 60 °C 24 h, 500 °C 2 h à 10 °C/min conformes au texte). method_sources : les renvois C36 et C37 (méthode sol-gel « reported earlier ») sont les seuls renvois de méthode ; Scherrer (C47), additivité des constantes diélectriques et renvois d'interprétation sont correctement exclus. Fragile : l'attribution de la valeur de 19,4 nm de l'eau à β-CPF ou HA n'est pas écrite (doute déjà posé par l'extracteur)."
+}

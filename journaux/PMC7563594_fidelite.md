@@ -1,0 +1,16 @@
+# Journal de la critique de fidélité PMC7563594
+
+- Ma liste d'échantillons avant ouverture de l'extraction : GO-0 (témoin sans diamine, section 3.2), GO-EDA, GO-BDA, GO-PPD (Méthodes 2.2.2, une seule phrase pour les trois amines). Identique à `sample_inventory` ; les trois PPCP sont des polluants d'essai, pas des échantillons de synthèse, donc pas de branche manquante.
+- GO-0, héritage non fondé : les étapes 1-2 (lavage du support, bain de dopamine 48 h) viennent de 2.2.1, qui parle du « support » en général, mais l'Introduction rattache le prétraitement à la stratégie de réticulation. Constat `deduit`, `probable` (l'extracteur l'avait déjà mis en doute, donc pas `sure`).
+- GO-0, étape 3 : 1 bar et 25 mg/m2 sont écrits pour la solution GO/diamine ; les Conclusions limitent les 25 mg/m2 à EDA/BDA/PPD. Le doute de l'extracteur ne mentionne que le 1 bar, pas la densité : d'où un constat `deduit` plus net que pour les étapes 1-2, mais laissé `probable` car la lecture inverse (GO-0 filtré pareil) est plausible.
+- GO-0 réactifs hérités : le méthanol reste inscrit comme réactif alors que le rinçage est déclaré non cité pour GO-0. Mineur, jugé sur la logique de l'héritage et non sur un passage de l'article.
+- Fig. 2 (angles de contact) : lue sur l'image. GO-EDA 61,5 puis 50 (extrait 62 et 50), GO-BDA 67 puis 53,5 (67 et 53), GO-PPD 68 puis 59. Écarts de moins de 2 %. Texte « gradually increased » contredit par les trois courbes décroissantes : l'extracteur l'a vu et l'a mis en doute, rien à ajouter.
+- Fig. 5 : flux de GO-BDA lu à 6,5 (extrait 6,5) ; les barres de GO-0, EDA et PPD concordent avec 4,0, 5,27 et 14,78 du texte, donc l'attribution des barres est bonne.
+- Fig. 6 (points à 9 h) : toutes les valeurs extraites (190/172/154 pour GO-0, 220/270/298 pour EDA, 225/316/312 pour BDA, 252/382/326 pour PPD) sont à moins de 5 % de ma lecture. L'unité « ppm/m2 » est celle de l'axe.
+- Fig. 8 : adsorption et rejet total vérifiés pour les 12 couples ; les valeurs du texte (44,9 / 73,6, 34,8 / 52,83, 13,8 / 51,93) concordent avec les barres. Aucun écart.
+- Fig. 6 contre le texte « approximately 1.5 times » : le rapport mesuré sur la figure est de 1,6 à 2,2. Contradiction de l'article, pas erreur d'extraction ; constat `mineur` demandant un doute, sans changer la citation.
+- Fig. 7 : seules les valeurs à VCF 10 sont extraites. Choix déjà annoncé par l'extracteur ; constat mineur sur la perte d'information (courbes, plateau de GO-PPD pour l'ibuprofène), pas une erreur.
+- Case `duration` de l'étape 10 (séchage final à température ambiante) : écartée comme non-constat. « The samples were dried at room temperature for 24 h before the test » (2.3.3) se lit comme un séchage avant essai d'angle de contact, pas comme l'étape 10 ; j'ai laissé la case non citée et je l'ai noté dans `notes`.
+- `method_sources` vide : confirmé, la section Méthodes de corpus/refs ne contient aucun renvoi `[[...]]`.
+- Valeurs GO-EDA des Conclusions (47,20 / 73,59 / 99,7) contre 3.4 (44,9 / 73,6 / 100) : déjà en doute et dans l'annotation conclusion_auteurs ; pas de constat.
+- Réactif « sol de GO » à 400 ppm : c'est la concentration de la dispersion finale, la sol achetée est à 1 wt % ; le rôle `base` du Tris n'est pas écrit par les auteurs. Un seul constat mineur pour les deux.

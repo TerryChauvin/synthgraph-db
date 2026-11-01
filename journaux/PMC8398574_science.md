@@ -1,0 +1,15 @@
+# PMC8398574 — critique scientifique (Opus)
+
+- Calcul qui fonde le `probleme` du LDH : un LDH NiFe est paramagnétique à 300 K (gel de spins seulement entre 2 et 15 K, Coronado 2008, 10.1021/ic801123v) ; un paramagnète isolant dilué à ≈ 17 % en volume ne peut pas donner μ′ 1,37 → 1,89 ni tan δμ ≈ 1,4 (μ″ > μ′) à 6 GHz. La « résonance naturelle » des auteurs suppose un ordre ferro- ou ferrimagnétique.
+- `probleme` de l'oxyde : 31 % en masse de NiFe2O4 dans l'oxyde, 40 % en masse d'oxyde dans la paraffine, soit ≈ 3,2 % en volume de ferrite ; Maxwell-Garnett avec μ(ferrite) = 10 (choix volontairement généreux) donne μ′ ≈ 1,07. Le pic de μ″ presque identique pour les deux matériaux (6,08 et 6,28 GHz) m'a fait retenir l'hypothèse d'un artefact de mesure commun plutôt qu'un vrai phénomène.
+- Masses volumiques (LDH 2,88 ; NiO 6,81 ; NiFe2O4 5,37 g/cm3) calculées sur la maille à partir des paramètres de maille, et non prises sur une fiche : cela évite une recherche web et rend le calcul recomptable.
+- Besoin en base : j'ai compté 2 OH− par métal pour le LDH (40 mmol), et non 44 mmol comme l'annotation `mecanisme_analyse` de l'extraction ; la charge de la couche est compensée par l'anion, pas par un OH− de plus. L'ammoniaque reste en excès de 25 % seulement ; le pH final estimé (≈ 8,6) est noté `reserve`, pas `probleme`.
+- Anion interfoliaire : 7,76 Å (Bragg) correspond au LDH à carbonate (Dionigi 2020, cité par son URL PMC, car je n'ai pas vérifié son DOI) ; noté `reserve`, faute d'IR.
+- ATG : modèle de bilan de masse vers 0,7 NiO + 0,1 NiFe2O4 par mole de métal ; 33,5 % observé, entre la forme carbonate (31,5 %) et la forme nitrate (35,7 %) : jugé cohérent. L'écart « ~35 % » contre 11,2 + 22,3 % est signalé comme une erreur mineure des auteurs.
+- XRD de l'oxyde : les trois raies « NiO » coïncident avec les raies (222), (400) et (440) du spinelle (calcul fait avec a = 4,177 et 8,34 Å) ; seules les raies du spinelle sont discriminantes. Noté `reserve`.
+- RL −64 dB : Liu, Zhao, Drew, Liu (AIP Advances 2018) retenu comme source de la critique « RL = propriété de couche sur métal » ; j'ai écarté leurs prépublications (Research Square, Qeios), non relues par des pairs.
+- NIST TN 1355-R (Baker-Jarvis 1993) cité pour les artefacts en ligne coaxiale (lames d'air, inversion NRW) ; c'est un document institutionnel, pas un DOI.
+- Sécurité : CAMEO signale les complexes tétrammine du nitrate de nickel comme explosifs ; risque ici faible (ammines en solution), d'où le conseil de ne pas évaporer les eaux mères à sec (≈ 3,2 g de NH4NO3 en plus).
+- Erreur de vocabulaire des auteurs : x défini comme M2+/(M2+ + M3+) dans l'introduction, alors que c'est la fraction de M3+ ; signalée sans conséquence sur la synthèse.
+- Voie Absorber_ring : verdict `coherente` (mise en forme banale) ; les problèmes de μ sont rattachés aux voies matériau, où l'extraction range les résultats.
+- 8 recherches web ; aucune source n'a été ajoutée à fondateurs.md ou constantes.md (Crossref bloqué, consigne).

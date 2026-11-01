@@ -1,0 +1,87 @@
+{
+ "pmcid": "PMC9563711",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "mineur",
+   "where": "masking_* outcomes (Table 1), value_text '+' / '−'",
+   "extracted": "value_text '+' or '−' with quote 'Sodium diphosphate | + | −'",
+   "article_says": "“+” denotes not masked, “−” denotes fully masked.",
+   "fix": "écrire dans value_text le sens (« non masqué » / « entièrement masqué ») ou joindre la note de tableau en citation ; sinon un lecteur de la fiche ne peut pas lire la valeur. Attribution des colonnes (Hg2+ puis Cd2+) vérifiée : correcte.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "outcomes masking_*, sensor_*, Cd2+/Hg2+ sensing, recovery_* (aucune condition de mesure)",
+   "extracted": "valeurs sans conditions de dosage ni de criblage des agents masquants ; seuls la plage et la pente sont notées",
+   "article_says": "we added 20 mg of various masking agents to 100 ml of 446.45 μM Cd2+ (Hg2+ ions, 249.25 μM), and then vortexed for 30 s. Approximately 50 μL of the supernatant, 20 μL of N-CDs, and 230 μL of citrate buffer (pH 7.0) were mixed",
+   "fix": "consigner ce protocole (et celui de détection : 180 μL de tampon citrate pH 7.0, 20 μL de N-CDs, 100 μL d'ion, température ambiante, 5 min ; digestion des échantillons 1 g dans 10 ml HNO3/HClO4 9:1, 150 °C, 25 ml final) dans une annotation ou des conditions, ou dire en doute que les protocoles de dosage sont hors périmètre ; la source B19 de la digestion est déjà dans method_sources mais le protocole n'a aucune trace",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "characterization quantum yield, conditions",
+   "extracted": "quinine sulphate in 0.1 M H2SO4 as standard; absorbance below 0.10",
+   "article_says": "The QY was determined at an excitation wavelength of 320 nm using equation",
+   "fix": "ajouter l'excitation de 320 nm (article incohérent : A est dit mesuré à 295 nm), la zone d'intégration 295–600 nm, ηx/ηs = 1 (déjà signalé en doute pour l'incohérence, mais pas dans conditions)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "outcome photobleaching_F_F0_quenching_ratio_480_min_UV_irradiation, quote",
+   "extracted": "« of N-CDs did not exceed 10% »",
+   "article_says": "At 480 min after irradiation, the fluorescence quenching ratio F/F 0 (F and F 0 are the fluorescence intensities of N-CDs in the presence and absence of heavy metal ions) of N-CDs did not exceed 10% (Figure 3D)",
+   "fix": "citer la phrase entière (la citation tronquée ne porte ni les 480 min ni F/F0) ; noter en annotation que la définition de F/F0 donnée par les auteurs (présence/absence d'ions métalliques) ne correspond pas à un essai de photoblanchiment",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "N-CDs_180C_4h / N-CDs_180C_8h, variation duration, quote",
+   "extracted": "The optimum temperature was determined by keeping the reaction time constant (4, 6, and 8 h) and changing the temperature.",
+   "article_says": "Then, the most efficient reaction time was determined at 6 h by varying the reaction time while keeping the temperature constant at 180°C (Figure 1D).",
+   "fix": "pour 180C_4h et 180C_8h, citer la phrase de la série en durée ou la légende (D) « different reaction times with reaction temperature of 180°C » ; la phrase actuelle décrit la série en température",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "variations temperature 160 et 200 °C, quote",
+   "extracted": "160 / 200 °C, quote « (A) different reaction temperatures with reaction time of 4 h »",
+   "article_says": "(A) different reaction temperatures with reaction time of 4 h; (B) different reaction temperatures with reaction time of 6 h",
+   "fix": "la citation ne contient pas 160 ni 200 ; les valeurs viennent des étiquettes de la Fig. 1 (vérifiées sur l'image : 160, 180, 200 °C dans A, B, C). Déjà en doute ; conserver from_figure, c'est correct, mais le noter dans l'annotation pour que la fiche n'affiche pas une citation sans la valeur",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "l-arginine reagent, purity",
+   "extracted": "purity not_stated",
+   "article_says": "All the reagents and solvents of analytical grades were used without further purification.",
+   "fix": "la pureté est « analytical grade » (phrase générale couvrant l-arginine) : la mettre en purity avec cette citation, ou garder not_stated en le justifiant ; arbitrage de l'orchestrateur (le doute existe déjà)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "characterizations XPS / UV-vis / appearance",
+   "extracted": "XPS : pourcentages atomiques seulement ; aspect des N-CDs absent",
+   "article_says": "the C1s peaks at 284.48, 285.25, 286.27, and 288.44 eV shown in Figure 2D can be attributed to carbon in the form of C–C, C–N, C–O, and C=O/C=N",
+   "fix": "ajouter les pics C1s (284.48, 285.25, 286.27, 288.44 eV), N1s (399.27, 400.57, 401.82 eV, C–N–C, N–(C)3, N–H) et O1s (531.23, 533.05 eV) et l'aspect : « The N-CDs showed bright blue luminescence under a UV illuminator » ; « solution is brown in visible light »",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 9,
+  "branches_extracted": 9,
+  "not_stated_checked": 24,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "Les Méthodes ne donnent ni température ni durée (« a given temperature for a given time ») : 180 °C et 6 h ne viennent que des Résultats",
+  "type et volume de l'autoclave, taux de remplissage, vitesse de chauffe et de refroidissement absents",
+  "lyophilisation : température, pression, durée absentes ; puissance et fréquence de sonication absentes ; matériau de la membrane de 0,22 μm absent",
+  "rendement de synthèse absent ; pureté de l'l-arginine seulement « analytical grade »",
+  "Annexe : les images Fig. S1–S9 sont absentes du dépôt (légendes seules)",
+  "incohérences des auteurs : tampon citrate pH 5–11 en Méthodes mais « phosphoric acid buffer » dans les Résultats ; QY mesuré à 320 nm mais absorbance prise à 295 nm ; masquage : 20 mg pour « 44.65 mmol » de Cd2+ et « 26.79 mmol » de Hg2+ alors que 100 ml de 446.45 μM font 44,6 μmol et 100 ml de 249.25 μM font 24,9 μmol",
+  "poids de précurseurs en lots : « different batches of l-arginine » sans origine ni valeurs"
+ ],
+ "mechanism_check": "ok : l'extraction dit à juste titre que les auteurs ne décrivent pas de mécanisme de formation ; la citation (groupes N et O issus de l'l-arginine, d'après l'IR) soutient l'annotation ; le mécanisme proposé est étiqueté hypothèse",
+ "notes": "Fig. 1 relue sur l'image : les 9 valeurs d'intensité (2000, 4500, 3500 à 4 h ; 3500, 6800, 4400 à 6 h ; 3900, 6000, 5800 à 8 h) sont dans la marge de 10 %, et les étiquettes 160/180/200 °C de A, B, C et 4/6/8 h de D confirmées. Toutes les valeurs de Table 1, Table 3, pente, R2, LOD, durées de vie, potentiels zêta, XPS atomique, Raman, XRD, TEM recoupées avec le texte : aucune erreur. Pas de renvoi de méthode manquant dans refs (B19 seul, digestion) ; les autres renvois sont de contexte ou d'interprétation. Fragile : les caractérisations et dosages sont attribués à la voie 180 °C/6 h par héritage (« further application »), jugement raisonnable mais non écrit pour chaque mesure."
+}

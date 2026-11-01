@@ -1,0 +1,530 @@
+{
+ "pmcid": "PMC9778285",
+ "routes": [
+  {
+   "label": "MW_gel",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rapport V/Zn pour 2 mol% V",
+     "inputs": "2 mol% V, base non dite ; hypothèse V/(Zn+V) = 0,02",
+     "formula": "x/(1−x)",
+     "result": "V/Zn = 0,0204 (0,0200 si la base est Zn) : écart négligeable",
+     "compared_to": "Zn0,98V0,02O visé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport TEA/Zn",
+     "inputs": "ZnAc:TEA = 5:1 (molaire)",
+     "formula": "n(TEA)/n(Zn)",
+     "result": "0,20 TEA par Zn",
+     "compared_to": "rapports amine/Zn usuels en sol–gel acétate (MEA, DEA, TEA) proches de 1:1 ; 0,2 est sous-stœchiométrique pour complexer tout le zinc",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "solubilité de l'acétate de zinc dihydraté dans l'éthanol",
+     "inputs": "3 g/100 g d'alcool à 25 °C (PubChem/HSDB) ; ρ(EtOH) ≈ 0,789 g/mL ; M = 219,50 g/mol",
+     "formula": "(3/219,50) / (100/0,789 mL)",
+     "result": "≈ 0,11 mol/L à 25 °C",
+     "compared_to": "concentration du sol non donnée : impossible de dire si le sel est dissous ou en suspension à 50 °C avec seulement 0,2 TEA/Zn",
+     "source": "PubChem CID 11192 (HSDB, Kirk-Othmer)"
+    },
+    {
+     "what": "perte de masse théorique maximale d'un gel séché",
+     "inputs": "par mol Zn : Zn(OAc)2·2H2O 219,50 g + 0,20 × TEA 149,19 g + 0,0204 × VO(acac)2 265,16 g = 254,7 g ; résidu ZnO 81,38 g + 0,0102 × V2O5 181,88 g = 83,2 g",
+     "formula": "1 − m(résidu)/m(gel)",
+     "result": "67,3 % (sel dihydraté conservé) ; 61,9 % (sel déshydraté, attendu après 24 h à 100 °C)",
+     "compared_to": "74,1 % (MW) et 70,7 % (SG) mesurés",
+     "source": "masses molaires PubChem ; valeurs de l'article"
+    },
+    {
+     "what": "masse de volatils en excès dans le gel analysé",
+     "inputs": "résidu 83,2 g/mol Zn ; pertes 74,1 % (MW) et 70,7 % (SG)",
+     "formula": "m(gel) = m(résidu)/(1 − perte) ; excès = m(gel) − 254,7 g",
+     "result": "MW : 321 g/mol Zn, excès ≈ 67 g (≈ 1,45 mol d'éthanol par Zn) ; SG : 284 g, excès ≈ 29 g (≈ 0,64 mol EtOH par Zn)",
+     "compared_to": "un gel séché 24 h à 100 °C ne devrait plus contenir d'éthanol (Téb 78 °C)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "somme des pertes du tableau 1",
+     "inputs": "MW : 7,1 + 3,45 + 53 + 10,3 (+ 0,3) ; SG : 7,65 + 11,72 + 41 + 9,94 (+ 0,4)",
+     "formula": "Σ",
+     "result": "MW : 73,85 % jusqu'à 550 °C, 74,15 % jusqu'à 1000 °C ; SG : 70,31 % jusqu'à 550 °C, 70,71 % jusqu'à 1000 °C",
+     "compared_to": "texte : « 74,1 % » et « 70,7 % » « up to 550 °C » : ces totaux sont ceux de 25–1000 °C",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "température du sol vs ébullition de l'éthanol",
+     "inputs": "50 °C (mélange), 60 °C (micro-ondes) ; Téb(EtOH) ≈ 78 °C (NIST)",
+     "formula": "comparaison",
+     "result": "18 à 28 °C sous l'ébullition",
+     "compared_to": "récipient ouvert acceptable",
+     "source": "NIST WebBook"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Aucune quantité absolue (masse de sels, volume d'éthanol, concentration) : seuls les rapports 2 mol% V et ZnAc:TEA = 5:1 sont donnés (voir « rapport V/Zn » et « rapport TEA/Zn »). Les éléments du produit (Zn, V, O) sont bien apportés ; V4+ du vanadyle s'oxyde en V5+ à l'air au traitement thermique, compatible avec Zn3(VO4)2 (V5+) observé à 650 °C.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "L'acétate de zinc dihydraté n'est soluble qu'à ≈ 3 g/100 g d'éthanol à 25 °C (≈ 0,11 mol/L, voir « solubilité de l'acétate de zinc »). Les sols ZnO à l'acétate utilisent en général une amine à peu près équimolaire au zinc pour dissoudre le sel ; ici TEA/Zn = 0,2 seulement, ajoutée après 15 min. Sans concentration donnée, on ne sait pas si le sol est limpide ; la couleur « white-pink » décrite peut aussi signaler une suspension. À vérifier avant de refaire : concentration ≤ 0,1 M ou dissolution complète observée.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Zinc Acetate, CID 11192 — Solubility (dihydrate: 3 g/100 g alcohol at 25 °C, d'après Kirk-Othmer via HSDB)",
+      "authors_or_publisher": "PubChem, NIH",
+      "year": "2025",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/11192"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "50 °C puis 60 °C dans l'éthanol absolu (Téb ≈ 78 °C, NIST) : pas de risque d'ébullition. Le réacteur micro-ondes (ouvert, à reflux ou fermé), la régulation (200 W fixes et 60 °C : contrôle en température ou en puissance ?) et le volume ne sont pas dits ; l'éthanol absorbe fortement à 2,45 GHz, un dépassement local de 60 °C est possible sans régulation.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Ethanol — Phase change data (Tboil ≈ 351,4 K)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69",
+      "year": "2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C64175&Mask=4"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les pertes ATG (74,1 % MW, 70,7 % SG) dépassent la perte maximale possible d'un gel séché fait de ces seuls précurseurs : 67,3 % si le sel garde ses deux H2O, 61,9 % s'il est déshydraté comme attendu après 24 h à 100 °C (voir « perte de masse théorique maximale »). Il faut ≈ 1,45 mol d'éthanol par Zn en plus pour MW (voir « masse de volatils en excès »), et la perte de 7,1–7,65 % sous 100 °C confirme un gel contenant encore du solvant. Le gel analysé par ATD/ATG n'est donc vraisemblablement pas le gel séché 24 h à 100 °C de la section 4 : les courbes ne décrivent pas le matériau qui est ensuite calciné.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les totaux « 74,1 % » et « 70,7 % » sont annoncés « up to 550 °C » alors que la somme des quatre premières tranches du tableau 1 donne 73,85 % et 70,31 % ; les valeurs citées incluent la tranche 550–1000 °C (voir « somme des pertes du tableau 1 »). Écart faible mais de libellé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'exotherme vers 805–807 °C est attribué à la « cristallisation de ZnO », et la tranche 390–550 °C à la « transformation amorphe → cristallin », alors que la DRX montre déjà du ZnO bien cristallisé après 1 h à 300 °C (cristallites 18–19 nm). Un exotherme sans perte de masse (0,3–0,4 %) à 800 °C ne peut pas être la cristallisation d'un ZnO déjà cristallin ; ce peut être une croissance de grains/frittage ou une réaction de la phase vanadate (formation ou transformation de Zn3(VO4)2, ou fusion d'une phase riche en V dans le système V2O5–ZnO, qui serait endothermique). Assignation contradictoire avec les résultats DRX de l'article ; aucune DRX au-dessus de 650 °C ne la vérifie.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Reinvestigation of Phase Equilibria in the V2O5–ZnO System",
+      "authors_or_publisher": "M. Kurzawa, I. Rychłowska-Himmel, M. Bosacka, A. Błońska-Tabero, J. Therm. Anal. Calorim. 64, 1113–1119",
+      "year": "2001",
+      "url_or_doi": "10.1023/A:1011524424682"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "« Hydroxyzincite » n'est pas un nom de phase ; l'hydrozincite est Zn5(CO3)2(OH)6 (carbonate basique). Un gel issu de l'acétate en milieu alcoolique contient plutôt de l'acétate de zinc basique lamellaire Zn5(OH)8(CH3COO)2·nH2O, compatible avec les bandes acétate à 1419/1570 cm−1. L'IR seul, sans DRX du gel, ne prouve aucune de ces phases.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Evidence for the formation of anhydrous zinc acetate and acetic anhydride during the thermal degradation of zinc hydroxy acetate, Zn5(OH)8(CH3CO2)2·4H2O to ZnO",
+      "authors_or_publisher": "T. Biswick et al., Solid State Sciences",
+      "year": "2009",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S1293255808002173"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Éthanol absolu chauffé sous micro-ondes (inflammable, Téb 78 °C) : réacteur micro-ondes de laboratoire obligatoire, jamais un four domestique ; récipient fermé seulement s'il est prévu pour la pression. Acétylacétonate de vanadyle : nocif, composés du vanadium toxiques par inhalation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Dissolution partielle de Zn(OAc)2·2H2O dans l'éthanol à 50 °C ; la TEA (0,2 éq.) complexe une partie du Zn2+ et apporte une basicité qui déclenche l'hydrolyse par l'eau d'hydratation du sel et la condensation en acétate de zinc basique lamellaire Zn5(OH)8(OAc)2·nH2O plus ou moins amorphe ; VO(acac)2 reste moléculaire ou se lie au réseau par des ponts V–O–Zn. Le chauffage micro-ondes accélère l'hydrolyse–condensation (chauffage volumique du solvant polaire). À la calcination : déshydratation et départ de l'acétate (acide acétique, acétone, anhydride acétique) vers 200–400 °C, puis combustion de la TEA ; ZnO wurtzite cristallise dès 300 °C ; le vanadium, oxydé en V5+, ségrège en surface puis réagit avec ZnO en Zn3(VO4)2 vers 600–650 °C. L'exotherme à 800 °C n'est pas la cristallisation de ZnO.",
+    "sources": [
+     {
+      "title": "Evidence for the formation of anhydrous zinc acetate and acetic anhydride during the thermal degradation of zinc hydroxy acetate, Zn5(OH)8(CH3CO2)2·4H2O to ZnO",
+      "authors_or_publisher": "T. Biswick et al., Solid State Sciences",
+      "year": "2009",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S1293255808002173"
+     },
+     {
+      "title": "Reinvestigation of Phase Equilibria in the V2O5–ZnO System",
+      "authors_or_publisher": "M. Kurzawa, I. Rychłowska-Himmel, M. Bosacka, A. Błońska-Tabero, J. Therm. Anal. Calorim. 64, 1113–1119",
+      "year": "2001",
+      "url_or_doi": "10.1023/A:1011524424682"
+     },
+     {
+      "title": "Role of vanadium ions, oxygen vacancies, and interstitial zinc in room temperature ferromagnetism on ZnO-V2O5 nanoparticles (formation de γ-Zn3(VO4)2 par réaction ZnO + V2O5 après traitement thermique)",
+      "authors_or_publisher": "PMC3983866 (Nanoscale Res. Lett.)",
+      "year": "2014",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3983866"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "fixer les quantités : concentration de Zn (≤ 0,1 mol/L dans l'éthanol si TEA/Zn = 0,2), volume d'éthanol, masse de VO(acac)2 pour V/(Zn+V) = 0,02",
+    "vérifier que le sol est limpide avant les micro-ondes ; sinon augmenter la TEA (rapport à justifier) ou diluer",
+    "réacteur micro-ondes de laboratoire avec régulation en température (60 °C) ; préciser ouvert ou fermé",
+    "analyser par ATG le gel réellement séché 24 h à 100 °C (les courbes publiées contiennent ≈ 1,4 mol EtOH/Zn de plus)",
+    "ne pas interpréter l'exotherme de 800 °C comme la cristallisation de ZnO"
+   ]
+  },
+  {
+   "label": "SG_gel",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de volatils en excès dans le gel SG analysé",
+     "inputs": "perte 70,7 % ; résidu 83,2 g/mol Zn ; gel sec théorique 254,7 g/mol Zn",
+     "formula": "83,2/(1 − 0,707) − 254,7",
+     "result": "≈ 29 g/mol Zn (≈ 0,64 mol EtOH/Zn)",
+     "compared_to": "perte maximale d'un gel sec : 61,9–67,3 %",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le protocole SG n'est décrit que par « homogenized at 50 °C for two hours on a heated plate » : l'ordre d'ajout de la TEA et le rapport 5:1 ne sont pas redits. Le témoin change deux variables à la fois par rapport à MW (absence de micro-ondes, mais aussi 50 °C au lieu de 60 °C et 2 h au lieu de 10 min) : l'effet propre du chauffage micro-ondes n'est pas isolé. Un témoin à 60 °C, 10 min sur plaque (ou chauffage conventionnel au même profil de température) serait nécessaire.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Même incohérence ATG que pour MW_gel : 70,7 % de perte dépasse la perte maximale d'un gel séché (61,9 % pour un sel déshydraté), soit ≈ 0,64 mol d'éthanol par Zn en excès (voir calcul) : le gel analysé n'est pas le gel séché 24 h à 100 °C. L'exotherme à 805 °C est assigné à la cristallisation de ZnO, contredit par la DRX à 300 °C.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Même chimie que MW_gel, l'hydrolyse–condensation étant plus lente et thermiquement moins homogène sans micro-ondes ; l'exotherme de 805 °C n'est pas la cristallisation de ZnO.",
+    "sources": [
+     {
+      "title": "Evidence for the formation of anhydrous zinc acetate and acetic anhydride during the thermal degradation of zinc hydroxy acetate, Zn5(OH)8(CH3CO2)2·4H2O to ZnO",
+      "authors_or_publisher": "T. Biswick et al., Solid State Sciences",
+      "year": "2009",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S1293255808002173"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "préciser l'ajout de TEA et l'ordre des étapes en voie SG",
+    "prévoir un témoin conventionnel au même profil (60 °C, 10 min) pour isoler l'effet micro-ondes"
+   ]
+  },
+  {
+   "label": "MW@500",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "longueur d'onde de coupure correspondant aux gaps annoncés",
+     "inputs": "E = 3,15 ; 3,17 ; 3,19 eV ; hc = 1239,84 eV·nm",
+     "formula": "λ = 1239,84/E",
+     "result": "393,6 ; 391,1 ; 388,7 nm",
+     "compared_to": "écart entre 3,17 et 3,19 eV = 2,4 nm, de l'ordre de la précision de lecture d'une coupure sur un spectre de réflectance diffuse",
+     "source": "constante physique"
+    },
+    {
+     "what": "écart des paramètres de maille à la fiche",
+     "inputs": "MW@500 : a = 3,2504(3), c = 5,2061(6) Å ; fiche 36-1451 : a ≈ 3,2498, c ≈ 5,2066 Å",
+     "formula": "Δ = mesuré − fiche",
+     "result": "Δa ≈ +0,0006 Å ; Δc ≈ −0,0005 Å (≈ 1 écart-type)",
+     "compared_to": "rayons ioniques Shannon (CN 4) : V5+ 0,355 Å contre Zn2+ 0,60 Å ; 2 % de V substitué devrait contracter la maille de façon mesurable",
+     "source": "Shannon 1976 ; JCPDS 36-1451"
+    },
+    {
+     "what": "fraction massique de Zn3(VO4)2 si tout le V réagit",
+     "inputs": "V/Zn = 0,0204 ; M(Zn3V2O8) = 426,0 g/mol ; M(ZnO) = 81,38 g/mol",
+     "formula": "n = 0,0102 mol Zn3V2O8 par mol Zn ; m/(m + (1 − 3 × 0,0102) × 81,38)",
+     "result": "≈ 5,2 % en masse",
+     "compared_to": "« traces » en DRX : compatible ; mais une population de nanobâtonnets bien visible au MEB serait beaucoup pour 5 %",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "500 °C, 1 h sous air (atmosphère non dite, four non dit) : au-dessus de la fin des pertes ATG (550 °C) mais la calcination isotherme d'1 h à 500 °C suffit en général à éliminer acétate et TEA ; cohérent avec la DRX monophasée.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Méthode de Williamson–Hall décrite à l'envers : l'article dit tirer la taille L « from the gradient » du tracé β cosθ/λ en fonction de sinθ/λ ; dans Williamson–Hall, la taille vient de l'ordonnée à l'origine (1/L) et la pente donne la microdéformation. Si le calcul a suivi le texte, les tailles 18–20 nm sont fausses ; s'il a suivi la méthode, seul le texte est faux. La correction de l'élargissement instrumental n'est pas mentionnée. Avant de comparer ses tailles à celles de l'article, refaire le tracé et lire l'ordonnée à l'origine.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "X-ray line broadening from filed aluminium and wolfram",
+      "authors_or_publisher": "G.K. Williamson, W.H. Hall, Acta Metallurgica 1, 22–31",
+      "year": "1953",
+      "url_or_doi": "10.1016/0001-6160(53)90006-6"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les paramètres de maille à 500 et 650 °C sont égaux à la fiche du zincite à l'incertitude près (voir « écart des paramètres de maille »). Avec V5+ (0,355 Å) beaucoup plus petit que Zn2+ (0,60 Å) en site tétraédrique, une substitution de 2 % devrait contracter la maille ; l'absence de variation plaide pour un vanadium surtout hors du réseau (surface, amorphe), ce que les auteurs envisagent, et contredit l'affirmation de la section 2.2.3 selon laquelle l'IR « illustre clairement » l'insertion du vanadium en site tétraédrique de ZnO.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides",
+      "authors_or_publisher": "R.D. Shannon, Acta Cryst. A32, 751–767",
+      "year": "1976",
+      "url_or_doi": "10.1107/S0567739476001551"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Gaps de 3,15–3,19 eV par coupure (E = hc/λ) : valeurs basses mais habituelles pour cette méthode sur des poudres de ZnO (le gap de ZnO massif est ≈ 3,3–3,37 eV à l'ambiante). Les écarts de 0,02 eV entre échantillons correspondent à ≈ 2,4 nm de coupure (voir « longueur d'onde de coupure ») ; sans incertitude ni ZnO non dopé préparé de la même façon, ni l'effet du dopage ni celui de la température ne sont démontrés.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille de cristallite DRX 20 nm contre grains MEB 30–250 nm : compatible (grains polycristallins ou agglomérats).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Poudres nanométriques de ZnO dopé au vanadium : manipulation sous hotte ou boîte à gants, masque FFP3 ; combustion de la TEA et de l'acétate pendant la calcination (fumées, NOx) : four ventilé.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Décomposition de l'acétate de zinc basique et combustion de la TEA en ZnO wurtzite dès 300 °C ; à 500 °C le carbone résiduel est éliminé et les cristallites (≈ 20 nm) restent stables ; le vanadium (V5+ après oxydation à l'air) est surtout dispersé en surface sous forme amorphe, la maille n'étant pas contractée.",
+    "sources": [
+     {
+      "title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides",
+      "authors_or_publisher": "R.D. Shannon, Acta Cryst. A32, 751–767",
+      "year": "1976",
+      "url_or_doi": "10.1107/S0567739476001551"
+     },
+     {
+      "title": "Evidence for the formation of anhydrous zinc acetate and acetic anhydride during the thermal degradation of zinc hydroxy acetate, Zn5(OH)8(CH3CO2)2·4H2O to ZnO",
+      "authors_or_publisher": "T. Biswick et al., Solid State Sciences",
+      "year": "2009",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S1293255808002173"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "atmosphère, rampe et type de four de la calcination",
+    "recalculer la taille de cristallite par Williamson–Hall avec l'ordonnée à l'origine et correction instrumentale",
+    "préparer un ZnO non dopé dans les mêmes conditions comme témoin pour la maille et le gap"
+   ]
+  },
+  {
+   "label": "SG@500",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Résultats parallèles à MW@500 (maille identique à la fiche, 20 nm, gap 3,15 eV) ; mêmes réserves sur Williamson–Hall et sur l'absence de témoin non dopé. La différence de morphologie MW/SG ne peut être attribuée aux seules micro-ondes (témoin SG à deux variables, voir SG_gel).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme MW@500.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "mêmes points que MW@500"
+   ]
+  },
+  {
+   "label": "MW@300",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "À 300 °C, 1 h : acétate résiduel et phase amorphe, en accord avec la tranche ATG 190–390 °C (combustion non terminée). Cohérent. Mais ce ZnO déjà cristallin contredit l'assignation de la cristallisation à 390–550 °C et à 800 °C (voir MW_gel).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La légende de la figure 4 indique 350 °C au lieu de 300 °C (texte, tableau 2, étiquettes) : erreur de légende.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Décomposition partielle de l'acétate basique en ZnO nanocristallin, résidus organiques non brûlés.",
+    "sources": [
+     {
+      "title": "Evidence for the formation of anhydrous zinc acetate and acetic anhydride during the thermal degradation of zinc hydroxy acetate, Zn5(OH)8(CH3CO2)2·4H2O to ZnO",
+      "authors_or_publisher": "T. Biswick et al., Solid State Sciences",
+      "year": "2009",
+      "url_or_doi": "https://www.sciencedirect.com/science/article/abs/pii/S1293255808002173"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "retenir 300 °C (pas 350 °C de la légende de la figure 4)"
+   ]
+  },
+  {
+   "label": "SG@300",
+   "verdict": "coherente",
+   "feasibility": "reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Même lecture que MW@300 : acétate résiduel et amorphe à 300 °C, cohérent avec l'ATG.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme MW@300.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": []
+  },
+  {
+   "label": "MW@650",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Formation de Zn3(VO4)2 à 650 °C par réaction de ZnO avec le vanadium ségrégé (V5+) : cohérente avec les équilibres du système V2O5–ZnO (côté riche en ZnO : ZnO + Zn3V2O8) et avec ce qui est observé sur des mélanges ZnO–V2O5 traités thermiquement. Mais l'article écrit que la constance des paramètres de maille rend « plus probable » un composé vanadé amorphe, alors que la DRX détecte justement des raies cristallines de Zn3(VO4)2 : l'argument est confus.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Reinvestigation of Phase Equilibria in the V2O5–ZnO System",
+      "authors_or_publisher": "M. Kurzawa, I. Rychłowska-Himmel, M. Bosacka, A. Błońska-Tabero, J. Therm. Anal. Calorim. 64, 1113–1119",
+      "year": "2001",
+      "url_or_doi": "10.1023/A:1011524424682"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les bandes IR à 727, 785 et 863 cm−1 sont attribuées à « l'insertion du vanadium dans le sous-réseau tétraédrique de ZnO ». Ces positions sont celles des élongations V–O de tétraèdres VO4 isolés des orthovanadates (ν3 780–855 cm−1, ν1 822–852 cm−1, dont α-Zn3(VO4)2), c'est-à-dire de la phase secondaire elle-même. Elles ne distinguent pas un V substitué dans ZnO d'un orthovanadate ; elles appuient plutôt la seconde hypothèse.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of vanadium–oxygen bond distances and bond orders by Raman spectroscopy (orthovanadates 822–852 cm−1, dont α-Zn3(VO4)2)",
+      "authors_or_publisher": "F.D. Hardcastle, I.E. Wachs, J. Phys. Chem. 95, 5031–5041",
+      "year": "1991",
+      "url_or_doi": "https://www.lehigh.edu/operando/Publications/1991%20determine%20V-O%20bond%20dist%20by%20Raman.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Les nanobâtonnets (29–76 nm de diamètre) sont attribués à Zn3(VO4)2 et les hexagones à ZnO, sans EDX localisée sur les bâtonnets (l'EDX de la figure 5 confirme seulement la présence de V dans la poudre). Deux faits contredisent cette attribution : (i) si tout le V formait Zn3(VO4)2, la phase ne ferait que ≈ 5 % en masse (voir « fraction massique de Zn3(VO4)2 », voie MW@500), peu pour une population de bâtonnets bien visible ; (ii) la poudre SG à 650 °C contient aussi des traces de Zn3(VO4)2 en DRX mais aucun bâtonnet. Les bâtonnets peuvent être du ZnO (croissance anisotrope selon c, très courante). Il faudrait une EDX ponctuelle ou une cartographie, ou une MET avec diffraction, sur les bâtonnets.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Taille de cristallite inchangée (20 nm) entre 500 et 650 °C alors que les grains MEB grossissent (jusqu'à 200–316 nm) : possible si les grains sont polycristallins, mais surprenant pour un ZnO calciné 150 °C plus haut ; avec la méthode W–H décrite de façon erronée (voie MW@500), la valeur doit être recalculée avant d'en tirer une conclusion.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "X-ray line broadening from filed aluminium and wolfram",
+      "authors_or_publisher": "G.K. Williamson, W.H. Hall, Acta Metallurgica 1, 22–31",
+      "year": "1953",
+      "url_or_doi": "10.1016/0001-6160(53)90006-6"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À 650 °C, le vanadium ségrégé en surface des cristallites de ZnO (V5+ après oxydation à l'air) réagit avec ZnO pour former l'orthovanadate Zn3(VO4)2 (phase en équilibre avec ZnO du côté riche en ZnO du système V2O5–ZnO) ; les bandes IR 727–863 cm−1 sont celles des tétraèdres VO4 de cet orthovanadate, non d'un V substitué dans ZnO. La nature des nanobâtonnets (ZnO à croissance selon c, éventuellement favorisée par une phase vanadate en surface, ou Zn3(VO4)2) n'est pas établie.",
+    "sources": [
+     {
+      "title": "Reinvestigation of Phase Equilibria in the V2O5–ZnO System",
+      "authors_or_publisher": "M. Kurzawa, I. Rychłowska-Himmel, M. Bosacka, A. Błońska-Tabero, J. Therm. Anal. Calorim. 64, 1113–1119",
+      "year": "2001",
+      "url_or_doi": "10.1023/A:1011524424682"
+     },
+     {
+      "title": "Determination of vanadium–oxygen bond distances and bond orders by Raman spectroscopy (orthovanadates 822–852 cm−1, dont α-Zn3(VO4)2)",
+      "authors_or_publisher": "F.D. Hardcastle, I.E. Wachs, J. Phys. Chem. 95, 5031–5041",
+      "year": "1991",
+      "url_or_doi": "https://www.lehigh.edu/operando/Publications/1991%20determine%20V-O%20bond%20dist%20by%20Raman.pdf"
+     },
+     {
+      "title": "Role of vanadium ions, oxygen vacancies, and interstitial zinc in room temperature ferromagnetism on ZnO-V2O5 nanoparticles (formation de γ-Zn3(VO4)2 par réaction ZnO + V2O5 après traitement thermique)",
+      "authors_or_publisher": "PMC3983866 (Nanoscale Res. Lett.)",
+      "year": "2014",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3983866"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "EDX ponctuelle ou cartographie (ou MET/SAED) sur les nanobâtonnets avant de les attribuer à Zn3(VO4)2",
+    "ne pas lire les bandes IR 727–863 cm−1 comme preuve d'un V substitué dans ZnO"
+   ]
+  },
+  {
+   "label": "SG@650",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Traces de Zn3(VO4)2 en DRX mais grains cuboïdes seulement, sans bâtonnets : affaiblit l'attribution des bâtonnets de MW@650 à Zn3(VO4)2. Les bandes IR 727–863 cm−1 sont celles de VO4 d'orthovanadate, pas d'un V dans ZnO (voir MW@650).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of vanadium–oxygen bond distances and bond orders by Raman spectroscopy (orthovanadates 822–852 cm−1, dont α-Zn3(VO4)2)",
+      "authors_or_publisher": "F.D. Hardcastle, I.E. Wachs, J. Phys. Chem. 95, 5031–5041",
+      "year": "1991",
+      "url_or_doi": "https://www.lehigh.edu/operando/Publications/1991%20determine%20V-O%20bond%20dist%20by%20Raman.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Comme MW@650 : Zn3(VO4)2 formé par réaction du V ségrégé avec ZnO.",
+    "sources": [
+     {
+      "title": "Reinvestigation of Phase Equilibria in the V2O5–ZnO System",
+      "authors_or_publisher": "M. Kurzawa, I. Rychłowska-Himmel, M. Bosacka, A. Błońska-Tabero, J. Therm. Anal. Calorim. 64, 1113–1119",
+      "year": "2001",
+      "url_or_doi": "10.1023/A:1011524424682"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mêmes points que MW@650"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Sol–gel acétate de zinc / VO(acac)2 / TEA dans l'éthanol, assisté ou non par micro-ondes, puis calcination 300–650 °C. Chimie plausible et conditions douces, mais protocole sans quantités ni concentration (solubilité de l'acétate de zinc limitée à ≈ 0,11 mol/L dans l'éthanol, TEA à 0,2 éq. seulement). Les conclusions sur la phase à 500 °C sont cohérentes ; plusieurs interprétations ne tiennent pas : ATG faite sur un gel visiblement non séché, exotherme de 800 °C assigné à la cristallisation d'un ZnO déjà cristallin à 300 °C, Williamson–Hall décrit avec la pente au lieu de l'ordonnée à l'origine, bandes IR d'orthovanadate prises pour une substitution, nanobâtonnets attribués à Zn3(VO4)2 sans analyse locale.",
+  "author_errors_suspected": [
+   "pertes ATG (74,1 et 70,7 %) supérieures au maximum possible pour un gel séché 24 h à 100 °C (61,9–67,3 %) : gel analysé non séché",
+   "totaux ATG dits « jusqu'à 550 °C » qui sont ceux de 25–1000 °C",
+   "exotherme ≈ 805 °C attribué à la cristallisation de ZnO, alors que ZnO est cristallin dès 300 °C",
+   "Williamson–Hall : taille tirée de la pente au lieu de l'ordonnée à l'origine",
+   "bandes IR 727/785/863 cm−1 (VO4 d'orthovanadate) présentées comme preuve d'une insertion de V dans ZnO",
+   "« hydroxyzincite » (nom inexistant ; hydrozincite = carbonate basique, gel acétate = acétate basique lamellaire)",
+   "légende figure 4 : 350 °C au lieu de 300 °C ; fiche ICDD 26-1451 au lieu de 36-1451 dans le tableau 2",
+   "témoin SG qui change aussi la température (50 contre 60 °C) et la durée (2 h contre 10 min)"
+  ],
+  "comparison_with_database": "compare.py « ZnO » : 44 voies de base, aucune autre voie au vanadyle/TEA ; les calcinations à 500 °C de la base (PMC10585300, PMC3497326) donnent aussi du wurtzite monophasé, les tailles de cristallite 20 nm sont dans l'ordre de grandeur (PMC10585300 : 34–46 nm après 2 h à 500 °C). Pas de valeur aberrante."
+ },
+ "sources_not_found": [
+  "températures de fusion et d'eutectique du système V2O5–ZnO (Kurzawa 2001, Pollert 1973) : seul le résumé de Kurzawa est accessible, les températures n'ont pas pu être lues ; l'hypothèse « exotherme de 800 °C lié à la phase vanadate » reste donc non chiffrée",
+  "DOI de Hardcastle & Wachs 1991 et de Biswick 2009 non vérifiés (Crossref bloqué) : références données par leur URL"
+ ]
+}

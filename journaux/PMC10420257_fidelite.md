@@ -1,0 +1,14 @@
+# Journal critique de fidélité, PMC10420257
+
+- Ma liste d'échantillons avant d'ouvrir l'extraction : 4 KOH/Zn acétate dans l'eau et dans l'éthanol (Fig. 1), 2 KOH/acétate (une phrase, 3.3), 2 et 4 LiOH/acétate, 4 KOH/sulfate, 2 et 4 LiOH/sulfate. Soit 8, identique à `sample_inventory` : aucun échantillon manquant. Pas d'annexe dans le texte, seule la Fig. S1 est citée et absente.
+- Tables 1, 2 et 4 : rangées et colonnes comparées une à une (ex. « Zinc sulfate | 20 nm | 23 nm | 27 nm » = KOH 4, LiOH 2, LiOH 4). Aucune valeur fausse ; la note de Table 2 (* = valeur (101) retenue) est respectée.
+- Fig. 1 ouverte : Vis/UV = 16 « in water » (courbe rouge) et 29 « in ethanol » ; extraction conforme, écart nul (valeurs imprimées, non estimées).
+- Fig. 3 ouverte : a et c = plaquettes (LiOH), b et d = aiguilles (KOH), ce qui suit la légende ; le texte 3.3 donne des lettres inversées dans une phrase, l'extracteur l'avait doutée. Pas de constat.
+- Constat « faux » sur la mesure PL à 532 nm (ZnO_Ac_LiOH4) : les conditions recopient « laser à 266 nm » alors que l'article dit « using a 532 nm laser » ; sûr. La PLE reçoit la même condition à 266 nm : probable seulement, car l'article ne décrit pas du tout la source de la PLE.
+- Raman 4 KOH/sulfate : la légende Fig. 5 donne trois pics sans nommer l'échantillon ; sur l'image Fig. 5 la courbe 4 KOH/Zinc sulfate porte clairement ces trois pics. Constat « manquant » probable (non sûr à cause de la légende).
+- Fig. 9 et 10 ouvertes : les pourcentages de Table 4 sont retrouvés exactement sur les camemberts (aucune erreur), mais les noms de défauts (Zn_i, VZn, VO, VO+, VO++, Oi) ne sont que sur les figures. Manquant probable ; je l'ai classé `manquant` et non `mineur` car c'est le résultat central de la discussion des auteurs.
+- Fig. 9c étiquette « VO et VO+ » (58 %) alors que la note de Table 4 dit « VO and VO++ merged » : incohérence des auteurs. L'extraction suit la note ; constat `mineur` sûr, correction attendue = annotation limite_reproductibilite, pas un changement de valeur.
+- `not_stated` : 14 cases vérifiées (pureté, fournisseur, vitesses, rendement, répétitions de lavage, atmosphère de séchage...) ; une seule fausse : `order_of_addition` alors que le texte dit « simultaneously precipitated » (probable, car l'ordre précis reste ambigu).
+- Écarté comme non-constat : PL QY 2 % (texte 3.1) contre 3 ± 1 % (Table 4) : les deux sont extraites avec doute ; hérite des étapes pour les branches LiOH et sulfate : justifié par « For some syntheses ... replaced » et déjà en doute ; KOH dans l'éthanol : doute déjà posé.
+- `method_sources` : un seul renvoi de méthode (De Mello et al., mesure du PL QY), correctement saisi en rôle « autre ». Aucun autre renvoi de préparation dans 2.1 ; Scherrer et JCPDS ne comptent pas.
+- Mécanisme : `mecanisme_auteurs` suit 3.3 sans ajout ; `mecanisme_analyse` est marqué hypothèse. OK.

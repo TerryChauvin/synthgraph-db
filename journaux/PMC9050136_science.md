@@ -1,0 +1,17 @@
+# PMC9050136 — critique scientifique (journal de décisions)
+
+- Figures 2 à 5 ouvertes (corpus/fig) : la MET (Fig. 3B, barre de 1 µm) montre des objets de 0,1 à 1,5 µm. Les tailles « MET » du tableau 1 (3,1 à 22,3 nm) ne peuvent pas venir de ces clichés : jugé `probleme`, sans chercher à deviner l'unité correcte.
+- Le modèle « Fe-MOF de 8–9,6 nm dans les pores du Mg-MOF de 11–22,3 nm » est jugé `probleme` : 11–22,3 nm est la taille de cristal du Mg-MOF (tableau 1), et les isothermes de type I de l'article indiquent des micropores < 2 nm (Thommes 2015, pris dans fondateurs.md).
+- Essai de dose (`probleme`) : 50 mL × 100 mg/L = 5 mg de métal, donc q ≤ 100 mg/g à 50 mg et ≤ 71 mg/g à 70 mg, alors que l'axe de la Fig. S2 commence à 80 mg/g. Seuls les graduations et la légende de S2 sont dans le texte ; je m'appuie sur l'axe et la phrase du texte, pas sur des points lus.
+- RL : 11 des 12 couples (KL, RL) redonnent C0 = 50 mg/L. Le couple Cu/(0,6:1) donne 620 mg/L : RL = 0,020 est très probablement 0,202. Gardé en `probleme`, car l'erreur passe dans la plage du texte.
+- Freundlich : avec les KF publiés, qe vaut ≈ 10 mg/g à Ce = 100 mg/L contre 196 mg/g mesurés. L'hypothèse « KF = ln KF » a été testée : elle convient pour Pb/(0,6:1) mais pas pour Cu/Mg-MOF. Je conclus donc à des valeurs inexploitables, sans proposer de correction.
+- Cinétique : les constantes k1 et k2 donnent 29 à 64 % de l'équilibre à 75 min. qe(Exp) est égal au qmax de Langmuir sur 10 rangées sur 12. Ces deux points sont regroupés en un seul `probleme`, au lieu d'en ouvrir un par rangée.
+- BET contre Fig. 5 : le rapport plateau/Vm vaut 2,3 pour les MOF bimétalliques. Classé `reserve` et non `probleme`, parce que l'unité de l'axe (« V cc/gm ») n'est pas sûre. La courbe noire (Fe-MOF) est sous la rouge (Mg-MOF), ce qui soutient le texte (Fe 774, Mg 983) contre le tableau 1. Je le signale pour trancher le doute de l'extraction.
+- Bilan de matière : ligand limitant (1,6 et 2,0 métaux par BDC), et Fe:Mg ≤ 2:1 dans un trimère Fe2Mg de MIL-88B. Classé `reserve` : rien n'interdit un solide biphasé, mais le nom « 0,6:1 » ne décrit pas le produit.
+- Protocole cité (cit27, Gu 2019) identifié par recherche : Fe/Mg-MIL-88B. Je n'ai pas lu son texte intégral ; la SBET de 360 m2/g vient d'une revue RSC Adv. en accès libre (PMC12168826, auteurs non relevés). Cette source est donc secondaire, et elle est notée telle quelle.
+- FT-IR : 1598 cm−1 réattribué à νas(COO−), et 1646/1665 cm−1 rapprochés du DMF (amide I) ; il s'agit de chimie générale, sans recherche web. Classé `reserve` (vocabulaire et preuve non discriminante).
+- EDS : pic non attribué vers 2,3 keV. J'ai listé les candidats (S, Pb, Au) sans en choisir un.
+- Ksp : les tables divergent pour Pb(OH)2 (1,4 × 10−20 à 1,2 × 10−15), donc j'ai donné une fourchette. Pour Cu et Cd, les sources concordent à un facteur 7 près, ce qui ne change pas la conclusion (`ok`).
+- Réaction test : le mp (184–185 °C) et la couleur sont confirmés par Naeimi & Nazifi 2014. Le mécanisme des auteurs (« méthylène actif », « hydrolyse ») est corrigé en voie o-quinone méthide puis cyclodéshydratation. C'est une `reserve`, car cela ne touche pas la synthèse du matériau.
+- Pression du DMF à 120 °C (≈ 0,33 bar) estimée par Clausius-Clapeyron avec ΔvapH ≈ 47,6 kJ/mol, valeur non revérifiée ; elle est signalée dans sources_not_found.
+- Recherches web : 6 recherches et 1 lecture de page. Rien n'a été ajouté à fondateurs.md ni à constantes.md (Crossref bloqué).

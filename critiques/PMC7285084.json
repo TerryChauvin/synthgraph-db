@@ -1,0 +1,97 @@
+{
+ "pmcid": "PMC7285084",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "sample_inventory / routes : poly(SBL-alt-GPE) de la Fig. 4 et de la Fig. S11 (échantillon de référence des copolymères à blocs et statistique)",
+   "extracted": "échantillon rangé sans route (route null) ; Tg −7.03 °C uniquement dans l'annotation tendance_observee",
+   "article_says": "poly(SBL-alt-GPE) Mn = 6700 g mol",
+   "fix": "créer une voie (ou rattacher à une voie existante avec la mention de l'identification) pour poly(SBL-alt-GPE) Mn 6700 g mol−1, Ð 1.29, Tg −7.03 °C (Fig. 4, étiquette imprimée) ; sans cela la comparaison Tg GPE / aléatoire / dibloc / MPE n'a pas son premier terme dans les résultats",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "scope_MPE outcome glass_transition_temperature = −3.62 °C",
+   "extracted": "Tg −3.62 °C attribuée à la voie scope_MPE (Table 2 / Fig. S9)",
+   "article_says": "Figure 4 Differential scanning calorimetric analysis (DSC) curves of the copolymer poly(SBL-alt-GPE) and poly(SBL-alt-MPE)",
+   "fix": "la légende de la Fig. 4 ne dit pas que le poly(SBL-alt-MPE) mesuré est l'échantillon du Table 2 / Fig. S9 ; l'identification repose sur l'égalité de Mn 6800 / Ð 1.22 entre Fig. S9 et Fig. S11. Garder la valeur mais noter l'identification comme déduite (doute ou annotation), ou la porter sur une voie distincte ; traiter de la même façon l'échantillon poly(SBL-alt-GPE) (constat précédent)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "PSe-1 characterizations 77Se NMR et MALDI-TOF-MS ; sample_inventory",
+   "extracted": "77Se NMR (130.07 ppm) et MALDI-TOF (5872.88 m/z) rattachés à PSe-1 de Mn 8100 g mol−1, Ð 1.44 ; l'échantillon de Mn 5800 / Ð 1.40 n'est ni dans l'inventaire ni signalé dans les caractérisations",
+   "article_says": "Figure 2 Matrix-assisted laser-desorption-ionization time-of-flight mass spectrometry (MALDI-TOF-MS) spectrum of PSe-1 (Mn,SEC = 5800 g mol−1, Ð = 1.40).",
+   "fix": "ajouter à l'inventaire un échantillon « PSe-1 des Fig. 1 et 2 (Mn 5800, Ð 1.40) » et préciser dans `conditions` des caractérisations 77Se et MALDI que l'échantillon analysé n'est pas celui de la procédure typique (8100 / 1.44) ; le MALDI donne un DP de 18, incompatible avec 8100 g mol−1 (la mention existe seulement dans un doute)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "branches Table 1 (catalyseurs comparés)",
+   "extracted": "aucune branche pour les autres catalyseurs ; seul TBAB (entrée 5) et l'absence de catalyseur (entrée 1) sont modélisés",
+   "article_says": "In addition, polymers were obtained when several quaternary ammonium salts were added into the reaction solution, respectively.",
+   "fix": "le texte affirme qu'un polymère s'est formé avec plusieurs sels et que TBAB est le meilleur ; les catalyseurs listés en 2.1 sont TBAC, TBPB, TBPC, 18-C-6 et KCl. Créer des branches de PSe-1 (variation du catalyseur, résultat « polymère obtenu », Mn/rendement absents) ou à défaut garder l'inventaire tel quel (le corps du Table 1 est absent du dépôt, correspondance entrée-catalyseur inconnue) ; l'identité exacte des sels testés est inférée de la section Materials",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "scope_MPE, scope_BGE, scope_SO, scope_AGE, scope_BEA, scope_CHO (parent PSe-1 : héritage des étapes)",
+   "extracted": "branches filles de PSe-1, donc héritage de l'atmosphère argon, du tube de verre et de la précipitation chloroforme/hexane",
+   "article_says": "The reaction was carried out with epoxides (1.0 mmol) and SBL (1.0 mmol) by using TBAB (0.02 mmol) without a solvent at 80 °C for 24 h.",
+   "fix": "la note du Table 2 ne donne que quantités, absence de solvant, 80 °C, 24 h ; ni atmosphère ni isolement ne sont écrits pour ces époxydes (la procédure typique ne vise que GPE). Soit signaler l'héritage dans un doute/annotation, soit marquer atmosphere et isolation_workup `not_stated` sur ces branches",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "pentablock steps 2 et 3",
+   "extracted": "étape 2 « react » (durée 6 h) sans l'équivalent de MPE ; étape 3 « add » fusionne les quatre additions suivantes (GPE, MPE, GPE, MPE) ; les résultats Mn_SEC_step1..5 ne se rapportent à aucune étape numérotée de la voie",
+   "article_says": "0.2 equiv. MPE was first added to the system and was completely consumed at 6 h, while the residual SBL was not homopolymerized. Then, 0.2 equiv GPE and MPE were introduced into the reaction solution alternately, until SBL was almost completely consumed.",
+   "fix": "porter monomer_equivalents 0.2 equiv sur l'étape 2 (première addition de MPE) ; indiquer dans l'étape 3 que les Steps 2 à 5 de la Fig. 3 correspondent aux additions successives (la Fig. 3 donne 5 « Step »), ou éclater en additions ; préciser que « 0.2 equiv » n'a pas de référence écrite (probablement par rapport à SBL)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "caractérisations absentes sur 41 des 44 voies (SEC, DSC, CD)",
+   "extracted": "Mn, Ð, Tg et effet Cotton en outcomes sans entrée `characterizations` ; seules PSe-1, PSe-b-TGE (1H NMR) et micelles (DLS, TEM) en ont",
+   "article_says": "Differential scanning calorimetric analysis (DSC) was performed using a TA Instruments Discovery Q200 (DE, USA) with a heating rate of 10 °C min−1 under a nitrogen flow of 20 mL min−1.",
+   "fix": "ajouter DSC (Discovery Q200, 10 °C min−1, N2 20 mL min−1) aux voies qui portent une Tg ; CD (JASCO J-815) aux voies DGA avec « The maximum CD (260 nm) and UV‐vis spectra in DCM » (Fig. S10, longueur d'onde 260 nm et solvant DCM absents de l'extraction) ; SEC (THF, 40 °C, étalons polystyrène d'après les notes des Tables 1 et 2 : « Estimated by SEC based on polystyrene standards ») aux voies à Mn ; SEC de PSe-b-TGE (Mn 7400) aussi absente",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PSe-1 characterizations (13C NMR)",
+   "extracted": "1H NMR (deux pics seulement), 77Se, MALDI, SEC ; pas de 13C NMR",
+   "article_says": "13C NMR (75 MHz, CDCl3, TMS): δ 23.51, 23.95, 25.45, 33.74, 67.99, 71.94, 114.65, 121.28, 129.29, 157.91, 172.27.",
+   "fix": "ajouter la caractérisation 13C NMR (75 MHz, CDCl3, TMS) avec la liste de déplacements ; compléter le 1H NMR avec la liste complète des signaux de la procédure typique",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "PSe-1 reagent tetrabutylammonium bromide (prétraitement)",
+   "extracted": "recristallisation seulement dans supplier_quote ; aucune étape de purification du catalyseur",
+   "article_says": "were purchased from 3A (Shanghai, China) Chemicals Co. Ltd. and recrystallized twice from ethyl acetate.",
+   "fix": "signaler dans une annotation ou un doute que TBAB est recristallisé deux fois dans l'acétate d'éthyle avant usage (pas de solvant volume ni séchage), alors que la phrase suivante dit « All of the chemicals above-mentioned were used as received without further purification » (contradiction interne de l'article) ; reproductibilité : l'étape change la pureté du catalyseur",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": "≈ 47 échantillons (3 contrôles, 18 entrées Table S1, 5 solvants, 5 rapports SBL/GPE, 6 époxydes du Table 2, 2 DGA, 3 copolymères MPE/GPE + pentablock, PSe-b-TGE, micelles ; plus les catalyseurs du Table 1 et le poly(SBL-alt-GPE) de la Fig. 4)",
+  "branches_extracted": 44,
+  "not_stated_checked": "≈ 45 listes de cases not_stated contrôlées (réactifs, étapes, voies)",
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "corps du Table 1 (catalyseurs TBAC, TBPB, TBPC, 18-C-6/KCl : rendements, Mn, Ð, correspondance entrée-catalyseur) absent de l'article déposé",
+  "corps du Table 2 (rendements, Mn, Ð des six époxydes) absent ; seul Fig. S9 (Mn, Ð) est disponible",
+  "préparation de γ-sélénobutyrolactone seulement par renvoi (B24, titre sans rapport évident : cétones cycliques ; aucun rendement, pureté ni stockage)",
+  "conditions (quantités, température, durée, atmosphère, isolement) de la série de rapports SBL/GPE (Fig. S8), des DGA, du dibloc, du statistique et du pentablock (sauf [SBL]0/[TBAB]0 = 50/1 et 0.2 equiv)",
+  "données numériques des Fig. S1–S6 (conversion en fonction du temps, Mn en fonction de la conversion et de la température) : images du Supporting Information non présentes dans le dépôt",
+  "TGE : ni fournisseur ni synthèse (« All of the epoxides are commercially available or could be prepared easily from glycidol »), formule lue sur le Scheme 5 seulement",
+  "micelles : volume final d'eau, seuil de coupure de la membrane de dialyse, température de préparation absents",
+  "copolymérisation en masse : volume et fermeture du tube de verre, vitesse d'agitation, conditions de séchage sous vide absents",
+  "cause de l'écart entre la procédure typique (Mn 8100, Ð 1.44, TBAB 2 %) et l'échantillon des Fig. 1 et 2 (Mn 5800, Ð 1.40) non expliquée"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs suit « The complex cannot initiate the homopolymerization of epoxide, but opens the five-member ring of γ-selenobutyrolactone » et le Scheme 3 (halogénure ouvre l'époxyde, alcoolate attaque la lactone, sélénolate ouvre l'époxyde suivant) ; mecanisme_analyse est signalée comme hypothèse. Aucun danger évident omis (Se, époxydes, CHCl3, hexane, H2O2).",
+ "notes": "Valeurs numériques vérifiées contre le texte et les images : 18 entrées du Table S1 (annexe), cinq solvants (60/74/98/98/98), cinq rapports SBL/GPE (Fig. S8), Mn et Ð de Fig. S9, S11, S23, 10 valeurs de la Fig. 3 (3000/1.07 à 8400/1.53), 4 Tg de la Fig. 4 (−3.62, −5.71, −5.84, −7.03), DLS 45.28 nm et polydispersité 0.091 (Fig. 5a), toutes exactes (0 écart de lecture, étiquettes imprimées). Sources de méthode : seule B24 est une source de méthode ; B25 à B29 sont du contexte, et l'entrée unique est correcte. Fragile dans ma lecture : l'ordre « respectively » pour 45 nm (DLS) et 40 nm (TEM), accepté car la légende de la Fig. 5 liste (a) DLS puis (b) TEM ; l'attribution de 60/74/98 aux solvants suit l'ordre de la phrase. Table S1 : le texte principal dit 5 mol % comme défaut, la procédure typique 0.02 mmol (2 %) ; l'extraction signale déjà la différence (doute)."
+}

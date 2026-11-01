@@ -1,0 +1,94 @@
+{
+ "pmcid": "PMC4043712",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "faux",
+   "where": "annotation comparaison_branches (AgNPs_1mM_37C), rugosité AFM de A. baumannii",
+   "extracted": "« 16 nm sans traitement, 2 nm avec les AgNPs biologiques et 13 nm avec les AgNPs chimiques »",
+   "article_says": "A. baumannii | 16 | 2 | 5 | 4 | 3 | 13 | 10",
+   "fix": "Colonnes du tableau 5 : non traité 16, bio AgNPs 2, bio AuNPs 5, bio AgAuNPs 4, chim AgNPs 3, chim AuNPs 13, chim AgAuNPs 10. Les AgNPs chimiques donnent donc 3 nm (19 % de 16, cohérent avec « Chemically synthesized AgNPs (18%–45%) »), 13 nm étant l'AuNPs chimique. Corriger l'annotation.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "attribution",
+   "where": "AgNPs_1mM_37C absorbance_440nm_at_4.5h_Fig2C_1mM (0,79) et AgAuNPs_1mM_37C absorbance_540nm_at_90min_Fig2D_1mM (1,1)",
+   "extracted": "valeurs de la série en concentration (fig. 2C et 2D) rangées sur les voies de base à 37 °C",
+   "article_says": "(D) time course of AgAuNPs formation obtained at 1:1 AgNO3 and HAuCl4.",
+   "fix": "La température de la série en concentration (fig. 2C/2D) n'est écrite nulle part ; la fig. 1 (37 °C, 1 mM) donne une autre valeur : environ 0,73 à 440 nm après 4,5 h pour AgNPs (fig. 1A) et environ 1,37 à 540 nm après 90 min pour AgAuNPs (fig. 1C), contre 1,1 lu sur la fig. 2D. Pour AgAuNPs l'écart (25 %) montre que le point 1 mM de la fig. 2D n'est pas l'échantillon à 37 °C. Retirer ces deux résultats de la voie de base (ou les marquer comme température non citée) et, si on veut un résultat sur la voie de base, lire la fig. 1.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources, dosages de PZRE (voie PZRE) : renvois b36 et b37",
+   "extracted": "aucune entrée pour b36 ni b37",
+   "article_says": "The total flavonoid content was determined using a standard quercetin curve.",
+   "fix": "Dans corpus/refs, b36 (Dubois, dosage des sucres) suit « Total reducing sugar content was estimated using a standard glucose curve. » et b37 (Ghosh et al. 2012) suit les dosages des phénols, flavonoïdes, acide citrique et amidon. Ce sont des protocoles de mesure dont on a besoin pour refaire les dosages (règle du RUNBOOK) : ajouter {route: PZRE, ref_id: b36-ijn-9-2635 / b37-ijn-9-2635, role: protocole_complet}. b35 (GC-TOF-MS), placé après la phrase sur la bibliothèque NIST, est plus douteux ; à l'appréciation de l'orchestrateur.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources, essais biofilm : b40 (inhibition), b41 et b42 (désagrégation, biofilm mixte)",
+   "extracted": "b40 n'est rattaché qu'à l'essai antimicrobien ; b41 et b42 absents",
+   "article_says": "Additionally, the effect of NPs was checked against a mixed-biofilm formation by A. baumannii and S. aureus.",
+   "fix": "Dans corpus/refs, b40 suit aussi « Biofilm-inhibition assays were performed by coincubation of 5 μL of culture (optical density adjusted to 0.05 at 600 nm) with AgNPs, AuNPs, and AgAuNPs (1,024 μg/well) in 200 μL MH broth for 24 hours at 37°C. », b41 et b42 suivent « Biofilm disruption was initiated by the addition of 1,024 μg/well of freshly synthesized NPs. » (b42 : Gaidhani et al., désagrégation par AgNPs ; b41 : Sahu et al., souche AIIMS 7). Ajouter ces entrées (route null, protocole_complet ; b41 peut être role « autre »).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "sample_inventory : séries en température et en concentration des AuNPs",
+   "extracted": "seule la branche AuNPs_0.7mM_50C ; aucune entrée pour la série des AuNPs",
+   "article_says": "Similar results were observed in the case of AuNPs (Figure S2).",
+   "fix": "Le texte dit que l'optimisation (4 à 50 °C, 0,1 à 5 mM) a porté sur AgNPs et AuNPs (« Synthesis and optimization studies of AgNPs and AuNPs were carried out… ») et renvoie à la fig. S2, absente du dépôt. Ajouter à l'inventaire une entrée « AuNPs, séries en température et en concentration » avec route null et why « Fig. S2 absente du dépôt ; aucune valeur citée ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "characterizations DLS, TEM, EDS (conditions: null) des trois voies de base",
+   "extracted": "conditions: null",
+   "article_says": "Freshly prepared 3 mL AgNPs, AuNPs, and AgAuNPs were taken in polystyrene cuvettes and subjected to particle-size analysis employing dynamic light scattering",
+   "fix": "Renseigner `conditions` du DLS : « 3 mL de particules fraîchement préparées en cuvette de polystyrène ; potentiel zêta enregistré sur le même appareil » (« Zeta-potential values of each sample were also recorded on the same instrument. »). Pour l'EDS des AgNPs, la légende de la fig. 4 dit « Representative spot energy-dispersive spectrum » (EDS en spot).",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "variations de température et de concentration (branches AgNPs_4C … AgAuNPs_5mM), quote",
+   "extracted": "quote « (A) Time course of AgNPs synthesis with varying reaction temperatures; » pour la valeur 4 °C (de même pour 20, 30, 40 °C et pour 0,3 à 4 mM)",
+   "article_says": "Optimization studies for rate of NP synthesis were carried out at different temperatures ranging from 4°C to 50°C, and at varying concentrations from 0.1 mM to 5 mM.",
+   "fix": "La citation ne contient pas la valeur ; elle ne vient que de la légende de la figure (image). Citer la phrase des Méthodes ci-contre (qui donne 4, 50, 0.1 et 5) et garder `from_figure` pour les valeurs intermédiaires (20, 30, 40 °C ; 0,3 ; 0,5 ; 0,7 ; 2 ; 3 ; 4 mM).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "PZRE outcomes : tableau 1 (HPTLC) non repris",
+   "extracted": "seules sucrose 22 %, plumbagine 2 % et le tableau 3 sont en résultats",
+   "article_says": "Plumbagin | Hydromethanolic | 0.002",
+   "fix": "Le tableau 1 donne des quantités par fraction : plumbagine 0.002 (hydrométhanolique), 1.6 (méthanolique), 11.2 (acétate d'éthyle) ; diosgénine –, 0.21, 2.8 ; quercétine 0.0005, –, 0.4 ; glucose 14.3 et fructose 0.5 (hydrométhanolique) ; unité « Amount (%) ». Les ajouter en résultats du PZRE ou dire dans `doubts` qu'ils sont écartés (le doute actuel ne parle que de la plumbagine).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "résultats des témoins chimiques et rugosité du biofilm non traité",
+   "extracted": "valeurs absentes des résultats (la rugosité non traitée n'est que dans une annotation et un doute ; les CMI, rugosités et fig. 7 des NPs chimiques ne sont nulle part)",
+   "article_says": "The roughness of the untreated biofilms was observed to be 16 nm, 5 nm, and 11 nm in A. baumannii, S. aureus, and E. coli, respectively.",
+   "fix": "Ajouter la rugosité du biofilm non traité comme résultat (A. baumannii 16 nm ; E. coli 5 nm ; S. aureus 11 nm d'après le tableau 5, le texte ayant inversé E. coli et S. aureus) sur les voies de base, et au minimum noter dans une annotation les valeurs des NPs chimiques du tableau 4 (CMI 512/256, 512/32, 256/512 µg/disque ; AuNPs sans activité) et du tableau 5, puisque le contraste biologique/chimique est le résultat principal des auteurs.",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": "3 voies de base + séries Fig. 2 (AgNPs 5 T + 9 conc., AgAuNPs 5 T + 9 conc.) + 2 optimums du résumé ; séries AuNPs (Fig. S2) absentes du dépôt",
+  "branches_extracted": 32,
+  "not_stated_checked": 38,
+  "not_stated_wrong": 0
+ },
+ "reproducibility_gaps": [
+  "volumes de PZRE et de solution de sel, ordre d'addition, agitation, lumière et durée de contact des synthèses AgNPs et AuNPs : renvoyés à b3 et b37, absents de l'article",
+  "température et concentration de sel des séries de la fig. 2 (chaque série ne dit pas la valeur de l'autre paramètre) ; conditions des particules caractérisées en DLS, XRD et TEM (1 mM ou 0,7 mM)",
+  "durée d'ébullition, séchage, broyeur et granulométrie de la poudre de racines ; pas de numéro d'herbier",
+  "mode de séparation des particules avant lavage (« washing twice with double-distilled water »), volumes de lavage",
+  "protocole des nanoparticules chimiques (témoins), renvoyé à b39 ; annexes S1 à S7 absentes du dépôt",
+  "pureté et fournisseur de AgNO3 et HAuCl4, pH de l'extrait"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs suit la discussion (hydroxyles des polyphénols, sucres/amidon/citrate en stabilisant, hypothèse cœur Au / coque Ag reprise de Shankar et al., donnée par les auteurs comme possible) ; mecanisme_analyse est rédigé comme hypothèse",
+ "notes": "Table 3, tableaux 4 et 5, et les 11 valeurs lues sur la fig. 7 vérifiés : bonnes colonnes, bonnes bactéries. Fig. 2 : les valeurs lues sont à moins de 0,05 d'absorbance (50 °C et 5 mM arrondis à 1,0 et 1,8 pour 1,05 et 1,75, écart inférieur à 5 %). AgAuNPs 3 mM (cercles orange, environ 0,7 à 90 min) est peut-être lisible malgré la superposition ; non retenu comme constat vu l'encombrement. Incohérences de l'article, non imputables à l'extracteur : résumé « 98 % » d'inhibition pour AuNPs et S. aureus contre 97 % dans le texte ; résumé AgAuNPs 93–98 % contre 99 % pour S. aureus dans le texte ; le texte parle d'inhibition « poor » pour les AuNPs alors que la fig. 7A donne environ 85 % (A. baumannii, E. coli) et 73 % (culture mixte) ; texte sur la rugosité non traitée qui permute E. coli et S. aureus (le tableau et les pourcentages du texte confirment le tableau) ; fig. 1C (≈ 1,37 à 540 nm à 90 min, « 1 mM ») supérieure à la fig. 2D à 1 mM (1,1) et proche de 0,7 mM (1,42), ce qui laisse penser que la concentration de la fig. 1C n'est peut-être pas 1 mM ; unité « °C » pour le pic XRD (38.9) lue en degrés par l'extracteur, à juste titre. Choix de ne pas créer de voie pour les NPs chimiques : conforme (aucune quantité ni étape dans l'article)."
+}

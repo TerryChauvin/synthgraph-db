@@ -1,0 +1,63 @@
+{
+ "pmcid": "PMC11280918",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "TiO2NTs_AuNPs@ZIF-8_30min reagent TiO2NTs_AuNPs amount (not_stated), missing_fields and annotation limite_reproductibilite 'taille et nombre de substrats par solution de ZIF-8'",
+   "extracted": "amount déclarée not_stated ; « number of substrates per reaction solution » listé comme manquant",
+   "article_says": "Then, three TIO2NTS/Au substrates prepared under the same conditions were simultaneously put into the reaction solution.",
+   "fix": "renseigner amount_text = « three TIO2NTS/Au substrates » (dans 30 mL de solution, un par temps de dépôt) et retirer `amount` de not_stated ; retirer « nombre de substrats » de missing_fields et de l'annotation limite_reproductibilite (la taille des substrats, 0,8 cm × 0,8 cm, est donnée en 2.2 pour les feuilles de Ti)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "TiO2NTs_AuNPs reagent TiO2NTs amount_text",
+   "extracted": "one substrate (not stated)",
+   "article_says": "The TiO2NTs were immersed in a 2% PDDA solution for 30 min and then washed with deionized water.",
+   "fix": "supprimer amount_text « one substrate » (aucune quantité ni nombre dans l'article pour cette étape) et déclarer `amount` dans not_stated",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "TiO2NTs_AuNPs@ZIF-8_15min outcomes (SERS_signal_1ppm_acetophenone_30min_adsorption)",
+   "extracted": "seul ZIF-8_shell_thickness = 3.5 nm ; pas de résultat SERS (alors que les branches 30 min et 45 min en ont un)",
+   "article_says": "However, as the thickness of the ZIF−8 shell increases, the SERS enhancement effect exhibited by the nanocomposites towards acetophenone gradually improves.",
+   "fix": "ajouter à la branche 15 min le résultat SERS : signal plus faible qu'à 6 nm, supérieur à l'échantillon sans coque (Fig. 3a : à 1573 cm−1 environ 800 contre environ 1900 pour 30 min, hauteurs nettes au-dessus de la ligne de base décalée)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "Fig. 3a, résultats SERS par branche (annotations comparaison_branches et limite_reproductibilite)",
+   "extracted": "« Les intensités ne sont pas lisibles quantitativement et n'ont pas été relevées » ; aucune intensité extraite",
+   "article_says": "Under the four conditions, the SERS signal intensity of gaseous acetophenone molecules collected at a MOF shell thickness of 6 nm was larger.",
+   "fix": "les courbes décalées sont lisibles à ±15 % près : hauteurs nettes lues sur l'image (ligne de base 0 / ≈ 900 / ≈ 2000 / ≈ 3100 pour 0 / 15 / 30 / 45 min) : pic 1029 cm−1 ≈ 2600 (15 min), ≈ 5000 (30 min), ≈ 4100 (45 min) ; pic 1573 cm−1 ≈ 800, ≈ 1900, ≈ 1400 ; pic 1229 cm−1 ≈ 1400, ≈ 3000, ≈ 2200. À relever avec `from_figure` ou corriger la phrase de l'annotation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "AuNPs reagent chloroauric acid solution (0.01%) formula",
+   "extracted": "HAuCl4",
+   "article_says": "hydrogen tetrachloroauric acid (HAuCl4·4H2O, AR) was purchased from Sinopharm Chemical Reagent Co., Ltd., Shanghai, China",
+   "fix": "formule HAuCl4·4H2O telle qu'écrite par l'article (le sel hydraté pèse différemment ; la solution est dite à 0,01 %, base non précisée)",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 4,
+  "branches_extracted": 4,
+  "not_stated_checked": 39,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "épaisseur de la feuille de Ti (seules les dimensions 0,8 cm × 0,8 cm sont données) et nature de la contre-électrode (taille, distance entre électrodes)",
+  "température de l'électrolyte pendant l'anodisation, courant, agitation ; durée et température de séchage après nettoyage et après anodisation",
+  "vitesse de montée en température du recuit à 450 °C",
+  "volumes de PDDA et de suspension d'or, nombre de rinçages, concentration de la suspension d'or (0,01 % et 1 % sans base w/v ou w/w), durée de chauffage jusqu'à ébullition",
+  "lavage et séchage après croissance du ZIF-8 ; agitation et récipient ; unique solution pour les trois temps de dépôt (trois substrats plongés simultanément, retirés à 15, 30, 45 min : non écrit)",
+  "conditions des tests gazeux : débit de gaz, unités incohérentes (1 ppm, 1 ppb, 10 ppm contre 10−7 à 10−12 M en légendes), volume de la boîte, lampe UV (type, puissance, distance)",
+  "rendement et reproductibilité d'un lot à l'autre (un seul lot décrit) ; aucune annexe"
+ ],
+ "mechanism_check": "ok : les analyses sont signalées « Probablement » ; stœchiométrie du ZIF-8 recalculée (0,9852 g de 2-méthylimidazole ≈ 12,0 mmol ; 0,4461 g de Zn(NO3)2·6H2O ≈ 1,50 mmol ; rapport ≈ 8:1), exacte. Le mécanisme des auteurs (PDDA cationique, or chargé négativement) est bien appuyé par la citation.",
+ "notes": "Valeurs sur figure vérifiées : pente 451,26, R² 0,9709 et ordonnée 4915,6 de l'encart de la Fig. 4a exacts ; l'encart correspond bien au pic 1573 cm−1 (≈ 1700 à 10−7 M, comme le spectre bleu de la Fig. 4a), donc le nom de propriété « 1573cm-1 » est juste malgré la légende qui dit 1025 cm−1 et « acetone » (déjà en doute). Fig. 3a : l'ordre 30 > 45 > 15 min aux pics 1229 et 1573 cm−1 appuie le texte (6 nm maximal). L'inventaire écrit « cumene » alors que la Fig. 5a écrit « cucumene » (le texte ne nomme que l'acétophénone et l'alcool isoamylique) : sans conséquence sur les données. Les cases not_stated des étapes (température, durée, vitesse d'agitation, vitesse de chauffe, répétitions) sont toutes confirmées absentes ; seule la quantité de substrats ZIF-8 est fausse. method_sources B31 à B34 complets et corrects ; B35 (attribution des pics Raman), B36–B38 (interprétation) ne sont pas des sources de méthode. Phrase « all the other reagents were of analytical regent (AR) grade » : appliquée aux réactifs non nommés, lecture plausible, déjà en doute. RSD 4,7 % (résumé) contre 4,5 % (corps et conclusion) déjà en doute."
+}

@@ -1,0 +1,55 @@
+{
+ "pmcid": "PMC3700086",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "manquant",
+   "where": "AgNP_Streptomyces, essai de synergie (characterization 'disk diffusion synergy assay' et résultats du tableau de synergie) : dose des disques d'antibiotique",
+   "extracted": "aucune dose d'antibiotique par disque (la chaîne 'mcg' est absente de l'extraction)",
+   "article_says": "which was found against vancomycin (30mcg/disk), followed by erythromycin (15mcg/disk), ofloxacin (5mcg/disk), and tigecycline (15mcg/disk)",
+   "fix": "ajouter dans conditions de la caractérisation de synergie (ou en note des résultats) : vancomycine 30 mcg/disque, érythromycine 15, ofloxacine 5, tigécycline 15 ; sans cela le protocole d'essai n'est pas refaisable",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "method_sources : renvoi b21 (protocole ISP) absent",
+   "extracted": "aucune entrée pour b21-scipharm-2013-81-607",
+   "article_says": "The morphological and cultural characteristics of Streptomyces sp JAR1 were performed according to [] protocol and are presented in Table 1.",
+   "fix": "ajouter {route: Streptomyces_supernatant ou null, ref_id: b21-scipharm-2013-81-607, role: autre, quote: 'The cultural characteristics of the strain Streptomyces sp JAR1 were studied through the International Streptomyces Project (ISP)'} ; le journal d'extraction l'écarte comme bioprocédé, mais c'est un renvoi de protocole d'essai (Shirling & Gottlieb, ISP) qui sert à refaire la caractérisation de la souche",
+   "confidence": "probable"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "AgNP_Streptomyces not_stated 'drying' (et 'isolation_method')",
+   "extracted": "drying déclaré non cité au niveau de la voie, sans étape ni doute",
+   "article_says": "The biologically synthesized silver nanoparticles using Streptomyces sp JAR1 were dried, powdered, and used for XRD analysis.",
+   "fix": "l'article dit que les nanoparticules ont été séchées puis broyées avant la DRX (conditions absentes) : ajouter une étape 'dry' (et 'grind') avec citation et not_stated temperature/duration, ou au minimum un doute ; la limite_reproductibilite dit bien que le séchage n'est pas décrit, mais le fait qu'il ait eu lieu est cité par l'article",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "AgNP_Streptomyces, caractérisation 'well diffusion antibacterial assay' conditions",
+   "extracted": "6 mm wells in Mueller-Hinton agar; 25, 50, 75, 100 μl of AgNP solution per well",
+   "article_says": "Pure cultures of the bacteria were grown in Mueller-Hinton broth (Hi-media, Mumbai, India) at 37°C on a rotary shaker at 200 rpm.",
+   "fix": "ajouter aux conditions : préculture des bactéries en bouillon Mueller-Hinton, 37 °C, 200 rpm (la durée d'incubation après dépôt, « After incubation », reste non citée)",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 1,
+  "branches_extracted": 1,
+  "not_stated_checked": 20,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "volume de la réaction d'AgNO3 1 mM, volume du surnageant et du milieu, taille et volume de l'inoculum absents",
+  "composition et nature (gélose ou bouillon) du milieu ISP-2 non précisées",
+  "vitesse de l'agitateur orbital non donnée",
+  "isolement, lavage, séchage et broyage des nanoparticules avant DRX/FT-IR décrits sans conditions ; incertitude sur la préparation (solution brute ou purifiée) déposée dans les puits",
+  "durée et température d'incubation après dépôt des puits et des disques (antibactérien : 'After incubation') non citées pour l'essai de diffusion en puits",
+  "pureté et fournisseur d'AgNO3, d'eau déionisée absents",
+  "rendement et concentration en Ag des nanoparticules absents ; aucune pesée des particules, donc dose appliquée en µL de solution seulement"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs est appuyé par la phrase sur la réduction enzymatique (nitrate réductase, NADH) ; mecanisme_analyse est rédigé comme une hypothèse.",
+ "notes": "Valeurs numériques vérifiées contre le texte : tableau 2 (8 organismes x 4 volumes), tableau 3 antifongique (5 souches), tableau de synergie (16 rangées x 2 antibiotiques, Ab seul, Ab+NP et % tous conformes à l'article, rangée Salmonella/vancomycine décalée correctement traitée en value_text) : aucune erreur d'attribution. Figures lues : Fig. 2 (absorbance à 420 nm 24/48/72 h : lu 1,15 / 2,85 / 5,1 ; extraction 1,2 / 2,9 / 5,1, écart <5 %) et Fig. 4 (pic (3 1 1) lu vers 77,5° ; extraction 77, écart <1 %) corrects. Fig. 3 FT-IR : pics supplémentaires non extraits (2073, 1247, 673 cm-1) mais le texte n'en parle pas ; non constat. Fig. 5 AFM : le panneau de paramètres affiche « Length = 68.13nm / Width = 30.47nm / Height = 60.94nm » pour une image de 7,8 µm, ce qui ressemble à la mesure d'un seul objet (ou d'un profil) et non à une moyenne statistique ; l'article parle pourtant de « average size » : tension entre texte et figure non signalée dans les doutes, mais l'extraction recopie correctement le texte (pas un constat, pas de passage de texte à l'appui). Le mode AFM contact est cohérent avec « Operating mode = Static Force » de la figure. Contradictions internes déjà en doutes (KBr/KI, contact/non-contact, Candida/Scedosporium/Ganoderma, 'highest' vancomycine/érythromycine, pourcentages). Pas d'annexe. Noms de propriétés avec fautes de copie du tableau (« Escherichia. coli », « Staphyloccocus aureus », « Klebsiella pneumonia ») : cosmétique, non signalé."
+}

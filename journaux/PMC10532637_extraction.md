@@ -1,0 +1,14 @@
+# Journal d'extraction PMC10532637
+
+- Voie de base unique « Co2P/NPG » : tout le protocole est dans « Preparation of Co2P/NPG » ; l'intermédiaire Co3O4/ADN-GO n'est pas une voie séparée (isolé par centrifugation mais jamais utilisé ailleurs), ses étapes sont les étapes 7-9.
+- Branches Co2P/NPG-2 (50 mg) et -3 (200 mg) : phrase « samples with different cobalt acetate contents (50 mg and 200 mg) … (labeled as Co2P/NPG-2 and Co2P/NPG-3) ». Attribution dans l'ordre de la phrase, sans « respectively » ; consignée en doute. Héritage des étapes accepté faute d'autre protocole : un seul réactif change selon la phrase, mais « same procedure » n'est pas écrit (doute).
+- Aucun résultat pour -2 et -3 : la comparaison est dans la figure S3, absente du dépôt (aucune section Supporting Information dans corpus/text). Annotation `limite_reproductibilite` « Annexe absente du dépôt » ; énoncé de groupe (« Co2P/NPG shows the best activity ») en annotation, pas en valeur.
+- Co2P, NPG, NPC, Pt/C : résultats comparés (266, 467 mV ; 114, 196 mV dec−1) mais aucune synthèse décrite (Co2P et NPG) ou protocole absent (NPC) ou commercial (Pt/C) ; `route: null` dans l'inventaire. Valeurs rapportées en annotation `tendance_observee` sur Co2P/NPG, pas sur des voies inventées.
+- GO « prepared using Hummers’ method » sans renvoi bibliographique ni quantités : réactif en rôle `intermediate`, pas de voie ; `method_sources` vide car le texte n'a aucun [[id]] sur ce passage ni sur les mesures électrochimiques.
+- Réacteur : « stainless-steel reactor … in a vacuum drying oven » lu littéralement ; pas de PTFE ni de volume, donc volume, remplissage, pression déclarés non cités.
+- Durée « two hours » (sonication) et « overnight » (séchage) : `value_text`, le nombre n'étant pas dans la citation.
+- XRD : le texte dit « five peaks » et en liste six ; XPS : légende de la figure 4 (P 2p en c, Co 2p en d) contredit le texte ; attribution 2p1/2 / 2p3/2 inversée par rapport à l'usage. Citations gardées telles quelles, doutes consignés.
+- Surpotentiel 144 mV extrait sans densité de courant : seule la phrase sur Pt/C donne 10 mA cm−2 ; je n'ai pas transféré cette condition au composite.
+- Figures : fig. 5 ouverte (courbes LSV/Tafel/CV) ; toutes les valeurs utiles sont déjà dans le texte, aucune valeur lue sur figure. Les figures 1-4 sont des schémas, images MET, XRD, XPS sans résultats comparatifs absents du texte.
+- Pas de voie `device` : l'électrode de travail est mentionnée sans préparation (encre, charge) ; signalé en `limite_reproductibilite`.
+- Mécanisme : `mecanisme_auteurs` (liaison électrostatique Co2+/phosphate, DNA = source de N et P) ; `mecanisme_analyse` en hypothèse (Co(OH)2 → Co3O4, réduction carbothermique des phosphates). Sécurité : seulement `securite_analyse` (l'article n'écrit aucune précaution).

@@ -1,0 +1,574 @@
+{
+  "pmcid": "PMC4973716",
+  "routes": [
+    {
+      "label": "Eucalyptus_extract",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "charge nominale de matière végétale",
+          "inputs": "50 g de poudre de feuilles séchées ; 500 mL d'eau déionisée",
+          "formula": "m(poudre)/V(eau)",
+          "result": "100 g/L (soit 6 mL d'extrait = 0,6 g d'équivalent poudre de feuille)",
+          "compared_to": "aucune valeur d'extrait sec donnée par les auteurs",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "perte d'eau par ébullition 2 h en récipient ouvert",
+          "inputs": "ébullition 2 h, aucune mention de reflux ni de récipient fermé, volume final non donné",
+          "formula": "V(final) = V(initial) - V(évaporé) ; V(évaporé) inconnu",
+          "result": "non calculable : la concentration finale de l'extrait est indéterminée (perte typique de plusieurs dizaines de pour cent sur 2 h d'ébullition libre)",
+          "compared_to": "les 6 mL prélevés ensuite, dont la teneur en réducteurs dépend directement de ce volume final",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "budget réducteur apporté par 6 mL d'extrait (ordre de grandeur)",
+          "inputs": "0,6 g d'équivalent feuille ; teneur en polyphénols extractibles non donnée par les auteurs (hypothèse large 10-100 mg/g, M ≈ 170 g/mol en équivalent acide gallique) ; 2 électrons au moins par unité catéchol/galloyl",
+          "formula": "n(e-) ≈ 2 × m(polyphénols)/M",
+          "result": "≈ 0,07-0,7 mmol d'électrons (estimation, non vérifiable avec les données de l'article)",
+          "compared_to": "1 µmol d'électrons nécessaires pour 1 µmol d'Ag+ (0,01 mM × 100 mL) : énorme excès ; mais seulement un facteur 0,07-0,7 pour 1 mmol d'Ag+ (hypothèse 0,01 M)",
+          "source": "estimation arithmétique ; teneur en polyphénols non fournie par l'article, aucune source retenue"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "La concentration de l'extrait (matière sèche, teneur en polyphénols, volume final après 2 h d'ébullition libre) n'est donnée nulle part : voir le calcul « perte d'eau par ébullition 2 h en récipient ouvert ». Deux extraits préparés selon ce texte peuvent différer d'un facteur 2 en pouvoir réducteur. C'est le premier obstacle à la reproduction, d'autant que la quantité d'Ag+ à réduire est elle-même douteuse (voir la voie AgNPs_Eucalyptus).",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Décoction aqueuse 2 h à 100 °C en récipient ouvert : aucune incompatibilité (eau, point d'ébullition 100 °C à 1 atm). La filtration « à chaud » sur papier Whatman 1 est usuelle. Rien d'invraisemblable dans l'étape elle-même.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "cinetique",
+          "finding": "2 h d'ébullition extraient bien les polyphénols hydrosolubles, mais dégradent aussi une partie des flavonoïdes et des terpènes volatils d'Eucalyptus (entraînement à la vapeur des huiles essentielles en récipient ouvert). La composition réductrice du filtrat n'est donc ni mesurée ni stable ; les synthèses vertes par extraits sont connues pour cette variabilité.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {
+            "title": "Green synthesis of metal nanoparticles using plants",
+            "authors_or_publisher": "Iravani, Green Chemistry (RSC)",
+            "year": "2011",
+            "url_or_doi": "10.1039/c1gc15386b"
+          }
+        },
+        {
+          "aspect": "securite",
+          "finding": "Rien de dangereux (eau, feuilles). Pas de remarque.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "absent",
+        "proposed": "Extraction hydrosoluble classique : hydrolyse partielle des tanins et solubilisation des phénols, flavonoïdes et sucres réducteurs de la feuille ; ce sont ces espèces, et non une molécule identifiée, qui porteront ensuite la réduction de Ag+.",
+        "sources": [
+          {
+            "title": "Green synthesis of metal nanoparticles using plants",
+            "authors_or_publisher": "Iravani, Green Chemistry (RSC)",
+            "year": "2011",
+            "url_or_doi": "10.1039/c1gc15386b"
+          }
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "mesurer et consigner le volume final après 2 h d'ébullition, ou travailler à reflux pour fixer le volume",
+        "doser la matière sèche et les polyphénols totaux (Folin-Ciocalteu) du filtrat : c'est le seul moyen de rendre le lot comparable",
+        "fixer la conservation du filtrat (le texte n'en dit rien) : les polyphénols s'oxydent en quelques heures à l'air"
+      ]
+    },
+    {
+      "label": "AgNPs_Eucalyptus",
+      "verdict": "incoherente",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {
+          "what": "quantité d'argent disponible par lot, telle qu'écrite",
+          "inputs": "100 mL de AgNO3 aqueux à 0,01 mM ; M(Ag) = 107,87 g/mol",
+          "formula": "n = C × V ; m = n × M(Ag)",
+          "result": "n(Ag) = 1,0 × 10-6 mol = 1,0 µmol ; m(Ag) = 108 µg au maximum (rendement 100 %)",
+          "compared_to": "argent effectivement consommé par les essais (calcul suivant)",
+          "source": "masse molaire de l'argent : table périodique (valeur de manuel)"
+        },
+        {
+          "what": "argent consommé par les essais décrits",
+          "inputs": "essai d'adjuvanticité : 200 + 400 + 600 + 800 µg = 2 000 µg ; test NIH : 4 dilutions × 10 souris × 0,5 mL × 2 injections = 40 mL de vaccin dilué, dont 1/5 = 8 mL d'équivalent vaccin non dilué à 600 µg/mL pour la seule dilution 1/5 (≈ 1 200 µg) ; toxicité anormale : 5 souris × 300 µg = 1 500 µg ; chiens : 2 × double dose, quantité non écrite ; essais MTT à 10 mg/mL",
+          "formula": "somme des masses d'AgNPs utilisées",
+          "result": "≳ 5-7 mg d'AgNPs, sans compter le MTT (où 6 puits à 10 mg/mL × 100 µL font déjà 6 mg) ni les chiens",
+          "compared_to": "108 µg disponibles par lot : il manque un facteur ≈ 50 à 100",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "concentration de AgNO3 nécessaire pour boucler le bilan",
+          "inputs": "besoin ≈ 6 mg d'Ag ; 100 mL de solution",
+          "formula": "C = m / (M × V)",
+          "result": "≈ 0,56 mM par lot pour 6 mg, soit ≈ 1 mM en pratique ; 0,01 M (= 10 mM) donnerait 108 mg par lot",
+          "compared_to": "0,01 mM écrit dans l'article ; valeur modale de la base pour une synthèse verte d'AgNPs : 1 mM (72 occurrences sur 193 mentions de AgNO3 dans extractions/)",
+          "source": "base du projet (grep des concentrations de AgNO3 dans extractions/)"
+        },
+        {
+          "what": "contrôle de Bragg sur les trois raies DRX",
+          "inputs": "2θ = 38,4 ; 44,5 ; 64,8 ° ; λ(Cu Kα1) = 1,540 56 Å (longueur d'onde non déclarée par les auteurs, hypothèse Cu)",
+          "formula": "d = λ/(2 sin θ) ; a = d×√3 (111), 2d (200), d×√8 (220)",
+          "result": "d = 2,342 ; 2,035 ; 1,438 Å → a = 4,057 ; 4,070 ; 4,065 Å",
+          "compared_to": "argent cfc, a = 4,0862 Å (fiche JCPDS 04-0783 citée par les auteurs) : écart 0,4-0,7 %",
+          "source": "NIST X-ray Transition Energies Database, https://physics.nist.gov/PhysRefData/XrayTrans/ (Cu Kα1) ; fiche JCPDS 04-0783 citée par l'article"
+        },
+        {
+          "what": "rendement massique annoncé",
+          "inputs": "aucune masse de produit pesée dans l'article",
+          "formula": "m(produit)/m(Ag introduit)",
+          "result": "non calculable",
+          "compared_to": "108 µg théoriques (voir premier calcul) : une poudre de 100 µg est à la limite du pesable et du centrifugeable en pellet lavé 3 fois",
+          "source": "valeurs de l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Incohérence majeure de bilan de matière : 100 mL de AgNO3 0,01 mM ne contiennent que 1 µmol d'argent, soit 108 µg au maximum, alors que les essais consomment au moins 5 à 7 mg d'AgNPs (voir les deux premiers calculs) — facteur 50 à 100. Soit la concentration est fausse (0,01 M, ou 1 mM comme dans 72 des autres extractions de la base), soit des dizaines de lots ont été réunis sans que l'article le dise. Tel qu'écrit, le protocole ne peut pas fournir la matière des expériences décrites.",
+          "status": "probleme",
+          "basis": "comparaison_base",
+          "source": {
+            "title": "Base du projet : concentrations de AgNO3 des synthèses vertes d'AgNPs déjà extraites (PMC3700086 1 mM, PMC4043712, PMC3998862, PMC3833323...)",
+            "authors_or_publisher": "base synthese.db / extractions",
+            "year": "2026",
+            "url_or_doi": "fichiers extractions/*.json du dépôt"
+          }
+        },
+        {
+          "aspect": "cinetique",
+          "finding": "La durée et la température de l'incubation extrait/AgNO3 ne sont pas données : l'unique critère d'arrêt est le virage au « dirty brown ». À 0,01 mM, la bande plasmon de 1 µmol d'Ag dans 106 mL serait très faible et la coloration à peine perceptible (absorbance attendue bien en dessous de 0,1 pour un coefficient d'extinction de l'ordre de 10^10 M-1 cm-1 par particule de 60 nm, soit ≈ 10^-11 mol de particules) : la description expérimentale (« colorless → dirty brown ») est elle-même incompatible avec la concentration écrite, ce qui renforce l'hypothèse d'une erreur d'unité.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Contrôle de Bragg concluant : les trois raies à 38,4 / 44,5 / 64,8 ° redonnent a = 4,057-4,070 Å contre 4,0862 Å pour l'argent cfc (JCPDS 04-0783), à 0,4-0,7 % près ; l'attribution (111)/(200)/(220) est correcte et l'absence de raies de AgCl (27,8 / 32,2 / 46,2 ° pour la cérargyrite) ou de Ag2O est une preuve discriminante acceptable de l'argent métallique. Deux réserves : la longueur d'onde n'est pas déclarée, et la plage annoncée (jusqu'à 110 °) devrait montrer (311) à ≈ 77,4 ° et (222) à ≈ 81,5 °, non rapportées.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Pic plasmon à 438 nm pour des particules sphériques de 50-70 nm : cohérent (le maximum passe d'environ 400 nm à 5-10 nm à 440-470 nm vers 60-100 nm). La DLS (63 nm en moyenne) est compatible avec le MEB (50-70 nm), le diamètre hydrodynamique étant par construction supérieur ou égal au diamètre sec. Cohérent aussi avec la base (PMC4043712 : λmax 440 nm, DLS 63,9 nm).",
+          "status": "ok",
+          "basis": "litterature",
+          "source": {
+            "title": "Size-controlled silver nanoparticles synthesized over the range 5-100 nm using the same protocol and their antibacterial efficacy",
+            "authors_or_publisher": "Agnihotri, Mukherji, Mukherji, RSC Advances",
+            "year": "2014",
+            "url_or_doi": "10.1039/c3ra44507k"
+          }
+        },
+        {
+          "aspect": "solubilite",
+          "finding": "Potentiel zêta de -14,9 mV : en dessous du seuil conventionnel de ±30 mV au-delà duquel la répulsion électrostatique stabilise une suspension. Les auteurs écrivent pourtant « No instability was observed during the incubation » sans donner de durée ni de mesure de suivi. Dans la base, les AgNPs vertes comparables sont à -28,3 mV (PMC3998862) et -31 mV (PMC4043712) : -14,9 mV est le point faible de cette préparation, et il devient critique à l'étape de redispersion dans un milieu salin (voir la voie Vaccine_15mgkg).",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {
+            "title": "Zeta potential - An introduction in 30 minutes (Technical note TN101104)",
+            "authors_or_publisher": "Malvern Panalytical",
+            "year": "2015",
+            "url_or_doi": "https://www.malvernpanalytical.com/br/learn/knowledge-center/technical-notes/TN101104ZetaPotentialIntroduction"
+          }
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Séchage du culot repris dans l'éthanol à 75 °C pendant 120 min : sous le point d'ébullition de l'éthanol (78,2 °C), l'évaporation est donc lente mais réelle, et l'étuve n'est pas décrite comme ventilée ni antidéflagrante (vapeurs d'éthanol inflammables, limite inférieure d'explosivité 3,3 % vol.). Surtout, sécher 2 h à 75 °C une poudre d'argent de 60 nm sans agent de coiffe ajouté favorise l'agrégation et le frittage de surface : aucune étape de redispersion (ultrasons, tensioactif) n'est décrite avant l'emploi, alors que la DLS a vraisemblablement été mesurée avant séchage.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "bilan",
+          "finding": "Contradiction interne dans la même phrase des Méthodes : les AgNPs sont « stored at 4 °C for a few days » et « subsequent procedures were performed immediately ». L'une des deux mentions est fausse, et la différence compte (vieillissement, agrégation d'une poudre à -14,9 mV).",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "securite",
+          "finding": "Non écrit par les auteurs : AgNO3 est un oxydant et un corrosif (taches noires indélébiles sur la peau, lésions oculaires) ; la poudre sèche d'AgNPs de 60 nm est une nanopoudre inhalable à manipuler en sorbonne avec protection respiratoire ; les vapeurs d'éthanol de l'étuve sont inflammables. Aucune de ces précautions n'apparaît pour la partie synthèse (la hotte de classe II n'est mentionnée que pour le mélange avec le virus).",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {
+            "title": "CAMEO Chemicals (fiches de réactivité : silver nitrate, ethanol)",
+            "authors_or_publisher": "NOAA Office of Response and Restoration",
+            "year": "2026",
+            "url_or_doi": "https://cameochemicals.noaa.gov/"
+          }
+        },
+        {
+          "aspect": "redox",
+          "finding": "Sur le principe, la réduction de Ag+ (E° Ag+/Ag = +0,80 V) par des polyphénols (couples quinone/hydroquinone typiquement entre +0,1 et +0,5 V à pH neutre) est thermodynamiquement favorable, à température ambiante et sans réducteur fort : la voie est chimiquement sensée. Le budget réducteur est largement suffisant pour 1 µmol d'Ag+ ; il deviendrait tout juste suffisant pour 1 mmol (hypothèse 0,01 M), voir le calcul de budget réducteur de la voie Eucalyptus_extract, non vérifiable faute de teneur en polyphénols.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {
+            "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+            "authors_or_publisher": "Raveendran, Fu, Wallen, JACS",
+            "year": "2003",
+            "url_or_doi": "10.1021/ja029267j"
+          }
+        },
+        {
+          "aspect": "bilan",
+          "finding": "La préparation est renvoyée à une communication antérieure (« The preparation method of AgNPs was described earlier »), inaccessible ; combinée aux manques (durée d'incubation, température, concentration de l'extrait, pureté du nitrate, volume d'éthanol, rendement), cela rend la voie non refaisable à l'identique même en corrigeant la concentration.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Réduction de Ag+ en Ag0 par les polyphénols et flavonoïdes de l'extrait (oxydation des groupes catéchol/galloyl en quinones, libération de 2 électrons par unité, aidée par la chélation préalable de Ag+ par les fonctions phénoliques), nucléation homogène puis croissance jusqu'à 50-70 nm ; les mêmes molécules (et les polysaccharides de la décoction) restent adsorbées et assurent une stabilisation surtout stérique, le potentiel zêta de -14,9 mV étant trop faible pour une stabilisation électrostatique. La croissance jusqu'à 60 nm, grossière pour une synthèse verte, s'explique par l'absence de contrôle du pH et par un rapport réducteur/Ag+ très élevé qui prolonge la croissance au détriment de la nucléation (régime de LaMer : peu de germes, grosses particules). Le virage « colorless → dirty brown » correspond à l'apparition de la bande plasmon vers 438 nm, le qualificatif « sale » suggérant un fond de diffusion dû à des agrégats.",
+        "sources": [
+          {
+            "title": "Green synthesis of metal nanoparticles using plants",
+            "authors_or_publisher": "Iravani, Green Chemistry (RSC)",
+            "year": "2011",
+            "url_or_doi": "10.1039/c1gc15386b"
+          },
+          {
+            "title": "Completely \"Green\" Synthesis and Stabilization of Metal Nanoparticles",
+            "authors_or_publisher": "Raveendran, Fu, Wallen, JACS",
+            "year": "2003",
+            "url_or_doi": "10.1021/ja029267j"
+          },
+          {
+            "title": "Theory, Production and Mechanism of Formation of Monodispersed Hydrosols",
+            "authors_or_publisher": "LaMer & Dinegar, JACS",
+            "year": "1950",
+            "url_or_doi": "10.1021/ja01167a001"
+          }
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "la concentration de AgNO3 : refaire le bilan massique avant de lancer la synthèse ; viser 1 mM (ou 0,01 M) et peser le produit sec pour vérifier le rendement",
+        "la durée et la température de l'incubation : suivre l'absorbance à 438 nm jusqu'au plateau plutôt que de se fier à la couleur",
+        "la teneur en polyphénols de l'extrait (Folin-Ciocalteu) et le pH du mélange, non contrôlés ici : ils fixent la taille",
+        "l'état d'agrégation après séchage à 75 °C et redispersion (DLS avant et après séchage, pas seulement sur le colloïde frais)",
+        "l'absence d'AgCl ou de Ag2O résiduel par DRX sur la poudre réellement utilisée dans les vaccins"
+      ]
+    },
+    {
+      "label": "Vaccine_15mgkg",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "cohérence µg par mL de virus ↔ mg/kg",
+          "inputs": "600 µg d'AgNPs par 1 mL de virus inactivé ; dose injectée 0,5 mL ; souris de 20 g (valeur donnée pour le test NIH)",
+          "formula": "dose = 600 µg/mL × 0,5 mL = 300 µg ; 300 µg / 0,020 kg",
+          "result": "300 µg par dose, soit 15 mg/kg",
+          "compared_to": "les 15 mg/kg et « 300 µg AgNPs per injection dose » écrits dans l'article : identiques ; la correspondance 200/400/600/800 µg ↔ 5/10/15/20 mg/kg est donc arithmétiquement confirmée",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "dose cumulée d'argent par souris",
+          "inputs": "300 µg par injection ; injections aux jours 1 et 7 ; souris de 20 g",
+          "formula": "2 × 300 µg / 0,020 kg",
+          "result": "600 µg par souris, soit 30 mg/kg cumulés par voie intrapéritonéale",
+          "compared_to": "10 mg/kg en une injection intraveineuse unique suffisent à provoquer une nécrose hépatocytaire médiozonale chez la souris avec des AgNPs de 10 nm (Particle and Fibre Toxicology 2016)",
+          "source": "valeurs de l'article ; comparaison littérature (voir checks)"
+        },
+        {
+          "what": "quantité d'AgNPs par puits dans l'essai MTT",
+          "inputs": "100 µL d'une suspension à 10 mg/mL (10^1 mg/mL, la plus forte concentration testée)",
+          "formula": "m = C × V",
+          "result": "1,0 mg d'AgNPs par puits",
+          "compared_to": "5 000 cellules par puits et une plage de cytotoxicité usuelle des AgNPs de l'ordre de 5-50 µg/mL : la concentration déclarée non toxique est 200 à 2 000 fois plus élevée",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "force ionique du milieu d'injection du test de toxicité anormale",
+          "inputs": "NaCl 9 g/L ; M(NaCl) = 58,44 g/mol",
+          "formula": "C = m/(M×V)",
+          "result": "0,154 mol/L",
+          "compared_to": "concentrations critiques de coagulation rapportées autour de 80 mM NaCl pour des AgNPs pourtant coiffées de polysaccharides ; ici le potentiel zêta n'est que de -14,9 mV",
+          "source": "masse molaire de NaCl : valeur de manuel ; comparaison littérature (voir checks)"
+        },
+        {
+          "what": "effectifs du test NIH",
+          "inputs": "Méthodes : dix souris par dilution ; tableau 2, ligne AgNPs : 11+4, 5+6, 2+11, 2+10 ; lignes référence et alum : 16, 15, 14, 13 et 16, 15, 15, 16",
+          "formula": "somme vivants + morts par dilution",
+          "result": "15, 11, 13, 12 souris (AgNPs) ; 13 à 16 (référence et alum)",
+          "compared_to": "les 10 souris par dilution annoncées : aucun total ne correspond",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "survies recalculées du test NIH",
+          "inputs": "11/15 à la dilution 1/5 ; 5/11 à 1/25",
+          "formula": "vivants/total",
+          "result": "73,3 % et 45,45 %",
+          "compared_to": "les 73,3 % et 45,45 % écrits dans la Discussion : arithmétique des auteurs correcte",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "doses d'argent aux dilutions du test NIH",
+          "inputs": "15 mg/kg dilué 1/5 et 1/25",
+          "formula": "dose/facteur de dilution",
+          "result": "3 mg/kg et 0,6 mg/kg (= 600 µg/kg)",
+          "compared_to": "les 3 mg/kg et 600 µg/kg écrits dans la Discussion : cohérents",
+          "source": "valeurs de l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Le protocole de chargement lui-même (ajout des AgNPs à 1 mL de virus inactivé, agitation douce une nuit à 4 °C sous hotte de classe II) est simple et transposable ; la correspondance µg/mL ↔ mg/kg se recalcule exactement (premier calcul), ce qui lève le doute de l'extracteur sur les branches. Manquent en revanche le titre antigénique du virus inactivé (donc le rapport AgNPs/antigène, que la Discussion présente comme la variable clé), le pH et la force ionique du milieu viral, et la vitesse d'agitation.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "mecanisme",
+          "finding": "Le mécanisme avancé (piégeage de l'antigène par les AgNPs puis libération prolongée) n'est étayé par aucune mesure : pas de potentiel zêta ni de taille après chargement, pas de dosage de l'antigène libre (centrifugation + Bradford/ELISA), pas de microscopie du complexe. Toute adsorption est d'ailleurs peu probable d'être forte à pH neutre entre un virion globalement négatif et une surface d'AgNPs négative (-14,9 mV) sans pont cationique : l'hypothèse alternative simple — les AgNPs agissent comme immunostimulant indépendant, sans association physique avec l'antigène — n'est pas écartée par les données montrées. La preuve n'est pas discriminante.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Le témoin décisif manque : les Méthodes annoncent le virus inactivé seul comme témoin négatif, mais le tableau 1 et la figure 5 ne rapportent que le PBS. Sans le bras « vaccin sans adjuvant », l'effet attribué aux AgNPs n'est pas isolé — comparer un vaccin adjuvanté au PBS prouve seulement que le vaccin protège. Il manque aussi un bras « AgNPs seules » pour exclure une protection non spécifique. Témoin à faire : antigène seul à titre identique, et AgNPs seules.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Statistique inadaptée : la significativité de 4/6 survivants contre 0/6 (PBS) est annoncée par test du khi-deux, alors que les effectifs attendus sont inférieurs à 5 (test exact de Fisher requis ; 4/6 vs 0/6 donne p ≈ 0,06, soit non significatif au seuil de 5 %). De plus la légende de la figure 5 dit que la comparaison porte sur le groupe alun et le texte sur le groupe PBS : la conclusion « la plus forte viabilité est significative » n'est pas établie telle qu'écrite.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Les effectifs du test NIH ne collent pas avec les Méthodes : dix souris par dilution annoncées, totaux de 11 à 16 dans le tableau 2 (cinquième calcul). Et la puissance est calculée par la méthode des probits selon les Méthodes, par Spearman-Karber selon la note du tableau 2. Deux méthodes différentes sur le même tableau : la valeur 1,303 n'est pas reproductible à partir des données publiées. Un chimiste ou un biologiste qui veut refaire le calcul doit demander les effectifs réels.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "L'argument central de la Discussion (« seul le rapport nanoparticules/antigène compte ») compare la dilution 1/5 du test NIH (3 mg/kg, rapport AgNPs/antigène inchangé, antigène divisé par 5) au groupe 5 mg/kg de l'essai d'adjuvanticité (antigène non dilué, rapport 3 fois plus faible) : deux variables changent à la fois (dose d'antigène et rapport), et les deux essais diffèrent aussi par la date, le lot et le nombre d'animaux. Ce témoin ne prouve rien. Il faudrait faire varier la quantité d'AgNPs à antigène constant, puis l'antigène à AgNPs constantes.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "L'absence de toxicité in vitro à 10 mg/mL (1,0 mg d'AgNPs par puits, troisième calcul) est hors des ordres de grandeur connus : la cytotoxicité des AgNPs apparaît typiquement entre quelques µg/mL et quelques dizaines de µg/mL selon la lignée et le revêtement, soit 200 à 2 000 fois moins. À 10 mg/mL la suspension est opaque et sédimente sur le tapis cellulaire ; aucun témoin d'interférence optique des nanoparticules sur la lecture à 570/630 nm, ni de contrôle de la sédimentation, n'est décrit. Une viabilité de 89 % dans ces conditions est plus probablement un artefact de mesure qu'une innocuité.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {
+            "title": "Comparative cytotoxicity of silver nanoparticles across mammalian cell lines (0-50 µg/mL, MTS) - article PMC4537384",
+            "authors_or_publisher": "PubMed Central (PMC4537384) ; auteurs non vérifiables depuis le cloud (NCBI et Europe PMC inaccessibles)",
+            "year": "2015",
+            "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4537384"
+          }
+        },
+        {
+          "aspect": "securite",
+          "finding": "La dose cumulée de 30 mg/kg d'argent par souris (deuxième calcul) est élevée au regard de la littérature : une injection intraveineuse unique de 10 mg/kg d'AgNPs de 10 nm provoque chez la souris une nécrose hépatocytaire médiozonale et une hémorragie vésiculaire. Les particules de 60 nm sont moins agressives que celles de 10 nm, et la voie intrapéritonéale n'est pas la voie intraveineuse, mais conclure à l'innocuité sur la seule observation clinique à 24 h (tableau 3), sans histologie, sans biochimie hépatique et sans dosage de l'argent dans les organes, n'est pas justifié. L'article écrit par ailleurs « AgNPs at a concentration of 15 mg/mL did not exert any in vivo toxic effect » là où il s'agit de 15 mg/kg : confusion d'unité dans la Discussion.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {
+            "title": "Tissue distribution and acute toxicity of silver after single intravenous administration in mice: nano-specific and size-dependent effects",
+            "authors_or_publisher": "Particle and Fibre Toxicology (BioMed Central) ; liste d'auteurs non vérifiée depuis le cloud",
+            "year": "2016",
+            "url_or_doi": "10.1186/s12989-016-0124-x"
+          }
+        },
+        {
+          "aspect": "solubilite",
+          "finding": "Pour le test de toxicité anormale, 300 µg d'AgNPs sont « dissolved » dans 0,5 mL de NaCl 9 g/L : l'argent métallique ne se dissout pas, il se disperse — et à 0,154 mol/L de NaCl (quatrième calcul), la double couche d'une particule à -14,9 mV est écrantée bien au-delà des concentrations critiques de coagulation rapportées (≈ 80 mM) pour des AgNPs mieux coiffées ; les chlorures convertissent de plus l'argent de surface en AgCl. Le matériau injecté par voie intraveineuse est donc vraisemblablement constitué d'agrégats, ce qui change la biodistribution et la toxicité, et prive l'essai de sa signification pour des « nanoparticules de 60 nm ». Aucune DLS dans le milieu d'injection n'est rapportée.",
+          "status": "probleme",
+          "basis": "litterature",
+          "source": {
+            "title": "Zeta potential - An introduction in 30 minutes (Technical note TN101104)",
+            "authors_or_publisher": "Malvern Panalytical",
+            "year": "2015",
+            "url_or_doi": "https://www.malvernpanalytical.com/br/learn/knowledge-center/technical-notes/TN101104ZetaPotentialIntroduction"
+          }
+        },
+        {
+          "aspect": "securite",
+          "finding": "Risque biologique sous-déclaré : l'épreuve utilise du virus rabique vivant CVS-11 à 20 DL50 inoculé par voie intracérébrale, et l'inactivation du lot vaccinal n'est pas contrôlée dans l'article (le « inactivity test » du test NIH est mentionné sans résultat). La rage vivante demande un confinement de niveau 2 à 3 selon les actes, la vaccination préexposition du personnel et une procédure en cas d'exposition ; l'article ne mentionne qu'une hotte de classe II pour le mélange et l'accord du comité d'éthique. À signaler à quiconque voudrait refaire ces essais.",
+          "status": "probleme",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "thermique",
+          "finding": "Agitation une nuit à 4 °C : température et durée compatibles avec la stabilité d'un virus inactivé et avec une adsorption protéique ; rien d'invraisemblable. Le choix de 4 °C est cohérent avec la conservation de l'antigène.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "Essai d'innocuité chez le chien : deux animaux, « double dose » dont la teneur en AgNPs n'est pas écrite, critères qualitatifs (tableau 4) et température. Cela répond formellement à la Pharmacopée européenne pour un essai d'innocuité, mais ne permet aucune conclusion de dose ; la quantité d'argent reçue par les chiens n'est pas reconstituable.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Deux contributions à distinguer, que l'article confond. (1) Association antigène-particule : à pH neutre et en milieu de force ionique modérée, un virion rabique inactivé (point isoélectrique bas, surface négative) et une surface d'AgNPs à -14,9 mV se repoussent ; une adsorption partielle reste possible par interactions hydrophobes et par pontage via les polyphénols de coiffe, mais elle serait faible et réversible — compatible avec l'observation que la dilution ne détruit pas l'effet, et insuffisante pour un véritable effet de dépôt. (2) Effet immunostimulant propre des AgNPs (libération lente d'Ag+, activation de l'inflammasome et recrutement de phagocytes au site intrapéritonéal), qui n'exige aucune association physique avec l'antigène et explique aussi bien les données. Avant de parler de « piégeage et libération prolongée », il faut mesurer la fraction d'antigène réellement liée.",
+        "sources": [
+          {
+            "title": "Zeta potential - An introduction in 30 minutes (Technical note TN101104)",
+            "authors_or_publisher": "Malvern Panalytical",
+            "year": "2015",
+            "url_or_doi": "https://www.malvernpanalytical.com/br/learn/knowledge-center/technical-notes/TN101104ZetaPotentialIntroduction"
+          }
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "le titre antigénique du virus inactivé (lot 92-1) : sans lui le rapport AgNPs/antigène, présenté comme la variable clé, n'est pas définissable",
+        "la fraction d'antigène réellement adsorbée après la nuit à 4 °C (centrifugation puis dosage du surnageant)",
+        "l'état d'agrégation des AgNPs dans le virus et dans le NaCl 9 g/L (DLS dans le milieu d'injection, pas dans l'eau)",
+        "inclure le bras « virus inactivé seul » annoncé dans les Méthodes et un bras « AgNPs seules »",
+        "refaire les comparaisons de survie par test exact de Fisher et rétablir les effectifs réels du test NIH",
+        "la méthode de calcul de la puissance (probits ou Spearman-Karber) et les effectifs utilisés"
+      ]
+    },
+    {
+      "label": "Vaccine_5mgkg",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "dose en mg/kg pour 200 µg par mL de virus",
+          "inputs": "200 µg/mL ; dose de 0,5 mL ; souris de 20 g",
+          "formula": "200 × 0,5 / 0,020",
+          "result": "100 µg par dose, soit 5 mg/kg",
+          "compared_to": "les 5 mg/kg du tableau 1 : cohérent",
+          "source": "valeurs de l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Branche propre : seule la quantité d'AgNPs change (200 µg par mL de virus), le reste du protocole est celui de la voie de base. La conversion redonne exactement 5 mg/kg.",
+          "status": "ok",
+          "basis": "chimie_generale"
+        },
+        {
+          "aspect": "resultats",
+          "finding": "2 survivants sur 6 : avec un tel effectif, la différence avec le groupe 15 mg/kg (4/6) n'est pas interprétable statistiquement (test exact de Fisher : p ≈ 0,57). La « courbe dose-réponse atteignant un plateau » décrite par les auteurs repose sur quatre groupes de 5 à 6 souris, sans réplicat : c'est une tendance, pas une relation établie.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Même mécanisme que la voie de base, avec une quantité d'argent trois fois plus faible ; voir la voie Vaccine_15mgkg.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "les effectifs par groupe (six annoncés, cinq dans le groupe 10 mg/kg du tableau 1) et la puissance statistique visée"
+      ]
+    },
+    {
+      "label": "Vaccine_10mgkg",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "dose en mg/kg pour 400 µg par mL de virus",
+          "inputs": "400 µg/mL ; dose de 0,5 mL ; souris de 20 g",
+          "formula": "400 × 0,5 / 0,020",
+          "result": "200 µg par dose, soit 10 mg/kg",
+          "compared_to": "les 10 mg/kg du tableau 1 : cohérent",
+          "source": "valeurs de l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "bilan",
+          "finding": "Conversion cohérente. En revanche le groupe ne compte que 5 souris au total dans le tableau 1 (2 vivantes, 3 mortes) alors que les Méthodes en annoncent six par groupe : une souris est perdue sans explication (mort hors rage, exclusion ?). Un animal manquant sur six change le taux de survie de 40 % à 33 %.",
+          "status": "reserve",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Même mécanisme que la voie de base ; voir Vaccine_15mgkg.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "le sort de la sixième souris du groupe 10 mg/kg et la règle d'exclusion des animaux"
+      ]
+    },
+    {
+      "label": "Vaccine_20mgkg",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {
+          "what": "dose en mg/kg pour 800 µg par mL de virus",
+          "inputs": "800 µg/mL ; dose de 0,5 mL ; souris de 20 g",
+          "formula": "800 × 0,5 / 0,020",
+          "result": "400 µg par dose, soit 20 mg/kg",
+          "compared_to": "les 20 mg/kg du tableau 1 : cohérent",
+          "source": "valeurs de l'article"
+        },
+        {
+          "what": "dose cumulée d'argent au niveau le plus haut",
+          "inputs": "400 µg par injection, deux injections, souris de 20 g",
+          "formula": "2 × 400 / 0,020",
+          "result": "40 mg/kg cumulés",
+          "compared_to": "10 mg/kg en intraveineuse unique déjà hépatotoxiques pour des AgNPs de 10 nm (Particle and Fibre Toxicology 2016)",
+          "source": "valeurs de l'article"
+        }
+      ],
+      "checks": [
+        {
+          "aspect": "securite",
+          "finding": "C'est la branche la plus chargée en argent (40 mg/kg cumulés). Aucun suivi de toxicité n'est rapporté pour ce groupe (le test de toxicité anormale porte sur 300 µg, soit la dose de 15 mg/kg) : l'innocuité de 20 mg/kg n'est donc pas documentée, alors que la survie n'y est pas meilleure qu'à 15 mg/kg (4/6 dans les deux cas). Le choix des auteurs de retenir 15 mg/kg est le bon, mais pour une raison qu'ils n'écrivent pas : à 20 mg/kg la charge en argent augmente sans bénéfice.",
+          "status": "reserve",
+          "basis": "litterature",
+          "source": {
+            "title": "Tissue distribution and acute toxicity of silver after single intravenous administration in mice: nano-specific and size-dependent effects",
+            "authors_or_publisher": "Particle and Fibre Toxicology (BioMed Central) ; liste d'auteurs non vérifiée depuis le cloud",
+            "year": "2016",
+            "url_or_doi": "10.1186/s12989-016-0124-x"
+          }
+        },
+        {
+          "aspect": "bilan",
+          "finding": "Conversion 800 µg/mL ↔ 20 mg/kg cohérente ; branche propre (une seule variable).",
+          "status": "ok",
+          "basis": "chimie_generale"
+        }
+      ],
+      "mechanism": {
+        "assessment": "ok",
+        "proposed": "Même mécanisme que la voie de base ; le plateau de survie entre 15 et 20 mg/kg est compatible avec une saturation de la capacité d'adsorption ou de la stimulation innée, mais les effectifs ne permettent pas de l'affirmer.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "la toxicité à 20 mg/kg, non évaluée dans l'article",
+        "la reproductibilité du plateau 15-20 mg/kg sur des groupes plus grands"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "La chimie de la synthèse est banale et sensée dans son principe (réduction de Ag+ par les polyphénols d'une décoction de feuilles, à température ambiante), et la caractérisation de l'argent métallique cfc tient : le contrôle de Bragg sur les trois raies DRX redonne a = 4,057-4,070 Å contre 4,0862 Å pour la fiche JCPDS 04-0783 citée, et le couple plasmon 438 nm / taille 50-70 nm est cohérent. Mais le bilan de matière ne ferme pas : 100 mL de AgNO3 à 0,01 mM ne contiennent que 1 µmol d'argent, soit 108 µg, alors que les essais en consomment au moins 5 à 7 mg — un facteur 50 à 100. La valeur écrite est très probablement une erreur d'unité (0,01 M) ou un facteur 100 (1 mM, la concentration modale des synthèses vertes d'AgNPs de la base) ; en l'état la voie ne peut pas être refaite. S'y ajoutent une durée d'incubation absente, une concentration d'extrait inconnue, un potentiel zêta de -14,9 mV incompatible avec la redispersion annoncée dans NaCl 0,154 mol/L, et une contradiction interne (« stored at 4 °C for a few days » / « performed immediately »). Côté démonstration vaccinale, le protocole de chargement est simple et la correspondance 200/400/600/800 µg par mL ↔ 5/10/15/20 mg/kg se recalcule exactement, mais le témoin décisif (antigène sans adjuvant) manque bien qu'annoncé dans les Méthodes, la significativité est annoncée par khi-deux sur des effectifs de 5 à 6 animaux (Fisher donne p ≈ 0,06 pour 4/6 contre 0/6), les effectifs du test NIH contredisent les Méthodes (11 à 16 souris au lieu de 10) et la puissance est attribuée à deux méthodes de calcul différentes. Enfin l'absence de cytotoxicité à 10 mg/mL (1 mg d'AgNPs par puits) est 200 à 2 000 fois au-dessus des concentrations où les AgNPs deviennent toxiques in vitro, sans aucun contrôle d'interférence optique ou de sédimentation : l'innocuité annoncée n'est pas démontrée, et la dose cumulée de 30 mg/kg d'argent par souris est du même ordre que des doses hépatotoxiques rapportées par voie intraveineuse.",
+    "author_errors_suspected": [
+      "Concentration de AgNO3 : 0,01 mM (100 mL) ne fournit que 108 µg d'argent pour ≳ 5-7 mg utilisés ; erreur d'unité très probable (0,01 M, ou 1 mM).",
+      "« Stored at 4 °C for a few days, and subsequent procedures were performed immediately » : les deux membres de la phrase se contredisent.",
+      "Plage DRX écrite « 10 °C-110 °C » pour des angles 2θ : confusion d'unité (degrés d'angle, pas de température).",
+      "Discussion : « AgNPs at a concentration of 15 mg/mL did not exert any in vivo toxic effect » là où il s'agit de 15 mg/kg.",
+      "Test de toxicité anormale : 300 µg d'AgNPs « dissolved » dans NaCl 9 g/L ; l'argent métallique ne se dissout pas, et à 0,154 mol/L il s'agrège (zêta -14,9 mV).",
+      "Test NIH : dix souris par dilution annoncées, totaux de 11 à 16 dans le tableau 2.",
+      "Puissance calculée « par la méthode des probits » (Méthodes) et « par Spearman-Karber » (note du tableau 2).",
+      "Groupe 10 mg/kg : 5 souris au total dans le tableau 1 contre six annoncées par groupe.",
+      "Témoin négatif : virus inactivé seul dans les Méthodes, PBS dans le tableau 1 et la figure 5 ; aucun résultat pour l'antigène non adjuvanté.",
+      "Figure 5 : la légende compare la significativité au groupe alun, le texte au groupe PBS.",
+      "Khi-deux appliqué à des effectifs de 5-6 animaux (effectifs attendus < 5) : test exact de Fisher requis ; 4/6 contre 0/6 n'est pas significatif à 5 %.",
+      "Innocuité in vitro annoncée jusqu'à 10 mg/mL sans contrôle d'interférence des nanoparticules sur la lecture MTT à 570/630 nm."
+    ],
+    "comparison_with_database": "Sur les 43 voies de base contenant « silver » de la base, la concentration de AgNO3 la plus fréquente pour une synthèse verte par extrait est 1 mM (72 mentions dans extractions/, puis 5 mM avec 39, 2 mM avec 17) ; 0,01 mM n'apparaît que dans PMC4973716, soit 100 fois moins que le mode — argument supplémentaire pour l'erreur d'unité. Les résultats, eux, sont très comparables à ceux de la base : PMC4043712 (bioréduction par extrait de racines) donne λmax 440 nm et 63,9 nm en DLS contre 438 nm et 63 nm ici ; PMC3998862 attribue ses raies à la même fiche JCPDS 04-0783 pour l'argent cfc ; PMC3833323, PMC3920662 et PMC3700086 situent le plasmon des AgNPs vertes entre 415 et 445 nm. En revanche le potentiel zêta de -14,9 mV est nettement moins négatif que ceux de la base (-28,3 mV pour PMC3998862, -31 mV pour PMC4043712) : c'est la préparation la moins stabilisée électrostatiquement du lot, ce qui est cohérent avec la taille élevée (60 nm, contre 5-30 nm pour la plupart des voies vertes de la base) et rend l'injection en milieu salin problématique."
+  },
+  "sources_not_found": [
+    "Teneur en polyphénols totaux d'une décoction aqueuse de feuilles d'Eucalyptus procera : aucune source retenue (le budget réducteur reste donc une estimation d'ordre de grandeur, explicitée dans les calculs).",
+    "Valeur d'IC50 des AgNPs sur la lignée L929 précisément : les recherches renvoient des valeurs dispersées (de l'ordre de 20-25 µg/mL pour des AgNPs biogéniques, non toxiques en dessous de 25 µg/mL pour d'autres préparations) sans source primaire vérifiable depuis le cloud ; seule la plage générale 5-50 µg/mL est retenue, appuyée sur PMC4537384.",
+    "Les DOI et PMCID cités (10.1186/s12989-016-0124-x, PMC4537384) n'ont pas pu être vérifiés sur Crossref ni sur NCBI/Europe PMC : ces domaines sont bloqués depuis le cloud. À vérifier depuis le PC.",
+    "Donnée de concentration critique de coagulation pour des AgNPs non coiffées en NaCl 0,154 mol/L : seules des valeurs pour AgNPs coiffées de polysaccharides (≈ 80 mM) ont été trouvées en résumé de recherche, sans source primaire vérifiable ; le raisonnement est présenté comme une extrapolation."
+  ]
+}

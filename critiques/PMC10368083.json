@@ -1,0 +1,87 @@
+{
+  "pmcid": "PMC10368083",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "manquant",
+      "where": "Condition comparée : réaction modèle sous argon, azote et oxygène (absente des outcomes, de l'inventaire et des caractérisations)",
+      "extracted": "Aucun outcome ni entrée de sample_inventory ; mentionné seulement dans le texte de l'annotation mecanisme_auteurs (dont la citation ne porte que sur « First, aldehyde is activated… »)",
+      "article_says": "The obtained results of the model reaction under argon, nitrogen and oxygen atmospheres are similar which are verified presented mechanism (Fig. 10).",
+      "fix": "ajouter à sample_inventory un échantillon « réaction modèle sous Ar / N2 / O2 » (route: null, essai catalytique) et un outcome qualitatif de la voie du catalyseur (value_text : résultats similaires sous argon, azote et oxygène, sans valeurs chiffrées) avec cette citation ; ou au minimum donner cette phrase comme citation de l'annotation mecanisme_auteurs",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "UiO-66(Zr)-N(CH2PO3H2)2, caractérisation FT-IR (bande à 1104 cm−1)",
+      "extracted": "FT-IR : bandes à 1014 et 1065 cm−1 (P–O) et pics 766 / 655 cm−1 ; la bande à 1104 cm−1 est absente",
+      "article_says": "the absorption bands at 1014 and 1065 cm−1 are related to P–O bond stretching and the band at 1104 cm−1 is related to P",
+      "fix": "ajouter la bande à 1104 cm−1 (élongation P=O ; le symbole = est perdu à l'extraction du texte, la citation s'arrête avant) à la caractérisation FT-IR",
+      "confidence": "sure"
+    },
+    {
+      "severity": "deduit",
+      "where": "UiO-66(Zr)-N(CH2PO3H2)2, réactif formaldehyde, supplier",
+      "extracted": "supplier = Merck or Sigma-Aldrich, avec la phrase générale « All materials and solvents such as … » comme citation",
+      "article_says": "ethanol, paraformaldehyde, phosphorous acid, p-toluene sulfonic acid (p-TSA)",
+      "fix": "la liste des matériaux nomme le paraformaldéhyde, pas le formaldéhyde de la procédure (« formaldehyde (0.06 g, 2 mmol) ») : la fourniture par Merck/Sigma pour le formaldéhyde est déduite. Soit marquer supplier non cité, soit nommer le réactif paraformaldehyde (l'équivalence 0,06 g = 2 mmol de CH2O vaut pour les deux) ; la doute existante en parle déjà, mais la case est remplie comme citée",
+      "confidence": "probable"
+    },
+    {
+      "severity": "non_cite_a_tort",
+      "where": "UiO-66(Zr)-N(CH2PO3H2)2 step 1 (reflux), temperature",
+      "extracted": "temperature déclarée not_stated",
+      "article_says": "were refluxed for 12 hours",
+      "fix": "l'article écrit bien « refluxed » dans l'éthanol : enregistrer temperature en value_text « reflux (éthanol) » avec cette citation (sans valeur numérique déduite, la mesure en °C reste non citée), comme pour les entrées « Reflux » du tableau 1",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "UiO-66(Zr)-N(CH2PO3H2)2, outcomes yield_run_1 à yield_run_7 (Fig. 11) : conditions du test de réutilisation",
+      "extracted": "sept rendements nommés yield_run_n, sans réaction ni conditions (aucune caractérisation « catalytic test » ne décrit le test de recyclage)",
+      "article_says": "by reaction of ethyl 2-oxopropanoate (1 mmol, 0.116 g), ammonium acetate (1.5 mmol, 0.115 g), malononitrile (1.2 mmol, 0.079 g) and 4-chlorobenzaldehyde (1 mmol, 0.140 g) as a model reaction under the above-mentioned optimized reaction conditions",
+      "fix": "ajouter une caractérisation « catalytic test: recyclability (Fig. 11) » avec ces quantités (réaction modèle, conditions optimisées du tableau 1 entrée 11 : 5 mg, EtOH, ambiante) et lister dans le non cité la durée de chaque cycle, le lavage et le séchage du catalyseur entre cycles",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "UiO-66(Zr)-N(CH2PO3H2)2, outcome reusability vs yield_run_1..7",
+      "extracted": "reusability = reused up to six times without noticeable changes in its catalytic activity ; yield_run_1 = 90 % … yield_run_7 = 75 % (valeurs de la Fig. 11 correctement lues : 90, 90, 85, 82, 77, 75, 75, cycle 1 à droite sur l'axe)",
+      "article_says": "can be reused up to six times without noticeable changes in its catalytic activity",
+      "fix": "ajouter une annotation limite_reproductibilite : la figure 11 montre une baisse de 15 points (90 % → 75 %) que les auteurs ne qualifient pas ; « six fois » (réutilisations) et sept barres (première utilisation + 6 réutilisations) sont compatibles avec « after seven times of use », ce que la doute actuelle présente à tort comme une incohérence",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "method_sources et annotation limite_reproductibilite : renvois du tableau 2 (catalyseurs comparés)",
+      "extracted": "« Les références des catalyseurs comparés dans le tableau 2 ne sont pas dans le texte » ; aucune entrée method_sources pour ces renvois",
+      "article_says": "1 | [Py-SO3H]Cl (ref. ) | 10 mol% | 120 | 40",
+      "fix": "le texte porte des marqueurs « (ref. ) » et corpus/refs/PMC10368083.txt contient les renvois cit49 ([Py-SO3H]Cl), cit50 et cit51 (SSA), cit52 (GTBSA), cit53 ([PVI-SO3H]Cl) : corriger l'affirmation de l'annotation. Quant à method_sources, ces renvois indiquent d'où viennent les catalyseurs comparés (préparation à refaire pour répéter le tableau 2), pas une phrase « according to » : à ajouter seulement si l'orchestrateur juge qu'ils servent à refaire l'essai du tableau 2",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "Tableau 2, entrées 1–8, 10 et 12 (autres catalyseurs : temps et rendements)",
+      "extracted": "résumés dans l'annotation tendance_observee par la seule fourchette « de 35 % (SSA) à 70 % » ; les durées (60 à 120 min) et les rendements individuels ne sont stockés nulle part",
+      "article_says": "3 | Al(HSO4)3 | 10 mol% | 90 | 45",
+      "fix": "si le choix de ne pas en faire des outcomes est maintenu, lister dans l'annotation catalyseur par catalyseur (quantité, durée, rendement) : p-TSA 10 mol% 60 min 60 %, H3PO4 10 mol% 80 min 70 %, H3PO3 5 mol% 85 min 70 %, etc., car la comparaison est l'argument des auteurs et la durée n'est dans aucune valeur",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 2,
+    "branches_extracted": 2,
+    "not_stated_checked": 31,
+    "not_stated_wrong": 1
+  },
+  "reproducibility_gaps": [
+    "UiO-66(Zr)-NH2 : ni quantités, ni volume de l'autoclave, ni isolement, lavage et séchage dans l'article (renvoi à la réf. 44) ; seules DMF, acide acétique, 120 °C et 24 h se lisent sur le schéma de la Fig. 4",
+    "Fonctionnalisation : température du reflux, agitation, atmosphère, durée du séchage sous vide, rendement et taux de greffage (aucune quantité de P ou N : l'EDX n'a que des cartes sans pourcentages) absents ; 2 mmol de HCHO et de H3PO3 pour 0,5 g de MOF ne permettent pas de dire si la substitution N(CH2PO3H2)2 est complète",
+    "Formaldéhyde ou paraformaldéhyde : la procédure et la liste des matériaux ne disent pas la même chose",
+    "Essais catalytiques : malononitrile 1,1 mmol (procédure générale) contre 1,2 mmol (réaction modèle, tableaux 1 et 2) avec la même masse 0,079 g, qui correspond à 1,2 mmol ; la durée est le temps de fin de réaction suivi par CCM, sans critère ; « ambient temperature » contre 25 °C",
+    "Tableau 3 : l'aldéhyde et le pyruvate (ester ou acide) de chaque produit ne sont pas écrits dans le texte, seulement sur le schéma ; rendement isolé ou non, volume d'éthanol de la recristallisation non donnés",
+    "Recyclage : durée de chaque cycle, lavage et séchage du catalyseur entre cycles non décrits ; rendement du cycle 1 (90 %) différent de l'entrée 11 du tableau 1 (88 %) pour la même réaction",
+    "Spectres : RMN de A6 et A7 quasiment identiques, 13C de B6 avec 8 pics seulement, IR de B6 « 34.8 » et de A3 « 230 » (fautes de frappe probables) : à signaler si les produits sont refaits"
+  ],
+  "mechanism_check": "ok : le résumé suit le texte et la Fig. 10 ; la citation de mecanisme_auteurs ne couvre que la première phrase du mécanisme (le reste est dans le même paragraphe), et le test sous Ar/N2/O2 y est cité sans sa phrase (voir constat 1)",
+  "notes": "Points demandés : (a) les 16 rendements, durées et points de fusion du tableau 3 ont été lus sur d3ra03438k-u3.jpg : les 48 valeurs de l'extraction sont exactes, aucun écart ; les points de fusion concordent avec ceux du texte. (b) Rangées des tableaux 1 et 2 : les 16 rangées du tableau 1 et les entrées 9 et 11 du tableau 2 sont attribuées sans erreur, y compris Reflux / 25 / 50 °C et les entrées 15-16 sans solvant ; le texte « entries 1–10 » et « entries 9–14 » est incohérent avec le tableau (l'éthanol occupe les entrées 9 à 14), déjà signalé par l'extracteur. (c) Fig. 4 : DMF, HOAc, 120 °C, 24 h, autoclave en Téflon, puis reflux EtOH / p-TSA 10 mol% : conforme à l'extraction (from_figure correct) ; la citation attachée aux paramètres est la légende de la figure, qui ne contient pas les valeurs, ce qui est la convention pour from_figure. (d) Fig. 11 : sept barres, 90, 90, 85, 82, 77, 75, 75, axe 7 à 1 de gauche à droite : l'attribution run_1 = 90 est la bonne ; six réutilisations + première utilisation = sept cycles, pas une incohérence. Aucun constat « faux ». Fragile dans ma lecture : l'équivalence « reflux » et valeur numérique, et l'appartenance des renvois cit49-53 aux sources de méthode (règle du 2026-10-13 ambiguë pour un renvoi dans une cellule de tableau)."
+}

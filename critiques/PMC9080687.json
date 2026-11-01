@@ -1,0 +1,113 @@
+{
+ "pmcid": "PMC9080687",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "deduit",
+   "where": "I_normal_100C_10min et I_urea1_85C_10min : tau1, tau2, tau3 (Tableau S4) et EIS_Rs, EIS_R1, EIS_R2 (Tableau S5)",
+   "extracted": "TRPL et EIS « MAPbI3 » rangés sur le témoin 100 °C, « urea » rangés sur l'urée 1 % à 85 °C",
+   "article_says": "Fig. 3d showed PL decay curves of MAPbI3-based perovskite thin films and the addition of 1% urea perovskite thin films.",
+   "fix": "L'article ne donne ni température ni durée de recuit pour les films/dispositifs TRPL et EIS (légendes de la Fig. 3d-e : « MAPbI3 » / « urea », Tableaux S4-S5 idem). Seule la Fig. 3b-c porte 100 °C et 85 °C. Garder le rangement mais ajouter une annotation limite_reproductibilite disant que la condition de recuit de ces mesures est supposée (témoin 100 °C ? 85 °C ? urée 85 °C ? 100 °C ?) ; ne pas laisser les valeurs apparaître comme des résultats sûrs de ces deux branches.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Cl_urea0.5_90C, Cl_urea1_90C, Cl_urea3_90C, Cl_thiourea0.5_90C, Cl_thiourea1_90C, Cl_thiourea3_90C : variation duration (étape 12) = 30 minutes",
+   "extracted": "duration = 30 minutes (value_text), parent 4.5 h ou 2.5 h",
+   "article_says": "The urea- and thiourea-derived films changed to opaque appearance in 30 minutes, which indicated an over-crystallization of the perovskites.",
+   "fix": "« 30 minutes » est le temps d'observation de l'aspect opaque, pas une durée de recuit imposée ; aucune durée de recuit n'est donnée pour ces six échantillons. Retirer la variation `duration` (la laisser héritée avec une case non citée, ou la noter hors paramètres) et garder time_to_opaque_appearance = 30 min en résultat, qui est déjà là.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "manquant",
+   "where": "Urée 0,5 % à 80 °C et urée 1 % à 75 °C, 2,5 h (grille température du système MAPbI3−xClx)",
+   "extracted": "aucune branche ; doute écrit (légende de Fig. S1 = urée à 65 °C seulement)",
+   "article_says": "We observed that the surface of the perovskite films still over-crystallized when 0.5% and 1% of urea was added at 80 °C and heated at 75 °C for 2.5 hours, respectively (Fig. S1 and S2†).",
+   "fix": "Le texte décrit bien deux échantillons d'urée à des températures autres que 65 °C, avec un résultat qualitatif (sur-cristallisation). La phrase est ambiguë (« at 80 °C and heated at 75 °C … respectively »), donc soit créer deux branches Cl_urea0.5_80C_2.5h et Cl_urea1_75C_2.5h avec le résultat « over-crystallized » et un doute sur l'appariement, soit consigner le passage en annotation limite_reproductibilite. L'article précise ensuite « we reduced the temperature to 80, 75 and 65 °C and fixed the additive concentration with 0.5% and 1% ».",
+   "confidence": "probable"
+  },
+  {
+   "severity": "attribution",
+   "where": "Cl_thiourea0.5_75C_2.5h : IPCE_max_at_640nm = 83.9 %",
+   "extracted": "83,9 % à 640 nm rangé sur la thiourée 0,5 % à 75 °C, 2,5 h (système MAPbI3−xClx)",
+   "article_says": "that the main contribution of IPCE spectra was about 450 nm to 750 nm upon addition of 0.5% thiourea under the same annealing conditions",
+   "fix": "La phrase renvoie à la Fig. S10, dont la légende est « Incident photon-to-current efficiency (IPCE) for MAPbI3 devices » (MAPbI3 100 °C, 85 °C, 65 °C 20 min, 0.5% thiourea 100 °C 10 min), alors que la Fig. S9 est celle des dispositifs MAPbI3−xClx. « Same annealing conditions » renvoie par ailleurs à la phrase précédente (65 °C pendant 4,5 h). Le couple 73,9 % → 83,9 % peut donc concerner la thiourée sur MAPbI3 à 100 °C, ou la thiourée à 65 °C sur MAPbI3−xClx, pas forcément 75 °C. À retirer de la branche ou à marquer comme attribution incertaine (doute) ; la valeur de départ 73,9 % n'est de toute façon pas identifiée.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "Cl_urea1_65C_4.5h et Cl_thiourea0.5_75C_2.5h, étape 8 « stir » : Stir the additive solution continuously overnight",
+   "extracted": "agitation une nuit rattachée à la solution d'additif (étape 8), pas de durée pour la dissolution du précurseur (étape 6, durée non citée)",
+   "article_says": "25 wt%, and then stirring continuously overnight.",
+   "fix": "La phrase du SI est mal ponctuée : « …dissolving MAI and lead(II) chloride at 25 wt% urea and thiourea were first dissolved in DMF at a concentration of 25 wt%, and then stirring continuously overnight. » L'agitation d'une nuit peut porter sur la solution d'additif, sur le précurseur, ou sur le mélange. Garder l'étape mais noter l'incertitude dans les doutes (aujourd'hui non signalée pour cette phrase).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "I_normal_65C_20min et I_urea1_65C_20min : citation de la branche (quote) et durée du recuit",
+   "extracted": "quote de la branche = phrase du texte « 65 °C (10 min) » ; variation duration = 20 min d'après le Tableau S2",
+   "article_says": "At an annealed temperature of 65 °C (10 min), the PCEs of the normal devices were 7.0 ± 0.2% while the PCEs of the 1% urea derived devices were 15.9 ± 0.3%.",
+   "fix": "Le texte dit 10 min, le Tableau S2 (« 65 oC (20min) ») et la Conclusion (« upon annealing at 65 °C for 20 minutes ») disent 20 min. Le choix de 20 min est bon, mais la contradiction n'est notée nulle part : ajouter un doute et une annotation limite_reproductibilite, et préférer pour la quote de branche la ligne du Tableau S2.",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "I_normal_100C_10min : caractérisation J–V, conditions « active area 0.01 cm2 »",
+   "extracted": "conditions J–V : AM 1.5 illumination (100 mW cm–2), active area 0.01 cm2",
+   "article_says": "The active area of the device was 10 mm2.",
+   "fix": "L'article donne deux surfaces contradictoires (0.01 cm2 pour l'électrode, 10 mm2 = 0,1 cm2 pour le dispositif). La surface écrite dans `conditions` n'est pas dans la quote de la caractérisation et choisit l'une des deux sans le dire. La retirer ou écrire « 0.01 cm2 (électrode) / 10 mm2 (dispositif) ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "I_normal_100C_10min step 9 (PC61BM) : not_stated spin_speed, duration",
+   "extracted": "spin_speed et duration déclarés non cités pour le dépôt de PC61BM ; 6000 rpm / 30 s réservés au BCP (étape 10)",
+   "article_says": "following deposited the BCP (2 mg mL−1 in IPA) via spin coating at 6000 rpm for 30 s.",
+   "fix": "La phrase « The PC61BM … was then sequentially deposited and following deposited the BCP … via spin coating at 6000 rpm for 30 s » peut se lire comme 6000 rpm / 30 s pour les deux couches (« sequentially deposited … via spin coating »). Lecture non tranchée par l'article ; ne pas déclarer « non cité » mais ajouter un doute, et noter dans limite_reproductibilite que les conditions de la couche de PC61BM sont au mieux partagées avec celles du BCP.",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "SI, Device Fabrication (système MAPbI3−xClx) : temps de recuit optimisés",
+   "extracted": "absent de l'extraction (aucune occurrence)",
+   "article_says": "An optimized annealing times for our normal (no urea or thiourea) and urea and thiourea",
+   "fix": "La phrase continue sur la ligne suivante du SI : « derived perovskite films were 2.5 and 4.5 h, respectively. » Donc 2,5 h pour le témoin et 4,5 h pour urée ET thiourée, ce qui contredit le texte principal et le Tableau S1 (thiourée 75 °C pendant 2,5 h). À consigner en doute et en limite_reproductibilité ; le SI dit aussi « We used the annealing temperature of 75 °C, 65 °C with the time necessary to fully crystallize MAPbI3–xClx being between 2.5 and 4.5 h ».",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "Cl_normal_65C_2.5h : résultat transformation (étape de recuit 2,5 h à 65 °C)",
+   "extracted": "« below 75 °C for 2 hours: transformation incomplete » rangé sur le témoin 65 °C, 2,5 h",
+   "article_says": "It was noteworthy that the transformation of MAPbI3−xClx from precursor to under the annealing temperature below 75 °C for 2 hours was incomplete for the perovskite films (w/o thiourea)",
+   "fix": "Le texte parle de « below 75 °C for 2 hours » (durée 2 h, température non précisée), la Fig. S3 de 65 °C pendant 2,5 h. Le rangement est une hypothèse raisonnable mais pas écrite ; le noter dans le doute déjà ouvert (durée 2 h vs 2,5 h) avec la même formulation sur la température (« below 75 °C » peut aussi couvrir 65 et 70 °C).",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "I_urea1_85C_10min : Tableau S3 (Jsc, Voc, FF des quatre balayages) et Tableau S5 (C1-T, C1-P, C2-T, C2-P)",
+   "extracted": "seul le PCE est extrait pour les quatre balayages du Tableau S3 ; seuls Rs, R1, R2 sont extraits du Tableau S5",
+   "article_says": "Table S3. The parameters of J–V characterization of 1% urea (85 oC) dervied MAPbI3 based",
+   "fix": "Les colonnes Jsc, Voc, FF du Tableau S3 (ex. Forward 0.2 s : 22.09, 1.06, 78.7) et C1-T, C1-P, C2-T, C2-P du Tableau S5 (MAPbI3 : 1.11E-8, 0.97, 4.30E-5, 0.55 ; urea : 5.64E-9, 1.0, 3.33E-5, 0.57) sont dans le texte du SI et n'ont pas été reprises. Omission, pas erreur de valeur.",
+   "confidence": "sure"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 40,
+  "branches_extracted": 38,
+  "not_stated_checked": 22,
+  "not_stated_wrong": 1
+ },
+ "reproducibility_gaps": [
+  "Système MAPbI3−xClx : solvant de la solution de précurseur, rapport MAI/PbCl2 et quantités absents (SI : « 25 wt% », texte : « 30 wt% »), conditions de dépôt à la tournette du film de pérovskite (vitesse, durée, volume, atmosphère) et atmosphère de recuit absentes",
+  "Quantité d'additif : « 0.5, 1 and 3 vol% » dans le SI (solution d'additif à 25 wt% dans DMF), « % » ou « wt% » dans le texte ; unité non précisée pour le système MAPbI3 ; la préparation de la solution d'additif n'est décrite que pour MAPbI3−xClx",
+  "Durée et atmosphère de l'agitation (une nuit ?) de la solution d'additif ou du précurseur : phrase du SI ambiguë",
+  "Durée de recuit des six échantillons à 90 °C avec 0,5, 1 et 3 % d'urée et de thiourée non donnée",
+  "MAI synthétisé « selon des techniques déjà rapportées » (réf. 37) sans protocole ; références 1 et 2 du SI (cuisson NiOx, recuit MAPbI3) absentes de la liste de l'article",
+  "Électrode arrière : Al (SI, MAPbI3−xClx) contre Ag (texte principal) ; « Ag or Au » pour MAPbI3 ; surface active 0.01 cm2 ou 10 mm2 ; mesure « ambient environment » ou « inside a glove box »",
+  "MAPbI3 : conditions de spin-coating du PC61BM (peut-être 6000 rpm, 30 s comme le BCP), atmosphère du dépôt et du recuit de la pérovskite, vitesse de chauffe",
+  "Conditions de recuit des mesures TRPL, EIS et PL (Fig. S11) non données ; films PL sur verre sans NiOx sans protocole",
+  "Images des Fig. S1 à S11 absentes du dépôt : la grille urée/thiourée × durée (18 échantillons) n'a de résultats que dans des images non lisibles"
+ ],
+ "mechanism_check": "ok",
+ "notes": "Extraction très soignée : toutes les valeurs numériques des Tableaux 1, S1, S2, S3, S4, S5 et des Fig. 2 et 3 que j'ai recontrôlées sont justes (une cinquantaine de cellules, 0 erreur de valeur). Mes échantillons correspondent à l'inventaire de l'extracteur (38 voies : 29 sur MAPbI3−xClx, 9 sur MAPbI3), sauf deux échantillons d'urée (80 et 75 °C) évoqués par une phrase ambiguë. Fig. 1b, 2 (valeurs de grain 184.9, 368.9, 369.8, 102.0, 935.1, 891.0 nm) et 3 ouvertes : les valeurs de la Fig. 2 sont celles du texte, la Fig. 3c montre un plateau d'IPCE vers 87 % à 600-610 nm, cohérent avec 87.4 % ; aucune valeur `from_figure` dans l'extraction. Points 5 (concentrations 1 % urée / 0,5 % thiourée des Tableaux S1/S2) : je ne les retiens pas comme constat, car le texte les écrit pour le Tableau S1 (« upon addition of 1% urea and 0.5% thiourea … Table S1 »), la légende de la Fig. S7 (1% urea 65 °C 4.5 h ; 0.5% thiourea 75 °C 2.5 h), la légende de la Fig. S8 (1% urea 100 °C 10 min ; 0.5% thiourea 100 °C 10 min) et le texte pour urée 85 et 65 °C ; seule la ligne « thiourea 65 oC (20min) » du Tableau S2 reste déduite (0,5 %, par la Fig. S5c). Les 16 branches de grille sans résultat (Fig. S1/S2) : à garder, ce sont des variations testées par les auteurs et leurs conditions sont écrites dans les légendes ; la lecture « respectively » (a, a-1, a-2 = 0,5, 1, 3 %) est correcte. Limite de ma lecture : le texte du SI est issu d'un PDF (cellules de tableau coupées), les images du SI ne sont pas dans le dépôt, donc aucune valeur du SI sous forme d'image n'a pu être contrôlée. Références SI 1 et 2 (Eperon ; Tan) : pas de contrôle possible sans web, leur lien avec le NiOx et le recuit est douteux."
+}

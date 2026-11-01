@@ -1,0 +1,95 @@
+{
+  "pmcid": "PMC5452327",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "mineur",
+      "where": "Table 3, mGOp, groupes C0 = 20 et 80 mg/L (Qe_C0_20mgL_*, Qe_C0_80mgL_*, delta_*_C0_20mgL, delta_*_C0_80mgL)",
+      "extracted": "C0 = 20 mg/L (Qe 22.02, Kc 1.22) et C0 = 80 mg/L (Qe 52.10, Kc 1.08), recopiés tels quels ; aucun doute ne signale l'incohérence",
+      "article_says": "mGOp | 20 | 298 | 22.02 | 1.22 | -0.50 | -27.04 | -0.089",
+      "fix": "ne pas changer les valeurs (fidèles à l'article) ; ajouter un doute et une annotation limite_reproductibilite : avec Qe = (C0 − Ce)·V/m et V/m = 1 L/g, Qe ne peut pas dépasser C0 (22,02 > 20), et Kc = Cs/Ce donne C0 = Qe(1+1/Kc) = 22,02 × 1,82 ≈ 40 mg/L pour le groupe « 20 », et 52,10 × 1,93 ≈ 100 mg/L pour le groupe « 80 » (mGOi 40/100/300 et mGOp 300 se recalculent bien : 40,0 / 101 / 301 / 300,5). Les C0 imprimés de mGOp sont probablement des coquilles de l'article (40 et 100) ; incohérence d'origine article, pas une erreur d'extraction",
+      "confidence": "sure"
+    },
+    {
+      "severity": "manquant",
+      "where": "conditions de l'essai d'adsorption (Table 1, Table 2, Table 3, Fig. 8) : aucune trace dans l'extraction",
+      "extracted": "aucun champ ni annotation ne porte le protocole d'essai (0,020 g d'adsorbant dans 20 mL, I = 1 M NaCl, pH 3, 25 °C, 160 rpm, 24 h, C0 = 0–500 mg/L, cinétique à C0 = 250 mg/L, dosage UV-Vis à 603 nm) ; les propriétés Langmuir_Qmax_25C, pseudo_second_order_k2, residual_RB5_… ne disent ni pH, ni dose, ni C0",
+      "article_says": "where m = 0.020 g of the adsorbent and V = 20 mL of the RB5 solutions of different initial concentrations were added in the presence of constant background electrolyte I = 1 M NaCl and pH = 3.",
+      "fix": "écrire une annotation (par exemple limite_reproductibilite ou tendance_observee citant 2.5) avec les conditions de l'essai, ou les mettre dans le nom/la note des résultats ; au minimum pH 3 et C0 = 250 mg/L pour la cinétique (« Kinetic experiments were performed at optimum values found (pH = 3) for C0 = 250 mg/L »), qui conditionnent les valeurs de Fig. 8 et Table 1",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "GO, Fe3O4, mGOp reactifs « deionized water (washing) » (GO, Fe3O4) et « nitrogen » (Fe3O4, mGOp) : supplier = Sigma-Aldrich, purity = analytical grade",
+      "extracted": "supplier Sigma-Aldrich et pureté « analytical grade » pour le gaz N2 et pour l'eau déionisée de lavage, avec la phrase générale des Matériaux en supplier_quote",
+      "article_says": "N2 was used as the protective gas throughout the experiment.",
+      "fix": "la phrase « all other reagents were purchased from Sigma-Aldrich » vise des produits chimiques, pas un gaz ni l'eau déionisée ; retirer supplier/purity de ces entrées (rôles gas et wash, hors grille), comme c'est fait pour l'eau déionisée de dissolution (not_stated purity, supplier), ou les déclarer non cités. Incohérence interne : la même eau déionisée est « non citée » en solvant et « Sigma-Aldrich » en lavage",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "GO step 6 (ajout de H2O2) : description et rôle du réactif",
+      "extracted": "« Add H2O2 to the mixture to stop the oxidation. » ; rôle H2O2 = quencher",
+      "article_says": "Then, 50 mL of H2O2 (30% v/v) was added to the mixture.",
+      "fix": "l'article ne donne aucun but à l'ajout de H2O2 ; décrire l'étape sans « to stop the oxidation » et ne pas figer le rôle (ou le justifier dans une annotation mecanisme_analyse, déjà présente)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "mGOp outcome saturation_magnetization (value_text)",
+      "extracted": "considerable smaller than mGOi (about 65 emu/g)",
+      "article_says": "while the respective value of mGOp was found to be considerable smaller.",
+      "fix": "le « 65 emu/g » est la valeur de mGOi (déjà dans la voie mGOi) ; le value_text de mGOp ne doit dire que « considerable smaller » (la lecture 7,7 emu/g sur Fig. 6 est dans un autre résultat) pour éviter qu'une extraction automatique lise 65 emu/g pour mGOp",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "mGOp characterizations DTG/DTA : petit pic de GO résiduel",
+      "extracted": "absent de la caractérisation DTG/DTA de mGOp (seuls le pic à 100 °C et la perte au-dessus de 750 °C sont repris)",
+      "article_says": "while only a small peak is presented for the mGOs sample may be due to some small residue of GO.",
+      "fix": "ajouter à la caractérisation DTA de mGOp : petit pic exothermique à 200–250 °C attribué à un peu de GO résiduel (« mGOs » est une coquille de l'article, lue mGOp comme l'a fait l'extracteur pour les 22 % ; à ajouter au doute existant sur « mGOs »)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "caractérisations communes : DTG/DTA et FTIR de GO et mGOi",
+      "extracted": "premier pic à 80–100 °C seulement pour mGOp (100 °C) ; bandes O–H 3424 cm−1 et C=C ~1600 cm−1 absentes de GO, mGOi et mGOp",
+      "article_says": "The first peak centered at about 80–100 °C for all under examination samples",
+      "fix": "ajouter le pic de perte d'eau à 80–100 °C aux caractérisations DTG/DTA de GO et mGOi, et la bande O–H à 3424 cm−1 (« All the samples present the O–H stretching vibration adsorption band at 3424 cm−1 and the band at ~1600 cm−1 ») aux trois caractérisations FTIR",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_analyse (GO) : cause du virage au jaune",
+      "extracted": "« H2O2 réduit l'excès de Mn(VII) et de MnO2 en Mn2+ soluble, d'où le virage au jaune »",
+      "article_says": "The reaction temperature rapidly increased to 98 °C, and the color of the mixture was changed into yellow.",
+      "fix": "l'article place le changement de couleur après l'ajout d'eau (étape 4), avant les 24 h à 98 °C et avant H2O2 (étape 6) ; reformuler l'annotation en séparant ce que dit l'article (jaune après l'eau) de l'interprétation sur le rôle de H2O2",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "sample_inventory GO, results_in : « Fig. 4 »",
+      "extracted": "GO est donné comme portant des résultats en Fig. 4",
+      "article_says": "The DTG curve of graphene oxide is also presented for comparison.",
+      "fix": "la Fig. 4 (g004) ne montre que mGOi et mGOp : aucune courbe GO ; retirer Fig. 4 de results_in de GO ou signaler dans un doute que le texte annonce une courbe GO absente de la figure (la courbe GO est bien en Fig. 5)",
+      "confidence": "sure"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 4,
+    "branches_extracted": 4,
+    "not_stated_checked": 38,
+    "not_stated_wrong": 0
+  },
+  "reproducibility_gaps": [
+    "volume et titre de l'ammoniaque ajoutée (voies Fe3O4 et mGOp, « until pH 10 » seulement) et concentration de l'ammoniaque de la voie Fe3O4",
+    "température de l'étape de 30 min (Fe3O4) et de l'étape de 45 min (mGOp) non dite ; durée de l'échange d'ions de mGOp non donnée",
+    "température du bain de glace, vitesse d'agitation, vitesse d'addition de H2O2, volumes de lavage HCl/eau, nombre de lavages (« several times »), vitesse et durée de centrifugation, type de filtre (voie GO)",
+    "puissance et fréquence des ultrasons, vitesse et durée de centrifugation, durée/pression/température de lyophilisation (mGOp, mGOi) ; aucun lavage décrit pour mGOi",
+    "débit de N2 de mGOp et de Fe3O4 non donné ; rendement et masse obtenue de chaque matériau non donnés",
+    "effet du pH sur l'adsorption et tracé de van't Hoff « data not shown » ; C0 de Table 3 pour mGOp incohérents avec Qe et Kc",
+    "origine du Fe3O4 de mGOi non rappelée explicitement (renvoi implicite à 2.2.2) ; lot de GO supposé identique"
+  ],
+  "mechanism_check": "ok sauf l'attribution du virage au jaune à l'ajout de H2O2 (annotation GO) ; mecanisme_auteurs conforme (IR, ammoniaque, oxyhydroxydes)",
+  "notes": "Aucune valeur fausse trouvée : les 123 résultats (Tables 1, 2 et 3, texte, 5 lectures de figure) ont été comparés un à un à l'article, y compris l'attribution des cellules fusionnées de la Table 3. Lectures de figures confirmées : Fig. 4 mGOp 41 % et mGOi 94 % à 900 °C, Fig. 6 mGOp 7,7 emu/g (axe de droite), Fig. 8 mGOi 153 et mGOp 128 mg/L (écart < 2 %). Fragile : le choix de lire Fig. 4 comme masse restante alors que l'axe porte « Weight loss derivative » (l'extracteur l'a signalé en doute) ; GO 10,9° contre 10,3° et 35,4° contre 35,56° sont des contradictions de l'article bien notées. method_sources conforme : B23, B24, B25 ; B26-B28 (Langmuir, Freundlich, van't Hoff) et B29 (JCPDS) exclus par la règle du 2026-10-13."
+}

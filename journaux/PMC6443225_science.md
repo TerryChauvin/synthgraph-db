@@ -1,0 +1,16 @@
+# PMC6443225 — critique scientifique (journal de décisions)
+
+- Rapport Ag:Au ICP : 17,0/107,87 ÷ 35,1/196,97 = 0,88 ; le « 1.13 » de l'article est Au:Ag. Classé `probleme` : il fonde à tort la conclusion « proche de la charge 1:1 ». L'EDS (0,82) concorde avec 0,88 : l'alliage est appauvri en argent.
+- Bilan de métal : j'ai supposé que l'ICP porte sur le culot redispersé dans 10 mL (seule dilution écrite). Sous cette hypothèse : 78 % de l'or retrouvé pour AuNPs, 27 % du métal pour l'alliage. Classé `probleme` parce que l'écart (35,1 contre 95,8 µg/mL d'or à volume égal de NaAuCl4) n'est pas discuté ; hypothèse écrite dans `calculs`.
+- Sédimentation : le rayon du rotor n'est pas écrit ; j'ai pris 8 cm pour un ordre de grandeur (≈ 14 000 g). Ce calcul sert seulement à montrer que les particules de 10 nm sédimentent ≈ 11 fois plus lentement ; ce n'est pas une preuve de perte.
+- pH 11 : 4,5 OH− consommés par Au (équation équilibrée en charge, H et O) → 28 µmol pour l'or. Le volume total n'est pas écrit, mais la Table 1 suggère environ 1 mL : le pH ne peut pas rester à 11 sans ajout de base. Classé `probleme` (omission qui empêche de refaire la synthèse), pas une erreur de valeur.
+- Mécanisme : 30 % (Au) et 41 % (alliage) des unités glucose de ≤ 5 mg d'amidon devraient devenir du glucose. Tongsakul 2012 (dégradation de l'amidon en réducteurs au-delà de 0,025 M d'alcali) et Gomes 2015 (les alcoolates réduisent Au et Ag en milieu basique) retenus contre l'hypothèse « hydrolyse en glucose ». Mécanisme `a_revoir`.
+- 27,4 nm : recalcul de la formule citée → exactement 27,43 nm à 524 nm (moyenne des six lots), et 521 nm est hors domaine (X = 21 < 23). Doute de l'extracteur résolu : c'est un calcul des auteurs, pas une valeur de la littérature. `reserve`.
+- Référence 53 : en cherchant le DOI, j'ai trouvé que 10.1021/ac0702084 est Haiss et al. 2007 (titre « from UV-Vis spectra »), alors qu'auteur et pages sont ceux de Khlebtsov 2008 (10.1021/ac800834n). Signalé comme erreur des auteurs.
+- 22,5 contre 23,5 nm : impossible de trancher ; l'écart-type 10,3 de la Table 3 est aussi le L de l'alliage (recopie possible). `reserve`.
+- AgCl : Q ≈ 10⁶ Ks au mélange avec les Cl− de NaAuCl4. La précipitation est donc directe, pas seulement galvanique ; l'ordre d'ajout manque. `reserve`, pas `probleme`, car le produit final n'en montre pas.
+- DRX de l'alliage : a = 4,065 Å est sous les valeurs de Ag et d'Au purs. Une contraction Ag–Au est connue (Lubarda 2003 cite des mesures en baisse), mais 0,3 % est à la limite du décalage d'échantillon. La valeur « 4,0562 » de la référence 52 n'a pas été vérifiée (article non ouvert).
+- Plasmon 463 nm contre ≈ 466 nm interpolé (Link 1999, x(Au) = 0,55) : `ok`, c'est la meilleure preuve de l'alliage.
+- Zêta −27 mV : `reserve`. Contradiction avec le critère des auteurs, mais la stabilité UV sur 50 jours (Figure S2, absente) va dans leur sens ; stabilisation stérique.
+- Essais à 72 h et dose non définie : classés `probleme` (cohérence entre Méthodes et Résultats), car ils touchent la partie biologique, pas la synthèse.
+- Recherches web : 6 (Khlebtsov/Haiss, Link, Ristig, formule Khlebtsov, mécanisme amidon alcalin, paramètres de maille) + 1 lecture de deux fiches PubMed. Crossref non interrogé : aucun ajout à fondateurs.md ni à constantes.md.

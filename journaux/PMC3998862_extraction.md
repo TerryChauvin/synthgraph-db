@@ -1,0 +1,21 @@
+# Journal d'extraction PMC3998862 (AH-AgNPs, extrait d'Agrimoniae herba)
+
+- Découpage : une voie de base AH-AgNPs (réaction + centrifugation + lavage + redispersion), une voie intermédiaire AH_extract (extrait bouilli 15 min, réutilisé comme réactif de rôle `intermediate`), une voie séparée Bare_AgNPs_citrate (autre matériau, autre méthode), soit 21 voies dont 18 branches.
+- Les quatre séries d'optimisation (durée d'extraction, température, concentration d'AgNO3, volume d'extrait) sont des branches de AH-AgNPs : « Based on the AH-AgNP preparation » (Méthodes, Optimization) est lu comme un héritage des quatre étapes, avec un doute car les mélanges ne sont probablement mesurés qu'en UV-visible sans centrifugation.
+- 15 min, 1 mM et 10 mL/100 mL sont les valeurs de la base, donc sans branche ; 25 °C est listé dans la série en température alors que la base dit « room temperature » : branche AH-AgNPs_25C créée (une valeur listée = une branche), équivalence signalée en doute.
+- AgNO3 1,5 mM : absent des Méthodes (0,1 ; 0,5 ; 1 ; 2 mM) mais présent dans la légende de la figure 3 ; branche créée avec variation `from_figure`.
+- Durée d'extraction (2, 5, 30, 60 min) : paramètre de la voie AH_extract, mais enregistré comme variation du réactif « A. herba extract » en value_text sur les branches de AH-AgNPs, pour ne pas multiplier par deux le nombre de voies ; pas de variation numérique.
+- Résultats des séries : uniquement sur figures 1 à 4 (absorbance maximale). Lectures à 2 chiffres, ± 0,05. Pour la figure 2 (cinétique), valeur à 480 min (8 h, plateau cité par les auteurs), pas à 600 min.
+- Les conditions optimales donnent 1,0 / 0,94 / 0,90 / 1,13 selon les figures : consigné en doute, chaque série garde sa propre valeur pour la base (propriété suffixée par la série).
+- Temps de réaction 8 h : « completed within 8 hours » (Discussion) et plateau après 8 h (Résultats) mis en résultat `reduction_completion_time` de la base ; la durée du protocole reste « until crimson was observed » en value_text.
+- Tendances de groupe (durée d'extraction, température, volume d'extrait, concentrations > 1 mM) : annotations `tendance_observee` avec citation ; seule la branche 2 mM reçoit un résultat texte sur le décalage de longueur d'onde.
+- Temp. d'ébullition de l'extrait : « boiled » seulement ; déclarée `temperature` non citée plutôt que 100 °C déduit.
+- Pureté et fournisseur : la phrase « silver nitrate, and phosphoric acid were provided by Nanjing Chemical Reagent (purity >99.8% ... ) » est utilisée pour AgNO3 et H3PO4 ; citrate : fournisseur seul (Kunshan Jincheng), sans pureté.
+- Eau : « deionized water » dans les Méthodes alors que la phrase « Water ... Milli-Q » est générale ; pureté et fournisseur de l'eau laissés non cités.
+- Bare_AgNPs_citrate : volume de la solution d'AgNO3 non donné (seulement 300 μg/mL) ; ordre de l'ajout d'acide phosphorique ambigu, ordre du texte suivi (étape 3). Figures S1 et S2 absentes : annotation « Annexe absente du dépôt ».
+- IC50 de l'extrait : « 1.147 × 104 » dans le texte (exposant aplati), 11470 sur la figure 10B ; les deux enregistrés (value_text et lecture de figure).
+- Figure 10A : taux d'inhibition lus à 50 et 200 µg/mL seulement (AH-AgNPs ≈ 58/72 %, citrate ≈ 23/57 %), pour limiter les lectures graphiques.
+- Taille MET : « ~11 nm » dans le texte et « Mean = 11.22 nm » imprimé sur la figure 6B : les deux gardés.
+- Échantillons sans voie : AH-AgNPs stocké 2 mois (même matériau, seul le décalage 445 → 450 nm est noté) et poudre lyophilisée pour DRX/FTIR (aucune condition décrite).
+- Sources de méthode : refs 28 et 29 (dosages flavonoïdes et phénols, rôle `autre`), refs 30 et 31 (citrate, « widely used in previous papers », rôle `protocole_adapte` mais renvoi de contexte, hésitation). Les refs d'attribution FTIR, DRX, Scherrer ne sont pas des sources de méthode.
+- Cytotoxicité (MTT, culture A549) : rangée en caractérisation et résultats de AH-AgNPs, pas en voie ; protocole cellulaire détaillé dans `conditions`.

@@ -1,0 +1,21 @@
+# PMC9476164 — critique scientifique (journal de décisions)
+
+- Pas de quantité dans l'article : le bloc `calculs` de chaque voie porte un lot hypothétique de 10 mmol (masses des nitrates, NaOH ≥ 2 éq.), marqué comme hypothèse, pour donner au chimiste une base de calcul.
+- Calculs faits par script (scratchpad `calc_PMC9476164.py`) : Bragg, d(101) tiré de a et c, longueur de liaison (formule u des auteurs), volume, Scherrer pour K = 0,9/0,94 et les trois λ de l'article, δ = 1/D², ε, 1240/λ, moment par métal.
+- `probleme` Table 1 (ZnO) : 2θ = 37,07° donne d = 2,422 Å ; table 2,493 Å ; a, c donnent 2,475 Å. Trois valeurs incompatibles. Les raies du texte (32,5/35,5/37,3°) sont décalées de +0,7–1,1° par rapport à la fiche : décalage de zéro probable sur ZnO pur, donc le « left shift » avec le dopage est sans doute un artefact.
+- `probleme` longueur Zn–O de ZnO 2,160 Å : la formule des auteurs donne 1,978 Å avec leurs a, c (les dopés, à a, c quasi identiques, sont à 1,977 Å).
+- `probleme` Scherrer : 22–24,5 nm recalculés au lieu de 38,43 nm ; le facteur varie (1,64 ; 1,75 ; 1,75 ; 2,04), donc pas une constante K ou λ mal choisie. Ordre Cu 4 % / Co 5 % inversé par rapport aux FWHM.
+- `probleme` δ : 1/D² redonne exactement les chiffres de la table à 10⁻⁴ près, pas 10⁻³ : erreur d'exposant constante, y compris dans le texte (0,0048474).
+- `probleme` MEB ≈ 20–32 nm < cristallite DRX 32–45 nm : impossible ; noté sur la voie de base car l'affirmation vaut pour toute la série.
+- `probleme` Ms 4,632 emu/g (Cu 4 %) = 1,69 μB/Cu avec N_A·μB = 5585 emu/mol, au-dessus de 1 μB (Cu2+, S = 1/2) ; plafond 2,75 emu/g. Pour Co 2 % et 5 %, le plafond (Co2+ 3 μB) n'est pas dépassé : pas de constat là.
+- `probleme` rayons ioniques : Cu2+ 0,73 Å (coordinence 6) comparé à Zn2+ 0,60 Å (coordinence 4). Shannon cité comme source primaire (DOI vu sur IUCr/Wiley), valeurs IV/VI confirmées par trois articles PMC en relais (je n'ai pas lu la table de Shannon elle-même).
+- `probleme` contradiction phases : CuO admis à Co 2 % et « secondary phase » au-delà de 2 %, puis « no other phases » pour conclure à l'intrinsèque. Placé sur la voie Co 2 %.
+- `probleme` paramètres de maille des échantillons Co = fiche JCPDS 36-1451 au chiffre près (3,2498 / 5,20661) et d(101) identique pour trois 2θ : valeurs non affinées. Fiche confirmée par PMC4150024.
+- `probleme` gap 3,88 eV contre bord à ≈ 360 nm pour tous dans la DRS (même article) ; confinement impossible à 35 nm (rayon de Bohr ≈ 2,34 nm, PMC3211426 ; gap massif dès ≈ 9 nm, revue PMC6170533). Burstein–Moss jugé non fondé (Co isovalent, Cu accepteur, pas de mesure de porteurs) : raisonnement de chimie générale, sans source dédiée.
+- `probleme` IR « blue-shifted » alors que 371 → 363 → 352 cm⁻¹ : décalage vers le rouge.
+- `probleme` sécurité : nitrate de cobalt Carc. 1B H350i / Repr. 1B H360F (ECHA CHEM, fiche Sigma-Aldrich 239267), non mentionné. Mis sur Co 2 % (première voie qui l'utilise), rappelé en `what_to_verify` sur Co 5 %.
+- Bandes d–d de Co2+ tétraédrique (566/613/660 nm, PMC9104787) : mises en `reserve` (preuve discriminante absente) plutôt qu'en `probleme`, car la DRS couvre la plage mais l'absence de mention ne prouve pas leur absence.
+- Revues sur le ferromagnétisme extrinsèque : Potzger & Zhou (arXiv 0908.0645) et Garcia et al. (arXiv 0811.1127) retenues ; publication en revue de ces deux textes non vérifiée, URL arXiv données.
+- Jacobsson & Edvinsson 2011 (10.1021/ic201327n) : cité d'après la revue, non ouvert, DOI à vérifier sur Crossref depuis le PC.
+- Comparaison base : pas d'autre Cu/Co–ZnO ; PMC10585300 (pic à 36,35° après 500 °C) et PMC6614408 (a, c de la fiche) servent de repères.
+- Recherches web : 7. Rien ajouté à fondateurs.md ni constantes.md (consigne : Crossref bloqué).

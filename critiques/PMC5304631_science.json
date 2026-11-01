@@ -1,0 +1,761 @@
+{
+ "pmcid": "PMC5304631",
+ "routes": [
+  {
+   "label": "Au-citrate",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de citrate (solution initiale)",
+     "inputs": "150 mL × 2,2 mM",
+     "formula": "C×V",
+     "result": "330 µmol",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "moles d'or",
+     "inputs": "2 × (1 mL × 25 mM)",
+     "formula": "C×V",
+     "result": "25 µmol (germes) + 25 µmol (croissance) = 50 µmol",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport citrate:Au",
+     "inputs": "330 µmol / 25 µmol (germes) ; (330 + 60) / 50 (total)",
+     "formula": "n(cit)/n(Au)",
+     "result": "13,2 (germes) ; 7,8 (total)",
+     "compared_to": "besoin stœchiométrique ≈ 1,5 citrate par Au (Au(III) → Au(0), 3 e− ; citrate → acétonedicarboxylate, 2 e−)",
+     "source": "chimie générale ; valeurs de l'article"
+    },
+    {
+     "what": "[Au] dans le ballon",
+     "inputs": "50 µmol / ≈ 152 mL",
+     "formula": "n/V",
+     "result": "0,33 mM",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "atomes d'or par particule de 20,9 nm",
+     "inputs": "d = 20,9 nm ; ρ(Au) = 19,32 g/cm3",
+     "formula": "(π/6)d³ρN_A/M",
+     "result": "2,8 × 10^5 atomes (2,5 × 10^5 pour 20 nm)",
+     "compared_to": "—",
+     "source": "masses molaires PubChem (Au 196,97 ; EDC·HCl 191,70 ; SDS 288,38 ; FITC 389,38 g/mol), masse volumique de l'or 19,32 g/cm3 (valeur de manuel), N_A = 6,022e23"
+    },
+    {
+     "what": "concentration maximale de particules",
+     "inputs": "50 µmol d'or tout réduit / 2,8 × 10^5 atomes / 0,152 L",
+     "formula": "n(Au)/(N_at × V)",
+     "result": "1,17 nM (1,33 nM si d = 20 nm) ; 0,18 nmol de particules au total",
+     "compared_to": "11,1 nM annoncé par les auteurs : 9,5 fois trop",
+     "source": "masses molaires PubChem (Au 196,97 ; EDC·HCl 191,70 ; SDS 288,38 ; FITC 389,38 g/mol), masse volumique de l'or 19,32 g/cm3 (valeur de manuel), N_A = 6,022e23"
+    },
+    {
+     "what": "concentration tirée de l'absorbance déclarée",
+     "inputs": "A450 = 0,23 ; ε450 = 5,41 × 10^8 M−1 cm−1 ; 20 µL + 500 µL (facteur 26)",
+     "formula": "A/(ε L) × 26",
+     "result": "11,05 nM (10,6 nM pour un facteur 25)",
+     "compared_to": "11,1 nM : l'arithmétique des auteurs suppose 20 µL + 500 µL",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "absorbance attendue d'après le bilan d'or",
+     "inputs": "1,17 nM × 5,41 × 10^8 ; dilution 26",
+     "formula": "ε c L",
+     "result": "A450 ≈ 0,63 (solution mère), ≈ 0,024 après dilution",
+     "compared_to": "0,23 mesuré : 10 fois trop ; un facteur de dilution de 2,5 (20 µL portés à 50 µL) redonnerait 1,06 nM, cohérent avec le bilan",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "croissance par une injection de 25 µmol d'or",
+     "inputs": "nombre de germes conservé, or doublé",
+     "formula": "d_final = d_germe × 2^(1/3)",
+     "result": "facteur 1,26 : 20,9 nm exige des germes de ≈ 16,6 nm",
+     "compared_to": "germes de la méthode de Bastús (même recette 150 mL / 2,2 mM / 1 mL 25 mM) nettement plus petits d'après la publication d'origine (taille non revérifiée ici)",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Ébullition à reflux de 152 mL d'eau dans un ballon de 250 mL (remplissage ≈ 61 %), puis 90 °C : sous le point d'ébullition de l'eau (100 °C), aucun problème de récipient.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "redox",
+     "finding": "Le citrate (330 µmol) réduit 25 µmol puis 50 µmol d'Au(III) : rapport 13,2 puis 7,8 contre ≈ 1,5 nécessaire (calcul « rapport citrate:Au ») ; réducteur et ligand en large excès, comme dans la voie de Turkevich.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "Turkevich J., Stevenson P. C., Hillier J. (Discuss. Faraday Soc.)",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "La concentration de 11,1 nM annoncée est 9,5 fois au-dessus du maximum permis par l'or introduit (1,17 nM pour 20,9 nm, calcul « concentration maximale de particules »). L'absorbance déclarée (0,23 après dilution 26) est 10 fois celle qu'on attend (0,024, calcul « absorbance attendue d'après le bilan d'or ») ; un facteur de dilution de 2,5 au lieu de 26 rendrait les deux cohérents. Une erreur de l'article (volume de dilution ou absorbance) est probable ; toutes les concentrations en particules déduites ensuite du même dosage UV-Vis (208 nM, cNP du tableau 1, rapports par particule) sont à vérifier avant de reprendre le protocole.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of Size and Concentration of Gold Nanoparticles from UV−Vis Spectra",
+      "authors_or_publisher": "Haiss W., Thanh N. T. K., Aveyard J., Fernig D. G. (Anal. Chem. 79, 4215–4221)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ac0702084"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La recette (150 mL de citrate 2,2 mM, 1 mL de HAuCl4 25 mM à reflux, puis 90 °C et injections de 1 mL de citrate 60 mM et de 1 mL de HAuCl4 25 mM à 2 min d'intervalle) est celle de la croissance sur germes de Bastús et al. Une seule injection de croissance doublant l'or ne multiplie le diamètre que par 1,26 (calcul « croissance par une injection ») : 20,9 nm impose des germes de ≈ 16,6 nm, alors que cette méthode vise des germes plus petits et plusieurs générations de croissance (répétées, avec dilution) pour atteindre 20 nm. Soit des cycles ont été omis du texte, soit la taille dépend surtout de la première étape. L'écart-type de 4,3 nm (CV 21 %) est large pour une croissance sur germes.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Kinetically Controlled Seeded Growth Synthesis of Citrate-Stabilized Gold Nanoparticles of up to 200 nm: Size Focusing versus Ostwald Ripening",
+      "authors_or_publisher": "Bastús N. G., Comenge J., Puntes V. (Langmuir 27, 11098–11105)",
+      "year": "2011",
+      "url_or_doi": "10.1021/la201938u"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Pic plasmon lu à ≈ 530 nm sur la figure 2 pour 20,9 nm : un peu au-dessus des 520–525 nm habituels pour l'or citraté de 20 nm ; écart compatible avec la lecture à l'œil et la polydispersité, ou un début d'agglomération.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of Size and Concentration of Gold Nanoparticles from UV−Vis Spectra",
+      "authors_or_publisher": "Haiss W., Thanh N. T. K., Aveyard J., Fernig D. G. (Anal. Chem. 79, 4215–4221)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ac0702084"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Coefficient d'extinction ε450 = 5,41 × 10^8 M−1 cm−1 pour 20 nm, repris de la table de Haiss et al. et utilisé correctement dans la formule de Beer-Lambert (calcul « concentration tirée de l'absorbance déclarée »).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of Size and Concentration of Gold Nanoparticles from UV−Vis Spectra",
+      "authors_or_publisher": "Haiss W., Thanh N. T. K., Aveyard J., Fernig D. G. (Anal. Chem. 79, 4215–4221)",
+      "year": "2007",
+      "url_or_doi": "10.1021/ac0702084"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Eau régale pour la verrerie (HCl + HNO3, dégagement de NOCl et NOx, jamais en récipient fermé) ; HAuCl4 corrosif ; injection à la seringue dans un liquide à reflux. Rien d'exotique.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« 18.2 mΩ·cm−1 » : l'eau ultrapure fait 18,2 MΩ·cm (mégaohm, et Ω·cm et non Ω·cm−1) ; coquille d'unité sans conséquence pour la synthèse.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Voie de Turkevich modifiée : à reflux, le citrate (en large excès) réduit AuCl4− en Au(0) après oxydation en acétonedicarboxylate ; nucléation rapide de germes stabilisés électrostatiquement par le citrate adsorbé. À 90 °C, l'or injecté avec du citrate frais se dépose sur les germes existants (croissance hétérogène) plutôt que de former de nouveaux noyaux, à condition que [Au] ajouté reste faible ; le nombre de germes fixe la taille finale, d'où l'incompatibilité entre une seule injection et 20,9 nm.",
+    "sources": [
+     {
+      "title": "A study of the nucleation and growth processes in the synthesis of colloidal gold",
+      "authors_or_publisher": "Turkevich J., Stevenson P. C., Hillier J. (Discuss. Faraday Soc.)",
+      "year": "1951",
+      "url_or_doi": "10.1039/DF9511100055"
+     },
+     {
+      "title": "Kinetically Controlled Seeded Growth Synthesis of Citrate-Stabilized Gold Nanoparticles of up to 200 nm: Size Focusing versus Ostwald Ripening",
+      "authors_or_publisher": "Bastús N. G., Comenge J., Puntes V. (Langmuir 27, 11098–11105)",
+      "year": "2011",
+      "url_or_doi": "10.1021/la201938u"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "nombre réel d'injections de croissance (une seule ne peut pas donner 20,9 nm si les germes sont petits)",
+    "volume de dilution utilisé pour le dosage UV-Vis (500 µL ou 50 µL) : refaire le calcul de cNP et le comparer au bilan d'or (≤ 1,2 nM)",
+    "rapport A(SPR)/A(450) et position du plasmon comme contrôle de taille (Haiss)"
+   ]
+  },
+  {
+   "label": "Au-PEG",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "surface d'une particule",
+     "inputs": "d = 20,9 nm",
+     "formula": "π d²",
+     "result": "1 372 nm²",
+     "compared_to": "—",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité de greffage du PEG 3 kDa",
+     "inputs": "1 372 nm² × 0,5–1 chaîne/nm² (densités corrigées 2017 pour 2–5 kDa)",
+     "formula": "S × σ",
+     "result": "≈ 700–1 400 chaînes par particule",
+     "compared_to": "10^5 ajoutées (« 105 », exposant perdu) : excès de 70 à 140 fois",
+     "source": {
+      "title": "PEGylated gold nanoparticles: polymer quantification as a function of PEG lengths and nanoparticle dimensions (et correction 2017)",
+      "authors_or_publisher": "Rahme K. et al. (RSC Adv. 3, 6085–6094)",
+      "year": "2013",
+      "url_or_doi": "10.1039/c3ra22739a"
+     }
+    },
+    {
+     "what": "masse de PEG pour le lot entier",
+     "inputs": "10^5 PEG × 0,18 nmol de particules (bilan d'or) ; M = 3 000 g/mol",
+     "formula": "N × n × M",
+     "result": "≈ 53 mg ; ≈ 0,5 g si l'on suit les 11,1 nM des auteurs",
+     "compared_to": "la masse à peser change d'un facteur 10 selon la concentration retenue",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "facteur de concentration avant conjugaison",
+     "inputs": "0,18 nmol dans 152 mL → 208 nM",
+     "formula": "V_final = n/c",
+     "result": "≈ 0,85 mL, soit concentration ≈ 180 fois par centrifugation",
+     "compared_to": "étape non décrite ; ≈ 44 conjugaisons de 4 pmol par lot",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "PEG ajouté à 10^5 par particule (lecture probable de « 105 ») : 70 à 140 fois la capacité de greffage d'un PEG thiol de 3 kDa (calcul « capacité de greffage »), excès normal pour un échange de ligand rapide ; mais la masse à peser dépend de la concentration de particules, fausse d'un facteur ≈ 10 (voie Au-citrate).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "PEGylated gold nanoparticles: polymer quantification as a function of PEG lengths and nanoparticle dimensions (et correction 2017)",
+      "authors_or_publisher": "Rahme K. et al. (RSC Adv. 3, 6085–6094)",
+      "year": "2013",
+      "url_or_doi": "10.1039/c3ra22739a"
+     }
+    },
+    {
+     "aspect": "redox",
+     "finding": "pH 12 : le thiol (pKa ≈ 10–11 pour un thiol aliphatique) passe en thiolate, plus réactif pour la chimisorption Au–S ; l'or citraté supporte ce pH. Mécanisme des auteurs cohérent.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "dh = 27,4 nm (nombre) pour un cœur de 20,9 nm : coquille de ≈ 3 nm par côté, à la limite basse pour un PEG de 3 kDa greffé dense (les auteurs eux-mêmes estiment ≈ 4 nm) ; ζ = −32,8 mV mesuré dans l'eau milliQ, milieu sans force ionique ni pH fixé, donc valeur peu transposable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Internalisation exprimée en « ppb d'or par mg de protéine » : le ppb est une fraction massique de la solution digérée ; sans le volume de digestion, la grandeur n'est pas définie et ne se compare pas à d'autres travaux (exprimer en ng d'or ou en particules par mg de protéine).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Viabilité des HUVEC à 52 % dès 0,6 nM de particules pégylées (4 h d'exposition) : toxicité forte pour de l'or pégylé, présenté comme inerte par les auteurs ; sans contrôle des résidus (PEG libre, NaOH, citrate, endotoxines) ni dose vérifiée (concentration de particules douteuse), l'effet n'est pas attribuable à la particule elle-même.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Échange de ligand : le thiolate du HS-PEG-COOH déplace le citrate faiblement adsorbé et forme une liaison Au–S ; à fort excès de PEG la couverture atteint la saturation (brosse), et les carboxyles terminaux exposés au solvant portent la charge négative mesurée.",
+    "sources": [
+     {
+      "title": "PEGylated gold nanoparticles: polymer quantification as a function of PEG lengths and nanoparticle dimensions (et correction 2017)",
+      "authors_or_publisher": "Rahme K. et al. (RSC Adv. 3, 6085–6094)",
+      "year": "2013",
+      "url_or_doi": "10.1039/c3ra22739a"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentration réelle des particules avant d'en déduire la masse de PEG",
+    "volume de NaOH 1 M ajouté et durée de l'échange (non donnés)",
+    "accélération (g) de la centrifugation et non tr/min"
+   ]
+  },
+  {
+   "label": "FITC-antibody",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "FITC pour 1 mg d'IgG au rapport de l'article",
+     "inputs": "1 mg / 150 000 g/mol = 6,67 nmol ; × 750 ; M(FITC) = 389,38",
+     "formula": "n × 750 × M",
+     "result": "5,0 µmol, soit 1,95 mg de FITC par mg d'anticorps",
+     "compared_to": "excès molaire de 15–25 recommandé (≈ 52 µg de FITC par mg d'IgG pour 20)",
+     "source": "masses molaires PubChem (Au 196,97 ; EDC·HCl 191,70 ; SDS 288,38 ; FITC 389,38 g/mol), masse volumique de l'or 19,32 g/cm3 (valeur de manuel), N_A = 6,022e23"
+    },
+    {
+     "what": "contrôle du tableau 1 (CP)",
+     "inputs": "I = 3 999 ; 2 420 ; 10 212 ; 2 600 ; I0 et pentes de la Fig. 5",
+     "formula": "(I − I0)/(ΔI/ΔCP)",
+     "result": "1,00 ; 0,65 ; 2,50 ; 1,12 µg/mL",
+     "compared_to": "identique au tableau 1",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "contrôle du tableau 1 (cP)",
+     "inputs": "CP / 150 000 g/mol",
+     "formula": "CP/MW",
+     "result": "6,67 ; 4,33 ; 16,67 ; 7,47 nM",
+     "compared_to": "identique au tableau 1",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "750 FITC par protéine : 30 à 50 fois l'excès molaire recommandé (15–25) pour marquer un anticorps (calcul « FITC pour 1 mg d'IgG ») ; risque de surmarquage (degré de marquage bien au-delà des 4–8 conseillés), d'auto-extinction, de perte d'activité si des lysines du paratope sont touchées, et de moins d'amines libres pour le couplage EDC ultérieur. Le degré de marquage (F/P) n'est pas mesuré.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "FITC and TRITC – User Guide (antibody labeling)",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0011646_FITC_TRITC_UG.pdf"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Solution mère de FITC préparée dans le tampon borate aqueux : l'isothiocyanate s'hydrolyse dans l'eau ; la pratique est une solution dans le DMSO ou le DMF anhydre préparée juste avant l'emploi. Le marquage marche mais avec un rendement mal défini. Aucune protection contre la lumière n'est écrite.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "FITC and TRITC – User Guide (antibody labeling)",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0011646_FITC_TRITC_UG.pdf"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Au moins 4 h à 4 °C à pH 9 : plus lent que l'heure à température ambiante habituelle, mais acceptable pour des lysines déprotonées.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "FITC and TRITC – User Guide (antibody labeling)",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0011646_FITC_TRITC_UG.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Addition des ε-amines des lysines (déprotonées à pH 9) sur l'isothiocyanate de la FITC : formation de thiourées stables ; la FITC libre ou hydrolysée est éliminée sur colonne de dessalage.",
+    "sources": [
+     {
+      "title": "FITC and TRITC – User Guide (antibody labeling)",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0011646_FITC_TRITC_UG.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "degré de marquage F/P (A495/A280)",
+    "activité de l'anticorps après marquage",
+    "solvant de la solution de FITC"
+   ]
+  },
+  {
+   "label": "Au-PEG-anti-VEGF",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "particules engagées",
+     "inputs": "19,23 µL × 208 nM",
+     "formula": "C×V",
+     "result": "4,0 pmol",
+     "compared_to": "« corresponding to 4pmol » : exact",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "EDC",
+     "inputs": "57,3 µL × 100 mg/mL = 5,73 mg ; M = 191,70 g/mol",
+     "formula": "m/M",
+     "result": "29,9 µmol, soit 7,5 × 10^6 par particule ; 29,9 mM dans 1 mL",
+     "compared_to": "7,5 × 10^6 annoncé : exact",
+     "source": "masses molaires PubChem (Au 196,97 ; EDC·HCl 191,70 ; SDS 288,38 ; FITC 389,38 g/mol), masse volumique de l'or 19,32 g/cm3 (valeur de manuel), N_A = 6,022e23"
+    },
+    {
+     "what": "anticorps",
+     "inputs": "30 µg / 150 000 g/mol / 4 pmol",
+     "formula": "m/(M n_NP)",
+     "result": "50 par particule",
+     "compared_to": "50 annoncé : exact",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "TAMRA cadavérine",
+     "inputs": "2 µg / ≈ 515 g/mol / 4 pmol",
+     "formula": "m/(M n_NP)",
+     "result": "≈ 970 par particule",
+     "compared_to": "10^3 annoncé (« 103 ») : exact ; masse molaire du TAMRA cadavérine prise ≈ 515 g/mol (fiche fournisseur non relue)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "PEG-amine",
+     "inputs": "75 µg / 750 g/mol / 4 pmol",
+     "formula": "m/(M n_NP)",
+     "result": "2,5 × 10^4 par particule (25 seulement si 750 kDa)",
+     "compared_to": "2,5 × 10^4 annoncé : confirme 750 Da, « 750 kDa » est une coquille",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "capacité en IgG de la surface",
+     "inputs": "rayon ≈ 14 nm (dh/2) ; empreinte d'une IgG ≈ 100–150 nm²",
+     "formula": "4πr² / empreinte",
+     "result": "≈ 16–25 IgG au plus",
+     "compared_to": "50 ajoutées ; 2,4–6,3 mesurées (tableau 1)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport anticorps par particule recalculé (tableau 1)",
+     "inputs": "cP / cNP : 6,67/2,2 ; 4,33/1,5 ; 16,67/2,0 ; 7,47/0,5",
+     "formula": "cP/cNP",
+     "result": "3,0 ; 2,9 ; 8,3 ; 14,9",
+     "compared_to": "2,7 ; 2,4 ; 6,2 ; 6,3 dans le tableau : aucune des quatre valeurs ne correspond, et les deux dilutions de l'anti-VEGF* donnent 8,3 et 14,9",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "absorbance des particules pendant la fluorescence",
+     "inputs": "cNP = 2 nM ; ε450 = 5,41 × 10^8 (ε plus grand à 494–519 nm, près du plasmon)",
+     "formula": "ε c L",
+     "result": "A ≥ 1,1 aux longueurs d'onde d'excitation et d'émission de la FITC",
+     "compared_to": "linéarité de la fluorescence seulement pour A < 0,05–0,1",
+     "source": {
+      "title": "Principles of Fluorescence Spectroscopy, 3rd ed. (effets de filtre interne)",
+      "authors_or_publisher": "Lakowicz J. R., Springer",
+      "year": "2006",
+      "url_or_doi": "10.1007/978-0-387-46312-4"
+     }
+    },
+    {
+     "what": "dose de particules dans les essais de la figure 16",
+     "inputs": "50 et 100 ng/mL d'anticorps / 150 000 g/mol ; RP/NP = 6,25 (anti-VEGF*) et 2,55 (anti-HRP*)",
+     "formula": "c_Ab / (RP/NP)",
+     "result": "anti-VEGF : 0,053 et 0,11 nM ; anti-HRP : 0,13 et 0,26 nM de particules",
+     "compared_to": "2,4 fois plus de particules dans le témoin anti-HRP à dose d'anticorps égale",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Couplage EDC en deux temps sans NHS ni sulfo-NHS : l'O-acylisourée formée par l'EDC est instable dans l'eau (hydrolyse vers le carboxyle, ou réarrangement en N-acylurée) ; les protocoles en deux temps reposent sur le NHS pour la stabiliser. Ici l'intermédiaire doit survivre au passage sur colonne PD-10 (plusieurs minutes) avant l'ajout de l'anticorps : le couplage covalent attendu est donc faible et mal reproductible, ce qui s'accorde avec 2,4–6,3 anticorps fixés pour 50 ajoutés. Ajouter du sulfo-NHS à l'activation (pH 6,5 en MES convient) est la correction standard.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Pierce EDC (1-ethyl-3-(3-dimethylaminopropyl)carbodiimide hydrochloride) – User Guide",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0017125_EDC_UG.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le tableau 1 n'est pas cohérent avec lui-même : les colonnes CP et cP se recalculent exactement, mais RP/NP ≠ cP/cNP (3,0 ; 2,9 ; 8,3 ; 14,9 contre 2,7 ; 2,4 ; 6,2 ; 6,3, calcul « rapport anticorps par particule recalculé »). Pour l'anti-VEGF*, cNP passe de 2,0 à 0,5 nM (÷ 4) mais cP de 16,67 à 7,47 nM (÷ 2,2) : les deux dilutions ne se recoupent pas, et l'accord affiché 6,2/6,3 n'est pas celui des données. Erreur de calcul ou de recopie de l'article ; le nombre d'anticorps par particule, qui sert ensuite à doser les essais cellulaires, n'est pas établi.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La fluorescence de la FITC est mesurée en présence de particules d'or à 2 nM, dont l'absorbance dépasse 1 aux longueurs d'onde d'excitation (494 nm) et d'émission (519 nm) (calcul « absorbance des particules pendant la fluorescence »), alors que l'étalonnage est fait sur les protéines libres sans or. L'effet de filtre interne atténue alors fortement le signal, bien plus que l'extinction discutée par les auteurs ; ni dilution sous A ≈ 0,1 ni correction ne sont décrites. Le nombre d'anticorps par particule est donc sous-estimé d'un facteur inconnu (si au contraire la concentration réelle des particules est 10 fois plus faible, comme le suggère le bilan d'or, c'est cNP qui est surestimé et RP/NP de nouveau sous-estimé).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Principles of Fluorescence Spectroscopy, 3rd ed. (effets de filtre interne)",
+      "authors_or_publisher": "Lakowicz J. R., Springer",
+      "year": "2006",
+      "url_or_doi": "10.1007/978-0-387-46312-4"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Conclusion « couplage surtout covalent » tirée du seul potentiel zêta : l'EDC change à lui seul la charge (témoin sans anticorps : −20,0 mV avec EDC contre −30,1 mV sans EDC), par amidation du TAMRA et du PEG-amine ou par N-acylurée portant un groupe diméthylaminopropyle protonable. Aucun dosage des anticorps (FITC) n'est fait sur les échantillons sans EDC ; la preuve discriminante serait le rapport RP/NP des versions marquées avec et sans EDC, mesuré dans les mêmes conditions.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Pierce EDC (1-ethyl-3-(3-dimethylaminopropyl)carbodiimide hydrochloride) – User Guide",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0017125_EDC_UG.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le rapport RP/NP du tableau 1 est mesuré sur les conjugués d'anticorps marqués FITC (*), dont la charge diffère nettement des conjugués non marqués utilisés en biologie (anti-HRP* −18,4 contre anti-HRP −6,3 mV ; anti-VEGF* −24,1 contre −11,8 mV ; dh 38,0 contre 28,9 nm) : le marquage (750 FITC par protéine) consomme des lysines et ajoute des charges négatives. Appliquer ce RP/NP aux conjugués non marqués pour doser la figure 16 n'est pas justifié.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoin anti-HRP de la figure 16 dosé à concentration d'anticorps égale, donc à 2,4 fois plus de particules que l'anti-VEGF (calcul « dose de particules ») : si l'effet est une toxicité des particules, le témoin reçoit plus de particules pour le même résultat, ce qui ne permet pas de conclure à l'absence d'effet spécifique. Le témoin juste est à concentration de particules égale (en plus du témoin sans anticorps).",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "SDS : 10 µL à 10 % = 1 mg (3,5 µmol) dans un volume de remise en suspension non donné (≈ 1–2 mL → 1,7–3,5 mM, sous la CMC de ≈ 8 mM mais assez pour dénaturer en partie des protéines) : le lavage qui retire l'adsorption non spécifique peut aussi abîmer les anticorps fixés, autre explication possible de l'absence d'activité. EDC sensibilisant, à manipuler en poudre sous hotte.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "Après dessalage, particules à 2 nM et anticorps à 100 nM (15 µg/mL) pendant 15 min avant l'ajout de TAMRA puis du PEG-amine en grand excès (100 nmol dans 2 mL, ≈ 50 µM, 500 fois la concentration d'anticorps) : l'anticorps ne dispose que de 15 min pour réagir avant la compétition d'amines bien plus petites et plus nombreuses, ce qui limite aussi sa fixation.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "L'EDC active les carboxyles terminaux du PEG en O-acylisourée, qui s'hydrolyse ou se réarrange en N-acylurée en quelques secondes à minutes dans l'eau ; sans NHS, peu d'intermédiaires actifs survivent au dessalage. La fixation observée peut donc être en partie une adsorption non spécifique (protéine sur la couronne de PEG) et en partie un couplage sur les rares esters actifs ou anhydrides restants ; la diminution de la charge négative vient aussi de l'amidation par le TAMRA et le PEG-amine et des N-acylurées cationiques. Un couplage EDC/sulfo-NHS, avec dosage des anticorps fixés après correction du filtre interne, trancherait.",
+    "sources": [
+     {
+      "title": "Pierce EDC (1-ethyl-3-(3-dimethylaminopropyl)carbodiimide hydrochloride) – User Guide",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0017125_EDC_UG.pdf"
+     },
+     {
+      "title": "Principles of Fluorescence Spectroscopy, 3rd ed. (effets de filtre interne)",
+      "authors_or_publisher": "Lakowicz J. R., Springer",
+      "year": "2006",
+      "url_or_doi": "10.1007/978-0-387-46312-4"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "ajouter du sulfo-NHS à l'activation ou réduire le délai entre activation et ajout de l'anticorps",
+    "mesurer la fluorescence à A < 0,1 ou corriger le filtre interne, ou doser les anticorps après dissolution de l'or (KCN/I2) ou par un test protéique sur le surnageant",
+    "refaire le calcul de RP/NP (tableau 1)",
+    "doser les essais cellulaires à concentration de particules égale entre anticorps spécifique et non pertinent",
+    "volume de remise en suspension avec le SDS"
+   ]
+  },
+  {
+   "label": "Au-PEG-anti-HRP",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Même protocole que la voie de base, seul l'anticorps change : témoin chimiquement correct pour la conjugaison, mais dosé en biologie à 2,4 fois plus de particules (voir la voie de base, calcul « dose de particules »). Son RP/NP (2,4–2,7) n'est pas celui que donnent les données du tableau 1 (2,9–3,0).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Identique à la voie de base (EDC sans NHS).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "dose en particules dans les essais de prolifération"
+   ]
+  },
+  {
+   "label": "Au-PEG-control",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Témoin sans anticorps : ζ passe de −32,8 (Au-PEG) à −20,0 mV, effet propre de l'EDC, du TAMRA et du PEG-amine ; c'est la bonne référence pour juger l'effet de l'anticorps (Δζ = +13,7 mV pour l'anti-HRP, +8,2 mV pour l'anti-VEGF).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Amidation des carboxyles par le TAMRA et le PEG-amine seuls.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "délai entre dessalage et ajout du TAMRA (15 min d'incubation sans anticorps ?)"
+   ]
+  },
+  {
+   "label": "Au-PEG-anti-VEGF*",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Rapport RP/NP du tableau 1 non recalculable à partir de ses propres lignes et mesuré sous fort filtre interne (voir la voie Au-PEG-anti-VEGF) ; la charge et la taille diffèrent de celles des conjugués non marqués, le résultat ne se transpose pas.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Identique à la voie de base, avec un anticorps porteur de thiourées de fluorescéine (moins de lysines libres).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "degré de marquage F/P",
+    "calcul de RP/NP"
+   ]
+  },
+  {
+   "label": "Au-PEG-anti-HRP*",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "Rapport RP/NP du tableau 1 non recalculable à partir de ses propres lignes et mesuré sous fort filtre interne (voir la voie Au-PEG-anti-VEGF) ; la charge et la taille diffèrent de celles des conjugués non marqués, le résultat ne se transpose pas.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Identique à la voie de base, avec un anticorps porteur de thiourées de fluorescéine (moins de lysines libres).",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "degré de marquage F/P",
+    "calcul de RP/NP"
+   ]
+  },
+  {
+   "label": "Au-PEG/anti-VEGF",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Répétition « sans EDC » dont on ignore si l'activation de 20 min en MES et le dessalage ont été conservés : si le dessalage a été sauté, la dilution et la composition ionique diffèrent aussi (témoin qui change plusieurs variables). Le nombre d'anticorps fixés n'y est pas mesuré ; seul le potentiel zêta compare.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Adsorption non covalente des protéines et des amines sur la couronne de PEG-COOH (interactions électrostatiques et hydrophobes), en partie retirée par le SDS.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "étapes réellement conservées (MES, dessalage)",
+    "dosage des anticorps adsorbés avec les anticorps marqués"
+   ]
+  },
+  {
+   "label": "Au-PEG/anti-HRP",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Répétition « sans EDC » dont on ignore si l'activation de 20 min en MES et le dessalage ont été conservés : si le dessalage a été sauté, la dilution et la composition ionique diffèrent aussi (témoin qui change plusieurs variables). Le nombre d'anticorps fixés n'y est pas mesuré ; seul le potentiel zêta compare.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Adsorption non covalente des protéines et des amines sur la couronne de PEG-COOH (interactions électrostatiques et hydrophobes), en partie retirée par le SDS.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "étapes réellement conservées (MES, dessalage)",
+    "dosage des anticorps adsorbés avec les anticorps marqués"
+   ]
+  },
+  {
+   "label": "Au-PEG/control",
+   "verdict": "invérifiable",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Répétition « sans EDC » dont on ignore si l'activation de 20 min en MES et le dessalage ont été conservés : si le dessalage a été sauté, la dilution et la composition ionique diffèrent aussi (témoin qui change plusieurs variables). Le nombre d'anticorps fixés n'y est pas mesuré ; seul le potentiel zêta compare.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Adsorption non covalente des protéines et des amines sur la couronne de PEG-COOH (interactions électrostatiques et hydrophobes), en partie retirée par le SDS.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "étapes réellement conservées (MES, dessalage)",
+    "dosage des anticorps adsorbés avec les anticorps marqués"
+   ]
+  },
+  {
+   "label": "Au-PEG-anti-VEGF_pH8",
+   "verdict": "coherente",
+   "feasibility": "non_reproductible",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "mecanisme",
+     "finding": "Activation EDC moins efficace à pH 8 qu'à 6,5 : attendu, l'activation des carboxyles par l'EDC est optimale vers pH 4,5–6 (MES) et l'O-acylisourée s'hydrolyse plus vite quand le pH monte ; le résultat négatif est cohérent. Aucun détail n'est donné, l'essai n'est pas refaisable tel quel.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Pierce EDC (1-ethyl-3-(3-dimethylaminopropyl)carbodiimide hydrochloride) – User Guide",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0017125_EDC_UG.pdf"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "À pH 8 la carbodiimide est moins protonée et l'activation plus lente, tandis que l'hydrolyse de l'intermédiaire s'accélère.",
+    "sources": [
+     {
+      "title": "Pierce EDC (1-ethyl-3-(3-dimethylaminopropyl)carbodiimide hydrochloride) – User Guide",
+      "authors_or_publisher": "Thermo Fisher Scientific (fiche fournisseur)",
+      "year": "s.d.",
+      "url_or_doi": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0017125_EDC_UG.pdf"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "tampon et durée de l'essai à pH 8 (non donnés)"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Protocole classique (or citraté par croissance sur germes, pégylation, couplage EDC d'anticorps) chimiquement plausible dans ses grandes lignes, mais trois points chiffrés ne tiennent pas : la concentration de particules de 11,1 nM est 9,5 fois au-dessus de ce que permet l'or introduit ; le nombre d'anticorps par particule du tableau 1 ne se recalcule pas à partir de ses propres lignes et a été mesuré sous un fort effet de filtre interne de l'or ; le témoin anti-HRP de la figure 16 reçoit 2,4 fois plus de particules que l'anti-VEGF. Le couplage EDC en deux temps sans NHS est fragile et la covalence n'est appuyée que par le potentiel zêta. Les rapports molaires du couplage (7,5 × 10^6 EDC, 50 anticorps, 10^3 TAMRA, 2,5 × 10^4 PEG-amine par particule) se recalculent exactement et confirment un PEG-amine de 750 Da.",
+  "author_errors_suspected": [
+   "cNP = 11,1 nM incompatible avec 50 µmol d'or (≤ 1,2 nM) : facteur de dilution (26 au lieu de 2,5 ?) ou absorbance erronée",
+   "tableau 1 : RP/NP ≠ cP/cNP pour les quatre colonnes ; dilutions de l'anti-VEGF* incohérentes entre elles",
+   "une seule injection de croissance ne peut mener de germes de Bastús à 20,9 nm (cycles omis ?)",
+   "PEG-amine « 750 kDa » pour 750 Da (confirmé par le calcul de 2,5 × 10^4 par particule)",
+   "« 100 ng/L » dans la légende de la figure 16 pour 100 ng/mL",
+   "résistivité « 18.2 mΩ·cm−1 » pour 18,2 MΩ·cm"
+  ],
+  "comparison_with_database": "Autres nanoparticules d'or de la base (PMC4043712, PMC4848276, PMC5080270, PMC5101912) : synthèses vertes ou photochimiques, sans citrate ni croissance sur germes ; pas de comparaison directe possible. Le plasmon à ≈ 530 nm pour 20,9 nm reste en dessous des 543 nm de PMC5080270 (30 nm) et des 570 nm de PMC4043712 (formes anisotropes), ordre cohérent."
+ },
+ "sources_not_found": [
+  "taille des germes de la méthode de Bastús et al. 2011 et nombre de générations nécessaires pour 20 nm : texte intégral non accessible (recherche web et accès core.ac.uk / nanopartz refusés)",
+  "demi-vie chiffrée de l'O-acylisourée dans l'eau : seulement des brevets (secondes), non retenus ; la fiche Thermo dit « instable » sans chiffre",
+  "masse molaire du TAMRA cadavérine (Anaspec 81507) : fiche non lue, ≈ 515 g/mol retenu de mémoire",
+  "coefficients ε à 494 et 519 nm pour 20 nm (table de Haiss non relue) : seule la borne ε450 de l'article est utilisée"
+ ]
+}

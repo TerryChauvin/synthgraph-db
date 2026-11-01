@@ -1,0 +1,558 @@
+{
+ "pmcid": "PMC8975640",
+ "routes": [
+  {
+   "label": "HAp_Ca0.05_5h_200C",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse de lactate de calcium pentahydraté par litre",
+     "inputs": "[Ca2+] = 0,05 mol/L ; M(C6H10CaO6·5H2O) = 218,22 + 5 × 18,015 = 308,3 g/mol",
+     "formula": "m = c × M",
+     "result": "15,4 g/L (7,7 g/L à 0,025 ; 30,8 g/L à 0,1 ; 61,7 g/L à 0,2 mol/L)",
+     "compared_to": "aucune masse ni volume dans l'article",
+     "source": "masses atomiques standard"
+    },
+    {
+     "what": "concentration d'acide phosphorique",
+     "inputs": "[Ca] = 0,05 mol/L ; Ca/P = 1,67",
+     "formula": "[P] = [Ca]/1,67",
+     "result": "0,0299 mol/L H3PO4 (2,9 g/L de H3PO4 pur ; ≈ 2,0 mL/L d'acide à 85 %, densité 1,685 g/mL)",
+     "compared_to": "Ca10(PO4)6(OH)2 : Ca/P = 10/6 = 1,667",
+     "source": "valeurs de l'article ; densité de H3PO4 85 % = 1,685 g/mL (valeur de manuel, non relue ici)"
+    },
+    {
+     "what": "pH du mélange de départ (tampon lactate / acide lactique)",
+     "inputs": "[Ca] = 0,05 ; [lactate total] = 0,10 ; [P] = 0,0299 mol/L ; pKa(acide lactique) = 3,86 ; pKa(H3PO4) = 2,15 / 7,20 / 12,35 ; activités = 1, complexation négligée",
+     "formula": "bilan de charges 2[Ca2+] + [H+] = [Lac−] + [H2PO4−] + 2[HPO4 2−] + 3[PO4 3−] + [OH−], résolu par dichotomie",
+     "result": "pH ≈ 4,23 pour les quatre concentrations (0,025 à 0,2 mol/L) : H3PO4 protone 0,03 mol/L de lactate, rapport Lac−/HLac ≈ 7/3 fixe",
+     "compared_to": "pH mesurés Table 1 : 3,69 à 4,20 (écart attendu des coefficients d'activité)",
+     "source": "pKa lactique : PubChem CID 612 ; pKa phosphoriques : valeurs de manuel"
+    },
+    {
+     "what": "bilan de protons de la réaction (1) menée à son terme",
+     "inputs": "10 Ca2+ + 6 H3PO4 + 2 H2O → Ca10(PO4)6(OH)2 + 20 H+ ; 20 lactates disponibles pour 10 Ca",
+     "formula": "les 20 H+ libérés protonent les 20 lactates ; solution finale = acide lactique 2 × [Ca]",
+     "result": "acide lactique 0,10 mol/L → pH ≈ 2,44 (0,40 mol/L → pH ≈ 2,13 à [Ca] = 0,2)",
+     "compared_to": "zone où la solubilité de tous les orthophosphates de calcium croît fortement (Ca et P en solution × 100 entre pH 7 et 5 pour l'HAp à 25 °C)",
+     "source": "équation (1) de l'article ; pKa PubChem ; Avnimelech et al. 1973"
+    },
+    {
+     "what": "masse maximale d'HAp",
+     "inputs": "[Ca] = 0,05 mol/L ; M(Ca10(PO4)6(OH)2) = 1004,6 g/mol",
+     "formula": "m = [Ca]/10 × M",
+     "result": "5,0 g d'HAp par litre de solution (2,5 / 10,0 / 20,1 g/L à 0,025 / 0,1 / 0,2 mol/L)",
+     "compared_to": "rendement non donné par l'article",
+     "source": "masses atomiques standard"
+    },
+    {
+     "what": "fraction de Ca2+ complexée par le lactate à 25 °C",
+     "inputs": "Kass(CaLac+) = 49 L/mol à 25 °C ; [Ca] = 0,05 ; lactate libre initial ≈ 0,07 mol/L (après protonation par H3PO4) ; activités = 1",
+     "formula": "itération : bound = [Ca]·K·[L]/(1 + K·[L]) ; [L] = 0,07 − bound",
+     "result": "≈ 65 % du Ca lié (lactate libre ≈ 0,038 mol/L) ; moins avec les coefficients d'activité",
+     "compared_to": "hypothèse des auteurs d'un « chélate » qui libère Ca2+ en se décomposant",
+     "source": "Vavrusova et al. 2014"
+    },
+    {
+     "what": "constante CaLac+ extrapolée en température (van 't Hoff)",
+     "inputs": "K25 = 49 ; ΔH°ass = +31 kJ/mol (supposé constant) ; T = 403, 423, 443, 473 K",
+     "formula": "K(T) = K25 · exp[−ΔH/R (1/T − 1/298,15)]",
+     "result": "K ≈ 1 300 (130 °C), 2 000 (150 °C), 2 900 (170 °C), 5 000 (200 °C) : la liaison Ca–lactate se renforce en chauffant",
+     "compared_to": "« décomposition thermique du chélate qui libère Ca2+ » (réaction 2 des auteurs)",
+     "source": "Vavrusova et al. 2014 ; extrapolation hors du domaine mesuré, ordre de grandeur seulement"
+    },
+    {
+     "what": "pression attendue dans le réacteur",
+     "inputs": "P_sat(eau) NIST : 2,70 bar (130 °C), 4,76 (150 °C), 7,92 (170 °C), 15,55 (200 °C) ; air de tête 1,013 bar à 25 °C chauffé à volume constant",
+     "formula": "P_abs ≈ P_sat + 1,013 × T/298,15",
+     "result": "4,1 / 6,2 / 9,4 / 17,2 bar absolus (3,1 / 5,2 / 8,4 / 16,1 bar relatifs)",
+     "compared_to": "pressions déclarées : 4 / 6 / 10 / 20 bar",
+     "source": "NIST WebBook"
+    },
+    {
+     "what": "dilatation de l'eau de 25 à 200 °C (taux de remplissage maximal)",
+     "inputs": "ρ(eau liquide saturée, 200 °C) = 47,996 mol/L ; ρ(25 °C) ≈ 55,35 mol/L",
+     "formula": "V200/V25 = 55,35/47,996",
+     "result": "1,153 : au-delà d'environ 85 % de remplissage à froid, le liquide remplit la cuve de 300 mL à 200 °C",
+     "compared_to": "volume de solution non donné",
+     "source": "NIST WebBook (200 °C) ; masse volumique de l'eau à 25 °C, valeur de manuel"
+    },
+    {
+     "what": "Bragg des raies (211) et (300)",
+     "inputs": "2θ = 31,80° et 32,90° ; λ Cu Kα1 = 1,5406 Å ; maille PDF 09-0432 a = 9,418 Å, c = 6,884 Å",
+     "formula": "d = λ/(2 sin θ) ; 1/d² = 4(h² + hk + k²)/(3a²) + l²/c²",
+     "result": "d = 2,812 et 2,720 Å mesurés ; 2,814 (211) et 2,719 (300) calculés",
+     "compared_to": "indexation des auteurs",
+     "source": "λ : NIST X-ray Transition Energies ; paramètres de maille de la fiche 09-0432, valeurs de manuel non relues ici"
+    },
+    {
+     "what": "rapport d'aspect des whiskers",
+     "inputs": "longueur 58,4–111,1 µm ; largeur 2,0–3,0 µm (Table 1)",
+     "formula": "L/l",
+     "result": "≈ 19 à 56",
+     "compared_to": "définition OMS d'une fibre respirable : L > 5 µm, l < 3 µm, L/l > 3",
+     "source": "OMS 1997"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le rapport Ca/P = 1,67 de la solution est celui de l'HAp ; Ca et P sont tous deux apportés (calcul « concentration d'acide phosphorique »). L'équation (1) est équilibrée en atomes et en charges.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Sans base ajoutée, la seule base du milieu est le lactate. Si la réaction (1) allait à son terme, les 20 H+ libérés par 10 Ca protoneraient tout le lactate : solution finale d'acide lactique 0,10 mol/L, pH ≈ 2,4 (calcul « bilan de protons »). Dans ce domaine, la solubilité des orthophosphates de calcium est très élevée (Ca et P dissous multipliés par ≈ 100 entre pH 7 et 5 pour l'HAp à 25 °C, Avnimelech 1973) : la conversion est donc très probablement partielle et s'arrête quand le pH chute. L'article ne donne ni rendement, ni masse de produit, ni le pH après synthèse, alors que la partie 2.2 dit qu'il a été mesuré. L'équation (1) présentée comme bilan de la synthèse n'est pas compatible avec une conversion complète en milieu non tamponné.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Solubility and surface properties of finely divided hydroxyapatite",
+      "authors_or_publisher": "Avnimelech Y., Moreno E.C., Brown W.E., J. Res. Natl. Bur. Stand. 77A",
+      "year": "1973",
+      "url_or_doi": "https://nvlpubs.nist.gov/nistpubs/jres/77A/jresv77An1p149_A1b.pdf"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« HAp stœchiométrique » est affirmé sur la seule foi de la DRX et de l'IRTF, qui ne distinguent pas l'HAp (Ca/P 1,67) d'une apatite déficitaire en calcium (Ca/P 1,50–1,67) ; en milieu acide (pH ≤ 4,2), c'est précisément l'apatite déficitaire qui est attendue (Pan & Darvell 2009). Les auteurs écrivent eux-mêmes que la bande à 874 cm−1 peut venir de HPO4 2−, puis concluent à l'absence de HPO4 2−. Il faudrait un dosage Ca/P (ICP, chimie humide) ou une calcination à 900–1000 °C : une apatite déficitaire donne alors du β-TCP détectable en DRX (Raynaud 2002).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Calcium phosphate apatites with variable Ca/P atomic ratio I. Synthesis, characterisation and thermal stability of powders",
+      "authors_or_publisher": "Raynaud S., Champion E., Bernache-Assollant D., Thomas P., Biomaterials",
+      "year": "2002",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/11791909/"
+     }
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Le pH de départ ≈ 4 n'est pas un réglage : il est fixé par le tampon acide lactique / lactate (rapport 3:7) et vaut ≈ 4,2 quelle que soit la concentration (calcul « pH du mélange de départ »). Les écarts de 3,69 à 4,20 entre les rangées de la Table 1 sont des écarts de mesure ou d'activité, pas une variable contrôlée ; on ne peut pas faire varier le pH entre 3,5 et 5 sans ajouter un acide ou une base.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Pressions déclarées contre calcul (« pression attendue ») : 4, 6 et 10 bar à 130, 150 et 170 °C correspondent à la pression de vapeur de l'eau plus l'air de tête (4,1 / 6,2 / 9,4 bar absolus). À 200 °C, 20 bar dépasse de ≈ 3 bar la valeur attendue (17,2 bar absolus) : gaz de décomposition (CO2, CO), lecture sur un manomètre gradué jusqu'à 100 bar, ou température interne plus haute que la consigne. La pression est autogène : elle suit la température et n'est pas un paramètre indépendant. « Effet de la pression » ne peut donc pas être séparé de l'effet de la température.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Saturation Properties for Water — Temperature Increments (130–200 °C)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69 (Lemmon, McLinden, Friend)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C7732185&Type=SatP&Digits=5&THigh=200&TLow=130&TInc=10&RefState=DEF&TUnit=C&PUnit=bar"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Réacteur de 300 mL prévu pour 100 bar : marge suffisante à 20 bar. Le volume de solution n'est pas donné ; l'eau se dilate d'un facteur 1,153 entre 25 et 200 °C (calcul « dilatation de l'eau ») : au-delà de ≈ 85 % de remplissage, le liquide remplit la cuve et la pression monte de façon hydraulique. La rampe à 2,5 °C/min dure ≈ 70 min de 25 à 200 °C, et le refroidissement se fait « overnight » dans la cuve fermée : le temps réel passé au-dessus de 150 °C n'est pas égal aux 3, 5 ou 7 h annoncés, ce qui pèse sur la comparaison des durées.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Les auteurs attribuent la formation lente de l'HAp à la « décomposition thermique du chélate de calcium » qui libère Ca2+. Or Ca–lactate est un complexe faible et labile (Kass = 49 à 25 °C) dont la formation est endothermique (ΔH°ass = +31 kJ/mol) : la liaison se renforce en chauffant (K ≈ 5 000 à 200 °C par van 't Hoff, calcul « constante CaLac+ extrapolée »). Le chauffage ne libère donc pas de Ca2+ par dissociation du complexe ; la réaction (2) des auteurs n'est pas un mécanisme, et le lactate lui-même n'est pas décomposé de façon notable à 200 °C (son hydrolyse est étudiée en eau quasi critique). L'argument de « libération plus lente du Ca » importé d'autres chélates (EDTA, log K ≈ 10) ne s'applique pas tel quel au lactate.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Thermodynamics of dissolution of calcium hydroxycarboxylates in water",
+      "authors_or_publisher": "Vavrusova M., Liang R., Skibsted L.H., J. Agric. Food Chem. 62:5675–5681",
+      "year": "2014",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/24869479 (DOI 10.1021/jf501453c, non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "La sursaturation monte pendant la rampe parce que les phosphates de calcium ont une solubilité rétrograde (dissolution exothermique, solubilité plus basse à chaud) : c'est un mode de précipitation homogène par chauffage, cohérent avec des whiskers longs à faible concentration (faible sursaturation, croissance selon c) et des bâtonnets plus courts à forte concentration (nucléation plus nombreuse).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Calcium Phosphate Solubility: The Need for Re-Evaluation",
+      "authors_or_publisher": "Pan H.B., Darvell B.W., Cryst. Growth Des. (ACS)",
+      "year": "2009",
+      "url_or_doi": "10.1021/cg801118v (non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Whiskers de 58–111 µm × 2–3 µm : même ordre que les whiskers d'HAp obtenus par précipitation homogène hydrothermale (acétamide, 60–116 µm, Zhang & Darvell 2010). Plausible.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis and characterization of hydroxyapatite whiskers by hydrothermal homogeneous precipitation using acetamide",
+      "authors_or_publisher": "Zhang H., Darvell B.W., Acta Biomater. 6:3216 (cité via la bibliographie de Discover Applied Sciences 2024, s42452-024-05754-z)",
+      "year": "2010",
+      "url_or_doi": "10.1016/j.actbio.2010.02.011 (non vérifié sur Crossref ; dimensions 60–116 µm et rapport d'aspect 68–103 lues dans une source secondaire)"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Raies (211) à 31,80° et (300) à 32,90° : distances 2,812 et 2,720 Å, conformes à la maille de l'HAp (calcul « Bragg »). L'argument « (300) la plus intense = croissance selon c » ne suit pas la morphologie : les whiskers les plus longs (0,05 mol/L, 5 h) ont (211) la plus intense, et les bâtonnets à 0,1 mol/L ont (300) la plus intense. Après broyage au mortier, le rapport I(300)/I(211) dépend surtout de l'orientation préférentielle lors de la préparation de l'échantillon ; il ne prouve pas la direction de croissance.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Contradictions entre sections : (a) les Conclusions disent que la longueur des whiskers croît quand la concentration baisse, mais à 5 h 0,025 mol/L donne 40,6–82,9 µm, plus court que 0,05 mol/L (58,4–111,1 µm) ; (b) la partie 3.3 parle de whiskers à 150 et 170 °C, la Table 1 et les Conclusions de bâtonnets hexagonaux ; (c) les pH des légendes et du texte (3,1 ; 3,9 ; 9,0 ; 9,1 ; 11,1) ne sont pas ceux de la Table 1 (3,91 ; 9,3 ; 11,06) ; (d) l'IRTF à pH 11,06 est renvoyé à la Fig. 4 (DRX) au lieu de la Fig. 5 ; (e) des intervalles min–max sont appelés « longueur moyenne ».",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Vocabulaire IRTF : les bandes à 2360 et 2341 cm−1 sont celles du CO2 gazeux de l'atmosphère du spectromètre (mauvaise compensation du fond), pas du CO2 « dissous » dans l'échantillon ; dans le spectre de la monétite, la bande à 2360 cm−1 est attribuée à la fois à une liaison H (P)O–H et au CO2. Sans conséquence sur la phase, mais ces bandes ne renseignent pas sur le carbonate du solide.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "solubilite",
+     "finding": "Lactate de calcium pentahydraté : 15,4 g/L à 0,05 mol/L, bien soluble. L'isomère (L ou DL) n'est pas précisé ; la forme DL est moins soluble que la forme L.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Aqueous solubility of calcium L-lactate, calcium D-gluconate, and calcium D-lactobionate: importance of complex formation for solubility increase by hydroxycarboxylate mixtures",
+      "authors_or_publisher": "Vavrusova M., Munk M.B., Skibsted L.H., J. Agric. Food Chem. 61:8207–8214",
+      "year": "2013",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/23906043 (DOI 10.1021/jf402124n, non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Non mentionné par l'article : (1) réacteur sous pression (20 bar à 200 °C), ouverture seulement après retour à température ambiante, remplissage ≤ 75–80 % ; (2) acide orthophosphorique concentré corrosif ; (3) les whiskers (L 58–111 µm, l 2–3 µm, rapport d'aspect 19 à 56) répondent à la définition OMS d'une fibre respirable (L > 5 µm, l < 3 µm, L/l > 3) : manipuler la poudre sèche sous hotte ou avec un masque FFP3, même si l'HAp est biosoluble en milieu acide.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Determination of airborne fibre number concentrations: a recommended method, by phase-contrast optical microscopy (membrane filter method)",
+      "authors_or_publisher": "World Health Organization",
+      "year": "1997",
+      "url_or_doi": "https://iris.who.int/handle/10665/41904"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "À froid, la solution (Ca 0,05 mol/L dont ≈ 65 % complexé par le lactate, phosphate surtout sous forme H2PO4−, pH ≈ 4,2 fixé par le tampon acide lactique/lactate) reste limpide. Pendant la montée en température, la solubilité des phosphates de calcium baisse (solubilité rétrograde) : la sursaturation croît lentement et uniformément dans tout le volume, ce qui donne une précipitation homogène à faible sursaturation. En dessous de ≈ 130 °C, la phase acide stable à chaud, la monétite CaHPO4, précipite ; au-dessus de ≈ 150 °C, une apatite (probablement partiellement déficitaire en calcium vu le pH) nuclée et croît le long de l'axe c, d'où des whiskers à faible concentration et des bâtonnets hexagonaux plus courts quand la concentration élevée multiplie les germes. Chaque formule d'HAp formée libère des H+ que le lactate absorbe ; le pH baisse et la réaction s'arrête avant conversion complète. Le complexe Ca–lactate ne se « décompose » pas en chauffant (il se renforce) ; le lactate agit plutôt comme tampon et, peut-être, comme adsorbat de surface (C–H vus en IRTF).",
+    "sources": [
+     {
+      "title": "Thermodynamics of dissolution of calcium hydroxycarboxylates in water",
+      "authors_or_publisher": "Vavrusova M., Liang R., Skibsted L.H., J. Agric. Food Chem. 62:5675–5681",
+      "year": "2014",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/24869479 (DOI 10.1021/jf501453c, non vérifié sur Crossref)"
+     },
+     {
+      "title": "Calcium Phosphate Solubility: The Need for Re-Evaluation",
+      "authors_or_publisher": "Pan H.B., Darvell B.W., Cryst. Growth Des. (ACS)",
+      "year": "2009",
+      "url_or_doi": "10.1021/cg801118v (non vérifié sur Crossref)"
+     },
+     {
+      "title": "Solubility and surface properties of finely divided hydroxyapatite",
+      "authors_or_publisher": "Avnimelech Y., Moreno E.C., Brown W.E., J. Res. Natl. Bur. Stand. 77A",
+      "year": "1973",
+      "url_or_doi": "https://nvlpubs.nist.gov/nistpubs/jres/77A/jresv77An1p149_A1b.pdf"
+     },
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M. et al., Acta Biomater.",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "volume de solution et taux de remplissage du réacteur de 300 mL (≤ 75–80 %)",
+    "forme et concentration de l'acide phosphorique (85 % ?) et isomère du lactate (L ou DL)",
+    "rendement massique (maximum 5,0 g/L d'HAp à 0,05 mol/L) et pH après synthèse : une conversion partielle est attendue",
+    "rapport Ca/P du solide (ICP) ou calcination à 900–1000 °C pour détecter du β-TCP (apatite déficitaire)",
+    "si la durée de 5 h compte la rampe de 70 min, et la durée réelle du refroidissement",
+    "pression réelle à 200 °C (attendu ≈ 17 bar absolus, déclaré 20)"
+   ]
+  },
+  {
+   "label": "HAp_pH9.3",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "base nécessaire pour atteindre pH ≈ 9 et former l'HAp sans protoner le lactate",
+     "inputs": "10 Ca2+ + 6 H3PO4 + 2 H2O → HAp + 20 H+ ; [Ca] = 0,05 mol/L",
+     "formula": "n(OH−) ≈ 2 × [Ca]",
+     "result": "≈ 0,10 mol/L de base (par ex. 4,0 g/L de NaOH, ou NH3 0,10 mol/L), soit autant d'ions Na+ ou NH4+ que de lactate",
+     "compared_to": "réactif non nommé par l'article",
+     "source": "stœchiométrie de l'équation (1) de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le réactif qui porte le pH à 9,3 n'est pas nommé ; il faut ≈ 0,10 mol/L de base (calcul « base nécessaire »). Avec NaOH, Na+ et CO3 2− (CO2 de l'air) peuvent entrer dans l'apatite ; avec NH3, une partie part dans la phase gazeuse à 200 °C et le pH baisse pendant la synthèse. Le témoin change donc la nature de la base, la force ionique et la quantité d'ions étrangers en plus du pH.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "À pH 9,3, Ca 0,05 mol/L et P 0,03 mol/L, un phosphate de calcium précipite dès l'ajout de base à température ambiante : le traitement hydrothermal vieillit une suspension et non une solution, ce qui explique des agrégats de nanobâtonnets moins bien cristallisés (nucléation massive), contrairement à la précipitation homogène à pH 4.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Nanobâtonnets de 115–230 nm × 41–92 nm : même ordre que les nanobâtonnets d'HAp hydrothermaux à 160 °C, pH 9–10 de PMC9036687 (50–100 nm × 40–50 nm).",
+     "status": "ok",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Précipitation immédiate de phosphate de calcium amorphe (ou d'apatite mal cristallisée) à l'ajout de base, puis dissolution–recristallisation hydrothermale en nanobâtonnets d'HAp agrégés ; la forte sursaturation initiale multiplie les germes et limite la croissance.",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M. et al., Acta Biomater.",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "nature et quantité de la base, et moment de son ajout",
+    "pH après synthèse",
+    "teneur en Na ou carbonate du solide si NaOH est utilisé"
+   ]
+  },
+  {
+   "label": "HAp_pH11.06",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "base nécessaire",
+     "inputs": "comme HAp_pH9.3 ; plus l'excès pour atteindre pH 11",
+     "formula": "n(OH−) ≥ 2 × [Ca]",
+     "result": "≥ 0,10 mol/L de base",
+     "compared_to": "réactif non nommé",
+     "source": "stœchiométrie de l'équation (1)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Même réserve qu'à pH 9,3 : base non nommée ; à pH 11, une base forte en excès est nécessaire (NH3 seul atteint difficilement 11 en présence du lactate et du phosphate). Les C–H vus en IRTF (lactate adsorbé) sont cohérents avec un lactate entièrement déprotoné qui s'adsorbe sur les surfaces d'apatite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Dimensions des agrégats non chiffrées ; l'IRTF de cet échantillon est renvoyé à la Fig. 4 au lieu de la Fig. 5.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Même mécanisme qu'à pH 9,3 : précipitation à l'ajout de base, vieillissement hydrothermal, nanobâtonnets agrégés ; lactate adsorbé en surface.",
+    "sources": [
+     {
+      "title": "Synthesis methods for nanosized hydroxyapatite with diverse structures",
+      "authors_or_publisher": "Sadat-Shojai M. et al., Acta Biomater.",
+      "year": "2013",
+      "url_or_doi": "10.1016/j.actbio.2013.04.012"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "nature et quantité de la base",
+    "pH après synthèse"
+   ]
+  },
+  {
+   "label": "HAp_T130",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rendement maximal en monétite",
+     "inputs": "[P] = 0,0299 mol/L (limitant pour CaHPO4, Ca/P = 1) ; M(CaHPO4) = 136,06 g/mol",
+     "formula": "m = [P] × M ; Ca restant = [Ca] − [P]",
+     "result": "4,07 g/L au plus ; ≈ 0,020 mol/L de Ca (40 %) reste en solution",
+     "compared_to": "rendement non donné",
+     "source": "masses atomiques standard"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "130 °C, 4 bar annoncés contre 2,70 bar de vapeur d'eau + 1,37 bar d'air = 4,1 bar absolus : cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Saturation Properties for Water — Temperature Increments (130–200 °C)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69 (Lemmon, McLinden, Friend)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C7732185&Type=SatP&Digits=5&THigh=200&TLow=130&TInc=10&RefState=DEF&TUnit=C&PUnit=bar"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Monétite (CaHPO4 anhydre) à pH ≈ 4 et au-dessus de 100 °C : phase acide attendue (la brushite se déshydrate à chaud). À 130 °C mais pH 7, PMC8136633 obtient HAp + OCP : l'écart vient du pH, pas d'une incohérence. Le rapport Ca/P du produit (1) diffère de celui de la solution (1,67) : un chimiste doit s'attendre à 40 % du Ca perdu dans les eaux.",
+     "status": "ok",
+     "basis": "comparaison_base"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Précipitation homogène de CaHPO4 par baisse de solubilité à chaud, phase stable en milieu acide ; à 130 °C la transformation en apatite n'a pas lieu en 5 h.",
+    "sources": [
+     {
+      "title": "Calcium Phosphate Solubility: The Need for Re-Evaluation",
+      "authors_or_publisher": "Pan H.B., Darvell B.W., Cryst. Growth Des. (ACS)",
+      "year": "2009",
+      "url_or_doi": "10.1021/cg801118v (non vérifié sur Crossref)"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "rendement et Ca restant en solution"
+   ]
+  },
+  {
+   "label": "HAp_T150",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "6 bar annoncés contre 4,76 + 1,44 = 6,2 bar absolus attendus : cohérent. La pression suit la température, ce n'est pas une seconde variable.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Saturation Properties for Water — Temperature Increments (130–200 °C)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69 (Lemmon, McLinden, Friend)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C7732185&Type=SatP&Digits=5&THigh=200&TLow=130&TInc=10&RefState=DEF&TUnit=C&PUnit=bar"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Forme du produit : « whiskers » dans le texte 3.3, « hexagonal rods » dans la Table 1 et les Conclusions.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme la voie de base ; à 150 °C la nucléation d'apatite l'emporte sur la monétite.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "morphologie réelle (Fig. 6c)"
+   ]
+  },
+  {
+   "label": "HAp_T170",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "10 bar annoncés contre 7,92 + 1,51 = 9,4 bar absolus attendus : cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Saturation Properties for Water — Temperature Increments (130–200 °C)",
+      "authors_or_publisher": "NIST Chemistry WebBook, SRD 69 (Lemmon, McLinden, Friend)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C7732185&Type=SatP&Digits=5&THigh=200&TLow=130&TInc=10&RefState=DEF&TUnit=C&PUnit=bar"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Même contradiction de forme (whiskers dans le texte, bâtonnets hexagonaux dans la Table 1).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Comme la voie de base.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "morphologie réelle (Fig. 6b)"
+   ]
+  },
+  {
+   "label": "HAp_Ca0.2_5h",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "solubilité du lactate de calcium à 0,2 mol/L",
+     "inputs": "0,2 mol/L × 308,3 g/mol ; Ksp(Ca-L-lactate) = 5,8 × 10−3 mol³/L³ dans NaCl 1,0 mol/L",
+     "formula": "m = c × M ; s = (Ksp/4)^(1/3)",
+     "result": "61,7 g/L à dissoudre ; s ≈ 0,11 mol/L (valeur conditionnelle en NaCl 1 mol/L, sans complexation)",
+     "compared_to": "0,2 mol/L visé",
+     "source": "Vavrusova et al. 2013"
+    },
+    {
+     "what": "pH final si conversion complète",
+     "inputs": "acide lactique 0,40 mol/L ; pKa 3,86",
+     "formula": "[H+] = (−Ka + √(Ka² + 4Ka·c))/2",
+     "result": "pH ≈ 2,1",
+     "compared_to": "pH initial 4,20",
+     "source": "PubChem CID 612"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "0,2 mol/L de lactate de calcium pentahydraté (61,7 g/L) est du même ordre que la limite de solubilité du sel (≈ 0,11 mol/L tirée du Ksp en NaCl 1 mol/L ; la valeur en eau pure dépend de l'isomère et de la température). L'article dit que la solution est homogène ; vérifier la dissolution complète avant l'ajout de H3PO4 (l'ajout d'acide aide en protonant une partie du lactate).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Aqueous solubility of calcium L-lactate, calcium D-gluconate, and calcium D-lactobionate: importance of complex formation for solubility increase by hydroxycarboxylate mixtures",
+      "authors_or_publisher": "Vavrusova M., Munk M.B., Skibsted L.H., J. Agric. Food Chem. 61:8207–8214",
+      "year": "2013",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/23906043 (DOI 10.1021/jf402124n, non vérifié sur Crossref)"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "À cette concentration, la conversion complète ferait descendre le pH à ≈ 2,1 : la fraction de Ca convertie en apatite est probablement plus faible encore qu'à 0,05 mol/L, ce qui rend la comparaison des longueurs entre concentrations fragile (les auteurs le reconnaissent en 4.2).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Sursaturation plus forte au chauffage, nucléation plus abondante, bâtonnets plus courts.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "dissolution complète du lactate de calcium",
+    "rendement"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse hydrothermale simple et faisable (lactate de calcium + H3PO4, Ca/P 1,67, réacteur acier 300 mL, 130–200 °C) ; les phases annoncées (monétite à 130 °C, apatite à 150 °C et plus) et les tailles de whiskers sont plausibles et cohérentes avec la base. Trois faiblesses : (1) sans base ajoutée, la réaction (1) ne peut pas aller à son terme (le pH tomberait vers 2,4) et l'article ne donne ni rendement ni pH final, alors que ce dernier a été mesuré ; (2) « HAp pure et stœchiométrique » n'est pas démontré (DRX + IRTF ne distinguent pas une apatite déficitaire en Ca, attendue en milieu acide) ; (3) le mécanisme de « décomposition thermique du chélate » est contraire à la thermodynamique connue du complexe Ca–lactate, qui se renforce en chauffant. La pression n'est pas une variable indépendante (pression autogène, conforme à la vapeur d'eau + air sauf ≈ +3 bar à 200 °C). Nombreuses incohérences de rédaction entre texte, légendes et Table 1.",
+  "author_errors_suspected": [
+   "Équation (1) présentée comme bilan de la synthèse alors qu'une conversion complète est incompatible avec l'acidification du milieu ; rendement et pH final non donnés",
+   "Mécanisme de « décomposition thermique » du lactate de calcium contraire à la formation endothermique du complexe CaLac+",
+   "« Effet de la pression » : la pression est autogène et suit la température",
+   "Conclusions : « la longueur croît quand la concentration baisse », contredit par la Table 1 à 5 h (0,025 < 0,05 mol/L)",
+   "Whiskers (3.3) contre bâtonnets hexagonaux (Table 1, Conclusions) à 150 et 170 °C",
+   "pH des légendes et du texte (3,1 ; 9,0 ; 9,1 ; 11,1) différents de la Table 1 ; IRTF pH 11,06 renvoyé à la Fig. 4",
+   "Bande à 874 cm−1 attribuée à HPO4 2− possible puis absence de HPO4 2− conclue ; CO2 de l'atmosphère du spectromètre appelé « dissous »",
+   "Base utilisée pour pH 9,3 et 11,06 non nommée"
+  ],
+  "comparison_with_database": "PMC9036687 (HAp hydrothermale, 160 °C, 8 h, pH 9–10) : nanobâtonnets 50–100 × 40–50 nm, du même ordre que les nanobâtonnets à pH 9,3 (115–230 × 41–92 nm). PMC8136633 (hydrothermal 130 °C, 7 h, pH 7) : HAp + OCP, contre monétite ici à 130 °C et pH ≈ 4 ; l'écart s'explique par le pH. Aucune autre voie de la base ne donne de whiskers micrométriques ; la seule comparaison est la littérature (Zhang & Darvell 2010, 60–116 µm)."
+ },
+ "sources_not_found": [
+  "Valeur vérifiée de la solubilité du lactate de calcium pentahydraté dans l'eau pure à 25 °C (seul le Ksp en NaCl 1 mol/L de Vavrusova 2013 a été lu)",
+  "Donnée de décomposition de l'acide lactique ou du lactate à 200 °C en eau (seule une étude en eau quasi critique, Ind. Eng. Chem. Res. 1999, 10.1021/ie980520r, a été repérée, non lue)",
+  "Diagramme de solubilité des phosphates de calcium à 150–200 °C (non trouvé ; raisonnement qualitatif sur la solubilité rétrograde)"
+ ]
+}

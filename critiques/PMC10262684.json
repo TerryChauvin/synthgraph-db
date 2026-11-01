@@ -1,0 +1,121 @@
+{
+ "pmcid": "PMC10262684",
+ "verdict": "corrections_mineures",
+ "findings": [
+  {
+   "severity": "non_cite_a_tort",
+   "where": "OctA step 5 (injection de l'amine), not_stated addition_rate",
+   "extracted": "addition_rate déclaré non cité, aucun paramètre ; la description dit pourtant « Injecter rapidement »",
+   "article_says": "was rapidly injected",
+   "fix": "ajouter à l'étape 5 le paramètre addition_rate = « rapidly » (value_text, citation « the selected amine (...) was rapidly injected »), comme « dropwise » à l'étape 2 de la voie des sels, et retirer addition_rate de not_stated",
+   "confidence": "sure"
+  },
+  {
+   "severity": "deduit",
+   "where": "Screen_acetone (essai à 4 °C) et Screen_acetone_80C, volume de H3PO2",
+   "extracted": "H3PO2 1 mL hérité de OctA (aucune variation de H3PO2 sur ces deux branches)",
+   "article_says": "Acetone – 2",
+   "fix": "le tableau S2 ne montre pour l'acétone que le volume 0 (paires « 0 / RT » et « 0 / 4 », cellules du milieu vides, que l'extraction lit ailleurs comme fusionnées avec la valeur du dessus, cf. DMF) ; 1 mL n'apparaît jamais pour l'acétone. Soit ajouter la variation H3PO2 = 0 mL aux branches 4 °C et 80 °C, soit déclarer le volume de H3PO2 non établi pour ces deux branches (le texte principal décrit pourtant 1 mL de H3PO2 avec « toluene ... or acetone », d'où l'ambiguïté). Le bloc acétone du tableau compte cinq températures (RT, RT, 80, 4, 4) pour trois branches extraites : noter le doublon dans un doute",
+   "confidence": "probable"
+  },
+  {
+   "severity": "deduit",
+   "where": "OctA_no_toluene, Screen_acetone, Screen_DMF, Screen_DMSO, Screen_THF, Screen_NMF, Screen_diethyl_ether, Screen_ethyl_acetate : étape 4 héritée ; branches à RT et 80 °C (Screen_toluene_*_RT, Screen_acetone_RT, Screen_acetone_80C, Screen_DMF/DMSO/THF/NMF) : étape 7 héritée",
+   "extracted": "héritage de l'étape 4 « agiter au vortex jusqu'à voir l'interface du toluène » et de l'étape 7 « bain de glace pendant 10 min » (équipement ice bath, durée 10 min) ; seuls filtration/séchage, lavage au toluène et centrifugation sont déclarés non cités",
+   "article_says": "Once the toluene interface was visible",
+   "fix": "l'interface toluène n'existe pas sans toluène ni avec un solvant miscible (DMF, DMSO, NMF, acétone) : déclarer l'étape 4 (arrêt à l'interface) non citée pour ces branches, ou lui donner ses propres étapes (règle RUNBOOK « branche sans X »). Pour les essais à RT et 80 °C, l'article ne dit pas que le flacon passe 10 min dans un bain de glace ni comment il est chauffé à 80 °C : déclarer durée et équipement de l'étape 7 non cités pour ces branches",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "OctA, étapes 5 à 7 / observations",
+   "extracted": "aucune mention du flacon fermé ni de la poudre cristalline qui se forme puis se redissout à l'ajout de l'amine",
+   "article_says": "we noticed the formation of a few powdery crystals in the vial soon after the addition of octylamine, but these dissolved upon shaking",
+   "fix": "ajouter à l'étape 6 l'observation (cristaux pulvérulents qui se redissolvent à l'agitation) et noter à l'étape 7 que les flacons sont fermés (« Once the closed vials were placed inside an ice bath »)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "mineur",
+   "where": "POEA, résultats : CIE_coordinates absent",
+   "extracted": "coordonnées CIE de POEA non reprises (jugées illisibles à ± 0,05)",
+   "article_says": "from (0.52, 0.46) of the OctA crystals to (0.25, 0.41) when using FBA as organic cations",
+   "fix": "sur la figure 4g (nz3c00791_0004.jpg), le point POEA se lit vers (0,57 ; 0,42), à ± 0,03 environ, entre OctA et le bord rouge du diagramme, cohérent avec « high contribution from the red channel » ; l'ajouter en résultat from_figure approximatif (les points OctA et FBA lus sur la figure, vers (0,52 ; 0,46) et (0,23 ; 0,40), concordent avec le texte)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "manquant",
+   "where": "POEA et FBA, résultat Sn4+ fraction XPS",
+   "extracted": "taux de Sn4+ seulement en annotation tendance_observee, pas en résultat de branche",
+   "article_says": "We also observe a higher Sn4+ content in the samples prepared with these organic cations, around 55–75%",
+   "fix": "ajouter à POEA et FBA un résultat Sn4+_fraction_XPS = « 55–75 % (donné pour les deux échantillons ensemble) » avec cette citation, pour que compare.py voie l'écart avec OctA (> 70 % de Sn2+)",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "OctA_toluene_after_amine, variation toluène",
+   "extracted": "« added after the injection of the amine, not in the initial mixture » (légende Fig. S2)",
+   "article_says": "Also, by adding toluene to this solution after crystal dissolution, we observed the reformation of crystals (Figure S2).",
+   "fix": "préciser dans la variation que, selon le texte principal, le toluène est ajouté à la solution après la redissolution des cristaux formés sans toluène (pas seulement après l'injection de l'amine) ; garder la légende comme seconde citation",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "annotation comparaison_branches (article)",
+   "extracted": "« L'acétone, DMF, DMSO, THF et NMF, miscibles avec HBr et H3PO2 »",
+   "article_says": "Unlike other solvents such as dimethylformamide (DMF), dimethyl sulfoxide (DMSO), and N-methylformamide (NMF) that are fully miscible with HBr and H3PO2",
+   "fix": "retirer THF de la liste des solvants dits miscibles : l'article ne le dit que pour l'acétone, DMF, DMSO et NMF (THF n'apparaît que dans le tableau S2)",
+   "confidence": "sure"
+  },
+  {
+   "severity": "non_cite_a_tort",
+   "where": "Ammonium_bromide_salt, missing_fields « amine used for each salt »",
+   "extracted": "identité des amines des sels déclarée absente de l'article",
+   "article_says": "c-d, Photographs of the corresponding bromide salts with POEA (c)",
+   "fix": "l'annexe nomme les sels : octylammonium bromide (Fig. S4, « such as octylammonium bromide, Sn2(H2PO2)3Br, and octylamine crystals »), sels de POEA et de FBA (légende Fig. S18), et le sel de la 1-naphtylméthylamine (tableau S6, ligne 4, émission orange pâle) ; remplacer le manque par « quantité propre à chaque amine non donnée » et ajouter le résultat d'émission du sel de la 1-naphtylméthylamine",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "method_sources, ref63 retenu et ref65 écarté",
+   "extracted": "ref63 (mode STEM, éclairage parallèle) en source de méthode, ref65 absent",
+   "article_says": "3D ED acquisitions were performed at room temperature, in both continuous and stepwise modes.",
+   "fix": "même statut pour les deux renvois (modes continu et par pas : ref65, Gemmi et Lanza, 3D electron diffraction techniques) : ajouter ref65 en rôle « autre », ou retirer ref63 ; ref64 (détecteur) et ref66 (VESTA) restent exclus",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "OctA étapes 9 et 10, repetitions",
+   "extracted": "repetitions = « three times » sur l'étape 9 (ajout de toluène) seulement ; l'étape 10 le dit en description, sans paramètre",
+   "article_says": "This step was repeated three times.",
+   "fix": "la phrase suit la centrifugation et l'élimination du surnageant : le cycle ajout de toluène, centrifugation, surnageant écarté est répété trois fois ; porter repetitions sur les deux étapes ou préciser « cycle étapes 9-10 »",
+   "confidence": "probable"
+  },
+  {
+   "severity": "mineur",
+   "where": "OctA, tableau 1 (Z) et PXRD de l'échantillon frais",
+   "extracted": "tableau 1 repris pour le groupe d'espace, les paramètres de maille et le volume ; Z non repris ; positions des pics PXRD de l'annexe absentes",
+   "article_says": "Z | 8 | 1 | 1",
+   "fix": "ajouter Z = 8 (OctA), 1 (POEA), 1 (FBA) ; pour OctA, positions des pics (00l) de l'échantillon frais (8,80°, 13,17°, 17,58°, 21,97°, 26,47°, 30,94°) de la légende de l'annexe S9, si le format le permet",
+   "confidence": "probable"
+  }
+ ],
+ "coverage_check": {
+  "branches_in_article": 36,
+  "branches_extracted": 35,
+  "not_stated_checked": 26,
+  "not_stated_wrong": 2
+ },
+ "reproducibility_gaps": [
+  "pureté de SnBr2 et du toluène non données",
+  "HBr écrit 40 % en masse (synthèse) et 48 % aq. (produits) ; seul 48 % s'accorde avec 1,2 mmol pour 140 μL (≈ 1,24 mmol contre ≈ 0,95 mmol à 40 %)",
+  "température de dissolution et de préparation avant le bain de glace (étapes 1 à 6) non donnée ; mode d'agitation de l'étape 6 (« shaken ») non précisé",
+  "durée et température du séchage sur Büchner, type de papier filtre, rendement et échelle absents",
+  "tableau S2 : volume de H3PO2 de l'acétone à 4 et 80 °C ambigu, cellules fusionnées ; durée et appareillage des essais à RT et à 80 °C absents",
+  "figure S5 : quantités de SnBr2 et d'octylamine non chiffrées",
+  "amines 1 à 10 du tableau S5 : ni quantité, ni pureté, ni fournisseur ; noms des amines 5 et 6 coupés par la mise en page (lecture cystéamine / 2-méthylthioéthylamine retenue, plausible)",
+  "sels d'ammonium : 1,03 mL de HBr pour 0,02 mol est incompatible avec un acide aqueux (≈ 19 mol/L), concentration de HBr non donnée ; rendement absent",
+  "temps de formation (≈ 30 min) de POEA et FBA plus long que les 10 min de bain de glace : durée réelle du bain pour ces deux amines non donnée"
+ ],
+ "mechanism_check": "ok : mecanisme_auteurs (H3PO2 stabilisant de Sn2+, interface solvant-antisolvant avec le toluène au-dessus) est dans le texte ; mecanisme_analyse est étiqueté hypothèse et reste raisonnable (rapport 1,2/0,26 = 4,6 amine par Sn vérifié) ; securite_* couvre HBr, H3PO2, toluène, éther, amines",
+ "notes": "Branches dans l'article : 35 à 37, le bloc acétone du tableau S2 comptant cinq températures (RT, RT, 80, 4, 4) pour trois branches extraites. Points demandés par l'orchestrateur : (1) HBr 40 % contre 48 % : la synthèse est bien citée telle quelle à l'étape 1 (« aqueous HBr 40% by weight (140 μL, 1.2 mmol) ») et en citation du réactif ; la pureté 48 % vient de la phrase Materials, la contradiction est en doute et en limite_reproductibilite ; le calcul de l'extracteur est exact ; aucun constat, seule suggestion facultative : porter 40 % en paramètre de l'étape 1. (2) Tableau S2 : les rangées toluène (0/RT, 0,5/4, 1/RT, 1/4) et DMF, DMSO, THF, NMF (0 mL, RT puis 4 °C, valeur 0 de la cellule fusionnée) et p-xylène (1/4) sont correctement rangées dans les branches ; seul le bloc acétone est ambigu (constat 2). Aucune image du tableau S2 dans le dépôt (seules les figures principales). (3) Amines 5 et 6 du tableau S5 : lecture « cystéamine » / « 2-méthylthioéthylamine » plausible et cohérente avec les observations du tableau S6 (5 : aucun produit ; 6 : peu de poudre blanche) ; seul le « 2- » coupé est une inférence, nom normalisé par l'extracteur. (4) Essais sans cristaux : héritage des étapes 4 et 7 (constat 3) ; les étapes 8 à 10 sont déjà déclarées non citées. Figures ouvertes : Fig. 2 (PLQY dans le temps lu vers 81 % puis 70 % à 25 jours et 65 % vers 32-35 jours, d'accord avec le texte), Fig. 3c (d = 16,56 Å rouge POEA, 15,25 Å cyan FBA, attribution correcte), Fig. 4 (PL 625 nm, 510 nm, τ = 3,0 μs, CIE OctA et FBA). Aucune valeur de l'extraction n'est marquée from_figure. Aucune valeur fausse trouvée dans les 196 valeurs, vérifiées contre texte et tableau 1 (colonnes OctA/POEA/FBA correctement attribuées). Écarts non retenus : XPS 3d5/2 contre 3d3/2 et 486,6 contre 486,8 eV (FBA) entre texte et tableau S9 : l'extraction garde le texte et l'a déjà noté en doute ; PLQY trois mesures contre cinq (déjà en doute)."
+}

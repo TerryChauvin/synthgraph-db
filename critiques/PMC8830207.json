@@ -1,0 +1,88 @@
+{
+  "pmcid": "PMC8830207",
+  "verdict": "corrections_mineures",
+  "findings": [
+    {
+      "severity": "non_cite_a_tort",
+      "where": "Electrode_hybrid_xerogel, reagent « ITO-coated transparent PET foil », not_stated supplier",
+      "extracted": "not_stated: amount, purity, supplier",
+      "article_says": "A thin layer of the material (the working electrode) was deposited at the surface of an ITO-coated transparent PET foil (60 Ω/sq resistance, Sigma-Aldrich).",
+      "fix": "renseigner supplier = Sigma-Aldrich (citation de cette phrase) et retirer « supplier » de not_stated ; la résistance de 60 Ω/sq peut aller dans le nom ou le détail du réactif",
+      "confidence": "sure"
+    },
+    {
+      "severity": "attribution",
+      "where": "T-cat0.2p outcome UV-vis_absorption (absorption élargie jusqu'au proche IR)",
+      "extracted": "broader absorption stretching into the NIR range, rattaché à T-cat0.2p du tableau S1",
+      "article_says": "For a TiO2-cat sample with a higher ligand content (c = 0.2), a broader absorption stretching into the NIR range was observed",
+      "fix": "dans corpus/refs, cette phrase porte le renvoi [[ref21]] (Ritacco et al. 2021, publication antérieure des mêmes auteurs) : le résultat vient probablement d'un échantillon d'un travail précédent, pas de T-cat0.2p décrit ici et absent de la figure 3 ; retirer l'outcome de T-cat0.2p ou le déplacer en annotation d'article avec la réserve « résultat d'un travail antérieur [ref21] »",
+      "confidence": "probable"
+    },
+    {
+      "severity": "manquant",
+      "where": "TiO2-ascorbate, essais non nommés sans HCl à forte concentration en Ti (aucune branche, aucun doute, aucune annotation)",
+      "extracted": "absent : seuls T-asc0.05, 0.1, 0.2 (avec HCl, [Ti] = 0,30) et T-asc0.1p (éthanol) sont extraits",
+      "article_says": "With c = 0.1 or 0.2 and [Ti] ≥ 0.5 mol L–1, immediate and incomplete gelation occurred, leading to non-uniform gel-like products.",
+      "fix": "ajouter une branche de T-asc0.1 pour les essais c = 0,1 et c = 0,2 avec [Ti] ≥ 0,5 mol/L (variation de la concentration en Ti en value_text « ≥ 0.5 mol L–1 », résultat « immediate and incomplete gelation, non-uniform gel-like products », succeeded: false), ou au minimum un doute et une phrase dans limite_reproductibilite ; HCl n'est pas mentionné pour ces essais (case à déclarer non citée)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "T-asc0.1p steps 1 et 4 (éthanol dans la solution de ligand et dans la solution d'hydrolyse)",
+      "extracted": "step 1 « Dissolve the ascorbic acid in ethanol (in place of ethanol) » ; step 4 « distilled water and ethanol, with HCl » avec pour citation la procédure type qui dit 1-propanol",
+      "article_says": "Despite the slightly higher solubility of ascorbic acid in ethanol than in 1-propanol, during water addition, fast precipitation occurred in the ethanol solvent, while identical conditions in 1-propanol allowed a slow sol–gel transition",
+      "fix": "l'article ne dit pas dans quelle solution (ligand, hydrolyse, les deux) l'éthanol remplace le 1-propanol : déclarer « solvent_of_hydrolytic_solution » non cité et décrire l'étape 4 sans « ethanol » inventé, ou la citation du step 4 doit être celle qui dit éthanol ; corriger aussi la description du step 1 (« in place of ethanol » devrait être « in place of 1-propanol »)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "deduit",
+      "where": "T-cat0.1A, T-cat0.1C, T-cat0.1D steps 2 à 4 (catéchol dissous dans le 1-propanol, agitation de 30 min, ajout lent de la solution d'hydrolyse)",
+      "extracted": "étapes recopiées de la procédure type, avec la citation « The resulting solution was stirred for 30 min » et « In a typical hydrolytic sol–gel procedure… »",
+      "article_says": "This ligand was added first to Ti(OBu)4 followed by catechol.",
+      "fix": "pour les trois mélanges, l'article ne dit que l'ordre d'ajout (ligand auxiliaire puis catéchol) ; l'agitation de 30 min et l'ajout lent de l'eau sont hérités de la procédure type sans phrase qui l'affirme pour ces échantillons. Le doute existe déjà pour l'agitation ; ajouter l'ajout lent et le solvant du catéchol au doute, ou les déclarer non cités",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "T-cat0.1A outcome EPR_superoxide_signal",
+      "extracted": "superoxide radical anion signal not observed, rangé sur T-cat0.1A seul",
+      "article_says": "the anisotropic signal of the superoxide radical anion (O2•–) is not spotted in any of those spectra",
+      "fix": "« those spectra » désigne les trois hybrides à ligand mixte (T-cat0.1A, T-cat0.1C, T-cat0.1D, figure S12) : le résultat vaut pour les trois ; le mettre en annotation tendance_observee de groupe ou sur les trois voies, pas sur T-cat0.1A seule",
+      "confidence": "sure"
+    },
+    {
+      "severity": "mineur",
+      "where": "annotation mecanisme_analyse T-cat0.1p (« h = 4 est faible devant les 4 équivalents nécessaires à l'hydrolyse totale »)",
+      "extracted": "h = 4 présenté comme inférieur à la stœchiométrie d'hydrolyse totale",
+      "article_says": "Aiming to obtain uniform gels that retain the ligand bonded to the oxide matrix, we tried to moderate the hydrolysis and condensations rates using low h values.",
+      "fix": "h = 4 est justement égal aux 4 H2O par Ti de l'hydrolyse complète en Ti(OH)4 (2 H2O suffisent pour TiO2) ; ce sont les valeurs h = 2 qui sont sous-stœchiométriques. Reformuler : h = 4 est la valeur stœchiométrique d'hydrolyse totale, que les auteurs qualifient de « low » sans la justifier ; l'argument « h faible » explique mieux T-cat0.05, T-cat0.1, T-cat0.1C et T-cat0.1D (h = 2)",
+      "confidence": "probable"
+    },
+    {
+      "severity": "mineur",
+      "where": "caractérisations par réflectance diffuse UV-vis (T-cat0.1, T-dop0.1, T-asc0.1) absentes des characterizations",
+      "extracted": "aucune entrée UV-vis DRS ; seule l'annotation de groupe donne 1,8–1,9 eV et 420 nm",
+      "article_says": "Ultraviolet–visible–near-infrared diffuse reflectance (UV–vis–NIR DRS) spectra were recorded on a Shimadzu UV-2600i double beam spectrophotometer with an ISR-2600Plus two-detector integrating sphere (Shimadzu, Japan) using BaSO4 as standard.",
+      "fix": "ajouter à T-cat0.1, T-dop0.1 et T-asc0.1 une caractérisation « UV-vis DRS » avec instrument (Shimadzu UV-2600i, sphère ISR-2600Plus) et conditions (étalon BaSO4, fonction de Kubelka–Munk normalisée) ; les spectres de la figure 3 et les courbes de Tauc de la figure S7 portent sur ces trois échantillons",
+      "confidence": "probable"
+    }
+  ],
+  "coverage_check": {
+    "branches_in_article": 17,
+    "branches_extracted": 17,
+    "not_stated_checked": 167,
+    "not_stated_wrong": 1
+  },
+  "reproducibility_gaps": [
+    "aucune quantité absolue : seulement [Ti(OBu)4] en mol/L et les rapports c et h ; volumes de 1-propanol (solution de ligand et solution d'hydrolyse) absents",
+    "volumes ou quantités de HCl et NH3 (« small volumes ») et pH final absents pour T-cat0.05, T-cat0.1, T-asc, T-dop0.05p",
+    "moment et solution où le cyclohexane est ajouté (T-cat0.05, T-cat0.1) absents",
+    "sort des précipités (séparation, lavage, séchage) non décrit alors qu'ils sont caractérisés (T-cat0.01p, T-cat0.1p, T-cat0.4p)",
+    "température de vieillissement, vitesse d'agitation, vitesse d'ajout de l'eau, atmosphère et verrerie non précisées",
+    "protocole de l'échantillon de référence « amorphous TiO2 sample prepared by sol–gel » (comparaison en CV, photocourant, EQE) non donné",
+    "atmosphère de l'ATG contradictoire (air dans Méthodes, N2 dans les légendes figure 2 et S6)",
+    "Figures S1 à S13 de l'annexe non présentes en images dans le dépôt (texte seulement) : EQE, évolution RPE, rapports d'intensité non lisibles"
+  ],
+  "mechanism_check": "à revoir : le raisonnement sur h = 4 (« faible devant les 4 équivalents ») est faux, h = 4 est la stœchiométrie d'hydrolyse totale ; mecanisme_auteurs ancrés dans les citations, ok",
+  "notes": "Table S1 vérifiée ligne par ligne contre les 17 voies (c, [Ti], h, solvant, additifs, produit, temps de gélification) : tout concorde. Table 2, ATG, CV, photocourant (figures 2, 5, 6 ouvertes) concordent avec les valeurs extraites ; aucune valeur from_figure à vérifier. Densités de spin : le fichier texte aplati donne « 2.5 × 1016 », l'extraction lit 2,5e16 (doute déjà écrit, lecture cohérente avec l'unité g–1). Essais de criblage du catéchol dans le 1-propanol (h de 4 à 2, [Ti] de 1,0 à 0,3, HCl ou NH3, « which only delayed precipitation ») donnés par plages : pas de branche exigée par le RUNBOOK, rangés en annotation tendance_observee ; je ne les compte pas en constat. T-cat0.1p est un précipité choisi comme voie de base de la famille (doute documenté), succeeded reste vide pour tous les précipités, ce qui est défendable car les auteurs ne parlent pas d'échec. Source ref21 (Ritacco et al. 2021) citée pour c = 0,2 : contexte, pas une source de méthode au sens du 2026-10-13 ; method_sources (ref59) cohérent."
+}

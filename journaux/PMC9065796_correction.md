@@ -1,0 +1,12 @@
+# Journal de la correction, PMC9065796
+
+- Charge VGO (Tableau 1) : le VGO n'a pas de voie ; ajouté en cinq caractérisations « VGO feed properties (Table 1) » sur Cat-1 (densité 0,91 ; S 25 ; N 335 µg/g ; « 0.5%/10% | 206/338 » ; « FBP | 573 »), une rangée par citation. Cat-2 et Cat-3 héritent de Cat-1. La rangée de la courbe de distillation est recopiée telle qu'elle est écrite (0,5 %/10 %), je n'ai pas converti en « IBP 206 » comme le proposait le critique.
+- Isothermes (Fig. 9) : résultat `N2_isotherm_shape` sur NaY_silica_sol en mots de l'article (boucle dès P/P0 ≈ 0,2, montée 0,9–1,0), sans le mot « type III » (jugé faux par la critique scientifique, discuté en annotation). Type I de NaY-300 et NaY-500 : annotation `tendance_observee` avec la phrase de l'article en citation.
+- Phase Y de NaY_sodium_silicon : résultat + caractérisations XRD et FT-IR avec « Both samples exhibited… » (la phrase couvre les deux échantillons) et « The IR band position and height of the two samples were nearly uniform ».
+- Taille qualitative des Na2O_* : ajoutée à Na2O_16 (« decrease trend » de 12 à 16) et Na2O_18 (« no reduction »). Rien pour Na2O_12, Na2O_14 ni Aging_12h : le texte ne donne aucune taille pour eux (Fig. 5b non chiffrée), donc pas de valeur inventée.
+- Aging_36h : « (about 100 nm) » retiré ; value_text reprend la phrase de l'article.
+- Unité de Cat-2/Cat-3 : l'article donne « nm » pour la série « 100, 300 and 500 nm » ; variations réécrites « Y zeolite crystal size of 300 nm », parent « …100 nm ».
+- Barres d'échelle : nuance vérifiée en ouvrant les Fig. 5 et 7 (5a 2 µm, 5b 1 µm, 7a 1 µm lisibles ; 5c, 5d, 7b–7d tronquées) ; la Fig. 5c et la Fig. 7c ont bien l'air identiques.
+- Héritage non écrit (silice, germes) : branches inchangées, annotation limite_reproductibilite globale (images identiques, 5,42 en double).
+- Critique scientifique : six `probleme` en annotations limite_reproductibilite sans toucher aux valeurs (composition des germes, raie 555, isotherme, sélectivité Cat-1, Cat-2, Cat-3) ; deux doutes ajoutés (sélectivité 62,5 contre 56,9 ; « type III »). mecanisme_analyse de NaY_silica_sol complétée par l'hypothèse de Ginter (marquée hypothèse) et la critique de l'argument monomères ; mecanisme_auteurs intact.
+- Sécurité : securite_analyse mentionnait déjà CS2 et H2 sous 8 MPa, rien à ajouter. method_sources : inchangé (seul cit5 est un renvoi de méthode).

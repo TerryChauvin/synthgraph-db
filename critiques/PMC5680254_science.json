@@ -1,0 +1,450 @@
+{
+ "pmcid": "PMC5680254",
+ "routes": [
+  {
+   "label": "Au_Si_substrate",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "position de Au(111) attendue",
+     "inputs": "a(Au) = 4,0786 Å (valeur de manuel, non revérifiée) ; λ Cu Kα1 = 1,54056 Å",
+     "formula": "d111 = a/√3 ; 2θ = 2 asin(λ/2d)",
+     "result": "d111 = 2,355 Å ; 2θ = 38,19°",
+     "compared_to": "38,3° annoncé (d = 2,348 Å) : écart 0,1°, compatible avec un film d'or (111) (léger décalage d'alignement ou contrainte)",
+     "source": "NIST X-ray Transition Energies (λ) ; valeurs de l'article"
+    },
+    {
+     "what": "épaisseur de Ti contre usage d'une couche d'accroche",
+     "inputs": "Ti ≈ 100 nm, Au ≈ 200 nm",
+     "formula": "e(Ti)/e(Au)",
+     "result": "0,5",
+     "compared_to": "couche d'accroche usuelle de quelques nm à ~20 nm : 100 nm est inhabituel mais sans effet chimique attendu",
+     "source": "valeurs de l'article ; pratique courante (non sourcée)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ordre de dépôt écrit : or (~200 nm) puis titane (~100 nm) « pour améliorer l'adhérence entre l'or et le silicium ». Une couche d'accroche n'agit que sous l'or ; si l'ordre écrit était l'ordre réel, la surface de croissance serait du Ti (oxydé en TiOx à l'air), pas l'Au(111) sur lequel repose tout l'article (« seedless Au surface »). L'ordre réel est presque sûrement Ti puis Au : le texte est incohérent et un chimiste qui suit la lettre ferait croître sur Ti.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Au(111) à 38,3° contre 38,19° calculé (voir calcul « position de Au(111) attendue ») : cohérent. Rugosité RMS ~2 nm d'un film pulvérisé de 200 nm : ordre de grandeur habituel, mais l'image AFM n'est pas montrée.",
+     "status": "ok",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "NIST X-ray Transition Energies Database (Cu Kα1 = 1,540 56 Å)",
+      "authors_or_publisher": "NIST",
+      "year": "référence de references/constantes.md",
+      "url_or_doi": "https://physics.nist.gov/PhysRefData/XrayTrans/"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "HF à 50 % (2 min) : brûlures profondes et toxicité systémique (hypocalcémie), gel de gluconate de calcium et gants adaptés requis, non mentionnés. Piranha 1:1 (H2SO4:H2O2) : plus réactif et plus exothermique que le 3:1 usuel ; ne jamais fermer le récipient. Aucune précaution n'est écrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "Cuisson à 200 °C avant pulvérisation après HF : désorption d'eau, compatible ; la surface Si–H redevient partiellement oxydée à l'air, sans conséquence pour une couche d'accroche Ti.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Nettoyage oxydant (piranha), retrait de l'oxyde (HF), dépôt d'une couche d'accroche Ti puis d'un film d'or texturé (111) par pulvérisation DC ; l'or lisse (111) sert de surface de nucléation hétérogène pour ZnO.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "ordre réel des dépôts (Ti sous Au) et épaisseur de Ti",
+    "puissance, pression d'argon et durée de pulvérisation (absentes)",
+    "températures et volumes des bains piranha et HF ; protocole HF (gluconate de calcium)"
+   ]
+  },
+  {
+   "label": "ZnO_0mM",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "Bragg ZnO (0002)",
+     "inputs": "2θ = 34,4° ; λ Cu Kα1 = 1,54056 Å",
+     "formula": "d = λ/(2 sin θ) ; c = 2d",
+     "result": "d = 2,605 Å ; c = 5,210 Å",
+     "compared_to": "c(ZnO wurtzite) ≈ 5,207 Å (2θ attendu 34,42°) : cohérent",
+     "source": "NIST X-ray Transition Energies (λ) ; c de manuel (non revérifié)"
+    },
+    {
+     "what": "pression dans l'autoclave à 358 K",
+     "inputs": "eau ; Antoine NIST (A = 4,6543 ; B = 1435,264 ; C = −64,848 ; T en K, P en bar)",
+     "formula": "log10 P = A − B/(T + C)",
+     "result": "P(H2O) ≈ 0,57 bar à 85 °C",
+     "compared_to": "sous la pression atmosphérique : aucun risque de surpression ; l'autoclave sert surtout à garder NH3 et à limiter l'évaporation",
+     "source": "NIST WebBook (eau)"
+    },
+    {
+     "what": "diamètres et taux de couverture déduits (Table 1 + Fig. 1f)",
+     "inputs": "0 mM : L = 4,6 µm, ARbase 9, ARtip 22, densité ≈ 4×10^8 cm−2",
+     "formula": "D = L/AR ; espacement = 1/√n ; couverture = n·π(Dbase/2)²",
+     "result": "Dbase ≈ 511 nm ; Dtip ≈ 209 nm ; espacement moyen ≈ 500 nm ; couverture à la base ≈ 0,82",
+     "compared_to": "fils presque jointifs à la base : densité plausible mais proche de la coalescence ; mesures de AR faites sur fils dispersés, pas sur le même échantillon",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentrations de croissance",
+     "inputs": "« 1:1 ratio » Zn(NO3)2·6H2O / HMTA ; aucune concentration, aucun volume",
+     "formula": "—",
+     "result": "bilan de matière non calculable",
+     "compared_to": "recettes usuelles équimolaires 1–50 mM (Xu 2008 : densité très sensible à la concentration)",
+     "source": "valeurs de l'article ; Xu et al. 2008"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Ni la concentration de Zn(NO3)2 et de HMTA, ni le solvant (eau supposée), ni le volume, ni la concentration de la solution mère de NH4OH ne sont donnés (voir calcul « concentrations de croissance »). Or, sans germe, la densité de fils sur or dépend fortement de la concentration en précurseurs (Xu et al. 2008 : un ordre de grandeur de densité obtenu justement en changeant la concentration). Les densités de la Fig. 1f ne sont donc pas reproductibles telles qu'écrites.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Density-controlled growth of aligned ZnO nanowire arrays by seedless chemical approach on smooth surfaces",
+      "authors_or_publisher": "Xu S., Lao C., Weintraub B., Wang Z. L. — J. Mater. Res. 23(8), 2072–2077",
+      "year": "2008",
+      "url_or_doi": "10.1557/JMR.2008.0274"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "85 °C (358 K, donnée seulement dans la discussion du mécanisme) en flacon téflon dans autoclave fermé : P(H2O) ≈ 0,57 bar (calcul « pression dans l'autoclave à 358 K »), aucun problème ; température classique des bains Zn(NO3)2/HMTA. La température de croissance n'est pas écrite dans la partie expérimentale.",
+     "status": "reserve",
+     "basis": "chimie_generale",
+     "source": {
+      "title": "NIST Chemistry WebBook, fiche « Water » (équation d'Antoine, Stull 1947, 255–373 K)",
+      "authors_or_publisher": "NIST",
+      "year": "consulté 2026 (paramètres non relus dans cette session)",
+      "url_or_doi": "https://webbook.nist.gov/chemistry/"
+     }
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "15 h à 85 °C pour 4,6 µm, soit ≈ 0,3 µm/h : dans la gamme des bains Zn(NO3)2/HMTA, dont la croissance s'arrête quand le zinc s'épuise ; comparable à PMC4531889 (1,35 µm en 5 h à 90 °C sur germe).",
+     "status": "ok",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "XRD (0002) à 34,4° → c = 5,210 Å (calcul « Bragg ZnO (0002) »), cohérent avec la wurtzite. Raman E2(low) 98,3 et E2(high) 437,5 cm−1 corrects. Le pic à 332 cm−1 est le mode à deux phonons E2(high)−E2(low) du cristal, et non une « diffusion du second ordre aux joints de phases » : vocabulaire faux, sans conséquence sur la phase. Les largeurs « 3 et 7 » n'ont pas d'unité (cm−1 sous-entendu).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Temperature dependence of Raman scattering in ZnO",
+      "authors_or_publisher": "Cuscó R., Alarcón-Lladó E., Ibáñez J., Artús L., Jiménez J., Wang B., Callahan M. J. — Phys. Rev. B 75, 165202",
+      "year": "2007",
+      "url_or_doi": "10.1103/PhysRevB.75.165202"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le texte affirme qu'à pH 6,8 et 358 K « très peu » d'espèces Zn(II) positives existent. C'est l'inverse : en dessous de pH ≈ 8 à 85 °C, l'ion [Zn(H2O)6]2+ (positif) domine, et les complexes Zn(NH3)4 2+ n'apparaissent qu'en milieu ammoniacal plus basique (Villafuerte 2022, diagrammes de spéciation à 85 °C). La phrase suivante (« l'augmentation du pH augmente le Zn(II) en solution, ce qui diminue fortement la solubilité du Zn ») se contredit elle-même. L'idée juste est plus simple : vers pH 6,8–7, la solubilité de ZnO varie comme [H+]², d'un facteur ≈ 2,5 pour 0,2 unité de pH. Une hausse de la sursaturation suffit à expliquer plus de germes à 20–40 mM.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Modulating the growth of chemically deposited ZnO nanowires and the formation of nitrogen- and hydrogen-related defects using pH adjustment",
+      "authors_or_publisher": "Villafuerte J., Sarigiannidou E., Donatini F., Kioseoglou J., Chaix-Pluchery O., Pernot J., Consonni V. — Nanoscale Adv. 4, 1793–1807",
+      "year": "2022",
+      "url_or_doi": "10.1039/d1na00785h"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Le rôle d'agent qui coiffe les faces latérales, prêté au HMTA dans l'annotation d'analyse, est réfuté par la spectroscopie ATR-FTIR (le HMTA ne s'adsorbe pas sur ZnO) ; son rôle principal est de fixer la sursaturation par libération lente de base. L'équation 3 (complexe [Zn(HMTA)]2+), reprise par les auteurs, n'est pas vue par XANES (article de 2025 « Towards the Removal of HMTA Molecules in the Chemical Bath Deposition of ZnO Nanowires », PubMed 41149542, lu en résumé seulement) : à considérer comme une hypothèse.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical bath deposition of ZnO nanowires at near-neutral pH conditions without hexamethylenetetramine (HMTA): understanding the role of HMTA in ZnO nanowire growth",
+      "authors_or_publisher": "McPeak K. M., Le T. P., Britton N. G., Nickolov Z. S., Elabd Y. A., Baxter J. B. — Langmuir 27, 3672–3677",
+      "year": "2011",
+      "url_or_doi": "10.1021/la105147u"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "L'hydrolyse du HMTA libère du formaldéhyde (cancérogène) et de l'ammoniac ; à ouvrir sous hotte après refroidissement. Le nitrate de zinc est un oxydant.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le HMTA s'hydrolyse lentement à 85 °C (CH2O + NH3), ce qui fait monter la concentration de OH− et la sursaturation de ZnO à partir de [Zn(H2O)6]2+, espèce majoritaire vers pH 6,5–7. ZnO germe de façon hétérogène sur l'or (111) puis croît selon l'axe c, la face polaire (0001) étant la plus rapide. Le HMTA règle la sursaturation et ne coiffe pas les faces latérales. Le NH3 ajouté élève le pH initial et la sursaturation, donc la densité de germes, mais il complexe aussi une partie du zinc ; la densité à 0 mM, plus haute qu'à 10 mM, n'est expliquée ni par les auteurs ni par cette lecture.",
+    "sources": [
+     {
+      "title": "Chemical bath deposition of ZnO nanowires at near-neutral pH conditions without hexamethylenetetramine (HMTA): understanding the role of HMTA in ZnO nanowire growth",
+      "authors_or_publisher": "McPeak K. M., Le T. P., Britton N. G., Nickolov Z. S., Elabd Y. A., Baxter J. B. — Langmuir 27, 3672–3677",
+      "year": "2011",
+      "url_or_doi": "10.1021/la105147u"
+     },
+     {
+      "title": "Modulating the growth of chemically deposited ZnO nanowires and the formation of nitrogen- and hydrogen-related defects using pH adjustment",
+      "authors_or_publisher": "Villafuerte J., Sarigiannidou E., Donatini F., Kioseoglou J., Chaix-Pluchery O., Pernot J., Consonni V. — Nanoscale Adv. 4, 1793–1807",
+      "year": "2022",
+      "url_or_doi": "10.1039/d1na00785h"
+     },
+     {
+      "title": "Hydrothermal growth of ZnO nanostructures",
+      "authors_or_publisher": "Baruah S., Dutta J. — Sci. Technol. Adv. Mater. 10, 013001",
+      "year": "2009",
+      "url_or_doi": "10.1088/1468-6996/10/1/013001"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "concentrations de Zn(NO3)2 et de HMTA, volume, solvant, remplissage du flacon",
+    "concentration et origine de la solution de NH4OH ajoutée",
+    "température du four (358 K seulement dans la discussion) et pH mesuré à chaque concentration de NH4OH (à quelle température ?)",
+    "répétabilité du point 0 mM contre 10 mM (une seule série montrée)"
+   ]
+  },
+  {
+   "label": "ZnO_10mM",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "espacement et couverture à 10 mM",
+     "inputs": "densité ≈ 2×10^7 cm−2 ; L = 4,7 µm ; ARbase 10",
+     "formula": "espacement = 1/√n ; Dbase = L/AR ; couverture = n·π(D/2)²",
+     "result": "espacement ≈ 2,2 µm ; Dbase ≈ 470 nm ; couverture ≈ 0,03",
+     "compared_to": "0 mM : espacement 0,5 µm, couverture 0,82 ; 20 mM : 0,58 µm, 0,38",
+     "source": "valeurs de l'article (Fig. 1f lue)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La densité à 10 mM (≈ 2×10^7 cm−2) est 20 fois plus faible qu'à 0 mM et 15 fois plus faible qu'à 20 mM, alors que longueur et rapports d'aspect varient peu (calcul « espacement et couverture à 10 mM »). Ce point isolé fait à lui seul la « variation de deux ordres ». Sans répétition ni barres d'erreur entre échantillons, on ne sait pas si c'est un effet de NH4OH ou un substrat d'or moins favorable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le pH de 6,8 annoncé à 10 mM est compatible avec le pH propre d'un bain équimolaire Zn(NO3)2/HMTA (≈ 6,6) : 10 mM de NH3 sont tamponnés par l'hydrolyse de Zn2+.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Influence of pH, Precursor Concentration, Growth Time, and Temperature on the Morphology of ZnO Nanostructures Grown by the Hydrothermal Method",
+      "authors_or_publisher": "Amin G. et al. — Journal of Nanomaterials (Hindawi/Wiley)",
+      "year": "2011",
+      "url_or_doi": "10.1155/2011/269692"
+     }
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Faible ajout de NH3 : le pH monte à peine. La complexation partielle de Zn2+ par NH3 et une légère précipitation en volume à froid peuvent baisser la sursaturation au contact de l'or. Hypothèse non démontrée par l'article.",
+    "sources": [
+     {
+      "title": "Modulating the growth of chemically deposited ZnO nanowires and the formation of nitrogen- and hydrogen-related defects using pH adjustment",
+      "authors_or_publisher": "Villafuerte J., Sarigiannidou E., Donatini F., Kioseoglou J., Chaix-Pluchery O., Pernot J., Consonni V. — Nanoscale Adv. 4, 1793–1807",
+      "year": "2022",
+      "url_or_doi": "10.1039/d1na00785h"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "répéter 0 et 10 mM sur plusieurs substrats issus du même dépôt d'or"
+   ]
+  },
+  {
+   "label": "ZnO_40mM",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pH d'une solution de NH3 à 40 mM seule",
+     "inputs": "C = 0,040 mol/L ; pKb(NH3) = 4,75 à 25 °C",
+     "formula": "[OH−] = (−Kb + √(Kb² + 4KbC))/2",
+     "result": "pH ≈ 10,9",
+     "compared_to": "pH ≈ 7 annoncé : l'ammoniac est presque entièrement consommé par Zn2+ (complexation, précipitation de Zn(OH)2), ce qui suppose [Zn2+] de l'ordre de 20 mM ou plus ; la concentration de zinc n'étant pas donnée, la valeur est plausible mais invérifiable",
+     "source": "pKb : valeur de manuel (non revérifiée)"
+    },
+    {
+     "what": "variation de solubilité de ZnO pour ΔpH = 0,2",
+     "inputs": "pente de log[Zn2+]éq contre pH = −2 (ZnO + 2H+ = Zn2+ + H2O)",
+     "formula": "10^(2 × 0,2)",
+     "result": "facteur ≈ 2,5",
+     "compared_to": "le texte parle d'un « changement exponentiel » des espèces de Zn(II) entre pH 6,8 et 7 : il s'agit d'un facteur 2,5 sur la solubilité",
+     "source": "chimie générale"
+    },
+    {
+     "what": "amplitude de la variation de densité",
+     "inputs": "Fig. 1f : 0 mM ≈ 4×10^8 ; 10 mM ≈ 2×10^7 ; 40 mM ≈ 1×10^9 cm−2",
+     "formula": "log10(n40/n10) ; log10(n40/n0)",
+     "result": "1,7 ordre entre 10 et 40 mM ; 0,4 ordre (facteur 2,5) entre 0 et 40 mM",
+     "compared_to": "résumé : « two order of magnitude » ; introduction : « more than two orders »",
+     "source": "valeurs de l'article (Fig. 1f)"
+    },
+    {
+     "what": "espacement et couverture à 40 mM",
+     "inputs": "n ≈ 1×10^9 cm−2 ; L = 2,2 µm ; ARbase 10 ; ARtip 20",
+     "formula": "espacement = 1/√n ; D = L/AR ; couverture = n·π(Dbase/2)²",
+     "result": "espacement ≈ 316 nm ; Dbase ≈ 220 nm ; Dtip ≈ 110 nm ; couverture ≈ 0,38",
+     "compared_to": "fils plus fins et plus courts : le zinc disponible est réparti sur plus de germes, ce qui est cohérent",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "La variation de densité annoncée (« deux ordres », et même « plus de deux ordres » dans l'introduction) dépasse ce que montre la Fig. 1f : 1,7 ordre entre 10 et 40 mM, et un facteur 2,5 seulement par rapport à la croissance sans NH4OH (calcul « amplitude de la variation de densité »). Ajouter du NH4OH ne fait donc monter la densité que d'un facteur 2,5 au-dessus du témoin sans NH4OH ; la plage de deux ordres repose sur le minimum à 10 mM.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Le pH ≈ 7 à 40 mM n'est possible que si l'ammoniac est presque entièrement consommé par le zinc (calcul « pH d'une solution de NH3 à 40 mM seule » : 10,9 sans zinc) ; la température de mesure n'est pas dite. Le témoin change à la fois le pH et la quantité d'un complexant (NH3) : un essai au même pH réglé par une base non complexante (KOH, comme chez McPeak 2011) séparerait les deux effets.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Chemical bath deposition of ZnO nanowires at near-neutral pH conditions without hexamethylenetetramine (HMTA): understanding the role of HMTA in ZnO nanowire growth",
+      "authors_or_publisher": "McPeak K. M., Le T. P., Britton N. G., Nickolov Z. S., Elabd Y. A., Baxter J. B. — Langmuir 27, 3672–3677",
+      "year": "2011",
+      "url_or_doi": "10.1021/la105147u"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Un « changement exponentiel » entre pH 6,8 et 7 correspond en fait à un facteur ≈ 2,5 sur la solubilité de ZnO (calcul « variation de solubilité de ZnO pour ΔpH = 0,2 ») : c'est assez pour un effet de germination non linéaire. Le vocabulaire est exagéré, mais le sens (plus de sursaturation, donc plus de germes) est défendable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Avec plus de NH3, le pH initial monte et la solubilité de ZnO baisse : la sursaturation au chauffage croît, d'où plus de germes sur l'or (et en solution). Les fils deviennent plus courts et plus fins parce qu'une quantité de zinc limitée se partage entre plus de fils et que la précipitation en volume en consomme aussi.",
+    "sources": [
+     {
+      "title": "Modulating the growth of chemically deposited ZnO nanowires and the formation of nitrogen- and hydrogen-related defects using pH adjustment",
+      "authors_or_publisher": "Villafuerte J., Sarigiannidou E., Donatini F., Kioseoglou J., Chaix-Pluchery O., Pernot J., Consonni V. — Nanoscale Adv. 4, 1793–1807",
+      "year": "2022",
+      "url_or_doi": "10.1039/d1na00785h"
+     },
+     {
+      "title": "Density-controlled growth of aligned ZnO nanowire arrays by seedless chemical approach on smooth surfaces",
+      "authors_or_publisher": "Xu S., Lao C., Weintraub B., Wang Z. L. — J. Mater. Res. 23(8), 2072–2077",
+      "year": "2008",
+      "url_or_doi": "10.1557/JMR.2008.0274"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "mesurer le pH à 85 °C et à l'ambiante pour chaque concentration de NH4OH",
+    "quantité de précipité en volume (perte de zinc)"
+   ]
+  },
+  {
+   "label": "NWFET_0mM",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rayon impliqué par ne et VTH (formule écrite, 2πr²)",
+     "inputs": "C/L = 2π ε0 εox / acosh((r + tox)/r) ; εox = 3,9 ; tox = 170 nm ; |VTH| = 5,4 / 20,7 / 13 V ; ne = 4,3×10^16 / 8,3×10^16 / 2×10^17 cm−3",
+     "formula": "ne = (C/L)·|VTH| / (2π r² q), résolu en r",
+     "result": "r ≈ 137 nm (0 mM) ; 212 nm (20 mM) ; 90 nm (40 mM)",
+     "compared_to": "rayons Table 1 (pointe–base) : 105–255 nm (0 mM) ; 80–200 nm (20 mM) ; 55–110 nm (40 mM) → cohérent",
+     "source": "valeurs de l'article ; ε0 = 8,854×10^−12 F/m, q = 1,602×10^−19 C"
+    },
+    {
+     "what": "rayon impliqué avec la définition volumique (πr²)",
+     "inputs": "mêmes entrées",
+     "formula": "ne = (C/L)·|VTH| / (π r² q), résolu en r",
+     "result": "r ≈ 213 nm (0 mM) ; 333 nm (20 mM) ; 140 nm (40 mM)",
+     "compared_to": "20 mM : 333 nm dépasse le rayon de base (200 nm) ; 40 mM : 140 nm dépasse le rayon de base (110 nm) → les valeurs publiées semblent avoir été calculées avec le facteur 2",
+     "source": "valeurs de l'article (calcul sur les moyennes, indicatif)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "resultats",
+     "finding": "L'équation 10 divise par 2πr²qL, alors que la densité de porteurs est la charge C·|VTH| rapportée au volume du fil πr²L, soit n = C|VTH|/(qπr²L). Calculés à rebours, les rayons impliqués par les valeurs publiées tombent dans la plage pointe–base de la Table 1 avec le facteur 2, et en dehors sans lui (calculs « rayon impliqué… »). Les ne de la Table 2 sont donc probablement sous-estimés d'un facteur 2. La tendance avec NH4OH ne change pas.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Mobilités de 0,35 à 3,8 cm²/Vs, ne de 10^16–10^17 cm−3, on/off de 10^5–10^7 : dans les ordres de grandeur des FET à nanofil de ZnO (Goldberger 2005 : 13 ± 5 cm²/Vs, 5,2×10^17 cm−3, on/off 10^5–10^7). Les écarts-types sont toutefois de l'ordre des moyennes (3,8 ± 3,3 ; 2 ± 2) sur 5 dispositifs : 0 et 20 mM ne sont pas statistiquement distincts. Seul 40 mM se distingue. Une VTH négative indique un fonctionnement en mode déplétion (passant à VGS = 0), et non « en accumulation ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "ZnO nanowire transistors",
+      "authors_or_publisher": "Goldberger J., Sirbuly D. J., Law M., Yang P. — J. Phys. Chem. B 109, 9–14",
+      "year": "2005",
+      "url_or_doi": "10.1021/jp0452599"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'attribution de la hausse de ne aux lacunes d'oxygène et aux Zn interstitiels n'est appuyée par aucune mesure discriminante. Dans les fils de ZnO crus en bain, les donneurs dominants sont des défauts liés à l'hydrogène (HBC) et à l'azote, dont l'incorporation varie avec le pH et l'ammoniac. Le recuit à 450 °C sous air précède la mesure et modifie ces défauts : la mesure porte sur des fils recuits, pas sur l'état brut. De plus, les fils à 40 mM sont deux fois plus fins : la déplétion de surface et la diffusion en surface baissent la mobilité indépendamment du dopage.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Modulating the growth of chemically deposited ZnO nanowires and the formation of nitrogen- and hydrogen-related defects using pH adjustment",
+      "authors_or_publisher": "Villafuerte J., Sarigiannidou E., Donatini F., Kioseoglou J., Chaix-Pluchery O., Pernot J., Consonni V. — Nanoscale Adv. 4, 1793–1807",
+      "year": "2022",
+      "url_or_doi": "10.1039/d1na00785h"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Nanofils dispersés dans l'IPA (nano-objets, solvant inflammable) ; évaporation par faisceau d'électrons (haute tension) ; aucun point anormal.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le dopage n non intentionnel des fils crus en bain vient surtout de l'hydrogène et des complexes avec l'azote, que le pH et l'ammoniac modulent et que le recuit à 450 °C réduit en partie. La baisse de mobilité à 40 mM peut venir à la fois d'un dopage plus fort et du diamètre plus petit (déplétion et diffusion de surface).",
+    "sources": [
+     {
+      "title": "Modulating the growth of chemically deposited ZnO nanowires and the formation of nitrogen- and hydrogen-related defects using pH adjustment",
+      "authors_or_publisher": "Villafuerte J., Sarigiannidou E., Donatini F., Kioseoglou J., Chaix-Pluchery O., Pernot J., Consonni V. — Nanoscale Adv. 4, 1793–1807",
+      "year": "2022",
+      "url_or_doi": "10.1039/d1na00785h"
+     },
+     {
+      "title": "ZnO nanowire transistors",
+      "authors_or_publisher": "Goldberger J., Sirbuly D. J., Law M., Yang P. — J. Phys. Chem. B 109, 9–14",
+      "year": "2005",
+      "url_or_doi": "10.1021/jp0452599"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "forme exacte de l'équation 10 (πr² ou 2πr²) et rayon et longueur de canal de chaque dispositif",
+    "conditions de lithographie et résine",
+    "nombre de dispositifs suffisant pour séparer 0 et 20 mM"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La chimie de croissance (Zn(NO3)2/HMTA équimolaire, 85 °C, autoclave, or (111) sans germe) est classique et physiquement cohérente ; XRD et Raman se recalculent bien. La reproductibilité est limitée : aucune concentration de précurseur n'est donnée et l'ordre de dépôt Au/Ti est écrit à l'envers. Le mécanisme écrit contient des affirmations fausses sur la spéciation du zinc, la variation de densité est surévaluée (deux ordres annoncés, 1,7 lu, facteur 2,5 par rapport au témoin) et la formule de densité de porteurs comporte un facteur 2.",
+  "author_errors_suspected": [
+   "ordre de dépôt Au puis Ti, incompatible avec une couche d'accroche",
+   "« très peu d'espèces Zn(II) positives à pH 6,8 » : faux, [Zn(H2O)6]2+ domine ; phrase sur la solubilité contradictoire",
+   "variation de densité « two orders » / « more than two orders » contre 1,7 ordre lu sur la Fig. 1f et un facteur 2,5 par rapport à 0 mM",
+   "équation 10 avec 2πr² au lieu de πr² (ne sous-estimée d'un facteur 2 si appliquée)",
+   "pic Raman à 332 cm−1 attribué à des « joints de phases » au lieu du mode E2(high)−E2(low)",
+   "FET à VTH négative qualifié de mode « accumulation »"
+  ],
+  "comparison_with_database": "Autres bains Zn(NO3)2/HMTA de la base, sur germe : PMC4531889 (90 °C, 5 h, fils de 1,35 µm) et PMC5521324 (96 °C, 4–7 h). Ici, 85 °C pendant 15 h sans germe donne 2,2 à 4,8 µm : vitesses compatibles. Aucune autre voie de la base ne fait croître ZnO sans germe sur or."
+ },
+ "sources_not_found": [
+  "formule de densité de porteurs d'un FET à nanofil vérifiée dans le texte d'une source (Goldberger 2005 n'est cité que pour les ordres de grandeur ; la formule πr² est posée par définition)",
+  "fiche de spéciation Zn–NH3 à 85 °C lue en entier (Villafuerte 2022 cité d'après son résumé et ses extraits)"
+ ]
+}

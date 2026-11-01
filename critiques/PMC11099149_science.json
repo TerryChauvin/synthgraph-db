@@ -1,0 +1,432 @@
+{
+ "pmcid": "PMC11099149",
+ "routes": [
+  {
+   "label": "SBA-15",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de TEOS",
+     "inputs": "8,5 g ; M(Si(OC2H5)4) = 208,33 g/mol",
+     "formula": "m/M",
+     "result": "40,8 mmol",
+     "compared_to": "référence (1) des rapports molaires des auteurs",
+     "source": "masses atomiques IUPAC (arithmétique)"
+    },
+    {
+     "what": "rapport P123/TEOS",
+     "inputs": "4 g P123 ; Mn(P123) ≈ 5800 g/mol (valeur nominale du fournisseur, EO20PO70EO20) ; 40,8 mmol TEOS",
+     "formula": "(4/5800)/0,0408",
+     "result": "0,0169",
+     "compared_to": "0,0168 annoncé : accord",
+     "source": "valeurs de l'article ; Mn nominal du P123"
+    },
+    {
+     "what": "rapport HCl/TEOS",
+     "inputs": "120 g de HCl 2 M ; masse volumique prise entre 1,000 et 1,033 g/mL (HCl 2 M, valeur approchée) → 116–120 mL → 0,232–0,240 mol",
+     "formula": "n(HCl)/n(TEOS)",
+     "result": "5,69–5,88",
+     "compared_to": "5,854 annoncé : accord",
+     "source": "arithmétique ; masse volumique approchée de HCl 2 M"
+    },
+    {
+     "what": "rapport H2O/TEOS",
+     "inputs": "eau de la solution HCl : 120 g − 0,24 × 36,46 g ≈ 111 g ; + 30 g d'eau ajoutée ; total ≈ 141 g = 7,84 mol",
+     "formula": "n(H2O)/n(TEOS)",
+     "result": "≈ 192",
+     "compared_to": "162,681 annoncé ; 162,681 × 40,8 mmol = 6,64 mol = 119,6 g d'eau : 21 g d'eau manquent dans le décompte des auteurs",
+     "source": "arithmétique"
+    },
+    {
+     "what": "volume de la charge de l'autoclave",
+     "inputs": "120 + 30 + 4 + 8,5 g",
+     "formula": "somme des masses, ρ ≈ 1 g/mL",
+     "result": "162,5 g ≈ 160 mL",
+     "compared_to": "capacité de l'autoclave non donnée : il faut au moins ≈ 240 mL pour rester sous 2/3 de remplissage",
+     "source": "arithmétique"
+    },
+    {
+     "what": "Bragg (100)",
+     "inputs": "2θ = 0,91° ; λ(Cu Kα1) = 1,5406 Å (longueur d'onde non déclarée par l'article, Rigaku Ultima IV supposé au cuivre)",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "d100 = 9,70 nm",
+     "compared_to": "SBA-15 classique : d100 74,5–320 Å selon Zhao 1998 ; base PMC6812203 : 2θ = 0,96°",
+     "source": "NIST X-ray Transition Energies (λ Cu Kα1, references/constantes.md)"
+    },
+    {
+     "what": "paramètre de maille et épaisseur de paroi",
+     "inputs": "d100 = 9,70 nm ; Dp = 7,35 nm",
+     "formula": "a0 = 2 d100/√3 ; e = a0 − Dp",
+     "result": "a0 = 11,2 nm ; e ≈ 3,85 nm",
+     "compared_to": "parois de 31 à 64 Å (Zhao 1998) : cohérent",
+     "source": "arithmétique"
+    },
+    {
+     "what": "position calculée des raies (110) et (200)",
+     "inputs": "d110 = d100/√3, d200 = d100/2",
+     "formula": "2θ = 2 arcsin(λ/2d)",
+     "result": "1,576° et 1,820°",
+     "compared_to": "1,58° et 1,82° annoncés : accord exact (réseau hexagonal p6mm)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre moyen 4V/S",
+     "inputs": "V = 1,28 cm3/g ; S = 686,9 m2/g",
+     "formula": "4V/S",
+     "result": "7,45 nm",
+     "compared_to": "7,35 nm annoncé : accord (1 %)",
+     "source": "arithmétique (references/constantes.md)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Les masses donnent P123/TEOS = 0,0169 et HCl/TEOS = 5,7–5,9, en accord avec les rapports annoncés, mais H2O/TEOS vaut ≈ 192 et non 162,7 (voir « rapport H2O/TEOS ») : environ 21 g d'eau ne sont pas comptés par les auteurs. Les masses de la recette sont celles de Zhao (4 g P123, 30 g d'eau, 120 g de HCl 2 M, 8,5 g TEOS), donc refaire la synthèse avec les masses, pas avec la composition molaire écrite.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "cinetique",
+     "finding": "8 h d'agitation à 40 °C avant le traitement hydrothermal, contre 20 à 24 h dans les autres SBA-15 de la base (PMC6812203 : 35 °C, 20 h ; PMC11990281 : 35 °C, 24 h ; PMC8495851 : 308 K, 20 h). Les résultats (686,9 m2/g, 1,28 cm3/g, 7,35 nm) restent dans la plage habituelle (PMC6812203 : 675 m2/g), donc la durée courte ne semble pas avoir nui, mais elle s'écarte de la recette dite « de Stucky ».",
+     "status": "reserve",
+     "basis": "comparaison_base"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "100 °C pendant 2 jours en autoclave téflon : pression de vapeur de l'eau ≈ 1 bar à 100 °C (point d'ébullition), aucune contrainte de pression ; la charge fait ≈ 160 mL (voir « volume de la charge de l'autoclave ») et le volume de l'autoclave n'est pas donné. Calcination à 550 °C pendant 6 h : standard pour éliminer le P123 (Zhao 1998 calcine à 500 °C) ; atmosphère et rampe non dites.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "d100 = 9,70 nm, a0 = 11,2 nm, paroi ≈ 3,9 nm, 4V/S = 7,45 nm contre 7,35 nm annoncé, raies (110) et (200) exactement aux positions hexagonales : les données texturales de SBA-15 sont cohérentes entre elles et avec la littérature (voir les calculs de Bragg et 4V/S).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Triblock copolymer syntheses of mesoporous silica with periodic 50 to 300 angstrom pores",
+      "authors_or_publisher": "Zhao D., Feng J., Huo Q., Melosh N., Fredrickson G.H., Chmelka B.F., Stucky G.D. (Science)",
+      "year": "1998",
+      "url_or_doi": "10.1126/science.279.5350.548"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'introduction écrit que SBA-15 a été synthétisée « in 1992 » par Stucky et que ses pores font « about 30 nm ». SBA-15 a été publiée en 1998 (Zhao et al., Science ; 1992 est l'année de MCM-41, chez Mobil), et 30 nm est la borne haute obtenue avec agent gonflant : la présente recette donne 7–8 nm, ce que les auteurs mesurent eux-mêmes. Erreurs de contexte sans effet sur le protocole.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Triblock copolymer syntheses of mesoporous silica with periodic 50 to 300 angstrom pores",
+      "authors_or_publisher": "Zhao D., Feng J., Huo Q., Melosh N., Fredrickson G.H., Chmelka B.F., Stucky G.D. (Science)",
+      "year": "1998",
+      "url_or_doi": "10.1126/science.279.5350.548"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "HCl 2 M corrosif ; TEOS inflammable, libère de l'éthanol en s'hydrolysant ; autoclave à 100 °C sans risque de pression notable ; poudre de silice mésoporeuse calcinée à ne pas inhaler. Rien de grave non écrit hormis la capacité de l'autoclave.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Auto-assemblage coopératif en milieu acide (S0H+)(X−I+) : le TEOS s'hydrolyse dans HCl 2 M, les oligomères silicatés protonés s'associent aux blocs d'oxyde d'éthylène des micelles cylindriques de P123 à 40 °C, la mésophase hexagonale p6mm précipite ; le traitement à 100 °C achève la condensation et élargit les pores (déshydratation des blocs PEO), la calcination brûle le copolymère et laisse les canaux. L'hypothèse de l'extraction est compatible.",
+    "sources": [
+     {
+      "title": "Triblock copolymer syntheses of mesoporous silica with periodic 50 to 300 angstrom pores",
+      "authors_or_publisher": "Zhao D., Feng J., Huo Q., Melosh N., Fredrickson G.H., Chmelka B.F., Stucky G.D. (Science)",
+      "year": "1998",
+      "url_or_doi": "10.1126/science.279.5350.548"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "utiliser les masses (et non la composition molaire écrite, dont le terme H2O est faux d'environ 15 %)",
+    "capacité de l'autoclave (≥ 240 mL pour 160 mL de charge)",
+    "durée d'agitation à 40 °C (8 h ici, 20–24 h dans la recette de Zhao)",
+    "rampe et atmosphère de calcination (air, rampe lente recommandée)"
+   ]
+  },
+  {
+   "label": "SBA-15-NH2",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "moles de silane (2,0 mL)",
+     "inputs": "si triéthoxy (APTES) : ρ ≈ 0,946 g/mL, M = 221,37 g/mol ; si triméthoxy (APTMS) : ρ ≈ 1,027 g/mL, M = 179,29 g/mol (masses volumiques de fiches fournisseur, de mémoire, non rouvertes dans cette session)",
+     "formula": "V ρ / M",
+     "result": "8,5 mmol (APTES) ou 11,5 mmol (APTMS)",
+     "compared_to": "teneurs en amine greffée usuelles de l'ordre de 1 mmol/g : excès de 8 à 11 fois par gramme de silice",
+     "source": "arithmétique ; masses volumiques à confirmer sur la fiche du fournisseur"
+    },
+    {
+     "what": "concentration du silane dans le toluène",
+     "inputs": "2,0 mL dans 30,0 mL",
+     "formula": "V/V",
+     "result": "≈ 6 % v/v ; 0,27–0,36 mol/L",
+     "compared_to": "greffages usuels de 1 à 20 % v/v dans le toluène au reflux",
+     "source": "arithmétique"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "bilan",
+     "finding": "Le réactif est nommé « (3-aminopropyl)trimethoxysilane (APTES) » : le nom chimique désigne l'APTMS (méthoxy, libère du méthanol) et le sigle l'APTES (éthoxy, libère de l'éthanol). La quantité de silane diffère de 35 % selon le cas (8,5 ou 11,5 mmol, voir « moles de silane »). Dans les deux cas c'est un large excès pour 1 g de silice, donc le choix ne change pas le greffage, mais un chimiste doit savoir lequel acheter.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "thermique",
+     "finding": "« 120 °C under reflux » dans le toluène, dont le point d'ébullition est 110,6 °C (NIST WebBook) : le mélange ne peut pas dépasser ≈ 111 °C à pression ambiante ; 120 °C est la consigne du bain. Pas d'incohérence de récipient (reflux sous N2).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Toluène non dit anhydre et silice calcinée non séchée avant usage : l'eau adsorbée favorise l'auto-condensation du silane en couche polymérique, ce qui augmente l'obstruction des pores observée plus loin. Le lavage à l'eau après greffage est acceptable. Teneur en amine non mesurée (ni analyse élémentaire ni ATG de SBA-15-NH2).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Toluène inflammable et reprotoxique, reflux 48 h sous hotte ; aminosilane corrosif ; méthanol (si APTMS) libéré par l'hydrolyse. Bain à ultrasons sans température : sans enjeu ici.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Silanisation : les groupes alcoxysilane s'échangent avec les silanols de surface (Si–OH + R'O–Si → Si–O–Si + R'OH), liaisons mono à tridentées, avec une part d'oligomères de silane condensés dans les pores si de l'eau est présente ; les amines propyliques restent libres ou liées par liaison hydrogène aux silanols. Compatible avec la bande N–H vers 1575 cm−1 et C–H à 2930 cm−1.",
+    "sources": []
+   },
+   "what_to_verify_before_repeating": [
+    "identité du silane (APTES triéthoxy ou APTMS triméthoxy)",
+    "toluène sec et silice séchée avant greffage",
+    "doser l'amine greffée (analyse élémentaire ou ATG) avant l'étape suivante"
+   ]
+  },
+  {
+   "label": "SBA-15@ELA",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "masse d'acide ellagique",
+     "inputs": "3 mmol ; M(C14H6O8) = 302,19 g/mol",
+     "formula": "n M",
+     "result": "0,907 g",
+     "compared_to": "« equivalent to 0.9 g » : accord",
+     "source": "PubChem CID 5281855 (masse molaire)"
+    },
+    {
+     "what": "masse de K2CO3",
+     "inputs": "3 mmol ; M = 138,21 g/mol",
+     "formula": "n M",
+     "result": "0,415 g",
+     "compared_to": "rapport molaire K2CO3/ELA = 1 ; 6 mmol de K+",
+     "source": "PubChem CID 11430 (masse molaire)"
+    },
+    {
+     "what": "fraction organique si toute l'ELA engagée reste dans le solide",
+     "inputs": "1 g SBA-15–NH2 + 0,907 g ELA (+ 0,415 g K2CO3 si non éliminé)",
+     "formula": "m(ELA)/m(total)",
+     "result": "47,6 % sans K2CO3 ; 39 % avec K2CO3",
+     "compared_to": "perte ATG de 40 % entre 300 et 360 °C (et ≈ 10 % < 150 °C) : la perte mesurée est de l'ordre de ce que donnerait la rétention de presque toute l'ELA engagée, et non d'une monocouche limitée par les amines (non dosées)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "diamètre moyen 4V/S de SBA-15@ELA",
+     "inputs": "V = 0,17 cm3/g ; S = 90,21 m2/g",
+     "formula": "4V/S",
+     "result": "7,54 nm",
+     "compared_to": "maximum BJH annoncé à 3,53 nm : facteur 2,1 ; 3,5–3,8 nm est la position de l'artefact de cavitation de N2 à 77 K (P/P0 ≈ 0,42–0,45)",
+     "source": "arithmétique ; Thommes 2015"
+    },
+    {
+     "what": "volume poreux ramené à la silice",
+     "inputs": "0,17 cm3/g de composite ; silice ≈ 50 % de la masse (ATG : 10 % + 40 % de pertes)",
+     "formula": "V/w(SiO2)",
+     "result": "≈ 0,34 cm3 par g de silice",
+     "compared_to": "1,28 cm3/g pour SBA-15 nu : 73 % du volume poreux perdu ; ≈ 0,8 g d'organique par g de silice (ρ ≈ 1,67 g/cm3 pour l'ELA, PubChem) occuperait ≈ 0,5 cm3 : remplissage plus obstruction des entrées",
+     "source": "arithmétique ; PubChem (densité de l'ELA 1,667)"
+    },
+    {
+     "what": "distances réticulaires des raies aux grands angles",
+     "inputs": "2θ = 10,8° et 15,8° ; λ = 1,5406 Å",
+     "formula": "d = λ/(2 sin θ)",
+     "result": "8,19 Å et 5,60 Å",
+     "compared_to": "raies calculées de l'ELA dihydratée (maille triclinique publiée) les plus proches : 9,64°, 12,26°, 13,56°, 17,44° ; aucune à 10,8° ni à 15,8° (écarts > 1°). Au-delà de 17° les raies calculées sont si denses que l'accord n'est pas discriminant",
+     "source": "maille de l'ELA dihydratée (PMID 1747921), calcul du réseau réciproque"
+    },
+    {
+     "what": "quantité d'ELA dans 0,01 g de catalyseur",
+     "inputs": "au plus 40 % d'organique ; 0,01 g ; M(ELA) = 302,19 g/mol ; 1 mmol d'anhydride isatoïque",
+     "formula": "0,4 × 0,01 / 302,19",
+     "result": "≤ 0,013 mmol, soit ≤ 1,3 mol %",
+     "compared_to": "ELA libre à 10 mol % (≈ 30 mg) : 65 % en 24 h (entrée 5) ; SBA-15@ELA à ≤ 1,3 mol % : 96 % en 6 h (entrée 8)",
+     "source": "arithmétique"
+    },
+    {
+     "what": "réactifs du protocole catalytique",
+     "inputs": "anhydride isatoïque M = 163,13 g/mol ; phénylhydrazine M = 108,14 g/mol",
+     "formula": "m/M",
+     "result": "0,163 g = 1,00 mmol ; 0,118 g = 1,09 mmol",
+     "compared_to": "1 et 1,1 mmol annoncés : accord",
+     "source": "masses atomiques IUPAC"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "solubilite",
+     "finding": "L'acide ellagique est très peu soluble dans l'eau et l'alcool (PubChem : « slightly soluble in alcohol », < 1 mg/mL) et pratiquement insoluble dans le toluène ; le K2CO3 est insoluble dans l'alcool et l'acétone (PubChem). La réaction se fait donc entre deux solides en suspension dans le toluène, et les lavages « with ethanol and acetone several times to completely remove toluene and excess ellagic acid » ne peuvent éliminer ni l'excès d'ELA (0,9 g) ni le K2CO3 (0,41 g) ni un ellagate de potassium. Aucun lavage à l'eau, au DMSO ou en milieu basique n'est décrit.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Potassium Carbonate, CID 11430 (Solubility : « Insoluble in alcohol and acetone », Sax's Dangerous Properties of Industrial Materials)",
+      "authors_or_publisher": "PubChem (NIH)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-Carbonate"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le diffractogramme aux grands angles montre 13 raies fines « related to the crystalline nature of the organic part (ellagic acid) » : des molécules greffées isolément sur une surface amorphe ne donnent pas de raies de Bragg ; ces raies prouvent au contraire une phase cristalline massive (ELA non réagie, ellagate ou sel de potassium). Les raies à 10,8° et 15,8° ne correspondent pas à l'ELA dihydratée (voir « distances réticulaires des raies aux grands angles »), et aucun diffractogramme de référence de l'ELA ou du K2CO3 n'est montré. Avec la perte ATG de 40 % (voir « fraction organique si toute l'ELA engagée reste dans le solide »), tout indique un mélange physique ELA (ou sel) + SBA-15–NH2 plutôt qu'une monocouche amide.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "The crystal and molecular structure of ellagic acid dihydrate: a dietary anti-cancer agent (triclinique P1, a = 7,656, b = 9,563, c = 4,623 Å, α = 97,88°, β = 103,2°, γ = 102,22°)",
+      "authors_or_publisher": "notice PubMed PMID 1747921",
+      "year": "1991",
+      "url_or_doi": "https://pubmed.ncbi.nlm.nih.gov/1747921"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "L'EDX de SBA-15@ELA ne mentionne que C, O, Si et N, alors que 6 mmol de K+ ont été ajoutés et qu'aucun lavage décrit ne peut les éliminer (K2CO3 et ellagates insolubles dans l'éthanol et l'acétone). Soit le potassium a été omis du spectre, soit un lavage n'est pas écrit : incohérence entre Méthodes et Résultats.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Potassium Carbonate, CID 11430 (Solubility : « Insoluble in alcohol and acetone », Sax's Dangerous Properties of Industrial Materials)",
+      "authors_or_publisher": "PubChem (NIH)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-Carbonate"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le maximum BJH à 3,53 nm de SBA-15@ELA est incompatible avec 4V/S = 7,54 nm (voir « diamètre moyen 4V/S de SBA-15@ELA ») et se situe là où la branche de désorption de N2 à 77 K produit un pic artificiel (fermeture forcée de l'hystérèse vers P/P0 ≈ 0,42–0,45 par cavitation, pic vers 3,4–3,8 nm) quand les canaux sont obstrués aux entrées. Une boucle H1 est annoncée pour les deux matériaux alors que l'obstruction donne une boucle H2/H5 à fermeture brutale. Les « 3,53 nm » ne sont donc pas une taille de pore ; il faudrait la distribution calculée sur la branche d'adsorption (ou NLDFT).",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al. (Pure Appl. Chem.)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "L'aminolyse d'une lactone aryle (ester phénolique) par une amine primaire vers 110 °C est chimiquement plausible (« nucleophilic substitution » est à lire substitution nucléophile acyle). Mais K2CO3 (1 éq.) déprotone les phénols de l'ELA : le phénolate rend la lactone moins électrophile et forme un sel insoluble, ce qui va contre l'amidation. La bande à 1680 cm−1 attribuée à l'amide chevauche le C=O lactonique de l'ELA et la zone aromatique 1679–1460 cm−1 ; la bande à 3171 cm−1 est hors de la plage des C–H aromatiques (3000–3100 cm−1) et relève plutôt d'O–H liés. Aucune preuve discriminante (RMN 13C du solide, XPS N 1s amide/amine, dosage) de la liaison covalente.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "« most of the particles are around 80–90 nm » pour un SBA-15 de la recette classique, dont les particules sont des bâtonnets de 0,4 à 0,8 µm de large ; avec a0 = 11,2 nm, une particule de 85 nm ne contiendrait que 7 à 8 canaux de largeur. Les objets mesurés sont plus probablement des grains ou cristallites en surface (ELA, sel) ou des sous-structures que des particules de SBA-15.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Preparation of Amino-Functionalized Mesoporous SBA-15 Nanoparticles and the Improved Adsorption of Tannic Acid in Wastewater (largeur des bâtonnets de SBA-15 : 380–830 nm)",
+      "authors_or_publisher": "PMC8912468",
+      "year": "2022",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8912468"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La conclusion dit le composite utilisable « up to 350 °C » alors que l'ATG place la perte principale (40 %) entre 300 et 360 °C : la limite d'usage réelle est ≤ 300 °C. Sans effet sur la catalyse au reflux de l'éthanol (78 °C).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Témoins de catalyse qui changent plusieurs variables : SBA-15 nu est testé dans le toluène à 120 °C pendant 10 h (entrée 6) et SBA-15@ELA dans l'éthanol au reflux pendant 6 h ; l'ELA libre l'est pendant 24 h. Il manque SBA-15 nu et SBA-15–NH2 dans l'éthanol au reflux 6 h, un essai avec K2CO3 seul, un mélange physique SBA-15 + ELA, et un test de filtration à chaud : l'ELA physisorbée, un peu soluble dans l'éthanol bouillant, peut catalyser en phase homogène. Le texte donne 65 % pour l'entrée 6 et le tableau 45 %. L'absence totale de produit sans catalyseur dans l'éthanol au reflux (entrée 2) contraste avec les cyclocondensations sans catalyseur signalées dans la littérature, et avec la formation de l'intermédiaire III sans catalyseur écrite par les auteurs eux-mêmes.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "2,3-Dihydroquinazolin-4(1H)-one as a privileged scaffold in drug design",
+      "authors_or_publisher": "RSC Advances, PMC9080947",
+      "year": "2018",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9080947"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "« reflux temperature (120 °C) » dans le toluène (point d'ébullition 110,6 °C, NIST WebBook) : consigne du bain. Séchage sous vide à 70 °C : compatible avec l'ELA (fusion ≥ 350 °C).",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "Toluène inflammable et reprotoxique (reflux 48 h sous hotte), K2CO3 irritant, poudre nanostructurée à ne pas inhaler. Pas de danger majeur non écrit.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Le plus probable au vu des données : une petite fraction des amines de SBA-15–NH2 ouvre une lactone de l'ELA (amide + acide/phénol libre) ou forme des sels d'ammonium avec les phénols et l'acide libéré ; la majeure partie de l'ELA (0,9 g, insoluble dans le toluène, l'éthanol et l'acétone), probablement en partie sous forme d'ellagate de potassium avec le K2CO3, reste déposée en cristallites sur et dans les grains de silice, ce qui explique les raies de Bragg, les 40 % de perte ATG et l'obstruction des pores (90 m2/g, 0,17 cm3/g). L'activité catalytique viendrait des phénols de l'ELA (liaisons hydrogène, acidité de Brønsted faible), supportée ou en partie dissoute, plutôt que d'une monocouche greffée.",
+    "sources": [
+     {
+      "title": "Ellagic Acid, CID 5281855 (Solubility : « Slightly soluble in alcohol or water », Merck Index ; « less than 1 mg/mL at 70 °F », NTP)",
+      "authors_or_publisher": "PubChem (NIH)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Ellagic-Acid"
+     },
+     {
+      "title": "Recent Advances in the Production and Applications of Ellagic Acid and Its Derivatives. A Review",
+      "authors_or_publisher": "Molecules (MDPI), PMC7355634",
+      "year": "2020",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7355634"
+     },
+     {
+      "title": "Potassium Carbonate, CID 11430 (Solubility : « Insoluble in alcohol and acetone », Sax's Dangerous Properties of Industrial Materials)",
+      "authors_or_publisher": "PubChem (NIH)",
+      "year": "consulté 2026",
+      "url_or_doi": "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-Carbonate"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "laver au DMSO chaud ou à l'eau (pour K2CO3) jusqu'à disparition des raies de l'ELA en DRX, puis refaire ATG et BET",
+    "doser l'ELA greffée (ATG différentielle contre SBA-15–NH2, analyse élémentaire C/N) et chercher le potassium (EDX, ICP)",
+    "prouver l'amide (RMN 13C CP-MAS, XPS N 1s) plutôt que par l'IR seul",
+    "distribution de taille de pore sur la branche d'adsorption (ou NLDFT) au lieu du pic BJH de désorption à 3,5 nm",
+    "témoins dans les mêmes conditions (EtOH reflux 6 h) : SBA-15, SBA-15–NH2, mélange physique SBA-15 + ELA ; test de filtration à chaud",
+    "rôle du K2CO3 (1 éq.) : essayer sans base ou avec une base organique soluble"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "La silice SBA-15 suit la recette de Zhao (1998) et ses données texturales sont cohérentes (Bragg, 4V/S, positions hexagonales). Le greffage du silane est banal, à l'ambiguïté APTES/APTMS près. L'étape clé, la liaison amide entre l'amine et l'acide ellagique, n'est pas démontrée : réaction entre solides insolubles dans le toluène, lavages incapables d'éliminer l'excès d'ELA et le K2CO3, raies de Bragg d'une phase organique cristalline, perte ATG de 40 % proche de la rétention de toute l'ELA engagée, potassium absent de l'EDX, et taille de pore de 3,53 nm qui est l'artefact de cavitation BJH. Le catalyseur est plus probablement un dépôt d'ELA (ou d'ellagate) sur SBA-15–NH2 ; les témoins catalytiques ne séparent pas l'effet du support, de l'amine, de la base et de l'ELA lixiviée.",
+  "author_errors_suspected": [
+   "H2O/TEOS = 162,681 au lieu d'environ 192 d'après les masses",
+   "SBA-15 datée de 1992 et pores « about 30 nm » dans l'introduction (1998 ; 7–8 nm ici)",
+   "« (3-aminopropyl)trimethoxysilane (APTES) » : nom et sigle de deux silanes différents",
+   "« 120 °C » de reflux pour le toluène (Eb 110,6 °C)",
+   "EDX sans potassium malgré 3 mmol de K2CO3 non éliminable par les lavages décrits",
+   "pore de 3,53 nm (artefact BJH de désorption) incompatible avec 4V/S = 7,5 nm",
+   "raies de DRX à 10,8° et 15,8° attribuées à l'ELA sans correspondance avec l'ELA dihydratée",
+   "entrée 6 : 65 % dans le texte, 45 % dans le tableau",
+   "stabilité « jusqu'à 350 °C » alors que la perte de 40 % commence à 300 °C"
+  ],
+  "comparison_with_database": "SBA-15 comparé à PMC6812203 (35 °C 20 h, 100 °C 24 h, 675 m2/g, d100 à 2θ = 0,96°), PMC11990281 (Ti-SBA-15, 35 °C 24 h, 771 m2/g) et PMC8495851 (308 K 20 h) : surface et position de la raie (100) de PMC11099149 dans la même plage, durée d'agitation initiale (8 h) plus courte que partout ailleurs. Le pic BJH vers 3,3–3,5 nm après dépôt organique se retrouve dans PMC8495851 (PPy-PANI/M-SBA-15, 3,31 nm, 12,3 m2/g) : même signature d'obstruction des pores. NH2-SBA-15 de PMC6812203 (greffage au reflux du toluène 6 h) garde 169 m2/g, contre 90 m2/g ici après l'ELA."
+ },
+ "sources_not_found": [
+  "aucun diffractogramme de poudre publié de l'ELA commerciale (anhydre ou dihydratée) trouvé avec liste de raies : la comparaison repose sur la maille publiée de l'ELA dihydratée",
+  "pas de source trouvée pour la teneur typique en amine de SBA-15 greffé à l'APTES au reflux du toluène dans les recherches faites (ordre de grandeur ≈ 1 mmol/g donné sans source)",
+  "DOI de Baldovino-Medrano 2023, Ravikovitch et Neimark 2002 et de la structure de l'ELA dihydratée (PMID 1747921) non relevés : URL données à la place ; Crossref inaccessible depuis le cloud"
+ ]
+}

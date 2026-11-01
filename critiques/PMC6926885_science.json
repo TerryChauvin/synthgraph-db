@@ -1,0 +1,168 @@
+{
+  "pmcid": "PMC6926885",
+  "routes": [
+    {
+      "label": "Sample A",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "somme des oxydes de la Table 1", "inputs": "SiO2 47,89 ; Al2O3 18,17 ; Fe2O3 14,67 ; CaO 5,61 ; MgO 4,3 ; Na2O 2,10 ; K2O 1,50 ; SO3 0,06 ; perte au feu 3,18 % en masse", "formula": "somme", "result": "97,48 %", "compared_to": "total déclaré 97,48 % (2,5 % non attribués : TiO2, MnO, P2O5 typiques d'un basalte, non dosés)", "source": "valeurs de l'article"},
+        {"what": "rapport Si/Al du basalte brut", "inputs": "10 g : 4,789 g SiO2 (M = 60,08 g/mol) ; 1,817 g Al2O3 (M = 101,96 g/mol)", "formula": "n(Si) / 2·n(Al2O3)", "result": "79,7 mmol Si ; 35,6 mmol Al ; Si/Al = 2,24 (SiO2/Al2O3 = 4,47)", "compared_to": "zéolite X visée Na2Al2Si2.5O9 : Si/Al = 1,25", "source": "masses molaires (chimie générale) ; valeurs de l'article"},
+        {"what": "diamètre de pore moyen 4V/S du basalte", "inputs": "V = 0,019297 cm3/g ; S = 12,1196 m2/g", "formula": "4V/S", "result": "6,37 nm", "compared_to": "6,36874 nm (Table 2) : la « taille de pore » des auteurs est le 4V/S", "source": "arithmétique"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Composition typique d'un basalte riche en fer (Fe total exprimé en Fe2O3) ; Si/Al = 2,24 (voir calcul « rapport Si/Al du basalte brut »), donc la silice est en excès par rapport à la zéolite X (Si/Al 1,25) : une partie du Si doit rester en solution ou dans le résidu.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Poudre de basalte < 50 µm : fraction inhalable contenant de la silice (cristalline en faible part : labradorite, andésine) ; broyage et tamisage sous aspiration, non mentionné.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Sans objet (matière première broyée).", "sources": []},
+      "what_to_verify_before_repeating": ["composition de son propre basalte (XRF) : le résultat dépend de la teneur en verre réactif, en Fe et en Ca", "longueur d'onde du diffractomètre (non écrite)"]
+    },
+    {
+      "label": "Sample B",
+      "verdict": "coherente",
+      "feasibility": "reproductible",
+      "calculs": [
+        {"what": "durée de montée en température", "inputs": "25 → 650 °C à 11,5 °C/min", "formula": "ΔT / vitesse", "result": "≈ 54 min de montée avant le palier de 3 h", "compared_to": "—", "source": "arithmétique"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "Recuit à 650 °C sous air en creuset : perte au feu (3,18 %) éliminée et Fe2+ du verre partiellement oxydé ; aucune fusion du basalte (solidus > 1000 °C). Activation modeste attendue, cohérente avec l'absence de zéolite en TH.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Déshydratation, décarbonatation et oxydation partielle du fer ; pas de changement de phase majeur à 650 °C.", "sources": []},
+      "what_to_verify_before_repeating": ["matériau du creuset et vitesse de refroidissement (non écrits)"]
+    },
+    {
+      "label": "Sample C",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "HCl disponible", "inputs": "30 mL de HCl à 5 % en masse ; masse volumique ≈ 1,023 g/mL ; M(HCl) = 36,46 g/mol", "formula": "V·ρ·w / M", "result": "≈ 42 mmol HCl pour 10 g de basalte", "compared_to": "besoin ci-dessous", "source": "masse volumique de HCl 5 % (tables de chimie générale, valeur approchée)"},
+        {"what": "HCl nécessaire pour dissoudre les oxydes solubles de 10 g de basalte", "inputs": "Fe2O3 1,467 g (9,19 mmol, 6 HCl) ; CaO 0,561 g (10,0 mmol, 2 HCl) ; MgO 0,43 g (10,7 mmol, 2 HCl) ; Na2O 0,21 g ; K2O 0,15 g", "formula": "Σ n·ν", "result": "Fe2O3 55 mmol ; CaO 20 ; MgO 21 ; Na2O 7 ; K2O 3 ; total ≈ 106 mmol", "compared_to": "42 mmol fournis : l'acide est limitant, au mieux 40 % des oxydes basiques dissous", "source": "arithmétique"},
+        {"what": "bilan de masse de la Table 4 si SiO2 est conservé", "inputs": "SiO2 47,89 % (A) → 59,65 % (C) ; Al2O3 18,17 → 24,35 % ; Fe2O3 14,67 → 8,23 %", "formula": "fraction de masse retenue r = 47,89/59,65 ; Al2O3 restant = 24,35·r", "result": "r = 0,803 (perte ≈ 2,0 g pour 10 g) ; Al2O3 restant = 19,55 g pour 100 g de départ, soit +7,6 % d'Al2O3 créé ; Fe2O3 retiré = 55 % du fer (5,0 mmol Fe2O3, 30 mmol HCl)", "compared_to": "Al2O3 ne peut pas augmenter ; si Al2O3 est conservé, il faut au contraire perdre 7 % du SiO2 (44,5 au lieu de 47,89 g)", "source": "arithmétique sur la Table 1 et la Table 4"},
+        {"what": "rapport Si/Al après lavage acide", "inputs": "10 g de C : 5,965 g SiO2 ; 2,435 g Al2O3", "formula": "n(Si)/n(Al)", "result": "99,3 mmol Si ; 47,8 mmol Al ; Si/Al = 2,08", "compared_to": "Si/Al = 2,24 avant lavage : le rapport baisse", "source": "arithmétique"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "La Table 4 n'est pas compatible avec la conservation simultanée de SiO2 et Al2O3 : si la silice est insoluble dans HCl dilué à froid, l'alumine « augmente » de 7,6 % en absolu ; si l'alumine est conservée, 7 % de la silice a disparu (voir « bilan de masse de la Table 4 si SiO2 est conservé »). La perte de masse implicite (≈ 20 %) demande aussi plus d'acide que les 42 mmol fournis si elle vient de la dissolution des oxydes (≈ 30 mmol pour le seul Fe retiré, plus Ca et Mg). Probable : incertitude XRF, normalisation différente (trois oxydes seulement en Table 4) ou perte de fines au lavage. Les chiffres de la Table 4 ne doivent pas servir à calculer un bilan.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Section 3.3.1 : le lavage acide « relatively improves the SiO2 content ... the Si/Al ratio may increase », alors que la Table 4 donne Si/Al = 2,08 contre 2,24 avant lavage (voir « rapport Si/Al après lavage acide ») : les données des auteurs contredisent leur explication. Les « 6.5 %, 11.76 % et 6.18 % » sont des écarts en points de pourcentage, pas des variations relatives (le fer retiré serait ≈ 55 % en relatif si SiO2 est conservé).", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "HCl à 5 % (≈ 1,4 mol/L) à température ambiante, 4 h : attaque surtout les oxydes de fer libres et la surface du verre ; le fer du réseau silicaté et le plagioclase calcique se dissolvent lentement. Le changement de couleur gris foncé → gris clair est cohérent avec un départ de fer superficiel.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "Bécher fermé avec HCl : dégagement possible de CO2 (carbonates de la perte au feu) et de H2S si sulfures (SO3 0,06 %) ; ouvrir sous hotte.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Lixiviation acide partielle : dissolution des oxydes et hydroxydes de fer superficiels, de Ca et Mg échangeables et d'une partie de l'Al de surface ; l'acide (42 mmol) est en défaut par rapport aux oxydes basiques (≈ 106 mmol), donc la lixiviation est limitée par l'acide. L'enrichissement apparent en Si et Al vient surtout du départ de Fe, Ca, Mg et des fines.", "sources": []},
+      "what_to_verify_before_repeating": ["doser Si, Al et Fe du solide lavé ET la masse récupérée, pour un vrai bilan", "pH final de la suspension (acide épuisé ou non)", "pertes de fines à la centrifugation"]
+    },
+    {
+      "label": "Sample E",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "NaOH par rapport aux atomes T", "inputs": "10 g NaOH (M = 40,00 g/mol) ; 10 g de C : 99,3 mmol Si, 47,8 mmol Al", "formula": "n(NaOH) ; n(Na)/(n(Si)+n(Al))", "result": "250 mmol NaOH ; Na/(Si+Al) = 1,70 ; Na2O/SiO2 = 1,26", "compared_to": "Na2SiO3 + NaAlO2 demandent 2·99,3 + 47,8 = 246 mmol Na : NaOH tout juste suffisant pour tout convertir", "source": "arithmétique"}
+      ],
+      "checks": [
+        {"aspect": "thermique", "finding": "650 °C : NaOH fondu (point de fusion 318 °C) ; la fusion attaque la silice et les aluminosilicates. Le creuset n'est pas précisé : un creuset en porcelaine ou en silice est attaqué par la soude fondue et apporte Si et Al ; nickel, fer ou zirconium conviennent.", "status": "reserve", "basis": "litterature", "source": {"title": "Sodium hydroxide (fiche encyclopédique : point de fusion 318 °C, attaque lente du verre)", "authors_or_publisher": "Wikipedia (source secondaire, à confirmer sur PubChem)", "year": "consulté 2026", "url_or_doi": "https://en.wikipedia.org/wiki/Sodium_hydroxide"}},
+        {"aspect": "mecanisme", "finding": "L'absence de zéolite dans E (Fig. 11) est attendue : une fusion à 650 °C sans eau ne cristallise pas de zéolite hydratée. Ce témoin ne permet pas de choisir entre transformation en phase liquide et transformation solide-liquide (contrôle 7) : il montre seulement que la zéolite naît pendant l'étape aqueuse.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "Fusion alcaline : NaOH fondu convertit verre et plagioclase en silicate et aluminate de sodium (éventuellement en aluminosilicate de sodium de type néphéline/carnégiéite), avec départ d'eau ; le fer reste sous forme d'oxyde.", "sources": [{"title": "Selective formation of Na-X zeolite from coal fly ash by fusion with sodium hydroxide prior to hydrothermal reaction", "authors_or_publisher": "N. Shigemoto, H. Hayashi, K. Miyaura, J. Mater. Sci. 28, 4781–4786", "year": "1993", "url_or_doi": "10.1007/BF00414272"}]},
+      "what_to_verify_before_repeating": ["matériau du creuset", "absorption de CO2 par NaOH fondu sous air (Na2CO3)"]
+    },
+    {
+      "label": "TH-A",
+      "verdict": "coherente",
+      "feasibility": "reproductible",
+      "calculs": [
+        {"what": "NaOH et alcalinité en TH", "inputs": "50 mL de NaOH 5 M ; 10 g de basalte A (79,7 mmol Si, 35,6 mmol Al)", "formula": "C·V ; n(Na)/(n(Si)+n(Al))", "result": "250 mmol NaOH (= 10 g), Na/(Si+Al) = 2,17 ; liquide/solide 5 mL/g", "compared_to": "AFH 1:1 : mêmes 10 g de NaOH et 50 mL d'eau ; seule la fusion change, témoin propre", "source": "arithmétique"},
+        {"what": "pression dans le récipient à 120 °C", "inputs": "pression de vapeur saturante de l'eau à 120 °C ≈ 1,99 bar", "formula": "—", "result": "< 2 bar (moins encore en NaOH 5 M)", "compared_to": "récipient PTFE/acier : sans difficulté ; capacité non donnée, taux de remplissage inconnu", "source": "tables de vapeur (chimie générale ; NIST WebBook injoignable depuis ce poste)"}
+      ],
+      "checks": [
+        {"aspect": "cinetique", "finding": "12 h à 120 °C dans NaOH 5 M sur un basalte massif (12 m2/g) : la dissolution du verre basaltique est lente ; l'absence de zéolite ne vaut que pour cette durée. La conclusion « TH is not an effective way » est générale alors qu'aucune durée plus longue ni température plus haute n'a été essayée ; avec des cendres volantes, la voie directe à 5 M donne plutôt hydroxysodalite et NaP1 en plusieurs heures à jours.", "status": "reserve", "basis": "litterature", "source": {"title": "Synthesis of zeolites from coal fly ash: an overview", "authors_or_publisher": "X. Querol et al., Int. J. Coal Geol. 50, 413–423", "year": "2002", "url_or_doi": "10.1016/S0166-5162(02)00124-6"}},
+        {"aspect": "resultats", "finding": "Comparaison TH/AFH bien construite : même masse de NaOH (10 g) et même volume d'eau (50 mL) ; seule l'étape de fusion diffère (et l'agitation pendant le mûrissement). La conclusion « la fusion est nécessaire à 120 °C, 12 h » est soutenue.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "NaOH 5 M à 120 °C en récipient fermé : solution très corrosive, ouvrir après refroidissement complet.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Dissolution superficielle partielle du verre et du plagioclase (baisse d'intensité des raies), concentration en Si et Al dissous trop faible ou temps trop court pour la nucléation d'une zéolite.", "sources": []},
+      "what_to_verify_before_repeating": ["capacité du récipient et taux de remplissage", "essayer des durées plus longues avant de conclure à l'échec de la voie TH"]
+    },
+    {
+      "label": "AFH-C-opt",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "masse de NaOH pour le rapport 1:1", "inputs": "10 g de matière de départ ; masses citées 5, 10, 15, 20 g ; rapports 0,5, 1, 1,5, 2,0:1", "formula": "m(NaOH)/m(basalte)", "result": "1:1 = 10 g NaOH = 250 mmol (correspondance arithmétique exacte, rapport massique)", "compared_to": "échantillon E : 10 g C + 10 g NaOH, même rapport", "source": "arithmétique"},
+        {"what": "composition oxyde du mélange de cristallisation", "inputs": "125 mmol Na2O (NaOH) ; 99,3 mmol SiO2 ; 23,9 mmol Al2O3 (10 g de C) ; 50 mL d'eau (2,78 mol)", "formula": "rapports molaires", "result": "SiO2/Al2O3 = 4,16 ; Na2O/SiO2 = 1,26 ; H2O/Na2O = 22 ; [Na+] nominal ≈ 5 mol/L", "compared_to": "fusion NaOH de cendres volantes (Shigemoto 1993) : NaOH/cendre 1,2 en masse, fusion 823 K, Na-X ; même ordre de grandeur", "source": "arithmétique ; Shigemoto 1993"},
+        {"what": "rendement maximal limité par Al", "inputs": "47,8 mmol Al dans 10 g de C ; Na2Al2Si2.5O9·6,2H2O, M = 425,8 g/mol", "formula": "n(Al)/2 × M", "result": "10,2 g au plus ; 2,375 g obtenus = 23 % de l'Al converti", "compared_to": "seule la fraction surnageante est séchée : rendement partiel par construction", "source": "masses atomiques (chimie générale)"},
+        {"what": "diamètre de pore moyen 4V/S", "inputs": "V = 0,270844 cm3/g ; S = 486,4602 m2/g", "formula": "4V/S", "result": "2,23 nm", "compared_to": "2,22706 nm (Table 3) : c'est un 4V/S, pas l'ouverture des pores de la FAU (≈ 0,74 nm, cage 1,3 nm)", "source": "arithmétique"},
+        {"what": "fraction zéolitique estimée par la surface", "inputs": "486,46 m2/g ; zéolite X pure 720 m2/g (valeur citée par les auteurs) ; volume non microporeux 0,2708 − 0,1719 cm3/g", "formula": "S/S_pur ; V_tot − V_micro", "result": "≈ 68 % ; 0,099 cm3/g de volume méso/interparticulaire", "compared_to": "« high purity, single crystal phase » (DRX)", "source": "valeurs de l'article"},
+        {"what": "indexation des raies DRX (λ supposée Cu Kα = 1,5406 Å, non écrite)", "inputs": "2θ = 6,3 ; 10,1 ; 11,9 ; 15,6 ; 23,5 ; 26,8 ; 31,1° ; hkl FAU (111), (220), (311), (331), (533), (642), (555)/(751)", "formula": "d = λ/2sinθ ; a = d·√(h²+k²+l²)", "result": "a = 24,28 ; 24,75 ; 24,65 ; 24,74 ; 24,80 ; 24,87 ; 24,88 Å (croît avec l'angle : décalage systématique de zéro ou de hauteur d'échantillon, ≈ +0,1 à +0,2°)", "compared_to": "NaX à faible Si/Al : a ≈ 25,0–25,1 Å (Porcher 1999 : 25,104 Å pour Si/Al = 1,06) ; raies attendues à 6,1, 10,0, 11,7, 15,4, 23,3, 26,7, 31,0° pour a = 25,0 Å", "source": "loi de Bragg ; Porcher et al. 1999"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Les sept raies s'indexent toutes en FAU, mais avec un décalage systématique vers les grands angles (paramètre apparent 24,3–24,9 Å au lieu de ≈ 25,0 Å pour NaX ; voir « indexation des raies DRX »). Compatible avec zéolite X et un défaut de zéro du diffractomètre ; la longueur d'onde n'est pas donnée. L'identification X contre Y n'est pas tranchée par le paramètre de maille ainsi mesuré (il faudrait un étalon interne).", "status": "reserve", "basis": "litterature", "source": {"title": "The crystal structure of a low-silica dehydrated NaX zeolite", "authors_or_publisher": "F. Porcher, M. Souhassou, Y. Dusausoy, C. Lecomte, Eur. J. Mineral. 11, 333–343", "year": "1999", "url_or_doi": "10.1127/ejm/11/2/0333"}},
+        {"aspect": "resultats", "finding": "« High purity, single crystal phase » ne vaut que pour la fraction surnageante séparée par décantation ; la surface (68 % de celle d'une NaX pure) et 0,099 cm3/g de volume non microporeux indiquent une part notable d'amorphe ou de résidu. Le fer de C (8,23 % Fe2O3, ≈ 10 mmol Fe pour 10 g) n'entre pas dans la zéolite et n'est retrouvé dans aucune phase identifiée ; il reste probablement dans le résidu inférieur ou en oxyde amorphe.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Section 3.3.1 : « faujasite could be formed with Si/Al ratio ranging from 2 to 5 ». La zéolite X a un rapport Si/Al de réseau de 1 à 1,5 (la formule retenue Na2Al2Si2.5O9 donne 1,25) ; 2 à 5 ne peut être qu'un rapport SiO2/Al2O3 de gel ou concerne la zéolite Y. Vocabulaire à corriger avant d'en tirer une consigne de composition.", "status": "reserve", "basis": "litterature", "source": {"title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time", "authors_or_publisher": "C. S. Cundy, P. A. Cox, Chem. Rev. 103, 663–702", "year": "2003", "url_or_doi": "10.1021/cr020060i"}},
+        {"aspect": "thermique", "finding": "Fusion à 650 °C : NaOH fondu (318 °C) ; creuset non précisé, une porcelaine serait attaquée et apporterait Si et Al. Cristallisation 120 °C en PTFE : pression de vapeur ≈ 2 bar, sans difficulté ; capacité du récipient non donnée.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Équations (1)–(3) non équilibrées : (1) « NaOH + xAl2O3·ySiO2 → Na2SiO3 + Na2AlO2 » sans coefficients et avec « Na2AlO2 », espèce inexistante (aluminate : NaAlO2 ou Na[Al(OH)4]) ; écriture équilibrée : (2x+2y) NaOH + xAl2O3·ySiO2 → y Na2SiO3 + 2x NaAlO2 + (x+y) H2O. (2) « Na2Al(OH)4 » au lieu de NaAl(OH)4. (3) gel → zéolite sans bilan. Le texte écrit « Si2O3 » pour SiO2 et parle de cations « Al3+ et Si4+ » dissous, alors qu'en milieu NaOH ≈ 5 M l'aluminium est sous forme Al(OH)4− et le silicium sous forme d'anions silicate. Les équations sont qualitatives et ne servent à aucun calcul de dosage.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "Les auteurs invoquent un mécanisme « en phase liquide », mais leur propre MEB montre des cristallites groupés autour des particules de basalte (« based on the rotted basalt particle ») et le gel est décrit « onto the surface of basalt particles » : nucléation hétérogène au contact du résidu solide, plus proche d'un mécanisme solide-liquide. La Fig. 11 (pas de zéolite après fusion) ne discrimine pas.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "Mûrissement 10 h à 35 °C puis 12 h à 120 °C : cohérent avec la fusion NaOH des cendres volantes (Na-X après fusion, mûrissement et cristallisation statique) ; la transformation FAU → hydroxysodalite à plus haute température ou plus forte alcalinité est la conversion connue d'une phase métastable vers une phase plus dense (règle d'Ostwald).", "status": "ok", "basis": "litterature", "source": {"title": "Selective formation of Na-X zeolite from coal fly ash by fusion with sodium hydroxide prior to hydrothermal reaction", "authors_or_publisher": "N. Shigemoto, H. Hayashi, K. Miyaura, J. Mater. Sci. 28, 4781–4786", "year": "1993", "url_or_doi": "10.1007/BF00414272"}},
+        {"aspect": "resultats", "finding": "Surface BET 486 m2/g et volume microporeux 0,17 cm3/g : dans l'ordre de grandeur des zéolites X issues de déchets (base : PMC6025012, zéolite X de diatomite, 453 m2/g ; PMC11989644, NaX de réactifs purs, 967 m2/g).", "status": "ok", "basis": "comparaison_base"},
+        {"aspect": "securite", "finding": "NaOH fondu à 550–750 °C (projections, brûlures graves, attaque du creuset) et broyage au mortier d'un bloc très alcalin et hygroscopique : gants, lunettes, écran ; non mentionné par les auteurs.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "a_revoir", "proposed": "La fusion NaOH convertit le verre et le plagioclase en silicate et aluminate de sodium solubles ; au mûrissement (35 °C, 10 h) ils passent en solution très alcaline ([Na+] ≈ 5 M, SiO2/Al2O3 ≈ 4) et forment un gel aluminosilicaté, en partie à la surface des grains résiduels ; à 90–120 °C la FAU (zéolite X, phase cinétique) nuclée et croît, surtout sur les grains ; plus chaud (150 °C) ou plus alcalin (NaOH/basalte 2:1), la FAU métastable se dissout au profit de l'hydroxysodalite plus dense. Le fer reste dans le résidu.", "sources": [{"title": "Selective formation of Na-X zeolite from coal fly ash by fusion with sodium hydroxide prior to hydrothermal reaction", "authors_or_publisher": "N. Shigemoto, H. Hayashi, K. Miyaura, J. Mater. Sci. 28, 4781–4786", "year": "1993", "url_or_doi": "10.1007/BF00414272"}, {"title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time", "authors_or_publisher": "C. S. Cundy, P. A. Cox, Chem. Rev. 103, 663–702", "year": "2003", "url_or_doi": "10.1021/cr020060i"}]},
+      "what_to_verify_before_repeating": ["masse de NaOH : 10 g pour 10 g de C (déduite des listes, non écrite pour l'optimum)", "matériau du creuset de fusion", "capacité du récipient de cristallisation", "comment séparer « supernatant » et « lower precipitate » (vitesse, temps de décantation)", "longueur d'onde DRX et étalon interne pour trancher X contre Y", "devenir du fer (dosage du produit)"]
+    },
+    {
+      "label": "AFH-A",
+      "verdict": "douteuse",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "rendement rapporté à l'aluminium disponible", "inputs": "A : 1,420 g pour 35,6 mmol Al ; C : 2,375 g pour 47,8 mmol Al", "formula": "m / n(Al) ; rendement / max Al-limité (M = 425,8 g/mol)", "result": "A : 0,040 g/mmol Al, 19 % du max (7,59 g) ; C : 0,050 g/mmol Al, 23 % du max (10,2 g) ; rapport brut 1,67, rapport par Al 1,25", "compared_to": "gain attribué par les auteurs au départ du fer", "source": "arithmétique"},
+        {"what": "alcalinité relative", "inputs": "250 mmol NaOH ; A : 115,3 mmol (Si+Al) ; C : 147,1 mmol", "formula": "n(Na)/(n(Si)+n(Al))", "result": "A : 2,17 ; C : 1,70", "compared_to": "même masse de NaOH mais alcalinité par atome T différente", "source": "arithmétique"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Témoin qui change plusieurs variables (contrôle 5) : à masse égale (10 g), C apporte 34 % d'Al et 25 % de Si de plus que A, et le rapport Na/(Si+Al) passe de 2,17 à 1,70. Les deux tiers du gain de rendement (1,67) s'expliquent par la seule concentration en Si et Al ; le gain par Al disponible n'est que de 1,25. L'effet propre du fer n'est pas isolé ; il faudrait comparer à Si et Al apportés égaux (masse de A ajustée) ou avec un rapport NaOH/(Si+Al) constant.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "absent", "proposed": "Même mécanisme que l'optimum ; le fer et l'excès relatif de NaOH (Na/T plus élevé) peuvent tous deux réduire la cristallinité.", "sources": []},
+      "what_to_verify_before_repeating": ["comparer à quantités de Si et Al égales"]
+    },
+    {
+      "label": "AFH-ratio-2.0",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "alcalinité à 2:1", "inputs": "20 g NaOH = 500 mmol ; 50 mL d'eau ; 10 g de C (99,3 mmol SiO2)", "formula": "C = n/V ; Na2O/SiO2", "result": "[Na+] nominal ≈ 10 mol/L ; Na2O/SiO2 = 2,5", "compared_to": "1:1 : 5 mol/L, Na2O/SiO2 = 1,26", "source": "arithmétique"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Hydroxysodalite à forte alcalinité : conforme à la conversion connue FAU → SOD quand la concentration en NaOH augmente (cendres volantes en NaOH concentré). Le texte dit « lower than 0.5:1 » pour le peu de zéolite alors que 0,5:1 est la plus basse valeur essayée : incohérence de rédaction mineure.", "status": "ok", "basis": "litterature", "source": {"title": "Synthesis of zeolites from coal fly ash: an overview", "authors_or_publisher": "X. Querol et al., Int. J. Coal Geol. 50, 413–423", "year": "2002", "url_or_doi": "10.1016/S0166-5162(02)00124-6"}},
+        {"aspect": "bilan", "finding": "Identification des feldspaths incohérente entre sections : labradorite + andésine (Fig. 1, sec. 3.1) puis labradorite + anorthite (Fig. 8, sec. 3.3.2). Ces plagioclases ont des diagrammes très proches ; l'attribution ne peut pas être fine sur un mélange.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Excès de soude : sursaturation et alcalinité élevées favorisent la phase dense et stable (sodalite) au détriment de la FAU.", "sources": []},
+      "what_to_verify_before_repeating": ["le bloc fondu à 2:1 est très dur à broyer (signalé par les auteurs)"]
+    },
+    {
+      "label": "AFH-cryst-150",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "pression à 150 °C", "inputs": "pression de vapeur saturante de l'eau à 150 °C ≈ 4,76 bar", "formula": "—", "result": "≈ 4,8 bar au plus (moins en NaOH concentré)", "compared_to": "récipient PTFE/acier : acceptable ; PTFE sûr jusqu'à ≈ 200–250 °C", "source": "tables de vapeur (chimie générale)"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Remplacement partiel de la zéolite X par l'hydroxysodalite à 150 °C : comportement attendu d'une phase métastable (règle d'Ostwald).", "status": "ok", "basis": "litterature", "source": {"title": "The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time", "authors_or_publisher": "C. S. Cundy, P. A. Cox, Chem. Rev. 103, 663–702", "year": "2003", "url_or_doi": "10.1021/cr020060i"}}
+      ],
+      "mechanism": {"assessment": "ok", "proposed": "Dissolution de la FAU métastable et recristallisation en SOD plus dense à plus haute température.", "sources": []},
+      "what_to_verify_before_repeating": ["taux de remplissage du récipient"]
+    }
+  ],
+  "article_level": {
+    "summary": "Synthèse de zéolite X par fusion NaOH d'un basalte de rebut puis cristallisation hydrothermale : chimie plausible et cohérente avec la littérature sur les cendres volantes (Shigemoto 1993) ; la comparaison TH/AFH est bien construite (même NaOH, même eau). Faiblesses : Table 4 incompatible avec un bilan de masse et contredisant l'argument Si/Al des auteurs ; effet du lavage acide confondu avec la concentration en Si et Al ; équations (1)–(3) fausses ; pureté et rendement mesurés sur une fraction décantée ; creuset, longueur d'onde DRX et capacité du récipient non donnés.",
+    "author_errors_suspected": [
+      "Équations (1)–(3) non équilibrées, « Na2AlO2 » et « Na2Al(OH)4 » au lieu de NaAlO2 / NaAl(OH)4, « Si2O3 » pour SiO2, cations Al3+/Si4+ dits dissous en milieu NaOH 5 M",
+      "Table 4 : SiO2 et Al2O3 ne peuvent pas être conservés tous deux ; Si/Al baisse de 2,24 à 2,08 alors que le texte dit qu'il augmente",
+      "« Si/Al ratio ranging from 2 to 5 » pour la faujasite X (réseau : 1–1,5)",
+      "Andésine (Fig. 1) devenue anorthite (Fig. 8)",
+      "« lower than 0.5:1 » alors que 0,5:1 est le minimum essayé",
+      "Masses de NaOH données en liste (5–20 g) sans lien écrit avec chaque rapport ; seule l'arithmétique les relie"
+    ],
+    "comparison_with_database": "Deux autres voies de zéolite X dans la base : PMC6025012 (diatomite + Al(OH)3 en NaOH, 110 °C, 5 h, 453 m2/g) et PMC11989644 (NaX de réactifs purs, 100 °C, 24 h, 967 m2/g ; à partir de verre résiduel, NaP1 sans germes). Les 120 °C, 12 h et 486 m2/g de cette publication sont dans la même plage ; c'est la seule voie par fusion alcaline préalable."
+  },
+  "sources_not_found": [
+    "Valeurs de pression de vapeur de l'eau : NIST WebBook injoignable depuis ce poste, valeurs de tables de vapeur données sans lecture en ligne",
+    "Aucun article sur la synthèse de zéolites à partir de basalte trouvé en une recherche",
+    "Fiche de compatibilité des creusets avec NaOH fondu (nickel, porcelaine) non trouvée ; seule l'attaque du verre par NaOH est sourcée (Wikipedia, source secondaire)",
+    "Masse volumique de HCl 5 % (≈ 1,023 g/mL) non relue en ligne"
+  ]
+}

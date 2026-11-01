@@ -1,0 +1,16 @@
+# Journal de la critique de fidélité PMC8118497
+
+- Ma liste d'échantillons avant ouverture de l'extraction : PEIs@TA ; PEIs@TA-CMS avant et après calcination ; trois NMP/PEIs@TA-CMS (1:1, 1:2, 1:3 nommé sans parenthèse) ; NMP/MCM41 ; deux mélanges physiques ; MCM41 commercial ; NMP pur ; groupes in vivo (rats : 3 ; souris : 6 dont sérum physiologique et trois doses). Identique à `sample_inventory` : aucun échantillon manquant.
+- Rapport 1:3 de la voie de base : écarté comme faute. « Samples were named as ... NMP/PEIs@TA-CMS (1:2) and NMP/PEIs@TA-CMS, respectively » + « both at the drug: carrier ratio of 1:3 » (libération) + conclusion « at drug: carrier weight ratio of 1:3 ». Seule inférence réelle : les essais in vivo (Table 2, survie des souris) ne répètent pas le rapport ; lecture par le nom, gardée en note de reproductibilité.
+- 47,67 % pour le 1:1 : valeur juste, attribution non écrite. Le texte n'a que la plage « 47.67% to 70.03% » et l'ordre 1:1 < 1:2 < 1:3. Ouvert Fig. 6B : la courbe 1:1 finit vers 47-48 % à 240 min, ce qui confirme. Constat `deduit` mineur, `probable` (pas `sure` car la citation ne donne pas la rangée).
+- Figure 6B : 1:1 à 60 min ≈ 31 %, 1:2 à 60 min ≈ 37 %, 1:2 à 240 min ≈ 56 % ; écarts à l'extraction inférieurs à 5 % : pas de constat.
+- Figure 6D : barres lues 14,3 / 17,2 / 17,7 ; la forte dose écrite 18,83 s'écarte de 6 % de la barre, sous le seuil de 10 % : pas de constat, doute déjà présent dans l'extraction.
+- Tables 1 et 2 comparées rangée par rangée aux colonnes ; en particulier Table 2 : colonnes NMP | NMP/PEIs@TA-CMS | NMP/MCM41, bien rangées (3,89 et 3,29 pour AUC, etc.). Aucune valeur fausse.
+- Température « ambient » : la phrase d'introduction place toute la silicification à température ambiante ; l'extraction ne la porte qu'à l'étape 4 et déclare l'étape 2 `not_stated`. Constat `non_cite_a_tort` probable (incohérence entre étapes plutôt qu'erreur de valeur).
+- Eau bi-désionisée : « prepared by using ion exchange method » est écrit ; la case `purity` n'est donc pas totalement non citée. Constat mineur.
+- Caractérisations manquantes : XRD et DSC de PEIs@TA-CMS nu (amorphe), FTIR/XRD/DSC de la branche NMP/MCM41 (« Similar situation was happened in the case of NMP/MCM41 »). `sure` car phrases explicites.
+- Doses in vivo : 0,25 et 1 mg écrits dans les Méthodes, absents des conditions ; `sure`, mineur.
+- Contrôles sans voie (NMP pur, sérum physiologique) : conforme au RUNBOOK (route: null), mais leurs valeurs servent de point de comparaison ; signalé `probable`, correction par annotation seulement.
+- Écartés comme non-constats : description « pour éliminer le gabarit » de la calcination (interprétation courante, pas une valeur) ; pore 2,8 nm contre <2,21 nm (doute déjà dans l'extraction, valeur du tableau retenue à juste titre) ; DLS non chiffré (la figure 2F n'est pas lisible à la décimale).
+- method_sources : un seul renvoi de méthode (CIT0030, PEIs@TA), les autres renvois des Méthodes et résultats (CIT0018, CIT0043) sont du contexte ; entrée correcte.
+- Incohérences numériques de l'article (1,83 ; 1,20 ; 1,45 fois ; isotherme type IV pour un pore < 2,21 nm) laissées en notes : ce n'est pas l'extraction qui se trompe.

@@ -1,0 +1,17 @@
+# Journal d'extraction PMC10262684
+
+- Voie de base = OctA (Méthodes, « Synthesis ») : seul protocole détaillé ; POEA et FBA sont des branches (même protocole, seule l'amine et son volume changent : « 198 μL of octylamine; 157 μL of 2-phenoxyethylamine; and 137.13 μL of 4-fluorobenzylamine »). Le temps de cristallisation de 30 min annoncé pour POEA/FBA n'est pas converti en durée de bain de glace (doute).
+- Pureté et fournisseur : une phrase « Materials » donne tout (octylamine 99 %, POEA 98 %, FBA 97 %, HBr 48 % aq., H3PO2 50 % aq., Sigma-Aldrich) ; la pureté du SnBr2 et du toluène n'est pas donnée (déclarée non citée). Les amines du tableau S5 hors de cette liste n'ont ni fournisseur ni pureté.
+- HBr : la synthèse dit 40 % en masse, les Matériaux 48 % aq. Le calcul de 1,2 mmol pour 140 μL va avec 48 %. J'ai gardé 48 % comme pureté (phrase Matériaux) et la quantité 140 μL avec la citation de la synthèse ; contradiction écrite en doute et en limite_reproductibilite.
+- Sels d'ammonium (« Preparation of Ammonium Bromide Salts ») : voie de base séparée (famille « autre ») car matériau de référence préparé indépendamment, non réutilisé. L'amine n'est pas nommée dans le texte pour les sels ; la pureté recopie les trois amines de la phrase Matériaux. « HBr (1.03 mL, 0.02 mol) » est physiquement impossible, valeur gardée telle quelle.
+- Criblage (tableaux S2, S5, S6, texte SI) : branches sous OctA, avec les étapes de lavage, séchage et centrifugation déclarées non citées pour les essais sans cristaux (précédent PMC11302435). Les amines 11 et 12 du tableau S6 sont POEA et FBA, rangées dans leurs voies.
+- Tableau S2 mal restitué par l'extraction du PDF : seules les rangées toluène (0 / 0,5 / 1 mL de H3PO2, RT ou 4 °C), les solvants DMF, DMSO, THF, NMF (0 mL, RT et 4 °C) et p-xylène sont lisibles ; pour l'acétone j'ai suivi le texte principal (RT, 4 et 80 °C) et le seul appariement lisible (0 mL, RT). Les branches acétone 4 °C et 80 °C héritent de H3PO2 1 mL par défaut (doute).
+- DMF/DMSO/THF/NMF : branche « Screen_X » = 0 mL H3PO2 et RT, branche « Screen_X_4C » enfant avec température 4 °C ; une branche par valeur explicitement listée.
+- Figure S5 (SnBr2 et octylamine variés) : deux branches avec variation en texte (quantités non chiffrées dans l'article).
+- Tableau 1 : une rangée par propriété, la colonne est attribuée par l'en-tête (OctA, POEA, FBA) et non par la position dans la phrase.
+- XPS : le texte principal et le tableau S9 divergent (3d3/2 contre 3d5/2, 486,6 contre 486,8 eV pour FBA, 487,7 contre 487,6 pour OctA) ; valeurs du texte retenues, divergence en doute.
+- Taux de Sn4+ « 55–75 % » donné pour POEA et FBA ensemble : mis en annotation tendance_observee, pas recopié sur chaque voie.
+- Figures : les figures 3 et 4 ont été ouvertes ; aucune valeur lue sur figure car les résultats comparés sont dans le texte et le tableau 1 ; coordonnées CIE de POEA seulement sur la Fig. 4g, trop peu précises pour être lues.
+- Annexes : le SI est présent dans le fichier texte (Tables S1 à S9, légendes) ; aucune annexe absente. Les images S1–S18 ne sont pas dans le dépôt, seules leurs légendes.
+- Échantillons « références PXRD » (cristaux d'octylamine, Sn2(H2PO2)3Br, SnO2, SnBr4) : laissés sans voie (non synthétisés).
+- method_sources : ref36 (protocole adapté de Dhanabalan et al.), ref62 (sels d'ammonium), ref63 (mode STEM de la 3D ED). Le renvoi ref25/ref30 (H3PO2 comme stabilisant) est un renvoi de contexte, non retenu.

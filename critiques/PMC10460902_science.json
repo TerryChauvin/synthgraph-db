@@ -1,0 +1,527 @@
+{
+ "pmcid": "PMC10460902",
+ "routes": [
+  {
+   "label": "GCN",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "rendement massique théorique mélamine → g-C3N4 / melon",
+     "inputs": "M(C3H6N6) = 126,12 g/mol ; M(C3N4) = 92,06 g/mol ; motif melon C6N9H3 = 201,15 g/mol pour 2 mélamines",
+     "formula": "C3H6N6 → C3N4 + 2 NH3 : 92,06/126,12 ; 2 C3H6N6 → C6N9H3 + 3 NH3 : 201,15/252,24",
+     "result": "73 % (C3N4 idéal) ; 80 % (melon)",
+     "compared_to": "rendement non donné par l'article ; en creuset couvert une partie de la mélamine se sublime, le rendement réel est plus bas",
+     "source": "masses atomiques standard (arithmétique)"
+    },
+    {
+     "what": "distances de Bragg des deux raies",
+     "inputs": "2θ = 13,1° et 27,4° ; λ = 1,5418 Å (déclarée)",
+     "formula": "d = λ / (2 sin θ)",
+     "result": "d(100) = 0,676 nm ; d(002) = 0,3255 nm",
+     "compared_to": "motif tri-s-triazine dans le plan ≈ 0,68 nm et empilement ≈ 0,33 nm attendus pour g-C3N4",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "potentiel de bande de valence",
+     "inputs": "Eg = 2,56 eV ; E_CB = −0,98 V vs NHE",
+     "formula": "E_VB = Eg + E_CB",
+     "result": "1,58 V vs NHE",
+     "compared_to": "1,58 V annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "seuil d'absorption",
+     "inputs": "Eg = 2,56 eV",
+     "formula": "λ = 1239,8 / Eg",
+     "result": "484 nm",
+     "compared_to": "g-C3N4 issu de mélamine : Eg ≈ 2,7 eV (Wang 2009) ; 2,56 eV un peu bas mais dans la plage courante",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constante de premier ordre CIP déduite du taux à 30 min",
+     "inputs": "11 % dégradés en 30 min",
+     "formula": "k = −ln(1 − 0,11) / 30",
+     "result": "0,0039 min−1",
+     "compared_to": "0,004 min−1 annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "quantité de H2 produite en 2 h",
+     "inputs": "1,34 mmol g−1 ; 30 mg de catalyseur",
+     "formula": "1,34 × 0,030",
+     "result": "40 µmol en 2 h",
+     "compared_to": "mesurable par CPG sans difficulté",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "823 K (550 °C), 2 h, 5 K min−1, creuset couvert sous air : conditions standard de condensation de la mélamine ; g-C3N4 est stable jusque vers 600 °C sous air.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "g-C3N4: Properties, Pore Modifications, and Photocatalytic Applications",
+      "authors_or_publisher": "revue en accès libre, PubMed Central PMC8746910",
+      "year": "2022",
+      "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8746910"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Mélamine seule, C et N apportés ; le produit réel est un melon partiellement condensé (NHx terminaux visibles en IR, XPS et RMN 1H), pas du C3N4 idéal. Quantité de mélamine et rendement absents (voir « rendement massique théorique »).",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphitic carbon nitride materials: variation of structure and morphology and their use as metal-free catalysts",
+      "authors_or_publisher": "Thomas A. et al., Journal of Materials Chemistry 18, 4893–4908 (RSC)",
+      "year": "2008",
+      "url_or_doi": "10.1039/B800274F"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "BET 5,5 m2 g−1, Eg 2,56 eV, raies à 13,1° et 27,4° (d = 0,676 et 0,3255 nm, voir « distances de Bragg ») : ordres de grandeur habituels d'un g-C3N4 massif issu de mélamine (Eg ≈ 2,7 eV chez Wang 2009).",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "A metal-free polymeric photocatalyst for hydrogen production from water under visible light",
+      "authors_or_publisher": "Wang X. et al., Nature Materials 8, 76–80",
+      "year": "2009",
+      "url_or_doi": "10.1038/nmat2317"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "La condensation dégage de l'ammoniac (2 à 3 NH3 par 2 mélamines) et de la mélamine sublimée : four sous hotte ou extraction ; non dit dans l'article.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "ok",
+    "proposed": "Condensation thermique par étapes de la mélamine avec départ de NH3 : mélam puis mélem (heptazine) vers 390–400 °C, puis melon polymère vers 500–550 °C ; les feuillets d'heptazines liées par des ponts NH s'empilent (d ≈ 0,33 nm). Le couvercle maintient une atmosphère riche en NH3 et limite la sublimation.",
+    "sources": [
+     {
+      "title": "Graphitic carbon nitride materials: variation of structure and morphology and their use as metal-free catalysts",
+      "authors_or_publisher": "Thomas A. et al., Journal of Materials Chemistry 18, 4893–4908 (RSC)",
+      "year": "2008",
+      "url_or_doi": "10.1039/B800274F"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "masse de mélamine et volume du creuset (taux de remplissage, sublimation)",
+    "rendement massique obtenu (attendu nettement sous 73 %)",
+    "type de four et position du creuset (gradient thermique)"
+   ]
+  },
+  {
+   "label": "VCN",
+   "verdict": "douteuse",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "pression absolue dans le tube",
+     "inputs": "vide « −0,098 MPa » (lecture manométrique relative) ; pression atmosphérique 101,3 kPa",
+     "formula": "P_abs = 101,3 − 98",
+     "result": "≈ 3,3 kPa (≈ 25 Torr) ; si l'air résiduel n'est pas purgé : p(O2) ≈ 0,21 × 3,3 = 0,70 kPa",
+     "compared_to": "vide primaire grossier, pas un vide poussé ; il reste de l'ordre de 3 % de l'oxygène de l'air",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "nombre de couches correspondant à 1,5 nm",
+     "inputs": "épaisseur AFM 1,5 nm ; d(002) = 0,3255 nm (voir GCN, distances de Bragg)",
+     "formula": "1,5 / 0,3255",
+     "result": "≈ 4,6 couches",
+     "compared_to": "« deux couches atomiques » annoncées (titre « diatomic-layered ») ; Niu 2012 compte ≈ 6–7 couches pour 2 nm",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "surface spécifique attendue pour des feuillets de 1,5 nm",
+     "inputs": "épaisseur t = 1,5 nm ; masse volumique de g-C3N4 ≈ 2,3–3 g cm−3 (ordre de grandeur, deux faces exposées)",
+     "formula": "S = 2 / (ρ t)",
+     "result": "≈ 440–580 m2 g−1",
+     "compared_to": "59,8 m2 g−1 mesurés (10 à 14 % de l'attendu) ; Niu 2012 : 306 m2 g−1 pour des feuillets de ≈ 2 nm",
+     "source": "arithmétique ; masse volumique approximative (non vérifiée sur une base de données)"
+    },
+    {
+     "what": "diamètre moyen de pore 4V/S",
+     "inputs": "VCN : V = 0,0414 cm3 g−1, S = 59,8 m2 g−1 ; NCN : V = 0,0155 cm3 g−1, S = 21,5 m2 g−1",
+     "formula": "d = 4V/S",
+     "result": "VCN 2,77 nm ; NCN 2,88 nm",
+     "compared_to": "« Pore Size » du Tableau S1 : 2,77 et 2,88 nm, identiques : c'est le diamètre moyen 4V/S, pas un mode BJH",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "potentiel de bande de valence",
+     "inputs": "Eg = 2,51 eV ; E_CB = −1,12 V vs NHE",
+     "formula": "E_VB = Eg + E_CB",
+     "result": "1,39 V vs NHE",
+     "compared_to": "1,39 V annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "seuil d'absorption et énergie du photon à 520 nm",
+     "inputs": "Eg = 2,51 eV ; λ = 520 nm",
+     "formula": "λ_seuil = 1239,8 / Eg ; E = 1239,8 / 520",
+     "result": "seuil 494 nm ; photon de 520 nm = 2,38 eV < Eg",
+     "compared_to": "H2 à 520 nm ≈ 55 µmol h−1, soit 57 % de la valeur à 420 nm (≈ 96 µmol h−1, lus sur Fig. 5C)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "vitesse de H2 du réacteur et volume produit",
+     "inputs": "5,12 mmol h−1 g−1 ; 30 mg",
+     "formula": "5,12 × 0,030 ; × 2 h × 22,4 L mol−1",
+     "result": "154 µmol h−1 ; 307 µmol ≈ 6,9 mL (TPN) en 2 h",
+     "compared_to": "cohérent avec 10,24 mmol g−1 en 2 h ; rapports 10,24/1,34 = 7,64 et 10,24/3,88 = 2,64 exacts",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "flux de photons impliqué par le rendement quantique à 420 nm",
+     "inputs": "AQE = 12,2 % ; r(H2) ≈ 96 µmol h−1 à 420 nm (Fig. 5C, lecture) ; 2 électrons par H2",
+     "formula": "n(photons) = 2 r / AQE ; P = n × N_A × h c / λ",
+     "result": "≈ 1 570 µmol h−1 de photons, soit ≈ 0,12 W à 420 nm",
+     "compared_to": "plausible pour une Xe 300 W filtrée, mais puissance, surface éclairée et largeur du filtre ne sont pas donnés",
+     "source": "valeurs de l'article ; constantes h, c, N_A"
+    },
+    {
+     "what": "constante de premier ordre CIP déduite du taux à 30 min",
+     "inputs": "85 % dégradés en 30 min",
+     "formula": "k = −ln(0,15) / 30",
+     "result": "0,063 min−1",
+     "compared_to": "0,055 min−1 annoncé ; la courbe de la Fig. 5F s'accélère (ln(C0/C) ≈ 0,29 ; 0,99 ; 1,97 à 10, 20, 30 min) : pas un premier ordre ; rapport 0,055/0,004 = 13,75 (annoncé « 13,6 »)",
+     "source": "valeurs de l'article ; points lus sur Fig. 5F"
+    },
+    {
+     "what": "énergies libres d'adsorption de H* recalculées (Tableaux S2–S5)",
+     "inputs": "G et ε de m-C3N4, H*/m-C3N4 et H2 (Tableaux S2–S5)",
+     "formula": "ΔG = G(H*/m) − G(m) − ½ G(H2) ; même formule avec ε seules",
+     "result": "GCN 2,971 (G) / 2,944 (ε) ; VCN 2,848 (G) / 2,876 (ε) ; Pt-GCN 0,344 (G) / 0,190 (ε) ; Pt-VCN −0,840 (G) / −1,078 (ε) eV",
+     "compared_to": "annoncés (Fig. 5D) : 2,94 ; 2,85 ; 0,32 ; −0,84 : GCN correspond au calcul sans corrections, VCN et Pt-VCN au calcul avec G, Pt-GCN à aucun des deux",
+     "source": "valeurs de l'annexe"
+    },
+    {
+     "what": "platine engagé",
+     "inputs": "1 % massique de Pt sur 30 mg ; H2PtCl6·6H2O à 37,5 % de Pt",
+     "formula": "0,30 mg / 0,375 ; 0,30 mg / 195,08 g mol−1",
+     "result": "0,80 mg de H2PtCl6·6H2O ; 1,54 µmol de Pt",
+     "compared_to": "photodéposition in situ supposée (le sel est ajouté à la suspension), taux réel de dépôt non mesuré",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "concentration de TEOA",
+     "inputs": "5 mL de TEOA dans 50 mL ; ρ = 1,124 g mL−1 ; M = 149,19 g mol−1",
+     "formula": "5 × 1,124 / 149,19 / 0,050",
+     "result": "≈ 37,7 mmol, ≈ 0,75 mol L−1 (10 % v/v)",
+     "compared_to": "conditions habituelles (10 % TEOA)",
+     "source": "valeurs de l'article ; ρ et M de manuel (non revérifiées en ligne)"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "863 K = 590 °C, à la limite de stabilité de g-C3N4 (stable jusque vers 600 °C ; dégagement de HCN observé dès 570–600 °C, décomposition en N2, NH3, (CN)2 et HCN au-delà) ; sous pression réduite la perte de masse est favorisée. Le rendement massique n'est pas donné alors qu'il est sans doute bas : sans lui, on ne peut pas savoir si VCN est un résidu de décomposition partielle.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Influence of High Temperature Synthesis on the Structure of Graphitic Carbon Nitride and Its Hydrogen Generation Ability",
+      "authors_or_publisher": "Materials (MDPI), vol. 13, n° 12, article 2756",
+      "year": "2020",
+      "url_or_doi": "https://www.mdpi.com/1996-1944/13/12/2756"
+     }
+    },
+    {
+     "aspect": "thermique",
+     "finding": "« Vide −0,098 MPa » = ≈ 3,3 kPa absolus (voir « pression absolue dans le tube ») : vide primaire. L'article ne dit pas si la pompe reste en marche pendant le chauffage ; tube scellé sous vide statique, la pression remonterait avec les gaz de décomposition. Le régime de pompage change la cinétique d'évacuation des volatils, donc le produit.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "La « force motrice double pression–thermique » n'a pas de sens physique défini : sous vide aucune pression n'est appliquée au solide. Les mécanismes connus d'amincissement thermique de g-C3N4 sont l'oxydation ménagée sous air (Niu 2012, 306 m2 g−1, ≈ 2 nm) et la décomposition partielle. Ici l'air résiduel (p(O2) ≈ 0,70 kPa si l'air n'est pas purgé) peut aussi graver les feuillets. Aucune mesure (O 1s, perte de masse, analyse élémentaire C/N) ne permet de trancher.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P. et al., Advanced Functional Materials (Wiley)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Épaisseur AFM 1,5 nm présentée comme « deux couches atomiques » : avec d(002) = 0,3255 nm mesuré par les auteurs, 1,5 nm correspond à ≈ 4–5 couches (voir « nombre de couches correspondant à 1,5 nm ») ; la valeur à deux couches suppose un décalage AFM de ≈ 0,8 nm non discuté. Une seule image AFM, sans statistique d'épaisseur.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P. et al., Advanced Functional Materials (Wiley)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "BET 59,8 m2 g−1 contre ≈ 440–580 m2 g−1 attendus pour une poudre de feuillets de 1,5 nm (voir « surface spécifique attendue ») et 306 m2 g−1 chez Niu 2012 pour ≈ 2 nm : soit les feuillets se réempilent, soit l'épaisseur AFM n'est pas représentative de la poudre. Le pic (002) encore présent en DRX va dans le même sens.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P. et al., Advanced Functional Materials (Wiley)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "La « taille de pores » du Tableau S1 est exactement 4V/S (voir « diamètre moyen de pore 4V/S ») et non un diamètre BJH ; la « structure poreuse riche » attribuée aux lacunes est en fait le volume interparticulaire d'agrégats de feuillets (isotherme IV avec boucle H3, typique de fentes entre plaquettes) : une lacune atomique ne fait pas un pore de 2,8 nm. L'étiquette « pore_size_BJH » de l'extraction est donc à revoir.",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Physisorption of gases, with special reference to the evaluation of surface area and pore size distribution (IUPAC Technical Report)",
+      "authors_or_publisher": "Thommes M. et al., Pure and Applied Chemistry (IUPAC)",
+      "year": "2015",
+      "url_or_doi": "10.1515/pac-2014-1117"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Production de H2 à 520 nm ≈ 55 µmol h−1, 57 % de celle à 420 nm, alors que 520 nm (2,38 eV) est sous le seuil d'absorption de VCN (494 nm pour Eg = 2,51 eV, voir « seuil d'absorption et énergie du photon à 520 nm ») et que la DRS (Fig. 3A) est plate au-delà de ≈ 480 nm. L'affirmation « the amount of H2 conforms to the light absorption characteristics » n'est pas soutenue : les vitesses ne sont pas ramenées au flux de photons de chaque filtre et la largeur des filtres n'est pas donnée (fuite de lumière plus courte possible). Valeurs lues sur la figure.",
+     "status": "probleme",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Rendement quantique de 12,2 % à 420 nm : implique ≈ 0,12 W de photons à 420 nm (voir « flux de photons impliqué ») ; plausible, mais ni la puissance mesurée ni la surface éclairée ne sont données, et la Figure S4 (GCN, NCN) n'est pas dans le dépôt : invérifiable.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Interprétation DFT : Pt-VCN a ΔG(H*) = −0,84 eV, plus loin de 0 que Pt-GCN (+0,32 eV) ; selon le critère de Sabatier/Nørskov, l'optimum de l'HER est |ΔG(H*)| ≈ 0, donc « the Pt-loading VCN sample shows the lowest ΔG value, signifying an optimized intermediate reaction process » est faux : par ce critère Pt-GCN serait meilleur. De plus, les quatre valeurs ne sont pas calculées de la même façon (voir « énergies libres d'adsorption de H* recalculées ») et ΔG ≈ +2,9 eV sur g-C3N4 nu signifie que H ne s'adsorbe pratiquement pas, valeur inhabituelle non discutée.",
+     "status": "probleme",
+     "basis": "litterature",
+     "source": {
+      "title": "Trends in the Exchange Current for Hydrogen Evolution",
+      "authors_or_publisher": "Nørskov J. K. et al., Journal of The Electrochemical Society 152 (3), J23 (référence et contenu confirmés via Yang et al., arXiv 2109.04219)",
+      "year": "2005",
+      "url_or_doi": "10.1149/1.1856988 (DOI non vérifié : Crossref bloqué) ; https://arxiv.org/pdf/2109.04219"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Écart de bande DFT 1,2207 contre 1,2481 eV : différence de 0,027 eV, sous la précision d'un calcul PBE (qui sous-estime d'ailleurs l'écart réel de ≈ 1,3 eV) ; quatre décimales et « defects can indeed narrow the bandgap » sur-interprètent. Expérimentalement 2,51 contre 2,56 eV, différence de 0,05 eV aussi faible.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Stabilité : « does not display a significant decline after ten cycles », mais la Fig. 5E montre ≈ 9,2 mmol g−1 au premier cycle et ≈ 7,6 au dixième (≈ −18 %), et le premier cycle (≈ 9,2) est en dessous des 10,24 mmol g−1 de la Fig. 5A. Lecture approximative sur figure.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Cinétique de la CIP : la courbe de VCN s'accélère (induction) et ne suit pas un premier ordre ; k = 0,055 min−1 est un ajustement imparfait (0,063 min−1 d'après 85 % en 30 min ; voir « constante de premier ordre CIP »). Les rapports 13,6 et 4,5 restent indicatifs.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "mecanisme",
+     "finding": "Piégeurs : E_CB = −1,12 V < E(O2/·O2−) = −0,33 V vs NHE (valeur portée sur la Fig. 3D), formation de ·O2− possible ; E_VB = +1,39 V, bien en dessous du potentiel d'oxydation de l'eau en ·OH (≈ +2,3 à +2,7 V vs NHE), donc peu de ·OH : cohérent avec l'effet fort de BQ (9 %) et faible du t-BuOH (83 %).",
+     "status": "ok",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Bords de bande : E_VB = Eg + E_CB vérifié (1,39 V ; voir « potentiel de bande de valence »). Mais le potentiel de bande plate de Mott–Schottky est pris directement comme E_CB (on retranche d'habitude 0,1–0,2 V pour un semi-conducteur n), l'électrolyte (« probe solution ») et la conversion ECS → NHE ne sont pas donnés : positions de bande à ±0,2 V.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Preuve des lacunes : le rapport C(2)/C(1) de la RMN 13C est mesuré en polarisation croisée (CP-MAS), qui renforce les carbones proches de H (C–NHx) : il n'est pas quantitatif (une heptazine idéale donne 1:1, les valeurs 2,21–2,47 le montrent). La hausse de NHx (XPS, RMN 1H) s'explique aussi par plus de bords dans des feuillets plus petits, sans lacune. Analyse élémentaire C/N, RMN en polarisation directe ou perte de masse auraient discriminé ; le type de lacune (C ou N) n'est jamais identifié.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Photoluminescence lue dans deux sens contraires : la baisse de PL de NCN est donnée comme preuve d'une meilleure séparation des charges, la hausse de PL de VCN comme preuve d'une densité d'excitons plus élevée. Sans normalisation à l'absorbance ni mesure du rendement de PL, aucune de ces deux lectures n'est démontrée.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "securite",
+     "finding": "À 590 °C, la décomposition partielle de g-C3N4 libère NH3 mais aussi HCN et cyanogène (CN)2, aspirés par la pompe à vide : piège froid ou laveur et refoulement de la pompe vers une extraction. L'article n'en dit rien, et l'annotation de sécurité de l'extraction ne cite que l'ammoniac et des « composés azotés volatils ».",
+     "status": "reserve",
+     "basis": "litterature",
+     "source": {
+      "title": "Influence of High Temperature Synthesis on the Structure of Graphitic Carbon Nitride and Its Hydrogen Generation Ability",
+      "authors_or_publisher": "Materials (MDPI), vol. 13, n° 12, article 2756",
+      "year": "2020",
+      "url_or_doi": "https://www.mdpi.com/1996-1944/13/12/2756"
+     }
+    },
+    {
+     "aspect": "securite",
+     "finding": "Tube de quartz sous vide à 590 °C : bien sous la limite d'usage de la silice fondue (≈ 1 000 °C sous vide), risque d'implosion faible mais écran recommandé ; nanofeuillets pulvérulents à manipuler sous protection respiratoire.",
+     "status": "ok",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "a_revoir",
+    "proposed": "Probablement : à 590 °C, au seuil de décomposition de g-C3N4, et sous ≈ 3 kPa, le réseau melon se dépolymérise partiellement : rupture de ponts N–(C)3 et d'heptazines, départ de NH3, HCN et (CN)2, d'où des lacunes (C et/ou N), plus de terminaisons NHx et un amincissement par perte de matière (gravure thermique), à la façon de l'oxydation ménagée de Niu 2012 mais par décomposition, peut-être aidée par l'O2 résiduel. La pression réduite accélère l'évacuation des volatils, ce qui explique la différence avec NCN sous azote. Une « force motrice pression–thermique » mécanique qui écarterait les feuillets n'est pas démontrée : il faudrait mesurer la perte de masse, le rapport C/N et l'oxygène (XPS O 1s), et faire un témoin sous gaz inerte à la même pression réduite.",
+    "sources": [
+     {
+      "title": "Graphene-Like Carbon Nitride Nanosheets for Improved Photocatalytic Activities",
+      "authors_or_publisher": "Niu P. et al., Advanced Functional Materials (Wiley)",
+      "year": "2012",
+      "url_or_doi": "10.1002/adfm.201200922"
+     },
+     {
+      "title": "Influence of High Temperature Synthesis on the Structure of Graphitic Carbon Nitride and Its Hydrogen Generation Ability",
+      "authors_or_publisher": "Materials (MDPI), vol. 13, n° 12, article 2756",
+      "year": "2020",
+      "url_or_doi": "https://www.mdpi.com/1996-1944/13/12/2756"
+     },
+     {
+      "title": "Increasing the visible light absorption of graphitic carbon nitride (melon) photocatalysts by homogeneous self-modification with nitrogen vacancies",
+      "authors_or_publisher": "Niu P., Yin L.-C., Yang Y.-Q., Liu G., Cheng H.-M., Advanced Materials 26, 8046–8052",
+      "year": "2014",
+      "url_or_doi": "10.1002/adma.201404057"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "pompage dynamique ou tube fermé sous vide statique, et pression réelle pendant le chauffage",
+    "purge de l'air résiduel avant le vide (O2 résiduel ≈ 0,7 kPa sinon)",
+    "perte de masse et rendement de VCN pour 500 mg de GCN",
+    "longueur et diamètre du tube, position de la nacelle (gradient thermique, recondensation des volatils)",
+    "piège froid ou laveur pour HCN, (CN)2 et NH3 en amont de la pompe",
+    "statistique d'épaisseur AFM sur plusieurs feuillets et rapport C/N par analyse élémentaire",
+    "puissance lumineuse et largeur des filtres pour les mesures à 420–520 nm et le rendement quantique"
+   ]
+  },
+  {
+   "label": "NCN",
+   "verdict": "coherente",
+   "feasibility": "reproductible_avec_reserves",
+   "calculs": [
+    {
+     "what": "potentiel de bande de valence",
+     "inputs": "Eg = 2,28 eV ; E_CB = −1,03 V vs NHE",
+     "formula": "E_VB = Eg + E_CB",
+     "result": "1,25 V vs NHE",
+     "compared_to": "1,25 V annoncé",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "seuil d'absorption",
+     "inputs": "Eg = 2,28 eV",
+     "formula": "λ = 1239,8 / Eg",
+     "result": "544 nm",
+     "compared_to": "décalage vers le rouge de ≈ 60 nm par rapport à GCN (484 nm)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "constante de premier ordre CIP déduite du taux à 30 min",
+     "inputs": "31 % dégradés en 30 min",
+     "formula": "k = −ln(0,69) / 30",
+     "result": "0,0124 min−1",
+     "compared_to": "0,012 min−1 (lu sur Fig. 5G) ; 0,055/0,012 = 4,6 (« 4,5 times »)",
+     "source": "valeurs de l'article"
+    },
+    {
+     "what": "rapport des durées de vie de PL",
+     "inputs": "τ = 6,52 ns (NCN) ; 5,93 ns (GCN)",
+     "formula": "6,52 / 5,93",
+     "result": "1,10",
+     "compared_to": "« 1,09 times » annoncé (arrondi par défaut) ; VCN 6,33/5,93 = 1,07, conforme",
+     "source": "valeurs de l'article"
+    }
+   ],
+   "checks": [
+    {
+     "aspect": "thermique",
+     "finding": "Même traitement que VCN (590 °C, 1 h) sous azote : sous gaz inerte à pression atmosphérique, le chauffage de g-C3N4 crée des lacunes et rétrécit l'écart de bande sans exfolier (15–18 m2 g−1 sous argon dans la littérature, 21,5 m2 g−1 ici) : cohérent.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Synthesis of vacant graphitic carbon nitride in argon atmosphere and its utilization for photocatalytic hydrogen generation",
+      "authors_or_publisher": "Scientific Reports (Nature Portfolio)",
+      "year": "2022",
+      "url_or_doi": "10.1038/s41598-022-17940-3"
+     }
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Eg 2,28 eV (seuil 544 nm, voir « seuil d'absorption ») : rétrécissement de 0,28 eV, plus fort que pour VCN ; compatible avec l'auto-modification par lacunes d'azote décrite pour le melon traité en atmosphère non oxydante.",
+     "status": "ok",
+     "basis": "litterature",
+     "source": {
+      "title": "Increasing the visible light absorption of graphitic carbon nitride (melon) photocatalysts by homogeneous self-modification with nitrogen vacancies",
+      "authors_or_publisher": "Niu P., Yin L.-C., Yang Y.-Q., Liu G., Cheng H.-M., Advanced Materials 26, 8046–8052",
+      "year": "2014",
+      "url_or_doi": "10.1002/adma.201404057"
+     }
+    },
+    {
+     "aspect": "bilan",
+     "finding": "Témoin qui change plusieurs variables à la fois : NCN diffère de VCN par la pression totale (101 kPa contre ≈ 3,3 kPa), par l'oxygène résiduel (quasi nul sous N2, ≈ 0,7 kPa sous vide non purgé) et sans doute par le balayage gazeux (débit non donné). L'écart VCN/NCN ne peut donc pas être attribué à la seule « force pression–thermique ». Témoin utile : azote ou argon purs à ≈ 3 kPa (vide après purges), ou vide après purge à l'azote.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    },
+    {
+     "aspect": "resultats",
+     "finding": "Le débit d'azote, la nacelle et le tube ne sont pas décrits pour NCN ; la chimie (élimination des volatils) dépend du balayage.",
+     "status": "reserve",
+     "basis": "chimie_generale"
+    }
+   ],
+   "mechanism": {
+    "assessment": "absent",
+    "proposed": "Probablement : à 590 °C sous azote, départ lent de NH3 et de fragments cyanés qui laisse des lacunes (surtout d'azote) et des groupes terminaux, d'où le décalage vers le rouge ; les gaz s'évacuent moins vite qu'à pression réduite et sans oxygène il n'y a pas de gravure, donc pas d'exfoliation notable (BET 21,5 m2 g−1).",
+    "sources": [
+     {
+      "title": "Synthesis of vacant graphitic carbon nitride in argon atmosphere and its utilization for photocatalytic hydrogen generation",
+      "authors_or_publisher": "Scientific Reports (Nature Portfolio)",
+      "year": "2022",
+      "url_or_doi": "10.1038/s41598-022-17940-3"
+     },
+     {
+      "title": "Increasing the visible light absorption of graphitic carbon nitride (melon) photocatalysts by homogeneous self-modification with nitrogen vacancies",
+      "authors_or_publisher": "Niu P., Yin L.-C., Yang Y.-Q., Liu G., Cheng H.-M., Advanced Materials 26, 8046–8052",
+      "year": "2014",
+      "url_or_doi": "10.1002/adma.201404057"
+     }
+    ]
+   },
+   "what_to_verify_before_repeating": [
+    "débit et pureté de l'azote, purge préalable du tube",
+    "même montage (tube, nacelle) que VCN pour que le témoin soit comparable",
+    "perte de masse"
+   ]
+  }
+ ],
+ "article_level": {
+  "summary": "Synthèse simple et reproductible dans son principe (mélamine 550 °C sous air, puis 590 °C 1 h sous vide primaire ou sous azote), mais plusieurs paramètres qui décident du produit manquent : quantité de mélamine, régime de pompage (dynamique ou statique), purge de l'air, débit d'azote, perte de masse. Les calculs de l'article recomptés sont justes pour les bords de bande, les rapports de H2 et les constantes GCN/NCN ; ils ne le sont pas pour les ΔG(H*) (méthode de calcul non homogène). Les affirmations fortes — feuillets de « deux couches », lacunes créées par une « force motrice pression–thermique », activité à 520 nm qui « suit l'absorption », Pt-VCN « optimal » à ΔG = −0,84 eV — sont soit contraires aux données des auteurs, soit non démontrées.",
+  "author_errors_suspected": [
+   "H2 à 520 nm (≈ 57 % de la valeur à 420 nm) sous le seuil d'absorption de VCN (494 nm), présenté comme conforme à l'absorption",
+   "ΔG(H*) = −0,84 eV de Pt-VCN présenté comme optimal alors que l'optimum HER est |ΔG| ≈ 0 ; valeurs de ΔG calculées de façon non homogène (GCN sans corrections, VCN avec)",
+   "« deux couches atomiques » pour 1,5 nm alors que d(002) = 0,3255 nm donne ≈ 4–5 couches, et BET 59,8 m2 g−1 bien en dessous de la surface d'une poudre de feuillets de 1,5 nm",
+   "« Pore size » du Tableau S1 = 4V/S, pas un diamètre BJH ; pores attribués aux lacunes alors qu'il s'agit de vides interparticulaires",
+   "stabilité « sans baisse significative » alors que la Fig. 5E montre ≈ −18 % en dix cycles",
+   "rapport C(2)/C(1) en RMN CP-MAS utilisé comme mesure quantitative des lacunes",
+   "« Nernst curve » pour une courbe de Nyquist (Fig. 6E)"
+  ],
+  "comparison_with_database": "Aucune autre synthèse de g-C3N4 dans la base (compare.py « g-C3N4 », « C3N4 », « carbon nitride » ne renvoient que cette publication)."
+ },
+ "sources_not_found": [
+  "Valeur de référence vérifiée de la masse volumique de g-C3N4 (estimation 2,3–3 g cm−3 utilisée sans source)",
+  "Phrase exacte de Thomas et al. 2008 sur la décomposition au-delà de 600–700 °C (page RSC et PDF injoignables) : la décomposition est sourcée par l'article MDPI 2020",
+  "DOI de Nørskov et al. 2005 (10.1149/1.1856988) non confirmé, Crossref bloqué ; référence de revue confirmée par une source secondaire"
+ ]
+}

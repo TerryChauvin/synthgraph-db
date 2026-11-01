@@ -1,0 +1,150 @@
+{
+  "pmcid": "PMC9060541",
+  "routes": [
+    {
+      "label": "CdS-core",
+      "verdict": "coherente",
+      "feasibility": "reproductible_avec_reserves",
+      "calculs": [
+        {"what": "moles de Cd", "inputs": "0,3 g CdCl2·H2O ; M = 183,32 + 18,02 = 201,33 g/mol (masses atomiques IUPAC)", "formula": "m / M", "result": "1,49 mmol Cd2+", "compared_to": "réactif limitant", "source": "valeurs de l'article ; masse molaire calculée"},
+        {"what": "moles de CS2", "inputs": "0,3 mL ; densité 1,2632 (20 °C) ; M = 76,13 g/mol", "formula": "V × d / M", "result": "4,98 mmol CS2 (9,95 mmol S)", "compared_to": "Cd : 1,49 mmol", "source": "NOAA CAMEO Chemicals, Carbon disulfide (densité, masse molaire), https://cameochemicals.noaa.gov/chemical/2813"},
+        {"what": "moles d'éthylènediamine", "inputs": "1 mL ; densité ≈ 0,899 g/mL ; M = 60,10 g/mol", "formula": "V × d / M", "result": "14,96 mmol", "compared_to": "CS2 : 4,98 mmol ; Cd : 1,49 mmol", "source": "densité de manuel (non revérifiée ici, à confirmer sur PubChem CID 3301)"},
+        {"what": "rapports molaires", "inputs": "n(CS2) = 4,98 ; n(en) = 14,96 ; n(Cd) = 1,49 mmol", "formula": "n(en)/n(CS2) ; n(CS2)/n(Cd) ; n(en)/n(Cd)", "result": "en/CS2 = 3,0 ; CS2/Cd = 3,3 (S/Cd = 6,7 atomes) ; en/Cd = 10", "compared_to": "CdS : S/Cd = 1 ; une mole de H2S au plus par mole de CS2 (voie éthylènethiourée)", "source": "calcul"},
+        {"what": "masse maximale de CdS", "inputs": "1,49 mmol Cd ; M(CdS) = 144,48 g/mol", "formula": "n(Cd) × M(CdS)", "result": "0,215 g", "compared_to": "rendement non donné par l'article", "source": "calcul"},
+        {"what": "concentrations dans le bécher", "inputs": "volume ≈ 50 + 15 + 1 + 0,3 = 66,3 mL", "formula": "n / V", "result": "[Cd] ≈ 22 mmol/L ; [en] ≈ 0,23 mol/L ; CS2 apporté ≈ 7,4 g/L de phase aqueuse (sur 51 mL)", "compared_to": "CS2 : solubilité dans l'eau < 1 mg/mL à 20 °C (CAMEO) ; CdCl2 très soluble", "source": "NOAA CAMEO Chemicals, Carbon disulfide"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Le soufre est en large excès (S/Cd = 6,7 ; CS2/Cd = 3,3, voir « rapports molaires ») : Cd2+ est limitant, la masse maximale de CdS est 0,215 g. L'éthylènediamine (en/Cd = 10) complexe Cd2+ en [Cd(en)n]2+ et évite la précipitation de Cd(OH)2 au pH basique de la solution (≈ 0,23 mol/L d'amine). Bilan compatible avec CdS ; l'excès de soufre finit en éthylènethiourée et en sulfure dissous (ou H2S dégagé).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "solubilite", "finding": "0,3 mL de CS2 dans 51 mL d'eau (≈ 7,4 g/L, voir « concentrations dans le bécher ») dépasse largement sa solubilité (< 1 mg/mL à 20 °C) : la solution ne devient limpide que parce que CS2 réagit avec l'amine (dithiocarbamate soluble). La limpidité est donc le témoin de fin de réaction, cohérent avec le texte (« until the solution became clear »).", "status": "ok", "basis": "litterature", "source": {"title": "Carbon disulfide — Chemical Datasheet", "authors_or_publisher": "NOAA CAMEO Chemicals", "year": "consulté en 2026", "url_or_doi": "https://cameochemicals.noaa.gov/chemical/2813"}},
+        {"aspect": "thermique", "finding": "CS2 bout à 46 °C (116 °F) et s'auto-enflamme vers 90 °C (194 °F). La sonication à 40 °C se fait juste sous l'ébullition, en bécher ouvert, puis le mélange est porté à 75 °C : tout CS2 non encore converti s'évapore, ce qui baisse la quantité de soufre disponible (sans conséquence sur le bilan vu l'excès) mais crée des vapeurs inflammables au-dessus d'un bain chaud.", "status": "reserve", "basis": "litterature", "source": {"title": "Carbon disulfide — Chemical Datasheet", "authors_or_publisher": "NOAA CAMEO Chemicals", "year": "consulté en 2026", "url_or_doi": "https://cameochemicals.noaa.gov/chemical/2813"}},
+        {"aspect": "securite", "finding": "Aucune précaution n'est écrite. CAMEO signale que CS2 « réagit violemment » avec l'éthylènediamine (Bretherick) et que son point d'auto-inflammation est très bas (90 °C ; vapeurs enflammées par une ampoule ou une conduite de vapeur) ; Org. Synth. rapporte une réaction « très violente » quand tout le CS2 est ajouté d'un coup à l'éthylènediamine. Ici les quantités sont petites (0,3 mL) et l'amine diluée dans 50 mL d'eau, mais le chauffage à 75 °C d'un bécher ouvert contenant du CS2 et dégageant H2S impose une hotte, aucune surface chaude au-delà de 90 °C et l'ajout lent de CS2. Cd2+ et CdS sont cancérogènes ; la sonde à ultrasons impose une protection auditive.", "status": "probleme", "basis": "litterature", "source": {"title": "Carbon disulfide — Chemical Datasheet (Reactivity Profile, d'après Bretherick 5e éd. 1995)", "authors_or_publisher": "NOAA CAMEO Chemicals", "year": "consulté en 2026", "url_or_doi": "https://cameochemicals.noaa.gov/chemical/2813"}},
+        {"aspect": "mecanisme", "finding": "Les auteurs parlent d'une « polymérisation » du produit éthylènediamine–CS2 qui libère H2S (équations 4a et 4b absentes du texte). La chimie connue est différente : l'amine s'additionne sur CS2 en acide N-(2-aminoéthyl)dithiocarbamique, qui se cyclise à chaud en éthylènethiourée (imidazolidine-2-thione) en libérant H2S ; c'est la préparation classique de l'éthylènethiourée (Org. Synth.). Le mot « polymérisation » est donc impropre ; le sous-produit organique est l'éthylènethiourée (classée cancérogène probable B2 par l'EPA), à éliminer au lavage.", "status": "reserve", "basis": "litterature", "source": {"title": "Ethylene thiourea [2-Imidazolidinethione]", "authors_or_publisher": "Allen C. F. H., Edens C. O., VanAllan J. — Organic Syntheses", "year": "1946", "url_or_doi": "10.15227/orgsyn.026.0034"}},
+        {"aspect": "cinetique", "finding": "20 min à 40 °C pour former le dithiocarbamate, puis 10 + 30 min à 75 °C pour sa décomposition et la précipitation : compatible avec la vitesse de la réaction amine–CS2 (exothermique, rapide) et avec une décomposition thermique lente à 75 °C (Org. Synth. chauffe 1 h à reflux pour cycliser).", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "CdS de 9 nm (DLS 8,7 nm ; TEM 9 nm) : au-dessus du double du rayon de Bohr de l'exciton de CdS (≈ 3 nm), donc confinement faible ; l'énergie de bande interdite de 2,45 eV annoncée pour le CdS pur est cohérente avec la valeur massive de CdS (2,42 eV). La DLS donne normalement un diamètre hydrodynamique plus grand que le diamètre TEM ; l'égalité 8,7 / 9 nm est un peu surprenante mais pas impossible.", "status": "ok", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Phase cristalline du noyau non établie par l'article : le diagramme « CdS » de la Fig. 6 est en réalité celui du rutile (voir voie Composite-A), et les pics du composite (≈ 26,5 ; 43,8 ; 51,9°) correspondent à CdS cubique ou hexagonal mal résolu. Un chimiste qui refait le noyau doit faire sa propre DRX.", "status": "reserve", "basis": "litterature", "source": {"title": "Comparative study on the effect of precursors on the morphology and electronic properties of CdS nanoparticles", "authors_or_publisher": "article PMC8164203 (PubMed Central)", "year": "non relevé", "url_or_doi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8164203"}}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Addition nucléophile de l'éthylènediamine sur CS2 → acide N-(2-aminoéthyl)dithiocarbamique (soluble en milieu aminé, d'où la solution limpide) ; Cd2+ ajouté se complexe à l'amine et au dithiocarbamate ; à 75 °C, la cyclisation en éthylènethiourée libère H2S/HS− (milieu basique) et/ou le dithiocarbamate de cadmium se décompose, ce qui précipite CdS par sursaturation brève (nucléation puis croissance, taille ≈ 9 nm). La cavitation sert surtout à disperser CS2 au début ; il n'y a pas de « polymérisation ».",
+        "sources": [
+          {"title": "Ethylene thiourea [2-Imidazolidinethione]", "authors_or_publisher": "Allen C. F. H., Edens C. O., VanAllan J. — Organic Syntheses", "year": "1946", "url_or_doi": "10.15227/orgsyn.026.0034"}
+        ]
+      },
+      "what_to_verify_before_repeating": [
+        "travailler sous hotte, ajouter CS2 lentement, aucune surface chauffée au-delà de 90 °C (auto-inflammation de CS2)",
+        "type d'appareil à ultrasons (sonde ou bain), fréquence et géométrie : la puissance de 45 W n'est pas transposable sans eux",
+        "vitesse et durée de centrifugation, nombre de lavages pour éliminer l'éthylènethiourée",
+        "rendement en CdS (au plus 0,215 g) et phase cristalline par DRX"
+      ]
+    },
+    {
+      "label": "CCD-Run01",
+      "verdict": "douteuse",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {"what": "épaisseur de coque attendue si tout le TTIP se dépose", "inputs": "noyau sphérique de 9 nm (r = 4,5 nm) ; volumes molaires CdS = 144,48/4,82 = 29,98 cm3/mol, TiO2 anatase = 79,87/3,89 = 20,53 cm3/mol (densités de manuel, non revérifiées ici)", "formula": "V_coque = R × V_noyau × Vm(TiO2)/Vm(CdS) ; r_ext = (r³ + 3V_coque/4π)^(1/3)", "result": "R = 1,5 → coque 1,2 nm (Ø 11,4 nm) ; R = 3 → 2,0 nm (13,1 nm) ; R = 4,5 → 2,7 nm (14,4 nm) ; R = 6 → 3,3 nm (15,5 nm) ; R = 7,5 → 3,7 nm (16,5 nm)", "compared_to": "tailles DLS du plan : 10,1 à 91,6 nm ; point central 16,8 ± 0,6 nm", "source": "calcul"},
+        {"what": "épaisseur de coque déduite par les auteurs (conclusion)", "inputs": "taille du composite 11,57 et 91,62 nm ; noyau 8,7 nm", "formula": "(S − 8,7)/2", "result": "1,4 nm et 41,5 nm, soit les « 1,4 à 41,4 nm » de la conclusion", "compared_to": "coque maximale possible ≈ 3,7 nm (calcul précédent)", "source": "calcul"},
+        {"what": "effets moyens des facteurs (points factoriels, Table 2)", "inputs": "16 essais factoriels", "formula": "moyenne des tailles au niveau −1 et +1", "result": "température 27,0 / 26,4 nm ; durée 21,1 / 32,3 nm ; rapport 24,4 / 29,0 nm ; puissance 35,6 / 17,8 nm", "compared_to": "classement des auteurs : puissance > durée > rapport > température", "source": "calcul sur la Table 2"},
+        {"what": "erreur pure (6 points centraux)", "inputs": "16,63 ; 17,24 ; 17,42 ; 16,41 ; 17,05 ; 15,94 nm", "formula": "écart-type", "result": "moyenne 16,78 nm ; écart-type 0,56 nm (≈ 3 %)", "compared_to": "écart au modèle", "source": "calcul sur la Table 2"},
+        {"what": "réajustement du modèle quadratique (15 termes, 30 essais) et test de manque d'ajustement", "inputs": "Table 2 ; variables codées (T−73)/3, (t−75)/15, (R−4,5)/1,5, (P−45)/4 ; réponse S, 1/S, 1/√S, ln S", "formula": "moindres carrés ; F_LOF = (SS_LOF/10)/(SS_PE/5)", "result": "S : R² 0,924, R² ajusté 0,853, R² prédit 0,564, F_LOF = 194 ; 1/√S : R² ajusté 0,931, R² prédit 0,801, F_LOF = 14 ; ln S : R² ajusté 0,958, R² prédit 0,879, F_LOF = 13 ; aucune transformation de puissance (λ de −3 à 1) ne donne F_LOF < 12", "compared_to": "article : F_LOF = 0,07 (p = 1,000), R² ajusté 0,9326, R² prédit 0,8909, F modèle 24,95 ; valeur critique F(10,5) à 1 % ≈ 10", "source": "calcul (numpy), script de travail PMC9060541_calc.py hors dépôt"},
+        {"what": "TTIP nécessaire si tout le CdS du lot est enrobé (illustratif)", "inputs": "CdS ≤ 1,49 mmol ; R = 4,5 ; M(TTIP) = 284,22 g/mol ; densité ≈ 0,96", "formula": "R × n(CdS) × M / d", "result": "6,7 mmol, 1,9 g, ≈ 2,0 mL de TTIP", "compared_to": "quantité non donnée par l'article", "source": "calcul ; densité de fiche fournisseur non revérifiée"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Avec un noyau de 9 nm, même un dépôt total du TTIP ne peut pas donner une coque de plus de ≈ 3,7 nm (rapport 7,5) ni un composite de plus de ≈ 16,5 nm (voir « épaisseur de coque attendue »). Toutes les tailles DLS au-delà de ≈ 17 nm (essais 2, 5, 9 à 13, 17, 19, 26, 30… jusqu'à 91,6 nm) sont donc des agrégats, pas des coques. L'annonce d'une coque « réglable de 1,4 à 41,4 nm » (conclusion) vient de (S − 8,7)/2 appliqué à des tailles d'agrégats : elle est impossible matériellement. Le modèle RSM décrit la taille hydrodynamique (agrégation), pas l'épaisseur de coque.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Les statistiques annoncées ne se retrouvent pas à partir de la Table 2 : avec 6 points centraux très reproductibles (écart-type 0,56 nm), un modèle quadratique complet laisse un manque d'ajustement très significatif quelle que soit la transformation (F_LOF ≥ 12, contre 0,07 annoncé, p = 1,000). Le R² prédit annoncé (0,8909) n'est approché qu'en échelle logarithmique (0,879). Soit les auteurs ont utilisé un autre jeu de données ou de réponses que la Table 2, soit les indicateurs sont mal reportés ; les équations (1) et (2) n'étant pas dans le texte, le modèle ne peut pas être utilisé pour viser une taille.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Le texte dit qu'un coefficient positif (A, D) donne des particules plus petites et qu'un coefficient négatif (B, C) les fait grossir, ce qui n'est vrai que si la réponse est transformée (1/S ou 1/√S) ; la transformation n'est pas déclarée. Mon réajustement en 1/√S donne bien A, D > 0 et B, C < 0. Les points axiaux montrent aussi des effets non monotones que le texte ne dit pas : 53 W donne 20,1 nm, plus que 45 W (16,8 nm) ; un rapport de 7,5 donne 15,9 nm, moins que 4,5 ; 67 et 79 °C donnent tous deux plus que le centre. L'affirmation « rapport > 5,3 ne peut pas donner moins de 17 nm au centre » est contredite par l'essai 6 (7,5 ; 15,93 nm).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "67–79 °C dans l'eau (ébullition 100 °C) : sans risque d'ébullition ; le 2-propanol libéré bout à 82,5 °C et s'évapore en partie à 79 °C. Si la coque est faite dans la solution mère du noyau (ce que suggère « added drop-wise to the solution »), du CS2 résiduel et H2S peuvent encore s'en dégager. La puissance (37–53 W) est une puissance nominale de générateur, sans volume ni géométrie : non transposable à un autre appareil, alors que c'est le facteur le plus influent (37 W → 91,6 nm ; 45 W → 16,8 nm).", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "mecanisme", "finding": "TTIP ajouté goutte à goutte à une phase aqueuse s'hydrolyse et se condense en quelques secondes : la nucléation homogène de TiO2 hydraté y est attendue, en concurrence avec le dépôt sur CdS. Les mesures EDAX (TiO2/CdS ≈ 2,7 et 4,7, proches des rapports visés) et l'épaisseur TEM (0,9–1 nm, soit TiO2/CdS ≈ 1,1–1,2) indiquent que 60 à 75 % du titane n'est pas dans la coque (voir voies Composite-A et Composite-B). Le texte écrit aussi que l'hydrolyse libère du « 1-propanol » : l'isopropoxyde libère du 2-propanol (Ti(OCH(CH3)2)4 + 2 H2O → TiO2 + 4 (CH3)2CHOH).", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "cinetique", "finding": "La durée fait croître la taille (45 min : 15,2 nm ; 105 min : 49,7 nm) alors que l'hydrolyse du TTIP est achevée en quelques minutes : l'effet de la durée est celui d'une agrégation progressive sous ultrasons (ou de la condensation des particules libres de TiO2 sur les composites), pas d'une croissance de coque. Cohérent avec la lecture « taille DLS = agrégation ».", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "securite", "finding": "TTIP inflammable et sensible à l'humidité ; dégagement de 2-propanol à 67–79 °C ; résidus de CS2/H2S possibles si la coque est faite dans la solution du noyau ; poudres de CdS/TiO2 nanométriques contenant du cadmium (cancérogène) à manipuler sans inhalation (séchage à l'étuve, broyage).", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Hydrolyse rapide de Ti(OiPr)4 dans l'eau → Ti–OH puis condensation en TiO2 hydraté amorphe ; une partie se dépose en film très mince (≈ 1 nm) sur CdS, le reste forme des particules libres de TiO2 qui s'agrègent avec les composites ; la cavitation casse les agrégats (d'où l'effet fort de la puissance) tandis que la durée laisse l'agrégation progresser. La cristallisation en anatase à 67–79 °C n'est pas démontrée par la DRX de l'article (voir Composite-A).",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "quantités de CdS et de TTIP, volume et nature du milieu (solution mère du noyau ou CdS redispersé, eau ou alcool, pH)",
+        "vitesse d'ajout du TTIP ; appareil à ultrasons (sonde ou bain, fréquence, diamètre de sonde) et puissance calorimétrique par mL",
+        "présence de particules libres de TiO2 (MET à faible grandissement, cartographie EDX)",
+        "phase de TiO2 par DRX propre (anatase à 25,3° et 48,0°) ou spectroscopie Raman (anatase 144 cm−1)",
+        "ne pas utiliser l'épaisseur de coque déduite de la DLS"
+      ]
+    },
+    {
+      "label": "Composite-A",
+      "verdict": "douteuse",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {"what": "distances réticulaires des pics attribués à l'anatase", "inputs": "2θ = 24,9 ; 26,5 ; 28,2 ; 36,8 ; 44 ; 48,1° ; λ = 1,5406 Å (Cu Kα, axe de la Fig. 6 « Copper (Cu) »)", "formula": "d = λ / (2 sin θ)", "result": "3,573 ; 3,361 ; 3,162 ; 2,440 ; 2,056 ; 1,890 Å", "compared_to": "CdS wurtzite (100) 24,84°, (002) 26,53°, (101) 28,22°, (110) 43,74°, (103) 47,89° ; anatase (101) 25,28°, (004) 37,93°, (200) 48,34° → la série correspond à CdS hexagonal, pas à l'anatase", "source": "PMC8164203 (CdS wurtzite) ; Wang et al., RSC Adv. 2020, 10.1039/D0RA09421H (anatase)"},
+        {"what": "distances réticulaires des pics attribués à CdS", "inputs": "2θ = 27,5 ; 36,1 ; 54,5 ; 69,1° ; λ = 1,5406 Å", "formula": "d = λ / (2 sin θ)", "result": "3,241 ; 2,486 ; 1,682 ; 1,358 Å", "compared_to": "rutile (110) 27,33°, (101) 36,09°, (111) 41,23°, (211) 54,36°, (220) 56,46° (JCPDS 21-1276) → la série correspond au rutile TiO2, pas à CdS", "source": "Wang et al., RSC Adv. 2020, 10.1039/D0RA09421H"},
+        {"what": "taille de cristallite (Scherrer, ordre de grandeur)", "inputs": "largeur à mi-hauteur lue sur la Fig. 6 ≈ 1° à 2θ ≈ 26,5° ; K = 0,9 ; λ = 0,15406 nm", "formula": "D = Kλ / (β cos θ)", "result": "≈ 8 nm", "compared_to": "noyau CdS de 9 nm ; une coque de 0,9 nm ne donnerait que des raies de plusieurs degrés de large", "source": "calcul ; largeur lue sur figure (précision ± 30 %)"},
+        {"what": "rapports EDAX", "inputs": "Cd 20,62 ; S 21,93 ; Ti 57,44 % at.", "formula": "S/Cd ; Ti/Cd ; Ti/[(Cd+S)/2]", "result": "S/Cd = 1,06 ; Ti/Cd = 2,79 ; Ti/moyenne(Cd,S) = 2,70 (les auteurs : 21,2 % et 2,71)", "compared_to": "rapport visé 2,97", "source": "calcul"},
+        {"what": "TiO2/CdS correspondant à la coque TEM", "inputs": "noyau 9 nm, coque 0,9 nm ; Vm(CdS) 29,98, Vm(TiO2) 20,53 cm3/mol", "formula": "[V(r=5,4) − V(r=4,5)]/Vm(TiO2) ÷ V(r=4,5)/Vm(CdS)", "result": "TiO2/CdS = 1,06 ; avec R = 2,97 tout déposé, coque ≈ 2,0 nm et Ø ≈ 13,0 nm", "compared_to": "EDAX 2,71 → ≈ 61 % du Ti hors de la coque ; taille mesurée 10,4 (DLS) / 10,5 nm (TEM)", "source": "calcul"},
+        {"what": "diamètre TEM attendu", "inputs": "noyau 9 nm + 2 × 0,9 nm", "formula": "d_noyau + 2e", "result": "10,8 nm", "compared_to": "10,5 nm annoncé sur la Fig. 8", "source": "calcul"}
+      ],
+      "checks": [
+        {"aspect": "resultats", "finding": "Attribution des phases inversée : les six pics donnés pour « TiO2 anatase » (24,9 à 48,1°) sont ceux de CdS hexagonal (greenockite), et les quatre pics donnés pour « CdS » (27,5 ; 36,1 ; 54,5 ; 69,1°) sont ceux du rutile (voir « distances réticulaires »). Sur la Fig. 6, les bâtons de référence étiquetés TiO2 et CdS sont eux aussi intervertis. Les diagrammes des composites ne montrent ni la raie (004) de l'anatase à 37,9° ni une raie (101) séparée à 25,3° : la présence d'anatase n'est pas démontrée ; seul CdS est visible.", "status": "probleme", "basis": "litterature", "source": {"title": "Crystalline phase regulation of anatase–rutile TiO2 for the enhancement of photocatalytic activity", "authors_or_publisher": "Wang K. et al., RSC Advances", "year": "2020", "url_or_doi": "10.1039/D0RA09421H"}},
+        {"aspect": "resultats", "finding": "Le texte dit que la largeur de raie plus faible du composite A traduit une taille plus petite : c'est l'inverse (Scherrer, D ∝ 1/β). Les raies visibles viennent du noyau CdS (≈ 8 nm, voir « taille de cristallite ») ; elles ne renseignent pas sur l'épaisseur de la coque.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "bilan", "finding": "L'EDAX donne Ti/(CdS) ≈ 2,7, presque le rapport visé (2,97) : presque tout le titane est dans le solide. Mais une coque de 0,9 nm ne contient que TiO2/CdS ≈ 1,06 (voir « TiO2/CdS correspondant à la coque TEM ») : environ 60 % du TiO2 est ailleurs (particules libres ou agrégats), ou la coque est plus épaisse que mesuré. Les deux résultats ne peuvent pas décrire ensemble une coque uniforme ; le composite « 10 nm » n'est pas un CdS@TiO2 pur.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "TEM sur un Philips CM120 (120 kV, barre d'échelle 5 nm) : une bordure claire de 0,9 nm autour d'une particule dense est à la limite de résolution et peut être une frange de Fresnel ou un résidu organique ; sans franges de réseau ni cartographie EDX, la coque n'est pas prouvée. Diamètre 10,5 nm contre 10,8 nm attendu (noyau 9 + 2 × 0,9) : écart faible, dans la précision de lecture.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Infrarouge : les bandes de 1380, 1410 et 1650 cm−1 ne peuvent pas venir de CdS « lié à TiO2 » ni de vibrations de réseau de TiO2 (1400 cm−1) : les phonons optiques de CdS sont vers 240–305 cm−1 (LO Raman à 305 cm−1) et ceux de l'anatase sous 900 cm−1 (le LO le plus haut vers 876 cm−1). Ces bandes correspondent à l'eau adsorbée (≈ 1630–1650 cm−1) et à des résidus organiques (isopropoxyde, éthylènediamine, éthylènethiourée). Le spectre (500–2500 cm−1) ne contient donc aucune preuve de liaison CdS–TiO2.", "status": "probleme", "basis": "litterature", "source": {"title": "Raman spectroscopy of CdS nanocrystalline semiconductors", "authors_or_publisher": "Nanda K. K. et al., Physica B", "year": "1999", "url_or_doi": "https://www.sciencedirect.com/science/article/pii/S0921452698004748"}},
+        {"aspect": "resultats", "finding": "Anatase : fréquences TO/LO des modes actifs en infrarouge toutes sous 900 cm−1 (mesure de réflectivité IR de l'anatase), ce qui exclut l'attribution d'un pic à 1400 cm−1 au réseau de TiO2.", "status": "probleme", "basis": "litterature", "source": {"title": "Infrared reflectivity and lattice fundamentals in anatase TiO2", "authors_or_publisher": "Gonzalez R. J. et al., Physical Review B", "year": "1997", "url_or_doi": "https://vtechworks.lib.vt.edu/bitstreams/69a0e93d-d5db-4db7-a29e-a2e8d124ab17/download"}},
+        {"aspect": "resultats", "finding": "Énergie de bande interdite : le texte écrit n = 1 (direct) et n = 4 (indirect), alors que la Fig. 11 trace (αhν)² pour CdS et (αhν)^1/2 pour TiO2 et les composites, ce qui correspond à la convention usuelle (exposants 2 et 1/2). Les 2,82 et 2,95 eV des composites sont des valeurs apparentes obtenues en appliquant la loi indirecte de TiO2 à un mélange qui contient du CdS à transition directe (2,45 eV) : ce ne sont pas des bandes interdites d'un matériau. L'épaule d'absorption visible vers 2,6–2,7 eV sur la Fig. 11 vient du CdS.", "status": "reserve", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Voir CCD-Run01 : CdS d'environ 9 nm recouvert d'un film très mince de TiO2 hydraté (probablement amorphe) et mélangé à des particules libres de TiO2 ; la taille DLS de 10,4 nm reflète surtout la bonne désagrégation à forte puissance et courte durée.",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "refaire la DRX avec les bonnes fiches (anatase 21-1272, rutile 21-1276, CdS wurtzite et blende)",
+        "chercher le TiO2 libre (MET à faible grandissement, cartographie EDX)",
+        "FTIR étendu sous 500 cm−1 ou Raman pour les phases"
+      ]
+    },
+    {
+      "label": "Composite-B",
+      "verdict": "douteuse",
+      "feasibility": "non_reproductible",
+      "calculs": [
+        {"what": "rapports EDAX", "inputs": "Cd 13,85 ; S 15,92 ; Ti 70,21 % at.", "formula": "S/Cd ; Ti/Cd ; Ti/[(Cd+S)/2]", "result": "S/Cd = 1,15 ; Ti/Cd = 5,07 ; Ti/moyenne(Cd,S) = 4,72 (les auteurs : 14,9 % et 4,71)", "compared_to": "rapport visé 4,87", "source": "calcul"},
+        {"what": "TiO2/CdS correspondant à la coque TEM", "inputs": "noyau 9 nm, coque 1,0 nm ; Vm(CdS) 29,98, Vm(TiO2) 20,53 cm3/mol", "formula": "[V(r=5,5) − V(r=4,5)]/Vm(TiO2) ÷ V(r=4,5)/Vm(CdS)", "result": "TiO2/CdS = 1,21 ; avec R = 4,87 tout déposé, coque ≈ 2,8 nm et Ø ≈ 14,7 nm", "compared_to": "EDAX 4,71 → ≈ 74 % du Ti hors de la coque ; taille 10,9 (DLS) / 10,8 nm (TEM)", "source": "calcul"}
+      ],
+      "checks": [
+        {"aspect": "bilan", "finding": "Même incohérence que pour A, plus marquée : 1,64 fois plus de titane que A (EDAX 4,71 contre 2,71) pour une coque presque identique (1,0 contre 0,9 nm). Environ 74 % du TiO2 n'est pas dans la coque (voir « TiO2/CdS correspondant à la coque TEM »). L'absorption plus « bleue » de B attribuée à une « coque plus épaisse » s'explique mieux par une fraction plus grande de TiO2 libre dans le mélange.", "status": "probleme", "basis": "chimie_generale"},
+        {"aspect": "resultats", "finding": "Phase anatase non démontrée, attribution DRX inversée, bandes IR mal attribuées et bande interdite apparente : mêmes constats que pour Composite-A.", "status": "reserve", "basis": "chimie_generale"},
+        {"aspect": "thermique", "finding": "78,95 °C, 45 min : sous l'ébullition de l'eau, proche de celle du 2-propanol formé (82,5 °C) ; pas d'obstacle.", "status": "ok", "basis": "chimie_generale"}
+      ],
+      "mechanism": {
+        "assessment": "a_revoir",
+        "proposed": "Comme Composite-A : film mince de TiO2 hydraté sur CdS et TiO2 libre en proportion plus grande (rapport visé plus élevé).",
+        "sources": []
+      },
+      "what_to_verify_before_repeating": [
+        "mêmes points que Composite-A",
+        "bilan Ti dans le surnageant de centrifugation pour savoir où va le TiO2"
+      ]
+    }
+  ],
+  "article_level": {
+    "summary": "La synthèse du noyau CdS est chimiquement cohérente (Cd limitant, soufre et amine en excès, mécanisme dithiocarbamate → éthylènethiourée + H2S, que les auteurs appellent à tort « polymérisation »), mais dangereuse sans hotte (CS2 + éthylènediamine, CS2 chauffé à 75 °C près de son auto-inflammation à 90 °C, H2S). L'étape de coque n'est pas reproductible (quantités, milieu, appareil à ultrasons inconnus) et ses preuves ne tiennent pas : DRX aux phases interverties (l'« anatase » est CdS hexagonal, le « CdS » est du rutile), bandes IR attribuées à des vibrations qui n'existent pas à ces nombres d'onde, bilan de titane incompatible avec la coque de 0,9–1 nm, coque « de 1,4 à 41,4 nm » impossible (au plus ≈ 3,7 nm), statistiques RSM non retrouvées à partir de la Table 2. Les tailles DLS décrivent l'agrégation sous ultrasons, pas l'épaisseur de coque.",
+    "author_errors_suspected": [
+      "pics DRX de l'anatase et de CdS intervertis (et fiches de référence de la Fig. 6 interverties)",
+      "« largeur de raie plus faible = taille plus petite » (inverse de Scherrer)",
+      "épaisseur de coque de 1,4 à 41,4 nm déduite de tailles DLS d'agrégats",
+      "manque d'ajustement F = 0,07 (p = 1,000) incompatible avec la Table 2",
+      "bandes IR de CdS à 619, 659, 1391 et 1630 cm−1 et de réseau de TiO2 à 1400 cm−1",
+      "« 1-propanol » au lieu de 2-propanol ; « polymérisation » au lieu de cyclisation en éthylènethiourée",
+      "exposants de Tauc du texte (n = 1 et 4) différents de ceux des figures (2 et 1/2)",
+      "référence [22] (Lee et al., Bull. Korean Chem. Soc. 2005) avec le même volume et les mêmes pages (18:269–275) que la référence [25] : référence probablement mal recopiée"
+    ],
+    "comparison_with_database": "Seule publication CdS/TiO2 de la base (compare.py « CdS » et « TiO2 ») ; les autres voies TiO2 (PMC2964502, PMC5521283, PMC5858874, PMC7033158) cristallisent l'anatase à 150 °C en hydrothermal ou par calcination à 400–600 °C, ce qui souligne que la cristallisation à 67–79 °C revendiquée ici demanderait une preuve DRX propre."
+  },
+  "sources_not_found": [
+    "équations (1), (2), (4a), (4b) et (5) de l'article absentes du texte : modèle RSM et réactions non vérifiables",
+    "Ghows et Entezari, Ultrason. Sonochem. 2011 (réf. [25], protocole adapté du noyau) non consulté",
+    "densités de l'éthylènediamine, du TTIP, de CdS et de l'anatase prises de mémoire (valeurs de manuel), non revérifiées sur PubChem ou une fiche fournisseur",
+    "pas de source trouvée sur la cristallisation sonochimique de l'anatase à 67–79 °C sur CdS"
+  ]
+}

@@ -1,0 +1,15 @@
+# Journal d'extraction PMC4976354 (g-C3N4 massif et traité par acides)
+
+- Découpage : BCN (mélamine 520 °C) est une voie de base à part ; SCN (H2SO4) est une seconde voie de base avec ses propres étapes, qui utilise BCN comme réactif `intermediate`. HCN et NCN sont des branches de SCN (seul l'acide change), car les Méthodes disent « under the same experimental conditions ».
+- Variation des branches : le paramètre est le nom du réactif parent « concentrated H2SO4 », valeur « replaced by concentrated HCl / HNO3 », avec le nouveau réactif dans la branche. Quantité d'acide de HCN/NCN non écrite : déclarée `not_stated` (pas d'héritage supposé des 100 mL) ; doute posé sur l'héritage de toutes les étapes, frittage final compris.
+- Frittage de SCN : Résultats « 500 °C for 1 h » contre Méthodes « 500 °C, 2 °C/min, 2 h ». Méthodes retenues (section la plus détaillée), contradiction en `doubts`.
+- BCN fritté (« sintered-BCN », Fig. S4) : l'article n'en donne aucun protocole. Voie `post_treatment` `BCN_sintered` créée pour garder ses deux résultats (54 % de MB, 1,49 μmol g−1 de H2) ; température, durée, atmosphère et vitesse de chauffe déclarées non citées, car 500 °C n'est écrit que pour SCN.
+- Tests photocatalytiques, EIS, photocourant, zêta, BET, XPS, TRPL : rangés en `outcomes` de chaque matériau, jamais en branches. Conditions des tests (réacteur, lampe, Pt 0,5 % en poids, TEOA) copiées dans `characterizations` de chaque voie ; Pt photodéposé laissé hors voie (inventaire, `route: null`).
+- Électrode de travail : une seule voie `device` (même préparation pour BCN, HCN, NCN, SCN), conditions de la cellule à trois électrodes dans sa caractérisation. Aucune branche par échantillon car aucune différence de préparation n'est écrite.
+- Tableau 2 : l'en-tête dit « × 10−3 » mais le texte écrit « 15.61 min−1 » ; valeurs du tableau, unité 10−3 min−1.
+- Zêta de BCN : « –42.67 eV » dans le texte, −42,67 en mV dans le tableau 1 ; unité du tableau.
+- Position du pic (002) : phrase « shifted from 27.16° from 27.68° » illisible ; pour SCN la phrase est reprise en `value_text`, sans attribuer de valeur chiffrée à BCN ou SCN (27,68° est attribué à BCN dans l'autre phrase, retenu pour BCN). Fig. 4 ouverte : pic (100) vers 13°, pas 14,1° ; pas de valeur lue sur figure.
+- Table TS1 (annexe) : les teneurs en C et N sont éclatées sur des lignes séparées ; on ne peut pas citer une rangée, seuls les rapports C/N du corps du texte sont extraits.
+- Fournisseurs : la phrase « All chemicals … Junsei (melamine) and Dae-Jung (HCl, HNO3, H2SO4) » vaut pour la mélamine et les trois acides seulement, pas pour Liquion ni pour l'eau (déclarés non cités). Pureté non écrite, « concentrated » n'est pas une pureté.
+- Sources de méthode : b11 (BCN selon la littérature, Wang 2009) et b44 (montage de dégradation du MB « reported previously »). Les autres renvois sont du contexte.
+- Mécanisme : `mecanisme_auteurs` pris sur SCN (intercalation du sulfate) ; analyse chimique séparée et marquée comme hypothèse.

@@ -1,0 +1,17 @@
+# PMC9083554 — critique scientifique (journal de décisions)
+
+- **160 °C à reflux** classé `probleme` et non `reserve`. Un milieu aqueux à reflux ne dépasse pas ~100 °C, et la température annoncée n'est donc pas celle de la synthèse. Un récipient fermé (≈ 6,2 bar) donnerait une autre synthèse. Valeur de pression tirée de la table de vapeur, page NIST non relue.
+- **Pic DRX à 39,01°** : Bragg avec λ = 1,5405 Å donne a = 7,99 Å en (222), contre 8,37 attendu. La vraie (222) cubique (37,18° calculé) est le pic indexé « (202) ». La figure f1 confirme le pic à ~39° sur (b) à (f), très intense sur (e) 94CuFe2O4–6RGO. Attribué à CuO ténorite (111)/(200), 38,7–38,9°. Positions de CuO calculées depuis les d usuels, sans consulter la fiche ICDD. Classé `probleme` (pureté de phase affirmée, contredite par la figure).
+- Entrée séparée pour la branche **94CuFe2O4-6RGO** parce que la figure y montre le plus de CuO : sa composition diffère des autres branches au-delà de la seule teneur en RGO.
+- **BET contre volume poreux** : 4V/S = 0,6 et 1,1 nm, et une surface 1,7 à 2,4 fois la surface géométrique de sphères de 15–20 nm (ρ = 5,42 g/cm³, calculée depuis a = 8,369 Å). Classé `probleme` sans source web : l'arithmétique suffit.
+- **Essai 4-NP** : A(400) ≈ 93 avec [4-NP] = 5,06 mM dans la cuve (ε = 18 380, Bowers 1980, trouvé par recherche). NaBH4/4-NP = 4,9 contre ~100 dans les protocoles de référence (Wunder 2010, DOI vu sur doi.org). Classé `probleme`, car le protocole tel qu'écrit n'est pas mesurable. Les kapp restent cohérents avec les temps de fin (t95 calculés), donc les valeurs relatives sont internes et cohérentes.
+- **Mousse de Ni** : les pics à 0,29/0,43 V (figure f6) coïncident avec ceux de Ni(OH)2/NiOOH sur mousse nue dans KOH 3 M (anodique 0,35–0,45, cathodique 0,25–0,28 V ; Dojčinović 2024, lu sur PMC). Aucun blanc n'est rapporté. Classé `probleme` pour l'électrode de base, en vérifiant d'abord que ce n'est pas une simple coïncidence de potentiel : même électrolyte (KOH 3 M), même référence (Ag/AgCl).
+- **Énergie et puissance** recalculées : cohérentes si la fenêtre de décharge vaut 0,37–0,50 V et non 0,6 V. Laissé hors des problèmes (cohérence interne).
+- **F/g pour un comportement « battery like »** : `reserve` de vocabulaire (Brousse 2015) et non `probleme`, car cela ne touche pas la synthèse.
+- **Électrolyte redox** : 0,91 C, soit 9,4 µmol e−, sont contenus dans moins de 0,1 mL de K4[Fe(CN)6] 0,1 M. `reserve` avec la recommandation de Balducci 2017, dont le DOI a été vu dans les résultats de recherche.
+- **Réduction du GO** : mécanisme alcalin retenu (Fan 2008), sans réducteur. Les preuves des auteurs (DRX, TGA) sont jugées non discriminantes à 4 % de carbone (26 % × 4 % ≈ 1 % de perte attendue) : `reserve`.
+- **Phase cubique** : laissée en `reserve` (quadratique à température ambiante pour le massif, cubique métastable fréquent en nano ; Sci. Rep. 2018). Auteurs de cette source et de PMC10059923 non relevés : je ne les ai pas inventés.
+- **GO (Hummers)** : rapports comparés à Hummers 1958 de mémoire (3 g KMnO4, 0,5 g NaNO3, 23 mL H2SO4 par g) ; source dans fondateurs.md. Danger de Mn2O7 sourcé par Dreyer 2010 (fondateurs.md), sans recherche web.
+- **RGO seul** : synthèse non décrite, donc voie `invérifiable` et `non_reproductible`.
+- Comparaison avec la base : aucune autre CuFe2O4 ; ferrites formées vers 85–95 °C sans calcination dans PMC11197016 et PMC11098855.
+- Recherches web : 7 recherches + 1 lecture de page (PMC10971949). Rien n'a été ajouté à fondateurs.md ni à constantes.md (Crossref bloqué).
