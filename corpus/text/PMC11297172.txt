@@ -1,0 +1,1125 @@
+# Accelerated discovery of perovskite solid solutions through automated materials synthesis and characterization
+## Abstract
+Accelerating perovskite solid solution discovery and sustainable synthesis is crucial for addressing challenges in wireless communication and biosensors. However, the vast array of chemical compositions and their dependence on factors such as crystal structure, and sintering temperature require time-consuming manual processes. To overcome these constraints, we introduce an automated materials discovery approach encompassing machine learning (ML) assisted material screening, robotic synthesis, and high-throughput characterization. Our proposed platform for rapid sintering and dielectric analysis streamlines the characterization of perovskites and the discovery of disordered materials. The setup has been successfully validated, demonstrating processing materials within minutes, in stark contrast to conventional procedures that can take hours or days. Following setup validation with established samples, we showcase synthesizing single-phase solid solutions within the barium family, such as (BaxSr1-x)CeO3, identified through ML-guided chemistry.
+## Introduction
+The emergence of laboratory automation has brought to light various ways to accelerate each stage of the materials discovery process. Advancements in machine learning (ML), for example, encompass a wide range of activities and have been applied in various areas of the electromagnetics community, including discovering novel composition perovskite materials for photovoltaics, optimizing the electronic properties of thin films, optimizing copolymers, generating databases and so forth–. In our previous study, neural network-derived embeddings effectively identified potential and known perovskites and ferroelectrics. Perovskite structured materials are among the widely researched due to their broad functional properties, which can be utilized in wireless communications, phase shifters, tunable antennas, oscillators and biosensors–. However, traditional discovery and optimization of perovskite solid solutions are hindered by the extensive chemical diversity and complex processes, that influence their crystal structure and properties. Supplementary Fig. 1 shows the average time scale for the manual workflow (days-weeks). Given the challenge of obtaining substantial quantities of experimental data, most current ML models rely on computational samples, which limits their accuracy to the quality of the data they are built upon. It has become evident that there is a scarcity of studies that experimentally synthesize and validate materials predicted by ML, highlighting a significant research gap and emphasizing the need for alternative strategies to bridge the gap in experimental materials discovery.
+With the maturation of artificial intelligence (AI) and collaborative robots, more “self-driving laboratories” (SDLs) for material discovery are being developed,–. Nonetheless, SDLs are predominantly in their early stages of development, and their utilization within the realm of solid solutions remains in its initial phases due to the intricate nature of workflows, difficulties in orchestrating lab devices, the need for multi-objective optimization, and the complexities involved in dielectric measurements for 3D materials. Figure 1 presents a comprehensive customizable SDL loop for the synthesis and characterization of perovskites, highlighting the process through a combination of both AI and expert scientific input,. Solid State Reaction (SSR) steps include (Fig. 1b): (1) ball milling, (2) calcining, (3) second ball milling, (4) dry pressing, and (5) sintering,. Subsequently, material dielectric characterization involves sample preparation such as cutting, grinding and coating conductive electrodes or coplanar waveguide (CPW) transmission lines using sputtering, painting or photolithography. Practical properties for such materials include high tunability (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$${{\rm{\tau }}}$$\end{document}τ) and low loss tangent (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\tan {{\rm{\delta }}}$$\end{document}tanδ) at high frequencies. Currently, sample preparation and characterization, even for high-throughput methods, are a predominantly manual process,. The brittleness of ceramics complicates their handling by robotic arms, often resulting in defects and surface cracks. In addition, high-frequency measurements often require intricate setups and precise calibration for signal integrity and noise reduction. Without effective property characterization, the main benefits of SDLs, such as autonomy and the capacity to independently correlate synthesis with properties, are not fully realized.
+Previously, exemplar high-throughput experimentation (HTE) and/or laboratory robotic tools have been demonstrated for automating the individual stages in SSR workflows, such as powder dispensing and mixing, sintering, mechanical testing, and evaluation of structural properties. These individual automated tasks have been reviewed in depth as documented in the referenced literature,. Vecchio et al. suggested additive manufacturing alloy development followed by structure screening. Sintering conditions in SSR significantly affect phase stability, reaction rates, grain size and density, impacting the dielectric performance of solid solutions. However, conventional sintering has several drawbacks, including long processing time (2–6 h), high energy consumption (at 1200–1800 °C) and CO2 emissions, making it unsuitable for high-throughput experiments.
+Although alternative sintering techniques like spark plasma sintering (SPS), microwave synthesis, flash sintering (FS), and photonic sintering, have been explored to reduce processing time and cost, they come with their own challenges, such as the need for specific equipment or difficulties in experiment reproducibility. Alternatively, CALPHAD computational methods, and density functional theory (DFT) calculations, have been used for assessing phase stability under various conditions. These approaches often presume an equilibrium thermodynamic state and may not capture the complexity of perovskite oxide, requiring thorough analysis. Furthermore, incorporating temperature effects into ab initio simulations is complex and computationally intensive, often requiring specialized techniques like quasi-random structures or molecular dynamics, which are challenging for ML-predicted materials due to data limitations. In addition to synthesis, none of the high-throughput approaches can be directly applied to characterize the dielectric characteristics of bulk ferroelectric materials at high frequencies. Typically, dielectric properties at microwave frequencies are retrieved through s-parameter measurements on transmission lines, resonant cavities, and/or free-space techniques, where the propagation characteristics of the Radio Frequency (RF) wave are directly dependent on the properties of the material under test. In this study, we develop an automatic platform designed for rapid sintering processes and high-throughput microwave property measurements, facilitating fast materials screening and characterization in a matter of minutes (Fig. 2). This advancement significantly reduces the time and labor traditionally required for generating validation datasets, streamlining the characterization process. A free-space sensor allows the robot to screen the thermal tunability with no sample surface modification required. Immediate post-sintering measurements eliminate the need for reheating samples and improve ML models by rapidly revealing correlations between processes and structures. Here, we design a central hub with a graphical user interface (GUI) on MATLAB for orchestrating our lab instruments and data management, offering the capability to incorporate additional devices for expanding the workflow in the future. Communication between the process management module and the devices are achieved using various communication protocols (TCP/IP over WIFI/LAN, etc.). This enhances the flexibility and modularity of the setup, enabling rapid collection and analysis of data. Supplementary Movie. 1 showcases the experimental setup in action, providing a visual demonstration of the process. Through continuous learning from experimental outcomes, we can downsize datasets, and ML models can propose modifications in composition or processing factors to attain particular desired dielectric properties.
+## Results and discussion
+In a single cycle that supports the integration of ML modeling, the final step in the SSR synthesis workflow for 3D ferroelectrics (sintering) was linked to high-frequency dielectric characterization in an automated approach (Fig. 3). Each iteration of the automated workflow involved the following: (i) a robotic arm transferred green pellets from the sample tray to the furnace, (ii) samples were subjected to rapid sintering (different times and rates) and (iii) 20-min dielectric analysis during sample cooldown and sample classification by robot (see the methods section for details). We focused on perovskite structured oxides with well-documented data, such as Ba0.6Sr0.4TiO3 (BST)–, and BaTi1-xSnxO3 (BTS), providing substantial information on their synthesis and ferroelectric properties for comparison. Additionally, samples from the barium-based perovskite family, such as BaxSr1-xCeO3, were selected from ML prediction for comparative analysis. Currently, our research is driven by curiosity, as we systematically filter and categorize ML-screened materials, taking into account their feasibility for synthesis and their potential to unveil optimized properties or uncharted applications. As a first step in validating the methodology, a solid-state reaction method was used to prepare multiple compositions from 3 family groups (Fig. 3.7b): B site (Ta/Nb/Zr/Pure/Hf) doped in BST (Ba0.6Sr0.4Ti0.02O3), 3 BTS ratios (BaTi1-xSnxO3) (referred to as BTS12, 14 and 16), and several ML-predicted perovskites. The physical form of all the samples before automated rapid sintering consisted of uniform dielectric discs with a consistent thickness of 1.5 mm and radius of 15 mm.
+The results section is structured as follows: (1) Evaluation of the automated rapid sintering process, (2) Observing the influence of rapid sintering on the BTS family group, (3) Evaluation of automated free-space dielectric screening and comparison with four commonly used techniques at both low and high frequencies, (4) Exploring synthesizability of ML-predicted compositions, and (5) Elaboration on the unique dielectric characteristics of the Pure-BST sample after rapid sintering.
+## Evaluation of automated rapid sintering
+The doped-BST samples are used for evaluation of the automated rapid sintering setup. Doping is an effective strategy to modify the perovskite structure and improve dielectric tuning performance. Density measurements for all 4 BST compositions (Ta/Nb/Zr/Hf) show dense structures (over 90%) when sintered at 1400 °C for 10 min. The values of R-factors obtained from Rietveld refinements for all 4 compositions are small, which indicates a good fit to the experimental XRD (X-Ray diffraction) data (Supplementary Fig. 2). This is consistent with the system, possessing structure as previously reported for BST. No secondary phase indicating impurities or contamination was detected in the diffraction peaks of the doped ceramic samples. From the SEM (Scanning electron microscopy) data, it is noted that the rapid sintering method resulted in a noticeably different grain structure with the presence of both large and very small grains but an average grain size of 10–15 µm, which is close to that observed for the slow rate conventionally sintered sample (10 ± 2 µm), and the 1–5% porosity should only have a minor effect. Thus, material performance should be dominated by the effect of the dopant additive. All four BST compositions were sintered in just 60 min, saving time and energy compared to other sintering procedures that can take hours per sample. For BST a fixed sintering time and temperature was chosen based on literature as a starting point. However, annealing optimization can be achieved by adjusting sintering variables.
+To illustrate this feature, optimal sintering conditions for the BTS family were investigated via automated rapid sintering with temperatures ranging from 1100 °C to 1400 °C (with 50 °C intervals). As shown in the priority matrix in Fig. 3.5b, the optimal sintering condition is assessed based on sample density, crystal structure, grain morphology and dielectric properties, comparing these factors against those sintered by conventional methods. A total of 7 identical BTS12 pellets were fabricated for testing. BTS is a relatively new material and has the potential for integration into tunable devices due to its nonlinear dielectric permittivity and low loss-tangent at low frequencies. By changing the Sn-doping ratio, the dielectric constant and loss may be adjusted to the desired levels. However, finding the optimum sintering conditions for the BTS family is still an active area of research. The rapid sintering of all 7 samples took a total of 70 min, followed by an additional 20 min per sample for dielectric screening via the automated setup. Supplementary Fig. 3 shows the density of BTS12 ceramics increases with increasing sintering temperature, reaching its maximum values at 1350 °C and 1400 °C. Supplementary Fig. 4a shows SEM data of BTS12 samples sintered at 1300 °C (porous), 1350 °C (dense), and 1400 °C (grain growth), illustrating average grain sizes of 200 nm, 1 µm, and 20 µm, respectively. An average grain size of 1–5 µm is reported in the literature for a dense sample. In Supplementary Fig. 2f, g, the XRD results show that BTS12 sintered at 1350 °C produced well-crystallized samples that closely matched the BTS PDF card and had smaller secondary phase peaks. Current-electric field (I-E) and polarization-electric field (P-E) loops were measured with a ferroelectric hysteresis measurement tester for BTS12-1350 °C and BTS12-1400 °C, as they had the highest densities. Although paraelectric phases are usually considered nonpolar, they may still contain polar nanoclusters. These polar entities can give rise to the presence of two current peaks near 0 V in the I−E loop and to a narrow, nonlinear P−E hysteresis loop (Supplementary Fig. 4b). BTS12-1400 °C showed sharper current peaks and more S-shaped P-E curves, which suggests that this sample would likely exhibit the highest dielectric tunability under an applied electric field. The narrow P−E loops indicate that the polar nanoclusters switch rapidly in an AC field, suggesting that they are very small in size. When characterized by the automated sensor from 25 °C to 65 °C, the dielectric permittivity increases as the sintering temperature increases, which can be attributed to the larger grain size and higher crystallinity when increasing the sintering temperature on the basis of the XRD and SEM results. The dielectric performance of these samples are discussed in later sections. The highest figure of merit (FOM) was obtained from BTS12-1350 °C. Overall, a sintering temperature of 1350 °C for 10 min was chosen for rapid sintering of the BTS family samples.
+## Evaluation of automated dielectric characterization
+Following sintering, the robot monitored the dielectric performance of all BST and BTS rapidly sintered samples over the frequency range of 0.2 to 3 GHz with no sample surface modification recorded. These discs function as resonators capable of displaying various TM modes, with resonant frequencies calculated directly using Bessel functions. Given the dependency of resonant frequencies on permittivity, the designated automated sensor ensured consistent positioning of samples, resonant-frequencies measurement through the transmission spectrum and temperature monitoring (refer to the methods section for details). As an example, Fig. 4a shows the shift in the transmission response of ZrBST during 20 min of temperature change from 120 to 20 °C, from which the resonant frequency and permittivity were extracted. The dielectric permittivity of ferroelectrics rises as the temperature approaches the Curie point (Tc). Since Tc, which, for the BST and BTS families, is below or at room temperature, here, 25 °C is chosen as the base reference point for tunability calculations for simplicity. Five samples are selected for evaluating the characterization method, including three from the BST family (ZrBST, Pure-BST, and HfBST) and two from the BTS family (BTS12-1350 °C and BTS16-1350 °C). The selected samples were confirmed to be at full densities, ensuring accurate dielectric performance representation without distortion from porosity or secondary phases. Figure 4c shows the gradual decrease in dielectric permittivity with increasing temperature for all five samples. The error bars depict the variation in permittivity for each data point across the frequency spectrum where shifts in resonant frequencies are observed due to temperature changes. These values include the frequency-dependent nature of permittivity observed at room temperature using CPW method, as detailed in the methodology and illustrated in Supplementary Fig. 5. The observed reduction in permittivity from 0.6 to 3 GHz frequencies suggests a relaxation process commonly seen in ferroelectric ceramics. As a result, a correction factor for dispersion has been applied to the tunability calculations. This entailed computing the corresponding permittivity value at ambient for the resonant-frequencies observed at high temperatures. The effect of thermally excited charge carriers on tunability is shown in Fig. 4d. Furthermore, Supplementary Fig. 6 illustrates a close agreement between automated sensor measurements during the cooling and heating of the sample achieving a system error (SD) of only 0.89%. The repeatability of these measurements introduces an error of less than 1.5%. For a detailed uncertainty analysis, please refer to the methodology section. The automated measurements are compared with four commonly used low- and high-frequency techniques. These techniques include impedance analysis and Curie temperature analysis at low frequencies, as well as electrical and temperature tuning via CPW techniques at Microwave frequencies. Here, the term high frequency refers to the range of 0.5 GHz to 5 GHz, while low frequency pertains to the range of 1 kHz to 500 kHz. All electric and temperature tunability measurements are summarized in Table 1.
+[TABLE] Table 1 All electric and temperature tunability measurements
+Machine | (a) Impedance spectroscopy (%) | (b) Curie temperature setup (%) | (c) Micro ProbeCPW (%) | (d) Micro ProbeCPW (%) | (e) AutomatedSetup (%)
+Frequency | 100 [kHz] | 50 [kHz] | 1.3 [GHz] | 1.3 [GHz] | 0.2–3 [GHz]
+Field | 2 [kV \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$${{mm}}^{-1}$$\end{document}mm−1] | 0 | 4 [kV \documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$${{mm}}^{-1}$$\end{document}mm−1] | 0 | 0
+Temperature | Ambient | 25–65 [°C] | Ambient | 25–65 [°C] | 25–65 [°C]
+ZrBST | 42.3 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.94) | 60.8 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm 1.74$$\end{document}±1.74) | 30.73 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm 1.76$$\end{document}±1.76) | 61.66 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±7.29) | 68.03 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±1.07)
+PureBST | 13 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.79) | 59.9 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±1.65) | 18.92 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±2.06) | 60.38 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±7.53) | 63.85 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.57)
+PureBST” | 41.1 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.79) | - | - | - | -
+HfBST | 39 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.89) | 54.2 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm 0.8$$\end{document}±0.8) | 17.34 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±2.1) | 51.84 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±9.16) | 62.25 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.74)
+BTS12-1350 °C | 60.44 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±3.04) | 58.4 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±2.25) | 36.28 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±1.62) | 41.43 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±11.14) | 77.43 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm 0.$$\end{document}±0.44)
+BTS16-1350 °C | 39.4 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.94) | 38.1 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±1.25) | 16.14 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±2.13) | 42.3 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±10.97) | 55.82 (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\pm$$\end{document}±0.53)
+## Low- and high-frequency measurements
+For low-frequency measurements, the variations in the dielectric permittivity and dielectric loss in the frequency range from 1 kHz to 500 kHz were measured under a direct current (DC) bias electric field ranging from 0 to 2 kV mm−1 using an impedance analyzer. The dielectric response results from the short-range rotation of dipoles under the influence of an externally applied electric field. The dielectric permittivity and loss of all five samples gradually decreases when the DC bias field is increasing (Supplementary Fig. 7), illustrating the dielectric tunability shown in Fig. 5a at 100 kHz (the error bars represent the SD calculations for linear fits related to each data point). It is observed that the tunability increases linearly with increased field for all samples. The reason is that the activity of the polar nanoclusters is reduced by applying the DC bias field, resulting in a decrease in their contribution to the dielectric permittivity. Under an electric field of 2 kV mm−1, BTS12 and BTS16 exhibit 58.4% and 38.1% electrical tuning, respectively. For the BST family, ZrBST exhibits the highest electrical tuning (42.3%), which is very close to Pure-BST. Pure-BST shows variations in electrical tuning (13% and 41.1%) and loss responses. To explain this behavior, capacitance-voltage (C–V) measurements are obtained to evaluate the frequency dispersion of this structure. Later in this paper, we elaborate on this particular sample with its distinctive behavior, which we refer to as Pure-BST” (same sample but in its distinct mode). To obtain the real frequency-independent capacitance of this sample, an equivalent circuit model has been proposed. Calculation via Eq. 2 gives dielectric losses at 100 kHz for the ZrBST, HfBST, BST12 and BTS16 ceramics of 0.013, 0.014, 0.017, and 0.013, respectively. For tunable microwave devices, the FOM is always chosen to represent the tunable performance. For the BST family, when the dopant content is switched from Hf to Zr, FOM values increase from 4.31 to 5.37, yet both are lower than that of Pure-BST”, which gives a value of 5.57 (with 41.1% tuning). For the BTS family, the highest tunability and FOM are both obtained for BTS12 due to its high dP/dE (Supplementary Fig. 3), which results from the active polar nanoclusters inside. Plotted in Fig. 5b are thermal variations of tunability (Tmin = 25 °C and Tmax = 80 °C) measured at 50 kHz. Supplementary Fig. 8 illustrates well agreement between measurements during sample cooling and heating. Measurements at lower frequencies are generally considered more reliable due to the technique’s simplicity, consistent dielectric response, and higher impedance, minimize loading effects and enhance measurement accuracy, however, they cannot truly reflect material properties at microwave frequencies. For BST family tunability demonstrates a polynomial increase with temperature rise and then stabilizes. While temperature tuning dominates electrical tuning, a 2 kV mm−1 bias is comparable to temperature tuning at 47 ± 2 °C. For BTS12, however, a more linear temperature tunability trend is observed, which can be attributed to a shift in the resulting from a change in the doping ratio when compared to BTS16 (as confirmed in Supplementary Fig. 9). The ε of the BTS samples shows a gradual increase with increasing temperature up to Tc and then starts decreasing. A broadened dielectric anomaly appears for BTS16 against temperature, which means that the phase transition from ferroelectric to paraelectric occurs over a wide temperature range. Above Tc, the ferroelectric is in its paraelectric phase and does not possess a domain structure but reveals dielectric nonlinearity due to the existence of polar nanoclusters near Tc. It can be observed that there is almost 50% more voltage tuning in BTS12 than in BTS16, with only a negligible increase in loss. Tailoring Tc of ferroelectrics is a promising method to enhance tunable performance, as the dipoles inside the polar nanoclusters are easy to rotate under an applied electric field.
+For high-frequency measurements (1 to 6 GHz), Coplanar Waveguide transmission line-based measurements under DC bias is used. The CPW pattern in Supplementary Fig. 10 was chosen for this case. Plotted in Fig. 5c, d are the fitted curves of thermal and electrical tunability for the five selected samples at 1.3 GHz. This selection was guided by two key considerations: firstly, it provided a comparable frequency range for analyzing alongside the robot study, particularly as most observed shifts in resonance frequency occurred within the 0.6–1.6 GHz range; and secondly, beyond 2 GHz, complexities such as dispersion and dielectric relaxation become more evident, introducing greater uncertainties. The accuracy of the obtained values depends significantly on the accuracy of the measured S-parameters. Therefore, three different line lengths (0.5 mm, 0.8 mm, and 1 mm) were used. In this way, the calculated characteristic impedance inside was also checked to verify the correctness of the measured values. The tunability data shown in Fig. 5c were obtained by applying DC bias up to 4 kV mm−1 through the probe, which resulted in the highest tunability of 30.73% (±1.76) being achieved by ZrBST, among BSTs. Of all BTS samples, BTS12 has the highest tuning percentage of 36.28% (±1.62) with a 4 kV mm−1 bias. Compared in Fig. 5d, for all of the BST family samples, when the temperature increases from 25 to 65 °C, tunability follows a polynomial trend. Measurements at both GHz and kHz frequencies in the BTS family indicate that the tunability is less dependent on temperature and highly influenced by the electric field. However, this requires the application of high voltages, which increases the susceptibility to breakdown during operation. It is noted that while both BTS12 and BTS16 exhibit similar temperature tunings at 1.3 GHz, BTS12 demonstrates double the voltage tuning. This discrepancy can be attributed to the modified crystal structure, which shifted its Tc closer to room temperature (Supplementary Fig. 9).
+Dielectric properties measurement at such high frequency faces challenges such as increased propagation losses, signal integrity and inevitable noise. In particular, significant uncertainties and errors (referenced in Table 1) arise from probe displacement due to thermal expansion during heating (illustrated in Supplementary Fig. 13). As a result, some research opts to only conduct dielectric property measurements at lower frequencies, using extrapolation methods to predict high-frequency dielectric properties which is used for real applications. This technique, while more practical and cost-efficient, needs further accuracy improvement. The results in Table 1, illustrate the drawbacks of relying only on low-frequency data, as the field tunability of ZrBST at low frequency is comparable to that of Pure-BST, but at high frequency, Zr-BST exhibits higher tuning.
+To compare the dielectric performance of robotic versus conventional sintering methods, another batch of BTS12 (BTS12-Con) was prepared by sintering at 1350 °C for 2 h. At 100 kHz frequency, BTS12-1350 and BTS12-Con exhibit dielectric tunability of 60.4% and 79.2% under an electric field of 2 kV mm−1, respectively. At 1.3 GHz frequency, the dielectric tunability of BTS12-1350 and BTS12-Con was 36.28% (±1.62) and 30% under an electric field of 4 kV mm−1, respectively. Low frequency dielectric tunability, often associated with the coexistence of large ferroelectric domains and small polar nanoclusters, suggests that a higher dielectric tunability indicates a greater concentration of the polar nanoclusters within the system. However, large domains exhibit less activity at microwave frequencies, due to slow dipole response. Hence, at high frequencies, dielectric tunability is primarily determined by the polar nanoclusters. As mentioned in previous sections, these polar nanoclusters are impacted by the sintering condition. BTS12-1350 °C exhibit a higher tunability at high frequencies compared to BTS12-Con. In addition, the dielectric tunability of 36% at GHz frequency is higher than other reported values for BST-based materials, such as 10.5% for BST/Mg2SiO4/MgO, and 27% for Mn-BST/MgO.
+From Table 1, it is crucial to acknowledge that no single method can adequately characterize samples over the entire frequency band; thus comparisons are not intended to yield identical outcomes. Typically, the selection of characterization processes can vary based on the desired frequency, required accuracy, temperature, sample size, contacting/non-contacting methods, and cost. Uncertainty in dielectric measurements is inevitable when characterizing different materials, as noted in previous studies,. The measurements executed by the robotic platform demonstrate efficiency by reducing analysis time to just 20 min, outperforming traditional, labor-intensive procedures like polishing, applying silver paste, and sputtering CPW pattern, which can extend for hours considering the vast number of ML samples. It also eliminates the need for reheating for dielectric measurements immediately following sintering, thereby minimizing environmental impacts and costs. Furthermore, having a free space technique increases the accuracy of measurements compared to CPW thermal measurements which are highly susceptible to thermal expansion of probes. While the trade-off between speed and accuracy remains a topic of research for high-throughput dielectric screening, results demonstrate a good correlation with both voltage and temperature tuning observed at lower frequencies. It is important to note that rapid data acquisition supports the refinement of our computational models, improving the efficiency of guiding experiments and facilitating an iterative discovery process by correlating synthesis variables with high-frequency functional properties, a step missing in previous high-throughput platforms.
+## Exploring single-phase synthesisability of ML-predicted compositions via the automated sintering approach
+The automated platform was tested with some selected ML-predicted perovskites. Here, we experimentally validated some compositions from our previous study that introduced an ML-based screening strategy for discovering perovskite solid solutions from a pool of nearly 0.6 million candidates. Two representative samples belonging to the barium family, namely, (Ba0.8Sr0.2)CeO3 and (Ba0.4Sr0.6)CeO3 are successfully synthesized in this paper. Briefly, a comprehensive set of potential candidates in the form of (A1-xA’x)BO3 and A(B1-xB’x)O3 compositions was compiled by exploring various combinations of elements from the periodic table that could occupy the crystallographic A-site and B-site of the perovskite structure. This process adhered to fundamental chemistry guidelines such as Pauling’s valency principle. The ML models were trained on a comprehensive experimental dataset acquired by exhaustively querying the inorganic crystal structure database (ICSD). This dataset consisted of 1758 perovskites and 227 non-perovskites, including their crystal structure information. Due to the dataset imbalance, ML classifiers in our prior work underwent 100 iterations, randomly sampling positive examples (perovskites) to match the number of negative examples (non-perovskites) for training and evaluation. The gradient boosting classifier which produced the best performance with a 94% classification accuracy was used to screen the 0.6 million candidates pool. Materials with a high predicted perovskite likelihood (>0.98) are identified as promising or potentially synthesizable perovskites. This resulted in a list of nearly 5000 compositions, which is still too large for a materials scientist to manually go through and select a few materials for synthesis. Here, we apply data mining and human expert knowledge to further down-select highly promising materials for synthesis. Our data mining strategy involves capturing uncharted materials that are closer to existing experimentally realized materials, retrieved by deriving composition embeddings. We use two embedding methods; (1) embeddings extracted from the latent space of a variational autoencoder (VAE) trained on experimental data, as described in our previous work, and (2) composition embeddings constructed by taking the weighted average of element embeddings adopted from Mat2vec, and Skipatom, approaches. The average Euclidean distance from each uncharted composition to its five experimental neighbors is calculated as reported in our earlier work. To calculate these distances systematically, we obtain ABO3 perovskites with energy above the convex hull below 10 meV-atom from the Materials Project database using the Pymatgen package, resulting in 487 compositions. Such materials are generally considered stable or meta-stable. The average cosine distance from each uncharted disordered composition to its parent ABO3 perovskites is then obtained using Mat2vec and Skipatom composition embeddings. Likewise, these distances are used to identify and rank disordered materials that are closer to existing materials in latent (or embedding) space. Additionally, we performed further data mining with human feedback, (Fig. 1, human operators guide research objectives, and recommend adjustments to the ML operation) considering the potential synthesis routes, with the availability of resources in the lab and chemical toxicity, specifically to remove potentially hazardous or unstable compositions based on existing literature. The ML-predicted materials that rank highest at the end of this data mining strategy are considered most likely to be synthesized successfully. Likewise, the named components from the barium family were identified as having a high likelihood of being synthesized in a single phase. Moreover, additional samples from the likely and the least likely ML-predicted materials were fabricated and tested. However, XRD results revealed multiple phases in these samples (Supplementary Fig. 14). It’s worth noting that while there are numerous studies on ML applied to perovskite-type materials,, very few validate ML predictions with experiments. Two major reasons for this are (1) ML models are usually not trained on failed synthesis attempts (lack of such published data), and (2) ML models are not typically informed about the subsequent complex synthesis process. In addition most ML-material studies focus on “local search,” limiting exploration to specific compositions or constrained cation/anion choices. While this method may have a higher success rate within existing composition spaces, it often leads to limited discovery of perovskites with desired properties. In contrast, “global search” explores all possible combinations of periodic table elements for perovskite structures. Our prior study, utilized a global search approach, screening promising disordered perovskite oxides from diverse element combinations. The present study demonstrates the limitations of relying solely on ML for experimental discoveries and highlights the importance of data mining, human expertise, and guidance from literature to successfully synthesize unexplored perovskites.
+The contour plot in Fig. 6a illustrates the screened sintering condition range and their impact on the XRD secondary phase peak for (Ba0.4Sr0.6)CeO3. This encompassed the examination of sintering temperatures ranging from 1250 °C up to 1400 °C and sintering holding times of 10, 15, 25, and 35 min. The contour plot also demonstrates that attaining a single-phase BSC family ML-predicted sample is achievable through two distinct strategies: employing elevated temperatures (>1350 °C) for shorter durations (<20 min) or employing lower temperatures for extended durations. The XRD analysis revealed that (Ba0.8Sr0.2)CeO3, which was sintered at 1400 °C for 10 min and (Ba0.6Sr0.4)CeO3 sintered at 1250 °C for 25 min, successfully achieved a single phase structure. Figure 6 also shows the crystal structure for both successfully synthesized ML-predicted compositions (Fig. 6d, e). Further details on their cell parameters and density information can be found in Table 2. In an ideal scenario, providing ML models with experimental recipes would enhance the precision of material synthesis predictions. Fig. 1b illustrates the prospect of incorporating AI decisions, literature data, and scientific expertise in this context. For example, Kirman et al. utilized a deep learning method to characterize perovskite single crystal growth in an HTE cycle, refining experimental conditions based on ML predictions. Unfortunately, generating synthesis predictions for ML-predicted materials remains challenging. With this setup, we generate the initial set of training data, including synthesis and structure data to explore more sophisticated machine learning algorithms that could be integrated into our system to further push the boundaries of innovation.
+[TABLE] Table 2 Cell parameters and density information for (Ba0.8Sr0.2)CeO3 and (Ba0.4Sr0.6)CeO3
+Single Phase ML-predicted perovskites
+Chemical formula | (Ba0.8Sr0.2)CeO3 | (Ba0.4Sr0.6)CeO3
+Formula weight | 315.505 | 295.621
+Crystal system | Orthorhombic | Orthorhombic
+Space group | Pnma | Pnma
+Unit cell dimensions | ɑ = 6.1925(5) Å | ɑ = 6.1692(4) Å
+b = 8.7674 (2) Å | b = 8.6751(6) Å
+c = 6.1906(5) Å | c = 6.0990(4) Å
+Volume | 336.10 (1) Å3 | 326.41(4) Å3
+Z | 4 | 4
+Density(calculated) | 6.235 g/cm3 | 6.016 g/cm3
+R-factors | Rwp = 0.0628 | Rwp = 0.0445
+Rp = 0.0461 | Rp = 0.0335
+x2 = 5.401 | x2 = 2.933
+RF2 = 0.0626 | RF2 = 0.0727
+Total No. of variables | 24 | 24
+No. of profile points | 3649 | 3649
+## Investigation of the particular dielectric behavior of the Pure-BST” sample
+Figure 7a, the SEM image for the Pure-BST sample appears to be covered with irregularly shaped grains of various sizes ranging from very large to very small after rapid sintering. The large grains, which are approximately 10–20 µm in diameter, dominate the image and are scattered throughout. On the other hand, the smaller grains are significantly more abundant, yet they are considerably smaller, varying from 1–5 microns in diameter. These smaller grains are scarcely noticeable at lower magnifications and display a noticeably smoother surface structure compared to the larger grains. The dielectric permittivity and dielectric loss measurements at both low and high frequencies with a DC-bias electric field revealed that this sample structure is not a simple parallel plate capacitor. The dielectric permittivity and loss of the measured ferroelectric cannot be simply calculated from the measured capacitance value and loss of the test structure by using the thickness of the sample and the area of the silver patch. Studies have reported that variations in the thickness of the oxide layer, the density of interface traps, and the bulk doping profiles of high-k gate dielectrics can impact the intrinsic oxide parasitic resistances, series resistances, and interfacial layer. These factors can cause differences between the actual sample structure and the test model used by the LCR meter, leading to inaccuracies and difficulties in retrieving the real dielectric constant. The C-V test typically assumes thin oxides to be capacitors with parallel resistors, as shown in Fig. 7b.1. For a high leakage current capacitor with an ultrathin gate dielectric, a three-element circuit model is commonly used (Fig. 7b.2). This design suggests that the measured capacitance during accumulation should not be viewed solely as the oxide layer capacitance but should also take into account the effects of both the gate leakage current and the loss due to AC conductance arising from interface traps and includes all of the series resistances. For low leakage current structures, the device is dominated by a series resistance only, which represents the internal loss (Fig. 7b.3). However, neither of the equivalent circuit methods described above can explain the behavior of the Pure-BST” accurately. The random distributed cavities present in the microstructure of the Pure-BST” causes localized heating of the capacitor regions when a DC bias is applied, leading to the thermal tuning of the samples. Taking into account these conditions and assuming the feature sizes of the structure are much smaller than the wavelength of the microwave signal, the test structure could be analysed following an equivalent circuit with three elements (Fig. 7b.4). The circuit includes an additional parallel resistor that acts as a model for the resistive cavities present in the microstructure of the Pure-BST”. This structure possesses peculiar tuning performance with a hybrid and simultaneous thermal/electrical bias as shown in Fig. 7c. As a sanity check, we placed a resistor across the terminals of a capacitor and recorded the same behavior. Although this effect amplifies the dielectric loss, its significance is limited to higher frequencies where only the intrinsic loss becomes relevant. The structure exhibits the capacity to improve its performance through optimization, and one may intend to report on this where careful design and modification of the structure is required.
+## Methods
+## Automated experimentation
+## Automated sintering
+To make a bulk sample, the powder pellets should be sintered into a dense block–. Typically, sintering for oxide dielectric materials is performed in an air furnace by heating them to the sintering temperature, holding it for an hour or more, and then cooling them to room temperature. However, traditional sintering poses various challenges such as extended processing durations, high energy consumption and CO2 emissions, rendering it impractical for high-throughput experiments. In this work, a compromised rapid heating system based on rapid annealing tube furnaces was developed. This sintering approach offers a controlled and automated method for sintering bulk oxide dielectric materials. Through the utilization of a high-temperature tube furnace model (M.L. Furnaces: ST14/50/180 with a maximum heating temperature of 1400 °C), along with the regulation of the heating and cooling rate, holding temperature, and hold time, the sintering procedure can be fine-tuned to enhance the density and dielectric performance. The use of a Eurotherm controller and an Arduino controller (Arduino Uno) allows for control and monitoring of the sintering process, further enhancing its efficiency and robustness. The use of a robotic arm and a vacuum module gripper (Fig. 2b) allows for the automated transfer of green pellets from the sample tray to the alumina sample holder, which can be inserted and retracted from the tube furnace by a motorized stage.
+## High-throughput dielectric characteristics details
+The samples produced through the high-throughput rapid sintering process are uniform in shape, having a consistent thickness and radius. We note from low-frequency measurements and the available literature that the ceramic samples that we are fabricating have high permittivity values (typically >1000) and permeability = 1. As disc-shaped dielectric resonators are known to support resonant modes that depend heavily on the dielectric properties of the material, the automated setup uses a free space dielectric characterization technique to measure the resonant modes within the hot samples in 0 to 3 GHz frequency range. This is done using the designated sensor which excites and measures the resonant frequency of the TM020 mode through closely coupled coaxial loops. The resonant frequency is directly related to the permittivity of the sample through Eq. 1,1\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$${{{\rm{\varepsilon }}}}^{{\prime} }={{{\rm{\varepsilon }}}}_{{{\rm{r}}}}={\left(\frac{1}{{{{\rm{f}}}}_{{{\rm{TM}}}020}}\frac{{{\rm{c}}}}{2{{\rm{\pi }}}}\sqrt{\left[{\left(\frac{5.520}{{{\rm{r}}}}\right)}^{2}\right]}\right)}^{2}$$\end{document}ε′=εr=1fTM020c2π5.520r22where c is the speed of light and r is the sample radius. This testing is relatively insensitive to sample geometry but is of limited use in our case, as all the samples have the same geometry. As the samples were removed from the furnace, they were placed between two coaxial loops of the sensor. A non-contact infrared temperature sensor (Optris, CS-LT) was positioned 30 mm below the samples to continuously monitor the temperature of the sample surface. The accuracy of the temperature sensor is ±1.5 °C with data points collected every second. The measuring probe was moved into and out of the measurement position using a motorized stage controlled by the main controller. To increase the cooling rate, a pneumatic solenoid valve was activated, which controlled the flow of compressed air to a cooling vortex tube. The transmission response S21 was measured through a Vector Network Analyser (VNA) model (Anritsu MS2036A). The frequency response was measured at 2-s intervals until the sample cooled to room temperature. The S21 peak shift was detected using MATLAB code, and permittivity was calculated using Eq. 1. To evaluate the performance of the automated measurements, a numerical model representing the sensor was built in CST Microwave Studio. The field maps confirm the excitation of the TM020 mode at the corresponding resonant frequency. The resonant frequency was measured and used to calculate the relative permittivity of a sample. The simulated results show good agreement with those values calculated via Eq. 1. The uncertainties for this measurement are calculated by the root sum-of-squares technique (RSS). To use RSS, a set of independent uncertainties were identified such as ε data fittings, resonant frequency (Half width half maximum (HWHM)) SD errors, and sample diameter measurements.
+## Human-in-the-loop analysis
+## Sample fabrication
+All samples were prepared by solid-state reaction methods. Stoichiometric amounts of barium carbonate (\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$${{\rm{Ba}}}{{{\rm{CO}}}}_{3}$$\end{document}BaCO3, Aldrich, 99%), strontium carbonate (SrCO3, Aldrich, 99.9%), titanium oxide (TiO2, Aldrich, 99.8%), niobium oxide (Nb2O5, Alfa Aesar, 99.9%), tantalum oxide (Alfa Aesar, 99.85%), hafnium oxide and zirconium oxide were ball milled at 180 rpm for 20 h. The mixture was dried and sieved, followed by calcination at 1000 °C for 4 h. The powder was ball-milled again, dried and sieved for pelletizing under 150 MPa pressure. For ML-predicted samples, the raw materials were hand-mixed with ethanol by a mortar and pestle. The dried powder was pressed into a pellet with 150 MPa pressure. All samples are pressed into pellets of 15 mm in diameter and ca. 1.5 mm in thickness. As a deviation from the normal process, the samples were partially sintered at 200 °C to enhance their mechanical strength and ensure that they could endure automated handling better.
+## Density, phase, and structural analysis
+The effectiveness of the high-throughput rapid sintering system was determined by rapidly sintering samples and subjecting them to various tests, including density measurements, SEM, and XRD. The Archimedes method was used to determine the volume density of the samples. The surface and morphology of the ceramic samples were observed by SEM. The phases present were analysed by XRD. Structural refinement was performed between the experimental and observed XRD patterns. R values (Rexp, RBragg, Rwp, Rp, Rf, x2) are reliability factors to examine the quality of fitting between the experimental and Rietveld-calculated diffraction peaks. These factors have been reported previously. This assured the accurate representation of material properties in the samples’ dielectric performance, preventing distortion due to porosity or the presence of secondary phases.
+## Low- and medium-frequency measurement procedures
+For all dielectric measurements below 1 MHz, the top and bottom surfaces of pellets were polished, coated with silver paste (Gwent Electronic Materials Ltd. Pontypool, U.K.) and heated at 250 °C to form electrodes.
+At low to medium frequencies (1 kHz to 1 MHz), the dielectric permittivity and loss were measured using a precision impedance analyzer (Agilent 4294 A) under DC bias electric fields (at 0 and 4 kV mm−1 at room temperature. The precision of signal frequencies ranging between 20 Hz and 1 MHz is ±0.01%. The dielectric loss tangent value is calculated as Eq. 2,2\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$$\tan {{\rm{\delta }}}=\frac{{{{\rm{\varepsilon }}}}^{{\prime\prime} }}{{{\rm{\varepsilon }}}^{\prime} }$$\end{document}tanδ=ε″ε′where ε’ and ε’’ is the real and imaginary part of complex dielectric permittivity. The setup consisted of an auto-balancing bridge that effectively adjusted the values of the internal components in a bridge configuration (Wheatstone), allowing for the measurement of the unknown sample. The following equation was then used to compute the electrical tuning of the samples,3\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$${{\rm{\tau }}}\left(\%\right)=\frac{{{{\rm{\varepsilon }}}}_{{{\rm{r}}}}\left(0\right)-{{{\rm{\varepsilon }}}}_{{{\rm{r}}}}\left({{\rm{E}}}\right)}{{{{\rm{\varepsilon }}}}_{{{\rm{r}}}}\left(0\right)}\times 100$$\end{document}τ%=εr0−εrEεr0×100where εr (0) and εr (E) are the relative permittivity at 0 electric field and with an electric field of E applied, respectively. To assess the overall dielectric tunable properties, the figure of merit (FOM) is defined as:4\documentclass[12pt]{minimal} \usepackage{amsmath} \usepackage{wasysym} \usepackage{amsfonts} \usepackage{amssymb} \usepackage{amsbsy} \usepackage{mathrsfs} \usepackage{upgreek} \setlength{\oddsidemargin}{-69pt} \begin{document}$${{\rm{FOM}}}=\frac{{{\rm{Tunability}}}}{\tan {{\rm{\delta }}}}$$\end{document}FOM=Tunabilitytanδ
+Additionally, the temperature-dependent dielectric permittivity was measured using a Curie point setup with an LCR meter model (Agilent 4284 A) at 1–100 kHz, which was connected to a cryogenic chamber that controlled the temperature from 80 °C to room temperature.
+Current-electric field (I-E) and polarization-electric field (P-E) loops were measured with a ferroelectric hysteresis measurement tester (NPL, UK) with voltage applied in a triangular waveform at 10 Hz. This technique applied very high electric fields (kV mm−1) at low frequencies (<1 kHz). Unlike other methods, permittivity was not measured separately from electrical biasing, as the exciting voltage was large enough and slow enough to serve as a biasing field itself. This allowed much higher fields to be applied at the expense of a much lower frequency of testing and ensured that we were not underestimating samples that had higher tunability but needed greater fields to achieve saturation. Thus, permittivity was extracted from the gradient of the P-E loop as a function of the field. All of these measurements were conducted at room temperature.
+High-frequency measurement procedure: For high-frequency measurements (range of 1–10 GHz), samples required smooth, flat surfaces and a coplanar waveguide pattern deposited on top. The CPW was achieved by using stainless steel (magnetic grade 400 series) metal masks that were laser etched using fiber laser technology (PrMat) (Supplementary Fig. 10). Samples were placed on a magnetic base, and the masks were positioned on top. They were coated four times with a silver target using a magnetron sputter coater (AGAR auto sputter coater) for 300 s at 40 mA. The permittivity of CPW patterned samples at 1–10 GHz was measured using a VNA along with a microprobe station (model: EVERBEING INT’L CORP, C-6 Probe Station) and a bias tee. With the EB-050 micro-positioner, the sample location under the probe was precisely adjusted in increments as small as 1 µm. Additionally, the equipment featured a hard chrome-plated platen, vacuum chuck, and standard anti-vibration mounts. Before measuring the samples, a standard calibration substrate (CS-5, GGB Industries) was used to calibrate the probe, and the calibration process was conducted through the short-open-load-through (SOLT) method.
+A fixed power exciting wave was passed through the bias tee, the microprobe, one end of the coplanar waveguide, and back out through the other side of the microprobe, a DC block, and back into the second port of the VNA. The transmitted signal S21 was then measured and compared to the reflected signal (S11) to evaluate the permittivity and the loss of the material. The bias tee allowed a DC voltage (0–2 kV mm−1) to be applied between the center conductor and the grounds on either side. The S21 phase shift is directly proportional to the permittivity of the CPW substrate, and any shift in the S21 phase during voltage/temperature biasing is due to tuning in the material. Tunability was then calculated through Eq. 3. Shown in Supplementary Fig. 13b, the SD error of the system, related to measurements before and after applying bias, corresponds to an average error of ±1.94%. Additionally, the thermal variation of permittivity (from ambient to 80 °C) was obtained by using a ceramic heater and a low-mass thermocouple. This measurement is susceptible to errors correlated with probes shifting at the microscale due to thermal expansion on heating. This phenomenon can introduce inaccuracies, which are difficult to address, especially at microwave frequencies where precise probe positioning is critical for reliable measurements. Supplementary Fig. 13 compares measurements at room temperature before and after heating, which were used to determine the error values of Table 1.
+## Figure captions
+Fig. 1 The workflow concept.a Starting from the top right and moving clockwise, the sequence initiates with machine learning models recommending sample library compositions, followed by automated pellet creation via the solid-state reaction (SSR) method, synthesizability validation (e.g., XRD), temperature tuning, real-time dielectric property measurements, and analysis linking dielectric attributes to the synthesis process. The cycle concludes with the updating of archives and the generation of AI-driven predictions for comprehensive cycle management and decision-making. b The SSR workflow encompasses five key steps, expedited by the integration of scientific expertise and AI-enhanced decision-making. c The experimental loop validates the initial machine learning predictions.
+Fig. 2 Robotic laboratory for high-throughput synthesis and characterization.a Digital representation of the automated platform for rapid sintering and free-space dielectric screening at GHz frequencies for solid-state ferroelectrics. The setup explores the relationship between sintering conditions and functional properties. b The robotic arm interacts with disc-shaped samples using a vacuum module mounted on the smart end effector, achieving a maximum transfer velocity of 1.5 m/s. c The robot used here is a 7-axis collaborative robotic arm-type (ABB single-arm YuMi), programmed based on C language.
+Fig. 3 The experimental setup for automated sintering and dielectric characterization of dielectrics.(1) Tube furnace, (2a) automated dielectric sensor connected to VNA (vector network analyser) and MATLAB graphical user interface, (2b) the four characterization methods used for evaluation of automated dielectric measurements, (3) sample holder and sample under test (SUT), (4) infrared temperature sensor, (5a) automated high-temperature tube furnace, (5b) priority matrix for sintering conditions and variables used for synthesizing single phase BTS and ML-predicted samples (refer to Supplementary Fig. 4a for detailed SEM images The red region indicates long duration and high energy consumption, yellow indicates resulting porous structures and secondary phases, and green indicates conditions that are both energy-efficient and sufficiently fast, (6) vortex tube, (7a) sample tray, (7b) introducing sample groups and green pellets fed into the experimental setup by scientist, and (8) collaborative robotic arm.
+Fig. 4 Automated dielectric characterization.a Automated measurement of the shift in transmission response S21 during temperature change (120–20 °C) for a representative sample (Sample 14 - ZrBST). b Thermal variation of dielectric permittivity for selected samples (Error bars represent the permittivity dispersion within the frequency range of 0.6–1.6 GHz). c Thermal variation of tunability for five selected samples (Error bars represent the standard deviation associated with linear fittings). d Tunability values between 25–65 °C for selected samples (Error bars represent the standard deviation of the system after repeated measurement, refer to Supplementary Fig. 6).
+Fig. 5 Low- and high-frequency measurements.a DC-field variation in the dielectric tunability at room temperature for selected samples at 100 kHz (Error bars represent the standard deviation associated with linear fittings), b thermal variation in the dielectric tunability (25–65 °C) for five selected samples at 50 kHz (Error bars represent the standard deviation of system after repeated measurement, refer to Fig. S8); c MicroProbe CPW (coplanar-wave-guide): DC-field variation in the dielectric tunability at room temperature for five selected samples at 1.3 GHz, (Error bars represent the standard deviation of system after repeated measurement, refer to Fig. S13. b, d MicroProbe CPW: thermal variation in the dielectric tunability (25–65 °C) for five selected samples at 1.3 GHz (Error bars represent the standard deviation of the system after repeated measurement, refer to Supplementary Fig. 13. a). Refer to Table 1 for more details.
+Fig. 6 Process-Structure analysis for ML predicted composition.a The contour plot of automated rapid sintering conditions displays the investigated range of variables and their impact on the XRD secondary phase peak of ML-predicted composition (BanSr1-n)CeO3. (The abbreviation “a.u.” denotes arbitrary units). b XRD profile of single phase (Ba0.8Sr0.2)CeO3, c XRD profile of single phase (Ba0.4Sr0.6)CeO3, d crystal structure of (Ba0.8Sr0.2)CeO3 (orthorhombic, Pnma), and e crystal structure of (Ba0.4Sr0.6)CeO3 (orthorhombic, Pnma). (The atom colors represent specific elements: green is Cerium (Ce), red is Oxygen (O), and purple/orange is Barium/Strontium.).
+Fig. 7 Distinctive behavior of Pure-BST".a SEM images for the Pure-BST sample rapid sintered at 1400 °C for 10 min. b Conventional LCR meters typically measure the device capacitance based on: (1) parallel capacitance model or (2) series, or (3) series and parallel model. (4) The proposed three-element equivalent circuit model for Pure-BST”. c DC-field variation in the dielectric tunability at room temperature for Pure-BST sample at 100 kHz.
+## Table footnotes
+Table 1 — Error calculations associated with: (a) SD linear fittings, (b) SD polynomial fittings, (c) system SD error, (d) system SD error, (e) SD dispersion linear fittings.
+## Supporting Information — 41467_2024_50884_MOESM1_ESM.pdf
+Supplementary Information
+Accelerated Discovery of Perovskite Solid Solutions through Automated
+Materials Synthesis and Characterization
+Mojan Omidvar1, Hangfeng Zhang1, Achintha Avin Ihalage1, Theo Graves Saunders1, Henry
+Giddens1, Michael Forrester2, Sajad Haq2, Yang Hao*1
+1 School of Electronic Engineering and Computer Science, Queen Mary University of London,
+Mile End Rd, Bethnal Green, E1 4NS, United Kingdom
+2 QinetiQ, Cody Technology Park, Farnborough, Hampshire, GU14 0LX, United Kingdom
+E-mail*: y.hao@qmul.ac.uk.
+Supplementary Figure 1. Manual synthesis and characterisation timeline. The average time required for the manual
+workflow of synthesis and characterization of bulk ferroelectrics such as BST. Red outlines indicate the steps selected for
+automation.
+Supplementary Figure 2. XRD patterns. Rietveld fitted XRD patterns of: (a) to (e) B site (Ta/Nb/Zr/Pure/Hf) doping in BST
+rapidly sintered using the high-throughput setup, (f) BTS12-1350°C, and (g) BTS12-1400°C.
+Supplementary Figure 3. Sintering temperature vs. density. Density of BTS12 samples sintered at different temperatures.
+Supplementary Figure 4. Impact of sintering on BTS12. a) The SEM images of BTS12-1300°C, BTS12-1350°C, BTS12-
+1400°C, (b) P-E/I-E loops of BTS12-1350°C and BTS12-1400°C measured at 10 Hz at room temperature.
+Supplementary Figure 5. Dielectric permittivity vs. frequency. Frequency dependence of normalized dielectric permittivity
+measured at room temperature with linear fitting for selected samples using CPW technique.
+Supplementary Figure 6. Temperature dependence of normalized dielectric permittivity. Measurements during
+heating and cooling samples using automated sensor.
+Supplementary Figure 7. Electric field dependence of dielectric loss and permittivity. Electric field dependence of
+dielectric loss (blue) and permittivity (black) measured at 100kHz for selected samples.
+Supplementary Figure 8. Heating/Cooling effects on permittivity. Temperature dependence of normalized dielectric
+permittivity measured at 50 kHz on heating and cooling.
+Supplementary Figure 9. Curie temperature measurements. Curie temperature measurement for (a) BTS12 and (b)
+BTS16.
+Supplementary Figure 10. CPW patterns. Top-down images of CPW patterns used for measuring the dielectric permittivity
+and tunability of all five selected samples. (a) The mask sputtered on all samples. (b) Straight CPW transmission line with
+transition used.
+Supplementary Figure 11. Microwave permittivity under DC bias. Dielectric permittivity of the five selected samples
+measured at microwave frequencies under DC bias field.
+Supplementary Figure 12. Microwave permittivity under temperature bias. Dielectric permittivity of the five selected
+samples measured at microwave frequencies under different temperatures.
+Supplementary Figure 13. Permittivity measurement error with CPW. Microprobe SD system Error measurements.
+Frequence dependence of normalized dielectric permittivity at room temperature before and after (a) heating process and (b)
+bias DC field.
+Supplementary Figure 14. XRD patterns of ML-predicted compositions. XRD patterns of ML-predicted compositions
+calcining at different temperatures; namely, (a) (𝑆𝑟0.5𝑃𝑏0.5)𝐶𝑒𝑂3, (b) (𝑆𝑟0.2𝑃𝑏0.8)𝐶𝑒𝑂3, (c) (𝐿𝑎0.3𝐵𝑖0.7)𝐶𝑟𝑂3 and (d)
+(𝐾0.5𝐵𝑖0.5)𝐶𝑒𝑂3.
+## Supporting Information — 41467_2024_50884_MOESM2_ESM.pdf
+Peer Review File
+Accelerated Discovery of Perovskite Solid Solutions through
+Automated Materials Synthesis and Characterization
+Corresponding Author: Professor Yang Hao
+Version 0:
+Reviewer comments:
+Reviewer #1
+(Remarks to the Author)
+The authors address the challenges in accelerating the discovery and sustainable synthesis of perovskite solid solutions.
+The acceleration is particularly discussed in the context of the complexity arising from the vast range of chemical
+compositions and certain key descriptor such as crystal structure and doping which usually entails extensive manual work.
+An innovative automated materials discovery approach is proposed by the authors to overcome those challenges. Their
+approach to expedite the exploration of perovskite materials combines machine learning (ML) for material screening with
+robotic synthesis, and high-throughput characterization. The authors claim that the proposed self-driving lab is efficient in
+processing materials in a fraction of time compared to traditional procedures that often may take many hours or days.
+In general, the proposed materials discovery and acceleration strategy is innovative and novel. It contains materials and
+novel approaches that make it suitable for the journal and its wide readership. It clearly demonstrates multi-disciplinary and
+multi-functional efforts, which are required for well integration of the materials screening output with robotic-controlled
+synthesis and support from on-line or off-line characterization tools.
+To my opinion, there are a few aspects in the methodology, workflow and overall acceleration approach that still need further
+clarifications to assess and better demonstrate the novelty of the proposed approach. In its current form, the manuscript lacks
+enough details to judge whether the approach will go beyond state of the art within the ecosystem of digital discovery and
+self-driving robotic labs.
+Introduction:
+- How do factors such as crystal structure, temperature, and doping contribute to the complexity of perovskite solid solution
+synthesis, and why are manual processes time-consuming? What are the key descriptors or approaches that manual work is
+currently taking to optimize the synthesis process? IF those are un-known, how the ML is helping in that regard?
+- Related to the above, how do factors such as crystal structure, temperature, and doping contribute to the complexity of
+perovskite solid solution synthesis, and why are manual processes time-consuming?
+- How do the results of the paper contribute to the broader field of materials science and the development of advanced
+materials for applications like wireless communication and biosensors?
+- I am not yet convinced why accelerating perovskite solid solution discovery considered very crucial? How about the
+economics of the current process and scale up compared to the new process?
+- What components make up the proposed automated materials discovery approach, and how do they contribute to
+overcoming the constraints of traditional methods?
+ML model
+- It is not quite clear in what ways the automated platform exhibit versatility, and what role does ML-guided chemistry play in
+the synthesis of single-phase novel perovskite solid solutions? There is a no or little mention and explanation of the machine
+learning model and its core search algorithm. The author stated that previous ML-based studies for perovskite materials
+lacked validation with experiments, thus making this work different from those studies. Since no clear process related to
+training datasets, algorithms and testing/validation is provided, it is hard to judge if the current work offers any new insights.
+To my opinion the parameter space governing sintering conditions (temperature, time, and cooling rate) is not well
+articulated in view of workflow optimization and ML-assisted loop.
+Methodology/results:
+- Some figures were missing or were mis-placed in the original submission. This needs to be checked again in the new
+revised submission as some references to the figures still do not make sense (captions for Figures 5 and 6 for example and
+their references in the text)
+- Dielectric Permittivity Changes: How precisely were the changes in dielectric permittivity measured in response to
+variations in electric field and temperature?
+Need to elaborate on the specific mechanisms through which metastable domains
+contribute to the observed large changes in dielectric permittivity?
+- Annealing Conditions: What specific annealing conditions were optimized to induce the presence of metastable domains?
+How were these annealing conditions determined to be optimal, and what criteria were used to evaluate their effectiveness?
+Again this could be due to lack of enough information on ML and optimization framework.
+- Sintering Effects: How does the sintering process, including phenomena like dopant movement, vacancy formation, and
+grain growth, directly impact the microstructure of the material?
+- Highly beneficial to provide insights into the relationship between the observed microstructure changes and the resulting
+properties of the material? Is there any descriptor already identified and used in the ML model for prediction purposes?
+- Time Frame for Synthesis and Optimization: What are the challenges associated with the time frame for manual synthesis,
+discovery, and optimization methods, particularly in the context of the exponentially increasing number of conditions and ML-
+predicted compositions?
+Finally: How do the results of the paper contribute to the broader field of materials science and the development of advanced
+materials for applications like wireless communication and biosensors?
+Reviewer #2
+(Remarks to the Author)
+The creation of new automated workflows for technologically relevant materials is of interest and is timely. The work
+presented here contains an interesting automated platform, designed for a specific task (making development tractable).
+Better benchmarking would enhance the value of this work.
+The evaluation of the sintering using XRD and SEM is telling. The XRD patterns look good, and the samples are the
+intended targets with limited impurity phases. The ‘odd grains’ shown in Figure S2a reveal potential problems. The authors
+note the presence of the odd grains at 1400, while the progress is clearly present at 1350. Did the samples melt?
+The authors note the importance of experimental verification of proposed hypothetical compounds or synthetic routes. I
+would urge caution regarding the value in computational materials discovery. It should be noted that relative energies of
+hypothetical materials are often used as a proxy for synthesizability. The complexity of the actual syntheses is correctly
+noted to be potentially complicated. Having said that, the authors need to better cite the work they are discussing. The
+literature is rich.
+The generation of the two proposed phases using ML techniques is opaque. The authors reference past efforts (with
+citation), but the phrase “further data mining with human feedback” needs actual information. How were the target phases
+determined to be “having a high likelihood of being synthesized in a single 297 phase”? How many targets were generated?
+What selection criteria were used? Were attempts to synthesize and study more than two performed? If so, what were the
+others and what success rates were observed? The section on the ML efforts does not fit with the rest of the work presented
+here. The rest is largely a benchmarking study of the automated platform, rightly using established materials. The proposed
+phases currently read as ‘we can study other things too’ with two examples provided.
+The utility of the robotic platform seems based upon the ability to add and remove samples from the furnace. How does the
+use of a motorized stage affect cooling rates? How does the rate using this automated platform compared to purely human
+efforts?
+Reviewer #3
+(Remarks to the Author)
+The paper ‘Accelerated Discovery of Perovskite Solid Solutions through Automated Materials Synthesis and
+Characterisation’ presents a new automated laboratory set-up that is designed to accelerate the discovery of new solid state
+oxide materials, in this instance in the space of perovskite solid solutions. This approach combines machine learning to
+predict interesting new compounds, robotic synthesis to explore the processing condition space and high-throughput
+characterisation to assess the newly generated materials. I think that overall this is a timely addition to a very important
+emerging topic in chemistry, i.e. automated synthesis. There has not been very many demonstrations of solid-state
+laboratory automation (with the notable exception of the recent A-Lab paper in Nature) and the techniques demonstrated
+here can make a significant contribution to the field. I do however have some points that I think need to be addressed before
+this paper is suitable for publication in Nature Communications.
+Data: I don’t see any indication of where the data used or generated in this study is being made available. In my opinion one
+of the major benefits of this kind of study is the high-quality data (with good meta data) generated. To make this an impactful
+study the data should be made publicly available.
+In the section on ‘Evaluation of automated rapid sintering’:
+• the authors conjecture that the different grain structure resulting from rapid sintering should not affect the dielectric
+properties. I think that this needs to be confirmed empirically. This could be achieved by synthesising the same material
+composition using a more standard slower route and comparing the dielectric performance. This control test is important for
+the premise of the paper.
+• The authors settle on BTS12-1350 as the optimal combination of composition and processing. How does the dielectric
+performance of this material compare to current state-of-the-art BTS?
+In the section ‘Evaluation of automated dielectric characterisation’
+• The reported results seem to have a very large variation, depending on the technique used. These variations should be
+discussed. What are the implications for real-world performance?
+In the section ‘Exploring single-phase sythesisability …’:
+• The authors say that certain materials were ‘identified as having a high likelihood of being synthesised in a single phase’.
+There needs to me more detail on how this identification was performed.
+Overall assessment
+I think that this is a very interesting paper and the results contribute to an important area of materials science. However, I
+think that there are details missing in the manuscript. With the addition of these details and demonstrating how well newly
+developed materials compare to the current state of the art, I think that this will be a good paper for Nature Communications.
+Reviewer #4
+(Remarks to the Author)
+In this work, the authors developed an advanced material discovery methodology that integrates machine learning
+techniques, robotic-controlled synthesis, and high-throughput characterization. To solve the challenge of measuring
+dielectric properties under electric field, a free-space sensor is developed for online screening of thermal tunability with no
+sample surface modification required. However, for the current version of this manuscript, the novelty of this is insufficient
+and might be suitable for other journals. The following issues should be addressed:
+1.In the initial validation step, the authors chose multiple compositions from 3 family groups. The rationale behind this
+selection needs further elaboration. How do the authors ascertain the ferroelectric properties of a material prior to its
+synthesis?
+2.The authors noted that the sintering temperature directly influences the grain sizes of the samples. Would the sintering
+temperature similarly have a direct impact on the dielectric characteristics of bulk ferroelectric materials?
+3.Thermodynamic phase diagrams have proven to be successful predictive tools in comprehending scale growth (J. Phys.
+Chem. Lett. 2022, 13, 6236–6243). The authors are encouraged to delve into a discussion on the formation of secondary
+phases from a thermodynamic perspective.
+4.The authors are advised to provide a detailed introduction to the methodology of machine learning techniques and DFT
+calculations within the manuscript, rather than solely referencing their prior work. Moreover, the performance and discussion
+of ML should be added in the manuscript.
+5.The machine learning model employed in this study focuses solely on the synthesis feasibility of perovskites. In order to
+enhance the exploration of functional materials possessing both high synthesis feasibility and exceptional properties, could
+the authors contemplate developing a machine learning model that takes into account both synthesis feasibility and
+ferroelectric properties?
+Author Rebuttal letter:
+Response to reviewer 1
+Reviewer #1 (Remarks to the Author):
+The authors address the challenges in accelerating the discovery and sustainable synthesis of
+perovskite solid solutions. The acceleration is particularly discussed in the context of the complexity
+arising from the vast range of chemical compositions and certain key descriptor such as crystal
+structure and doping which usually entails extensive manual work. An innovative automated materials
+discovery approach is proposed by the authors to overcome those challenges. Their approach to
+expedite the exploration of perovskite materials combines machine learning (ML) for material
+screening with robotic synthesis, and high-throughput characterization. The authors claim that the
+proposed self-driving lab is efficient in processing materials in a fraction of time compared to
+traditional procedures that often may take many hours or days.
+In general, the proposed materials discovery and acceleration strategy is innovative and novel. It
+contains materials and novel approaches that make it suitable for the journal and its wide readership.
+It clearly demonstrates multi-disciplinary and multi-functional efforts, which are required for well
+integration of the materials screening output with robotic-controlled synthesis and support from on-
+line or off-line characterization tools.
+To my opinion, there are a few aspects in the methodology, workflow and overall acceleration
+approach that still need further clarifications to assess and better demonstrate the novelty of the
+proposed approach. In its current form, the manuscript lacks enough details to judge whether the
+approach will go beyond state of the art within the ecosystem of digital discovery and self-driving
+robotic labs.
+We sincerely appreciate the time and dedication invested by reviewer in providing thoughtful and
+valuable feedback on our manuscript.
+Introduction:
+1. How do factors such as crystal structure, temperature, and doping contribute to the complexity of
+perovskite solid solution synthesis? why are manual processes time-consuming? What are the key
+descriptors or approaches that manual work is currently taking to optimize the synthesis process? IF
+those are un-known, how the ML is helping in that?
+Re: The synthesis of perovskite solid solutions is a complex process, which can be influenced by various
+factors. Crystal structure, temperature and doping play significant role in the materials preparation,
+which influence the materialsâ​ electrical properties. The crystal structure can vary based on the
+compositions, which affect functional properties of the material, such as ferroelectricity, conductivity
+and magnetic property. Sintering temperature is the main influential step in the synthesis of ceramics
+which affect the crystallization rate, phase stability, grain size, density and the quality of final ceramics.
+Doping is a chemical modification to introduce elements into the perovskite structure to tailor its crystal
+structure and physical properties. Each individual task involves adjusting the stoichiometry from 1 to x
+conditions, resulting in a vast matrix of possible synthesis combinations. This limitation is further
+escalated due to the need for the exploration of a virtually infinite numbers of compositions and
+therefore trial-error based discovery, and optimization methods are extremely time consuming.
+Conventional approaches to discovering and refining materials, including perovskite solid solutions,
+are often laborious and resource-intensive. This is attributed to the vast chemical space, repetitive tasks,
+the need for manual sample modification before testing, and the reliance on the skill level and expertise
+of technicians. Additionally, optimizing traditional tools and methods for the characterization to achieve
+both speed and efficiency can be challenging. In particular, material sintering is one of the most time
+consuming steps in the synthesis workflow (typically 12 hours per sample including heating and cooling
+steps). Another bottleneck is the challenges associated with high frequency characterisation. In addition
+every material discovery workflow can be unique to its hypothesis question and requires specific
+1
+​adjustments to previous automated setups. We have now modified the manuscript accordingly on Page
+2, Ln 35-39, Page 3, Ln 58-64, and Page 3, Ln 66-90.
+The key descriptors or approaches in manual works are based on systematic adjustment to: find the
+optimal stoichiometric ratio of the constituent elements of existing materials, doping with certain
+elements which can affect the physical properties, improving synthesis tasks such as ball milling
+methods which are employed to enhance the homogeneity of the powder, improvements in sintering
+conditions including temperature and duration, to achieve dense, well-crystallized samples with desired
+properties. One way is proposed by Dreger et al. such that an approach centred around establishing a
+novel data model based on ontologies to form the cornerstone of a remarkably adaptable data
+infrastructure tailored for fabrication, measurements, and simulations. However, incorporating different
+variables, especially, the temperature in ab-initio simulations may not be straightforward and very
+computational demanding especially for compositionally disordered materials such as perovskite solid
+solutions. We have been exploring the idea of ML for material discovery over the past few years. One
+possible avenue which we explored is representing new potential perovskites and existing experimental
+ferroelectrics using embedding vectors extracted from a neural network and identifying new materials
+that are closer in distance to known ferroelectrics. While this may improve our chances of discovering
+new materials with functional properties, we realized that there may be issues with synthesisability of
+these new materials, therefore, we have designed this setup for high throughput experimentation and
+validation.
+In this study, our ML focussed on â​global searchâ​ where we attempt to experimentally discover new
+materials from nearly all possible candidates that can exist in a quaternary disordered format, with the
+hope of discovering materials with novel properties. Another idea that we examined over time is the so
+called â​local searchâ​ which may yield in higher success rate in synthesising novel materials with target
+properties, such as ferroelectricity. With this, the ML screening is applied to a limited set of candidate
+materials, for example, those that contain A-site and B-site elements from a widely known family of
+compositions that are likely to form stable ferroelectrics, but with properties not very different from
+existing ferroelectrics in the same family. For instance, Balachandran et al., explored
+xBi[Meâ​²yMeâ​³(1â​y)]O3â​(1â​â​â​x)PbTiO3-based ferroelectric perovskites using ML, where the choice of Meâ​²
+and Meâ​³ come from a small set of elements. [Balachandran, P. V., Kowalski, B., Sehirlioglu, A. &
+Lookman, T. Experimental search for high-temperature ferroelectric perovskites guided by two-step
+machine learning. Nat Commun 9, 1668 (2018).] According to their study, there are over 150
+compositions already studied in this family which indicates higher likelihood of synthesis of altered,
+but not yet synthesised materials. In fact, this study demonstrates several successful syntheses of new
+materials. This is what we refer to as local search.
+2- Related to the above, how do factors such as crystal structure, temperature, and doping contribute to
+the complexity of perovskite solid solution synthesis, and why are manual processes time-consuming?
+Re: This appears to be the same as question 1.
+3- How do the results of the paper contribute to the broader field of materials science and the
+development of advanced materials for applications like wireless communication and biosensors?
+Re: In this manuscript, the high-throughput materials preparation and characterization at microwave
+frequency was performed and results were analysed and screened for wireless communication and
+biosensors. For instance, the changing of the dielectric permittivity with temperature indicate the
+tunability performance of perovskite materials which is an important indicator for microwave
+communication applications. Perovskite materials can be modified to exhibit specific responses to
+biological stimuli, making them suitable for biosensors. By modifying the synthesis method we can
+enhance sensitivity, selectivity, and stability of biosensors, which are crucial for medical diagnostics,
+2
+​environmental monitoring, and biosecurity. From a materials perspective, our research successfully
+synthesizes two novel ML-predicted perovskites in the barium based perovskite family. Our automatic
+rapid sintering platform can be used for a broader material range, particularly for those oxide materials
+which need sintering at high temperature being x12 faster than conventional methods. Furthermore,
+when compared the dielectric performance of rapid sintered sample with its identical twin prepared
+using conventional methods, we observed optimised tunning performance at GHz frequencies (Please
+see Page 13, Ln 299-304). In our study, we also uncovered unique dual tuning behaviour for Pure BST
+as a result of the rapid sintering process. We have now modified the manuscript on Page 2, Ln 32-35,
+accordingly. In terms of laboratory automation, the SDL illustrated in the added Fig. 1 is a customizable
+framework with relevant discussion on Page 3, Ln 61-65 and Page 16. Here we have adjusted it for
+dielectric materials, however, this has potential to adapt and integrate into workflows for various other
+fields by substituting the specific steps with those relevant to the material of interest.
+4- I am not yet convinced why accelerating perovskite solid solution discovery considered very crucial?
+How about the economics of the current process and scale up compared to the new process?
+Re: Accelerating the discovery of perovskite solid solutions is considered crucial both in terms of
+scientific advancement and practical applications. Understanding the economic implications of this
+acceleration, especially when comparing current processes and scalability to potential new processes,
+is also important. Perovskites have unique and versatile properties (like high photovoltaic efficiency,
+superconductivity, ferroelectricity) that make them attractive for a wide range of applications, including
+renewable energy, electronics, and sensors. Faster discovery can lead to quicker implementation of these
+materials in practical applications. Rapid development and optimization of perovskites can drive
+technological innovations in various fields, including telecommunications, computing, and medical
+diagnostics. One of the challenges with perovskite materials is their stability and the use of toxic
+elements like lead. Accelerating research can help find solutions to these issues more quickly, leading
+to safer and more sustainable materials. In addition, conventional methods of discovering and
+optimizing perovskite solid solutions, can be time-consuming, costly and resource-intensive.
+Conventional sintering approach comes with constraints, encompassing elevated energy consumption
+and notably high ð​¶ð​2 emissions (for perovskite takes 2-6 hrs at temperatures>1200C). Considering the
+number of experiments required for experimentally validating ML predictions, conventional sintering
+is not suitable for rapid evaluation. Accelerated discovery and optimization processes, potentially
+enabled by machine learning and automation, could significantly reduce the time and resources required
+to develop new materials. We now have modified the manuscript on Page 3, Ln 58-62 and Page 13
+accordingly.
+5- What components make up the proposed automated materials discovery approach, and how do they
+contribute to overcoming the constraints of traditional methods?
+Re: The components are as shown in Figures 2 and 3 and Figure 1 illustrates how they are integrated
+with the rest of the discovery system. Traditional methods are explained in Figure S1 and Page 3, Ln
+61-65, Page 4, Ln 90-97. The current study demonstrate high throughput material experimentation
+system that can rapidly synthesize and test a large number of material samples. This accelerates the
+process of finding optimal material compositions and synthesis conditions, a task that is exceedingly
+time-consuming and labour-intensive with traditional characterisation methods. Machine learning
+algorithms can analyze large datasets to identify patterns, correlations, and key factors influencing
+material properties. This can significantly reduce the reliance on trial-and-error methods and human
+intuition, leading to more efficient and effective discovery processes. Robotic systems automate
+repetitive and precise tasks in material synthesis and characterization, improving the consistency and
+throughput while reducing human error and labour costs. Integration of these components into a
+cohesive system with feedback loops allows for continuous improvement in material research. Rapid
+3
+​data collection from experiments can inform computational models, which in turn can guide future
+experiments, creating a more efficient and iterative discovery process.
+ML model
+6- It is not quite clear in what ways the automated platform exhibit versatility, and what role does ML-
+guided chemistry play in the synthesis of single-phase novel perovskite solid solutions? There is a no
+or little mention and explanation of the machine learning model and its core search algorithm. The
+author stated that previous ML-based studies for perovskite materials lacked validation with
+experiments, thus making this work different from those studies. Since no clear process related to
+training datasets, algorithms and testing/validation is provided, it is hard to judge if the current work
+offers any new insights. To my opinion the parameter space governing sintering conditions
+(temperature, time, and cooling rate) is not well articulated in view of workflow optimization and ML-
+assisted loop.
+Re: Thank you for pointing out missing details in our ML workflow. Under the section â​Exploring
+single-phase synthesisability of ML-predicted compositions via the automated sintering
+approachâ​, we have now added a comprehensive explanation of our ML-guided screening strategy of
+promising perovskites from a large combinatorial space of candidates, attributing to our previous work
+where needed. All data including the experimental database of 1758 perovskites and 227 non-
+perovskites, list of ML-predicted perovskite solid solutions, and code were shared in our prior study.
+Briefly, a large pool of all possible disordered compositions (0.6M) in the format of (A1-xAâ​x)BO3 and
+A(B1-xBâ​x)O3 was created by enumerating periodic table elements that are reported to occupy A-site
+or B-site of perovskite structure. ML classification models were trained on a sufficiently large
+experimental database of perovskite and non-perovskite compositions extracted from the ICSD
+database. The models were then applied to classify every material in the pool of 0.6M candidates into
+perovskite or non-perovskite categories. Materials with a high predicted perovskite likelihood (>0.98)
+are identified as promising or potentially synthesisable perovskites.
+However, we identified several drawbacks of relying solely on ML predictions for synthesisability,
+particularly because 1) ML models are not typically trained on failed synthesis attempts (lack of such
+published data) and 2) ML models are not informed about the subsequent complex synthesis process.
+Therefore, here we used further data mining, specifically, identifying new materials that are closer to
+existing materials in latent (or embedding) space as described in the main text. This categorised
+potential samples in 3 groups: highly likely (close to existing), best overall, and high risk(away from
+existing). A material scientist sifts through top ranked candidates, taking into account their potential
+synthesis routes that maybe consistent with their parent ABO3 perovskites, the resource availability in
+the lab, and element toxicity, and their intuition to handpick a number for automated synthesis.
+In this study, we focus on data mining and human knowledge guided detection of highly likely single-
+phase materials. Incorporating temperature in ab initio simulations have not been straightforward
+especially for compositionally disordered materials such as perovskite solid solutions. Such
+investigations require dedicated research (e.g., special quasirandom structures (SQS) based modelling
+approaches, molecular dynamics, etc.) that can be very computationally demanding. It should be noted
+that, the rapid sintering is designed to explore the sintering conditions (temperature, time, etc.,) in this
+work as there is no such data available for these new unknown materials. This way we can validate the
+synthesisability of our predictions. The application of ML lies in the screening stage of promising
+disordered perovskites from all possible candidate compositions. The relevant discussion on the ML
+has been modified in the manuscript on Page 14-15, accordingly.
+Methodology/results:
+7- Some figures were missing or were mis-placed in the original submission. This needs to be checked
+4
+​again in the new revised submission as some references to the figures still do not make sense (captions
+for Figures 5 and 6 for example and their references in the text)
+Re: Please accept our apologies for the inconvenience caused. We have noticed the issue and informed
+the associate editor as soon as it came to our attention. Please note that Figure.4 has been included.
+8- Dielectric Permittivity Changes: How precisely were the changes in dielectric permittivity measured
+in response to variations in electric field and temperature?
+Re: Thank you for pointing this. We have revised our data analysis, providing more detailed discussion
+of the values with a focus on Error calculations. Additionally, we have included data in the SI section
+to explain these adjustments.
+In general, the measurement of dielectric permittivity and loss under electric field and temperature
+involves various experimental techniques and instruments. It is very well expected that material
+properties, such as dielectric constants and conductivities, can undergo substantial changes across the
+frequency spectrum (from kHz â​ GHz). Typically, for bulk ceramics, we measure and compare the
+tunabilities at both low and high frequencies and correlate the behaviour changes in local structure.
+In this paper, we have a total of 5 techniques for measurements including the automated measurement
+technique. We have now added error values in the Table. 1, representing the variability, uncertainty and
+accuracy inherent in our recorded data. For instance:
+Low frequency: typically low frequency measurements should be taken to be more reliable because of
+the simplicity of the technique, repeatable dielectric response (Fig. S6), and high impedance, which
+helps to reduce sample loading effects and improve the accuracy of the measurements. That is why both
+the system and random uncertainty of these measurements are very low (Refer to Table. 1 and discussion
+in Page 9-10).
+High frequency measurements however are associated with different challenges including increased
+propagation losses, effects of transmission lines, and noise. For high frequencies, we have measured
+our samples across 1-6GHz. We now refined and selected to present 1.3 GHz. This selection was guided
+by two key considerations: firstly, it provided a comparable frequency range for analyzing alongside
+the robot study, particularly as most observed shifts in resonance frequency occurred within the 0.6-1.6
+GHz range; and secondly, beyond 2 GHz, complexities such as dispersion and dielectric relaxation
+become more evident, introducing greater uncertainties as shown the figure below and Fig. 5. As stated
+in page 12, â​For CPW measurements, the accuracy of the obtained values depends significantly on the
+measured S-parameters. Therefore three different line lengths (0.5 mm, 0.8 mm, and 1 mm) were used
+to increase the accuracy of the measurement. In this way, the calculated characteristic impedance inside
+was also checked to verify the correctness of the measured valuesâ​.
+For instance, CPW temperature is susceptible to errors correlated with probes shifting at microscale due
+to thermal expansion during sample temperature change. This phenomenon can introduce inaccuracies
+difficult to address, where precise probe positioning is critical for reliable measurements; The SD
+system error is calculated using comparison of measurements before and after heating the samples.
+Figure S13 and Table 1.
+In terms of practical application, the most likely use of such materials would be at high frequencies,
+however these measurements come with challenges stated above. Most studies might perform only low-
+frequency measurements and use extrapolation techniques to estimate the behaviour of materials or
+devices at higher frequencies. Please refer to the discussion in Page 12-13.
+For the automated sensor, we have refined our calculations to increase accuracy of measurements by
+accounting sample dispersion. The observed reduction in permittivity from 0.6 to 3 GHz frequencies
+5
+​via CPW room temperature suggests a relaxation process commonly seen in ferroelectric ceramics. As
+a result, a correction factor for dispersion has been applied to the tunability calculations of the
+automated sensor. This entailed computing the corresponding permittivity value at ambient for the
+resonant-frequencies observed at high temperatures. Figure. S6 illustrates a close agreement between
+automated sensor measurements during the cooling and heating of the sample achieving a system SD
+error of only 0.89%. The repeatability of these measurements introduces an error of less than 1.5%. For
+a detailed uncertainty analysis, please refer to methodology section.
+To evaluate the performance of the automated measurements, a numerical model representing the sensor
+was built in CST Microwave Studio. The simulated results show good agreement with those values
+calculated via Equation (1).
+The uncertainties for this measurement is calculated by the root sum-of-squares technique (RSS). To
+use RSS, a set of independent uncertainties were identified such as Îµ data fittings, resonant frequency
+(Half width half maximum (HWHM)) SD errors, and sample diameter measurements.
+We now have modified the manuscript on Page 19-23 accordingly. Added figures in SI Fig. 5, 6, 8, and
+13.
+9- Need to elaborate on the specific mechanisms through which metastable domains
+contribute to the observed large changes in dielectric permittivity?
+Re: Samples with larger grain exhibit higher dielectric tunability and reduced dielectric loss, which is
+attributed to the higher concentration of polar nano clusters within the material. These clusters,
+embedded in a non-polar matrix, consist of dipoles randomly oriented yet highly responsive to external
+electric fields. Upon application of such fields, the nano polar clusters align rapidly along the field
+direction. This alignment not only expands the polar regions with aligned polarization but also restrict
+the mobility of the dipoles, consequently decreasing the dielectric permittivity. The discussion related
+to the polar nano clusters have been modified accordingly on Page 13, Ln 304-310.
+10- Annealing Conditions: What specific annealing conditions were optimized to induce the presence
+of metastable domains? How were these annealing conditions determined to be optimal, and what
+criteria were used to evaluate their effectiveness? Again this could be due to lack of enough information
+on ML and optimization framework.
+Re: The determination of optimal annealing conditions in materials involves assessment of density,
+phase creation, and property of interest. Sintering process involves four variables, heating rate, sintering
+temperature, holding time and cooling rate. Each of these can be adjusted to find the optimum sintering
+6
+​condition. In the present study, we altered sintering temperatures to prepare different ceramic samples.
+Our aim was to characterize their structure and properties to achieve single phase materials that exhibit
+optimal performance. Our evaluation focuses on density, dielectric permittivity and tunability to assess
+the influence of sintering conditions on the materials. The higher dielectric tunability in the studied
+materials suggests a greater concentration of the polar nano clusters. Here the optimal sintering also
+refers to the condition to synthesise single phase perovskite structured material. In more advanced
+research settings, ML can play a significant role in optimizing annealing conditions. ML algorithms can
+analyse vast datasets from experimental trials to identify patterns and correlations, which might not be
+apparent through traditional analysis. This can help in predicting the most effective sintering condition.
+However, the effectiveness of ML heavily depends on the availability of comprehensive and high-
+quality data. Without enough information or a well-structured optimization framework, the application
+of ML might be limited.
+11- Sintering Effects: How does the sintering process, including phenomena like dopant movement,
+vacancy formation, and grain growth, directly impact the microstructure of the material?
+Re: The sintering process is a critical step in the fabrication of many materials, particularly ceramics,
+and has a profound effect on their microstructure. Several phenomena that occur during sintering, such
+as dopant movement, vacancy formation, and grain growth, directly impact the microstructure of the
+material. Different dopants can be used to modify the sintering process such as inhibiting /promoting
+the grain growth, changing surface energy of the particles or improve the diffusion of the atoms. High
+temperature sintering process can lead to the formation of the vacancies particular oxygen vacancies,
+creating empty site in the crystal lattice. The higher the sintering temperature, the higher concentration
+of the oxygen vacancies are formed. These vacancies can greatly influence the materials properties,
+such as dielectric, conductivity and mechanical properties. In general, higher sintering temperature
+leads to higher grain growth rate and larger grain size. The relevant discussion on the sintering
+condition have been modified accordingly on Page 3, Ln 70-72, Page 6, Ln 135, Page 7, Ln 153-155,
+Page 12, Ln 304-310.
+12- Highly beneficial to provide insights into the relationship between the observed microstructure
+changes and the resulting properties of the material? Is there any descriptor already identified and used
+in the ML model for prediction purposes?
+Re: Please refer to answers provided for questions 1 above.
+13- Time Frame for Synthesis and Optimization: What are the challenges associated with the time
+frame for manual synthesis, discovery, and optimization methods, particularly in the context of the
+exponentially increasing number of conditions and ML-predicted compositions?
+Re: Please refer to answers provided for questions 1 above.
+14- Finally: How do the results of the paper contribute to the broader field of materials science and
+the development of advanced materials for applications like wireless communication and biosensors?
+Re: Please refer to answers provided for questions 3 and 4 above, and the corresponding changes in
+Page 1.
+Response to reviewer 2
+Reviewer #2 (Remarks to the Author):
+The creation of new automated workflows for technologically relevant materials is of interest and is
+timely. The work presented here contains an interesting automated platform, designed for a specific
+task (making development tractable). \.
+7
+​The evaluation of the sintering using XRD and SEM is telling. The XRD patterns look good, and the
+samples are the intended targets with limited impurity phases.
+We sincerely appreciate the time and dedication invested by reviewer in providing thoughtful and
+valuable feedback on our manuscript.
+1-The â​odd grainsâ​ shown in Figure S2a reveal potential problems. The authors note the presence of the
+odd grains at 1400, while the progress is clearly present at 1350. Did the samples melt?
+Re: Sintering temperature plays an important role in determining grain growth in ceramics. In the case
+of barium strontium titanate (BST) compositions, employing a sintering temperature of 1400Â°C, is
+insufficient to melt the sample, but can form larger grains. This is evidenced by SEM image of BST
+sintered at 1400Â°C, which distinctly exhibit an increased grain size, a direct consequence of the elevated
+sintering temperature.
+2-The authors note the importance of experimental verification of proposed hypothetical compounds or
+synthetic routes. I would urge caution regarding the value in computational materials discovery. It
+should be noted that relative energies of hypothetical materials are often used as a proxy for
+synthesizability. The complexity of the actual syntheses is correctly noted to be potentially complicated.
+Having said that, the authors need to better cite the work they are discussing. The literature is rich.
+Re: Thank you for pointing this out, relative energies, specifically energy above convex hull (Ehull)
+obtained by comparing the DFT energy of hypothetical compounds against existing competing phases
+is a standard method of determining the synthesisability of new materials. However, calculating
+accurate Ehull values for complex disordered materials such as perovskite solid solutions requires careful
+and rigorous analysis. Moreover, the present study is oriented on automated synthesis of materials and
+undoubtably the synthesis and characterization are temperature dependent, as opposed to typical DFT
+computations applicable at 0K. Investigating the dependence of temperature, and the randomness of the
+crystal structure of studied materials require dedicated research (e.g., special quasirandom structures
+method for modelling random structures with DFT, ab initio molecular dynamics for assessing stability
+at elevated temperature, etc.) that can be very computationally demanding.
+In a paper by Vecchio et al. thermodynamic based models, such as CALPHAD (Calculation of Phase
+Diagrams) or simple phase diagrams are used for the prediction of second phases in materials and can
+provide insights into the stable phases and phase transformations in a material under different conditions
+such as temperature [Vecchio, K. S., Dippo, O. F., Kaufmann, K. R. & Liu, X. High-throughput rapid
+experimental alloy development (HT-READ). Acta Mater 221, 117352 (2021)]. It combines
+thermodynamics and kinetic models to predict phase equilibria and phase transformations. However,
+it's important to note that these models generally assume thermodynamic equilibrium. In our scenarios,
+the tuning performance is dominated by polar nano clusters, which are thermodynamically active above
+the Curie point. Therefore, thermodynamic models may not always fully capture the complexities of
+materials undergoing phase changes. Even so, complex phenomena such as the formation of grain
+boundaries, effect of annealing, etc., are not accounted for in DFT calculations. Lack of DFT data on
+such complex materials may yield in a suboptimal convex hull too. These factors make it difficult for
+accurate estimation of Ehull and hence the assessment of potential synthesisability through DFT.
+Nevertheless, we do understand that there have been studies on investigating the synthesisability of
+compositionally complex materials using DFT and we have now cited following studies [ Walters, L.
+N., Wang, E. L. & Rondinelli, J. M. Thermodynamic Descriptors to Predict Oxide Formation in
+Aqueous Solutions. J Phys Chem Lett 13, 6236â​6243 (2022)] and [Yanyan He, Yebin Xu, Ting Liu,
+Chunlian Zeng & Wanping Chen. Microstructure and dielectric tunable properties of Ba 0.6 Sr 0.4 TiO
+3 -Mg 2 SiO 4- MgO composite. IEEE Trans Ultrason Ferroelectr Freq Control 57, 1505â​1512 (2010)]
+in the main text. Relevant discussion and additional citations have been added on Page 4 and 14.
+8
+​3-The generation of the two proposed phases using ML techniques is opaque. The authors reference
+past efforts (with citation), but the phrase â​further data mining with human feedbackâ​ needs actual
+information. How were the target phases determined to be â​having a high likelihood of being
+synthesized in a single 297 phaseâ​? How many targets were generated? What selection criteria were
+used? Were attempts to synthesize and study more than two performed? If so, what were the others and
+what success rates were observed? The section on the ML efforts does not fit with the rest of the work
+presented here. The rest is largely a benchmarking study of the automated platform, rightly using
+established materials. The proposed phases currently read as â​we can study other things tooâ​ with two
+examples provided.
+Re: Thank you for pointing out required details on our ML workflow. The list of ML-predicted potential
+perovskites were ranked reflecting their synthesis likelihood using a data mining strategy that involved
+calculating the distance between new materials and existing experimental materials using latent (or
+embedding) space composition representations. New materials with the lowest distance to existing
+disordered perovskites and their ABO3 parent perovskites are identified as having a high synthesis
+likelihood. The structure of the two parent ABO3 perovskites is usually an indication of the structure of
+the corresponding A-site or B-site disordered perovskite. Please refer to the above section in the main
+text for more details.
+Once the list of ML-predicted materials is ranked, our materials scientists manually went through
+several highly likely candidates, taking into account various factors such as potential synthesis routes
+and resource availability and handpicked selection of materials for synthesis. Two representative
+samples belonging to the barium family, namely, (Ba0.8Sr0.2)CeO3 and (Ba0.4Sr0.6)CeO3 are successfully
+synthesized in this paper from highly likely group. However, we do value the importance of publishing
+data on failed synthesis attempts and commend the reviewer for bringing this point. We also examined
+additional samples from high-risk and best-overall ML-materials, but they haven't been synthesized in
+a single phase confirmed by their XRD. We have now included data on unsuccessful multi-phase
+materials in Fig. S14 and a comprehensive explanation of ML screening strategy and the follow-up data
+mining approach in â​Exploring single-phase synthesisability of ML-predicted compositionsâ​ section
+on Page 14-15.
+4-The utility of the robotic platform seems based upon the ability to add and remove samples from the
+furnace. How does the use of a motorized stage affect cooling rates? How does the rate using this
+automated platform compared to purely human efforts?
+Re: In automated laboratories, robots emerge as indispensable assets, which particularly in the critical
+domain of sample handling between individual automated stations include material preparation and
+microwave dielectric characterization, which is the core brain of SDLs. The central hub here is built on
+MATLAB, which serves as a command centre for orchestrating lab instruments and recording data in
+autonomous fashion and finding correlations between synthesis and properties. This provides a scalable
+framework for integrating additional devices into our workflow as we expand this study.
+The incorporation of vortex tube was to accelerate the cooling rate of hot samples and the motorized
+stage is for precise positioning of probe during measurements. Use of robot for measurements offers
+significant advantages over manual methods in terms of efficiency, safety (e.g. for toxic materials), and
+the capability to implement consistency in terms of sample size, and positioning all of which are critical
+in determining the final properties of the materials.
+We have conducted a comparison and confirmed empirically by synthesising the same BTS12
+compositions using conventional methods (sintered at 1350 Â°C for 2 h), [ Zhang, H. et al. Microwave
+tunability in tin substituted barium titanate. J Eur Ceram Soc 44, 1627â​1635 (2024).] and compared the
+dielectric performance with the one obtained from rapid sintering (10min). The rapid sintered BTS12
+9
+​achieved 36% tuning performance at GHz which not only higher tuning than its identical twin prepared
+by conventional method but it also competes well with many of which reported values for BST such as
+10.5% for BST/ð​ð​2 ð​ð​ð​4 /MgO, [Yanyan He, Yebin Xu, Ting Liu, Chunlian Zeng & Wanping Chen.
+Microstructure and dielectric tunable properties of Ba 0.6 Sr 0.4 TiO 3 -Mg 2 SiO 4- MgO composite. IEEE
+Trans Ultrason Ferroelectr Freq Control 57, 1505â​1512 (2010)] and 27% for Mn-BST/MgO [Cui, J.,
+Dong, G., Yang, Z. & Du, J. Low dielectric loss and enhanced tunable properties of Mn-doped
+BST/MgO composites. J Alloys Compd 490, 353â​357 (2010)] but also achieves a significant reduction
+in processing time, being 12 times faster than BTS12-Conventional. We now have modified manuscript
+on Page 3, Ln70-78 and Page 13, accordingly.
+Usually, for low frequency measurement, sample would need to be grind, dried, and painted with silver
+paste on both sides and heated to create electrodes for measurements. In addition the measurements
+would rely on technician expertise for maintaining consistency in sample modification. Then the
+temperature tuning and DC tuning is recorded which can take up to 4 hr per sample for heating and
+cooling down.
+For high frequency measurement, the samples undergo grinding, and a Coplanar Waveguide (CPW) is
+applied to the samples through 3-4 sets of sputtering sessions, each lasting 20 minutes (a minimum of
+1hr manual work). High-frequency measurements usually involves calibration of equipment, external
+heating with a thermocouple and the incorporation of a bias tee for DC voltage tuning. The estimate
+time scale for high frequency characterization is approximately 3 hours.
+In this study, an automatic platform capable of high-throughput ceramic preparation and microwave
+property measurement was developed. This enables fast material fabrication and screening. The free-
+space sensor allows the robot to screen the thermal tunability with no need for sample preparation.
+Immediate measurement for sintered sample could effectively reduce the energy cost and time. This
+procedure helps reveal relationships between sintering condition, materials structures and dielectric
+properties. We now have modified the manuscript on Page 4 and Page 13, accordingly.
+Response to reviewer 3
+Reviewer #3 (Remarks to the Author):
+The creation paper â​Accelerated Discovery of Perovskite Solid Solutions through Automated
+Materials Synthesis and Characterisationâ​ presents a new automated laboratory set-up that is designed
+to accelerate the discovery of new solid state oxide materials, in this instance in the space of
+perovskite solid solutions. This approach combines machine learning to predict interesting new
+compounds, robotic synthesis to explore the processing condition space and high-throughput
+characterisation to assess the newly generated materials. I think that overall this is a timely addition to
+a very important emerging topic in chemistry, i.e. automated synthesis. There has not been very many
+demonstrations of solid-state laboratory automation (with the notable exception of the recent A-Lab
+paper in Nature) and the techniques demonstrated here can make a significant contribution to the
+field. I do however have some points that I think need to be addressed before this paper is suitable for
+publication in Nature Communications.
+We sincerely appreciate the time and dedication invested by reviewer in providing thoughtful and
+valuable feedback on our manuscript.
+1. Data: I donâ​t see any indication of where the data used or generated in this study is being made
+10
+​available. In my opinion one of the major benefits of this kind of study is the high-quality data (with
+good meta data) generated. To make this an impactful study the data should be made publicly available.
+Re: We now have include all the data in the paper or supporting information file or the DOI link
+provided. We have temporarily uploaded our data to a public data repository under the CC-BY license
+which can be accessed via: https://data.mendeley.com/preview/j59wsrzt6f?a=22274465-e2d0-47ce-
+8c16-8c936477d5f6.
+In the section on â​Evaluation of automated rapid sinteringâ​:
+2. the authors conjecture that the different grain structure resulting from rapid sintering should not
+affect the dielectric properties. I think that this needs to be confirmed empirically. This could be
+achieved by synthesising the same material composition using a more standard slower route and
+comparing the dielectric performance. This control test is important for the premise of the paper.
+Re: We have include a comparison between rapid sintered BTS samples and those synthesized by
+conventional method.
+Conventional: To compare the dielectric performance of robotic versus conventional sintering methods,
+another batch of BTS12 (BTS12-Con) were prepared by sintering at 1350 Â°C for 2h. At 100 kHz
+frequency, BTS12-1350 and BTS12-Con exhibit dielectric tunability of 60.4% and 79.2% under an
+electric field of 2kV mm-1, respectively. At 1.3 GHz frequency, dielectric tunability of BTS12-1350
+and BTS12-Con was 36.28% (Â±1.62) and 30% under an electric field of 4 kV mm-1, respectively.
+BTS12-1350Â°C exhibit a higher tunability at high frequencies compared to BTS12-Con. In addition,
+the dielectric tunability of 36% at GHz frequency is higher than other reported values, please refer to
+next question. This way there is significant reduction in processing time, being 12 times faster than the
+conventional method (2hr to 10min). Overall, the robot confirms that BTS12 is a better dopant ratio
+compared to BTS16 and also it outperforms BST family demonstrated in a significantly faster way
+compared to conventional measurement techniques. We have now modified the manuscript on Page 13
+Ln299-313 and Page 11, accordingly.
+3. The authors settle on BTS12-1350 as the optimal combination of composition and processing. How
+does the dielectric performance of this material compare to current state-of-the-art BTS?
+Re: Adding on the question above, we have compared BTS12-1350 to existing state-of-art, for example
+Ba0.65Sr0.35TiO3 bulk ceramic = tunability of 68.6%, Ba0.6Sr0.4TiO3/MgO = with a tunability of 40%,
+Ba0.6Sr0.4TiO3/Mg2SiO4/MgO = with a tunability of 10.5% and Mn doped Ba0.6Sr0.4TiO3/MgO = with a
+tunability of 27%. Notably, most of these tunability measurements were conducted at low frequencies
+(< 100 MHz). At higher frequencies, such as in the microwave frequency region, measurement of the
+dielectric tunability remains challenging due to the difficulty in measuring microwave permittivity and
+loss under a DC bias field. In this study, we successfully measured the dielectric tunability at microwave
+by using a coplanar waveguide method. BTS12 shows highest tunability of 79.2%, and 39% at low and
+high frequencies, respectively. The rapid sintered BTS12 sample, shows a tunability of 60.44% and
+30% at low and high frequency, respectively. The relevant discussion have been modified on Page 13,
+accordingly.
+In the section â​Evaluation of automated dielectric characterisationâ​
+4. The reported results seem to have a very large variation, depending on the technique used. These
+variations should be discussed. What are the implications for real-world performance?
+11
+​Re: Thank you for pointing this. We have revised our data analysis, providing more detailed discussion
+of the values with a focus on Error calculations. Additionally, we have included data in the SI section
+to explain these adjustments.
+Please refer to the answer provided for Q8-reviewer 1.
+In the section â​Exploring single-phase sythesisability â​¦â​:
+5. The authors say that certain materials were â​identified as having a high likelihood of being
+synthesised in a single phaseâ​. There needs to me more detail on how this identification was
+performed.
+Re: Thank you for pointing out required details on our ML workflow. We have now added a
+comprehensive explanation of ML screening strategy and the follow-up data mining approach
+â​Exploring single-phase synthesisability of ML-predicted compositions via the automated sintering
+approachâ​ section on Page 14-15.
+Overall assessment
+I think that this is a very interesting paper and the results contribute to an important area of materials
+science. However, I think that there are details missing in the manuscript. With the addition of these
+details and demonstrating how well newly developed materials compare to the current state of the art,
+I think that this will be a good paper for Nature Communications
+Response to reviewer 4
+Reviewer #4 (Remarks to the Author):
+In this work, the authors developed an advanced material discovery methodology that integrates
+machine learning techniques, robotic-controlled synthesis, and high-throughput characterization. To
+solve the challenge of measuring dielectric properties under electric field, a free-space sensor is
+developed for online screening of thermal tunability with no sample surface modification required.
+However, for the current version of this manuscript, the novelty of this is insufficient and might be
+suitable for other journals. The following issues should be addressed:
+We sincerely appreciate the time and dedication invested by reviewer in providing thoughtful and
+valuable feedback on our manuscript.
+1.In the initial validation step, the authors chose multiple compositions from 3 family groups. The
+rationale behind this selection needs further elaboration. How do the authors ascertain the ferroelectric
+properties of a material prior to its synthesis?
+Re: Thank you for your insightful review. In this work we have selected three family sample groups
+namely BST, BTS and number of ML-predicted materials. The rational for these material selection have
+been discussed on Page 5, Ln 114-118.
+For perovskite structured materials with good ferroelectricity, dielectric tunability, and low dielectric
+loss, are well-documented in the literature. By analysing material compositions, structure, as well as
+considering our previous studies and theoretical predictions, we can make informed assessments
+regarding its ferroelectric behaviour. We prioritized perovskite-type oxides with well-documented
+literature providing substantial information on their synthesis and ferroelectric characteristics for
+comparison. In particular, barium titanate based compositions, such as BST, is a well-known
+12
+​ferroelectric materials and has gained a lot of interest due to its high dielectric tunability under DC
+fields or temperature variation. It plays an important role in many electronic devices such as sensor,
+actuator and capacitor and those applications highlighted on Page 2, Ln 34-35. BTS on the other hand
+is a relatively newer material with some enhanced properties over BST and aligning with the focus of
+our studies. Given our ML group's affiliation with the Barium family, we aimed to include samples
+within the same family group for comparative purposes. For selection over ML samples please refer to
+answers to Question No.4 below and the added detailed explanation of our ML approach attributing to
+our prior study in Page 13-14.
+2.The authors noted that the sintering temperature directly influences the grain sizes of the samples.
+Would the sintering temperature similarly have a direct impact on the dielectric characteristics of bulk
+ferroelectric materials?
+Re: Yes, the sintering temperature can indeed have a direct impact on the dielectric characteristics of
+bulk ferroelectric materials. The sintering process is a critical step in the fabrication of many materials,
+particularly ceramics, and has a profound effect on their microstructure. Grain size, density, alignment
+of polar domains, and grain boundaries can be effected during sintering step. Specifically, in the case
+of BST ceramics, increasing the sintering temperature leads to larger grain size and effected dielectric
+properties. The resulting impact on dielectric characteristics is notable, as higher tuning at low
+frequencies is linked to the coexistence of larger ferroelectric domains and smaller polar nanoclusters
+during the sintering process. While dielectric tunability at microwave frequency are dominated by the
+polar nano clusters. [Sandi, D., Supriyanto, A., Jamaluddin, A. & Iriani, Y. The effects of sintering
+temperature on dielectric constant of Barium Titanate (BaTiO3). in IOP Conference Series: Materials
+Science and Engineering vol. 107 (Institute of Physics Publishing, 2016).] Relevant discussion has been
+modified on Page 3 Ln 71-75 and Page 13 Ln 299-313, accordingly.
+3.Thermodynamic phase diagrams have proven to be successful predictive tools in comprehending scale
+growth (J. Phys. Chem. Lett. 2022, 13, 6236â​6243). The authors are encouraged to delve into a
+discussion on the formation of secondary phases from a thermodynamic perspective.
+Re: The suggested paper were using free energies extracted from DFT calculations to compute a
+maximum driving force that describes the stability of oxides including alloys in aqueous (i.e., water)
+environments. Also in a paper by Vecchio et al. thermodynamic based models, such as CALPHAD
+(Calculation of Phase Diagrams) or simple phase diagrams are used for the prediction of second phases
+in materials and can provide insights into the stable phases and phase transformations in a material
+under different conditions such as temperature. It combines thermodynamics and kinetic models to
+predict phase equilibria and phase transformations. However, it's important to note that these models
+generally based on the assumption of thermodynamic equilibrium. In our scenarios, the tuning
+performance is dominated by nano polar clusters, which are thermodynamically unstable as they exist
+above the Curie point. Therefore, thermodynamic models may not always fully capture the complexities
+of materials undergoing phase changes.
+In another study relative energies, specifically energy above convex hull (Ehull) obtained by comparing
+the DFT energy of hypothetical compounds against existing competing phases is used as a standard
+method for determining the synthesisability of new materials. However, calculating accurate Ehull values
+for complex disordered materials such as perovskite solid solutions requires careful and rigorous
+analysis.
+Moreover, the present study is oriented on automated synthesis of materials and undoubtably the
+synthesis and characterization are temperature dependent, as opposed to typical DFT computations
+applicable at 0K. Investigating the dependence of temperature, and the randomness of the crystal
+13
+​structure of materials studied in this work demand dedicated research (e.g., special quasirandom
+structures method for modelling random structures with DFT, ab initio molecular dynamics for
+assessing stability at elevated temperature, etc.) that can be very computationally demanding. Even so,
+complex phenomena such as the formation of grain boundaries, effect of annealing, etc., may not be
+accounted in DFT calculations. Lack of DFT data on such complex materials may yield in a suboptimal
+convex hull too. These factors make it difficult for accurate estimation of Ehull and hence the assessment
+of potential synthesisability through DFT. Nevertheless, we do understand that there have been studies
+on investigating the synthesisability of compositionally complex materials using DFT and we have now
+cited following studies in the main text.
+Also modelling disordered alloys with fractional site occupancies (like in our materials) presents
+immense challenges. Likewise, accurate calculation of the formation energies through DFT for complex
+solid solutions synthesised in our work may be very challenging, "Computing the MDF requires: (i)
+identifying the most stable solid-aqueous ion pair and then (ii) then calculating the chemical potential
+difference at the specific 3 electrochemical conditions, i.e., pH, potential, concentration, for which the
+greatest difference occurs." and computationally demanding, potentially intractable on our hardware
+and out of the scope of this study. Relevant discussion and additional citations have been added on Page
+4, Ln 76-85.
+4.The authors are advised to provide a detailed introduction to the methodology of machine learning
+techniques and DFT calculations within the manuscript, rather than solely referencing their prior work.
+Moreover, the performance and discussion of ML should be added in the manuscript.
+Re: We have now added a detailed explanation of our ML approach to the section â​Exploring single-
+phase synthesisability of ML-predicted compositions via the automated sintering approachâ​, attributing
+to our prior study on Page 14-15. Here we are relying on ML classification probabilities for potential
+synthesisability, we describe a further data mining approach to rank a list of ML-predicted materials to
+identify those having high probability of being synthesised in single phase structure. The proposed data
+mining method involves detecting materials that lie closer to existing experimentally validated materials
+in latent (or embedding) space. We categorise potential samples in 3 groups: highly likely (close to
+existing), best overall, and high risk(away from existing). Material scientists choose several
+compositions through top ranked candidates, based on their intuition for automated synthesis.
+It should be noted that, as opposed to our previous computational work that employed DFT, which was
+not performed in this study. The present study is aiming for automated platform for material synthesis
+with fast microwave dielectric property characterization. Incorporating temperature in ab initio
+simulations may not be straightforward especially for compositionally disordered materials such as
+perovskite solid solutions. Such investigations require dedicated research (e.g., special quasirandom
+structures (SQS) based modelling approaches, molecular dynamics, etc.) that can be very
+computationally demanding. Instead, we focus on data mining and human knowledge guided detection
+of highly likely single-phase materials.
+5.The machine learning model employed in this study focuses solely on the synthesis feasibility of
+perovskites. In order to enhance the exploration of functional materials possessing both high synthesis
+feasibility and exceptional properties, could the authors contemplate developing a machine learning
+model that takes into account both synthesis feasibility and ferroelectric properties?
+Re: This is a very interesting question. We have been exploring this idea over the past few years. One
+possible approach which we explored is representing new potential perovskites and existing
+experimental ferroelectrics using embedding vectors extracted from a neural network and identifying
+new materials that are closer in distance to known ferroelectrics. While this may improve our chances
+14
+​of discovering a new material with potential ferroelectric properties, we realized that there may be
+issues with synthesis of these new materials. This is why we gave more weight to the synthesis aspect
+in this study rather than discovering novel materials with guaranteed ferroelectric properties.
+Another idea that we examined over time is the so called â​local searchâ​ which may yield in higher
+success rate in synthesising novel materials with target properties, such as ferroelectricity. Here, the ML
+screening is applied to a limited set of candidate materials, for example, those that contain A-site and
+B-site elements from a widely known family of compositions that are likely to form stable ferroelectrics,
+but with properties not very different from existing ferroelectrics in the same family. For instance,
+Balachandran et al., explored xBi[Meâ​²yMeâ​³(1â​y)]O3â​(1â​â​â​x)PbTiO3-based ferroelectric perovskites using
+ML, where the choice of Meâ​² and Meâ​³ come from a small set of elements.[ Balachandran, P. V.,
+Kowalski, B., Sehirlioglu, A. & Lookman, T. Experimental search for high-temperature ferroelectric
+perovskites guided by two-step machine learning. Nat Commun 9, 1668 (2018).] According to their
+study, there are over 150 compositions already studied in this family which indicates higher likelihood
+of synthesis of altered, but not yet synthesised materials. In fact, this study demonstrates several
+successful syntheses of new materials. This is what we refer to as local search.
+However, in our ML studies, we focussed on â​global searchâ​ where we attempt to experimentally
+discover new materials from nearly all possible candidates that can exist in quaternary disordered
+format, with the hope of discovering materials with novel properties. This is undoubtedly more
+challenging, yet many ML studies published in the past few years focused on screening potentially
+synthesisable materials from a huge composition space.
+While we do understand that both â​local searchâ​ and â​global searchâ​ are equally important, as the
+reviewer has suggested, we will concentrate our efforts on exploring avenues for targeted synthesis of
+novel ferroelectric solid solutions in our future studies.
+15
+Version 1:
+Reviewer comments:
+Reviewer #1
+(Remarks to the Author)
+In my opinion, the authors have properly and rigorously addressed all the comments raised by the reviewers. Most
+importantly, they have substantially added con tent and properly addressed the issue with the lack of a clear description of
+the ML model. A clear description of the methodology will help the readership and relevant researchers to reproduce and re-
+evaluate the results and utilized the ML-assisted acceleration loop claimed in this manuscript. As a minor suggestion, it
+would be highly beneficial if the authors ensure that in the URL provided, all the training datasets, algorithms/codes, and
+testing/validation workflows are provided, tested and properly documented for reproduction in the public (URL) repository.
+Reviewer #2
+(Remarks to the Author)
+The authors have improved the quality and clarity of this manuscript.
+1. A key concept in SDLs is that the rate of scientific discovery can be accelerated by conducting more experiments more
+quickly, reducing or eliminating slow steps in workflows, possible incorporation of low-fidelity proxies to focus high-fidelity
+efforts and direct incorporation of data science techniques. The development of new tools for different experimental steps
+(such as sintering) has value in the wider community, as different groups have often targeted different techniques.
+2. The inclusion of more detail regarding the ML model and data on which the model was created is important. A key benefit
+from the use of high throughput experimentation (and SDLs) is the automatic generation of nicely formatted datasets.
+Establishing practices in the community around data accessibility and sharing is critical. The authors noted on page 16 that
+the lack of synthetic data has limited synthesis predictions. Publicly accessible data is critical.
+3. ML work for the discovery of new functional materials in inherently high dimensionality search spaces has generally
+focused on predicting properties and only attempting to synthesize the most promising compositions. Predictions of
+synthesizability are well common and offer a complementary approach. In large search spaces, such as that discussed here,
+determining regions where compounds can be made does not address if they should be made. The authors response in
+their rebuttal document, their notion of ‘local search’ versus ‘global search’ would provide a second critical axis of down
+selection (or prioritization), greatly enhancing the work described here.
+4. Figure 1, while designed to articulate the concept of the work presented in this manuscript, is not clear. The overlapping
+loops (in different directions) is muddled. While I applaud the authors for attempting to encapsulate the work in a schematic,
+further refinement is required.
+Reviewer #3
+(Remarks to the Author)
+The authors do a good job of answering the specific concerns that I raised. They have also answered other reviews with a
+comprehensive update of the paper. I think this is a nice piece of work and I'm happy to support publication.
+Reviewer #4
+(Remarks to the Author)
+In the revised version, the author provides more detailed information about automated materials synthesis and
+characterization. The framework for accelerating materials discovery in the automated laboratory seems promising.
+However, I think that compared to the most advanced technologies in the ecosystem of autonomous robotic laboratories, this
+work still lacks innovation in the principles of machine learning for accelerating materials synthesis.
+Author Rebuttal letter:
+Reviewers Comments
+Reviewer #1 (Remarks to the Author):
+In my opinion, the authors have properly and rigorously addressed all the comments raised by the
+reviewers. Most importantly, they have substantially added con tent and properly addressed the issue
+with the lack of a clear description of the ML model. A clear description of the methodology will help
+the readership and relevant researchers to reproduce and re-evaluate the results and utilized the ML-
+assisted acceleration loop claimed in this manuscript. As a minor suggestion, it would be highly
+beneficial if the authors ensure that in the URL provided, all the training datasets, algorithms/codes,
+and testing/validation workflows are provided, tested and properly documented for reproduction in
+the public (URL) repository.
+Re: Thank you for your valuable suggestion. We agree that providing access to fully documented and
+tested training datasets, algorithms/codes, testing/validation workflows, and source data are crucial
+for enabling reproducibility and fostering further research. To address this, in the URL
+â​ https://data.mendeley.com/preview/j59wsrzt6f?a=22274465-e2d0-47ce-8c16-8c936477d5f6 â​ , we
+have re-organized the repository where all these resources are now available and clearly documented.
+The reserved DOI for this respiratory is included in the paper. We have also included comprehensive
+README files and step-by-step guides to facilitate easy replication of our results. We appreciate your
+attention to detail and are committed to enhancing the utility and accessibility of our research outputs.
+Reviewer #2 (Remarks to the Author):
+The authors have improved the quality and clarity of this manuscript.
+1. A key concept in SDLs is that the rate of scientific discovery can be accelerated by conducting more
+experiments more quickly, reducing or eliminating slow steps in workflows, possible incorporation of
+low-fidelity proxies to focus high-fidelity efforts and direct incorporation of data science techniques.
+The development of new tools for different experimental steps (such as sintering) has value in the
+wider community, as different groups have often targeted different techniques.
+Re: Thank you for your insightful comment.
+2. The inclusion of more detail regarding the ML model and data on which the model was created is
+important. A key benefit from the use of high throughput experimentation (and SDLs) is the automatic
+generation of nicely formatted datasets. Establishing practices in the community around data
+accessibility and sharing is critical. The authors noted on page 16 that the lack of synthetic data has
+limited synthesis predictions. Publicly accessible data is critical.
+Re: Thank you for your insightful comments. We acknowledge the importance of providing detailed
+information about the ML model and the data used in its training. To address this, we have expanded
+the section detailing the ML model's architecture, training process, and parameter selection to ensure
+clarity and transparency.
+In response to the need for establishing community practices around data accessibility, we have
+ensured that our datasets, particularly those created through automated systems, are publicly
+accessible. As noted, the limitation due to the lack of synthetic data affects the robustness of synthesis
+predictions. To mitigate this and support the community, we have uploaded our datasets on the open
+platform (URL: https://data.mendeley.com/preview/j59wsrzt6f?a=22274465-e2d0-47ce-8c16-
+8c936477d5f6 ), ensuring they are easily accessible and well-documented. This approach not only aids
+in reproducibility but also encourages further advancements and collaborations in the field. The
+​reserved DOI for this respiratory is included in the paper. We appreciate your emphasis on these critical
+aspects and are committed to implementing these improvements to enhance the impact and usability
+of our research.
+3. ML work for the discovery of new functional materials in inherently high dimensionality search
+spaces has generally focused on predicting properties and only attempting to synthesize the most
+promising compositions. Predictions of synthesizability are well common and offer a complementary
+approach. In large search spaces, such as that discussed here, determining regions where compounds
+can be made does not address if they should be made. The authors response in their rebuttal
+document, their notion of â​local searchâ​ versus â​global searchâ​ would provide a second critical axis of
+down selection (or prioritization), greatly enhancing the work described here.
+Re: Thank you for your valuable feedback. We appreciate your recognition of the methodological depth
+needed for handling the high dimensionality in the search space of new functional materials using ML.
+You rightly pointed out the typical focus on predicting properties and only attempting to synthesise
+the most promising compositions. We agree that predictions of synthesisability are indeed common
+and present a valuable avenue for complementing this work.
+In response to your insightful comment, we have integrated the dual approach that incorporates both
+'local search' and 'global search' strategies in the manuscript as suggested. This will allow us not just
+to identify where compounds can be synthesised, but also to determine which of these should be
+prioritised for synthesis based on potential utility and feasibility.
+To implement this, our ML models will be adjusted in the future to not only predict the synthesisability
+of materials but also to evaluate their application potential and economic viability. We will develop
+criteria for this evaluation based on both intrinsic material properties and external factors such as cost
+and scalability. This approach should provide a more holistic framework for decision-making in the
+synthesis of new materials and ensure that our efforts are concentrated on candidates with the highest
+potential impact.
+We believe that these enhancements will greatly strengthen the contribution of our work to the field
+and address your concerns about the strategic direction of our research. We appreciate your guidance
+and look forward to refining our work accordingly.
+4. Figure 1, while designed to articulate the concept of the work presented in this manuscript, is not
+clear. The overlapping loops (in different directions) is muddled. While I applaud the authors for
+attempting to encapsulate the work in a schematic, further refinement is required.
+Re: In response to this reviewerâ​s comment on Figure 1, we have revised the diagram to improve clarity
+and avoid visual confusion caused by overlapping loops. The loops now follow a more intuitive path
+and are separated to clearly delineate different aspects of the work. We have also enhanced the colour
+coding and labelling to make the relationships and process flow more comprehensible. We trust that
+these modifications will make the schematic a more effective visual summary of the research concepts
+and workflow, accurately reflecting the interconnected processes discussed in our manuscript.
+[Image redacted]
+​Reviewer #3 (Remarks to the Author):
+The authors do a good job of answering the specific concerns that I raised. They have also answered
+other reviews with a comprehensive update of the paper. I think this is a nice piece of work and I'm
+happy to support publication.
+Reviewer #3 (Remarks on code availability):
+I didn't do a very thorough review of the code but it seems to be open and relatively easy to set up
+and use.
+Re: Thank you for your feedback.
+Reviewer #4 (Remarks to the Author):
+In the revised version, the author provides more detailed information about automated materials
+synthesis and characterization. The framework for accelerating materials discovery in the automated
+laboratory seems promising. However, I think that compared to the most advanced technologies in the
+ecosystem of autonomous robotic laboratories, this work still lacks innovation in the principles of
+machine learning for accelerating materials synthesis.
+Re: We appreciate your feedback regarding the incorporation of machine learning principles in our
+framework for accelerating materials synthesis. We acknowledge that while our framework leverages
+current machine learning methodologies to enhance the efficiency of automated materials discovery,
+there may still be gaps in fully integrating the most advanced innovations in autonomous robotic
+laboratory technologies.
+In response to your comments, we are currently exploring more sophisticated machine learning
+algorithms that could be integrated into our system to further push the boundaries of innovation.
+These include adaptive learning techniques that can dynamically adjust synthesis parameters in real-
+time based on interim results, and reinforcement learning strategies that optimise decision-making
+processes throughout the materials discovery pipeline.
+​In this work, we are pioneering in this area by applying unsupervised deep learning to identify patterns
+directly from chemical compositions, validated through high-throughput experimental setups with
+additional automatic microwave characterization. This approach has shown promise in identifying
+viable synthesis conditions for new materials, significantly reducing trial and error. We however
+acknowledge the complexity and the 'black box' nature of solid-state chemistry, which often requires
+systematic iteration due to its reliance on high-temperature, long dwell time, high-pressure conditions,
+and different atmosphere. We will continue to refine our models and expand our dataset to build a
+robust, autonomous system capable of navigating the complex synthesis-process-structure-property
+landscape.
+Moreover, we are exploring alternative synthesis techniques like sol-gel and spin coating processes,
+which offer simpler pathways for thin film and 2D materials. These efforts are part of our broader goal
+to enhance the synthesis predictability and efficiency using machine learning, setting a new standard
+for materials discovery.
+We appreciate your insights and agree that further innovation in machine learning applications is
+crucial for the field's advancement. We are committed to addressing these challenges and pushing the
+boundaries of what is possible in materials science research.
+Version 2:
+Reviewer comments:
+Reviewer #1
+(Remarks to the Author)
+The manuscript in its current form, is complete and ready to be accepted / published.
+Reviewer #2
+(Remarks to the Author)
+I believe that the changes made by the authors enhance the quality and effectiveness of this manuscript. Specifically,
+making the code, datasets, models and workflows accessible is an important step in this sort of work. As noted by two
+reviewers, transparency and accessibility with respect to these data is a critically important standard that is often not
+achieved by such work in the literature. Additionally, the improved clarity on Figure 1 is welcome. The authors discuss future
+improvements to their work (synthesizability vs properties vs economic factors (or even environmental impact)),
+improvements that will enhance the impact of their work going forward. Having said that, I do not believe that all these
+improvements need to be made before this manuscript is suitable for publication. There will always be additional steps that
+can be taken, but I believe this work currently stands on its own.
+Author Rebuttal letter:
+Reviewers Comments
+Reviewer #1 (Remarks to the Author):
+The manuscript in its current form, is complete and ready to be accepted / published.
+Reviewer #1 (Remarks on code availability):
+The results are reproducible and the codes can be used as a useful resource for the community.
+Thank you for your feedback. Your acknowledgment is greatly appreciated.
+Reviewer #2 (Remarks to the Author):
+I believe that the changes made by the authors enhance the quality and effectiveness of this
+manuscript. Specifically, making the code, datasets, models and workflows accessible is an important
+step in this sort of work. As noted by two reviewers, transparency and accessibility with respect to
+these data is a critically important standard that is often not achieved by such work in the literature.
+Additionally, the improved clarity on Figure 1 is welcome. The authors discuss future improvements
+to their work (synthesizability vs properties vs economic factors (or even environmental impact)),
+improvements that will enhance the impact of their work going forward. Having said that, I do not
+believe that all these improvements need to be made before this manuscript is suitable for
+publication. There will always be additional steps that can be taken, but I believe this work currently
+stands on its own.
+Thank you for your evaluation. Your recognition of the improvements is greatly appreciated. Your
+emphasis on transparency and accessibility aligns with our goals which is often lacking in similar
+literature. We are also grateful for your positive feedback on suitability for publication and indeed we
+continue to build on this work in the future.
+Open Access This Peer Review File is licensed under a Creative Commons Attribution 4.0 International License, which
+permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate
+credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were
+made.
+In cases where reviewers are anonymous, credit should be given to 'Anonymous Referee' and the source.
+The images or other third party material in this Peer Review File are included in the article’s Creative Commons license,
+unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons
+license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain
+permission directly from the copyright holder.
+To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/
+## Supporting Information — 41467_2024_50884_MOESM3_ESM.pdf
+Description of Additional Supplementary Files
+File Name: Supplementary Movie 1
+Description: This video demonstrates the automated system in operation, performing
+automated pellet fabrication through solid-state sintering, temperature tuning, and
+conducting real-time measurements and analysis of dielectric properties.

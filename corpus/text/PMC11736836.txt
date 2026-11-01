@@ -1,0 +1,647 @@
+# Experimental and Computational Synthesis of TiO2 Sol–Gel Coatings
+## Abstract
+AbstractDuring the experimental formation of sol–gel coatings, the colloid dispersions go through a drying process, and the structure of the coatings is formed as a result of complex chemical, colloidal, and capillary interactions. While computer simulations provide guidelines to tune and even design the nanomaterials synthesis, simulations of coating structure formation are hitherto unknown in the literature. Based on real experiments, we establish here a ReaxFF reactive force field-based molecular dynamics simulation protocol in order to investigate and determine the role of the experimental conditions on the pore structure formation in the coatings. Anatase TiO2 sol–gel coatings with a thickness of 50 nm, 7% open porosity, and a 2.4 nm pore radius were prepared on solid substrates using the dip-coating method. In the computational synthesis of porous TiO2 layers, the attractive capillary forces present during the drying step were accounted for by applying an external pressure, and their effect on the coatings’ pore structure was investigated. It was found that the TiO2 layer structure corresponding to an external pressure of 10,000 atm in the simulations exhibited a porosity comparable to that determined by experimental methods. This demonstrates the impact of immersion capillary forces on sol–gel layer formation. The created computer model accurately describes the layer structure using real parameters, making it suitable for designing the coating structure through computer simulation.
+## Introduction
+Nowadays, nanomaterials with precisely defined composition and structure play a ubiquitous role in the development of novel catalysts, energy storage, or sensing. Often, the exceptional activity of these materials is achieved through controlled synthesis techniques. Nevertheless, in order to enable a rational synthesis approach and, more specifically, to propose appropriate synthesis conditions, it would be highly desirable to have an atomic-level understanding of the processes and even the ability to predict them.
+Currently, computer simulations specifically designed for nanoscale reactivity are readily accessible., These methods are extensively applied to predict the formation and structure of carbonaceous materials, such as graphene, carbon nanotubes, functionalized amorphous carbon materials, and even the complex structure of metal nanoparticles during chemical vapor deposition on these materials. Thus, for carbonaceous materials, both the formation and the final, nanoscale structure of the materials can be simulated and predicted.
+Similarly, these methods are widely employed to investigate various oxide materials, including the structure and solvation of SiO2, ZnO, TiO2 or even complex oxides, such as lithium-ion conducting oxides. The atomic scale processes during the formation of these oxides at the atomic scale can also be accurately modeled, including processes like atomic layer deposition of Al2O3, and the nucleation process involved in sol–gel silica formation. However, the nanoscale structure of these oxides holds significant importance in practical applications. Compact and porous nanocoatings on solid substrates are extensively researched for their tailored optical, electrical, and mechanical properties, as well as for their photocatalytic,− photovoltaic, anticorrosion, water-repellent, antibacterial,, and self-cleaning behaviors. The sol–gel process offers the advantage of allowing the structure, morphology, and physicochemical properties of the coatings to be adjusted over a wide range by varying the experimental parameters. The pore system of mesoporous thin coatings can also be employed for the delivery of various nanoparticles and molecules (e.g., drug molecules, dye molecules, corrosion inhibitor molecules).,,
+TiO2 has been identified as a potential hazard in various fields, including the food industry, cosmetics, and biomedical applications. However, its use in light transmission regulation and photocatalytic and photovoltaic applications does not pose direct risks to human health. Moreover, the quantities required for porous nanocoating applications are minimal, with coating thicknesses typically ranging from 100 to 200 nm.
+TiO2 is a polymorphic material, having three common phases: anatase (tetragonal), rutile (tetragonal), and brookite (orthorhombic). The formation of the preferred TiO2 crystalline phase depends on the starting material (e.g., composition of the precursor sol, catalyst used during sol preparation), deposition method, and the conditions, including the annealing temperature. TiO2 thin films can transform from the amorphous phase into crystalline anatase and from anatase into a rutile phase by calcination. It has been revealed that when a TiO2 thin film was subjected to a calcination temperature of 300 °C, it exhibited an amorphous structure. However, at 400 °C, it underwent a transformation into the anatase phase, and at 1000 °C, it further transitioned into the rutile phase.
+The tetragonally structured anatase crystal phase is the most commonly utilized form of titanium dioxide for photocatalytic applications. Utilizing titanium dioxide in its immobilized form, such as a TiO2 nanocoating, as a heterogeneous catalyst offers the advantage of simple and direct separation from the medium after the photocatalytic process, in contrast to when it is used in powdered form. The efficiency of photocatalytic processes can be significantly enhanced by increasing the specific surface area of the immobilized TiO2 photocatalyst through the application of mesoporous coatings.
+The sol–gel method is a preferred process for the development of TiO2 coatings since it is cost-effective, requires relatively simple equipment, and utilizes mild conditions, including low temperatures. The structure of the deposited thin films is determined by all the conditions applied during the precursor sol synthesis and the formation of the coating. Controlling the structure of the species present in the precursor sol, deposition and post-treatment conditions results in precise tailoring of the coatings’ structure and properties, like the porosity, surface area, pore size, and the refractive index. In addition to the composition, the size and degree of branching of the species (microphases or polymer chains) present in the precursor sol before layer deposition, as well as the relative rates of evaporation and condensation during the deposition process, also play a crucial role in controlling the structure of the coating. The layer can be deposited using different methods, such as dip-coating, spin-coating, spray-coating, etc. During the dip-coating process, microphases or polymer chains are concentrated on the surface of the solid substrate in a very short time due to the evaporation of the dispersion phase (usually ethanol). The layer thickness is determined by the competition among surface tension (capillary pressure), gravity, and viscosity. According to the Landau-Levich equation, there is a predictable correlation between the withdrawal speed and the coating thickness, even for the dip-coated sol–gel coatings prepared from precursor sols. During the final stage of the deposition process, evaporation leads to an increase in capillary pressure. As a result, the deposited film undergoes compaction primarily due to evaporation, followed by the influence of the capillary pressure. The effect of capillary pressure is much greater in thin films than in bulk gels, since greater shrinkage precedes the critical point, where the liquid–vapor interface first recedes into the gel. This results in a decreased pore size and increased maximum capillary pressure.
+During the heat treatment step at elevated temperature, residual organic compounds are burned out from the as-deposited thin coating, and the crystallization of the functional oxides takes place. This step also significantly influences the surface properties and resulting pore structure, including porosity, pore size distribution, and the shape of the pores.
+The significance of introducing porosity in TiO2 coatings is highlighted by the fact that TiO2, due to its high refractive index, reflects visible light when applied to transparent substrates with refractive indices similar to those of glass. According to the principles of thin-film optics, it is necessary to reduce the refractive index of TiO2, a process that can be achieved by introducing porosity. This leads to a decrease in the effective refractive index. Pores that are sufficiently small do not induce light scattering, which consequently reduces reflection and enhances light transmission. This is particularly important for the development of light-transmitting, photocatalytically active (self-cleaning) coatings. Furthermore, silver nanoparticles can be incorporated into the pores, resulting in coatings with antibacterial properties even in the dark., Such coatings would be highly advantageous as protective layers for solar panels, providing protection against weathering.
+Molecular dynamics simulation methods are promising and practically important for the investigation of processes taking place during the synthesis of various nanomaterials, self-organization of molecular nanostructures, behavior of molecules in confined spaces, etc. Molecular dynamics simulations have been carried out for different polymorphs of TiO2 using quantum chemical methods, force fields, including ReaxFF,, and recently using machine learning potentials,,, both in vacuum and also in water. Surface growth of TiO2 by using the sputtering technique has been investigated by joint experimental and computational (molecular dynamic) techniques. The pressure-driven transition of bulk TiO2 has been simulated recently by using the deep-learning molecular dynamics method. The mechanism of oriented attachment of TiO2 particles has been modeled by using a molecular dynamic technique, while agglomeration, annealing, and synthering of TiO2 particles have also been investigated in the gas phase., It is worth noting that the water, confined in idealistic TiO2 nanopores and nanoslits, has been simulated by using molecular dynamic techniques.,
+However, due to the complexity of the various processes occurring during the sol–gel thin film synthesis (detailed above), which all influence the final properties of the system, predicting the resulting parameters of nanostructured TiO2 coatings by simulations is a serious challenge. While challenging, the development of such simulation methods is crucial for both practical applications (by potentially decreasing the necessary experimental steps when developing new TiO2-based nanomaterials for various uses) and for deepening the theoretical understanding of the atomic-scale processes involved in the formation of nanoporous structures in TiO2 (bottom-up synthesis).
+In our present work, we studied whether the structure formation of sol–gel coatings can be approximated by molecular dynamics simulations, and we created a computer model and protocol suitable for predicting the coating structure. To achieve this, we defined the key parameters that determine the structure formation, such as particle size, size distribution, shape of the particles, capillary forces, etc. These parameters, determined by real experimental investigations, were used in the computer modeling program, allowing us to observe the resulting layer structure in the simulation. By comparing the simulated and real values of parameters, such as porosity, pore size, and pore size distribution, we assessed the model’s accuracy.
+We observed that the model accurately describes the layer structure using real parameters, which allowed us to explore the possibility of designing the coating structure through computer simulations.
+## Experimental Section
+## Materials
+Materials used for precursor sol synthesis: titanium(IV) butoxide (purum, ≥ 97%, Sigma-Aldrich), ethanol (EtOH, g.r., > 99.8%, Lach-Ner), nitric acid (special grade, 65%, Lach-Ner), and ultrapure water (18.2 MΩ cm, purified with an Adrona Integrity+ filtration system).
+Quartz glass slides (25 × 30 × 1.05 mm, Suprasil 1, Optilab Kft., Hungary) and silicon wafers (Siegert, (100), p-type, prime grade) were used as solid substrates of the coatings. Solid substrates were cleaned using 2-propanol (2-PrOH, for analysis, ACS reagent) and ultrapure water.
+2-propanol was also used as an adsorptive material in the ellipsometric porosimetry measurements.
+## Synthesis of the Precursor Sol
+Titania precursor sol was prepared by the acid-catalyzed controlled hydrolysis of titanium(IV) butoxide in ethanolic media. Nitric acid was used as a catalyst in the synthesis of precursor sol. The molar ratios for titanium(IV) butoxide:EtOH:HNO3:H2O were 1:27.95:0.49:0.82. The mixture was stirred for 2 h at 60 °C at 400 rpm.
+## Preparation of the Samples
+Quartz and silicon substrates were cleaned with 2-PrOH and distilled water before layer deposition. In order to increase the adhesion and wettability of the silicon substrates by the ethanolic precursor sol, cleaned silicon substrates were also treated with O2 plasma (radiofrequency-generated low-pressure plasma/SmartPlasma 10, Plasma Technology GmbH/coupled with an oxygen concentrator/DeVilbiss Healthcare 525 KS/) prior to layer deposition for 10 min (0.4 mbar, 300 W).
+Sol–gel coatings on solid substrates were prepared from the 1-day aged precursor sol by the dip-coating method. Clean quartz and silicon substrates were immersed into the precursor sol and pulled out with a constant speed of 12 cm/min by a dip-coater device (Plósz Mérnökiroda Kft., Hungary). The deposited films were annealed in a drying oven (Nabertherm B170) at 450 °C for 30 min with a heating rate of 5 °C/min.
+Powder samples were prepared in order to model the investigated TiO2 coatings: 1-day aged precursor sols were dried for 2 h until the evaporation of the ethanol, and then different heat treatments were carried out. One of the samples was dried at 80 °C for 40 min, while the other sample was heat-treated by applying the same parameters as for the TiO2 coatings: 450 °C for 30 min with a heating rate of 5 °C/min.
+## Investigation Methods
+## Transmission Electron Microscopy (TEM)
+1-day aged precursor sol and the structure of the TiO2 coating deposited on a silicon substrate were investigated by TEM using a Thermo Fisher (Waltham, MA, USA) Titan Themis 200 kV spherical aberration (Cs)-corrected TEM/STEM microscope having 0.08 nm high-resolution TEM and 0.16 nm scanning TEM point resolution, equipped with 4 Super-X EDS detectors. Before the TEM measurement, 1 droplet of the precursor sol diluted with ethanol was deposited onto a carbon-coated copper grid, followed by a drying step under an infrared heat lamp. TiO2 coating on silicon substrate was prepared in cross-section for TEM investigation by conventional mechanical and ion beam thinning techniques.
+## Atomic Force Microscopy (AFM)
+AFM measurements were carried out by an AIST-NT SmartSPM-1000 atomic force microscope in noncontact and tapping modes using NanoSensors PPP-NCHR AFM probes with a tip radius of less than 7 nm. Before the measurements, the 1-day aged precursor sol was diluted with ethanol to 10 times, 100 times, and 200 times its original concentration (hereafter designated as C0/10, C0/100, and C0/200). A 50 μL drop of these diluted sols was spin-coated onto cleaned and plasma-treated Si substrates at 6000 rpm until complete drying.
+## Dynamic Light Scattering (DLS): Size and Zeta Potential Measurements
+The Z-average mean diameter, the intensity-related size distribution, the polydispersity index, and the zeta potential of the colloidal particles in the 1-day aged precursor sol were determined, based on DLS principles, using a Zetasizer Nano ZS size analyzer (Malvern Panalytical Ltd. Malvern, United Kingdom; control and data processing by Malvern software). Size and zeta potential measurements were carried out at 25 °C using a disposable folded capillary cell (DTS1070). Measurement time, number of runs, position, and attenuation were set to automatic. The zeta potential values were obtained by using Henry’s function f(κa) reduced to the Huckel limit of 1.
+## X-ray Diffraction (XRD)
+The crystallinity of the TiO2 coatings and powder samples was characterized by an X-ray diffractometer (Philips PANalytical X’pert Pro, with Cu–Kα radiation) and an X’celerator detector. Measurements were carried out in the 2Θ = 4°–84° range, with a scanning rate of 20 s/step, step size of 0.0167°, and applying the automatic divergence slit system with an irradiated length of 15 mm.
+## X-ray Photoelectron Spectroscopy (XPS)
+The surface chemical composition of the TiO2 coating on the Si substrate has been measured by XPS in a ThermoFisher Scientific Escalab Xi+ instrument. The information depth of the technique is 5–10 nm. The X-ray source was an aluminum anode (Al Kα, photon energy 1486.6 eV), and the spot size was 900 μm. The sample was fixed to the sample holder by double-sided carbon tape. As the sample was conductive enough, a charge compensation system was not applied. The survey spectrum was measured with 100 eV pass energy in steps of 0.5 eV with 10 ms dwell time per data point. Carbon (1s), oxygen (1s), silicon (2p), and titanium (2p) high-resolution spectra were taken at 20 eV pass energies with 0.1 eV steps and 50 ms dwell time per data point. As the titanium peak is very sensitive to argon sputtering, the sample was gently cleaned by an argon gas cluster source: 4 keV energy, cluster size 1000. The evaluation of the spectra was performed using Avantage software. The chemical composition was calculated from the high-resolution spectra after the background was removed with the application of the Althermo sensitivity factor library. For revealing the bonding states, the spectra were fitted by Gaussian–Lorentzian functions with a Gaussian contribution of 30%. The slight charging was corrected by setting the C–C and C–H components to 284.8 eV.
+## UV–Visible Spectroscopy (UV–Vis)
+The optical properties of the coatings on quartz substrates were measured by UV–vis spectroscopy. Transmittance spectra of the bare quartz substrates and coated samples were taken using a Hanon i9 UV–vis spectrophotometer in the wavelength range of 400–1100 nm with a 1 nm resolution and a scanning speed of 10 nm/s. The obtained transmittance curves were analyzed in terms of thin-layer optical models. Transmittance spectra of coatings were fitted with a homogeneous layer model, supposing a perpendicular angle of incidence and identical homogeneous monolayers on both sides of the transparent substrate. (For further details, please refer to Section 1.1 in the Supporting Information.) The fitting procedures provided the effective refractive index (at 632.8 nm) and layer thickness values. The fitting procedure used a Levenberg–Marquardt algorithm. The porosity of coatings, based on the obtained effective refractive index values, was estimated using the Lorentz–Lorenz formula, considering the refractive index of the bulk TiO2 to be 2.400. (See also Section 1.3 in the Supporting Information.)
+## Scanning Angle Reflectometry (SAR)
+In order to investigate the optical properties of the samples, coatings on quartz and silicon substrates were studied by SAR using p-polarized light., Reflectance curves of the samples were taken using a scanning angle reflectometer (Plósz Mérnökiroda Kft., Hungary). The light source was a 10 mW polarized beam He–Ne laser (Thorlabs HNL050L, with a wavelength of 632.8 nm), and the intensity of reflected light was detected using a standard photodiode power sensor (Thorlabs S120C, 50 nW–50 mW). The angle of incidence was varied by using a unipolar stepper motor (Little Step-U). Measurements were carried out around the Brewster angle of the sample-air interfaces: in the incidence range of 60°–80° for the bare Si substrate, 45°–80° for TiO2 coatings on Si substrate, 50°–65° for bare quartz substrate, and 50°–80° in the case of TiO2 coatings on quartz substrate, with a resolution of 0.01°. Due to multiple reflections of the light in the quartz substrate, a dense interference wave pattern appeared in the reflectance curves. The wave pattern was eliminated by smoothing (by adjacent averaging). Reflectance curves were evaluated by fitting them with homogeneous layer models supposing identical homogeneous monolayers on both sides (quartz) or homogeneous monolayer on one side (silicon) of the solid substrate. (For further details, please refer to Section 1.2 in the Supporting Information.) The fitting procedure used a Levenberg–Marquardt algorithm and provided the effective refractive index and thickness of the coatings. For the determination of layer thickness, an approximate value (determined by other independent methods, e.g., cross-sectional TEM) was used as the initial value in the fitting procedure.
+## Ellipsometric Porosimetry (EP)
+Ellipsometric porosimetry was used to investigate the TiO2 coatings on quartz and silicon substrates to determine the open porosity, pore size, and pore size distribution of the samples. The measurements were carried out by a Semilab’s Sopra EP-12 ellipsometric porosimeter. EP is a technique suitable for characterizing porous thin films for open porosity, surface area, pore size, and mechanical strength. EP is a coupled technique in which the vapor adsorption can be studied step-by-step through spectroscopic ellipsometry. During the measurement, vapor of the adsorptive material condenses in the pore system, which induces an effective refractive index shift. Measuring the adsorption and the desorption isotherms, the porosity of the sample can be determined; furthermore, the pore size distribution can be calculated based on the modified Kelvin equation in the case of mesopores. The TiO2 coatings deposited onto quartz and silicon substrates were characterized by this method using 2-PrOH as adsorptive material. Before the measurements, the samples were heated to 448 K for 15 min and then vacuumed. The 2-propanol adsorption isotherms were measured at 297 K. EP also provides the possibility to determine the optical properties of the samples as a spectroscopic ellipsometer at the zero relative pressure of the adsorptive material. The measurements were carried out at the angle of incidence of 60° in the wavelength range of 248.5 nm–971.5 nm. The thickness and effective refractive index (at 632.8 nm) values of the coatings were determined by applying the Tauc-Lorentz oscillator model.
+## Molecular Dynamics Simulations
+The molecular dynamics simulations were carried out using the LAMMPS simulation program, while the results were analyzed and visualized using Ovito. The computations were carried out using the ReaxFF method. Here, we applied the force field, developed and validated for various crystal structures of titanium dioxide and the interaction of water with TiO2 surfaces. The TiO2 nanoparticle model was constructed by carving a spherical particle from a sufficiently large supercell using Python code employing the Molmod library. Solvent water molecules were inserted by using the Packmol program.
+The time step of 0.25 fs was applied for all simulations. Constant temperature and pressure were set using the Nosé–Hoover thermostat and barostat (including the Martina-Tuckerman-Klein formalism) with time constants of 25 and 250 ps, respectively.
+All computations were carried out on Nvidia GPUs using the KOKKOS library, integrated into the LAMMPS software. Utilization of GPUs allowed for unprecedented size (ca. 73,000 atoms) and ∼ hundred ps simulation time. All simulations employ periodic boundary conditions in 3 dimensions. The details of the model system setup are described later in the article.
+The pore structure was analyzed using Poreblazer. Porosities were estimated using two methods: the alpha-shape method (denoted by εα; the computations use a probe radius of 8.154 Å, a sum of the van der Waals radii of the 2-propanol, and the oxygen atom, which is assumed to be present on the surface) and the Gauss-density (denoted by εG; using the radius scaling of 1.0 and contour level of 0.2), as implemented in the Ovito code. As εα is parametrized for 2-propanol, we expect to model the experiments more closely. TEM images were simulated using the Prismatic code.
+## Results and Discussion
+## Characterization of the Precursor Sol: TEM, AFM, and DLS Investigations
+The 1-day aged TiO2 precursor sol was investigated by TEM to obtain information about the nature and size of the species present in the sol used for layer deposition. A homogeneous layer, formed through drying from the diluted precursor sol during sample preparation for TEM measurement, can be observed; however, the presence of individual solid microphases cannot be detected in the TEM images (Figure 1a,b). The sample showed an amorphous character, with no indications of particles, either amorphous or crystalline, observed even under high resolution. Additionally, no crystalline regions were detected through electron diffraction analysis (Figure 1a,b).
+Samples on Si-substrate prepared from the 1-day aged precursor sol, diluted with ethanol to C0/10, C0/100, and C0/200 concentrations (C0 is the initial concentration of the precursor sol), were also measured by AFM for the investigation of the colloidal particles present in the precursor sol.
+Based on the AFM images (Figures SI1 and SI2 in the Supporting Information), it can be concluded that the dilution of the precursor sol influences the structure due to evaporation; however, individual particles are not visible. (For further details, please refer to Section 2.1 in the Supporting Information.)
+The average diameter and polydispersity index value of the particles present in the ethanolic TiO2 precursor sol were determined by DLS. The measurement was carried out on the 1-day aged TiO2 sol to get information about the colloidal content of the sol used to form the coatings (as the coatings were deposited from the 1-day aged precursor sol). The representative size distribution function by the intensity of the 1-day aged TiO2 sol measured by DLS is shown in Figure SI3 in the Supporting Information. Z-average diameter (including the solvation shell) of approximately 2.7 nm, full width at half-maximum also of 2.7 nm, and polydispersity index of 0.098 ± 0.011 were obtained for the TiO2 precursor sol synthesized and stored under the same conditions for the same time as the precursor sol used for layer deposition. The DLS measurement has shown the presence of very small colloid particles with a diameter of 2.7 nm. Unfortunately, due to low-contrast features, those could not be visualized by TEM.
+The identification of individual colloidal particles is further hindered by the deposition of unreacted precursor molecules and low-molecular-weight oligomers (“intermediates”) onto the TEM grid surface and onto existing larger (colloidal-sized) particles, resulting in the formation of a continuous, coherent layer. This phenomenon presents a challenge similar to that in AFM analyses. Increasing sample dilution facilitates the dissolution of increasingly larger oligomers, thereby reducing the probability of compact microphase formation. We propose that compact microphases form exclusively during the coating process as the concentration of the colloidal system increases. In DLS measurements, both larger oligomers and microphases present in varying quantities are detected collectively at a given dilution. Consequently, DLS currently serves as the sole viable method for the observation of colloidal particles (larger oligomers, macromolecules, and microphases).
+The zeta potential of the 1-day-aged precursor sol was determined to be +20.30 ± 1.39 mV. In aqueous systems, the limit of colloidal stability is ±25 mV. As expected, the observed positive zeta potential can be attributed to the acidic nature of the precursor sol, coupled with the isoelectric point of anatase TiO2, which is reported at pH 5.8. This value suggests that the sol exhibits a moderate stability; therefore, spontaneous aggregation of colloidal particles is unfavorable, allowing the particles to remain well-dispersed within the precursor sol. This dispersion probably contributes to the formation of a homogeneous gel layer on the substrate surfaces.
+## Characterization of the Powder Samples by XRD
+XRD measurements were carried out on TiO2 coatings on silicon substrates. However, no peaks could be detected on the XRD patterns (not shown here) because of the very thin titania coatings on the substrates. In order to get better XRD results, TiO2 powder samples were prepared from the 1-day aged precursor sol: one of the powder samples was dried at 80 °C, and the other sample was heat-treated at 450 °C (under the same conditions as the coatings on solid substrates). XRD patterns of the powder samples prepared from the 1-day aged TiO2 precursor sol are presented in Figure SI4 in the Supporting Information. The sample dried at 80 °C (Figure SI4, black pattern) is an amorphous material and does not show crystallinity. In the case of the powder sample heat treated at 450 °C, all XRD peaks (Figure SI4, red pattern) are attributed to the anatase [PDF 98-000-9852] crystalline phase of TiO2 which was also expected based on the applied annealing temperature during sample preparation, and it is in accordance with our previous results.
+## Characterization of the Coatings on Solid Substrates: XPS, UV–Vis, SAR, EP, and TEM Analysis
+The prepared TiO2 coatings exhibited homogeneity on both quartz and silicon substrates. The sample on the quartz substrate was also transparent. (Please also refer to sample images in Figure SI5 in the Supporting Information.)
+According to the XPS survey spectrum (Figure SI6 in the Supporting Information) of the TiO2/Si sample before cluster sputtering, C, O, and Ti are present on the surface, while Si could not be detected, indicating that the coating fully covers the silicon substrate. As usual, O and Ti photoelectron peaks are also accompanied by the Auger peaks.
+Table 1 presents the atomic composition results before and after cluster sputtering, demonstrating that the coating can be considered as stoichiometric TiO2. It should be noted that the measured carbon content mainly originates from the organic contamination, which is always present on samples exposed previously to air. Its content is strongly reduced due to cluster sputtering; however, it could not be completely removed. This might be due to the lower material removal of the applied cluster sputtering technique and that the coating might contain carbon residual due to the titanium(IV) butoxide precursor.
+[TABLE] Table 1 Atomic Composition of the TiO2/Si Sample Surface (Before and After Cluster Sputtering) Measured by XPS
+sample | O [at%] | Ti [at%] | C [at%] | O/Ti [-]
+TiO2/Si (before cluster sputtering) | 55.4 | 26.8 | 17.8 | 2.1
+TiO2/Si (after cluster sputtering) | 63.7 | 32.1 | 4.2 | 2.0
+The high-resolution Ti 2p spectra before and after cluster sputtering are shown in Figure SI7 in the Supporting Information. It can be seen that the titanium splitting value (energy difference between 2p 3/2 and 1/2 peaks) which varies with chemical state, was found to be 5.7 eV, aligning well with the literature value for TiO2. A slight broadening of the peak on the low-energy side can also be observed after cluster sputtering. This can be attributed to reduced states of titanium, meaning that even the gentle cluster sputtering technique can cause damage in the titanium peak.
+The O 1s peak could be decomposed into three components which are depicted in Figure SI8 in the Supporting Information, before (Figure SI8a) and after (Figure SI8b) sputtering. The lowest binding energy component at 530.0 eV can be ascribed to lattice oxygen (LO), namely, the Ti–O bonds in TiO2, while the components at 531.3 and 532.3 eV can be attributed to oxygen vacancy/defects (VO) and loosely adsorbed, dissociated oxygen or OH species (CO). It can be seen that compared to the sample before cluster sputtering (Figure SI8a), the rate of the CO species is strongly reduced after sputtering (Figure SI8b).
+The representative transmittance curves of the uncoated, bare quartz substrate and the TiO2 coating on quartz can be seen in Figure 2. The TiO2 coating decreases the light transmittance of the quartz substrate in the whole studied wavelength range, due to its higher effective refractive index value (see Table 2) than that of the bare quartz substrate (nquartz = 1.4570). Thickness and effective refractive index values of the TiO2 sol–gel coating were determined by applying fitting procedures (Table 2). (For further details, please refer to Section 1.1 in the Supporting Information.) Porosity calculated by the Lorentz–Lorenz formula (see also Section 1.3 in the Supporting Information) in view of the effective refractive index of the coating and refractive index of the bulk TiO2 (nbulk = 2.400) and air (nair = 1) is also presented in Table 2.
+[TABLE] Table 2 Effective Refractive Index, Thickness and Calculated Porosity Values of the TiO2 Coatings on Quartz and Silicon Substrates, Determined from the UV-Vis Transmittance Spectra (Quartz) and Reflectance Curves (Quartz and Silicon) of the Samples
+coating/substrate | method | refractive index (632.8 nm) [-] | thickness [nm] | porosity (Lorentz–Lorenz) [%]
+TiO2/quartz | UV–vis | 2.0341 | 53 | 17
+TiO2/quartz | SAR | 2.0504 | 56 | 16
+TiO2/Si | SAR | 2.1698 ± 0.0051 | 52 ± 1 | 10 ± 0.25
+The refractive index, thickness, and porosity values determined based on the SAR measurements are also presented in Table 2. (For further details, please refer to Section 1.2 in the Supporting Information.) The representative reflectance curves of the TiO2 coatings on quartz and silicon substrates and their uncoated substrates can be found in the Supporting Information (Figure SI9).
+Comparing the results obtained from the transmittance curves with those derived from the reflectance curves, a good agreement in the value of the refractive index, thickness, and porosity for the TiO2 coating on the quartz substrate can be observed. TiO2 coatings prepared exactly under the same conditions on quartz and silicon substrates, however, show different refractive index and porosity values (Table 2). This can be attributed to the influence of substrate type on the structure of sol–gel coatings, a topic for which the available literature is limited, and the underlying mechanisms remain poorly understood. Only a small number of scientific studies have addressed this issue. Nikolic et al. observed that the transformation from amorphous to anatase TiO2 progressed more slowly on quartz compared to that on a silicon substrate. Additionally, they described the orientation of TiO2 coatings on silicon and explored the nature of the interactions between titania and silicon substrates.
+In order to investigate the amount and character of the available open pores, the TiO2 coatings on quartz and silicon substrates were characterized by ellipsometric porosimetry. The adsorption–desorption isotherms shown in Figure 3a,c were taken at 297 K using 2-propanol as an adsorptive material. The normalized pore radius distributions of the pore systems presented in Figure 3b,d were determined by using the modified Kelvin equation and assuming cylindrical pores. The shape of the isotherms is of type IV, and the hysteresis loops are of type H2, according to IUPAC classification. These correspond to mesoporous materials with interconnected pore systems and nonuniform pore sizes. The effective refractive index (at 632.8 nm) and thickness values of the coatings were also determined by EP at zero relative pressure by applying the Tauc-Lorentz oscillator model (Table 3).
+[TABLE] Table 3 Effective Refractive Index, Thickness, Total and Open Porosity, and Pore Radius Values of the TiO2 Coatings on Quartz and Silicon Substrates Determined by Ellipsometric Porosimetry
+coating/substrate | refractive index (632.8 nm) [-] | thickness [nm] | total porosity (Lorentz–Lorenz) [%] | open porosity [%] | rads [nm] | rdes [nm]
+TiO2/quartz | 2.1294 | 54 | 12 | 6 | 4.1 | 2.2
+TiO2/Si | 2.1607 | 50 | 10 | 7 | 3.9 | 2.4
+The pore radius values determined from the desorption branch of the isotherms are 2.2 and 2.4 nm for the coatings on quartz and silicon substrates, respectively (Table 3). The values of the open porosity of the TiO2 coating on the two different substrates determined by EP are very close to each other: 6 and 7% for coatings on quartz and silicon, respectively. These values are approximately 6% (on quartz) and 3% (on Si) less than the total porosity calculated by the Lorentz–Lorenz formula in view of effective refractive indices determined by EP at the zero relative pressure of the adsorptive material (Table 3). The reason for this difference is that one part of the pores is closed or not accessible by the adsorptive molecules.
+Considering that ellipsometry is a well-established and reliable technique for determining the thickness and refractive index of thin films, the observed discrepancies in the effective refractive index, and consequently the porosity, of the TiO2 coating on a transparent quartz substrate, as derived from various methodologies (see Tables 2 and 3), highlight the potential for greater uncertainty in thin layer optical measurements on transparent substrates. Nonetheless, these findings also indicate that while substrate-type effects may be present, their magnitude is likely less significant than suggested by the initial thin-layer optical measurement results for the two distinct substrates.
+Figure 4 shows the cross-sectional TEM image of the TiO2 coating deposited onto a silicon substrate. It can be seen that the coating is not compact, a granularity is observable that results in a porous structure, in accordance with the results presented in our previous paper. This porous structure confirms the porosity values determined by different optical methods (UV–vis, SAR, and EP). The thickness of 51 nm determined based on the TEM image is practically identical with the thickness values determined by SAR (52 ± 1 nm) and EP (52 nm) methods for the TiO2 coating on a silicon substrate.
+## Molecular Dynamics Simulations of Coatings’ Structure Formation
+## Protocol for Computational Synthesis
+Here, we describe the computation protocol that we applied to computationally synthesize the porous TiO2 layers.
+The TiO2 gel has a highly complex structure, involving the possible presence of microphases or chains. As here we concentrate on the formation of the TiO2 layer, we initiated the computational synthesis process with a TiO2 sphere, whose uniform diameter of 4 nm was selected based on the particle diameter (including the solvation shell) of approximately 2.7 nm with a full width at half-maximum of also 2.7 nm determined by DLS measurement. This sphere was carved from a suitably large anatase supercell. The anatase crystal phase was chosen based on the XRD analysis of the TiO2 powder samples (see Figure SI4 in the Supporting Information). The simulation is initiated with compact TiO2 nanoparticles (solid microphases), which form from the chain-like oligomers and macromolecules initially present in the precursor sol during layer deposition. As a result of evaporation (drying), the system becomes saturated to water, the oligomers lose their solubility which results in the formation of solid microphases. The initially amorphous particles transform into anatase due to the heat treatment.
+The carved particle composition was found to be Ti979O1962, where the ratio of oxygen is 2.004, close to that of bulk TiO2. However, since the particle carving was solely based on geometric criteria, the resulting structure contained several low-valent atoms with dangling bonds on the particle surface. In the case of a TiO2 particle synthesized in a water-containing environment (i.e., the ethanolic precursor sol also contains a small amount of water for initiating the hydrolysis), the dangling bonds of oxygen and titanium atoms are effectively saturated by hydrogen and hydroxyl groups, respectively. Thus, we immersed the particle in water to allow for an optimal termination and relaxation of the surface. A similar strategy has been applied recently to construct realistically hydrated TiO2 surfaces. After optimizing the initial geometry, we carried out a molecular dynamics simulation for 250 ps at constant temperature and pressure of 300 K and 1 atm to relax the structure. The water and the dissociated products are removed subsequently to model solvent evaporation during the drying process. The composition of the resulting nanoparticle was found to be Ti973O2107H492 (indicating a chemical formula of TiO2.1H0.5), indicating that a limited number (potentially high-energy) of titanium atoms underwent dissociation from the surface, forming compounds of small molecules. The TiO2.1 composition revealed by XPS analysis (Table 1) of the TiO2 sample before cluster sputtering is in good agreement with and further supports the simulation results. All of the hydrogen atoms present on the surface are hydroxyl groups; thus, the effective composition of the particle can be described as TiO1.7(OH)0.5. The excess oxygens and hydroxyls are responsible for the appropriate surface termination. This particle has been applied in all subsequent simulations (see Figure 5a). This is because of the termination of the surface titanium atoms with oxygen or OH groups.
+Subsequently, 20 such TiO2 particles were placed in a simulation box of 13.7 × 13.7 × 13.7 nm, allowing a nontouching distribution. The box was set under periodic boundary conditions in all three dimensions, which is anticipated to be an appropriate model, considering the experimental layer thickness of approximately 50 nm.
+During the experimental drying and annealing process, complex chemical and physical processes occur, ultimately resulting in the formation of a porous layer. The time scale of these processes exceeds the capabilities of molecular dynamics simulations. As a result, we have developed a comprehensive protocol to effectively model the most significant processes, termed the “7-step relaxation process”. This approach draws inspiration from the amorphous polymer setup in molecular dynamics. By employing a suitable setup consisting of multiple short molecular dynamics simulations with appropriate temperature and pressure conditions, we can effectively guide the complex structure toward a well-equilibrated state with a realistic geometric structure. The layer formation (Figure 5b) was modeled using the protocol shown in Table 4. The simulations start with the modeling of the drying process (step 1). To account for the influence of attractive capillary forces in the drying process, we incorporated an external pressure that was applied exclusively during this phase. This is because capillary forces are active only until the evaporation of the liquid compounds is fully accomplished. In order to align with the typically achievable time scales of molecular dynamics simulations, the drying and annealing temperature [K] used in this study is higher than those employed in the experiments. This adjustment enhances the chemical reaction rates to complete the annealing reactions within the typical molecular dynamics time scale. A similar strategy is employed often in molecular dynamics simulations of polymer setups, and in reactive force field-based combustion simulations. The annealing temperature for the simulations was chosen to be lower than the point at which the nanoparticle interior starts to soften during the simulations. The drying process involves a 5 °C/min heat up in the experiments, where complex physicochemical processes take place, including the evaporation of the solvent and the compactification of the structure. We note that such a time scale is beyond the capabilities of the molecular dynamics simulations. Thus, here, we utilize an effective model.
+[TABLE] Table 4 Simulation Protocol for Nanoparticle Synthesis
+step | temperature [K] | pressure [atm] | time [ps]
+1 | 800 | fixed pressure, as described (see Figure 6) | 50
+2 | 800 → 1000 | 1 | 12.5
+3 | 1000 | 1 | 50
+4 | 1000 → 1200 | 1 | 12.5
+5 | 1200 | 1 | 50
+6 | 1200 → 300 | 1 | 12.5
+7 | 300 | 1 | 50
+total | | | 237.5
+Consequently, the simulations were initiated at a temperature of 800 K and at the specified pressure. Previous studies employing high-temperature annealing molecular dynamics simulations of TiO2 have demonstrated that the anatase phase begins to emerge at this temperature. Also, neck formation during the TiO2 nanoparticle sintering molecular dynamics simulations was observed already at 573 K, thus this temperature makes the agglomeration reactions feasible. Our simulations were initiated from anatase structure nanoparticles, and we did not observe any change in the crystal structure of the particles. These conditions allowed compactification of the structure, as was shown by the reduction of both the cell size and the porosity.
+Simulation steps 2–5 (Table 4) model the annealing during the high-temperature treatment of the porous layer. In a similar manner to the drying step, we utilized a higher temperature of 1000 and 1200 K in the simulations compared to the experimental conditions. This elevated temperature facilitated the appropriate reaction progress. The temperatures were incrementally raised between each target.
+In steps 6 and 7 (Table 4), the temperature was reduced to 300 K, followed by a final annealing step to alleviate any potential strain induced by the high temperature.
+During the drying and annealing process, the structure released water, oxygen, and small titanium compounds, while Ti–O–Ti bonds were formed between the particles. After the final step, the released gaseous compounds were eliminated, resulting in a clean and porous structure.
+We further examined the impact of doubling and quadrupling the simulation time for each step on both the calculated porosity values and the simulated TEM images (Table 5). The simulated TEM images show similar, but not identical, distribution of the atoms and also an increase in the porosity. The increased porosity can likely be attributed to the incomplete annealing of the structure during simulation step 1. The longer subsequent heating steps in the simulations enable a greater degree of relaxation, leading to higher porosity values. Nevertheless, using a given simulation protocol (i.e., total simulation time in the present case), the effect of the total pressure should follow the same trend.
+[TABLE] Table 5 Effect of the Total Simulation Time on the Simulated TEM Images and Porosity (εα: Alpha-Shape Porosity, εG: Gauss-Density-Based Porosity) Values at an External Pressure of 1000 atma
+## Computational Synthesis of Porous TiO2 Layers
+The attractive capillary forces are responsible for the shrinkage of the coating during evaporation and for the formation of the pore structure during the drying phase.
+While the internal pressure due to the capillary forces can be estimated to range from 180 to 570 atm, we regarded the pressure as a parameter to align the molecular dynamics time scale with that of the experiment and investigated its effect on the pore structure of the coating. The internal pressure due to the capillary forces was approximated by using an average capillary pressure within the layer. The calculations were carried out based on the simplified Laplace–Young equation for spherical geometries, assuming the presence of either pure ethanol (180 atm) or pure water (570 atm), along with complete wetting (for ethanol), or a receding contact angle of 16° (for water) on the surface of the TiO2. The pore radius of 2.4 nm, determined by EP, was used in the calculations. (For further details, please refer to Section 2.7 in the Supporting Information.)
+The simulation results at different pressures ranging from 100 to 20,000 atm are depicted in Figure 6.
+It is very visible that the anatase crystal structure of the particles was kept unchanged in the simulations, in line with the selected simulation temperature. Thus, only the particle surfaces are altered by the chemical reactions and by the deformation due to the external pressure. The figure (Figure 6) clearly shows the important effect of the pressure. At a lower pressure of 100 atm, the particles keep their quasi-spherical shape, and point-like joints form between the TiO2 particles. The porosity is high, indicating essentially a dried sol state, as indicated also by the very large diameter pores in the pore-size distribution. Nevertheless, the formation of necks between the particles is already evident both from the geometry and also from the simulated TEM image, as the initially separate particles are chemically bonded together through Ti–O bonds in the final state. On the other hand, a higher pressure of 1000 atm leads to a substantial distortion of the particle shapes, and the porosity decreases significantly, in line with the shifting of the pore size distribution toward smaller pore sizes. The neck formation becomes more pronounced with the increased pressure. These trends continue with the further increase of the pressure. However, it is important to note that even at pressures as high as 15,000 atm, certain large-diameter pores still persist. At the highest pressure of 20,000 atm, the connected pore structure diminishes, leaving behind only a few disconnected, small diameter pores. This is well visible both on the geometries and also on the simulated TEM images.
+It is interesting to note that the porosities computed using the alpha-shape and the Gauss-density methods follow the same trends; however, due to the definition, the εα should model the experiments more closely. One possible explanation for the discrepancy between experimental results and simulations (i.e., porosity corresponding to the experimental results is achieved at higher pressure values in the simulations) is that the solid microphases formed during drying are still plastic and, therefore, the coating composed of them is more shrinkable. The simulations clearly reveal that the porosity of sol–gel coatings formed from microphases is influenced not only by capillary forces but also by the plasticity of the particles building up the coating. Hence, by controlling the preparation of precursor sols and the formation of microphases, the porosity can also be regulated. Similarly, drying conditions play a crucial role; under slower drying conditions, the consolidation and hardening of particles may occur at lower pressures, which could result in higher porosity. The plasticity of freshly prepared TiO2 layers is also indicated by the observation that such layers can swell in water vapor.
+The final compositions clearly show that oxygens are eliminated from the systems. This is because of the formation of Ti–O bonds between the particles, which according to the simulation proceeds not only by the water desorption (formally as Ti–OH + HO–Ti → Ti–O–Ti + H2O) but also by direct O2 evolution. Interestingly, the formal elimination of hydrogen shows a declining pattern as the pressure increases. Notably, at a pressure as high as 20,000 atm, no hydrogen elimination was observed within the simulation time. Likewise, the formal elimination of titanium from the system follows a similar trend.
+These observations clearly demonstrate the impact of external pressure during the drying phase of the simulations. Lower pressures result in a dried, weakly annealed sol state, whereas an extremely high pressure leads to the formation of a mildly porous, polycrystalline state. Therefore, external pressure can be considered a physically motivated parameter, based on the capillary pressure during sol drying, and computationally employed to align the molecular dynamics time scale with experimental conditions. The morphology of the TiO2 layer can be tuned by the external pressure, and an appropriate pressure can be selected to align with the experiments. However, it is important to highlight that different pressure ranges result in distinct morphologies. A low pressure of 100 atm leads to a dried, annealed sol state, while pressures ranging from 1000 to 3000 atm yield a porous structure. The structure subjected to approximately 10,000 atm external pressure in the simulations exhibits a comparable porosity to that observed in the bulk material. This finding highlights the role of capillary immersion forces, which can exert a much higher contractive force during sol–gel layer formation than that resulting from capillary pressure. This similarity in porosity suggests a corresponding similarity in pore structure, making it a suitable computationally synthesized representation of the experimental structure. However, it is important to acknowledge that there are some differences in the pore shapes observed in the simulated and experimental images. Lower pressures yield more connected pore structures, and the one computed at 3000 atm shows the closest agreement with the experiments.
+Finally, it is important to note that pressures above 10,000 atm cause the structure to resemble more of a bulk polycrystalline material.
+Table 6 shows the bonding analysis of the computationally synthesized TiO2 systems at 3000 and 10,000 atm pressures. Bonds were perceived based on distance criteria using the default cutoffs of the Ovito code.
+[TABLE] Table 6 Bonding Analysis of the Simulation Results at Various Pressures
+pressure [atm] | 3000 | 10,000
+number of Ti–O bonds [-] | 91,506 | 88,842
+number O–H bonds [-] | 11,126 | 11,421
+number of O–H bonds on the pore wall [-] | 5412 | 2717
+number of O–O bonds [-] | 3049 | 4081
+density of O–H bonds on the pore wall [1/nm2] | 14.5 | 18.8
+The bonding analysis reveals that, as expected, the vast majority of chemical bonds is between the Ti and the O atoms, while a significant number of O–H and, more surprisingly, the O–O bonds also exist. A significant number of O–O bonds are present between the annealed particles. We expect that the formation of O–O bonds can be traced back to simulation reasons, either because their relaxation would need a longer time scale or because the actual compounds (including water, as shown in ref ()), bound to the surface or present in the atmosphere can suppress their formation or can play an important role in their relaxation during the annealing process.
+In line with the observed composition of the computationally synthesized systems, the number of O–H bonds remains relatively constant regardless of the pressure, while specifically on the pore wall, there is a noticeable decrease in the quantity of O–H bonds as the pressure increases. However, it is important to note that as the pore surface decreases with pressure, the density of the O–H bonds on the pore wall actually increases. Surface O–H bonds play an important role in binding dye molecules; thus, the predicted density holds important information, which is difficult to obtain from experiments.
+## Conclusions
+Here, we present a joint experimental and computational synthesis of titanium-dioxide layers and, in particular, provide simulations for porous-structure formation for the first time. The ReaxFF-based molecular dynamics simulations allowed us to follow the chemical reactions during the drying and the annealing process. The simulations were started from carefully prepared spherical titanium-dioxide nanoparticles with realistic surface termination. The effect of the capillary forces in the drying phase was taken into account by an appropriately selected external pressure in the simulations. Our findings demonstrate that the selection of an appropriate pressure parameter can effectively tune the model to align with experimental results. This pressure parameter is physically motivated and serves as a valuable tool for adjusting the model to match the experimental observations. The simulations yielded pore structures for TiO2 with realistic geometries, composition, and also with partial OH termination. However, we highlight that the current version of the model neglects the effect of the substrate, which can influence the pore structure, and it is also clear that the modeling of the local chemical bond formation between the particles needs further improvement.
+Thus, here we showed both the usefulness of the model to computationally synthesize nanoporous TiO2, and also its limitations, what must be taken into account during the interpretation of the results, and should be investigated.
+## Supporting Information Available
+The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acs.langmuir.4c03959.
+Equations used in fitting procedures for UV–vis transmittance curves and reflectance curves, Lorentz–Lorenz equation for porosity calculation; AFM images and additional details about the AFM results; representative size distribution function of the precursor sol measured by DLS; XRD patterns of the powder samples; photographs of the samples; XPS spectra; reflectance curves of the samples taken by SAR; and additional details regarding the estimation of the internal pressure within the layers induced by capillary forces (PDF)
+The authors declare no competing financial interest.
+## Figure captions
+Figure 1 TEM images of the 1-day aged TiO2 precursor sol taken with lower (a) and higher (b) magnification.
+Figure 2 Representative transmittance spectra of the bare quartz substrate and the TiO2 coating on the quartz substrate.
+Figure 3 2-Propanol adsorption–desorption isotherms taken at 297 K (a,c) and normalized pore radius distribution functions (b,d) of TiO2 coatings on quartz (a,b) and silicon (c,d) substrates, determined by ellipsometric porosimetry.
+Figure 4 Cross-sectional TEM image of the TiO2 sol–gel coating on a silicon substrate.
+Figure 5 Computational synthesis protocol for porous TiO2 layers: (a) Nanoparticle model construction. (b) Porous layer formation.
+Figure 6 Simulation results using different pressures. The scale bar indicates a length of 5 nm. Geometry was rendered based on the atomic coordinates. Compositions and chemical formulas are indicated below each structure. Surfaces were generated using the alpha-shape method with a probe radius of 3 Å, as implemented in the Ovito code.51 All computations are periodic in 3 dimensions; thus, only the simulation cell is shown. Both the alpha-shape (εα) and the Gauss-density-based porosities (εG) are shown.
+## Table footnotes
+Table 5 — aThe length of the scale bar indicates 5 nm.
+## Supporting Information — la4c03959_si_001.pdf
+S1
+Supporting Information
+Experimental and computational synthesis of
+TiO2 sol-gel coatings
+Emőke Albert†, Péter Basa‡, Bálint Fodor‡, Zsófia Keresztes§, János Madarász∥, Péter Márton†,
+Dániel Olasz⊥, Adél Sarolta Rácz⊥, György Sáfrán⊥, Tamás Szabó§, Borbála Tegze†, Tibor
+Höltzl*,#,∇, Zoltán Hórvölgyi*,†
+†Department of Physical Chemistry and Materials Science, Budapest University of Technology
+and Economics, Műegyetem rkp. 3, 1111 Budapest, Hungary
+*E-mail: horvolgyi.zoltan@vbk.bme.hu
+‡Semilab Semiconductor Physics Laboratory Co. Ltd., Prielle Kornélia utca 2, 1117 Budapest,
+Hungary
+§HUN-REN Research Centre for Natural Sciences, Institute of Materials and Environmental
+Chemistry, Magyar tudósok körútja 2, 1117 Budapest, Hungary
+∥Department of Inorganic and Analytical Chemistry, Budapest University of Technology and
+Economics, Műegyetem rkp. 3, 1111 Budapest, Hungary
+⊥HUN-REN Centre for Energy Research, Institute of Technical Physics and Materials Science,
+Konkoly-Thege Miklós út 29-33, 1121 Budapest, Hungary
+#HUN-REN Computation Driven Chemistry Research Group, Department of Inorganic and
+Analytical Chemistry, Budapest University of Technology and Economics, Műegyetem rkp. 3,
+1111 Budapest, Hungary
+∇Nanomaterials Science Group, Furukawa Electric Institute of Technology, Késmárk utca 28/A,
+1158 Budapest, Hungary
+*E-mail: tibor.holtzl@furukawaelectric.com
+S2
+Table of Contents
+1 Characterization methods............................................................................................................. 3
+1.1 Spectrophotometric measurements: determination of thickness and refractive index values of
+thin coatings on transparent substrates1 .......................................................................................... 3
+1.2 Scanning angle reflectometry measurements: determination of thickness and refractive index
+values of thin coatings on non-transparent and transparent substrates2,3,4 ...................................... 5
+1.3 Lorentz-Lorenz equation for porosity calculation5 ................................................................... 7
+2 Results .......................................................................................................................................... 8
+2.1 Atomic Force Microscopy (AFM) ............................................................................................ 8
+2.2 Dynamic light scattering (DLS) .............................................................................................. 10
+2.3 X-Ray Diffraction (XRD) ....................................................................................................... 11
+2.4 Images of the prepared coatings on quartz and silicon substrates .......................................... 12
+2.5 X-Ray Photoelectron Spectroscopy (XPS) ............................................................................. 13
+2.6 Scanning angle reflectometry (SAR) ...................................................................................... 15
+2.7 Estimation of the internal pressure within the layers induced by capillary forces ................. 16
+References ..................................................................................................................................... 17
+S3
+1 Characterization methods
+1.1 Spectrophotometric measurements: determination of thickness and
+refractive index values of thin coatings on transparent substrates1
+The optical properties of the coatings on quartz substrates were determined by a thin-layer
+optical model (Hild method)1 fitted to the transmittance spectra. The spectra were recorded using
+a Hanon i9 UV-Vis spectrophotometer in the wavelength range of 400-1100 nm with 1 nm
+resolution and a scanning speed of 10 nm/s. The optical model used for samples with one coating
+at each side of the transparent substrate (in this case on quartz) assumes a homogeneous layer with
+no light absorption and scattering in the visible wavelength range, and no refractive index gradient
+along the layer normal. The variables of the single-layer model were the transmittance (T) and the
+wavelength of the incident light (x) in 0.1 μm units. The iterated parameters were the refractive
+index (n0), the dispersion factor (q), and the thickness in 0.1 μm units (d) of the layer, respectively.
+The model uses the refractive index (p1) and dispersion factor (p2) of the quartz substrate as
+constant values (1.4570 and 0.7, respectively). The transmittance of the system as a function of
+the parameters are given by Equation SI1:
+𝑇𝑇=
+1 −
+൭1 −𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁቀ1 −
+2𝑎𝑎
+𝑎𝑎2 + 𝑏𝑏2ቁ൱
+2
++
+⎝
+⎜
+⎜
+⎛𝑥𝑥
+2𝜋𝜋𝜋𝜋
+⎝
+⎜
+⎜
+⎛
+1 −
+⎷⃓⃓⃓⃓⃓⃓⃓⃓⃓
+ለ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑔𝑔
+⎠
+⎟
+⎟
+⎞
+−
+2 ∙𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ𝑏𝑏
+𝑎𝑎2 + 𝑏𝑏2
+⎠
+⎟
+⎟
+⎞
+2
+൭1 + 𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁቀ1 −
+2𝑎𝑎
+𝑎𝑎2 + 𝑏𝑏2ቁ൱
+2
++
+⎝
+⎜
+⎜
+⎛𝑥𝑥
+2𝜋𝜋𝜋𝜋
+⎝
+⎜
+⎜
+⎛
+1 −
+⎷⃓⃓⃓⃓⃓⃓⃓⃓⃓
+ለ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑔𝑔
+⎠
+⎟
+⎟
+⎞
+−
+2 ∙𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ𝑏𝑏
+𝑎𝑎2 + 𝑏𝑏2
+⎠
+⎟
+⎟
+⎞
+2
+1 +
+൭1 −𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁቀ1 −
+2𝑎𝑎
+𝑎𝑎2 + 𝑏𝑏2ቁ൱
+2
++
+⎝
+⎜
+⎜
+⎛𝑥𝑥
+2𝜋𝜋𝜋𝜋
+⎝
+⎜
+⎜
+⎛
+1 −
+⎷⃓⃓⃓⃓⃓⃓⃓⃓⃓
+ለ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑔𝑔
+⎠
+⎟
+⎟
+⎞
+−
+2 ∙𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ𝑏𝑏
+𝑎𝑎2 + 𝑏𝑏2
+⎠
+⎟
+⎟
+⎞
+2
+൭1 + 𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁቀ1 −
+2𝑎𝑎
+𝑎𝑎2 + 𝑏𝑏2ቁ൱
+2
++
+⎝
+⎜
+⎜
+⎛𝑥𝑥
+2𝜋𝜋𝜋𝜋
+⎝
+⎜
+⎜
+⎛
+1 −
+⎷⃓⃓⃓⃓⃓⃓⃓⃓⃓
+ለ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑔𝑔
+⎠
+⎟
+⎟
+⎞
+−
+2 ∙𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ𝑏𝑏
+𝑎𝑎2 + 𝑏𝑏2
+⎠
+⎟
+⎟
+⎞
+2
+(SI1)
+S4
+where a and b are defined by Equation SI2 and SI3.
+𝑎𝑎= 1 +
+ቆ𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁቇ
+2
+−ቆ𝑝𝑝1ට1 + 𝑝𝑝2 ቀ1
+𝑥𝑥2 −1
+40ቁቇ
+2
+ቆ𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ−𝑝𝑝1ට1 + 𝑝𝑝2 ቀ1
+𝑥𝑥2 −1
+40ቁቇ
+2
+∙cos
+⎝
+⎛
+4𝜋𝜋𝜋𝜋𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑥𝑥
+⎠
+⎞
+(SI2)
+𝑏𝑏=
+ቆ𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁቇ
+2
+−ቆ𝑝𝑝1ට1 + 𝑝𝑝2 ቀ1
+𝑥𝑥2 −1
+40ቁቇ
+2
+ቆ𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ−𝑝𝑝1ට1 + 𝑝𝑝2 ቀ1
+𝑥𝑥2 −1
+40ቁቇ
+2
+∙sin
+⎝
+⎛
+4𝜋𝜋𝜋𝜋𝑛𝑛0ට1 + 𝑞𝑞ቀ1
+𝑥𝑥2 −1
+40ቁ
+𝑥𝑥
+⎠
+⎞
+(SI3)
+S5
+1.2 Scanning angle reflectometry measurements: determination of thickness
+and refractive index values of thin coatings on non-transparent and
+transparent substrates2,3,4
+The optical model used for the samples with one coating on non-transparent (in this case silicon)
+substrate also assumes a homogeneous layer with no absorption and no refractive index gradient
+along the layer normal. The variables of the model were the reflected intensity (I) and the angle of
+incidence (x) in radians. The iterated parameters were the refractive index (n) and the thickness (d)
+of the coating and a correction factor (h) for better fitting (this can vary in the 1 ± 0.0001 range).
+The model uses the refractive index (ns) of the substrate (in case of silicon substrate ns = 3.883).
+S6
+The intensity of the reflected light as a function of the parameters is given by Equation SI4:
+𝐼𝐼= ℎ∙
+൮
+cos 𝑥𝑥−√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+cos 𝑥𝑥+ √𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+൲
+2
++
+⎝
+⎜
+⎛
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+−ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
++ ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+⎠
+⎟
+⎞
+2
++ 2
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+−ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
++ ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+∙
+cos 𝑥𝑥−√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+cos 𝑥𝑥+ √𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+∙cos൫2𝑑𝑑√𝑛𝑛2 −sin2 𝑥𝑥൯
+1 + ൮
+cos 𝑥𝑥−√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+cos 𝑥𝑥+ √𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+൲
+2
+∙
+⎝
+⎜
+⎛
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+−ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
++ ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+⎠
+⎟
+⎞
+2
++ 2
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+−ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
++ ඥ𝑛𝑛𝑠𝑠2 −sin2 𝑥𝑥
+𝑛𝑛𝑠𝑠2
+∙
+cos 𝑥𝑥−√𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+cos 𝑥𝑥+ √𝑛𝑛2 −sin2 𝑥𝑥
+𝑛𝑛2
+∙cos൫2𝑑𝑑√𝑛𝑛2 −sin2 𝑥𝑥൯
+(SI4)
+S7
+In the case of studying transparent substrates (in this case quartz) with a coating on both sides
+with scanning angle reflectometry, it was necessary to take into account the backside reflection of
+the laser light. For this, a modified optical model was used, which also assumes homogeneous
+layers with no absorption and no refractive index gradient. This model was the following:
+𝐼𝐼= ℎ∙
+2𝑟𝑟
+1 + 𝑟𝑟
+(SI5)
+where I is the reflected intensity, r is the second factor of the product on the right side of
+Equation S14 (the large fraction), and h is the correction factor described above.
+1.3 Lorentz-Lorenz equation for porosity calculation5
+For calculating the porosity of the mesoporous TiO2 coatings, the Lorenz-Lorentz formula5
+(Equation SI6) was used:
+𝑛𝑛𝑒𝑒𝑒𝑒𝑒𝑒
+2
+−1
+𝑛𝑛𝑒𝑒𝑒𝑒𝑒𝑒
+2
++ 2 = 𝛼𝛼𝑛𝑛1
+2 −1
+𝑛𝑛1
+2 + 2 + (1 −𝛼𝛼) 𝑛𝑛2
+2 −1
+𝑛𝑛2
+2 + 2
+(SI6)
+where neff is the effective refractive index of the porous material (calculated from the fitting
+discussed above) n1 and n2 are the refractive indices of the two components and α is the volume
+fraction of component 1. It was assumed in the calculations that the refractive index of TiO2 is
+2.400 and the refractive index of air is 1. If the TiO2 is considered as component 1, α gives the
+porosity directly.
+S8
+2 Results
+2.1 Atomic Force Microscopy (AFM)
+The C0/10 sample was found to be smooth, the RMS roughness measured over a 10 × 10 µm2
+area was Sq = 455.5 pm, the mean roughness Sa = 353.2 pm. A randomly selected cross-section
+profile (1024 points) is shown below without any averaging.
+Figure SI1: AFM cross-section profile (1024 points) of the C0/10 sample
+The corresponding phase image of the C0/10 sample (image (a) in the Figure below) is
+homogeneous. In a window of 400 × 400 nm2, fine granular character can be observed. On the
+C0/100 sample, “holes” and “craters” appear on the surface. A typical landscape can be seen in the
+image (image (b) in the Figure below, 1 × 1 µm2). At the bottom of the holes, granular surface
+structure can be observed (not shown). The phase images do not refer to any material
+inhomogeneity. In the case of the C0/200 sample, the lateral size of the holes and craters became
+larger. The remaining walls between the expanded holes form mesh-like structure (image (c) in
+the Figure below, 1 × 1 µm2).
+S9
+Figure SI2: AFM images of the samples deposited on Si-substrates by spin-coating from the
+precursor sols diluted with ethanol to C0/10 (a), C0/100 (b), and C0/200 (c) concentrations. (a):
+10× 10 µm2, (b): 1 × 1 µm2, (c): 1 × 1 µm2 (C0 is the initial concentration of the precursor sol).
+Based on the AFM images, it can be concluded that the dilution of the precursor sol influences
+the structure due to evaporation; however, individual particles are not visible.
+S10
+2.2 Dynamic light scattering (DLS)
+Figure SI3: Representative size distribution function of the 1-day aged TiO2 precursor sol obtained
+by DLS studies.
+S11
+2.3 X-Ray Diffraction (XRD)
+Figure SI4: XRD patterns of the TiO2 powder samples prepared from the 1-day aged precursor sol.
+One of the samples was dried at 80 °C (black pattern), the other sample was heat-treated at 450 °C
+(red pattern). The positions of the standard reflections for anatase [PDF 98-000-9852] are also
+shown as vertical bars at the bottom. The diagram is shifted along the Intensity axis for better
+visibility.
+S12
+2.4 Images of the prepared coatings on quartz and silicon substrates
+Figure SI5: Images of the TiO2 coatings on quartz (a), and silicon (b) substrates. The transparency
+of the sample on quartz substrate is well observable in image (a): the text on the paper placed under
+the sample can be seen clearly. The prepared TiO2 coatings exhibited homogeneity on both quartz
+and silicon substrates (The extended, thicker region of the coating at the bottom of the silicon
+substrate is attributed to the edge effect of the substrate.).
+S13
+2.5 X-Ray Photoelectron Spectroscopy (XPS)
+Figure SI6: XPS survey spectrum of the of the TiO2 coating on silicon substrate (before cluster
+sputtering).
+Figure SI7: XPS high resolution Ti2p spectrum of the TiO2 coating on silicon substrate before,
+and after cluster sputtering.
+S14
+Figure SI8: XPS high resolution O 1s spectrum of the TiO2 coating on silicon substrate before
+argon cluster sputtering (a), and after argon cluster sputtering (b). LO stands for lattice oxygen,
+namely the Ti-O bonds in TiO2,while VO to oxygen vacancy/defects, and CO belongs to loosely
+adsorbed, dissociated oxygen or OH species.
+S15
+2.6 Scanning angle reflectometry (SAR)
+Figure SI9: Smoothed reflectance curves of TiO2 coatings on quartz and silicon substrates, together
+with those of their bare substrates
+S16
+2.7 Estimation of the internal pressure within the layers induced by capillary
+forces
+The internal pressure in the lyogels immediately after the layer deposition was approximated by
+an average capillary pressure (Pc) within the layer.
+The calculation was based on the simplified Laplace-Young equation (Equation SI7) for
+spherical geometries, assuming the presence of pure ethanol only (i.e. the dispersion medium,
+surface tension of ethanol at 25 °C: γ = 21.82 mN/m), and complete wetting (contact angle: θ =
+0°). The pore radius (r) of 2.4 nm, determined by ellipsometric porosimetry (see Table 3 in the
+Manuscript) was used in the calculations.
+The capillary pressure is given by the Equation SI7:
+𝑃𝑃𝑐𝑐= 2γ
+𝑟𝑟 ∙𝑐𝑐𝑐𝑐𝑐𝑐θ
+(SI7)
+Considering that for θ = 0° cos(θ) = 1, the expression simplifies to:
+𝑃𝑃𝑐𝑐= 2γ
+𝑟𝑟= 2 ∙21.82 mN/m
+2.4 𝑛𝑛𝑛𝑛
+= 18.1833 ∙106 𝑁𝑁
+𝑚𝑚2 = 179.5 𝑎𝑎𝑎𝑎𝑎𝑎
+For pure water (with a surface tension of γ = 71.99 mN/m at 25°C), and considering a receding
+contact angle of θ = 16°, where cos(θ) = 0.96, the expression is:
+𝑃𝑃𝑐𝑐= 2γ
+𝑟𝑟∙𝑐𝑐𝑐𝑐𝑐𝑐𝑐𝑐= 2 ∙71.99 mN/m
+2.4 𝑛𝑛𝑛𝑛
+∙0.96 = 57.5920 ∙106 𝑁𝑁
+𝑚𝑚2 = 568 𝑎𝑎𝑎𝑎𝑎𝑎
+(SI8)
+(SI9)
+S17
+References
+(1) Hild, E.; Deák, A.; Naszályi, L.; Sepsi, Ö.; Ábrahám, N.; Hórvölgyi, Z. Use of the Optical
+Admittance Function and Its WKB Approximation to Simulate and Evaluate Transmittance
+Spectra of Graded-Index Colloidal Films. J. Opt. Pure Appl. Opt. 2007, 9 (10), 920–930.
+https://doi.org/10.1088/1464-4258/9/10/023.
+(2) Hild, E.; Seszták, T.; Völgyes, D.; Hórvölgyi, Z. Characterisation of Silica Nanoparticulate
+Layers with Scanning-Angle Reflectometry. In From Colloids to Nanotechnology; Zrínyi, M.,
+Hórvölgyi, Z. D., Eds.; Springer Berlin Heidelberg: Berlin, Heidelberg, 2004; pp 61–67.
+https://doi.org/10.1007/978-3-540-45119-8_11.
+(3) Deák, A.; Hild, E.; Kovács, A. L.; Hórvölgyi, Z. Characterisation of Solid Supported
+Nanostructured Thin Films by Scanning Angle Reflectometry and UV-Vis Spectrometry.
+Mater.
+Sci.
+Forum
+2007,
+537–538,
+329–336.
+https://doi.org/10.4028/www.scientific.net/MSF.537-538.329.
+(4) Mann, E. K.; Van Der Zeeuw, E. A.; Koper, G. J. M.; Schaaf, P.; Bedeaux, D. Optical
+Properties of Surfaces Covered with Latex Particles: Comparison with Theory. J. Phys. Chem.
+1995, 99 (2), 790–797. https://doi.org/10.1021/j100002a049.
+(5) Heller, W. Remarks on Refractive Index Mixture Rules. J. Phys. Chem. 1965, 69 (4), 1123–
+1129. https://doi.org/10.1021/j100888a006.
