@@ -1,0 +1,270 @@
+# Listes de contrôle — PMC12043898
+
+## A. Nombres de l'article absents de l'extraction (analyses/couverture_valeurs.py)
+{"tableaux": {"total": 0, "manquants": 0, "pct": null}, "resultats_texte": {"total": 1025, "manquants": 229, "pct": 77.7}, "experimental": {"total": 32, "manquants": 2, "pct": 93.8}}
+
+## tableaux : 0 non couverts
+
+## resultats_texte : 229 non couverts
+- 4.82 : « s a low *OOH adsorption ability with a high *OOH adsorption energy of 4.82 eV (ΔG*OOH = 4.82 eV, Fig. 1a, b an »
+- 4.82 : « ption ability with a high *OOH adsorption energy of 4.82 eV (ΔG*OOH = 4.82 eV, Fig. 1a, b and Supplementary Da »
+- 3.7 : « nd Co) could significantly alter their *OOH adsorption ability (i.e., 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 »
+- 3.73 : « ficantly alter their *OOH adsorption ability (i.e., 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s-Co, and  »
+- 4.3 : « ir *OOH adsorption ability (i.e., 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s-Co, and 5.05 eV for s-Cu), »
+- 5.05 : « lity (i.e., 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s-Co, and 5.05 eV for s-Cu), which could be attrib »
+- 4.49 : « the *OOH adsorption ability of metal centers (e.g., a lower ΔG*OOH of 4.49 eV for s-OH-Ni). However, no single »
+- 4.21 : « ailoring its ORR activity. Specifically, d-OH-Ni delivers a ΔG*OOH of 4.21 eV, which is very close to the top  »
+- 4.23 : « s for axial-OH all suggest optimized ΔG*OOH values that are closer to 4.23 eV than the initial s-Ni (Supplemen »
+- 4.82 : « ture should not lead to so obvious increase on the ΔG*OOH (i.e., from 4.82 eV of s-Ni to 4.57 eV for d-Ni). To »
+- 4.57 : « d to so obvious increase on the ΔG*OOH (i.e., from 4.82 eV of s-Ni to 4.57 eV for d-Ni). To further clarify th »
+- 1.03 : «  As shown in Fig. 1d, an elongation in the -N-H bond length (1.04 and 1.03 Å vs. 1.02 Å) and a deficiency of e »
+- 1.02 : « n Fig. 1d, an elongation in the -N-H bond length (1.04 and 1.03 Å vs. 1.02 Å) and a deficiency of electrons on »
+- 0.8 : « ig. 3a, b), all the M-BTA catalysts show the onset potentials of 0.70–0.80 V vs. RHE (the potential at a disk  »
+- 4.23 : « cture all show too strong adsorption capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV  »
+- 4.05 : « how too strong adsorption capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe »
+- 3.95 : « tion capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH »
+- 3.61 : « termediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH-Mn in theory. That is,  »
+- 0.25 : « ced with a stable cell voltage of ~5.25 V (i.e., cathode potential of −0.25 V vs. RHE, Fig. 4d and Supplementa »
+- 2900 : « signal assigned to Ni-OD stretching vibration absorption peak (around 2900 cm−1), indicating the favorable 2e− »
+- 3240 : « ct of test conditions or solvation. In addition, the emerged peaks at 3240 cm−1 could be assigned to the N-H s »
+- 0.695 : «  8) of 2e− and 4e−-ORR pathways at the equilibrium potentials of 0 V, 0.695 V and 1.23 V vs. RHE on different  »
+- 1.23 : « nd 4e−-ORR pathways at the equilibrium potentials of 0 V, 0.695 V and 1.23 V vs. RHE on different Ni-(NH)4 con »
+- 0.33 : « -O elongation by the slow-growth approach, with a reaction barrier of 0.33 eV (Fig. 5c, d, and Supplementary F »
+- 1.21 : « o the formation of *O with a significantly higher reaction barrier of 1.21 eV. In addition, to reduce the effe »
+- 27 : « chieved. Besides, there was a double-enhanced H2O2 yield rate of over 27.0 mol g−1 h−1 in an alkaline medium.  »
+- 0.18 : « ) was procured from Macklin. Nafion 117 membrane with a thickness of ~0.18 mm was purchased from DuPont Co, th »
+- 7.62 : « -Ni and d-OH-Ni were placed in a box with uniform lattice constant of 7.62 Å × 20 Å × 25 Å. The k-points were  »
+- 298.15 : «  represents the enthalpy variation by temperature (Δ) means from 0 to 298.15 K in Eq. (7), and TS is the entro »
+- 298.15 : « hods. These three parts are used to convert E into free energy (G) at 298.15 K. To estimate the reaction free  »
+- 0.695 : « H2)2−G(*)−2G(H2O)−eU The free energies (thermodynamic barrier) at U = 0.695 V or 1.23 V vs. RHE for all adsorp »
+- 1.23 : « G(H2O)−eU The free energies (thermodynamic barrier) at U = 0.695 V or 1.23 V vs. RHE for all adsorption specie »
+- 0.695 : « cument}η represent the thermodynamic barrier, U is the potential (U = 0.695 V or 1.23 V, respectively). To eva »
+- 1.23 : « present the thermodynamic barrier, U is the potential (U = 0.695 V or 1.23 V, respectively). To evaluate the k »
+- 300 : « ethod, the “slow growth” method, to obtain the free energy profile at 300 K through different collective varia »
+- 300 : «  network was obtained by performing AIMD simulations of the system at 300 K and optimized the geometry structu »
+- 300 : « y calculated at general coordinate ξ, which is evolving with t. f (r, 300 K) is the gradient of the free energ »
+- 300 : « ∂ξ) along the limiting degrees of freedom at general coordinate ξ and 300 K, ξ means the bond length (r) or bo »
+- 0.0005 : « -69pt} \begin{document}$$\dot{\xi }{dt}$$\end{document}ξ°dt) value of 0.0005 Å in each AIMD step, and the time »
+- 0.695 : «  profile of 2e− and 4e−-ORR pathways at the equilibrium potentials of 0.695 V vs. RHE on different Ni-(NH)4 co »
+- 0.695 : « gures Supplementary Fig. 1∣Free-energy diagrams for 2e-ORR pathway at 0.695 V vs. RHE of different configurati »
+- 1.23 : « e energy profile of 2e- and 4e--ORR pathways at potentials of 0 V and 1.23 V vs. RHE on different Ni-(NH)4 con »
+- 298.15 : «  corrected values and Gibbs free energy of each adsorbed species at T=298.15 K. 3. Supplementary References 6  »
+- 0.695 : « ementary Fig. 1. Free-energy diagrams for two-electron ORR pathway at 0.695 V vs. RHE of different coordinatio »
+- 0.695 : « ir corresponding free-energy diagrams for two-electron ORR pathway at 0.695 V vs. RHE, the reaction intermedia »
+- 0.96 : « he double-layer capacitance (Cdl) was estimated by plotting the 𝛥𝑗 at 0.96 V vs. RHE against the scan rate (th »
+- 105 : « nating current perturbation voltage of 5 mV in the frequency range of 105 Hz to 0.1 Hz. 26 Supplementary Fig.  »
+- 58.69 : «  is the current for H2O2 production; 𝑀𝑁𝑖 is the molar mass of nickel (58.69 g mol-1); n is the number of trans »
+- 1.23 : « 4e−-ORR pathways at the equilibrium potentials of U=0 V vs. RHE and U=1.23 V vs. RHE on different Ni-(NH)4 con »
+- 300 : « Fig. 45a) is also shown in Fig. 5 c, d. 0.0 0.2 0.4 0.6 0.8 1.0 f (r, 300 K) (eV/Å) Bond elongation (Å) Free e »
+- 300 : « ond elongation for 2e- pathway -1 0 1 2 0.0 0.2 0.4 0.6 0.8 1.0 f (r, 300 K) (eV/Å) Bond elongation (Å) Free e »
+- 300 : « ond elongation for 2e- pathway -1 0 1 2 0.0 0.2 0.4 0.6 0.8 1.0 f (r, 300 K) (eV/Å) Bond elongation (Å) Free e »
+- 14.156 : « ding d-spacing and simulated Miller index. Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685°  »
+- 20.466 : « pacing and simulated Miller index. Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032°  »
+- 23.636 : « nd simulated Miller index. Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacin »
+- 29.035 : « ated Miller index. Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 »
+- 39.685 : « ler index. Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 4.3360  »
+- 44.032 : « x. Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 4.3360 3.7612 3 »
+- 14.205 : «  d-spacing 6.2512 4.3360 3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° »
+- 20.366 : « ng 6.2512 4.3360 3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903 »
+- 23.641 : « 2 4.3360 3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spac »
+- 29.059 : «  3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å)  »
+- 39.7391 : « 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å) 6.1326 4 »
+- 44.1903 : « 2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å) 6.1326 4.3262 3.7 »
+- 3.2 : « (Å2) ΔE0 (eV) R factor (%) Ni K-edge fot the standard samples NiPc (1-3.2 Å) Ni-N 4* 1.89±0.01 0.003 4.95±2.67 »
+- 66.89 : «  triangle” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Asterisk “*” represents  »
+- 58.98 : « e” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Asterisk “*” represents a fixed  »
+- 120 : « 0.5 ~8.0 at 200 mA cm-2 ~90% 30 2023 7 h-SnO2 1M Na2SO4 ~0.53 ~3.9 at 120 mA cm-2 ~90% 20 2023 9 Co-N5 SACs 0. »
+- 93 : « A cm-2) ~75% 110 2023 16 Zn-N2O2 SACs 1M KOH ~0.2 ~6.9 at 80 mA cm-2 ~93% 65 2023 17 Pd-SACs Meso-Carbon 0.5 K »
+- 240 : «  2023 17 Pd-SACs Meso-Carbon 0.5 K2SO4 ~0.25 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 Co-Pc-S-COF »
+- 86 : « Cs Meso-Carbon 0.5 K2SO4 ~0.25 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 Co-Pc-S-COF 0.1 M KOH ~0. »
+- 125 : « HE (~240 mA cm-2) >86% 24 2024 18 Co-Pc-S-COF 0.1 M KOH ~0.16 ~9.5 at 125 mA cm-2 >90% 20 2024 12 B/N-C 0.1 M  »
+- 91 : « mA cm-2 ~40% 6 2019 3 Ni-N2O2 SACs 0.1 M KOH ~0.2 ~5.9 at 70 mA cm-2 ~91% 15 2020 4 CoZn-ZIF 0.1 M KOH ~0.2 ~4 »
+- 125 : «  90 mA cm-2 >70% 3 ZnO@ZnO2 0.1 M K2SO4 ~0.4 ~5.47 at 0.1 V vs. RHE (~125 mAh cm-2) ~95% 12 2023 8 49 Suppleme »
+- 180 : « 3.47 930.14 111.61 266.89 160.33 81.73 Note: There is a red-shift of ~180 cm-1 for all peaks in the theoretica »
+- 1306.22 : « etical results, compared with those obtained in the experiment (i.e., 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and »
+- 1031.48 : « ned in the experiment (i.e., 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and 1031.48 cm-1 vs. 1210 cm- 1 for *OOD) wh »
+- 2900 : « method, and the Ni-OD stretching vibration peak should be located at ~2900 cm-1 in the experiment (with a red- »
+- 2740.97 : «  cm-1 in the experiment (with a red-shift compared to that calculated 2740.97 cm-1). Calculation method: The c »
+- 298.15 : « rected values for the Gibbs free energy of each adsorbed species at T=298.15 K. ZPE represents the calculated  »
+- 298.15 : «  by temperature; TS is the entropy contribution to the free energy at 298.15 K; and ∆ is thermodynamic modific »
+- 58.69 : « ementary Fig. 28, where it states, "…MNi is the molar mass of cobalt (58.69 g mol⁻¹)..." it should be nickel i »
+- 1.23 : « fication. 3) The equilibrium potential for the four-electron pathway (1.23 V vs. SHE) corresponds to 4.92 eV ( »
+- 4.92 : « tential for the four-electron pathway (1.23 V vs. SHE) corresponds to 4.92 eV (4 × 1.23), while the two- elect »
+- 3.52 : « .23), while the two- electron pathway (0.70 V vs. SHE) corresponds to 3.52 eV (4 × 1.23 − 2 × 0.70). Authors a »
+- 4.21 : « i and d-OH-Ni, in which only the d-OH-Ni deliver an optimal ΔG*OOH of 4.21 eV very close to the top of the vol »
+- 3.7 : « u, and s-Co) could significantly alter their *OOH adsorption ability (3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 »
+- 3.73 : «  significantly alter their *OOH adsorption ability (3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s- Co, and »
+- 4.3 : « er their *OOH adsorption ability (3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s- Co, and 5.05 eV for s-Cu) »
+- 5.05 : « n ability (3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s- Co, and 5.05 eV for s-Cu), which could be attrib »
+- 300 : « alkaline environment, and then it was subjected to AIMD simulation at 300 K. As shown in Supplementary Fig. 42 »
+- 300 : «  network was obtained by performing AIMD simulations of the system at 300 K and optimized the geometry structu »
+- 10.5 : « f fitting the Ni-BTA with Ni-N4 configuration is much higher than 2% (10.5%), which indicates unreasonable fit »
+- 3.2 : « ell CN R (Å) σ2 (Å2) ΔE0 (eV) R factor (%) Ni K-edge for NiPc NiPc (1-3.2 Å) Ni-N 4* 1.89±0.01 0.003 4.95±2.67 »
+- 66.89 : «  triangle” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Supplementary Table 3. E »
+- 58.98 : « e” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Supplementary Table 3. EXAFS fit »
+- 3.2 : « (Å2) ΔE0 (eV) R factor (%) Ni K-edge for the standard samples NiPc (1-3.2 Å) Ni-N 4* 1.89±0.01 0.003 4.95±2.67 »
+- 66.89 : «  triangle” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Asterisk ”*” represents  »
+- 58.98 : « e” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Asterisk ”*” represents a fixed  »
+- 4.56 : « culation results, where the d-OH-Cu shows a too-high ΔG*OOH value of ~4.56 eV compared to that of d-OH-Ni (4.2 »
+- 4.21 : « hows a too-high ΔG*OOH value of ~4.56 eV compared to that of d-OH-Ni (4.21 eV), and confirms the better 2e--OR »
+- 4.23 : « re in the sample (meanwhile the d-/d-OH-Cu possess a closer ΔG*OOH to 4.23 V than that of s-/s-OH-Cu). A simil »
+- 4.23 : « cture all show too strong adsorption capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV  »
+- 4.05 : « how too strong adsorption capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe »
+- 3.95 : « tion capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH »
+- 3.61 : « termediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH-Mn in theory. That is,  »
+- 4.23 : « cture all show too strong adsorption capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV  »
+- 3.95 : « tion capacity to *OOH intermediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH »
+- 3.61 : « termediates (<4.23 eV), ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH-Mn in theory. That is,  »
+- 14 : « t of NH3·H2O (decreasing the volume of concentrated aqueous ammonia (~14 M) from 1.0 mL to 0.1 mL), and prolon »
+- 29.3 : « ructure for Ni-BTA, with three distinct peaks at 2θ = 20.6, 23.9, and 29.3° (Fig. 2d, Supplementary Fig. 6 and »
+- 14.156 : « nding d-spacing and simulated Miller index Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685°  »
+- 20.466 : « spacing and simulated Miller index Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032°  »
+- 23.636 : « and simulated Miller index Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacin »
+- 29.035 : « lated Miller index Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 »
+- 39.685 : « ller index Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 4.3360  »
+- 44.032 : « ex Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 4.3360 3.7612 3 »
+- 14.205 : «  d-spacing 6.2512 4.3360 3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° »
+- 20.366 : « ng 6.2512 4.3360 3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903 »
+- 23.641 : « 2 4.3360 3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spac »
+- 29.059 : «  3.7612 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å)  »
+- 39.7391 : « 3.0728 2.2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å) 6.1326 4 »
+- 44.1903 : « 2692 2.0548 Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å) 6.1326 4.3262 3.7 »
+- 10.5 : « upplementary Table 3, the R factor for fitting the Ni-BTA with Ni-N4 (10.5%) is much higher than 2%, which ind »
+- 0.01 : « n a range of 0-0.5 V vs. RHE, the ring current is fairly small (0.005-0.01 mA), only equivalent to 5% of that  »
+- 58.69 : «  is the current for H2O2 production; 𝑀𝑁𝑖 is the molar mass of cobalt (58.69 g mol-1); n is the number of trans »
+- 93 : « ~80 mA cm-2) ~75% 110 2023 16 Zn-N2O2 SACs 1M KOH ~6.9 at 80 mA cm-2 ~93% 65 2023 17 25 Pd-SACs Meso-Carbon 0. »
+- 86 : «  Pd-SACs Meso-Carbon 0.5 K2SO4 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 Co-Pc-S-COF 0.1 M KOH ~9. »
+- 125 : «  vs. RHE (~240 mA cm-2) >86% 24 2024 18 Co-Pc-S-COF 0.1 M KOH ~9.5 at 125 mA cm-2 >90% 20 2024 2 B/N-C 0.1 M K »
+- 91 : « t 50 mA cm-2 ~40% 6 2019 8 Ni-N2O2 SACs 0.1 M KOH ~5.9 at 70 mA cm-2 ~91% 15 2020 9 CoZn-ZIF 0.1 M KOH ~4.4 at »
+- 4.53 : « (Zw) takes into account a finite diffusion. The relatively large Rs (~4.53 Ω in 1 M KOH and 4.92 Ω in 1 M NaCl »
+- 4.92 : « t a finite diffusion. The relatively large Rs (~4.53 Ω in 1 M KOH and 4.92 Ω in 1 M NaCl) may be induced by th »
+- 105 : « nating current perturbation voltage of 5 mV in the frequency range of 105 Hz to 0.1 Hz. To better illustrate t »
+- 180 : «  results are shown in Supplementary Table 7. There is a red-shift of ~180 cm-1 for all peaks (i.e., 1306.22 cm »
+- 1306.22 : « ntary Table 7. There is a red-shift of ~180 cm-1 for all peaks (i.e., 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and »
+- 1031.48 : « 80 cm-1 for all peaks (i.e., 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and 1031.48 cm-1 vs. 1210 cm-1 for *OOD), wh »
+- 2900 : « spondingly, the Ni-OD stretching vibration peak should be located at ~2900 cm-1 (with a red-shift compared to  »
+- 2740.97 : « e located at ~2900 cm-1 (with a red-shift compared to that calculated 2740.97 cm-1), but there is no obvious a »
+- 2900 : « signal assigned to Ni-OD stretching vibration absorption peak (around 2900 cm-1), indicating the favorable 2e- »
+- 180 : « 3.47 930.14 111.61 266.89 160.33 81.73 Note: There is a red-shift of ~180 cm-1 for all peaks in the theoretica »
+- 1306.22 : « etical results, compared with those obtained in the experiment (i.e., 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and »
+- 1031.48 : « ned in the experiment (i.e., 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and 1031.48 cm-1 vs. 1210 cm- 1 for *OOD) wh »
+- 2900 : « method, and the Ni-OD stretching vibration peak should be located at ~2900 cm-1 in the experiment (with a red- »
+- 2740.97 : «  cm-1 in the experiment (with a red-shift compared to that calculated 2740.97 cm-1). Calculation method: The c »
+- 26.4 : « of catalysis, and no other peaks were observed besides a weak one at ~26.4°, from the carbon-fiber matrix, sug »
+- 58.69 : « ry Fig. 28 is revised as follows: “… 𝑀𝑁𝑖 is the molar mass of nickel (58.69 g mol-1); …” In addition, we also  »
+- 66.89 : «  triangle” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Asterisk “*” represents  »
+- 58.98 : « e” path of Ni-(C/N) in the NiPc, with the rank ratio of 100%, 66.89%, 58.98%. Asterisk “*” represents a fixed  »
+- 298.15 : « hods. These three parts are used to convert E into free energy (G) at 298.15 K (Appl. Catal. B: Environ. 2022, »
+- 298.15 : « rected values for the Gibbs free energy of each adsorbed species at T=298.15 K. EZPE represents the calculated »
+- 298.15 : «  by temperature; TS is the entropy contribution to the free energy at 298.15 K; and ∆ is thermodynamic modific »
+- 298.15 : « hods. These three parts are used to convert E into free energy (G) at 298.15 K.…” In addition, the corrected v »
+- 298.15 : « n, the corrected values for the free energy of adsorbed species at T= 298.15 K are provided in the Supporting  »
+- 0.695 : «  of 2e- and 4e--ORR pathways at the equilibrium potentials of 0 V and 0.695 V vs. RHE on different Ni-(NH)4 co »
+- 300 : « , the “slow- growth” approach to obtaining the free-energy profile at 300 K through different collective varia »
+- 0.0005 : « ribe the 2e– and 4e– processes of ORR, respectively, with 𝜉̇ value of 0.0005 Å in each AIMD step. In Figure 5c »
+- 300 : «  each AIMD step. In Figure 5c, d, the right vertical coordinate F (r, 300K) is the gradient of the free energy »
+- 300 : « s absorbed on the Ni-sites in d-OH-Ni model, also shorted as “r”) and 300K, which is directly exported frame-b »
+- 300 : « e (NVT) were adopted in the AIMD simulations. …” and “… And the F (r, 300K) is the gradient of the free energy »
+- 300 : « pecies absorbed on the Ni-sites in d-OH-Ni model, shorted as “r”) and 300 K, which is directly exported frame- »
+- 0.695 : «  profile of 2e- and 4e--ORR pathways at the equilibrium potentials of 0.695 V vs. RHE on different Ni-(NH)4 co »
+- 120 : « T 1 M KOH ~8.0 at 200 mA cm-2 ~90% 30 2023 12 SnO2 1 M Na2SO4 ~3.9 at 120 mA cm-2 ~90% 20 2023 14 Co-N5 SACs 0 »
+- 93 : « ~80 mA cm-2) ~75% 110 2023 16 Zn-N2O2 SACs 1M KOH ~6.9 at 80 mA cm-2 ~93% 65 2023 17 Pd-SACs Meso-Carbon 0.5 K »
+- 86 : «  Pd-SACs Meso-Carbon 0.5 K2SO4 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 Co-Pc-S-COF 0.1 M KOH ~9. »
+- 125 : «  vs. RHE (~240 mA cm-2) >86% 24 2024 18 Co-Pc-S-COF 0.1 M KOH ~9.5 at 125 mA cm-2 >90% 20 2024 2 B/N-C 0.1 M K »
+- 91 : « 50 mA cm-2 ~40% 6 2019 8 3 Ni-N2O2 SACs 0.1 M KOH ~5.9 at 70 mA cm-2 ~91% 15 2020 9 CoZn-ZIF 0.1 M KOH ~4.4 at »
+- 0.33 : « 2e−-ORR than 4e−-ORR. That is, the 2e−-ORR has lower energy barriers (0.33 eV shown in previous and revised Fi »
+- 1.17 : « arriers (0.33 eV shown in previous and revised Fig. 5c) than 4e−-ORR (1.17 eV shown in previous Fig. 5c, d and »
+- 1.21 : « vised Fig. 5c) than 4e−-ORR (1.17 eV shown in previous Fig. 5c, d and 1.21 eV shown in the revised Fig. 5c). S »
+- 0.8 : « f O-O bond cleavage commonly appears when the bond elongation is over 0.8 Å, or even close to 0.9 Å. For examp »
+- 1.18 : «  5c (or Supplementary Fig. 43a), the free energy rapidly increases to 1.18 eV at the O-O bond elongation of 0. »
+- 0.68 : « ree energy rapidly increases to 1.18 eV at the O-O bond elongation of 0.68 Å, and then reaches the highest fre »
+- 1.21 : « ond elongation of 0.68 Å, and then reaches the highest free energy of 1.21 eV at the O-O bond elongation of 0. »
+- 0.88 : « ches the highest free energy of 1.21 eV at the O-O bond elongation of 0.88 Å (2.35-1.47=0.88 Å). However, in o »
+- 0.88 : « ree energy of 1.21 eV at the O-O bond elongation of 0.88 Å (2.35-1.47=0.88 Å). However, in our previous Fig. 5 »
+- 0.33 : « -O elongation by the slow-growth approach, with a reaction barrier of 0.33 eV (Fig. 5c, d, and Supplementary F »
+- 1.21 : « o the formation of *O with a significantly higher reaction barrier of 1.21 eV. In addition, to reduce the effe »
+- 300 : « means Fig. 5c? In Fig. 5c, the y-axis on the right-hand side is F (r, 300K), not representing the typical F. T »
+- 300 : « ide is F (r, 300K), not representing the typical F. The unit of F (r, 300K) is “eV/Angstrom”. As mentioned in  »
+- 300 : « ous response, F is the free energy, and its unit is (eV). While F (r, 300K) is the gradient of the free energy »
+- 300 : « (F) along the limiting degrees of freedom at general coordinate 𝜉 and 300 K, which possess the same meaning wi »
+- 300 : « absorbed on the Ni-sites in our d-OH-Ni model, thus the unit of F (r, 300K) is (eV/Å). We are sorry that the t »
+- 300 : « energy (F) and the gradient of the free energy on bond lengths (F (r, 300K)), which may confuse the reviewer t »
+- 300 : « ewer that they are the same physical parameter. And the unit of F (r, 300K) is wrongly written as “eV/A” in so »
+- 300 : « written as “eV/A” in some places. To make this point clear, the F (r, 300K) has been revised to f (r, 300K). C »
+- 300 : « . To make this point clear, the F (r, 300K) has been revised to f (r, 300K). Correspondingly, revision has bee »
+- 300 : « ion on Page 22, we have also made the corresponding revision:“… f (r, 300 K) is the gradient of the free energ »
+- 300 : « 𝜕𝜉) along the limiting degrees of freedom at general coordinate 𝜉 and 300 K, 𝜉 means the bond length (r) or bo »
+- 0.0005 : « with ∂𝜉 (ultrasmall bond elongation, also referring to 𝜉̇𝑑𝑡) value of 0.0005 Å in each AIMD step, and the time »
+- 298.15 : « e “Δ” before “H” in Eq. 6 represents the temperature effect from 0 to 298.15 K on the enthalpy correction. To  »
+- 298.15 : « rected values for the Gibbs free energy of each adsorbed species at T=298.15 K. ZPE represents the calculated  »
+- 298.15 : «  by temperature; TS is the entropy contribution to the free energy at 298.15 K; and ∆ is thermodynamic modific »
+- 1.23 : « 329 1.180 3) The equilibrium potential for the four-electron pathway (1.23 V vs. SHE) corresponds to 4.92 eV ( »
+- 4.92 : « tential for the four-electron pathway (1.23 V vs. SHE) corresponds to 4.92 eV (4 × 1.23), while the two-electr »
+- 3.52 : « 1.23), while the two-electron pathway (0.70 V vs. SHE) corresponds to 3.52 eV (4 × 1.23 − 2 × 0.70). Authors a »
+- 0.695 : « l calculations, the equilibrium potential for the two-electron ORR is 0.695 V vs. RHE, and when rounding to tw »
+- 1.23 : « script, the equilibrium potentials for 4e− and 2e− pathway are set to 1.23 V and 0.695 V vs. RHE, and these va »
+- 0.695 : «  equilibrium potentials for 4e− and 2e− pathway are set to 1.23 V and 0.695 V vs. RHE, and these values remain »
+- 4.92 : « , as shown in Supplementary Fig. 41, the ∆𝐺∗+𝑂2 exhibits the value of 4.92 eV, meanwhile ∆𝐺∗+𝐻2𝑂2 possesses a  »
+- 3.53 : « s the value of 4.92 eV, meanwhile ∆𝐺∗+𝐻2𝑂2 possesses a free energy of 3.53 eV (4 × 1.23 − 2 × 0.695), as indic »
+- 0.695 : « ORR of the catalytic sites, we presented the energy level diagrams at 0.695 V vs. RHE (i.e., the equilibrium p »
+- 1.23 : «  energy level diagram, we have re-plotted the energy level diagram at 1.23 V vs. RHE, in which the larger ther »
+- 1.23 : « igh 2e−-ORR selectivity for the Ni-sites, the energy level diagram at 1.23 V vs. RHE is added in Supplementary »
+- 0.695 : « llows. Note: the free energies (i.e., the thermodynamic barrier) at U=0.695 V or 1.23 V vs. RHE for all adsorp »
+- 1.23 : « : the free energies (i.e., the thermodynamic barrier) at U=0.695 V or 1.23 V vs. RHE for all adsorption specie »
+- 0.695 : « .), 𝜂 represents the thermodynamic barrier, and U is the potential (U=0.695 V or 1.23 V, respectively). Supple »
+- 1.23 : « sents the thermodynamic barrier, and U is the potential (U=0.695 V or 1.23 V, respectively). Supplementary Fig »
+- 1.23 : «  of 2e− and 4e−-ORR pathways at the potentials of U=0 V vs. RHE and U=1.23 V vs. RHE on different Ni-(NH)4 con »
+- 0.695 : «  profile of 2e− and 4e−-ORR pathways at the equilibrium potentials of 0.695 V vs. RHE on different Ni-(NH)4 co »
+- 0.695 : « ) of 2e− and 4e−-ORR pathways at the equilibrium potentials of 0 V, 6 0.695 V, and 1.23 V vs. RHE on different »
+- 1.23 : « 4e−-ORR pathways at the equilibrium potentials of 0 V, 6 0.695 V, and 1.23 V vs. RHE on different Ni-(NH)4 con »
+- 0.695 : « ge 22, we have added: “The free energies (thermodynamic barrier) at U=0.695 V or 1.23 V vs. RHE for all adsorp »
+- 0.695 : « , etc.), 𝜂 represent the thermodynamic barrier, U is the potential (U=0.695 V or 1.23 V, respectively).” 4) In »
+- 1.23 : « represent the thermodynamic barrier, U is the potential (U=0.695 V or 1.23 V, respectively).” 4) In Figure 5b, »
+- 0.695 : «  profile of 2e− and 4e−-ORR pathways at the equilibrium potentials of 0.695 V vs. RHE on different Ni-(NH)4 co »
+- 0.281 : « overpotential of 0 V. The close, but not identical, values for ΔG*O₂ (−0.281 eV) and ΔG*O (−0.257 eV) indicate »
+- 0.257 : «  The close, but not identical, values for ΔG*O₂ (−0.281 eV) and ΔG*O (−0.257 eV) indicate the similar thermody »
+- 0.695 : « ₂ and the transformation from *OOH to *O at an applied potential of U=0.695 V vs. RHE. Meanwhile, the ΔG*OOH i »
+- 0.016 : « potential of U=0.695 V vs. RHE. Meanwhile, the ΔG*OOH is nearly zero (−0.016 eV), indicating there is a thermo »
+- 0.695 : « 6 eV), indicating there is a thermodynamic barrier close to zero at U=0.695 V vs. RHE for the adsorption of *O »
+- 0.281 : « n explanation of the reviewer’s concern on the close values of ΔG*O₂ (−0.281 eV) and ΔG*O (−0.257 eV) in Fig.  »
+- 0.695 : «  profile of 2e− and 4e−-ORR pathways at the equilibrium potentials of 0.695 V vs. RHE on different Ni-(NH)4 co »
+- 1.23 : «  of 2e− and 4e−-ORR pathways at the potentials of U=0 V vs. RHE and U=1.23 V vs. RHE on different Ni-(NH)4 con »
+- 1.23 : « between the free energy of *OOH, *OH and *O for specific catalysts at 1.23 V vs. RHE (the equilibrium potentia »
+- 1.23 : « 2024, https://doi.org/10.1038/s41565-024-01807-x, for OER process, at 1.23 V vs. RHE, the Co-site delivers all »
+- 0.695 : « ementary Fig. 1. Free-energy diagrams for two-electron ORR pathway at 0.695 V vs. RHE of 9 different coordinat »
+- 0.695 : « ir corresponding free-energy diagrams for two-electron ORR pathway at 0.695 V vs. RHE, the reaction intermedia »
+- 0.33 : «  adsorbed *OOH and the Ni-sites, which delivers a reaction barrier of 0.33 eV according to the Ni-O elongation »
+- 1.21 : «  desorbed OH species, with a significantly higher reaction barrier of 1.21 eV. Because we only focus on explai »
+
+## experimental : 2 non couverts
+- 2.17 : «  assigned to the co-existed Ni-N/O paths in Ni-BTA. No Ni-Ni path at ~2.17 Å was detected for Ni-BTA, suggesti »
+- 14 : « d for another 10 mins. Thirdly, 1.0 mL concentrated aqueous ammonia (~14 M) was added to the above mixed solut »
+
+## B. Sonde des manques (analyses/sonde_manques.py)
+6 points à relire (terme présent dans l'article, rien d'extrait sous ce nom).
+
+## agitation (rpm) — not_stated (2 occurrence(s), positions 195007, 201803)
+- « d conditions has also been tested in O2-saturated 0.1 M HClO4 solution using RRDE at 1600 rpm. As shown in Fig. R2, although the selectivity of Ni-BTA in acidic medium is around 80% i »
+- « curves were measured on the RRDE at a scan rate of 10 mV s-1 and a rotating speed of 1600 rpm in O2-saturated alkaline and neutral medium, including 0.1 M KOH (pH ~13.0), 0.9 wt. % Na »
+
+## pH — absent (17 occurrence(s), positions 63972, 76318, 151338, 201129, 201263)
+- « g the 0.9 wt.% electrolyte. Supplementary Fig. 41∣(a) Surface Pourbaix diagrams and (b) E-pH diagrams for s-Ni, s-OH-Ni, d-Ni and d- OH-Ni. Supplementary Fig. 42∣Free energy profile »
+- « and cross sections (b). 38 Supplementary Fig. 41. (a) Surface Pourbaix diagrams and (b) E-pH diagrams for s-Ni, s-OH-Ni, d-Ni and d-OH-Ni. 39 Supplementary Fig. 42. Free energy profi »
+- « e the reaction conditions, H2O2 selectivity for detailed and fair comparison. 6. The real pH value of the electrolytes of 0.1 M KOH, 0.9 wt.% NaCl, 3.6 wt.% NaCl, and 0.1 M Na2SO4 sh »
+
+## purification (dialyse, colonne, tamis) — absent (2 occurrence(s), positions 238729, 240437)
+- « 2021, 143,25, 9423-9428, Nat. Commun. 2021, 12,1, 4225). A cut-off energy of 400 eV, a k-mesh grid of 1 × 1 × 1, a time step of 0.5 fs, and a canonical ensemble (NVT) were adopted in »
+- « point, on Page 23 in the revised manuscript, we added: “…A cut off energy of 400 eV, a k-mesh grid of 1 × 1 × 1, a time step of 0.5 fs, and a canonical ensemble (NVT) were adopted in »
+
+## mesure : TEM/SEM — résultat absent (30 occurrence(s), positions 18312, 28525, 39443, 39464, 39500)
+- « xposure of active sites and facilitate the ORR reaction kinetics. The TEM-based elemental mappings confirm the homogeneous distribution of C, N »
+- « lity of the Ni-BTA catalyst is confirmed by the in/ex-situ XRD and/or TEM characterizations (Supplementary Figs. 33, 34), in which the three ch »
+
+## mesure : XPS — résultat absent (8 occurrence(s), positions 14929, 15188, 15290, 39647, 60336)
+- « with the deconvolution results of the high-resolution N 1 s and C 1 s XPS spectra of all the M-BTA analogs, in which -C = N (398.3 eV) and -C-N »
+- « TA (Supplementary Figs. 9, 10). Meanwhile, the obvious O 1 s peaks in XPS survey scans and the formation of metal-O (M-O, ~531.2 eV) species in »
+
+## mesure : Raman — conditions absentes ; résultat absent (5 occurrence(s), positions 14732, 39769, 39787, 60270, 67243)
+- « he FTIR spectra and the metal-N (-M-N) species at 600-700 cm−1 in the Raman spectra of M-BTA further confirm the formation of -C-HN-M coordinatio »
+- « opy (XAFS, Shanghai Synchrotron Radiation Facility, Shanghai, China), Raman microscopy (Raman, HR800, Japan). In particular, the Athena module of »
+

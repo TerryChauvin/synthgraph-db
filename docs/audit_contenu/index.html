@@ -1,0 +1,590 @@
+<meta name="dash-one-writer">
+<style>
+#dash-root { --dash-gutter: var(--cds-pad-lg); }
+.ac { font-family: var(--font-anthropic-sans); color: var(--color-fg); display: grid; gap: var(--cds-gap-md); }
+.ac h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+.ac h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: var(--cds-gap-md) 0 0; }
+.ac p { margin: 0; max-width: 70ch; }
+.ac-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.ac-take b { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 1.15em; }
+.ac-bar { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+.ac-tabs { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); border-bottom: 1px solid var(--color-border-line); padding-bottom: var(--cds-pad-xs); }
+.ac-tabs button, .ac-bar button, .ac select, .ac input { font: inherit; color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); cursor: pointer; }
+.ac input { cursor: text; min-width: 12rem; }
+.ac-tabs button.on { border-color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.ac-tabs button:focus-visible, .ac button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 1px; }
+.ac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--cds-gap-md); }
+.ac-grid.wide { grid-template-columns: 1fr; }
+.ac-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; display: grid; gap: var(--cds-gap-sm); align-content: start; }
+.ac-card h3 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.ac-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: var(--cds-gap-sm); }
+.ac-tile { display: grid; gap: 2px; padding: var(--cds-pad-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.ac-tile b { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; }
+.ac-tile span { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.ac-chart { min-height: 6rem; position: relative; }
+.ac-chart svg { width: 100%; display: block; overflow: visible; }
+.ac-chart text { fill: var(--color-fg); font-size: var(--cds-font-size-caption); }
+.ac-chart .lbl { fill: var(--color-fg-muted); }
+.ac-chart .grid line { stroke: var(--cds-chart-grid); }
+.ac-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); max-width: 18rem; z-index: 2; }
+.ac-tbl { overflow: auto; max-height: 32rem; }
+.ac table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.ac th, .ac td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+.ac th { position: sticky; top: 0; background: var(--color-panel); cursor: pointer; white-space: nowrap; }
+.ac th[aria-sort="ascending"]::after { content: " ↑"; } .ac th[aria-sort="descending"]::after { content: " ↓"; }
+.ac td.num, .ac th.num { text-align: right; }
+.ac td.flag { color: var(--color-warn); font-weight: var(--cds-font-weight-medium); }
+.ac td.bad { color: var(--color-bad); font-weight: var(--cds-font-weight-medium); }
+.ac td.ok { color: var(--color-ok); }
+.ac td a { color: inherit; }
+.ac-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ac-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+.ac-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); border-left: 3px solid var(--color-border-line); padding-left: var(--cds-pad-sm); }
+</style>
+
+<div class="ac">
+  <header>
+    <h1 id="titre">Audit de la base de synthèses</h1>
+    <p class="ac-take">La base close compte <b data-draw="tile" data-source="resume" data-field="publications">—</b> publications et <b data-draw="tile" data-source="resume" data-field="voies">—</b> voies de synthèse, dont <b data-draw="tile" data-source="resume" data-field="voies_base_materiau">—</b> voies de base d'un matériau. <b data-draw="tile" data-source="resume" data-field="pct_voies_avec_limite" data-fmt="pct">—</b> de ces voies portent au moins une limite de reproductibilité ; les <b data-draw="tile" data-source="resume" data-field="noms_de_proprietes_bruts">—</b> noms de propriétés bruts se ramènent à <b data-draw="tile" data-source="resume" data-field="proprietes_canoniques">—</b> propriétés canoniques, dont <b data-draw="tile" data-source="resume" data-field="part_autre" data-fmt="pct">—</b> des valeurs restent non classées.</p>
+    <p class="ac-muted">Instantané de <code>synthese.db</code> généré le <span data-draw="tile" data-source="resume" data-field="genere_le" data-fmt="str">—</span> par <code>audit_contenu.py</code>. Les voies de base sont les voies sans parent de type « matériau » ; les branches héritent de leurs conditions.</p>
+    <div class="ac-bar">
+      <label>Famille de matériau <select id="f-fam" data-draw="famselect" data-source="familles" aria-label="Famille"></select></label>
+      <button id="f-reset" type="button">Toutes les familles</button>
+      <span class="ac-muted">Le filtre s'applique aux cartes qui portent une famille ; les autres montrent toute la base.</span>
+    </div>
+    <nav class="ac-tabs" aria-label="Onglets">
+      <button type="button" data-tab="apercu" class="on">Vue d'ensemble</button>
+      <button type="button" data-tab="syntheses">Types de synthèse</button>
+      <button type="button" data-tab="proprietes">Propriétés</button>
+      <button type="button" data-tab="conditions">Conditions</button>
+      <button type="button" data-tab="trous">Trous</button>
+      <button type="button" data-tab="qualite">Qualité</button>
+      <button type="button" data-tab="limites">Limites et mécanismes</button>
+      <button type="button" data-tab="references">Références externes</button>
+      <button type="button" data-tab="publications">Publications</button>
+      <button type="button" data-tab="verification">Vérification</button>
+    </nav>
+  </header>
+
+  <!-- ====================== VUE D'ENSEMBLE ====================== -->
+  <section id="apercu">
+    <div class="ac-tiles">
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="publications">—</b><span>publications closes</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="voies_base">—</b><span>voies de base (toutes natures)</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="branches">—</b><span>branches (variantes testées)</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="etapes">—</b><span>étapes de protocole</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="parametres">—</b><span>paramètres cités</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="resultats">—</b><span>résultats mesurés</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="resultats_lus_sur_figure">—</b><span>résultats lus sur figure</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="cases_non_citees">—</b><span>cases « non cité »</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="limites_reproductibilite">—</b><span>limites de reproductibilité</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="constats_fidelite">—</b><span>constats de fidélité</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="jugements_scientifiques">—</b><span>jugements scientifiques</span></div>
+      <div class="ac-tile"><b data-draw="tile" data-source="resume" data-field="doutes_ouverts">—</b><span>doutes encore ouverts</span></div>
+    </div>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Voies de base par famille de matériau</h3><p class="ac-muted">Famille attribuée au matériau de la voie par l'extracteur.</p><div class="ac-chart" data-draw="bars" data-source="familles" data-k="famille" data-v="voies_base" data-fam="famille"></div></div>
+      <div class="ac-card"><h3>Publications par année</h3><p class="ac-muted">Année de publication des 500 articles.</p><div class="ac-chart" data-draw="bars" data-source="repartition" data-sel="table=annee" data-k="cle" data-v="n" data-vertical="1" data-nosort="1"></div></div>
+      <div class="ac-card"><h3>Familles de requête</h3><p class="ac-muted">Requête Europe PMC qui a ramené l'article (10 familles de 50).</p><div class="ac-chart" data-draw="bars" data-source="repartition" data-sel="table=famille_requete" data-k="cle" data-v="n"></div></div>
+      <div class="ac-card"><h3>Nature des voies</h3><p class="ac-muted">Matériau, intermédiaire, post-traitement, dispositif.</p><div class="ac-chart" data-draw="bars" data-source="repartition" data-sel="table=kind" data-k="cle" data-v="n"></div></div>
+      <div class="ac-card"><h3>Revues les plus fréquentes</h3><div class="ac-tbl"><table data-source="repartition" data-row-key="table,cle"><thead><tr><th data-field="cle">Revue</th><th data-field="n" class="num" data-fmt="int">Publications</th></tr></thead><tbody data-draw="tbl" data-sel="table=revue" data-top="15"></tbody></table></div></div>
+      <div class="ac-card"><h3>Bilan par famille</h3><p class="ac-muted">Complétude moyenne des voies de base, part avec au moins une limite, part jugée douteuse ou incohérente par la critique scientifique.</p><div class="ac-tbl"><table data-source="familles" data-row-key="famille"><thead><tr><th data-field="famille">Famille</th><th data-field="publications" class="num" data-fmt="int">Publi.</th><th data-field="voies_base" class="num" data-fmt="int">Voies base</th><th data-field="branches" class="num" data-fmt="int">Branches</th><th data-field="completude_moyenne" class="num" data-fmt="dec">Complétude</th><th data-field="pct_voies_avec_limite" class="num" data-fmt="pct">Avec limite</th><th data-field="pct_douteuses" class="num" data-fmt="pct">Douteuses</th><th data-field="t_max_mediane" class="num" data-fmt="dec">T max méd. (°C)</th><th data-field="methode_principale">Méthode principale</th></tr></thead><tbody data-draw="tbl" data-fam="famille" data-sort="voies_base" data-dir="desc"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== TYPES DE SYNTHÈSE ====================== -->
+  <section id="syntheses" hidden>
+    <p>Deux classements indépendants des voies de base : par mots-clés du champ « méthode » écrit par l'extracteur, et par la signature des étapes (actions, équipement, température maximale). Leur concordance est de <b data-draw="tile" data-source="resume" data-field="concordance_pct" data-fmt="pct">—</b>.</p>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Méthodes (mots-clés)</h3><p class="ac-muted">Première règle qui matche, par priorité : hydrothermal avant sol-gel avant « solution à température ambiante ».</p><div class="ac-chart" data-draw="bars" data-source="voies" data-k="methode_mot_cle" data-count="1" data-fam="famille"></div></div>
+      <div class="ac-card"><h3>Signatures d'étapes</h3><p class="ac-muted">Déduites des actions et de l'équipement : autoclave → hydro/solvothermal ; calcination après solution → solution + calcination…</p><div class="ac-chart" data-draw="bars" data-source="voies" data-k="methode_signature" data-count="1" data-fam="famille"></div></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Famille × méthode</h3><p class="ac-muted">Nombre de voies de base. Les cases à moins de 5 voies sont encadrées : ce sont les « trous » de couverture.</p><div class="ac-chart" data-draw="heat" data-source="croisements" data-sel="table=famille_methode" data-a="a" data-b="b" data-v="n" data-flag="flag" data-fam="a"></div></div>
+      <div class="ac-card"><h3>Concordance mot-clé / signature</h3><p class="ac-muted">Couples les plus fréquents. Non concordant : la méthode annoncée ne se retrouve pas dans les étapes (ex. « hydrothermal » sans autoclave cité).</p><div class="ac-tbl"><table data-source="croisements" data-row-key="table,a,b,c"><thead><tr><th data-field="a">Méthode (mot-clé)</th><th data-field="b">Signature d'étapes</th><th data-field="n" class="num" data-fmt="int">Voies</th><th data-field="flag" data-fmt="bool">Concordant</th></tr></thead><tbody data-draw="tbl" data-sel="table=concordance" data-sort="n" data-dir="desc" data-top="40"></tbody></table></div></div>
+    </div>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Température maximale par méthode</h3><p class="ac-muted">Médiane et intervalle P10–P90 de la plus haute température de la voie, en °C.</p><div class="ac-chart" data-draw="range" data-source="conditions" data-sel="table=methode" data-k="groupe"></div></div>
+      <div class="ac-card"><h3>Voies de base : conditions et classement</h3><p class="ac-muted">Une ligne par voie de base (filtrable, triable).</p><input class="ac-search" data-for="tb-voies" placeholder="Chercher (PMCID, matériau, méthode)" aria-label="Chercher une voie"><div class="ac-tbl"><table data-source="voies" data-row-key="route_id"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="voie">Voie</th><th data-field="famille">Famille</th><th data-field="materiau">Matériau</th><th data-field="methode_mot_cle">Méthode</th><th data-field="methode_signature">Signature</th><th data-field="t_max_C" class="num" data-fmt="dec">T max (°C)</th><th data-field="duree_totale_h" class="num" data-fmt="dec">Durée (h)</th><th data-field="n_etapes" class="num" data-fmt="int">Étapes</th><th data-field="atmosphere">Atmosphère</th><th data-field="solvant">Solvant</th><th data-field="completude" class="num" data-fmt="dec">Complétude</th><th data-field="n_limites" class="num" data-fmt="int">Limites</th><th data-field="verdict_science">Verdict</th></tr></thead><tbody id="tb-voies" data-draw="tbl" data-fam="famille" data-sort="pmcid" data-dir="asc" data-top="300"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== PROPRIÉTÉS ====================== -->
+  <section id="proprietes" hidden>
+    <p>Les noms de propriétés sont libres dans les extractions. Une table de correspondance (expressions régulières, dans <code>audit_contenu.py</code>) les ramène à des noms canoniques ; les données elles-mêmes ne sont pas modifiées.</p>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Groupes de propriétés</h3><p class="ac-muted">Valeurs par groupe. « autre » = noms trop spécifiques pour une règle (une fois sur quatre).</p><div class="ac-chart" data-draw="bars" data-source="repartition" data-sel="table=groupe_propriete" data-k="cle" data-v="n"></div></div>
+      <div class="ac-card"><h3>Propriété par famille : médiane et P10–P90</h3><p class="ac-muted">Dans l'unité principale de la propriété. Choisir la propriété :</p><select id="sel-prop" data-draw="propselect" data-source="proprietes" aria-label="Propriété"></select><div class="ac-chart" data-draw="famrange" data-source="famille_propriete" data-fam="famille"></div></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Propriétés canoniques</h3><p class="ac-muted">Valeurs, voies et publications qui les portent ; nombre de noms bruts fusionnés ; unité principale et sa part parmi les valeurs numériques.</p><div class="ac-tbl"><table data-source="proprietes" data-row-key="propriete"><thead><tr><th data-field="propriete">Propriété</th><th data-field="groupe">Groupe</th><th data-field="valeurs" class="num" data-fmt="int">Valeurs</th><th data-field="numeriques" class="num" data-fmt="int">Numériques</th><th data-field="voies" class="num" data-fmt="int">Voies</th><th data-field="publications" class="num" data-fmt="int">Publi.</th><th data-field="familles" class="num" data-fmt="int">Familles</th><th data-field="noms_bruts" class="num" data-fmt="int">Noms bruts</th><th data-field="unite_principale">Unité</th><th data-field="pct_unite_principale" class="num" data-fmt="pct">Part unité</th><th data-field="n_unites" class="num" data-fmt="int">Unités</th><th data-field="exemples_noms">Exemples de noms</th></tr></thead><tbody data-draw="tbl" data-sort="valeurs" data-dir="desc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Table de correspondance (synonymes)</h3><p class="ac-muted">Noms bruts rattachés à chaque propriété canonique (noms vus au moins deux fois, plus tous ceux des propriétés classées).</p><input class="ac-search" data-for="tb-syn" placeholder="Chercher un nom ou une propriété" aria-label="Chercher un synonyme"><div class="ac-tbl"><table data-source="synonymes" data-row-key="propriete,nom_brut"><thead><tr><th data-field="propriete">Propriété canonique</th><th data-field="nom_brut">Nom brut</th><th data-field="valeurs" class="num" data-fmt="int">Valeurs</th></tr></thead><tbody id="tb-syn" data-draw="tbl" data-sort="valeurs" data-dir="desc" data-top="200"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== CONDITIONS ====================== -->
+  <section id="conditions" hidden>
+    <p>Conditions calculées par voie de base à partir de ses étapes : température maximale, somme des durées, atmosphère, autoclave, solvant principal, pH, agitation, rampe, volume maximal. La température est connue pour <b data-draw="tile" data-source="resume" data-field="t_max_couverture_pct" data-fmt="pct">—</b> des voies.</p>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Température maximale et durée totale</h3><p class="ac-muted">Une voie par point ; durée en échelle logarithmique. Survoler un point.</p><div class="ac-chart" data-draw="scatter" data-source="voies" data-x="t_max_C" data-y="duree_totale_h" data-fam="famille"></div></div>
+      <div class="ac-card"><h3>Atmosphère déclarée</h3><p class="ac-muted">Part des voies de base, par famille. « non cité » = aucune étape ne précise l'atmosphère.</p><div class="ac-chart" data-draw="stacked" data-source="croisements" data-sel="table=atmosphere" data-a="a" data-b="b" data-v="n" data-fam="a"></div></div>
+      <div class="ac-card"><h3>Solvant principal</h3><p class="ac-muted">Premier réactif de rôle « solvant » de la voie.</p><div class="ac-chart" data-draw="bars" data-source="croisements" data-sel="table=solvant" data-k="b" data-v="n" data-fam="a" data-top="16"></div></div>
+      <div class="ac-card"><h3>Étapes par voie</h3><p class="ac-muted">Distribution du nombre d'étapes.</p><div class="ac-chart" data-draw="hist" data-source="voies" data-x="n_etapes" data-fam="famille" data-bins="1,3,5,7,9,12,16,20,30"></div></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Conditions par famille</h3><p class="ac-muted">Couverture = part des voies de base où la condition est connue. Quantiles sur les voies qui la donnent.</p><div class="ac-tbl"><table data-source="conditions" data-row-key="table,groupe,metrique"><thead><tr><th data-field="groupe">Famille</th><th data-field="metrique">Métrique</th><th data-field="n" class="num" data-fmt="int">n</th><th data-field="couverture_pct" class="num" data-fmt="pct">Couverture</th><th data-field="min" class="num" data-fmt="dec">Min</th><th data-field="p10" class="num" data-fmt="dec">P10</th><th data-field="mediane" class="num" data-fmt="dec">Médiane</th><th data-field="p90" class="num" data-fmt="dec">P90</th><th data-field="max" class="num" data-fmt="dec">Max</th></tr></thead><tbody data-draw="tbl" data-sel="table=famille" data-fam="groupe" data-sort="groupe" data-dir="asc"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== TROUS ====================== -->
+  <section id="trous" hidden>
+    <p>Quatre lectures des manques : cases famille × méthode presque vides (<b data-draw="tile" data-source="resume" data-field="trous_famille_methode">—</b> cases sous 5 voies), propriétés attendues absentes (<b data-draw="tile" data-source="resume" data-field="proprietes_attendues_trous">—</b> couples famille-propriété couverts à moins de 30 %), couverture chimique, et plages de conditions non explorées.</p>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Propriétés attendues par famille</h3><p class="ac-muted">Part des voies de base (avec leurs branches) qui rapportent la propriété qu'un chimiste attend pour cette famille. Liste des attentes dans <code>audit_contenu.py</code> (EXPECTED).</p><div class="ac-chart" data-draw="heat" data-source="attendues" data-a="famille" data-b="propriete" data-v="couverture_pct" data-flag="trou" data-fam="famille" data-pct="1"></div></div>
+    </div>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Éléments chimiques engagés</h3><p class="ac-muted">Éléments des formules des précurseurs, dopants et produits ; part des voies de base.</p><div class="ac-chart" data-draw="bars" data-source="croisements" data-sel="table=element_famille" data-k="a" data-v="n" data-fam="b" data-top="30"></div></div>
+      <div class="ac-card"><h3>Précurseurs les plus fréquents</h3><div class="ac-chart" data-draw="bars" data-source="repartition" data-sel="table=precurseur" data-k="cle" data-v="n" data-top="25"></div></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Plages de conditions couvertes</h3><p class="ac-muted">Part des voies de base de la famille par intervalle ; une case vide est une plage que la base n'explore pas. Métrique :</p><select id="sel-metric" aria-label="Métrique"><option value="t_max_C">Température maximale (°C)</option><option value="duree_totale_h">Durée totale</option><option value="ph">pH</option></select><div class="ac-chart" data-draw="plages" data-source="croisements" data-fam="a"></div></div>
+      <div class="ac-card"><h3>Cases famille × méthode sous 5 voies</h3><div class="ac-tbl"><table data-source="croisements" data-row-key="table,a,b,c"><thead><tr><th data-field="a">Famille</th><th data-field="b">Méthode</th><th data-field="n" class="num" data-fmt="int">Voies</th></tr></thead><tbody data-draw="tbl" data-sel="table=famille_methode&flag=true" data-fam="a" data-sort="n" data-dir="asc" data-top="200"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== QUALITÉ ====================== -->
+  <section id="qualite" hidden>
+    <p>Contrôles sur les données extraites : unités, valeurs hors plage physique, complétude, champs non cités, doublons entre publications, et verdicts des critiques. Une valeur hors plage n'est pas corrigée : elle est citée avec le passage de l'article.</p>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Complétude des voies de base</h3><p class="ac-muted">Score de complétude de la grille de reproductibilité (0 à 1), par famille.</p><div class="ac-chart" data-draw="stacked" data-source="croisements" data-sel="table=completude" data-a="a" data-b="b" data-v="n" data-fam="a" data-order="<0,4|0,4–0,6|0,6–0,8|≥0,8" data-ordered="1"></div></div>
+      <div class="ac-card"><h3>Verdicts de la critique scientifique</h3><p class="ac-muted">Toutes voies jugées, par famille.</p><div class="ac-chart" data-draw="stacked" data-source="croisements" data-sel="table=verdict_science" data-a="a" data-b="b" data-v="n" data-fam="a" data-order="coherente|douteuse|incoherente|inverifiable"></div></div>
+      <div class="ac-card"><h3>Constats de fidélité</h3><p class="ac-muted">Par gravité et statut après correction.</p><div class="ac-chart" data-draw="bars" data-source="repartition" data-sel="table=critique_fidelite" data-k="cle" data-v="n"></div></div>
+      <div class="ac-card"><h3>Champs les plus souvent « non cités »</h3><p class="ac-muted">Ce qui manque le plus pour reproduire ; part des voies concernées.</p><div class="ac-tbl"><table data-source="non_cite" data-row-key="portee,champ"><thead><tr><th data-field="portee">Portée</th><th data-field="champ">Champ</th><th data-field="occurrences" class="num" data-fmt="int">Occurrences</th><th data-field="pct_voies" class="num" data-fmt="pct">Voies</th></tr></thead><tbody data-draw="tbl" data-sort="occurrences" data-dir="desc" data-top="25"></tbody></table></div></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Valeurs hors plage physique</h3><p class="ac-muted">Règles : band gap 0,05–12 eV, BET 0,1–8 000 m²/g, rendements 0–100 %, émission 200–2 500 nm, Voc 0–3 V, PCE 0–50 %, température −273–3 500 °C, pH 0–14… Chaque ligne garde sa citation.</p><div class="ac-tbl"><table data-source="hors_plage" data-row-key="pmcid,nom_brut,valeur"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="voie">Voie</th><th data-field="famille">Famille</th><th data-field="nom_brut">Nom brut</th><th data-field="valeur" class="num" data-fmt="dec">Valeur</th><th data-field="unite">Unité</th><th data-field="regle">Règle</th><th data-field="citation">Citation</th></tr></thead><tbody data-draw="tbl" data-fam="famille" data-sort="pmcid" data-dir="asc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Mêmes matériaux dans plusieurs publications</h3><p class="ac-muted">Clé = formule ou nom du matériau. Écart des propriétés mesurées entre publications (rapport max/min) ; un rapport très élevé signale une erreur d'unité ou une grandeur différente sous le même nom.</p><div class="ac-tbl"><table data-source="doublons" data-row-key="materiau,propriete,unite"><thead><tr><th data-field="materiau">Matériau</th><th data-field="famille">Famille</th><th data-field="propriete">Propriété</th><th data-field="unite">Unité</th><th data-field="publications" class="num" data-fmt="int">Publi.</th><th data-field="n" class="num" data-fmt="int">n</th><th data-field="min" class="num" data-fmt="dec">Min</th><th data-field="mediane" class="num" data-fmt="dec">Médiane</th><th data-field="max" class="num" data-fmt="dec">Max</th><th data-field="rapport_max_min" class="num" data-fmt="dec">Max/min</th></tr></thead><tbody data-draw="tbl" data-fam="famille" data-sort="rapport_max_min" data-dir="desc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Unités par propriété</h3><p class="ac-muted">Unités rencontrées (après normalisation typographique) pour les valeurs numériques. Plusieurs unités pour une propriété = conversion à prévoir, ou noms mal fusionnés.</p><input class="ac-search" data-for="tb-unites" placeholder="Chercher une propriété" aria-label="Chercher une unité"><div class="ac-tbl"><table data-source="unites" data-row-key="propriete,unite"><thead><tr><th data-field="propriete">Propriété</th><th data-field="unite">Unité</th><th data-field="valeurs" class="num" data-fmt="int">Valeurs</th></tr></thead><tbody id="tb-unites" data-draw="tbl" data-sort="valeurs" data-dir="desc" data-top="200"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== LIMITES ET MÉCANISMES ====================== -->
+  <section id="limites" hidden>
+    <p>Les annotations « limite de reproductibilité » viennent des critiques de fidélité et scientifique ; elles sont classées ici par motif (règles sur le texte). Les mécanismes de formation décrits par les auteurs ont été confrontés à l'hypothèse du critique scientifique pour <b data-draw="tile" data-source="resume" data-field="mecanismes_compares">—</b> voies : <b data-draw="tile" data-source="resume" data-field="mecanismes_desaccord">—</b> désaccords et <b data-draw="tile" data-source="resume" data-field="mecanismes_incompatibles">—</b> mécanismes contredits par les conditions extraites.</p>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Part des voies avec au moins une limite</h3><p class="ac-muted">Toutes voies (base et branches), par famille.</p><div class="ac-chart" data-draw="bars" data-source="limites" data-sel="table=famille" data-k="groupe" data-v="pct" data-fam="groupe" data-pct="1"></div></div>
+      <div class="ac-card"><h3>Motifs des limites</h3><p class="ac-muted">Premier motif reconnu dans le texte de l'annotation ; survoler pour un exemple.</p><div class="ac-chart" data-draw="bars" data-source="repartition" data-sel="table=limite_motif" data-k="cle" data-v="n" data-tip="extra"></div></div>
+      <div class="ac-card"><h3>Limites par méthode</h3><div class="ac-tbl"><table data-source="limites" data-row-key="table,groupe"><thead><tr><th data-field="groupe">Méthode</th><th data-field="voies" class="num" data-fmt="int">Voies base</th><th data-field="pct" class="num" data-fmt="pct">Avec limite</th><th data-field="limites_par_voie" class="num" data-fmt="dec">Limites / voie</th></tr></thead><tbody data-draw="tbl" data-sel="table=methode" data-sort="pct" data-dir="desc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Mécanismes : auteurs contre critique</h3><p class="ac-muted">Accord = même mécanisme dominant ; nuance = étape ajoutée ou preuve contestée (y compris les voies où les auteurs ne décrivent rien) ; désaccord = mécanisme différent ou jugé impossible.</p><div class="ac-chart" data-draw="stacked" data-source="croisements" data-sel="table=mecanisme_accord" data-a="a" data-b="b" data-v="n" data-fam="a" data-order="accord|nuance|desaccord"></div></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Typologie des mécanismes</h3><p class="ac-muted">Classe dominante attribuée au mécanisme des auteurs et à celui du critique.</p><div class="ac-chart" data-draw="heat" data-source="croisements" data-sel="table=mecanisme_type" data-a="b" data-b="c" data-v="n" data-fam="a" data-sum="1"></div></div>
+      <div class="ac-card"><h3>Mécanismes contredits par les conditions extraites</h3><p class="ac-muted">Jugement de l'agent critique sur les conditions listées (température maximale, atmosphères, réactifs, étapes). À revérifier dans l'extraction quand le motif évoque une valeur mal extraite.</p><div class="ac-tbl"><table data-source="mecanismes" data-row-key="pmcid,voie"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="voie">Voie</th><th data-field="famille">Famille</th><th data-field="type_auteurs">Mécanisme (auteurs)</th><th data-field="incompatibilite_motif">Condition contradictoire</th></tr></thead><tbody data-draw="tbl" data-sel="incompatibilite=true" data-fam="famille" data-sort="pmcid" data-dir="asc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Désaccords de mécanisme</h3><input class="ac-search" data-for="tb-mech" placeholder="Chercher (PMCID, famille, motif)" aria-label="Chercher un désaccord"><div class="ac-tbl"><table data-source="mecanismes" data-row-key="pmcid,voie"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="voie">Voie</th><th data-field="famille">Famille</th><th data-field="type_auteurs">Auteurs</th><th data-field="type_critique">Critique</th><th data-field="motif">Motif</th><th data-field="fondateurs">Fondateurs invoqués</th></tr></thead><tbody id="tb-mech" data-draw="tbl" data-sel="accord=desaccord" data-fam="famille" data-sort="pmcid" data-dir="asc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Travaux fondateurs invoqués ou manquants</h3><p class="ac-muted">D'après <code>references/fondateurs.md</code> : combien de voies invoquent chaque travail, et combien auraient dû le faire selon le critique.</p><div class="ac-tbl"><table data-source="repartition" data-row-key="table,cle"><thead><tr><th data-field="cle">Travail fondateur</th><th data-field="n" class="num" data-fmt="int">Invoqué</th><th data-field="extra" class="num" data-fmt="int">Manquant</th></tr></thead><tbody data-draw="tbl" data-sel="table=fondateur" data-sort="extra" data-dir="desc" data-top="30"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== RÉFÉRENCES EXTERNES ====================== -->
+  <section id="references" hidden>
+    <p>Pour les matériaux les plus fréquents, un agent a relevé sur le web une plage de référence par propriété et l'a comparée à la plage de la base (verdict : conforme si la médiane est dans la plage). Les bases structurées (CoRE MOF, IZA, Materials Project) ne sont pas joignables depuis l'environnement cloud : leurs hôtes doivent être autorisés dans les réglages réseau pour une comparaison directe.</p>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Verdicts</h3><div class="ac-chart" data-draw="bars" data-source="references" data-k="verdict" data-count="1"></div></div>
+      <div class="ac-card"><h3>Lecture</h3><p class="ac-note">« plus_bas » ou « plus_haut » : la médiane de la base sort de la plage publiée ; « plus_large » : la base déborde des deux côtés, ce qui trahit souvent des noms de propriétés mélangés ou des échantillons très différents sous un même nom de matériau ; « non_trouve » : grandeur propre à chaque synthèse (taille, zêta, rendement) sans plage de référence publiée.</p></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Comparaison matériau par matériau</h3><input class="ac-search" data-for="tb-ref" placeholder="Chercher un matériau ou une propriété" aria-label="Chercher une référence"><div class="ac-tbl"><table data-source="references" data-row-key="material,property"><thead><tr><th data-field="material">Matériau</th><th data-field="property">Propriété</th><th data-field="db_n" class="num" data-fmt="int">n base</th><th data-field="db_min" class="num" data-fmt="dec">Min</th><th data-field="db_median" class="num" data-fmt="dec">Médiane</th><th data-field="db_max" class="num" data-fmt="dec">Max</th><th data-field="unit">Unité</th><th data-field="ref_low" class="num" data-fmt="dec">Réf. bas</th><th data-field="ref_high" class="num" data-fmt="dec">Réf. haut</th><th data-field="verdict" data-fmt="verdict">Verdict</th><th data-field="ref_note">Note</th><th data-field="ref_source_url" data-fmt="link">Source</th></tr></thead><tbody id="tb-ref" data-draw="tbl" data-fam="family" data-sort="material" data-dir="asc"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== VÉRIFICATION ====================== -->
+  <section id="verification" hidden>
+    <p>Contrôles qui mesurent si le travail d'extraction est bien fait, indépendamment des articles : profils de paramètres par méthode, paramètres essentiels (cités, déclarés absents par l'extracteur, ou jamais cherchés), branches sans résultat, stœchiométrie nominale, complétude contre verdict, variation d'une branche contre effet mesuré, synonymes de noms de paramètres, conversions SI, et ré-extraction à l'aveugle de publications tirées au sort.</p>
+    <h2>Paramètres par méthode de synthèse</h2>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Part des voies qui citent chaque paramètre</h3><p class="ac-muted">Voies de base par méthode (mots-clés). Les cases encadrées sont les paramètres jugés essentiels pour la méthode. Concentration, volume et rapport molaire sont surtout portés par les réactifs, pas par les étapes : leur faible part ici n'est pas un manque.</p><div class="ac-chart" data-draw="heat" data-source="verif_methodes" data-sel="table=profil" data-a="methode" data-b="parametre" data-v="pct_cite" data-flag="essentiel" data-flaglabel="essentiel" data-pct="1"></div></div>
+    </div>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Paramètres essentiels : cité, déclaré absent, hors grille</h3><p class="ac-muted">« Déclaré absent » = l'extracteur a écrit que l'article ne le donne pas (manque de l'article). « Hors grille » = ni cité ni déclaré (manque de l'extraction).</p><div class="ac-tbl"><table data-source="verif_methodes" data-row-key="table,methode"><thead><tr><th data-field="methode">Méthode</th><th data-field="voies" class="num" data-fmt="int">Voies</th><th data-field="essentiels" class="num" data-fmt="int">Essentiels</th><th data-field="pct_cite" class="num" data-fmt="pct">Cité</th><th data-field="pct_non_cite_declare" class="num" data-fmt="pct">Déclaré absent</th><th data-field="pct_absent_grille" class="num" data-fmt="pct">Hors grille</th><th data-field="pires">Les moins couverts</th></tr></thead><tbody data-draw="tbl" data-sel="table=essentiels" data-sort="pct_absent_grille" data-dir="desc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Homogénéité des voies d'une même méthode</h3><p class="ac-muted">Jaccard moyen des jeux de paramètres cités entre deux voies de la méthode (1 = mêmes types de paramètres partout).</p><div class="ac-tbl"><table data-source="verif_methodes" data-row-key="table,methode"><thead><tr><th data-field="methode">Méthode</th><th data-field="voies" class="num" data-fmt="int">Voies</th><th data-field="jaccard_moyen" class="num" data-fmt="dec">Similarité</th><th data-field="parametres_par_voie" class="num" data-fmt="dec">Param./voie</th><th data-field="parametres_typiques">Paramètres typiques</th></tr></thead><tbody data-draw="tbl" data-sel="table=homogeneite" data-sort="voies" data-dir="desc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Quantités des précurseurs</h3><p class="ac-muted">Part des précurseurs dont la quantité est donnée, déclarée absente, ou jamais cherchée.</p><div class="ac-tbl"><table data-source="verif_methodes" data-row-key="table,methode"><thead><tr><th data-field="methode">Méthode</th><th data-field="precurseurs" class="num" data-fmt="int">Précurseurs</th><th data-field="pct_quantite" class="num" data-fmt="pct">Quantité donnée</th><th data-field="pct_non_cite_declare" class="num" data-fmt="pct">Déclarée absente</th><th data-field="pct_absent_grille" class="num" data-fmt="pct">Hors grille</th></tr></thead><tbody data-draw="tbl" data-sel="table=reactifs" data-sort="precurseurs" data-dir="desc"></tbody></table></div></div>
+    </div>
+    <h2>Contrôles internes</h2>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Branches sans résultat propre</h3><p class="ac-muted">Une branche est une variante testée ; sans résultat ni caractérisation, elle ne relie aucune variation à aucune propriété (« morte »).</p><div class="ac-tbl"><table data-source="verif_controles" data-row-key="table,famille"><thead><tr><th data-field="famille">Famille</th><th data-field="branches" class="num" data-fmt="int">Branches</th><th data-field="pct_sans_resultat" class="num" data-fmt="pct">Sans résultat</th><th data-field="pct_mortes" class="num" data-fmt="pct">Mortes</th><th data-field="resultats_par_branche" class="num" data-fmt="dec">Résultats / branche</th></tr></thead><tbody data-draw="tbl" data-sel="table=branches" data-sort="branches" data-dir="desc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Stœchiométrie nominale contre formule du produit</h3><p class="ac-muted">Rapport molaire des deux éléments principaux calculé depuis les quantités de précurseurs, comparé à la formule du matériau. Un excès de 50 à 200 % est courant (halogénure, soufre, ligand) ; au-delà, vérifier le rôle du réactif ou l'unité.</p><div class="ac-chart" data-draw="bars" data-source="verif_controles" data-sel="table=stoech_classe" data-k="cle" data-v="n" data-nosort="1"></div><div class="ac-tbl"><table data-source="verif_controles" data-row-key="table,pmcid,voie"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="voie">Voie</th><th data-field="formule">Formule</th><th data-field="elements">Éléments</th><th data-field="rapport_formule" class="num" data-fmt="dec">Formule</th><th data-field="rapport_nominal" class="num" data-fmt="dec">Nominal</th><th data-field="ecart_pct" class="num" data-fmt="pct">Écart</th></tr></thead><tbody data-draw="tbl" data-sel="table=stoech" data-sort="ecart_pct" data-dir="desc" data-top="40"></tbody></table></div></div>
+      <div class="ac-card"><h3>Complétude contre verdict de la critique</h3><p class="ac-muted">Si les deux contrôles sont cohérents, les voies « non reproductibles » doivent avoir une complétude plus basse. La dernière ligne donne la corrélation de Spearman entre complétude et « non reproductible ».</p><div class="ac-tbl"><table data-source="verif_controles" data-row-key="table,verdict"><thead><tr><th data-field="verdict">Verdict</th><th data-field="voies" class="num" data-fmt="int">Voies</th><th data-field="completude_moyenne" class="num" data-fmt="dec">Complétude moyenne</th><th data-field="pct_sup_0_8" class="num" data-fmt="pct">≥ 0,8</th><th data-field="pct_inf_0_5" class="num" data-fmt="pct">&lt; 0,5</th></tr></thead><tbody data-draw="tbl" data-sel="table=completude_verdict"></tbody></table></div><div class="ac-tbl"><table data-source="verif_controles" data-row-key="table,faisabilite"><thead><tr><th data-field="faisabilite">Faisabilité</th><th data-field="voies" class="num" data-fmt="int">Voies</th><th data-field="completude_moyenne" class="num" data-fmt="dec">Complétude moyenne</th><th data-field="pct_sup_0_8" class="num" data-fmt="pct">≥ 0,8</th><th data-field="pct_inf_0_5" class="num" data-fmt="pct">&lt; 0,5</th></tr></thead><tbody data-draw="tbl" data-sel="table=completude_faisabilite"></tbody></table></div></div>
+      <div class="ac-card"><h3>Variation d'une branche → effet mesuré</h3><p class="ac-muted"><b data-draw="tile" data-source="verif_controles" data-sel="table=variation_resume" data-field="variations_numeriques">—</b> variations numériques entre une branche et son parent ; <b data-draw="tile" data-source="verif_controles" data-sel="table=variation_resume" data-field="pct" data-fmt="pct">—</b> ont au moins une propriété mesurée des deux côtés ; <b data-draw="tile" data-source="verif_controles" data-sel="table=variation_resume" data-field="series_3_points">—</b> séries d'au moins 3 points, dont <b data-draw="tile" data-source="verif_controles" data-sel="table=variation_resume" data-field="pct_monotones" data-fmt="pct">—</b> monotones (|Spearman| ≥ 0,8). Variation médiane de la propriété par type de paramètre :</p><div class="ac-tbl"><table data-source="verif_controles" data-row-key="table,parametre,propriete"><thead><tr><th data-field="parametre">Paramètre varié</th><th data-field="propriete">Propriété</th><th data-field="paires" class="num" data-fmt="int">Paires</th><th data-field="variation_mediane_pct" class="num" data-fmt="pct">Variation médiane</th></tr></thead><tbody data-draw="tbl" data-sel="table=effet" data-sort="paires" data-dir="desc" data-top="40"></tbody></table></div></div>
+    </div>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Séries paramètre → propriété (≥ 3 points)</h3><p class="ac-muted">Spearman entre la valeur du paramètre varié et la médiane de la propriété dans chaque branche.</p><input class="ac-search" data-for="tb-series" placeholder="Chercher (PMCID, paramètre, propriété)" aria-label="Chercher une série"><div class="ac-tbl"><table data-source="verif_series" data-row-key="pmcid,voie_parente,parametre,propriete,unite"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="voie_parente">Voie parente</th><th data-field="famille">Famille</th><th data-field="parametre">Paramètre</th><th data-field="etendue_parametre">Étendue</th><th data-field="propriete">Propriété</th><th data-field="unite">Unité</th><th data-field="etendue_propriete">Étendue</th><th data-field="n" class="num" data-fmt="int">Points</th><th data-field="spearman" class="num" data-fmt="dec">Spearman</th><th data-field="monotone" data-fmt="bool">Monotone</th></tr></thead><tbody id="tb-series" data-draw="tbl" data-fam="famille" data-sort="n" data-dir="desc" data-top="300"></tbody></table></div></div>
+    </div>
+    <div class="ac-grid">
+      <div class="ac-card"><h3>Synonymes de noms de paramètres</h3><p class="ac-muted"><b data-draw="tile" data-source="verif_controles" data-sel="table=param_syn_resume" data-field="noms_distincts">—</b> noms distincts pour <b data-draw="tile" data-source="verif_controles" data-sel="table=param_syn_resume" data-field="groupes">—</b> types ; <b data-draw="tile" data-source="verif_controles" data-sel="table=param_syn_resume" data-field="pct_sous_nom_principal" data-fmt="pct">—</b> des occurrences portent le nom principal de leur type.</p><div class="ac-tbl"><table data-source="verif_controles" data-row-key="table,canonique"><thead><tr><th data-field="canonique">Type</th><th data-field="noms_bruts" class="num" data-fmt="int">Noms bruts</th><th data-field="occurrences" class="num" data-fmt="int">Occurrences</th><th data-field="nom_principal">Nom principal</th><th data-field="pct_nom_principal" class="num" data-fmt="pct">Part</th><th data-field="exemples">Autres noms</th></tr></thead><tbody data-draw="tbl" data-sel="table=param_syn" data-sort="occurrences" data-dir="desc"></tbody></table></div></div>
+      <div class="ac-card"><h3>Conversions SI</h3><p class="ac-muted"><b data-draw="tile" data-source="verif_controles" data-sel="table=si_resume" data-field="pct" data-fmt="pct">—</b> des paramètres numériques ont une valeur SI ; <b data-draw="tile" data-source="verif_controles" data-sel="table=si_resume" data-field="unites_manquantes">—</b> n'ont pas d'unité.</p><div class="ac-tbl"><table data-source="verif_controles" data-row-key="table,canonique"><thead><tr><th data-field="canonique">Type</th><th data-field="numeriques" class="num" data-fmt="int">Numériques</th><th data-field="pct_si" class="num" data-fmt="pct">Convertis</th><th data-field="unites_non_converties">Unités non converties</th></tr></thead><tbody data-draw="tbl" data-sel="table=si" data-sort="numeriques" data-dir="desc"></tbody></table></div></div>
+    </div>
+    <h2>Ré-extraction à l'aveugle</h2>
+    <div class="ac-grid wide">
+      <div class="ac-card"><h3>Concordance entre deux extracteurs indépendants</h3><p class="ac-muted">Publications tirées au sort, ré-extraites par un agent qui n'a vu ni l'extraction en base ni les critiques. Rappel = part des valeurs numériques de la base retrouvées dans la ré-extraction (même type, même unité, ±2 %) ; précision = part des valeurs de la ré-extraction présentes en base ; conflit = même type dans la même voie, valeur différente. La base a passé quatre passes (extraction, deux critiques, correction), la ré-extraction une seule.</p><div class="ac-tbl"><table data-source="verif_reextraction" data-row-key="pmcid"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="voies_base" class="num" data-fmt="int">Voies base</th><th data-field="voies_aveugle" class="num" data-fmt="int">Voies aveugle</th><th data-field="voies_appariees" class="num" data-fmt="int">Appariées</th><th data-field="rappel_params" class="num" data-fmt="pct">Param. rappel</th><th data-field="precision_params" class="num" data-fmt="pct">Param. précision</th><th data-field="params_conflits" class="num" data-fmt="int">Conflits</th><th data-field="rappel_resultats" class="num" data-fmt="pct">Résultats rappel</th><th data-field="precision_resultats" class="num" data-fmt="pct">Résultats précision</th><th data-field="resultats_conflits" class="num" data-fmt="int">Conflits</th><th data-field="rappel_reactifs" class="num" data-fmt="pct">Réactifs rappel</th><th data-field="precision_reactifs" class="num" data-fmt="pct">Réactifs précision</th></tr></thead><tbody data-draw="tbl" data-sort="pmcid" data-dir="asc"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- ====================== PUBLICATIONS ====================== -->
+  <section id="publications" hidden>
+    <p>Les 500 publications closes, avec leurs effectifs et leur bilan de critique.</p>
+    <div class="ac-grid wide">
+      <div class="ac-card"><input class="ac-search" data-for="tb-pubs" placeholder="Chercher (PMCID, titre, revue, famille)" aria-label="Chercher une publication"><div class="ac-tbl"><table data-source="publications" data-row-key="pmcid"><thead><tr><th data-field="pmcid">PMCID</th><th data-field="titre">Titre</th><th data-field="annee" class="num" data-fmt="int">Année</th><th data-field="revue">Revue</th><th data-field="famille">Famille</th><th data-field="voies" class="num" data-fmt="int">Voies</th><th data-field="resultats" class="num" data-fmt="int">Résultats</th><th data-field="completude" class="num" data-fmt="dec">Complétude</th><th data-field="limites" class="num" data-fmt="int">Limites</th><th data-field="constats" class="num" data-fmt="int">Constats</th><th data-field="faux" class="num" data-fmt="int">Faux</th><th data-field="doi" data-fmt="doi">DOI</th></tr></thead><tbody id="tb-pubs" data-draw="tbl" data-fam="famille" data-sort="pmcid" data-dir="asc" data-top="500"></tbody></table></div></div>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const fmtInt = new Intl.NumberFormat('fr-FR');
+  const fmtDec = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 });
+  const fam = () => dash.params().famille || null;
+  const ok = (id) => { const g = dash.data(id); return g.status === 'ok' && Array.isArray(g.data) ? g.data : null; };
+  const sel = (rows, s) => { if (!s) return rows; const conds = s.split('&').map((p) => p.split('=')); return rows.filter((r) => conds.every(([k, v]) => String(r[k]) === v)); };
+  const byFam = (rows, key) => (key && fam()) ? rows.filter((r) => String(r[key]) === fam()) : rows;
+  const fmtCell = (v, f) => {
+    if (v === null || v === undefined || v === '') return '—';
+    if (f === 'int') return fmtInt.format(Math.round(v));
+    if (f === 'dec') return typeof v === 'number' ? fmtDec.format(v) : String(v);
+    if (f === 'pct') return typeof v === 'number' ? fmtDec.format(v) + ' %' : String(v);
+    if (f === 'bool') return v ? 'oui' : 'non';
+    return String(v);
+  };
+  const tip = (host) => {
+    let t = host.querySelector('.ac-tip');
+    if (!t) { t = document.createElement('div'); t.className = 'ac-tip'; t.hidden = true; host.appendChild(t); }
+    return { show(x, y, text) { t.textContent = text; t.hidden = false; const w = host.clientWidth; t.style.left = Math.min(x + 12, Math.max(0, w - 240)) + 'px'; t.style.top = (y + 12) + 'px'; }, hide() { t.hidden = true; } };
+  };
+  const colorOf = (i) => dash.colors[i % dash.colors.length];
+  const clear = (el) => { el.querySelectorAll('svg, .ac-legend, .ac-empty').forEach((n) => n.remove()); };
+  const empty = (el) => { clear(el); const s = document.createElement('span'); s.className = 'ac-empty'; s.textContent = '—'; el.appendChild(s); };
+
+  // ---- tuiles
+  dash.draw('tile', (el) => {
+    let rows = ok(el.dataset.source || 'resume');
+    if (rows && el.dataset.sel) rows = sel(rows, el.dataset.sel);
+    if (!rows || !rows.length) { el.textContent = '—'; return; }
+    const v = rows[0][el.dataset.field];
+    el.textContent = fmtCell(v, el.dataset.fmt || 'int');
+  });
+
+  // ---- sélecteur de famille
+  dash.draw('famselect', (s) => {
+    const rows = ok('familles') || [];
+    const cur = fam() || '';
+    s.replaceChildren(new Option('Toutes', ''), ...rows.slice().sort((a, b) => b.voies_base - a.voies_base).map((r) => new Option(`${r.famille} (${r.voies_base})`, r.famille)));
+    s.value = cur;
+    s.onchange = () => dash.setParams({ famille: s.value || null });
+  });
+  document.querySelectorAll('#f-reset').forEach((b) => b.addEventListener('click', () => dash.setParams({ famille: null })));
+
+  // ---- barres
+  dash.draw('bars', (el) => {
+    let rows = ok(el.dataset.source);
+    if (!rows) { empty(el); return; }
+    rows = byFam(sel(rows, el.dataset.sel), el.dataset.fam);
+    let items;
+    if (el.dataset.count) {
+      const c = new Map();
+      rows.forEach((r) => c.set(String(r[el.dataset.k]), (c.get(String(r[el.dataset.k])) || 0) + 1));
+      items = [...c].map(([k, v]) => ({ k, v }));
+    } else if (el.dataset.fam && fam() === null && el.dataset.sel && el.dataset.source === 'croisements') {
+      const c = new Map();
+      rows.forEach((r) => c.set(String(r[el.dataset.k]), (c.get(String(r[el.dataset.k])) || 0) + (+r[el.dataset.v] || 0)));
+      items = [...c].map(([k, v]) => ({ k, v }));
+    } else {
+      items = rows.map((r) => ({ k: String(r[el.dataset.k]), v: +r[el.dataset.v] || 0, tip: el.dataset.tip ? r[el.dataset.tip] : null }));
+    }
+    if (!el.dataset.nosort) items.sort((a, b) => b.v - a.v);
+    if (el.dataset.top) items = items.slice(0, +el.dataset.top);
+    if (!items.length) { empty(el); return; }
+    clear(el);
+    const W = Math.max(240, el.clientWidth);
+    const max = d3.max(items, (d) => d.v) || 1;
+    const pct = el.dataset.pct ? ' %' : '';
+    const svg = d3.create('svg');
+    if (el.dataset.vertical) {
+      const H = 180, m = { l: 30, r: 6, t: 8, b: 28 };
+      svg.attr('viewBox', `0 0 ${W} ${H}`);
+      const x = d3.scaleBand(items.map((d) => d.k), [m.l, W - m.r]).padding(0.15);
+      const y = d3.scaleLinear([0, max], [H - m.b, m.t]);
+      svg.append('g').attr('class', 'grid').selectAll('line').data(y.ticks(4)).join('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y).attr('y2', y);
+      svg.append('g').selectAll('rect').data(items).join('rect').attr('x', (d) => x(d.k)).attr('y', (d) => y(d.v)).attr('width', x.bandwidth()).attr('height', (d) => y(0) - y(d.v)).attr('rx', 2).attr('fill', colorOf(0));
+      svg.append('g').selectAll('text.lbl').data(items).join('text').attr('class', 'lbl').attr('x', (d) => x(d.k) + x.bandwidth() / 2).attr('y', H - m.b + 14).attr('text-anchor', 'middle').text((d) => d.k.slice(-2));
+      svg.append('g').selectAll('text.v').data(y.ticks(4)).join('text').attr('class', 'lbl').attr('x', m.l - 4).attr('y', (d) => y(d) + 3).attr('text-anchor', 'end').text((d) => fmtInt.format(d));
+      const tp = tip(el);
+      svg.selectAll('rect').on('pointermove', (e, d) => { const b = el.getBoundingClientRect(); tp.show(e.clientX - b.left, e.clientY - b.top, `${d.k} : ${fmtInt.format(d.v)}`); }).on('pointerleave', () => tp.hide());
+    } else {
+      const rowH = 22, labW = Math.min(170, W * 0.42), H = items.length * rowH + 4;
+      svg.attr('viewBox', `0 0 ${W} ${H}`);
+      const x = d3.scaleLinear([0, max], [0, W - labW - 56]);
+      const g = svg.selectAll('g').data(items).join('g').attr('transform', (d, i) => `translate(0,${i * rowH})`);
+      g.append('text').attr('x', labW - 6).attr('y', 15).attr('text-anchor', 'end').text((d) => d.k.length > 26 ? d.k.slice(0, 25) + '…' : d.k);
+      g.append('rect').attr('x', labW).attr('y', 4).attr('height', rowH - 8).attr('width', (d) => Math.max(1, x(d.v))).attr('rx', 2).attr('fill', colorOf(0));
+      g.append('text').attr('class', 'lbl').attr('x', (d) => labW + x(d.v) + 5).attr('y', 15).text((d) => (el.dataset.pct ? fmtDec.format(d.v) : fmtInt.format(d.v)) + pct);
+      const tp = tip(el);
+      g.on('pointermove', (e, d) => { const b = el.getBoundingClientRect(); tp.show(e.clientX - b.left, e.clientY - b.top, d.tip ? `${d.k} : ${d.tip}` : `${d.k} : ${fmtDec.format(d.v)}${pct}`); }).on('pointerleave', () => tp.hide());
+    }
+    el.appendChild(svg.node());
+  });
+
+  // ---- histogramme
+  dash.draw('hist', (el) => {
+    let rows = ok(el.dataset.source);
+    if (!rows) { empty(el); return; }
+    rows = byFam(rows, el.dataset.fam);
+    const edges = el.dataset.bins.split(',').map(Number);
+    const items = [];
+    for (let i = 0; i < edges.length - 1; i++) {
+      const lo = edges[i], hi = edges[i + 1];
+      items.push({ k: `${lo}–${hi - 1}`, v: rows.filter((r) => r[el.dataset.x] !== null && r[el.dataset.x] >= lo && r[el.dataset.x] < hi).length });
+    }
+    items.push({ k: `≥${edges[edges.length - 1]}`, v: rows.filter((r) => r[el.dataset.x] >= edges[edges.length - 1]).length });
+    clear(el);
+    const W = Math.max(240, el.clientWidth), H = 170, m = { l: 34, r: 6, t: 8, b: 26 };
+    const svg = d3.create('svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const x = d3.scaleBand(items.map((d) => d.k), [m.l, W - m.r]).padding(0.15);
+    const y = d3.scaleLinear([0, d3.max(items, (d) => d.v) || 1], [H - m.b, m.t]);
+    svg.append('g').attr('class', 'grid').selectAll('line').data(y.ticks(4)).join('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y).attr('y2', y);
+    svg.append('g').selectAll('rect').data(items).join('rect').attr('x', (d) => x(d.k)).attr('y', (d) => y(d.v)).attr('width', x.bandwidth()).attr('height', (d) => y(0) - y(d.v)).attr('rx', 2).attr('fill', colorOf(1));
+    svg.append('g').selectAll('text').data(items).join('text').attr('class', 'lbl').attr('x', (d) => x(d.k) + x.bandwidth() / 2).attr('y', H - m.b + 14).attr('text-anchor', 'middle').text((d) => d.k);
+    svg.append('g').selectAll('text').data(y.ticks(4)).join('text').attr('class', 'lbl').attr('x', m.l - 4).attr('y', (d) => y(d) + 3).attr('text-anchor', 'end').text((d) => fmtInt.format(d));
+    el.appendChild(svg.node());
+  });
+
+  // ---- carte de chaleur
+  const heat = (el, rows, aK, bK, vK, flagK, isPct, sum) => {
+    if (!rows.length) { empty(el); return; }
+    clear(el);
+    const A = [...new Set(rows.map((r) => String(r[aK])))], B = [...new Set(rows.map((r) => String(r[bK])))];
+    const totB = new Map(B.map((b) => [b, d3.sum(rows.filter((r) => String(r[bK]) === b), (r) => +r[vK] || 0)]));
+    B.sort((p, q) => totB.get(q) - totB.get(p));
+    const totA = new Map(A.map((a) => [a, d3.sum(rows.filter((r) => String(r[aK]) === a), (r) => +r[vK] || 0)]));
+    A.sort((p, q) => totA.get(q) - totA.get(p));
+    const W = Math.max(320, el.clientWidth), labW = 130, cellH = 20, topH = 110, cellW = Math.max(26, (W - labW - 8) / B.length);
+    const H = topH + A.length * cellH + 8;
+    const svg = d3.create('svg').attr('viewBox', `0 0 ${Math.max(W, labW + cellW * B.length + 8)} ${H}`);
+    const max = d3.max(rows, (r) => +r[vK] || 0) || 1;
+    const fg = getComputedStyle(el).color;
+    const scale = (v) => isPct ? Math.max(0.08, Math.min(1, v / 100)) : Math.max(0.08, Math.sqrt(v / max));
+    const val = new Map(rows.map((r) => [String(r[aK]) + '|' + String(r[bK]), r]));
+    svg.append('g').selectAll('text').data(B).join('text').attr('class', 'lbl').attr('transform', (b, i) => `translate(${labW + i * cellW + cellW / 2 + 4},${topH - 6}) rotate(-60)`).attr('text-anchor', 'start').text((b) => b.length > 22 ? b.slice(0, 21) + '…' : b);
+    svg.append('g').selectAll('text').data(A).join('text').attr('x', labW - 6).attr('y', (a, i) => topH + i * cellH + 14).attr('text-anchor', 'end').text((a) => a.length > 20 ? a.slice(0, 19) + '…' : a);
+    const cells = [];
+    A.forEach((a, i) => B.forEach((b, j) => { const r = val.get(a + '|' + b); cells.push({ a, b, i, j, v: r ? +r[vK] || 0 : 0, flag: r && flagK ? !!r[flagK] : false, has: !!r }); }));
+    const g = svg.append('g').selectAll('g').data(cells).join('g').attr('transform', (d) => `translate(${labW + d.j * cellW},${topH + d.i * cellH})`);
+    g.append('rect').attr('width', cellW - 2).attr('height', cellH - 2).attr('rx', 2).attr('fill', colorOf(0)).attr('fill-opacity', (d) => d.has ? scale(d.v) : 0.04).attr('stroke', (d) => d.flag ? 'var(--color-warn)' : 'none').attr('stroke-width', 1.5);
+    g.append('text').attr('x', (cellW - 2) / 2).attr('y', 13).attr('text-anchor', 'middle').attr('fill', fg).text((d) => d.has ? (isPct ? Math.round(d.v) : d.v) : '');
+    const tp = tip(el);
+    const flagLabel = el.dataset.flaglabel || 'trou';
+    g.on('pointermove', (e, d) => { const bx = el.getBoundingClientRect(); tp.show(e.clientX - bx.left, e.clientY - bx.top, `${d.a} × ${d.b} : ${d.has ? fmtDec.format(d.v) + (isPct ? ' %' : '') : 'aucune'}${d.flag ? ' (' + flagLabel + ')' : ''}`); }).on('pointerleave', () => tp.hide());
+    el.appendChild(svg.node());
+  };
+  dash.draw('heat', (el) => {
+    let rows = ok(el.dataset.source);
+    if (!rows) { empty(el); return; }
+    rows = byFam(sel(rows, el.dataset.sel), el.dataset.fam);
+    if (el.dataset.sum) {
+      const c = new Map();
+      rows.forEach((r) => { const k = String(r[el.dataset.a]) + '|' + String(r[el.dataset.b]); c.set(k, (c.get(k) || 0) + (+r[el.dataset.v] || 0)); });
+      rows = [...c].map(([k, v]) => { const [a, b] = k.split('|'); return { [el.dataset.a]: a, [el.dataset.b]: b, [el.dataset.v]: v }; });
+    }
+    heat(el, rows, el.dataset.a, el.dataset.b, el.dataset.v, el.dataset.flag, !!el.dataset.pct, false);
+  });
+
+  // ---- plages de conditions (métrique choisie)
+  const metricSel = document.getElementById('sel-metric');
+  if (metricSel) metricSel.addEventListener('change', () => dash.draw('plages'));
+  dash.draw('plages', (el) => {
+    let rows = ok('croisements');
+    if (!rows) { empty(el); return; }
+    const metric = metricSel ? metricSel.value : 't_max_C';
+    rows = byFam(sel(rows, 'table=plage_condition&c=' + metric), el.dataset.fam);
+    const pr = rows.map((r) => ({ a: r.a, b: r.b, ordre: r.ordre, v: r.total ? Math.round(100 * r.n / r.total) : 0, n: r.n }));
+    if (!pr.length) { empty(el); return; }
+    clear(el);
+    const A = [...new Set(pr.map((r) => r.a))].sort(), B = [...new Set(pr.map((r) => r.b))].sort((p, q) => (pr.find((r) => r.b === p).ordre - pr.find((r) => r.b === q).ordre));
+    const W = Math.max(320, el.clientWidth), labW = 130, cellH = 20, topH = 40, cellW = Math.max(40, (W - labW - 8) / B.length);
+    const svg = d3.create('svg').attr('viewBox', `0 0 ${Math.max(W, labW + cellW * B.length)} ${topH + A.length * cellH + 8}`);
+    const fg = getComputedStyle(el).color;
+    svg.append('g').selectAll('text').data(B).join('text').attr('class', 'lbl').attr('x', (b, j) => labW + j * cellW + cellW / 2).attr('y', topH - 8).attr('text-anchor', 'middle').text((b) => b);
+    svg.append('g').selectAll('text').data(A).join('text').attr('x', labW - 6).attr('y', (a, i) => topH + i * cellH + 14).attr('text-anchor', 'end').text((a) => a.length > 20 ? a.slice(0, 19) + '…' : a);
+    const val = new Map(pr.map((r) => [r.a + '|' + r.b, r]));
+    const cells = []; A.forEach((a, i) => B.forEach((b, j) => { const r = val.get(a + '|' + b); cells.push({ a, b, i, j, v: r ? r.v : 0, n: r ? r.n : 0 }); }));
+    const g = svg.append('g').selectAll('g').data(cells).join('g').attr('transform', (d) => `translate(${labW + d.j * cellW},${topH + d.i * cellH})`);
+    g.append('rect').attr('width', cellW - 2).attr('height', cellH - 2).attr('rx', 2).attr('fill', colorOf(2)).attr('fill-opacity', (d) => d.n ? Math.max(0.12, d.v / 100) : 0.04).attr('stroke', (d) => d.n ? 'none' : 'var(--color-warn)').attr('stroke-dasharray', '3 2');
+    g.append('text').attr('x', (cellW - 2) / 2).attr('y', 13).attr('text-anchor', 'middle').attr('fill', fg).text((d) => d.n ? d.v + ' %' : '');
+    const tp = tip(el);
+    g.on('pointermove', (e, d) => { const bx = el.getBoundingClientRect(); tp.show(e.clientX - bx.left, e.clientY - bx.top, `${d.a}, ${d.b} : ${d.n} voie(s), ${d.v} % des voies à condition connue`); }).on('pointerleave', () => tp.hide());
+    el.appendChild(svg.node());
+  });
+
+  // ---- barres empilées 100 %
+  dash.draw('stacked', (el) => {
+    let rows = ok(el.dataset.source);
+    if (!rows) { empty(el); return; }
+    rows = byFam(sel(rows, el.dataset.sel), el.dataset.fam);
+    if (!rows.length) { empty(el); return; }
+    clear(el);
+    const aK = el.dataset.a, bK = el.dataset.b, vK = el.dataset.v;
+    const A = [...new Set(rows.map((r) => String(r[aK])))];
+    const totA = new Map(A.map((a) => [a, d3.sum(rows.filter((r) => String(r[aK]) === a), (r) => +r[vK] || 0)]));
+    A.sort((p, q) => totA.get(q) - totA.get(p));
+    let B = [...new Set(rows.map((r) => String(r[bK])))];
+    if (el.dataset.order) { const o = el.dataset.order.split('|'); B.sort((p, q) => (o.indexOf(p) < 0 ? 99 : o.indexOf(p)) - (o.indexOf(q) < 0 ? 99 : o.indexOf(q))); }
+    else { const tb = new Map(B.map((b) => [b, d3.sum(rows.filter((r) => String(r[bK]) === b), (r) => +r[vK] || 0)])); B.sort((p, q) => tb.get(q) - tb.get(p)); }
+    const W = Math.max(240, el.clientWidth), labW = Math.min(150, W * 0.38), rowH = 20, H = A.length * rowH + 4;
+    const svg = d3.create('svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const x = d3.scaleLinear([0, 1], [labW, W - 40]);
+    const tp = tip(el);
+    A.forEach((a, i) => {
+      const g = svg.append('g').attr('transform', `translate(0,${i * rowH})`);
+      g.append('text').attr('x', labW - 6).attr('y', 14).attr('text-anchor', 'end').text(a.length > 20 ? a.slice(0, 19) + '…' : a);
+      let acc = 0; const tot = totA.get(a) || 1;
+      B.forEach((b, j) => {
+        const r = rows.find((q) => String(q[aK]) === a && String(q[bK]) === b); const v = r ? +r[vK] || 0 : 0; if (!v) return;
+        g.append('rect').attr('x', x(acc / tot)).attr('y', 3).attr('height', rowH - 6).attr('width', Math.max(0, x((acc + v) / tot) - x(acc / tot) - 1)).attr('rx', 1).attr('fill', colorOf(j))
+          .on('pointermove', (e) => { const bx = el.getBoundingClientRect(); tp.show(e.clientX - bx.left, e.clientY - bx.top, `${a} · ${b} : ${fmtInt.format(v)} (${Math.round(100 * v / tot)} %)`); }).on('pointerleave', () => tp.hide());
+        acc += v;
+      });
+      g.append('text').attr('class', 'lbl').attr('x', W - 36).attr('y', 14).text(fmtInt.format(tot));
+    });
+    el.appendChild(svg.node());
+    const lg = document.createElement('div'); lg.className = 'ac-legend';
+    B.forEach((b, j) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = colorOf(j); s.appendChild(i); s.appendChild(document.createTextNode(b)); lg.appendChild(s); });
+    el.appendChild(lg);
+  });
+
+  // ---- nuage de points
+  dash.draw('scatter', (el) => {
+    let rows = ok(el.dataset.source);
+    if (!rows) { empty(el); return; }
+    rows = byFam(rows, el.dataset.fam).filter((r) => r[el.dataset.x] !== null && r[el.dataset.y] !== null && r[el.dataset.y] > 0);
+    if (!rows.length) { empty(el); return; }
+    clear(el);
+    const W = Math.max(240, el.clientWidth), H = 260, m = { l: 46, r: 10, t: 8, b: 30 };
+    const svg = d3.create('svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const x = d3.scaleLinear([0, d3.max(rows, (r) => r[el.dataset.x]) || 1], [m.l, W - m.r]).nice();
+    const y = d3.scaleLog([Math.max(0.01, d3.min(rows, (r) => r[el.dataset.y])), d3.max(rows, (r) => r[el.dataset.y]) || 1], [H - m.b, m.t]).nice();
+    const fams = [...new Set(rows.map((r) => r.famille))].sort();
+    const col = new Map(fams.map((f, i) => [f, colorOf(i)]));
+    svg.append('g').attr('class', 'grid').selectAll('line').data(y.ticks(5)).join('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y).attr('y2', y);
+    svg.append('g').selectAll('text').data(y.ticks(5)).join('text').attr('class', 'lbl').attr('x', m.l - 4).attr('y', (d) => y(d) + 3).attr('text-anchor', 'end').text((d) => d >= 1 ? fmtDec.format(d) + ' h' : fmtDec.format(d * 60) + ' min');
+    svg.append('g').selectAll('text').data(x.ticks(6)).join('text').attr('class', 'lbl').attr('x', x).attr('y', H - m.b + 14).attr('text-anchor', 'middle').text((d) => d + ' °C');
+    const tp = tip(el);
+    svg.append('g').selectAll('circle').data(rows).join('circle').attr('cx', (r) => x(r[el.dataset.x])).attr('cy', (r) => y(r[el.dataset.y])).attr('r', 3.2).attr('fill', (r) => col.get(r.famille)).attr('fill-opacity', 0.65)
+      .on('pointermove', (e, r) => { const bx = el.getBoundingClientRect(); tp.show(e.clientX - bx.left, e.clientY - bx.top, `${r.pmcid} · ${r.voie} (${r.famille}) : ${fmtDec.format(r[el.dataset.x])} °C, ${fmtDec.format(r[el.dataset.y])} h, ${r.methode_mot_cle}`); }).on('pointerleave', () => tp.hide());
+    el.appendChild(svg.node());
+    if (fams.length > 1) { const lg = document.createElement('div'); lg.className = 'ac-legend'; fams.forEach((f) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = col.get(f); s.appendChild(i); s.appendChild(document.createTextNode(f)); lg.appendChild(s); }); el.appendChild(lg); }
+  });
+
+  // ---- intervalles P10–médiane–P90 (une ligne par groupe)
+  const rangeChart = (el, items, unit) => {
+    if (!items.length) { empty(el); return; }
+    clear(el);
+    items.sort((a, b) => b.med - a.med);
+    const W = Math.max(240, el.clientWidth), labW = Math.min(160, W * 0.4), rowH = 22, H = items.length * rowH + 24;
+    const svg = d3.create('svg').attr('viewBox', `0 0 ${W} ${H}`);
+    const lo = d3.min(items, (d) => d.p10), hi = d3.max(items, (d) => d.p90) || 1;
+    const x = d3.scaleLinear([Math.min(0, lo), hi], [labW, W - 10]).nice();
+    svg.append('g').attr('class', 'grid').selectAll('line').data(x.ticks(5)).join('line').attr('x1', x).attr('x2', x).attr('y1', 0).attr('y2', H - 20);
+    svg.append('g').selectAll('text').data(x.ticks(5)).join('text').attr('class', 'lbl').attr('x', x).attr('y', H - 4).attr('text-anchor', 'middle').text((d) => fmtDec.format(d));
+    const g = svg.selectAll('g.r').data(items).join('g').attr('class', 'r').attr('transform', (d, i) => `translate(0,${i * rowH})`);
+    g.append('text').attr('x', labW - 6).attr('y', 15).attr('text-anchor', 'end').text((d) => d.k.length > 22 ? d.k.slice(0, 21) + '…' : d.k);
+    g.append('rect').attr('x', (d) => x(d.p10)).attr('y', 7).attr('height', 8).attr('width', (d) => Math.max(1, x(d.p90) - x(d.p10))).attr('rx', 2).attr('fill', colorOf(0)).attr('fill-opacity', 0.35);
+    g.append('circle').attr('cx', (d) => x(d.med)).attr('cy', 11).attr('r', 4).attr('fill', colorOf(0));
+    g.append('text').attr('class', 'lbl').attr('x', (d) => x(d.p90) + 6).attr('y', 15).text((d) => `${fmtDec.format(d.med)} (n=${d.n})`);
+    const tp = tip(el);
+    g.on('pointermove', (e, d) => { const bx = el.getBoundingClientRect(); tp.show(e.clientX - bx.left, e.clientY - bx.top, `${d.k} : P10 ${fmtDec.format(d.p10)}, médiane ${fmtDec.format(d.med)}, P90 ${fmtDec.format(d.p90)} ${unit || ''} (n=${d.n})`); }).on('pointerleave', () => tp.hide());
+    el.appendChild(svg.node());
+  };
+  dash.draw('range', (el) => {
+    let rows = ok(el.dataset.source);
+    if (!rows) { empty(el); return; }
+    rows = sel(rows, el.dataset.sel);
+    rangeChart(el, rows.map((r) => ({ k: String(r[el.dataset.k]), p10: r.p10, med: r.mediane, p90: r.p90, n: r.n })), '°C');
+  });
+  const propSel = document.getElementById('sel-prop');
+  dash.draw('propselect', (s) => {
+    const rows = (ok('proprietes') || []).filter((r) => r.numeriques >= 30 && r.unite_principale);
+    const cur = s.value || 'BET_surface_area';
+    s.replaceChildren(...rows.map((r) => new Option(`${r.propriete} (${r.unite_principale})`, r.propriete)));
+    s.value = rows.some((r) => r.propriete === cur) ? cur : (rows[0] ? rows[0].propriete : '');
+    s.onchange = () => dash.draw('famrange');
+  });
+  dash.draw('famrange', (el) => {
+    let rows = ok('famille_propriete');
+    const props = ok('proprietes');
+    if (!rows || !props) { empty(el); return; }
+    const p = propSel && propSel.value ? propSel.value : 'BET_surface_area';
+    const unit = (props.find((r) => r.propriete === p) || {}).unite_principale || '';
+    rows = byFam(rows.filter((r) => r.propriete === p && r.unite === unit), el.dataset.fam);
+    rangeChart(el, rows.map((r) => ({ k: r.famille, p10: r.p10, med: r.mediane, p90: r.p90, n: r.n })), unit);
+  });
+
+  // ---- tables
+  const searchQ = new Map();
+  document.querySelectorAll('.ac-search').forEach((inp) => inp.addEventListener('input', () => { searchQ.set(inp.dataset.for, inp.value.trim().toLowerCase()); dash.draw('tbl'); }));
+  document.querySelectorAll('.ac table thead th[data-field]').forEach((th) => th.addEventListener('click', () => {
+    const tb = th.closest('table').querySelector('tbody[data-draw="tbl"]'); if (!tb) return;
+    if (tb.dataset.sort === th.dataset.field) tb.dataset.dir = tb.dataset.dir === 'asc' ? 'desc' : 'asc'; else { tb.dataset.sort = th.dataset.field; tb.dataset.dir = th.classList.contains('num') ? 'desc' : 'asc'; }
+    dash.draw('tbl');
+  }));
+  dash.draw('tbl', (tb) => {
+    const table = tb.closest('table'); const src = table.dataset.source;
+    let rows = ok(src);
+    tb.replaceChildren();
+    if (!rows) return;
+    rows = byFam(sel(rows, tb.dataset.sel), tb.dataset.fam);
+    const ths = [...table.querySelectorAll('thead th[data-field]')];
+    const q = tb.id ? searchQ.get(tb.id) : '';
+    if (q) rows = rows.filter((r) => ths.some((th) => String(r[th.dataset.field] ?? '').toLowerCase().includes(q)));
+    const sk = tb.dataset.sort, dir = tb.dataset.dir === 'asc' ? 1 : -1;
+    if (sk) rows = rows.slice().sort((a, b) => { const va = a[sk], vb = b[sk]; if (va === vb) return 0; if (va === null || va === undefined) return 1; if (vb === null || vb === undefined) return -1; return (typeof va === 'number' && typeof vb === 'number' ? va - vb : String(va).localeCompare(String(vb), 'fr')) * dir; });
+    ths.forEach((th) => th.setAttribute('aria-sort', th.dataset.field === sk ? (dir === 1 ? 'ascending' : 'descending') : 'none'));
+    if (tb.dataset.top) rows = rows.slice(0, +tb.dataset.top);
+    const keys = (table.dataset.rowKey || '').split(',');
+    const frag = document.createDocumentFragment();
+    rows.forEach((r) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = keys.map((k) => encodeURIComponent(String(r[k] ?? ''))).join(',');
+      ths.forEach((th) => {
+        const td = document.createElement('td'); const f = th.dataset.fmt || 'str'; const v = r[th.dataset.field];
+        if (f === 'link' || f === 'doi') {
+          const urls = String(v || '').split('|').map((s) => s.trim()).filter(Boolean);
+          urls.forEach((u, i) => { const a = document.createElement('a'); a.href = f === 'doi' ? 'https://doi.org/' + u : u; a.target = '_blank'; a.rel = 'noopener'; a.textContent = f === 'doi' ? u : 'source ' + (i + 1); td.appendChild(a); if (i < urls.length - 1) td.appendChild(document.createTextNode(' ')); });
+          if (!urls.length) td.textContent = '—';
+        } else {
+          td.textContent = fmtCell(v, f);
+          if (th.classList.contains('num')) td.classList.add('num');
+          if (f === 'bool') td.classList.add(v ? 'ok' : 'flag');
+          if (f === 'verdict') td.classList.add(v === 'conforme' ? 'ok' : v === 'non_trouve' ? '' : 'flag');
+          if (th.dataset.field === 'faux' && v > 0) td.classList.add('flag');
+          if (th.dataset.field === 'rapport_max_min' && v > 10) td.classList.add('bad');
+        }
+        tr.appendChild(td);
+      });
+      frag.appendChild(tr);
+    });
+    tb.appendChild(frag);
+  });
+
+  // ---- onglets
+  const tabs = [...document.querySelectorAll('.ac-tabs button[data-tab]')];
+  const show = (id) => {
+    document.querySelectorAll('.ac > section').forEach((s) => { s.hidden = s.id !== id; });
+    tabs.forEach((b) => b.classList.toggle('on', b.dataset.tab === id));
+    dash.setLink(id);
+  };
+  tabs.forEach((b) => b.addEventListener('click', () => show(b.dataset.tab)));
+  const h = location.hash.slice(1);
+  if (h && tabs.some((b) => b.dataset.tab === h)) show(h);
+  window.addEventListener('hashchange', () => { const x = location.hash.slice(1); if (tabs.some((b) => b.dataset.tab === x)) show(x); });
+})();
+</script>

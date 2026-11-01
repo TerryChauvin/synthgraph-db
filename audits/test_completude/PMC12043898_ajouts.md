@@ -1,0 +1,451 @@
+# Complément — PMC12043898
+
+| parametres | not_stated | equipements | caracterisations | conditions_mesure | resultats | reactifs | etapes | voies | retires_ou_modifies | doutes_ajoutes | annotations_ajoutees |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 48 | 18 | 4 | 16 | 16 | 134 | 8 | 11 | 3 | 0 | 13 | 0 |
+
+## parametres ajoutés (48)
+
+- [Ni-BTA] étape 3 (react) · concentration = 14 M — « 1.0 mL concentrated aqueous ammonia (~14 M) was added to the above mixed solution and stirred for 6 h under room temperature »
+- [Electrode_RRDE] étape 4 (measure) · scan_rate = 10 mV s−1 — « LSV curves were measured on the RRDE at a scan rate of 10 mV s−1 and a rotating speed of 1600 rpm in O2-saturated alkaline and neutral media »
+- [Electrode_RRDE] étape 4 (measure) · rotation_speed = 1600 rpm — « LSV curves were measured on the RRDE at a scan rate of 10 mV s−1 and a rotating speed of 1600 rpm in O2-saturated alkaline and neutral media »
+- [Electrode_RRDE] étape 4 (measure) · ph = 0.1 M KOH ~13.0; 0.9 wt.% NaCl ~7.2; 3.6 wt.% NaCl ~6.7; 0.1 M Na2SO4 ~7.0  — « LSV curves were measured on the RRDE at a scan rate of 10 mV s−1 and a rotating speed of 1600 rpm in O2-saturated alkaline and neutral media »
+- [Electrode_RRDE] étape 4 (measure) · ring_potential_alkaline = 1.5 V vs. RHE — « the Pt ring potential was held at 1.5 V and 1.2 V vs. RHE in alkaline and neutral media, respectively »
+- [Electrode_RRDE] étape 4 (measure) · ring_potential_neutral = 1.2 V vs. RHE — « the Pt ring potential was held at 1.5 V and 1.2 V vs. RHE in alkaline and neutral media, respectively »
+- [Electrode_RRDE] étape 4 (measure) · collection_efficiency = 0.37  — « the collection efficiency was determined to 0.37 using the [Fe(CN)6]3−/4− redox system »
+- [Electrode_RRDE] étape 4 (measure) · temperature = 25 °C — « The electrochemical measurements were conducted at room temperature (~25 °C) »
+- [Electrode_GDE] étape 3 (treat) · thickness = 0.18 mm — « Nafion 117 membrane with a thickness of ~0.18 mm was purchased from DuPont Co »
+- [Electrode_GDE] étape 5 (electrolyze) · area = 1.0 × 1.0 cm2 (active area of the GDE)  — « coated with the catalysts with an active area of 1.0 × 1.0 cm2 »
+- [Electrode_GDE] étape 5 (electrolyze) · ph = 1 M KOH ~13.8; 1 M NaCl ~6.5  — « either in 1 M KOH (pH ~13.8) or 1 M NaCl (pH ~6.5) electrolyte »
+- [Electrode_GDE] étape 5 (electrolyze) · potential = from 0.7 to −0.6 V vs. RHE (i-t tests)  — « The i-t test at different potentials from 0.7 to −0.6 V vs. RHE »
+- [Electrode_GDE] étape 5 (electrolyze) · repetitions = Faradaic efficiency measured only once  — « The Faraday efficiency (FE) was only performed once »
+- [Electrode_GDE] étape 5 (electrolyze) · distance = 2 cm — « induced by the large distance (~2 cm) between the anode and cathode in our flow cell »
+- [Electrode_GDE] étape 6 (electrolyze) · current_density = 100 mA cm−2 — « it was firstly operated at a constant current density of 100 mA cm−2 for 24 h in 30 mL 1 M NaCl electrolyte »
+- [Electrode_GDE] étape 6 (electrolyze) · duration = 24 h — « it was firstly operated at a constant current density of 100 mA cm−2 for 24 h in 30 mL 1 M NaCl electrolyte »
+- [Electrode_GDE] étape 6 (electrolyze) · volume = 30 mL — « it was firstly operated at a constant current density of 100 mA cm−2 for 24 h in 30 mL 1 M NaCl electrolyte »
+- [Electrode_GDE] étape 6 (electrolyze) · electrolyte_refreshment = two refreshments of the cathodic tank, after 8 h and 15 h  — « there were two electrolyte refreshments for the cathodic tank after working until 8 h and 15 h »
+- [Electrode_GDE] étape 7 (electrolyze) · current_density = 200 mA cm−2 — « H2O2 accumulation was also assessed at a higher constant current density of 200 mA cm−2 in 30 mL 1 M KOH electrolyte »
+- [Electrode_GDE] étape 7 (electrolyze) · volume = 30 mL — « H2O2 accumulation was also assessed at a higher constant current density of 200 mA cm−2 in 30 mL 1 M KOH electrolyte »
+- [Electrode_GDE] étape 7 (electrolyze) · duration = 10 h — « after continuous operation of 10 h without electrolyte refreshment »
+- [Electrode_GDE] étape 8 (electrolyze) · current_density = 100 mA cm−2 — « when operating at a constant potential with an initial current density of 100 mA cm−2 and in a larger electrolyte volume of 260 mL »
+- [Electrode_GDE] étape 8 (electrolyze) · volume = 260 mL — « when operating at a constant potential with an initial current density of 100 mA cm−2 and in a larger electrolyte volume of 260 mL »
+- [Electrode_GDE] étape 8 (electrolyze) · potential = 0.2 V vs. RHE — « stable H2O2 FE over 90% at 0.2 V vs. RHE after working for 40 h in 1 M KOH electrolyte »
+- [Electrode_GDE] étape 8 (electrolyze) · duration = 40 h — « stable H2O2 FE over 90% at 0.2 V vs. RHE after working for 40 h in 1 M KOH electrolyte »
+- [DFT_ORR_thermodynamics] étape 1 (build_model) · box_size = 7.62 Å × 20 Å × 25 Å (uniform lattice constant)  — « To simulate the Ni-BTA, s-Ni, d-Ni, s-OH-Ni and d-OH-Ni were placed in a box with uniform lattice constant of 7.62 Å × 20 Å × 25 Å »
+- [DFT_ORR_thermodynamics] étape 2 (optimize_geometry) · functional = PBE (GGA)  — « The electron exchange and correlation energy were conducted via the generalized gradient approximation (GGA) of Perdew-Burke-Ernzerhof (PBE) »
+- [DFT_ORR_thermodynamics] étape 2 (optimize_geometry) · cutoff_energy = 400 eV — « The electron exchange and correlation energy were conducted via the generalized gradient approximation (GGA) of Perdew-Burke-Ernzerhof (PBE) »
+- [DFT_ORR_thermodynamics] étape 2 (optimize_geometry) · k_points = 3 × 1 × 1, Gamma-centered  — « The k-points were set to be 3 × 1 × 1 with Gamma centered grids for all structures for geometry optimization »
+- [DFT_ORR_thermodynamics] étape 2 (optimize_geometry) · force_convergence = 0.02 eV/Å — « The convergence condition for the geometry optimization is that the maximal force on each atom is less than 0.02 eV/Å and the convergence co »
+- [DFT_ORR_thermodynamics] étape 2 (optimize_geometry) · energy_convergence = 10-6 eV  — « The convergence condition for the geometry optimization is that the maximal force on each atom is less than 0.02 eV/Å and the convergence co »
+- [DFT_ORR_thermodynamics] étape 3 (compute_free_energy) · temperature = 298.15 K — « These three parts are used to convert E into free energy (G) at 298.15 K »
+- [DFT_ORR_thermodynamics] étape 3 (compute_free_energy) · model = computational hydrogen electrode (CHE), G = E + ZPE + ΔH0→T − TS  — « The free energy of adsorbed species, taking into account the vibrational analysis, computed based on the computational hydrogen electrode (C »
+- [DFT_ORR_thermodynamics] étape 3 (compute_free_energy) · potential = U = 0.695 V or 1.23 V vs. RHE (and 0 V)  — « The free energies (thermodynamic barrier) at U = 0.695 V or 1.23 V vs. RHE for all adsorption species are calculated as follows »
+- [AIMD_slow_growth_d-OH-Ni] étape 1 (build_model) · water_molecules = 24  — « The whole system contained 24 H2O molecules and one OH– in the bulk water to model the alkaline environment »
+- [AIMD_slow_growth_d-OH-Ni] étape 2 (pre_equilibrate) · temperature = 300 K — « The final stabilized solution network was obtained by performing AIMD simulations of the system at 300 K »
+- [AIMD_slow_growth_d-OH-Ni] étape 2 (pre_equilibrate) · stabilization_time = 500 fs — « it was subjected to AIMD simulation at 300 K. As shown in Supplementary Fig. 42a, the system energy stabilized after 500 fs. Subsequently, t »
+- [AIMD_slow_growth_d-OH-Ni] étape 2 (pre_equilibrate) · selected_snapshot_time = 1000 fs — « it was subjected to AIMD simulation at 300 K. As shown in Supplementary Fig. 42a, the system energy stabilized after 500 fs. Subsequently, t »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 (slow_growth) · cutoff_energy = 400 eV — « A cut-off energy of 400 eV, a k-mesh grid of 1 × 1 × 1, a time step of 0.5 fs and a canonical ensemble (NVT) were adopted in the AIMD simula »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 (slow_growth) · k_points = 1 × 1 × 1 k-mesh  — « A cut-off energy of 400 eV, a k-mesh grid of 1 × 1 × 1, a time step of 0.5 fs and a canonical ensemble (NVT) were adopted in the AIMD simula »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 (slow_growth) · time_step = 0.5 fs — « A cut-off energy of 400 eV, a k-mesh grid of 1 × 1 × 1, a time step of 0.5 fs and a canonical ensemble (NVT) were adopted in the AIMD simula »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 (slow_growth) · ensemble = canonical (NVT)  — « A cut-off energy of 400 eV, a k-mesh grid of 1 × 1 × 1, a time step of 0.5 fs and a canonical ensemble (NVT) were adopted in the AIMD simula »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 (slow_growth) · temperature = 300 K — « The final stabilized solution network was obtained by performing AIMD simulations of the system at 300 K »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 (slow_growth) · growth_rate = 0.0005 Å per AIMD step — « value of 0.0005 Å in each AIMD step »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 (slow_growth) · collective_variable = Ni-O bond length for the 2e− process, O-O bond length for the 4e− process  — « To evaluate the kinetic energy barrier of the ORR, we used a constrained ab initio molecular dynamics (AIMD) method »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] étape 1 (compute_frequencies) · functional = b3lyp  — « The computational spectroscopy for predicting the theoretical characteristic vibration frequency of the infrared absorption spectrum of diff »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] étape 1 (compute_frequencies) · basis_set = 6-31+G(d)  — « The basis sets for atoms of investigated molecules were 6-31+G(d) »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] étape 1 (compute_frequencies) · solvent = D2O (deuterium atoms set in the input files)  — « The computational spectroscopy for predicting the theoretical characteristic vibration frequency of the infrared absorption spectrum of diff »
+
+## not_stated ajoutés (18)
+
+- [Ni-BTA] repetitions
+- [Ni-BTA] ph
+- [Ni-BTA] atmosphere
+- [Ni-BTA] vessel
+- [Ni-BTA] wash_volume
+- [Ni-BTA] centrifuge_speed
+- [Electrode_RRDE] amount
+- [Electrode_RRDE] purity
+- [Electrode_RRDE] supplier
+- [Electrode_RRDE] amount
+- [Electrode_RRDE] purity
+- [Electrode_GDE] amount
+- [Electrode_GDE] purity
+- [Electrode_GDE] anode_material
+- [Electrode_GDE] membrane_area
+- [DFT_ORR_thermodynamics] yield
+- [AIMD_slow_growth_d-OH-Ni] yield
+- [DFT_IR_frequencies_Ni-BTA_intermediates] yield
+
+## equipements ajoutés (4)
+
+- [Electrode_RRDE] étape 4 · electrochemical workstation CHI 760E, three-electrode system, graphite rod counter electrode, Ag/AgCl reference electrode — « H2O2 selectivity was carried out using a CHI 760E electrochemical workstation in a three-electrode s »
+- [DFT_ORR_thermodynamics] étape 2 · DFT code VASP, PAW pseudopotentials — « All DFT calculations were performed using the projector augmented wave (PAW) pseudopotential method  »
+- [AIMD_slow_growth_d-OH-Ni] étape 3 · DFT code VASP, SHAKE constraint — « To evaluate the kinetic energy barrier of the ORR, we used a constrained ab initio molecular dynamic »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] étape 1 · quantum chemistry code Gaussian 09 — « The computational spectroscopy for predicting the theoretical characteristic vibration frequency of  »
+
+## caracterisations ajoutés (16)
+
+- [Ni-BTA] XRD peak list and simulated pattern (Supplementary Table 1) : Six experimental reflections at 2θ = 14.156, 20.466, 23.636, 29.035, 39.685 and 
+- [Ni-BTA] XRD pattern simulation (Materials Studio) : Simulated XRD pattern of the Ni-BTA structure model, plotted in Fig. 2d and Supp
+- [Ni-BTA] elemental analysis (Supplementary Table 2) : Experimental content C 35.7, N 26.8, O 9.6, H 3.4, Ni 24.5 wt.% (mole ratios 2.9
+- [Ni-BTA] EXAFS least-squares fitting at the Ni K-edge (Supplementary Table 3) : Ni-N4 model: Ni-N 2.07±0.03 Å, σ2 0.002 Å2, ΔE0 1.49±3.18 eV, R factor 10.5 %; N
+- [Ni-BTA] EXAFS fitting after catalysis (Supplementary Table 6) : After 7 h of catalysis: Ni-N4O1.5 gives Ni-N 2.04±0.01, Ni-O 2.15±0.05 Å, R fact
+- [Ni-BTA] TEM elemental mapping (EDS) : Homogeneous distribution of C, N, O and M (M = Mn, Fe, Co, Ni or Cu) over each m
+- [Ni-BTA] in-situ ATR-SEIRAS potential sweep (conditions and N-H band) : New peaks appear from OCP to 0.7 V vs. RHE and keep a high intensity down to 0.2
+- [Ni-BTA] double-layer capacitance Cdl (ECSA proxy) : Ni-BTA possesses the largest double-layer capacitance among the M-BTA catalysts 
+- [Ni-BTA] H2O2 reduction reaction (H2O2RR) LSV : Ni-BTA inhibits H2O2 reduction: negligible H2O2RR current density (Fig. 3c); H2O
+- [Ni-BTA] RRDE collection efficiency calibration : Collection efficiency N = 0.37 (also quoted as ~0.37 in Methods)
+- [Ni-BTA] RRDE in 0.1 M HClO4 (additional test, Peer Review File) : H2O2 selectivity around 80 % in 0-0.5 V vs. RHE but ring current only 0.005-0.01
+- [Ni-BTA] in/ex-situ XRD during catalysis (extra peak) : The three characteristic Ni-BTA peaks are preserved during catalysis and after 7
+- [Electrode_RRDE] RRDE LSV measurement conditions, reference electrode calibration and formulas : ORR selectivity measured on the RRDE; potentials converted to RHE with E_RHE = E
+- [Electrode_GDE] electrochemical impedance spectroscopy (EIS) in the flow cell : Charge transfer resistance ~0.85 Ω in 1 M NaCl and ~0.70 Ω in 1 M KOH; solution 
+- [Electrode_GDE] turnover frequency (TOF) calculation : TOF 1.56 s−1 in 1 M NaCl at −0.59 V vs. RHE and 2.27 s−1 in 1 M KOH at −0.42 V v
+- [Electrode_GDE] Faradaic efficiency calculation : FE = 2cVF/Q × 100 %, with c the H2O2 concentration, V the cathode electrolyte vo
+
+## conditions_mesure ajoutés (16)
+
+- [Ni-BTA] XRD peak list and simulated pattern (Supplementary Table 1) · D8 Advanced, Germany · Cu Kα radiation; experimental pattern compared with the structure simulated for the proposed model; scan range, step and counting time not given — « Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 4.3360 3 »
+- [Ni-BTA] XRD pattern simulation (Materials Studio) · Materials Studio · Simulation of the proposed Ni-BTA crystal structure (unit cell a=7.6, b=11.6, c=7.6 Å) — « the simulated result in the XRD spectra was carried out via Materials Studio, and results are shown  »
+- [Ni-BTA] elemental analysis (Supplementary Table 2) · Vario Micro Cube Elemental Analyzer (C, H, O, N); ICP (Ni) · Theoretical values calculated for an infinite polymerization degree; the oxygen content is entirely extra to the theoretical formula (axial OH, adsorbed species) — « Ni-BTA C N O H Ni Theoretical results Weight content (wt.%) 37.37 29.05 0 3.14 30.44 Mole ratio 3.11 »
+- [Ni-BTA] EXAFS least-squares fitting at the Ni K-edge (Supplementary Table 3) · Athena and Artemis (IFEFFIT), data from the Shanghai Synchrotron Radiation Facility · S02 fixed to 0.93 (from the NiPc fit with known CN, checked on NiO and Ni foil); Ni-N CN fixed to 4 with a varied number of axial Ni-O paths; ΔR free per path; fit windows NiPc 1.0-3.2 Å, NiO 1.0-3.0 Å, Ni foil 1.0-2.5 Å (3.0 ≤ k ≤ 12.0 Å-1), Ni-BTA 1.0-2.0 Å (2.0 ≤ k ≤ 12.0 Å-1); acceptance criteria CN > 0, σ2 > 0, ΔE0 < 10 eV, R factor < 0.02; reference fits: NiPc R factor 1.9 % (3 paths, rank ratios 100 %, 66.89 %, 58.98 %), NiO 0.9 %, Ni foil 0.5 %; Ni-N path taken from NiPc and Ni-O path from NiO; fits k3-weighted according to the Peer Review File (Fig. 2f is plotted k2-weighted) — « Ni K-edge fot the standard samples NiPc (1-3.2 Å) Ni-N 4* 1.89±0.01 0.003 4.95±2.67 1.9 Ni-C 8* 2.91 »
+- [Ni-BTA] EXAFS fitting after catalysis (Supplementary Table 6) · Athena and Artemis (IFEFFIT) · Ni-BTA after a 7-h catalytic process at 0 V vs. RHE (Table 6); the caption of Supplementary Fig. 35 instead says after 7 h in 1 M NaCl in the flow cell at 100 mA cm-2; coordination numbers fixed — « Ni K-edge of Ni-BTA post catalysis at 0 V vs.RHE Ni-BTA (Ni-N4O1.5) Ni-N 4.0* 2.04±0.01 0.003 0.24±1 »
+- [Ni-BTA] TEM elemental mapping (EDS) · TEM, JEOL-200CX, Japan ·  — « The TEM-based elemental mappings confirm the homogeneous distribution of C, N, O, and M (M=Mn, Fe, C »
+- [Ni-BTA] in-situ ATR-SEIRAS potential sweep (conditions and N-H band) · Bruker Tensor FTIR spectrometer with MCT detector · O2-saturated 0.1 M KOH in D2O; potential decreased from OCP to 0.7 V vs. RHE and down to 0.2 V vs. RHE; no step size, number of scans or resolution given — « As shown in Fig. 5a, with the decrease of potential from the open-current potential (OCP) to 0.7 V v »
+- [Ni-BTA] double-layer capacitance Cdl (ECSA proxy) ·  · Ar-saturated; potential window 0.92 to 1.00 V vs. RHE; scan rates 10, 15, 20, 30 and 50 mV s−1; Cdl taken from the slope of Δj (half the difference of anodic and cathodic currents) at 0.96 V vs. RHE against scan rate; electrolyte not stated in the figure note — « The ECSA was determined by measuring the capacitive current associated with double-layer charging fr »
+- [Ni-BTA] H2O2 reduction reaction (H2O2RR) LSV ·  · Ar-saturated 0.10 M KOH containing 10 mM H2O2; non-iR-corrected; comparison at -0.2 V vs. RHE; scan rate not stated — « LSV curves (non-iR corrected) for H2O2 reduced reactions (H2O2RR) recorded in Ar-saturated 0.10 M KO »
+- [Ni-BTA] RRDE collection efficiency calibration · rotating ring-disk electrode (disk 0.2475 cm2, ring 0.1866 cm2) · [Fe(CN)6]3−/4− redox couple: Ar-saturated 0.1 M KOH with 5 mM K3Fe(CN)6, Pt ring held at 1.5 V vs. RHE; rotation speed and scan rate of the calibration not stated — « Note: The collection efficiency (N) was immersed in Ar-saturated 0.1 M KOH solution with 5 mM of pot »
+- [Ni-BTA] RRDE in 0.1 M HClO4 (additional test, Peer Review File) · RRDE · O2-saturated 0.1 M HClO4, 1600 rpm, scan rate 10 mV s-1 (Fig. R2 caption); 30 min stirring and 30 min rest before and after for the colour check (Fig. R3); test not included in the published article — « the 2e--ORR performance of Ni-BTA in acid conditions has also been tested in O2-saturated 0.1 M HClO »
+- [Ni-BTA] in/ex-situ XRD during catalysis (extra peak) ·  · In situ XRD during 0-120 min of catalysis and ex situ XRD after 7 h, at 0 V vs. RHE in O2-saturated 3.6 wt.% NaCl on carbon fiber (Supplementary Fig. 33) — « no other peaks were observed besides a weak one at ~26.4°, from the carbon-fiber matrix »
+- [Electrode_RRDE] RRDE LSV measurement conditions, reference electrode calibration and formulas · CHI 760E electrochemical workstation; RRDE (glassy carbon disk, Pt ring) · Reference electrode calibrated by CV at 1.0 mV s–1 in H2-saturated solution with a Pt foil working and counter electrode; electrolyte prepared for immediate use; iR correction: LSV curves non-iR-corrected (figure captions); number of repeated measurements not stated — « And the reference electrode was calibrated through the CV test at a scan rate of 1.0 mV s–1 in the H »
+- [Electrode_GDE] electrochemical impedance spectroscopy (EIS) in the flow cell ·  · At the open-circuit potential in 1 M KOH and 1 M NaCl, GDE-based flow cell; AC perturbation 5 mV; frequency range 10^5 Hz (printed '105 Hz' in the text) to 0.1 Hz; fit model: Rs, charge transfer resistance, double-layer capacitance (CF) and Warburg impedance — « EIS was carried out under an alternating current perturbation voltage of 5 mV in the frequency range »
+- [Electrode_GDE] turnover frequency (TOF) calculation ·  · Reference values: all Ni centers assumed active; Ni mass fraction 24.5 wt.% (ICP); M_Ni 58.69 g mol-1; F 96485 C mol-1; TOF = I_H2O2 × M_Ni /(n F × M_cat × ω_Ni) from the LSV curves and H2O2 FEs of Fig. 4b; calculated only once (Supplementary Fig. 28) — « it was assumed that all Ni centers were actively involved in 2e−-ORR and that the content of Ni in t »
+- [Electrode_GDE] Faradaic efficiency calculation ·  · FE measured only once per condition (no replicate) — « where c and V are the H2O2 concentration and the volume of the electrolyte in the cathode (30 or 260 »
+
+## resultats ajoutés (134)
+
+- [Ni-BTA] xrd_peak_positions_2theta_experimental_SI_table1 = 14.156, 20.466, 23.636, 29.035, 39.685, 44.032° ° — « Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 4.3360 3.7612 3.0728 2.2692  »
+- [Ni-BTA] xrd_d_spacing_experimental_SI_table1 = 6.2512, 4.3360, 3.7612, 3.0728, 2.2692, 2.0548 (unit Å as in  — « Experimental results Peaks 14.156° 20.466° 23.636° 29.035° 39.685° 44.032° d-spacing 6.2512 4.3360 3.7612 3.0728 2.2692  »
+- [Ni-BTA] xrd_peak_positions_2theta_simulated_SI_table1 = 14.205, 20.366, 23.641, 29.059, 39.7391, 44.1903° ° — « Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å) 6.1326 4.3262 3.7439 3.0663 2.2708 2.05 »
+- [Ni-BTA] xrd_d_spacing_simulated_SI_table1 = 6.1326, 4.3262, 3.7439, 3.0663, 2.2708, 2.0535 Å — « Simulation Peaks 14.205° 20.366° 23.641° 29.059° 39.7391° 44.1903° d-spacing (Å) 6.1326 4.3262 3.7439 3.0663 2.2708 2.05 »
+- [Ni-BTA] xrd_miller_indices_SI_table1 = (101), (021), (102), (202), (311), (212)  — « Miller index (101) (021) (102) (202) (311) (212) »
+- [Ni-BTA] xrd_d_spacing_deviation_experiment_vs_simulation = 0.049, 0.010, 0.017, 0.007, 0.002, 0.001 Å — « Deviation Δd (Å) 0.049 0.010 0.017 0.007 0.002 0.001 »
+- [Ni-BTA] elemental_content_C_EA = 35.7 wt.% — « Ni-BTA C N O H Ni Theoretical results Weight content (wt.%) 37.37 29.05 0 3.14 30.44 Mole ratio 3.11(6.0) 2.07 (4.0) 0 3 »
+- [Ni-BTA] elemental_content_N_EA = 26.8 wt.% — « Ni-BTA C N O H Ni Theoretical results Weight content (wt.%) 37.37 29.05 0 3.14 30.44 Mole ratio 3.11(6.0) 2.07 (4.0) 0 3 »
+- [Ni-BTA] elemental_content_O_EA = 9.6 wt.% — « Ni-BTA C N O H Ni Theoretical results Weight content (wt.%) 37.37 29.05 0 3.14 30.44 Mole ratio 3.11(6.0) 2.07 (4.0) 0 3 »
+- [Ni-BTA] elemental_content_H_EA = 3.4 wt.% — « Ni-BTA C N O H Ni Theoretical results Weight content (wt.%) 37.37 29.05 0 3.14 30.44 Mole ratio 3.11(6.0) 2.07 (4.0) 0 3 »
+- [Ni-BTA] theoretical_nickel_content_infinite_polymer = 30.44 wt.% — « Ni-BTA C N O H Ni Theoretical results Weight content (wt.%) 37.37 29.05 0 3.14 30.44 Mole ratio 3.11(6.0) 2.07 (4.0) 0 3 »
+- [Ni-BTA] exafs_R_factor_Ni-N4_model = 10.5 % — « Ni-BTA (Ni-N4) Ni-N 4.0* 2.07±0.03 0.002 1.49±3.18 10.5 »
+- [Ni-BTA] exafs_R_factor_Ni-N4O_model = 2.6 % — « Ni-BTA (Ni-N4O) Ni-N 4.0* 2.05±0.02 0.002 0.71±2.51 2.6 Ni-O 1.0* 2.14±0.03 »
+- [Ni-BTA] exafs_R_factor_Ni-N4O1.5_model = 1.0 % — « Ni-BTA (Ni-N4O1.5) Ni-N 4.0* 2.03±0.01 0.003 0.15±1.48 1.0 Ni-O 1.5* 2.13±0.06 »
+- [Ni-BTA] exafs_Ni-N_distance_Ni-N4O1.5 = 2.03 Å — « Ni-BTA (Ni-N4O1.5) Ni-N 4.0* 2.03±0.01 0.003 0.15±1.48 1.0 Ni-O 1.5* 2.13±0.06 »
+- [Ni-BTA] exafs_Ni-O_distance_Ni-N4O1.5 = 2.13 Å — « Ni-BTA (Ni-N4O1.5) Ni-N 4.0* 2.03±0.01 0.003 0.15±1.48 1.0 Ni-O 1.5* 2.13±0.06 »
+- [Ni-BTA] exafs_Ni-Ni_path_at_2.17A = not detected (atomically dispersed Ni sites)  — « No Ni-Ni path at ~2.17 Å was detected for Ni-BTA, suggesting atomically dispersed Ni sites in Ni-BTA »
+- [Ni-BTA] exafs_Ni-N_distance_after_catalysis_Ni-N4O2 = 2.03 Å — « Ni-BTA (Ni-N4O2) Ni-N 4.0* 2.03±0.03 0.005 0.15±1.48 0.6 Ni-O 2.0* 2.10±0.05 »
+- [Ni-BTA] exafs_Ni-O_distance_after_catalysis_Ni-N4O2 = 2.1 Å — « Ni-BTA (Ni-N4O2) Ni-N 4.0* 2.03±0.03 0.005 0.15±1.48 0.6 Ni-O 2.0* 2.10±0.05 »
+- [Ni-BTA] exafs_Ni-N_distance_after_catalysis_Ni-N4O1.5 = 2.04 Å — « Ni-BTA (Ni-N4O1.5) Ni-N 4.0* 2.04±0.01 0.003 0.24±1.36 1.4 Ni-O 1.5* 2.15±0.05 »
+- [Ni-BTA] exafs_Ni-O_distance_after_catalysis_Ni-N4O1.5 = 2.15 Å — « Ni-BTA (Ni-N4O1.5) Ni-N 4.0* 2.04±0.01 0.003 0.24±1.36 1.4 Ni-O 1.5* 2.15±0.05 »
+- [Ni-BTA] xps_N1s_C=N_binding_energy_all_M-BTA = 398.3 eV — « in which -C = N (398.3 eV) and -C-NH-M (399.6 eV, noted as -C-N-M) species coexist »
+- [Ni-BTA] xps_C-NH-M_binding_energy_all_M-BTA = 399.6 eV — « in which -C = N (398.3 eV) and -C-NH-M (399.6 eV, noted as -C-N-M) species coexist »
+- [Ni-BTA] xps_O1s_M-O_binding_energy_all_M-BTA = 531.2 eV — « formation of metal-O (M-O, ~531.2 eV) species »
+- [Ni-BTA] ftir_N-H_stretch_emerging_peak_M-BTA = 3300 cm-1 — « an emerging peak around 3300 cm−1 could be found, which can be assigned to -N-H stretching vibration of -NH- groups »
+- [Ni-BTA] ftir_N-H_stretch_range_BTA_precursor = 3300-3500 cm−1 (symmetric and antisymmetric N-H stretching o  — « the BTA precursor only featured a symmetric and antisymmetric N-H stretching at 3300-3500 cm−1 associated with the -NH2  »
+- [Ni-BTA] ftir_C=N_band_range_M-BTA = 1500-1700 cm−1  — « the existence of -C = N species at 1500-1700 cm−1 in the FTIR spectra »
+- [Ni-BTA] raman_M-N_band_range_M-BTA = 600-700 cm−1  — « the metal-N (-M-N) species at 600-700 cm−1 in the Raman spectra of M-BTA »
+- [Ni-BTA] seiras_N-H_stretch_band_during_ORR = 3240 cm-1 — « the emerged peaks at 3240 cm−1 could be assigned to the N-H stretching mode in the BTA ligands »
+- [Ni-BTA] seiras_Ni-OD_stretch_band_around_2900 = no obvious signal around 2900 cm−1 (calculated 2740.97 cm−1)  — « there is no obvious signal assigned to Ni-OD stretching vibration absorption peak (around 2900 cm−1) »
+- [Ni-BTA] onset_potential_RRDE_0.1M_KOH_all_M-BTA = 0.70–0.80 V vs. RHE for all five M-BTA (potential at a disk   — « all the M-BTA catalysts show the onset potentials of 0.70–0.80 V vs. RHE (the potential at a disk current of −0.1 mA cm− »
+- [Ni-BTA] h2o2_selectivity_voltage_range_RRDE_0.1M_KOH_SI_table4 = ~90 % over 0-0.65 V vs. RHE (mass loading ~80 μg cm-2)  — « Ni-BTA 0.1 M KOH ~80 ~90% 0-0.65 ~2.1 ~1.75 This work »
+- [Ni-BTA] Jdisk_at_0.2V_RRDE_0.1M_KOH = 2.1 mA cmdisk-2 — « Ni-BTA 0.1 M KOH ~80 ~90% 0-0.65 ~2.1 ~1.75 This work »
+- [Ni-BTA] JH2O2_at_0.2V_RRDE_0.1M_KOH = 1.75 mA cmdisk-2 — « Ni-BTA 0.1 M KOH ~80 ~90% 0-0.65 ~2.1 ~1.75 This work »
+- [Ni-BTA] h2o2_selectivity_RRDE_3.6wt%NaCl_SI_table4 = >80 % over -0.2-0.4 V vs. RHE  — « 3.6 wt.% NaCl >80% -0.2-0.4 ~1.6 ~1.26 »
+- [Ni-BTA] Jdisk_at_0.2V_RRDE_3.6wt%NaCl = 1.6 mA cmdisk-2 — « 3.6 wt.% NaCl >80% -0.2-0.4 ~1.6 ~1.26 »
+- [Ni-BTA] JH2O2_at_0.2V_RRDE_3.6wt%NaCl = 1.26 mA cmdisk-2 — « 3.6 wt.% NaCl >80% -0.2-0.4 ~1.6 ~1.26 »
+- [Ni-BTA] h2o2_selectivity_RRDE_0.1M_Na2SO4_SI_table4 = >80 % over -0.2-0.4 V vs. RHE  — « 0.1 M Na2SO4 >80% -0.2-0.4 ~1.5 ~1.14 »
+- [Ni-BTA] Jdisk_at_0.2V_RRDE_0.1M_Na2SO4 = 1.5 mA cmdisk-2 — « 0.1 M Na2SO4 >80% -0.2-0.4 ~1.5 ~1.14 »
+- [Ni-BTA] JH2O2_at_0.2V_RRDE_0.1M_Na2SO4 = 1.14 mA cmdisk-2 — « 0.1 M Na2SO4 >80% -0.2-0.4 ~1.5 ~1.14 »
+- [Ni-BTA] h2o2_selectivity_RRDE_0.1M_HClO4_0-0.5V = around 80 % in 0-0.5 V vs. RHE (peer review file only)  — « the selectivity of Ni-BTA in acidic medium is around 80% in a range of 0-0.5 V vs. RHE »
+- [Ni-BTA] ring_current_RRDE_0.1M_HClO4 = 0.005-0.01 mA (about 5 % of ~0.16 mA in neutral electrolyte)  — « the ring current is fairly small (0.005-0.01 mA) »
+- [Ni-BTA] xrd_extra_peak_after_catalysis_carbon_fiber = 26.4 ° — « a weak one at ~26.4°, from the carbon-fiber matrix »
+- [Electrode_GDE] cathode_potential_24h_100mA_cm-2_1M_NaCl = -0.25 V vs. RHE — « cathode potential of −0.25 V vs. RHE »
+- [Electrode_GDE] h2o2_yield_rate_alkaline_conclusion = 27.0 mol g−1 h−1 — « a double-enhanced H2O2 yield rate of over 27.0 mol g−1 h−1 in an alkaline medium »
+- [Electrode_GDE] orr_current_density_physiological_saline_and_seawater = exceeds 50 mA cm−2 (0.9 wt.% NaCl) and 100 mA cm−2 (3.6 wt.%  — « the ORR current density could still exceed 50 and 100 mA cm−2, respectively »
+- [Electrode_GDE] solution_resistance_Rs_EIS_1M_KOH = 4.53 Ω — « The relatively large Rs (~4.53 Ω in 1 M KOH and 4.92 Ω in 1 M NaCl) »
+- [Electrode_GDE] solution_resistance_Rs_EIS_1M_NaCl = 4.92 Ω — « The relatively large Rs (~4.53 Ω in 1 M KOH and 4.92 Ω in 1 M NaCl) »
+- [Electrode_GDE] disinfection_OD600_replicates = average and standard deviation of triplicate parallel tests  — « The data points and error bars in g represent the average and standard deviation of data from triplicate parallel tests »
+- [Electrode_GDE] h2o2_yield_rate_1M_NaCl_100mA_cm-2_SI_table5 = >13.5 mol g-1 h-1 at 100 mA cm-2 (mass loading 0.1 mg cm-2)  — « Ni-BTA 1M NaCl 0.1 >13.5 at 100 mA cm-2 ~80% >24 This work »
+- [Electrode_GDE] h2o2_FE_1M_NaCl_100mA_cm-2_SI_table5 = ~80 %  — « Ni-BTA 1M NaCl 0.1 >13.5 at 100 mA cm-2 ~80% >24 This work »
+- [Electrode_GDE] stability_1M_NaCl_100mA_cm-2_SI_table5 = >24 h  — « Ni-BTA 1M NaCl 0.1 >13.5 at 100 mA cm-2 ~80% >24 This work »
+- [Electrode_GDE] h2o2_yield_rate_1M_KOH_200mA_cm-2_SI_table5 = 27.0 mol g-1 h-1 — « 1M KOH ~27.0 at 200 mA cm-2 >70% >12 »
+- [Electrode_GDE] h2o2_FE_1M_KOH_200mA_cm-2_SI_table5 = >70 %  — « 1M KOH ~27.0 at 200 mA cm-2 >70% >12 »
+- [Electrode_GDE] stability_1M_KOH_200mA_cm-2_SI_table5 = >12 h  — « 1M KOH ~27.0 at 200 mA cm-2 >70% >12 »
+- [Electrode_GDE] h2o2_yield_rate_1M_KOH_0.2V_SI_table5 = >14.5 mol g-1 h-1 at 0.2 V vs. RHE (~100 mA cm-2)  — « 1M KOH >14.5 at 0.2 V vs. RHE (~100 mA cm-2) ~90% >40 »
+- [Electrode_GDE] h2o2_FE_1M_KOH_0.2V_SI_table5 = ~90 %  — « 1M KOH >14.5 at 0.2 V vs. RHE (~100 mA cm-2) ~90% >40 »
+- [Electrode_GDE] stability_1M_KOH_0.2V_SI_table5 = >40 h  — « 1M KOH >14.5 at 0.2 V vs. RHE (~100 mA cm-2) ~90% >40 »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-Ni_*O2 = 4.847 eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-Ni_*O2 = ZPE 0.104; ΔH0→T 0.063; TS 0.157; Δ 0.010 eV (T = 298.15 K) eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-Ni_*OOH = 4.821 eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-Ni_*OOH = ZPE 0.423; ΔH0→T 0.102; TS 0.216; Δ 0.310 eV (T = 298.15 K) eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-Ni_*O = 4.143 eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-Ni_*O = ZPE 0.042; ΔH0→T 0.045; TS 0.088; Δ -0.001 eV (T = 298.15 K) eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-Ni_*OH = 1.993 eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-Ni_*OH = ZPE 0.324; ΔH0→T 0.066; TS 0.129; Δ 0.262 eV (T = 298.15 K) eV — « s-Ni *O2 0.104 0.063 0.157 0.010 4.847 *OOH 0.423 0.102 0.216 0.310 4.821 *O 0.042 0.045 0.088 -0.001 4.143 *OH 0.324 0. »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-OH-Ni_*O2 = 4.747 eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-OH-Ni_*O2 = ZPE 0.139; ΔH0→T 0.083; TS 0.168; Δ 0.054 eV (T = 298.15 K) eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-OH-Ni_*OOH = 4.487 eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-OH-Ni_*OOH = ZPE 0.445; ΔH0→T 0.067; TS 0.121; Δ 0.391 eV (T = 298.15 K) eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-OH-Ni_*O = 3.703 eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-OH-Ni_*O = ZPE 0.053; ΔH0→T 0.038; TS 0.069; Δ 0.022 eV (T = 298.15 K) eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_s-OH-Ni_*OH = 1.538 eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_s-OH-Ni_*OH = ZPE 0.349; ΔH0→T 0.054; TS 0.095; Δ 0.309 eV (T = 298.15 K) eV — « s-OH-Ni *O2 0.139 0.083 0.168 0.054 4.747 *OOH 0.445 0.067 0.121 0.391 4.487 *O 0.053 0.038 0.069 0.022 3.703 *OH 0.349  »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-Ni_*O2 = 4.763 eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-Ni_*O2 = ZPE 0.105; ΔH0→T 0.125; TS 0.210; Δ 0.020 eV (T = 298.15 K) eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-Ni_*OOH = 4.573 eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-Ni_*OOH = ZPE 0.423; ΔH0→T 0.102; TS 0.213; Δ 0.312 eV (T = 298.15 K) eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-Ni_*O = 3.709 eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-Ni_*O = ZPE 0.050; ΔH0→T 0.039; TS 0.070; Δ 0.020 eV (T = 298.15 K) eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-Ni_*OH = 1.556 eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-Ni_*OH = ZPE 0.335; ΔH0→T 0.058; TS 0.102; Δ 0.291 eV (T = 298.15 K) eV — « d-Ni *O2 0.105 0.125 0.210 0.020 4.763 *OOH 0.423 0.102 0.213 0.312 4.573 *O 0.050 0.039 0.070 0.020 3.709 *OH 0.335 0.0 »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-OH-Ni_*O2 = 4.639 eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-OH-Ni_*O2 = ZPE 0.129; ΔH0→T 0.089; TS 0.195; Δ 0.023 eV (T = 298.15 K) eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-OH-Ni_*OOH = 4.209 eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-OH-Ni_*OOH = ZPE 0.445; ΔH0→T 0.090; TS 0.176; Δ 0.359 eV (T = 298.15 K) eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-OH-Ni_*O = 3.273 eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-OH-Ni_*O = ZPE 0.058; ΔH0→T 0.035; TS 0.060; Δ 0.033 eV (T = 298.15 K) eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] free_energy_dG_U0V_d-OH-Ni_*OH = 1.18 eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] free_energy_corrections_d-OH-Ni_*OH = ZPE 0.359; ΔH0→T 0.047; TS 0.077; Δ 0.329 eV (T = 298.15 K) eV — « d-OH-Ni *O2 0.129 0.089 0.195 0.023 4.639 *OOH 0.445 0.090 0.176 0.359 4.209 *O 0.058 0.035 0.060 0.033 3.273 *OH 0.359  »
+- [DFT_ORR_thermodynamics] dG_OOH_s-Ni = 4.82 eV — « *OOH adsorption energy of 4.82 eV »
+- [DFT_ORR_thermodynamics] dG_OOH_s-Mn = 3.7 eV — « 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s-Co, and 5.05 eV for s-Cu »
+- [DFT_ORR_thermodynamics] dG_OOH_s-Fe = 3.73 eV — « 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s-Co, and 5.05 eV for s-Cu »
+- [DFT_ORR_thermodynamics] dG_OOH_s-Co = 4.3 eV — « 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s-Co, and 5.05 eV for s-Cu »
+- [DFT_ORR_thermodynamics] dG_OOH_s-Cu = 5.05 eV — « 3.70 eV for s-Mn, 3.73 eV for s-Fe, 4.30 eV for s-Co, and 5.05 eV for s-Cu »
+- [DFT_ORR_thermodynamics] dG_OOH_s-OH-Ni = 4.49 eV — « a lower ΔG*OOH of 4.49 eV for s-OH-Ni »
+- [DFT_ORR_thermodynamics] dG_OOH_d-Ni = 4.57 eV — « from 4.82 eV of s-Ni to 4.57 eV for d-Ni »
+- [DFT_ORR_thermodynamics] dG_OOH_d-OH-Ni = 4.21 eV — « d-OH-Ni delivers a ΔG*OOH of 4.21 eV »
+- [DFT_ORR_thermodynamics] dG_OOH_d-OH-Co = 4.05 eV — « ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH-Mn in theory »
+- [DFT_ORR_thermodynamics] dG_OOH_d-OH-Fe = 3.95 eV — « ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH-Mn in theory »
+- [DFT_ORR_thermodynamics] dG_OOH_d-OH-Mn = 3.61 eV — « ~4.05 eV for d-OH-Co, 3.95 eV for d-OH-Fe and 3.61 eV for d-OH-Mn in theory »
+- [DFT_ORR_thermodynamics] dG_OOH_d-OH-Cu = 4.56 eV — « the d-OH-Cu shows a too-high ΔG*OOH value of ~4.56 eV compared to that of d-OH-Ni (4.21 eV) »
+- [DFT_ORR_thermodynamics] dG_OOH_optimum_volcano_top_2e-ORR = 4.23 eV — « close to the optimum value (~4.23 eV) »
+- [DFT_ORR_thermodynamics] thermodynamic_overpotential_2e-ORR_d-OH-Ni = 0.02 eV — « d-OH-Ni gives a low thermodynamic overpotential (η) of 0.02 eV, while the d-Ni, s-OH-Ni, and s-Ni deliver much larger ov »
+- [DFT_ORR_thermodynamics] thermodynamic_overpotential_2e-ORR_d-Ni = 0.35 eV — « d-OH-Ni gives a low thermodynamic overpotential (η) of 0.02 eV, while the d-Ni, s-OH-Ni, and s-Ni deliver much larger ov »
+- [DFT_ORR_thermodynamics] thermodynamic_overpotential_2e-ORR_s-OH-Ni = 0.26 eV — « d-OH-Ni gives a low thermodynamic overpotential (η) of 0.02 eV, while the d-Ni, s-OH-Ni, and s-Ni deliver much larger ov »
+- [DFT_ORR_thermodynamics] thermodynamic_overpotential_2e-ORR_s-Ni = 0.6 eV — « d-OH-Ni gives a low thermodynamic overpotential (η) of 0.02 eV, while the d-Ni, s-OH-Ni, and s-Ni deliver much larger ov »
+- [DFT_ORR_thermodynamics] interlayer_spacing_Ni-BTA_chains = 0.35 nm — « which have an interlayer spacing of ~0.35 nm »
+- [DFT_ORR_thermodynamics] N-H_bond_length_after_OOH_adsorption = 1.04 and 1.03 Å (d-Ni and d-OH-Ni, order as written) vs. 1.0 Å — « an elongation in the -N-H bond length (1.04 and 1.03 Å vs. 1.02 Å) »
+- [DFT_ORR_thermodynamics] H_atom_charge_N-H_after_OOH_adsorption = 0.55 vs. 0.45 e− (d-Ni); 0.52 vs. 0.48 e− (d-OH-Ni) e− — « a deficiency of electrons on the H atoms in -N-H groups (0.55 e− vs. 0.45 e− for d-Ni and 0.52 e− vs. 0.48 e− for d-OH-N »
+- [DFT_ORR_thermodynamics] O...H_hydrogen_bond_distance_OOH_to_adjacent_N-H = ~1.9-2.0 Å Å — « the bond length between the bottom O atom in the adsorbed *OOH species and the H atom in the adjacent -N-H- group is ~1. »
+- [DFT_ORR_thermodynamics] dual_layer_electronic_structure_change = decreased charge state and increased d-band center of the Ni  — « the dual-layer counterparts (d-Ni and d-OH-Ni) show a decreased charge states and increased d-band center values of the  »
+- [DFT_ORR_thermodynamics] dG_O2_d-OH-Ni_at_0.695V = -0.281 eV — « The close, but not identical, values for ΔG*O₂ (−0.281 eV) and ΔG*O (−0.257 eV) »
+- [DFT_ORR_thermodynamics] dG_O_d-OH-Ni_at_0.695V = -0.257 eV — « The close, but not identical, values for ΔG*O₂ (−0.281 eV) and ΔG*O (−0.257 eV) »
+- [DFT_ORR_thermodynamics] dG_OOH_d-OH-Ni_at_0.695V = -0.016 eV — « the ΔG*OOH is nearly zero (−0.016 eV) »
+- [DFT_ORR_thermodynamics] dG_O_minus_dG_H2O2_d-OH-Ni = -0.26 eV — « the difference is −0.26 eV as shown in Fig. 5b and Supplementary Fig. 41 »
+- [DFT_ORR_thermodynamics] free_energy_level_start_4e_pathway_O2_gas = 4.92 eV — « exhibits the value of 4.92 eV »
+- [DFT_ORR_thermodynamics] free_energy_level_H2O2_2e_pathway = 3.53 eV — « possesses a free energy of 3.53 eV (4 × 1.23 − 2 × 0.695) »
+- [DFT_ORR_thermodynamics] equilibrium_potential_2e-ORR_used = 0.695 V vs. RHE — « the equilibrium potential for the two-electron ORR is 0.695 V vs. RHE »
+- [DFT_ORR_thermodynamics] surface_stability_Pourbaix_diagrams = all four configurations stable with pristine surface over a   — « d-Ni, and d-OH-Ni are all stable with pristine surface structure over a wide range of potential due to their low oxygen  »
+- [AIMD_slow_growth_d-OH-Ni] reaction_barrier_2e-ORR_Ni-O_elongation_d-OH-Ni = 0.33 eV — « the rate-determining step was found to be the Ni-O elongation by the slow-growth approach, with a reaction barrier of 0. »
+- [AIMD_slow_growth_d-OH-Ni] reaction_barrier_4e-ORR_O-O_cleavage_d-OH-Ni = 1.21 eV — « the rate-determining step for 4e−-ORR changed to the formation of *O with a significantly higher reaction barrier of 1.2 »
+- [AIMD_slow_growth_d-OH-Ni] reaction_barrier_4e-ORR_previous_figure_version = 1.17 eV — « 0.33 eV shown in previous and revised Fig. 5c) than 4e−-ORR (1.17 eV shown in previous Fig. 5c, d and 1.21 eV shown in t »
+- [AIMD_slow_growth_d-OH-Ni] average_barrier_2e-ORR_three_slow_growth_runs = 0.3 eV — « the average energy barriers of the ORR through the 2e- ORR path (0.30 eV) by breaking the C-O bond are significantly low »
+- [AIMD_slow_growth_d-OH-Ni] average_barrier_4e-ORR_three_slow_growth_runs = 1.22 eV — « the average energy barriers of the ORR through the 2e- ORR path (0.30 eV) by breaking the C-O bond are significantly low »
+- [AIMD_slow_growth_d-OH-Ni] free_energy_O-O_elongation_0.68A = 1.18 eV — « the free energy rapidly increases to 1.18 eV at the O-O bond elongation of 0.68 Å, and then reaches the highest free ene »
+- [AIMD_slow_growth_d-OH-Ni] free_energy_maximum_O-O_elongation_0.88A = 1.21 eV — « the free energy rapidly increases to 1.18 eV at the O-O bond elongation of 0.68 Å, and then reaches the highest free ene »
+- [AIMD_slow_growth_d-OH-Ni] O-O_cleavage_threshold_elongation = O-O cleavage commonly appears for elongations over 0.8 Å, ev  — « O-O bond cleavage commonly appears when the bond elongation is over 0.8 Å, or even close to 0.9 Å »
+- [AIMD_slow_growth_d-OH-Ni] number_of_independent_slow_growth_simulations = three; error bars are the standard deviation (n = 3, Origin   — « we calculated the error bar on the kinetic barriers by three individual slow-growth kinetic simulations »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] calculated_O-O_stretch_Ni-O2 = 1306.22 cm-1 — « 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and 1031.48 cm-1 vs. 1210 cm- 1 for *OOD »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] calculated_O-O_stretch_Ni-OOD = 1031.48 cm-1 — « 1306.22 cm-1 vs. 1480 cm-1 for O2ab, and 1031.48 cm-1 vs. 1210 cm- 1 for *OOD »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] calculated_Ni-OD_stretch = 2740.97 cm-1 — « compared to that calculated 2740.97 cm-1 »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] calculated_vs_observed_red_shift = 180 cm-1 — « There is a red-shift of ~180 cm-1 for all peaks in the theoretical results »
+- [DFT_IR_frequencies_Ni-BTA_intermediates] calculated_vibration_frequencies_all_modes_SI_table7 = 1306.22, 2694.24, 2740.97, 395.29, 1031.48, 676.71, 183.47,  cm-1 — « Ni-O2 Ni-OOD Ni-OD Wavenumber (cm-1) 1306.22 2694.24 2740.97 395.29 1031.48 676.71 183.47 930.14 111.61 266.89 160.33 81 »
+
+## reactifs ajoutés (8)
+
+- [Electrode_RRDE] graphite rod (counter electrode)   (counter_electrode)
+- [Electrode_RRDE] Ag/AgCl reference electrode (R0302)   (electrode)
+- [Electrode_RRDE] potassium hydroxide (0.1 M electrolyte, pH ~13.0)   (electrolyte)
+- [Electrode_RRDE] sodium chloride (0.9 wt.% electrolyte, pH ~7.2)   (electrolyte)
+- [Electrode_RRDE] sodium chloride (3.6 wt.% electrolyte, pH ~6.7)   (electrolyte)
+- [Electrode_RRDE] sodium sulfate (0.1 M electrolyte, pH ~7.0)   (electrolyte)
+- [Electrode_RRDE] oxygen (saturation of the electrolyte)   (gas)
+- [Electrode_GDE] Ag/AgCl reference electrode (R0302)   (electrode)
+
+## etapes ajoutés (11)
+
+- [Electrode_RRDE] measure — Record ORR LSV curves on the RRDE (disk current and Pt ring current) in O2-satur
+- [Electrode_GDE] electrolyze — H2O2 accumulation test at constant current in 30 mL of 1 M NaCl with two electro
+- [Electrode_GDE] electrolyze — H2O2 accumulation test at higher constant current in 30 mL of 1 M KOH without el
+- [Electrode_GDE] electrolyze — Long-term test at constant potential in a larger volume (260 mL) of 1 M KOH.
+- [DFT_ORR_thermodynamics] build_model — Build the single-layer (s) and dual-layer (d) Ni-BTA chain models, with or witho
+- [DFT_ORR_thermodynamics] optimize_geometry — Geometry optimisation with PAW pseudopotentials and the PBE functional.
+- [DFT_ORR_thermodynamics] compute_free_energy — Free energies from the computational hydrogen electrode model with ZPE, thermal 
+- [AIMD_slow_growth_d-OH-Ni] build_model — Explicit solvent model of the alkaline environment around the d-OH-Ni model.
+- [AIMD_slow_growth_d-OH-Ni] pre_equilibrate — Pre-AIMD of the solvent network, then structural optimisation of a snapshot to g
+- [AIMD_slow_growth_d-OH-Ni] slow_growth — Constrained AIMD (slow growth, thermodynamic integration) along the Ni-O bond (2
+- [DFT_IR_frequencies_Ni-BTA_intermediates] compute_frequencies — Harmonic IR frequencies of O2, OOD and OD species adsorbed on the Ni centre, wit
+
+## voies ajoutés (3)
+
+- [D] {'material': {'name': 'Ni-BTA single/dual-layer models s-Ni, s-OH-Ni, d-Ni, d-OH-Ni and M-BTA analogs (M = Mn, Fe, Co, Cu), DFT free energies of ORR intermediates', 'formula': None, 'family': 'MOF', 'phase': None, 'morphology': None}, 'method': 'DFT (VASP, PAW, PBE-GGA), computational hydrogen electrode', 'parent': None}
+- [A] {'material': {'name': 'd-OH-Ni model (dual-layer Ni-BTA with axial OH) in explicit alkaline water, kinetic barriers of *OOH to H2O2 or *O', 'formula': None, 'family': 'MOF', 'phase': None, 'morphology': None}, 'method': 'constrained ab initio molecular dynamics (slow growth), VASP', 'parent': None}
+- [D] {'material': {'name': 'Ni-O2, Ni-OOD and Ni-OD species on the Ni centre of Ni-BTA (models of Fig. R4), calculated infrared frequencies', 'formula': None, 'family': 'MOF', 'phase': None, 'morphology': None}, 'method': 'DFT (Gaussian 09, b3lyp/6-31+G(d)) computational spectroscopy', 'parent': None}
+
+
+## comparaisons (littérature) ajoutées (157)
+
+- Pb-OxSy SACs · catalyst_mass_loading_RRDE = 120.0 μg cm-2 — « Pb-OxSy SACs 0.1 M KOH ~120 >90% 0.3-0.75 ~2.7 ~2.1 2024 11 »
+- Pb-OxSy SACs · h2o2_selectivity_RRDE = >90% % — « Pb-OxSy SACs 0.1 M KOH ~120 >90% 0.3-0.75 ~2.7 ~2.1 2024 11 »
+- Pb-OxSy SACs · h2o2_selectivity_potential_range_RRDE = 0.3-0.75 V vs. RHE — « Pb-OxSy SACs 0.1 M KOH ~120 >90% 0.3-0.75 ~2.7 ~2.1 2024 11 »
+- Pb-OxSy SACs · Jdisk_at_0.2V_RRDE = 2.7 mA cmdisk-2 — « Pb-OxSy SACs 0.1 M KOH ~120 >90% 0.3-0.75 ~2.7 ~2.1 2024 11 »
+- Pb-OxSy SACs · JH2O2_at_0.2V_RRDE = 2.1 mA cmdisk-2 — « Pb-OxSy SACs 0.1 M KOH ~120 >90% 0.3-0.75 ~2.7 ~2.1 2024 11 »
+- Co-Pc-S-COFs · h2o2_selectivity_RRDE = >90% % — « Co-Pc-S- COFs 0.1 M KOH — >90% 0.2-0.7 ~2.4 ~2.0 2024 12 »
+- Co-Pc-S-COFs · h2o2_selectivity_potential_range_RRDE = 0.2-0.7 V vs. RHE — « Co-Pc-S- COFs 0.1 M KOH — >90% 0.2-0.7 ~2.4 ~2.0 2024 12 »
+- Co-Pc-S-COFs · Jdisk_at_0.2V_RRDE = 2.4 mA cmdisk-2 — « Co-Pc-S- COFs 0.1 M KOH — >90% 0.2-0.7 ~2.4 ~2.0 2024 12 »
+- Co-Pc-S-COFs · JH2O2_at_0.2V_RRDE = 2.0 mA cmdisk-2 — « Co-Pc-S- COFs 0.1 M KOH — >90% 0.2-0.7 ~2.4 ~2.0 2024 12 »
+- ZnO nanosheets · catalyst_mass_loading_RRDE = 200.0 μg cm-2 — « ZnO nanosheets 0.6 M K2SO4 ~200 >80% 0.05-0.35 ~0.83 ~0.55 2023 13 »
+- ZnO nanosheets · h2o2_selectivity_RRDE = >80% % — « ZnO nanosheets 0.6 M K2SO4 ~200 >80% 0.05-0.35 ~0.83 ~0.55 2023 13 »
+- ZnO nanosheets · h2o2_selectivity_potential_range_RRDE = 0.05-0.35 V vs. RHE — « ZnO nanosheets 0.6 M K2SO4 ~200 >80% 0.05-0.35 ~0.83 ~0.55 2023 13 »
+- ZnO nanosheets · Jdisk_at_0.2V_RRDE = 0.83 mA cmdisk-2 — « ZnO nanosheets 0.6 M K2SO4 ~200 >80% 0.05-0.35 ~0.83 ~0.55 2023 13 »
+- ZnO nanosheets · JH2O2_at_0.2V_RRDE = 0.55 mA cmdisk-2 — « ZnO nanosheets 0.6 M K2SO4 ~200 >80% 0.05-0.35 ~0.83 ~0.55 2023 13 »
+- Eley-Rideal ZnO · catalyst_mass_loading_RRDE = 200.0 μg cm-2 — « Eley-Rideal ZnO 0.6 M K2SO4 ~200 >80% 0.1-0.3 ~1.13 ~0.87 2024 14 »
+- Eley-Rideal ZnO · h2o2_selectivity_RRDE = >80% % — « Eley-Rideal ZnO 0.6 M K2SO4 ~200 >80% 0.1-0.3 ~1.13 ~0.87 2024 14 »
+- Eley-Rideal ZnO · h2o2_selectivity_potential_range_RRDE = 0.1-0.3 V vs. RHE — « Eley-Rideal ZnO 0.6 M K2SO4 ~200 >80% 0.1-0.3 ~1.13 ~0.87 2024 14 »
+- Eley-Rideal ZnO · Jdisk_at_0.2V_RRDE = 1.13 mA cmdisk-2 — « Eley-Rideal ZnO 0.6 M K2SO4 ~200 >80% 0.1-0.3 ~1.13 ~0.87 2024 14 »
+- Eley-Rideal ZnO · JH2O2_at_0.2V_RRDE = 0.87 mA cmdisk-2 — « Eley-Rideal ZnO 0.6 M K2SO4 ~200 >80% 0.1-0.3 ~1.13 ~0.87 2024 14 »
+- Mesoporous carbon · catalyst_mass_loading_RRDE = 100.0 μg cm-2 — « Mesoporous carbon 0.1 M KOH ~100 >85% 0.2-0.8 ~3.1 ~2.34 2024 15 »
+- Mesoporous carbon · h2o2_selectivity_RRDE = >85% % — « Mesoporous carbon 0.1 M KOH ~100 >85% 0.2-0.8 ~3.1 ~2.34 2024 15 »
+- Mesoporous carbon · h2o2_selectivity_potential_range_RRDE = 0.2-0.8 V vs. RHE — « Mesoporous carbon 0.1 M KOH ~100 >85% 0.2-0.8 ~3.1 ~2.34 2024 15 »
+- Mesoporous carbon · Jdisk_at_0.2V_RRDE = 3.1 mA cmdisk-2 — « Mesoporous carbon 0.1 M KOH ~100 >85% 0.2-0.8 ~3.1 ~2.34 2024 15 »
+- Mesoporous carbon · JH2O2_at_0.2V_RRDE = 2.34 mA cmdisk-2 — « Mesoporous carbon 0.1 M KOH ~100 >85% 0.2-0.8 ~3.1 ~2.34 2024 15 »
+- Mesoporous carbon · h2o2_selectivity_RRDE = >85% % — « 0.1 M PBS >85% 0.1-0.5 ~2.7 ~2.14 B/N-C »
+- Mesoporous carbon · h2o2_selectivity_potential_range_RRDE = 0.1-0.5 V vs. RHE — « 0.1 M PBS >85% 0.1-0.5 ~2.7 ~2.14 B/N-C »
+- Mesoporous carbon · Jdisk_at_0.2V_RRDE = 2.7 mA cmdisk-2 — « 0.1 M PBS >85% 0.1-0.5 ~2.7 ~2.14 B/N-C »
+- Mesoporous carbon · JH2O2_at_0.2V_RRDE = 2.14 mA cmdisk-2 — « 0.1 M PBS >85% 0.1-0.5 ~2.7 ~2.14 B/N-C »
+- B/N-C · catalyst_mass_loading_RRDE = 125.0 μg cm-2 — « B/N-C 0.1 M KOH ~125 >70% 0-0.7 ~2.75 ~1.61 2022 1 »
+- B/N-C · h2o2_selectivity_RRDE = >70% % — « B/N-C 0.1 M KOH ~125 >70% 0-0.7 ~2.75 ~1.61 2022 1 »
+- B/N-C · h2o2_selectivity_potential_range_RRDE = 0-0.7 V vs. RHE — « B/N-C 0.1 M KOH ~125 >70% 0-0.7 ~2.75 ~1.61 2022 1 »
+- B/N-C · Jdisk_at_0.2V_RRDE = 2.75 mA cmdisk-2 — « B/N-C 0.1 M KOH ~125 >70% 0-0.7 ~2.75 ~1.61 2022 1 »
+- B/N-C · JH2O2_at_0.2V_RRDE = 1.61 mA cmdisk-2 — « B/N-C 0.1 M KOH ~125 >70% 0-0.7 ~2.75 ~1.61 2022 1 »
+- B/N/OH-C · catalyst_mass_loading_RRDE = 70.0 μg cm-2 — « B/N/OH-C 0.1 M KOH ~70 >85% 0.35-0.75 — — 2023 2 »
+- B/N/OH-C · h2o2_selectivity_RRDE = >85% % — « B/N/OH-C 0.1 M KOH ~70 >85% 0.35-0.75 — — 2023 2 »
+- B/N/OH-C · h2o2_selectivity_potential_range_RRDE = 0.35-0.75 V vs. RHE — « B/N/OH-C 0.1 M KOH ~70 >85% 0.35-0.75 — — 2023 2 »
+- Co-N4 SACs · catalyst_mass_loading_RRDE = 100.0 μg cm-2 — « Co-N4 SACs 0.1 M KOH ~100 >60% 0.15-0.9 3.6 ~1.42 2019 3 »
+- Co-N4 SACs · h2o2_selectivity_RRDE = >60% % — « Co-N4 SACs 0.1 M KOH ~100 >60% 0.15-0.9 3.6 ~1.42 2019 3 »
+- Co-N4 SACs · h2o2_selectivity_potential_range_RRDE = 0.15-0.9 V vs. RHE — « Co-N4 SACs 0.1 M KOH ~100 >60% 0.15-0.9 3.6 ~1.42 2019 3 »
+- Co-N4 SACs · Jdisk_at_0.2V_RRDE = 3.6 mA cmdisk-2 — « Co-N4 SACs 0.1 M KOH ~100 >60% 0.15-0.9 3.6 ~1.42 2019 3 »
+- Co-N4 SACs · JH2O2_at_0.2V_RRDE = 1.42 mA cmdisk-2 — « Co-N4 SACs 0.1 M KOH ~100 >60% 0.15-0.9 3.6 ~1.42 2019 3 »
+- Co-N4 SACs · h2o2_selectivity_RRDE = >50% % — « 0.1 M K2SO4 >50% 0.15-0.7 3.6 ~1.42 Ni-N2O2 »
+- Co-N4 SACs · h2o2_selectivity_potential_range_RRDE = 0.15-0.7 V vs. RHE — « 0.1 M K2SO4 >50% 0.15-0.7 3.6 ~1.42 Ni-N2O2 »
+- Co-N4 SACs · Jdisk_at_0.2V_RRDE = 3.6 mA cmdisk-2 — « 0.1 M K2SO4 >50% 0.15-0.7 3.6 ~1.42 Ni-N2O2 »
+- Co-N4 SACs · JH2O2_at_0.2V_RRDE = 1.42 mA cmdisk-2 — « 0.1 M K2SO4 >50% 0.15-0.7 3.6 ~1.42 Ni-N2O2 »
+- Ni-N2O2 SACs · catalyst_mass_loading_RRDE = 190.0 μg cm-2 — « Ni-N2O2 SACs 0.1 M KOH ~190 >90% 0.1-0.5 — — 2020 4 »
+- Ni-N2O2 SACs · h2o2_selectivity_RRDE = >90% % — « Ni-N2O2 SACs 0.1 M KOH ~190 >90% 0.1-0.5 — — 2020 4 »
+- Ni-N2O2 SACs · h2o2_selectivity_potential_range_RRDE = 0.1-0.5 V vs. RHE — « Ni-N2O2 SACs 0.1 M KOH ~190 >90% 0.1-0.5 — — 2020 4 »
+- CoZn-ZIF · catalyst_mass_loading_RRDE = 610.0 μg cm-2 — « CoZn-ZIF 0.1 M KOH ~610 ~90% 0.2-0.6 — — 2023 5 »
+- CoZn-ZIF · h2o2_selectivity_RRDE = ~90% % — « CoZn-ZIF 0.1 M KOH ~610 ~90% 0.2-0.6 — — 2023 5 »
+- CoZn-ZIF · h2o2_selectivity_potential_range_RRDE = 0.2-0.6 V vs. RHE — « CoZn-ZIF 0.1 M KOH ~610 ~90% 0.2-0.6 — — 2023 5 »
+- CoZn-ZIF · h2o2_selectivity_RRDE = ~90% % — « 0.1 M PBS ~90% 0.05-0.3 — — In-N3S-B »
+- CoZn-ZIF · h2o2_selectivity_potential_range_RRDE = 0.05-0.3 V vs. RHE — « 0.1 M PBS ~90% 0.05-0.3 — — In-N3S-B »
+- In-N3S-B · catalyst_mass_loading_RRDE = 80.0 μg cm-2 — « In-N3S-B 0.1 M KOH ~80 >90% 0.4-0.7 ~3.15 ~2.10 2022 6 »
+- In-N3S-B · h2o2_selectivity_RRDE = >90% % — « In-N3S-B 0.1 M KOH ~80 >90% 0.4-0.7 ~3.15 ~2.10 2022 6 »
+- In-N3S-B · h2o2_selectivity_potential_range_RRDE = 0.4-0.7 V vs. RHE — « In-N3S-B 0.1 M KOH ~80 >90% 0.4-0.7 ~3.15 ~2.10 2022 6 »
+- In-N3S-B · Jdisk_at_0.2V_RRDE = 3.15 mA cmdisk-2 — « In-N3S-B 0.1 M KOH ~80 >90% 0.4-0.7 ~3.15 ~2.10 2022 6 »
+- In-N3S-B · JH2O2_at_0.2V_RRDE = 2.1 mA cmdisk-2 — « In-N3S-B 0.1 M KOH ~80 >90% 0.4-0.7 ~3.15 ~2.10 2022 6 »
+- In-N3S-B · h2o2_selectivity_RRDE = >90% % — « 0.1 M PBS >90% 0.1-0.35 ~2.7 ~2.45 Co-Pc/O- »
+- In-N3S-B · h2o2_selectivity_potential_range_RRDE = 0.1-0.35 V vs. RHE — « 0.1 M PBS >90% 0.1-0.35 ~2.7 ~2.45 Co-Pc/O- »
+- In-N3S-B · Jdisk_at_0.2V_RRDE = 2.7 mA cmdisk-2 — « 0.1 M PBS >90% 0.1-0.35 ~2.7 ~2.45 Co-Pc/O- »
+- In-N3S-B · JH2O2_at_0.2V_RRDE = 2.45 mA cmdisk-2 — « 0.1 M PBS >90% 0.1-0.35 ~2.7 ~2.45 Co-Pc/O- »
+- Co-Pc/O-CNT · h2o2_selectivity_RRDE = >80% % — « 0.1 M KOH — >80% 0.3-0.65 — — 2023 7 »
+- Co-Pc/O-CNT · h2o2_selectivity_potential_range_RRDE = 0.3-0.65 V vs. RHE — « 0.1 M KOH — >80% 0.3-0.65 — — 2023 7 »
+- Co-Pc/O-CNT · h2o2_selectivity_RRDE = >80% % — « 0.1 M K2SO4 >80% 0-0.55 ~3.10 ~2.54 ZnO@ZnO2 »
+- Co-Pc/O-CNT · h2o2_selectivity_potential_range_RRDE = 0-0.55 V vs. RHE — « 0.1 M K2SO4 >80% 0-0.55 ~3.10 ~2.54 ZnO@ZnO2 »
+- Co-Pc/O-CNT · Jdisk_at_0.2V_RRDE = 3.1 mA cmdisk-2 — « 0.1 M K2SO4 >80% 0-0.55 ~3.10 ~2.54 ZnO@ZnO2 »
+- Co-Pc/O-CNT · JH2O2_at_0.2V_RRDE = 2.54 mA cmdisk-2 — « 0.1 M K2SO4 >80% 0-0.55 ~3.10 ~2.54 ZnO@ZnO2 »
+- ZnO@ZnO2 · catalyst_mass_loading_RRDE = 50.0 μg cm-2 — « ZnO@ZnO2 0.1 M K2SO4 ~50 >95% 0-0.4 ~2.7 ~2.65 2023 8 »
+- ZnO@ZnO2 · h2o2_selectivity_RRDE = >95% % — « ZnO@ZnO2 0.1 M K2SO4 ~50 >95% 0-0.4 ~2.7 ~2.65 2023 8 »
+- ZnO@ZnO2 · h2o2_selectivity_potential_range_RRDE = 0-0.4 V vs. RHE — « ZnO@ZnO2 0.1 M K2SO4 ~50 >95% 0-0.4 ~2.7 ~2.65 2023 8 »
+- ZnO@ZnO2 · Jdisk_at_0.2V_RRDE = 2.7 mA cmdisk-2 — « ZnO@ZnO2 0.1 M K2SO4 ~50 >95% 0-0.4 ~2.7 ~2.65 2023 8 »
+- ZnO@ZnO2 · JH2O2_at_0.2V_RRDE = 2.65 mA cmdisk-2 — « ZnO@ZnO2 0.1 M K2SO4 ~50 >95% 0-0.4 ~2.7 ~2.65 2023 8 »
+- h-SnO2 · catalyst_mass_loading_RRDE = 240.0 μg cm-2 — « h-SnO2 0.1 M Na2SO4 ~240 >95% 0-0.4 ~2.25 ~2.1 2023 9 »
+- h-SnO2 · h2o2_selectivity_RRDE = >95% % — « h-SnO2 0.1 M Na2SO4 ~240 >95% 0-0.4 ~2.25 ~2.1 2023 9 »
+- h-SnO2 · h2o2_selectivity_potential_range_RRDE = 0-0.4 V vs. RHE — « h-SnO2 0.1 M Na2SO4 ~240 >95% 0-0.4 ~2.25 ~2.1 2023 9 »
+- h-SnO2 · Jdisk_at_0.2V_RRDE = 2.25 mA cmdisk-2 — « h-SnO2 0.1 M Na2SO4 ~240 >95% 0-0.4 ~2.25 ~2.1 2023 9 »
+- h-SnO2 · JH2O2_at_0.2V_RRDE = 2.1 mA cmdisk-2 — « h-SnO2 0.1 M Na2SO4 ~240 >95% 0-0.4 ~2.25 ~2.1 2023 9 »
+- Co-N5 · h2o2_selectivity_RRDE = >60% % — « Co-N5 0.5 M NaCl — >60% 0.2-0.55 ~1.2 ~0.60 2021 10 »
+- Co-N5 · h2o2_selectivity_potential_range_RRDE = 0.2-0.55 V vs. RHE — « Co-N5 0.5 M NaCl — >60% 0.2-0.55 ~1.2 ~0.60 2021 10 »
+- Co-N5 · Jdisk_at_0.2V_RRDE = 1.2 mA cmdisk-2 — « Co-N5 0.5 M NaCl — >60% 0.2-0.55 ~1.2 ~0.60 2021 10 »
+- Co-N5 · JH2O2_at_0.2V_RRDE = 0.6 mA cmdisk-2 — « Co-N5 0.5 M NaCl — >60% 0.2-0.55 ~1.2 ~0.60 2021 10 »
+- Pb-OxSy SACs · catalyst_mass_loading_flow_cell = 1.0 mg cm-2 — « Pb-OxSy SACs 1M KOH ~1.0 ~0.85 at 50 mA cm-2 >90% 100 2024 11 »
+- Pb-OxSy SACs · h2o2_yield_rate_flow_cell = 0.85 mol g-1 h-1 — « Pb-OxSy SACs 1M KOH ~1.0 ~0.85 at 50 mA cm-2 >90% 100 2024 11 »
+- Pb-OxSy SACs · h2o2_FE_flow_cell = >90% % — « Pb-OxSy SACs 1M KOH ~1.0 ~0.85 at 50 mA cm-2 >90% 100 2024 11 »
+- Pb-OxSy SACs · stability_flow_cell = 100.0 h — « Pb-OxSy SACs 1M KOH ~1.0 ~0.85 at 50 mA cm-2 >90% 100 2024 11 »
+- Co-Pc/O-CNT · catalyst_mass_loading_flow_cell = 0.5 mg cm-2 — « Co-Pc/O-CNT 1 M KOH ~0.5 ~8.0 at 200 mA cm-2 ~90% 30 2023 7 »
+- Co-Pc/O-CNT · h2o2_yield_rate_flow_cell = 8.0 mol g-1 h-1 — « Co-Pc/O-CNT 1 M KOH ~0.5 ~8.0 at 200 mA cm-2 ~90% 30 2023 7 »
+- Co-Pc/O-CNT · h2o2_FE_flow_cell = ~90% % — « Co-Pc/O-CNT 1 M KOH ~0.5 ~8.0 at 200 mA cm-2 ~90% 30 2023 7 »
+- Co-Pc/O-CNT · stability_flow_cell = 30.0 h — « Co-Pc/O-CNT 1 M KOH ~0.5 ~8.0 at 200 mA cm-2 ~90% 30 2023 7 »
+- h-SnO2 · catalyst_mass_loading_flow_cell = 0.53 mg cm-2 — « h-SnO2 1M Na2SO4 ~0.53 ~3.9 at 120 mA cm-2 ~90% 20 2023 9 »
+- h-SnO2 · h2o2_yield_rate_flow_cell = 3.9 mol g-1 h-1 — « h-SnO2 1M Na2SO4 ~0.53 ~3.9 at 120 mA cm-2 ~90% 20 2023 9 »
+- h-SnO2 · h2o2_FE_flow_cell = ~90% % — « h-SnO2 1M Na2SO4 ~0.53 ~3.9 at 120 mA cm-2 ~90% 20 2023 9 »
+- h-SnO2 · stability_flow_cell = 20.0 h — « h-SnO2 1M Na2SO4 ~0.53 ~3.9 at 120 mA cm-2 ~90% 20 2023 9 »
+- Co-N5 SACs · catalyst_mass_loading_flow_cell = 0.2 mg cm-2 — « Co-N5 SACs 0.5 M NaCl ~0.2 ~4.5 at 50 mA cm-2 ~70% 24 2021 10 »
+- Co-N5 SACs · h2o2_yield_rate_flow_cell = 4.5 mol g-1 h-1 — « Co-N5 SACs 0.5 M NaCl ~0.2 ~4.5 at 50 mA cm-2 ~70% 24 2021 10 »
+- Co-N5 SACs · h2o2_FE_flow_cell = ~70% % — « Co-N5 SACs 0.5 M NaCl ~0.2 ~4.5 at 50 mA cm-2 ~70% 24 2021 10 »
+- Co-N5 SACs · stability_flow_cell = 24.0 h — « Co-N5 SACs 0.5 M NaCl ~0.2 ~4.5 at 50 mA cm-2 ~70% 24 2021 10 »
+- ZnO nanosheets · catalyst_mass_loading_flow_cell = 1.0 mg cm-2 — « ZnO nanosheets 0.6 M K2SO4 ~1.0 ~3.5 at 200 mA cm-2 >90% 20 2023 13 »
+- ZnO nanosheets · h2o2_yield_rate_flow_cell = 3.5 mol g-1 h-1 — « ZnO nanosheets 0.6 M K2SO4 ~1.0 ~3.5 at 200 mA cm-2 >90% 20 2023 13 »
+- ZnO nanosheets · h2o2_FE_flow_cell = >90% % — « ZnO nanosheets 0.6 M K2SO4 ~1.0 ~3.5 at 200 mA cm-2 >90% 20 2023 13 »
+- ZnO nanosheets · stability_flow_cell = 20.0 h — « ZnO nanosheets 0.6 M K2SO4 ~1.0 ~3.5 at 200 mA cm-2 >90% 20 2023 13 »
+- Eley-Rideal ZnO · catalyst_mass_loading_flow_cell = 0.2 mg cm-2 — « Eley-Rideal ZnO 0.6 M K2SO4 ~0.2 ~17 at 200 mA cm-2 ~90% 100 2024 14 »
+- Eley-Rideal ZnO · h2o2_yield_rate_flow_cell = 17.0 mol g-1 h-1 — « Eley-Rideal ZnO 0.6 M K2SO4 ~0.2 ~17 at 200 mA cm-2 ~90% 100 2024 14 »
+- Eley-Rideal ZnO · h2o2_FE_flow_cell = ~90% % — « Eley-Rideal ZnO 0.6 M K2SO4 ~0.2 ~17 at 200 mA cm-2 ~90% 100 2024 14 »
+- Eley-Rideal ZnO · stability_flow_cell = 100.0 h — « Eley-Rideal ZnO 0.6 M K2SO4 ~0.2 ~17 at 200 mA cm-2 ~90% 100 2024 14 »
+- Co-N4-P SACs · catalyst_mass_loading_flow_cell = 0.1 mg cm-2 — « Co-N4-P SACs 1M KOH ~0.1 ~12 at 0.3 V vs. RHE (~80 mA cm-2) ~75% 110 2023 16 »
+- Co-N4-P SACs · h2o2_yield_rate_flow_cell = 12.0 mol g-1 h-1 — « Co-N4-P SACs 1M KOH ~0.1 ~12 at 0.3 V vs. RHE (~80 mA cm-2) ~75% 110 2023 16 »
+- Co-N4-P SACs · h2o2_FE_flow_cell = ~75% % — « Co-N4-P SACs 1M KOH ~0.1 ~12 at 0.3 V vs. RHE (~80 mA cm-2) ~75% 110 2023 16 »
+- Co-N4-P SACs · stability_flow_cell = 110.0 h — « Co-N4-P SACs 1M KOH ~0.1 ~12 at 0.3 V vs. RHE (~80 mA cm-2) ~75% 110 2023 16 »
+- Zn-N2O2 SACs · catalyst_mass_loading_flow_cell = 0.2 mg cm-2 — « Zn-N2O2 SACs 1M KOH ~0.2 ~6.9 at 80 mA cm-2 ~93% 65 2023 17 »
+- Zn-N2O2 SACs · h2o2_yield_rate_flow_cell = 6.9 mol g-1 h-1 — « Zn-N2O2 SACs 1M KOH ~0.2 ~6.9 at 80 mA cm-2 ~93% 65 2023 17 »
+- Zn-N2O2 SACs · h2o2_FE_flow_cell = ~93% % — « Zn-N2O2 SACs 1M KOH ~0.2 ~6.9 at 80 mA cm-2 ~93% 65 2023 17 »
+- Zn-N2O2 SACs · stability_flow_cell = 65.0 h — « Zn-N2O2 SACs 1M KOH ~0.2 ~6.9 at 80 mA cm-2 ~93% 65 2023 17 »
+- Pd-SACs Meso-Carbon · catalyst_mass_loading_flow_cell = 0.25 mg cm-2 — « Pd-SACs Meso-Carbon 0.5 K2SO4 ~0.25 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 »
+- Pd-SACs Meso-Carbon · h2o2_yield_rate_flow_cell = 15.77 mol g-1 h-1 — « Pd-SACs Meso-Carbon 0.5 K2SO4 ~0.25 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 »
+- Pd-SACs Meso-Carbon · h2o2_FE_flow_cell = >86% % — « Pd-SACs Meso-Carbon 0.5 K2SO4 ~0.25 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 »
+- Pd-SACs Meso-Carbon · stability_flow_cell = 24.0 h — « Pd-SACs Meso-Carbon 0.5 K2SO4 ~0.25 15.77 at 0.2 V vs. RHE (~240 mA cm-2) >86% 24 2024 18 »
+- Co-Pc-S-COF · catalyst_mass_loading_flow_cell = 0.16 mg cm-2 — « Co-Pc-S-COF 0.1 M KOH ~0.16 ~9.5 at 125 mA cm-2 >90% 20 2024 12 »
+- Co-Pc-S-COF · h2o2_yield_rate_flow_cell = 9.5 mol g-1 h-1 — « Co-Pc-S-COF 0.1 M KOH ~0.16 ~9.5 at 125 mA cm-2 >90% 20 2024 12 »
+- Co-Pc-S-COF · h2o2_FE_flow_cell = >90% % — « Co-Pc-S-COF 0.1 M KOH ~0.16 ~9.5 at 125 mA cm-2 >90% 20 2024 12 »
+- Co-Pc-S-COF · stability_flow_cell = 20.0 h — « Co-Pc-S-COF 0.1 M KOH ~0.16 ~9.5 at 125 mA cm-2 >90% 20 2024 12 »
+- B/N-C · catalyst_mass_loading_flow_cell = 0.25 mg cm-2 — « B/N-C 0.1 M KOH ~0.25 ~1.8 at ~40 mA cm-2 >80% 9 2022 1 »
+- B/N-C · h2o2_yield_rate_flow_cell = 1.8 mol g-1 h-1 — « B/N-C 0.1 M KOH ~0.25 ~1.8 at ~40 mA cm-2 >80% 9 2022 1 »
+- B/N-C · h2o2_FE_flow_cell = >80% % — « B/N-C 0.1 M KOH ~0.25 ~1.8 at ~40 mA cm-2 >80% 9 2022 1 »
+- B/N-C · stability_flow_cell = 9.0 h — « B/N-C 0.1 M KOH ~0.25 ~1.8 at ~40 mA cm-2 >80% 9 2022 1 »
+- B/N/OH-C · catalyst_mass_loading_flow_cell = 1.0 mg cm-2 — « B/N/OH-C 0.1 M KOH ~1.0 ~0.7 at 0.2 V vs. RHE (~50 mA cm-2) >50% 12 2023 2 »
+- B/N/OH-C · h2o2_yield_rate_flow_cell = 0.7 mol g-1 h-1 — « B/N/OH-C 0.1 M KOH ~1.0 ~0.7 at 0.2 V vs. RHE (~50 mA cm-2) >50% 12 2023 2 »
+- B/N/OH-C · h2o2_FE_flow_cell = >50% % — « B/N/OH-C 0.1 M KOH ~1.0 ~0.7 at 0.2 V vs. RHE (~50 mA cm-2) >50% 12 2023 2 »
+- B/N/OH-C · stability_flow_cell = 12.0 h — « B/N/OH-C 0.1 M KOH ~1.0 ~0.7 at 0.2 V vs. RHE (~50 mA cm-2) >50% 12 2023 2 »
+- Co-N4 SACs · catalyst_mass_loading_flow_cell = 0.1 mg cm-2 — « Co-N4 SACs 0.1 M KOH ~0.1 ~4.0 at 50 mA cm-2 ~40% 6 2019 3 »
+- Co-N4 SACs · h2o2_yield_rate_flow_cell = 4.0 mol g-1 h-1 — « Co-N4 SACs 0.1 M KOH ~0.1 ~4.0 at 50 mA cm-2 ~40% 6 2019 3 »
+- Co-N4 SACs · h2o2_FE_flow_cell = ~40% % — « Co-N4 SACs 0.1 M KOH ~0.1 ~4.0 at 50 mA cm-2 ~40% 6 2019 3 »
+- Co-N4 SACs · stability_flow_cell = 6.0 h — « Co-N4 SACs 0.1 M KOH ~0.1 ~4.0 at 50 mA cm-2 ~40% 6 2019 3 »
+- Ni-N2O2 SACs · catalyst_mass_loading_flow_cell = 0.2 mg cm-2 — « Ni-N2O2 SACs 0.1 M KOH ~0.2 ~5.9 at 70 mA cm-2 ~91% 15 2020 4 »
+- Ni-N2O2 SACs · h2o2_yield_rate_flow_cell = 5.9 mol g-1 h-1 — « Ni-N2O2 SACs 0.1 M KOH ~0.2 ~5.9 at 70 mA cm-2 ~91% 15 2020 4 »
+- Ni-N2O2 SACs · h2o2_FE_flow_cell = ~91% % — « Ni-N2O2 SACs 0.1 M KOH ~0.2 ~5.9 at 70 mA cm-2 ~91% 15 2020 4 »
+- Ni-N2O2 SACs · stability_flow_cell = 15.0 h — « Ni-N2O2 SACs 0.1 M KOH ~0.2 ~5.9 at 70 mA cm-2 ~91% 15 2020 4 »
+- CoZn-ZIF · catalyst_mass_loading_flow_cell = 0.2 mg cm-2 — « CoZn-ZIF 0.1 M KOH ~0.2 ~4.4 at 60 mA cm-2 >70% 2 2023 5 »
+- CoZn-ZIF · h2o2_yield_rate_flow_cell = 4.4 mol g-1 h-1 — « CoZn-ZIF 0.1 M KOH ~0.2 ~4.4 at 60 mA cm-2 >70% 2 2023 5 »
+- CoZn-ZIF · h2o2_FE_flow_cell = >70% % — « CoZn-ZIF 0.1 M KOH ~0.2 ~4.4 at 60 mA cm-2 >70% 2 2023 5 »
+- CoZn-ZIF · stability_flow_cell = 2.0 h — « CoZn-ZIF 0.1 M KOH ~0.2 ~4.4 at 60 mA cm-2 >70% 2 2023 5 »
+- CoZn-ZIF · h2o2_yield_rate_flow_cell = 3.8 mol g-1 h-1 — « 0.1 M PBS ~3.8 at 70 mA cm-2 >70% 2 In-N3S-B »
+- CoZn-ZIF · h2o2_FE_flow_cell = >70% % — « 0.1 M PBS ~3.8 at 70 mA cm-2 >70% 2 In-N3S-B »
+- CoZn-ZIF · stability_flow_cell = 2.0 h — « 0.1 M PBS ~3.8 at 70 mA cm-2 >70% 2 In-N3S-B »
+- In-N3S-B · catalyst_mass_loading_flow_cell = 0.2 mg cm-2 — « In-N3S-B 0.1 M KOH ~0.2 ~6.49 at 90 mA cm-2 >70% 3 2022 6 »
+- In-N3S-B · h2o2_yield_rate_flow_cell = 6.49 mol g-1 h-1 — « In-N3S-B 0.1 M KOH ~0.2 ~6.49 at 90 mA cm-2 >70% 3 2022 6 »
+- In-N3S-B · h2o2_FE_flow_cell = >70% % — « In-N3S-B 0.1 M KOH ~0.2 ~6.49 at 90 mA cm-2 >70% 3 2022 6 »
+- In-N3S-B · stability_flow_cell = 3.0 h — « In-N3S-B 0.1 M KOH ~0.2 ~6.49 at 90 mA cm-2 >70% 3 2022 6 »
+- In-N3S-B · h2o2_yield_rate_flow_cell = 6.71 mol g-1 h-1 — « 0.1 M Na2SO4 ~6.71 at 90 mA cm-2 >70% 3 ZnO@ZnO2 »
+- In-N3S-B · h2o2_FE_flow_cell = >70% % — « 0.1 M Na2SO4 ~6.71 at 90 mA cm-2 >70% 3 ZnO@ZnO2 »
+- In-N3S-B · stability_flow_cell = 3.0 h — « 0.1 M Na2SO4 ~6.71 at 90 mA cm-2 >70% 3 ZnO@ZnO2 »
+- ZnO@ZnO2 · catalyst_mass_loading_flow_cell = 0.4 mg cm-2 — « ZnO@ZnO2 0.1 M K2SO4 ~0.4 ~5.47 at 0.1 V vs. RHE (~125 mAh cm-2) ~95% 12 2023 8 »
+- ZnO@ZnO2 · h2o2_yield_rate_flow_cell = 5.47 mol g-1 h-1 — « ZnO@ZnO2 0.1 M K2SO4 ~0.4 ~5.47 at 0.1 V vs. RHE (~125 mAh cm-2) ~95% 12 2023 8 »
+- ZnO@ZnO2 · h2o2_FE_flow_cell = ~95% % — « ZnO@ZnO2 0.1 M K2SO4 ~0.4 ~5.47 at 0.1 V vs. RHE (~125 mAh cm-2) ~95% 12 2023 8 »
+- ZnO@ZnO2 · stability_flow_cell = 12.0 h — « ZnO@ZnO2 0.1 M K2SO4 ~0.4 ~5.47 at 0.1 V vs. RHE (~125 mAh cm-2) ~95% 12 2023 8 »
+- commercial H2O2-type disinfectants · h2o2_concentration = 30 g L−1 — « close to the concentration of commercial H2O2-type disinfectants (~30 g L−1) »
